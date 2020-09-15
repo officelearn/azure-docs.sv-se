@@ -3,12 +3,12 @@ title: Felsök problem med Azure Event Hubs för Apache Kafka
 description: Den här artikeln visar hur du felsöker problem med Azure Event Hubs för Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090577"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061435"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka fel söknings guide för Event Hubs
 Den här artikeln innehåller fel söknings tips för problem som du kan köra i när du använder Event Hubs för Apache Kafka. 
@@ -54,12 +54,12 @@ Kontrol lera följande objekt om du ser problem när du använder Kafka på Even
 - **Onormala kodningar i AMQP-huvuden vid användning med Kafka** – när du skickar händelser till en Event Hub via AMQP serialiseras alla AMQP nytto Last rubriker i AMQP encoding. Kafka-konsumenter deserialiserar inte huvudena från AMQP. Om du vill läsa rubrik värden avkodar du AMQP-huvudena manuellt. Alternativt kan du undvika att använda AMQP-huvuden om du vet att du kommer att använda Kafka-protokollet. Mer information finns i [det här GitHub-problemet](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **Sasl-autentisering** – få ditt ramverk att samar beta med sasl-autentiseringsprotokollet som krävs av Event Hubs kan vara svårare än vad som uppfyller ögat. Se om du kan felsöka konfigurationen med hjälp av ramverkets resurser på SASL-autentisering. 
 
-## <a name="limits"></a>Gränser
-Apache Kafka vs. Event Hubs Kafka. För det mesta är Event Hubs Kafka har samma standardinställningar, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. Instanserna som dessa två skiljer sig åt (eller där Event Hubs tillämpar en gräns som Kafka inte) visas nedan:
+## <a name="limits"></a>Begränsningar
+Apache Kafka vs. Event Hubs Kafka. Azure Event Hubs-gränssnittet för Kafka har till exempel samma standardinställningar, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. Instanserna som dessa två skiljer sig åt (eller där Event Hubs tillämpar en gräns som Kafka inte) visas nedan:
 
 - `group.id`Egenskapens max längd är 256 tecken
 - Max storleken på `offset.metadata.max.bytes` är 1024 byte
-- Förskjutnings skrivningar är begränsade till 4 anrop per sekund per partition med en maximal intern logg storlek på 1 MB
+- Offset-incheckningar begränsas till 4 anrop per sekund per partition med en maximal intern logg storlek på 1 MB
 
 
 ## <a name="next-steps"></a>Nästa steg

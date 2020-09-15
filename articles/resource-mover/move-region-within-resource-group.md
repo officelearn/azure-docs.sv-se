@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 7d230ce068678bbc074b54ab361f3d70d9b102f8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670787"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061858"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Flytta resurser mellan regioner (från resurs grupp)
 
@@ -22,7 +22,7 @@ I den här artikeln får du lära dig hur du flyttar resurser i en särskild res
 > Azure Resource-arbetskraft är för närvarande en offentlig för hands version.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du behöver *ägar* åtkomst till den prenumeration där resurser som du vill flytta finns.
     - Första gången du lägger till en resurs för en viss käll-och mål mappning i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.
@@ -65,7 +65,6 @@ Välj de resurser som du vill flytta. Du flyttar resurser till en mål region i 
     ![Val för att flytta resurser till en annan region](./media/move-region-within-resource-group/select-move-region.png)
     
 4. I **källa + mål**väljer du den mål region dit du vill flytta resurserna. Välj sedan **Nästa**.
-5. I **området metadata**väljer du var du vill lagra metadata om resurser som du flyttar.  En resurs grupp skapas särskilt för detta ändamål. Välj sedan **Nästa**.
 
 
     ![Sidan källa och mål för att välja mål region](./media/move-region-within-resource-group/source-target.png)

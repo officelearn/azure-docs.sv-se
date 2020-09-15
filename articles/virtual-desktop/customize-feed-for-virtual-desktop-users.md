@@ -3,15 +3,15 @@ title: Anpassa feed för virtuella Windows-skrivbordet användare – Azure
 description: Anpassa feed för virtuella Windows-användare med PowerShell-cmdletar.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009128"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084302"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Anpassa feeden för användare av virtuella Windows-datorer
 
@@ -107,7 +107,7 @@ Du kan ändra visnings namnet för ett publicerat fjärr skrivbord genom att ang
 
 3. Under tjänster väljer du **virtuellt Windows-skrivbord**.
 
-4. På sidan Windows Virtual Desktop väljer du **program grupper** på vänster sida av skärmen och väljer sedan namnet på den app-grupp som du vill redigera.
+4. På sidan Windows Virtual Desktop väljer du **program grupper** på vänster sida av skärmen och väljer sedan namnet på den app-grupp som du vill redigera. (Om du till exempel vill redigera visnings namnet på Skriv bords gruppen väljer du app-gruppen med namnet **Desktop**.)
 
 5. Välj **program** i menyn på vänster sida av skärmen.
 

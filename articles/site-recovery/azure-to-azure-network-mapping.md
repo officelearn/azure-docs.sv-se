@@ -1,20 +1,20 @@
 ---
 title: Mappa virtuella nätverk mellan två regioner i Azure Site Recovery
 description: Lär dig mer om att mappa virtuella nätverk mellan två Azure-regioner för haveri beredskap i Azure VM med Azure Site Recovery.
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: mayg
-ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: harshacs
+ms.openlocfilehash: b5ae68dea228e834b2449152bd3ef357f2a74e83
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130439"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069500"
 ---
-# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverks mappning och IP-adressering för virtuella nätverk
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adressering för virtuella nätverk
 
 Den här artikeln beskriver hur du mappar två instanser av virtuella Azure-nätverk (virtuella nätverk) som finns i olika Azure-regioner och hur du konfigurerar IP-adresser mellan nätverk. Nätverks mappning är ett standard beteende för val av mål nätverk baserat på käll nätverk vid tidpunkten för att aktivera replikering.
 
@@ -73,7 +73,7 @@ IP-adressen för varje nätverkskort på en virtuell mål dator konfigureras enl
 
 ## <a name="ip-address-assignment-during-failover"></a>IP-adresstilldelning under redundans
 
-**Käll-och mål under nät** | **Detaljer**
+**Käll-och mål under nät** | **Information**
 --- | ---
 Samma adress utrymme | IP-adressen för den virtuella käll datorn NIC har angetts som mål-IP-adress för VM-nätverkskort.<br/><br/> Om adressen inte är tillgänglig anges nästa tillgängliga IP-adress som mål.
 Annat adress utrymme | Nästa tillgängliga IP-adress i mål under nätet har angetts som den virtuella mål datorns NIC-adress.
@@ -82,7 +82,7 @@ Annat adress utrymme | Nästa tillgängliga IP-adress i mål under nätet har an
 
 ## <a name="ip-address-assignment-during-test-failover"></a>Tilldelning av IP-adress vid redundanstest
 
-**Mål nätverk** | **Detaljer**
+**Mål nätverk** | **Information**
 --- | ---
 Mål nätverket är det virtuella nätverket med redundans | -Mål-IP-adressen kommer att vara statisk med samma IP-adress. <br/><br/>  -Om samma IP-adress redan har tilldelats är IP-adressen nästa som är tillgänglig i slutet av under nätets intervall. Exempel: om käll-IP-adressen är 10.0.0.19 och redundansväxlingen använder intervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den virtuella mål datorn 10.0.0.254.
 Mål nätverket är inte det virtuella nätverkets VNet | -Mål-IP-adressen kommer att vara statisk med samma IP-adress.<br/><br/>  -Om samma IP-adress redan har tilldelats är IP-adressen nästa som är tillgänglig i slutet av under nätets intervall.<br/><br/> Exempel: om den statiska käll-IP-adressen är 10.0.0.19 och redundansväxlingen finns i ett nätverk som inte är redundansklustret, med intervallet 10.0.0.0/24, blir den statiska IP-adressen 10.0.0.0.19 om den är tillgänglig och annars kommer den att vara 10.0.0.254.

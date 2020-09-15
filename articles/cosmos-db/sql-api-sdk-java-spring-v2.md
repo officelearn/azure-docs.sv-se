@@ -1,6 +1,6 @@
 ---
 title: Viktig information och resurser för vår data Azure Cosmos DB v2 för SQL API
-description: Lär dig allt om våren data Azure Cosmos DB v2 för SQL API, inklusive versions datum, datum för indata och ändringar som gjorts mellan varje version av Azure Cosmos DB SQL async Java SDK.
+description: Lär dig mer om våren data Azure Cosmos DB v2 för SQL API, inklusive versions datum, datum för indata och ändringar som gjorts mellan varje version av Azure Cosmos DB SQL async Java SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 47d9a8ff884e29dc5692c97d5e7867a856d01063
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590744"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069132"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Våren data Azure Cosmos DB v2 för Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "88590744"
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Våren data v2](sql-api-sdk-java-spring-v2.md)
 > * [Våren data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark-anslutning](sql-api-sdk-java-spark.md)
+> * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
@@ -36,186 +36,177 @@ ms.locfileid: "88590744"
 > * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
-Med vår data Azure Cosmos DB v2 för Core (SQL) kan utvecklare använda Azure Cosmos DB i våren-program. Våren data Azure Cosmos DB visar data gränssnittet våren för att manipulera databaser och samlingar, arbeta med dokument och skicka frågor. Både synkronisering och asynkron (reaktiv) API: er stöds i samma maven-artefakt. 
+ Med vår data Azure Cosmos DB version 2 för Core (SQL) kan utvecklare använda Azure Cosmos DB i vår program. Våren data Azure Cosmos DB visar data gränssnittet våren för att manipulera databaser och samlingar, arbeta med dokument och skicka frågor. Både synkronisering och asynkron (reaktiv) API: er stöds i samma maven-artefakt. 
 
-[Våren-ramverket](https://spring.io/projects/spring-framework) är en programmerings-och konfigurations modell som effektiviserar utveckling av Java-program. För att citera organisationens webbplats effektiviserar våren "rör koppling" av program med hjälp av beroende inmatning. Många utvecklare gillar att skapa och testa program blir enklare. [Våren Boot](https://spring.io/projects/spring-boot) utökar den här idén med att hantera rör med ett öga mot webb program och utveckling av mikrotjänster. [Våren data](https://spring.io/projects/spring-data) är en programmerings modell för att få åtkomst till data lager som Azure Cosmos dB från ett våren-eller våren Boot-program. 
+[Våren-ramverket](https://spring.io/projects/spring-framework) är en programmerings-och konfigurations modell som fören klar utveckling av Java-program. Våren effektiviserar "rör koppling" av program genom att använda beroende inmatning. Många utvecklare liknar våren eftersom det gör det enklare att skapa och testa program. [Våren Boot](https://spring.io/projects/spring-boot) utökar denna hantering av rör med ett öga mot webb program och utveckling av mikrotjänster. [Våren data](https://spring.io/projects/spring-data) är en programmerings modell för att få åtkomst till data lager som Azure Cosmos dB från kontexten för ett våren-eller våren Boot-program. 
 
 Du kan använda vår data Azure Cosmos DB i dina [Azure våren Cloud](https://azure.microsoft.com/services/spring-cloud/) -program.
 
 > [!IMPORTANT]  
-> De här viktiga anteckningarna är till för v2 av vår data Azure Cosmos DB. Du hittar v3-viktig information [här](sql-api-sdk-java-spring-v3.md). 
+> Den här viktig information gäller för version 2 av vår data Azure Cosmos DB. [Viktig information om version 3 finns här](sql-api-sdk-java-spring-v3.md). 
 >
-> Våren data Azure Cosmos DB endast stöder SQL API.
+> Våren data Azure Cosmos DB stöder bara SQL-API: et.
 >
-> Följande guider stöder våren-data på andra Azure Cosmos DB API: er:
+> I följande artiklar finns information om våren-data på andra Azure Cosmos DB API: er:
 > * [Våren-data för Apache Cassandra med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 > * [Fjädra data MongoDB med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
 > * [Fjädra data Gremlin med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Vill du komma igång snabbt?
-> 1. Installera den [lägsta Java-körningen som stöds, JDK 8,](/java/azure/jdk/?view=azure-java-stable) så att du kan använda SDK: n.
-> 2. Skapa en våren data Azure Cosmos DB-app med Start programmet – [det är enkelt](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)!
-> 3. Arbeta med hjälp av [vår informations Azure Cosmos DB utvecklare](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) som går igenom grundläggande Azure Cosmos DB förfrågningar.
+> 1. Installera den [lägsta stödda Java Runtime, JDK 8](/java/azure/jdk/?view=azure-java-stable), så att du kan använda SDK: n.
+> 2. Skapa en våren data Azure Cosmos DB-appen genom att använda [Start](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)programmet. Det är enkelt!
+> 3. Arbeta via [vår Data Azure Cosmos DB Developer ' s guide](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), som guidar genom grundläggande Azure Cosmos DB förfrågningar.
 >
-> Du kan sätta upp våren Boot starter-appar snabbt med [våren Initializr](https://start.spring.io/)!
+> Du kan sätta upp våren Boot starter-appar snabbt genom att använda [våren Initializr](https://start.spring.io/)!
 >
 
-## <a name="helpful-content"></a>Användbart innehåll
+## <a name="resources"></a>Resurser
 
-| Innehåll | Länk |
+| Resurs | Länk |
 |---|---|
 | **SDK-hämtning** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
 |**API-dokumentation** | [Dokumentation om vår data Azure Cosmos DB referens]() |
-|**Bidra till SDK** | [Våren data Azure Cosmos DB lagrings platsen på GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
+|**Bidra till SDK: n** | [Våren data Azure Cosmos DB lagrings platsen på GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
 |**Start starter för våren**| [Azure Cosmos DB fjäder start starter klient bibliotek för Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
 |**Exempel på våren att göra-appen med Azure Cosmos DB**| [Java-upplevelse från slut punkt till slut punkt i App Service Linux (del 2)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
-|**Guide för utvecklare** | [Hand bok för våren data Azure Cosmos DB-utvecklare](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**Guide för att använda Start programmet** | [Så här använder du Spring Boot Starter med Azure Cosmos DB SQL API](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [GitHub-lagrings platsen för Azure våren Boot starter Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
-|**Exempel med App Services** | [Så här använder du Spring och Cosmos DB med App Service på Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exempel på att göra-appen](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
+|**Guide för utvecklare** | [Utvecklarguide för Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
+|**Använda Start programmet** | [Använda våren Boot starter med Azure Cosmos DB SQL API](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [GitHub lagrings platsen för Azure Cosmos DB fjäder start starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
+|**Exempel med Azure App Service** | [Så här använder du Spring och Cosmos DB med App Service på Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exempel på att göra-appen](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 ## <a name="release-history"></a>Versions historik
 
-### <a name="230-2020-05-21"></a>2.3.0 (2020-05-21)
+### <a name="230-may-21-2020"></a>2.3.0 (21 maj 2020)
 #### <a name="new-features"></a>Nya funktioner
-* Uppdatera vår start version till 2.3.0 
+* Uppdaterar start versionen till 2.3.0.
+
+
+### <a name="225-may-19-2020"></a>2.2.5 (19 maj 2020)
+#### <a name="new-features"></a>Nya funktioner
+* Uppdaterar Azure Cosmos DB version till 3.7.3.
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Innehåller korrigeringar av minnes läckor och netversion-uppgraderingar från Azure Cosmos DB SDK-3.7.3.
+
+### <a name="224-april-6-2020"></a>2.2.4 (6 april 2020)
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Korrigerar `allowTelemetry` flagga att ta med i konto från `CosmosDbConfig` .
+* Korrigerar `TTL` egenskap i behållare.
+
+### <a name="223-february-25-2020"></a>2.2.3 (25 februari 2020)
+#### <a name="new-features"></a>Nya funktioner
+* Lägger till ny `findAll` efter partitionsnyckel-API.
+* Uppdaterar Azure Cosmos DB version till 3.7.0.
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Korrigeringar `collectionName`  ->  `containerName` .
+* Korrigeringar `entityClass` och `domainClass`  ->  `domainType` .
+* Korrigerar "returnera entitets samling som sparats av en lagrings plats i stället för indataenheten."
+
+### <a name="2110-february-25-2020"></a>2.1.10 (25 februari 2020)
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Backports-korrigering för "returnera Entity-samling som sparats av lagrings platsen i stället för entiteten."
+
+### <a name="222-january-15-2020"></a>2.2.2 (15 januari 2020)
+#### <a name="new-features"></a>Nya funktioner
+* Uppdaterar Azure Cosmos DB version till 3.6.0.
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
 
-### <a name="225-2020-05-19"></a>2.2.5 (2020-05-19)
+### <a name="221-december-31-2019"></a>2.2.1 (31 december 2019)
 #### <a name="new-features"></a>Nya funktioner
-* Uppdaterad Azure Cosmos DB-version till v-3.7.3
+* Uppdaterar Azure Cosmos DB SDK-version till 3.5.0.
+* Lägger till antecknings fält för att aktivera eller inaktivera automatisk samlings skapande.
+* Förbättrar undantags hanteringen. Exponeras `CosmosClientException` `CosmosDBAccessException` .
+* Exponeras `requestCharge` och `activityId` via `ResponseDiagnostics` .
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Innehåller korrigeringar av minnes läckor och nett versions uppgraderingar från Cosmos SDK v 3.7.3 
+* SDK-3.5.0 uppdaterings korrigeringar "undantag när Cosmos DB HTTP-svarshuvuden är större än 8192 byte," "ConsistencyPolicy. defaultConsistencyLevel () Miss lyckas med det begränsade inaktuellt och konsekvent prefix."
+* Korrigerar `findById` metodens beteende. Tidigare returnerades den här metoden tom om entiteten inte hittades i stället för ett undantag.
+* Åtgärdar ett fel där sorteringen inte tillämpades på nästa sida när användes `CosmosPageRequest` .
 
-### <a name="224-2020-04-06"></a>2.2.4 (2020-04-06)
+### <a name="219-december-26-2019"></a>2.1.9 (26 december 2019)
 #### <a name="new-features"></a>Nya funktioner
+* Lägger till antecknings fält för att aktivera eller inaktivera automatisk samlings skapande.
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Flagga för fast allowTelemetry som tar hänsyn till från CosmosDbConfig
-* Fast TTL-egenskap för behållare
+*  Korrigerar `findById` metodens beteende. Tidigare returnerades den här metoden tom om entiteten inte hittades i stället för ett undantag.
 
-### <a name="223-2020-02-25"></a>2.2.3 (2020-02-25)
+### <a name="220-october-21-2019"></a>2.2.0 (21 oktober 2019)
 #### <a name="new-features"></a>Nya funktioner
-* Nya findAll har lagts till efter partitionsnyckel-API
-* Uppdaterad Azure-Cosmos-version till 3.7.0
+* Fullständigt stöd för reactive Cosmos-lagringsplats.
+* Azure Cosmos DB förfrågnings diagnos sträng och stöd för fråge mått.
+* Azure Cosmos DB SDK-version uppdatering till 3.3.1.
+* Uppgradering av våren Framework-version till 5.2.0. RELEASE.
+* Versions uppgradering av våren data till 2.2.0. RELEASE.
+* Tillägg `findByIdAndPartitionKey` och `deleteByIdAndPartitionKey` API: er.
+* Tar bort beroende från Azure-DocumentDB.
+* Anpassar DocumentDB till Azure Cosmos DB.
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Fast samlings-> containerName
-* Fast entityClass & domainClass-> domainType
-* Fast "returnerad enhets samling som sparats av lagrings platsen i stället för indataenheten"
+* Åtgärds fel vid sortering av undantag när pageSize är mindre än det totala antalet objekt i databasen. "
 
-### <a name="2110-2020-02-25"></a>2.1.10 (2020-02-25)
+### <a name="218-october-18-2019"></a>2.1.8 (18 oktober 2019)
 #### <a name="new-features"></a>Nya funktioner
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Korrigerad korrigering för "returnera entitets samling Sparad av lagrings plats i stället för entiteten entitet"
+* Föråldrade DocumentDB-API: er.
+* Tillägg `findByIdAndPartitionKey` och `deleteByIdAndPartitionKey` API: er.
+* Lägger till optimistisk låsning baserat på `_etag` .
+* Aktiverar SpEL-uttryck för dokument samlings namn.
+* Lägger till `ObjectMapper` förbättringar.
 
-### <a name="222-2020-01-15"></a>2.2.2 (2020-01-15)
+### <a name="217-october-18-2019"></a>2.1.7 (18 oktober 2019)
 #### <a name="new-features"></a>Nya funktioner
-* Uppdaterad Azure-Cosmos-version till v 3.6.0
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Lägger till Azure Cosmos DB SDK version 3-beroende.
+* Lägger till reaktiv Cosmos-lagringsplats.
+* Uppdaterar implementeringen av `DocumentDbTemplate` för att använda Azure Cosmos DB SDK version 3.
+* Lägger till andra konfigurations ändringar för reactive Cosmos-lagringsplatsens stöd.
 
-### <a name="221-2019-12-31"></a>2.2.1 (2019-12-31)
-#### <a name="new-features"></a>Nya funktioner
-* Uppdaterad Cosmos DB SDK-version till 3.5.0
-* Antecknings fältet har lagts till för att aktivera/inaktivera automatisk skapande av samling
-* Bättre undantags hantering, exponerade CosmosClientException via CosmosDBAccessException
-* Exponerade requestCharge och activityId via ResponseDiagnostics
+### <a name="212-march-19-2019"></a>2.1.2 (19 mars 2019)
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* SDK-3.5.0 uppdaterings korrigeringar "undantag vid Cosmos DB HTTP-svarshuvuden är större än 8192 byte", "ConsistencyPolicy. defaultConsistencyLevel () Miss lyckas med det begränsade inaktuellheten och konsekvent prefix"
-* Fast findById API-beteende, retur tom påträffas inte, i stället för undantag
-* Ett fel har åtgärd ATS där sorteringen inte tillämpades på nästa sida när CosmosPageRequest användes
-
-### <a name="219-2019-12-26"></a>2.1.9 (2019-12-26)
-#### <a name="new-features"></a>Nya funktioner
-* Antecknings fältet har lagts till för att aktivera/inaktivera automatisk skapande av samling
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Fast findById API-beteende, retur tom påträffas inte, i stället för undantag
-
-### <a name="220-2019-10-21"></a>2.2.0 (2019-10-21)
-#### <a name="new-features"></a>Nya funktioner
-* Fullständigt stöd för reactive Cosmos-lagringsplats
-* Stöd för Cosmos DB begär diagnostik
-* Cosmos DB SDK-version uppdatering till 3.3.1
-* Uppgradering av våren Framework-version till 5.2.0. RELEASE
-* Versions uppgradering av våren data till 2.2.0. RELEASE
-* FindByIdAndPartitionKey, deleteByIdAndPartitionKey-API: er har lagts till
-* Beroende av Azure-doumentdb har tagits bort
-* Ommärkesering av DocumentDb till Cosmos
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Fast "sortering Throwing-undantag när pageSize är mindre än det totala antalet objekt i databasen"
-
-### <a name="218-2019-10-18"></a>2.1.8 (2019-10-18)
-#### <a name="new-features"></a>Nya funktioner
-* Föråldrade API: er för dokument databaser
-* FindByIdAndPartitionKey, deleteByIdAndPartitionKey-API: er har lagts till.
-* Optimistisk låsning har lagts till baserat på _etag
-* Aktiverat SPeL-uttryck för dokument samlings namn
-* ObjectMapper förbättringar.
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-
-### <a name="217-2019-10-18"></a>2.1.7 (2019-10-18)
-#### <a name="new-features"></a>Nya funktioner
-* Cosmos SDK v3-beroende har lagts till
-* En reaktiv Cosmos-lagringsplats har lagts till
-* Uppdaterad implementering av DocumentDbTemplate för att använda Cosmos SDK v3.
-* Andra konfigurations ändringar för reactive Cosmos-lagringsplatsens stöd.
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-
-### <a name="212-2019-03-19"></a>2.1.2 (2019-03-19)
-#### <a name="new-features"></a>Nya funktioner
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Ta bort applicationInsights-beroende för
-    * Potentiell risk för föroreningar som är beroende av beroenden
-    * Inkompatibilitet med Java 11
+* Tar bort `applicationInsights` beroende för:
+    * Potentiell risk för föroreningar som är beroende av beroenden.
+    * Java 11 inkompatibilitet.
     * Undvika potentiell prestanda påverkan på CPU och/eller minne.
 
-### <a name="207-2019-03-20"></a>2.0.7 (2019-03-20)
-#### <a name="new-features"></a>Nya funktioner
+### <a name="207-march-20-2019"></a>2.0.7 (20 mars 2019)
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Backport tar bort applicationInsights beroendet för
-    * Potentiell risk för föroreningar som är beroende av beroenden
-    * Inkompatibilitet med Java 11
+* Backport tar bort `applicationInsights` beroende för:
+    * Potentiell risk för föroreningar som är beroende av beroenden.
+    * Java 11 inkompatibilitet.
     * Undvika potentiell prestanda påverkan på CPU och/eller minne.
 
-### <a name="211-2019-03-07"></a>2.1.1 (2019-03-07)
+### <a name="211-march-7-2019"></a>2.1.1 (7 mars 2019)
 #### <a name="new-features"></a>Nya funktioner
-* Uppdatera huvud version till 2.1.1
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Uppdaterar huvud versionen till 2.1.1.
 
-### <a name="206-2019-03-07"></a>2.0.6 (2019-03-07)
+### <a name="206-march-7-2019"></a>2.0.6 (7 mars 2019)
 #### <a name="new-features"></a>Nya funktioner
-* Ignorera alla undantag från telemetri
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Ignorera alla undantag från telemetri.
 
-### <a name="210-2018-12-17"></a>2.1.0 (2018-12-17)
+### <a name="210-december-17-2018"></a>2.1.0 (17 december 2018)
 #### <a name="new-features"></a>Nya funktioner
-* Uppdatera version till 2.1.0 för att åtgärda problem
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Uppdaterar versionen till 2.1.0 för att åtgärda problemet.
 
-### <a name="205-2018-09-13"></a>2.0.5 (2018-09-13)
+### <a name="205-september-13-2018"></a>2.0.5 (13 september 2018)
 #### <a name="new-features"></a>Nya funktioner
-* Lägg till nyckelord finns, startsWith
-* Uppdatera viktigt
+* Lägger till nyckelord `exists` och `startsWith` .
+* Uppdaterar viktigt.
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Åtgärda "Fjärranropet till själv href" för entiteten "
-* Åtgärda "findAll Miss fungerar om samlingen inte skapas"
+* Korrigeringar "det går inte att anropa Self href direkt för entiteten."
+* Rättningar "findAll kommer att Miss pare ras om samlingen inte skapas."
 
-### <a name="204-pre-release-2018-08-23"></a>2.0.4 (för hands version) (2018-08-23)
+### <a name="204-prerelease-august-23-2018"></a>2.0.4 (för hands version) (23 augusti 2018)
 #### <a name="new-features"></a>Nya funktioner
-* Byter namn på paketet från DocumentDB till cosmosdb,
-* Lägg till ny funktion i nyckelordet frågeterm, 16 nyckelord från SQL-API som stöds.
-* Lägg till en ny funktion i fråga med sid indelning och sortering.
-* Förenkla konfigurationen av våren-data-cosmosdb.
-* Lägg till API för deleteCollection och deleteAll.
+* Byter namn på paketet från DocumentDB till cosmosdb.
+* Lägger till ny funktion i nyckelordet frågeterm. 16 nyckelord från SQL API stöds nu.
+* Lägger till en ny funktion i frågan med sid indelning och sortering.
+* Fören klar konfigurationen av våren-data-cosmosdb.
+* Tillägg `deleteCollection` och `deleteAll` API: er.
 
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Fel korrigering och fel förbättring.
+* Fel korrigering och defekt minskning.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
+Läs mer om [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Om du vill veta mer om våren-ramverket går du till [projektets start sida](https://spring.io/projects/spring-framework).
+Lär dig mer om [våren-ramverket](https://spring.io/projects/spring-framework).
 
-Mer information om våren boot finns på [projektets start sida](https://spring.io/projects/spring-boot).
+Läs mer om [våren Boot](https://spring.io/projects/spring-boot).
 
-Mer information om våren-data finns på [Start sidan för projektet](https://spring.io/projects/spring-data).
+Lär dig mer om [fjädrande data](https://spring.io/projects/spring-data).

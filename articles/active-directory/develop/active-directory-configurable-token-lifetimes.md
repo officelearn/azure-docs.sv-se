@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bbe4328d797f740e124d4944aee889d471393200
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115874"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085611"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurerbara livstider för token i Microsoft Identity Platform (för hands version)
 
@@ -90,8 +90,8 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
 | Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |180 dagar<sup>1</sup> |
+| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |180 dagar<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är den maximala explicita längden som kan anges för dessa attribut.
 * <sup>2</sup> För att säkerställa att Microsoft Teams webb klienten fungerar rekommenderar vi att du håller AccessTokenLifetime till mer än 15 minuter för Microsoft Teams.
@@ -400,7 +400,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Sträng för princip namnet. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -413,7 +413,7 @@ Get-AzureADPolicy
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code>Valfritt |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> Valfritt |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -441,10 +441,10 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Sträng för princip namnet. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>Valfritt |Matris med stringified-JSON som innehåller alla princip regler. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>Valfritt |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>Valfritt |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> Valfritt |Matris med stringified-JSON som innehåller alla princip regler. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> Valfritt |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> Valfritt |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 

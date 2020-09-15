@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 49b7a3700bf497ad868b7c4ab1f0802564b61bf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d00557e2279d236ff96a73c3a090097fbe6e5f1b
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653500"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061790"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Självstudie: flytta virtuella Azure-datorer över regioner
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -  Kontrol lera att du har *ägar* åtkomst till prenumerationen som innehåller de resurser som du vill flytta.
     - Första gången du lägger till en resurs för ett visst käll-och mål par i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.
@@ -80,7 +80,6 @@ Välj de resurser som du vill flytta.
 
 3. I **Flytta resurser**  >  **källa + mål**väljer du käll prenumeration och region.
 4. I **mål**väljer du den region som du vill flytta de virtuella datorerna till. Klicka på **Nästa**.
-5. I **området metadata**väljer du var du vill lagra metadata om resurser som du flyttar. En resurs grupp skapas särskilt för detta ändamål. Klicka på **Nästa**.
 
     ![Sidan för att välja käll-och mål region](./media/tutorial-move-region-virtual-machines/source-target.png)
 

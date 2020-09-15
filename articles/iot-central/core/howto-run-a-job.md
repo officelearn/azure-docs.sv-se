@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 82a370bcda2d762abb36e6e43ab755c45348e4c5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019999"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060823"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
@@ -38,7 +38,7 @@ I följande exempel visas hur du skapar och kör ett jobb för att ställa in et
 
     Välj **Spara och avsluta** för att lägga till jobbet i listan över sparade jobb på sidan **jobb** . Du kan senare återgå till ett jobb från listan över sparade jobb.
 
-    Välj **Nästa** för att gå till **gransknings** sidan. På sidan * * Granska * * * * visas jobb konfigurations informationen. Välj **Kör** för att skicka jobbet.
+    Välj **Nästa** för att gå till **gransknings** sidan. På sidan **Granska** visas information om jobb konfigurationen. Välj **Kör** för att skicka jobbet.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Skärm bild av sidan granskning av jobb guiden":::
 

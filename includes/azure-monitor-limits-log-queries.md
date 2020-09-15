@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 627b020ce618a2a1f2646a95e143947876bd6a15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82072645"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90064868"
 ---
 ### <a name="general-query-limits"></a>Allmänna begränsningar för frågor
 
-| Gräns | Description |
+| Gräns | Beskrivning |
 |:---|:---|
 | Frågespråk | Azure Monitor använder samma [frågespråk för Kusto](/azure/kusto/query/) som Azure datautforskaren. Se [Azure Monitor logg frågor språk skillnader](../articles/azure-monitor/log-query/data-explorer-difference.md) för KQL språk element som inte stöds i Azure Monitor. |
 | Azure-regioner | Logg frågor kan uppleva onödig belastning när data sträcker sig Log Analytics arbets ytor i flera Azure-regioner. Mer information finns i [fråga om begränsningar](../articles/azure-monitor/log-query/scope.md#query-limits) . |
@@ -27,11 +27,11 @@ ms.locfileid: "82072645"
 Azure Monitor har flera begränsnings gränser som skyddar mot användare som skickar ett stort antal frågor. Detta beteende kan eventuellt överbelasta systemets Server dels resurser och äventyra tjänstens svars tider. Följande gränser är utformade för att skydda kunder mot avbrott och säkerställa konsekvent service nivå. Användarens begränsning och begränsningar har utformats för att endast påverka extrema användnings scenarier och bör inte vara relevanta för typisk användning.
 
 
-| Mått | Begränsa per användare | Description |
+| Mått | Begränsa per användare | Beskrivning |
 |:---|:---|:---|
 | Samtidiga frågor | 5 | Om det redan finns 5 frågor som körs för användaren placeras alla nya frågor i en transaktionskö per användare. När en av de frågor som körs avslutas kommer nästa fråga att hämtas från kön och startas. Detta omfattar inte frågor från varnings regler.
-| Tid i samtidighets kön | 2,5 minuter | Om en fråga finns i kön i mer än 2,5 minuter utan att startas, avbryts den med ett HTTP-felsvar med koden 429. |
-| Totalt antal frågor i samtidighets kön | 40 | När antalet frågor i kön når 40 kommer eventuella ytterligare frågor att avvisas med en HTTP-felkod 429. Det här talet är förutom de 5 frågor som kan köras samtidigt. |
+| Tid i samtidighets kön | 3 minuter | Om en fråga finns i kön i mer än tre minuter utan att startas, avbryts den med ett HTTP-felsvar med koden 429. |
+| Totalt antal frågor i samtidighets kön | 200 | När antalet frågor i kön når 200 kommer eventuella ytterligare frågor att avvisas med en HTTP-felkod 429. Det här talet är förutom de 5 frågor som kan köras samtidigt. |
 | Frågefrekvens | 200 frågor per 30 sekunder | Detta är den övergripande hastigheten som frågor kan skickas av en enskild användare till alla arbets ytor.  Den här gränsen gäller för programmatiska frågor eller frågor som initieras av visualiserings delar som Azure-instrumentpaneler och sammanfattnings sidan Log Analytics-arbetsyta. |
 
 - Optimera dina frågor enligt beskrivningen i [optimera logg frågor i Azure Monitor](../articles/azure-monitor/log-query/query-optimization.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb990b5aa615e37d9893a891143cb04933b603bb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542623"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069670"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Självstudie: Konfigurera RingCentral för automatisk användar etablering
 
@@ -113,8 +113,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |userName|Sträng|
    |externalId|Sträng|
    |aktiv|Boolesk|
-   |displayName|Sträng|
-   |rubrik|Sträng|
+   |title|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |adresser [Type EQ "Work"]. land|Sträng|
    |adresser [Type EQ "Work"]. region|Sträng|
@@ -125,7 +124,6 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |Name. familyName|Sträng|
    |phoneNumbers [Type EQ "Mobile"]. värde|Sträng|
    |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
 
 10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,6 +147,10 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
 2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
 3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## <a name="change-log"></a>Ändringslogg
+
+* 09/10/2020 – stöd för attributen "displayName" och "Manager" har tagits bort.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

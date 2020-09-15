@@ -4,15 +4,15 @@ description: Felsöka Azure Files problem i Windows. Se vanliga problem som rör
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437385"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061214"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -366,6 +366,18 @@ Det här felet kan inträffa om en domänkontrollant som har FSMO-rollen RID-han
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Fel: ”Det går inte att binda positionsparametrar eftersom inget namn angavs”
 
 Det här felet utlöses troligen av ett syntaxfel i kommandot Join-AzStorageAccountforAuth.  Kontrol lera om det finns fel stavningar eller syntaxfel i kommandot och kontrol lera att den senaste versionen av AzFilesHybrid-modulen ( https://github.com/Azure-Samples/azure-files-samples/releases) är installerad.  
+
+## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Azure Files lokal AD DS-autentisering stöd för AES 256 Kerberos-kryptering
+
+Vi introducerade AES 256 Kerberos-kryptering för Azure Files lokal AD DS-autentisering med [AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Om du har aktiverat AD DS-autentisering med en version som är lägre än v-0.2.2 måste du ladda ned den senaste AzFilesHybrid-modulen (v 0.2.2 +) och köra PowerShell nedan. Om du inte har aktiverat AD DS-autentisering på ditt lagrings konto ännu kan du följa den här [vägledningen](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) för aktivering. Du behöver inte köra PowerShell igen nedan om du genomförde funktionen med AzFilesHybrid module v 0.2.2 eller senare. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.

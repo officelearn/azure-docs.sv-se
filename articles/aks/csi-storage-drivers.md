@@ -1,29 +1,29 @@
 ---
 title: Aktivera driv rutiner för container Storage-gränssnitt (CSI) på Azure Kubernetes service (AKS)
-description: Lär dig hur du aktiverar CSI-drivrutinerna (container Storage Interface) för Azure disk och Azure Files i ett Azure Kubernetes service-kluster (AKS).
+description: Lär dig hur du aktiverar CSI-drivrutinerna (container Storage Interface) för Azure-diskar och Azure Files i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: bd5706d20496e1ff00843f761443d183cf7fcae3
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 54764b16ba63d5656f61152cfe40ef50475192a5
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422075"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085678"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>Aktivera driv rutiner för container Storage-gränssnitt (CSI) för Azure-diskar och Azure Files på Azure Kubernetes service (AKS) (för hands version)
 
-Container Storage-gränssnittet (CSI) är en standard för att exponera godtyckliga block-och fil lagrings system till arbets belastningar i behållare på Kubernetes. Genom att anta och använda CSI kan Azure Kubernetes service (AKS) skriva, distribuera och iterera plugin-program som visar nya eller förbättrade befintliga lagrings system i Kubernetes utan att behöva röra kärnan Kubernetes-koden och vänta på dess versions cykler.
+Container Storage-gränssnittet (CSI) är en standard för att exponera godtyckliga block-och fil lagrings system till arbets belastningar i behållare på Kubernetes. Genom att anta och använda CSI kan Azure Kubernetes service (AKS) skriva, distribuera och iterera plugin-program för att exponera nya eller förbättra befintliga lagrings system i Kubernetes utan att behöva röra kärnan Kubernetes-koden och vänta på dess lanserings cykler.
 
-Med hjälp av AKS för lagrings driv rutinen CSI på kan du utnyttja:
-- [*Azure-diskar*](azure-disk-csi.md) – kan användas för att skapa en Kubernetes *DataDisk* -resurs. Diskar kan använda Azure Premium Storage, som backas upp av högpresterande SSD eller Azure standard Storage, som backas upp av vanliga hård diskar eller standard-SSD. Använd Premium Storage för de flesta arbets belastningar för produktion och utveckling. Azure-diskar monteras som *ReadWriteOnce*, så de är bara tillgängliga för en enda pod. För lagrings volymer som kan nås av flera poddar samtidigt använder du Azure Files.
-- [*Azure Files*](azure-files-csi.md) kan användas för att montera en SMB 3,0-resurs som backas upp av ett Azure Storage konto till poddar. Med filer kan du dela data över flera noder och poddar. Filer kan använda Azure standard Storage som backas upp av vanliga hård diskar, eller Azure Premium-lagring, som backas upp av SSD med höga prestanda.
+Med hjälp av driv rutins stödet för CSI på AKS kan du använda internt:
+- [*Azure-diskar*](azure-disk-csi.md), som kan användas för att skapa en Kubernetes *DataDisk* -resurs. Diskar kan använda Azure Premium Storage, som backas upp av högpresterande SSD eller Azure standard Storage, som backas upp av vanliga hård diskar eller standard-SSD. Använd Premium Storage för de flesta arbets belastningar för produktion och utveckling. Azure-diskar monteras som *ReadWriteOnce*, så de är bara tillgängliga för en enda pod. För lagrings volymer som kan nås av flera poddar samtidigt använder du Azure Files.
+- [*Azure Files*](azure-files-csi.md), som kan användas för att montera en SMB 3,0-resurs som backas upp av ett Azure Storage konto till poddar. Med Azure Files kan du dela data över flera noder och poddar. Azure Files kan använda Azure standard Storage som backas upp av vanliga hård diskar eller Azure-Premium Storage som backas upp av SSD med höga prestanda.
 
 > [!IMPORTANT]
-> Från och med Kubernetes version 1,21 kommer Kubernetes endast att använda CSI-drivrutiner och som standard. Det här är en framtida lagrings support i Kubernetes.
+> Från och med Kubernetes version 1,21 kommer Kubernetes endast att använda CSI-drivrutiner och som standard. De här driv rutinerna är framtiden för lagrings support i Kubernetes.
 >
-> *"I träd driv rutiner"* syftar på de aktuella lagrings driv rutiner som ingår i Kubernetes-koden och de nya CSI-drivrutinerna som är plugin-program.
+> *Driv rutiner i ett träd* refererar till de aktuella lagrings driv rutiner som ingår i Kubernetes-koden och de nya CSI-drivrutinerna, som är plugin-program.
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -38,7 +38,7 @@ Med hjälp av AKS för lagrings driv rutinen CSI på kan du utnyttja:
 
 Om du vill skapa ett AKS-kluster som kan använda CSI-drivrutiner för Azure-diskar och Azure Files måste du aktivera `EnableAzureDiskFileCSIDriver` funktions flaggan i din prenumeration.
 
-Registrera `EnableAzureDiskFileCSIDriver` funktions flaggan med hjälp av kommandot [AZ Feature register][az-feature-register] som visas i följande exempel:
+Registrera `EnableAzureDiskFileCSIDriver` funktions flaggan med hjälp av kommandot [AZ Feature register][az-feature-register] , som du ser i följande exempel:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
@@ -50,7 +50,7 @@ Det tar några minuter för statusen att visa *registrerad*. Verifiera registrer
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureDiskFileCSIDriver')].{Name:name,State:properties.state}"
 ```
 
-När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av [AZ Provider register][az-provider-register] kommando:
+När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av kommandot [AZ Provider register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -60,7 +60,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägget aks-preview
 
-Om du vill skapa ett AKS-kluster eller en Node-pool som kan använda CSI-lagringsenheter, behöver du det senaste *AKS CLI-* tillägget. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] eller installera alla tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+Om du vill skapa ett AKS-kluster eller en Node-pool som kan använda CSI-lagringsenheter, behöver du det senaste *AKS-för hands versionen* av Azure CLI-tillägget. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] . Eller installera eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] .
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -73,7 +73,7 @@ az extension update --name aks-preview
 
 ## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>Skapa ett nytt kluster som kan använda CSI Storage-drivrutiner
 
-Skapa ett nytt kluster som kan utnyttja CSI-lagringsenheter för Azure-diskar och Azure Files med hjälp av följande CLI-kommandon. Använd `--aks-custom-headers` flaggan för att ställa in `EnableAzureDiskFileCSIDriver` funktionen.
+Skapa ett nytt kluster som kan använda CSI-lagringsenheter för Azure-diskar och Azure Files med hjälp av följande CLI-kommandon. Använd `--aks-custom-headers` flaggan för att ställa in `EnableAzureDiskFileCSIDriver` funktionen.
 
 Skapa en Azure-resurs grupp:
 
@@ -82,14 +82,14 @@ Skapa en Azure-resurs grupp:
 az group create --name myResourceGroup --location canadacentral
 ```
 
-Skapa AKS-klustret med stöd för CSI Storage-drivrutiner.
+Skapa AKS-klustret med stöd för CSI-lagrings driv rutiner:
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure -k 1.17.9 --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
-Om du vill skapa kluster i-träd med lagrings driv rutiner i stället för CSI-lagringsenheter kan du göra det genom att utesluta den anpassade `--aks-custom-headers` parametern.
+Om du vill skapa kluster i träd lagrings driv rutiner i stället för CSI-lagringsenheter kan du göra det genom att utesluta den anpassade `--aks-custom-headers` parametern.
 
 
 Kontrol lera hur många Azure disk-baserade volymer du kan koppla till den här noden genom att köra:
@@ -106,9 +106,9 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd CSI-enheten för Azure-diskar, se [Använd Azure-disk med CSI-drivrutiner](azure-disk-csi.md).
-- Använd CSI-enheten för Azure Files finns i [använda Azure Files med CSI-drivrutiner](azure-files-csi.md).
-- Mer information om metod tips för lagring finns i [metod tips för lagring och säkerhets kopiering i Azure Kubernetes service (AKS)][operator-best-practices-storage]
+- Information om hur du använder CSI-enheten för Azure-diskar finns i [använda Azure-diskar med CSI-drivrutiner](azure-disk-csi.md).
+- Om du vill använda CSI-enheten för Azure Files, se [använd Azure Files med CSI-drivrutiner](azure-files-csi.md).
+- Mer information om metod tips för lagring finns i [metod tips för lagring och säkerhets kopiering i Azure Kubernetes-tjänsten][operator-best-practices-storage].
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -132,8 +132,8 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true

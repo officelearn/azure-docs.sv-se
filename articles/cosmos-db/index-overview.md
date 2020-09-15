@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 7417515d6f3c293368868e380ac53f0c524b872d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760880"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068395"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -108,13 +108,13 @@ Azure Cosmos DB stöder för närvarande tre typer av index.
    SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
-- `ORDER BY`skickar
+- `ORDER BY` skickar
 
    ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`skickar
+- `JOIN` skickar
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -135,7 +135,7 @@ Med **rums** index kan du skapa effektiva frågor om geospatiala objekt som-punk
 - Geospatial inom frågor:
 
    ```sql
-   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
+   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] })
    ```
 
 - Geospatiala skärnings frågor:
@@ -150,7 +150,7 @@ Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.m
 
 **Sammansatta** index ökar effektiviteten när du utför åtgärder på flera fält. Den sammansatta index typen används för:
 
-- `ORDER BY`frågor om flera egenskaper:
+- `ORDER BY` frågor om flera egenskaper:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
@@ -168,7 +168,7 @@ Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.m
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Så länge ett filter predikat använder en av index typerna, kommer frågesyntaxen att utvärderas först innan resten görs. Om du till exempel har en SQL-fråga som`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Så länge ett filter predikat använder en av index typerna, kommer frågesyntaxen att utvärderas först innan resten görs. Om du till exempel har en SQL-fråga som `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * Ovanstående fråga filtreras först efter poster där firstName = "Anders" med hjälp av indexet. Sedan skickar du alla poster för firstName = "Anders" genom en efterföljande pipeline för att utvärdera innehåller filtervärdet.
 

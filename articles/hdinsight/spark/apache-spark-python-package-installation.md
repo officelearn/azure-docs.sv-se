@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 59de3eb2370029ab9edcb609298c7b1fdf5f8ff8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873763"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060755"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
-
-> [!div class="op_single_selector"]
-> * [Använda cell Magic](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Använda skript åtgärd](apache-spark-python-package-installation.md)
 
 HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. Kunder kan behöva anpassa python-miljön. Som att installera externa python-paket eller en annan python-version. Här visar vi bästa praxis för säker hantering av python-miljöer för Apache Spark kluster i HDInsight.
 
@@ -60,9 +56,9 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
 1. Skapa en virtuell python-miljö med Conda. En virtuell miljö ger ett isolerat utrymme för dina projekt utan att behöva dela andra. När du skapar den virtuella python-miljön kan du ange python-version som du vill använda. Du måste fortfarande skapa en virtuell miljö även om du vill använda python 2,7 och 3,5. Det här kravet är att se till att klustrets standard miljö inte blir mer beständigt. Kör skript åtgärder på klustret för alla noder med skriptet nedan för att skapa en virtuell python-miljö.
 
-    -   `--prefix`anger en sökväg där en virtuell Conda-miljö bor. Det finns flera konfigurationer som behöver ändras ytterligare utifrån den sökväg som anges här. I det här exemplet använder vi py35new, eftersom klustret redan har en befintlig virtuell miljö som heter py35.
-    -   `python=`anger python-versionen för den virtuella miljön. I det här exemplet använder vi version 3,5, samma version som klustret som skapats i en. Du kan också använda andra python-versioner för att skapa den virtuella miljön.
-    -   `anaconda`anger package_spec som Anaconda för att installera Anaconda-paket i den virtuella miljön.
+    -   `--prefix` anger en sökväg där en virtuell Conda-miljö bor. Det finns flera konfigurationer som behöver ändras ytterligare utifrån den sökväg som anges här. I det här exemplet använder vi py35new, eftersom klustret redan har en befintlig virtuell miljö som heter py35.
+    -   `python=` anger python-versionen för den virtuella miljön. I det här exemplet använder vi version 3,5, samma version som klustret som skapats i en. Du kan också använda andra python-versioner för att skapa den virtuella miljön.
+    -   `anaconda` anger package_spec som Anaconda för att installera Anaconda-paket i den virtuella miljön.
     
     ```bash
     sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
@@ -76,8 +72,8 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
     - Använd Conda-kanal:
 
-        -   `seaborn`är det paket namn som du vill installera.
-        -   `-n py35new`Ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
+        -   `seaborn` är det paket namn som du vill installera.
+        -   `-n py35new` Ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
@@ -92,8 +88,8 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
     - Använd Conda-kanal:
 
-        -   `numpy=1.16.1`är paket namnet och versionen som du vill installera.
-        -   `-n py35new`Ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
+        -   `numpy=1.16.1` är paket namnet och versionen som du vill installera.
+        -   `-n py35new` Ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
@@ -132,7 +128,7 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
     4. Spara ändringarna och starta om berörda tjänster. Dessa ändringar kräver en omstart av Spark2-tjänsten. Ambari UI upprättar en nödvändig omstart, klicka på Starta om för att starta om alla berörda tjänster.
 
-        ![Ändra Spark-konfiguration via Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Starta om tjänster](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
 4. Om du vill använda den nya virtuella miljön på Jupyter. Ändra Jupyter-konfiguration och starta om Jupyter. Kör skript åtgärder på alla huvudnoder med nedanstående instruktion för att peka Jupyter mot den nya virtuella miljön som skapats. Se till att ändra sökvägen till det prefix du angav för den virtuella miljön. När du har kört den här skript åtgärden startar du om Jupyter-tjänsten via Ambari-ANVÄNDARGRÄNSSNITTET för att göra den här ändringen tillgänglig.
 

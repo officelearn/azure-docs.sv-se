@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030608"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085101"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
@@ -32,6 +32,11 @@ När du har aktiverat skjutreglaget uppmanas du att välja vilken integration ru
 När fel söknings läget är aktiverat kan du interaktivt bygga ditt data flöde med ett aktivt Spark-kluster. Sessionen stängs när du har aktiverat fel sökning i Azure Data Factory. Du bör vara medveten om de timkostnad som Azure Databricks under tiden som du har aktiverat felsökningssessionen.
 
 I de flesta fall är det en bra idé att skapa dina data flöden i fel söknings läge så att du kan validera affärs logiken och Visa dina data transformationer innan du publicerar arbetet i Azure Data Factory. Använd knappen "Felsök" på pipeline-panelen för att testa ditt data flöde i en pipeline.
+
+![Visa fel söknings sessioner för data flöde](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Varje felsökningssession som en användare startar från sitt användar gränssnitt för ADF-webbläsare är en ny session med ett eget Spark-kluster. Du kan använda vyn övervakning för att felsöka sessioner ovan för att visa och hantera fel söknings sessioner per fabrik.
 
 ## <a name="cluster-status"></a>Klusterstatus
 

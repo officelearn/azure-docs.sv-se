@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 520c2d4fd258bfab5a5a1e0abf890d58bb98fbdc
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653184"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068055"
 ---
 # <a name="common-questions"></a>Vanliga frågor
 
@@ -24,7 +24,13 @@ I den här artikeln besvaras vanliga frågor om [Azure Resource-arbetskraft](ove
 
 Resurs förflyttning är för närvarande en offentlig för hands version. Produktions arbets belastningar stöds.
 
-## <a name="region-move"></a>Flytta region
+
+
+## <a name="moving-across-regions"></a>Flytta över regioner
+
+### <a name="can-i-move-resources-across-any-regions"></a>Kan jag flytta resurser mellan olika regioner?
+
+För närvarande kan du flytta resurser från vilken offentlig käll region som helst till en offentlig mål region, beroende på vilka [resurs typer som är tillgängliga i den regionen](https://azure.microsoft.com/global-infrastructure/services/). Det finns för närvarande inte stöd för att flytta resurser i Azure Government regioner.
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Vilka resurser kan jag flytta mellan regioner med resurs förflyttning?
 
@@ -34,13 +40,19 @@ Med hjälp av resurs förflyttning kan du för närvarande flytta följande resu
 - Nätverkskort
 - Tillgänglighetsuppsättningar 
 - Virtuella Azure-nätverk 
-- Offentliga IP-adresser nätverks säkerhets grupper (NSG: er)
+- Offentliga IP-adresser
+- Nätverkssäkerhetsgrupper (NSG:er)
 - Interna och offentliga belastningsutjämnare 
 - Azure SQL-databaser och elastiska pooler
 
+
+### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Kan jag flytta resurser mellan prenumerationer när jag flyttar dem över flera regioner?
+
+Du kan ändra prenumerationen när du har flyttat resurser till mål regionen. [Lär dig mer](../azure-resource-manager/management/move-resource-group-and-subscription.md) om att flytta resurser till en annan prenumeration. 
+
 ### <a name="where-is-the-metadata-about-a-region-move-stored"></a>Var lagras metadata om en regions flyttning?
 
-Den lagras i en [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) -databas och i [Azure Blob Storage](../storage/common/storage-service-encryption.md)i en Microsoft-prenumeration.
+Den lagras i en [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) -databas och i [Azure Blob Storage](../storage/common/storage-service-encryption.md)i en Microsoft-prenumeration. För närvarande lagras metadata i USA, östra 2 och Europa, norra. Vi kommer att utöka denna täckning till andra regioner. Detta begränsar dig inte från att flytta resurser över några offentliga regioner.
 
 ### <a name="is-the-collected-metadata-encrypted"></a>Har insamlade metadata krypterats?
 

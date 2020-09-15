@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a7b6b658590d0c764435bc28baa6d21197984e10
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007170"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085067"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta och Visa vägar för olika färd sätt med hjälp av Azure Maps
 
@@ -25,7 +25,7 @@ I den här självstudien får du lära dig hur du använder Azure Maps [Route se
 > * Återge trafik data i real tid på en karta
 > * Begära och Visa privata och kommersiella fordons vägar på en karta
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -219,7 +219,7 @@ Det här avsnittet visar hur du använder tjänsten Azure Maps Route för att f�
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential`Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()`Principen tar i `SubscriptionKeyCredential` principen och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest&preserve-view=false) -instans. `routeURL`Representerar en URL som Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
+   `SubscriptionKeyCredential`Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()`Principen tar i `SubscriptionKeyCredential` principen och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) -instans. `routeURL`Representerar en URL som Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
 
 2. När du har angett autentiseringsuppgifter och URL: en lägger du till följande JavaScript-kod för att skapa en väg väg för en truck från start till slut punkt. Den här vägen skapas och visas för en truck som bär `USHazmatClass2` klassa Last.
 
@@ -248,7 +248,7 @@ Det här avsnittet visar hur du använder tjänsten Azure Maps Route för att f�
     });
     ```
 
-    Koden ovan skickar frågor till Azure Maps Route-tjänsten via [API: et för väg riktningar i Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-&preserve-view=false). Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av `geojson.getFeatures()` metoden. Slutligen läggs väg linjen till i data källan. Vi lägger till den i indexet 0, för att säkerställa att trucken renderas före andra rader i data källan, eftersom beräkningen av Last bil flödet ofta är långsammare än en flödes beräkning. Om väg linjen för trucken läggs till i data källan efter Car-vägen, kommer den att visas ovanför den. Två egenskaper läggs till i Truck-väg linjen: en blå linje färg och en linje bredd på nio bild punkter.
+    Koden ovan skickar frågor till Azure Maps Route-tjänsten via [API: et för väg riktningar i Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av `geojson.getFeatures()` metoden. Slutligen läggs väg linjen till i data källan. Vi lägger till den i indexet 0, för att säkerställa att trucken renderas före andra rader i data källan, eftersom beräkningen av Last bil flödet ofta är långsammare än en flödes beräkning. Om väg linjen för trucken läggs till i data källan efter Car-vägen, kommer den att visas ovanför den. Två egenskaper läggs till i Truck-väg linjen: en blå linje färg och en linje bredd på nio bild punkter.
 
     >[!TIP]
     > Om du vill se alla möjliga alternativ och värden för API: et för Azure Maps väg riktningar, se [URI-parametrar för post riktningar](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#uri-parameters).
@@ -271,7 +271,7 @@ Det här avsnittet visar hur du använder tjänsten Azure Maps Route för att f�
     });
     ```
 
-    Koden ovan frågar Azure Maps Routningstjänst via API-metoden för  [Azure Maps väg riktning](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-&preserve-view=false) . Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av `geojson.getFeatures()` metoden. Slutligen läggs väg linjen till i data källan. Två egenskaper läggs till i Truck-väg linjen: en lila linje färg och en linje bredd på fem bild punkter.
+    Koden ovan frågar Azure Maps Routningstjänst via API-metoden för  [Azure Maps väg riktning](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) . Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av `geojson.getFeatures()` metoden. Slutligen läggs väg linjen till i data källan. Två egenskaper läggs till i Truck-väg linjen: en lila linje färg och en linje bredd på fem bild punkter.
 
 4. Spara **TruckRoute.html** -filen och uppdatera din webbläsare. Kartan bör nu Visa trucken och Car-vägarna.
 

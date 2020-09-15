@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: d705a43da2b2db37c6601f5865ad6e569688b2a7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 72ce95373df0a670179424d8e7ea95254941db1a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010199"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085934"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Lägga till ett symbol lager till en karta
 
@@ -59,13 +59,13 @@ Det finns fyra olika typer av punkt data som kan läggas till i kartan:
 - Geometrisk punkt geometri – det här objektet innehåller bara en koordinat för en punkt och inget annat. `atlas.data.Point`Hjälp klassen kan användas för att enkelt skapa dessa objekt.
 - Real JSON MultiPoint-geometri – det här objektet innehåller koordinaterna för flera punkter och inget annat. `atlas.data.MultiPoint`Hjälp klassen kan användas för att enkelt skapa dessa objekt.
 - Funktionen för geometriskt JSON – det här objektet består av valfri geometrisk geometri och en uppsättning egenskaper som innehåller metadata som är kopplade till geometrin. `atlas.data.Feature`Hjälp klassen kan användas för att enkelt skapa dessa objekt.
-- `atlas.Shape`klassen liknar funktionen för polyjson. Båda består av en geometrisk geometri och en uppsättning egenskaper som innehåller metadata som är kopplade till geometrin. Om ett interjson-objekt läggs till i en data källa kan det enkelt återges i ett lager. Men om egenskapen koordinater för det här interjson-objektet uppdateras, ändras inte data källan och kartan. Det beror på att det inte finns någon mekanism i JSON-objektet för att utlösa en uppdatering. Klassen Shape innehåller funktioner för att uppdatera data som den innehåller. När en ändring görs, meddelas data källan och-mappningen automatiskt och uppdateras. 
+- `atlas.Shape` klassen liknar funktionen för polyjson. Båda består av en geometrisk geometri och en uppsättning egenskaper som innehåller metadata som är kopplade till geometrin. Om ett interjson-objekt läggs till i en data källa kan det enkelt återges i ett lager. Men om egenskapen koordinater för det här interjson-objektet uppdateras, ändras inte data källan och kartan. Det beror på att det inte finns någon mekanism i JSON-objektet för att utlösa en uppdatering. Klassen Shape innehåller funktioner för att uppdatera data som den innehåller. När en ändring görs, meddelas data källan och-mappningen automatiskt och uppdateras. 
 
 Följande kod exempel skapar en geometrisk punkt geometri och skickar den till- `atlas.Shape` klassen så att den blir lätt att uppdatera. Mitten av kartan används ursprungligen för att återge en symbol. En klick händelse läggs till i kartan, så att koordinaterna för musen används med funktionen shapes när den utlöses `setCoordinates` . Mus koordinaterna registreras vid tidpunkten för klicknings händelsen. Sedan `setCoordinates` uppdateras platsen för symbolen på kartan.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Byt PIN-sökväg' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Fäst punkten</a> för Penn växlar genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Byt PIN-sökväg' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Fäst punkten</a> för Penn växlar genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -77,7 +77,7 @@ Symbol lager återges med WebGL. Alla resurser, till exempel ikon bilder, måste
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ikon för anpassad symbol bild' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>bild ikonen för den anpassade symbolen</a> för penna genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ikon för anpassad symbol bild' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>bild ikonen för den anpassade symbolen</a> för penna genom att Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -89,7 +89,7 @@ Symbol skiktet har många tillgängliga format alternativ. Här är ett verktyg 
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Symbol lager alternativ' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för Penn <a href='https://codepen.io/azuremaps/pen/PxVXje/'>symbol lager</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Symbol lager alternativ' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för Penn <a href='https://codepen.io/azuremaps/pen/PxVXje/'>symbol lager</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -100,16 +100,16 @@ Symbol skiktet har många tillgängliga format alternativ. Här är ett verktyg 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
+> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer)
 
 > [!div class="nextstepaction"]
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
 
 > [!div class="nextstepaction"]
-> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
 
 > [!div class="nextstepaction"]
-> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
 
 Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531267"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069806"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault (för hands version)
 Azure Monitor för Key Vault (för hands version) tillhandahåller omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
@@ -76,16 +76,6 @@ Det finns en villkorsstyrd färg kodning eller termiska kartor för kolumner i a
 Arbets boken visar lyckade (2xx status koder), autentiseringsfel (401/403 status koder), begränsning (429 status koder) och andra fel (4xx status koder).
 
 För att bättre förstå vad var och en av status koderna representerar rekommenderar vi att läsa igenom dokumentationen om [Azure Key Vault status-och svars koder](../../key-vault/general/authentication-requests-and-responses.md).
-
-## <a name="operations--latency-workbook"></a>Arbets bok för åtgärder & svars tid
-
-Välj **åtgärder & svars tid** överst på sidan och fliken **åtgärder & svars tid** öppnas. På den här fliken kan du publicera nyckel valv för övervakning. Mer detaljerade anvisningar finns i avsnittet [Konfigurera nyckel valv för övervakning](#configuring-your-key-vaults-for-monitoring) .
-
-Du kan se hur många av dina nyckel valv som är aktiverade för loggning. Om minst ett valv har kon figurer ATS korrekt, kommer du att kunna se tabeller som visar drift-och status koder för varje nyckel valv. Du kan klicka i informations avsnittet för en rad om du vill ha mer information om den enskilda åtgärden.
-
-![Skärm bild av diagram över drift och latens](./media/key-vaults-insights-overview/logs.png)
-
-Om du inte ser några data för det här avsnittet kan du referera till det övre avsnittet om hur du aktiverar loggar för Azure Key Vault eller genom att titta i avsnittet fel sökning nedan.
 
 ## <a name="view-from-a-key-vault-resource"></a>Visa från en Key Vault resurs
 
@@ -191,16 +181,6 @@ Vi använder "Auto" Time-kornig het, vilket innebär att den är beroende av vil
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Vad är tidsintervallet när någon del av arbets boken är fäst
 
 Tidsintervallet beror på instrument panelens inställningar.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Varför visas inte några data för mina Key Vault under avsnittet åtgärder & svars tid
-
-Om du vill visa dina loggarbaserade data måste du aktivera loggar för varje nyckel valv som du vill övervaka. Detta kan göras under diagnostikinställningar för varje nyckel valv. Du måste skicka dina data till en angiven Log Analytics-arbetsyta.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Jag har redan aktiverat loggar för min Key Vault, varför kan jag fortfarande inte se mina data under åtgärder & svars tid
-
-Diagnostikloggar fungerar för närvarande inte retroaktivt, så data kommer bara att börja visas när det har skett åtgärder i nyckel valven. Därför kan det ta lite tid, från timmar till en dag, beroende på hur aktivt nyckel valvet är.
-
-Om du har ett stort antal nyckel valv och-prenumerationer valda kan du dessutom inte Visa dina data på grund av frågans begränsningar. Du kan behöva minska antalet valda prenumerationer eller nyckel valv för att kunna visa dina data. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>Vad händer om jag vill se andra data eller göra egna visualiseringar? Hur kan jag göra ändringar i Key Vault Insights
 

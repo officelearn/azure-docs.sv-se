@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e3b0f92770b48ef5163846e67940efe80fb669a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662509"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085356"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Övervaka Surface Hub med Azure Monitor för att spåra deras hälsa
 
@@ -60,7 +60,7 @@ Om du inte använder Intune för att hantera din miljö kan du registrera enhete
 3. Klicka på **den här enheten**och klicka på **Konfigurera Log Analytics inställningar**under **övervakning**.
 4. Välj **Aktivera övervakning**.
 5. I dialog rutan Log Analytics inställningar anger du Log Analytics **arbetsyte-ID** och anger **arbets ytans nyckel**.  
-   ![autentiseringsinställningar](./media/surface-hubs/settings.png)
+   ![Skärm bild som visar Microsoft Operations Manager Suite-inställningar med Aktivera övervakning valt och text rutor för arbetsyte-ID och arbets ytans nyckel.](./media/surface-hubs/settings.png)
 6. Slutför konfigurationen genom att klicka på **OK** .
 
 En bekräftelse visas som talar om huruvida konfigurationen har tillämpats på enheten eller inte. I så fall visas ett meddelande om att agenten har anslutits till Azure Monitor. Enheten börjar sedan skicka data till Azure Monitor där du kan visa och agera på den.

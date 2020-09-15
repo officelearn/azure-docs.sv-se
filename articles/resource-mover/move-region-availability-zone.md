@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: fdd564618232ce7fde5a76fb9c37937113f179b2
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670870"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061892"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Flytta virtuella Azure-datorer till en tillgänglighets zon i en annan region
 
@@ -30,7 +30,7 @@ I den här artikeln lär du dig hur du flyttar virtuella Azure-datorer (och rela
 
 [Läs den här artikeln](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)om du vill flytta virtuella datorer till en annan tillgänglighets zon i samma region.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - *Ägar* åtkomst till den prenumeration där resurser som du vill flytta finns.
     - Första gången du lägger till en resurs för en viss käll-och mål mappning i en Azure-prenumeration skapar resurs förflyttningen en [systemtilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (tidigare känd som hanterad tjänst identifiering (MSI)) som är betrodd av prenumerationen.
@@ -71,8 +71,7 @@ Välj de resurser som du vill flytta.
     ![Knappen för att komma igång](./media/move-region-availability-zone/get-started.png)
 
 3. I **Flytta resurser**  >  **källa + mål**väljer du käll prenumeration och region.
-4. I **mål**väljer du den region som du vill flytta de virtuella datorerna till. 
-5. I **området metadata**väljer du var du vill lagra metadata om resurser som du flyttar. En resurs grupp skapas särskilt för detta ändamål. Klicka på **Nästa**.
+4. I **mål**väljer du den region som du vill flytta de virtuella datorerna till. Klicka på **Nästa**.
 
      ![Sida att fylla i käll-och mål prenumeration/-region](./media/move-region-availability-zone/source-target.png)
 

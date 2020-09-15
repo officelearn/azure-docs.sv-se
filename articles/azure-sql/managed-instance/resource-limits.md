@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587318"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069602"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Översikt över gränser för resurs gränser för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -99,12 +99,12 @@ Hitta mer information om [resurs gränserna i SQL Managed instance Pools i den h
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Egenskaper för fil-i/o i Generell användning nivån
 
-I Generell användning tjänst nivån varje databas fil får dedikerad IOPS och data flöde som är beroende av fil storleken. Större datafiler får mer IOPS och data flöde. I/o-egenskaperna för databasfilerna visas i följande tabell:
+I Generell användning tjänst nivån varje databas fil får dedikerad IOPS och data flöde som är beroende av fil storleken. Större filer får mer IOPS och data flöde. I/o-egenskaperna för databasfilerna visas i följande tabell:
 
-| Filstorlek | >= 0 och <= 128 GiB | >128 och <= 256 GiB | >256 och <= 512 GiB | >0,5 och <= 1 TiB    | >1 och <= 2 TiB    | >2 och <= 4 TiB | >4 och <= 8 TiB |
+| Filstorlek | >= 0 och <= 128 GiB | >128 och <= 512 GiB | >0,5 och <= 1 TiB    | >1 och <= 2 TiB    | >2 och <= 4 TiB | >4 och <= 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS per fil       | 500   | 1100 | 2 300              | 5000              | 7 500              | 7 500              | 12 500   |
-| Data flöde per fil | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| IOPS per fil       | 500   | 2 300              | 5000              | 7 500              | 7 500              | 12 500   |
+| Data flöde per fil | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Om du märker en lång IO-fördröjning på en viss databas fil eller om du ser att IOPS/data flödet når gränsen kan du förbättra prestandan genom [att öka fil storleken](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

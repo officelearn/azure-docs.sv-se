@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322474"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061503"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -48,16 +48,15 @@ Använd följande steg för att köra analytiska frågor med Synapse-länken fö
 
 1. Ditt konto har nu Aktiver ATS för att använda Synapse-länken. Härnäst lär du dig hur du skapar ett analytiskt Arkiv med aktiverade behållare för att automatiskt starta replikeringen av dina drift data från transaktions arkivet till analys lagret.
 
-### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-
-[Azure Resource Manager-mallen](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) skapar ett Synapse-länk aktiverat Azure Cosmos-konto för SQL-API. Den här mallen skapar ett huvud-API-konto i en region med en behållare som kon figurer ATS med analytiskt TTL aktiverat och ett alternativ för att använda manuellt eller autoskalning av data flöde. Om du vill distribuera den här mallen klickar **du på distribuera till Azure** på sidan viktigt.
+> [!NOTE]
+> När du aktiverar Synapse-länken aktive ras inte analys lagret automatiskt. När du har aktiverat Synapse-länken i Cosmos DB-kontot aktiverar du analys lager på behållare när du skapar dem, för att börja replikera dina åtgärds data till ett analys lager. 
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Skapa en Azure Cosmos-behållare med analys lager
 
 Du kan aktivera analys lager på en Azure Cosmos-behållare när du skapar behållaren. Du kan använda Azure Portal eller konfigurera `analyticalTTL` egenskapen vid skapande av behållare med hjälp av Azure Cosmos DB SDK: er.
 
 > [!NOTE]
-> För närvarande kan du aktivera analys lagring för **nya** behållare (både i nya och befintliga konton).
+> För närvarande kan du aktivera analys lagring för **nya** behållare (både i nya och befintliga konton). Du kan migrera data från dina befintligt-behållare till nya behållare med hjälp av [Azure Cosmos DB Migreringsverktyg.](cosmosdb-migrationchoices.md)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -211,6 +210,10 @@ Använd anvisningarna i [ansluta till Azure Synapse-länken](../synapse-analytic
 ## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Fråga med Synapse Spark
 
 Följ anvisningarna i artikeln [fråga Azure Cosmos DB analys lager](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) om hur du frågar med Synapse Spark. Artikeln innehåller några exempel på hur du kan interagera med analys lagret från Synapse-gester. Dessa gester visas när du högerklickar på en behållare. Med gester kan du snabbt skapa kod och anpassa den efter dina behov. De är också perfekta för att identifiera data med ett enda klick.
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
+
+[Azure Resource Manager-mallen](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) skapar ett Synapse-länk aktiverat Azure Cosmos-konto för SQL-API. Den här mallen skapar ett huvud-API-konto i en region med en behållare som kon figurer ATS med analytiskt TTL aktiverat och ett alternativ för att använda manuellt eller autoskalning av data flöde. Om du vill distribuera den här mallen klickar **du på distribuera till Azure** på sidan viktigt.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Komma igång med Azure Synpase Link-samples
 

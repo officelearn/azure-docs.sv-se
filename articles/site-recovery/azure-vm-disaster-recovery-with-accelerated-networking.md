@@ -3,18 +3,18 @@ title: Aktivera accelererat nätverk för haveri beredskap för virtuella Azure-
 description: Beskriver hur du aktiverar accelererat nätverk med Azure Site Recovery för haveri beredskap för virtuella Azure-datorer
 services: site-recovery
 documentationcenter: ''
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: baa15b656f061d812b29ded99d55da13294f9800
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: harshacs
+ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835858"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068021"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Accelererat nätverk med haveri beredskap för virtuella Azure-datorer
 

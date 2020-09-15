@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 013d8b77a16a4c7cd0efdadce25fd141793070be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: d509862fe4dafff174ee03c3b5cc887fa9d9ff22
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459529"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086002"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 
@@ -26,7 +26,7 @@ Sidan lösnings **Översikt** i Azure Monitor visar en panel för varje lösning
 
 Använd List rutorna längst upp på skärmen för att ändra arbets ytan eller tidsintervallet som används för panelerna. Klicka på panelen för en lösning för att öppna dess vy som innehåller mer detaljerad analys av insamlade data.
 
-[![Översikt](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
+[![Skärm bild som visar Azure Portal menyn med lösningar som har valts och lösningar som visas i fönstret lösningar.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Övervaknings lösningar kan innehålla flera typer av Azure-resurser och du kan visa alla resurser som ingår i en lösning precis som andra resurser. Till exempel visas alla logg frågor som ingår i lösningen under **lösnings frågor** i [query Explorer](../log-query/get-started-portal.md#load-queries) . du kan använda dessa frågor när du utför ad hoc-analyser med [logg frågor](../log-query/log-query-overview.md).
 

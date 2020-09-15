@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: abnarain
-ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033667"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069483"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -46,25 +46,25 @@ Azure Data Factory stöder visning och överföring av fel loggar för misslycka
 > Logg visning och uppladdning av begär Anden körs på alla online-IR-instanser online. Kontrol lera att alla egna IR-instanser är online om det finns saknade loggar som saknas. 
 
 
-## <a name="self-hosted-ir-general-failure-or-error"></a>Allmänt allmänt fel eller fel i IR med egen värd
+## <a name="self-hosted-ir-general-failure-or-error"></a>Allmänt fel eller fel i lokalt installerad IR
 
-### <a name="tlsssl-certificate-issue"></a>Utfärdande av TLS/SSL-certifikat
+### <a name="tlsssl-certificate-issue"></a>TLS/SSL-certifikatproblem
 
 #### <a name="symptoms"></a>Symtom
 
-När du försöker aktivera TLS/SSL-certifikat (avancerat) från en lokal **IR-Configuration Manager**  ->  **fjärråtkomst från intranätet**, efter att ha valt TLS/SSL-certifikat, visas följande fel:
+När du försöker aktivera TLS/SSL-certifikat (avancerat) från **Konfigurationshanterare för lokalt installerad IR** -> **Fjärråtkomst från intranät**, efter att ha valt TLS/SSL-certifikat, visas följande fel:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
-I ovanstående fall använder användaren certifikat med "microsoft.com" som sista objekt.
+I ovanstående fall använder användaren certifikat med ”microsoft.com” som sista objekt.
 
 #### <a name="cause"></a>Orsak
 
-Detta är ett känt problem i WCF: WCF TLS/SSL-verifiering kontrollerar endast senaste DNSName i SAN. 
+Det här är ett känt problem i WCF: WCF TLS/SSL-valideringen kontrollerar endast senaste DNSName i SAN. 
 
 #### <a name="resolution"></a>Lösning
 
-Jokertecken stöds i Azure Data Factory v2-IR med egen värd. Det här problemet beror vanligt vis på att SSL-certifikatet inte är korrekt. Den senaste DNSName i SAN ska vara giltig. Följ stegen nedan för att kontrol lera det. 
+Jokerteckencertifikat stöds i Azure Data Factory v2 – lokalt installerad IR. Det här problemet beror vanligtvis på att SSL-certifikatet inte är korrekt. Senaste DNSName i SAN ska vara giltigt. Följ stegen nedan för att kontrollera det. 
 1.  Öppna hanterings konsolen, markera både *ämne* och *alternativt ämnes namn* i certifikat informationen. I ovanstående fall är till exempel det sista objektet i *Alternativt namn för certifikat mottagare*, som är "DNS-namn = Microsoft.com.com", inte giltigt.
 2.  Kontakta företaget för certifikat utfärdare för att ta bort fel DNS-namn.
 
@@ -72,42 +72,42 @@ Jokertecken stöds i Azure Data Factory v2-IR med egen värd. Det här problemet
 
 #### <a name="symptoms"></a>Symtom
 
-När du försöker öka gränsen för samtidiga jobb från Azure Data Factory användar gränssnittet, låser det sig som en *uppdatering* för alltid.
-Det maximala värdet för samtidiga jobb har angetts till 24 och du vill öka antalet så att jobben kan köras snabbare. Det minsta värde som du kan ange är 3 och det högsta värdet som du kan ange är 32. Du har ökat värdet från 24 till 32 och klickar på knappen *Uppdatera* i det användar gränssnitt som det har fastnat i *uppdateringen* som du ser nedan. Efter uppdateringen såg kunden fortfarande värdet som 24 och det har aldrig uppdaterats till 32.
+När du försöker öka gränsen för samtidiga jobb från Azure Data Factory-gränssnittet, låser det sig som *uppdaterar* under lång tid.
+Det maximala värdet för samtidiga jobb har angetts till 24 och du vill öka antalet så att jobben kan köras snabbare. Det minsta värde som du kan ange är 3 och det högsta värdet som du kan ange är 32. Du har ökat värdet från 24 till 32 och klickar på knappen *Uppdatera* i det användar gränssnitt som det har fastnat i *uppdateringen* som du ser nedan. Efter uppdateringen såg kunden fortfarande värdet 24 och det uppdaterades aldrig till 32.
 
 ![Uppdaterar status](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
 #### <a name="cause"></a>Orsak
 
-Det finns en begränsning för inställningen eftersom värdet beror på datorns logicCore och minne, men du kan justera det till ett mindre värde, till exempel 24 och se resultatet.
+Det finns en begränsning för inställningen eftersom värdet beror på datorns logicCore och minne, men du kan justera det till ett mindre värde, till exempel 24, och se resultatet.
 
 > [!TIP] 
 > - Mer information om vad Logic Core-antalet är och hur du hittar vår dators Logic Core-antal finns i [den här artikeln](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
 > - Mer information om hur du beräknar matematik. log finns i [den här artikeln](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
-### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problem med SSL-certifikat med egen värd
+### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problem med HA SSL-certifikat för lokalt installerad IR
 
 #### <a name="symptoms"></a>Symtom
 
-En IR-arbetsnod med egen värd rapporterade felet nedan:
+En arbetsnod för lokalt installerad IR rapporterade felet nedan:
 
 `Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
 
 #### <a name="cause"></a>Orsak
 
-När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem som rör verifiering av certifikat kedjan. 
+När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem som rör verifiering av certifikatkedjan. 
 
 #### <a name="resolution"></a>Lösning
 
 - Här är ett snabbt och intuitivt sätt att felsöka X. 509-certifikat kedjans build-fel.
  
-    1. Exportera certifikatet, som måste verifieras. Gå till hantera dator certifikat och leta upp det certifikat som du vill kontrol lera och högerklicka på **alla aktiviteter**  ->  **Exportera**.
+    1. Exportera certifikatet, som måste verifieras. Gå till Hantera datorcertifikat och leta upp det certifikat som du vill kontrollera och högerklicka på **Alla uppgifter** -> **Exportera**.
     
         ![Exportera uppgifter](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
     2. Kopiera det exporterade certifikatet till klient datorn. 
-    3. Kör kommandot nedan i CMD på klient sidan. Kontrol lera att du har ersatt under *\<certificate path>* och *\<output txt file path>* plats hållare med relaterade sökvägar.
+    3. Kör kommandot nedan i CMD på klientsidan. Kontrol lera att du har ersatt under *\<certificate path>* och *\<output txt file path>* plats hållare med relaterade sökvägar.
     
         ```
         Certutil -verify -urlfetch    <certificate path>   >     <output txt file path> 
@@ -118,7 +118,7 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
         ```
         Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
         ```
-    4. Kontrol lera om det finns något fel i output txt-filen. Du kan hitta fel sammanfattningen i slutet av txt-filen.
+    4. Kontrollera om det finns något fel i txt-utdatafilen. Du hittar felsammanfattningen i slutet av txt-filen.
 
         Exempel: 
 
@@ -138,15 +138,15 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Sedan öppnas **URL-hämtnings verktyget** . Du kan verifiera certifikat från AIA, CDP och OCSP genom att klicka på knappen **Hämta** .
+    1. Därefter öppnas **URL-hämtningsverktyget**. Du kan verifiera certifikat från AIA, CDP och OCSP genom att klicka på knappen **Hämta**.
 
         ![Hämtnings knapp](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
-        Certifikat kedjan kan skapas om certifikatet från AIA är "verifierat" och certifikatet från CDP eller OCSP är "verifierat".
+        Certifikatkedjan kan skapas om certifikatet från AIA är ”verifierat” och certifikatet från CDP eller OCSP är ”verifierat”.
 
-        Om du ser ett problem när du hämtar AIA, arbetar CDP med nätverks teamet för att förbereda klient datorn för att ansluta till mål-URL: en. Det blir tillräckligt om antingen http-sökvägen eller LDAP-sökvägen kan verifieras.
+        Om du ser ett fel när du hämtar AIA eller CDP kan du samarbeta med nätverksteamet för att förbereda klientdatorn för att ansluta till mål-URL:en. Det är tillräckligt om antingen http-sökvägen eller LDAP-sökvägen kan verifieras.
 
-### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>IR med egen värd kan inte läsa in filen eller sammansättningen
+### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>Lokalt installerad IR kunde inte läsa in filen eller sammansättningen
 
 #### <a name="symptoms"></a>Symtom
 
@@ -165,7 +165,7 @@ Om du tar Process Monitor kan du se följande resultat:
 > [!TIP] 
 > Du kan ange filter så som visas i skärm bilden nedan.
 > Det meddelar oss att dll- **systemet. ValueTuple** inte finns i GAC-relaterade mappar, eller i *C:\Program Files\Microsoft integration Runtime\4.0\Gateway*eller i *c:\Program Files\Microsoft integration Runtime\4.0\Shared* Folder.
-> I princip kommer den att läsa in dll-filen från *GAC* först och sedan från den *delade* mappen och slutligen från *Gateway* -mappen. Därför kan du ställa in dll-filen på valfri sökväg som kan vara till hjälp.
+> I princip kommer den att läsa in dll-filen från *GAC*-mappen först och sedan från *Delas* och slutligen från mappen *Gateway*. Därför kan du placera dll-filen på valfri sökväg som kan vara till hjälp.
 
 ![Konfigurera filter](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -173,7 +173,7 @@ Om du tar Process Monitor kan du se följande resultat:
 
 Du kan se att **System.ValueTuple.dll** finns i *C:\Program Files\Microsoft integration Runtime\4.0\Gateway\DataScan* -mappen. Kopiera **System.ValueTuple.dll** till mappen *c:\Program\Microsoft integration Runtime\4.0\Gateway* för att lösa problemet.
 
-Du kan använda samma metod för att lösa andra problem som saknas i filen eller sammansättningen.
+Du kan använda samma metod för att lösa andra problem med en saknad fil eller sammansättning.
 
 #### <a name="more-information"></a>Mer information
 
@@ -186,77 +186,77 @@ Från felet nedan kan du tydligt se sammansättnings *systemet ValueTuple.* Det 
 Mer information om GAC finns i [den här artikeln](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
 
 
-### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Så här granskar du en IR-nyckel för egen värd som saknas
+### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Så här granskar du nyckel för lokalt installerad IR som saknas
 
 #### <a name="symptoms"></a>Symtom
 
-Den egen värdbaserade integrerings körningen går plötsligt till offline utan nyckel, medan fel meddelandet visas i händelse loggen: `Authentication Key is not assigned yet`
+Den egna värdbaserade integreringskörningen kopplas plötsligt från utan nyckel, medan felmeddelandet nedan visas i händelseloggen: `Authentication Key is not assigned yet`
 
 ![Autentiseringsnyckel saknas](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
 #### <a name="cause"></a>Orsak
 
-- Den egna IR-noden eller den logiska egna IR-noden i portalen tas bort.
-- En ren avinstallation är klar.
+- Noden för lokalt installerad IR eller logisk lokalt installerad IR i portalen tas bort.
+- En ren avinstallation görs.
 
 #### <a name="resolution"></a>Lösning
 
-Om inget av ovanstående orsaker gäller kan du gå till mappen: *%programdata%\Microsoft\Data Transfer\DataManagementGateway*och kontrol lera om filen med namnet **konfigurationer** har tagits bort. Om den är borttagen följer du instruktionerna [här](https://www.netwrix.com/how_to_detect_who_deleted_file.html) för att granska vem som tar bort filen.
+Om inget av ovanstående orsaker gäller kan du gå till mappen: *%programdata%\Microsoft\Data Transfer\DataManagementGateway*och kontrol lera om filen med namnet **konfigurationer** har tagits bort. Om den är borttagen följer du anvisningarna [här](https://www.netwrix.com/how_to_detect_who_deleted_file.html) för att se efter vem som tagit bort filen.
 
 ![Kontrol lera konfigurations filen](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
 
-### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>Det går inte att använda IR med egen värd för att överbrygga två lokala data lager
+### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>Det går inte att använda lokalt installerad IR för att överbrygga två lokala datalager
 
 #### <a name="symptoms"></a>Symtom
 
-När du har skapat en egen organisation som är värdbaserad för både käll-och mål data lager, vill du ansluta de två IRs och slutföra en kopia. Om data butikerna har kon figurer ATS i olika virtuella nätverk, eller om de inte kan förstå Gateway-mekanismen, kommer du att trycka på fel som: *det går inte att hitta driv rutinen för källan i målet IR*. *källan kan inte nås av mål-IR*.
+När du har skapat lokalt installerad IR för både käll- och måldatalager, behöver du ansluta dina två IR för att slutföra en kopia. Om data butikerna har kon figurer ATS i olika virtuella nätverk, eller om de inte kan förstå Gateway-mekanismen, kommer du att trycka på fel som: *det går inte att hitta driv rutinen för källan i målet IR*. *källan kan inte nås av mål-IR*.
  
 #### <a name="cause"></a>Orsak
 
-IR med egen värd är utformad som en central nod i en kopierings aktivitet, inte en klient agent som behöver installeras för varje data lager.
+Lokalt installerad IR är utformad som en central nod i en kopieringsaktivitet, inte en klientagent som behöver installeras för varje datalager.
  
-I ovanstående fall bör den länkade tjänsten för varje data lager skapas med samma IR, och IR bör kunna komma åt både data lager via nätverk. Oavsett om IR installeras med käll data lager, mål data lager eller på en tredje dator, om två länkade tjänster har skapats med olika IRs, men som används i samma kopierings aktivitet, används mål-IR och driv rutinerna för båda data lager måste installeras på IR-datorn för målet.
+I ovanstående fall bör den länkade tjänsten för varje datalager skapas med samma IR, och IR bör kunna komma åt båda datalagren via nätverk. Oavsett om IR installeras med källdatalager, måldatalager eller på en tredje dator, gäller att om två länkade tjänster har skapats med olika IR, men som används i samma kopieringsaktivitet, används mål-IR, och drivrutinerna för båda datalagren måste installeras på IR-datorn för målet.
 
 #### <a name="resolution"></a>Lösning
 
-Installera driv rutiner för både källa och mål på målets IR och se till att det går att komma åt käll data lagret.
+Installera drivrutiner för både källa och mål på mål-IR och se till att den kan komma åt källdatalagret.
  
-Om trafiken inte kan passera genom nätverket mellan två data lager (till exempel att de har kon figurer ATS i två virtuella nätverk) kan du inte slutföra kopian i en aktivitet även med IR installerat. I så fall kan du skapa två kopierings aktiviteter med två IRs, var och en i en ventilation: 1 IR att kopiera från data lagret 1 till Azure Blob Storage, en annan för att kopiera från Azure Blob Storage till data lager 2. Detta kan simulera kravet att använda IR för att skapa en brygga som ansluter två frånkopplade data lager.
+Om trafiken inte kan passera genom nätverket mellan två datalager (till exempel att de har konfigurerats i två virtuella nätverk) kan du kanske inte slutföra kopieringen i en aktivitet även med IR installerad. I så fall kan du skapa två kopieringsaktiviteter med två IR, var och en i ett virtuellt nätverk: 1 IR för att kopiera från datalager 1 till Azure Blob Storage, och en annan för att kopiera från Azure Blob Storage till datalager 2. Detta kan simulera kravet att använda IR för att skapa en brygga som ansluter två frånkopplade datalager.
 
 
 ### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>Problem med synkronisering av autentiseringsuppgifter medför att autentiseringsuppgiften förloras från HA
 
 #### <a name="symptoms"></a>Symtom
 
-Data källans autentiseringsuppgift "XXXXXXXXXX" tas bort från den aktuella Integration Runtime-noden med nytto Last "när du tar bort länk tjänsten på Azure Portal eller om aktiviteten har fel nytto Last, skapar du en ny länk tjänst med dina autentiseringsuppgifter igen.
+Autentiseringsuppgifterna för datakällan ”XXXXXXXXXX” tas bort från den aktuella Integration Runtime-noden med nyttolasten ”när du tar bort länktjänsten på Azure Portal, eller uppgifter har fel nyttolast, ska du på nytt skapa en ny länktjänst med dina autentiseringsuppgifter”.
 
 #### <a name="cause"></a>Orsak
 
-Din egen värd-IR har skapats i HA-läge med två noder, men de är inte i ett synkroniseringstillstånd, vilket innebär att autentiseringsuppgifterna som lagras i dispatcher-noden inte synkroniseras med andra arbetsnoder. Om redundansväxlingen sker från dispatcher-noden till arbetsnoden, men autentiseringsuppgifterna bara fanns i den tidigare noden dispatcher, Miss Miss söker aktiviteten vid försök att få åtkomst till autentiseringsuppgifter, och du kommer att träffa ovanstående fel.
+Din lokalt installerade IR har skapats i HA-läge med två noder, men de är inte i ett synkroniseringstillstånd för autentiseringsuppgifter, vilket innebär att autentiseringsuppgifterna som lagras i dispatcher-noden inte synkroniseras till andra arbetsnoder. Om redundansväxling sker från dispatcher-noden till arbetsnoden, men autentiseringsuppgifterna bara fanns i den tidigare dispatcher-noden, misslyckas uppgiften vid försök att få åtkomst till autentiseringsuppgifter och du kommer att få ovanstående fel.
 
 #### <a name="resolution"></a>Lösning
 
-Det enda sättet att undvika det här problemet är att se till att två noder är i Sync-läget för autentiseringsuppgifter. Annars måste du ange autentiseringsuppgifter för ny dispatcher.
+Det enda sättet att undvika det här problemet är att se till att två noder är i synkroniseringsläge för autentiseringsuppgifter. Annars måste du ange autentiseringsuppgifter igen för en ny dispatcher.
 
 
 ### <a name="cannot-choose-the-certificate-due-to-private-key-missing"></a>Det går inte att välja certifikatet eftersom privat nyckel saknas
 
 #### <a name="symptoms"></a>Symtom
 
-1.  Importera en PFX-fil till certifikat arkivet.
-2.  När du väljer certifikatet via IR Configuration Manager användar gränssnittet visas följande fel:
+1.  Importera en PFX-fil till certifikatarkivet.
+2.  När du väljer certifikatet via IR Configuration Manager-gränssnittet visas följande fel:
 
     ![Privat nyckel saknas](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
 
 #### <a name="cause"></a>Orsak
 
-- Användar kontot har låg behörighet och kan inte komma åt privat nyckel.
-- Certifikatet skapades som signatur, men inte som nyckel utbyte.
+- Användarkontot har låg behörighet och kan inte komma åt den privata nyckeln.
+- Certifikatet genererades som signatur, men inte som nyckelutbyte.
 
 #### <a name="resolution"></a>Lösning
 
-1.  Använd ett konto med privilegier som kan komma åt den privata nyckeln för att hantera användar gränssnittet.
+1.  Använd ett konto med privilegier som kan komma åt den privata nyckeln för att hantera användargränssnittet.
 2.  Kör följande kommando för att importera certifikatet:
     
     ```
@@ -574,50 +574,6 @@ Ta Netmon-spårningen och analysera vidare.
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
     Därför måste du engagera nätverks teamet för att kontrol lera vad det fjärde hoppet är från IR med egen värd. Om det är en brand vägg som Linux-system kan du kontrol lera eventuella loggar på varför enheten återställer paketet efter TCP 3-handskakningen. Men om du inte är säker på var du ska göra undersökningen kan du försöka hämta Netmon-spårningen från IR och brand vägg med egen värd under den problematiska tiden för att ta reda på vilken enhet som kan återställa det här paketet och orsaka från koppling. I så fall måste du också engagera ditt nätverks team för att gå vidare.
-
-### <a name="how-to-collect-netmon-trace"></a>Samla in Netmon-spårning
-
-1.  Hämta Netmon-verktygen från [den här webbplatsen](https://cnet-downloads.com/network-monitor)och installera det på serverdatorn (vilken server som har problem) och klienten (till exempel lokal IR-överföring).
-
-2.  Skapa en mapp, till exempel, i följande sökväg: *D:\netmon*. Se till att det finns tillräckligt med utrymme för att spara loggen.
-
-3.  Avbilda IP-och portinformation. 
-    1. Starta en kommando tolk.
-    2. Välj Kör som administratör och kör följande kommando:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.  Avbilda Netmon-spårningen (nätverks paket).
-    1. Starta en kommando tolk.
-    2. Välj Kör som administratör och kör följande kommando:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. Du kan använda tre olika kommandon för att avbilda nätverks sidan:
-        - Alternativ A: RoundRobin File Command (detta fångar bara en fil och skriver över gamla loggar).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Alternativ B: kommandot kedjad fil (Detta skapar en ny fil om 200 MB har nåtts).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Alternativ C: schemalagt fil kommando.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.  Tryck på **CTRL + C** för att stoppa avbilden av NetMon-spårningen.
- 
-> [!NOTE]
-> Om du bara kan samla in Netmon-spåret på klient datorn kan du hämta serverns IP-adress så att du kan analysera spårningen.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Analysera Netmon-spårning
 

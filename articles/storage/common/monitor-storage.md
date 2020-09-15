@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 0c4178513c5a6027b3261d6d7975d4ec7cc55c6a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500427"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085798"
 ---
 # <a name="monitoring-azure-storage"></a>Övervaknings Azure Storage
 
@@ -76,7 +76,11 @@ Alla andra misslyckade anonyma begär Anden loggas inte. En fullständig lista �
 
 ## <a name="configuration"></a>Konfiguration
 
-Plattforms mått och aktivitets loggen samlas in automatiskt, men du måste skapa en diagnostisk inställning för att samla in resurs loggar eller vidarebefordra dem utanför Azure Monitor. För att processen ska kunna skapa en diagnostisk inställning med hjälp av Azure Portal, Azure CLI eller PowerShell, se [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Plattforms mått och aktivitets loggen samlas in automatiskt, men du måste skapa en diagnostisk inställning för att samla in resurs loggar eller vidarebefordra dem utanför Azure Monitor. 
+
+Om du vill skapa en diagnostisk inställning med hjälp av Azure Portal, Azure CLI eller PowerShell, se [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+
+Om du vill se en Azure Resource Manager mall som skapar en diagnostisk inställning, se [diagnostisk inställning för Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 När du skapar en diagnostisk inställning väljer du den typ av lagring som du vill aktivera loggar för, till exempel en BLOB, kö, tabell eller fil. Data Lake Storage Gen2 visas inte som lagrings typ. Det beror på att Data Lake Storage Gen2 är en uppsättning funktioner som är tillgängliga för Blob Storage. 
 
@@ -124,7 +128,7 @@ För en lista över alla Azure Monitor-support-mått, som innehåller Azure Stor
 
 #### <a name="list-the-metric-definition"></a>Lista mått definitionen
 
-Du kan visa mått definitionen för ditt lagrings konto eller den enskilda lagrings tjänsten, till exempel BLOB, fil, tabell eller Queue Service. Använd cmdleten [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0) .
+Du kan visa mått definitionen för ditt lagrings konto eller den enskilda lagrings tjänsten, till exempel BLOB, fil, tabell eller Queue Service. Använd cmdleten [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) .
 
 I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID för hela lagrings kontot eller resurs-ID: t för en enskild lagrings tjänst, t. ex. blob, fil, tabell eller Queue Service. Du hittar dessa resurs-ID: n på **egenskaps** sidorna för ditt lagrings konto i Azure Portal.
 
@@ -135,7 +139,7 @@ I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID f
 
 #### <a name="reading-metric-values"></a>Läser mått värden
 
-Du kan läsa mått värden på konto nivå för ditt lagrings konto eller den enskilda lagrings tjänsten, till exempel BLOB, fil, tabell eller Queue Service. Använd cmdleten [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) .
+Du kan läsa mått värden på konto nivå för ditt lagrings konto eller den enskilda lagrings tjänsten, till exempel BLOB, fil, tabell eller Queue Service. Använd cmdleten [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) .
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -146,7 +150,7 @@ Du kan läsa mått värden på konto nivå för ditt lagrings konto eller den en
 
 #### <a name="list-the-account-level-metric-definition"></a>Lista mått definitionen på konto nivå
 
-Du kan visa mått definitionen för ditt lagrings konto eller den enskilda lagrings tjänsten, till exempel BLOB, fil, tabell eller Queue Service. Använd kommandot [AZ Monitor Metric List-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) .
+Du kan visa mått definitionen för ditt lagrings konto eller den enskilda lagrings tjänsten, till exempel BLOB, fil, tabell eller Queue Service. Använd kommandot [AZ Monitor Metric List-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) .
  
 I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID för hela lagrings kontot eller resurs-ID: t för en enskild lagrings tjänst, t. ex. blob, fil, tabell eller Queue Service. Du hittar dessa resurs-ID: n på **egenskaps** sidorna för ditt lagrings konto i Azure Portal.
 
@@ -156,7 +160,7 @@ I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID f
 
 #### <a name="read-account-level-metric-values"></a>Läs mått värden på konto nivå
 
-Du kan läsa mått värden för ditt lagrings konto eller den enskilda lagrings tjänsten, t. ex. blob, fil, tabell eller Queue Service. Använd kommandot [AZ Monitor Metric List](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) .
+Du kan läsa mått värden för ditt lagrings konto eller den enskilda lagrings tjänsten, t. ex. blob, fil, tabell eller Queue Service. Använd kommandot [AZ Monitor Metric List](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) .
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

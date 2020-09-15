@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 1c8d1af9bcea6b5e0e43a8928cbcdd907f2fb534
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536063"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069041"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault brand väggar och virtuella nätverk
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller stegvisa instruktioner för att konfigurera Azure 
 > [!NOTE]
 > Tänk på följande konfigurations begränsningar:
 > * Högst 127 virtuella nätverks regler och 127 IPv4-regler är tillåtna. 
-> * Små adress intervall som använder prefixlängden "/31" eller "/32" stöds inte. Konfigurera i stället dessa intervall med hjälp av enskilda IP-adressintervall.
+> * Det finns inte stöd för små adress intervall som använder prefixlängden "/31". Konfigurera i stället dessa intervall med hjälp av enskilda IP-adressintervall.
 > * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16-31**och **192,168.**.. 
 > * Endast IPv4-adresser stöds för tillfället.
 

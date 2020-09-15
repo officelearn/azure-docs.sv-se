@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948937"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085917"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
 
@@ -264,7 +264,7 @@ Användnings villkoren per enhet har följande begränsningar:
 
 - En enhet kan endast anslutas till en klient.
 - En användare måste ha behörighet att ansluta sina enheter.
-- Appen Intune-registrering stöds inte.
+- Appen Intune-registrering stöds inte. Se till att den utesluts från en princip för villkorlig åtkomst som kräver användnings villkor.
 - Azure AD B2B-användare stöds inte.
 
 Om användarens enhet inte är ansluten får de ett meddelande som de behöver för att ansluta till sin enhet. Deras upplevelse kommer att vara beroende av plattform och program vara.

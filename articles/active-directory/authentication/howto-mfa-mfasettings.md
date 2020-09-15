@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023847"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068820"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
@@ -156,7 +156,7 @@ Om du inte har konfigurerat MFA-uppringarens ID i USA, kommer röst samtal från
 * *+ 1 (877) 668 6536*
 
 > [!NOTE]
-> När Azure Multi-Factor Authentication-anrop görs via det offentliga telefonnätet dirigeras de ibland via en operatör som inte har stöd för uppringarens ID. Därför garanteras inte anropar-ID, trots att Azure Multi-Factor Authentication alltid skickar det.
+> När Azure Multi-Factor Authentication-anrop görs via det offentliga telefonnätet dirigeras ibland anropen via en operatör som inte har stöd för uppringarens ID. Därför är det inte säkert att anropar-ID: t, även om Azure Multi-Factor Authentication alltid skickar det. Detta gäller både telefonsamtal och SMS-meddelanden från Azure Multi-Factor Authentication. Om du behöver verifiera att ett textmeddelande kommer från Azure Multi-Factor Authentication, se [vilka SMS-koder som används för att skicka meddelanden?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Följ stegen nedan om du vill konfigurera ett eget nummer för anroparens ID:
 

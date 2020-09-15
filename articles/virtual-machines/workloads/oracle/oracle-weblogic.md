@@ -1,9 +1,9 @@
 ---
-title: Vad är Oracle WebLogic Server på Azure?
+title: Oracle WebLogic-Server på Azure-lösningar
 description: Lär dig hur du kör Oracle WebLogic Server på Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: edburns
+author: rezar
 manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
@@ -12,47 +12,57 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2020
-ms.author: edburns
-ms.openlocfilehash: fe247e75040f658beb94a66176f802993268a7d8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.author: rezar
+ms.openlocfilehash: e408f9e245fb78b475a194bc0db6f1edfdf85b41
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851874"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069737"
 ---
-# <a name="what-is-oracle-weblogic-server-on-azure"></a>Vad är Oracle WebLogic Server på Azure?
+# <a name="solutions-for-running-oracle-weblogic-server-on-azure"></a>Lösningar för att köra Oracle WebLogic-Server på Azure
 
-På den här sidan beskrivs lösningar för att köra WebLogic-Server (WLS) på Azure Virtual Machines.  Dessa lösningar har utvecklats gemensamt av Oracle och Microsoft.
+Den här sidan beskriver lösningar för att köra Oracle WebLogic Server (WLS) på virtuella Azure-datorer. Dessa lösningar har utvecklats gemensamt av Oracle och Microsoft.
 
-Oracle WebLogic Server är världens första moln inbyggda, Enterprise Java Platform Application Server för utveckling och distribution av distribuerade företags program i flera nivåer. Med Azure WebLogic-Server kan du integrera molnbaserad data behandling.  Du får större valmöjligheter och flexibilitet för WebLogic-migrering, inklusive lyft och SKIFT för dina Java-program till Azure-molnet.   WLS på Azure ger stor påverkan på en liten ansträngning. Med erbjudandena kan du snabbt starta dina LOB-program (Line of Business).  Varje erbjudande tillhandahåller automatiskt virtuella nätverk, lagrings-och Linux-resurser.  Med noll ansträngning installeras WebLogic-servern.  WLS på Azure ställer in säkerhet med en nätverks säkerhets grupp, belastnings utjämning med Azure App Gateway, autentisering med Azure Active Directory och ansluter automatiskt till den befintliga databasen.
+WLS är en ledande Java-Programserver som kör några av de viktigaste viktiga företags Java-programmen över hela världen. WLS utgör mellanvaru Stiftelsen för Oracle-programsviten. Oracle och Microsoft strävar efter att ge kunderna möjlighet att välja och flexibilitet för att köra arbets belastningar på Azure som en ledande moln plattform.
 
-:::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="Du kan använda Azure Portal för att distribuera WebLogic Server på Azure":::
+Azure WLS-lösningarna syftar till att göra det så enkelt som möjligt att lyfta och flytta dina Java EE-program till Azure Virtual Machines genom att automatisera de flesta vanliga åtgärder. Lösningarna etablerar automatiskt virtuella nätverks-, lagrings-, Java-och Linux-resurser. WebLogic-servern installeras med minimal ansträngning. Lösningarna kan konfigurera säkerhet med en nätverks säkerhets grupp, belastnings utjämning med Azure App gateway och autentisering med Azure Active Directory. Du kan också ansluta automatiskt till din befintliga databas, inklusive Azure PostgreSQL, Azure SQL och Oracle DB i Oracle-molnet eller Azure. I väg kartan för lösningarna ingår möjligheten att aktivera distribuerad loggning och distribuerad cachelagring via Oracle-samstämmighet. Microsoft och Oracle samarbetar för att möjliggöra liknande funktioner för WebLogic och Azure Kubernetes service (AKS).
 
-Det finns fyra erbjudanden som är tillgängliga för att möta olika scenarier: en nod utan en administratörs Server, en nod med en administratörs Server, ett kluster och ett dynamiskt kluster.  Testa erbjudandena, de är tillgängliga kostnads fritt.
+:::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="Du kan använda Azure Portal för att distribuera WebLogic-Server på Azure":::
 
-_De här erbjudandena är en egen licens_. De förutsätter att du redan har rätt licenser med Oracle och att de är korrekt licensierade för att köra erbjudanden i Microsoft Azure.
+Det finns fyra erbjudanden som är tillgängliga för att möta olika scenarier: en nod utan en administratörs Server, en nod med en administratörs Server, ett kluster och ett dynamiskt kluster. Erbjudandena är tillgängliga utan kostnad. Dessa erbjudanden beskrivs och länkas nedan.
 
-_Om du vill arbeta nära dina migrerings scenarier med teknik teamet som utvecklar dessa erbjudanden väljer du knappen [kontakta mig](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) _ på [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program chefer, arkitekter och tekniker kommer att komma ut till dig inom kort och börja samar beta!
+_De här erbjudandena är en egen licens_. De förutsätter att du redan har rätt licenser med Oracle och att de är korrekt licensierade för att köra erbjudanden i Azure.
+
+Det finns stöd för flera operativ system, Java och WLS-versioner via bas avbildningar (till exempel WebLogic Server 14 och JDK 11 på Oracle Linux 7,6). De här bas avbildningarna är också tillgängliga på Azure på egen hand. Bas avbildningarna är lämpliga för kunder som kräver komplexa, anpassade Azure-distributioner. Den aktuella uppsättningen bas avbildningar finns [här](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
+
+_Om du är intresse rad av att jobba nära dina migrerings scenarier med teknik teamet som utvecklar dessa erbjudanden väljer du knappen [kontakta mig](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) _ på [sidan för Marketplace erbjudande översikt](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program chefer, arkitekter och tekniker kommer att kontakta dig inom kort och börja nära samarbete. Möjligheten att samar beta med ett migreringsjobb är kostnads fri medan erbjudandena är aktiva under utveckling.
 
 ## <a name="oracle-weblogic-server-single-node"></a>Enskild nod för Oracle WebLogic-Server
 
-Det här erbjudandet tillhandahåller en enskild virtuell dator och installerar WLS på den. Den skapar inte en domän eller startar administrations servern. En nod är användbar för scenarier med mycket anpassad domän konfiguration.
+Det här erbjudandet tillhandahåller en enskild virtuell dator och installerar WLS på den. Den skapar inte en domän eller startar administrations servern. Det enda nod-erbjudandet är användbart för scenarier med mycket anpassad domän konfiguration.
 
 ## <a name="oracle-weblogic-server-with-admin-server"></a>Oracle WebLogic-Server med administratörs Server
 
-Det här erbjudandet tillhandahåller en enskild virtuell dator och installerar WLS på den. Den skapar en domän och startar administrations servern, vilket gör att du kan hantera domänen.
+Det här erbjudandet tillhandahåller en enskild virtuell dator och installerar WLS på den. Den skapar en domän och startar administrations servern. Du kan hantera domänen och komma igång med program distributioner direkt.
 
 ## <a name="oracle-weblogic-server-cluster"></a>Oracle WebLogic Server-kluster
 
-Det här erbjudandet skapar ett kluster med hög tillgänglighet för virtuella WLS-datorer. Administrations servern och alla hanterade servrar startas som standard, vilket gör att du kan hantera domänen.
+Det här erbjudandet skapar ett kluster med hög tillgänglighet för virtuella WLS-datorer. Administrations servern och alla hanterade servrar startas som standard. Du kan hantera klustret och komma igång med program med hög tillgänglighet direkt.
 
 ## <a name="oracle-weblogic-server-dynamic-cluster"></a>Dynamiskt kluster för Oracle WebLogic Server
 
-Det här erbjudandet skapar ett hög tillgängligt och skalbart dynamiskt kluster av WLS Virtual Machines. Administrations servern och alla hanterade servrar startas som standard, vilket gör att du kan hantera domänen.
+Det här erbjudandet skapar ett hög tillgängligt och skalbart dynamiskt kluster av WLS Virtual Machines. Administrations servern och alla hanterade servrar startas som standard.
+
+Lösningarna gör det möjligt att använda en rad olika produktions klara distributions arkitekturer med relativt enkelt. Du kan möta majoriteten av migreringsprocessen på det mest produktiva sättet genom att göra det möjligt att fokusera på affärs program utveckling.
+
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Komplexa WebLogic-Server distributioner är aktiverade på Azure":::
+
+Utöver vad som automatiskt tillhandahålls av lösningarna har kunderna fullständig flexibilitet att anpassa sina distributioner ytterligare. Det är sannolikt ovanpå att distribuera program kunder att integrera ytterligare Azure-resurser med sina distributioner. Kunderna uppmanas att ge feedback om ytterligare förbättringar av lösningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska erbjudandena i Azure Marketplace.
+Utforska erbjudandena på Azure.
 
 > [!div class="nextstepaction"]
 > [Enskild nod för Oracle WebLogic-Server](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls)

@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516404"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084438"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Snabb start: övervaka en virtuell Azure-dator med Azure Monitor
 [Azure Monitor](../overview.md) börjar samla in data från virtuella Azure-datorer så snart de har skapats. I den här snabb starten tar du en kort genom gång av de data som samlas in automatiskt för en virtuell Azure-dator och hur du visar den i Azure Portal. Sedan aktiverar du [Azure Monitor for VMS](../insights/vminsights-overview.md) för din virtuella dator som gör det möjligt för agenter på den virtuella datorn att samla in och analysera data från gäst operativ systemet, inklusive processer och deras beroenden.
@@ -85,15 +85,15 @@ När du skapar en ny Log Analytics arbets yta måste den konfigureras för att s
 
 7. Klicka på den virtuella datorn och välj sedan fliken **prestanda** under **övervaknings** menyn **insikter** . Visar en Välj grupp med prestanda räknare som har samlats in från gäst operativ systemet på den virtuella datorn. Rulla nedåt för att visa fler räknare och flytta musen över ett diagram för att Visa medelvärde och percentiler vid olika tidpunkter.
 
-    ![Prestanda](media/quick-monitor-azure-vm/performance.png)
+    ![Skärm bild som visar fönstret prestanda.](media/quick-monitor-azure-vm/performance.png)
 
 9. Välj **Map** för att öppna funktionen Maps som visar de processer som körs på den virtuella datorn och deras beroenden. Välj **Egenskaper** för att öppna egenskaps rutan om den inte redan är öppen.
 
-    ![Karta](media/quick-monitor-azure-vm/map.png)
+    ![Skärm bild som visar fönstret karta.](media/quick-monitor-azure-vm/map.png)
 
 11. Expandera processerna för den virtuella datorn. Välj en av processerna för att visa dess information och för att markera dess beroenden.
 
-    ![Processer](media/quick-monitor-azure-vm/processes.png)
+    ![Skärm bild som visar fönstret karta med processer för en virtuell dator expanderad.](media/quick-monitor-azure-vm/processes.png)
 
 12. Välj den virtuella datorn igen och välj sedan **logg händelser**. 
 

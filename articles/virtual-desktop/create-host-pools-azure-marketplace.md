@@ -3,15 +3,15 @@ title: Windows-pool för virtuella skriv bord Azure Portal – Azure
 description: Så här skapar du en Windows-pool för virtuella skriv bord med hjälp av Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322593"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084370"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -22,7 +22,7 @@ Lagringspooler är en samling av en eller flera identiska virtuella datorer (VM)
 
 Den här artikeln vägleder dig genom installations processen för att skapa en adresspool för en Windows Virtual Desktop-miljö via Azure Portal. Den här metoden ger ett webbläsarbaserat användar gränssnitt för att skapa en adresspool i Windows Virtual Desktop, skapa en resurs grupp med virtuella datorer i en Azure-prenumeration, ansluta de virtuella datorerna till den Azure Active Directory AD-domänen och registrera de virtuella datorerna med Windows Virtual Desktop.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ange följande parametrar för att skapa en värdbaserad pool:
 
@@ -188,6 +188,13 @@ Registrera Skriv bords gruppen på en arbets yta:
      - En nedladdnings länk för en Azure-resurs hanterings mall baserat på din konfiguration.
 
 Därefter är du klar!
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Kör Azure Resource Manager-mallen för att etablera en ny värdbaserad pool
+
+Om du hellre vill använda en automatiserad process [laddar du ned vår Azure Resource Manager-mall](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) för att etablera den nya poolen i stället.
+
+>[!NOTE]
+>Om du använder en automatiserad process för att bygga din miljö behöver du den senaste versionen av konfigurations-JSON-filen. Du kan hitta JSON-filen [här](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
 
 ## <a name="next-steps"></a>Nästa steg
 

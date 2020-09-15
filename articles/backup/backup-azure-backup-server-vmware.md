@@ -3,16 +3,16 @@ title: Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 description: I den här artikeln lär du dig hur du använder Azure Backup Server för att säkerhetskopiera virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017574"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069840"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
-Den här artikeln beskriver hur du säkerhetskopierar virtuella VMware-datorer som körs på VMware ESXi värdar/vCenter Server till Azure med Azure Backup Server.
+Den här artikeln beskriver hur du säkerhetskopierar virtuella VMware-datorer som körs på VMware ESXi värdar/vCenter Server till Azure med Azure Backup Server (MABS).
 
 Den här artikeln förklarar hur du:
 
@@ -21,6 +21,31 @@ Den här artikeln förklarar hur du:
 - Lägg till kontoautentiseringsuppgifter till Azure Backup.
 - Lägg till vCenter-eller ESXi-servern i Azure Backup Server.
 - Konfigurera en skydds grupp som innehåller de virtuella VMware-datorer som du vill säkerhetskopiera, ange inställningar för säkerhets kopiering och Schemalägg säkerhets kopieringen.
+
+## <a name="supported-vmware-features"></a>VMware-funktioner som stöds
+
+MABS tillhandahåller följande funktioner när du säkerhetskopierar virtuella VMware-datorer:
+
+- Återställning utan agent: MABS kräver inte att en agent installeras på vCenter-eller ESXi-servern för att säkerhetskopiera den virtuella datorn. Ange i stället IP-adressen eller det fullständigt kvalificerade domän namnet (FQDN) och inloggnings uppgifter som används för att autentisera VMware-servern med MABS.
+- Inbyggd molnbaserad säkerhets kopiering: MABS skyddar arbets belastningar till disk och moln. MABS för arbets flöde för säkerhets kopiering och återställning hjälper dig att hantera långsiktig kvarhållning och säkerhets kopiering på annan plats.
+- Identifiera och skydda virtuella datorer som hanteras av vCenter: MABS identifierar och skyddar virtuella datorer som distribueras på en VMware-Server (vCenter eller ESXi-Server). När distributions storleken växer använder du vCenter för att hantera VMware-miljön. MABS identifierar även virtuella datorer som hanteras av vCenter, så att du kan skydda stora distributioner.
+- Automatiskt skydd på mappnivå: vCenter gör det möjligt att organisera dina virtuella datorer i VM-mappar. MABS identifierar dessa mappar och låter dig skydda virtuella datorer på mappnivå och inkluderar alla undermappar. När du skyddar mappar skyddar MABS inte bara de virtuella datorerna i mappen, utan också skyddar de virtuella datorerna senare. MABS identifierar nya virtuella datorer dagligen och skyddar dem automatiskt. När du organiserar dina virtuella datorer i rekursiva mappar identifierar och skyddar MABS automatiskt de nya virtuella datorerna som distribueras i de rekursiva mapparna.
+- MABS skyddar virtuella datorer som lagras på en lokal disk, NFS (Network File System) eller kluster lagring.
+- MABS skyddar virtuella datorer som migrerats för belastnings utjämning: när virtuella datorer migreras för belastnings utjämning identifierar och fortsätter MABS automatiskt och fortsätter VM-skyddet.
+- MABS kan återställa filer/mappar från en virtuell Windows-dator utan att återställa hela den virtuella datorn, vilket gör det snabbare att återställa nödvändiga filer.
+
+## <a name="prerequisites-and-limitations"></a>Krav och begränsningar
+
+Innan du börjar säkerhetskopiera en virtuell VMware-dator bör du gå igenom följande lista över begränsningar och krav.
+
+- Om du har använt MABS för att skydda en vCenter-Server (som körs på Windows) som en Windows-Server med hjälp av serverns FQDN, kan du inte skydda vCenter-servern som en VMware-Server med hjälp av serverns FQDN.
+  - Du kan använda den statiska IP-adressen för vCenter Server som en lösning.
+  - Om du vill använda FQDN måste du stoppa skyddet som en Windows-Server, ta bort skydds agenten och sedan lägga till som en VMware-Server med FQDN.
+- Om du använder vCenter för att hantera ESXi-servrar i din miljö lägger du till vCenter (och inte ESXi) till skydds gruppen MABS.
+- Du kan inte säkerhetskopiera ögonblicks bilder av användaren före den första säkerhets kopieringen av MABS. När MABS har slutfört den första säkerhets kopieringen kan du säkerhetskopiera användar ögonblicks bilder.
+- MABS kan inte skydda virtuella VMware-datorer med direkt lagrings diskar och fysiska mappningar av RAW-enheter (pRDM).
+- MABS kan inte identifiera eller skydda VMware-vApps.
+- MABS kan inte skydda virtuella VMware-datorer med befintliga ögonblicks bilder.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -392,7 +417,7 @@ Du kan ändra antalet jobb genom att använda register nyckeln enligt nedan (vis
 
 Om du vill säkerhetskopiera vSphere 6,7 gör du följande:
 
-- Aktivera TLS 1,2 på DPM-servern
+- Aktivera TLS 1,2 på MABS-servern
 
 >[!NOTE]
 >VMWare 6,7 och tidigare hade TLS aktiverat som kommunikations protokoll.

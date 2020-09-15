@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 2092b03ee95349286b9e845689b5d9d55b61c772
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514364"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060738"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -101,7 +101,7 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 **URL** | **Information**  
 --- | --- |
 *.portal.azure.com  | Gå till Azure-portalen.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com | Logga in på din Azure-prenumeration.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com <br/> *. office.com | Logga in på din Azure-prenumeration.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Azure Active Directory (AD) appar för att kunna kommunicera med Azure Migrate.
 management.azure.com | Skapa Azure AD-appar för att kunna kommunicera med tjänsten Azure Migrate.
 *.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.

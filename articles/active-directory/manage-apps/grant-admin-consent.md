@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667600"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060925"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja administratörsmedgivande för hela klientorganisationen till ett program
 
@@ -25,7 +25,7 @@ Lär dig hur du fören klar användar upplevelsen genom att bevilja en klients a
 
 Mer information om samtycker till program finns i [Azure Active Directory medgivande Framework](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att bevilja administratörs tillåtelse för hela klienten måste du logga in som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), en [program administratör](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)eller en [moln program administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
 
@@ -88,7 +88,7 @@ där:
 Som alltid bör du noga granska de behörigheter som ett program begär innan medgivande beviljas.
 
 > [!WARNING]
-> Om du beviljar administratörs medgivande via den här URL: en så återkallar du alla behörigheter som tidigare har beviljats för hela klienten. Behörigheter som tidigare har ggranted av användare i ett eget ställe kommer inte att påverkas. 
+> Om du beviljar administratörs medgivande via den här URL: en så återkallar du alla behörigheter som tidigare har beviljats för hela klienten. Behörigheter som tidigare har beviljats av användare i ett eget ställe påverkas inte. 
 
 ## <a name="next-steps"></a>Nästa steg
 

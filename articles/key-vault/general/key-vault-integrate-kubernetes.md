@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.openlocfilehash: c3813210808138f02f664a5445ef6faefc9591dc
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031967"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061809"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault-providern för hemligheter Store CSI-drivrutinen på Kubernetes
 
@@ -70,7 +70,7 @@ Slutför avsnitten "skapa en resurs grupp," skapa AKS-kluster "och" Anslut till 
     ```azurecli
     kubectl version
     ```
-1. Se till att din Kubernetes-version är 1.16.0 eller senare. Följande kommando uppgraderar både Kubernetes-klustret och Node-poolen. Det kan ta några minuter att köra kommandot. I det här exemplet är resurs gruppen *contosoResourceGroup*och Kubernetes-klustret är *contosoAKSCluster*.
+1. Se till att din Kubernetes-version är 1.16.0 eller senare. För Windows-kluster ser du till att din Kubernetes-version är 1.18.0 eller senare. Följande kommando uppgraderar både Kubernetes-klustret och Node-poolen. Det kan ta några minuter att köra kommandot. I det här exemplet är resurs gruppen *contosoResourceGroup*och Kubernetes-klustret är *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -110,18 +110,20 @@ Om du vill skapa ett eget nyckel valv och ange dina hemligheter följer du anvis
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Skapa ett eget SecretProviderClass-objekt
 
-[Använd den här mallen](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml)om du vill skapa ett eget anpassat SecretProviderClass-objekt med providerspecifika parametrar för hemligheter Store CSI-drivrutinen. Det här objektet ger identitets åtkomst till ditt nyckel valv.
+[Använd den här mallen](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml)om du vill skapa ett eget anpassat SecretProviderClass-objekt med providerspecifika parametrar för hemligheter Store CSI-drivrutinen. Det här objektet ger identitets åtkomst till ditt nyckel valv.
 
 Fyll i de saknade parametrarna i filen sample SecretProviderClass YAML. Följande parametrar måste anges:
 
-* **userAssignedIdentityID**: klient-ID för tjänstens huvud namn
+* **userAssignedIdentityID**: # [required] om du använder ett huvud namn för tjänsten använder du klient-ID för att ange vilken användardefinierad hanterad identitet som ska användas. Om du använder en användardefinierad identitet som den virtuella datorns hanterade identitet anger du identitetens klient-ID. Om värdet är tomt används den systemtilldelade identiteten för den virtuella datorn 
 * **keyvaultName**: namnet på ditt nyckel valv
 * **objekt**: behållaren för allt hemligt innehåll som du vill montera
     * **objectName**: namnet på det hemliga innehållet
     * **objectType**: objekt typ (hemlighet, nyckel, certifikat)
-* **resourceGroup**: namnet på resurs gruppen
-* **subscriptionId**: PRENUMERATIONS-ID för ditt nyckel valv
+* **resourceGroup**: namnet på resurs gruppen # [krävs för version < 0.0.4] resurs gruppen för nyckel valvet
+* **subscriptionId**: PRENUMERATIONS-ID för nyckel valvet # [krävs för version < 0.0.4] PRENUMERATIONS-ID för nyckel valvet
 * **tenantID**: klient-ID eller katalog-ID för nyckel valvet
+
+Dokumentation av alla obligatoriska fält finns här: [länk](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Den uppdaterade mallen visas i följande kod. Ladda ned den som en YAML-fil och fyll i de obligatoriska fälten. I det här exemplet är nyckel valvet **contosoKeyVault5**. Det har två hemligheter, **secret1** och **secret2**.
 
@@ -210,6 +212,11 @@ Om du använder hanterade identiteter tilldelar du vissa roller till det AKS-klu
 1. Om du vill skapa, Visa eller läsa en användardefinierad hanterad identitet måste ditt AKS-kluster tilldelas rollen [hanterad identitets operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Kontrol lera att **$clientId** är Kubernetes-klustrets clientId. För omfånget kommer den att vara under din Azure-prenumerations tjänst, särskilt den resurs grupp för noden som gjordes när AKS-klustret skapades. Det här omfånget garanterar att endast resurser inom gruppen påverkas av rollerna som tilldelas nedan. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP

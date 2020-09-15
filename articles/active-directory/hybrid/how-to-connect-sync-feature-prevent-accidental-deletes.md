@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357366"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084617"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar
 I det här avsnittet beskrivs funktionen förhindra oavsiktliga borttagningar (förhindra oavsiktliga borttagningar) i Azure AD Connect.
@@ -65,7 +65,7 @@ Om alla borttagningar önskas gör du följande:
 
 1. Kör PowerShell-cmdleten för att hämta det aktuella tröskelvärdet för borttagning `Get-ADSyncExportDeletionThreshold` . Ange ett globalt administratörs konto och lösen ord för Azure AD. Standardvärdet är 500.
 2. Om du vill inaktivera det här skyddet tillfälligt kan du köra PowerShell-cmdleten genom att köra PowerShell-cmdleten: `Disable-ADSyncExportDeletionThreshold` . Ange ett globalt administratörs konto och lösen ord för Azure AD.
-   ![Autentiseringsuppgifter](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+   ![Skärm bild som visar en dialog ruta för att ange användar namn och lösen ord för global administratör i Azure AD.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. När Azure Active Directory anslutningen fortfarande är markerad väljer du åtgärden **Kör** och väljer **Exportera**.
 4. Kör PowerShell-cmdleten för att återaktivera skyddet: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500` . Ersätt 500 med det värde som du noterade när du hämtade det aktuella tröskelvärdet för borttagning. Ange ett globalt administratörs konto och lösen ord för Azure AD.
 

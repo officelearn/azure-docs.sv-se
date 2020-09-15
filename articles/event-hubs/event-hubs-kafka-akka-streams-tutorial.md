@@ -3,15 +3,16 @@ title: Använda Akka strömmar för Apache Kafka-Azure Event Hubs | Microsoft Do
 description: Den här artikeln innehåller information om hur du ansluter Akka-strömmar till en Azure Event Hub.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbbeef37c4cbdd52d2127c5242474ac46e42d25
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320215"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061707"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Använda Akka Streams med Event Hubs för Apache Kafka
-I den här självstudien får du se hur du ansluter Akka-strömmar till en Event Hub utan att ändra protokoll klienter eller köra egna kluster. Azure Event Hubs för Kafka har stöd för [Apache Kafka version 1,0.](https://kafka.apache.org/10/documentation.html)
+
+Den här självstudien visar hur du ansluter Akka-strömmar via Event Hubs stöd för Apache Kafka utan att ändra protokoll klienter eller köra egna kluster. 
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -23,7 +24,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/akka/java)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har följande krav för att slutföra den här självstudien:
 

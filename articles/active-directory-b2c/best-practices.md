@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254499"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084319"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Rekommendationer och metod tips för Azure Active Directory B2C
 
@@ -56,7 +56,6 @@ Beakta följande rekommendationer under implementerings fasen.
 | Lär dig hur du felsöker Azure AD B2C | Lär dig hur du [felsöker anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) under utveckling. Lär dig hur ett normalt autentiseringsschema ser ut och använder verktyg för att identifiera avvikelser och fel. Använd till exempel [Application Insights](troubleshoot-with-application-insights.md) för att granska utgående loggar för användar resor. |
 | Utnyttja vårt bibliotek med beprövade anpassade princip mönster | Hitta [exempel](https://github.com/azure-ad-b2c/samples) för flera utökade Azure AD B2C användar resor för kund identitets-och åtkomst hantering (CIAM). |
 
-
 ## <a name="testing"></a>Testning
 
 Testa och automatisera implementeringen av Azure AD B2C.
@@ -79,11 +78,10 @@ Hantera din Azure AD B2Cs miljö.
 |--|--|
 | Skapa flera miljöer | För enklare drift och distribution kan du skapa separata miljöer för utveckling, testning, för produktion och produktion. Skapa Azure AD B2C klienter för var och en. |
 | Använd versions kontroll för dina anpassade principer | Överväg att använda GitHub, Azure databaser eller något annat molnbaserad versions kontroll system för dina Azure AD B2C anpassade principer. |
-| Använd Microsoft Graph API för att automatisera hanteringen av dina B2C-klienter | Microsoft Graph-API: er:<br/>Hantera [identitets miljö ramverk](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (anpassade principer)<br/>[Nycklar](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Användarflöden](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Använd Microsoft Graph API för att automatisera hanteringen av dina B2C-klienter | Microsoft Graph-API: er:<br/>Hantera [identitets miljö ramverk](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (anpassade principer)<br/>[Nycklar](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Användarflöden](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integrera med Azure DevOps | En [CI/CD-pipeline](deploy-custom-policies-devops.md) gör det enkelt att flytta kod mellan olika miljöer och garanterar produktions beredskap hela tiden.   |
 | Integrera med Azure Monitor | [Gransknings logg händelser](view-audit-logs.md) behålls endast i sju dagar. [Integrera med Azure Monitor](azure-monitor.md) för att spara loggar för långsiktig användning eller integrera med SIEM-verktyg från tredje part för att få insikter om din miljö. |
 | Konfigurera aktiv avisering och övervakning | [Spåra användar beteende](active-directory-b2c-custom-guide-eventlogger-appins.md) i Azure AD B2C att använda Application Insights. |
-
 
 ## <a name="support-and-status-updates"></a>Support-och status uppdateringar
 

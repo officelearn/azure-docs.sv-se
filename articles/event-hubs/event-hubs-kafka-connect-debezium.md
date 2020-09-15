@@ -1,16 +1,16 @@
 ---
 title: Integrera Apache Kafka ansluta på Azure Event Hubs (för hands version) med Debezium för registrering av ändrings data
-description: Den här artikeln innehåller information om hur du använder Apache Spark med Azure Event Hubs för Kafka.
+description: Den här artikeln innehåller information om hur du använder Debezium med Azure Event Hubs för Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a11ec882a50d051a34758562ac84dcef5b799f5f
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88137014"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061690"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrera Apache Kafka Connect-support på Azure Event Hubs (för hands version) med Debezium för registrering av ändrings data
 
@@ -51,7 +51,7 @@ I det här avsnittet behandlas följande ämnen:
 ### <a name="download-and-setup-debezium-connector"></a>Hämta och konfigurera Debezium Connector
 Följ de senaste anvisningarna i Debezium- [dokumentationen](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-deploying-a-connector) för att ladda ned och konfigurera anslutningen.
 
-- Hämta kopplingens plugin-arkiv. Om du till exempel vill hämta versionen `1.2.0` av anslutningen använder du den här länken-https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
+- Hämta kopplingens plugin-arkiv. Om du till exempel vill hämta versionen `1.2.0` av anslutningen använder du den här länken- https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
 - Extrahera JAR-filerna och kopiera dem till [Kafka Connect-plugin. Path](https://kafka.apache.org/documentation/#connectconfigs).
 
 
@@ -133,7 +133,7 @@ Skapa en konfigurations fil ( `pg-source-connector.json` ) för postgresql sourc
 ```
 
 > [!TIP]
-> `database.server.name`Attribute är ett logiskt namn som identifierar och tillhandahåller ett namn område för den specifika PostgreSQL-databas server/det kluster som ska övervakas. Detaljerad information finns i [Debezium-dokumentationen](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name)
+> `database.server.name` Attribute är ett logiskt namn som identifierar och tillhandahåller ett namn område för den specifika PostgreSQL-databas server/det kluster som ska övervakas. Detaljerad information finns i [Debezium-dokumentationen](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name)
 
 Om du vill skapa en instans av anslutningen använder du Kafka Connect REST API-slut punkten:
 

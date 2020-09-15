@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 704cb43a31ff1dfcaf287f9af467f7d6e7d6c50d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e79135ccf672fa057d9e88fc91fa72b7826ba71e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282814"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085203"
 ---
 # <a name="add-a-simple-data-layer"></a>Lägga till ett enkelt datalager
 
@@ -57,7 +57,7 @@ Följande kod återger ovanstående punkt funktion med hjälp av det enkla data 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Använd det enkla data lagret" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Se pennan <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Använd det enkla data lagret genom att</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Använd det enkla data lagret" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Se pennan <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Använd det enkla data lagret genom att</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Den verkliga kraften i det enkla data lagret kommer när:
@@ -70,7 +70,7 @@ Om du till exempel tolkar XML-datafeeds kanske du inte känner till de exakta fo
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Alternativ för enkla data lager" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Se alternativen för <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>enkel data lager</a> för pennor genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Alternativ för enkla data lager" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Se alternativen för <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>enkel data lager</a> för pennor genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -102,7 +102,7 @@ Om en funktion är en `Point` eller en `MultiPoint` , och funktionen inte har en
 | `radius` | `size`<sup>1</sup>, `marker-size` <sup>2</sup>, `scale` <sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-\[1 \] `size` värdena och `scale` betraktas som skalära värden, och de multipliceras med`8`
+\[1 \] `size` värdena och `scale` betraktas som skalära värden, och de multipliceras med `8`
 
 \[2 \] om alternativet GitHub `marker-size` anges används följande värden för RADIUS.
 
@@ -114,11 +114,11 @@ Om en funktion är en `Point` eller en `MultiPoint` , och funktionen inte har en
 
 Kluster återges också med hjälp av Bubble-skiktet. Som standard är radien för ett kluster inställt på `16` . Klustrets färg varierar beroende på antalet punkter i klustret, enligt vad som anges nedan:
 
-| antal punkter | Färg    |
+| antal punkter | Color (Färg)    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |
-| &lt;10     | `green`  |
+| &lt; 10     | `green`  |
 
 ### <a name="symbol-style-properties"></a>Egenskaper för symbol stil
 

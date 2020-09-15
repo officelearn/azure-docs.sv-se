@@ -1,20 +1,20 @@
 ---
 title: Nätverks säkerhets grupper med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du använder nätverks säkerhets grupper med Azure Site Recovery för haveri beredskap och migrering
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: eb5ba99133f5726c44164b0ba45b7ab5d94e292f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80292365"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069687"
 ---
-# <a name="network-security-groups-with-azure-site-recovery"></a>Nätverks säkerhets grupper med Azure Site Recovery
+# <a name="network-security-groups-with-azure-site-recovery"></a>Nätverkssäkerhetsgrupper med Azure Site Recovery
 
 Nätverks säkerhets grupper används för att begränsa nätverks trafiken till resurser i ett virtuellt nätverk. En [nätverks säkerhets grupp (NSG)](../virtual-network/security-overview.md#network-security-groups) innehåller en lista över säkerhets regler som tillåter eller nekar inkommande eller utgående nätverks trafik baserat på källans eller MÅLETs IP-adress, port och protokoll.
 

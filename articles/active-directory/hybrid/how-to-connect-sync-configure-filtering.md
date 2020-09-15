@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662549"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084846"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Microsoft 365 arbets belastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
@@ -217,7 +217,7 @@ Inkommande filtrering använder standard konfigurationen, där objekt som ska ti
 I inkommande filtrering använder du **omfattnings** kraften för att avgöra vilka objekt som ska synkroniseras eller inte. Det är här du gör justeringar för att anpassa din organisations krav. Omfångs modulen har en **grupp** och en **sats** för att fastställa när en Synkroniseringsregel är i omfånget. En grupp innehåller en eller flera satser. Det finns ett logiskt "och" mellan flera satser och ett logiskt "eller" mellan flera grupper.
 
 Låt oss titta på ett exempel:  
-![En skärm bild som visar ett exempel på att lägga till definitions områdes filter](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![En skärm bild som visar ett exempel på att lägga till definitions områdes filter.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Detta bör läsas som **(avdelning = IT) eller (avdelning = Sales och c = US)**.
 
 I följande exempel och steg använder du användarobjektet som exempel, men du kan använda detta för alla objekt typer.
@@ -275,7 +275,7 @@ I det här exemplet ska du ändra filtreringen så att endast användare som har
 1. Logga in på servern som kör Azure AD Connect Sync genom att använda ett konto som är medlem i säkerhets gruppen **ADSyncAdmins** .
 2. Starta **Redigeraren för regler för synkronisering** från **Start** -menyn.
 3. Klicka på **utgående**under **typ av regel**.
-4. Beroende på vilken version av Connect du använder kan du antingen hitta regeln med namnet **AAD – User Join** eller **out to AAD-User Join SOAInAD**och klicka på **Edit**.
+4. Beroende på vilken version av Connect du använder kan du antingen hitta regeln med namnet **till Azure AD – användare anslutning** eller **ut till Azure AD-User Join-SOAInAD**och klicka på **Redigera**.
 5. I popup-fönstret svarar du **Ja** för att skapa en kopia av regeln.
 6. På sidan **Beskrivning** ändrar du **prioriteten** till ett oanvänt värde, till exempel 50.
 7. Klicka på **omfångs filter** i det vänstra navigerings fältet och klicka sedan på **Lägg till sats**. I **attribut**väljer du **e-post**. I **operator**väljer du **ENDSWITH**. I **värde**skriver du ** \@ contoso.com**och klickar sedan på **Lägg till sats**. I **attribut**väljer du **userPrincipalName**. I **operator**väljer du **ENDSWITH**. I **värde**skriver du ** \@ contoso.com**.
@@ -300,7 +300,7 @@ Efter synkroniseringen mellanlagras alla ändringar för att exporteras. Innan d
 
 1. Starta en kommando tolk och gå till `%ProgramFiles%\Microsoft Azure AD Sync\bin` .
 2. Kör `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   Namnet på anslutnings tjänsten finns i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – AAD" för Azure AD.
+   Namnet på anslutnings tjänsten finns i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – Azure AD" för Azure AD.
 3. Kör `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Nu har du en fil i% temp% med namnet export.csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
 5. Gör nödvändiga ändringar i data eller konfiguration och kör de här stegen igen (importera, synkronisera och verifiera) tills de ändringar som ska exporteras är det du förväntar dig.

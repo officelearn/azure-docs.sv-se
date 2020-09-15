@@ -3,15 +3,15 @@ title: Skapa Windows-miljö för virtuella Skriv bords miljö – Azure
 description: Så här felsöker och löser du problem med klient-och värd pooler under installationen av en Windows Virtual Desktop-miljö.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121382"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084421"
 ---
 # <a name="host-pool-creation"></a>Skapa värdpool
 
@@ -46,6 +46,12 @@ Om din åtgärd går över kvot gränsen kan du göra något av följande:
 - Skapa en ny värdbaserad pool med samma parametrar men färre virtuella datorer och virtuella dator kärnor.
 
 - Öppna länken som visas i fältet statusMessage i en webbläsare för att skicka en begäran om att öka kvoten för din Azure-prenumeration för den angivna VM-SKU: n.
+
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>Fel: det går inte att se användar tilldelningar i app-grupper.
+
+Orsak: det här felet uppstår vanligt vis när du har flyttat prenumerationen från 1 Azure Active Directory (AD) klient till en annan. Om dina gamla tilldelningar fortfarande är knutna till den gamla Azure AD-klienten kommer Azure Portal att förlora dem.
+
+KORRIGERA: du måste tilldela om användare till app-grupper.
 
 ## <a name="azure-resource-manager-template-errors"></a>Azure Resource Manager mal linne fel
 
@@ -88,7 +94,7 @@ Exempel på RAW-fel:
 3. Menyn DNS-servrar bör visas på höger sida av skärmen. På menyn väljer du **anpassad**.
 4. Kontrol lera att de DNS-servrar som anges under anpassad matchning av domänkontrollanten eller Active Directorys domänen. Om du inte ser din DNS-server kan du lägga till den genom att ange dess värde i fältet **Lägg till DNS-Server** .
 
-### <a name="error-your-deployment-failedunauthorized"></a>Fel: distributionen misslyckades. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Fel: Distributionen misslyckades …\Unauthorized
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -109,7 +115,7 @@ Exempel på RAW-fel:
 
 **KORRIGERA:** Bekräfta att Windows Virtual Desktop-miljön är felfri genom att logga in med PowerShell. Slutför VM-registreringen manuellt i [skapa en adresspool med PowerShell](create-host-pools-powershell.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: det angivna administratörs användar namnet är inte tillåtet
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: Det angivna administratörsanvändarnamnet är inte tillåtet
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av distributionen misslyckades i vilken en angiven administratör inte tillåts.](media/failure-username.png)
@@ -127,7 +133,7 @@ Exempel på RAW-fel:
 
 **KORRIGERA:** Uppdatera användar namn eller Använd olika användare.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: den virtuella datorn har rapporterat ett fel vid bearbetning av tillägget
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: Den virtuella datorn rapporterade ett fel vid bearbetningen av tillägget
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av resurs åtgärden slutfördes med etablerings statusen för terminalen i distributionen misslyckades.](media/failure-processing.png)

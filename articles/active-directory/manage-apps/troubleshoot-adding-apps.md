@@ -1,6 +1,6 @@
 ---
-title: Felsök vanliga problem med att lägga till ett program i Azure Active Directory
-description: Felsök vanliga problem med folkets ansikte när de lägger till en app i Azure Active Directory.
+title: Felsök vanliga problem med att lägga till eller ta bort ett program i Azure Active Directory
+description: Felsök vanliga problem personers ansikte när de lägger till eller tar bort en app till Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 1502c97e625d3af128772451be8db4dd6187e3a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410451"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068038"
 ---
-# <a name="troubleshoot-common-problem-adding-an-application-to-azure-active-directory"></a>Felsök vanliga problem med att lägga till ett program i Azure Active Directory
-Den här artikeln hjälper dig att förstå vanliga problem med folkets ansikte när de lägger till en app i Azure Active Directory.
+# <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Felsök vanliga problem med att lägga till eller ta bort ett program i Azure Active Directory
+Den här artikeln hjälper dig att förstå vanliga problem när man lägger till eller tar bort en app för att Azure Active Directory.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Jag klickade på knappen Lägg till och det tog lång tid att visa programmet
 Under vissa omständigheter kan det ta 1-2 minuter (och ibland längre) för ett program att visas när du har lagt till det i din katalog. Även om det här inte är den normala förväntade prestandan kan du se att programtillägget pågår genom att klicka på **meddelande** ikonen (klock tiden) längst upp till höger i [Azure Portal](https://portal.azure.com/) och leta efter en **pågående** eller **slutförd** avisering med etiketten **att lägga till programmet.**
@@ -34,6 +34,16 @@ Om du stöter på ett fel när du klickar på knappen **Lägg till** visas ett *
 Om du behöver hjälp med att lära dig om program är [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikel ett bra ställe att börja.
 
 Förutom detta kan [Azure AD-programbiblioteket för program](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) hjälpa dig att lära dig mer om enkel inloggning med Azure AD och hur det fungerar.
+
+## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Jag vill ta bort ett program, men knappen Ta bort är inaktive rad
+
+Knappen Ta bort kommer att inaktive ras i följande scenarier:
+
+- För program under företags program, om du inte har någon av följande roller: global administratör, moln program administratör, program administratör eller ägare till tjänstens huvud namn.
+
+- För Microsoft-program kan du inte ta bort dem från användar gränssnittet oavsett vilken roll du har.
+
+- För service princip ALS som motsvarar en hanterad identitet. Tjänstens huvud namn för hanterade identiteter kan inte tas bort i bladet företags appar. Du måste gå till Azure-resursen för att hantera den. Radera mer om [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Så här visar du information om ett Portal meddelande
 Du kan se information om alla Portal meddelanden genom att följa stegen nedan:

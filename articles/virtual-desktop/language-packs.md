@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de495d18220500e5aa5653e89776c2634d5b1c85
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719161"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084217"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Lägga till språk paket i en Windows 10-avbildning för flera sessioner
 
@@ -30,7 +30,7 @@ Du behöver följande för att anpassa dina Windows 10 Enterprise multi-session-
 
 - En virtuell Azure-dator (VM) med Windows 10 Enterprise multi-session, version 1903 eller senare
 
-- Språket ISO och funktions på begäran (franska) disk 1 av den OS-version som avbildningen använder. Du kan hämta dem här:
+- Språket ISO, Feature på demand (franska) disk 1 och Inbox-appar ISO av den OS-version som avbildningen använder. Du kan hämta dem här:
      
      - Språk-ISO:
         - [Windows 10, version 1903 eller 1909 språk paket ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
@@ -39,6 +39,10 @@ Du behöver följande för att anpassa dina Windows 10 Enterprise multi-session-
      - Franska departements disk 1 ISO:
         - [Windows 10, version 1903 eller 1909 franska departements disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         - [Windows 10, version 2004 FRANSKAs disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        
+     - Inkorg-appar ISO:
+        - [Inbox-appar för Windows 10, version 1903 eller 1909 i ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
+        - [Windows 10, version 2004 Inbox-appar ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
 
 - En Azure Files resurs eller en fil resurs på en virtuell Windows-fil Server
 
@@ -47,15 +51,16 @@ Du behöver följande för att anpassa dina Windows 10 Enterprise multi-session-
 
 ## <a name="create-a-content-repository-for-language-packages-and-features-on-demand"></a>Skapa en innehålls lagrings plats för språk paket och funktioner på begäran
 
-Så här skapar du innehålls lagrings platsen för språk paket och FODs:
+Så här skapar du innehålls lagrings platsen för språk paket och FODs och en lagrings plats för paket för Inkorgen appar:
 
-1. På en virtuell Azure-dator laddar du ned Windows 10 multi-language ISO och FODs för Windows 10 Enterprise multi-session, version 1903, 1909 och 2004-avbildningar från länkarna i [krav](#prerequisites).
+1. På en virtuell Azure-dator laddar du ned Windows 10-appar för flera språk i ISO, FODs och Inkorgen för Windows 10 Enterprise multi-session, version 1903/1909 och 2004-avbildningar från länkarna i [krav](#prerequisites).
 
 2. Öppna och montera ISO-filerna på den virtuella datorn.
 
 3. Gå till språk paketet ISO och kopiera innehållet från mappen **LocalExperiencePacks** och **x64 \\ Langpacks** och klistra in innehållet i fil resursen.
 
 4. Gå till **ISO-filen med franska**, kopiera allt innehåll och klistra in den i fil resursen.
+5. Gå till mappen **amd64fre** i Inkorgen appar i ISO och kopiera innehållet i lagrings platsen för de Inbox-appar som du har för berett.
 
      >[!NOTE]
      > Om du arbetar med begränsad lagring kan du bara kopiera filerna för de språk som du känner till användarna behöver. Du kan se vilka filer som skiljer sig genom att titta på språk koderna i deras fil namn. Till exempel har den franska filen koden "fr-FR" i sitt namn. En fullständig lista över språk koder för alla tillgängliga språk finns i [tillgängliga språk paket för Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
@@ -66,7 +71,7 @@ Så här skapar du innehålls lagrings platsen för språk paket och FODs:
      > [!div class="mx-imgBorder"]
      > ![Ett exempel på de japanska språk paketen med språk tag gen "Jpan" i deras fil namn.](media/language-pack-example.png)
 
-5. Ange behörigheterna för den lokala lagrings platsen för språk innehåll så att du har Läs behörighet från den virtuella datorn som du använder för att skapa den anpassade avbildningen.
+6. Ange behörigheterna för den lokala lagrings platsen för språk innehåll så att du har Läs behörighet från den virtuella datorn som du använder för att skapa den anpassade avbildningen.
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-manually"></a>Skapa en anpassad Windows 10 Enterprise multi-session-avbildning manuellt
 
@@ -75,7 +80,7 @@ Så här skapar du en anpassad Windows 10 Enterprise multi-session-avbildning ma
 1. Distribuera en virtuell Azure-dator och gå sedan till Azure-galleriet och välj den aktuella versionen av Windows 10 Enterprise multi-session som du använder.
 2. När du har distribuerat den virtuella datorn ansluter du till den med hjälp av RDP som lokal administratör.
 3. Se till att den virtuella datorn har alla de senaste Windows-uppdateringarna. Hämta uppdateringarna och starta om den virtuella datorn om det behövs.
-4. Anslut till språk paketet och den franska fil resurs lagrings platsen och montera den på en bokstavs enhet (till exempel enhet E).
+4. Anslut till språk paketet, franska och apparnas fildelnings lagring och montera den på en brev enhet (till exempel enhet E).
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-automatically"></a>Skapa en anpassad avbildning av Windows 10 Enterprise multi-session automatiskt
 
@@ -161,6 +166,56 @@ Skriptet kan ta ett tag beroende på hur många språk du behöver installera.
 
 När skriptet har körts kan du kontrol lera att språk paketen har installerats korrekt genom att gå till **Start**  >  **Inställningar**  >  **tid & språk**  >  **Language**. Om språkfilerna finns där är det klart.
 
+När du har lagt till ytterligare språk i Windows-avbildningen måste apparna i Inkorgen också uppdateras för att stödja de språk som har lagts till. Det kan du göra genom att uppdatera de förinstallerade apparna med innehållet från inkorg-apparna ISO. Om du vill utföra den här uppdateringen i en frånkopplad miljö (ingen Internet åtkomst från den virtuella datorn) kan du använda följande PowerShell-skript för att automatisera processen.
+
+```powershell
+#########################################
+## Update Inbox Apps for Multi Language##
+#########################################
+##Set Inbox App Package Content Stores##
+[string]$InboxApps = "F:\"
+##Update Inbox Store Apps##
+$AllAppx = Get-Item $inboxapps\*.appx | Select-Object name
+$AllAppxBundles = Get-Item $inboxapps\*.appxbundle | Select-Object name
+$allAppxXML = Get-Item $inboxapps\*.xml | Select-Object name
+foreach ($Appx in $AllAppx) {
+    $appname = $appx.name.substring(0,$Appx.name.length-5)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    
+    Write-Host "Handeling with xml $appname"  
+  
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+      
+      Write-Host "Handeling without xml $appname"
+      
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+foreach ($Appx in $AllAppxBundles) {
+    $appname = $appx.name.substring(0,$Appx.name.length-11)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    Write-Host "Handeling with xml $appname"
+    
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+       Write-Host "Handeling without xml $appname"
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+```
+
+>[!IMPORTANT]
+>Inkorg-appar som ingår i ISO är inte de senaste versionerna av de förinstallerade Windows-apparna. Om du vill hämta den senaste versionen av alla appar måste du uppdatera apparna med hjälp av Windows Store-appen och utföra en manuell sökning efter uppdateringar när du har installerat de nya språken.
+
 När du är klar, se till att koppla från resursen.
 
 ## <a name="finish-customizing-your-image"></a>Slutför anpassningen av avbildningen
@@ -177,15 +232,15 @@ Köra Sysprep:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. Stäng av den virtuella datorn och avbilda den i en hanterad avbildning genom att följa anvisningarna i [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md).
+2. Stoppa den virtuella datorn och avbilda den sedan i en hanterad avbildning genom att följa anvisningarna i [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md).
 
 3. Nu kan du använda den anpassade avbildningen för att distribuera en Windows-pool för virtuella skriv bord. Information om hur du distribuerar en adresspool finns i [Självstudier: skapa en värdbaserad pool med Azure Portal](create-host-pools-azure-marketplace.md).
 
 ## <a name="enable-languages-in-windows-settings-app"></a>Aktivera språk i appen Windows-inställningar
 
-Slutligen måste du lägga till språket i varje användares språk lista så att de kan välja språk på menyn Inställningar.
+Slutligen, efter att du har distribuerat poolen, måste du lägga till språket i varje användares språk lista så att de kan välja språk på menyn Inställningar.
 
-För att se till att användarna kan välja de språk som du har installerat loggar du in som användaren och kör sedan följande PowerShell-cmdlet för att lägga till de installerade språk paketen på menyn språk. Du kan också ställa in det här skriptet som en automatiserad uppgift som aktive ras när användaren loggar in i sin session.
+För att se till att användarna kan välja de språk som du har installerat loggar du in som användaren och kör sedan följande PowerShell-cmdlet för att lägga till de installerade språk paketen på menyn språk. Du kan också ställa in det här skriptet som en automatiserad aktivitet eller ett inloggnings skript som aktive ras när användaren loggar in i sin session.
 
 ```powershell
 $LanguageList = Get-WinUserLanguageList

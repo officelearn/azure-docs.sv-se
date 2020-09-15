@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235170"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069772"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ett internt fel inträffar när du försöker ansluta till en virtuell Azure-dator via Fjärrskrivbord
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs ett fel som kan uppstå när du försöker ansluta 
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan inte ansluta till en virtuell Azure-dator med hjälp av Remote Desktop Protocol (RDP). Anslutningen har fastnat i avsnittet "Konfigurera fjärr anslutning" eller så visas följande fel meddelande:
+Du kan inte ansluta till en virtuell Azure-dator med hjälp av Remote Desktop Protocol (RDP). Anslutningen har fastnat i avsnittet **Konfigurera fjärr** anslutning, eller så visas följande fel meddelande:
 
 - Internt RDP-fel
 - Ett internt fel har inträffat
@@ -37,20 +37,24 @@ Du kan inte ansluta till en virtuell Azure-dator med hjälp av Remote Desktop Pr
 
 Det här problemet kan inträffa av följande orsaker:
 
+- Den virtuella datorn kan ha attackeras.
 - Det går inte att komma åt lokala RSA-krypteringsnyckeln.
 - TLS-protokollet är inaktiverat.
 - Certifikatet är skadat eller har upphört att gälla.
 
 ## <a name="solution"></a>Lösning
 
-Innan du följer de här stegen ska du ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
+Du kan felsöka det här problemet genom att följa anvisningarna i följande avsnitt. Innan du börjar ska du ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
 
-Du kan felsöka det här problemet genom att använda serie konsolen eller [reparera den virtuella datorn offline](#repair-the-vm-offline) genom att koppla den virtuella DATORns OS-disk till en virtuell dator för återställning.
+### <a name="check-rdp-security"></a>Kontrol lera RDP-säkerhet
 
+Kontrol lera först om nätverks säkerhets gruppen för RDP-port 3389 är oskyddad (öppen). Om den är oskyddad och visas \* som Källans IP-adress för inkommande, begränsar du RDP-porten till en specifc-användares IP-adress och testar sedan RDP-åtkomsten. Om detta Miss lyckas, slutför du stegen i nästa avsnitt.
 
 ### <a name="use-serial-control"></a>Använd seriell kontroll
 
-Anslut till [serie konsolen och öppna PowerShell-instansen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+Använd serie konsolen eller [reparera den virtuella datorn offline](#repair-the-vm-offline) genom att koppla den virtuella DATORns OS-disk till en virtuell dator för återställning.
+
+Börja genom att ansluta till [serie konsolen och öppna en PowerShell-instans](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Om serie konsolen inte är aktive rad på den virtuella datorn går du till avsnittet [reparera den virtuella datorn offline](#repair-the-vm-offline) .
 
 #### <a name="step-1-check-the-rdp-port"></a>Steg: 1 kontrol lera RDP-porten

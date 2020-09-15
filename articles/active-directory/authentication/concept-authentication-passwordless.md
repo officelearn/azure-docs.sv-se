@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226683"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084336"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
@@ -45,7 +45,7 @@ Följande steg visar hur inloggnings processen fungerar med Azure AD:
 ![Diagram som beskriver de steg som ingår i användar inloggning med Windows Hello för företag](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. En användare loggar in i Windows med bio metrisk eller PIN-kod. Gesten låser upp den privata nyckeln för Windows Hello för företag och skickas till Cloud authentication-security support provider som kallas för *moln-AP-providern*.
-1. Cloud AP-providern begär en nonce från Azure AD.
+1. Cloud AP-providern begär ett temporärt ID (ett slumpmässigt godtyckligt tal som bara kan användas en gång) från Azure AD.
 1. Azure AD returnerar en nonce som är giltig i 5 minuter.
 1. Molnets AP-Provider signerar nonce med hjälp av användarens privata nyckel och returnerar signerad nonce till Azure AD.
 1. Azure AD verifierar signerad nonce med hjälp av användarens säkert registrerade offentliga nyckel mot signaturen för nonce. När du har validerat signaturen verifierar Azure AD den returnerade signerade nonce. När nonce verifieras skapar Azure AD en Primary Refresh token (PRT) med en sessionsnyckel som är krypterad till enhetens transport nyckel och tillbaka den till molnets AP-Provider.

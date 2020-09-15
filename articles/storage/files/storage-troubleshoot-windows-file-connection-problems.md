@@ -1,22 +1,25 @@
 ---
-title: Felsöka Azure Files problem i Windows | Microsoft Docs
-description: Felsöka Azure Files problem i Windows. Se vanliga problem som rör Azure Files när du ansluter från Windows-klienter och se möjliga lösningar.
+title: Felsöka Azure Files-problem i Windows
+description: Felsöka Azure Files problem i Windows. Se vanliga problem som rör Azure Files när du ansluter från Windows-klienter och se möjliga lösningar. Endast för SMB-resurser
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 16491e36e0196bc3dabee17daf905d9a5204f8cd
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532400"
+ms.locfileid: "90564261"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
+# <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Felsöka Azure Files problem i Windows (SMB)
 
 Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure filer när du ansluter från Windows-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. Förutom fel söknings stegen i den här artikeln kan du också använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   för att kontrol lera att Windows-klientens miljö uppfyller rätt krav. AzFileDiagnostics automatiserar identifiering av de flesta av de symtom som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller steg som hjälper dig med problem med att ansluta/mappa/montera Azure Files resurser.
+
+> [!IMPORTANT]
+> Innehållet i den här artikeln gäller endast SMB-resurser.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Fel 5 när du monterar en Azure-filresurs
@@ -54,7 +57,7 @@ Kontrol lera att behörigheterna är korrekt konfigurerade:
 
 - **Active Directory (AD)** se [tilldela behörigheter på resurs nivå till en identitet](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
 
-    Behörighets tilldelningar på resurs nivå stöds för grupper och användare som har synkroniserats från Active Directory (AD) till Azure Active Directory (AAD) med Azure AD Connect.  Bekräfta att grupper och användare som tilldelats behörigheter på resurs nivå inte stöds av "endast" endast "endast" molnbaserade "grupper.
+    Behörighets tilldelningar på resurs nivå stöds för grupper och användare som har synkroniserats från Active Directory (AD) till Azure Active Directory (Azure AD) med hjälp av Azure AD Connect.  Bekräfta att grupper och användare som tilldelats behörigheter på resurs nivå inte stöds av "endast" endast "endast" molnbaserade "grupper.
 - **Azure Active Directory Domain Services (Azure AD DS)** se [tilldela åtkomst behörigheter till en identitet](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>

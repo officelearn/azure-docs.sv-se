@@ -3,17 +3,17 @@ title: Skapa ett Service Fabric-kluster i Azure-portalen
 description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med hjälp av Azure Portal och Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259320"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563734"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric kluster i Azure med hjälp av Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure-portalen](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -128,42 +128,42 @@ Följ skärmarna för att lägga till eller återanvända ett befintligt nyckel 
 
 Flytta bort frestelsenen från skärmen tills föregående process har slutförts.
 
-![CreateKeyVault]
+![Skärm bild som visar sidan säkerhet med Basic valt med nyckel valv fönstret och fönstret Skapa nyckel valv.][CreateKeyVault]
 
 Nu när nyckel valvet har skapats redigerar du åtkomst principerna för nyckel valvet. 
 
-![CreateKeyVault2]
+![Skärm bild som visar fönstret Skapa Service Fabric kluster med alternativ 3 säkerhet markerat och en förklaring till att nyckel valvet inte har Aktiver ATS.][CreateKeyVault2]
 
 Klicka på **Redigera åtkomst principer**och Visa sedan **avancerade åtkomst principer** och aktivera åtkomst till Azure-Virtual Machines för distribution. Vi rekommenderar att du aktiverar mall distributionen också. När du har gjort dina val ska du inte glömma att klicka på knappen **Spara** och stänga av fönstret **åtkomst principer** .
 
-![CreateKeyVault3]
+![Skärm bild som visar fönstret Skapa Service Fabric kluster med fönstret säkerhet öppet och fönstret åtkomst principer öppen.][CreateKeyVault3]
 
 Ange certifikatets namn och klicka på **OK**.
 
-![CreateKeyVault4]
+![Skärm bild som visar fönstret Skapa Service Fabric kluster med säkerhet valt som tidigare men utan förklaringen att nyckel valvet inte är aktiverat.][CreateKeyVault4]
 
 #### <a name="custom-option"></a>Anpassat alternativ
 Hoppa över det här avsnittet om du redan har utfört stegen i **Basic** -alternativet.
 
-![SecurityCustomOption]
+![Skärm bild som visar dialog rutan säkerhet Konfigurera kluster säkerhets inställningar.][SecurityCustomOption]
 
 Du behöver käll nyckel valvet, certifikatets URL och certifikatets tumavtryck för att slutföra säkerhets sidan. Om du inte har det kan du öppna ett nytt webbläsarfönster och i Azure Portal göra följande
 
 1. Navigera till Key Vault-tjänsten.
 2. Välj fliken "egenskaper" och kopiera "resurs-ID" till "käll nyckel valvet" i det andra webbläsarfönstret 
 
-    ![CertInfo0]
+    ![Skärm bild som visar Fönstret Egenskaper för nyckel valvet.][CertInfo0]
 
 3. Välj nu fliken "certifikat".
 4. Klicka på tumavtryck för certifikatet, som tar dig till sidan versioner.
 5. Klicka på de GUID som du ser under den aktuella versionen.
 
-    ![CertInfo1]
+    ![Skärm bild som visar certifikat fönstret för nyckel valvet][CertInfo1]
 
 6. Nu bör du vara på skärmen som nedan. Kopiera det hexadecimala SHA-1-tumavtrycket till "certifikat-tumavtryck" i det andra webbläsarfönstret
 7. Kopiera "hemlig identifierare" till "certifikatets URL" i ett annat webbläsarfönster.
 
-    ![CertInfo2]
+    ![Skärm bild som visar dialog rutan certifikat version med ett alternativ för att kopiera certifikat-ID.][CertInfo2]
 
 Markera kryss rutan **Konfigurera avancerade inställningar** om du vill ange klient certifikat för **Administratörs klienten** och den **skrivskyddade klienten**. I de här fälten anger du tumavtrycket för ditt administratörs klient certifikat och tumavtrycket för det skrivskyddade användar klient certifikatet, om tillämpligt. När administratörer försöker ansluta till klustret beviljas de åtkomst endast om de har ett certifikat med ett tumavtryck som matchar de tumavtryck som anges här.  
 
@@ -173,7 +173,7 @@ Nu är du redo att distribuera klustret. Innan du gör det kan du hämta certifi
 
 Klicka på **skapa**om du vill slutföra skapandet av klustret. Du kan också hämta mallen.
 
-![Sammanfattning]
+![Skärm bild som visar sidan Skapa Service Fabric kluster Sammanfattning med en länk för att visa och hämta ett certifikat.][Summary]
 
 Du kan se förloppet bland aviseringarna. (Klicka på ikonen "Bell" nära statusfältet överst till höger på skärmen.) Om du klickade på **Fäst på Start sidan** när du skapade klustret, ser du **distribuera Service Fabric kluster** fäst till **Start** kortet. Den här processen kan ta lite tid. 
 
@@ -230,7 +230,7 @@ Nu har du ett säkert kluster som använder certifikat för hanterings autentise
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
 [SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[Sammanfattning]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918408"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564023"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Telemetri kanaler i Application Insights
 
@@ -153,13 +153,25 @@ Det korta svaret är att ingen av de inbyggda kanalerna ger en garanti för att 
 
 Även om namnet på paketet och namn området innehåller "Windows Server", stöds denna kanal på andra system än Windows, med följande undantag. På andra system än Windows skapar kanalen ingen lokal lagringsmapp som standard. Du måste skapa en lokal lagringsmapp och konfigurera kanalen för att använda den. När lokal lagring har kon figurer ATS fungerar kanalen på samma sätt på alla system.
 
+> [!NOTE]
+> Med version 2.15.0-beta3 och större lokal lagring skapas nu automatiskt för Linux, Mac och Windows. För icke-Windows-system skapar SDK: n automatiskt en lokal lagringsmapp baserat på följande logik:
+> - `${TMPDIR}` – Om `${TMPDIR}` miljövariabeln anges används den här platsen.
+> - `/var/tmp` – om den föregående platsen inte finns försöker vi `/var/tmp` .
+> - `/tmp` – om båda de föregående platserna inte finns provar vi `tmp` . 
+> - Om ingen av dessa platser finns lokalt lagras inte och manuell konfiguration krävs fortfarande. [För fullständig implementerings information](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>Skapar SDK temporär lokal lagring? Är data krypterade vid lagring?
 
 SDK lagrar telemetri-objekt i lokal lagring under nätverks problem eller under begränsning. Dessa data är inte krypterade lokalt.
 
 För Windows-system skapar SDK: n automatiskt en tillfällig lokal mapp i katalogen% TEMP% eller% LOCALAPPDATA% och begränsar åtkomsten till administratörer och den aktuella användaren.
 
-För andra system än Windows skapas ingen lokal lagring automatiskt av SDK: n och därför lagras inga data lokalt som standard. Du kan skapa en lagrings katalog själv och konfigurera kanalen för att använda den. I det här fallet är du ansvarig för att se till att katalogen är skyddad.
+För andra system än Windows skapas ingen lokal lagring automatiskt av SDK: n och därför lagras inga data lokalt som standard.
+
+> [!NOTE]
+> Med version 2.15.0-beta3 och större lokal lagring skapas nu automatiskt för Linux, Mac och Windows. 
+
+ Du kan skapa en lagrings katalog själv och konfigurera kanalen för att använda den. I det här fallet är du ansvarig för att se till att katalogen är skyddad.
 Läs mer om [data skydd och sekretess](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod

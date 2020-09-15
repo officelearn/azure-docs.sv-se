@@ -4,14 +4,14 @@ description: I den här artikeln lär du dig att skapa, testa och publicera en e
 keywords: runbook, runbook-mall, runbook-automation, azure runbook
 services: automation
 ms.subservice: process-automation
-ms.date: 04/19/2020
+ms.date: 09/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: fa92cd4f4cba63eee09714813954af9fa9c9c4ea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1490687e85d2f59b8cfa28712ef075b451363534
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290951"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564227"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Självstudie: skapa en grafisk Runbook
 
@@ -25,11 +25,11 @@ I den här guiden får du lära dig att:
 > * Kör och spåra statusen för Runbook-jobbet
 > * Uppdatera runbooken för att starta en virtuell Azure-dator med Runbook-parametrar och villkorliga länkar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 * Ett [Automation-konto för Azure](../index.yml) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure. Eftersom du stoppar och startar den här datorn bör den inte vara en virtuell produktions dator.
 * Om det behövs [importerar du Azure-moduler](../shared-resources/modules.md) eller [uppdaterar moduler](../automation-update-azure-modules.md) baserat på de cmdletar som du använder.
@@ -38,7 +38,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 Börja med att skapa en enkel Runbook som matar ut texten `Hello World` .
 
-1. Öppna ditt Automation-konto på Azure Portal. 
+1. Öppna ditt Automation-konto på Azure Portal.
 
     Automation-kontosidan innehåller en snabb översikt över resurserna i det här kontot. Du bör redan ha vissa tillgångar. De flesta av dessa till gångar är de moduler som automatiskt ingår i ett nytt Automation-konto. Du bör också ha den autentiseringsuppgifter som är kopplad till din prenumeration.
 
@@ -48,7 +48,9 @@ Börja med att skapa en enkel Runbook som matar ut texten `Hello World` .
 
 4. Ge din runbook namnet **MyFirstRunbook-Graphical**.
 
-5. I det här fallet ska du skapa en [grafisk Runbook](../automation-graphical-authoring-intro.md). Välj **grafisk** för **Runbook-typ**.<br> ![Ny runbook](../media/automation-tutorial-runbook-graphical/create-new-runbook.png)<br>
+5. I det här fallet ska du skapa en [grafisk Runbook](../automation-graphical-authoring-intro.md). Välj **grafisk** för **Runbook-typ**.
+
+    ![Ny runbook](../media/automation-tutorial-runbook-graphical/create-new-runbook.png)
 
 6. Klicka på **Skapa** för att skapa den nya runbooken och öppna den grafiska redigeraren.
 
@@ -56,7 +58,9 @@ Börja med att skapa en enkel Runbook som matar ut texten `Hello World` .
 
 Du kan lägga till aktiviteter i din runbook med hjälp av bibliotekskontrollen till vänster i redigeraren. Du kommer att lägga till en `Write-Output` cmdlet för att mata ut text från runbooken.
 
-1. I biblioteks kontrollen klickar du i Sök fältet och skriver `write-output` . Sök resultatet visas i följande bild. <br> ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
+1. I biblioteks kontrollen klickar du i Sök fältet och skriver `write-output` . Sök resultatet visas i följande bild.
+
+    ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
 
 2. Rulla längst ned i listan. Högerklicka på **Skriv ut** och välj **Lägg till på arbets ytan**. Alternativt kan du klicka på ellipsen (...) bredvid namnet på cmdleten och sedan välja **Lägg till på arbets ytan**.
 
@@ -70,9 +74,9 @@ Du kan lägga till aktiviteter i din runbook med hjälp av bibliotekskontrollen 
 
 6. Välj `InputObject` parametern. Det här är den parameter som du använder för att ange den text som ska skickas till utdataströmmen.
 
-7. List rutan **data källa** innehåller källor som du kan använda för att fylla i ett parameter värde. I den här menyn väljer du **PowerShell-uttryck**. 
+7. List rutan **data källa** innehåller källor som du kan använda för att fylla i ett parameter värde. I den här menyn väljer du **PowerShell-uttryck**.
 
-   Du kan använda utdata från sådana källor som en annan aktivitet, en Automation-till gång eller ett PowerShell-uttryck. I det här fallet är utdata bara `Hello World` . Du kan använda ett PowerShell-uttryck och ange en sträng.<br>
+   Du kan använda utdata från sådana källor som en annan aktivitet, en Automation-till gång eller ett PowerShell-uttryck. I det här fallet är utdata bara `Hello World` . Du kan använda ett PowerShell-uttryck och ange en sträng.
 
 8. I fältet **uttryck** skriver du `Hello World` och klickar sedan på **OK** två gånger för att återgå till arbets ytan.
 
@@ -92,7 +96,7 @@ Innan du publicerar runbooken för att göra den tillgänglig i produktion bör 
 
 4. När Runbook-jobbet har slutförts visas utdata i test fönstret. I det här fallet visas `Hello World` .
 
-    ![Hello World](../media/automation-tutorial-runbook-graphical/runbook-test-results.png)
+    ![Hello World Runbook-utdata](../media/automation-tutorial-runbook-graphical/runbook-test-results.png)
 
 5. Gå tillbaka till arbetsytan genom att stänga testfönstret.
 
@@ -116,7 +120,7 @@ Den Runbook som du har skapat är fortfarande i utkast läge. Den behöver publi
 
 7. Stäng sidan utdata.
 
-8. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör bara se `Hello World` i utdataströmmen. 
+8. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör bara se `Hello World` i utdataströmmen.
 
     Observera att fönstret strömmar kan visa andra strömmar för ett Runbook-jobb, till exempel utförliga data strömmar och fel strömmar, om Runbook skriver till dem.
 
@@ -139,7 +143,7 @@ Du har testat och publicerat din Runbook, men hittills gör den inte något anv�
 4. På sidan ny variabel gör du följande inställningar i de angivna fälten.
 
     * **Namn** --ange `AzureSubscriptionId` .
-    * **Värde** – ange ditt PRENUMERATIONS-ID. 
+    * **Värde** – ange ditt PRENUMERATIONS-ID.
     * **Skriv** --Behåll sträng vald.
     * **Kryptering** – Använd standardvärdet.
 
@@ -147,7 +151,7 @@ Du har testat och publicerat din Runbook, men hittills gör den inte något anv�
 
 ## <a name="step-6---add-authentication"></a>Steg 6 – Lägg till autentisering
 
-Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigurera runbooken att autentisera med kör som-autentiseringsuppgifterna för din prenumeration. Gör detta genom att lägga till Azure kör som-anslutningen som en till gång. Du måste också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) och cmdleten [set-AzContext](/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) på arbets ytan.
+Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigurera runbooken att autentisera med kör som-autentiseringsuppgifterna för din prenumeration. Gör detta genom att lägga till Azure kör som-anslutningen som en till gång. Du måste också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) och cmdleten [set-AzContext](/powershell/module/az.accounts/Set-AzContext) på arbets ytan.
 
 >[!NOTE]
 >För PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för `Connect-AzAccount` . Observera att dessa alias inte är tillgängliga för dina grafiska runbooks. En grafisk Runbook kan bara använda `Connect-AzAccount` sig själv.
@@ -164,7 +168,9 @@ Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigure
 
 6. Lägg till `Connect-AzAccount` på arbets ytan.
 
-7. Hovra över `Get Run As Connection` tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till den `Connect-AzAccount` för att skapa en länk. Runbooken börjar med `Get Run As Connection` och körs sedan `Connect-AzAccount` .<br> ![Skapa länk mellan aktiviteter](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
+7. Hovra över `Get Run As Connection` tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till den `Connect-AzAccount` för att skapa en länk. Runbooken börjar med `Get Run As Connection` och körs sedan `Connect-AzAccount` .
+
+    ![Skapa länk mellan aktiviteter](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
 
 8. På arbets ytan väljer du `Connect-AzAccount` . I rutan konfigurations kontroll skriver **du logga in på Azure** i fältet **etikett** .
 
@@ -172,7 +178,9 @@ Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigure
 
 10. `Connect-AzAccount`Cmdleten har flera parameter uppsättningar och du måste välja en innan du tillhandahåller parameter värden. Klicka på **parameter uppsättning** och välj sedan **ServicePrincipalCertificateWithSubscriptionId**.
 
-11. Parametrarna för den här parameter uppsättningen visas på sidan konfiguration av aktivitets parameter. Klicka på **APPLICATIONID**.<br> ![Lägg till parametrar för Azure-konto](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
+11. Parametrarna för den här parameter uppsättningen visas på sidan konfiguration av aktivitets parameter. Klicka på **APPLICATIONID**.
+
+    ![Lägg till parametrar för Azure-konto](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
 
 12. På sidan parameter värde gör du följande inställningar och klickar sedan på **OK**.
 
@@ -186,13 +194,13 @@ Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigure
     * Lista över data källor – Välj **Hämta Automation-anslutning**.
     * **Fält Sök väg** --typ `CertificateThumbprint` .
 
-14. Klicka på **SERVICEPRINCIPAL**och på sidan parameter värde väljer du **ConstantValue** för fältet **data källa** . Klicka på alternativet **Sant**; och klicka sedan på **OK**.
+14. Klicka på **SERVICEPRINCIPAL**och på sidan parameter värde väljer du **ConstantValue** för fältet **data källa** . Klicka på alternativet **Sant**och klicka sedan på **OK**.
 
 15. Klicka på **TENANTID**och gör följande inställningar på sidan parameter värde. När du är färdig klickar du på **OK** två gånger.
 
-    * **Data källa** – Välj **aktivitets utdata**. 
+    * **Data källa** – Välj **aktivitets utdata**.
     * Lista över data källor – Välj **Hämta Automation-anslutning**.
-    * **Fält Sök väg** --typ `TenantId` . 
+    * **Fält Sök väg** --typ `TenantId` .
 
 16. I biblioteks kontrollen skriver `Set-AzContext` du i Sök fältet.
 
@@ -214,7 +222,7 @@ Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigure
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Steg 7 – Lägga till aktivitet för att starta en virtuell dator
 
-Nu måste du lägga till en `Start-AzVM` aktivitet för att starta en virtuell dator. Du kan välja vilken virtuell dator som helst i din Azure-prenumeration och för tillfället hårdkoda du dess namn i cmdleten [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-3.5.0) .
+Nu måste du lägga till en `Start-AzVM` aktivitet för att starta en virtuell dator. Du kan välja vilken virtuell dator som helst i din Azure-prenumeration och för tillfället hårdkoda du dess namn i cmdleten [Start-AzVM](/powershell/module/az.compute/start-azvm) .
 
 1. I biblioteks kontrollen skriver `Start-Az` du i Sök fältet.
 
@@ -234,7 +242,7 @@ Nu måste du lägga till en `Start-AzVM` aktivitet för att starta en virtuell d
 
 9. Starta testet genom att klicka på **Starta** . När den är klar kontrollerar du att den virtuella datorn har startats. Din Runbook bör se ut så här nu.
 
-    ![Konfiguration av runbook-autentisering](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
+    ![Runbook start-AzVM utdata](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
 
 ## <a name="step-8---add-additional-input-parameters"></a>Steg 8 – lägga till ytterligare indataparametrar
 
@@ -249,13 +257,17 @@ Din Runbook startar för närvarande den virtuella datorn i den resurs grupp som
    * **Skriv** --Behåll sträng inställningen.
    * **Obligatoriskt** – ändra värdet till **Ja**.
 
-4. Skapa en andra obligatorisk indataparameter med namnet `ResourceGroupName` och klicka sedan på **OK** för att stänga fönstret indata och utdata.<br> ![Indataparametrar för Runbook](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
+4. Skapa en andra obligatorisk indataparameter med namnet `ResourceGroupName` och klicka sedan på **OK** för att stänga fönstret indata och utdata.
+
+    ![Indataparametrar för runbook](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
 
 5. Välj `Start-AzVM` aktiviteten och klicka sedan på **parametrar**.
 
 6. Ändra fältet **data källa** för **namn** till **indata för Runbook**. Välj sedan **VMName**.
 
-7. Ändra fältet **data källa** för **ResourceGroupName** till **indata för Runbook** och välj sedan **ResourceGroupName**.<br> ![Start-AzVM-parametrar](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
+7. Ändra fältet **data källa** för **ResourceGroupName** till **indata för Runbook** och välj sedan **ResourceGroupName**.
+
+    ![Start-AzVM-parametrar](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
 
 8. Spara runbooken och öppna Testfönster. Nu kan du ange värden för de två indatavariablerna som du använder i testet.
 
@@ -271,7 +283,7 @@ Din Runbook startar för närvarande den virtuella datorn i den resurs grupp som
 
 ## <a name="step-9---create-a-conditional-link"></a>Steg 9 – Skapa en villkorlig länk
 
-Nu kan du ändra runbooken så att den bara försöker starta den virtuella datorn om den inte redan har startats. Det gör du genom att lägga till en [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) -cmdlet som hämtar den virtuella datorns status på instans nivå. Sedan kan du lägga till en PowerShell-modul för arbets flödes kod som anropas `Get Status` med ett fragment av PowerShell-kod för att avgöra om VM-statusen körs eller är stoppad. En villkorlig länk från `Get Status` modulen körs bara `Start-AzVM` om det aktuella körnings läget har stoppats. I slutet av den här proceduren använder din Runbook `Write-Output` cmdleten för att skicka ett meddelande för att meddela dig om den virtuella datorn har startats.
+Nu kan du ändra runbooken så att den bara försöker starta den virtuella datorn om den inte redan har startats. Det gör du genom att lägga till en [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) -cmdlet som hämtar den virtuella datorns status på instans nivå. Sedan kan du lägga till en PowerShell-modul för arbets flödes kod som anropas `Get Status` med ett fragment av PowerShell-kod för att avgöra om VM-statusen körs eller är stoppad. En villkorlig länk från `Get Status` modulen körs bara `Start-AzVM` om det aktuella körnings läget har stoppats. I slutet av den här proceduren använder din Runbook `Write-Output` cmdleten för att skicka ett meddelande för att meddela dig om den virtuella datorn har startats.
 
 1. Öppna **MyFirstRunbook – grafiskt** i den grafiska redigeraren.
 
@@ -281,7 +293,7 @@ Nu kan du ändra runbooken så att den bara försöker starta den virtuella dato
 
 4. Lägg till `Get-AzVM` på arbets ytan.
 
-5. Välj `Get-AzVM` och klicka sedan på **parameter uppsättning** för att Visa uppsättningarna för cmdleten. 
+5. Välj `Get-AzVM` och klicka sedan på **parameter uppsättning** för att Visa uppsättningarna för cmdleten.
 
 6. Välj parameteruppsättningen **GetVirtualMachineInResourceGroupNameParamSet**. Fälten **ResourceGroupName** och **namn** innehåller utrops tecken bredvid dem, vilket indikerar att de anger obligatoriska parametrar. Observera att båda fälten förväntar sig sträng värden.
 
@@ -303,16 +315,17 @@ Nu kan du ändra runbooken så att den bara försöker starta den virtuella dato
 
 15. Klistra in följande kodfragment på sidan redigeraren.
 
-    ```powershell-interactive
-     $StatusesJson = $ActivityOutput['Get-AzVM'].StatusesText
-     $Statuses = ConvertFrom-Json $StatusesJson
-     $StatusOut =""
-     foreach ($Status in $Statuses){
-     if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"}
-     elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"}
-     }
-     $StatusOut
-     ```
+    ```powershell
+    $Statuses = $ActivityOutput['Get-AzVM'].Statuses
+    $StatusOut = ""
+    foreach ($Status in $Statuses) {
+      if($Status.Code -eq "Powerstate/running")
+        {$StatusOut = "running"}
+      elseif ($Status.Code -eq "Powerstate/deallocated")
+        {$StatusOut = "stopped"}
+    }
+    $StatusOut
+    ```
 
 16. Skapa en länk från `Get Status` till `Start-AzVM` .
 
@@ -320,7 +333,7 @@ Nu kan du ändra runbooken så att den bara försöker starta den virtuella dato
 
 17. Välj länken och ändra **tillämpa villkor** till **Ja**i rutan konfiguration. Observera att länken blir en streckad linje som anger att mål aktiviteten endast körs om villkoret matchar sant.  
 
-18. För **villkors uttryck**skriver du `$ActivityOutput['Get Status'] -eq "Stopped"` . `Start-AzVM`körs nu bara om den virtuella datorn har stoppats.
+18. För **villkors uttryck**skriver du `$ActivityOutput['Get Status'] -eq "Stopped"` . `Start-AzVM` körs nu bara om den virtuella datorn har stoppats.
 
 19. Expandera **Cmdlets** och sedan **Microsoft.PowerShell.Utility** i bibliotekskontrollen.
 
@@ -355,4 +368,4 @@ Nu kan du ändra runbooken så att den bara försöker starta den virtuella dato
 * Mer information om grafisk redigering finns [i redigera en grafisk Runbook i Azure Automation](../automation-graphical-authoring-intro.md).
 * Information om hur du kommer igång med PowerShell-Runbooks finns i [skapa en PowerShell-Runbook](automation-tutorial-runbook-textual-powershell.md).
 * Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [skapa en PowerShell Workflow-Runbook](automation-tutorial-runbook-textual.md).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation).

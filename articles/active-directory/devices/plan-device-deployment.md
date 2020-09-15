@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268816"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563904"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
 
@@ -105,24 +105,24 @@ iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tab
 | Att tänka på | Azure AD-registrerad| Azure Active Directory-anslutning| Hybrid Azure Active Directory-anslutning |
 | - | - | - | - |
 | **Klient operativ system**| | |  |
-| Windows 10-enheter| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Windows-enheter på äldre nivå (Windows 8,1 eller Windows 7)| | | ![markering](./media/plan-device-deployment/check.png) |
+| Windows 10-enheter| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| Windows-enheter på äldre nivå (Windows 8,1 eller Windows 7)| | | ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
 |**Inloggnings alternativ**| | |  |
-| Lokala autentiseringsuppgifter för slutanvändare| ![markering](./media/plan-device-deployment/check.png)| |  |
-| lösenordsinställning| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| PIN-kod för enhet| ![markering](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![markering](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello för företag| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Säkerhets nycklar för FIDO 2,0| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Microsoft Authenticator app (lösen ords avinstallation)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
+| Lokala autentiseringsuppgifter för slutanvändare| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
+| Lösenord| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| PIN-kod för enhet| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello för företag| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| Säkerhets nycklar för FIDO 2,0| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| Microsoft Authenticator app (lösen ords avinstallation)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
 |**De viktigaste funktionerna**| | |  |
-| SSO till moln resurser| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Enkel inloggning till lokala resurser| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Villkorlig åtkomst <br> (Kräv att enheter markeras som kompatibla) <br> (Måste hanteras av MDM)| ![markering](./media/plan-device-deployment/check.png) | ![markering](./media/plan-device-deployment/check.png)|![markering](./media/plan-device-deployment/check.png) |
-Villkorlig åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![markering](./media/plan-device-deployment/check.png)
-| Lösen ords återställning via självbetjäning från Windows inloggnings skärm| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| PIN-återställning för Windows Hello| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Företags tillstånd för nätverks växling mellan enheter| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
+| SSO till moln resurser| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| Enkel inloggning till lokala resurser| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| Villkorlig åtkomst <br> (Kräv att enheter markeras som kompatibla) <br> (Måste hanteras av MDM)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)|![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+Villkorlig åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)
+| Lösen ords återställning via självbetjäning från Windows inloggnings skärm| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| PIN-återställning för Windows Hello| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
+| Företags tillstånd för nätverks växling mellan enheter| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Registrering av Azure AD 
@@ -239,9 +239,9 @@ Granska stödda plattformar och plattformar som inte stöds för integrerade enh
 
 | Verktyg för enhetshantering| Azure AD-registrerad| Azure Active Directory-anslutning| Hybrid Azure Active Directory-anslutning|
 | - | - | - | - |
-| [Hantering av mobila enheter (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exempel: Microsoft Intune| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |
-| [Samhantering med Microsoft Intune och Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 och senare)| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |
-| [Grup princip](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Endast Windows)| | | ![markering](./media/plan-device-deployment/check.png)|  |
+| [Hantering av mobila enheter (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exempel: Microsoft Intune| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)|  |
+| [Samhantering med Microsoft Intune och Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 och senare)| | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)| ![Markering för dessa värden.](./media/plan-device-deployment/check.png)|  |
+| [Grup princip](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Endast Windows)| | | ![Markering för dessa värden.](./media/plan-device-deployment/check.png)|  |
 
 
 

@@ -7,14 +7,17 @@ ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782378"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564244"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
+# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Felsöka Azure Files prestanda problem (SMB)
+
+> [!IMPORTANT]
+> Innehållet i den här artikeln gäller endast SMB-resurser.
 
 Den här artikeln innehåller några vanliga problem som rör Azure-filresurser. Den ger potentiella orsaker och lösningar när dessa problem uppstår.
 
@@ -200,6 +203,36 @@ Högre än förväntad fördröjning vid åtkomst till Azure Files för i/o-inte
 11. Klicka på **Välj åtgärds grupp** för att lägga till en **Åtgärds grupp** (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 12. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
 13. Klicka på **skapa aviserings regel** för att skapa aviseringen.
+
+Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>Så här skapar du aviseringar om en Premium-filresurs tendenser ut mot begränsning
+
+1. Gå till ditt **lagrings konto** i **Azure Portal**.
+2. I avsnittet övervakning klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel**.
+3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
+4. Klicka på **Välj villkor** för att lägga till ett villkor.
+5. Du kommer att se en lista över signaler som stöds för lagrings kontot och välja **utgående** mått.
+
+  > [!NOTE]
+  > Du måste skapa tre separata aviseringar för att få en avisering när ingångs-, utgångs-eller transaktioner överskrider den tröskel mängd som du har angett. Detta beror på att en avisering endast utlöses när alla villkor är uppfyllda. Så om du placerar alla villkor i en avisering är du bara aviserad om ingångs-, utgångs-och transaktions belopp överskred tröskelvärdena.
+
+6. Rulla nedåt. Klicka på list rutan **Dimensions namn** och välj **fil resurs**.
+7. Klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om.
+8. Definiera **aviserings parametrarna** (tröskelvärde, Operator, agg regerings precision och frekvens för utvärderingen) och klicka på **Slutför**.
+
+  > [!NOTE]
+  > Utgångs-, ingångs-och transaktions måtten är per minut, även om du har tilldelat ut, ingress och IOPS per sekund. (prata om agg regerings kornig het – > per minut = mer brus, så välj diff en) Om du till exempel har en allokerad utgång är 90 MiB/sekund och du vill att ditt tröskelvärde ska vara 80% av etableringen, bör du välja följande aviserings parametrar: 75497472 för **tröskelvärdet**, större än eller lika med för **operator**och genomsnitt för **agg regerings typ**. Beroende på hur brus du vill att din avisering ska vara, kan du välja vilka värden du vill välja för agg regerings precision och utvärderings frekvens. Om jag till exempel vill att min avisering ska titta på genomsnitts tiden under en timmes tids period och jag vill att min varnings regel ska köras varje timme väljer jag 1 timme för **agg regerings precision** och 1 timme för **utvärderings frekvens**.
+
+9. Klicka på **Välj åtgärds grupp** för att lägga till en **Åtgärds grupp** (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+10. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+11. Klicka på **skapa aviserings regel** för att skapa aviseringen.
+
+  > [!NOTE]
+  > Om du vill få ett meddelande om Premium-filresursen är nära begränsad till följd av insamlade ingångar följer du samma steg, förutom i steg 5, väljer du ingångs **mått i** stället.
+
+  > [!NOTE]
+  > Om du vill få ett meddelande om Premium-filresursen är nära begränsad till begränsning på grund av etablerade IOPS måste du göra några ändringar. I steg 5 väljer du ett **transaktions** mått i stället. För steg 10 är det enda alternativet för **agg regerings typ** totalt. Därför skulle tröskelvärdet vara beroende av den valda agg regerings precisionen. Om du till exempel vill att tröskelvärdet ska vara 80% av etablerad bas linje IOPS och du har valt 1 timme för **agg regerings precision**, skulle ditt **tröskelvärde** vara din bas linje för IOPS (i byte) x 0,8 x 3600. Förutom dessa ändringar följer du samma steg som ovan. 
 
 Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

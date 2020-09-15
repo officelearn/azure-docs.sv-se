@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594364"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564006"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory hanterad Virtual Network (förhands granskning)
 
@@ -88,7 +90,7 @@ Under data källor finns stöd för att ansluta via en privat länk från ADF-ha
 - Azure Database for PostgreSQL
 - Azure-databas för MariaDB
 
-### <a name="supported-regions"></a>Regioner som stöds
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory Managed Virtual Network finns i följande Azure-regioner:
 - East US
 - USA, östra 2
 - USA, västra centrala
@@ -104,6 +106,10 @@ Under data källor finns stöd för att ansluta via en privat länk från ADF-ha
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Utgående kommunikation via offentlig slut punkt från ADF-hanterad Virtual Network
 - Endast port 443 är öppen för utgående kommunikation.
 - Azure Storage-och Azure Data Lake-Gen2 stöds inte för anslutning via den offentliga slut punkten från ADF-hanterad Virtual Network.
+
+### <a name="linked-service-creation-of-azure-key-vault"></a>Azure Key Vault för att skapa länkade tjänster 
+- När du skapar en länkad tjänst för Azure Key Vault finns det ingen Azure Integration Runtime referens. Det går inte att skapa en privat slut punkt under skapandet av den länkade tjänsten Azure Key Vault. Men när du skapar en länkad tjänst för data lager som refererar Azure Key Vault länkade tjänsten och den här länkade tjänsten refererar Azure Integration Runtime med hanterade Virtual Network aktiverade, kan du skapa en privat slut punkt för den Azure Key Vault länkade tjänsten under skapandet. 
+- **Test anslutnings** åtgärd för länkad tjänst för Azure Key Vault verifierar bara URL-formatet, men ingen nätverks åtgärd.
 
 ## <a name="next-steps"></a>Nästa steg
 

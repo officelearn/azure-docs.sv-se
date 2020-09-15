@@ -3,12 +3,12 @@ title: Uppgradera ett klusters Azure Service Fabric-version
 description: Uppgradera Service Fabric koden och/eller konfigurationen som kör ett Service Fabric kluster, inklusive inställning av kluster uppdaterings läge, uppgradera certifikat, lägga till program portar, utföra OS-uppdateringar och så vidare. Vad kan du förväntar dig när uppgraderingen utförs?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261061"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564295"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Uppgradera Service Fabric-versionen av ett kluster
 
@@ -28,7 +28,7 @@ Du gör detta genom att ange kluster konfigurationen "upgradeMode" på portalen 
 ## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Ange uppgraderings läget i Azure Portal
 Du kan ställa in klustret på automatisk eller manuell när du skapar klustret.
 
-![Create_Manualmode][Create_Manualmode]
+![Skärm bild som visar fönstret Skapa Service Fabric kluster med alternativet 2 kluster konfiguration valt och fönstret kluster konfiguration öppnas.][Create_Manualmode]
 
 Du kan ställa in klustret på automatisk eller Manuell inloggning i ett Live-kluster med hjälp av funktionen Hantera upplevelse. 
 
@@ -39,12 +39,12 @@ Om klustrets hälso principer inte uppfylls, återställs uppgraderingen. Rulla 
 
 När du har åtgärdat problemen som resulterade i återställningen måste du starta uppgraderingen igen, genom att följa samma steg som ovan.
 
-![Manage_Automaticmode][Manage_Automaticmode]
+![Skärm bild som visar fönstret Service Fabric kluster med fönstret Fabric-uppgraderingar öppna och uppgraderings alternativen är markerade, inklusive automatisk och manuell.][Manage_Automaticmode]
 
 ## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Ange uppgraderings läget med en Resource Manager-mall
 Lägg till konfigurationen "upgradeMode" i resurs definitionen Microsoft. ServiceFabric/Clusters och ange "clusterCodeVersion" till någon av de infrastruktur versioner som stöds enligt nedan och distribuera sedan mallen. Giltiga värden för "upgradeMode" är "Manuell" eller "automatisk"
 
-![ARMUpgradeMode][ARMUpgradeMode]
+![Skärm bild som visar en mall, som är i klartext indraget för att återspegla strukturen och clusterCodeVersion och upgradeMode är markerade.][ARMUpgradeMode]
 
 ### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Uppgradera till en ny version på ett kluster som är inställt på manuellt läge via en Resource Manager-mall.
 När klustret är i manuellt läge, för att uppgradera till en ny version, ändrar du "clusterCodeVersion" till en version som stöds och distribuerar den. Distribution av mallen, som används för att starta om Fabric-uppgraderingen, inaktive ras automatiskt. Kluster hälso principerna (en kombination av nods hälsa och hälso tillståndet alla program som körs i klustret) följer under uppgraderingen.

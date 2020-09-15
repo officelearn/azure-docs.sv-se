@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049935"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561541"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
 
@@ -52,7 +52,7 @@ Se [licens krav för villkorlig åtkomst](overview.md).
 
 Om ytterligare funktioner krävs kan du också behöva relaterade licenser. Mer information finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En fungerande Azure AD-klient med Azure AD Premium-eller utvärderings licens aktive rad. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -448,7 +448,7 @@ Om du behöver återställa dina nyligen implementerade principer kan du använd
 
 Använd följande hanterings alternativ för att kontrol lera och hantera dina CA-principer:
 
-![Hantera-åtkomst](media/plan-conditional-access/manage-access.png)
+![Skärm bild som visar HANTERINGs alternativen för C A-principer, inklusive namngivna platser, anpassade kontroller, Användningsvillkor, V P N-anslutning och de valda klassiska principerna.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Namngivna platser
@@ -495,7 +495,7 @@ När du har samlat in informationen, se följande resurser:
 
 * [Använd verktyget what-if](troubleshoot-conditional-access-what-if.md) för att förstå varför en princip har tillämpats eller inte tillämpats på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Läs mer om Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 

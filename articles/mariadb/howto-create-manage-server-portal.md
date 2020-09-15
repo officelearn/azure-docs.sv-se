@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104698"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562459"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Hantera en Azure Database for MariaDB-server med hjälp av Azure Portal
 Den här artikeln visar hur du hanterar dina Azure Database for MariaDB-servrar. Hanterings uppgifter omfattar skalning av beräknings-och lagrings utrymme, återställning av administratörs lösen ord och visning av Server information.
@@ -34,7 +34,7 @@ Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det 
 
 2. Välj **generell användning** eller **minne som är optimerat**, beroende på vad du skalar till. 
 
-    ![ändra pris nivå](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![Skärm bild som visar Azure Portal med den valda pris nivån och ett värde för Minnesoptimerade som valts.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > Om du ändrar nivåer startas servern om.
@@ -79,7 +79,7 @@ Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
 
 2. Ange ett nytt lösen ord och bekräfta lösen ordet. I text rutan visas ett varnings krav för lösen ords komplexitet.
 
-   ![Återställ lösen ord](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Skärm bild som visar dialog rutan Återställ lösen ord med lösen ord och bekräfta lösen ord.](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Välj **OK** för att spara det nya lösen ordet.
 
@@ -94,7 +94,7 @@ Du kan ta bort servern om du inte längre behöver den.
 
 2. Skriv namnet på servern i indatatypen för att bekräfta att det är den server som du vill ta bort.
 
-    ![bekräfta-ta bort](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![Skärm bild som visar en dialog ruta som verifierar om du vill ta bort en databas, vilket inte kan ångras.](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > Det går inte att ångra borttagningen av en server.

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: dff1d8f48b275fa7e45dab93b5ce45962499b450
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183487"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563887"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Använd Azure Automation runbooks för att hantera StorSimple-enheter
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs hur Azure Automation runbooks används för att han
 
 Det här avsnittet tar ett exempel på Windows PowerShell-skript för StorSimple och beskriver de olika stegen som krävs för att importera skriptet till en Runbook och sedan publicera och köra runbooken.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har:
 
@@ -85,7 +85,7 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
 
 6. Kontrol lera att zip-filen för Automation-modulen har skapats i `C:\scripts\StorSimpleSDKTools` .
 
-    ![verifiera-Automation-modul](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+    ![Skärm bild som visar StorSimpleSDKTools-mappen med Automation-modulens zip-fil.](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
 7. Följande utdata visas när Automation-modulen skapas via Windows PowerShell.
 
@@ -184,7 +184,7 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
    5. Låt standard alternativet **skapa kör som-konto** vara markerat.
    6. Du kan också markera **Fäst på instrument panelen**. Klicka på **Skapa**.
 
-       ![Skapa-Automation – konto](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![Skärm bild som visar fönstret Lägg till Automation-konto med värden för prenumeration, skapar kör som-konto i Azure och skapar.](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
       När Automation-kontot har skapats får du ett meddelande. Mer information om hur du skapar ett Automation-konto finns i [skapa ett Kör som-konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
@@ -196,7 +196,7 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
 
 5. I bladet **Lägg till modul** bläddrar du till platsen för den zippade modulen och väljer och öppnar modulen. Klicka på **OK**.
 
-    ![Lägg till modul](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
+    ![Skärm bild som visar fönstret Lägg till modul med värdet överför fil och OK.](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
 6. Gå till **process automatisering > Runbooks och klicka på + Lägg till en Runbook**. På bladet **Lägg till Runbook** klickar du på **Importera en befintlig Runbook**. Peka på Windows PowerShell-skriptfilen för Runbook- **filen**. Runbook-typen väljs automatiskt. Ange ett namn och en valfri beskrivning för runbooken. Klicka på **Skapa**.
 
@@ -208,11 +208,11 @@ Utför följande steg för att skapa en Automation-modul för enhets hantering i
 
 8. Redigera runbooken och klicka på **test fönster**. Ange parametrar som namn på din StorSimple-Enhetshanteraren tjänst, namnet på StorSimple-enheten och prenumerationen. **Starta** testet. Rapporten skapas när körningen har slutförts. Mer information finns i så här [testar du en Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
-    ![test-Runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
+    ![Skärm bild som visar den canenter där du parameter värden och startar ett test.](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
 9. Granska utdata från runbooken i test fönstret. Stäng fönstret om det är uppfyllt. Klicka på **publicera** och när du uppmanas att bekräfta, bekräfta och publicera runbooken.
 
-    ![publicera – Runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
+    ![Skärm bild som visar fönstret Redigera PowerShell-Runbook som ber dig fortsätta att publicera runbooken.](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

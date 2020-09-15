@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459227"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561609"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure-instrumentpaneler
 Det här dokumentet vägleder dig genom strukturen i en Azure-instrumentpanel med hjälp av följande instrument panel som exempel:
@@ -329,16 +329,16 @@ Egenskapen __position__ innehåller storlek och plats information för delen utt
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![rutnät-enheter](./media/azure-portal-dashboards-structure/grid-units.png)
+![Skärm bild som visar en närbild av rutnätet med en enhet med kvadratiska rutnät markerade.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>Metadataobjektet
 Varje del har en metadata-egenskap, ett objekt har endast en obligatorisk egenskap som kallas __typ__. Den här strängen visar portalen vilken panel som ska visas. I vårt exempel instrument panel används följande typer av paneler:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`– Används för att Visa övervaknings mått
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`– Används för att visa text eller bilder med grundläggande formatering för listor, länkar osv.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`– Används för att visa videor från YouTube, channel9 och någon annan typ av video som fungerar i en HTML-video-tagg.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`– Används för att visa namn och status för en virtuell Azure-dator.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Används för att Visa övervaknings mått
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Används för att visa text eller bilder med grundläggande formatering för listor, länkar osv.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Används för att visa videor från YouTube, channel9 och någon annan typ av video som fungerar i en HTML-video-tagg.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Används för att visa namn och status för en virtuell Azure-dator.
 
 Varje typ av del har en egen konfiguration. De möjliga konfigurations egenskaperna kallas __indata__, __Inställningar__och __till gång__. 
 

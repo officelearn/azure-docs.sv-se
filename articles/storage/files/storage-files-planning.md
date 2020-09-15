@@ -4,25 +4,32 @@ description: Att planera för en Azure Files distribution. Du kan antingen direk
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705919"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563477"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
 
-- **Direkt montering av en Azure-fil resurs**: eftersom Azure Files ger SMB-åtkomst kan du montera Azure-filresurser lokalt eller i molnet med hjälp av standard-SMB-klienten som är tillgänglig i Windows, MacOS och Linux. Eftersom Azure-filresurser är utan server, behöver distributionen för produktions scenarier inte hantera en fil server eller NAS-enhet. Det innebär att du inte behöver tillämpa program varu korrigeringar eller byta ut fysiska diskar. 
+- **Direkt montering av en Azure-fil resurs**: eftersom Azure Files tillhandahåller SMB-(Server Message Block) eller NFS-åtkomst (Network File System) kan du montera Azure-filresurser lokalt eller i molnet med hjälp av de standard-SMB-eller NFS-klienter som är tillgängliga i ditt operativ system. Eftersom Azure-filresurser är utan server, behöver distributionen för produktions scenarier inte hantera en fil server eller NAS-enhet. Det innebär att du inte behöver tillämpa program varu korrigeringar eller byta ut fysiska diskar. 
 
-- **Cachelagra Azure-filresurser lokalt med Azure File Sync**: Azure File Sync gör det möjligt att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibiliteten, prestandan och kompatibiliteten för en lokal fil server. Azure File Sync transformerar en lokal (eller moln) Windows Server till ett snabbt cacheminne för Azure-filresursen. 
+- **Cachelagra Azure-filresurser lokalt med Azure File Sync**: Azure File Sync gör det möjligt att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibiliteten, prestandan och kompatibiliteten för en lokal fil server. Azure File Sync transformerar en lokal (eller moln) Windows Server till ett snabbt cacheminne för din Azure SMB-filresurs. 
 
 Den här artikeln beskriver främst distributions överväganden för att distribuera en Azure-filresurs som ska monteras direkt av en lokal eller moln klient. För att planera för en Azure File Sync distribution, se [Planera för en Azure File Sync distribution](storage-sync-files-planning.md).
+
+## <a name="available-protocols"></a>Tillgängliga protokoll
+
+Azure Files erbjuder två protokoll som kan användas när du monterar dina fil resurser, SMB och Network File System (NFS). Mer information om dessa protokoll finns i [Azure File Share-protokoll](storage-files-compare-protocols.md).
+
+> [!IMPORTANT]
+> Merparten av innehållet i den här artikeln gäller endast SMB-resurser. Allt som gäller för NFS-resurser kommer att uttryckligen ange att det är tillämpligt.
 
 ## <a name="management-concepts"></a>Hanterings begrepp
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -54,7 +61,7 @@ Om du vill avblockera åtkomst till Azure-filresursen har du två huvud alternat
 
 - Få åtkomst till Azure-filresurser via en ExpressRoute eller VPN-anslutning. När du kommer åt Azure-filresursen via en nätverks tunnel kan du montera Azure-filresursen som en lokal fil resurs eftersom SMB-trafik inte korsar din organisations gränser.   
 
-Även om det är mycket enklare att montera dina Azure-filresurser via den offentliga slut punkten i ett tekniskt perspektiv förväntar vi de flesta kunder att montera sina Azure-filresurser via en ExpressRoute eller VPN-anslutning. För att göra detta måste du konfigurera följande för din miljö:  
+Även om det är mycket enklare att montera dina Azure-filresurser via den offentliga slut punkten i ett tekniskt perspektiv förväntar vi de flesta kunder att montera sina Azure-filresurser via en ExpressRoute eller VPN-anslutning. Montering med dessa alternativ är möjligt med både SMB-och NFS-resurser. För att göra detta måste du konfigurera följande för din miljö:  
 
 - **Nätverks tunnel med ExpressRoute, plats-till-plats eller punkt-till-plats-VPN**: tunnlar till ett virtuellt nätverk tillåter åtkomst till Azure-filresurser från lokalt, även om Port 445 är blockerad.
 - **Privata slut punkter**: privata slut punkter ger ditt lagrings konto en dedikerad IP-adress i det virtuella nätverkets adress utrymme. Detta möjliggör nätverks tunnel utan att behöva öppna lokala nätverk upp till alla IP-adressintervall som ägs av Azure Storage-klustren. 
@@ -66,6 +73,10 @@ Information om hur du planerar för nätverk som är kopplade till att distribue
 Azure Files stöder två olika typer av kryptering: kryptering under överföring, som relaterar till den kryptering som används vid montering/åtkomst till Azure-filresursen och kryptering i vila, som relaterar till hur data krypteras när de lagras på disk. 
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
+
+> [!IMPORTANT]
+> Det här avsnittet beskriver kryptering i överförings information för SMB-resurser. Mer information om kryptering i överföring med NFS-resurser finns i [säkerhet](storage-files-compare-protocols.md#security).
+
 Som standard har alla Azure Storage-konton kryptering under överföring aktiverat. Det innebär att när du monterar en fil resurs över SMB eller åtkomst till den via det fileraste protokollet (till exempel via Azure Portal, PowerShell/CLI eller Azure SDK: er), tillåter Azure Files bara anslutningen om den görs med SMB 3.0 + med kryptering eller HTTPS. Klienter som inte har stöd för SMB 3,0 eller klienter som stöder SMB 3,0 men inte SMB-kryptering kommer inte att kunna montera Azure-filresursen om kryptering i överföring är aktiverat. Mer information om vilka operativ system som stöder SMB 3,0 med kryptering finns i vår detaljerade dokumentation för [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)och [Linux](storage-how-to-use-files-linux.md). Alla aktuella versioner av PowerShell, CLI och SDK: er stöder HTTPS.  
 
 Du kan inaktivera kryptering under överföring för ett Azure Storage-konto. När krypteringen är inaktive rad kommer Azure Files också tillåta SMB 2,1, SMB 3,0 utan kryptering och okrypterade filer för API-anrop via HTTP. Den främsta anledningen till att inaktivera kryptering vid överföring är att stödja ett äldre program som måste köras på ett äldre operativ system, till exempel Windows Server 2008 R2 eller äldre Linux-distribution. Azure Files tillåter endast SMB 2,1-anslutningar inom samma Azure-region som Azure-filresursen. en SMB 2,1-klient utanför Azure-filresursens region, till exempel lokalt eller i en annan Azure-region, kommer inte att kunna komma åt fil resursen.

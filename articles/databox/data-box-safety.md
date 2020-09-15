@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68985952"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564431"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installera och använda din Azure Data Box på ett säkert sätt
 ![Varnings ikon läsa ](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Läs all säkerhets information i den här artikeln innan du använder Azure Dat
 ## <a name="safety-icon-conventions"></a>Säkerhets ikon konventioner
 Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder som ska observeras när du konfigurerar och kör din Data Box-enhet.
 
-| Ikon | Beskrivning |
+| Ikon | Description |
 |:--- |:--- |
 | ![Varnings ikon ](./media/data-box-safety/warning_icon.png) **!** |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
 | ![Varnings ikon ](./media/data-box-safety/warning_icon.png) **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |
@@ -120,7 +120,7 @@ Den här utrustningen har testats och visat sig uppfylla gränserna för en klas
 
 Den här enheten uppfyller kraven i del 15 i FCC-reglerna och bransch licens licenser – undantagna RSS-standarder (s). Åtgärden omfattas av följande två villkor: (1) den här enheten kan inte orsaka skadlig störning och (2) den här enheten måste acceptera eventuella störningar som tas emot, inklusive störningar som kan orsaka oönskad åtgärd på enheten.
 
-![Kanada](./media/data-box-safety/canada.png)
+![Skärm bild som visar ett meddelande som krävs för Kanada.](./media/data-box-safety/canada.png)
 
 KAN ICES-3 (A)/NMB-3 (A)
 
@@ -154,7 +154,7 @@ Fax nummer: + 353 1 706 4110
 
 **Japan**
 
-![Japan](./media/data-box-safety/japan.png)
+![Skärm bild som visar ett meddelande som krävs för Japan.](./media/data-box-safety/japan.png)
 
 <!--**South Korea**
 

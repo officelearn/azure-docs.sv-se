@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ed061234da27716bfcdaf1cc065568908108f90a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77597869"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563466"
 ---
-Alla data som lagras i Azure Files krypteras i vila med hjälp av Azure Storage Service Encryption (SSE). Kryptering av lagrings tjänst fungerar på samma sätt som BitLocker i Windows: data krypteras under fil system nivå. Eftersom data krypteras under fil systemet i Azure-filresursen, eftersom de är kodade till disk, behöver du inte ha åtkomst till den underliggande nyckeln på klienten för att läsa eller skriva till Azure-filresursen.
+Alla data som lagras i Azure Files krypteras i vila med hjälp av Azure Storage Service Encryption (SSE). Kryptering av lagrings tjänst fungerar på samma sätt som BitLocker i Windows: data krypteras under fil system nivå. Eftersom data krypteras under fil systemet i Azure-filresursen, eftersom de är kodade till disk, behöver du inte ha åtkomst till den underliggande nyckeln på klienten för att läsa eller skriva till Azure-filresursen. Kryptering i vila gäller både SMB-och NFS-protokollen.
 
 Som standard krypteras data som lagras i Azure Files med Microsoft-hanterade nycklar. Med Microsoft-hanterade nycklar innehåller Microsoft nycklar för att kryptera/dekryptera data och ansvarar för att rotera dem regelbundet. Du kan också välja att hantera dina egna nycklar, vilket ger dig kontroll över rotations processen. Om du väljer att kryptera dina fil resurser med Kundhanterade nycklar har Azure Files behörighet att få åtkomst till dina nycklar för att uppfylla Läs-och skriv förfrågningar från dina klienter. Med Kundhanterade nycklar kan du återkalla den här behörigheten när som helst, men det innebär att Azure-filresursen inte längre kan nås via SMB eller det fileraste API: et.
 

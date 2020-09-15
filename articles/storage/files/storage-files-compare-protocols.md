@@ -1,0 +1,96 @@
+---
+title: Tillgängliga Azure Files protokoll
+description: Läs om tillgängliga protokoll innan du skapar en Azure-filresurs.
+author: roygara
+ms.service: storage
+ms.topic: conceptual
+ms.date: 09/15/2020
+ms.author: rogarana
+ms.subservice: files
+ms.custom: references_regions
+ms.openlocfilehash: 90d51d7eb5425530ebad0fc9ac66ba2c95776076
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564976"
+---
+# <a name="azure-file-share-protocols"></a>Azure File Share-protokoll
+
+Azure Files erbjuder två protokoll för att ansluta och montera dina Azure-filresurser. [SMB-protokoll (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) och [NFS-protokoll (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Azure Files stöder för närvarande inte åtkomst till flera protokoll, så en resurs kan bara vara en NFS-resurs eller en SMB-resurs. På grund av detta rekommenderar vi att du bestämmer vilket protokoll som passar bäst för dina behov innan du skapar Azure-filresurser.
+
+## <a name="differences-at-a-glance"></a>Skillnader i en överskådlighet
+
+|Funktion  |NFS (för hands version)  |SMB  |
+|---------|---------|---------|
+|Åtkomst protokoll     |NFS 4,1         |SMB 2,1, SMB 3,0         |
+|Operativ system som stöds     |Linux-kernel version 4.3 +         |Windows 2008 R2 +, Linux kernel-version 4.11 +         |
+|Tillgängliga nivåer     |Premium Storage         |Premium Storage, standard lagring, frekvent, låg frekvent         |
+|Replikering     |LRS         |LRS, ZRS, GRS         |
+|Autentisering     |Endast värdbaserad autentisering        |Identitets baserad autentisering, användarbaserad autentisering         |
+|Behörigheter     |Behörigheter för UNIX-typ         |NTFS-typ behörigheter         |
+|Semantiska fil system     |POSIX-kompatibel         |Inte POSIX-kompatibel         |
+|Skift läges känslighet     |Skiftlägeskänsligt         |Inte Skift läges känslig         |
+|Stöd för hårda länkar     |Stöds         |Stöds inte         |
+|Stöd för symboliska länkar     |Stöds         |Stöds inte         |
+|Ta bort eller ändra öppna filer     |Stöds         |Stöds inte         |
+|Låsning     |Meddelande hanteraren för byte intervall som är ansvarig för Nätverks Lås         |Stöds         |
+|Säker lista över offentliga IP-adresser | Stöds inte | Stöds|
+|Protokoll-interop| Stöds inte | Filerst|
+
+## <a name="nfs-shares-preview"></a>NFS-resurser (förhands granskning)
+
+Att montera Azure-filresurser med NFS 4,1 är för närvarande en för hands version. Den erbjuder en närmare integrering med Linux. Detta är ett fullständigt POSIX-kompatibelt erbjudande som är en standard för alla varianter av UNIX och andra * nix-baserade operativ system. Den här fil lagrings tjänsten i företags klass skalas upp för att uppfylla dina lagrings behov och kan nås samtidigt av tusentals beräknings instanser.
+
+### <a name="limitations"></a>Begränsningar
+
+[!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
+
+#### <a name="regional-availability"></a>Regional tillgänglighet
+
+[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+
+### <a name="best-suited"></a>Passar bäst
+
+NFS med Azure Files är perfekt för:
+
+- Arbets belastningar som kräver POSIX-kompatibla fil resurser, SKIFT läges känslighet eller UNIX-stil behörigheter (UID/GID).
+- Linux-koncentriska arbets belastningar som inte kräver SMB-åtkomst.
+
+### <a name="security"></a>Säkerhet
+
+Alla Azure Files data är krypterade i vila. För kryptering under överföring tillhandahåller Azure ett krypterings lager för alla data som överförs mellan Azure-datacenter med hjälp av [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Det finns kryptering när data överförs mellan Azure-datacenter. Till skillnad från Azure Files att använda SMB-protokollet erbjuder inte fil resurser som använder NFS-protokollet användar baserad autentisering. Autentisering för NFS-resurser baseras på de konfigurerade nätverks säkerhets reglerna. På grund av detta måste du använda antingen tjänstens slut punkter eller privata slut punkter för att säkerställa att endast säkra anslutningar upprättas till din NFS-resurs. Om du vill komma åt resurser lokalt måste du konfigurera en VPN-eller ExpressRoute, förutom en privat slut punkt. Begär Anden som inte härstammar från följande källor kommer att avvisas:
+
+- [En privat slut punkt](storage-files-networking-overview.md#private-endpoints)
+- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
+    - [VPN för punkt-till-plats (P2S)](../../vpn-gateway/point-to-site-about.md)
+    - [Plats-till-plats](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+- [ExpressRoute](../../expressroute/expressroute-introduction.md)
+- [En begränsad offentlig slut punkt](storage-files-networking-overview.md#storage-account-firewall-settings)
+
+Mer information om tillgängliga nätverks alternativ finns [Azure Files nätverks överväganden](storage-files-networking-overview.md).
+
+## <a name="smb-shares"></a>SMB-resurser
+
+Azure-filresurser som är monterade med SMB erbjuder fler Azure Files funktioner och har inga Azure Files funktions begränsningar eftersom den är allmänt tillgänglig.
+
+### <a name="features"></a>Funktioner
+
+- Azure File Sync
+- Identitets baserad autentisering
+- Azure Backup support
+- Ögonblicksbilder
+- Mjuk borttagning
+- Kryptering under överföring och kryptering vid vila
+
+### <a name="best-suited"></a>Passar bäst
+
+SMB med Azure Files är perfekt för:
+
+- Produktions miljöer
+- Kunder som kräver någon av funktionerna som anges i [funktioner](#features)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Skapa en NFS-filresurs](storage-files-how-to-create-nfs-shares.md)
+- [Skapa en SMB-filresurs](storage-how-to-create-file-share.md)

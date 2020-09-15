@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6afbdb6bcb067bdcb570c366f4604ea77ec4f490
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526824"
+ms.locfileid: "90561354"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO-plugin-program för Apple-enheter (för hands version)
 
@@ -148,11 +148,11 @@ Det behövs inga kod ändringar i dessa appar så länge följande villkor är u
 - Programmet använder standard protokoll för att kommunicera med Azure AD (till exempel OAuth2, SAML, WS-Federation)
 - Programmet samlar inte in användar namn och lösen ord i klartext i det inbyggda användar gränssnittet
 
-I det här fallet anges SSO vid den tidpunkt då programmet skapar en nätverks förfrågan och öppnar en webbläsare för att logga in användaren i. När en användare omdirigeras till en inloggnings-URL för Azure AD, verifierar SSO-plugin-programmet URL: en och kontrollerar om det finns en SSO-autentiseringsuppgift som är tillgänglig för den URL: en. Om det finns en så skickar SSO-plugin-programmet SSO-autentiseringsuppgiften till Azure AD, som auktoriserar programmet att slutföra nätverksbegäran utan att be slutanvändaren att ange autentiseringsuppgifter. Dessutom, om enheten är känd för Azure AD, så skickar SSO-plugin-programmet även enhets certifikatet för att uppfylla den enhets villkorliga åtkomst kontrollen. 
+I det här fallet anges SSO när programmet skapar en nätverks förfrågan och öppnar en webbläsare för att logga in användaren i. När en användare omdirigeras till en inloggnings-URL för Azure AD, verifierar SSO-plugin-programmet URL: en och kontrollerar om det finns en SSO-autentiseringsuppgift som är tillgänglig för den URL: en. Om det finns en så skickar SSO-plugin-programmet SSO-autentiseringsuppgiften till Azure AD, som auktoriserar programmet att slutföra nätverksbegäran utan att be användaren ange sina autentiseringsuppgifter. Dessutom, om enheten är känd för Azure AD, så skickar SSO-plugin-programmet även enhets certifikatet för att uppfylla den enhets villkorliga åtkomst kontrollen. 
 
-För att stödja SSO för icke-MSAL appar implementerar SSO-plugin-programmet ett liknande protokoll för plugin-programmet för Windows-webbläsare, [vilket beskrivs i vad är en primär uppdateringstoken?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
+För att stödja SSO för icke-MSAL appar implementerar SSO-plugin-programmet ett protokoll som liknar plugin-programmet för Windows-webbläsare, [vilket beskrivs i vad är en primär uppdateringstoken?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
-Jämfört med MSAL-baserade appar fungerar SSO-plugin-programmet mer transparent för icke-MSAL appar genom att integrera med den befintliga webbläsarens inloggnings upplevelse som appar tillhandahåller. Slutanvändaren ser sin välbekanta upplevelse med en fördel med att inte behöva göra ytterligare inloggning i vart och ett av programmen. Till exempel, i stället för att visa den inbyggda konto väljaren, lägger till SSO-plugin-program till SSO-sessioner i den webbaserade konto väljaren. 
+Jämfört med MSAL-baserade appar fungerar SSO-plugin-programmet mer transparent för icke-MSAL appar genom att integrera med den befintliga webbläsarens inloggnings upplevelse som appar tillhandahåller. Slutanvändaren ser sin välbekanta upplevelse, med fördelen att du inte behöver utföra ytterligare inloggningar i vart och ett av programmen. I stället för att visa den inbyggda konto väljaren, lägger till exempel SSO-plugin-programmet SSO-sessioner till den webbaserade konto väljaren. 
 
 ## <a name="next-steps"></a>Nästa steg
 

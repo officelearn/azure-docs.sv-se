@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c0af87dc8e38c6d5184cec4614b47d2ae4a24ca
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 489a1afd8e247b69761d521f51e16310176e31f5
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458288"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564091"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management
 
@@ -185,6 +185,7 @@ Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra.
 -   [Hanterad identitets](api-management-howto-use-managed-service-identity.md) konfiguration.
 -   [Azure Monitor diagnostik](api-management-howto-use-azure-monitor.md) Inställningarna.
 -   [Protokoll och krypterings](api-management-howto-manage-protocols-ciphers.md) inställningar.
+-   Innehåll i [Developer-portalen](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) .
 
 Den frekvens med vilken du utför säkerhets kopiering av tjänster påverkar återställnings punkt målet. För att minimera det rekommenderar vi att du implementerar regelbundna säkerhets kopieringar och utför säkerhets kopieringar på begäran när du har gjort ändringar i API Managements tjänsten.
 

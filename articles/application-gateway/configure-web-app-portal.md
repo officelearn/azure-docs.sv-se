@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: dbaad0f6639d65d88da6847886d3aa3d39b93e82
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595718"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563761"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
@@ -26,7 +26,7 @@ I den här artikeln kan du se hur du:
 - Skapa en backend-pool och Lägg till en App Service
 - Skapa HTTP-inställningar och anpassad avsökning med växeln Välj värdnamn aktiverat
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Application Gateway: om du inte har en befintlig Application Gateway, se så här [skapar du en Programgateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 - App Service: om du inte har en befintlig App Service kan du läsa [dokumentationen om App Service](https://docs.microsoft.com/azure/app-service/).
@@ -67,9 +67,9 @@ I den här artikeln kan du se hur du:
 
 5. Klicka på **OK** för att skapa http-inställningen.
 
-   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Skärm bild som visar inställnings fönstret Lägg till H T T P med Använd för app service och OK valt.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Skärm bild som visar en hälso avsökning med Välj värddator namn format http-inställningar har valts.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -85,7 +85,7 @@ I den här artikeln kan du se hur du:
 
 5. Spara regeln genom att klicka på **OK** .
 
-   ![Regel](./media/configure-web-app-portal/rule.png)
+   ![Skärm bild som visar fönstret Lägg till grundläggande regel med inställningen lyssnare, backend-pool och H T T P.](./media/configure-web-app-portal/rule.png)
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Ytterligare konfiguration i händelse av omdirigering till app Services relativa sökväg
 

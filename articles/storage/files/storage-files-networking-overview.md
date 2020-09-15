@@ -7,17 +7,17 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464818"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563343"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files nätverks överväganden 
 Du kan ansluta till en Azure-filresurs på två sätt:
 
-- Åtkomst till resursen direkt via SMB eller fileraste protokollen. Detta åtkomst mönster används i första hand för att eliminera så många lokala servrar som möjligt.
+- Åtkomst till resursen direkt via SMB (Server Message Block), NFS (Network File System) (för hands version) eller protokoll som har blockerats. Detta åtkomst mönster används i första hand för att eliminera så många lokala servrar som möjligt.
 - Skapa ett cacheminne för Azure-filresursen på en lokal server (eller på en virtuell Azure-dator) med Azure File Sync och få åtkomst till fil resursens data från den lokala servern med ditt protokoll (SMB, NFS, FTPS osv.) för ditt användnings fall. Det här åtkomst mönstret är användbart eftersom det kombinerar det bästa av både lokala prestanda och moln skalning och tjänster som kan anslutas utan server, till exempel Azure Backup.
 
 Den här artikeln fokuserar på hur du konfigurerar nätverk för när ditt användnings fall anropar åtkomst till Azure-filresursen direkt i stället för att använda Azure File Sync. För ytterligare information om nätverks överväganden för en Azure File Sync distribution, se [Azure File Sync nätverks överväganden](storage-sync-files-networking-overview.md).
@@ -29,17 +29,17 @@ Vi rekommenderar att du läser [planering för en Azure Files distribution](stor
 ## <a name="accessing-your-azure-file-shares"></a>Åtkomst till dina Azure-filresurser
 När du distribuerar en Azure-filresurs inom ett lagrings konto är fil resursen omedelbart tillgänglig via lagrings kontots offentliga slut punkt. Det innebär att autentiserade begär Anden, till exempel begär Anden som har godkänts av en användares inloggnings identitet, kan komma från eller utanför Azure. 
 
-I många kund miljöer kommer en första montering av Azure-filresursen på din lokala arbets Station att Miss lyckas, även om monteringar från virtuella Azure-datorer lyckas. Orsaken till detta är att många organisationer och Internet leverantörer (ISP) blockerar porten som SMB använder för att kommunicera, Port 445. Den här övningen kommer från säkerhets anvisningar om äldre och föråldrade versioner av SMB-protokollet. Även om SMB 3,0 är ett Internet-säkert protokoll, är äldre versioner av SMB, särskilt SMB 1,0. Azure-filresurser kan bara nås externt via SMB 3,0 och det fileraste protokollet (som också är ett säkert protokoll för Internet) via den offentliga slut punkten.
+I många kund miljöer kommer en första montering av Azure-filresursen på din lokala arbets Station att Miss lyckas, även om monteringar från virtuella Azure-datorer lyckas. Orsaken till detta är att många organisationer och Internet leverantörer (ISP) blockerar porten som SMB använder för att kommunicera, Port 445. NFS-resurser har inte det här problemet. Den här övningen kommer från säkerhets anvisningar om äldre och föråldrade versioner av SMB-protokollet. Även om SMB 3,0 är ett Internet-säkert protokoll, är äldre versioner av SMB, särskilt SMB 1,0. Azure-filresurser kan bara nås externt via SMB 3,0 och det fileraste protokollet (som också är ett säkert protokoll för Internet) via den offentliga slut punkten.
 
-Eftersom det enklaste sättet att komma åt din Azure-filresurs från lokalt är att öppna ditt lokala nätverk till port 445, rekommenderar Microsoft följande steg för att ta bort SMB 1,0 från din miljö:
+Eftersom det enklaste sättet att komma åt din Azure SMB-filresurs från lokalt är att öppna ditt lokala nätverk till port 445, rekommenderar Microsoft följande steg för att ta bort SMB 1,0 från din miljö:
 
 1. Se till att SMB 1,0 tas bort eller inaktive ras på din organisations enheter. Alla Windows-och Windows Server-versioner som stöds för närvarande stöder borttagning eller inaktive ring av SMB 1,0 och från och med Windows 10, version 1709, SMB 1,0 installeras inte i Windows som standard. Mer information om hur du inaktiverar SMB 1,0 finns i våra OS-/regionsspecifika sidor:
     - [Skydda Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
     - [Skydda Linux](storage-how-to-use-files-linux.md#securing-linux)
-2. Se till att inga produkter i organisationen kräver SMB 1,0 och ta bort de som gör. Vi underhåller en [SMB1 produkt-Clearinghouse](https://aka.ms/stillneedssmb1)som innehåller alla de första och tredje parts produkter som är kända för att Microsoft ska kräva SMB 1,0. 
-3. Valfritt Använd en brand vägg från en tredje part med din organisations lokala nätverk för att förhindra att SMB 1,0-trafik lämnar din organisations gränser.
+1. Se till att inga produkter i organisationen kräver SMB 1,0 och ta bort de som gör. Vi underhåller en [SMB1 produkt-Clearinghouse](https://aka.ms/stillneedssmb1)som innehåller alla de första och tredje parts produkter som är kända för att Microsoft ska kräva SMB 1,0. 
+1. Valfritt Använd en brand vägg från en tredje part med din organisations lokala nätverk för att förhindra att SMB 1,0-trafik lämnar din organisations gränser.
 
-Om din organisation kräver att port 445 ska blockeras per princip eller förordning, eller om din organisation kräver trafik till Azure för att följa en deterministisk sökväg kan du använda Azure VPN Gateway eller ExpressRoute för tunnel trafik till dina Azure-filresurser.
+Om din organisation kräver att port 445 ska blockeras per princip eller förordning, eller om din organisation kräver trafik till Azure för att följa en deterministisk sökväg kan du använda Azure VPN Gateway eller ExpressRoute för tunnel trafik till dina Azure-filresurser. NFS-resurser kräver inte något av detta eftersom de inte behöver port 445.
 
 > [!Important]  
 > Även om du väljer att använda en alternativ metod för att få åtkomst till dina Azure-filresurser rekommenderar Microsoft fortfarande att du tar bort SMB 1,0 från din miljö.
@@ -47,7 +47,7 @@ Om din organisation kräver att port 445 ska blockeras per princip eller förord
 ### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>Tunnel trafik över ett virtuellt privat nätverk eller ExpressRoute
 När du upprättar en nätverks tunnel mellan ditt lokala nätverk och Azure, peering du ditt lokala nätverk med ett eller flera virtuella nätverk i Azure. Ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md), eller VNet, liknar ett traditionellt nätverk som du kommer att använda lokalt. Precis som ett Azure Storage-konto eller en virtuell Azure-dator är ett VNet en Azure-resurs som distribueras i en resurs grupp. 
 
-Azure Files stöder följande mekanismer för tunnel trafik mellan dina lokala arbets stationer och servrar och Azure:
+Azure Files stöder följande mekanismer för tunnel trafik mellan dina lokala arbets stationer och servrar och Azure SMB/NFS-fil resurser:
 
 - [Azure VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): en VPN-gateway är en speciell typ av virtuell nätverksgateway som används för att skicka krypterad trafik mellan ett virtuellt Azure-nätverk och en annan plats (till exempel lokalt) via Internet. En Azure-VPN Gateway är en Azure-resurs som kan distribueras i en resurs grupp tillsammans med ett lagrings konto eller andra Azure-resurser. VPN-gatewayer exponerar två olika typer av anslutningar:
     - [Punkt-till-plats (P2s) VPN gateway-](../../vpn-gateway/point-to-site-about.md) anslutningar, som är VPN-anslutningar mellan Azure och en enskild klient. Den här lösningen är främst användbar för enheter som inte är en del av organisationens lokala nätverk, t. ex. kunder som vill kunna montera sin Azure-filresurs från hemmet, ett kafé eller ett hotell på resan. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. För att förenkla distributionen av en P2S VPN-anslutning, se [Konfigurera en punkt-till-plats (P2s) VPN i Windows för användning med Azure Files](storage-files-configure-p2s-vpn-windows.md) och [Konfigurera en punkt-till-plats (P2s) VPN på Linux för användning med Azure Files](storage-files-configure-p2s-vpn-linux.md).
@@ -109,7 +109,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Om du kör samma kommando från en lokal plats ser du att samma lagrings konto namn matchar den offentliga IP-adressen för lagrings kontot i stället. `storageaccount.file.core.windows.net`är en CNAME-post för `storageaccount.privatelink.file.core.windows.net` , vilket i sin tur är en CNAME-post för Azure Storage-kluster som är värd för lagrings kontot:
+Om du kör samma kommando från en lokal plats ser du att samma lagrings konto namn matchar den offentliga IP-adressen för lagrings kontot i stället. `storageaccount.file.core.windows.net` är en CNAME-post för `storageaccount.privatelink.file.core.windows.net` , vilket i sin tur är en CNAME-post för Azure Storage-kluster som är värd för lagrings kontot:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -139,9 +139,16 @@ Det finns två sätt att begränsa åtkomsten till ett lagrings konto till ett v
 - Skapa en eller flera privata slut punkter för lagrings kontot och begränsa all åtkomst till den offentliga slut punkten. Detta säkerställer att endast trafik som härstammar från de önskade virtuella nätverken kan komma åt Azure-filresurserna i lagrings kontot.
 - Begränsa den offentliga slut punkten till ett eller flera virtuella nätverk. Detta fungerar med hjälp av en funktion i det virtuella nätverket med namnet *tjänst slut punkter*. När du begränsar trafiken till ett lagrings konto via en tjänst slut punkt har du fortfarande åtkomst till lagrings kontot via den offentliga IP-adressen.
 
+> [!NOTE]
+> NFS-resurser kan inte komma åt lagrings kontots offentliga slut punkt via den offentliga IP-adressen. de kan bara komma åt lagrings kontots offentliga slut punkt med virtuella nätverk. NFS-resurser kan också komma åt lagrings kontot med hjälp av privata slut punkter.
+
 Mer information om hur du konfigurerar lagrings kontots brand vägg finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="encryption-in-transit"></a>Kryptering under överföring
+
+> [!IMPORTANT]
+> Det här avsnittet beskriver kryptering i överförings information för SMB-resurser. Mer information om kryptering i överföring med NFS-resurser finns i [säkerhet](storage-files-compare-protocols.md#security).
+
 Som standard har alla Azure Storage-konton kryptering under överföring aktiverat. Det innebär att när du monterar en fil resurs över SMB eller åtkomst till den via det fileraste protokollet (till exempel via Azure Portal, PowerShell/CLI eller Azure SDK: er), tillåter Azure Files bara anslutningen om den görs med SMB 3.0 + med kryptering eller HTTPS. Klienter som inte har stöd för SMB 3,0 eller klienter som stöder SMB 3,0 men inte SMB-kryptering kommer inte att kunna montera Azure-filresursen om kryptering i överföring är aktiverat. Mer information om vilka operativ system som stöder SMB 3,0 med kryptering finns i vår detaljerade dokumentation för [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)och [Linux](storage-how-to-use-files-linux.md). Alla aktuella versioner av PowerShell, CLI och SDK: er stöder HTTPS.  
 
 Du kan inaktivera kryptering under överföring för ett Azure Storage-konto. När krypteringen är inaktive rad kan Azure Files också tillåta SMB 2,1, SMB 3,0 utan kryptering och okrypterade filer för API-anrop via HTTP. Den främsta anledningen till att inaktivera kryptering vid överföring är att stödja ett äldre program som måste köras på ett äldre operativ system, till exempel Windows Server 2008 R2 eller äldre Linux-distribution. Azure Files tillåter endast SMB 2,1-anslutningar inom samma Azure-region som Azure-filresursen. en SMB 2,1-klient utanför Azure-filresursens region, till exempel lokalt eller i en annan Azure-region, kommer inte att kunna komma åt fil resursen.
@@ -150,4 +157,4 @@ Mer information om kryptering i överföring finns i [krav på säker överföri
 
 ## <a name="see-also"></a>Se även
 - [Azure Files-översikt](storage-files-introduction.md)
-- [Planera för distribution av Azure Files](storage-files-planning.md)
+- [Planera för en Azure Files-distribution](storage-files-planning.md)

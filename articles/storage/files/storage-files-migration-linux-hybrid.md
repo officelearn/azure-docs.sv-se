@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510381"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563513"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrera från Linux till en hybrid moln distribution med Azure File Sync
 
-Azure File Sync fungerar på Windows Server-instanser med direktansluten lagring (DAS). Den stöder inte synkronisering till och från Linux eller en SMB-resurs (Server Message Block).
+Azure File Sync fungerar på Windows Server-instanser med direktansluten lagring (DAS). Den stöder inte synkronisering till och från Linux-klienter, eller en SMB-resurs (Server Message Block) eller NFS-resurser (Network File System).
 
 Det innebär att du måste omvandla dina fil tjänster till en hybrid distribution och göra en migrering till Windows Server. Den här artikeln vägleder dig genom planeringen och körningen av en sådan migrering.
 
@@ -201,11 +201,11 @@ Du har avslutat migreringen av en resurs eller en grupp med resurser till en gem
 Du kan försöka att köra några av dessa kopior parallellt. Vi rekommenderar att du bearbetar omfånget för en Azure-filresurs i taget.
 
 > [!WARNING]
-> När du har flyttat alla data från din Linux-Samba-server till Windows Server-instansen och migreringen är klar, återgår du till *alla* Sync-grupper i Azure Portal. Justera procent andelen ledigt utrymme på moln lagrings volym till något som passar bättre för cachelagring, till exempel 20 procent. 
+> När du har flyttat alla data från din Linux-Samba-server till Windows Server-instansen och migreringen är klar, återgår du till *alla*  Sync-grupper i Azure Portal. Justera procent andelen ledigt utrymme på moln lagrings volym till något som passar bättre för cachelagring, till exempel 20 procent. 
 
 Principen för ledigt utrymme i moln skikts volym fungerar på en volym nivå med eventuellt flera Server slut punkter som synkroniseras från den. Om du glömmer att justera det lediga utrymmet på en server slut punkt fortsätter synkroniseringen att tillämpa den mest restriktiva regeln och försöker att behålla ledigt disk utrymme på 99 procent. Den lokala cachen kanske inte fungerar som förväntat. Prestandan kan vara acceptabel om målet är att ha namn området för en volym som bara innehåller arkiverade data som sällan används och du reserverar resten av lagrings utrymmet för ett annat scenario.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 Det vanligaste problemet är att Robocopy-kommandot Miss lyckas med **volymen full** på Windows Server-sidan. Moln nivåer fungerar en gång per timme för att evakuera innehåll från den lokala Windows Server-disken som har synkroniserats. Målet är att uppnå ledigt utrymme på 99 procent på volymen.
 

@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du konfigurerar Azur
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75614017"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561848"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: skapa en Azure VM-infrastruktur som värd för ett Service Fabric kluster
 
@@ -49,7 +49,7 @@ Du behöver en Azure-prenumeration för att kunna utföra stegen i den här sjä
 
 8. Ställ sedan in nätverkskortets **nätverks säkerhets grupp** på **Avancerat**. Skapa en ny säkerhets grupp med namnet och skapa följande regler för att tillåta TCP-trafik från vilken källa som helst:
 
-   ![SF-inkommande][sf-inbound]
+   ![Skärm bild som visar hur du skapar regler för att tillåta inkommande TCP-trafik.][sf-inbound]
 
    * Port `3389` , för RDP och ICMP (grundläggande anslutning).
    * Portar `19000-19003` , för Service Fabric.
@@ -61,7 +61,7 @@ Du behöver en Azure-prenumeration för att kunna utföra stegen i den här sjä
 
 9. Lägg till en annan regel. Ange att källan ska vara **service tag** och ange käll tjänst tag gen till **VirtualNetwork**. Service Fabric kräver att följande portar är öppna för kommunikation i klustret: 135137-139, 445, 20001-20031, 20606-20861.
 
-   ![VNet-inkommande][vnet-inbound]
+   ![Skärm bild som visar hur du skapar regler för att tillåta TCP-trafik för ett kluster.][vnet-inbound]
 
 10. Resten av alternativen är acceptabla i sitt standard tillstånd. Granska dem om du vill och starta sedan den virtuella datorn.
 

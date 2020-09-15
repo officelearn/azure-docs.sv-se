@@ -6,12 +6,12 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7614dd1d60bad5c124269ae2af02d30a5aacfe3e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658854"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564040"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Visa designer till arbets böcker konverterings Sammanfattning och åtkomst
 [View Designer](view-designer.md) är en funktion i Azure Monitor som gör att du kan skapa anpassade vyer som hjälper dig att visualisera data i arbets ytan Log Analytics, med diagram, listor och tids linjer. De fasas ut och ersätts med arbets böcker, vilket ger ytterligare funktioner. Den här artikeln beskriver hur du kan skapa en översikts Sammanfattning och behörigheter som krävs för att komma åt arbets böcker.
@@ -21,7 +21,7 @@ Visa designer-användare kan vara bekant med en översikts panel för att repres
 
 Du kan dra nytta av de hög anpassnings funktioner som finns på Azure-instrumentpaneler, vilket möjliggör automatisk uppdatering, flyttning, storleks ändring och ytterligare filtrering för dina fästa objekt och visualiseringar. 
 
-![Instrumentpanel](media/view-designer-conversion-access/dashboard.png)
+![Skärm bild som visar en anpassad Azure-instrumentpanel med titeln arbets yta.](media/view-designer-conversion-access/dashboard.png)
 
 Skapa en ny Azure-instrumentpanel eller Välj en befintlig instrument panel för att börja fästa arbets boks objekt.
 

@@ -4,12 +4,12 @@ description: Skapa din första Linux-containerapp på Azure Service Fabric. Skap
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847541"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563717"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -215,7 +215,7 @@ Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att 
 
 **HEALTHCHECK** -instruktionen som pekar på den faktiska kontrollen som utförs för övervakning av container hälsa måste finnas i den Dockerfile som används när behållar avbildningen genereras.
 
-![HealthCheckHealthy][1]
+![Skärm bild som visar information om det distribuerade tjänst paketet NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 

@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du ställer in konti
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 992d720d86fc2e7fedd8e7fd4b559220ff3c0512
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 302ad1dcfaa93564d70fab739726787ef09c79df
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260359"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563938"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
@@ -31,7 +31,7 @@ I den här självstudieserien får du lära du dig att:
 > * Konfigurera CI/CD med hjälp av Azure Pipelines
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -139,7 +139,7 @@ Kontrollera att distributionen har slutförts och programmet körs i klustret.  
 
 För att kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Azure DevOps.
 
-När du skriver koden spåras dina ändringar automatiskt av Visual Studio. Genomför ändringar av den lokala Git-lagringsplatsen genom att välja ikonen väntande ändringar (![Väntar][pending]) från statusfältet i nederkant högra hörnet.
+När du skriver koden spåras dina ändringar automatiskt av Visual Studio. Genomför ändringar av den lokala Git-lagringsplatsen genom att välja ikonen väntande ändringar (![Ikonen för väntande ändringar visar en penna och en siffra.][pending]) från statusfältet i nederkant högra hörnet.
 
 I vyn **Ändringar** i Team Explorer lägger du till ett meddelande som beskriver uppdateringen. Spara sedan ändringarna.
 

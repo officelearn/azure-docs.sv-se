@@ -3,12 +3,12 @@ title: Replikera Azure Stack virtuella datorer till Azure med Azure Site Recover
 description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure Stack virtuella datorer med tjänsten Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131615"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564317"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera virtuella Azure Stack-datorer till Azure
 
@@ -36,9 +36,9 @@ Med de här stegen slutförda kan du köra en fullständig redundans till Azure 
 
 ## <a name="architecture"></a>Arkitektur
 
-![Arkitektur](./media/azure-stack-site-recovery/architecture.png)
+![Diagrammet visar Recovery Services valv för två klienter i moln som är kopplade till klient prenumerationer både på en gemensam Azure Stack infrastruktur.](./media/azure-stack-site-recovery/architecture.png)
 
-**Position** | **Komponent** |**Detaljer**
+**Plats** | **Komponent** |**Information**
 --- | --- | ---
 **Konfigurationsserver** | Körs på en enskild Azure Stack virtuell dator. | I varje prenumeration ställer du in en virtuell konfigurations Server. Den här virtuella datorn kör följande Site Recoverys komponenter:<br/><br/> – Konfigurations Server: samordnar kommunikationen mellan både lokalt och Azure och hanterar datareplikering. -Processerver: fungerar som en gateway för replikering. Den tar emot replikeringsdata, optimerar med cachelagring, komprimering och kryptering; och skickar den till Azure Storage.<br/><br/> Om de virtuella datorer som du vill replikera överskrider de gränser som anges nedan, kan du konfigurera en separat fristående processerver. [Läs mer](vmware-azure-set-up-process-server-scale.md).
 **Mobilitetstjänsten** | Installeras på varje virtuell dator som du vill replikera. | I stegen i den här artikeln förbereder vi ett konto så att mobilitets tjänsten installeras automatiskt på en virtuell dator när replikering är aktiverat. Om du inte vill installera tjänsten automatiskt finns det ett antal andra metoder som du kan använda. [Läs mer](vmware-azure-install-mobility-service.md).
@@ -60,9 +60,9 @@ Replikeringen fungerar på följande sätt:
 
 Det här är vad du behöver för att konfigurera det här scenariot.
 
-**Krav** | **Detaljer**
+**Krav** | **Information**
 --- | ---
-**Azure-prenumerations konto** | Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
+**Azure-prenumerations konto** | Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 **Behörigheter för Azure-konto** | Det Azure-konto du använder måste ha behörighet att:<br/><br/> -Skapa ett Recovery Service-valv<br/><br/> -Skapa en virtuell dator i resurs gruppen och det virtuella nätverk som du använder för scenariot<br/><br/> – Skriv till det lagrings konto som du anger<br/><br/> Tänk på följande:<br/><br/> – Om du skapar ett konto är du administratör för din prenumeration och kan utföra alla åtgärder.<br/><br/> – Om du använder en befintlig prenumeration och inte är administratör måste du arbeta med administratören för att tilldela behörigheter för ägare eller deltagare.<br/><br/> – Läs [den här artikeln](site-recovery-role-based-linked-access-control.md)om du behöver mer detaljerade behörigheter.
 **Azure Stack VM** | Du behöver en Azure Stack VM i klient prenumerationen som ska distribueras som Site Recovery konfigurations servern.
 
@@ -80,7 +80,7 @@ Det här är vad du behöver för att konfigurera det här scenariot.
 Se till att de virtuella datorerna kör ett av de operativ system som sammanfattas i tabellen.
 
 
-**Operativsystem** | **Detaljer**
+**Operativsystem** | **Information**
 --- | ---
 **64-bitars Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (från SP1)
 **CentOS** | 5,2 till 5,11, 6,1 till 6,9, 7,0 till 7,3

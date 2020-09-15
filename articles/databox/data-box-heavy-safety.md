@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b7562ab6c7ec9c6234ed3fbb867361307b80a638
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673124"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563785"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Installera och använda din Azure Data Box Heavy på ett säkert sätt
 
@@ -27,7 +27,7 @@ Läs all säkerhets information i den här artikeln innan du använder din Azure
 ## <a name="safety-icon-conventions"></a>Säkerhets ikon konventioner
 Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder som ska observeras när du konfigurerar och kör din Data Box-enhet.
 
-| Ikon | Beskrivning |
+| Ikon | Description |
 |:--- |:--- |
 | ![Varnings ikon ](./media/data-box-heavy-safety/warning-icon.png) **!** |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
 | ![Varnings ikon ](./media/data-box-heavy-safety/warning-icon.png) **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |
@@ -156,7 +156,7 @@ Den här enheten uppfyller kraven i del 15 i FCC-reglerna och bransch licens lic
 - Den här enheten kan inte orsaka skadlig störning.
 - Den här enheten måste acceptera eventuella störningar som tas emot, inklusive störningar som kan orsaka oönskad åtgärd på enheten.
 
-![Kanada](./media/data-box-heavy-safety/canada.png)
+![Skärm bild som visar ett meddelande som krävs för Kanada.](./media/data-box-heavy-safety/canada.png)
 
 KAN ICES-3 (A)/NMB-3 (A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 USA: (800) 426-9400 Kanada: (800) 933-4750

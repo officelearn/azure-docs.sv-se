@@ -4,14 +4,14 @@ description: Så här växlar du över virtuella datorer/fysiska servrar till Az
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309976"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563989"
 ---
-# <a name="run-a-failover-from-on-premises-to-azure"></a>Köra en redundansväxling från en lokal plats till Azure
+# <a name="run-a-failover-from-on-premises-to-azure"></a>Köra en redundans från en lokal plats till Azure
 
 Den här artikeln beskriver hur du växlar över lokala datorer till Azure i [Azure Site Recovery](site-recovery-overview.md)
 
@@ -30,7 +30,7 @@ För att se till att du kan ansluta till de virtuella Azure-datorer som skapas e
 
 Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter redundans, finns det ett antal saker du behöver göra lokalt före redundansväxlingen.
 
-**Efter redundans** | **Position** | **Åtgärder**
+**Efter redundans** | **Plats** | **Åtgärder**
 --- | --- | ---
 **Virtuell Azure-dator som kör Windows** | Lokal dator före redundans | För att få åtkomst till den virtuella Azure-datorn via Internet aktiverar du RDP och kontrollerar att TCP-och UDP-regler har lagts till för **offentlig**och att RDP tillåts för alla profiler i **Windows-brandväggen**  >  **tillåtna appar**.<br/><br/> För att komma åt den virtuella Azure-datorn via en plats-till-plats-anslutning aktiverar du RDP på datorn och ser till att RDP tillåts i **Windows-brandväggen**  ->  **tillåtna appar och funktioner**för **domän nätverk och privata** nätverk.<br/><br/> <br/><br/> Ta bort alla statiska permanenta vägar och WinHTTP-proxy. Kontrol lera att SAN-principen för operativ systemet är inställd på **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Se till att inga Windows-uppdateringar väntar på den virtuella datorn när du aktiverar en redundansväxling. Windows Update kan starta när du växlar över och du kan inte logga in på den virtuella datorn förrän uppdateringen är klar.
 **Virtuell Azure-dator som kör Linux** | Lokal dator före redundans | Kontrol lera att Secure Shell-tjänsten på den virtuella datorn är inställd på att starta automatiskt vid system start.<br/><br/> Kontrollera att brandväggsreglerna tillåter en SSH-anslutning till tjänsten.
@@ -46,7 +46,7 @@ Kör återställnings planens redundans på följande sätt:
 1. I Site Recovery-valvet väljer du **återställnings planer**  >  *recoveryplan_name*.
 2. Klicka på **redundans**.
 
-    ![Redundans](./media/site-recovery-failover/Failover.png)
+    ![Skärm bild som visar fönstret ADRP med redundans valt från menyn mer.](./media/site-recovery-failover/Failover.png)
 
 3. **Failover**  >  Lämna standard**riktningen i redundansväxlingen**om du replikerar till Azure.
 4. I **redundans**väljer du en **återställnings punkt** att redundansväxla.
@@ -125,7 +125,7 @@ Site Recovery hanterar kvarhållning av enhets beteckningar. Om du exkluderar di
 
 Om du vill ansluta till virtuella Azure-datorer som skapas efter en redundansväxling med RDP eller SSH följer du de krav som sammanfattas i tabellen.
 
-**Redundans** | **Position** | **Åtgärder**
+**Redundans** | **Plats** | **Åtgärder**
 --- | --- | ---
 **Virtuell Azure-dator som kör Windows** | Virtuell Azure-dator efter redundans |  [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrol lera **startdiagnostik** för att verifiera en skärm bild av den virtuella datorn.<br/><br/> Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och läser igenom de här [fel söknings tipsen](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Virtuell Azure-dator som kör Linux** | Virtuell Azure-dator efter redundans | Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Kontrol lera **startdiagnostiken** för en skärm bild av den virtuella datorn.<br/><br/>

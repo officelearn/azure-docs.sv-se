@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015457"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563813"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -167,6 +167,7 @@ Följ dessa allmänna rikt linjer när du implementerar en SCIM-slutpunkt för a
 * Kräv inte Skift läges känslig matchning på strukturella element i SCIM, i synnerhet KORRIGERINGs `op` Åtgärds värden, enligt definitionen i https://tools.ietf.org/html/rfc7644#section-3.5.2 . Azure AD avger värdena för "OP" som `Add` , `Replace` och `Remove` .
 * Microsoft Azure AD gör begär Anden att hämta en slumpmässig användare och grupp för att säkerställa att slut punkten och autentiseringsuppgifterna är giltiga. Det sker också som en del av **test anslutnings** flödet i [Azure Portal](https://portal.azure.com). 
 * Attributet som resurserna kan frågas om på ska anges som ett matchande attribut i programmet i [Azure Portal](https://portal.azure.com). Mer information finns i [Anpassa mappningar för användar etablerings attribut](customize-application-attributes.md)
+* Stöd för HTTPS på din SCIM-slutpunkt
 
 ### <a name="user-provisioning-and-deprovisioning"></a>Användar etablering och avetablering
 

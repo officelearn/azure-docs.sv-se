@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8c2bac1bee5a2301a29589f15d72d0f69b4a05b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb01d5a4923410f693b682d66be8d5d09f9019d0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253859"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561586"
 ---
 # <a name="application-gateway-redirect-overview"></a>Översikt över Application Gateway omdirigering
 
@@ -37,7 +37,7 @@ Stöd för Application Gateway-stöd har följande funktioner:
    Den här typen av omdirigering möjliggör HTTP till HTTPS-omdirigering endast på ett speciellt plats område, till exempel ett shopping vagns område som betecknas av/Cart/*.
 - **Omdirigera till extern plats**
 
-![omdirigerings](./media/redirect-overview/redirect.png)
+![Diagrammet visar användare och en app-gateway och anslutningar mellan de två, inklusive en nedlåst H T T P-röd pil, en inte tillåten 301 direkt röd pil och en låst H T T P S en grön pil.](./media/redirect-overview/redirect.png)
 
 Med den här ändringen måste kunderna skapa ett nytt konfigurations objekt för omdirigering som anger den mål lyssnare eller extern plats som omdirigering önskas till. Konfigurations elementet stöder också alternativ för att lägga till URI-sökvägen och frågesträngen till den omdirigerade URL: en. Du kan också välja typ av omdirigering. När den här omdirigeringen har skapats kopplas den till käll lyssnaren via en ny regel. När du använder en grundläggande regel associeras omdirigerings konfigurationen med en käll lyssnare och är en global omdirigering. När en sökväg-baserad regel används, definieras omdirigerings konfigurationen i sökvägen till URL-sökvägen. Detta gäller endast för det speciella Sök vägs området på en plats.
 

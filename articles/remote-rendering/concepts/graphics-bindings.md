@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613884"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561881"
 ---
 # <a name="graphics-binding"></a>Grafik bindning
 
@@ -137,11 +137,23 @@ wmrBinding->BlitRemoteFrame();
 ### <a name="simulation"></a>Simulering
 
 `GraphicsApiType.SimD3D11` är simulerings bindningen och om den väljs skapas `GraphicsBindingSimD3d11` grafik bindningen. Det här gränssnittet används för att simulera huvud förflyttning, till exempel i ett Skriv bords program och återger en monoscopic-avbildning.
+
+Om du vill implementera simulerings bindningen är det viktigt att förstå skillnaden mellan den lokala kameran och den fjärranslutna ramen enligt beskrivningen på [kamera](../overview/features/camera.md) sidan.
+
+Två kameror behövs:
+
+* **Lokal kamera**: den här kameran representerar den aktuella kamera positionen som styrs av program logiken.
+* **Proxy kamera**: den här kameran matchar den aktuella *fjärran sluten ram* som skickades av servern. Eftersom det finns en tids fördröjning mellan klienten som begär en ram och dess ankomst, är *fjärran sluten* alltid en bit bakom den lokala kamerans rörelse.
+
+Den grundläggande metoden här är att både fjärravbildningen och det lokala innehållet återges i ett mål på skärmen med hjälp av proxy-kameran. Proxy-avbildningen projiceras sedan om i det lokala kamera utrymmet, vilket förklaras i [slutet av omprojektionen av väntande steg](../overview/features/late-stage-reprojection.md).
+
 Installationen är lite mer engagerad och fungerar på följande sätt:
 
 #### <a name="create-proxy-render-target"></a>Skapa Proxy för rendering mål
 
-Fjärrinnehållet och det lokala innehållet måste återges för att rendera målet för färg-och djupet som heter proxy med hjälp av proxy-kamerans data som tillhandahålls av `GraphicsBindingSimD3d11.Update` funktionen. Proxyservern måste matcha back buffertens upplösning. När en session är klar `GraphicsBindingSimD3d11.InitSimulation` måste anropas före anslutning till den:
+Fjärrinnehållet och det lokala innehållet måste återges för att rendera målet för färg-och djupet som heter proxy med hjälp av proxy-kamerans data som tillhandahålls av `GraphicsBindingSimD3d11.Update` funktionen.
+
+Proxyservern måste matcha den bakre buffertens upplösning och måste vara int *DXGI_FORMAT_R8G8B8A8_UNORM* -eller *DXGI_FORMAT_B8G8R8A8_UNORM* -formatet. När en session är klar `GraphicsBindingSimD3d11.InitSimulation` måste anropas före anslutning till den:
 
 ```cs
 AzureSession currentSession = ...;
@@ -244,4 +256,6 @@ else
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Kamera](../overview/features/camera.md)
+* [Omprojektion av sena steg](../overview/features/late-stage-reprojection.md)
 * [Självstudie: Visa fjärranslutna modeller](../tutorials/unity/view-remote-models/view-remote-models.md)

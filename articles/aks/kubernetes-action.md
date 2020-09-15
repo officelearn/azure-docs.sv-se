@@ -6,12 +6,12 @@ author: azooinmyluggage
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: d4f8a41df64c3bcbbd85438e4d340d44d5f16351
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7743a3a8d6e77affd6229b648ab79b5b2f07a0af
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255225"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564108"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub-åtgärder för att distribuera till Kubernetes-tjänsten
 
@@ -56,9 +56,9 @@ Följ stegen för att konfigurera hemligheterna:
 
 1. I [GitHub](https://github.com/), bläddra till din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**.
 
-    ![secrets](media/kubernetes-action/secrets.png)
+    ![Skärm bild som visar Lägg till en ny hemlig länk för en lagrings plats.](media/kubernetes-action/secrets.png)
 
-2. Klistra in innehållet i ovanstående `az cli` kommando som värde för den hemliga variabeln. Ett exempel är `AZURE_CREDENTIALS`.
+2. Klistra in innehållet i ovanstående `az cli` kommando som värde för den hemliga variabeln. Till exempel `AZURE_CREDENTIALS`.
 
 3. På samma sätt definierar du följande ytterligare hemligheter för autentiseringsuppgifterna för behållar registret och anger dem i Docker login login-åtgärd. 
 
@@ -67,7 +67,7 @@ Följ stegen för att konfigurera hemligheterna:
 
 4. Du ser de hemligheter som visas nedan när den har definierats.
 
-    ![Kubernetes – hemligheter](media/kubernetes-action/kubernetes-secrets.png)
+    ![Skärm bild som visar befintliga hemligheter för en lagrings plats.](media/kubernetes-action/kubernetes-secrets.png)
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Bygg en behållar avbildning och distribuera till Azure Kubernetes service-kluster
 

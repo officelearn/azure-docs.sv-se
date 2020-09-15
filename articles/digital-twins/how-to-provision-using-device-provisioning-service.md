@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1a7ab90cccd78c3b005487938432a0f955d50738
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89381107"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561439"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Hantera enheter automatiskt i Azure Digitals med hjälp av enhets etablerings tjänsten (DPS)
 
@@ -22,7 +22,7 @@ Lösningen som beskrivs i den här artikeln gör att du kan automatisera process
 
 Mer information om hur du _etablerar_ och drar _tillbaka_ faser och för att bättre förstå de allmänna enhets hanterings faser som är gemensamma för alla Enterprise IoT-projekt finns i [avsnittet *enhets livs cykel* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) i IoT Hub enhets hanteringens dokumentation.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan konfigurera etableringen måste du ha en **digital Azure-instans** som innehåller modeller och dubbla. Den här instansen bör också konfigureras med möjlighet att uppdatera Digital dubbel information baserat på data. 
 
@@ -40,7 +40,7 @@ Enhets simulatorn baseras på **Node.js**, version 10.0. x eller senare. [*Förb
 
 Bilden nedan visar arkitekturen för den här lösningen med hjälp av Azure Digitals dubbla med Device Provisioning-tjänsten. Det visar både enhets etableringen och indragnings flödet.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten allokering. Data från en manuell ta bort enhet-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten "allokering". Data från en manuell "ta bort enhet"-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
 
 Den här artikeln är indelad i två delar:
 * [*Automatisk etablering av enhet med enhets etablerings tjänst*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ För djupare förklaringar av varje steg i arkitekturen, se deras enskilda avsni
 
 I det här avsnittet ska du ansluta enhets etablerings tjänsten till Azure Digital-enheter för att etablera enheter automatiskt genom sökvägen nedan. Detta är ett utdrag från den fullständiga arkitekturen som visas [ovan](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Etablera flöde – ett utdrag av lösnings arkitektur diagrammet med siffror som etiketterar sektioner i flödet. Data flödar fram och tillbaka mellan en termostat-enhet och DPS (1 för enhets > DPS och 5 för DPS > Device). Data flödar också ut från DPS till IoT Hub (4) och till Azure Digital-dubblare (3) genom en Azure-funktion med etiketten allokering (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Etablera flöde – ett utdrag av lösnings arkitektur diagrammet med siffror som etiketterar sektioner i flödet. Data flödar fram och tillbaka mellan en termostat-enhet och DPS (1 för enhets > DPS och 5 för DPS > Device). Data flödar också ut från DPS till IoT Hub (4) och till Azure Digital-dubblare (3) genom en Azure-funktion med etiketten "allokering" (2).":::
 
 Här följer en beskrivning av process flödet:
 1. Enheten kontaktar DPS-slutpunkten och skickar identifierings information för att bevisa sin identitet.
@@ -71,7 +71,7 @@ Skapa en instans av Device Provisioning-tjänsten som ska användas för att eta
 
 Följande Azure CLI-kommando skapar en enhets etablerings tjänst. Du måste ange ett namn, en resurs grupp och en region. Kommandot kan köras i [Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ Därefter måste du ställa in miljövariabler i din Function-app från tidigare
 
 Lägg till inställningen med följande Azure CLI-kommando:
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ Se till att roll tilldelningen behörigheter och hanterad identitet är korrekt 
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ Du bör se att enheten registreras och är ansluten till IoT Hub och sedan börj
 
 Som ett resultat av flödet som du har skapat i den här artikeln registreras enheten automatiskt i digitala Azure-enheter. Använd följande [Azure Digitals flätade CLI](how-to-use-cli.md) -kommando för att hitta enhetens enhet i Azure Digitals-instansen som du skapade.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -304,7 +304,7 @@ Du bör se den dubbla av enheten som finns på Azure Digitals-instansen.
 
 I det här avsnittet ska du lägga till IoT Hub livs cykel händelser till Azure Digital-meddelanden för att automatiskt dra tillbaka enheter via sökvägen nedan. Detta är ett utdrag från den fullständiga arkitekturen som visas [ovan](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Dra tillbaka enhets flödet – ett utdrag av lösnings arkitektur diagrammet med siffror som delar av flödet. Termostat-enheten visas utan anslutningar till Azure-tjänsterna i diagrammet. Data från en manuell ta bort enhet-åtgärd flödar genom IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digitals dubblare (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Dra tillbaka enhets flödet – ett utdrag av lösnings arkitektur diagrammet med siffror som delar av flödet. Termostat-enheten visas utan anslutningar till Azure-tjänsterna i diagrammet. Data från en manuell "ta bort enhet"-åtgärd flödar genom IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digitals dubblare (3).":::
 
 Här följer en beskrivning av process flödet:
 1. En extern eller manuell process utlöser borttagningen av en enhet i IoT Hub.
@@ -449,13 +449,13 @@ Därefter måste du ställa in miljövariabler i din Function-app från tidigare
 
 Lägg till inställningen med detta Azure CLI-kommando. Kommandot kan köras i [Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Sedan måste du konfigurera funktions miljö variabeln för att ansluta till den nyss skapade händelsehubben.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,7 +486,7 @@ Enheten tas bort automatiskt från digitala Azure-enheter.
 
 Använd följande [Azure Digitals flätade CLI](how-to-use-cli.md) -kommando för att kontrol lera att enhetens enhet i Azure Digitals-instansen har tagits bort.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -502,7 +502,7 @@ Med hjälp av Azure Cloud Shell eller lokalt Azure CLI kan du ta bort alla Azure
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 <!-- 

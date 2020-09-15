@@ -8,17 +8,17 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9c569e65546853c4e9c8c460d29041e4bb829c09
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034591"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564210"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
-Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
+Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet (Server Message Block) i branschen, NFS-protokollet (Network File System) (för hands version) och möjliggör fildelning över flera datorer, program och instanser. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -83,6 +83,7 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $shareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 ```
 
@@ -174,6 +175,7 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $otherShareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 
 az storage directory create \
@@ -203,7 +205,7 @@ az storage file list \
     --output table
 ```
 
-Även om `az storage file copy start` kommandot är bekvämt för fil flyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar vi att du använder `rsync` MacOS och Linux och `robocopy` Windows. `rsync`och `robocopy` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
+Även om `az storage file copy start` kommandot är bekvämt för fil flyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar vi att du använder `rsync` MacOS och Linux och `robocopy` Windows. `rsync` och `robocopy` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
 
 ## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera ögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av resurser liknar vissa av de operativsystemtekniker som du kanske redan är bekant med:

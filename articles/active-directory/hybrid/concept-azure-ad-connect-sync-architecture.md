@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689222"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563870"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect synkronisering: förstå arkitekturen
 I det här avsnittet beskrivs den grundläggande arkitekturen för Azure AD Connect Sync. I många aspekter liknar de föregående aktiviteter MIIS 2003, ILM 2007 och FIM 2010. Azure AD Connect Sync är utvecklingen av dessa tekniker. Om du är bekant med någon av dessa tidigare tekniker är innehållet i det här avsnittet bekant för dig också. Om du inte har använt synkronisering igen är det här avsnittet för dig. Det är dock inte nödvändigt att veta mer om det här ämnet för att göra anpassningar till Azure AD Connect Sync (kallas Synkroniseringsmotorn i det här avsnittet).
@@ -36,7 +36,7 @@ Synkroniseringsmotorn kapslar in interaktionen med en ansluten data källa i en 
 
 Anslutningar gör API-anrop till att utbyta identitets information (både läsning och skrivning) med en ansluten data källa. Det är också möjligt att lägga till en anpassad anslutning med hjälp av Extensible Connectivity Framework. Följande bild visar hur en koppling ansluter en ansluten data källa till Synkroniseringsmotorn.
 
-![Arch1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![Diagrammet visar en ansluten data källa och en Sync-motor som associeras med en rad som kallas koppling.](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
 Data kan flöda i båda riktningarna, men det går inte att flöda i båda riktningarna samtidigt. Med andra ord kan en anslutning konfigureras för att tillåta att data flödar från den anslutna data källan till Synkroniseringsmotorn eller från Synkroniseringsmotorn till den anslutna data källan, men endast en av dessa åtgärder kan utföras vid en och samma tidpunkt för ett objekt och attribut. Riktningen kan vara olika för olika objekt och för olika attribut.
 
@@ -62,7 +62,7 @@ Dessutom lagrar Sync-motorn statusinformation om alla objekt som det är i steg 
 
 Följande bild visar namn området för kopplings utrymmet och metaversum-namnområdet i Synkroniseringsmotorn.
 
-![Arch2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
+![Diagrammet visar en ansluten data källa och en Sync-motor, som är separerad till kopplings utrymme och metaversum-namnområden, som associeras med en linje som kallas koppling.](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
 ## <a name="sync-engine-identity-objects"></a>Synkronisera motor identitets objekt
 Objekten i Synkroniseringsmotorn är representationer av antingen objekt i den anslutna data källan eller den integrerade vy som Synkroniseringsmotorn har av dessa objekt. Varje synkroniseringsobjekt måste ha en globalt unik identifierare (GUID). GUID ger data integritet och Express-relationer mellan objekt.
@@ -97,13 +97,13 @@ Ett mellanlagringsplats objekt kan vara ett import objekt eller ett export objek
 
 Följande bild visar ett import objekt som representerar ett objekt i den anslutna data källan.
 
-![Arch3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
+![Diagram visar ett import objekt från den anslutna data källan till kopplings områdets namnrymd i Synkroniseringsmotorn.](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
 Synkroniseringsmotorn skapar ett export objekt med hjälp av objekt information i metaversum. Exportera objekt exporteras till den anslutna data källan under nästa kommunikations-session. Från Sync-motorns perspektiv finns inte export objekt i den anslutna data källan ännu. Därför är attributet Anchor för ett export objekt inte tillgängligt. När du har tagit emot objektet från Synkroniseringsmotorn skapar den anslutna data källan ett unikt värde för objektets Anchor-attribut.
 
 Följande bild visar hur ett export objekt skapas med hjälp av identitets information i metaversum.
 
-![Arch4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
+![Diagrammet visar ett export objekt från metaversum till kopplings områdets namnrymd, sedan till den anslutna data källan.](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
 Synkroniseringsmotorn bekräftar exporten av objektet genom att importera objektet från den anslutna data källan. Exportera objekt blir import objekt när Synkroniseringsmotorn tar emot dem under nästa import från den anslutna data källan.
 
@@ -132,7 +132,7 @@ När ett mellanlagringsplats blir ett anslutet objekt under synkroniseringen kan
 
 Ett enda objekt för kopplings utrymme kan bara länkas till ett metaversum-objekt. Varje metaversum-objekt kan dock länkas till flera kopplings utrymmes objekt i samma eller i olika kopplings utrymmen, som du ser i följande bild.
 
-![Arch5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
+![Diagrammet visar två anslutna data objekt som är associerade med kopplingar till en Sync-motor, som har anslutna objekt och ett frånkopplat objekt.](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
 Den länkade relationen mellan mellanlagringsplatsen och ett metaversum-objekt är beständigt och kan bara tas bort av regler som du anger.
 
@@ -157,7 +157,7 @@ Under exporten skickar Synkroniseringsmotorn ut ändringar som mellanlagras för
 
 Följande bild visar var varje process sker när identitets information flödar från en ansluten data källa till en annan.
 
-![Arch6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![Diagrammet visar flödet av identitets information från anslutna data till kopplings utrymme (import) till metaversum till kopplings utrymme (synchonization) till anslutna data (export).](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
 ### <a name="import-process"></a>Importera process
 Under importen utvärderar Synkroniseringsmotorn uppdateringar av identitets information. Synkroniseringsmotorn jämför identitets informationen som togs emot från den anslutna data källan med identitets informationen om ett mellanlagringsplatss objekt och avgör om mellanlagringsmappen kräver uppdateringar. Om det är nödvändigt att uppdatera mellanlagringsplatsen med nya data flaggas mellanlagringsmappen som väntande import.
@@ -252,7 +252,7 @@ En process i den anslutna data källan kan till exempel ändra objektets attribu
 
 Synkroniseringsmotorn lagrar information om export-och import status för varje mellanlagringsdatabas. Om värdena för attributen som anges i listan över inkludering av attribut har ändrats sedan den senaste exporten, gör lagringen av import-och export status att Synkroniseringsmotorn kan reagera på lämpligt sätt. Synkroniseringsmotorn använder import processen för att bekräfta attributvärden som har exporter ATS till den anslutna data källan. En jämförelse mellan den importerade och exporterade informationen, som du ser i följande bild, aktiverar Synkroniseringsmotorn för att avgöra om exporten lyckades eller om den måste upprepas.
 
-![Arch7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
+![Diagrammet visar synkroniseringen av ett objekt mellan kopplings utrymme och anslutna data via anslutningen.](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
 Om till exempel Synkroniseringsmotorn exporterar attribut C, som har värdet 5, till en ansluten data källa, lagrar den C = 5 i exportens status minne. Varje ytterligare export av det här objektet resulterar i ett försök att exportera C = 5 till den anslutna data källan igen eftersom Synkroniseringsmotorn förutsätter att det här värdet inte har tillämpats permanent på objektet (det vill säga om ett annat värde har importer ATS nyligen från den anslutna data källan). Export minnet rensas när C = 5 tas emot under en import åtgärd på objektet.
 

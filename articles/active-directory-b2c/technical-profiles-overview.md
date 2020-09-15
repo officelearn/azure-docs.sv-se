@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203222"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562884"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -32,6 +32,7 @@ En teknisk profil möjliggör följande typer av scenarier:
 - [Azure Active Directory](active-directory-technical-profile.md) -ger stöd för Azure Active Directory B2C användar hantering.
 - [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) – ger stöd för att verifiera ett telefonnummer med hjälp av Azure Multi-Factor Authentication (MFA). 
 - [Anspråks omvandling](claims-transformation-technical-profile.md) -anrop för anrop av utdata för att manipulera anspråks värden, validera anspråk eller ange standardvärden för en uppsättning utgående anspråk.
+- [ID-token](id-token-hint.md) – verifierar `id_token_hint` JWT-tokens signatur, utfärdarens namn och token-målgruppen och extraherar anspråket från den inkommande token.
 - [JWT-token-utfärdare](jwt-issuer-technical-profile.md) – avger en JWT-token som returneras tillbaka till det förlitande part programmet.
 - [OAuth1](oauth1-technical-profile.md) -Federation med valfri OAuth 1,0-protokoll identitets leverantör.
 - [OAuth2](oauth2-technical-profile.md) -Federation med valfri OAuth 2,0-protokoll identitets leverantör.
@@ -53,7 +54,7 @@ Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspr�
 1. **Hantering av enkel inloggning (SSO)** – återställer den tekniska profilens sessionstillstånd med hjälp av SSO- [sessionshantering](custom-policy-reference-sso.md).
 1. **Transformering** av inmatade anspråk-inloggade anspråk för varje inloggad [anspråks omvandling](claimstransformations.md) hämtas från anspråks säcken.  De utgående anspråken för en inmatnings anspråks omvandling kan vara inmatade anspråk för en efterföljande omvandling av anspråk.
 1. **Ingående anspråk** – anspråk hämtas från anspråks säcken och används för den tekniska profilen. En [självkontrollerad teknisk profil](self-asserted-technical-profile.md) använder till exempel indata-anspråk för att fylla i de utgående anspråk som användaren tillhandahåller. En REST API teknisk profil använder ingångs anspråk för att skicka indataparametrar till REST API-slutpunkten. Azure Active Directory använder ingångs anspråk som unik identifierare för att läsa, uppdatera eller ta bort ett konto.
-1. **Körning av teknisk profil** – den tekniska profilen utbyter anspråk med den konfigurerade parten. Ett exempel:
+1. **Körning av teknisk profil** – den tekniska profilen utbyter anspråk med den konfigurerade parten. Exempel:
     - Omdirigera användaren till identitets leverantören för att slutföra inloggningen. Efter lyckad inloggning återgår användaren och den tekniska profil körningen fortsätter.
     - Anropa ett REST API när du skickar parametrar som InputClaims och få tillbaka information som OutputClaims.
     - Skapa eller uppdatera användar kontot.
@@ -103,7 +104,7 @@ Till exempel innehåller den tekniska profilen **AAD-UserReadUsingAlternativeSec
 </TechnicalProfile>
 ```
 
-Både **AAD-UserReadUsingAlternativeSecurityId-noerror** och **AAD-UserReadUsingAlternativeSecurityId** anger inte det **protokoll** element som krävs, eftersom det har angetts i **AAD-vanlig** teknisk profil.
+Både **AAD-UserReadUsingAlternativeSecurityId-noerror** och  **AAD-UserReadUsingAlternativeSecurityId** anger inte det **protokoll** element som krävs, eftersom det har angetts i **AAD-vanlig** teknisk profil.
 
 ```xml
 <TechnicalProfile Id="AAD-Common">

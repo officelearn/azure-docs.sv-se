@@ -3,12 +3,12 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38e7d349d8b77b53a19fdf360bd6db454907d4f9
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 67111ecb215f4976dd8d3bbe0b901e68c3ef10ec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007816"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564074"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -82,6 +82,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Visa aktivitets logg information för delegerade prenumerationer
 - Log Analytics: fråga efter data från fjärrarbetsyta i flera klienter
 - Skapa aviseringar i kund klienter som utlöser automatisering, till exempel Azure Automation runbooks eller Azure Functions, i hantera klient organisationen via Webhooks
+- Skapa diagnostiska inställningar i kund klienter för att skicka resurs loggar till arbets ytor i hanterings klienten
 - För SAP-arbetsbelastningar [övervakar du SAP Solutions-mått med en sammanställd vy över kund klienter](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure-nätverk](../../networking/networking-overview.md):

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: e85937103e94a0fbb8dd8be92bb22ee5078df70a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d91ae0f3db9ad3637043f9eb7472539d8aba2c8d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087328"
+ms.locfileid: "90563045"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Utforska ett exempel på Azure Digitals sammanflätade scenario med ADT Explorer
 
@@ -102,13 +102,13 @@ Tryck på knappen *Logga in* överst i fönstret för att konfigurera ADT Explor
 Ange viktig information som du samlade in tidigare i avsnittet [krav](#prerequisites) :
 * Program-ID (klient)
 * Katalog-ID (klient)
-* ADT-URL, i formatet *https://{instans värd namn}*
+* Azure Digitals sammanflätade instans-URL, i formatet *https://{instans värd namn}*
 
 >[!NOTE]
 > Du kan gå tillbaka och redigera informationen när som helst genom att välja samma ikon för att hämta inloggnings rutan igen. Den behåller de värden som du har skickat.
 
 > [!TIP]
-> Om ett fel meddelande om SignalRService. subscribe visas när du ansluter kontrollerar du att din ADT-URL föregås av *https://*.
+> Om ett `SignalRService.subscribe` fel meddelande visas när du ansluter, se till att din Azure Digital-URL börjar med *https://*.
 
 Om du ser en *behörighet som begärs* i popup-fönstret från Microsoft, bevilja du medgivande för det här programmet och accepterar att fortsätta.
 

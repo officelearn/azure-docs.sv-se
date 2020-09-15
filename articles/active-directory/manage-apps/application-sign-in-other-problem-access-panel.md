@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231188"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563921"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Felsöka problem med att logga in till ett program från Azure AD Mina appar
 
@@ -33,7 +33,7 @@ Den typ av appar som en användare kan se hamnar i följande kategorier:
 -   Program med befintliga SSO-lösningar
 
 Här är några saker att kontrol lera om en app visas eller inte visas.
-- Kontrol lera att appen har lagts till i Azure AD och se till att användaren är tilldelad. Mer information finns i [snabb starts serien för program hantering](view-applications-portal.md).
+- Kontrol lera att appen har lagts till i Azure AD och se till att användaren är tilldelad. Mer information finns i [snabb starts serien för program hantering](add-application-portal.md).
 - Om du nyligen har lagt till en app kan du logga ut och sedan in igen. 
 - Om appen kräver en licens, till exempel Office, kontrollerar du att användaren har tilldelats rätt licens.
 - Hur lång tid det tar för licensierings ändringar kan variera beroende på gruppens storlek och komplexitet.

@@ -7,17 +7,17 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2d67d3d695ce6ba90e01603e262fb014fffc9709
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531820"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561592"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snabbstart: Skapa och hantera en Azure-filresurs med Azure PowerShell 
-Den här guiden går igenom grunderna med att arbeta med [Azure-filresurser](storage-files-introduction.md) med PowerShell. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
+Den här guiden går igenom grunderna med att arbeta med [Azure-filresurser](storage-files-introduction.md) med PowerShell. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet (Server Message Block) i branschen, NFS-protokollet (Network File System) (för hands version) och möjliggör fildelning över flera datorer, program och instanser. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -66,6 +66,7 @@ $shareName = "myshare"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $shareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
 ```
 
@@ -161,6 +162,7 @@ $otherShareName = "myshare2"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $otherShareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
   
 New-AzStorageDirectory `
@@ -186,7 +188,7 @@ Get-AzStorageFile `
     -Path "myDirectory2" 
 ```
 
-Även om `Start-AzStorageFileCopy` cmdleten är bekväm för ad hoc-filflyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar vi att du använder `robocopy` Windows och `rsync` MacOS och Linux. `robocopy`och `rsync` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
+Även om `Start-AzStorageFileCopy` cmdleten är bekväm för ad hoc-filflyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar vi att du använder `robocopy` Windows och `rsync` MacOS och Linux. `robocopy` och `rsync` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
 
 ## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera ögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en tidpunkt för en Azure-filresurs. Ögonblicksbilder av resurser liknar de operativsystemtekniker som du kanske redan är bekant med såsom:

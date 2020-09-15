@@ -11,19 +11,19 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: edd4cc28c6d59f1d6e0c9cabfd5855c72bd3fe73
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cac14d5995042847bc98e47e50ea2d188382fd2a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661846"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564346"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Skapa och ansluta ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller till Azure Kubernetes-tjänsten. Du måste dock först __skapa__ ett Azure Kubernetes service-kluster (AKS) från din Azure ml-arbetsyta eller __ansluta__ ett befintligt AKS-kluster. Den här artikeln innehåller information om hur du både skapar och bifogar ett kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -68,6 +68,83 @@ Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller til
 
     - [Skala antalet noder manuellt i ett AKS-kluster](../aks/scale-cluster.md)
     - [Konfigurera autoskalning för kluster i AKS](../aks/cluster-autoscaler.md)
+
+## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes service-version
+
+Med Azure Kubernetes-tjänsten kan du skapa ett kluster med hjälp av en rad olika Kubernetes-versioner. Mer information om tillgängliga versioner finns [i Kubernetes-versioner som stöds i Azure Kubernetes-tjänsten](/azure/aks/supported-kubernetes-versions).
+
+När du **skapar** ett Azure Kubernetes service-kluster med någon av följande metoder *har du inte något val i den version* av klustret som skapas:
+
+* Azure Machine Learning Studio eller Azure Machine Learning avsnittet i Azure Portal.
+* Machine Learning tillägget för Azure CLI.
+* Azure Machine Learning SDK.
+
+Dessa metoder för att skapa ett AKS-kluster använder __standard__ versionen av klustret. *Standard versionen ändras med tiden* när nya Kubernetes-versioner blir tillgängliga.
+
+När du **kopplar** ett befintligt AKS-kluster, stöder vi alla AKS-versioner som stöds för närvarande.
+
+> [!NOTE]
+> Det kan finnas Edge-fall där du har ett äldre kluster som inte längre stöds. I det här fallet returnerar åtgärden Attach ett fel och listar de versioner som stöds för tillfället.
+>
+> Du kan koppla för **hands** versioner. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Stöd för att använda för hands versioner kan vara begränsat. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+### <a name="available-and-default-versions"></a>Tillgängliga och standard versioner
+
+Använd [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) [-kommandot AZ AKS get-versions](/cli/azure/aks?view=azure-cli-latest#az_aks_get_versions)för att hitta tillgängliga och standard AKS-versioner. Följande kommando returnerar till exempel de versioner som är tillgängliga i regionen Västra USA:
+
+```azurecli-interactive
+az aks get-versions -l westus -o table
+```
+
+Utdata från det här kommandot liknar följande text:
+
+```text
+KubernetesVersion    Upgrades
+-------------------  ----------------------------------------
+1.18.6(preview)      None available
+1.18.4(preview)      1.18.6(preview)
+1.17.9               1.18.4(preview), 1.18.6(preview)
+1.17.7               1.17.9, 1.18.4(preview), 1.18.6(preview)
+1.16.13              1.17.7, 1.17.9
+1.16.10              1.16.13, 1.17.7, 1.17.9
+1.15.12              1.16.10, 1.16.13
+1.15.11              1.15.12, 1.16.10, 1.16.13
+```
+
+Om du vill hitta standard versionen som används när du **skapar** ett kluster via Azure Machine Learning kan du använda- `--query` parametern för att välja standard versionen:
+
+```azurecli-interactive
+az aks get-versions -l westus --query "orchestrators[?default == `true`].orchestratorVersion" -o table
+```
+
+Utdata från det här kommandot liknar följande text:
+
+```text
+Result
+--------
+1.16.13
+```
+
+Om du vill **kontrol lera om det finns tillgängliga versioner program mässigt**kan du använda [behållar tjänstens klient list Dirigerings](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Ta reda på vilka versioner som är tillgängliga genom att titta på posterna där `orchestratorType` är `Kubernetes` . De associerade `orchestrationVersion` posterna innehåller de tillgängliga versioner som kan **kopplas** till din arbets yta.
+
+Om du vill hitta standard versionen som används när du **skapar** ett kluster via Azure Machine Learning söker du efter posten där `orchestratorType` är `Kubernetes` och `default` `true` . Det associerade `orchestratorVersion` värdet är standard versionen. Följande JSON-kodfragment visar ett exempel på en post:
+
+```json
+...
+ {
+        "orchestratorType": "Kubernetes",
+        "orchestratorVersion": "1.16.13",
+        "default": true,
+        "upgrades": [
+          {
+            "orchestratorType": "",
+            "orchestratorVersion": "1.17.7",
+            "isPreview": false
+          }
+        ]
+      },
+...
+```
 
 ## <a name="create-a-new-aks-cluster"></a>Skapa ett nytt AKS-kluster
 

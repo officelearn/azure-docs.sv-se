@@ -7,15 +7,15 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654335"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563700"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) som är bransch standard och [NFS-protokollet (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
 
 I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funktioner, inklusive användning av Azure File Sync med Azure Files. Om du inte ser svaret på din fråga kan du kontakta oss genom följande kanaler (i eskalerad ordning):
 
@@ -31,7 +31,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="file-access-options"></a>
   **Vad är olika sätt att komma åt filer i Azure Files?**  
-    Du kan montera fil resursen på den lokala datorn med hjälp av SMB 3,0-protokollet, eller så kan du använda verktyg som [Storage Explorer](https://storageexplorer.com/) för att komma åt filer i fil resursen. Från ditt program kan du använda lagrings klient bibliotek, REST-API: er, PowerShell eller Azure CLI för att komma åt dina filer i Azure-filresursen.
+    SMB-filresurser kan monteras på den lokala datorn med hjälp av SMB 3,0-protokollet, eller så kan du använda verktyg som [Storage Explorer](https://storageexplorer.com/) för att komma åt filer i fil resursen. NFS-filresurser kan monteras på din lokala dator genom att kopiera/klistra in skriptet som tillhandahålls av Azure Portal. Från ditt program kan du använda lagrings klient bibliotek, REST-API: er, PowerShell eller Azure CLI för att komma åt dina filer i Azure-filresursen.
 
 * <a id="what-is-afs"></a>
   **Vad är Azure File Sync?**  
@@ -43,12 +43,12 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     
     Azure Blob Storage är användbart för storskaliga molnbaserade program som behöver lagra ostrukturerade data. För att maximera prestanda och skalning är Azure Blob Storage en enklare lagrings abstraktion än ett faktiskt fil system. Du kan bara komma åt Azure Blob Storage via REST-baserade klient bibliotek (eller direkt via det REST-baserade protokollet).
 
-    Azure Files är särskilt ett fil system. Azure Files har alla fil sammandrag som du känner till och älskar från flera år i arbetet med lokala operativ system. Precis som Azure Blob Storage erbjuder Azure Files ett REST-gränssnitt och REST-baserade klient bibliotek. Till skillnad från Azure Blob Storage erbjuder Azure Files SMB-åtkomst till Azure-filresurser. Genom att använda SMB kan du montera en Azure-filresurs direkt på Windows, Linux eller macOS, antingen lokalt eller i virtuella datorer i molnet, utan att behöva skriva någon kod eller bifoga särskilda driv rutiner till fil systemet. Du kan också cachelagra Azure-filresurser på lokala fil servrar genom att använda Azure File Sync för snabb åtkomst, nära var data används. 
+    Azure Files är särskilt ett fil system. Azure Files har alla fil sammandrag som du känner till och älskar från flera år i arbetet med lokala operativ system. Precis som Azure Blob Storage erbjuder Azure Files ett REST-gränssnitt och REST-baserade klient bibliotek. Till skillnad från Azure Blob Storage erbjuder Azure Files SMB-eller NFS-åtkomst till Azure-filresurser. Fil resurser kan monteras direkt på Windows, Linux eller macOS, antingen lokalt eller i virtuella datorer i molnet, utan att behöva skriva någon kod eller bifoga särskilda driv rutiner till fil systemet. Du kan också cachelagra Azure SMB-filresurser på lokala fil servrar med hjälp av Azure File Sync för snabb åtkomst, nära var data används. 
    
     En mer detaljerad beskrivning av skillnaderna mellan Azure Files och Azure Blob Storage finns i [Introduktion till core Azure Storage Services](../common/storage-introduction.md). Mer information om Azure Blob Storage finns i [Introduktion till Blob Storage](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Varför ska jag använda en Azure-filresurs i stället för Azure-diskar?**  
-    En disk på Azure-diskar är helt enkelt en disk. För att hämta värde från Azure-diskar måste du koppla en disk till en virtuell dator som körs i Azure. Azure-diskar kan användas för allt som du skulle använda för att använda en disk för på en lokal server. Du kan använda den som en OS-systemdisk, som växlings utrymme för ett operativ system eller som dedikerat lagrings utrymme för ett program. En intressant användning för Azure-diskar är att skapa en fil server i molnet som ska användas på samma platser där du kan använda en Azure-filresurs. Att distribuera en fil server i Azure Virtual Machines är ett högpresterande sätt att hämta fil lagring i Azure när du behöver distributions alternativ som för närvarande inte stöds av Azure Files (t. ex. NFS-protokoll stöd eller Premium lagring). 
+    En disk på Azure-diskar är helt enkelt en disk. För att hämta värde från Azure-diskar måste du koppla en disk till en virtuell dator som körs i Azure. Azure-diskar kan användas för allt som du skulle använda för att använda en disk för på en lokal server. Du kan använda den som en OS-systemdisk, som växlings utrymme för ett operativ system eller som dedikerat lagrings utrymme för ett program. En intressant användning för Azure-diskar är att skapa en fil server i molnet som ska användas på samma platser där du kan använda en Azure-filresurs. Att distribuera en fil server i Azure Virtual Machines är ett högpresterande sätt att hämta fil lagring i Azure när du behöver distributions alternativ som för närvarande inte stöds av Azure Files. 
 
     Att köra en fil server med Azure-diskar som backend-lagring är vanligt vis mycket dyrare än att använda en Azure-filresurs, av några skäl. Förutom att betala för disk lagring måste du också betala för kostnaden för att köra en eller flera virtuella Azure-datorer. För det andra måste du också hantera de virtuella datorer som används för att köra fil servern. Du ansvarar till exempel för uppgraderingar av operativ systemet. Slutligen, om du slutligen kräver att data cachelagras lokalt, är det upp till dig att konfigurera och hantera teknik för replikering, till exempel Distributed File System replikering (DFSR), för att göra det.
 
@@ -58,17 +58,18 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="get-started"></a>
   **Hur gör jag för att kom igång med Azure Files?**  
-   Det är enkelt att komma igång med Azure Files. Först [skapar du en fil resurs](storage-how-to-create-file-share.md)och monterar den sedan i önskat operativ system: 
+   Det är enkelt att komma igång med Azure Files. Först skapar du [en SMB-filresurs](storage-how-to-create-file-share.md) eller [hur du skapar en NFS-resurs](storage-files-how-to-create-nfs-shares.md)och monterar den sedan i önskat operativ system: 
 
-  * [Montera i Windows](storage-how-to-use-files-windows.md)
-  * [Montera i Linux](storage-how-to-use-files-linux.md)
-  * [Montera i macOS](storage-how-to-use-files-mac.md)
+  * [Montera en SMB-resurs i Windows](storage-how-to-use-files-windows.md)
+  * [Montera en SMB-resurs i Linux](storage-how-to-use-files-linux.md)
+  * [Montera en SMB-resurs i macOS](storage-how-to-use-files-mac.md)
+  * [Montera en NFS-filresurs](storage-files-how-to-mount-nfs-shares.md)
 
     En mer djupgående guide om hur du distribuerar en Azure-filresurs för att ersätta produktions fil resurser i organisationen finns i [Planera för en Azure Files distribution](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
   **Vilka alternativ för lagring av redundans stöds av Azure Files?**  
-    För närvarande har Azure Files stöd för lokalt redundant lagring (LRS), zon redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS). Vi planerar att stödja lagring med Läs åtkomst till Geo-redundant (RA-GRS) i framtiden, men det finns inga tids linjer att dela just nu.
+    För närvarande har Azure Files stöd för lokalt redundant lagring (LRS), zon redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS). Azure Files Premium-nivån stöder för närvarande endast LRS och ZRS.
 
 * <a id="tier-options"></a>
   **Vilka lagrings nivåer stöds i Azure Files?**  
@@ -282,6 +283,23 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 **Finns det REST-API: er som stöder get/set/Copy Directory/File Windows ACL: er?**
 
     Ja, vi har stöd för REST API: er som hämtar, anger eller kopierar NTFS ACL: er för kataloger eller filer när du använder REST API [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (eller senare). Vi har även stöd för att bevara Windows ACL: er i REST-baserade verktyg: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+
+## <a name="network-file-system"></a>Network File System
+
+* <a id="when-to-use-nfs"></a>
+**När ska jag använda Azure Files NFS?**
+
+    Se [NFS-resurser (för hands version)](storage-files-compare-protocols.md#nfs-shares-preview).
+
+* <a id="backup-nfs-data"></a>
+**Hur gör jag för att säkerhetskopierade data som lagras i NFS-resurser?**
+
+    Säkerhets kopiering av dina data på NFS-resurser kan antingen dirigeras med hjälp av välbekanta verktyg som rsync eller produkter från någon av våra tredjeparts säkerhets kopierings partner. Flera säkerhets kopierings partner inklusive [CommVault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438)och [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) var en del av vår inledande för hands version och har utökat sina lösningar för att fungera med både SMB 3,0 och NFS 4,1 för Azure Files.
+
+* <a id="migrate-nfs-data"></a>
+**Kan jag migrera befintliga data till en NFS-resurs?**
+
+    Inom en region kan du använda standard verktyg som SCP, rsync eller SSHFS för att flytta data. Eftersom Azure Files NFS kan nås från flera beräknings instanser samtidigt kan du förbättra kopierings hastigheten med parallella uppladdningar. Om du vill hämta data utanför en region använder du en VPN-eller ExpressRoute för att montera till ditt fil system från ditt lokala data Center.
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
 

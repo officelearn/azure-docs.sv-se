@@ -12,18 +12,18 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: b1f23d52b96e708a16adbbf6098de4b7ab0423e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052111"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561658"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
 Enkel inloggning innebär att en användare inte behöver logga in på varje program de använder. Användaren loggar in en gång och den autentiseringsuppgiften används även för andra appar.
 
-Om du är en slutanvändare behöver du förmodligen inte mer information om SSO. Du vill bara använda appar som gör dig produktiv utan att behöva ange ditt lösen ord så mycket. Du kan hitta dina appar på: https://myapplications.microsoft.com .
+Om du är en slutanvändare behöver du förmodligen inte mer information om SSO. Du vill bara använda appar som gör dig produktiv utan att behöva ange ditt lösen ord så mycket. Du kan hitta dina appar på: https://myapps.microsoft.com .
  
 Om du är administratör eller IT-proffs kan du läsa vidare för att lära dig mer om SSO och hur det implementeras i Azure.
 
@@ -53,7 +53,7 @@ Hur du implementerar enkel inloggning beror på var appen finns. Värd tjänster
 > [!TIP]
 > Molnbaserade appar kallas även SaaS-appar (program vara som en tjänst). 
 
-Enkel inloggning för appar som är värd för molnet är enkelt. Du låter identitets leverantören veta att den används för appen. Och sedan konfigurerar du appen så att den litar på identitets leverantören. Information om hur du använder Azure AD som identitets leverantör för en app finns i [snabb starts serien för program hantering](view-applications-portal.md).
+Enkel inloggning för appar som är värd för molnet är enkelt. Du låter identitets leverantören veta att den används för appen. Och sedan konfigurerar du appen så att den litar på identitets leverantören. Information om hur du använder Azure AD som identitets leverantör för en app finns i [snabb starts serien för program hantering](add-application-portal.md).
 
 > [!TIP]
 > Villkoren Cloud och Internet används ofta utbytbara. Anledningen till detta är att göra med nätverks diagram. Det är vanligt att känneteckna stora dator nätverk med en moln form i ett diagram eftersom det inte är möjligt att rita varje komponent. Internet är det mest välkända nätverket och därför är det enkelt att använda de termer som är utbytbara. Alla dator nätverk kan dock vara myntade ett moln.

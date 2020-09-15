@@ -7,17 +7,17 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f68d9f620b686ab20e93584bdd7c024d8a943577
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 7e703137b7954dd152f976069770a0c8c4a0f34c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036546"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564176"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure-portalen 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Portal](https://portal.azure.com/).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
@@ -36,7 +36,7 @@ Skapa en Azure-filresurs:
 Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck, men får inte inledas med bindestreck. Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Använda Azure-filresursen
-Azure Files har två metoder för att arbeta med filer och mappar i din Azure-filresurs: branschstandardprotokollen [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) och [fil-REST](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Azure Files tillhandahåller tre metoder för att arbeta med filer och mappar i Azure-filresursen: [Server Message Block-protokollet (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)i branschen, Network File System (NFS)-protokollet (för hands version) och [fil rest-protokollet](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
 Om du vill montera en filresurs med SMB läser du följande dokument baserat på ditt operativsystem:
 - [Windows](storage-how-to-use-files-windows.md)

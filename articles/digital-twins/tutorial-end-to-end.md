@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401783"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563819"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -162,13 +162,13 @@ Om du vill göra det möjligt för Function-appen att komma åt Azure Digitals, 
 
 I Azure Cloud Shell använder du följande kommando för att ange en program inställning som din Function-app ska använda för att referera till din Azure Digital-instansen.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Använd följande kommando för att skapa den systemhanterade identiteten. Anteckna fältet *principalId* i utdata.
 
-```azurecli-interactive
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
@@ -203,7 +203,7 @@ Digitala Azure-enheter är utformade för att fungera tillsammans med [IoT Hub](
 
 I Azure Cloud Shell använder du det här kommandot för att skapa en ny IoT-hubb:
 
-```azurecli-interactive
+```azurecli
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -242,7 +242,7 @@ Det här avsnittet skapar en enhets representation i IoT Hub med ID- *thermostat
 
 I Azure Cloud Shell skapar du en enhet i IoT Hub med följande kommando:
 
-```azurecli-interactive
+```azurecli
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -330,7 +330,7 @@ I det här avsnittet ska du skapa ett event Grid-ämne och sedan skapa en slut p
 
 I Azure Cloud Shell kör du följande kommando för att skapa ett event Grid-ämne:
 
-```azurecli-interactive
+```azurecli
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
@@ -441,7 +441,7 @@ Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Az
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 

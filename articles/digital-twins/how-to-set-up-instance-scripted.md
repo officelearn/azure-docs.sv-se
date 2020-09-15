@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298903"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563003"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -38,7 +38,7 @@ I den hämtade exempel mappen finns distributions skriptet på _Azure_Digital_Tw
 
 Här följer stegen för att köra distributions skriptet i Cloud Shell.
 1. Gå till ett [Azure Cloud Shell](https://shell.azure.com/) -fönster i webbläsaren. Logga in med det här kommandot:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     Om CLI kan öppna din standard webbläsare så gör den det och läser in en Azure-inloggnings sida. Annars öppnar du en webb sida på *https://aka.ms/devicelogin* och anger den auktoriseringskod som visas i din terminal.

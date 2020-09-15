@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6792fdc405d539a662c8dc20c04b2891fd036704
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1aa0eb0988474a21fbf77ea08ce14a5fa9fb21bc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421917"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564125"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell för Azure AD-roller i Privileged Identity Management
 
@@ -30,7 +30,7 @@ Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets
 > [!Note]
 > Vår officiella PowerShell stöds bara om du använder den nya versionen av Azure AD Privileged Identity Management. Gå till Privileged Identity Management och kontrol lera att du har följande banderoll på bladet snabb start.
 > [![kontrol lera vilken version av Privileged Identity Management du har](media/pim-how-to-add-role-to-user/pim-new-version.png "Välj Azure AD-> Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Om du inte har den här banderollen, vänta medan vi för närvarande håller på att lansera den här uppdaterade upplevelsen under de kommande veckorna.
-> Privileged Identity Management PowerShell-cmdletar stöds via för hands versionen av Azure AD. Om du har använt en annan modul och den modulen nu returnerar ett fel meddelande, kan du börja använda den här nya modulen. Om du har ett produktions system som bygger ovanpå en annan modul kan du kontaktapim_preview@microsoft.com
+> Privileged Identity Management PowerShell-cmdletar stöds via för hands versionen av Azure AD. Om du har använt en annan modul och den modulen nu returnerar ett fel meddelande, kan du börja använda den här nya modulen. Om du har ett produktions system som bygger ovanpå en annan modul kan du kontakta [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com) .
 
 ## <a name="installation-and-setup"></a>Installation och konfiguration
 
@@ -54,7 +54,7 @@ Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets
     ![Hitta organisations-ID: t i egenskaperna för Azure AD-organisationen](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Följande avsnitt innehåller enkla exempel som hjälper dig att komma igång. Du hittar mer detaljerad dokumentation om följande cmdlets på https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management . Du måste dock ersätta "azureResources" i parametern providerID med "aadRoles". Du måste också komma ihåg att använda organisations-ID: t för din Azure AD-organisation som resourceId-parameter.
+> Följande avsnitt innehåller enkla exempel som hjälper dig att komma igång. Du hittar mer detaljerad dokumentation om följande cmdlets på [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . Du måste dock ersätta "azureResources" i parametern providerID med "aadRoles". Du måste också komma ihåg att använda klient-ID: t för din Azure AD-organisation som resourceId-parameter.
 
 ## <a name="retrieving-role-definitions"></a>Hämtar roll definitioner
 
@@ -135,7 +135,7 @@ Denna cmdlet är nästan identisk med cmdlet: en för att skapa en roll tilldeln
 Använd följande cmdlet för att hämta alla roll inställningar i din Azure AD-organisation.
 
 ```powershell
-Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'"
 ```
 
 Det finns fyra huvud objekt i inställningen. Endast tre av de här objekten används för närvarande av PIM. UserMemberSettings är aktiverings inställningar, AdminEligibleSettings är tilldelnings inställningar för kvalificerade tilldelningar och AdminmemberSettings är tilldelnings inställningar för aktiva tilldelningar.
@@ -145,8 +145,10 @@ Det finns fyra huvud objekt i inställningen. Endast tre av de här objekten anv
 Om du vill uppdatera roll inställningen måste du hämta det befintliga inställnings objektet för en viss roll och göra ändringar i den:
 
 ```powershell
-$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-$setting.UserMemberSetting.justificationRule = '{"required":false}'
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq 'tenant id' and RoleDefinitionId eq 'role id'"
+$settinga = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting
+$settinga.RuleIdentifier = "JustificationRule"
+$settinga.Setting = '{"required":false}'
 ```
 
 Du kan sedan gå vidare och tillämpa inställningen på ett av objekten för en viss roll som visas nedan. ID: t här är roll inställnings-ID: t som kan hämtas från resultatet av cmdleten List Role Settings.

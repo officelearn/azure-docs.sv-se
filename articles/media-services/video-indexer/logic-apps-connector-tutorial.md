@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 6c46195572fc4495b35f5ec44421440975ab9ffc
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 16a28ee01606fa9067c279183ca6c02b2857bcd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531363"
+ms.locfileid: "90563853"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
 
@@ -58,7 +58,7 @@ Om du vill konfigurera det första flödet måste du ange din Video Indexer API-
 
 När du har anslutit till Azure Storage och Video Indexer konton går du till avsnittet "när en BLOB läggs till eller ändras) och väljer den behållare som du vill placera dina videofiler i. 
 
-![Lagrings behållare](./media/logic-apps-connector-tutorial/container.png)
+![Skärm bild som visar dialog rutan när en BLOB läggs till eller ändras där du kan välja en behållare.](./media/logic-apps-connector-tutorial/container.png)
 
 Gå sedan till åtgärden "skapa SAS-URI per sökväg" och välj lista över filernas sökväg från alternativen för dynamiskt innehåll.  
 

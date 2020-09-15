@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662542"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561659"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Skapa beräknings mål för modell utbildning och distribution med python SDK
 
@@ -28,7 +28,7 @@ I den här artikeln använder du Azure Machine Learning python SDK för att skap
 * [Vs Code-tillägget](how-to-manage-resources-vscode.md#compute-clusters) för Azure Machine Learning.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
@@ -36,7 +36,11 @@ I den här artikeln använder du Azure Machine Learning python SDK för att skap
 
 ## <a name="limitations"></a>Begränsningar
 
-Några av de scenarier som anges i det här dokumentet är markerade som för __hands version__. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* **Skapa inte flera, samtidiga bilagor till samma beräkning** från din arbets yta. Du kan till exempel ansluta ett Azure Kubernetes service-kluster till en arbets yta med två olika namn. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
+
+    Om du vill koppla ett beräknings mål på nytt, t. ex. ändra TLS eller en annan kluster konfigurations inställning, måste du först ta bort den befintliga bilagan.
+
+* Några av de scenarier som anges i det här dokumentet är markerade som för __hands version__. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>Vad är ett beräknings mål?
 
@@ -269,6 +273,9 @@ Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator 
 
    Eller så kan du koppla DSVM till din arbets yta [med Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
 
+    > [!WARNING]
+    > Skapa inte flera, samtidiga bilagor till samma DSVM från din arbets yta. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
+
 1. **Konfigurera**: skapa en körnings konfiguration för DSVM Compute Target. Docker och Conda används för att skapa och konfigurera utbildnings miljön på DSVM.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
@@ -313,6 +320,9 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
    ```
 
    Eller så kan du ansluta HDInsight-klustret till din arbets yta [med Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > Skapa inte flera, samtidiga bilagor till samma HDInsight från din arbets yta. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
 
 1. **Konfigurera**: skapa en körnings konfiguration för HDI Compute Target. 
 
@@ -360,6 +370,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> Skapa inte flera, samtidiga bilagor till samma Azure Batch från din arbets yta. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -414,6 +427,9 @@ except ComputeTargetException:
 
 Ett mer detaljerat exempel finns i en [exempel antecknings bok](https://aka.ms/pl-databricks) på GitHub.
 
+> [!WARNING]
+> Skapa inte flera, samtidiga bilagor till samma Azure Databricks från din arbets yta. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics är en stor data analys plattform i Azure-molnet. Den kan användas som ett beräknings mål med en Azure Machine Learning pipeline.
@@ -463,6 +479,9 @@ except ComputeTargetException:
 ```
 
 Ett mer detaljerat exempel finns i en [exempel antecknings bok](https://aka.ms/pl-adla) på GitHub.
+
+> [!WARNING]
+> Skapa inte flera, samtidiga bilagor till samma ADLA från din arbets yta. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
 
 > [!TIP]
 > Azure Machine Learning pipelines kan bara arbeta med data som lagras i standard data lagret för det Data Lake Analytics kontot. Om de data du behöver arbeta med finns i ett lager som inte är standard kan du använda en [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) för att kopiera data före träning.

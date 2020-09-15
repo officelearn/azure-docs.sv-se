@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea43f48abef5e2b258251d46eca1061a2263519
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 08d80a5ec2099147c12bcecd3b52d64429837285
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613841"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563972"
 ---
 # <a name="meshes"></a>Maskor
 
 ## <a name="mesh-resource"></a>Nät resurs
 
-Maskor är en oföränderlig [delad resurs](../concepts/lifetime.md)som bara kan skapas via [modell konvertering](../how-tos/conversion/model-conversion.md). Maskor innehåller ett eller flera under *nät*. Varje under nät refererar till ett [material](materials.md) med vilket det ska återges som standard. Lägg till en [MeshComponent](#meshcomponent) till en [entitet](entities.md)för att placera ett nät i 3D-rymden.
+Maskor är en oföränderlig [delad resurs](../concepts/lifetime.md)som bara kan skapas via [modell konvertering](../how-tos/conversion/model-conversion.md). Maskor innehåller ett eller flera under *nät* tillsammans med en fysik representation för raycast- [frågor](../overview/features/spatial-queries.md). Varje under nät refererar till ett [material](materials.md) med vilket det ska återges som standard. Lägg till en [MeshComponent](#meshcomponent) till en [entitet](entities.md)för att placera ett nät i 3D-rymden.
 
 ### <a name="mesh-resource-properties"></a>Egenskaper för nät resurs
 
@@ -38,12 +38,46 @@ Maskor är en oföränderlig [delad resurs](../concepts/lifetime.md)som bara kan
 
 * **UsedMaterials:** Matrisen med faktiskt använt material för varje under nät. Är identisk med data i *material* mat ris för värden som inte är null. Annars innehåller den värdet från *material* mat ris i nät instansen.
 
+### <a name="sharing-of-meshes"></a>Delning av nät
+
+En `Mesh` resurs kan delas över flera instanser av nät komponenter. Dessutom kan den `Mesh` resurs som är tilldelad en nät komponent ändras program mässigt när som helst. Koden nedan visar hur du klonar ett nät:
+
+```cs
+Entity CloneEntityWithModel(RemoteManager manager, Entity sourceEntity)
+{
+    MeshComponent meshComp = sourceEntity.FindComponentOfType<MeshComponent>();
+    if (meshComp != null)
+    {
+        Entity newEntity = manager.CreateEntity();
+        MeshComponent newMeshComp = manager.CreateComponent(ObjectType.MeshComponent, newEntity) as MeshComponent;
+        newMeshComp.Mesh = meshComp.Mesh; // share the mesh
+        return newEntity;
+    }
+    return null;
+}
+```
+
+```cpp
+ApiHandle<Entity> CloneEntityWithModel(ApiHandle<RemoteManager> manager, ApiHandle<Entity> sourceEntity)
+{
+    if (ApiHandle<MeshComponent> meshComp = sourceEntity->FindComponentOfType<MeshComponent>())
+    {
+        ApiHandle<Entity> newEntity = *manager->CreateEntity();
+        ApiHandle<MeshComponent> newMeshComp = manager->CreateComponent(ObjectType::MeshComponent, newEntity)->as<RemoteRendering::MeshComponent>();
+        newMeshComp->SetMesh(meshComp->GetMesh()); // share the mesh
+        return newEntity;
+    }
+    return nullptr;
+}
+```
+
 ## <a name="api-documentation"></a>API-dokumentation
 
 * [C#, nät klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
 * [C# MeshComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
 * [C++, nät klass](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
 * [C++ MeshComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

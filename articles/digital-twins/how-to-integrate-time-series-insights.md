@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 870aded1a7b00cbfbe96aff4997561b15be4141c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: c6c5c9b00ec3309638a7c5618e5995c8c5f07b11
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290112"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564380"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrera Azure Digitals dubbla med Azure Time Series Insights
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du integrerar Azure Digitals dubbla me
 
 Lösningen som beskrivs i den här artikeln gör att du kan samla in och analysera historiska data om din IoT-lösning. Azure digitala multipler är en bra plats för att mata in data i Time Series Insights, eftersom det gör att du kan korrelera flera data strömmar och standardisera din information innan du skickar den till Time Series Insights. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan skapa en relation med Time Series Insights måste du ha en **digital Azure-instans**. Den här instansen bör konfigureras med möjlighet att uppdatera Digital dubbel information baserat på data, eftersom du behöver uppdatera dubbel information några gånger för att se att dessa data spåras i Time Series Insights. 
 
@@ -46,21 +46,21 @@ Självstudien om Azure Digitals sammanhållen [*: Anslut en lösning från slut 
 
 1. Börja med att skapa ett namn område för händelsehubben, som tar emot händelser från din Azure Digital-instansen. Du kan antingen använda Azure CLI-instruktionerna nedan eller använda Azure Portal: [*snabb start: skapa en händelsehubben med Azure Portal*](../event-hubs/event-hubs-create.md).
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
     az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
     ```
 
 2. Skapa en Event Hub i namn området.
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an event hub to receive twin change events. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
 3. Skapa en [auktoriseringsregel](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) med behörigheter för att skicka och ta emot.
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
@@ -153,12 +153,12 @@ Om du vill skapa den andra händelsehubben kan du antingen använda Azure CLI-in
 1. Förbered din *Event Hubs namnrymd* och *resurs grupp* namn från tidigare i den här artikeln
 
 2. Skapa en ny händelsehubben
-    ```azurecli-interactive
+    ```azurecli
     # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
 3. Skapa en [auktoriseringsregel](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) med behörigheter för att skicka och ta emot
-    ```azurecli-interactive
+    ```azurecli
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
@@ -171,13 +171,13 @@ Därefter måste du ställa in miljövariabler i din Function-app från tidigare
 
 1. Hämta den sammanflätade [Event Hub-anslutningssträngen](../event-hubs/event-hubs-get-connection-string.md)med hjälp av de auktoriseringsregler som du skapade ovan för den dubbla hubben.
 
-    ```azurecli-interactive
+    ```azurecli
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
 2. Använd anslutnings strängen som du får som ett resultat av att skapa en app-inställning i din Function-app som innehåller anslutnings strängen:
 
-    ```azurecli-interactive
+    ```azurecli
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string> -g <resource group> -n <your App Service (function app) name>"
     ```
 
@@ -185,13 +185,13 @@ Därefter måste du ställa in miljövariabler i din Function-app från tidigare
 
 1. Hämta [anslutnings strängen för TSD Event Hub](../event-hubs/event-hubs-get-connection-string.md)med hjälp av de auktoriseringsregler som du skapade ovan för Time Series Insights Hub:
 
-    ```azurecli-interactive
+    ```azurecli
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
 2. I din Function-app skapar du en app-inställning som innehåller din anslutnings sträng:
 
-    ```azurecli-interactive
+    ```azurecli
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string> -g <resource group> -n <your App Service (function app) name>"
     ```
 

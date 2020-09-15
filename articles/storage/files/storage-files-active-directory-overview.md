@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447241"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561831"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Översikt över Azure Files Identity-baserade autentiseringsalternativ för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -78,6 +78,7 @@ I följande tabell sammanfattas de Azure-filresurser som stöds för Azure AD DS
 - Azure AD DS och lokal AD DS-autentisering stöder inte autentisering mot dator konton. Du kan använda ett tjänst inloggnings konto i stället.
 - Varken Azure AD DS-autentisering eller lokal AD DS-autentisering stöds för Azure AD-anslutna enheter eller Azure AD-registrerade enheter.
 - Azure-filresurser har endast stöd för identitetsbaserade autentisering mot någon av följande domän tjänster, antingen [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) eller [lokalt Active Directory Domain Services (AD DS)](#ad-ds).
+- Varken identitetsbaserade autentiseringsmetoder stöds med Network File System (NFS), som är en för hands version.
 
 ## <a name="advantages-of-identity-based-authentication"></a>Fördelar med Identity-baserad autentisering
 Identitetsbaserade autentisering för Azure Files ger flera fördelar jämfört med autentisering med delade nycklar:

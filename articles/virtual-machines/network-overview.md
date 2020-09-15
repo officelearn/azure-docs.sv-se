@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fe1cdf738162fe5c4492ff0585f057256153a838
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835620"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561422"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Virtuella nätverk och virtuella datorer i Azure 
 
@@ -147,7 +147,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en intern 
 | Azure Portal | Du kan [utjämna belastningen på intern trafik med en belastningsutjämnare i Azure Portal](../load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Om du vill ange en privat IP-adress i nätverks under nätet använder du [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) med parametern **-PrivateIpAddress** . Använd [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) för att skapa konfigurationen för backend-adresspoolen. Använd [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) för att skapa inkommande NAT-regler som är associerade med den frontend-IP-konfiguration som du har skapat. Använd [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) för att skapa de avsökningar som du behöver. Använd [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) för att skapa belastnings Utjämnings konfigurationen. Använd [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) för att skapa belastningsutjämnaren.|
 | [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Använd kommandot [az network lb create](/cli/azure/network/lb) för att skapa den första konfigurationen för lastbalanseraren. För att definiera den privata IP-adressen använder du [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) med parametern **--private-ip-address** parameter. Använd [az network lb address-pool create](/cli/azure/network/lb/address-pool) att lägga till konfigurationen av backend-adresspoolen. Använd [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) för att lägga till NAT-regler. Använd [az network lb rule create](/cli/azure/network/lb/rule) för att lägga till regler för lastbalanseraren. Använd [az network lb probe create](/cli/azure/network/lb/probe) för att lägga till avsökningar.|
-| [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Använd [2 virtuella datorer i en lastbalanserare och konfigurera NAT-regler på LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) som en vägledning för att distribuera en lastbalanserare med en mall. |
+| [Mall](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Använd [2 virtuella datorer i en lastbalanserare och konfigurera NAT-regler på LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) som en vägledning för att distribuera en lastbalanserare med en mall. |
 
 ### <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuella datorer
 

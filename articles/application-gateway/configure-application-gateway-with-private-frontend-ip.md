@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808117"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562493"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurera en Programgateway med en intern belastningsutjämnare (ILB)
 
@@ -74,7 +74,7 @@ För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett 
 25. Acceptera återstående standardvärden och välj **Lägg till**.
 26. På sidan **Lägg till regel för routning** väljer du **Lägg till**.
 27. Välj **Nästa: Taggar**.
-28. Välj **Nästa: granska + skapa**.
+28. Välj **Nästa: Granska + skapa**.
 29. Granska inställningarna på sidan Sammanfattning och välj sedan **skapa** för att skapa nätverks resurserna och programgatewayen. Det kan ta flera minuter att skapa programgatewayen. Vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
 ## <a name="add-backend-pool"></a>Lägg till backend-pool
@@ -110,7 +110,7 @@ Gör så här:
 ### <a name="install-iis"></a>Installera IIS
 
 1. Öppna Cloud Shell och kontrol lera att den är inställd på **PowerShell**.
-    ![privat-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![Skärm bild som visar ett öppet Azure Cloud Shell konsol fönster som använder PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Kör följande kommando för att installera IIS på den virtuella datorn:
 
    ```azurepowershell
@@ -142,15 +142,15 @@ Gör så här:
 
 1. Välj **Alla resurser** och välj sedan **myAppGateway**.
 2. Välj **backend-pooler**. Välj **appGatewayBackendPool**.
-3. Under **måltyp** väljer du **virtuell dator** och under **mål**väljer du den vNIC som är kopplad till myVM.
+3. Under **måltyp** väljer du **virtuell dator**  och under **mål**väljer du den vNIC som är kopplad till myVM.
 4. Upprepa om du vill lägga till MyVM2.
-   ![privat-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![Skärm bild som visar fönstret Redigera backend-pool med mål typer och mål markerade.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. Välj **Spara.**
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
 1. Kontrol lera klient delens IP-adress som har tilldelats genom att klicka på sidan **IP-konfigurationer för klient** del i portalen.
-    ![privat-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![Skärm bild som visar fönstret IP-konfigurationer för klient del med den privata typen markerad.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Kopiera den privata IP-adressen och klistra in den i webbläsarens Adress fält i en virtuell dator i samma VNet eller lokalt som har anslutning till det här virtuella nätverket och försök få åtkomst till Application Gateway.
 
 ## <a name="next-steps"></a>Nästa steg

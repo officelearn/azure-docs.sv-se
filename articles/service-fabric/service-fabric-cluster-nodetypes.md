@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261112"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561898"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 
@@ -32,7 +32,7 @@ När du skalar ut en skalnings uppsättning skapas en ny instans. Det nya instan
 
 Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **lb- &lt; Node typ namn &gt; **. Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
 
-![Resurser][Resources]
+![Skärm bild som visar en resurs grupp med två belastningsutjämnare markerade.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric tillägg för virtuell dator
 
@@ -85,7 +85,7 @@ Följande är egenskaps beskrivningarna:
 | nicPrefixOverride | sträng | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | Vanliga namn på installerade kluster certifikat |
 | x509StoreName | sträng | Namn på arkivet där det installerade kluster certifikatet finns |
-| typeHandlerVersion | 1.1 | Version av tillägget. 1,0 Classic-versionen av tillägget rekommenderas för att uppgradera till 1,1 |
+| typeHandlerVersion | 1,1 | Version av tillägget. 1,0 Classic-versionen av tillägget rekommenderas för att uppgradera till 1,1 |
 | dataPath | sträng | Sökväg till enheten som används för att spara tillstånd för Service Fabric system tjänster och program data.
 
 ## <a name="next-steps"></a>Nästa steg

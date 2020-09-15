@@ -4,14 +4,14 @@ description: Policy för kvarhållning och sekretess policy
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f6fa42d6cc20c4d26caa7f571f13bb3917b2c7c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a2440379c001c0213145c1c5972cfed8799f4966
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929337"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562799"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
 När du installerar [Azure Application Insights][start] SDK i appen skickas telemetri om din app till molnet. Välbekanta utvecklare vill veta exakt vilka data som skickas, vad som händer med data och hur de kan behålla kontrollen över dem. I synnerhet kan känsliga data skickas, där lagras det och hur säkert är det? 
 
@@ -83,7 +83,7 @@ Sammanställda data (det vill säga antal, medelvärden och andra statistiska da
 
 [Fel söknings ögonblicks bilder](./snapshot-debugger.md) lagras i 15 dagar. Den här bevarande principen anges per tillämpning. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett support ärende i Azure Portal.
 
-## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
+## <a name="who-can-access-the-data"></a>Vem som kan komma åt data?
 Informationen är synlig för dig och, om du har ett organisations konto, ditt team medlemmar. 
 
 Den kan exporteras av dig och dina team medlemmar och kan kopieras till andra platser och skickas till andra personer.
@@ -128,7 +128,7 @@ Om en kund behöver konfigurera den här katalogen med specifika säkerhets krav
 
 `C:\Users\username\AppData\Local\Temp` används för att spara data. Den här platsen kan inte konfigureras från konfigurations katalogen och behörigheterna för åtkomst till den här mappen är begränsade till den aktuella användaren med nödvändiga autentiseringsuppgifter. (Mer information finns i [implementering](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
-###  <a name="net"></a>.Net
+###  <a name="net"></a>.NET
 
 Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala app data-mapp `%localAppData%\Microsoft\ApplicationInsights` eller Temp-mappen `%TMP%` . (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.)
 
@@ -153,7 +153,16 @@ Via kod:
 
 ### <a name="netcore"></a>NetCore
 
-Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala app data-mapp `%localAppData%\Microsoft\ApplicationInsights` eller Temp-mappen `%TMP%` . (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.) I en Linux-miljö kommer lokal lagring att inaktive ras om inte en lagringsmapp anges.
+Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala app data-mapp `%localAppData%\Microsoft\ApplicationInsights` eller Temp-mappen `%TMP%` . (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.) 
+
+I en Linux-miljö kommer lokal lagring att inaktive ras om inte en lagringsmapp anges.
+
+> [!NOTE]
+> Med version 2.15.0-beta3 och större lokal lagring skapas nu automatiskt för Linux, Mac och Windows. För icke-Windows-system skapar SDK: n automatiskt en lokal lagringsmapp baserat på följande logik:
+> - `${TMPDIR}` – Om `${TMPDIR}` miljövariabeln anges används den här platsen.
+> - `/var/tmp` – om den föregående platsen inte finns försöker vi `/var/tmp` .
+> - `/tmp` – om båda de föregående platserna inte finns provar vi `tmp` . 
+> - Om ingen av dessa platser finns lokalt lagras inte och manuell konfiguration krävs fortfarande. [För fullständig implementerings information](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
 
 Följande kodfragment visar hur du ställer in `ServerTelemetryChannel.StorageFolder` i- `ConfigureServices()` metoden för `Startup.cs` klassen:
 
@@ -211,7 +220,7 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 | Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1,2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
-|Windows Vista | Stöds inte. | Ej tillämpligt
+|Windows Vista | Stöds inte. | E.t.
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
 
@@ -253,7 +262,7 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
 | [Samtals spår *][api] |Händelse namn<br/>**Egenskaper** |
 | [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaper** |
-| SDK kan inte samla in data. Ett exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
+| SDK kan inte samla in data. Exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
 
 För [SDK: er för andra plattformar][platforms], se deras dokument.
 

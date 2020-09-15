@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569295"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563095"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -217,7 +217,7 @@ public void keepAlive(
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `TimerTrigger` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "timerTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -249,6 +249,7 @@ När en timer-utlösare anropas, skickas ett Timer-objekt till funktionen. Följ
 ```
 
 `IsPastDue`Egenskapen är `true` när den aktuella funktions anropet är senare än schemalagt. Till exempel kan en omstart av en funktion orsaka att ett anrop saknas.
+
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB-uttryck 
 
@@ -282,6 +283,8 @@ Här följer några exempel på NCRONTAB-uttryck som du kan använda för timer-
 |`"0 30 9 * * 1-5"`|kl. 9:30 varje vardag|
 |`"0 30 9 * Jan Mon"`|kl. 9:30 varje måndag i januari|
 
+> [!NOTE]
+> NCRONTAB-uttrycket kräver **sex fält** format. Det finns inte stöd för fem fält cron uttryck i Azure.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB tids zoner
 
@@ -312,7 +315,7 @@ Om en Function-app skalar ut till flera instanser, körs bara en instans av en t
 
 Om du delar lagrings konton över Function-appar som inte har distribuerats till App Service kan du uttryckligen behöva tilldela värd-ID till varje app.
 
-| Funktions version | Inställningen                                              |
+| Funktions version | Inställning                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (och högre)  | `AzureFunctionsWebHost__hostid` miljö variabel |
 | 1.x               | `id` i *host.jspå*                                  |

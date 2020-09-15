@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 7b629adc24f0c9d8826d610c59379605e1ca0b95
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061826"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563411"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Översikt – lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
-[Azure Files](storage-files-introduction.md)   stöder identitets-baserad autentisering över Server Message Block (SMB) via två typer av domän tjänster: lokala Active Directory Domain Services (AD DS) och Azure Active Directory Domain Services (Azure AD DS). Vi rekommenderar starkt att du läser [avsnittet hur det fungerar](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) för att välja rätt domän tjänst för authentcation. Installations programmet skiljer sig åt beroende på vilken domän tjänst du väljer. Den här serien med artiklar fokuserar på att aktivera och konfigurera lokala AD DS för autentisering med Azure-filresurser.
+[Azure Files](storage-files-introduction.md)   stöder identitets-baserad autentisering över Server Message Block (SMB) via två typer av domän tjänster: lokala Active Directory Domain Services (AD DS) och Azure Active Directory Domain Services (Azure AD DS). Vi rekommenderar starkt att du läser [avsnittet hur det fungerar](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) för att välja rätt domän tjänst för autentisering. Installations programmet skiljer sig åt beroende på vilken domän tjänst du väljer. Den här serien med artiklar fokuserar på att aktivera och konfigurera lokala AD DS för autentisering med Azure-filresurser.
 
 Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [planerings guide](storage-files-planning.md) innan du läser följande serie artiklar.
 
@@ -28,7 +28,8 @@ Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [
 - Stöder enkel inloggning.
 - Stöds endast på klienter som kör på OS-versioner som är nyare än Windows 7 eller Windows Server 2008 R2.
 - Stöds endast mot den AD-skog som lagrings kontot är registrerat på. Du kan bara komma åt Azure-filresurser med AD DS-autentiseringsuppgifter från en enda skog som standard. Om du behöver åtkomst till Azure-filresursen från en annan skog kontrollerar du att rätt skogs förtroende har kon figurer ATS. mer information finns i [vanliga frågor och svar](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) .
-- Stöder inte autentisering mot dator konton som skapats i AD DS. 
+- Stöder inte autentisering mot dator konton som skapats i AD DS.
+- Stöder inte autentisering mot NFS-filresurser (Network File System).
 
 När du aktiverar AD DS för Azure-filresurser över SMB kan AD DS-anslutna datorer montera Azure-filresurser med dina befintliga AD DS-autentiseringsuppgifter. Den här funktionen kan aktive ras med en AD DS-miljö som finns på lokal datorer eller som finns i Azure.
 

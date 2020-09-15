@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639859"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564057"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -99,5 +99,5 @@ Du kan konfigurera *en* offentlig standard Load Balancer resurs för Server dels
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur du konfigurerar ha-portar för din ILB via portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)eller [mallar](load-balancer-get-started-ilb-arm-template.md).
+- [Lär dig hur du konfigurerar ha-portar för din ILB via portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)eller [mallar](quickstart-load-balancer-standard-internal-template.md).
 - [Läs mer om Standard Load Balancer](load-balancer-standard-overview.md)

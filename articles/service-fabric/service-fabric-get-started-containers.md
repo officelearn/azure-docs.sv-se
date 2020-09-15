@@ -4,12 +4,12 @@ description: Skapa din första Windows-containerapp på Azure Service Fabric. By
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844447"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564329"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -290,7 +290,7 @@ Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att 
 
 **HEALTHCHECK** -instruktionen som pekar på den faktiska kontrollen som utförs för övervakning av container hälsa måste finnas i den Dockerfile som används när behållar avbildningen genereras.
 
-![HealthCheckHealthy][3]
+![Skärm bild som visar information om det distribuerade tjänst paketet NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 

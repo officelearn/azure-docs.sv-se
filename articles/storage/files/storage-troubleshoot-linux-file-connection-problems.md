@@ -7,18 +7,21 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a01d9e90e87d1c23b9aefc5f2d9ba3ba84d0f59f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e4aa0cb2cc3ff623929222d83a560f66198f13c0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904929"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564278"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Felsöka Azure Files problem i Linux (SMB)
 
 Den här artikeln innehåller vanliga problem som är relaterade till Azure Files när du ansluter från Linux-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. 
 
 Förutom fel söknings stegen i den här artikeln kan du använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) för att säkerställa att Linux-klienten har rätt krav. AzFileDiagnostics automatiserar identifieringen av de flesta problem som nämns i den här artikeln. Det hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Fel sökaren innehåller steg som hjälper dig med problem med att ansluta, mappa och montera Azure Files-resurser.
+
+> [!IMPORTANT]
+> Innehållet i den här artikeln gäller endast SMB-resurser.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Det går inte att ansluta till eller montera en Azure-filresurs
 
@@ -80,7 +83,7 @@ Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurera
 
 I Linux får du ett fel meddelande som liknar följande:
 
-**\<filename>[behörighet nekad] Disk kvoten överskreds**
+**\<filename> [behörighet nekad] Disk kvoten överskreds**
 
 ### <a name="cause"></a>Orsak
 
@@ -107,7 +110,7 @@ Om du vill stänga öppna referenser för en fil resurs, katalog eller fil anvä
     - Använd [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för överföring mellan två fil resurser.
     - Genom att använda CP eller DD med parallell kan du förbättra kopierings hastigheten, antalet trådar beror på ditt användnings fall och arbets belastning. I följande exempel används sex: 
     - CP-exempel (CP använder standard block storleken för fil systemet som segment storlek): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
-    - DD exempel (detta kommando anger explicit segment storlek till 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - DD exempel (detta kommando anger explicit segment storlek till 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Öppna käll kods verktyg från tredje part, till exempel:
         - [GNU parallellt](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) – sorterar filer och packar dem i partitioner.
@@ -115,7 +118,7 @@ Om du vill stänga öppna referenser för en fil resurs, katalog eller fil anvä
         - [Multi](https://github.com/pkolano/mutil) -multi-threaded CP och md5sum baserat på GNU coreutils.
 - Att ange fil storleken i förväg, i stället för att göra varje skrivning till en utökad skrivning, bidrar till att förbättra kopierings hastigheten i scenarier där fil storleken är känd. Om du behöver undvika att utöka skrivningar kan du ange en mål fil storlek med `truncate - size <size><file>` kommando. Efter det `dd if=<source> of=<target> bs=1M conv=notrunc` kommer kommandot att kopiera en källfil utan att behöva uppdatera storleken på målfilen upprepade gånger. Du kan till exempel ange mål fils storleken för varje fil som du vill kopiera (anta att en resurs monteras under/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - och kopierar sedan filer utan att utöka skrivningar parallellt:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - och kopierar sedan filer utan att utöka skrivningar parallellt: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Monterings fel (115): åtgärden pågår nu" när du monterar Azure Files med SMB 3,0
@@ -183,7 +186,7 @@ I vissa fall kan **serverino** Mount-alternativet orsaka att **ls** -kommandot k
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Du kan också kontrol lera om rätt alternativ används genom att köra kommandot **sudo Mount | grep CIFS** och kontrol lera dess utdata. Följande är exempel på utdata:
+Du kan också kontrol lera om rätt alternativ används genom att köra kommandot  **sudo Mount | grep CIFS** och kontrol lera dess utdata. Följande är exempel på utdata:
 
 ```
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)

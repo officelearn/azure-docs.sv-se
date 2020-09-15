@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76275113"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564159"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Tillgängliga regioner för din StorSimple
 
@@ -39,7 +39,7 @@ Du definierar en region eller plats när du först skapar tjänsten StorSimple E
 
 Här är en lista över regioner där StorSimple Enhetshanteraren-tjänsten är tillgänglig för Azures offentliga moln och kan distribueras.
 
-![StorSimple-Device-Manager-Service-regioner](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![Skärm bild som visar StorSimple-Enhetshanteraren med plats listan markerad.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 För Azure Government Cloud är tjänsten StorSimple Enhetshanteraren tillgänglig i US Gov, Iowa och US Gov, Virginia Data Center.
 

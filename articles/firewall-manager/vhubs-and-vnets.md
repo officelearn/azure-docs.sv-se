@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563580"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563156"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Vilka arkitektur alternativ för Azure Firewall Manager?
 
@@ -44,6 +44,7 @@ I följande tabell jämförs dessa två arkitektur alternativ och kan hjälpa di
 |**Stöd för flera säkerhetsproviders**|Stöds med manuellt konfigurerad Tvingad tunnel trafik till brand väggar från tredje part|Automatiskt stöd för två säkerhets leverantörer: Azure-brandvägg för privat trafik filtrering och tredje part för Internet filtrering|
 |**Brandvägg för webbaserade program på Application Gateway** |Stöds i Virtual Network|Stöds för närvarande i eker-nätverk|
 |**Virtuell nätverks installation**|Stöds i Virtual Network|Stöds för närvarande i eker-nätverk|
+|**Azure DDoS Protection standard support**|Ja|Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 

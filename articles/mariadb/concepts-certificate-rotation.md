@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 89de144ab3d0ac4d8b68749e8c836ea1cf328dae
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f35a43e9cbffb2613f7a98e02b03840c774e5999
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601066"
+ms.locfileid: "90708163"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for MariaDB
 
@@ -29,10 +29,9 @@ Det nya certifikatet kommer att användas från och med den 26 oktober 2020 (10/
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Hur gör jag för att veta om min databas kommer att påverkas?
 
 Alla program som använder SSL/TLS och kontrollerar att rot certifikatet måste uppdatera rot certifikatet. Du kan identifiera om dina anslutningar verifierar rot certifikatet genom att granska anslutnings strängen.
--   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller
--   Om anslutnings strängen inkluderar `sslmode=disable` behöver du inte uppdatera certifikat.
--   Om din anslutnings sträng innehåller `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
--   Om anslutnings strängen inte är speciell sslmode behöver du inte uppdatera certifikat.
+-   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller `sslmode=verify-full` måste du uppdatera certifikatet.
+-   Om din anslutnings sträng innehåller `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
+-   Om anslutnings strängen inte anger sslmode behöver du inte uppdatera certifikat.
 
 Om du använder en-klient som sammanfattar anslutnings strängen går du igenom klientens dokumentation för att ta reda på om den verifierar certifikat.
 Information om hur du Azure Database for MariaDB sslmode finns i [beskrivningarna i SSL-läge](concepts-ssl-connection-security.md#default-settings).

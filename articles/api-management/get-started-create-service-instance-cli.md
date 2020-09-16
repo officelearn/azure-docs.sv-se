@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 763a4f5555e9ea6cdb7e78840251fda5d6861f16
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 8e41e20752e4203bf9916813b86cd901f4f75c09
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90042562"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708231"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Snabb start: skapa en ny Azure API Management Service-instans med hjälp av Azure CLI (för hands version)
 
@@ -51,7 +51,7 @@ az apim create --name myapim --resource-group myResourceGroup \
 Som standard skapar kommandot instansen på nivån utvecklare, ett ekonomiskt alternativ för att utvärdera Azure API Management. Den här nivån är inte för produktions användning. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md). 
 
 > [!TIP]
-> Det tar vanligt vis mellan 20 och 30 minuter att skapa och aktivera en API Management tjänst på den här nivån. Föregående kommando använder `--no-wait` alternativet så att kommandot returnerar omedelbart när tjänsten skapas.
+> Det kan ta mellan 30 och 40 minuter att skapa och aktivera en API Management tjänst på den här nivån. Föregående kommando använder `--no-wait` alternativet så att kommandot returnerar omedelbart när tjänsten skapas.
 
 Kontrol lera statusen för distributionen genom att köra kommandot [AZ APIM show](/cli/azure/apim#az-apim-show) :
 

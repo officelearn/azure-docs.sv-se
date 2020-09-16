@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449523"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708010"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Vanliga frågor om autoskalning av allokerat data flöde i Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Resurser som har skapats med den tidigare nivå modellen stöds automatiskt med 
 
 Om du till exempel tidigare valde nivån som skalades mellan 400 och 4000 RU/s visas nu databasen eller behållaren som har högst RU/s av 4000 RU/s, som skalar mellan 400 och 4000 RU/s. Härifrån kan du ändra det maximala antalet RU/s till ett anpassat värde som passar din arbets belastning. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Hur snabbt skalas skalar upp och ned automatiskt baserat på toppar i trafik?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>Hur snabbt skalar skala upp baserat på toppar i trafik?
 Med autoskalning skalar systemet data flödet (RU/s) `T` uppåt eller nedåt inom `0.1 * Tmax` `Tmax` intervallet och, baserat på inkommande trafik. Eftersom skalningen är automatisk och momentan, kan du, när som helst, använda upp till etableringen `Tmax` utan fördröjning. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Hur gör jag för att ta reda på vad RU/s-systemet är för närvarande skalat till?
@@ -135,7 +135,7 @@ Om den totala förbrukade RU/s överskrider max RU/s av databasen eller behålla
 > [!NOTE]
 > Azure Cosmos DB klient-SDK: er och data import verktyg (Azure Data Factory, Mass utförar-bibliotek) försöker automatiskt igen på 429s, så tillfälliga 429s är fina. Ett varaktigt stort antal 429s kan tyda på att du behöver öka Max RU/s eller granska din partitionerings strategi för en [aktiv partition](#autoscale-rate-limiting).
 
-### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a>Är det fortfarande möjligt att se 429s (begränsning/hastighets begränsning) när autoskalning är aktiverat? 
+### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a> Är det fortfarande möjligt att se 429s (begränsning/hastighets begränsning) när autoskalning är aktiverat? 
 Ja. 429-fel kan returneras i två scenarier. Först när den totala förbrukade RU/s överskrider max RU/s av databasen eller behållaren, kommer tjänsten att begränsa begär Anden enligt detta. 
 
 För det andra, om det finns en aktiv partition, dvs. ett nyckel värde för logisk partition som har en oproportionerligt högre mängd begär Anden jämfört med andra nyckel värden, är det möjligt att den underliggande fysiska partitionen överskrider dess RU/s-budget. För att undvika partitioner med frekvent åtkomstnivå rekommenderar vi att du [väljer en bra partitionsnyckel](partitioning-overview.md#choose-partitionkey) som resulterar i en jämn fördelning av både lagring och dataflöde. 

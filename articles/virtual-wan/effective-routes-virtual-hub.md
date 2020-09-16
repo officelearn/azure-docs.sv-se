@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 6592b1a934e732888ef949071d95075d0af61bf6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762274"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708078"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Visa effektiva vägar för virtuell hubb
 
@@ -50,6 +50,8 @@ Använd rullnings listen längst ned i tabellen om du vill visa "AS-sökväg".
 * Fältet **sprida standard väg** visas i Azure Virtual WAN-portalen när du redigerar en virtuell nätverks anslutning, en VPN-anslutning eller en ExpressRoute-anslutning. Det här fältet anger **enableInternetSecurity** -flaggan, som alltid är "falskt" som standard för ExpressRoute-och VPN-anslutningar, men "true" för virtuella nätverks anslutningar.
 
 * När du visar effektiva vägar på ett virtuellt dator nätverk kan du se nästa hopp som Virtual Network Gateway, vilket innebär att routern för virtuell hubb när den virtuella datorn finns i en eker som är ansluten till en virtuell WAN-hubb.
+
+* Visa effektiva vägar för en virtuell hubb väg tabell fylls bara om den virtuella hubben har minst en typ av anslutning (VPN/ER/VNET) som är ansluten till den.
 
 ## <a name="next-steps"></a>Nästa steg
 

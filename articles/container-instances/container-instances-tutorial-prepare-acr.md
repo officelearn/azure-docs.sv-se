@@ -4,12 +4,12 @@ description: Självstudie om Azure Container Instances del 2 av 3 – förbereda
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1a5b9555572264b6a00b4ce73eaa0719d94fd99b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 44a7f21c067897b046413851ef5a2c73bfccc24f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252162"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708044"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Självstudie: skapa ett Azure Container Registry och skicka en behållar avbildning
 
@@ -28,66 +28,7 @@ I nästa artikel, som är den sista i serien, distribuerar du behållaren från 
 
 [!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
-## <a name="create-azure-container-registry"></a>Skapa Azure Container Registry
-
-Innan du skapar containerregistret måste du ha en *resursgrupp* att distribuera den till. En resursgrupp är en logisk samling där alla Azure-resurser distribueras och hanteras.
-
-Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*:
-
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
-
-När du har skapat resursgruppen skapar du ett Azure-containerregister med kommandot [az acr create][az-acr-create]. Namnet på containerregistret måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. Ersätt `<acrName>` med ett unikt namn för ditt register:
-
-```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
-```
-
-Här är exempel på utdata för ett nytt Azure-behållarregister med namnet *mycontainerregistry082* (visas här trunkerat):
-
-```output
-...
-{
-  "creationDate": "2018-03-16T21:54:47.297875+00:00",
-  "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
-  "location": "eastus",
-  "loginServer": "mycontainerregistry082.azurecr.io",
-  "name": "mycontainerregistry082",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "name": "Basic",
-    "tier": "Basic"
-  },
-  "status": null,
-  "storageAccount": null,
-  "tags": {},
-  "type": "Microsoft.ContainerRegistry/registries"
-}
-```
-
-I resten av den här självstudien använder vi `<acrName>` som platshållare för det containerregisternamn du väljer i det här steget.
-
-## <a name="log-in-to-container-registry"></a>Logga in till containerregistret
-
-Du måste logga in på din Azure Container Registry-instans innan du push-överför avbildningar till den. Använd kommandot [az acr login][az-acr-login] till att slutföra åtgärden. Du måste ange det unika namn du valde för containerregistret när du skapade det.
-
-```azurecli
-az acr login --name <acrName>
-```
-
-Ett exempel:
-
-```azurecli
-az acr login --name mycontainerregistry082
-```
-
-Kommandot returnerar `Login Succeeded` när det har slutförts:
-
-```output
-Login Succeeded
-```
+[!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
 ## <a name="tag-container-image"></a>Tagga containeravbildningen
 
@@ -170,7 +111,7 @@ Verifiera att den avbildning som du just har push-överfört verkligen finns i d
 az acr repository list --name <acrName> --output table
 ```
 
-Ett exempel:
+Exempel:
 
 ```azurecli
 az acr repository list --name mycontainerregistry082 --output table

@@ -1,6 +1,6 @@
 ---
 title: Problem med att logga in till ett Microsoft-program | Microsoft Docs
-description: Felsök vanliga problem som ansikteade vid inloggning till Microsoft-program från första part med hjälp av Azure AD (som Office 365)
+description: Felsök vanliga problem som har uppstått vid inloggning till Microsoft-program från första part med hjälp av Azure AD (t. ex. Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759291"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707959"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem med att logga in till ett Microsoft-program
 
-Microsoft-program (t. ex. Office 365 Exchange, SharePoint, Yammer osv.) tilldelas och hanteras lite annorlunda än SaaS-program från tredje part eller andra program som du integrerar med Azure AD för enkel inloggning.
+Microsoft-program (t. ex. Exchange, SharePoint, Yammer osv.) tilldelas och hanteras lite annorlunda än SaaS-program från tredje part eller andra program som du integrerar med Azure AD för enkel inloggning.
 
 En användare kan få till gång till ett Microsoft-publicerat program på tre sätt.
 
--   För program i Office 365 eller andra betalda paket beviljas användare åtkomst via **licens tilldelning** antingen direkt till sitt användar konto eller via en grupp som använder vår gruppbaserade licens tilldelnings funktion.
+-   För program i Microsoft 365 eller andra betalda sviter beviljas användare åtkomst via **licens tilldelning** antingen direkt till sitt användar konto eller via en grupp som använder vår gruppbaserade licens tilldelnings funktion.
 
 -   För program som Microsoft eller en tredje part publicerar fritt för alla som ska användas kan användare beviljas åtkomst genom **användar medgivande**. Det innebär att de loggar in på programmet med sitt Azure AD-arbets-eller skol konto och ger åtkomst till viss begränsad uppsättning data på sitt konto.
 
@@ -61,7 +61,7 @@ Här följer några vanliga problem som folk kan köras i när deras användare 
 
   * Kontrol lera att **användarens konto finns** i Azure Active Directory. [Kontrol lera om ett användar konto finns i Azure Active Directory](#problems-with-the-users-account)
 
-  * Kontrol lera att användar kontot är **aktiverat** för inloggningar. [kontrol lera en användares konto status](#problems-with-the-users-account)
+  * Kontrol lera att användar kontot är **aktiverat** för inloggningar. [Kontrol lera en användares konto status](#problems-with-the-users-account)
 
   * Kontrol lera att användarens **lösen ord inte har upphört att gälla eller är bortglömt.** [Återställa en användares lösen ord](#reset-a-users-password) eller [Aktivera återställning av lösen ord för självbetjäning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
@@ -438,7 +438,7 @@ Så här kontrollerar eller validerar du en enskild princip för villkorlig åtk
 7. Se till att det inte finns några speciella villkor, tilldelningar eller andra inställningar som kan blockera användar åtkomst.
 
    >[!NOTE]
-   >Du kanske vill inaktivera den här principen tillfälligt för att säkerställa att den inte påverkar inloggnings tillägg. Det gör du genom att ställa in **Aktivera princip** växla till **Nej** och klicka på knappen **Spara** .
+   >Du kanske vill inaktivera den här principen tillfälligt för att säkerställa att den inte påverkar inloggningar. Det gör du genom att ställa in **Aktivera princip** växla till **Nej** och klicka på knappen **Spara** .
    >
    >
 
@@ -470,7 +470,7 @@ Så här kontrollerar eller validerar du en enskild programs aktuella konfigurer
 9.  Se till att det inte finns några speciella villkor, tilldelningar eller andra inställningar som kan blockera användar åtkomst.
 
      >[!NOTE]
-     >Du kanske vill inaktivera den här principen tillfälligt för att säkerställa att den inte påverkar inloggnings tillägg. Det gör du genom att ställa in **Aktivera princip** växla till **Nej** och klicka på knappen **Spara** .
+     >Du kanske vill inaktivera den här principen tillfälligt för att säkerställa att den inte påverkar inloggningar. Det gör du genom att ställa in **Aktivera princip** växla till **Nej** och klicka på knappen **Spara** .
      >
      >
 

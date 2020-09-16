@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: bdd0530aa580f8f1a1cfdffb81d070827a714115
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8548e7449056ecb1f211d5dd026544bf7e1375cc
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686079"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708197"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Självstudie: integrera Atlassian Cloud med Azure Active Directory
 
@@ -163,7 +163,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![image](./media/atlassian-cloud-tutorial/default-attributes.png)
    
-   1. Mappning av attribut för en Azure AD-klient med en Office 365-licens
+   1. Mappning av attribut för en Azure AD-klient med en Microsoft 365-licens
       
       a. Klicka på anspråk på **unikt användar-ID (namn-ID)**
 
@@ -177,13 +177,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
       ![image](common/default-attributes.png)
       
-   1. Attributmappning för en Azure AD-klient utan en Office 365-licens 
+   1. Attributmappning för en Azure AD-klient utan en Microsoft 365-licens 
 
       a. Klicka på `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` anspråket.
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Även om Azure inte fyller i **User. mail-** attributet för användare som skapats i Azure AD-klienter utan Office 365-licenser och lagrar e-postmeddelandet för sådana användare i **userPrincipalName** -attributet. Atlassian Cloud förväntar sig att **NameIdentifier** (**unik användar identifierare**) ska mappas till användarens e-post (**User. UserPrincipalName**).  Redigera **källattributet**  och ändra det till **User. UserPrincipalName**. Spara ändringarna i anspråket.
+      b. Även om Azure inte fyller i **User. mail-** attributet för användare som skapats i Azure AD-klienter utan Microsoft 365 licenser och lagrar e-postmeddelandet för sådana användare i **userPrincipalName** -attributet. Atlassian Cloud förväntar sig att **NameIdentifier** (**unik användar identifierare**) ska mappas till användarens e-post (**User. UserPrincipalName**).  Redigera **källattributet**  och ändra det till **User. UserPrincipalName**. Spara ändringarna i anspråket.
 
       ![image](./media/atlassian-cloud-tutorial/set-email.png)
          

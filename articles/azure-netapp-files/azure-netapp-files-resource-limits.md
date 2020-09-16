@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 60d3c9df270561c94b8eb162595e4fe01713c0b5
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536487"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708112"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -31,20 +31,21 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 
 |  Resurs  |  Standardgräns  |  Justerbar via supportbegäran  |
 |----------------|---------------------|--------------------------------------|
-|  Antal NetApp-konton per Azure-region   |  10    |  Ja   |
-|  Antal kapacitets pooler per NetApp-konto   |    25     |   Ja   |
-|  Antal volymer per prenumeration   |    500     |   Ja   |
-|  Antal volymer per kapacitets grupp     |    500   |    Ja     |
-|  Antal ögonblicks bilder per volym       |    255     |    Inga        |
-|  Antal undernät som har delegerats till Azure NetApp Files (Microsoft. NetApp/Volumes) per Azure-Virtual Network    |   1   |    Inga    |
-|  Antal använda IP-adresser i ett VNet (inklusive direkt peer-virtuella nätverk) med Azure NetApp Files   |    1000   |    Inga   |
-|  Minsta storlek på en pool med enskild kapacitet   |  4 TiB     |    Inga  |
-|  Maximal storlek för en pool med enskild kapacitet    |  500 TiB   |   Inga   |
-|  Minsta storlek på en enskild volym    |    100 GiB    |    Inga    |
-|  Maximal storlek på en enskild volym     |    100 TiB    |    Inga    |
-|  Maximal storlek för en enskild fil     |    16 TiB    |    Inga    |    
-|  Maximal storlek på katalogens metadata i en enskild katalog      |    320 MB    |    Inga    |    
-|  Maximalt antal filer ([maxfiles](#maxfiles)) per volym     |    100 000 000    |    Ja    |    
+|  Antal NetApp-konton per Azure-region   |  10    |  Yes   |
+|  Antal kapacitets pooler per NetApp-konto   |    25     |   Yes   |
+|  Antal volymer per prenumeration   |    500     |   Yes   |
+|  Antal volymer per kapacitets grupp     |    500   |    Yes     |
+|  Antal ögonblicks bilder per volym       |    255     |    No        |
+|  Antal undernät som har delegerats till Azure NetApp Files (Microsoft. NetApp/Volumes) per Azure-Virtual Network    |   1   |    No    |
+|  Antal använda IP-adresser i ett VNet (inklusive direkt peer-virtuella nätverk) med Azure NetApp Files   |    1000   |    No   |
+|  Minsta storlek på en pool med enskild kapacitet   |  4 TiB     |    No  |
+|  Maximal storlek för en pool med enskild kapacitet    |  500 TiB   |   No   |
+|  Minsta storlek på en enskild volym    |    100 GiB    |    No    |
+|  Maximal storlek på en enskild volym     |    100 TiB    |    No    |
+|  Maximal storlek för en enskild fil     |    16 TiB    |    No    |    
+|  Maximal storlek på katalogens metadata i en enskild katalog      |    320 MB    |    No    |    
+|  Maximalt antal filer ([maxfiles](#maxfiles)) per volym     |    100 000 000    |    Yes    |   
+|  Antal data skydds volymer för replikering mellan regioner (mål volymer)     |    5    |    Yes    |     
 
 Mer information finns i [vanliga frågor och svar om kapacitets hantering](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -83,9 +84,10 @@ Från Azure Portal navigerings plan:
         |  Resurs  |    Överordnade resurser      |    Begärda nya gränser     |    Orsak till kvotökning       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Konto |  *Prenumerations-ID*   |  *Begärt nytt maximalt **konto** nummer*    |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
-        |  Pool    |  *Prenumerations-ID, konto-URI*  |  *Begärt nytt nummer för högsta **pool***   |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
-        |  Volym  |  *Prenumerations-ID, konto-URI, pool-URI*   |  *Begärt nytt maximalt **volym** nummer*     |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
-        |  Maxfiles  |  *Prenumerations-ID, konto-URI, pool-URI, volym-URI*   |  *Begärt nytt maximalt **maxfiles** -nummer*     |  *Vilket scenario eller vilka användnings fall ber begäran?*  |    
+        |  Pool    |  *Prenumerations-ID, NetApp-konto-URI*  |  *Begärt nytt nummer för högsta **pool***   |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
+        |  Volym  |  *Prenumerations-ID, NetApp-konto-URI, URI för kapacitets pool*   |  *Begärt nytt maximalt **volym** nummer*     |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
+        |  Maxfiles  |  *Prenumerations-ID, NetApp-konto-URI, URI för kapacitets pool, volym-URI*   |  *Begärt nytt maximalt **maxfiles** -nummer*     |  *Vilket scenario eller vilka användnings fall ber begäran?*  |    
+        |  Replikering av data skydds volymer över flera regioner  |  *Prenumerations-ID, mål NetApp konto-URI, URI för mål kapacitets grupp, käll NetApp konto-URI, URI för käll kapacitets pool, käll volym-URI*   |  *Begärt nytt maximalt antal **data skydds volymer för replikering mellan regioner (mål volymer)***     |  *Vilket scenario eller vilka användnings fall ber begäran?*  |    
 
     2. Ange lämplig support metod och ange din kontrakts information.
 

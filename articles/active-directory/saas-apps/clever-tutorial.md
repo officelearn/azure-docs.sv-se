@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: ea66f044664082b547d1b012d7253cd6443e8610
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bb8eef01e2673c3f84b1678a93b4bd168f1faf63
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052808"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med smarta
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar smarta med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -134,7 +134,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     ![Omedelbar inloggning](./media/clever-tutorial/ic798984.png "Omedelbar inloggning")
 
     > [!NOTE]
-    > Innan du kan testa enkel inloggning måste du kontakta [kundsupporten för Clever](https://clever.com/about/contact/) och aktivera enkel inloggning för Office 365 i serverdelen.
+    > Innan du kan testa enkel inloggning måste du kontakta [smarta client support team](https://clever.com/about/contact/) för att aktivera Microsoft 365 SSO i Server delen.
 
 1. På sidan **Instant Login** (Direkt inloggning) utför du följande steg:
  

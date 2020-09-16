@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 67632301b534f91c36de837bbfa12f9ec16ed58f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44d5a4ae800e87404e5a207727c22a75f0fb75c8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551360"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602803"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Snabb start: så här skapar du en klassificerare med Custom Vision
 
-I den här snabb starten får du lära dig hur du skapar en klassificerare genom Custom Vision webbplats. När du har skapat en klassificerings modell kan du använda tjänsten Custom Vision för avbildnings klassificering.
+I den här snabb starten får du lära dig hur du skapar en avbildnings klassificerare genom Custom Vision webbplats. När du har skapat en modell kan du testa i med nya avbildningar och till och med integrera den i din egen bild igenkännings program vara.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
@@ -27,7 +27,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 - En uppsättning avbildningar som du kan använda för att träna din klassificerare. Se nedan för tips om att välja bilder.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Skapa Custom Vision resurser i Azure Portal
+## <a name="create-custom-vision-resources"></a>Skapa Custom Vision resurser
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,13 +45,13 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
 1. Ange ett namn och en beskrivning för projektet. Välj sedan en resurs grupp. Om ditt inloggade konto är associerat med ett Azure-konto visas alla Azure-resurs grupper som innehåller en Custom Vision Service resurs i list rutan resurs grupp. 
 
    > [!NOTE]
-   > Om ingen resurs grupp är tillgänglig bekräftar du att du har loggat in på [customvision.AI](https://customvision.ai) med samma konto som du använde för att logga in på [Azure Portal](https://portal.azure.com/). Kontrol lera också att du har valt samma "katalog" i Custom Vision portal som katalog i den Azure Portal där dina Custom Vision-resurser finns. På båda platserna kan du välja din katalog från menyn för List menyn i det övre högra hörnet på skärmen. 
+   > Om ingen resurs grupp är tillgänglig bekräftar du att du har loggat in på [customvision.AI](https://customvision.ai) med samma konto som du använde för att logga in på [Azure Portal](https://portal.azure.com/). Bekräfta också att du har valt samma "katalog" på Custom Vision webbplats som katalog i Azure Portal där dina Custom Vision-resurser finns. På båda platserna kan du välja din katalog från menyn för List menyn i det övre högra hörnet på skärmen. 
 
 1. Välj __klassificering__ under __projekt typer__. Välj antingen **multietikett** eller **Multiklass**under __klassificerings typer__, beroende på ditt användnings fall. Klassificering med flera etiketter använder valfritt antal taggar i en bild (noll eller flera), medan klassificering av flera klasser sorterar bilder i enskilda kategorier (varje bild som du skickar kommer att sorteras i den mest sannolika taggen). Du kan ändra klassificerings typen senare om du vill.
 
 1. Välj sedan en av de tillgängliga domänerna. Varje domän optimerar klassificeraren för vissa typer av bilder, enligt beskrivningen i följande tabell. Du kommer att kunna ändra domänen senare om du vill.
 
-    |Domain|Syfte|
+    |Domän|Syfte|
     |---|---|
     |__Allmänna__| Optimerad för ett brett utbud av bild klassificerings aktiviteter. Om ingen av de andra domänerna är lämpliga, eller om du är osäker på vilken domän du väljer, väljer du den allmänna domänen. |
     |__Kost__|Optimerad för foton av rätter på samma sätt som du ser dem på en restaurang meny. Om du vill klassificera fotografier av enskilda frukter eller grönsaker använder du livsmedels domänen.|
@@ -120,3 +120,4 @@ I den här snabb starten har du lärt dig hur du skapar och tränar en bild klas
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](test-your-model.md)
 
+* [Vad är Custom Vision?](./overview.md)

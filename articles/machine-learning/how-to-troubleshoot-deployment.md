@@ -11,20 +11,20 @@ ms.reviewer: jmartens
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4, devx-track-python
-ms.openlocfilehash: 4a0601e2821920e7de3b389d9acfd78598ef67ee
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 22f9c709ced1069caa39ba2145981efa353caadf
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019299"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602641"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Felsöka Docker-distribution av modeller med Azure Kubernetes service och Azure Container Instances 
 
 Lär dig att felsöka och lösa, eller Undvik, vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* En **Azure-prenumeration**. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -34,14 +34,12 @@ Lär dig att felsöka och lösa, eller Undvik, vanliga Docker-distributions fel 
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Steg för Docker-distribution av Machine Learning-modeller
 
-När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter.
-
-Den rekommenderade metoden för modell distribution är via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med ett [miljö](how-to-use-environments.md) objekt som indataparameter. I det här fallet skapar tjänsten en bas Docker-avbildning under distributions fasen och monterar de nödvändiga modellerna i ett anrop. De grundläggande distributions uppgifterna är:
+När du distribuerar en modell i Azure Machine Learning använder du API: t [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) och ett [miljö](how-to-use-environments.md) objekt. Tjänsten skapar en bas Docker-avbildning under distributions fasen och monterar de nödvändiga modellerna alla i ett anrop. De grundläggande distributions uppgifterna är:
 
 1. Registrera modellen i arbets ytans modell register.
 
 2. Definiera konfiguration av härledning:
-    1. Skapa ett [miljö](how-to-use-environments.md) objekt baserat på de beroenden som du anger i miljöns yaml-fil eller Använd någon av våra förhandlade miljöer.
+    1. Skapa ett [miljö](how-to-use-environments.md) objekt. Det här objektet kan använda beroenden i en miljö yaml-fil, en av våra granskade miljöer.
     2. Skapa en konfiguration för en konfiguration (InferenceConfig-objekt) baserat på miljön och bedömnings skriptet.
 
 3. Distribuera modellen till Azure Container instance-tjänsten (ACI) eller till Azure Kubernetes service (AKS).
@@ -52,7 +50,7 @@ Läs mer om den här processen i Introduktion till [modellhantering](concept-mod
 
 Om du stöter på ett problem är det första du ska göra är att dela upp distributions aktiviteten (tidigare beskriven) i enskilda steg för att isolera problemet.
 
-Förutsatt att du använder den nya/rekommenderade distributions metoden via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med ett [miljö](how-to-use-environments.md) objekt som indataparameter, kan din kod delas upp i tre viktiga steg:
+När du använder [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) med ett [miljö](how-to-use-environments.md) objekt som indataparameter, kan din kod delas upp i tre viktiga steg:
 
 1. Registrera modellen. Här följer några exempel kod:
 
@@ -95,11 +93,11 @@ Förutsatt att du använder den nya/rekommenderade distributions metoden via [Mo
     aci_service.wait_for_deployment(show_output=True)
     ```
 
-När du har delat upp distributions processen i enskilda uppgifter kan vi titta på några av de vanligaste felen.
+Genom att bryta Thee-distributions processen till enskilda aktiviteter blir det enklare att identifiera några av de vanligaste felen.
 
 ## <a name="debug-locally"></a>Felsök lokalt
 
-Om du får problem med att distribuera en modell till ACI eller AKS kan du prova att distribuera den som en lokal webbtjänst. Med en lokal webbtjänst blir det enklare att felsöka problem. Docker-avbildningen som innehåller modellen laddas ned och startas i det lokala systemet.
+Om du har problem när du distribuerar en modell till ACI eller AKS kan du distribuera den som en lokal webb tjänst. Med en lokal webbtjänst blir det enklare att felsöka problem.
 
 Du hittar ett exempel på en [lokal distributions antecknings bok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) i  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) -lagrings platsen för att utforska ett körbara-exempel.
 
@@ -128,9 +126,9 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Om du definierar egna Conda-YAML måste du ange azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst.
+Om du definierar din egen Conda-specifikation YAML visar du azureml-defaults version >= 1.0.45 som ett pip-beroende. Det här paketet krävs för att vara värd för modellen som en webb tjänst.
 
-Nu kan du arbeta med tjänsten som vanligt. Till exempel visar följande kod sändning av data till tjänsten:
+Nu kan du arbeta med tjänsten som vanligt. Följande kod visar hur du skickar data till tjänsten:
 
 ```python
 import json
@@ -189,7 +187,7 @@ Du kan åtgärda felet genom att öka värdet för `memory_gb` i `deployment_con
  
 ## <a name="container-cannot-be-scheduled"></a>Behållaren kan inte schemaläggas
 
-När en tjänst distribueras till ett beräknings mål för Azure Kubernetes-tjänsten försöker Azure Machine Learning schemalägga tjänsten med den begärda mängden resurser. Om det efter 5 minuter inte finns några tillgängliga noder i klustret med rätt mängd resurser tillgängliga, kommer distributionen inte att fungera med meddelandet `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Du kan åtgärda det här felet genom att antingen lägga till fler noder, ändra SKU: er för dina noder eller ändra resurs kraven för din tjänst. 
+När en tjänst distribueras till ett beräknings mål för Azure Kubernetes-tjänsten försöker Azure Machine Learning schemalägga tjänsten med den begärda mängden resurser. Om det inte finns några tillgängliga noder i klustret med en lämplig mängd resurser efter 5 minuter, kommer distributionen att Miss par. Fel meddelandet är `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Du kan åtgärda det här felet genom att antingen lägga till fler noder, ändra SKU: er för dina noder eller ändra resurs kraven för din tjänst. 
 
 Fel meddelandet indikerar vanligt vis vilken resurs du behöver mer av – om du ser ett fel meddelande som anger att `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` tjänsten kräver GPU: er och det finns tre noder i klustret som inte har tillgängliga GPU: er. Detta kan åtgärdas genom att lägga till fler noder om du använder en GPU-SKU och växlar till en GPU-aktiverad SKU om du inte eller ändrar din miljö till att inte kräva GPU: er.  
 
@@ -239,13 +237,16 @@ En status kod för 502 visar att tjänsten har utlöst ett undantag eller krasch
 
 ## <a name="http-status-code-503"></a>HTTP-statuskod 503
 
-Distributioner av Azure Kubernetes-tjänster stöder automatisk skalning, vilket gör att repliker kan läggas till för att stödja ytterligare belastning. Autoskalning är dock utformad för att hantera **gradvisa** förändringar i belastningen. Om du får stora toppar i begär Anden per sekund, kan klienterna få HTTP-statuskod 503.
+Distributioner av Azure Kubernetes-tjänster stöder automatisk skalning, vilket gör att repliker kan läggas till för att stödja ytterligare belastning. Autoskalning är utformat för att hantera **gradvisa** ändringar i belastningen. Om du får stora toppar i begär Anden per sekund, kan klienterna få HTTP-statuskod 503. Även om autoskalning reagerar snabbt, tar det AKS en stor del av tiden för att skapa ytterligare behållare.
+
+Beslut om att skala upp/ned baseras på användning av aktuella behållares repliker. Det totala antalet repliker som är upptagna (bearbetning av en begäran) dividerat med det totala antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider så `autoscale_target_utilization` skapas fler repliker. Om den är lägre minskas replikerna. Beslut om att lägga till repliker är Eager och snabbt (cirka 1 sekund). Beslut att ta bort repliker är försiktigt (cirka 1 minut). Som standard är den automatiska skalnings mål användningen inställd på **70%**, vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på **upp till 30%**.
 
 Det finns två saker som kan hjälpa till att förhindra 503 status koder:
 
-* Ändra användnings nivån där autoskalning skapar nya repliker.
-    
-    Som standard är den automatiska skalnings mål användningen inställd på 70%, vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på upp till 30%. Du kan justera användnings målet genom `autoscale_target_utilization` att ange till ett lägre värde.
+> [!TIP]
+> Dessa två metoder kan användas individuellt eller i kombination.
+
+* Ändra användnings nivån där autoskalning skapar nya repliker. Du kan justera användnings målet genom `autoscale_target_utilization` att ange till ett lägre värde.
 
     > [!IMPORTANT]
     > Den här ändringen innebär inte att repliker skapas *snabbare*. I stället skapas de med ett lägre användnings tröskelvärde. I stället för att vänta tills tjänsten är 70% Använd, och om du ändrar värdet till 30%, så skapas repliker när 30% belastning sker.
@@ -286,7 +287,9 @@ Du kan öka tids gränsen eller försöka påskynda tjänsten genom att ändra s
 
 ## <a name="advanced-debugging"></a>Avancerad fel sökning
 
-I vissa fall kan du behöva interaktivt felsöka python-koden som finns i modell distributionen. Om Entry-skriptet till exempel inte fungerar och orsaken inte kan fastställas av ytterligare loggning. Genom att använda Visual Studio Code och debugpy kan du koppla till koden som körs i Docker-behållaren. Mer information finns [i interaktiv fel sökning i vs Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
+Du kan behöva interaktivt felsöka python-koden som finns i modell distributionen. Om Entry-skriptet till exempel inte fungerar och orsaken inte kan fastställas av ytterligare loggning. Genom att använda Visual Studio Code och debugpy kan du koppla till koden som körs i Docker-behållaren.
+
+Mer information finns [i interaktiv fel sökning i vs Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
 ## <a name="model-deployment-user-forum"></a>[Användar forum för modell distribution](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
 

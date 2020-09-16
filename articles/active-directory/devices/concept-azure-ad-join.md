@@ -1,6 +1,6 @@
 ---
 title: Vad är en Azure AD-ansluten enhet?
-description: Lär dig hur enhets identitets hantering kan hjälpa dig att hantera enheter som har åtkomst till resurser i din miljö.
+description: Lär dig mer om Azure AD-anslutna enheter och hur enhets identitets hantering kan hjälpa dig att hantera enheter som har åtkomst till resurser i din miljö.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923738"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601460"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
 Azure AD Join är avsett för organisationer som bara vill vara molnbaserade eller endast i molnet. Alla organisationer kan distribuera Azure AD-anslutna enheter oavsett storlek eller bransch. Azure AD Join fungerar även i en hybrid miljö som möjliggör åtkomst till både molnet och lokala appar och resurser.
 
-| Azure AD-anslutning | Beskrivning |
+| Azure AD-anslutning | Description |
 | --- | --- |
 | **Definition** | Endast ansluten till Azure AD som kräver organisations konto för att logga in på enheten |
 | **Primär mål grupp** | Lämpligt för både molnbaserade och hybrid organisationer. |
@@ -34,7 +34,7 @@ Azure AD Join är avsett för organisationer som bara vill vara molnbaserade ell
 |   | Massregistrering |
 |   | Windows Autopilot |
 | **Alternativ för enhets inloggning** | Organisations konton med: |
-|   | lösenordsinställning |
+|   | Lösenord |
 |   | Windows Hello för företag |
 |   | FIDO 2.0-säkerhets nycklar (för hands version) |
 | **Enhetshantering** | Hantering av mobila enheter (exempel: Microsoft Intune) |
@@ -58,7 +58,7 @@ Azure AD Join är främst avsett för organisationer som inte har någon lokal W
 
 - Du vill gå över till molnbaserad infrastruktur med Azure AD och MDM som Intune.
 - Du inte kan använda en lokal domänanslutning, till exempel om du vill hämta mobila enheter som surfplattor och telefoner som kontrolleras.
-- Användarna främst behöver åtkomst till Office 365 eller övriga SaaS-appar som är integrerade med Azure AD.
+- Användarna måste främst ha åtkomst till Microsoft 365 eller andra SaaS-appar som är integrerade med Azure AD.
 - Du vill hantera en grupp användare i Azure AD istället för Active Directory. Det här scenariot kan gälla, till exempel för säsongs arbetare, entreprenörer eller studenter.
 - Du vill erbjuda anslutningsfunktioner för medarbetare på filialkontor med begränsad lokal infrastruktur.
 

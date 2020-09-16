@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437249"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601766"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -48,26 +48,26 @@ Utvärdering av kontinuerlig åtkomst implementeras genom att aktivera tjänster
 - Administratören återkallar uttryckligen alla uppdateringstoken för en användare
 - Utökad användar risk upptäckt av Azure AD Identity Protection
 
-Den här processen gör det möjligt för användaren att förlora åtkomsten till SharePoint Online-filer, e-post, kalender eller uppgifter och team från O365-klientsessioner i minuter efter en av dessa kritiska händelser. 
+Den här processen gör det möjligt för användaren att förlora åtkomsten till SharePoint Online-filer, e-post, kalender eller uppgifter i organisationen, och team från Microsoft 365-klientens appar i minuter efter en av dessa kritiska händelser. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Utvärdering av princip för villkorlig åtkomst (för hands version)
 
 Exchange och SharePoint kan synkronisera viktiga principer för villkorlig åtkomst så att de kan utvärderas i själva tjänsten.
 
-Den här processen gör det möjligt för användaren att förlora åtkomsten till organisatoriska filer, e-post, kalender eller uppgifter från O365-klientprogram eller SharePoint Online direkt efter ändringar i nätverks platsen.
+Den här processen gör det möjligt för användaren att förlora åtkomst till organisatoriska filer, e-post, kalender eller uppgifter från Microsoft 365-klient program eller SharePoint Online omedelbart efter ändringar i nätverks platsen.
 
 > [!NOTE]
 > Det finns inte stöd för all kombination av appar och resurs leverantörer. Se tabellen nedan. Office refererar till Word, Excel och PowerPoint
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| sharepoint online | Stöds | Stöds | Stöds inte | Stöds inte | Stöds |
-| Exchange Online | Stöds | Stöds | Stöds | Stöds | Stöds |
+| **SharePoint Online** | Stöds | Stöds | Stöds inte | Stöds inte | Stöds |
+| **Exchange Online** | Stöds | Stöds | Stöds | Stöds | Stöds |
 
 | | Office-webbappar | Office Win32-appar | Office för iOS | Office för Android | Office för Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| sharepoint online | Stöds | Stöds | Stöds inte | Stöds | Stöds |
-| Exchange Online | Stöds | Stöds | Stöds inte | Stöds | Stöds |
+| **SharePoint Online** | Stöds | Stöds | Stöds inte | Stöds | Stöds |
+| **Exchange Online** | Stöds | Stöds | Stöds inte | Stöds | Stöds |
 
 ### <a name="client-side-claim-challenge"></a>Anspråks kontroll på klient Sidan
 

@@ -5,18 +5,18 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79475849"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602225"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Självstudie: skapa en brand Väggs princip för webb program på Azure-frontend med hjälp av Azure Portal
 
-Den här självstudien visar hur du skapar en grundläggande WAF-princip (Azure Web Application Firewall) och använder den på en klient dels värd i Azures front dörr.
+I den här självstudien får du lära dig hur du skapar en grundläggande WAF-princip (Azure Web Application Firewall) och använder den på en klient dels värd i Azures front dörr.
 
 I den här guiden får du lära dig att:
 
@@ -36,7 +36,7 @@ Börja med att skapa en grundläggande WAF-princip med hanterad standard regel u
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**>söker efter **WAF**>väljer **brand vägg för webbaserade program (för hands version)** > väljer **skapa**.
 2. På fliken **grundläggande** på sidan **skapa en WAF-princip** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Granska + skapa**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration            |Välj prenumerations namnet på din front dörr.|
     | Resursgrupp          |Välj resurs grupps namnet för front dörren.|
@@ -46,7 +46,7 @@ Börja med att skapa en grundläggande WAF-princip med hanterad standard regel u
 
 3. På fliken **Association** på sidan **skapa en WAF-princip** väljer du **Lägg till klient dels värd**, anger följande inställningar och väljer sedan **Lägg till**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Front dörr              | Välj profil namnet för din klient del.|
     | Klient dels värd           | Välj namnet på värddatorn för din frontend-dörr och välj sedan **Lägg till**.|
@@ -68,7 +68,7 @@ Om du vill se WAF i praktiken kan du ändra läges inställningarna från **iden
 
 Du kan skapa en anpassad regel genom att välja **Lägg till anpassad regel** under avsnittet **anpassade regler** . Då startas sidan anpassad regel konfiguration. Nedan visas ett exempel på hur du konfigurerar en anpassad regel för att blockera en begäran om frågesträngen innehåller **blockme**.
 
-![Ändra WAF princip läge](../media/waf-front-door-create-portal/customquerystring2.png)
+![Anpassade regler](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### <a name="default-rule-set-drs"></a>Standard regel uppsättning (DRS)
 
@@ -76,8 +76,11 @@ Azure-hanterad standard regel uppsättning är aktiverat som standard. Om du vil
 
  ![Ändra WAF regel uppsättning](../media/waf-front-door-create-portal/managed2.png)
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort resurs gruppen och alla relaterade resurser när de inte längre behövs.
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure WebApplication-brandvägg](../overview.md) 
->  [Läs mer om Azures front dörr](../../frontdoor/front-door-overview.md)
+> [Läs mer om Azures front dörr](../../frontdoor/front-door-overview.md)

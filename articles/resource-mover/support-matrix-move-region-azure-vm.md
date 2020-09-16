@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058741"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602293"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Stöd för att flytta virtuella Azure-datorer mellan Azure-regioner
 
@@ -114,6 +114,10 @@ Tillägg | Stöds inte | Tillägg kopieras inte till den virtuella datorn i mål
 ## <a name="supported-vm-storage-settings"></a>Inställningar för VM-lagring som stöds
 
 Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data disken och den temporära disken. Det är viktigt att Observera de virtuella datorernas disk gränser och mål för virtuella [Linux](../virtual-machines/linux/disk-scalability-targets.md) -och [Windows](../virtual-machines/windows/disk-scalability-targets.md) -datorer för att undvika prestanda problem.
+
+> [!NOTE]
+> Storleken på den virtuella mål datorn måste vara lika med eller större än den virtuella käll datorn. De parametrar som används för verifiering är: antal data diskar, antal nätverkskort, tillgängliga processorer, minne i GB. Om det inte är ett fel utfärdas.
+
 
 **Komponent** | **Support** | **Information**
 --- | --- | ---

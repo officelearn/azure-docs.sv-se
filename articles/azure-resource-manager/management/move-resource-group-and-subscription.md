@@ -2,14 +2,14 @@
 title: Flytta resurser till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta resurser till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056675"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603160"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -172,7 +172,7 @@ När du visar resurs gruppen är alternativet flytta inaktiverat.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="flytt alternativet är inaktiverat":::
 
-Om du vill aktivera alternativet flytta väljer du de resurser som du vill flytta. Markera kryss rutan längst upp i listan om du vill välja alla resurser. Eller Välj resurser individuellt.
+Om du vill aktivera alternativet flytta väljer du de resurser som du vill flytta. Markera kryss rutan längst upp i listan om du vill välja alla resurser. Eller Välj resurser individuellt. När du har valt resurser är alternativet flytta aktiverat.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Välj resurser":::
 

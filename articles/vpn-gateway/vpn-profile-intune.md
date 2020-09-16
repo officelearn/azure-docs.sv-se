@@ -5,20 +5,20 @@ description: Lär dig hur du skapar en anpassad Intune-profil för att distribue
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5a754a14cada1547a83e29d474e9b77aed7a2728
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024357"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602201"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Skapa en Intune-profil för att distribuera VPN-klient profiler
 
 Du kan distribuera profiler för Azure VPN-klienter (Windows 10) med hjälp av Microsoft Intune. Den här artikeln hjälper dig att skapa en Intune-profil med anpassade inställningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Enheter har redan registrerats med Intune MDM.
 * Azure VPN-klienten för Windows 10 har redan distribuerats på klient datorn.
@@ -54,17 +54,7 @@ Andra alternativ som stöds finns i artikeln om [VPNV2 CSP](https://docs.microso
     </VPNProfile>
    ```
 1. Ändra posten mellan ```<ServerUrlList>``` och ```</ServerUrlList>``` med posten från din hämtade profil (azurevpnconfig.xml). Ändra FQDN för "TrustedNetworkDetection" så att den passar din miljö.
-1. Öppna den hämtade Azure-profilen (azurevpnconfig.xml) och kopiera innehållet till Urklipp genom att markera texten och trycka på <ctrl> + C. Kopiera allt mellan följande AzVpnProfile rader, men Kopiera inte själva AzVpnProfile-raderna:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-
-   For example - copy the text in your xml that is located here.
-
-   </AzVpnProfile>
-   ```
+1. Öppna den hämtade Azure-profilen (azurevpnconfig.xml) och kopiera hela innehållet till Urklipp genom att markera texten och trycka på (Ctrl) + C. 
 1. Klistra in den kopierade texten från föregående steg i filen som du skapade i steg 2 mellan ```<CustomConfiguration>  </CustomConfiguration>``` taggarna. Spara filen med ett XML-tillägg.
 1. Skriv ned värdet i ```<name>  </name>``` taggarna. Detta är namnet på profilen. Du behöver det här namnet när du skapar profilen i Intune. Stäng filen och kom ihåg var den finns sparad.
 

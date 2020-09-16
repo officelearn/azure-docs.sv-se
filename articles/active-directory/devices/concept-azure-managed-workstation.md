@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672666"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601392"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Förstå säkra, Azure-hanterade arbets stationer
 
@@ -64,7 +64,7 @@ Alla användare och operatörer har nytta av en säker arbets Station. En angrip
 * Mycket känslig arbets Station, till exempel en SWIFT-betalningsterminal
 * Arbets station som hanterar affärs hemligheter
 
-För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i [distributions guiden för Azure Active Directory Feature](../fundamentals/active-directory-deployment-checklist-p2.md), [Office 365-översikt](https://aka.ms/o365secroadmap)och [skydd av Privileged Access Planning](https://aka.ms/sparoadmap).
+För att minska risken bör du implementera utökade säkerhets kontroller för privilegierade arbets stationer som använder dessa konton. Mer information finns i [distributions guiden för Azure Active Directory Feature](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 översikt](https://aka.ms/o365secroadmap)och [skydda privilegie rad åtkomst översikt](https://aka.ms/sparoadmap).
 
 ## <a name="why-use-dedicated-workstations"></a>Varför ska jag använda dedikerade arbets stationer?
 
@@ -73,7 +73,7 @@ För att minska risken bör du implementera utökade säkerhets kontroller för 
 Ett ökande antal angrepps vektorer via e-post och Webbs ökning gör det mer svårt att vara säker på att en enhet kan vara betrodd. Den här guiden förutsätter att en dedikerad arbets Station är isolerad från standard produktivitet, surfning och e-post. Borttagning av produktivitet, webb läsning och e-post från en enhet kan ha negativ inverkan på produktiviteten. Den här säkerheten är dock vanligt vis acceptabel för scenarier där jobb aktiviteter inte uttryckligen kräver det och risken för en säkerhets incident är hög.
 
 > [!NOTE]
-> Webb läsning här avser allmän åtkomst till godtyckliga webbplatser som kan vara en hög risk aktivitet. Sådan bläddring skiljer sig tydligt från att använda en webbläsare för att få åtkomst till ett litet antal välkända administrativa webbplatser för tjänster som Azure, Office 365, andra moln leverantörer och SaaS-program.
+> Webb läsning här avser allmän åtkomst till godtyckliga webbplatser som kan vara en hög risk aktivitet. Sådan bläddring skiljer sig tydligt från att använda en webbläsare för att få åtkomst till ett litet antal välkända administrativa webbplatser för tjänster som Azure, Microsoft 365, andra moln leverantörer och SaaS-program.
 
 Inne slutnings strategier ökar säkerheten genom att öka antalet och typen av kontroller som avskräcker en angripare från att få åtkomst till känsliga till gångar. Den modell som beskrivs i den här artikeln använder en hanterad behörighets design och begränsar administrativa privilegier till vissa enheter.
 

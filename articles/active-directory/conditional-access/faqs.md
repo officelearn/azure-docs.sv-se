@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253247"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601645"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Vanliga frågor om villkorlig åtkomst för Azure Active Directory
 
@@ -59,7 +59,7 @@ Mer information finns i artikeln, [beroenden för tjänsten för villkorlig åtk
 
 När du har aktiverat vissa principer för villkorlig åtkomst på klienten i Microsoft team, kan vissa flikar inte längre fungera i Skriv bords klienten som förväntat. De berörda flikarna fungerar dock när du använder Microsoft Teams webb klient. De flikar som påverkas kan vara Power BI, formulär, VSTS, PowerApps och SharePoint-lista.
 
-För att se de berörda flikarna måste du använda team webb klienten i Edge, Internet Explorer eller Chrome med tillägget Windows 10-konton installerat. Vissa flikar är beroende av webbautentisering, som inte fungerar i Microsoft Teams Skriv bords klient när villkorlig åtkomst är aktive rad. Microsoft samarbetar med partners för att aktivera dessa scenarier. Hittills har vi aktiverat scenrarios som berör Planner, OneNote och Stream.
+För att se de berörda flikarna måste du använda team webb klienten i Edge, Internet Explorer eller Chrome med tillägget Windows 10-konton installerat. Vissa flikar är beroende av webbautentisering, som inte fungerar i Microsoft Teams Skriv bords klient när villkorlig åtkomst är aktive rad. Microsoft samarbetar med partners för att aktivera dessa scenarier. Hittills har vi aktiverat scenarier som rör Planner, OneNote och Stream.
 
 ## <a name="next-steps"></a>Nästa steg
 

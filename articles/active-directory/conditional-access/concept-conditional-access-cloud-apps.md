@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948410"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602072"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
@@ -55,13 +55,13 @@ Administratörer kan tilldela en princip för villkorlig åtkomst till följande
 - Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
-- Office 365 Exchange Online
-- Office 365 SharePoint Online
-- Office 365 Yammer
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Office-Sway
 - Outlook Groups
-- Power BI-tjänst
+- Power BI-tjänsten
 - Project Online
 - Skype för företag – Online
 - Virtuellt privat nätverk (VPN)
@@ -69,7 +69,7 @@ Administratörer kan tilldela en princip för villkorlig åtkomst till följande
 
 ### <a name="office-365-preview"></a>Office 365 (för hands version)
 
-Office 365 tillhandahåller molnbaserade produktivitets-och samarbets tjänster som Exchange, SharePoint och Microsoft Teams. Office 365 Cloud Services är djupt integrerade för att säkerställa smidiga och samarbets upplevelser. Den här integrationen kan orsaka förvirring när du skapar principer eftersom vissa appar, till exempel Microsoft Teams, har beroenden för andra som SharePoint eller Exchange.
+Microsoft 365 tillhandahåller molnbaserade produktivitets-och samarbets tjänster som Exchange, SharePoint och Microsoft Teams. Microsoft 365 Cloud Services är djupt integrerade för att säkerställa smidiga och samarbets upplevelser. Den här integrationen kan orsaka förvirring när du skapar principer eftersom vissa appar, till exempel Microsoft Teams, har beroenden för andra som SharePoint eller Exchange.
 
 Office 365-appen (för hands version) gör det möjligt att rikta dessa tjänster på samma gång. Vi rekommenderar att du använder den nya Office 365-appen (för hands version), i stället för att rikta in enskilda molnappar för att undvika problem med [tjänst beroenden](service-dependencies.md). Att rikta in sig på den här gruppen med program bidrar till att undvika problem som kan uppstå på grund av inkonsekventa principer och beroenden.
 
@@ -82,10 +82,10 @@ Viktiga program som ingår i klient programmet för Office 365 (för hands versi
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
-   - Office 365 Exchange Online
-   - Office 365 SharePoint Online
-   - Office 365 Search Service
-   - Office 365 Yammer
+   - Exchange Online
+   - sharepoint online
+   - Microsoft 365 Search Service
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com

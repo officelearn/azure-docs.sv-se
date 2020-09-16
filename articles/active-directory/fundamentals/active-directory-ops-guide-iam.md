@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321675"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601322"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Referens guide för Azure Active Directory identitets-och åtkomst hanterings åtgärder
 
@@ -35,8 +35,8 @@ Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga ope
 | :- | :- |
 | Definiera processen för att skapa Azure-prenumerationer | Varierar mellan olika organisationer |
 | Bestäm vem som får Enterprise Mobility + Security licenser | IAM-åtgärds team |
-| Bestäm vem som får Office 365-licenser | Produktivitets team |
-| Bestäm vem som får andra licenser, till exempel Dynamics, VSO | Program ägare |
+| Bestäm vem som får Microsoft 365 licenser | Produktivitets team |
+| Bestäm vem som får andra licenser, till exempel Dynamics, Visual Studio Codespaces | Program ägare |
 | Tilldela licenser | IAM-åtgärds team |
 | Felsöka och åtgärda licens tilldelnings fel | IAM-åtgärds team |
 | Etablera identiteter för program i Azure AD | IAM-åtgärds team |
@@ -140,7 +140,7 @@ Exempel på felanvända anpassade regler är:
 
 Azure Active Directory effektiviserar hanteringen av licenser via [gruppbaserad licensiering](./active-directory-licensing-whatis-azure-portal.md) för Microsofts moln tjänster. På så sätt tillhandahåller IAM grupp infrastrukturen och delegerad hantering av dessa grupper till rätt team i organisationerna. Det finns flera sätt att konfigurera medlemskapet för grupper i Azure AD, inklusive:
 
-- **Synkronisering från lokala** grupper kan komma från lokala kataloger, vilket kan vara en bra anpassning för organisationer som har upprättat grup hanterings processer som kan utökas för att tilldela licenser i Office 365.
+- **Synkronisering från lokala** grupper kan komma från lokala kataloger, vilket kan vara en bra anpassning för organisationer som har upprättat grup hanterings processer som kan utökas för att tilldela licenser i Microsoft 365.
 
 - **Attributbaserade/dynamiska** grupper kan skapas i molnet baserat på ett uttryck baserat på användarattribut, till exempel Department är "Sales". Azure AD upprätthåller medlemmarna i gruppen, så att den överensstämmer med det uttryck som definierats. Med den här typen av grupp för licens tilldelning kan du använda en attribut-baserad licens tilldelning som passar för organisationer som har hög data kvalitet i sin katalog.
 
@@ -188,7 +188,7 @@ Standard frekvensen för [synkronisering av ändringar](../hybrid/how-to-connect
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Azure AD Connect fel sökning av Rekommenderad läsning
 
-- [Förbereda katalog-attribut för synkronisering med Office 365 med verktyget IdFix-Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Förbereda katalog-attribut för synkronisering med Microsoft 365 med hjälp av IdFix-verktyget](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: fel sökning av fel vid synkronisering](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>Sammanfattning

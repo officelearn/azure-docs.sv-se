@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 7cb62d3b7ebe3ba6f4551602c7867575e74dca70
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948835"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601528"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -98,7 +98,7 @@ För en enhet som har marker ATS som kompatibel kan du anta att:
 
 ### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Scenario: Kräv registrering av enheter för iOS-och Android-enheter
 
-I det här scenariot har contoso beslutat att all mobil åtkomst till Office 365-resurser måste använda en registrerad enhet. Alla användare har redan loggat in med autentiseringsuppgifter för Azure AD och har tilldelade licenser som innehåller Azure AD Premium P1 eller P2 och Microsoft Intune.
+I det här scenariot har contoso beslutat att all mobil åtkomst till Microsoft 365 resurser måste använda en registrerad enhet. Alla användare har redan loggat in med autentiseringsuppgifter för Azure AD och har tilldelade licenser som innehåller Azure AD Premium P1 eller P2 och Microsoft Intune.
 
 Organisationer måste utföra följande steg för att kräva att en registrerad mobil enhet används.
 

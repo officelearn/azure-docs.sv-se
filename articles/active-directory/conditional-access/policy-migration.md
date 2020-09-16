@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1811d5b9ae4d3e34b48e1cdc156438f2bad98d1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185912"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601664"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migrering av klassisk princip för villkorlig åtkomst
 
@@ -73,9 +73,9 @@ Följande aspekter är viktiga i samband med en princip konsolidering:
    - Kombinera flera villkor om ditt scenario kräver det. 
    - Välj flera bidrags krav som åtkomst kontroll och kombinera dem med ett logiskt *eller* (Kräv en av de valda kontrollerna) eller med ett logiskt *och* (Kräv alla valda kontroller).
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
+### <a name="exchange-online"></a>Exchange online
 
-Om du vill migrera klassiska principer för **Office 365 Exchange Online** som innehåller **Exchange Active Sync** som klient program villkor, kanske du inte kan konsolidera dem till en ny princip. 
+Om du vill migrera klassiska principer för **Exchange Online** som innehåller **Exchange Active Sync** som klient program villkor, kanske du inte kan konsolidera dem till en ny princip. 
 
 Detta är till exempel fallet om du vill stödja alla typer av klient program. I en ny princip som har **Exchange Active Sync** som klient program villkor kan du inte välja andra klient program.
 
@@ -89,7 +89,7 @@ Om du har en ny princip som har konfigurerat villkor för **Exchange Active Sync
 
 ![Villkor för villkorlig åtkomst](./media/policy-migration/16.png)
  
-App-baserade klassiska principer för Office 365 Exchange Online som omfattar **Exchange Active Sync** som klient program villkor tillåter **stöd** för plattformar som stöds och **inte stöds** . Även om du inte kan konfigurera enskilda enhets plattformar i en relaterad ny princip kan du begränsa stödet till endast [plattformar som stöds](concept-conditional-access-conditions.md#device-platforms) . 
+App-baserade klassiska principer för Exchange Online som omfattar **Exchange Active Sync** som klient program villkor tillåter **stöd** för plattformar som stöds och **inte stöds** . Även om du inte kan konfigurera enskilda enhets plattformar i en relaterad ny princip kan du begränsa stödet till endast [plattformar som stöds](concept-conditional-access-conditions.md#device-platforms) . 
 
 ![Villkorlig åtkomst Välj Exchange ActiveSync](./media/policy-migration/65.png)
 

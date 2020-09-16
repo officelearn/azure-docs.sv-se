@@ -8,67 +8,47 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 07/23/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ae66447e128b07ce942b8c2fcc66347a31cfe83f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f497bf5374dd6f621a6b48bae245e5efb1505a19
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848867"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603075"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du samlar in data från och övervakar modeller som har distribuerats till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI) genom att skicka frågor till loggar och aktivera Azure Application insikter via 
-* [Azure Machine Learning python SDK](#python)
-* [Azure Machine Learning Studio](#studio) påhttps://ml.azure.com
-
-Förutom att samla in en slut punkts utdata och svar kan du övervaka:
-
+I den här artikeln får du lära dig hur du samlar in data från modeller som distribuerats till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI). Använd [Azure Application insikter](../azure-monitor/app/app-insights-overview.md) för att samla in följande data från en slut punkt:
+* Utdata
+* Svar
 * Begär ande frekvens, svars tider och felaktiga frekvenser
 * Beroende frekvens, svars tider och felaktiga frekvenser
 * Undantag
 
-[Läs mer om Azure Application insikter](../azure-monitor/app/app-insights-overview.md). 
+Den [Enable-App-Insights-in-producting-service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) Notebook visar begrepp i den här artikeln.
+ 
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+ 
+## <a name="prerequisites"></a>Förutsättningar
 
+* En Azure-prenumeration – testa den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Krav
+* En Azure Machine Learning arbets yta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python installerat. Mer information finns i [så här konfigurerar du en utvecklings miljö](how-to-configure-environment.md).
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
-
-* En Azure Machine Learning arbets yta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python installerat. Information om hur du får dessa krav finns i så här [konfigurerar du en utvecklings miljö](how-to-configure-environment.md)
-
-* En utbildad maskin inlärnings modell som ska distribueras till Azure Kubernetes service (AKS) eller Azure Container Instance (ACI). Om du inte har något kan du läsa själv studie kursen [träna bild klassificerings modell](tutorial-train-models-with-aml.md)
-
-## <a name="query-logs-for-deployed-models"></a>Fråga efter loggar för distribuerade modeller
-
-Om du vill hämta loggar från en tidigare distribuerad webb tjänst läser du in tjänsten och använder `get_logs()` funktionen. Loggarna kan innehålla detaljerad information om eventuella fel som uppstod under distributionen.
-
-```python
-from azureml.core.webservice import Webservice
-
-# load existing web service
-service = Webservice(name="service-name", workspace=ws)
-logs = service.get_logs()
-```
-
-## <a name="web-service-metadata-and-response-data"></a>Metadata och svars data för webb tjänst
-
-> [!IMPORTANT]
-> Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen har uppnåtts kan du se fel, till exempel slut på minne, eller så kan ingen information loggas.
-
-Om du vill logga information om en begäran till webb tjänsten lägger du till `print` instruktioner till din score.py-fil. Varje `print` instruktion resulterar i en post i spårnings tabellen i Application Insights under meddelandet `STDOUT` . Innehållet i `print` instruktionen kommer att finnas under `customDimensions` och sedan `Contents` i spårnings tabellen. Om du skriver ut en JSON-sträng skapar den en hierarkisk data struktur i spårningens utdata under `Contents` .
-
-Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
-
+* En utbildad maskin inlärnings modell. Mer information finns i själv studie kursen [träna image klassificerings modell](tutorial-train-models-with-aml.md) .
 
 <a name="python"></a>
 
-## <a name="use-python-sdk-to-configure"></a>Använd python SDK för att konfigurera 
+## <a name="configure-logging-with-the-python-sdk"></a>Konfigurera loggning med python SDK
+
+I det här avsnittet får du lära dig hur du aktiverar program insikts loggning med python SDK. 
 
 ### <a name="update-a-deployed-service"></a>Uppdatera en distribuerad tjänst
+
+Använd följande steg för att uppdatera en befintlig webb tjänst:
 
 1. Identifiera tjänsten i din arbets yta. Värdet för `ws` är namnet på din arbets yta
 
@@ -84,12 +64,17 @@ Du kan fråga Azure Application insikter direkt för att komma åt dessa data el
 
 ### <a name="log-custom-traces-in-your-service"></a>Logga anpassade spårningar i din tjänst
 
+> [!IMPORTANT]
+> Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen nås kan du se fel, till exempel slut på minne, eller så kan ingen information loggas. Om de data som du vill logga in är större än 64 KB bör du i stället lagra dem till Blob Storage med hjälp av informationen i [samla in data för modeller i produktion](how-to-enable-data-collection.md).
+>
+> För mer komplexa situationer, till exempel modell spårning i en AKS-distribution, rekommenderar vi att du använder ett bibliotek från tredje part som [openräkning](https://opencensus.io).
+
 Om du vill logga anpassade spår följer du standard distributions processen för AKS eller ACI i avsnittet [så här distribuerar och var](how-to-deploy-and-where.md) dokumentet. Använd sedan följande steg:
 
-1. Om du vill skicka data till Application Insights under härledningen uppdaterar du bedömnings filen genom att lägga till utskrifts instruktioner. Om du vill logga mer komplex information, till exempel begär ande data och svar, kan du se en JSON-struktur. I följande exempel score.py-fil loggar tiden som modellen initieras, indata och utdata under härledningen och hur lång tid det tar att utföra fel:
+1. Uppdatera bedömnings filen genom att lägga till utskrifts instruktioner för att skicka data till Application Insights under härledningen. Om du vill ha mer komplex information, till exempel begär ande data och svar, använder du en JSON-struktur. 
 
-    > [!IMPORTANT]
-    > Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen nås kan du se fel, till exempel slut på minne, eller så kan ingen information loggas. Om de data som du vill logga in är större än 64 KB bör du i stället lagra dem till Blob Storage med hjälp av informationen i [samla in data för modeller i produktion](how-to-enable-data-collection.md).
+    I följande exempel `score.py` fil loggas när modellen initierades, indata och utdata under härledningen och hur länge eventuella fel inträffar.
+
     
     ```python
     import pickle
@@ -133,15 +118,14 @@ Om du vill logga anpassade spår följer du standard distributions processen fö
             return error
     ```
 
-2. Uppdatera tjänst konfigurationen
+2. Uppdatera tjänst konfigurationen och se till att aktivera Application Insights.
     
     ```python
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. Bygg en avbildning och distribuera den på [AKS eller ACI](how-to-deploy-and-where.md).
+3. Bygg en avbildning och distribuera den på AKS eller ACI. Mer information finns i [distribuera och var](how-to-deploy-and-where.md).
 
-Mer information om loggning och data insamling finns i [Aktivera loggning i Azure Machine Learning](how-to-enable-logging.md) och [samla in data från modeller i produktion](how-to-enable-data-collection.md).
 
 ### <a name="disable-tracking-in-python"></a>Inaktivera spårning i python
 
@@ -154,34 +138,47 @@ Om du vill inaktivera Azure Application insikter använder du följande kod:
 
 <a name="studio"></a>
 
-## <a name="use-azure-machine-learning-studio-to-configure"></a>Använd Azure Machine Learning Studio för att konfigurera
+## <a name="configure-logging-with-azure-machine-learning-studio"></a>Konfigurera loggning med Azure Machine Learning Studio
 
-Du kan också aktivera Azure Application insikter från Azure Machine Learning Studio när du är redo att distribuera din modell med de här stegen.
+Du kan också aktivera Azure Application insikter från Azure Machine Learning Studio. När du är redo att distribuera din modell som en webb tjänst kan du använda följande steg för att aktivera Application Insights:
 
-1. Logga in på din arbets yta påhttps://ml.azure.com/
-1. Gå till **modeller** och välj vilken modell du vill distribuera
-1. Välj **+ distribuera**
-1. Fyll i formuläret **distribuera modell**
-1. Expandera menyn **Avancerat**
+1. Logga in på Studio på https://ml.azure.com .
+1. Gå till **modeller** och välj den modell som du vill distribuera.
+1. Välj  **+ distribuera**.
+1. Fyll i formuläret **distribuera modell** .
+1. Expandera menyn **Avancerat** .
 
     ![Distribuera formulär](./media/how-to-enable-app-insights/deploy-form.png)
-1. Välj **aktivera Application Insights diagnostik och data insamling**
+1. Välj **aktivera Application Insights diagnostik och data insamling**.
 
     ![Aktivera App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
 
 ## <a name="view-metrics-and-logs"></a>Visa mått och loggar
 
-Din tjänsts data lagras i ditt Azure Application Insights-konto inom samma resurs grupp som Azure Machine Learning.
-Så här visar du det:
+### <a name="query-logs-for-deployed-models"></a>Fråga efter loggar för distribuerade modeller
+
+Du kan använda `get_logs()` funktionen för att hämta loggar från en tidigare distribuerad webb tjänst. Loggarna kan innehålla detaljerad information om eventuella fel som uppstod under distributionen.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
+### <a name="view-logs-in-the-studio"></a>Visa loggar i Studio
+
+Azure Application Insights lagrar dina tjänst loggar i samma resurs grupp som arbets ytan Azure Machine Learning. Använd följande steg för att visa dina data med hjälp av Studio:
 
 1. Gå till din Azure Machine Learning arbets yta i [Studio](https://ml.azure.com/).
 1. Välj **slut punkter**.
 1. Välj den distribuerade tjänsten.
-1. Rulla ned för att hitta **Application Insights URL** och välj länken.
+1. Välj länken **Application Insights-URL** .
 
     [![Hitta Application Insights-URL](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. I Application Insights går du till fliken **Översikt** eller avsnittet __övervakning__ i listan till vänster och väljer __loggar__.
+1. I Application Insights går du till fliken **Översikt** eller avsnittet __övervakning__ och väljer __loggar__.
 
     [![Fliken Översikt för övervakning](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -197,25 +194,29 @@ Så här visar du det:
 
 Mer information om hur du använder Azure Application Insights finns i [Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-## <a name="export-data-for-further-processing-and-longer-retention"></a>Exportera data för vidare bearbetning och längre kvarhållning
+## <a name="web-service-metadata-and-response-data"></a>Metadata och svars data för webb tjänst
+
+> [!IMPORTANT]
+> Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen har uppnåtts kan du se fel, till exempel slut på minne, eller så kan ingen information loggas.
+
+Om du vill logga information om webb tjänst begär Anden lägger `print` du till instruktioner till din score.py-fil. Varje `print` instruktion resulterar i en post i tabellen Application Insights spårning under meddelandet `STDOUT` . Application Insights lagrar `print` utdraget utdata i  `customDimensions` och i `Contents` spårnings tabellen. Om du skriver ut JSON-strängar skapas en hierarkisk data struktur i spårningens utdata under `Contents` .
+
+## <a name="export-data-for-retention-and-processing"></a>Exportera data för kvarhållning och bearbetning
 
 >[!Important]
-> Azure Application Insights stöder endast export till Blob Storage. Ytterligare begränsningar för den här export funktionen visas i [Exportera telemetri från App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Azure Application Insights stöder endast export till Blob Storage. Mer information om gränserna för den här implementeringen finns i [Exportera telemetri från App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Du kan använda Azure Application insightss [löpande export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) för att skicka meddelanden till ett lagrings konto som stöds, där en längre kvarhållning kan ställas in. Data lagras i JSON-format och kan enkelt analyseras för att extrahera modell data. 
-
-Azure Data Factory, Azure ML-pipeliner eller andra data bearbetnings verktyg kan användas för att transformera data vid behov. När du har transformerat data kan du registrera den med Azure Machine Learning arbets ytan som en data uppsättning. Det gör du i så [här skapar och registrerar du data uppsättningar](how-to-create-register-datasets.md).
+Använd Application Insights " [löpande export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) för att exportera data till ett Blob Storage-konto där du kan definiera inställningar för kvarhållning. Application Insights exporterar data i JSON-format. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Löpande export":::
 
-
-## <a name="example-notebook"></a>Exempelnotebook-fil
-
-Den [Enable-App-Insights-in-producting-service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) Notebook visar begrepp i den här artikeln. 
- 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [distribuera en modell till ett Azure Kubernetes service-kluster](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) eller [distribuera en modell till Azure Container instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) för att distribuera dina modeller till webb tjänst slut punkter, och aktivera Azure Application insikter för att utnyttja data insamling och slut punkts övervakning
-* Se [MLOps: hantera, distribuera och övervaka modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) för att lära dig mer om att använda data som samlas in från modeller i produktion. Sådana data kan hjälpa till att kontinuerligt förbättra din Machine Learning-process
+I den här artikeln har du lärt dig hur du aktiverar loggnings-och visnings loggar för webb tjänst slut punkter. Prova de här artiklarna för nästa steg:
+
+
+* [Så här distribuerar du en modell till ett AKS-kluster](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+
+* [Så här distribuerar du en modell till Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+
+* [MLOps: hantera, distribuera och övervaka modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) för att lära dig mer om att använda data som samlas in från modeller i produktionen. Sådana data kan hjälpa till att kontinuerligt förbättra din Machine Learning-process.

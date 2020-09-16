@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231171"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600508"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
@@ -42,9 +42,9 @@ Från användare som har flaggats för risk rapport kan du utföra följande åt
 
 Mer information finns i [användare som har flaggats för risk säkerhets rapporten](../identity-protection/overview-identity-protection.md).
 
-### <a name="azure-ad-subscription-for-office-365-customers"></a>Azure AD-prenumeration för Office 365-kunder
+### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Azure AD-prenumeration för Microsoft 365 kunder
 
-Du kan också använda dina Office 365-autentiseringsuppgifter för att komma åt **Azure administrations centret**. När du har aktiverat din åtkomst till Azure AD omdirigeras du till Azure AD-portalen. Lägg märke till att mängden detaljer som tillhandahålls i rapporterna är begränsade på Basic-nivån. Ytterligare data och analyser är tillgängliga för Azure Premium-prenumeranter.
+Du kan också använda dina Microsoft 365 autentiseringsuppgifter för att få åtkomst till **Azure administrations centret**. När du har aktiverat din åtkomst till Azure AD omdirigeras du till Azure AD-portalen. Lägg märke till att mängden detaljer som tillhandahålls i rapporterna är begränsade på Basic-nivån. Ytterligare data och analyser är tillgängliga för Azure Premium-prenumeranter.
 
 För att få åtkomst till de användare som har **flaggats för risk** rapporter i Microsoft 365 administrations centret:
 
@@ -79,7 +79,7 @@ Gör följande för att åtgärda de berörda kontona och göra miljön säker:
 
     h. Skapa en Gransknings logg som administratören kan granska.
 
-4. Undersök din Office 365-klient och övrig IT-infrastruktur, däribland en granskning av alla klientinställningar, användarkonton och konfigurationsinställningar per användare för eventuell ändring. Leta efter indikatorer på beständighetsmetoder och på att en inkräktare kan ha skapat ett första fäste för att få tag i VPN-autentiseringsuppgifter eller få åtkomst till andra resurser i organisationen. 
+4. Undersök din Microsoft 365 klient och annan IT-infrastruktur, inklusive en granskning av alla klient inställningar, användar konton och konfigurations inställningarna per användare för möjlig ändring. Leta efter indikatorer på beständighetsmetoder och på att en inkräktare kan ha skapat ett första fäste för att få tag i VPN-autentiseringsuppgifter eller få åtkomst till andra resurser i organisationen. 
 
 5.  Som en del av din undersökning bör du överväga om du bör meddela myndighets myndigheter, inklusive rätts tvång.
 

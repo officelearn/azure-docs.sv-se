@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228774"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603602"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -37,9 +37,9 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 Den här artikeln ger en översikt över inloggnings rapporten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
+### <a name="who-can-access-the-data"></a>Vem som kan komma åt data?
 
 * Användare i rollerna säkerhets administratör, säkerhets läsare, global läsare och rapport läsare
 * Globala administratörer
@@ -142,18 +142,18 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 ![Filter för klient program](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Modern autentisering|Beskrivning|
+|Name|Modern autentisering|Description|
 |---|:-:|---|
 |Autentiserad SMTP| |Används av POP-och IMAP-klienten för att skicka e-postmeddelanden.|
 |Tjänsten automatisk upptäckt| |Används av Outlook och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.|
 |Exchange ActiveSync| |Det här filtret visar alla inloggnings försök där EAS-protokollet har gjorts.|
-|Webbläsare|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder webbläsare|
-|Exchange ActiveSync| | Visar alla inloggnings försök från användare med klient program som använder Exchange-ActiceSync för att ansluta till Exchange Online|
+|Webbläsare|![Markering](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder webbläsare|
+|Exchange ActiveSync| | Visar alla inloggnings försök från användare med klient program som använder Exchange ActiveSync för att ansluta till Exchange Online|
 |Exchange Online PowerShell| |Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange-webbtjänster| |Ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.|
 |IMAP| |En äldre e-postklient som använder IMAP för att hämta e-post.|
 |MAPI över HTTP| |Används av Outlook 2010 och senare.|
-|Mobilappar och skriv bords klienter|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder mobilappar och skriv bords klienter.|
+|Mobilappar och skriv bords klienter|![Blå bock](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder mobilappar och skriv bords klienter.|
 |Offline-adressbok| |En kopia av adress list samlingar som hämtas och används av Outlook.|
 |Outlook överallt (RPC över HTTP)| |Används av Outlook 2016 och tidigare.|
 |Outlook-tjänst| |Används av appen e-post och kalender för Windows 10.|
@@ -269,11 +269,11 @@ När du klickar på en dag i programanvändningsdiagrammet kan du få en detalje
 
 Alternativet **Inloggningar** ger dig en fullständig översikt över alla inloggningshändelser för dina program.
 
-## <a name="office-365-activity-logs"></a>Office 365-aktivitets loggar
+## <a name="microsoft-365-activity-logs"></a>Microsoft 365 aktivitets loggar
 
-Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](/office365/admin/admin-overview/about-the-admin-center). Betrakta den punkt som, Office 365-aktivitet och Azure AD-aktivitets loggar som delar ett stort antal katalog resurser. Endast Microsoft 365 administrations Center innehåller en fullständig vy över aktivitets loggarna för Office 365. 
+Du kan visa Microsoft 365 aktivitets loggar från [Microsoft 365 administrations Center](/office365/admin/admin-overview/about-the-admin-center). Överväg den punkt som, Microsoft 365 aktivitet och Azure AD-aktivitets loggar delar ett stort antal katalog resurser. Endast Microsoft 365 administrations Center ger en fullständig översikt över Microsoft 365 aktivitets loggar. 
 
-Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](/office/office-365-management-api/office-365-management-apis-overview).
+Du kan också komma åt Microsoft 365 aktivitets loggar via programmering med hjälp av [API: er för Office 365-hantering](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 

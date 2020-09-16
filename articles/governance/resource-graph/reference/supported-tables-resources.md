@@ -1,15 +1,15 @@
 ---
 title: Resurs typer som stöds Azure Resource Manager
 description: Ange en lista över de Azure Resource Manager resurs typer som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 09/04/2020
+ms.date: 09/15/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: b81ffcdde074978a9a72c5ab651ec2c5556870bd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488328"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600610"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -63,6 +63,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. aadiam/azureadmetrics
 - Microsoft. aadiam/privatelinkforazuread
 - Microsoft. aadiam/klient organisationer
+- Microsoft. agfoodplatform/farmbeats
 - Microsoft. aisupercomputer/konton
 - Microsoft. aisupercomputer/Accounts/jobgroups
 - Microsoft. aisupercomputer/Accounts/jobgroups/Jobs
@@ -80,6 +81,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/konfigurationer
 - Microsoft. Automation/automationaccounts/Runbooks
+- Microsoft. autonomousdevelopmentplatform/konton
 - Microsoft. autonomoussystems/arbets ytor
 - Microsoft. AVS/privateclouds
 - Microsoft. azconfig/configurationstores
@@ -94,6 +96,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. azuredata/sqlserverinstances
 - Microsoft. azuredata/sqlserverregistrations
 - Microsoft. azurestack/edgesubscriptions
+- Microsoft. azurestack/linkedsubscriptions
 - Microsoft. azurestack/-registreringar
 - Microsoft. azurestackhci/kluster
 - Microsoft. baremetal/consoleconnections
@@ -168,6 +171,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. container service/containerservices
 - Microsoft. container service/managedclusters
 - Microsoft. container service/openshiftmanagedclusters
+- Microsoft. contoso/kluster
 - Microsoft. contoso/anställda
 - Microsoft. costmanagement/Connectors
 - Microsoft. customproviders/resourceproviders
@@ -250,6 +254,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. hybridnetwork/enheter
 - Microsoft. hybridnetwork/virtualnetworkfunctions
 - Microsoft. importexport/Jobs
+- Microsoft. industrydatalifecycle/basemodels
 - Microsoft. industrydatalifecycle/custodiancollaboratives
 - Microsoft. industrydatalifecycle/derivedmodels
 - Microsoft. industrydatalifecycle/membercollaboratives
@@ -265,6 +270,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Insights/notificationgroups
 - Microsoft. Insights/notificationrules
 - Microsoft. Insights/privatelinkscopes
+- Microsoft. Insights/querypacks
 - Microsoft. Insights/scheduledqueryrules
 - Microsoft. Insights/webbtester
 - Microsoft. Insights/arbets böcker
@@ -414,6 +420,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Resources/templatespecs/versions
 - Microsoft. SaaS/program
 - Microsoft. Scheduler/förfrågningsåtgärder
+- Microsoft. SCVMM/vmmservers
 - Microsoft. search/searchservices
 - Microsoft. Security/automations
 - Microsoft. Security/iotsecuritysolutions
@@ -523,6 +530,8 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - wandisco. fusion/fusiongroups/managedonpremzones
 - wandisco. fusion/fusiongroups/onpremzones
 - wandisco. fusion/fusiongroups/replicationrules
+- wandisco. fusion/migrators
+- wandisco. fusion/migrators/mål
 
 ## <a name="securityresources"></a>securityresources
 

@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586638"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601086"
 ---
 # <a name="point-in-time-snapshot"></a>Tidpunktsbaserad ögonblicksbild
 
@@ -23,31 +23,29 @@ Azure App-konfigurationen innehåller en post med ändringar som gjorts i nyckel
 
 Du kan använda Azure Portal eller CLI för att hämta tidigare nyckel värden. I Azure CLI använder du `az appconfig revision list` för att lägga till lämpliga parametrar för att hämta de värden som krävs.  Ange Azure App konfigurations instans genom att antingen ange Store-namnet ( `--name <app-config-store-name>` ) eller med hjälp av en anslutnings sträng ( `--connection-string <your-connection-string>` ). Begränsa utdata genom att ange en viss tidpunkt ( `--datetime` ) och genom att ange det maximala antalet objekt som ska returneras ( `--top` ).
 
-Om du inte har installerat Azure CLI lokalt kan du välja att använda Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Om du inte har installerat Azure CLI lokalt kan du välja att använda [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 Hämta alla registrerade ändringar till dina nyckel värden.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 Hämta alla registrerade ändringar för nyckeln `environment` och etiketterna `test` och `prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 Hämta alla registrerade ändringar i det hierarkiska nyckel utrymmet `environment:prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 Hämta alla registrerade ändringar för nyckeln `color` vid en viss tidpunkt.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 

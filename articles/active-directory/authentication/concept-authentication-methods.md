@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: dcbfd05df84e32423df425f3bdd231a26e4f3bca
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d4b44deda1bd17e65c3e2c2a9c46dddccd411996
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527060"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602053"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
@@ -36,21 +36,18 @@ När du distribuerar funktioner som Azure Multi-Factor Authentication i din orga
 
 Följande tabell beskriver säkerhets överväganden för tillgängliga autentiseringsmetoder. Tillgänglighet är en indikation på att användaren kan använda autentiseringsmetoden, inte av tjänstens tillgänglighet i Azure AD:
 
-| Autentiseringsmetod       | Säkerhet | Användbarhet | Phisable? | Kanal som går att uttaga? | Tillgänglighet |
-|-----------------------------|:--------:|:---------:|:---------:|:-----------------:|:------------:|
-| Säkerhets nyckel för FIDO2          | Hög     | Hög      | Inga        | Inga                | Hög         |
-| Microsoft Authenticator-appen | Hög     | Hög      | Yes       | Nej <sup>1</sup>   | Hög         |
-| Windows Hello för företag  | Hög     | Hög      | Inga        | Inga                | Hög         |
-| OATH-token för maskin vara        | Medel   | Medel    | Ja       | Inga                | Hög         |
-| OATH-token för program vara        | Medel   | Medel    | Yes       | Nr <sup>2</sup>   | Hög         |
-| SMS                         | Medium   | Hög      | Ja       | Ja               | Medium       |
-| Röst                       | Medel   | Medel    | Ja       | Ja               | Medium       |
-| Lösenord                    | Lågt      | Högt      | Ja       | Ja               | Hög         |
+| Autentiseringsmetod          | Säkerhet | Användbarhet | Tillgänglighet |
+|--------------------------------|:--------:|:---------:|:------------:|
+| Windows Hello för företag     | Hög     | Hög      | Hög         |
+| Microsoft Authenticator-appen    | Hög     | Hög      | Hög         |
+| Säkerhets nyckel för FIDO2 (för hands version)   | Hög     | Hög      | Hög         |
+| OATH-token för maskin vara (för hands version) | Medel   | Medel    | Hög         |
+| OATH-programvaru-token           | Medel   | Medel    | Hög         |
+| SMS                            | Medium   | Högt      | Medel       |
+| Röst                          | Medel   | Medel    | Medel       |
+| Lösenord                       | Lågt      | Högt      | Hög         |
 
-<sup>1</sup> i lösen ords fritt läge när appen är registrerad på en speciell enhet<br />
-<sup>2</sup> förutsatt att appen kräver en PIN-kod för enheten för att kunna låsa upp
-
-Mer information om sårbarheter och angrepps vektorer finns i [kanal-uttag och real tids nätfiske](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
+Mer information om säkerhet finns i [sårbarheter och angrepps vektorer för autentisering](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
 
 > [!TIP]
 > För flexibilitet och användbarhet rekommenderar vi att du använder Microsoft Authenticator-appen. Den här autentiseringsmetoden ger den bästa användar upplevelsen och flera lägen, t. ex. lösen ords lös, MFA push-meddelanden och OATH-koder.
@@ -63,9 +60,9 @@ Följande tabell beskriver när du kan använda en autentiseringsmetod under en 
 
 | Metod                         | Primär autentisering | Sekundär autentisering  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Säkerhets nycklar för FIDO2 (för hands version)  | Yes                    | MFA                       |
-| Microsoft Authenticator-appen    | Ja (för hands version)          | MFA och SSPR              |
 | Windows Hello för företag     | Yes                    | MFA                       |
+| Microsoft Authenticator-appen    | Ja (för hands version)          | MFA och SSPR              |
+| Säkerhets nyckel för FIDO2 (för hands version)   | Yes                    | MFA                       |
 | OATH-token för maskin vara (för hands version) | No                     | MFA                       |
 | OATH-programvaru-token           | No                     | MFA                       |
 | SMS                            | Ja (för hands version)          | MFA och SSPR              |
@@ -76,11 +73,11 @@ Alla dessa autentiseringsmetoder kan konfigureras i Azure Portal och i allt stö
 
 Mer information om hur varje autentiseringsmetod fungerar finns i följande artiklar om olika koncept:
 
-* [Säkerhets nycklar för FIDO2 (för hands version)](concept-authentication-passwordless.md#fido2-security-keys)
-* [Microsoft Authenticator-appen](concept-authentication-authenticator-app.md)
 * [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-overview)
-* [OATH-programvaru-token](concept-authentication-oath-tokens.md#oath-software-tokens)
+* [Microsoft Authenticator-appen](concept-authentication-authenticator-app.md)
+* [Säkerhets nyckel för FIDO2 (för hands version)](concept-authentication-passwordless.md#fido2-security-keys)
 * [OATH-token för maskin vara (för hands version)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
+* [OATH-programvaru-token](concept-authentication-oath-tokens.md#oath-software-tokens)
 * SMS- [inloggning (för hands version)](howto-authentication-sms-signin.md) och [verifiering](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Verifiering av röst samtal](concept-authentication-phone-options.md)
 * Lösenord

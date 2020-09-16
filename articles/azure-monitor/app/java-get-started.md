@@ -6,20 +6,24 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326927"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602473"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Snabb start: kom igång med Application Insights i ett Java-webbprojekt
 
-I den här snabb starten använder du Application Insights för att automatiskt instrumentera begäran, spåra beroenden och samla in prestanda räknare, diagnostisera prestanda problem och undantag och skriva kod för att spåra vad användarna gör med din app.
+
+> [!IMPORTANT]
+> Den rekommenderade metoden för att övervaka Java-program är att använda den automatiska Instrumentation utan att ändra koden. Följ rikt linjerna för [Application Insights Java 3,0-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+I den här snabb starten använder du Application Insights SDK för att hantera begäran, spåra beroenden och samla in prestanda räknare, diagnostisera prestanda problem och undantag och skriv kod för att spåra vad användarna gör med din app.
 
 Application Insights är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Application Insights har stöd för Java-appar som körs på Linux, Unix eller Windows.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Ett fungerande Java-program.
@@ -77,9 +81,9 @@ Hämta den [senaste versionen](https://github.com/Microsoft/ApplicationInsights-
 
 ### <a name="questions"></a>Frågor
 * *Vad är förhållandet mellan komponenterna och `-web-auto` `-web` `-core` ?*
-  * `applicationinsights-web-auto`ger dig mått som spårar antalet begär Anden och svars tider för HTTP-servlet genom att automatiskt registrera Application Insights servlet-filtret vid körning.
-  * `applicationinsights-web`ger dig också mått som spårar antalet begär Anden och svars tider för HTTP-servlet, men kräver manuell registrering av Application Insights servlet-filtret i ditt program.
-  * `applicationinsights-core`ger dig bara det Bare-API: t, till exempel om ditt program inte är servlet-baserat.
+  * `applicationinsights-web-auto` ger dig mått som spårar antalet begär Anden och svars tider för HTTP-servlet genom att automatiskt registrera Application Insights servlet-filtret vid körning.
+  * `applicationinsights-web` ger dig också mått som spårar antalet begär Anden och svars tider för HTTP-servlet, men kräver manuell registrering av Application Insights servlet-filtret i ditt program.
+  * `applicationinsights-core` ger dig bara det Bare-API: t, till exempel om ditt program inte är servlet-baserat.
   
 * *Hur uppdaterar jag SDK till den senaste versionen?*
   * Om du använder Gradle eller Maven...
@@ -193,22 +197,10 @@ Publicera appen på servern, låt användarna använda den och se hur telemetrin
 
     (Den här komponenten gör det möjligt att använda prestandaräknare.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service config (våren boot)
+## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, VM-konfiguration
 
-Våren Boot-appar som körs på Windows kräver ytterligare konfiguration för att köras på Azure App Services. Ändra **web.config** och Lägg till följande konfiguration:
+Det bästa och enklaste sättet att övervaka dina program som körs på någon av Azure-resurs leverantörer är att använda Application Insights Auto-Instrumentation via [Java 3,0-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## <a name="exceptions-and-request-failures"></a>Fel relaterade till begäranden och undantag
 Ohanterade undantag och begär Anden som Miss lyckas samlas in automatiskt av Application Insights webb filter.
@@ -259,7 +251,7 @@ Du kan ange ytterligare prestandaräknare som du vill samla in data från.
 * `displayName` – Namnet visas på Application Insights-portalen.
 * `objectName` – JMX-objektnamnet.
 * `attribute` – Attributet för JMX-objektnamnet som ska hämtas
-* `type`(valfritt) – typen för JMX-objektets attribut:
+* `type` (valfritt) – typen för JMX-objektets attribut:
   * Standardvärde: en enkel typ, till exempel int eller long.
   * `composite`: prestandaräknardata har formatet ”Attribute.Data”
   * `tabular`: prestandaräknardata har tabellradsformat
@@ -309,7 +301,7 @@ Application Insights kan testa din webbplats med jämna mellanrum för att kontr
 * [Övervaka Unix-prestandaräknare](java-collectd.md)
 * Lägg till [övervakning till dina webbsidor](javascript.md) för att övervaka sidans belastning, AJAX-anrop, webbläsarundantag.
 * Skriv [anpassad telemetri](./api-custom-events-metrics.md) att spåra användningen i webbläsaren eller på servern.
-* Använda [analyser](../log-query/log-query-overview.md) för kraftfulla frågor via telemetri från din app
+* Använda  [analyser](../log-query/log-query-overview.md) för kraftfulla frågor via telemetri från din app
 * Mer information finns i [Azure för Java-utvecklare](/java/azure).
 
 <!--Link references-->

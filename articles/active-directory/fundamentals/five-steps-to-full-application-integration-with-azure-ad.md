@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: bbe813b46b41bf0e2b8bf9c6b3fe3e3e843204ed
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319754"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601256"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Fem steg för att integrera alla dina appar med Azure AD
 
@@ -70,7 +70,7 @@ Under identifierings processen kan du ha hittat program som inte spåras av IT-a
 
 Vi har publicerat vägledning för att hantera affärs processen för att integrera appar med Azure AD, inklusive en [affisch](https://aka.ms/AppOnePager) och [presentation](https://aka.ms/AppGuideline) som du kan använda för att göra affärs-och program ägare medvetna och intresserade. Du kan ändra dessa exempel med din egen anpassning och publicera dem i din organisation via företags portalen, nyhets brevet eller något annat medium i takt med att du går igenom processen.
 
-En bra plats för att börja är genom att utvärdera din användning av Active Directory Federation Services (AD FS) (ADFS). Många organisationer använder ADFS för autentisering med SaaS-appar, anpassade branschspecifika appar och Office 365 och Azure AD-baserade appar:
+En bra plats för att börja är genom att utvärdera din användning av Active Directory Federation Services (AD FS) (ADFS). Många organisationer använder ADFS för autentisering med SaaS-appar, anpassade branschspecifika appar och Microsoft 365 och Azure AD-baserade appar:
 
 ![Diagrammet visar lokala appar, branschspecifika appar, SaaS-appar och, via Azure AD, Office 365 alla ansluter med prickade linjer till Active Directory och AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321726"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601372"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -95,7 +95,7 @@ Lösen orden själva är inte tillräckligt säkra för att förhindra att dåli
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Återhämtnings förmåga för autentisering på lokalt avbrott
 
-Förutom fördelarna med enkelhet och aktivering av läckta autentiseringsuppgifter för identifiering av autentiseringsuppgifter, tillåter Azure AD Password hash Sync (PHS) och Azure MFA att användare kan komma åt SaaS-program och Office 365 trots lokala avbrott på grund av cyberattacker, till exempel [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Det är också möjligt att aktivera PHS i samband med Federation. Genom att aktivera PHS får du en återställning av autentisering när Federations tjänsterna inte är tillgängliga.
+Förutom fördelarna med enkelhet och aktivering av läcka autentiseringsuppgifter för identifiering av autentiseringsuppgifter, tillåter Azure AD Password hash Sync (PHS) och Azure MFA att användare kan komma åt SaaS-program och Microsoft 365 trots lokala avbrott på grund av cyberattacker, till exempel [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Det är också möjligt att aktivera PHS i samband med Federation. Genom att aktivera PHS får du en återställning av autentisering när Federations tjänsterna inte är tillgängliga.
 
 Om din lokala organisation saknar återhämtnings strategi för avbrott eller har en som inte är integrerad med Azure AD, bör du Distribuera Azure AD PHS och definiera en katastrof återställnings plan som innehåller PHS. Genom att aktivera Azure AD PHS kan användare autentisera sig mot Azure AD om din lokala Active Directory inte är tillgänglig.
 
@@ -249,7 +249,7 @@ Villkorlig åtkomst är ett viktigt verktyg för att förbättra din organisatio
 - Ha en liten uppsättning kärn principer som kan tillämpas på flera program
 - Definiera tomma undantags grupper och Lägg till dem i principerna för att få en undantags strategi
 - Planera för [Bryt glas](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) konton utan MFA-kontroller
-- Säkerställ en konsekvent upplevelse för Office 365-klientprogram, till exempel team, OneDrive för företag, Outlook osv.) genom att implementera samma uppsättning kontroller för tjänster som Exchange Online och SharePoint Online
+- Få en konsekvent upplevelse för Microsoft 365 klient program, till exempel team, OneDrive, Outlook osv.) genom att implementera samma uppsättning kontroller för tjänster som Exchange Online och SharePoint Online
 - Tilldelning till principer bör implementeras genom grupper, inte individer
 - Gör regelbundna granskningar av undantags grupperna som används i principer för att begränsa den tid som användarna ligger utanför säkerhets position. Om du äger Azure AD P2 kan du använda åtkomst granskningar för att automatisera processen
 
@@ -302,7 +302,7 @@ Nedan visas en lista över appar med behörigheter som du kanske vill granska f�
 
 | Resurs | Behörighet |
 | :- | :- |
-| Office 365 Exchange Online | EA. AccessAsUser. all |
+| Exchange Online | EA. AccessAsUser. all |
 | | EWS. AccessAsUser. all |
 | | E-post. Read |
 | Microsoft Graph API | E-post. Read |
@@ -339,7 +339,7 @@ Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte
 
 #### <a name="group-settings"></a>Gruppinställningar
 
-**Grupp hantering via självbetjäning/användare kan skapa säkerhets grupper/O365-grupper.** Om det inte finns något aktuellt självbetjänings initiativ för grupper i molnet kan kunderna välja att inaktivera det tills de är redo att använda den här funktionen.
+**Grupp hantering via självbetjäning/användare kan skapa säkerhets grupper/Microsoft 365 grupper.** Om det inte finns något aktuellt självbetjänings initiativ för grupper i molnet kan kunderna välja att inaktivera det tills de är redo att använda den här funktionen.
 
 #### <a name="groups-recommended-reading"></a>Grupper som rekommenderar läsning
 

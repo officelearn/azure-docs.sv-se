@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279354"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602378"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning
 
@@ -86,7 +86,7 @@ Information om besluts frågor:
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>Molnbaserad autentisering: hash-synkronisering av lösen ord
 
-* **Ansträngning**. Hash-synkronisering av lösen ord kräver minst ansträngning för distribution, underhåll och infrastruktur.  Den här nivån gäller vanligt vis organisationer som bara behöver sina användare för att logga in på Office 365, SaaS-appar och andra Azure AD-baserade resurser. När det är aktiverat är Lösenordssynkronisering en del av den Azure AD Connect Sync-processen och körs var 2: e minut.
+* **Ansträngning**. Hash-synkronisering av lösen ord kräver minst ansträngning för distribution, underhåll och infrastruktur.  Den här nivån av arbete gäller vanligt vis organisationer som bara behöver sina användare för att logga in på Microsoft 365, SaaS-appar och andra Azure AD-baserade resurser. När det är aktiverat är Lösenordssynkronisering en del av den Azure AD Connect Sync-processen och körs var 2: e minut.
 
 * **Användar upplevelse**. Du kan förbättra användarnas inloggnings upplevelser genom att distribuera sömlös SSO med hash-synkronisering av lösen ord. Sömlös SSO eliminerar onödiga meddelanden när användare är inloggade.
 
@@ -179,7 +179,7 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 |Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Inget|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
 |Finns det ett TLS/SSL-certifikat krav?|Inga|Inga|Ja|
 |Finns det en lösning för hälso övervakning?|Krävs inte|Agent status som tillhandahålls av [Azure Active Directory administrations Center](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja|
+|Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Yes|
 |Vilka inloggnings typer stöds?|UserPrincipalName + lösen ord<br><br>Windows-integrerad autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + lösen ord<br><br>Windows-integrerad autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + lösen ord<br><br>sAMAccountName + lösen ord<br><br>Windows-integrerad autentisering<br><br>[Autentisering med certifikat och smartkort](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternativt inloggnings-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Stöds Windows Hello för företag?|[Nyckel förtroende modell](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Nyckel förtroende modell](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Kräver domän funktions nivå för Windows Server 2016*|[Nyckel förtroende modell](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certifikat förtroende modell](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Vad är alternativen för multifaktorautentisering?|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Azure MFA-Server](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA från tredje part](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|
@@ -203,7 +203,7 @@ Använd eller aktivera hash-synkronisering av lösen ord för vilken autentiseri
 
 2. **Överlevnad för lokalt avbrott**.  Konsekvenserna av ett lokalt avbrott på grund av en cyberhot-attack eller katastrof kan vara betydande, vilket sträcker sig från problem med problem med en Paralyzed organisation som inte kan hantera angreppet. Nyligen var många organisationer offer för angrepp mot skadlig kod, inklusive avsedd utpressnings tro Jan, som gjorde att deras lokala servrar var igång. När Microsoft hjälper kunderna att hantera dessa typer av attacker, ser de två kategorier av organisationer:
 
-   * Organisationer som tidigare har aktiverat hash-synkronisering av lösen ord ovanpå federerade autentisering eller direktautentisering ändrade sin primära autentiseringsmetod till sedan använder synkronisering av lösen ords-hash. De var online igen om några timmar. Genom att använda åtkomst till e-post via Office 365 fungerade de för att lösa problem och få åtkomst till andra molnbaserade arbets belastningar.
+   * Organisationer som tidigare har aktiverat hash-synkronisering av lösen ord ovanpå federerade autentisering eller direktautentisering ändrade sin primära autentiseringsmetod till sedan använder synkronisering av lösen ords-hash. De var online igen om några timmar. Genom att använda åtkomst till e-post via Microsoft 365 fungerade de för att lösa problem och få åtkomst till andra molnbaserade arbets belastningar.
 
    * Organisationer som inte tidigare har aktiverat hash-synkronisering för lösen ord hade till exempel inte betrodda externa konsument-e-postsystem för kommunikation att lösa problem. I dessa fall tog det flera veckor att återställa sin lokala identitets infrastruktur innan användare kunde logga in på molnbaserade appar igen.
 

@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7e394c4227be9ead491fe77457b466b1f62468
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279337"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600805"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitets grund med Azure Active Directory
 
@@ -46,7 +46,7 @@ Med Azure AD kan administratörer [lägga till program](../manage-apps/add-appli
 När program har lagts till i Azure AD-galleriet kan användarna se appar som har tilldelats dem och söka efter och begära andra appar efter behov. Azure AD tillhandahåller [flera metoder](../manage-apps/end-user-experiences.md) för användare att komma åt sina appar:
 
 * Åtkomst panel/Mina appar
-* Startprogram för Office 365-app
+* Microsoft 365-appstartprogram
 * Direkt inloggning till federerade appar
 * Direkta inloggnings länkar
 
@@ -115,7 +115,7 @@ Organisationer med lokala Active Directory bör utöka sin katalog till Azure AD
 
 Den enklaste och rekommenderade metoden för att aktivera molnbaserad autentisering för lokala katalog objekt i Azure AD är att aktivera [hash-synkronisering av lösen ord](./how-to-connect-password-hash-synchronization.md) (PHS). Vissa organisationer kan också överväga att aktivera [direktautentisering](./how-to-connect-pta-quick-start.md) (PTA).
 
-Oavsett om du väljer PHS eller PTA kan du inte glömma att aktivera [sömlös enkel inloggning](./how-to-connect-sso.md) så att användarna kan komma åt molnappar utan att ständigt ange sitt användar namn och lösen ord i appen när de använder Windows 7-och 8-enheter i företags nätverket. Utan enkel inloggning måste användare komma ihåg programspecifika lösen ord och logga in på varje program. På samma sätt måste IT-personal skapa och uppdatera användar konton för varje program, till exempel Office 365, Box och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program. Att tillhandahålla en standardiserad mekanism för enkel inloggning till hela företaget är avgörande för bästa användar upplevelse, minskning av risk, rapportering och styrning.
+Oavsett om du väljer PHS eller PTA kan du inte glömma att aktivera [sömlös enkel inloggning](./how-to-connect-sso.md) så att användarna kan komma åt molnappar utan att ständigt ange sitt användar namn och lösen ord i appen när de använder Windows 7-och 8-enheter i företags nätverket. Utan enkel inloggning måste användare komma ihåg programspecifika lösen ord och logga in på varje program. På samma sätt måste IT-personal skapa och uppdatera användar konton för varje program, till exempel Microsoft 365, ruta och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program. Att tillhandahålla en standardiserad mekanism för enkel inloggning till hela företaget är avgörande för bästa användar upplevelse, minskning av risk, rapportering och styrning.
 
 För organisationer som redan använder AD FS eller en annan lokal autentiseringsprovider kan du flytta till Azure AD som identitets leverantör kan minska komplexiteten och förbättra tillgängligheten. Om du inte har speciella användnings fall för att använda Federation rekommenderar vi att du migrerar från federerad autentisering till antingen PHS och sömlös SSO eller PTA och sömlös SSO för att dra nytta av fördelarna med ett reducerat lokalt utrymme och den flexibilitet som molnet erbjuder med förbättrade användar upplevelser. Mer information finns i [Migrera från Federation till hash-synkronisering av lösen ord för Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
 
@@ -156,7 +156,7 @@ Att tilldela användare till program mappas bäst när du använder grupper, eft
 * Attribut-baserad med dynamiskt grupp medlemskap
 * Delegera till app-ägare
 
-Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Office 365-grupper. Dessa grupper kan hanteras av en grupp ägare som kan godkänna eller avvisa medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Den här funktionen är känd som självbetjänings [grupp hantering](../users-groups-roles/groups-self-service-management.md)och sparar tid genom att tillåta grupp ägare som inte har tilldelats en administrativ roll för att skapa och hantera grupper utan att behöva förlita sig på att administratörer hanterar sina begär Anden.
+Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Microsoft 365 grupper. Dessa grupper kan hanteras av en grupp ägare som kan godkänna eller avvisa medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Den här funktionen är känd som självbetjänings [grupp hantering](../users-groups-roles/groups-self-service-management.md)och sparar tid genom att tillåta grupp ägare som inte har tilldelats en administrativ roll för att skapa och hantera grupper utan att behöva förlita sig på att administratörer hanterar sina begär Anden.
 
 ## <a name="step-4---operationalize-your-insights"></a>Steg 4 – operationalisera dina insikter
 

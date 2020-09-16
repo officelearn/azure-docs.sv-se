@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c9cd790edcb186ed2f80d467076512cd558ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a3cdb851ca00300d995bcf2075252a360242197
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253400"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601970"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv godkända klient program för Cloud app-åtkomst med villkorlig åtkomst
 
 Användarna använder regelbundet sina mobila enheter för både personliga och arbetsrelaterade uppgifter. När du ser till att personalen kan vara produktiv, vill organisationer även förhindra data förlust från potentiellt osäkra program. Med villkorlig åtkomst kan organisationer begränsa åtkomsten till godkända (moderna autentisering kapabel)-klient program.
 
-Den här artikeln visar två scenarier för att konfigurera principer för villkorlig åtkomst för resurser som Office 365, Exchange Online och SharePoint Online.
+Den här artikeln visar två scenarier för att konfigurera principer för villkorlig åtkomst för resurser som Microsoft 365, Exchange Online och SharePoint Online.
 
-- [Scenario 1: Office 365-appar kräver en godkänd klient app](#scenario-1-office-365-apps-require-an-approved-client-app)
+- [Scenario 1: Microsoft 365 appar kräver en godkänd klient app](#scenario-1-microsoft-365-apps-require-an-approved-client-app)
 - [Scenario 2: Exchange Online och SharePoint Online kräver en godkänd klient app](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 I villkorlig åtkomst kallas denna funktion för att kräva en godkänd klient app. En lista över godkända klient program finns i [godkända klient program krav](concept-conditional-access-grant.md#require-approved-client-app).
@@ -32,9 +32,9 @@ I villkorlig åtkomst kallas denna funktion för att kräva en godkänd klient a
 > [!NOTE]
 > För att kunna kräva godkända klient program för iOS-och Android-enheter måste dessa enheter först registreras i Azure AD.
 
-## <a name="scenario-1-office-365-apps-require-an-approved-client-app"></a>Scenario 1: Office 365-appar kräver en godkänd klient app
+## <a name="scenario-1-microsoft-365-apps-require-an-approved-client-app"></a>Scenario 1: Microsoft 365 appar kräver en godkänd klient app
 
-I det här scenariot har contoso beslutat att användare som använder mobila enheter har åtkomst till alla Office 365-tjänster så länge de använder godkända klient program, t. ex. Outlook Mobile, OneDrive och Microsoft Teams. Alla användare har redan loggat in med autentiseringsuppgifter för Azure AD och har tilldelade licenser som innehåller Azure AD Premium P1 eller P2 och Microsoft Intune.
+I det här scenariot har contoso beslutat att användare som använder mobila enheter har åtkomst till alla Microsoft 365-tjänster så länge de använder godkända klient program, t. ex. Outlook Mobile, OneDrive och Microsoft Teams. Alla användare har redan loggat in med autentiseringsuppgifter för Azure AD och har tilldelade licenser som innehåller Azure AD Premium P1 eller P2 och Microsoft Intune.
 
 Organisationer måste utföra följande tre steg för att kräva att en godkänd klient app används på mobila enheter.
 
@@ -128,7 +128,7 @@ Läs artikeln [så här skapar och tilldelar du skydds principer för appar](/in
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är villkorlig åtkomst?](overview.md)
+[Vad är villkorsstyrd åtkomst?](overview.md)
 
 [Komponenter för villkorlig åtkomst](concept-conditional-access-policies.md)
 

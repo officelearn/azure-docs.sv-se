@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d705c7fbdb744082b402f4dd598551107563ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 296f396f3c2aacdfe32ea2ee800190d0a91d353f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203188"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602174"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ För att definiera användar resan som stöds av principen läggs ett **UserJour
 
 **UserJourneys** -elementet innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | UserJourney | 1: n | En användar resa som definierar alla konstruktioner som krävs för ett fullständigt användar flöde. |
 
@@ -37,11 +37,11 @@ För att definiera användar resan som stöds av principen läggs ett **UserJour
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare för en användar resa som kan användas för att referera till den från andra element i principen. **DefaultUserJourney** -elementet för den [förlitande part-principen](relyingparty.md) pekar på det här attributet. |
+| Id | Yes | En identifierare för en användar resa som kan användas för att referera till den från andra element i principen. **DefaultUserJourney** -elementet för den [förlitande part-principen](relyingparty.md) pekar på det här attributet. |
 
 **UserJourney** -elementet innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1: n | En Orchestration-sekvens som måste följas av för en lyckad transaktion. Varje användar resa består av en ordnad lista över Orchestration-steg som körs i följd. Om ett steg Miss lyckas, Miss lyckas transaktionen. |
 
@@ -55,7 +55,7 @@ Om du vill ange den sorterade listan över Orchestration-steg läggs ett **Orche
 
 **OrchestrationSteps** -elementet innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1: n | Ett ordnat Orchestration-steg. |
 
@@ -64,24 +64,24 @@ Om du vill ange den sorterade listan över Orchestration-steg läggs ett **Orche
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | `Order` | Ja | Ordningen för Orchestration-stegen. |
-| `Type` | Ja | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget ska bearbeta anspråks data som skickas till Azure AD B2C från den förlitande parten via dess `InputClaims` konfiguration.</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
-| ContentDefinitionReferenceId | No | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med det här Orchestration-steget. Vanligt vis definieras referens identifieraren för innehålls definitionen i den självkontrollerade tekniska profilen. Men det finns vissa fall då Azure AD B2C behöver visa något utan en teknisk profil. Det finns två exempel – om typen av Orchestration-steg är något av följande: eller så `ClaimsProviderSelection` `CombinedSignInAndSignUp` måste Azure AD B2C Visa valet av identitetsprovider utan att ha en teknisk profil. |
+| `Type` | Yes | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget ska bearbeta anspråks data som skickas till Azure AD B2C från den förlitande parten via dess `InputClaims` konfiguration.</li><li>**InvokeSubJourney** – anger att Orchestration-steget utbyter anspråk med en under resa (i offentlig för hands version).</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
+| ContentDefinitionReferenceId | No | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med det här Orchestration-steget. Vanligt vis definieras referens identifieraren för innehålls definitionen i den självkontrollerade tekniska profilen. Men det finns vissa fall då Azure AD B2C behöver visa något utan en teknisk profil. Det finns två exempel – om typen av Orchestration-steg är något av följande: eller så `ClaimsProviderSelection`  `CombinedSignInAndSignUp` måste Azure AD B2C Visa valet av identitetsprovider utan att ha en teknisk profil. |
 | CpimIssuerTechnicalProfileReferenceId | No | Typen av Orchestration-steg är `SendClaims` . Den här egenskapen definierar den tekniska profil identifieraren för den anspråks leverantör som utfärdar token för den förlitande parten.  Om inget används skapas ingen förlitande parts-token. |
-
 
 **OrchestrationStep** -elementet kan innehålla följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | Villkor | 0: n | En lista med förutsättningar som måste uppfyllas för att Orchestration-steget ska kunna köras. |
 | ClaimsProviderSelections | 0: n | En lista med val av anspråks leverantörer för Orchestration-steget. |
 | ClaimsExchanges | 0: n | En lista med anspråks utbyten för Orchestration-steget. |
+| JourneyList | 0:1 | En lista över under transport kandidater för Orchestration-steget. |
 
 ### <a name="preconditions"></a>Villkor
 
 Elementet **villkor** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | Villkor | 1: n | Beroende på den tekniska profil som används omdirigerar antingen klienten enligt valet av anspråks leverantör eller gör ett Server anrop till Exchange-anspråk. |
 
@@ -93,14 +93,14 @@ Elementet **villkor** innehåller följande element:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Typ av kontroll eller fråga som ska utföras för det här villkoret. Värdet kan vara **ClaimsExist**, som anger att åtgärderna ska utföras om de angivna anspråken finns i användarens aktuella anspråks uppsättning eller **ClaimEquals**, vilket anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
-| `ExecuteActionsIf` | Ja | Använd ett sant-eller falskt-test för att avgöra om åtgärderna i villkoret ska utföras. |
+| `ExecuteActionsIf` | Yes | Använd ett sant-eller falskt-test för att avgöra om åtgärderna i villkoret ska utföras. |
 
 **Villkors** elementen innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | Värde | 1: n | En ClaimTypeReferenceId som ska frågas efter. Ett annat värde element innehåller det värde som ska kontrol leras.</li></ul>|
-| Åtgärd | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep` , ska den associerade `OrchestrationStep` inte utföras. |
+| Action | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep` , ska den associerade `OrchestrationStep` inte utföras. |
 
 #### <a name="preconditions-examples"></a>Exempel på villkor
 
@@ -164,7 +164,7 @@ Ett Dirigerings steg av typen `ClaimsProviderSelection` eller `CombinedSignInAnd
 
 **ClaimsProviderSelections** -elementet innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 1: n | Tillhandahåller listan över anspråks leverantörer som kan väljas.|
 
@@ -222,7 +222,7 @@ I följande Orchestration-steg kan användaren välja att logga in med Facebook,
 
 **ClaimsExchanges** -elementet innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Förekomster | Description |
 | ------- | ----------- | ----------- |
 | ClaimsExchange | 1: n | Beroende på den tekniska profil som används omdirigerar antingen klienten enligt de valda ClaimsProviderSelection eller gör ett Server anrop till Exchange-anspråk. |
 
@@ -230,5 +230,21 @@ I följande Orchestration-steg kan användaren välja att logga in med Facebook,
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare för steget anspråk Exchange. Identifieraren används för att referera till anspråks utbytet från en anspråks leverantör urvals steg i principen. |
-| TechnicalProfileReferenceId | Ja | Identifieraren för den tekniska profil som ska köras. |
+| Id | Yes | En identifierare för steget anspråk Exchange. Identifieraren används för att referera till anspråks utbytet från en anspråks leverantör urvals steg i principen. |
+| TechnicalProfileReferenceId | Yes | Identifieraren för den tekniska profil som ska köras. |
+
+## <a name="journeylist"></a>JourneyList
+
+**JourneyList** -elementet innehåller följande element:
+
+| Element | Förekomster | Description |
+| ------- | ----------- | ----------- |
+| Dr | 1:1 | En referens till en under transport som ska anropas. |
+
+### <a name="candidate"></a>Dr
+
+**Kandidat** elementet innehåller följande attribut:
+
+| Attribut | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| SubJourneyReferenceId | Yes | Identifieraren för den under resa som ska köras. |

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator-tjänst, översätta text, translittererad text, språk identifiering
-ms.openlocfilehash: 1cffe99389b3e3e782c53aeae8c29fbc8f55b6a0
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 65f16c9689984a493e3fed041545557688fbc279
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530683"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602259"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Snabb start: kom igång med Translator
 
@@ -120,6 +120,10 @@ När du anropar Translator-tjänsten via REST måste du se till att följande ru
     <td><em>Valfritt</em>.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet <code>ClientTraceId</code> .</td>
   </tr>
 </table> 
+
+## <a name="keys-and-endpoints"></a>Nycklar och slutpunkter
+
+Exempel på den här sidan använder hårdkodade nycklar och slut punkter för enkelhetens skull. Kom ihåg att **ta bort nyckeln från koden när du är klar**och **publicera den aldrig offentligt**. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Mer information finns i [säkerhets](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) artikeln Cognitive Services.
 
 ## <a name="translate-text"></a>Översätt text 
 

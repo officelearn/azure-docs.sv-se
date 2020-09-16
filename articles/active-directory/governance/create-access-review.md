@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/06/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505209"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602939"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -32,7 +32,7 @@ Du kan se en snabb video som talar om hur du aktiverar åtkomst granskningar:
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 - Global administratör eller användar administratör
@@ -111,6 +111,8 @@ Mer information finns i [licens krav](access-reviews-overview.md#license-require
     - **Godkänn åtkomst** – Godkänn användarens åtkomst
     - **Ta rekommendationer** – beakta systemets rekommendation om att neka eller godkänna användarens fortsatta åtkomst
 
+    ![Skapa en åtkomst granskning – avancerade inställningar](./media/create-access-review/advanced-settings-preview-new.png)
+
 4. Förhandsgranskningsvyn Använd åtgärden som ska tillämpas på nekade användare för att ange vad som händer med gäst användare om de nekas.
     - **Alternativ 1** tar bort nekad användares åtkomst till gruppen eller programmet som granskas, men de kommer fortfarande att kunna logga in till klienten. 
     - **Alternativ 2** blockerar nekade användare från att logga in på klienten, oavsett om de har åtkomst till andra resurser. Om det var fel eller om en administratör bestämmer sig för att återaktivera en åtkomst, kan de göra det inom 30 dagar efter att användaren har inaktiverats. Om ingen åtgärd vidtas för de inaktiverade användarna tas de bort från klienten.
@@ -123,8 +125,6 @@ Om du vill veta mer om metod tips för att ta bort gäst användare som inte lä
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
 1. Om du vill ange ytterligare inställningar expanderar du avsnittet **Avancerade inställningar** .
-
-    ![Skapa en åtkomst granskning – avancerade inställningar](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Ange **Visa rekommendationer** för att **Aktivera** för att Visa granskarna system rekommendationer baserat på användarens åtkomst information.
 

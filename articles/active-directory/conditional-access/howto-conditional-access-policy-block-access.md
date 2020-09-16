@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049272"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601596"
 ---
 # <a name="conditional-access-block-access"></a>Villkorlig åtkomst: blockera åtkomst
 
@@ -40,7 +40,7 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 
 Följande steg hjälper dig att skapa principer för villkorlig åtkomst för att blockera åtkomst till alla appar förutom [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) om användarna inte är i ett betrott nätverk. Dessa principer sätts i [läget endast för rapporter](howto-conditional-access-insights-reporting.md) för att starta så att administratörer kan bestämma vilken effekt de kommer att ha på befintliga användare. När administratörer är van vid att principerna ska gälla som de ska, kan de byta till **på**.
 
-Den första principen blockerar åtkomst till alla appar förutom Office 365-program om de inte finns på en betrodd plats.
+Den första principen blockerar åtkomst till alla appar förutom Microsoft 365 program om de inte är på en betrodd plats.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
@@ -64,7 +64,7 @@ Den första principen blockerar åtkomst till alla appar förutom Office 365-pro
 1. Bekräfta inställningarna och ange att **principen** endast ska **rapporteras**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 
-En andra princip skapas nedan för att kräva Multi-Factor Authentication eller en kompatibel enhet för användare av Office 365.
+En andra princip skapas nedan för att kräva Multi-Factor Authentication eller en kompatibel enhet för användare av Microsoft 365.
 
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.

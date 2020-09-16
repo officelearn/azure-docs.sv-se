@@ -1,29 +1,29 @@
 ---
 title: Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API
 description: Lär dig om stöd för Apache Cassandra-funktionen i Azure Cosmos DB Cassandra-API
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: e7384237f91bf3af8ccad1a97b27fb62a1845a88
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.date: 09/14/2020
+ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118992"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602820"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB Cassandra-API via Cassandra Query Language (CQL) v4[-trådprotokollkompatibla](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) Cassandra-[klientdrivrutiner](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) med öppen källkod. 
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB API för Cassandra via CQL Binary Protocol v4 [Wire Protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) -kompatibla klient [driv rutiner](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)för Cassandra med öppen källkod. 
 
-Med hjälp av Azure Cosmos DB Cassandra-API kan du utnyttja fördelarna med Apache Cassandra-API:er samt företagsfunktioner som tillhandahåller Azure Cosmos DB. Företagsfunktionerna är [global distribution](distribute-data-globally.md), [automatisk utskalning av partitionering](partition-data.md), garantier för tillgänglighet och svarstid, vilande kryptering, säkerhetskopior och mycket mer.
+Med hjälp av Azure Cosmos DB Cassandra-API kan du utnyttja fördelarna med Apache Cassandra-API:er samt företagsfunktioner som tillhandahåller Azure Cosmos DB. Företagsfunktionerna är [global distribution](distribute-data-globally.md), [automatisk utskalning av partitionering](cassandra-partitioning.md), garantier för tillgänglighet och svarstid, vilande kryptering, säkerhetskopior och mycket mer.
 
 ## <a name="cassandra-protocol"></a>Cassandra-protokollet 
 
-Azure Cosmos DB Cassandra API är kompatibelt med CQL-version **v4**. De CQL-kommandon, verktyg, begränsningar och undantag som stöds anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB med Azure Cosmos DB Cassandra-API:et.
+Den Azure Cosmos DB API för Cassandra är kompatibel med Cassandra-CQL () v 3.11 (bakåtkompatibelt med version 2. x). De CQL-kommandon, verktyg, begränsningar och undantag som stöds anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB med Azure Cosmos DB Cassandra-API:et.
 
 ## <a name="cassandra-driver"></a>Cassandra-drivrutinen
 
@@ -37,61 +37,149 @@ Följande versioner av Cassandra-drivrutiner stöds av Azure Cosmos DB Cassandra
 * [PHP 1.3](https://github.com/datastax/php-driver)  
 * [Gocql](https://github.com/gocql/gocql)  
  
+
 ## <a name="cql-data-types"></a>CQL-datatyper 
 
 Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 
-* ascii  
-* bigint  
-* blob  
-* boolean  
-* räknare  
-* date  
-* decimal  
-* double  
-* float  
-* frusen  
-* inet  
-* int  
-* lista  
-* set  
-* smallint  
-* text  
-* time  
-* timestamp  
-* timeuuid  
-* tinyint  
-* tuppel  
-* uuid  
-* varchar  
-* varint  
-* tupplar  
-* udts  
-* map  
+|Kommando  |Stöds |
+|---------|---------|
+| ascii  | Yes |
+| bigint  | Yes |
+| blob  | Yes |
+| boolean  | Yes |
+| räknare  | Yes |
+| datum  | Yes |
+| decimal  | Yes |
+| double  | Yes |
+| flyt  | Yes |
+| frusen  | Yes |
+| inet  | Yes |
+| int  | Yes |
+| lista  | Yes |
+| set  | Yes |
+| smallint  | Yes |
+| text  | Yes |
+| time  | Yes |
+| timestamp  | Yes |
+| timeuuid  | Yes |
+| tinyint  | Yes |
+| tuppel  | Yes |
+| uuid  | Yes |
+| varchar  | Yes |
+| varint  | Yes |
+| tupplar | Yes | 
+| udts  | Yes |
+| map | Yes |
 
 ## <a name="cql-functions"></a>CQL-funktioner
 
 Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
 
-* Token  
-* Mängdfunktioner
-  * min, Max, genomsnitt, antal
-* Blobkonverteringsfunktioner 
-  * typeAsBlob(value)  
-  * blobAsType(value)
-* UUID och timeuuid 
-  * dateOf()  
-  * now()  
-  * minTimeuuid()  
-  * unixTimestampOf()  
-  * toDate(timeuuid)  
-  * toTimestamp(timeuuid)  
-  * toUnixTimestamp(timeuuid)  
-  * toDate(timestamp)  
-  * toUnixTimestamp(timestamp)  
-  * toTimestamp(date)  
-  * toUnixTimestamp(date) 
+|Kommando  |Stöds |
+|---------|---------|
+| Åtkomsttokenbegäran | Yes |
+| ttl | Yes |
+| writetime | Yes |
+| långa | No |
+
+\* API för Cassandra stöder token som en projektion/väljare och tillåter bara token (PK) till vänster i en WHERE-sats. Stöds till exempel `WHERE token(pk) > 1024` , men `WHERE token(pk) > token(100)` stöds inte.
+
+
+Mängd funktioner:
+
+|Kommando  |Stöds |
+|---------|---------|
+| min | Yes |
+| max | Yes |
+| Gmsn | Yes |
+| count | Yes |
+
+BLOB-konverterings funktioner:
+ 
+|Kommando  |Stöds |
+|---------|---------|
+| typeAsBlob(value)   | Yes |
+| blobAsType(value) | Yes |
+
+
+UUID-och timeuuid-funktioner:
+ 
+|Kommando  |Stöds |
+|---------|---------|
+| dateOf()  | Yes |
+| now()  | Yes |
+| minTimeuuid()  | Yes |
+| unixTimestampOf()  | Yes |
+| toDate(timeuuid)  | Yes |
+| toTimestamp(timeuuid)  | Yes |
+| toUnixTimestamp(timeuuid)  | Yes |
+| toDate(timestamp)  | Yes |
+| toUnixTimestamp(timestamp)  | Yes |
+| toTimestamp(date)  | Yes |
+| toUnixTimestamp(date) | Yes |
+
+
   
+## <a name="cql-commands"></a>CQL-kommandon
+
+Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton.
+
+|Kommando  |Stöds |
+|---------|---------|
+| TILLÅT FILTRERING | Yes |
+| ÄNDRA TECKEN AVSTÅND | Ej tillämpligt (PaaS-tjänst, replikering hanteras internt)|
+| ÄNDRA MATERIALISERAD VY | No |
+| ÄNDRA ROLL | No |
+| ALTER TABLE | Yes |
+| ÄNDRA TYP | No |
+| ÄNDRA ANVÄNDARE | No |
+| BATCHUPPGIFTEN | Ja (endast inloggad batch)|
+| KOMPAKT LAGRING | Ej tillämpligt (PaaS-tjänst) |
+| SKAPA MÄNGD | No | 
+| SKAPA ETT ANPASSAT INDEX (SASI) | No |
+| CREATE INDEX | Ja (utan att [Ange index namn](cassandra-secondary-index.md)och index på kluster nycklar eller en fullständig frusen samling stöds inte) |
+| SKAPA FUNKTION | No |
+| SKAPA ett tecken utrymme (replikeringsinställningar ignoreras) | Yes |
+| SKAPA MATERIALISERAD VY | No |
+| CREATE TABLE | Yes |
+| SKAPA UTLÖSARE | No |
+| SKAPA TYP | Yes |
+| SKAPA ROLL | No |
+| Skapa användare (inaktuellt i ursprunglig Apache-Cassandra) | No |
+| DELETE | Yes |
+| TA bort (Lightweight-transaktioner med IF-villkor)| Yes |
+| SLÄPP AGG REGERING | No |
+| SLÄPP FUNKTION | No |
+| DROP INDEX | Yes |
+| SLÄPP BLANK STEG | Yes |
+| TA BORT MATERIALISERAD VY | No |
+| TA BORT ROLL | No |
+| TA BORT TABELL | Yes |
+| SLÄPP UTLÖSARE | No | 
+| SLÄPP TYP | Yes |
+| SLÄPP användare (inaktuellt i native Apache Cassandra) | No |
+| ÖMSESIDIGT | No |
+| INSERT | Yes |
+| Infoga (Lightweight-transaktioner med IF-villkor)| Yes |
+| LIST BEHÖRIGHETER | No |
+| LIST ROLLER | No |
+| LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | No |
+| KVARHÅLL | No |
+| VÄLJ | Yes |
+| Välj (Lightweight-transaktioner med IF-villkor)| No |
+| UPDATE | Yes |
+| Uppdatera (Lightweight-transaktioner med IF-villkor)| No |
+| TRUNCATE | No |
+| USE | Yes |
+
+## <a name="json-support"></a>JSON-stöd
+|Kommando  |Stöds |
+|---------|---------|
+| VÄLJ JSON | Yes |
+| INFOGA JSON | Yes |
+| fromJson() | No |
+| toJson() | No |
 
 
 ## <a name="cassandra-api-limits"></a>Begränsningar i API:et för Cassandra
@@ -108,9 +196,12 @@ Azure Cosmos DB Cassandra API är en hanterad tjänst-plattform. Det krävs inga
 
 Du kan öppna en värdbaserad Cassandra Shell (CQLSH v 5.0.1) direkt från Datautforskaren i [Azure Portal](data-explorer.md) eller i [Azure Cosmos Explorer](https://cosmos.azure.com/). Innan du aktiverar CQL-gränssnittet måste du [aktivera funktionen Notebooks](enable-notebooks.md) i ditt konto (om den inte redan är aktive rad uppmanas du att klicka på `Open Cassandra Shell` ). Markera den markerade anteckningen i [Aktivera antecknings böcker för Azure Cosmos DB konton](enable-notebooks.md) för Azure-regioner som stöds.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="CQLSH":::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Öppna CQLSH":::
 
 Du kan också ansluta till API för Cassandra i Azure Cosmos DB genom att använda CQLSH som är installerad på en lokal dator. Den levereras med Apache Cassandra 3.1.1 och fungerar direkt i rutan genom att ställa in miljövariabler. I följande avsnitt finns anvisningar om hur du installerar, konfigurerar och ansluter till API för Cassandra i Azure Cosmos DB, i Windows eller Linux med CQLSH.
+
+> [!NOTE]
+> Anslutningar till Azure Cosmos DB API för Cassandra fungerar inte med DataStax Enterprise (DSE)-versioner av CQLSH. Se till att du bara använder Apache Cassandra-versioner med öppen källkod för CQLSH när du ansluter till API för Cassandra. 
 
 **Aktivitets**
 
@@ -142,22 +233,6 @@ export SSL_VALIDATE=false
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
 
 ```
-
-## <a name="cql-commands"></a>CQL-kommandon
-
-Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton.
-
-* SKAPA ett disk utrymme (replikeringsinställningarna för det här kommandot ignoreras)
-* CREATE TABLE 
-* Skapa INDEX (utan att ange index namn och fullständiga låsta index stöds inte ännu)
-* TILLÅT FILTRERING
-* ALTER TABLE 
-* USE 
-* INSERT 
-* VÄLJ 
-* UPDATE 
-* BATCH – endast ej loggade kommandon stöds 
-* DELETE
 
 Alla CRUD-åtgärder som utförs via en CQL v4-kompatibel SDK returnerar extra information om fel och begärda enheter som används. Kommandona ta bort och uppdatera bör hanteras med resurs styrning för att säkerställa den mest effektiva användningen av det etablerade data flödet.
 

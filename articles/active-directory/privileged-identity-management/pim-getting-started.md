@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567358"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600729"
 ---
 # <a name="start-using-privileged-identity-management"></a>Börja använda Privileged Identity Management
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs hur du aktiverar Privileged Identity Management (PI
 
 Använd Privileged Identity Management (PIM) för att hantera, kontrol lera och övervaka åtkomst i din Azure Active Directory (Azure AD)-organisation. Med PIM kan du tillhandahålla nödvändiga och just-in-Time-åtkomst till Azure-resurser, Azure AD-resurser och andra Microsoft-onlinetjänster som Microsoft 365 eller Microsoft Intune.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Privileged Identity Management måste du ha någon av följande licenser:
 
@@ -35,6 +35,14 @@ Om du vill använda Privileged Identity Management måste du ha någon av följa
 - Enterprise Mobility + Security (EMS) E5
 
 Mer information finns i [licens krav för att använda Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+> När en användare som är aktiv i en privilegie rad roll i en Azure AD-organisation med Premium P2-licens går till **roller och administratörer** i Azure AD och väljer en roll (eller till och med bara Privileged Identity Management):
+>
+> - Vi aktiverar automatiskt PIM för organisationen
+> - Deras upplevelse är nu att de antingen kan tilldela en "vanlig" roll tilldelning eller en berättigad roll tilldelning
+>
+> När PIM är aktiverat har det inte någon annan inverkan på din organisation som du behöver oroa dig för. Du får ytterligare tilldelnings alternativ, till exempel aktiva kontra berättigade med start-och slut tid. Med PIM kan du också definiera omfång för roll tilldelningar med hjälp av administrativa enheter och anpassade roller. Om du är global administratör eller administratör för privilegierade roller kan du börja få ytterligare e-postmeddelanden som PIM veckovis sammandrag. Du kan också se MS-PIM-tjänstens huvud namn i gransknings loggen som är relaterad till roll tilldelningen. Detta är en förväntad ändring som inte ska påverka arbets flödet.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Förbereda PIM för Azure AD-roller
 
@@ -59,7 +67,7 @@ När Privileged Identity Management har kon figurer ATS kan du lära dig hur du 
 
 ![Navigerings fönster i Privileged Identity Management visar uppgifter och hantera alternativ](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Aktivitet + hantera | Beskrivning |
+| Aktivitet + hantera | Description |
 | --- | --- |
 | **Mina roller**  | Visar en lista över giltiga och aktiva roller som har tilldelats dig. Här kan du aktivera tilldelade berättigade roller. |
 | **Mina förfrågningar** | Visar väntande begär Anden om att aktivera kvalificerade roll tilldelningar. |

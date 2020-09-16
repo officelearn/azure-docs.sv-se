@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229930"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603521"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -39,7 +39,7 @@ Rapporterings arkitekturen består av följande komponenter:
 
 Den här artikeln ger en översikt över gransknings rapporten.
  
-## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
+## <a name="who-can-access-the-data"></a>Vem som kan komma åt data?
 
 * Användare i rollerna **säkerhets administratör**, **säkerhets läsare**, **rapport läsare** , **global läsare** eller **Global administratör**
 
@@ -208,11 +208,11 @@ Om du vill granska gransknings data som är relaterade till dina program kan du 
 
 ![Granskningsloggar](./media/concept-audit-logs/enterpriseapplications.png "Granskningsloggar")
 
-## <a name="office-365-activity-logs"></a>Office 365-aktivitets loggar
+## <a name="microsoft-365-activity-logs"></a>Microsoft 365 aktivitets loggar
 
-Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](/office365/admin/admin-overview/about-the-admin-center). Även om Office 365-aktivitet och Azure AD-aktivitets loggar delar mycket av katalog resurserna, ger endast Microsoft 365 administrations Center en fullständig översikt över aktivitets loggarna för Office 365. 
+Du kan visa Microsoft 365 aktivitets loggar från [Microsoft 365 administrations Center](/office365/admin/admin-overview/about-the-admin-center). Även om Microsoft 365 aktivitet och Azure AD-aktivitets loggar delar en stor del av katalog resurserna, ger endast administrations centret Microsoft 365 en fullständig vy över de Microsoft 365 aktivitets loggarna. 
 
-Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](/office/office-365-management-api/office-365-management-apis-overview).
+Du kan också komma åt Microsoft 365 aktivitets loggar via programmering med hjälp av [API: er för Office 365-hantering](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 

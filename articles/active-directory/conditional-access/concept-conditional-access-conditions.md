@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042487"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601834"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
@@ -149,27 +149,27 @@ Den här inställningen påverkar åtkomst försök som görs från följande mo
 | Klientappar | Mål tjänst | Plattform |
 | --- | --- | --- |
 | Dynamics CRM-App | Dynamics CRM | Windows 10, Windows 8,1, iOS och Android |
-| E-post/kalender/Peoples-app, Outlook 2016, Outlook 2013 (med modern autentisering)| Office 365 Exchange Online | Windows 10 |
+| E-post/kalender/Peoples-app, Outlook 2016, Outlook 2013 (med modern autentisering)| Exchange Online | Windows 10 |
 | MFA och plats princip för appar. Enhets principer stöds inte.| App Service för Mina appar | Android och iOS |
 | Microsoft Teams Services – detta styr alla tjänster som stöder Microsoft-team och alla dess klient program – Windows-skrivbord, iOS, Android, WP och webb klient | Microsoft Teams | Windows 10, Windows 8,1, Windows 7, iOS, Android och macOS |
-| Office 2016-appar, Office 2013 (med modern autentisering), [OneDrive-synkronisering-klient](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8,1, Windows 7 |
-| Office 2016-appar, universella Office-appar, Office 2013 (med modern autentisering), [OneDrive-synkroniseringsklient](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
-| Office 2016 (Word, Excel, PowerPoint, endast OneNote). | Office 365 SharePoint Online | macOS |
-| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
-| Office Mobile-appar | Office 365 SharePoint Online | Android, iOS |
-| Office Yammer-app | Office 365 Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016 (Office för macOS) | Office 365 Exchange Online | macOS |
-| Outlook 2016, Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering) | Office 365 Exchange Online | Windows 8,1, Windows 7 |
-| Outlook-mobilapp | Office 365 Exchange Online | Android, iOS |
-| Power BI-app | Power BI-tjänst | Windows 10, Windows 8,1, Windows 7, Android och iOS |
-| Skype för företag | Office 365 Exchange Online| Android, iOS |
+| Office 2016-appar, Office 2013 (med modern autentisering), [OneDrive-synkronisering-klient](/onedrive/enable-conditional-access) | SharePoint | Windows 8,1, Windows 7 |
+| Office 2016-appar, universella Office-appar, Office 2013 (med modern autentisering), [OneDrive-synkroniseringsklient](/onedrive/enable-conditional-access) | sharepoint online | Windows 10 |
+| Office 2016 (Word, Excel, PowerPoint, endast OneNote). | SharePoint | macOS |
+| Office 2019| SharePoint | Windows 10, macOS |
+| Office Mobile-appar | SharePoint | Android, iOS |
+| Office Yammer-app | Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2016 (Office för macOS) | Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering) | Exchange Online | Windows 8,1, Windows 7 |
+| Outlook-mobilapp | Exchange Online | Android, iOS |
+| Power BI-app | Power BI-tjänsten | Windows 10, Windows 8,1, Windows 7, Android och iOS |
+| Skype för företag | Exchange Online| Android, iOS |
 | Visual Studio Team Services-app | Visual Studio Team Services | Windows 10, Windows 8,1, Windows 7, iOS och Android |
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync-klienter
 
 - Organisationer kan bara välja Exchange ActiveSync-klienter när de tilldelar principer till användare eller grupper. Om du markerar **alla användare**, **alla gäst-och externa användare**eller **katalog roller** kommer alla användare att bli blockerade.
-- När du skapar en princip som är tilldelad till Exchange ActiveSync-klienter bör **Office 365 Exchange Online** vara det enda moln program som tilldelats principen. 
+- När du skapar en princip som är tilldelad till Exchange ActiveSync-klienter bör **Exchange Online** vara det enda moln program som tilldelats principen. 
 - Organisationer kan begränsa omfånget för den här principen till specifika plattformar med hjälp av villkor för **enhets plattformar** .
 
 Om åtkomst kontrollen som tilldelas principen använder **Kräv godkänd klient app**, dirigeras användaren till att installera och använda Outlook Mobile-klienten. Om **Multi-Factor Authentication** krävs blockeras berörda användare, eftersom grundläggande autentisering inte stöder Multi-Factor Authentication.

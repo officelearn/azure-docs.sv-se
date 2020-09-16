@@ -5,23 +5,31 @@ description: 'Azure Cognitive Services är moln tjänster med REST API: er och S
 services: cognitive-services
 author: nitinme
 manager: nitinme
-keywords: kognitiva tjänster, kognitiv intelligens, kognitiva tjänster, AI som en tjänst, kognitiva lösningar, kognitiv artificiell intelligens, kognitiv program vara, AI-tjänster, kognitiva AI, kognitiv förståelse
+keywords: kognitiva tjänster, kognitiv intelligens, kognitiva lösningar, AI-tjänster, kognitiv förståelse, kognitiva funktioner
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
 ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3d7f5926991239786d9b37dffecc05cd8983bf3f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 6490b3cf2d3813a2740c548f778e65f1df6e7b01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379291"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603666"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
-Azure Cognitive Services är moln tjänster med REST API: er och SDK: er för klient bibliotek som är tillgängliga för att hjälpa utvecklare att bygga kognitiva intelligenta program utan att ha direkt artificiell intelligens (AI) eller data vetenskaps kunskaper eller kunskap. Azure Cognitive Services gör det möjligt för utvecklare att enkelt lägga till kognitiva funktioner i sina program. Målet med Azure Cognitive Services är att hjälpa utvecklare att skapa program som kan se, höra, tala, förstå och till och med börja på skäl. Katalogen med tjänster i Azure Cognitive Services kan kategoriseras i fem huvud pelare, tal, språk, Webbsökning och beslut.
+Azure Cognitive Services är Cloud-Base-tjänster med REST API: er och SDK: er för klient bibliotek som är tillgängliga för att hjälpa utvecklare att bygga kognitiv information i program utan att ha direkt artificiell intelligens (AI) eller data vetenskaps kunskaper eller kunskap. Azure Cognitive Services gör det möjligt för utvecklare att enkelt lägga till kognitiva funktioner i sina program med kognitiva lösningar som kan se, höra, tala, förstå och till och med börja på skäl.
+
+Katalogen med AI-tjänster som ger kognitiv förståelse kategoriseras i fem huvud pelare:
+
+* Visuellt innehåll
+* Tal
+* Språk
+* Webbsökning
+* Beslut
 
 Den aktuella listan med ny dokumentation är tillgänglig [i Nyheter i Cognitive Services dokument](whats-new-docs.md).
 
@@ -31,7 +39,7 @@ Den aktuella listan med ny dokumentation är tillgänglig [i Nyheter i Cognitive
 |:-----------|:------------------|
 |[Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Visuellt innehåll")|Tjänsten Visuellt innehåll ger dig till gång till avancerade kognitiva algoritmer för bearbetning av bilder och information som returneras.|
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|Med Custom Vision Service kan du bygga anpassade bild klassificerare.|
-|[Ansikte](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut.|
+|[Ansiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut.|
 |[Formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Formigenkänning") (för hands version)|Formulär tolken identifierar och extraherar nyckel/värde-par och tabell data från formulär dokument. matar sedan ut strukturerade data, inklusive relationerna i original filen.|
 |[Tryck färgs tolkning](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Handskriftsigenkänning") (tas ur bruk)|Med hjälp av hand SKRIFTS tolken kan du identifiera och analysera digitala pennan tecknings data, former och handskrivna innehåll och generera en dokument struktur med alla identifierade entiteter.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Med Video Indexer kan du extrahera insikter från videon.|
@@ -82,6 +90,15 @@ Den aktuella listan med ny dokumentation är tillgänglig [i Nyheter i Cognitive
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator tillhandahåller övervakning av potentiellt stötande, olämpligt och riskfylldt innehåll.|
 |[Personanpassning](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personanpassning")|Med personanpassa kan du välja den bästa upplevelsen som ska visas för användarna, lära sig från deras real tids beteende.|
 
+## <a name="learn-with-the-quickstarts"></a>Lär dig med snabb starter
+
+Lär dig mer om att skapa en Cognitive Services-resurs med praktiska snabb starter med hjälp av:
+
+* [Azure-portalen](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure Portal")
+* [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
+* [Klient bibliotek för Azure SDK](cognitive-services-apis-create-account-cli.md?tabs=windows "kognitiva tjänster-API: er-Create-Account-Client-library? pivoting = Programming-Language-csharp")
+* [Azure Resource Manager-mallar (ARM)](resource-manager-template.md?tabs=portal "Azure Resource Manager-mallar (ARM)")
+
 ## <a name="subscription-management"></a>Prenumerationshantering
 
 När du har loggat in med ditt Microsoft-konto kan du komma åt [Mina prenumerationer](https://www.microsoft.com/cognitive-services/subscriptions "Mina prenumerationer") för att visa de produkter du använder, återstående kvot och möjlighet att lägga till ytterligare produkter till din prenumeration.
@@ -118,7 +135,10 @@ Om du vill förstå sekretess-och data hantering går du till [säkerhets Center
 
 ## <a name="support"></a>Support
 
-Cognitive Services tillhandahålla flera [Support alternativ](cognitive-services-support-options.md "Support alternativ").
+Cognitive Services innehåller flera [Support alternativ](cognitive-services-support-options.md "Support alternativ").
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

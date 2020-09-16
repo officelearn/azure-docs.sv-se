@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321964"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601323"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referens för Azure Active Directory General Operations Guide
 
@@ -125,9 +125,9 @@ Om din organisation för närvarande inte har något program på plats för att 
 
 ### <a name="notifications"></a>Meddelanden
 
-Microsoft skickar e-postkommunikation till administratörer för att meddela olika ändringar i tjänsten, konfigurations uppdateringar som behövs och fel som kräver administratörs åtgärder. Det är viktigt att kunderna anger e-postadresserna för aviseringar så att meddelanden skickas till rätt team medlemmar som kan bekräfta och agera på alla meddelanden. Vi rekommenderar att du lägger till flera mottagare i [meddelande centret för Office 365](/office365/admin/manage/message-center) och begär att meddelanden (inklusive Azure AD Connect Health meddelanden) skickas till en distributions lista eller delad post låda. Om du bara har ett globalt administratörs konto med en e-postadress måste du konfigurera minst två e-postkompatibla konton.
+Microsoft skickar e-postkommunikation till administratörer för att meddela olika ändringar i tjänsten, konfigurations uppdateringar som behövs och fel som kräver administratörs åtgärder. Det är viktigt att kunderna anger e-postadresserna för aviseringar så att meddelanden skickas till rätt team medlemmar som kan bekräfta och agera på alla meddelanden. Vi rekommenderar att du lägger till flera mottagare i [meddelande centret](/office365/admin/manage/message-center) och begär att meddelanden (inklusive Azure AD Connect Health meddelanden) skickas till en distributions lista eller delad post låda. Om du bara har ett globalt administratörs konto med en e-postadress måste du konfigurera minst två e-postkompatibla konton.
 
-Det finns två "från"-adresser som används av Azure AD: <o365mc@email2.microsoft.com> , som skickar meddelanden om Office 365 meddelande Center och <azure-noreply@microsoft.com> , som skickar meddelanden som rör:
+Det finns två "från"-adresser som används av Azure AD: <o365mc@email2.microsoft.com> , som skickar meddelande Center-meddelanden och <azure-noreply@microsoft.com> , som skickar meddelanden som rör:
 
 - [Åtkomst granskningar för Azure AD](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -141,14 +141,14 @@ Se följande tabell för att lära dig vilken typ av meddelanden som skickas och
 | Meddelande källa | Vad som skickas | Var ska du kontrol lera |
 |:-|:-|:-|
 | Teknisk kontakt | Synkroniseringsfel | Bladet Azure Portal-egenskaper |
-| Meddelandecenter för Office 365 | Information om incidenter och försämring av identitets tjänster och O365-backend-tjänster | Office-portalen |
+| Meddelandecenter | Meddelanden om incidenter och försämring av identitets tjänster och Microsoft 365 backend-tjänster | Office-portalen |
 | Veckovis sammandrag av identitets skydd | Sammandrag av identitets skydd | Azure AD Identity Protection bladet |
 | Azure AD Connect Health | Aviserings meddelanden | Bladet Azure Portal-Azure AD Connect Health |
 | Meddelanden om företags program | Meddelanden när certifikat upphör att gälla och etablerings fel | Bladet Azure Portal-företags program (varje app har sin egen e-postadress inställning) |
 
 #### <a name="notifications-recommended-reading"></a>Meddelanden som rekommenderas vid läsning
 
-- [Ändra din organisations adress, teknisk kontakt och mer – Office 365](/office365/admin/manage/change-address-contact-and-more)
+- [Ändra din organisations adress, teknisk kontakt med mera](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Drift ytans yta
 

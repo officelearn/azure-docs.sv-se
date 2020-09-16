@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530411"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600661"
 ---
 # <a name="common-questions"></a>Vanliga frågor
 
@@ -90,6 +90,9 @@ Den hanterade identiteten för resurs förflyttad identitet saknar den roll som 
 Resurs förflyttnings hanterad identitet återställdes till *ingen*. | Återaktivera en systemtilldelad identitet i flytt samlingen > **identitet**. Du kan också lägga till resursen igen i **Lägg till resurser**, vilket gör samma sak.  
 Prenumerationen har flyttats till en annan klient. | Inaktivera och aktivera sedan hanterad identitet för flytt samlingen.
 
+### <a name="how-can-i-do-multiple-moves-together"></a>Hur kan jag göra flera flyttningar tillsammans?
+
+Ändra kombinationerna av källa/mål efter behov med hjälp av alternativet ändra i portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 

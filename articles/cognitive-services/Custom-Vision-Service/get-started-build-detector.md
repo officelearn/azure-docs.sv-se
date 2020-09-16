@@ -1,25 +1,25 @@
 ---
 title: Snabb start Bygg en objekt detektor – Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa en bild klassificerings modell.
+description: I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa en objekt detektor modell.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 234c80e84e11579a66737c3e5efedfda34182ac5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549555"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602871"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Snabb start: så här skapar du en objekt detektor med Custom Vision
 
-I den här snabb starten får du lära dig hur du skapar en objekt detektor via Custom Vision webbplats. När du har skapat en detektor modell kan du använda tjänsten Custom Vision för objekt identifiering.
+I den här snabb starten får du lära dig hur du skapar en objekt detektor via Custom Vision webbplats. När du har skapat en modell kan du testa i med nya avbildningar och till och med integrera den i din egen bild igenkännings program vara.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
@@ -27,7 +27,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 - En uppsättning avbildningar som du kan använda för att träna din detektor modell. Du kan använda en uppsättning [exempel bilder](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) på GitHub. Du kan också välja egna bilder med hjälp av tipsen nedan.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Skapa Custom Vision resurser i Azure Portal
+## <a name="create-custom-vision-resources"></a>Skapa Custom Vision resurser
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,13 +45,13 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
 1. Ange ett namn och en beskrivning för projektet. Välj sedan en resurs grupp. Om ditt inloggade konto är associerat med ett Azure-konto visas alla Azure-resurs grupper som innehåller en Custom Vision Service resurs i list rutan resurs grupp. 
 
    > [!NOTE]
-   > Om ingen resurs grupp är tillgänglig bekräftar du att du har loggat in på [customvision.AI](https://customvision.ai) med samma konto som du använde för att logga in på [Azure Portal](https://portal.azure.com/). Kontrol lera också att du har valt samma "katalog" i Custom Vision portal som katalog i den Azure Portal där dina Custom Vision-resurser finns. På båda platserna kan du välja din katalog från menyn för List menyn i det övre högra hörnet på skärmen. 
+   > Om ingen resurs grupp är tillgänglig bekräftar du att du har loggat in på [customvision.AI](https://customvision.ai) med samma konto som du använde för att logga in på [Azure Portal](https://portal.azure.com/). Bekräfta också att du har valt samma "katalog" på Custom Vision webbplats som katalog i Azure Portal där dina Custom Vision-resurser finns. På båda platserna kan du välja din katalog från menyn för List menyn i det övre högra hörnet på skärmen. 
 
 1. Välj __objekt identifiering__ under __projekt typer__.
 
 1. Välj sedan en av de tillgängliga domänerna. Varje domän optimerar detektorn för vissa typer av avbildningar, enligt beskrivningen i följande tabell. Du kommer att kunna ändra domänen senare om du vill.
 
-    |Domain|Syfte|
+    |Domän|Syfte|
     |---|---|
     |__Allmänt__| Optimerad för ett brett utbud av objekt identifierings aktiviteter. Om ingen av de andra domänerna är lämpliga, eller om du är osäker på vilken domän du väljer, väljer du den allmänna domänen. |
     |__Logotyp__|Optimerad för att hitta varumärkes logo typer i bilder.|
@@ -118,3 +118,4 @@ I den här snabb starten har du lärt dig hur du skapar och tränar en objekt de
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](test-your-model.md)
 
+* [Vad är Custom Vision?](./overview.md)

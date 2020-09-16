@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4929836b7fb617884008fafea50a10e0212fbd58
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7c144ddac255087ae48ff2f1c5406ad66d670562
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961966"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601375"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -25,8 +25,6 @@ Application Gateway dirigerar program webb trafik till specifika resurser i en b
 Du kan också slutföra den här snabb starten med [Azure PowerShell](quick-create-powershell.md) eller [Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -171,7 +169,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 2. Kör följande kommando för att installera IIS på den virtuella datorn. Ändra *plats* parametern om det behövs: 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -196,7 +194,6 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 4. Under **backend-mål**, **måltyp**väljer du **virtuell dator** i den nedrullningsbara listan.
 
 5. Under **mål**väljer du de virtuella **MyVM** -och **myVM2** -datorerna och deras associerade nätverks gränssnitt från List rutorna.
-
 
    > [!div class="mx-imgBorder"]
    > ![Lägga till serverdelsservrar](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

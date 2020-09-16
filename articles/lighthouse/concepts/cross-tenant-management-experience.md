@@ -3,12 +3,12 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67111ecb215f4976dd8d3bbe0b901e68c3ef10ec
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564074"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602395"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -48,13 +48,13 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 
 [Azure-båge](../../azure-arc/index.yml):
 
-- Hantera hybrid servrar i skala – [Azure-båge för servrar (för hands version)](../../azure-arc/servers/overview.md):
-  - [Anslut Windows Server-eller Linux-datorer utanför Azure](../../azure-arc/servers/onboard-portal.md) till delegerade prenumerationer och/eller resurs grupper i Azure
+- Hantera hybrid servrar i skala – [Azure Arc-aktiverade servrar (för hands version)](../../azure-arc/servers/overview.md):
+  - [Hantera Windows Server-eller Linux-datorer utanför Azure som är anslutna](../../azure-arc/servers/onboard-portal.md) till delegerade prenumerationer och/eller resurs grupper i Azure
   - Hantera anslutna datorer med hjälp av Azure-konstruktioner, till exempel Azure Policy och taggning
   - Se till att samma uppsättning principer tillämpas på kunders hybrid miljöer
   - Använd Azure Security Center för att övervaka efterlevnad över kunders hybrid miljöer
 - Hantera hybrid Kubernetes-kluster i skala – [Azure Arc Enabled Kubernetes (för hands version)](../../azure-arc/kubernetes/overview.md):
-  - [Anslut ett Kubernetes-kluster till Azure-bågen](../../azure-arc/kubernetes/connect-cluster.md) till delegerade prenumerationer och/eller resurs grupper i Azure
+  - [Hantera Kubernetes-kluster som är anslutna](../../azure-arc/kubernetes/connect-cluster.md) till delegerade prenumerationer och/eller resurs grupper i Azure
   - [Använda GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) för anslutna kluster
   - Tillämpa principer i anslutna kluster
 

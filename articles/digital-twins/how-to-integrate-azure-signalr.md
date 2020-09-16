@@ -34,7 +34,7 @@ Du kan också gå vidare och logga in på [Azure Portal](https://portal.azure.co
 
 Du kommer att ansluta Azure SignalR-tjänsten till Azure Digitals dubbla steg genom sökvägen nedan. Avsnitten A, B och C i diagrammet hämtas från arkitektur diagrammet för det krav som gäller från [slut punkt till slut punkt](tutorial-end-to-end.md). i den här instruktionen kommer du att bygga på detta genom att lägga till avsnitt D.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. "sändning" kommunicerar med en annan Azure-funktion med etiketten "förhandla", och både sändnings-och Negotiate-kommunikation med dator enheter." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. sändning kommunicerar med en annan Azure-funktion med etiketten förhandla, och både sändnings-och Negotiate-kommunikation med dator enheter." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## <a name="download-the-sample-applications"></a>Ladda ned exempel programmen
 
@@ -139,11 +139,11 @@ Starta sedan Visual Studio (eller en annan valfri kod redigerare) och öppna kod
 Publicera sedan din funktion till Azure med hjälp av stegen som beskrivs i artikeln [ *Publicera appen app* ](tutorial-end-to-end.md#publish-the-app) i guiden *Anslut en lösning från slut punkt till slut punkt* . Du kan publicera den till samma app service/Function-app som du använde i den kompletta självstudien krav, eller skapa en ny, men du kanske vill använda samma som för att minimera duplicering. Slutför också appen publicera med följande steg:
 1. Samla in URL: en för *Negotiate* -funktionens **http-slutpunkt**. Det gör du genom att gå till sidan för Azure Portal [funktions appar](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) och välja din Function-app i listan. I menyn app väljer du *Functions* och sedan *Negotiate* -funktionen.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure Portal visning av Function-appen med "Functions" markerat i menyn. Listan över funktioner visas på sidan och funktionen Negotiate är också markerad.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure Portal visning av Function-appen med Functions markerat i menyn. Listan över funktioner visas på sidan och funktionen Negotiate är också markerad.":::
 
     Tryck på *Hämta funktions webb adress* och kopiera värdet **uppåt till _/API_ (ta inte med den senaste _/Negotiate?_)**. Du kommer att använda detta senare.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure Portal visning av funktionen Negotiate. Knappen "Hämta funktions webb adress" är markerad och del av URL: en från början till "/API"":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure Portal visning av funktionen Negotiate. Knappen Hämta funktions webb adress är markerad och del av URL: en från början till /API":::
 
 1. Slutligen lägger du till **anslutnings strängen** för Azure SignalR från tidigare till funktionens appinställningar med hjälp av följande Azure CLI-kommando. Kommandot kan köras i [Azure Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
  

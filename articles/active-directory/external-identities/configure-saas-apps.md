@@ -1,6 +1,6 @@
 ---
 title: Konfigurera SaaS-appar för B2B-samarbete – Azure AD
-description: Kod- och PowerShell-exempel för Azure Active Directory B2B-samarbete
+description: Lär dig hur du konfigurerar SaaS-appar för Azure Active Directory B2B-samarbete och Visa fler tillgängliga resurser.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910226"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705518"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
 
@@ -105,5 +105,5 @@ Se följande artiklar om Azure AD B2B-samarbete:
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 - [Dynamiska grupper och B2B-samarbete](use-dynamic-groups.md)
 - [Mappning av användar anspråk för B2B-samarbete](claims-mapping.md)
-- [Extern delning av Office 365](o365-external-user.md)
+- [Microsoft 365 extern delning](o365-external-user.md)
 

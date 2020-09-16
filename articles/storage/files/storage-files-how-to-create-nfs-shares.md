@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c265f404b2e2e2796baf0febb93997ef099f0844
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2a848cb77336fc89172d55a6204d66b9e5be5976
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564949"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705239"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Så här skapar du en NFS-resurs
 
@@ -163,3 +163,5 @@ az storage share-rm create \
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har skapat en NFS-resurs, för att använda den, måste du montera den på Linux-klienten. Mer information finns i [så här monterar du en NFS-resurs](storage-files-how-to-mount-nfs-shares.md).
+
+Om det uppstår några problem kan du läsa [Felsöka Azure NFS-filresurser](storage-troubleshooting-files-nfs.md).

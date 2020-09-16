@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f3a6d9cea1aa1ebcb76f61882dcf2615dc4832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13bb7782f6396466200fbb3e2df77158bb75d8a4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554646"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705409"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Översikt över Azure Multi-Factor Authentication för din organisation
 
@@ -34,10 +34,10 @@ Kunder som utnyttjar de kostnads fria fördelarna med Azure AD kan använda [sä
 
 ## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 eller E5
 
-För kunder med Office 365 finns det två alternativ:
+För kunder med Microsoft 365 finns det två alternativ:
 
 * Azure Multi-Factor Authentication antingen aktive ras eller inaktive ras för alla användare, för alla inloggnings händelser. Det finns ingen möjlighet att endast aktivera Multi-Factor Authentication för en delmängd av användare eller endast i vissa scenarier. Hanteringen sker via Office 365-portalen. 
-* Uppgradera till Azure AD Premium P1 eller P2 och Använd villkorlig åtkomst för att få en bättre användar upplevelse. Mer information finns i skydda Office 365-resurser med Multi-Factor Authentication.
+* Uppgradera till Azure AD Premium P1 eller P2 och Använd villkorlig åtkomst för att få en bättre användar upplevelse. Mer information finns i skydda Microsoft 365 resurser med Multi-Factor Authentication.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
 

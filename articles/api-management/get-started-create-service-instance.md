@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 104e1873a56d1ecf6e9f11a271344e9b4073e780
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033372"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708214"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Snabb start: skapa en ny instans av Azure API Management-tjänsten med hjälp av Azure Portal
 
@@ -43,7 +43,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
    :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Ny instans":::
    
-   | Inställningen                 | Beskrivning   |                                                                     
+   | Inställning                 | Beskrivning   |                                                                     
    |-------------------------|-----------------------------------------------|
    | **Namn**                | Ett unikt namn för din API Management-tjänst. Namnet kan inte ändras senare. Tjänst namnet avser både tjänsten och motsvarande Azure-resurs. <br/> Tjänst namnet används för att generera ett standard domän namn: * \<name\> . Azure-API.net.* Om du vill använda ett anpassat domännamn läser du [Konfigurera ett anpassat domännamn](configure-custom-domain.md). |
    | **Prenumeration**          | Den prenumeration som den här nya tjänstinstansen kommer att skapas för.   |
@@ -56,7 +56,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 3. Välj **Skapa**.
 
     > [!TIP]
-    > Det tar vanligt vis mellan 20 och 30 minuter att skapa och aktivera en API Management-tjänst. Om du väljer **Fäst vid instrumentpanelen** blir det enklare att hitta en nyligen skapad tjänst.
+    > Det kan ta mellan 30 och 40 minuter att skapa och aktivera en API Management tjänst på den här nivån. Om du väljer **Fäst vid instrumentpanelen** blir det enklare att hitta en nyligen skapad tjänst.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543932"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705630"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurera ett OpenID/OAuth-program från Azure AD-appgalleri
 
@@ -76,13 +76,13 @@ Som standard främjas program för flera klientorganisationer i Azure AD. De är
 ## <a name="consent-framework"></a>Ramverk för medgivande
 
 Du kan använda Azure AD-ramverket för medgivande för att utveckla webbprogram och interna klientprogram för flera klientorgansiationer. Dessa program tillåter inloggning genom användarkonton från en Azure AD-klient, som skiljer sig från det där programmet har registrerats. De kan också behöva komma åt webb-API:er som:
-- Microsoft Graph API för att få åtkomst till Azure AD, Intune och tjänster i Office 365.
+- Microsoft Graph-API: t för att komma åt Azure AD, Intune och tjänster i Microsoft 365.
 - Övriga för Microsoft-tjänsters API:er.
 - Dina egna webb-API:er.
 
 Ramverket är baserat på att en användare eller administratör ger sitt medgivande till ett program som ber att få registreras i deras katalog. Registreringen kan handla om åtkomst till katalogdata. När tillstånd har getts kan klientprogrammet anropa Microsoft Graph API för användarens räkning och använda informationen vid behov.
 
-[Microsoft Graph API](https://developer.microsoft.com/graph/) ger åtkomst till data i Office 365, som:
+[Microsoft Graph-API](https://developer.microsoft.com/graph/) ger åtkomst till data i Microsoft 365, till exempel:
 
 - Kalendrar och meddelanden från Exchange.
 - Platser och listor från SharePoint.
@@ -121,7 +121,7 @@ Följande steg visar hur medgivande fungerar för programutvecklare och använda
 
 3. Om användaren inte redan autentiserats uppmanar Azure AD/auktorisera slutpunkt till inloggning.
 
-    ![Autentisering](./media/openidoauth-tutorial/authentication.png)
+    ![En skärm bild av inloggnings meddelandet för kontot](./media/openidoauth-tutorial/authentication.png)
 
 4. När användaren har loggat in avgör Azure AD om användaren måste visas en sida för medgivande. Detta val baseras på om användaren (eller deras organisations administratör) redan har beviljat ett program medgivande.
 

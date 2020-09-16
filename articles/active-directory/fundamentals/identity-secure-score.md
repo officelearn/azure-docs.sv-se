@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320655"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705494"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Vad är identitetssäkerhetspoäng i Azure Active Directory?
 
@@ -102,7 +102,7 @@ Du får poäng när du konfigurerar rekommenderade säkerhetsfunktioner eller n�
 
 Om du vill se din resultat historik går du till [Microsoft 365 Security Center](https://security.microsoft.com/) och läser igenom dina totala säkra Microsoft-poäng. Du kan granska ändringar av den övergripande säkra poängen genom att klicka på Visa historik. Välj ett specifikt datum för att se vilka kontroller som hade aktiverats för den dagen och vilka poäng du har fått för varje kontroll.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Hur är identitetssäkerhetspoäng relaterade till säkerhetspoäng i Office 365 Secure Score?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>Hur relaterar identiteten för den säkra poängen till Microsoft 365 säkra Poäng?
 
 [Microsofts säkra Poäng](/office365/securitycompliance/microsoft-secure-score) innehåller fem skilda kontroll-och Poäng kategorier:
 

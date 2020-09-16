@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 7957c6a3fdc8cb798292d03092ee1442b2c0a6bc
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004518"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605115"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 
@@ -28,7 +28,7 @@ I ett scenario där de virtuella datorerna distribueras som *en enda instans* ti
 - Flytta virtuella datorer i en tillgänglighets uppsättning till Tillgänglighetszoner i en mål region
 
 > [!IMPORTANT]
-> Om du vill flytta virtuella Azure-datorer till en tillgänglighets zon i en annan region region rekommenderar vi att du använder [Azure Resource-arbetskraft](../resource-mover/move-region-availability-zone.md). Resurs förflyttning är i offentlig för hands version och ger:
+> För att flytta virtuella Azure-datorer till en tillgänglighets zon i en annan region rekommenderar vi nu att du använder [Azure Resource-arbetskraft](../resource-mover/move-region-availability-zone.md). Resurs förflyttning är i offentlig för hands version och ger:
 > - En enda hubb för att flytta resurser mellan regioner.
 > - Minskad flytt tid och komplexitet. Allt du behöver finns på en enda plats.
 > - En enkel och konsekvent upplevelse för att flytta olika typer av Azure-resurser.

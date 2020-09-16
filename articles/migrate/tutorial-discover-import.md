@@ -1,34 +1,38 @@
 ---
-title: Identifiera lokala servrar med hjälp av en importerad CSV-fil med Azure Migrate Server bedömning
+title: Utvärdera lokala servrar med hjälp av en importerad CSV-fil med Azure Migrate Server bedömning
 description: Beskriver hur du identifierar lokala servrar för migrering till Azure med hjälp av en importerad CSV-fil i Azure Migrate Server bedömning
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 6526961df225e4f347216428141e8217043161df
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064519"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604231"
 ---
-# <a name="tutorial-discover-servers-using-an-imported-csv-file"></a>Självstudie: identifiera servrar som använder en importerad CSV-fil
+# <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Självstudie: utvärdera servrar med en importerad CSV-fil
 
 Som en del av migreringen till Azure identifierar du din lokala inventering och dina arbets belastningar. 
 
-Den här självstudien visar hur du identifierar lokala virtuella VMware-datorer (VM: ar) med verktyget Azure Migrate: Server bedömning med hjälp av en importerad CSV-fil (kommaavgränsade värden). 
+I den här självstudien lär du dig att utvärdera lokala datorer med Azure Migrate: Server utvärderings verktyget med hjälp av en importerad CSV-fil (kommaavgränsade värden). 
 
-Om du använder en CSV-fil behöver du inte konfigurera Azure Migrate-enheten för att identifiera servrar. Du kan kontrol lera de data som du delar i filen och mycket data är valfria. Den här metoden är användbar om:
+Om du använder en CSV-fil behöver du inte konfigurera Azure Migrate-enheten för att identifiera och utvärdera servrar. Du kan kontrol lera de data som du delar i filen och mycket data är valfria. Den här metoden är användbar om:
 
 - Du vill skapa en snabb, första utvärdering innan du distribuerar installationen.
 - Du kan inte Distribuera Azure Migrate-enheten i din organisation.
 - Du kan inte dela autentiseringsuppgifter som tillåter åtkomst till lokala servrar.
 - Säkerhets begränsningar förhindrar att du samlar in och skickar data som samlas in av produkten till Azure.
 
+> [!NOTE]
+> Du kan inte migrera servrar som importer ATS med en CSV-fil.
+
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure-konto
-> * Konfigurera ett Azure Migrate-projekt.
+> * Konfigurera ett Azure Migrate-projekt
 > * Förbered en CSV-fil
-> * Importera filen.
+> * Importera filen
+> * Utvärdera servrar
 
 > [!NOTE]
 > Självstudier visar den snabbaste sökvägen för att testa ett scenario och använda standard alternativ där det är möjligt. 
@@ -43,7 +47,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="prepare-an-azure-user-account"></a>Förbereda ett Azure-användarkonto
 
-Om du vill skapa ett Azure Migrate-projekt och registrera Azure Migrate-enheten måste du ha ett konto med:
+Om du vill skapa ett Azure Migrate-projekt behöver du ett konto med:
 - Deltagar-eller ägar behörigheter för en Azure-prenumeration.
 - Behörighet att registrera Azure Active Directory appar.
 
@@ -73,7 +77,7 @@ Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din pr
 
 ## <a name="set-up-a-project"></a>Konfigurera ett projekt
 
-Skapa ett nytt Azure Migrate-projekt.
+Skapa ett nytt Azure Migrate projekt om du inte har något.
 
 1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
 2. Under **Tjänster** väljer du **Azure Migrate**.
@@ -113,29 +117,29 @@ I följande tabell sammanfattas fil fälten som ska fyllas i:
 
 **Fältnamn** | **Erforderlig** | **Information**
 --- | --- | ---
-**Servernamn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
-**IP-adress** | Inga | Server adress.
-**Kärnor** | Ja | Antal processor kärnor som har allokerats till servern.
-**Minne** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
-**OS-namn** | Ja | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
-**OS-version** | Inga | Serverns operativ system version.
-**OS-arkitektur** | Inga | Serverns OS-arkitektur <br/> Giltiga värden är: x64, x86, amd64, 32-bitars eller 64-bit
-**Antal diskar** | Inga | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | Inga | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | Inga | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | Inga | Data läses från disken per sekund, i MB per sekund.
-**Disk 1 Skriv data flöde** | Inga | Data som skrivs till disk per sekund, i MB per sekund.
-**Procent andel CPU-användning** | Inga | Procent andel CPU som används.
-**Procent andel minnes användning** | Inga | Procent andelen RAM-minne som används.
-**Totalt antal diskar Read OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | Inga | Disk-Skriv åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | Inga | Data läses från disken, i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | Inga | Data som skrivs till disk, i MB per sekund.
-**Nätverk i data flöde** | Inga | Data som tagits emot av servern, i MB per sekund.
-**Nätverks utflöde** | Inga | Data som överförs av servern, i MB per sekund.
-**Typ av inbyggd program vara** | Inga | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
-**MAC-adress**| Inga | Serverns MAC-adress.
+**Servernamn** | Yes | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
+**IP-adress** | No | Server adress.
+**Kärnor** | Yes | Antal processor kärnor som har allokerats till servern.
+**Minne** | Yes | Totalt RAM-minne, i MB, allokeras till servern.
+**OS-namn** | Yes | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
+**OS-version** | No | Serverns operativ system version.
+**OS-arkitektur** | No | Serverns OS-arkitektur <br/> Giltiga värden är: x64, x86, amd64, 32-bitars eller 64-bit
+**Antal diskar** | No | Behövs inte om enskilda disk uppgifter anges.
+**Disk 1-storlek**  | No | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1, Läs OPS** | No | Disk läsnings åtgärder per sekund.
+**Disk 1 Skriv OPS** | No | Disk skrivnings åtgärder per sekund.
+**Disk 1 Läs data flöde** | No | Data läses från disken per sekund, i MB per sekund.
+**Disk 1 Skriv data flöde** | No | Data som skrivs till disk per sekund, i MB per sekund.
+**Procent andel CPU-användning** | No | Procent andel CPU som används.
+**Procent andel minnes användning** | No | Procent andelen RAM-minne som används.
+**Totalt antal diskar Read OPS** | No | Disk läsnings åtgärder per sekund.
+**Skriv Ops totalt antal diskar** | No | Disk-Skriv åtgärder per sekund.
+**Totalt antal diskar läsnings data flöde** | No | Data läses från disken, i MB per sekund.
+**Totalt antal diskar Skriv data flöde** | No | Data som skrivs till disk, i MB per sekund.
+**Nätverk i data flöde** | No | Data som tagits emot av servern, i MB per sekund.
+**Nätverks utflöde** | No | Data som överförs av servern, i MB per sekund.
+**Typ av inbyggd program vara** | No | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
+**MAC-adress**| No | Serverns MAC-adress.
 
 
 ### <a name="add-operating-systems"></a>Lägg till operativ system
@@ -157,7 +161,7 @@ Om du till exempel vill ange alla fält för en annan disk lägger du till följ
 
 ## <a name="import-the-server-information"></a>Importera Server informationen
 
-När du har lagt till information i CSV-mallen importerar du servrarna till Server utvärderingen.
+När du har lagt till information i CSV-mallen importerar du CSV-filen till Server utvärderingen.
 
 1. I Azure Migrate går du till den färdiga mallen i **identifiera datorer**.
 2. Välj **Importera**.
@@ -169,7 +173,7 @@ När du har lagt till information i CSV-mallen importerar du servrarna till Serv
         1. Hämta CSV-filen som nu innehåller fel information.
         1. Granska och åtgärda felen vid behov. 
         1. Överför den ändrade filen igen.
-4. När import statusen är **slutförd**har Server informationen importer ATS.
+4. När import statusen är **slutförd**har Server informationen importer ATS. Uppdatera om import processen inte verkar vara fullständig.
 
 ## <a name="update-server-information"></a>Uppdatera Server information
 

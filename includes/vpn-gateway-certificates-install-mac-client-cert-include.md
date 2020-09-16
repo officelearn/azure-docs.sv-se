@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b214932f43ce20480ee37a7b4edf942f080b38e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce39e23208398f6060103345a6c6cb3541834abc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187236"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606342"
 ---
 När du installerar ett klientcertifikat behöver du lösenordet som skapades när klientcertifikatet exporterades.
 
@@ -23,4 +23,4 @@ När du installerar ett klientcertifikat behöver du lösenordet som skapades n�
    ![Lägg till certifikat](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
 3. Ange lösen ordet som du skapade när klient certifikatet exporterades. Lösen ordet skyddar certifikatets privata nyckel. Klicka på **OK** för att slutföra installationen.
 
-   ![lösenordsinställning](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+   ![Skärm bild som visar en dialog ruta där du uppmanas att ange ett lösen ord.](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)

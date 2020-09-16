@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 293aa80336b259a760a835e3ece56d50287f06ed
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299889"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604129"
 ---
 # <a name="what-is-application-management"></a>Vad är programhantering?
 
@@ -49,7 +49,7 @@ Organisationer har ofta hundratals program som användarna behöver för att utf
 
 ## <a name="how-does-azure-ad-work-with-applications"></a>Hur fungerar Azure AD med program?
 
-Azure AD fören klar hanteringen av dina program genom att tillhandahålla ett enda identitets system för dina molnbaserade och lokala appar. Du kan lägga till SaaS-program (program vara som en tjänst), lokala program och LOB-appar (Line of Business) till Azure AD. Användarna loggar sedan in en gång för att på ett säkert och smidigt sätt komma åt dessa program, tillsammans med Office 365 och andra företags program från Microsoft. Du kan minska administrativa kostnader genom att [Automatisera användar etableringen](../app-provisioning/user-provisioning.md). Du kan också använda Multi-Factor Authentication och principer för villkorlig åtkomst för att ge säker åtkomst till programmet.
+Azure AD fören klar hanteringen av dina program genom att tillhandahålla ett enda identitets system för dina molnbaserade och lokala appar. Du kan lägga till SaaS-program (program vara som en tjänst), lokala program och LOB-appar (Line of Business) till Azure AD. Användarna loggar sedan in en gång för att på ett säkert och smidigt sätt komma åt dessa program, tillsammans med Microsoft 365 och andra företags program från Microsoft. Du kan minska administrativa kostnader genom att [Automatisera användar etableringen](../app-provisioning/user-provisioning.md). Du kan också använda Multi-Factor Authentication och principer för villkorlig åtkomst för att ge säker åtkomst till programmet.
 
 ![Diagram som visar federerade appar via Azure AD](media/what-is-application-management/app-management-overview.png)
 
@@ -59,7 +59,7 @@ Det finns fyra huvud typer av program som du kan lägga till i dina **företags 
 
 - **Azure AD Gallery-program** – Azure AD har ett galleri som innehåller tusentals program som har integrerats för enkel inloggning med Azure AD. Vissa av de program som din organisation använder finns förmodligen i galleriet. [Lär dig mer om att planera din program integrering](plan-an-application-integration.md)eller få detaljerade integrerings steg för enskilda appar i [självstudierna för SaaS-program](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
-- **Lokala program med programproxy** – med Azure AD-programproxy kan du integrera dina lokala webbappar med Azure AD för att stödja enkel inloggning. Slutanvändare kan sedan komma åt dina lokala webbappar på samma sätt som de kommer åt Office 365 och andra SaaS-appar, se [ge fjärråtkomst till lokala program via Azure Ads programproxy](application-proxy.md).
+- **Lokala program med programproxy** – med Azure AD-programproxy kan du integrera dina lokala webbappar med Azure AD för att stödja enkel inloggning. Slutanvändare kan sedan komma åt dina lokala webbappar på samma sätt som de kommer åt Microsoft 365 och andra SaaS-appar, se [ge fjärråtkomst till lokala program via Azure Ads programproxy](application-proxy.md).
 
 - **Anpassade program** – när du skapar dina egna affärs program kan du integrera dem med Azure AD för att stödja enkel inloggning. Genom att registrera ditt program med Azure AD har du kontroll över autentiseringsprincip för programmet. Mer information finns i [vägledning för utvecklare](developer-guidance-for-integrating-applications.md).
 
@@ -77,7 +77,7 @@ Koppling av enkel inloggning med Azure AD (SSO) med [villkorlig åtkomst](../con
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Förbättra produktiviteten med enkel inloggning
 
-Aktivera enkel inloggning (SSO) för alla program och för Office 365 för bästa möjliga inloggning för befintliga användare genom färre eller inga inloggningsuppmaningar. Användarnas miljöer känns mer sammanhängande och mindre störande med färre uppmaningar och utan behov för flera lösenord. Affärsgruppen kan hantera och godkänna åtkomst via självbetjäning och dynamiska medlemskap. Då rätt personer i företaget hanterar åtkomst till program förbättras även säkerheten för ID-system.
+Att aktivera enkel inloggning (SSO) i alla program och Microsoft 365 ger en överlägsen inloggnings upplevelse för befintliga användare genom att minska eller eliminera inloggnings meddelanden. Användarnas miljöer känns mer sammanhängande och mindre störande med färre uppmaningar och utan behov för flera lösenord. Affärsgruppen kan hantera och godkänna åtkomst via självbetjäning och dynamiska medlemskap. Då rätt personer i företaget hanterar åtkomst till program förbättras även säkerheten för ID-system.
 
 Enkel inloggning ger bättre säkerhet. *Utan enkel inloggning* måste administratörer skapa och uppdatera användarkonton för varje enskilt program, vilket kräver tid. Användare måste dessutom hålla reda på flera autentiseringsuppgifter för att använda olika program. Därmed tenderar användarna att skriva ned sina lösenord eller använda andra lösningar för lösenordshantering, vilket medför datasäkerhetsrisker. [Läs mer om enkel inloggning](what-is-single-sign-on.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 500bfff4afaebc345d344566b02fe945edb05795
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562612"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605149"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Konfigurera SAML-baserad enkel inloggning
 
@@ -48,7 +48,7 @@ Du bör hämta värdena från program leverantören. Du kan ange värdena manuel
 |:--|:--|:--|:--|
 | **Identifierare (entitets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https:// <subdomain> . contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
 | **Svarswebbadress** | Obligatorisk | Obligatorisk | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
-| **Inloggnings-URL** | Obligatorisk | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL: en för att starta programmet från Office 365 eller Azure AD Mina appar. När en användare startar programmet från Office 365, Azure AD Mina appar eller Azure AD SSO-URL: en är tom IdP.|
+| **Inloggnings-URL** | Obligatorisk | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL: en för att starta programmet från Microsoft 365 eller Azure AD Mina appar. När en användare startar programmet från Microsoft 365, Azure AD Mina appar eller Azure AD SSO-URL: en är tom.|
 | **Vidarebefordransstatus** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
 | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
 

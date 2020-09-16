@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2eb2dbc43c59f4f6301c7f5073a73462639d35b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8172e0e208d9a780c7676d7cb0e77dbc1c16f493
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797113"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606676"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Skapa Azure AD-klienten
 
@@ -47,7 +47,7 @@ Registrera VPN-klienten i Azure AD-klienten.
 
 4. Ge sedan administrativt medgivande. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
 
-    Offentlig
+    Offentliga
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent
@@ -77,7 +77,7 @@ Registrera VPN-klienten i Azure AD-klienten.
 
 6. Välj **acceptera** när du uppmanas till detta.
 
-    ![Acceptera](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![Skärm bild som visar ett fönster med de meddelande behörigheter som har begärts acceptera för din organisation och information om begäran.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. I **företags program**i Azure AD kommer du att se **Azure VPN** i listan.
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: da6554ae3b7df9962e1f57ac652567c282227d64
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bfc285f68e8a44b6b09fc63d9b2775a047955a37
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661656"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604673"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 >
 > Du kan också läsa Azure Machine Learning – [Distribuera till lokal notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -60,6 +60,39 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
     - Om du vill distribuera modeller till GPU-noder eller FPGA-noder (eller vissa SKU: er) måste du skapa ett kluster med den angivna SKU: n. Det finns inget stöd för att skapa en sekundär Node-pool i ett befintligt kluster och distribuera modeller i den sekundära noden.
 
+## <a name="understand-the-deployment-processes"></a>Förstå distributions processerna
+
+Ordet "Deployment" används i både Kubernetes och Azure Machine Learning. "Distribution" har olika betydelser i dessa två kontexter. I Kubernetes är en `Deployment` konkret entitet som anges med en DEKLARATIV yaml-fil. En Kubernetes `Deployment` har en definierad livs cykel och konkreta relationer till andra Kubernetes entiteter som `Pods` och `ReplicaSets` . Du kan lära dig mer om Kubernetes från dokument och videor på [Vad är Kubernetes?](https://aka.ms/k8slearning).
+
+I Azure Machine Learning används "distribution" i den allmänna uppfattningen för att göra tillgängliga och rensa projekt resurserna. De steg som Azure Machine Learning anser en del av distributionen är:
+
+1. Zippa upp filerna i projektmappen och ignorera dem som anges i. amlignore eller. gitignore
+1. Skala upp beräknings klustret (relaterat till Kubernetes)
+1. Skapa eller ladda ned Dockerfile till Compute-noden (relaterar till Kubernetes)
+    1. Systemet beräknar en hash av: 
+        - Bas avbildningen 
+        - Anpassade Docker-steg (se [distribuera en modell med en anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - Conda definition YAML (se [skapa & använda program varu miljöer i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. Systemet använder denna hash som nyckel i en sökning i arbets ytans Azure Container Registry (ACR)
+    1. Om den inte hittas söker den efter en matchning i den globala ACR
+    1. Om den inte hittas skapar systemet en ny avbildning (som cachelagras och skickas till arbets ytan ACR)
+1. Hämta den zippade projekt filen till tillfällig lagring på Compute-noden
+1. Zippa upp projekt filen
+1. Compute-noden körs `python <entry script> <arguments>`
+1. Spara loggar, modellvariabler och andra filer som skrivs till `./outputs` det lagrings konto som är kopplat till arbets ytan
+1. Skala ned beräkning, inklusive borttagning av tillfällig lagring (relatera till Kubernetes)
+
+### <a name="azure-ml-router"></a>Azure ML-router
+
+Klient dels komponenten (azureml-FE) som dirigerar inkommande härlednings förfrågningar till distribuerade tjänster skalas automatiskt efter behov. Skalning av azureml-FE baseras på AKS-klustrets syfte och storlek (antal noder). Klustrets syfte och noder konfigureras när du [skapar eller ansluter ett AKS-kluster](how-to-create-attach-kubernetes.md). Det finns en azureml-FE-tjänst per kluster, som kan köras på flera poddar.
+
+> [!IMPORTANT]
+> När du använder ett kluster som kon figurer ATS som __dev-test__ **inaktive ras**själv skalnings funktionen.
+
+Azureml – FE skalar upp (lodrätt) för att använda fler kärnor och ut (vågrätt) för att använda fler poddar. När du fattar beslutet att skala upp används den tid det tar att dirigera inkommande begär Anden om att dirigera inkommande begär Anden. Om den här tiden överskrider tröskelvärdet sker en skalning. Om tiden för att dirigera inkommande begär Anden fortsätter att överskrida tröskelvärdet sker en skalbarhet.
+
+Vid skalning och i används CPU-användning. Om tröskelvärdet för processor användning är uppfyllt, kommer först klient delen att skalas ned. Om CPU-användningen sjunker till skalnings tröskeln sker en skalnings åtgärd. Att skala upp och ut sker bara om det finns tillräckligt många tillgängliga kluster resurser.
+
 ## <a name="deploy-to-aks"></a>Distribuera till AKS
 
 Om du vill distribuera en modell till Azure Kubernetes-tjänsten skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
@@ -67,7 +100,9 @@ Om du vill distribuera en modell till Azure Kubernetes-tjänsten skapar du en __
 > [!NOTE]
 > Antalet modeller som ska distribueras är begränsat till 1 000 modeller per distribution (per behållare).
 
-### <a name="using-the-sdk"></a>Med SDK
+<a id="using-the-cli"></a>
+
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
@@ -91,7 +126,7 @@ Mer information om klasser, metoder och parametrar som används i det här exemp
 * [Modell. Deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [WebService. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
-### <a name="using-the-cli"></a>Använda CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Använd följande kommando för att distribuera med hjälp av CLI. Ersätt `myaks` med namnet på AKS Compute Target. Ersätt `mymodel:1` med namnet och versionen för den registrerade modellen. Ersätt `myservice` med namnet för att ge den här tjänsten:
 
@@ -103,36 +138,57 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Mer information finns i [distributions referens för AZ ml-modellen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
-### <a name="using-vs-code"></a>Använda VS Code
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Information om hur du använder VS Code finns i [distribuera till AKS via vs Code-tillägget](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
 > Att distribuera via VS Code kräver att AKS-klustret skapas eller kopplas till din arbets yta i förväg.
 
-### <a name="understand-the-deployment-processes"></a>Förstå distributions processerna
+---
 
-Ordet "Deployment" används i både Kubernetes och Azure Machine Learning. "Distribution" har olika betydelser i dessa två kontexter. I Kubernetes är en `Deployment` konkret entitet som anges med en DEKLARATIV yaml-fil. En Kubernetes `Deployment` har en definierad livs cykel och konkreta relationer till andra Kubernetes entiteter som `Pods` och `ReplicaSets` . Du kan lära dig mer om Kubernetes från dokument och videor på [Vad är Kubernetes?](https://aka.ms/k8slearning).
+### <a name="autoscaling"></a>Automatisk skalning
 
-I Azure Machine Learning används "distribution" i den allmänna uppfattningen för att göra tillgängliga och rensa projekt resurserna. De steg som Azure Machine Learning anser en del av distributionen är:
+Komponenten som hanterar autoskalning för distributioner av Azure ML-modeller är azureml-FE, som är en router för smart begäran. Eftersom alla härlednings begär Anden går igenom den, har den nödvändiga data för att automatiskt skala de distribuerade modellerna.
 
-1. Zippa upp filerna i projektmappen och ignorera dem som anges i. amlignore eller. gitignore
-1. Skala upp beräknings klustret (relaterat till Kubernetes)
-1. Skapa eller ladda ned Dockerfile till Compute-noden (relaterar till Kubernetes)
-    1. Systemet beräknar en hash av: 
-        - Bas avbildningen 
-        - Anpassade Docker-steg (se [distribuera en modell med en anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - Conda definition YAML (se [skapa & använda program varu miljöer i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
-    1. Systemet använder denna hash som nyckel i en sökning i arbets ytans Azure Container Registry (ACR)
-    1. Om den inte hittas söker den efter en matchning i den globala ACR
-    1. Om den inte hittas skapar systemet en ny avbildning (som kommer att cachelagras och registreras med arbets ytans ACR)
-1. Hämta den zippade projekt filen till tillfällig lagring på Compute-noden
-1. Zippa upp projekt filen
-1. Compute-noden körs `python <entry script> <arguments>`
-1. Spara loggar, modellvariabler och andra filer som skrivs till `./outputs` det lagrings konto som är kopplat till arbets ytan
-1. Skala ned beräkning, inklusive borttagning av tillfällig lagring (relatera till Kubernetes)
+> [!IMPORTANT]
+> * **Aktivera inte Kubernetes horisontell Pod autoskalning (hPa) för modell distributioner**. Detta skulle leda till att de två komponenterna för automatisk skalning konkurrerar med varandra. Azureml-FE är utformat för att skala modeller som distribueras av Azure ML, där HPA skulle behöva gissa eller uppskatta modell användning från ett allmänt mått som CPU-användning eller en anpassad mått konfiguration.
+> 
+> * **Azureml-FE skalar inte antalet noder i ett AKS-kluster**eftersom det kan leda till oväntade kostnads ökningar. I stället **skalas antalet repliker för modellen** i de fysiska klustrets gränser. Om du behöver skala antalet noder i klustret kan du skala klustret manuellt eller [Konfigurera AKS-klustrets autoskalning](/azure/aks/cluster-autoscaler).
 
-När du använder AKS styrs skalningen av data bearbetningen av Kubernetes med hjälp av Dockerfile som har skapats eller hittats enligt beskrivningen ovan. 
+Automatisk skalning kan styras genom att ställa in `autoscale_target_utilization` , `autoscale_min_replicas` och `autoscale_max_replicas` för AKS-webbtjänsten. Följande exempel visar hur du aktiverar automatisk skalning:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+Beslut om att skala upp/ned baseras på användning av aktuella behållares repliker. Det totala antalet repliker som är upptagna (bearbetning av en begäran) dividerat med det totala antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider så `autoscale_target_utilization` skapas fler repliker. Om den är lägre minskas replikerna. Som standard är mål användningen 70%.
+
+Beslut om att lägga till repliker är Eager och snabbt (cirka 1 sekund). Beslut att ta bort repliker är försiktigt (cirka 1 minut).
+
+Du kan beräkna de repliker som krävs med hjälp av följande kod:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+Mer information om hur du ställer in `autoscale_target_utilization` , `autoscale_max_replicas` och finns `autoscale_min_replicas` i referens för [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) -modulen.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuera modeller till AKS med hjälp av kontrollerad distribution (för hands version)
 
@@ -223,7 +279,6 @@ endpoint.wait_for_deployment(true)
 endpoint.delete_version(version_name="versionb")
 
 ```
-
 
 ## <a name="web-service-authentication"></a>Webb tjänstens autentisering
 

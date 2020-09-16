@@ -2,13 +2,13 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 2265f1d31176052c7e7c358ee8ed4cb06fb50ee7
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469804"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605234"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
@@ -65,7 +65,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Kommandona för distributioner av hanterings grupper skiljer sig från kommandona för resurs grupps distributioner.
 
-För Azure CLI använder du [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+För Azure CLI använder du [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
 ```azurecli-interactive
 az deployment mg create \

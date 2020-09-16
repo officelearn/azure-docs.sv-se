@@ -13,6 +13,8 @@
       href: invite-users.md
 - name: Självstudier
   items:
+    - name: Anslut till Azure
+      href: connect-to-azure.md
     - name: Använda Video Indexer-API
       href: video-indexer-use-apis.md
     - name: Logic Apps-anslutningsprogram

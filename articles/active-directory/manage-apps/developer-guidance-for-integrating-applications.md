@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640454"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605098"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla branschspecifika appar för Azure Active Directory
-Den här guiden ger en översikt över hur du utvecklar branschspecifika program (LoB) för Azure Active Directory (AD). Den avsedda mål gruppen är Active Directory/Office 365 globala administratörer.
+Den här guiden ger en översikt över hur du utvecklar branschspecifika program (LoB) för Azure Active Directory (AD). Den avsedda mål gruppen är Active Directory/Microsoft 365 globala administratörer.
 
 ## <a name="overview"></a>Översikt
-Att skapa program som är integrerade med Azure AD ger användare i din organisation enkel inloggning med Office 365. Med programmet i Azure AD får du kontroll över autentiseringsprincip för programmet. Mer information om villkorlig åtkomst och hur du skyddar appar med Multi-Factor Authentication (MFA) finns i [Konfigurera åtkomst regler](../conditional-access/app-based-mfa.md).
+Att skapa program som är integrerade med Azure AD ger användare i din organisation enkel inloggning med Microsoft 365. Med programmet i Azure AD får du kontroll över autentiseringsprincip för programmet. Mer information om villkorlig åtkomst och hur du skyddar appar med Multi-Factor Authentication (MFA) finns i [Konfigurera åtkomst regler](../conditional-access/app-based-mfa.md).
 
 Registrera ditt program för att använda Azure Active Directory. Att registrera programmet innebär att utvecklarna kan använda Azure AD för att autentisera användare och begära åtkomst till användar resurser som e-post, kalender och dokument.
 

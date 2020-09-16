@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "75450846"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606528"
 ---
 1. Välj **Anslut VPN-platser** för att öppna sidan **Anslut platser** .
 
-    ![gå](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connect")
+    ![Skärm bild som visar rutan anslutna webbplatser för den virtuella NAVEt som är klar för en I förväg delad nyckel och tillhör ande inställningar.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connect")
 
    Fyll i följande fält:
 
@@ -28,7 +28,7 @@ ms.locfileid: "75450846"
 2. Välj **Anslut**.
 3. Om några minuter visas anslutningen och anslutnings statusen för platsen.
 
-   ![statusfältet](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Skärm bild som visar en V P N-plats till plats anslutning och anslutnings status.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Anslutnings status:** Detta är statusen för Azure-resursen för den anslutning som ansluter VPN-platsen till Azure Hub-VPN-gatewayen. När den här kontroll Plans åtgärden lyckas fortsätter Azure VPN-gatewayen och den lokala VPN-enheten att upprätta anslutningen.
 

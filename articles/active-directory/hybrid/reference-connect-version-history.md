@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018449"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604078"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -159,7 +159,7 @@ Den här snabb korrigeringen åtgärdar ett problem i build-1.5.20.0 om du har k
 ### <a name="release-status"></a>Versionsstatus
 12/9/2019: version för hämtning. Inte tillgängligt via automatisk uppgradering.
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
-- Vi uppdaterade lösen ordets hash-synkronisering för Azure AD Domain Services till rätt konto för utfyllnad i Kerberos-hashar.  Detta ger en prestanda förbättring under Lösenordssynkronisering från amerikansk AD till Azure AD Domain Services.
+- Vi uppdaterade lösen ordets hash-synkronisering för Azure AD Domain Services till rätt konto för utfyllnad i Kerberos-hashar.  Detta ger en prestanda förbättring under Lösenordssynkronisering från Azure AD till Azure AD Domain Services.
 - Vi har lagt till stöd för tillförlitliga sessioner mellan Authentication agent och Service Bus.
 - I den här versionen upprätthålls TLS 1,2 för kommunikation mellan Autentiseringstjänsten och moln tjänster.
 - Vi har lagt till en DNS-cache för WebSocket-anslutningar mellan Authentication agent och moln tjänster.
@@ -208,13 +208,13 @@ Vi har åtgärdat ett program fel i komprimerings verktyget för synkroniserings
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 - Nya fel söknings verktyg hjälper till med fel sökning av scenarier där "användaren inte synkroniserar", "grupp som inte synkroniserar" eller "grupp medlem inte synkroniserar".
-- Lägg till stöd för nationella moln i Azure AD Connect fel söknings skript 
+- Lägg till stöd för nationella moln i Azure AD Connect fel söknings skript.
 - Kunderna bör informeras om att de föråldrade WMI-slutpunkterna för MIIS_Service nu har tagits bort. Alla WMI-åtgärder bör nu utföras via PS-cmdletar.
-- Säkerhets förbättring genom återställning av begränsad delegering för AZUREADSSOACC-objekt
+- Säkerhets förbättring genom återställning av begränsad delegering för AZUREADSSOACC-objekt.
 - När du lägger till/redigerar en Synkroniseringsregel, om det finns attribut som används i regeln som finns i kopplings schemat men som inte har lagts till i anslutningen, så läggs attributen automatiskt till i anslutningen. Samma sak gäller för objekt typen som regeln påverkar. Om något läggs till i anslutningen markeras kopplingen för fullständig import vid nästa synkronisering.
 - Att använda en företags-eller domän administratör som kopplings konto stöds inte längre i nya Azure AD Connect-distributioner. Nuvarande Azure AD Connect distributioner som använder en företags-eller domän administratör eftersom anslutnings kontot inte påverkas av den här versionen.
 - I Synkroniseringshanteraren körs en fullständig synkronisering vid skapande av regel/redigera/ta bort. En popup visas för alla regel ändringar som meddelar användaren om en fullständig import eller fullständig synkronisering kommer att köras.
-- Ytterligare åtgärder för att minska fel vid lösen ords fel till sidan anslutningar > egenskaper > anslutning
+- Ytterligare åtgärder för att undvika lösen ords fel har lagts till på sidan anslutningar > egenskaper > anslutning.
 - En varning om utfasning har lagts till för Sync Service Manager på anslutnings egenskaper sidan. Den här varningen meddelar användaren att ändringar ska göras i guiden Azure AD Connect.
 - Ett nytt fel har lagts till för problem med en användares lösen ords princip.
 - Förhindra felaktig konfiguration av grupp filtrering efter domän-och OU-filter. Grupp filtrering visar ett fel när domänen/ORGANISATIONSENHETen för den angivna gruppen redan är filtrerad och hindrar användaren från att flyttas framåt tills problemet har lösts.
@@ -233,7 +233,7 @@ Vi har åtgärdat ett program fel i komprimerings verktyget för synkroniserings
 - Hjälp om popup-fönster visas nu vid tangent bords fokus.
 - För automatisk uppgradering, om en motstridig App körs från 6 timmar, avsluta den och fortsätta med uppgraderingen.
 - Begränsa antalet attribut som en kund kan välja till 100 per objekt när du väljer katalog tillägg. Detta förhindrar att felet uppstår under exporten eftersom Azure har högst 100 tilläggs-attribut per objekt.
-- Ett fel har åtgärd ATS för att göra AD Connectivity-skriptet mer robust
+- Ett fel har åtgärd ATS för att göra skriptet för AD-anslutning mer stabilt.
 - En bugg har åtgärd ATS för att göra Azure AD Connect installera på en dator med hjälp av en befintlig Named Pipes WCF-tjänst mer robust.
 - Förbättrad diagnostik och fel sökning kring grup principer som inte tillåter att ADSync-tjänsten startas när den startas första gången.
 - Ett fel har åtgärd ATS där visnings namnet för en Windows-dator skrevs felaktigt.
@@ -246,9 +246,9 @@ Vi har åtgärdat ett program fel i komprimerings verktyget för synkroniserings
 >[!IMPORTANT]
 >Det finns ett känt problem med att uppgradera Azure AD Connect från en tidigare version till 1.3.21.0 där Microsoft 365-portalen inte återspeglar den uppdaterade versionen, även om Azure AD Connect har uppgraderats.
 >
-> För att lösa detta måste du importera **ADSync** -modulen och sedan köra `Set-ADSyncDirSyncConfiguration` PowerShell-cmdleten på Azure AD Connect-servern.  Du kan använda följande steg:
+> För att lösa detta måste du importera **ADSync** -modulen och köra `Set-ADSyncDirSyncConfiguration` PowerShell-cmdleten på Azure AD Connect-servern.  Du kan använda följande steg:
 >
->1. Öppna PowerShell i administratör-läge.
+>1. Öppna PowerShell i administratörs läge.
 >2. Kör `Import-Module "ADSync"`.
 >3. Kör `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  

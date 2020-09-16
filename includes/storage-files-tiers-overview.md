@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 034f5c487750600910cb32f73bcc6ea243b3ec6f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563463"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90606178"
 ---
 Azure Files erbjuder fyra olika nivåer av lagring, Premium, transaktion optimerad, frekvent och låg frekvent så att du kan skräddarsy dina resurser efter prestanda-och pris krav för ditt scenario:
 
@@ -24,6 +24,6 @@ Azure Files erbjuder fyra olika nivåer av lagring, Premium, transaktion optimer
 
 Premium-filresurser är bara tillgängliga i en etablerad fakturerings modell. Mer information om den etablerade fakturerings modellen för Premium-filresurser finns i [förstå etablering för Premium-filresurser](../articles/storage/files/storage-files-planning.md#understanding-provisioning-for-premium-file-shares). Standard fil resurser, inklusive transaktions optimerings-, frekventa och häftiga fil resurser, är tillgängliga via betala per användning.
 
-Frekventa och häftiga fil resurser är tillgängliga i alla offentliga Azure-regioner. Transaktions optimerade fil resurser är tillgängliga i alla Azure-regioner, inklusive nationella moln regioner.
+Frekventa och häftiga fil resurser är tillgängliga i alla offentliga Azure-och Azure Government regioner. Transaktions optimerade fil resurser är tillgängliga i alla Azure-regioner, inklusive Azure Kina och Azure Germany-regioner.
 
 Information om hur du distribuerar en frekvent eller svag fil resurs finns i [skapa en frekvent eller låg frekvent fil resurs](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

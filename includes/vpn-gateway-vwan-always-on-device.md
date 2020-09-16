@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371793"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606738"
 ---
 Följande krav måste uppfyllas för att du ska kunna upprätta en enhets tunnel:
 
@@ -123,18 +123,18 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![Skärm bild som visar ett kommando tolks fönster med ett kommando för att starta 64-bitars versionen av PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. I PowerShell växlar du till mappen där **devicecert.ps1** och **VPNProfile.xml** finns och kör följande kommando:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![Skärm bild som visar ett PowerShell-fönster som kör MachineCertTest med hjälp av devicesert-skriptet.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Kör **Rasphone**.
 
-   ![RASPHONE](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![Skärm bild som visar dialog rutan Kör där Rasphone har valts.](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Leta efter **MachineCertTest** -posten och klicka på **Anslut**.
 
-   ![Anslut](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![Skärm bild som visar dialog rutan nätverks anslutningar med MachineCertTest valt och knappen Anslut.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. Om anslutningen lyckas startar du om datorn. Tunneln kommer att ansluta automatiskt.

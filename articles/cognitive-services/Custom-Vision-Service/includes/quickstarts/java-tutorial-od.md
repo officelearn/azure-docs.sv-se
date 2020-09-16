@@ -3,15 +3,18 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 1c72415a0d3dd6bc16eab435ad712225e9ec776e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/15/2020
+ms.openlocfilehash: 107cc24cc03c7f8716f4ee0577fc2372668adcd9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533143"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604865"
 ---
-Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek med Java för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets standard-URL för förutsägelse slut punkt och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Java-program.
+Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient bibliotek för Java för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
+
+> [!NOTE]
+> Om du vill skapa och träna en objekt identifierings modell _utan att_ skriva kod, se den [webbläsarbaserade vägledningen](../../get-started-build-detector.md) i stället.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -20,9 +23,9 @@ Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek 
 - [Maven](https://maven.apache.org/) installerat
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Hämta Custom Vision klient bibliotek och exempel kod
+## <a name="get-the-custom-vision-client-library"></a>Hämta klient biblioteket för Custom Vision
 
-Om du vill skriva ett Java-program som använder Custom Vision behöver du Custom Vision maven-paketen. De här paketen ingår i det exempel projekt som du kommer att hämta, men du kan komma åt dem separat här.
+Om du vill skriva en bild analys app med Custom Vision för Java behöver du Custom Vision maven-paket. De här paketen ingår i det exempel projekt som du hämtar, men du kan komma åt dem separat här.
 
 Du hittar Custom Vision klient biblioteket i maven Central-lagringsplatsen:
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
@@ -48,7 +51,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Hitta **runSample** -metoden och kommentera ut **ImageClassification_Sample** metod anropet &mdash; den här metoden kör bild klassificerings scenariot, som inte beskrivs i den här hand boken. Metoden **ObjectDetection_Sample** implementerar de primära funktionerna i den här snabbstarten. Gå till dess definition och granska koden. 
 
-## <a name="create-a-new-custom-vision-service-project"></a>Skapa ett nytt Custom Vision Service-projekt
+## <a name="create-a-new-custom-vision-project"></a>Skapa ett nytt Custom Vision-projekt
 
 Gå till det kodblock som skapar en träningsklient och ett projekt för objektidentifiering. Det skapade projektet visas på den [Custom Vision-webbplats](https://customvision.ai/) som du besökte tidigare. Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en identifierings](../../get-started-build-detector.md) webb Portal).
 
@@ -101,7 +104,10 @@ Visa konsolens utdata för loggnings- och förutsägelseresultat. Du kan sedan k
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i objekt identifierings processen kan göras i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande tränings guide behandlar bild klassificering, men dess principer liknar objekt identifiering.
+Nu har du gjort varje steg i processen för objekt identifiering i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](../../test-your-model.md)
+
+* [Vad är Custom Vision?](../../overview.md)
+* [Referensdokumentation för SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable)

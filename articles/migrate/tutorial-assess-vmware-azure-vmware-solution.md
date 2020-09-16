@@ -4,12 +4,12 @@ description: Lär dig hur du bedömer virtuella VMware-datorer för migrering ti
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 7bd0a4c6d4c447e0d872c2d40ad1f1990289fe84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108920"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604248"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Självstudie: utvärdera virtuella VMware-datorer för migrering till AVS
 
@@ -113,28 +113,37 @@ Kör en utvärdering på följande sätt:
 
 ## <a name="review-an-assessment"></a>Granska en utvärdering
 
-En utvärdering beskriver:
+En AVS-utvärdering beskriver:
 
-- **Redo för AVS**: datorn kan migreras i form av Azure-AVS, utan några ändringar. Datorn kommer att starta i AVS, med fullständigt stöd för AVS.
-- **Klar med villkor**: datorn kan ha kompatibilitetsproblem med den aktuella vSphere-versionen. Det kan krävas att VMware-verktyg är installerade, eller andra inställningar, innan de har fullständig funktionalitet i AVS.
-- **Inte redo för AVS**: den virtuella datorn startar inte i AVS. Om till exempel en lokal virtuell VMware-dator har en extern enhet (t. ex. en CD-ROM) som är ansluten till den och du använder VMware VMotion, Miss lyckas åtgärden VMotion.
-- **Beredskap okänd**: Azure Migrate kunde inte fastställa maskin beredskap, på grund av otillräckliga metadata som samlats in från den lokala miljön.
+- AVS-beredskap: om de lokala virtuella datorerna är lämpliga för migrering till Azure VMware-lösningen (AVS).
+- Antal AVS-noder: uppskattat antal AVS-noder som krävs för att köra de virtuella datorerna.
+- Användning över AVS-noder: planerad processor, minne och lagrings belastning för alla noder.
+- Månads kostnads uppskattning: den uppskattade månads kostnaden för alla Azure VMware-lösningar (AVS)-noder som kör lokala virtuella datorer.
+
+## <a name="view-an-assessment"></a>Visa en utvärdering
 
 Så här visar du en utvärdering:
 
 1. I **servrar**  >  **Azure Migrate: Server bedömning**klickar du på siffran bredvid **utvärderingar**.
-2. I **utvärderingar**väljer du en utvärdering för att öppna den. Som exempel (uppskattningar och kostnader endast för exempel): 
-
-    ![Utvärderings Sammanfattning](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
+2. I **utvärderingar**väljer du en utvärdering för att öppna den. 
 3. Granska utvärderings sammanfattningen. Du kan också redigera bedömnings egenskaperna eller beräkna om utvärderingen.
  
- 
+
 ### <a name="review-readiness"></a>Granska beredskap
 
 1. Klicka på **Azure-beredskap**.
 2. I **Azure-beredskap**granskar du VM-statusen.
-3. Välj en status för **Azure-beredskap** . Du kan visa information om VM-beredskap. Du kan också öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
+
+    - **Redo för AVS**: datorn kan migreras i form av Azure-AVS, utan några ändringar. Datorn kommer att starta i AVS, med fullständigt stöd för AVS.
+    - **Klar med villkor**: datorn kan ha kompatibilitetsproblem med den aktuella vSphere-versionen. Det kan krävas att VMware-verktyg är installerade, eller andra inställningar, innan de har fullständig funktionalitet i AVS.
+    - **Inte redo för AVS**: den virtuella datorn startar inte i AVS. Om till exempel en lokal virtuell VMware-dator har en extern enhet (t. ex. en CD-ROM) som är ansluten till den och du använder VMware VMotion, Miss lyckas åtgärden VMotion.
+ - **Beredskap okänd**: Azure Migrate kunde inte fastställa maskin beredskap, på grund av otillräckliga metadata som samlats in från den lokala miljön.
+
+3. Granska det föreslagna verktyget.
+
+    - VMware HCX eller Enterprise: för VMware-datorer är HCX-lösningen (VMWare Hybrid Cloud Extensions) det rekommenderade Migreringsverktyg för att migrera din lokala arbets belastning till ditt Azure VMware-lösning (AVS) privat moln. Lära sig mer.
+    - Okänt: Standardmigreringsverktyget är okänt för datorer som importerats via en CSV-fil. Även för VMware-datorer rekommenderar vi att du använder HCX-lösningen (VMware Hybrid Cloud Extension).
+4. Klicka på en status för AVS-beredskap. Du kan visa information om VM-beredskap och öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
 
 ### <a name="review-cost-estimates"></a>Granska kostnadsuppskattningar
 
@@ -142,11 +151,11 @@ Utvärderings sammanfattningen visar den beräknade beräknings-och lagrings kos
 
 1. Granska de totala månads kostnaderna. Kostnaderna sammanställs för alla virtuella datorer i den utvärderade gruppen.
 
-    - Kostnads uppskattningar baseras på storleks rekommendationerna för en dator, dess diskar och dess egenskaper.
-    - Uppskattade månatliga kostnader för beräkning och lagring visas.
-    - Kostnads uppskattningen är att köra lokala virtuella datorer på virtuella Azure-datorer. Uppskattningen tar inte hänsyn till PaaS-eller SaaS-kostnader.
+    - Kostnads uppskattningar baseras på antalet AVS-noder som krävs med hänsyn till resurs kraven för alla virtuella datorer totalt.
+    - Eftersom prissättningen för AVS är per nod, har den totala kostnaden ingen beräknings kostnad och distribution av lagrings kostnader.
+    - Kostnads uppskattningen är att köra lokala virtuella datorer i AVS. Azure Migrate Server-utvärderingen beaktar inte PaaS-eller SaaS-kostnader.
 
-2. Granska lagrings kostnaderna per månad. Vyn visar de aggregerade lagrings kostnaderna för den utvärderade gruppen och delas över olika typer av lagrings diskar. 
+2. Granska uppskattningar för månatlig lagring. Vyn visar de aggregerade lagrings kostnaderna för den utvärderade gruppen och delas över olika typer av lagrings diskar. 
 3. Du kan öka detalj nivån för att se kostnads information för vissa virtuella datorer.
 
 ### <a name="review-confidence-rating"></a>Granska säkerhetsomdöme

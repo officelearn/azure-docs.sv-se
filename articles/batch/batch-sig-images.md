@@ -2,14 +2,14 @@
 title: Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 description: Anpassade bildpooler är ett effektivt sätt att konfigurera datornoder för att köra batch-arbetsbelastningar.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852420"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605200"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad avbildnings-pool
 
@@ -43,7 +43,9 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 - **En bild av ett delat bild galleri**. Om du vill skapa en delad avbildning måste du ha eller skapa en hanterad avbildnings resurs. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar.
 
 > [!NOTE]
-> Din delade avbildning måste vara i samma prenumeration som batch-kontot. Avbildningen kan finnas i olika regioner så länge den innehåller repliker i samma region som batch-kontot.
+> Om den delade avbildningen inte finns i samma prenumeration som batch-kontot måste du [registrera Microsoft.BatCH-resurs leverantören](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) för den prenumerationen. De två prenumerationerna måste finnas i samma Azure AD-klient.
+>
+> Avbildningen kan finnas i en annan region så länge den har repliker i samma region som batch-kontot.
 
 Om du använder ett Azure AD-program för att skapa en anpassad avbildning med en bild av en delad avbildning, måste programmet ha beviljats en [inbyggd Azure-roll](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) som ger åtkomst till den delade avbildningen. Du kan bevilja den här åtkomsten i Azure Portal genom att navigera till den delade avbildningen, välja **åtkomst kontroll (IAM)** och lägga till en roll tilldelning för programmet.
 
@@ -87,7 +89,7 @@ När du har skapat den hanterade avbildningen måste du skapa ett delat avbildni
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Skapa en pool från en delad avbildning med hjälp av Azure CLI
 
-Använd kommandot för att skapa en pool från den delade avbildningen med hjälp av Azure CLI `az batch pool create` . Ange det delade avbildnings-ID: t i `--image` fältet. Kontrol lera att OS-typen och SKU: n matchar de versioner som anges av`--node-agent-sku-id`
+Använd kommandot för att skapa en pool från den delade avbildningen med hjälp av Azure CLI `az batch pool create` . Ange det delade avbildnings-ID: t i `--image` fältet. Kontrol lera att OS-typen och SKU: n matchar de versioner som anges av `--node-agent-sku-id`
 
 > [!NOTE]
 > Du måste autentisera med hjälp av Azure AD. Om du använder Shared Key auth får du ett autentiseringsfel.  

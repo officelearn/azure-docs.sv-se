@@ -2,24 +2,27 @@
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 8af5d8ad2ed4d623d7128ffa5fba3c9e3647a057
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/15/2020
+ms.openlocfilehash: c9f5b5e84955c1974c19d0ccff1a89560fd3e78a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533377"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604886"
 ---
-Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek med C# för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets standard-URL för förutsägelse slut punkt och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa ditt eget .NET-program. 
+Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för C# för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
+
+> [!NOTE]
+> Om du vill skapa och träna en objekt identifierings modell _utan att_ skriva kod, se den [webbläsarbaserade vägledningen](../../get-started-build-detector.md) i stället.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Hämta Custom Vision klient bibliotek och exempel kod
+## <a name="install-the-custom-vision-client-library"></a>Installera klient biblioteket för Custom Vision
 
-Om du vill skriva en .NET-app som använder Custom Vision behöver du Custom Vision NuGet-paketen. De här paketen ingår i det exempel projekt som du hämtar, men du kan komma åt dem separat här.
+Om du vill skriva en app Analysis-app med Custom Vision för .NET behöver du Custom Vision NuGet-paketen. De här paketen ingår i det exempel projekt som du hämtar, men du kan komma åt dem separat här.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -87,7 +90,7 @@ Det namn som ges till den publicerade iterationen kan användas för att skicka 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction_endpoint)]
 
-## <a name="use-the-prediction-endpoint"></a>Använd förutsägelse slut punkten
+## <a name="test-the-prediction-endpoint"></a>Testa förutsägelse slut punkten
 
 Den här delen av skriptet läser in test avbildningen, frågar modell slut punkten och matar ut förutsägelse data till-konsolen.
 
@@ -113,7 +116,10 @@ Sedan kan du kontrol lera att test bilden (finns i **bilder/test/** ) är korrek
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur du gör varje steg i processen för objekt identifiering i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
+Nu har du gjort varje steg i processen för objekt identifiering i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](../../test-your-model.md)
+
+* [Vad är Custom Vision?](../../overview.md)
+* [Referensdokumentation för SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

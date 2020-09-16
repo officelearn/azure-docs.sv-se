@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 443649826e821014e0e9918526a363a944b5eceb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660002"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604418"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
@@ -33,6 +33,10 @@ I brand väggen skapar du en _program regel_ som tillåter trafik till och från
 >
 > Mer information om hur du konfigurerar Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
+## <a name="routes"></a>Vägar
+
+När du konfigurerar den utgående vägen för under nätet som innehåller Azure Machine Learning resurser använder du rikt linjerna i avsnittet [Tvingad tunnel trafik](how-to-secure-training-vnet.md#forced-tunneling) för att skydda inlärnings miljön.
+
 ## <a name="microsoft-hosts"></a>Microsoft-värdar
 
 Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta. Det finns flera olika värdnamn som används både i Azure Machine Learning-arbetsytan.
@@ -41,6 +45,8 @@ Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster 
 
 | **Värdnamn** | **Syfte** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Autentisering |
+| **management.azure.com** | Används för att hämta information om arbets ytan |
 | **\*. batchai.core.windows.net** | Tränings kluster |
 | **ml.azure.com** | Azure Machine Learning-studio |
 | **default.exp-tas.com** | Används av Azure Machine Learning Studio |
@@ -59,13 +65,16 @@ Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster 
 | **\*. notebooks.azure.net** | Krävs av antecknings böckerna i Azure Machine Learning Studio. |
 | **graph.windows.net** | Krävs för antecknings böcker |
 
+> [!TIP]
+> Om du planerar att använda federerade identiteter följer du [metod tips för att skydda Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) artikel.
+
 ## <a name="python-hosts"></a>Python-värdar
 
 Värdarna i det här avsnittet används för att installera python-paket. De krävs vid utveckling, utbildning och distribution. 
 
 | **Värdnamn** | **Syfte** |
 | ---- | ---- |
-| **anaconda.com** | Används för att installera standard paket. |
+| **anaconda.com**</br>**\*. anaconda.com** | Används för att installera standard paket. |
 | **\*. anaconda.org** | Används för att hämta lagrings platsen-data. |
 | **pypi.org** | Används för att Visa beroenden från standard index, om det finns några, och indexet skrivs inte över av användar inställningarna. Om indexet skrivs över måste du också tillåta ** \* . pythonhosted.org**. |
 

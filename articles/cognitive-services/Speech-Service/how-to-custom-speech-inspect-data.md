@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629044"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604776"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspektera Custom Speech-data
 
@@ -24,9 +24,7 @@ ms.locfileid: "84629044"
 
 Custom Speech innehåller verktyg som gör det möjligt att visuellt inspektera igenkännings kvaliteten för en modell genom att jämföra ljuddata med motsvarande igenkännings resultat. Från [Custom Speech-portalen](https://speech.microsoft.com/customspeech)kan du spela upp ljud som laddats upp och avgöra om det angivna igenkännings resultatet är korrekt. Med det här verktyget kan du kontrol lera kvaliteten på Microsofts grundläggande tal-till-text-modell, inspektera en utbildad anpassad modell eller jämföra avskrifter med två modeller.
 
-I det här dokumentet får du lära dig att visuellt kontrol lera kvaliteten på en modell med hjälp av de tränings data som du tidigare har laddat upp.
-
-På den här sidan får du lära dig att visuellt kontrol lera kvaliteten på Microsofts bas linje tal till text-modell och/eller en anpassad modell som du har tränat. Du använder de data som du överförde till fliken **data** för att testa.
+I det här dokumentet får du lära dig att visuellt kontrol lera kvaliteten på Microsofts bas linje tal till text-modell och/eller anpassade modeller som du har tränat. Du lär dig också hur du använder redigerings redigeraren för att skapa och förfina etiketterade ljud data uppsättningar.
 
 ## <a name="create-a-test"></a>Skapa ett test
 
@@ -51,10 +49,54 @@ För att kunna kontrol lera jämförelsen sida vid sida kan du växla mellan oli
 
 Modell testning sida vid sida är användbar för att validera vilken tal igenkännings modell som passar bäst för ett program. Om du vill ha ett objektivt mått på precision, som kräver uppmätta ljud, följer du anvisningarna i [utvärdera noggrannhet](how-to-custom-speech-evaluate-data.md).
 
+## <a name="online-transcription-editor"></a>Redigerare för online-avskrift
+
+Med avskrifts redigeraren online kan du enkelt arbeta med ljud avskrifter i Custom Speech. Huvud användnings fallen i redigeraren är följande: 
+
+* Du har bara ljuddata, men vill bygga upp korrekt ljud-och data uppsättningar med mänsklig etikett från grunden till användning i modell träning.
+* Du har redan ljud och data uppsättningar med mänsklig etikett, men det finns fel eller fel i avskriften. Med redigeraren kan du snabbt ändra avskrifterna för att få bästa möjliga inlärning.
+
+Det enda kravet att använda avskrifts redigeraren är att överföra ljuddata (antingen ljud-eller ljud-och avskrifter).
+
+### <a name="import-datasets-to-editor"></a>Importera data uppsättningar till redigerare
+
+Om du vill importera data till redigeraren går du först till **Custom Speech > [ditt projekt] > redigeraren**.
+
+![Flik för redigerare](media/custom-speech/custom-speech-editor-detail.png)
+
+Använd sedan följande steg för att importera data.
+
+1. Klicka på **Importera data**
+1. Skapa en ny data uppsättning (er) och ge den en beskrivning
+1. Välj data uppsättningar. Flera val stöds och du kan välja enbart ljuddata, samt ljud-och mänsklig data.
+1. För endast ljuddata kan du välja att använda standard modeller för att automatiskt generera dator avskrift när du har importerat till redigeraren
+1. Klicka på **Importera**
+
+När data har importer ATS kan du klicka i data uppsättningarna och börja redigera.
+
+> [!TIP]
+> Du kan också importera data uppsättningar till redigeraren direkt genom att välja data uppsättningar och klicka på **Exportera till redigerare**
+
+### <a name="edit-transcription-by-listening-to-audio"></a>Redigera avskrift genom att lyssna på ljud
+
+När data överföringen har slutförts klickar du på varje objekt namn för att se information om data. Detalj sidan visar alla filer i din data uppsättning och du kan klicka på önskad uttryck. För varje uttryck kan du spela upp ljudet och granska avskrifterna och redigera avskrifterna om du hittar några infognings-, borttagnings-eller ersättnings fel. Mer information om fel typer finns i avsnittet [data utvärderings anvisningar](how-to-custom-speech-evaluate-data.md) .
+
+![Sidan redigerare](media/custom-speech/custom-speech-editor.png)
+
+Om ljud filen är lång segmenteras den automatiskt i mindre delar. Du kan redigera dem en i taget med **föregående** och **bredvid** flytta mellan sidor. När du har gjort ändringarna klickar du på knappen **Spara** .
+
+### <a name="export-datasets-from-the-editor"></a>Exportera data uppsättningar från redigeraren
+
+Om du vill exportera data uppsättningar tillbaka till fliken **data** navigerar du till sidan data information och klickar på knappen **Exportera** för att exportera alla filer som en ny data uppsättning. Du kan också filtrera filerna efter senaste redigerade tid, ljud varaktigheter osv. för att delvis välja önskade filer. 
+
+![Exportera data](media/custom-speech/custom-speech-editor-export.png)
+
+De filer som exporteras till data används som en helt ny data uppsättning och kommer inte att påverka någon av de befintliga data-/inlärnings-/test enheterna.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
-- [Träna din modell](how-to-custom-speech-train-model.md)
+- [Träna modellen](how-to-custom-speech-train-model.md)
 - [Förbättra din modell](how-to-custom-speech-improve-accuracy.md)
 - [Distribuera din modell](how-to-custom-speech-deploy-model.md)
 

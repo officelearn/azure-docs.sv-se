@@ -2,17 +2,20 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 1bf0ecbc996fe853a6ca1d0ed5a749c798383146
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: a091222b01669c6b83c599787c61dcd6b62b05d0
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508586"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605010"
 ---
-Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek med python för att skapa en bild klassificerings modell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, Hämta projektets URL för den publicerade förutsägelse slut punkten och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Python-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du istället läsa den [webbläsarbaserade vägledningen](../../getting-started-build-a-classifier.md).
+Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för python för att skapa en bild klassificerings modell. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
-## <a name="prerequisites"></a>Krav
+> [!NOTE]
+> Om du vill skapa och träna en klassificerings modell _utan att_ skriva kod, se den [webbläsarbaserade vägledningen](../../getting-started-build-a-classifier.md) i stället.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Python 2.7+ eller 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/)-verktyget
@@ -20,7 +23,7 @@ Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek 
 
 ## <a name="install-the-custom-vision-client-library"></a>Installera klient biblioteket för Custom Vision
 
-Om du vill installera klient biblioteket för Custom Vision tjänsten för python kör du följande kommando i PowerShell:
+Om du vill skriva en app Analysis-app med Custom Vision för python behöver du Custom Vision klient biblioteket. Kör följande kommando i PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -34,7 +37,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 Skapa en ny fil med namnet *sample.py* i den projektkatalog du vill använda.
 
-### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
+## <a name="create-the-custom-vision-project"></a>Skapa Custom Vision-projektet
 
 Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Hämta även slut punkts-URL: en från sidan Inställningar på webbplatsen för Custom Vision.
 
@@ -62,7 +65,7 @@ print ("Creating project...")
 project = trainer.create_project("My New Project")
 ```
 
-### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
+## <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
 Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.py*:
 
@@ -72,7 +75,7 @@ hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
+## <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
 Infoga följande kod efter att taggen har skapats för att lägga till exempelbilder i projektet. Den här koden laddar upp varje bild med dess motsvarande tagg. Du kan ladda upp upp till 64 avbildningar i en enda batch.
 
@@ -104,7 +107,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Träna klassificeraren och publicera
+## <a name="train-and-publish-the-project"></a>Träna och publicera projektet
 
 Den här koden skapar den första iterationen av förutsägelse modellen och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
@@ -123,7 +126,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
+## <a name="use-the-prediction-endpoint"></a>Använd förutsägelse slut punkten
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
@@ -176,3 +179,6 @@ Nu har du sett hur varje steg i objekt identifierings processen kan göras i kod
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](../../test-your-model.md)
+
+* [Vad är Custom Vision?](../../overview.md)
+* [Referensdokumentation för SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

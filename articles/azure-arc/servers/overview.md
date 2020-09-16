@@ -5,16 +5,16 @@ keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, 
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: c368307df911f5143541bb5337eb76a208416909
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c5779eecddcc9d7d2bd0b405a9bdadc88309fb35
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228095"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604724"
 ---
 # <a name="what-is-azure-arc-enabled-servers-preview"></a>Vad är Azure Arc-aktiverade servrar (för hands version)?
 
-Med Azure Arc-aktiverade servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure, i företags nätverket eller någon annan moln leverantör, på samma sätt som du hanterar interna virtuella Azure-datorer. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar.
+Med Azure Arc-aktiverade servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure, i företags nätverket eller någon annan moln leverantör, på samma sätt som du hanterar interna virtuella Azure-datorer. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar. Tjänste leverantörer som hanterar en kunds lokala infrastruktur kan hantera sina hybrid datorer, precis som de gör i dag med interna Azure-resurser, i flera kund miljöer med [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) med Azure Arc.
 
 För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Azure måste den Azure-anslutna dator agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
 
@@ -33,6 +33,8 @@ När du ansluter datorn till Azure Arc-aktiverade servrar (för hands version) g
 - Förenkla distributionen med andra Azure-tjänster som Azure Automation tillstånds konfiguration och Azure Monitor Log Analytics arbets yta med [Azure VM-tillägg](manage-vm-extensions.md) som stöds för Windows-eller Linux-datorer som inte kommer från Azure. Detta inkluderar konfiguration av konfiguration eller program vara efter distribution med hjälp av tillägget för anpassat skript.
 
 Loggdata som samlas in och lagras i en Log Analytics-arbetsyta från hybrid datorn innehåller nu egenskaper som är speciella för datorn, till exempel ett resurs-ID. Detta kan användas för att ge stöd åt [resurs Sammanhangs](../../azure-monitor/platform/design-logs-deployment.md#access-mode) logg åtkomst.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

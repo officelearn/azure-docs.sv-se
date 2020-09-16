@@ -2,24 +2,27 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: a56b95fe4f6b7005e823ebe80fd2e74ed1cf7725
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: 4b7e0f91dcdf26688cab07ac83142c33de8bbdb1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511352"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604868"
 ---
-Den här artikeln innehåller information och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket med Go för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa dit eget Go-program.
+Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för Go för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
-## <a name="prerequisites"></a>Krav
+> [!NOTE]
+> Om du vill skapa och träna en objekt identifierings modell _utan att_ skriva kod, se den [webbläsarbaserade vägledningen](../../get-started-build-detector.md) i stället.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-client-library"></a>Installera klient biblioteket för Custom Vision
 
-Om du vill installera klient biblioteket för Custom Vision tjänsten för go kör du följande kommando i PowerShell:
+Om du vill skriva en app Analysis-app med Custom Vision för Go behöver du Custom Vision-tjänstens klient bibliotek. Kör följande kommando i PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
@@ -38,7 +41,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Skapa en ny fil med namnet *sample.go* i den projektkatalog som du vill använda.
 
-### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
+## <a name="create-the-custom-vision-project"></a>Skapa Custom Vision-projektet
 
 Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Hämta även slut punkts-URL: en från sidan Inställningar på webbplatsen för Custom Vision.
 
@@ -88,7 +91,7 @@ func main() {
     project, _ := trainer.CreateProject(ctx, project_name, "", objectDetectDomain.ID, "")
 ```
 
-### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
+## <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
 Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.go*:
 
@@ -98,7 +101,7 @@ forkTag, _ := trainer.CreateTag(ctx, *project.ID, "fork", "A fork", string(train
 scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of scissors", string(training.Regular))
 ```
 
-### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
+## <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
 När du taggar bilder i objekt identifierings projekt måste du ange regionen för varje taggat objekt med normaliserade koordinater.
 
@@ -217,7 +220,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 }     
 ```
 
-### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
+## <a name="train-and-publish-the-project"></a>Träna och publicera projektet
 
 Den här koden skapar den första iterationen av förutsägelse modellen och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
@@ -236,7 +239,7 @@ for {
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
+## <a name="use-the-prediction-endpoint"></a>Använd förutsägelse slut punkten
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
@@ -276,7 +279,11 @@ Programmets utdata bör visas i konsolen. Du kan sedan kontrollera att testbilde
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i objekt identifierings processen kan göras i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande tränings guide behandlar bild klassificering, men dess principer liknar objekt identifiering.
+Nu har du gjort varje steg i processen för objekt identifiering i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](../../test-your-model.md)
+
+* [Vad är Custom Vision?](../../overview.md)
+* [SDK Reference Documentation (utbildning)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training)
+* [SDK Reference Documentation (förutsägelse)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)

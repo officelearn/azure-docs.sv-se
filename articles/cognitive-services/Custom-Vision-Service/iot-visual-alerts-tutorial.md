@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244677"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604299"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudie: använda Custom Vision med en IoT-enhet för att rapportera visuella tillstånd
 
@@ -33,7 +33,7 @@ De här självstudierna visar hur du:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
@@ -52,11 +52,11 @@ Appen IoT Visual Alerts körs i en kontinuerlig slinga och växlar mellan fyra o
 * **Väntar på tränad modell**: i det här läget anropar appen Custom vision-API varje sekund för att kontrol lera om mål projektet innehåller en utbildad iteration. När den hittar en hämtas motsvarande ONNX-modell till en lokal fil och växlar till **poängsättnings** tillstånd.
 * **Poäng**: i det här läget använder appen Windows ml för att utvärdera en enskild RAM från kameran mot den lokala ONNX-modellen. Den resulterande bild klassificeringen visas på skärmen och skickas som ett meddelande till IoT Hub. Appen försätts sedan i vilo läge för en sekund innan en ny bild påvärderas.
 
-## <a name="understand-the-code-structure"></a>Förstå kod strukturen
+## <a name="examine-the-code-structure"></a>Granska kod strukturen
 
 Följande filer hanterar appens huvud funktioner.
 
-| Fil | Beskrivning |
+| Fil | Description |
 |-------------|-------------|
 | [MainPage. XAML](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Den här filen definierar XAML-användargränssnittet. Den är värd för webb kamera kontrollen och innehåller etiketterna som används för status uppdateringar.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Den här koden styr beteendet för XAML-ANVÄNDARGRÄNSSNITTET. Den innehåller bearbetnings koden för tillstånds datorn.|
@@ -98,13 +98,13 @@ När appen fångar in bilder måste du exponera kameran för de typer av visuell
 
 ## <a name="train-the-custom-vision-model"></a>Träna Custom Visions modellen
 
-När appen har skapat avbildningarna laddar den upp dem och växlar sedan till **väntar på tränad modell** status. Nu måste du gå till [Custom vision Portal](https://www.customvision.ai/) och bygga en modell som baseras på de nya utbildnings avbildningarna. Följande animering visar ett exempel på den här processen.
+När appen har skapat avbildningarna laddar den upp dem och växlar sedan till **väntar på tränad modell** status. Nu måste du gå till [Custom vision webbplats](https://www.customvision.ai/) och bygga en modell som baseras på de nya utbildnings avbildningarna. Följande animering visar ett exempel på den här processen.
 
 ![Animering: tagga flera bilder av bananer](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 Upprepa den här processen med ditt eget scenario:
 
-1. Logga in på [Custom vision Portal](http://customvision.ai).
+1. Logga in på [Custom vision webbplats](http://customvision.ai).
 1. Hitta mål projektet, vilket nu bör ha alla utbildnings bilder som appen har laddat upp.
 1. För varje visuellt läge som du vill identifiera väljer du lämpliga avbildningar och tillämpar sedan taggen manuellt.
     * Om målet till exempel är att skilja mellan ett tomt rum och ett rum med personer i det rekommenderar vi att du lägger till fem eller fler bilder med personer som en ny klass, **människor**och tagga fem eller flera bilder utan personer som den **negativa** taggen. Detta hjälper modellen att skilja mellan de två tillstånden.

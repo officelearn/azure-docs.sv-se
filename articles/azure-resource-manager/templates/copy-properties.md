@@ -2,17 +2,19 @@
 title: Definiera flera instanser av en egenskap
 description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en egenskap för en resurs.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678468"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605251"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Egenskaps upprepning i ARM-mallar
 
-Den här artikeln visar hur du skapar fler än en instans av en egenskap i din Azure Resource Manager-mall (ARM). Genom att lägga till elementet **Kopiera** i avsnittet Egenskaper i en resurs i mallen kan du dynamiskt ange antalet objekt för en egenskap under distributionen. Du behöver inte heller upprepa syntaxen för mallar.
+Den här artikeln visar hur du skapar fler än en instans av en egenskap i din Azure Resource Manager-mall (ARM-mall). Genom att lägga till elementet **Kopiera** i avsnittet Egenskaper i en resurs i mallen kan du dynamiskt ange antalet objekt för en egenskap under distributionen. Du behöver inte heller upprepa syntaxen för mallar.
+
+Du kan bara använda kopiera med toppnivå resurser, även när du använder kopiera till en egenskap. Mer information om hur du ändrar en underordnad resurs till en resurs på den översta nivån finns i [iteration för en underordnad resurs](copy-resources.md#iteration-for-a-child-resource).
 
 Du kan också använda kopiera med [resurser](copy-resources.md), [variabler](copy-variables.md)och [utdata](copy-outputs.md).
 
@@ -252,7 +254,7 @@ Du kan använda en iteration av resurs och egenskap tillsammans. Referera till e
 
 I följande exempel visas ett vanligt scenario för att skapa mer än ett värde för en egenskap.
 
-|Mall  |Beskrivning  |
+|Mall  |Description  |
 |---------|---------|
 |[VM-distribution med ett variabel antal data diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera data diskar till en virtuell dator. |
 

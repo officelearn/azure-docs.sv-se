@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548057"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604469"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Självstudie: konfigurera principer för automatisk användar etablering
 
@@ -101,7 +101,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Fliken etablering automatiskt](common/provisioning-automatic.png)
 
 5. Under avsnittet **admin-autentiseringsuppgifter** , inmatat `https://<myPoliciesCustomDomain>.mypolicies.com/scim` i **klient-URL** , där `<myPoliciesCustomDomain>` är den anpassade domänen för principer. Du kan hämta din kund domän för principer från din URL.
 Exempel: `<demo0-qa>` . mypolicies.com.
@@ -122,7 +122,18 @@ Exempel: `<demo0-qa>` . mypolicies.com.
 
 10. Granska de användarattribut som synkroniseras från Azure AD till principer i avsnittet mappning av **attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i principerna för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Användar mappningar för principer](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Attribut|Typ|
+   |---|---|
+   |userName|Sträng|
+   |aktiv|Boolesk|
+   |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
+   |Name. givenName|Sträng|
+   |Name. familyName|Sträng|
+   |namn. formaterad|Sträng|
+   |externalId|Sträng|
+   |adresser [Type EQ "Work"]. land|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
+
 
 11. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -146,6 +157,10 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 * Principer för principer kräver alltid **användar namn**, **e-post** och **externalId**.
 * Principer för att inte använda hård borttagningar för användarattribut stöds inte.
+
+## <a name="change-log"></a>Ändringslogg
+
+* 09/15/2020 – stöd har lagts till för användarnas "Country"-attribut.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -2,15 +2,18 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 21ee22e7a493a6bbc8b5934e353db7c59b4aa17d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/15/2020
+ms.openlocfilehash: 16fbffa31563920e28538a961e621c894d105173
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533384"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604905"
 ---
-Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek med python för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Python-program.
+Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för python för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
+
+> [!NOTE]
+> Om du vill skapa och träna en objekt identifierings modell _utan att_ skriva kod, se den [webbläsarbaserade vägledningen](../../get-started-build-detector.md) i stället.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -20,7 +23,7 @@ Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek 
 
 ## <a name="install-the-custom-vision-client-library"></a>Installera klient biblioteket för Custom Vision
 
-Om du vill installera klient biblioteket för Custom Vision tjänsten för python kör du följande kommando i PowerShell:
+Om du vill skriva en app Analysis-app med Custom Vision för python behöver du Custom Vision klient biblioteket. Kör följande kommando i PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -36,7 +39,7 @@ Du kan ladda ned bilderna med [Python-exemplen](https://github.com/Azure-Samples
 
 Skapa en ny fil med namnet *sample.py* i den projektkatalog du vill använda.
 
-### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
+## <a name="create-the-custom-vision-project"></a>Skapa Custom Vision-projektet
 
 Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Hämta även slut punkts-URL: en från sidan Inställningar på webbplatsen för Custom Vision.
 
@@ -67,7 +70,7 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
+## <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
 Om du vill skapa objekt Taggar i projektet lägger du till följande kod i slutet av *Sample.py*:
 
@@ -77,7 +80,7 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
+## <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
 När du taggar bilder i objekt identifierings projekt måste du ange regionen för varje taggat objekt med normaliserade koordinater.
 
@@ -170,7 +173,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
+## <a name="train-and-publish-the-project"></a>Träna och publicera projektet
 
 Den här koden skapar den första iterationen av förutsägelse modellen och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
@@ -194,7 +197,7 @@ print ("Done!")
 >
 > Du kan välja att bara träna på en delmängd av dina använda taggar. Du kanske vill göra detta om du inte har använt tillräckligt med vissa Taggar ännu, men du har tillräckligt med andra. I **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** -anropet ställer du in den valfria parametern *selected_tags* till en lista över ID-strängarna för de taggar som du vill använda. Modellen kommer att träna att bara identifiera taggarna i listan.
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
+## <a name="use-the-prediction-endpoint"></a>Använd förutsägelse slut punkten
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
@@ -229,7 +232,10 @@ Programmets utdata bör visas i konsolen. Du kan sedan kontrollera att testbilde
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i objekt identifierings processen kan göras i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande tränings guide behandlar bild klassificering, men dess principer liknar objekt identifiering.
+Nu har du gjort varje steg i processen för objekt identifiering i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](../../test-your-model.md)
+
+* [Vad är Custom Vision?](../../overview.md)
+* [Referensdokumentation för SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

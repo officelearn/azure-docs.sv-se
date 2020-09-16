@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640522"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604146"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranslutna användare
 
@@ -29,7 +29,7 @@ Möjligheten att säkert komma åt interna appar utanför nätverket blir ännu 
 
 Många organisationer tror att de är i kontroll och skyddade när det finns resurser inom gränserna för företagets nätverk. Men i dagens digitala arbets plats har denna gränser utökats med hanterade mobila enheter och resurser och tjänster i molnet. Nu måste du hantera komplexiteten för att skydda användarnas identiteter och data som lagras på deras enheter och appar.
 
-Kanske använder du redan Azure AD för att hantera användare i molnet som behöver komma åt Office 365 och andra SaaS-program, samt webbappar som finns lokalt. Om du redan har Azure AD kan du utnyttja det som ett enda kontroll plan för att ge sömlös och säker åtkomst till dina lokala program. Eller så kanske du fortfarande överväger en flytt till molnet. I så fall kan du påbörja resan till molnet genom att implementera programproxy och ta det första steget i att skapa en stark identitets grund.
+Kanske använder du redan Azure AD för att hantera användare i molnet som behöver komma åt Microsoft 365 och andra SaaS-program, samt webbappar som finns lokalt. Om du redan har Azure AD kan du utnyttja det som ett enda kontroll plan för att ge sömlös och säker åtkomst till dina lokala program. Eller så kanske du fortfarande överväger en flytt till molnet. I så fall kan du påbörja resan till molnet genom att implementera programproxy och ta det första steget i att skapa en stark identitets grund.
 
 I listan nedan visas några av de saker som du kan aktivera genom att implementera App proxy i ett scenario med hybrid samexistens:
 
@@ -53,7 +53,7 @@ Tidigare var ditt kontroll plan för att skydda interna resurser från angripare
 * Autentisera användare till webb servrar i perimeternätverket
 * Upprätthålla VPN-åtkomst för fjärran vändare med distribution och konfiguration av VPN-klientprogramvara. Du kan också underhålla domänanslutna servrar i DMZ, som kan vara sårbara för externa attacker.
 
-I dagens moln – första världen är Azure AD bäst lämpad att styra vem och vad som ingår i nätverket. Azure AD-programproxy integreras med modern autentisering och molnbaserade tekniker, t. ex. SaaS program och identitets leverantörer. Den här integrationen gör det möjligt för användare att komma åt appar varifrån som helst. Det är inte bara App proxy som passar bäst för dagens digitala arbets platser, men det är säkrare än VPN-och omvänd proxy-lösning och enklare att implementera. Fjärran vändare kan komma åt dina lokala program på samma sätt som de kommer åt O365 och andra SaaS-appar som är integrerade med Azure AD. Du behöver inte ändra eller uppdatera dina program för att fungera med programproxy. Dessutom kräver App proxy inte att du öppnar inkommande anslutningar via brand väggen. Med App proxy ställer du bara in den och glömmer den.
+I dagens moln – första världen är Azure AD bäst lämpad att styra vem och vad som ingår i nätverket. Azure AD-programproxy integreras med modern autentisering och molnbaserade tekniker, t. ex. SaaS program och identitets leverantörer. Den här integrationen gör det möjligt för användare att komma åt appar varifrån som helst. Det är inte bara App proxy som passar bäst för dagens digitala arbets platser, men det är säkrare än VPN-och omvänd proxy-lösning och enklare att implementera. Fjärran vändare kan komma åt dina lokala program på samma sätt som de kommer åt Microsoft och andra SaaS-appar som är integrerade med Azure AD. Du behöver inte ändra eller uppdatera dina program för att fungera med programproxy. Dessutom kräver App proxy inte att du öppnar inkommande anslutningar via brand väggen. Med App proxy ställer du bara in den och glömmer den.
 
 ## <a name="the-future-of-remote-access"></a>Framtiden för fjärråtkomst
 
@@ -72,7 +72,7 @@ Med Application Proxy håller Azure AD reda på användare som behöver åtkomst
 
 ### <a name="an-overview-of-how-app-proxy-works"></a>En översikt över hur App proxy fungerar
 
-Application Proxy är en Azure AD-tjänst som du konfigurerar i Azure Portal. Du kan publicera en extern offentlig HTTP/HTTPS URL-slutpunkt i Azure-molnet, som ansluter till en intern program server-URL i din organisation. Dessa lokala webbappar kan integreras med Azure AD för att stödja enkel inloggning. Slutanvändare kan sedan komma åt lokala webbappar på samma sätt som de kommer åt Office 365 och andra SaaS-appar.
+Application Proxy är en Azure AD-tjänst som du konfigurerar i Azure Portal. Du kan publicera en extern offentlig HTTP/HTTPS URL-slutpunkt i Azure-molnet, som ansluter till en intern program server-URL i din organisation. Dessa lokala webbappar kan integreras med Azure AD för att stödja enkel inloggning. Slutanvändare kan sedan komma åt lokala webbappar på samma sätt som de kommer åt Microsoft 365 och andra SaaS-appar.
 
 Komponenterna i den här funktionen inkluderar Application Proxy-tjänsten som körs i molnet, Application Proxy Connector, som är en Lightweight-agent som körs på en lokal server och Azure AD, som är identitets leverantören. Alla tre komponenterna fungerar tillsammans för att ge användaren en enkel inloggnings upplevelse för att komma åt lokala webb program.
 
@@ -195,8 +195,8 @@ Oavsett om du använder Azure AD för att hantera användare i ett hybrid scenar
 Organisationer ska börja dra nytta av App proxy idag för att dra nytta av följande fördelar:
 
 * Publicera lokala appar externt utan att du behöver ha till gång till traditionell VPN eller andra lokala webb publicerings lösningar och DMZ-metoder
-* Enkel inloggning till alla program, var de som Office 365 eller andra SaaS-appar och inkluderar lokala program
-* Säkerhet för moln skala där Azure AD utnyttjar telemetri för Office 365 för att förhindra obehörig åtkomst
+* Enkel inloggning till alla program, var de Microsoft 365 eller andra SaaS-appar och inklusive lokala program
+* Säkerhet för moln skala där Azure AD utnyttjar Microsoft 365 telemetri för att förhindra obehörig åtkomst
 * Intune-integrering för att säkerställa att företags trafiken autentiseras
 * Centralisering för användar konto hantering
 * Automatiska uppdateringar för att se till att du har de senaste säkerhets korrigeringarna

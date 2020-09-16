@@ -2,18 +2,21 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6705e6f1e988a836a3a9b7e7c4950510fcb2b228
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c88bed39c58b21464a7b97e54c80752a2552f8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511357"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604901"
 ---
-Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek med Node.js för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa ditt eget Node.js-program.
+Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för Node.js för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
-## <a name="prerequisites"></a>Krav
+> [!NOTE]
+> Om du vill skapa och träna en objekt identifierings modell _utan att_ skriva kod, se den [webbläsarbaserade vägledningen](../../get-started-build-detector.md) i stället.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Node.js 8](https://www.nodejs.org/en/download/) eller senare installerat.
 - [npm](https://www.npmjs.com/) installerat.
@@ -26,7 +29,7 @@ Den här artikeln visar hur du kommer igång med Custom Vision klient bibliotek 
 
 ## <a name="install-the-custom-vision-client-library"></a>Installera klient biblioteket för Custom Vision
 
-Kör följande kommandon för att installera Custom Vision tjänst klient bibliotek för Node.js i projektet:
+Om du vill skriva en app för bildanalys med Custom Vision för Node.js behöver du Custom Vision NPM-paket. Installera dem genom att köra följande kommando i PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -37,7 +40,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 Skapa en ny fil med namnet *sample.js* i den projektkatalog som du vill använda.
 
-### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
+## <a name="create-the-custom-vision-project"></a>Skapa Custom Vision-projektet
 
 Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerations nycklar i lämpliga definitioner och ange värdet för sampleDataRoot sökväg till din mappsökväg. Se till att slut punkt svärdet matchar den utbildning och de förutsägelse slut punkter som du har skapat på [Customvision.AI](https://www.customvision.ai/). Observera att skillnaden mellan att skapa ett projekt för objekt identifiering och bild klassificering är den domän som anges i **createProject** -anropet.
 
@@ -78,7 +81,7 @@ async function asyncForEach (array, callback) {
     const sampleProject = await trainer.createProject("Sample Obj Detection Project", { domainId: objDetectDomain.id });
 ```
 
-### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
+## <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
 Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.js*:
 
@@ -87,7 +90,7 @@ Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod
     const scissorsTag = await trainer.createTag(sampleProject.id, "Scissors");
 ```
 
-### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
+## <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
 När du taggar bilder i objekt identifierings projekt måste du ange regionen för varje taggat objekt med normaliserade koordinater. 
 
@@ -173,7 +176,7 @@ await asyncForEach(scissorsFiles, async (file) => {
 await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
+## <a name="train-and-publish-the-project"></a>Träna och publicera projektet
 
 Den här koden skapar den första iterationen av förutsägelse modellen och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
@@ -229,7 +232,11 @@ Programmets utdata bör visas i konsolen. Du kan sedan kontrollera att testbilde
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i objekt identifierings processen kan göras i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande tränings guide behandlar bild klassificering, men dess principer liknar objekt identifiering.
+Nu har du gjort varje steg i processen för objekt identifiering i kod. Det här exemplet kör en enda inlärnings upprepning, men ofta behöver du träna och testa din modell flera gånger för att göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](../../test-your-model.md)
+
+* [Vad är Custom Vision?](../../overview.md)
+* [SDK Reference Documentation (utbildning)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [SDK Reference Documentation (förutsägelse)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

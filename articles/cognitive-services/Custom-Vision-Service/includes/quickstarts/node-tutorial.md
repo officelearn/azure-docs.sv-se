@@ -2,18 +2,21 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2a8937debc38dab4b2d38b56d1c6a9c3edcbe2a7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8356acbf2e048ba62676f296be2ac14add445df2
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508581"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605026"
 ---
-Den här artikeln visar hur du kommer igång med Custom Vision-klient biblioteket med Node.js för att skapa en bild klassificerings modell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, Hämta projektets URL för den publicerade förutsägelse slut punkten och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa ditt eget Node.js-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du istället läsa den [webbläsarbaserade vägledningen](../../getting-started-build-a-classifier.md).
+Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för Node.js för att skapa en bild klassificerings modell. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 
-## <a name="prerequisites"></a>Krav
+> [!NOTE]
+> Om du vill skapa och träna en klassificerings modell _utan att_ skriva kod, se den [webbläsarbaserade vägledningen](../../getting-started-build-a-classifier.md) i stället.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Node.js 8](https://www.nodejs.org/en/download/) eller senare installerat.
 - [npm](https://www.npmjs.com/) installerat.
@@ -21,7 +24,7 @@ Den här artikeln visar hur du kommer igång med Custom Vision-klient biblioteke
 
 ## <a name="install-the-custom-vision-client-library"></a>Installera klient biblioteket för Custom Vision
 
-Om du vill installera klient biblioteket för Custom Vision-tjänsten för Node.js kör du följande kommando i PowerShell:
+Om du vill skriva en app för bildanalys med Custom Vision för Node.js behöver du Custom Vision NPM-paket. Installera dem genom att köra följande kommando i PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -36,7 +39,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 Skapa en ny fil med namnet *sample.js* i den projektkatalog som du vill använda.
 
-### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
+## <a name="create-the-custom-vision-project"></a>Skapa Custom Vision-projektet
 
 Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerations nycklar i lämpliga definitioner och ange värdet för sampleDataRoot sökväg till din mappsökväg. Se till att slut punkt svärdet matchar den utbildning och de förutsägelse slut punkter som du har skapat på [Customvision.AI](https://www.customvision.ai/). Observera att skillnaden mellan att skapa ett projekt för objekt identifiering och bild klassificering är den domän som anges i **createProject** -anropet.
 
@@ -66,7 +69,7 @@ const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
     const sampleProject = await trainer.createProject("Sample Project");
 ```
 
-### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
+## <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
 Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.js*:
 
@@ -75,7 +78,7 @@ Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod
     const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 ```
 
-### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
+## <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
 Infoga följande kod efter att taggen har skapats för att lägga till exempelbilder i projektet. Den här koden laddar upp varje bild med dess motsvarande tagg. Du kan ladda upp upp till 64 avbildningar i en enda batch.
 
@@ -101,7 +104,7 @@ Infoga följande kod efter att taggen har skapats för att lägga till exempelbi
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Träna klassificeraren och publicera
+## <a name="train-and-publish-the-classifier"></a>Träna och publicera klassificeraren
 
 Den här koden skapar den första iterationen av förutsägelse modellen och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
 
@@ -122,7 +125,7 @@ Den här koden skapar den första iterationen av förutsägelse modellen och pub
     await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
+## <a name="use-the-prediction-endpoint"></a>Använd förutsägelse slut punkten
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
@@ -175,3 +178,7 @@ Nu har du sett hur varje steg i objekt identifierings processen kan göras i kod
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](../../test-your-model.md)
+
+* [Vad är Custom Vision?](../../overview.md)
+* [SDK Reference Documentation (utbildning)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [SDK Reference Documentation (förutsägelse)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

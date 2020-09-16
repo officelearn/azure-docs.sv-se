@@ -3,18 +3,18 @@ title: Hantera Azure Storage livs cykeln
 description: Lär dig hur du skapar policy regler för livs cykeln för att överföra ålders data från frekvent till låg frekvent lagring och Arkiv lag ring.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 09/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b1bf8fbfb6d2c141a2b18c3599631f6383883908
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell, references_regions
+ms.openlocfilehash: be5d86fe690d60f687622243a2f1d7771b8af7d0
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074431"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604031"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -33,7 +33,7 @@ Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna 
 
 ## <a name="availability-and-pricing"></a>Tillgänglighet och priser
 
-Funktionen för livs cykel hantering är tillgänglig i alla Azure-regioner för Generell användning v2-konton (GPv2), Blob Storage-konton och Premium Block Blob Storage-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).  
+Funktionen för livs cykel hantering är tillgänglig i alla Azure-regioner för Generell användning v2-konton (GPv2), Blob Storage-konton och Premium Block Blob Storage-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
 
 Funktionen för livs cykel hantering är kostnads fri. Kunderna debiteras den vanliga drift kostnaden för den [angivna](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anropen på BLOB-nivå. Borttagnings åtgärden är kostnads fri. Mer information om priser finns i [Block-Blob-prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -51,7 +51,7 @@ En princip kan läsas eller skrivas fullständigt. Del uppdateringar stöds inte
 > [!NOTE]
 > Om du aktiverar brand Väggs regler för ditt lagrings konto kan begäran om livs cykel hantering blockeras. Du kan avblockera dessa förfrågningar genom att tillhandahålla undantag för betrodda Microsoft-tjänster. Mer information finns i avsnittet undantag i [Konfigurera brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.  
+Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -64,54 +64,68 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. I Azure Portal söker du efter och väljer ditt lagrings konto. 
+1. I Azure Portal söker du efter och väljer ditt lagrings konto. 
 
-3. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra dina regler.
+1. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra dina regler.
 
-4. Välj fliken **listvy** .
+1. Välj fliken **listvy** .
 
-5. Välj **Lägg till regel** och fyll sedan i formulär fälten för **Åtgärds uppsättning** . I följande exempel flyttas blobbar till låg frekvent lagring om de inte har ändrats i 30 dagar.
+1. Välj **Lägg till en regel** och ge regeln ett namn i formuläret **information** . Du kan också ange **regel omfång**, **Blob-typ**och värden för BLOB- **undertyper** . I följande exempel anges omfånget för att filtrera blobbar. Detta gör att fliken **filter uppsättning** läggs till.
 
-   ![Sidan livs cykel hantering åtgärds uppsättning i Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Livs cykel hantering Lägg till en regel informations sida i Azure Portal":::
 
-6. Välj **filter uppsättning** för att lägga till ett valfritt filter. Välj sedan **Bläddra** för att ange en behållare och mapp som du vill filtrera.
+1. Välj **Base-blobbar** för att ange villkoren för din regel. I följande exempel flyttas blobbar till låg frekvent lagring om de inte har ändrats i 30 dagar.
 
-   ![Sidan livs cykel hantering filter uppsättning i Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Sidan livs cykel hantering Base blobbar i Azure Portal":::
 
-8. Välj **Granska + Lägg** till för att granska princip inställningarna.
+   Alternativet **senast använda** är tillgängligt i för hands versionen i följande regioner:
 
-9. Välj **Lägg** till för att lägga till den nya principen.
+    - Frankrike, centrala
+    - Kanada, östra
+    - Kanada, centrala
+
+   > [!IMPORTANT]
+   > Den senaste för hands versionen av åtkomst tiden är endast för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
+   
+   Mer information om alternativet **senast använda** finns i [Flytta data baserat på senast använda datum (för hands version)](#move-data-based-on-last-accessed-date-preview).
+
+1. Om du **har valt begränsa blobbar med filter** på sidan **information** väljer du **filter uppsättning** för att lägga till ett valfritt filter. Följande exempel filtrerar på blobbar i behållaren *mylifecyclecontainer* som börjar med "log".
+
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Sidan livs cykel hantering filter uppsättning i Azure Portal":::
+
+1. Välj **Lägg** till för att lägga till den nya principen.
 
 #### <a name="azure-portal-code-view"></a>Azure Portal kodvyn
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. I Azure Portal söker du efter och väljer ditt lagrings konto.
+1. I Azure Portal söker du efter och väljer ditt lagrings konto.
 
-3. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra principen.
+1. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra principen.
 
-4. Följande JSON är ett exempel på en princip som kan klistras in på fliken **kodvy** .
+1. Följande JSON är ett exempel på en princip som kan klistras in på fliken **kodvy** .
 
    ```json
    {
      "rules": [
        {
-         "name": "ruleFoo",
          "enabled": true,
+         "name": "move-to-cool",
          "type": "Lifecycle",
          "definition": {
-           "filters": {
-             "blobTypes": [ "blockBlob" ],
-             "prefixMatch": [ "container1/foo" ]
-           },
            "actions": {
              "baseBlob": {
-               "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-               "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-               "delete": { "daysAfterModificationGreaterThan": 2555 }
-             },
-             "snapshot": {
-               "delete": { "daysAfterCreationGreaterThan": 90 }
+               "tierToCool": {
+                 "daysAfterModificationGreaterThan": 30
+               }
              }
+           },
+           "filters": {
+             "blobTypes": [
+               "blockBlob"
+             ],
+             "prefixMatch": [
+               "mylifecyclecontainer/log"
+             ]
            }
          }
        }
@@ -119,9 +133,9 @@ Det finns två sätt att lägga till en princip via Azure Portal.
    }
    ```
 
-5. Välj **Spara**.
+1. Välj **Spara**.
 
-6. Mer information om det här JSON-exemplet finns i avsnittet [principer](#policy) och [regler](#rules) .
+1. Mer information om det här JSON-exemplet finns i avsnittet [principer](#policy) och [regler](#rules) .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -221,15 +235,15 @@ En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
 En princip är en samling regler:
 
-| Parameternamn | Parameter typ | Anteckningar |
+| Parameternamn | Parameter typ | Kommentarer |
 |----------------|----------------|-------|
 | `rules`        | En matris med regel objekt | Minst en regel krävs i en princip. Du kan definiera upp till 100 regler i en princip.|
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parameter typ | Anteckningar | Obligatorisk |
+| Parameternamn | Parameter typ | Kommentarer | Obligatorisk |
 |----------------|----------------|-------|----------|
-| `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
+| `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt. Det måste vara unikt inom en princip. | Sant |
 | `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
 | `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle` . | Sant |
 | `definition`   | Ett objekt som definierar livs cykel regeln | Varje definition består av en filter uppsättning och en åtgärds uppsättning. | Sant |
@@ -240,10 +254,10 @@ Varje regel definition innehåller en filter uppsättning och en åtgärds upps�
 
 ### <a name="sample-rule"></a>Exempel regel
 
-Följande exempel regel filtrerar kontot för att köra åtgärder på objekt som finns i `container1` och börjar med `foo` .  
+Följande exempel regel filtrerar kontot för att köra åtgärder på objekt som finns i `container1` och börjar med `foo` .
 
 >[!NOTE]
->- Livs cykel hantering har endast stöd för Block Blob-typ.<br>
+>- Livs cykel hantering stöder Block-Blob och tillägg av BLOB-typer.<br>
 >- Livs cykel hantering påverkar inte system behållare som $logs och $web.
 
 - Nivå-blob till låg frekvent nivå 30 dagar efter senaste ändring
@@ -285,11 +299,11 @@ Filtrerar begränsnings regel åtgärder till en delmängd av blobbar i lagrings
 
 Filtren är:
 
-| Filternamn | Filtertyp | Anteckningar | Krävs |
+| Filternamn | Filtertyp | Kommentarer | Krävs |
 |-------------|-------------|-------|-------------|
-| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` . | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Inga |
-| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
+| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Yes |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | No |
+| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | No |
 
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, **centrala Frankrike**och **södra Frankrike** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
@@ -300,21 +314,23 @@ Filtren är:
 
 Livs cykel hantering stöder skiktning och borttagning av blobbar och borttagning av BLOB-ögonblicksbilder. Definiera minst en åtgärd för varje regel på blobbar eller BLOB-ögonblicksbilder.
 
-| Åtgärd        | Bas-BLOB                                   | Ögonblicksbild      |
-|---------------|---------------------------------------------|---------------|
-| tierToCool    | Stöd för blobbar på frekvent nivå         | Stöds inte |
-| tierToArchive | Stöd för blobbar på frekvent eller låg frekvent nivå | Stöds inte |
-| delete        | Stöds                                   | Stöds     |
+| Action                      | Bas-BLOB                                   | Ögonblicksbild      |
+|-----------------------------|---------------------------------------------|---------------|
+| tierToCool                  | Stöd för blobbar på frekvent nivå         | Stöds inte |
+| enableAutoTierToHotFromCool | Stöd för blobbar på låg frekvent nivå        | Stöds inte |
+| tierToArchive               | Stöd för blobbar på frekvent eller låg frekvent nivå | Stöds inte |
+| delete                      | Stöds för `blockBlob` och `appendBlob`  | Stöds     |
 
 >[!NOTE]
 >Om du definierar mer än en åtgärd på samma BLOB, tillämpar livs cykel hanteringen den minst dyra åtgärden på blobben. Till exempel är åtgärden `delete` billigare än åtgärd `tierToArchive` . Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool` .
 
 Körnings villkoren baseras på ålder. Bas-blobbar använder senaste ändrings tid för att spåra ålder och blob-ögonblicksbilder använder ögonblicks bilds skapande tiden för att spåra ålder.
 
-| Åtgärds körnings villkor             | Villkors värde                          | Beskrivning                             |
-|----------------------------------|------------------------------------------|-----------------------------------------|
-| daysAfterModificationGreaterThan | Heltals värde som anger ålder i dagar | Villkoret för bas-BLOB-åtgärder     |
-| daysAfterCreationGreaterThan     | Heltals värde som anger ålder i dagar | Villkoret för BLOB Snapshot-åtgärder |
+| Åtgärds körnings villkor               | Villkors värde                          | Description                                                                      |
+|------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
+| daysAfterModificationGreaterThan   | Heltals värde som anger ålder i dagar | Villkoret för bas-BLOB-åtgärder                                              |
+| daysAfterCreationGreaterThan       | Heltals värde som anger ålder i dagar | Villkoret för BLOB Snapshot-åtgärder                                          |
+| daysAfterLastAccessTimeGreaterThan | Heltals värde som anger ålder i dagar | förhandsgranskningsvyn Villkoret för grundläggande BLOB-åtgärder när senaste åtkomst tid har Aktiver ATS |
 
 ## <a name="examples"></a>Exempel
 
@@ -347,6 +363,69 @@ I det här exemplet visas hur du översätter block-blobar som föregås av `con
   ]
 }
 ```
+
+### <a name="move-data-based-on-last-accessed-date-preview"></a>Flytta data baserat på senast använda datum (förhands granskning)
+
+Du kan aktivera senaste åtkomst tid spårningen för att spara en post när din BLOB senast lästes eller skrevs. Du kan använda senaste åtkomst tid som ett filter för att hantera nivåer och kvarhållning av BLOB-data.
+
+Alternativet **senast använda** är tillgängligt i för hands versionen i följande regioner:
+
+ - Frankrike, centrala
+ - Kanada, östra
+ - Kanada, centrala
+
+> [!IMPORTANT]
+> Den senaste för hands versionen av åtkomst tiden är endast för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
+
+#### <a name="how-last-access-time-tracking-works"></a>Hur senaste åtkomst tid spårningen fungerar
+
+När den senaste åtkomst tiden har Aktiver ATS uppdateras den anropade BLOB-egenskapen `LastAccessTime` när en BLOB läses eller skrivs. En [Get BLOB](/rest/api/storageservices/get-blob) -åtgärd betraktas som en åtkomst åtgärd. [Hämta BLOB-egenskaper](/rest/api/storageservices/get-blob-properties), [Hämta BLOB-metadata](/rest/api/storageservices/get-blob-metadata)och [Hämta BLOB-Taggar](/rest/api/storageservices/get-blob-tags) har inte åtkomst till åtgärder och uppdatera därför inte den senaste åtkomst tiden.
+
+För att minimera påverkan på Läs åtkomst fördröjningen uppdaterar bara den första läsningen av de senaste 24 timmarna den senaste åtkomst tiden. Efterföljande läsningar under samma 24-timmarsperiod uppdaterar inte den senaste åtkomst tiden. Om en BLOB ändras mellan läsningar, är den senaste åtkomst tiden den senaste gången av de två värdena.
+
+I följande exempel flyttas blobbar till låg frekvent lagring om de inte har öppnats i 30 dagar. `enableAutoTierToHotFromCool`Egenskapen är ett booleskt värde som anger om en BLOB automatiskt ska flyttas tillbaka till frekvent om den används igen när den har utgångs punkt till låg frekvent.
+
+```json
+{
+  "enabled": true,
+  "name": "last-accessed-thirty-days-ago",
+  "type": "Lifecycle",
+  "definition": {
+    "actions": {
+      "baseBlob": {
+        "enableAutoTierToHotFromCool": true,
+        "tierToCool": {
+          "daysAfterLastAccessTimeGreaterThan": 30
+        }
+      }
+    },
+    "filters": {
+      "blobTypes": [
+        "blockBlob"
+      ],
+      "prefixMatch": [
+        "mylifecyclecontainer/log"
+      ]
+    }
+  }
+}
+```
+
+#### <a name="storage-account-support"></a>Stöd för lagrings konto
+
+Senaste åtkomst tid spårningen är tillgänglig för följande typer av lagrings konton:
+
+ - Allmänna-syfte v2-lagrings konton
+ - Blockera Blob Storage-konton
+ - Blob Storage-konton
+
+Om ditt lagrings konto är ett allmänt v1-konto använder du Azure Portal för att uppgradera till ett allmänt-syfte v2-konto.
+
+Det finns ännu inte stöd för lagrings konton med hierarkiskt namn område som är aktiverade för användning med Azure Data Lake Storage Gen2.
+
+#### <a name="pricing-and-billing"></a>Priser och fakturering
+
+Varje senaste uppdatering av åtkomst tiden anses vara en [annan åtgärd](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### <a name="archive-data-after-ingest"></a>Arkivera data efter inmatning
 
@@ -468,15 +547,18 @@ För data som ändras och används regelbundet under hela livs längden används
 }
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
-**Jag skapade en ny princip, varför körs inte åtgärderna direkt?**  
-Plattformen kör livs cykel principen en gång om dagen. När du har konfigurerat en princip kan det ta upp till 24 timmar innan vissa åtgärder körs för första gången.  
+**Jag skapade en ny princip, varför körs inte åtgärderna direkt?**
 
-**Hur lång tid tar det för åtgärder att köra om jag uppdaterar en befintlig princip?**  
-Den uppdaterade principen tar upp till 24 timmar innan den börjar gälla. När principen är aktive rad kan det ta upp till 24 timmar innan åtgärderna har körts. Därför kan det ta upp till 48 timmar innan princip åtgärderna har slutförts.   
+Plattformen kör livs cykel principen en gång om dagen. När du har konfigurerat en princip kan det ta upp till 24 timmar innan vissa åtgärder körs för första gången.
 
-**Jag har manuellt extraherat en arkiverad BLOB, hur gör jag för att förhindra att den flyttas tillbaka till Arkiv nivån tillfälligt?**  
+**Hur lång tid tar det för åtgärder att köra om jag uppdaterar en befintlig princip?**
+
+Den uppdaterade principen tar upp till 24 timmar innan den börjar gälla. När principen är aktive rad kan det ta upp till 24 timmar innan åtgärderna har körts. Därför kan det ta upp till 48 timmar innan princip åtgärderna har slutförts.
+
+**Jag har manuellt extraherat en arkiverad BLOB, hur gör jag för att förhindra att den flyttas tillbaka till Arkiv nivån tillfälligt?**
+
 När en BLOB flyttas från en åtkomst nivå till en annan ändras inte den senaste ändrings tiden. Om du manuellt dehydratiserar en arkiverad blob till frekvent nivå flyttas den tillbaka till Arkiv nivå av motorn för livs cykel hantering. Inaktivera regeln som påverkar den här bloben tillfälligt för att förhindra att den arkiveras igen. Återaktivera regeln när bloben kan flyttas tillbaka till Arkiv nivån på ett säkert sätt. Du kan också kopiera blobben till en annan plats om den behöver stanna i frekvent eller låg frekvent nivå.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75928206"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606418"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
 För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningscontainer för adressering av Service Bus-resurser i ditt program.
 
 Så här skapar du ett namnområde:
 
-1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com)
 2. I det vänstra navigeringsfältet i portalen väljer du **+ Skapa en resurs** följt av **Integration** och sedan **Service Bus**.
 
     ![Skapa en resurs -> Integration -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
@@ -53,10 +53,10 @@ Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig re
 2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
    
-    ![connection-info](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![Skärm bild som visar fönstret principer för delad åtkomst med en princip markerad.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. I fönstret **Princip: RootManageSharedAccessKey** klickar du på knappen Kopiera bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
    
-    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![Skärm bilden visar en S-princip som kallas RootManageSharedAccessKey, som innehåller nycklar och anslutnings strängar.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Upprepa föregående steg, kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.
 
 <!--Image references-->

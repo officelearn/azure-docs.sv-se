@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525193"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606597"
 ---
 1. På Portal sidan för ditt virtuella WAN-nätverk går du till avsnittet **anslutning** och väljer **VPN-platser** för att öppna sidan VPN-platser.
 2. På sidan **VPN-platser** klickar du på **+ Skapa webbplats**.
 
-   ![Grunder](./media/virtual-wan-tutorial-site-include/basics.png "Grunder")
+   ![Skärm bild som visar fönstret V P N-plats till plats med fönstret Skapa VPN-webbplats öppen.](./media/virtual-wan-tutorial-site-include/basics.png "Grundläggande inställningar")
 3. På sidan **skapa VPN-webbplats** går du till fliken **grundläggande** och fyller i följande fält:
 
     * **Region** – tidigare kallad plats. Det här är den plats där du vill skapa den här webbplats resursen i.
@@ -29,7 +29,7 @@ ms.locfileid: "86525193"
     * **Hubbar** – hubben som du vill att din webbplats ska ansluta till. En plats kan bara anslutas till de hubbar som har en VPN Gateway. Om du inte ser någon hubb skapar du först en VPN-gateway i hubben.
 4. Välj **länkar** om du vill lägga till information om de fysiska länkarna i grenen. Om du har en virtuell WAN-partner CPE-enhet, kontrollerar du med dem för att se om den här informationen utbyts med Azure som en del av överföringen av gren information från sina system.
 
-   ![Länkar](./media/virtual-wan-tutorial-site-include/links.png "Länkar")
+   ![Skärm bild som visar fönstret Skapa V P N-webbplats med fliken Länkar markerad.](./media/virtual-wan-tutorial-site-include/links.png "Länkar")
 
     * **Länknamn** – ett namn som du vill använda för den fysiska länken på VPN-platsen. Exempel: mylink1.
     * **Providernamn** – namnet på den fysiska länken på VPN-platsen. Exempel: till, Verizon.

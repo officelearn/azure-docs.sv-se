@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639927"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604112"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 
@@ -54,11 +54,11 @@ För vissa program är alternativet för att kräva användar tilldelning inte t
 Azure AD tillhandahåller [flera anpassningsbara sätt att distribuera program](end-user-experiences.md) till slutanvändare i din organisation:
 
 * Mina appar i Azure AD
-* Office 365-program start
+* Microsoft 365 program start
 * Direkt inloggning till federerade appar (service – PR)
 * Djuplänkar till federerade, lösenordsbaserade eller befintliga appar
 
-Du kan avgöra om användare som är tilldelade till en företags app kan se den i Mina appar och Office 365 Application start.
+Du kan avgöra om användare som är tilldelade till en företags app kan se den i Mina appar och Microsoft 365 programmet starta.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Exempel: komplex program tilldelning med Azure AD
 Överväg ett program som Salesforce. I många organisationer används Salesforce främst av marknadsförings-och Sälj teamen. Ofta har medlemmar i marknadsförings teamet hög privilegie rad åtkomst till Salesforce, medan medlemmar i Sälj teamet har begränsad åtkomst. I många fall har en bred population av informations anställda begränsad åtkomst till programmet. Undantag till de här reglerna är att det är en komplicerad angelägenhet. Det är ofta förmåns gruppen för marknads organisations-eller Sälj organisations team för att ge en användare åtkomst eller ändra sina roller oberoende av dessa allmänna regler.
@@ -78,17 +78,17 @@ Administratörer kan använda [villkorlig Azure AD-åtkomst](../conditional-acce
 
 ## <a name="access-to-microsoft-applications"></a>Åtkomst till Microsoft-program
 
-Microsoft-program (t. ex. Office 365 Exchange, SharePoint, Yammer osv.) tilldelas och hanteras lite annorlunda än SaaS-program från tredje part eller andra program som du integrerar med Azure AD för enkel inloggning.
+Microsoft-program (t. ex. Exchange, SharePoint, Yammer osv.) tilldelas och hanteras lite annorlunda än SaaS-program från tredje part eller andra program som du integrerar med Azure AD för enkel inloggning.
 
 En användare kan få till gång till ett Microsoft-publicerat program på tre sätt.
 
-- För program i Office 365 eller andra betalda paket beviljas användare åtkomst via **licens tilldelning** antingen direkt till sitt användar konto eller via en grupp som använder vår gruppbaserade licens tilldelnings funktion.
+- För program i Microsoft 365 eller andra betalda sviter beviljas användare åtkomst via **licens tilldelning** antingen direkt till sitt användar konto eller via en grupp som använder vår gruppbaserade licens tilldelnings funktion.
 - För program som Microsoft eller en tredje part publicerar fritt för alla som ska användas kan användare beviljas åtkomst genom [användar medgivande](configure-user-consent.md). Det innebär att de loggar in på programmet med sitt Azure AD-arbets-eller skol konto och ger åtkomst till viss begränsad uppsättning data på sitt konto.
 - För program som Microsoft eller en tredje part publicerar fritt för alla som ska användas kan användare även beviljas åtkomst genom [Administratörs medgivande](manage-consent-requests.md). Det innebär att en administratör har fastställt att programmet kan användas av alla i organisationen, så att de loggar in på programmet med ett globalt administratörs konto och ger åtkomst till alla i organisationen.
 
-Vissa program kombinerar dessa metoder. Vissa Microsoft-program ingår exempelvis i en Office 365-prenumeration, men kräver fortfarande medgivande.
+Vissa program kombinerar dessa metoder. Vissa Microsoft-program ingår exempelvis i en Microsoft 365-prenumeration, men kräver fortfarande medgivande.
 
-Användare har åtkomst till Office 365-program via deras Office 365-portaler. Du kan också visa eller dölja Office 365-program i Mina appar med [office 365-synlighet växla](hide-application-from-user-portal.md) i din katalogs **användar inställningar**. 
+Användare kan komma åt Microsoft 365 program via deras Office 365-portaler. Du kan också visa eller dölja Microsoft 365 program i Mina appar med [Office 365-synlighet växla](hide-application-from-user-portal.md) i katalogens **användar inställningar**. 
 
 Precis som med företags program kan du [tilldela användare](assign-user-or-group-access-portal.md) till vissa Microsoft-program via Azure Portal eller, om Portal alternativet inte är tillgängligt, med hjälp av PowerShell.
 

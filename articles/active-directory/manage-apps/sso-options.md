@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: ab4d150d79b2c53ad23d892efacef6a848d97854
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469821"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604214"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Alternativ för enkel inloggning i Azure AD
 
@@ -24,7 +24,7 @@ Enkel inloggning ger många fördelar jämfört med traditionella inloggnings me
 
 - **Med enkel inloggning**loggar användare in en gång med ett konto för att komma åt domänanslutna enheter, företags resurser, SaaS-program (program vara som en tjänst) och webb program. När du har loggat in kan användaren starta program från Office 365-portalen eller Mina appar. Administratörer kan centralisera hanteringen av användar konton och automatiskt lägga till eller ta bort användar åtkomst till program baserat på grupp medlemskap.
 
-- **Utan enkel inloggning**måste användare komma ihåg programspecifika lösen ord och logga in på varje program. IT-personalen måste skapa och uppdatera användar konton för varje program, till exempel Office 365, Box och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program.
+- **Utan enkel inloggning**måste användare komma ihåg programspecifika lösen ord och logga in på varje program. IT-personalen måste skapa och uppdatera användar konton för varje program, till exempel Microsoft 365, ruta och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program.
 
 Mer information om enkel inloggning finns i [Vad är enkel inloggning?](what-is-single-sign-on.md).
 
@@ -137,7 +137,7 @@ Länkad inloggning gör det möjligt för Azure AD att tillhandahålla enkel inl
 
 ### <a name="linked-sign-on-for-application-migration"></a>Länkad inloggning för programmigrering
 
-Länkad inloggning kan ge en konsekvent användar upplevelse när du migrerar program under en viss tids period. Om du migrerar program till Azure Active Directory kan du använda länkad inloggning för att snabbt publicera länkar till alla program som du vill migrera.  Användarna kan hitta alla länkar i portalen för mina [appar](../user-help/active-directory-saas-access-panel-introduction.md) eller [Office 365-programmet](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Användare vet inte att de har åtkomst till ett länkat program eller ett migrerat program.  
+Länkad inloggning kan ge en konsekvent användar upplevelse när du migrerar program under en viss tids period. Om du migrerar program till Azure Active Directory kan du använda länkad inloggning för att snabbt publicera länkar till alla program som du vill migrera.  Användarna kan hitta alla länkar i portalen för mina [appar](../user-help/active-directory-saas-access-panel-introduction.md) eller i [Microsoft 365 Application starta](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Användare vet inte att de har åtkomst till ett länkat program eller ett migrerat program.  
 
 När en användare har autentiserats med ett länkat program måste en konto post skapas innan slutanvändaren ges åtkomst till enkel inloggning. Etableringen av den här konto posten kan antingen ske automatiskt, eller så kan den utföras manuellt av en administratör.
 

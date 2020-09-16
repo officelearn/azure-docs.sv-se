@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8333de5b0139323b352d43a9259bde9d3b514fbe
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611797"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604452"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,18 +28,18 @@ I den här artikeln förklaras hur du skapar en instans av en redundanskluster (
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
 - En Azure-prenumeration. Kom igång [kostnads fritt](https://azure.microsoft.com/free/). 
-- [Två eller fler västra centrala USA-för beredda virtuella Windows Azure-datorer](failover-cluster-instance-prepare-vm.md) i samma [tillgänglighets uppsättning](../../../virtual-machines/linux/tutorial-availability-sets.md) och en [närhets placerings grupp](../../../virtual-machines/windows/co-location.md#proximity-placement-groups), med den tillgänglighets uppsättning som har skapats med fel domän och uppdaterings domän inställd på **1**. 
+- [Två eller flera virtuella Windows Azure-datorer](failover-cluster-instance-prepare-vm.md). [Tillgänglighets uppsättningar](../../../virtual-machines/windows/tutorial-availability-sets.md) och [närhets placerings grupper](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) stöds båda. Om du använder en PPG måste alla noder finnas i samma grupp.
 - Ett konto som har behörighet att skapa objekt både på virtuella Azure-datorer och i Active Directory.
 - Den senaste versionen av [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
 ## <a name="add-azure-shared-disk"></a>Lägg till Azure-delad disk
-Distribuera en hanterad Premium SSD disk med funktionen för delad disk aktive rad. Ange `maxShares` till **2** om du vill att disken ska kunna delas över båda FCI-noderna. 
+Distribuera en hanterad Premium SSD disk med funktionen för delad disk aktive rad. Ställ in `maxShares` så att den **överensstämmer med antalet klusternoder** för att göra disken SHAREABLE över alla FCI-noder. 
 
 Lägg till en Azure-delad disk genom att göra följande: 
 
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurera anslutning 
 
-Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 och Windows Server 2016 (eller senare) kan du förhandsgranska funktionen för [distribuerade nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället. 
+Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 CU2 + och Windows Server 2016 (eller senare), kan du förhandsgranska funktionen för [distribuerade nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället. 
 
 ## <a name="limitations"></a>Begränsningar
 

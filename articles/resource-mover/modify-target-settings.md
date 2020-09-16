@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: c58fdd38c4221c03778b2c769620bf7911aaded8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670779"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604486"
 ---
 # <a name="modify-target-settings"></a>Ändra mål inställningar
 
@@ -42,10 +42,10 @@ Konfigurations inställningar som du kan ändra sammanfattas i tabellen.
 **Nätverks resurser** | Alternativ för virtuella nätverk (virtuella nätverk)/Network säkerhets grupper/nätverks gränssnitt:<br/><br/> -Skapa en ny resurs med samma namn i mål regionen.<br/><br/> -Skapa en ny resurs med ett annat namn i mål regionen.<br/><br/> – Använd en befintlig nätverks resurs i mål regionen.<br/><br/> Om du skapar en ny mål resurs, med undantag för de inställningar som du ändrar, tilldelas samma inställningar som käll resursen.
 **Namn på offentlig IP-adress** | Ange namnet.
 **SKU för offentlig IP-adress** | Ange [SKU: n](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Offentlig IP-adress zon** | Ange [zonen](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) för offentliga standard-IP-adresser.<br/><br/> Ange som **regional**om du vill att det ska vara zoner-redundant.
+**Offentlig IP-adress zon** | Ange [zonen](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) för offentliga standard-IP-adresser.<br/><br/> Om du vill att det ska vara en zon redundant, anger du **zonen är redundant**.
 **Lastbalanserarens namn** | Ange namnet.
 **SKU för belastnings utjämning** | Basic eller standard. Vi rekommenderar att du använder standard.
-**Belastnings Utjämnings zon** | Ange en zon för belastningsutjämnaren. <br/><br/> Ange som **regional**om du vill att det ska vara zoner-redundant.
+**Belastnings Utjämnings zon** | Ange en zon för belastningsutjämnaren. <br/><br/> Om du vill att det ska vara en zon redundant, anger du **zonen är redundant**.
 **Resursberoenden** | Alternativ för varje beroende:<br/><br/>-Resursen använder käll beroende resurser som kommer att flyttas till mål regionen.<br/><br/> – Resursen använder olika beroende resurser som finns i mål regionen. I det här fallet kan du välja bland alla liknande resurser i mål regionen.
 
 ### <a name="edit-vm-target-settings"></a>Redigera inställningar för VM-mål

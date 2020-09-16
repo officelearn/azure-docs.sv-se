@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763473"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605166"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare godkänner program
 
@@ -32,7 +32,7 @@ Om du vill styra vilka fall användare kan godkänna program väljer du den medg
 
 * **Inaktivera användar medgivande** – användare kan inte bevilja åtkomst till program. Användare kan fortsätta att logga in på appar som de tidigare har samtyckt till eller som har godkänts av administratörer för deras räkning, men de kommer inte att kunna samtycka till nya behörigheter eller till nya appar. Endast användare som har beviljats en katalog roll som innehåller behörigheten för att bevilja tillstånd kan godkänna nya behörigheter eller nya appar.
 
-* **Användare kan godkänna appar från verifierade utgivare, men endast för behörigheter som du väljer (förhands granskning)** – alla användare kan bara godkänna appar som publicerats av en [verifierad utgivare](../develop/publisher-verification-overview.md) och appar som är registrerade i din klient organisation. Användare kan bara godkänna de behörigheter som du har klassificerat som "låg påverkan".
+* **Användare kan godkänna appar från verifierade utgivare, men endast för behörigheter som du väljer (förhands granskning)** – alla användare kan bara godkänna appar som publicerats av en [verifierad utgivare](../develop/publisher-verification-overview.md) och appar som är registrerade i din klient organisation. Användare kan bara godkänna de behörigheter som du har klassificerat som "låg påverkan", även kallat "låg risk". Vad betraktas som låg risk för en organisation, till exempel en app som visar en användares e-postadress, kan betraktas som hög risk för en annan organisation. Av den anledningen anges behörigheten "låg risk" av administratören för klienten.
 
   Se till att [klassificera behörigheter](#configure-permission-classifications-preview) för att välja vilka behörigheter som användare tillåts att godkänna.
 
@@ -56,7 +56,7 @@ Konfigurera användar medgivande inställningar via Azure Portal:
 
 ### <a name="configure-user-consent-settings-using-powershell"></a>Konfigurera inställningar för användar godkännande med PowerShell
 
-Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), för att välja vilken princip för medgivande som styr användar medgivande för program.
+Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), för att välja vilken princip för medgivande som styr användar medgivande för program.
 
 * **Inaktivera användar medgivande** – om du vill inaktivera användar medgivande anger du de medgivande principer som styr användar medgivande som ska vara tomt:
 
@@ -109,7 +109,7 @@ I det här exemplet har vi klassificerat den minsta behörighets uppsättningen 
 
 ### <a name="classify-permissions-using-powershell"></a>Klassificera behörigheter med PowerShell
 
-Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), för att klassificera behörigheter. Behörighets klassificeringar konfigureras på **ServicePrincipal** -objektet för API: et som publicerar behörigheterna.
+Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att klassificera behörigheter. Behörighets klassificeringar konfigureras på **ServicePrincipal** -objektet för API: et som publicerar behörigheterna.
 
 #### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Så här läser du de aktuella behörighets klassificeringarna för ett API:
 
@@ -196,9 +196,9 @@ I det här exemplet har alla grupp ägare tillåtelse att tillåta appar som har
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurera grupp ägarens medgivande med PowerShell
 
-Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), för att aktivera eller inaktivera grupp ägarens möjlighet att godkänna program som har åtkomst till organisationens data för de grupper som de äger.
+Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att aktivera eller inaktivera grupp ägarens möjlighet att godkänna program som har åtkomst till organisationens data för de grupper som de äger.
 
-1. Kontrol lera att du använder [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) -modulen och [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) -modulen.
+1. Kontrol lera att du använder [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) -modulen och [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen.
 
     ```powershell
     Remove-Module AzureAD
@@ -228,7 +228,7 @@ Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://do
 
 1. Förstå inställnings värden. Det finns två inställnings värden som definierar vilka användare som ska kunna tillåta en app åtkomst till deras grupp data:
 
-    | Inställningen       | Typ         | Beskrivning  |
+    | Inställningen       | Typ         | Description  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | Boolesk | Flagga som anger om grupp ägare tillåts att bevilja gruppdefinierade behörigheter. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | GUID | Om _EnableGroupSpecificConsent_ är inställt på "true" och det här värdet har angetts till en grupps objekt-ID kommer medlemmar i den identifierade gruppen ha behörighet att bevilja gruppspecifika behörigheter till de grupper som de äger. |
@@ -280,13 +280,13 @@ I det här fallet loggas även en gransknings händelse med en kategori av typen
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Inaktivera eller återaktivera riskfylldt Step-based-godkännande med PowerShell
 
-Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), för att inaktivera steget-upp till administratörs medgivande som krävs i de fall där Microsoft identifierar risker eller aktiverar det igen om det tidigare har inaktiverats.
+Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att inaktivera steget-upp till administratörs medgivande som krävs i de fall där Microsoft identifierar risker eller aktiverar det igen om det tidigare har inaktiverats.
 
 Du kan göra detta med hjälp av samma steg som ovan för att [Konfigurera grupp ägarens medgivande med hjälp av PowerShell](#configure-group-owner-consent-using-powershell), men som ersätter ett annat inställnings värde. Det finns tre skillnader i stegen: 
 
 1. Förstå inställnings värden för riskfylldt steg-för-steg-godkännande:
 
-    | Inställningen       | Typ         | Beskrivning  |
+    | Inställningen       | Typ         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Boolesk |  Flagga som anger om användar medgivande ska blockeras när en riskfylld begäran identifieras. |
 

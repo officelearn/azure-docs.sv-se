@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: d3b7dbbb9aab29e083795025ad5bf7381a4fa0ee
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231222"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605132"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Slut användar upplevelse för program i Azure Active Directory
 
 Azure Active Directory (Azure AD) tillhandahåller flera anpassningsbara sätt att distribuera program till slutanvändare i din organisation:
 
 * Mina appar i Azure AD
-* Office 365-program start
+* Microsoft 365 program start
 * Direkt inloggning till federerade appar
 * Djuplänkar till federerade, lösenordsbaserade eller befintliga appar
 
@@ -35,13 +35,13 @@ Mina appar på https://myapps.microsoft.com är en webbaserad portal som gör at
 
 Som standard visas alla program på en enda sida. Men du kan använda samlingar för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda samlingar för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i [skapa samlingar på portalen Mina appar](access-panel-collections.md). 
 
-Mina appar är åtskilda från Azure Portal och kräver inte att användare har en Azure-prenumeration eller en Office 365-prenumeration.
+Mina appar är åtskilda från Azure Portal och kräver inte att användare har en Azure-prenumeration eller Microsoft 365 prenumeration.
 
 Mer information om Mina appar i Azure AD finns i [introduktionen till Mina appar](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## <a name="office-365-application-launcher"></a>Office 365-program start
+## <a name="microsoft-365-application-launcher"></a>Microsoft 365 program start
 
-För organisationer som har distribuerat Office 365 visas även program som är tilldelade till användare via Azure AD i Office 365-portalen på [https://portal.office.com/myapps](https://portal.office.com/myapps) . Detta gör det enkelt och bekvämt för användare i en organisation att starta sina appar utan att behöva använda en andra Portal och är den rekommenderade app-lösningen för organisationer som använder Office 365.
+För organisationer som har distribuerat Microsoft 365 kommer program som tilldelas till användare via Azure AD också att visas i Office 365-portalen på [https://portal.office.com/myapps](https://portal.office.com/myapps) . Detta gör det enkelt och bekvämt för användare i en organisation att starta sina appar utan att behöva använda en andra Portal, och är den rekommenderade app-lansering för organisationer som använder Microsoft 365.
 
 Mer information om Office 365 Application starta finns i se till att [din app visas i Office 365-appens start](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
@@ -53,7 +53,7 @@ De flesta federerade program som har stöd för SAML 2,0, WS-Federation eller Op
 
 Azure AD stöder även länkar med direkt enkel inloggning till enskilda program som stöder lösenordsbaserad enkel inloggning, länkad enkel inloggning och alla former av federerad enkel inloggning.
 
-Dessa länkar är särskilt utformade URL: er som skickar en användare via inloggnings processen för Azure AD för ett specifikt program utan att användaren behöver starta dem från Azure AD Mina appar eller Office 365. Dessa **URL: er för användar åtkomst** kan hittas under egenskaperna för tillgängliga företags program. I Azure Portal väljer du **Azure Active Directory**  >  **företags program**. Välj programmet och välj sedan **Egenskaper**.
+Dessa länkar är särskilt utformade URL: er som skickar en användare via inloggnings processen i Azure AD för ett specifikt program utan att användaren behöver starta dem från Azure AD Mina appar eller Microsoft 365. Dessa **URL: er för användar åtkomst** kan hittas under egenskaperna för tillgängliga företags program. I Azure Portal väljer du **Azure Active Directory**  >  **företags program**. Välj programmet och välj sedan **Egenskaper**.
 
 ![Exempel på URL för användar åtkomst i Twitter-egenskaper](media/end-user-experiences/direct-sign-on-link.png)
 
@@ -67,7 +67,7 @@ Precis som för organisatoriska URL: er för Mina appar kan du anpassa denna URL
 
 När en behörig användare klickar på någon av dessa programspecifika länkar ser de först sin organisations inloggnings sida (förutsatt att de inte redan är inloggade) och när inloggningen omdirigeras till appen utan att först stoppas i Mina appar. Om användaren saknar nödvändiga förutsättningar för att komma åt programmet, t. ex. lösen ord för den lösen ordsbaserade tillägget för enkel inloggning, uppmanas användaren att installera det saknade tillägget. Länk-URL: en förblir också konstant om konfigurationen för enkel inloggning för programmet ändras.
 
-Dessa länkar använder samma mekanismer för åtkomst kontroll som mina appar och Office 365 och endast de användare eller grupper som har tilldelats till programmet i Azure Portal kan autentiseras. Användare som inte har behörighet kommer dock att se ett meddelande som förklarar att de inte har beviljats åtkomst och att de får en länk till att läsa in Mina appar för att visa tillgängliga program som de har åtkomst till.
+De här länkarna använder samma mekanismer för åtkomst kontroll som mina appar och Microsoft 365 och endast de användare eller grupper som har tilldelats till programmet i Azure Portal kan autentiseras. Användare som inte har behörighet kommer dock att se ett meddelande som förklarar att de inte har beviljats åtkomst och att de får en länk till att läsa in Mina appar för att visa tillgängliga program som de har åtkomst till.
 
 ## <a name="next-steps"></a>Nästa steg
 

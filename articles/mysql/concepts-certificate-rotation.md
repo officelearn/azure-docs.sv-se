@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 9c5c4247ab01a571613cad4f33832de152909b11
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: dd009542adffed2f459534c943e3a873678ecd35
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527113"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604928"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for MySQL
 
@@ -27,13 +27,20 @@ Det nya certifikatet kommer att användas från och med den 26 oktober 2020 (10/
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Hur gör jag för att veta om min databas kommer att påverkas?
 
-Alla program som använder SSL/TLS och kontrollerar att rot certifikatet måste uppdatera rot certifikatet för att kunna ansluta till Azure Database for MySQL. Om du inte använder SSL/TLS för närvarande påverkas inte din program tillgänglighet. Du kan kontrol lera om klient programmet försöker använda SSL-läge med den fördefinierade betrodda certifikat utfärdaren (CA) [här](concepts-ssl-connection-security.md#ssl-default-settings).
+Alla program som använder SSL/TLS och kontrollerar att rot certifikatet måste uppdatera rot certifikatet. Du kan identifiera om dina anslutningar verifierar rot certifikatet genom att granska anslutnings strängen.
+-   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller
+-   Om anslutnings strängen inkluderar `sslmode=disable` behöver du inte uppdatera certifikat.
+-   Om din anslutnings sträng innehåller `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
+-   Om anslutnings strängen inte är speciell sslmode behöver du inte uppdatera certifikat.
+
+Om du använder en-klient som sammanfattar anslutnings strängen går du igenom klientens dokumentation för att ta reda på om den verifierar certifikat.
+Information om hur du Azure Database for MySQL sslmode finns i [beskrivningarna i SSL-läge](concepts-ssl-connection-security.md#ssl-default-settings).
 
 Om du vill undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, kan du läsa avsnittet [**Vad behöver jag för att underhålla anslutningen**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity) .
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>Vad behöver jag för att underhålla anslutningen
 
-Om du vill undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, följer du stegen nedan:
+Om du vill undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, följer du stegen nedan. Tanken är att skapa en ny *. pem* -fil som kombinerar det aktuella certifikatet och det nya och under verifieringen av SSL-certifikat en gång av de tillåtna värdena. Se stegen nedan:
 
 *   Hämta BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 rot certifikat utfärdare från länkarna nedan:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
@@ -72,11 +79,10 @@ Om du vill undvika att programmets tillgänglighet avbryts på grund av att cert
 *   Ersätt den ursprungliga PEM-filen för rot certifikat utfärdaren med den kombinerade rot-CA-filen och starta om programmet/klienten.
 *   I framtiden kan du efter det nya certifikatet som distribuerats på Server sidan Ändra CA PEM-filen till DigiCertGlobalRootG2. CRT. pem.
 
-## <a name="what-can-be-the-impact"></a>Vad kan vara påverkan på?
+## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>Vad kan vara effekten av att inte uppdatera certifikatet?
 Om du använder det Azure Database for MySQL utfärdade certifikatet som dokumenteras här kan programmets tillgänglighet avbrytas eftersom databasen inte går att komma åt. Beroende på ditt program kan du få en rad fel meddelanden, inklusive men inte begränsat till:
 *   Ogiltigt certifikat/återkallat certifikat
 *   Anslutningens tidsgräns uppnåddes
-*   Fel om tillämpligt
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -89,23 +95,36 @@ Nej, du behöver inte starta om databas servern för att börja använda det nya
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. Vad händer om jag inte uppdaterar rot certifikatet före den 26 oktober 2020 (10/26/2020)?
 Om du inte uppdaterar rot certifikatet före den 26 oktober 2020 kommer dina program som ansluter via SSL/TLS och som verifierar för rot certifikatet inte att kunna kommunicera med MySQL-databasservern och programmet kommer att uppleva anslutnings problem till din MySQL Database-Server.
 
-### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. måste jag planera ett underhålls avbrott för den här ändringen?<BR>
-Nej. Eftersom ändringen bara finns på klient sidan för att ansluta till databas servern, finns det inga underhålls avbrott som krävs för den här ändringen.
+### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. Vad är effekten om du använder App Service med Azure Database for MySQL?
+För Azure App Services, som ansluter till Azure Database for MySQL, kan vi ha två möjliga scenarier och det beror på hur du använder SSL med ditt program.
+*   Det nya certifikatet har lagts till App Service på plattforms nivå. Om du använder SSL-certifikat som finns på App Service plattform i ditt program krävs ingen åtgärd.
+*   Om du uttryckligen inkluderar sökvägen till SSL-cert-filen i din kod måste du hämta det nya certifikatet och uppdatera koden för att använda det nya certifikatet.
 
-### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. Vad händer om jag inte kan få en schemalagd stillestånds tid för den här ändringen före den 26 oktober 2020 (10/26/2020)?
+### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5. Vad är effekten om du använder Azure Kubernetes Services (AKS) med Azure Database for MySQL?
+Om du försöker ansluta till Azure Database for MySQL med hjälp av Azure Kubernetes Services (AKS), liknar den ungefär åtkomst från en dedikerad kund värd miljö. Se stegen [här](../aks/ingress-own-tls.md).
+
+### <a name="6-what-is-the-impact-if-using-azure-data-factory-to-connect-to-azure-database-for-mysql"></a>6. Vad är effekten om du använder Azure Data Factory för att ansluta till Azure Database for MySQL?
+För att ansluta med hjälp av Azure Integration Runtime utnyttjar anslutningen certifikat i Windows certifikat Arkiv i Azure-värd miljön. Dessa certifikat är redan kompatibla med de nyligen tillämpade certifikaten och därför behövs ingen åtgärd.
+
+För koppling med egen värd Integration Runtime där du uttryckligen inkluderar sökvägen till SSL-cert-filen i anslutnings strängen, måste du hämta det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) och uppdatera anslutnings strängen för att använda den.
+
+### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. behöver jag planera ett avbrott för databas server underhåll för den här ändringen?
+Nej. Eftersom ändringen bara finns på klient sidan för att ansluta till databas servern, finns det inga underhålls avbrott som krävs för databas servern för den här ändringen.
+
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. Vad händer om jag inte kan få en schemalagd stillestånds tid för den här ändringen före den 26 oktober 2020 (10/26/2020)?
 Eftersom klienterna som används för att ansluta till servern måste uppdatera certifikat informationen enligt beskrivningen i avsnittet åtgärda [här](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), behöver vi inte något drift stopp för-servern i det här fallet.
 
-###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. om jag skapar en ny server efter den 26 oktober 2020 kommer jag att påverkas?
+### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. om jag skapar en ny server efter den 26 oktober 2020 kommer jag att påverkas?
 För servrar som skapats efter den 26 oktober 2020 (10/26/2020) kan du använda det nyligen utfärdade certifikatet för dina program för att ansluta med SSL.
 
-### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. hur ofta uppdaterar Microsoft sina certifikat eller vad är förfallo principen?
+### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. hur ofta uppdaterar Microsoft sina certifikat eller vad är förfallo principen?
 Dessa certifikat som används av Azure Database for MySQL tillhandahålls av betrodda certifikat utfärdare (CA). Stöd för dessa certifikat på Azure Database for MySQL är knutet till stöd för dessa certifikat av CA. Men i så fall kan det vara oförutsedda buggar i dessa fördefinierade certifikat, vilket måste åtgärdas tidigast.
 
-### <a name="8-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>8. om jag använder Läs repliker behöver jag bara utföra den här uppdateringen på huvud servern eller alla Läs repliker?
-Eftersom den här uppdateringen är en ändring på klient sidan, om klienten som används för att läsa data från replik servern, måste du även tillämpa ändringarna för dessa klienter. 
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. om jag använder Läs repliker behöver jag bara utföra den här uppdateringen på huvud servern eller Läs replikerna?
+Eftersom den här uppdateringen är en ändring på klient sidan, om klienten som används för att läsa data från replik servern, måste du även tillämpa ändringarna för dessa klienter.
 
-### <a name="9-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>9. har vi en fråga på Server sidan för att kontrol lera om SSL används?
+### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. har vi en fråga på Server sidan för att kontrol lera om SSL används?
 För att kontrol lera om du använder SSL-anslutning för att ansluta till servern, se [SSL-verifiering](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
-### <a name="10-what-if-i-have-further-questions"></a>10. Vad händer om jag har fler frågor?
+### <a name="13-what-if-i-have-further-questions"></a>13. Vad händer om jag har fler frågor?
 Om du har frågor kan du få svar från community-experter i [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). [Kontakta oss](mailto:AzureDatabaseforMySQL@service.microsoft.com) om du har en Support plan och behöver teknisk hjälp

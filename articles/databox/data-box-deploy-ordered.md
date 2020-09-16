@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 2ab74b87b287296c4ff975d5af75714c89001004
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055724"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604316"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -239,7 +239,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
 6. Gå till fliken **grundläggande** i **ordning**. Ange eller Välj följande information och välj **Nästa: data mål>**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration      | Prenumerationen fylls i automatiskt baserat på din tidigare val.|
     |Resursgrupp    | Den resurs grupp som du valde tidigare. |
@@ -261,13 +261,15 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Om du använder Data Box-enhet för att skapa **hanterade diskar** från lokala virtuella hård diskar (VHD: er), måste du också ange följande information:
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från lokala virtuella hårddiskar. Du kan bara använda en befintlig resurs grupp om resurs gruppen skapades tidigare när du skapade en Data Box-enhets ordning för den hanterade disken av Data Box-enhet-tjänsten. <br> Ange flera resursgrupper avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 
     ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Det angivna lagringskontot för hanterade diskar används som ett mellanlagringskonto. Data Box-tjänsten laddar upp de virtuella hårddiskarna som sidblobar till mellanlagringskontot innan de konverteras till hanterade diskar och flyttas till resursgrupperna. Mer information finns i [Verifiera dataöverföring till Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > Om en sid-BLOB inte har konverterats till en hanterad disk finns den kvar i lagrings kontot och du debiteras för lagring.
 
     Välj **Nästa: säkerhet** för att fortsätta.
 
@@ -312,7 +314,7 @@ Utför följande steg med Azure CLI för att beställa en enhet:
 
 1. Skriv ned inställningarna för din Data Box-enhets ordning. Inställningarna omfattar din personliga/affärs information, prenumerations namn, enhets information och information om leverans. Du måste använda de här inställningarna som parametrar när du kör CLI-kommandot för att skapa Data Box-enhets ordningen. I följande tabell visas de parameter inställningar som används för `az databox job create` :
 
-   | Inställning (parameter) | Beskrivning |  Exempelvärde |
+   | Inställning (parameter) | Description |  Exempelvärde |
    |---|---|---|
    |resource-group| Använd ett befintligt eller skapa ett nytt. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |name| Namnet på den ordning som du skapar. | "mydataboxorder"|
@@ -431,7 +433,7 @@ Utför följande steg med Azure PowerShell för att beställa en enhet:
 
 2. Skriv ned inställningarna för din Data Box-enhets ordning. Inställningarna omfattar din personliga/affärs information, prenumerations namn, enhets information och information om leverans. Du måste använda de här inställningarna som parametrar när du kör PowerShell-kommandot för att skapa Data Box-enhets ordningen. I följande tabell visas de parameter inställningar som används för [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Inställning (parameter) | Beskrivning |  Exempelvärde |
+    | Inställning (parameter) | Description |  Exempelvärde |
     |---|---|---|
     |ResourceGroupName [krävs]| Använd en befintlig resurs grupp. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
     |Namn [obligatoriskt]| Namnet på den ordning som du skapar. | "mydataboxorder"|

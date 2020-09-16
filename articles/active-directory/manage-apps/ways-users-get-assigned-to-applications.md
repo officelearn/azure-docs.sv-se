@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 243e5ece0d0a14cb7e3ade409ee68510cef64a9c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 411e9a6e059075dfc2928ed09c0c604d600fd9be
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397108"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604163"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Förstå hur användare tilldelas till appar i Azure Active Directory
 I den här artikeln får du hjälp att förstå hur användare tilldelas ett program i din klient organisation.
@@ -28,14 +28,14 @@ För att en användare ska kunna komma åt ett program måste de först tilldela
     * En grupp som har synkroniserats lokalt
     * En statisk säkerhets grupp som skapats i molnet
     * En [dynamisk säkerhets grupp](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) som skapats i molnet
-    * En Office 365-grupp som skapats i molnet
+    * En Microsoft 365 grupp som skapats i molnet
     * Gruppen [alla användare](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 *  En administratör möjliggör [åtkomst till självbetjänings program](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare kan lägga till ett program med [Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till app** -funktion **utan affärs godkännande**
-*  En administratör möjliggör [åtkomst till självbetjänings program](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare kan lägga till ett program med hjälp av [Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till app** -funktion, men endast w**i:te före godkännande från en vald uppsättning affärs god kännare**
+*  En administratör möjliggör [åtkomst till självbetjänings program](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare kan lägga till ett program med hjälp av [Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till app** -funktion, men endast **med tidigare godkännande från en vald uppsättning affärs god kännare**
 *  En administratör möjliggör självbetjänings [grupp hantering](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) så att en användare kan ansluta till en grupp som ett program har tilldelats till **utan affärs godkännande**
 *  En administratör möjliggör självbetjänings [grupp hantering](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) så att en användare kan ansluta till en grupp som ett program har tilldelats, men endast **med tidigare godkännande från en vald uppsättning affärs god kännare**
-*  En administratör tilldelar en licens till en användare direkt för ett program från den första parten, t. ex. [Microsoft Office 365](https://products.office.com/)
-*  En administratör tilldelar en licens till en grupp som användaren är medlem i till ett program i den första parten, t. ex. [Microsoft Office 365](https://products.office.com/)
+*  En administratör tilldelar en licens till en användare direkt för ett program från den första parten, t. ex. [Microsoft 365](https://products.office.com/)
+*  En administratör tilldelar en licens till en grupp som användaren är medlem i till ett program i den första parten, t. ex. [Microsoft 365](https://products.office.com/)
 *  En [administratör godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) som används av alla användare och sedan loggar användaren in på programmet
 * En användare [samtycker till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) genom att logga in på programmet
 

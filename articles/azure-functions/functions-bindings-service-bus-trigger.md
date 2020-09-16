@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294619"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605047"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Service Bus utlösare för Azure Functions
 
 Använd Service Bus-utlösaren för att svara på meddelanden från en Service Bus kö eller ett ämne. Från och med Extension version 3.1.0 kan du aktivera en kö eller ett ämne som är i kö.
 
-Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-service-bus-output.md).
+Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exempel
 
@@ -290,7 +290,7 @@ Se utlösnings [exemplet](#example) för mer information.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `ServiceBusTrigger` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "serviceBusTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -359,7 +359,7 @@ Functions-körningen tar emot ett meddelande i [PeekLock-läge](../service-bus-m
 
 Service Bus utlösaren innehåller flera [Egenskaper för metadata](./functions-bindings-expressions-patterns.md#trigger-metadata). Dessa egenskaper kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. De här egenskaperna är medlemmar i [meddelande](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) klassen.
 
-|Egenskap|Typ|Beskrivning|
+|Egenskap|Typ|Description|
 |--------|----|-----------|
 |`ContentType`|`string`|En innehålls typ identifierare som används av avsändaren och mottagaren för programspecifik logik.|
 |`CorrelationId`|`string`|Korrelations-ID: t.|

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434813"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604095"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Snabb start: skapa din första statiska webbapp i Azure Portal
 
@@ -20,7 +20,7 @@ Azures statiska Web Apps publicerar en webbplats i en produktions miljö genom a
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [GitHub](https://github.com) -konto
 - [Azure](https://portal.azure.com) -konto
@@ -65,7 +65,7 @@ När du har loggat in med GitHub anger du lagrings plats informationen.
     # <a name="no-framework"></a>[Inget ramverk](#tab/vanilla-javascript)
 
     1. Välj **anpassad** från List rutan _för att bygga för inställningar_
-    1. Rensa standardvärdet i rutan _app location_
+    1. Behåll standardvärdet i rutan _app location_
     1. Rensa standardvärdet från rutan _API-plats_
     1. Lämna rutan för _appens artefakt plats_ tom
 

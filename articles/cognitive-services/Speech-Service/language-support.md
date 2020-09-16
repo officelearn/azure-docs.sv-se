@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: de6cd4ee2c9800757399b7e32b59d903b817c657
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053583"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604401"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -42,17 +42,21 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-BH` | Arabiska (Bahrain), modern standard | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Språkmodell                                    |
 | `ar-IL` | Arabiska (Israel)                   | No                                                |
+| `ar-IQ` | Arabiska (Irak)                     | No                                                |
 | `ar-JO` | Arabiska (Jordanien)                   | No                                                |
 | `ar-KW` | Arabiska (Kuwait)                   | No                                                |
 | `ar-LB` | Arabiska (Libanon)                  | No                                                |
+| `ar-OM` | Arabiska (Oman)                     | No                                                |
 | `ar-PS` | Arabiska (Palestina)                | No                                                |
 | `ar-QA` | Arabiska (Qatar)                    | No                                                |
 | `ar-SA` | Arabiska (Saudiarabien)             | No                                                |
 | `ar-SY` | Arabiska (Syrien)                    | Språkmodell                                    |
-| `ca-ES` | Katalanska                           | Språkmodell                                    |
+| `bg-BG` | Bulgariska (Bulgarien)              | Språkmodell                                    |
+| `ca-ES` | Katalanska (Spanien)                   | Språkmodell                                    |
 | `cs-CZ` | Tjeckiska (Tjeckien)            | Språk modell                                    | 
 | `da-DK` | Danska (Danmark)                  | Språkmodell                                    |
 | `de-DE` | Tyska (Tyskland)                  | Akustisk modell<br>Språkmodell<br>Uttal |
+| `el-GR` | Grekiska (Grekland)                    | Språkmodell                                    |
 | `en-AU` | Engelska (Australien)               | Akustisk modell<br>Språkmodell                  |
 | `en-CA` | Engelska (Kanada)                  | Akustisk modell<br>Språkmodell                  |
 | `en-GB` | Engelska (Storbritannien)          | Akustisk modell<br>Språkmodell<br>Uttal |
@@ -84,23 +88,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `es-SV` | Spanska (El Salvador)             | Språk modell                                    | 
 | `es-US` | Spanska (USA)                     | Språk modell                                    | 
 | `es-UY` | Spanska (Uruguay)                 | Språk modell                                    | 
-| `es-VE` | Spanska (Venezuela)               | Språk modell                                    | 
+| `es-VE` | Spanska (Venezuela)               | Språk modell                                    |
+| `et-EE` | Estniska (Estland)                 | Språk modell                                    | 
 | `fi-FI` | Finska (Finland)                 | Språkmodell                                    |
 | `fr-CA` | Franska (Kanada)                   | Akustisk modell<br>Språkmodell                  |
 | `fr-FR` | Franska (Frankrike)                   | Akustisk modell<br>Språkmodell<br>Uttal |
+| `ga-IE` | Irländskt (Irland)                    | Språkmodell                                    |
 | `gu-IN` | Gujarati (indiska)                 | Språkmodell                                    |
 | `hi-IN` | Hindi (Indien)                     | Akustisk modell<br>Språkmodell                  |
+| `hr-HR` | Kroatiska (Kroatien)                | Språkmodell                                    |
 | `hu-HU` | Ungerska (Ungern)               | Språk modell                                    | 
 | `it-IT` | Italienska (Italien)                   | Akustisk modell<br>Språkmodell<br>Uttal |
 | `ja-JP` | Japanska (Japan)                  | Språkmodell                                    |
 | `ko-KR` | Koreanska (Korea)                    | Språkmodell                                    |
+| `lt-LT` | Litauiska (Litauen)            | Språkmodell                                    |
+| `lv-LV` | Lettiska (Lettland)                  | Språkmodell                                    |
 | `mr-IN` | Marathi (Indien)                   | Språkmodell                                    |
+| `mt-MT` | Maltesiska (Malta)                    | Språkmodell                                    |
 | `nb-NO` | Norska (bokmål) (Norge)       | Språkmodell                                    |
 | `nl-NL` | Nederländska (Nederländerna)               | Språkmodell                                    |
 | `pl-PL` | Polska (Polen)                   | Språkmodell                                    |
 | `pt-BR` | Portugisiska (Brasilien)               | Akustisk modell<br>Språkmodell<br>Uttal |
 | `pt-PT` | Portugisiska (Portugal)             | Språkmodell                                    |
+| `ro-RO` | Rumänska (Rumänien)                | Språkmodell                                    |
 | `ru-RU` | Ryska (Ryssland)                  | Akustisk modell<br>Språkmodell                  |
+| `sk-SK` | Slovakiska (Slovakien)                 | Språkmodell                                    |
+| `sl-SI` | Slovenska (Slovenien)              | Språkmodell                                    |
 | `sv-SE` | Svenska (Sverige)                  | Språkmodell                                    |
 | `ta-IN` | Tamiliska (Indien)                     | Språkmodell                                    |
 | `te-IN` | Telugu (Indien)                    | Språkmodell                                    |

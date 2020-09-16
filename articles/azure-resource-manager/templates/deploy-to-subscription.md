@@ -2,13 +2,13 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468648"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605183"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -82,7 +82,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Kommandona för distributioner på prenumerations nivå skiljer sig från kommandona för resurs grupp distributioner.
 
-För Azure CLI använder du [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). I följande exempel distribueras en mall för att skapa en resurs grupp:
+För Azure CLI använder du [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create). I följande exempel distribueras en mall för att skapa en resurs grupp:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -162,9 +162,7 @@ För distributioner på prenumerations nivå finns det några viktiga överväga
 
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Använd inte [resourceId ()](template-functions-resource.md#resourceid) för att hämta resurs-ID för resurser som distribueras på prenumerations nivå.
-
-  Använd i stället funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
+* Använd inte [resourceId ()](template-functions-resource.md#resourceid) för att hämta resurs-ID för resurser som distribueras på prenumerations nivå. Använd i stället funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
 
   Om du till exempel vill hämta resurs-ID för en princip definition som distribueras till en prenumeration använder du:
 

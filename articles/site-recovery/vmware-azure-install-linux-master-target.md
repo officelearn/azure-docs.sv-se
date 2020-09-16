@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130148"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604690"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Konfigurera en Linux-huvudmålserver för återställning efter fel
 När du har växlat över dina virtuella datorer till Azure kan du återställa de virtuella datorerna till den lokala platsen. Om du vill återställa den virtuella datorn från Azure till den lokala platsen måste du återställa den virtuella datorn från Azure. För den här processen behöver du en lokal huvud mål server för att ta emot trafiken. 
@@ -48,16 +48,7 @@ Skapa huvud målet enligt följande storleks rikt linjer:
 - **OS-disk storlek**: 100 GB eller mer (för att installera OS)
 - **Ytterligare disk storlek för kvarhållning av enhet**: 1 TB
 - **Processor kärnor**: 4 kärnor eller mer
-
-Följande Ubuntu-kerneler stöds.
-
-
-|Kernel-serie  |Stöd för upp till  |
-|---------|---------|
-|4.4      |4.4.0-81-generic         |
-|4,8      |4.8.0-56-generic         |
-|4,10     |4.10.0 – 24-generiskt        |
-
+- **Kernel**: 4,16. *
 
 ## <a name="deploy-the-master-target-server"></a>Distribuera huvud mål servern
 

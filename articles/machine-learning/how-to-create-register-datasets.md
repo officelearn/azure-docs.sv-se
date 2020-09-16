@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 6229686cda87a6dd65dfb9232f0e8ac550ba3750
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 9137c98a2ba0b7356d25a79d3b75c3727fc35fc3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660496"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604707"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning-datamängder
 
@@ -35,7 +35,7 @@ Med Azure Machine Learning data uppsättningar kan du:
 
 * Dela data och samar beta med andra användare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa och arbeta med data uppsättningar behöver du:
 
@@ -52,7 +52,7 @@ Om du vill skapa och arbeta med data uppsättningar behöver du:
     * Arbeta med din egen Jupyter-anteckningsbok och installera SDK: n själv med [de här anvisningarna](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 > [!NOTE]
-> Vissa data uppsättnings klasser är beroende av [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) paketet, som endast är kompatibelt med 64-bitars python. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) och CentOS (7).
+> Vissa data uppsättnings klasser är beroende av [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) paketet, som endast är kompatibelt med 64-bitars python. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) och CentOS (7). Windows-undersystemet för Linux stöds inte för tillfället.
 
 ## <a name="compute-size-guidance"></a>Vägledning för beräknings storlek
 

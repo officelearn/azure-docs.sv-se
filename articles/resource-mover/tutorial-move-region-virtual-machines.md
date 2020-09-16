@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d00557e2279d236ff96a73c3a090097fbe6e5f1b
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061790"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603976"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Självstudie: flytta virtuella Azure-datorer över regioner
 
@@ -68,6 +68,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 Välj de resurser som du vill flytta.
 
 - Alla resurs typer som stöds i resurs grupper i den valda käll regionen visas.
+- Resurser som redan har lagts till för flyttning mellan regioner visas inte.
 - Du flyttar resurser till en mål region i samma prenumeration som käll regionen. Om du vill ändra prenumerationen kan du göra det när resurserna har flyttats.
 
 1. Sök efter *resurs förflyttning*i Azure Portal. Under **tjänster**väljer du sedan **Azure Resource förflyttning**.
@@ -89,7 +90,7 @@ Välj de resurser som du vill flytta.
     ![Sidan för att välja de virtuella datorer som ska flyttas](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  I **resurser att flytta klickar du**på **Nästa**.
-9. Kontrol lera käll-och mål inställningarna i **Granska + Lägg till**. Kontrol lera att du förstår att metadata om flyttningen kommer att lagras i en resurs grupp som skapats för det här syftet i metadata-regionen.
+9. Kontrol lera käll-och mål inställningarna i **Granska + Lägg till**. 
 
     ![Sida för att granska inställningar och fortsätta med flytten](./media/tutorial-move-region-virtual-machines/review.png)
 10. Klicka på **Fortsätt**för att börja lägga till resurserna.
@@ -234,7 +235,8 @@ Spara flyttningen om du vill slutföra flyttnings processen.
 
 ## <a name="configure-settings-after-the-move"></a>Konfigurera inställningar efter flyttningen
 
-Mobilitets tjänsten avinstalleras inte automatiskt från virtuella datorer. Avinstallera det manuellt eller lämna det om du planerar att flytta servern igen.
+- Mobilitets tjänsten avinstalleras inte automatiskt från virtuella datorer. Avinstallera det manuellt eller lämna det om du planerar att flytta servern igen.
+- Ändra Azure-rollbaserad åtkomst kontroll (Azure RBAC) regler efter flytten.
 
 ## <a name="delete-source-resources-after-commit"></a>Ta bort käll resurser efter incheckning
 

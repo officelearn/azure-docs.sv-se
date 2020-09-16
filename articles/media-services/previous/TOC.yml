@@ -318,33 +318,16 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Referensdesign för multi-DRM
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analysera
-      href: media-services-analytics-overview.md
-      items:
-        - name: Analysera media med Azure-portalen
-          href: media-services-portal-analyze.md
-        - name: Bearbeta med Indexer 2
-          href: media-services-process-content-with-indexer2.md
         - name: Bearbeta med Indexer
           href: media-services-index-content.md
           items:
             - name: Uppgiften förinställd
               href: indexer-task-preset.md
-        - name: Bearbeta med ansiktsigenkänning
-          href: media-services-face-and-emotion-detection.md
-        - name: Bearbeta med rörelseidentifiering
-          href: media-services-motion-detection.md
         - name: Bearbeta med ansiktsredigering
           href: media-services-face-redaction.md
           items:
             - name: Genomgång av ansiktsredigering
               href: media-services-redactor-walkthrough.md
-        - name: Bearbeta med videominiatyrer
-          href: media-services-video-summarization.md
-        - name: Bearbeta med OCR
-          href: media-services-video-optical-character-recognition.md
-        - name: Bearbeta med Content Moderator
-          href: media-services-content-moderation.md
     - name: Konfigurera telemetri
       href: media-services-telemetry-overview.md
       items:

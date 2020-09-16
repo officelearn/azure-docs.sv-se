@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 763b5a9f4c471e338dd493c85ce93a67810b5134
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426307"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604333"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Hantera användar tilldelning för en app i Azure Active Directory
 
@@ -28,7 +28,7 @@ För bättre kontroll kan vissa typer av företags program konfigureras för att
 > När du tilldelar en grupp till ett program får endast användare i gruppen åtkomst. Tilldelningen överlappar inte kapslade grupper.
 
 > [!NOTE]
-> Gruppbaserad tilldelning kräver Azure Active Directory Premium P1 eller P2 Edition. Gruppbaserad tilldelning stöds endast för säkerhets grupper. Kapslade grupp medlemskap och Office 365-grupper stöds inte för närvarande. Mer licensierings krav för de funktioner som beskrivs i den här artikeln finns på [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory). 
+> Gruppbaserad tilldelning kräver Azure Active Directory Premium P1 eller P2 Edition. Gruppbaserad tilldelning stöds endast för säkerhets grupper. Kapslade grupp medlemskap och Microsoft 365 grupper stöds inte för närvarande. Mer licensierings krav för de funktioner som beskrivs i den här artikeln finns på [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## <a name="configure-an-application-to-require-user-assignment"></a>Konfigurera ett program för att kräva användar tilldelning
 

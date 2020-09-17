@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234796"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706494"
 ---
 # <a name="no-users-are-being-provisioned"></a>Inga användare etableras 
 >[!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "88234796"
 >
 När den automatiska etableringen har kon figurer ATS för ett program (inklusive att kontrol lera att autentiseringsuppgifterna för appen som angetts för Azure AD för att ansluta till appen är giltiga), är användare och/eller grupper etablerade i appen. Etableringen bestäms av följande saker:
 
--   Vilka användare och grupper som har **tilldelats** till programmet. Observera att etablering av kapslade grupper eller Office 365-grupper inte stöds. Mer information om tilldelning finns i [tilldela en användare eller grupp till en företags app i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Vilka användare och grupper som har **tilldelats** till programmet. Observera att etablering av kapslade grupper eller Microsoft 365 grupper inte stöds. Mer information om tilldelning finns i [tilldela en användare eller grupp till en företags app i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Huruvida **attributmappning** är aktiverade och konfigurerade för att synkronisera giltiga attribut från Azure AD till appen. Mer information om mappning av mappar finns i [Anpassa mappningar av användar Provisioning-attribut för SaaS-program i Azure Active Directory](customize-application-attributes.md).
 -   Huruvida det finns ett **omfångs filter** som filtrerar användare baserat på vissa attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   

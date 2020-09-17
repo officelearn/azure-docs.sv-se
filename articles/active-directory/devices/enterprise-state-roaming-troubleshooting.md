@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267249"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705732"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming inställningar i Azure Active Directory
 
@@ -78,9 +78,9 @@ Enterprise State Roaming kräver att enheten registreras med Azure AD. Även om 
 
 Under vissa omständigheter kan Enterprise State Roaming inte synkronisera data om Azure Multi-Factor Authentication har kon figurer ATS. Mer information om dessa problem finns i support dokumentet [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Möjligt problem**: om enheten har kon figurer ATS för att kräva Multi-Factor Authentication på Azure Active Directory-portalen kan du inte synkronisera inställningarna när du loggar in på en Windows 10-enhet med ett lösen ord. Den här typen av Multi-Factor Authentication konfiguration är avsedd att skydda ett Azure-administratörskonto. Administratörs användare kan fortfarande synkronisera genom att logga in på sina Windows 10-enheter med sin Microsoft Passport for Work PIN-kod eller genom att slutföra Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Office 365.
+**Möjligt problem**: om enheten har kon figurer ATS för att kräva Multi-Factor Authentication på Azure Active Directory-portalen kan du inte synkronisera inställningarna när du loggar in på en Windows 10-enhet med ett lösen ord. Den här typen av Multi-Factor Authentication konfiguration är avsedd att skydda ett Azure-administratörskonto. Administratörs användare kan fortfarande synkronisera genom att logga in på sina Windows 10-enheter med sin Microsoft Passport for Work PIN-kod eller genom att slutföra Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Microsoft 365.
 
-**Möjligt problem**: synkroniseringen kan inte utföras om administratören konfigurerar Active Directory Federation Services (AD FS) Multi-Factor Authentication princip för villkorlig åtkomst och åtkomsttoken på enheten upphör att gälla. Se till att du loggar in och loggar ut med hjälp av Microsoft Passport for Work PIN-kod eller fullständig Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Office 365.
+**Möjligt problem**: synkroniseringen kan inte utföras om administratören konfigurerar Active Directory Federation Services (AD FS) Multi-Factor Authentication princip för villkorlig åtkomst och åtkomsttoken på enheten upphör att gälla. Se till att du loggar in och loggar ut med hjälp av Microsoft Passport for Work PIN-kod eller fullständig Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Microsoft 365.
 
 ### <a name="event-viewer"></a>Loggboken
 

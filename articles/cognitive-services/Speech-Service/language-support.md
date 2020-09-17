@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: de6cd4ee2c9800757399b7e32b59d903b817c657
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9a1745aa0e78dafca70ea90d4a5ac92f340312b3
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604401"
+ms.locfileid: "90706931"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -38,18 +38,18 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Nationell inställning  | Språk                          | Anpassningar                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | No                                                |
+| `ar-AE` | Arabiska (Förenade Arabemiraten)     | Språkmodell                                    |
 | `ar-BH` | Arabiska (Bahrain), modern standard | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Språkmodell                                    |
 | `ar-IL` | Arabiska (Israel)                   | No                                                |
-| `ar-IQ` | Arabiska (Irak)                     | No                                                |
-| `ar-JO` | Arabiska (Jordanien)                   | No                                                |
-| `ar-KW` | Arabiska (Kuwait)                   | No                                                |
-| `ar-LB` | Arabiska (Libanon)                  | No                                                |
-| `ar-OM` | Arabiska (Oman)                     | No                                                |
-| `ar-PS` | Arabiska (Palestina)                | No                                                |
-| `ar-QA` | Arabiska (Qatar)                    | No                                                |
-| `ar-SA` | Arabiska (Saudiarabien)             | No                                                |
+| `ar-IQ` | Arabiska (Irak)                     | Språkmodell                                    |
+| `ar-JO` | Arabiska (Jordanien)                   | Språkmodell                                    |
+| `ar-KW` | Arabiska (Kuwait)                   | Språkmodell                                    |
+| `ar-LB` | Arabiska (Libanon)                  | Språkmodell                                    |
+| `ar-OM` | Arabiska (Oman)                     | Språkmodell                                    |
+| `ar-PS` | Arabiska (tillstånd för Palestina)       | No                                                |
+| `ar-QA` | Arabiska (Qatar)                    | Språkmodell                                    |
+| `ar-SA` | Arabiska (Saudiarabien)             | Språkmodell                                    |
 | `ar-SY` | Arabiska (Syrien)                    | Språkmodell                                    |
 | `bg-BG` | Bulgariska (Bulgarien)              | Språkmodell                                    |
 | `ca-ES` | Katalanska (Spanien)                   | Språkmodell                                    |
@@ -117,7 +117,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | Svenska (Sverige)                  | Språkmodell                                    |
 | `ta-IN` | Tamiliska (Indien)                     | Språkmodell                                    |
 | `te-IN` | Telugu (Indien)                    | Språkmodell                                    |
-| `th-TH` | Thailändska (Thailand)                   | No                                                |
+| `th-TH` | Thailändska (Thailand)                   | Språkmodell                                    |
 | `tr-TR` | Turkiska (Turkiet)                  | Språkmodell                                    |
 | `zh-CN` | Kinesiska (mandariner, förenklad)    | Akustisk modell<br>Språkmodell                  |
 | `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Språkmodell                                    |

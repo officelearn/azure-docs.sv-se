@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80dafda39c0b37b1a7477b93d7f649fa1beeade
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 0126c5348a2acaebea0400a94ca0a1d14a1bf6ff
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783645"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707551"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -99,7 +99,7 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     Om du skapar ett Access-paket i en befintlig katalog kan du välja vilken resurs som helst som redan finns i katalogen utan att du äger den.
 
-    Om du är global administratör, en användar administratör eller en katalog ägare har du ytterligare möjlighet att välja resurser som inte finns i katalogen än. Om du väljer resurser som inte finns i den valda katalogen, kommer dessa resurser också att läggas till i katalogen för andra katalog administratörer för att bygga åtkomst paket med. Om du bara vill välja resurser som för närvarande finns i den valda katalogen markerar du kryss rutan **endast se** överst i fönstret Välj.
+    Om du är global administratör, en användar administratör eller en katalog ägare har du ytterligare möjlighet att välja resurser som inte finns i katalogen än. Om du väljer resurser som inte finns i den valda katalogen, kommer dessa resurser också att läggas till i katalogen för andra katalog administratörer för att bygga åtkomst paket med. Om du vill se alla resurser som kan läggas till i katalogen markerar du kryss rutan **Se alla** överst i fönstret Välj. Om du bara vill välja resurser som för närvarande finns i den valda katalogen lämnar du kryss rutan **alla** omarkerade (standard tillstånd).
 
 1. När du har valt resurserna väljer du den roll som du vill att användarna ska tilldelas för resursen i listan **roll** .
 
@@ -135,11 +135,11 @@ På fliken **Granska + skapa** kan du granska dina inställningar och kontrol le
 
 Du kan också skapa ett Access-paket med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att
 
-1. [Visa en lista över accessPackageResources i katalogen](/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) och [skapa en accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) för alla resurser som ännu inte finns i katalogen.
-1. [Ange accessPackageResourceRoles](/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) för varje accessPackageResource i en accessPackageCatalog. Den här listan över roller används sedan för att välja en roll när du sedan skapar en accessPackageResourceRoleScope.
-1. [Skapa en accessPackage](/graph/api/accesspackage-post?view=graph-rest-beta).
-1. [Skapa en accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
-1. [Skapa en accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) för varje resurs roll som behövs i åtkomst paketet.
+1. [Visa en lista över accessPackageResources i katalogen](https://docs.microsoft.com/graph/api/accesspackagecatalog-list?view=graph-rest-beta&tabs=http) och [skapa en accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&tabs=http) för alla resurser som ännu inte finns i katalogen.
+1. [Ange accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackage-list-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) för varje accessPackageResource i en accessPackageCatalog. Den här listan över roller används sedan för att välja en roll när du sedan skapar en accessPackageResourceRoleScope.
+1. [Skapa en accessPackage](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
+1. [Skapa en accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta&tabs=http).
+1. [Skapa en accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) för varje resurs roll som behövs i åtkomst paketet.
 
 ## <a name="next-steps"></a>Nästa steg
 

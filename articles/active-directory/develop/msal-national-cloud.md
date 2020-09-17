@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119448"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705868"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
 
@@ -42,7 +42,7 @@ Innan du börjar ska du kontrol lera att du uppfyller dessa krav.
 
 [Azure Government](../../azure-government/index.yml) program kan använda Azure AD myndighets identiteter och offentliga Azure AD-identiteter för att autentisera användare. Eftersom du kan använda någon av dessa identiteter måste du bestämma vilken auktoritets slut punkt du ska välja för ditt scenario:
 
-- Azure AD Public: används ofta om din organisation redan har en offentlig Azure AD-klient som stöder Office 365 (offentlig eller GCC) eller något annat program.
+- Azure AD Public: används ofta om din organisation redan har en offentlig Azure AD-klient som stöder Microsoft 365 (offentlig eller GCC) eller något annat program.
 - Azure AD myndigheter: används ofta om din organisation redan har en Azure AD myndighets-klient som stöder Office 365 (GCC High eller DoD) eller skapar en ny klient i Azure AD myndigheter.
 
 När du har bestämt dig är det viktigt att du utför registreringen av appen. Om du väljer Azure AD-offentliga identiteter för ditt Azure Government-program måste du registrera programmet i din offentliga Azure AD-klient.
@@ -79,7 +79,7 @@ Så här aktiverar du MSAL.js program för suveräna moln:
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog**.
 1. I avsnittet **omdirigerings-URI** väljer du **webb** plattform och anger värdet till programmets URL-adress baserat på din webb server. I nästa avsnitt finns anvisningar om hur du ställer in och hämtar omdirigerings-URL: en i Visual Studio och Node.
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
 1. I den här självstudien krävs att du aktiverar det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md). I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
 1. I **Avancerade inställningar**, under **implicit tilldelning**, markerar du kryss rutorna **ID-token** och **åtkomst-token** . ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
@@ -122,8 +122,8 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 I den koden:
 
-- `Enter_the_Application_Id_here`är **programmets (klient) ID-** värdet för det program som du har registrerat.
-- `Enter_the_Tenant_Info_Here`är inställt på något av följande alternativ:
+- `Enter_the_Application_Id_here` är **programmets (klient) ID-** värdet för det program som du har registrerat.
+- `Enter_the_Tenant_Info_Here` är inställt på något av följande alternativ:
     - Om ditt program har stöd **för konton i den här organisations katalogen**ersätter du värdet med klient-ID eller klient namn (till exempel contoso.Microsoft.com).
     - Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med `organizations` .
 
@@ -132,7 +132,7 @@ I den koden:
     > [!NOTE]
     > Personliga Microsoft-konton stöds inte i nationella moln.
 
-- `graphEndpoint`är Microsoft Graph slut punkten för Microsoft-molnet för amerikanska myndigheter.
+- `graphEndpoint` är Microsoft Graph slut punkten för Microsoft-molnet för amerikanska myndigheter.
 
    Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph slut punkter i nationella moln](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 

@@ -1,6 +1,6 @@
 ---
 title: Anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform
-description: 'I den här snabb starten lär du dig att anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform från ett Windows Desktop-program (WPF). WPF-klienten autentiserar en användare, begär en åtkomsttoken och anropar webb-API: et.'
+description: I den här snabb starten lär du dig att anropa ett ASP.NET webb-API som skyddas av Microsoft Identity Platform från ett Windows Desktop-program (WPF).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,164 +11,178 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 0fc31fd397f8206f7c6f0509dd03495631dde609
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e3b666ca7418a11bba3091a5ae8191e9c7b33411
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165642"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705817"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Snabb start: anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform
+# <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Snabb start: anropa ett ASP.NET webb-API som skyddas av Microsoft Identity Platform
 
-I den här snabb starten exponerar du ett webb-API och skyddar det så att endast autentiserade användare kan komma åt den. Det här exemplet visar hur du exponerar ett ASP.NET webb-API så att det kan acceptera token som utfärdats av personliga konton (inklusive outlook.com, live.com och andra) samt arbets-och skol konton från alla företag eller organisationer som har integrerat med Microsoft Identity Platform.
+I den här snabb starten exponerar du ett webb-API och skyddar det så att endast autentiserade användare kan komma åt den. Artikeln visar hur du exponerar ett ASP.NET webb-API så att det kan ta emot token som utfärdas av personliga konton, till exempel outlook.com eller live.com och arbets-eller skol konton från alla företag eller organisationer som har integrerat med Microsoft Identity Platform.
 
-Exemplet innehåller också en Windows Desktop program-klient (WPF) som visar hur du kan begära en åtkomsttoken för att få åtkomst till ett webb-API.
+I artikeln används också en Windows Presentation Foundation-app (WPF) för att visa hur du kan begära en åtkomsttoken för att få åtkomst till ett webb-API.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra det här exemplet behöver du följande:
+Om du vill köra exempel koden i den här artikeln behöver du:
 
 * Visual Studio 2017 eller 2019.  Hämta [Visual Studio kostnads fritt](https://www.visualstudio.com/downloads/).
+* Antingen en [Microsoft-konto](https://www.outlook.com) eller [Microsoft 365 Developer-programmet](/office/developer-program/office-365-developer-program).
 
-* Antingen ett [Microsoft-konto](https://www.outlook.com) -eller [Microsoft 365 Developer-program](/office/developer-program/office-365-developer-program)
+## <a name="clone-or-download-the-sample"></a>Klona eller hämta exemplet
 
-## <a name="download-or-clone-this-sample"></a>Hämta eller klona det här exemplet
+Du kan hämta exemplet på något av två sätt:  
 
-Du kan klona det här exemplet från ditt gränssnitt eller kommando raden:
+* Klona den från ditt gränssnitt eller kommando raden:
+   ```console
+   git clone https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
+   ```  
+* [Ladda ned den som en zip-fil](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-  ```console
-  git clone https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
-  ```
+## <a name="register-your-web-api"></a>Registrera ditt webb-API
 
-Du kan också [Hämta exemplet som en zip-fil](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
+I det här avsnittet registrerar du ditt webb-API i **Appregistreringar** -portalen.
 
-## <a name="register-your-web-api-in-the-application-registration-portal"></a>Registrera ditt webb-API i program registrerings portalen
+### <a name="choose-your-azure-ad-tenant"></a>Välj din Azure AD-klient
 
-### <a name="choose-the-azure-ad-tenant-where-you-want-to-create-your-applications"></a>Välj den Azure AD-klient där du vill skapa dina program
+Om du vill registrera dina appar manuellt väljer du den Azure Active Directory (Azure AD) som du vill skapa dina appar för.
 
-Om du vill registrera dina appar manuellt, som ett första steg, måste du:
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Om ditt konto finns i fler än en Azure AD-klient väljer du din profil längst upp till höger på menyn längst upp på sidan och **byter sedan katalog**.
-   Ändra din portal-session till önskad Azure AD-klient.
+1. Om ditt konto finns i fler än en Azure AD-klient väljer du din profil längst upp till höger och väljer sedan **Växla katalog**.
+1. Ändra din portal-session till den Azure AD-klient som du vill använda.
 
-### <a name="register-the-service-app-todolistservice"></a>Registrera tjänst appen (TodoListService)
+### <a name="register-the-todolistservice-app"></a>Registrera TodoListService-appen
 
-1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
+1. Gå till Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -portalen.
 1. Välj **ny registrering**.
-1. När **sidan Registrera ett program** visas anger du programmets registrerings information:
-   - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AppModelv2-NativeClient-DotNet-TodoListService`.
-   - Ändra **konto typer som stöds** till **konton i valfri organisations katalog**.
-   - Välj **Registrera** för att skapa programmet.
+1. När **sidan Registrera ett program** öppnas anger du programmets registrerings information:
 
-1. På sidan **Översikt över** appen letar du reda på **programmets ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för det här projektet ( `ClientId` i `TodoListService\Web.config` ).
-1. Välj avsnittet **exponera ett API** och:
-   - Välj **Lägg till ett omfång**
-   - Godkänn den föreslagna program-ID-URI: n (API://{clientId}) genom att välja **Spara och fortsätt**
-   - Ange följande parametrar:
-     - för användning av **områdes namn**`access_as_user`
-     - Se till att alternativet **Administratörer och användare** är markerat för **vem som kan** godkänna
-     - i typ av **visnings namn för administratörs medgivande**`Access TodoListService as a user`
-     - **beskrivnings typ för administratörs medgivande**`Accesses the TodoListService web API as a user`
-     - i **användar medgivande typ av visnings namn**`Access TodoListService as a user`
-     - i **användar medgivande beskrivnings** typ`Accesses the TodoListService web API as a user`
-     - Behåll **status** som **aktive rad**
-     - Välj **Lägg till omfattning**
+   a. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna i appen. Ange till exempel **AppModelv2-NativeClient-dotNet-TodoListService**.  
+   b. För **konto typer som stöds**väljer du **konton i valfri organisations katalog**.  
+   c. Välj **Registrera** för att skapa programmet.
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Konfigurera tjänst projektet så att det matchar det registrerade webb-API: et
+1. På sidan **Översikt över** appar letar du efter **programmets (klient) ID-** värde och registrerar det sedan för senare användning. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för det här projektet (det vill säga `ClientId` i *TodoListService\Web.config* -filen).
+1. I avsnittet **exponera ett API** väljer du **Lägg till ett omfång**, accepterar den föreslagna program-ID-URI: n (API://{clientId}) genom att välja **Spara och fortsätt**och ange följande information:
+ 
+   a. Ange **access_as_user**för **omfattnings namn**.  
+   b. För **vem som kan**godkänna, se till att alternativet **Administratörer och användare** är markerat.  
+   c. I rutan **visnings namn för administratörs godkännande** anger du **Access-TodoListService som en användare**.  
+   d. I rutan **Beskrivning av administratörs godkännande** anger **du åtkomst till TODOLISTSERVICE webb-API som en användare**.  
+   e. Ange **Access-TodoListService som en användare**i rutan **användar medgivande visnings namn** .  
+   f. I rutan **Beskrivning av användar medgivande** anger **du åtkomst till TODOLISTSERVICE webb-API som en användare**.  
+   ex. Behåll **aktiverat**för **tillstånd**.  
+   h. Välj **Lägg till omfattning**.
 
-1. Öppna lösningen i Visual Studio och öppna **Web.config** -filen under roten av **TodoListService** -projektet.
-1. Ersätt värdet för `ida:ClientId` parametern med **klient-ID: t (program-ID)** från programmet som du precis registrerade i program registrerings portalen.
+### <a name="configure-the-service-project"></a>Konfigurera tjänste projektet
 
-### <a name="add-the-new-scope-to-the-todolistclients-appconfig"></a>Lägg till det nya omfånget i *TodoListClient*app.config
+Konfigurera tjänste projektet så att det matchar det registrerade webb-API: et genom att göra följande:
 
-* Öppna den **app.config** -fil som finns i **TodoListClient** -projektets rotmapp och klistra sedan in **program-ID** från programmet som du precis registrerade för din *TodoListService* under `TodoListServiceScope` parameter, och ersätt strängen `{Enter the Application ID of your TodoListService from the app registration portal}` .
+1. Öppna lösningen i Visual Studio och öppna *Web.config* -filen under roten för TodoListService-projektet.
+
+1. Ersätt värdet för `ida:ClientId` parametern med klient-ID: t (program-ID) från det program som du precis registrerade i **Appregistreringar** portalen.
+
+### <a name="add-the-new-scope-to-the-appconfig-file"></a>Lägg till det nya omfånget i app.config-filen
+
+Om du vill lägga till det nya omfånget i TodoListClient *app.config* -filen gör du följande:
+
+1. I TodoListClient-projektets rotmapp öppnar du *app.config* -filen.
+
+1. Klistra in program-ID: t från programmet som du precis registrerade för ditt TodoListService `TodoListServiceScope` -projekt i parametern och Ersätt `{Enter the Application ID of your TodoListService from the app registration portal}` strängen.
 
   > [!NOTE]
-  > Kontrol lera att den använder följande format:
-  >
-  > `api://{TodoListService-Application-ID}/access_as_user`
-  >
-  >(där {TodoListService-Application-ID} är GUID som representerar program-ID: t för din TodoListService).
+  > Kontrol lera att program-ID: t använder följande format: `api://{TodoListService-Application-ID}/access_as_user` (där `{TodoListService-Application-ID}` är det GUID som representerar program-ID: t för din TodoListService-app).
 
-## <a name="register-the-client-app-todolistclient"></a>Registrera klient programmet (TodoListClient)
+## <a name="register-the-todolistclient-client-app"></a>Registrera klient programmet för TodoListClient
 
-I det här steget konfigurerar du ditt *TodoListClient* -projekt genom att registrera ett nytt program i program registrerings portalen. I de fall där klienten och servern betraktas som *samma program* kan du också bara återanvända samma program som registrerats i "steg 2". Att använda samma program behövs om du vill att användarna ska logga in med Microsoft personal konton
+I det här avsnittet registrerar du TodoListClient-appen i **Appregistreringar** i Azure Portal och konfigurerar sedan koden i TodoListClient-projektet. Om klienten och servern anses vara *samma program*kan du återanvända programmet som är registrerat i steg 2. Använd samma program om du vill att användarna ska logga in med ett personligt Microsoft-konto.
 
-### <a name="register-the-todolistclient-application-in-the-application-registration-portal"></a>Registrera *TodoListClient* -programmet i *program registrerings portalen*
+### <a name="register-the-app"></a>Registrera appen
 
-1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
+Registrera TodoListClient-appen genom att göra följande:
+
+1. Gå till Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -portalen.
 1. Välj **ny registrering**.
-1. När **sidan Registrera ett program** visas anger du programmets registrerings information:
-   - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `NativeClient-DotNet-TodoListClient`.
-   - Ändra **konto typer som stöds** till **konton i valfri organisations katalog**.
-   - Välj **Registrera** för att skapa programmet.
+1. När **sidan Registrera ett program** öppnas anger du programmets registrerings information:
+
+   a. I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen (till exempel **NativeClient-dotNet-TodoListClient**).  
+   b. För **konto typer som stöds**väljer du **konton i valfri organisations katalog**.  
+   c. Välj **Registrera** för att skapa programmet.
    
    > [!NOTE]
-   > Standardvärdet för är inställt på i *TodoListClient* -projektets **app.config** `ida:Tenant` `common` .
-   >
-   > `common`innebär att du kan logga in med ett arbets-eller skol konto eller ett personligt Microsoft-konto (eftersom du har valt **konton i valfri organisations katalog**).
-   >
-   > `organizations`innebär att du kan logga in med ett arbets-eller skol konto.
-   >
-   > `consumers`innebär att du bara kan logga in med ett personligt Microsoft-konto.
+   > Standardvärdet för *app.config* `ida:Tenant` är inställt på i TodoListClient Projectapp.config-filen `common` . Möjliga värden är:
+   > - `common`: Du kan logga in med ett arbets-eller skol konto eller ett personligt Microsoft-konto (eftersom du har valt **konton i valfri organisations katalog** i steg 3b).
+   > - `organizations`: Du kan logga in med ett arbets-eller skol konto.
+   > - `consumers`: Du kan bara logga in med ett personligt Microsoft-konto.
    >
    
-1. På sidan Översikt för appen väljer du avsnittet **autentisering** .
-   1. Under **plattforms konfiguration**väljer du knappen **Lägg till en plattform** .
-   1. För **mobil-och skriv bords program**väljer du de **mobila och Station ära programmen**.
-   1. Markera kryss rutan för **omdirigering av URI: er** **https://login.microsoftonline.com/common/oauth2/nativeclient** .
-   1. Välj **Konfigurera**.   
-1. Välj avsnittet **API-behörigheter**
-   1. Välj knappen **Lägg till en behörighet**.
-   1. Välj fliken **Mina API: er** .
-   1. I listan över API: er väljer du `AppModelv2-NativeClient-DotNet-TodoListService API` eller det namn som du angav för webb-API: et.
-   1. Kontrol lera **access_as_user** behörigheten om den inte redan är markerad. Använd Sök fältet om det behövs.
-   1. Välj knappen **Lägg till behörigheter** .
+1. På sidan **Översikt över** app väljer du **autentisering**och gör sedan följande:
 
-### <a name="configure-your-todolistclient-project"></a>Konfigurera ditt *TodoListClient* -projekt
+   a. Under **plattforms konfiguration**väljer du knappen **Lägg till en plattform** .  
+   b. För **mobil-och skriv bords program**väljer du **mobil-och skriv bords program**.  
+   c. Markera kryss rutan för **omdirigering av URI: er** **https://login.microsoftonline.com/common/oauth2/nativeclient** .  
+   d. Välj **Konfigurera**.   
+1. Välj **API-behörigheter**och gör sedan följande:
 
-1. På sidan **Översikt** i *program registrerings portalen*kopierar du värdet för **program-ID: t (klient)**
-1. Öppna den **app.config** -fil som finns i **TodoListClient** -projektets rotmapp och klistra sedan in värdet i `ida:ClientId` parametervärdet
+   a. Välj knappen **Lägg till en behörighet**.  
+   b. Välj fliken **Mina API: er** .  
+   c. I listan över API: er väljer du **AppModelv2-NativeClient-dotNet-TODOLISTSERVICE API** eller det namn som du angav för webb-API: et.  
+   d. Markera kryss rutan **access_as_user** behörighet om den inte redan är markerad. Använd Sök fältet om det behövs.  
+   e. Välj knappen **Lägg till behörigheter** .
 
-## <a name="run-your-project"></a>Köra projektet
+### <a name="configure-your-project"></a>Konfigurera projektet
 
-1. Tryck på `<F5>` för att köra projektet. Din *TodoListClient* bör vara öppen.
-1. Välj **Logga** in längst upp till höger och logga in med samma användare som du har använt för att registrera ditt program, eller en användare i samma katalog.
-1. Om du loggar in för första gången kan du vid det här tillfället uppmanas att godkänna *TodoListService* webb-API.
-1. Inloggningen begär också åtkomst-token till *access_as_user* omfång för att komma åt *TodoListService* -webb-API och ändra *att göra-* listan.
+Gör så här för att konfigurera ditt TodoListClient-projekt:
+
+1. På sidan **Översikt** i **Appregistreringar** Portal kopierar du värdet för **program-ID: t (klient)**.
+
+1. Från rotmappen för TodoListClient-projektet öppnar du *app.config* -filen och klistrar in program-ID-värdet i `ida:ClientId` parametern.
+
+## <a name="run-your-todolistclient-project"></a>Kör ditt TodoListClient-projekt
+
+Gör så här för att köra TodoListClient-projektet:
+
+1. Tryck på F5 för att öppna TodoListClient-projektet. Projekt sidan bör öppnas.
+
+1. Längst upp till höger väljer du **Logga**in och loggar sedan in med samma autentiseringsuppgifter som du använde för att registrera ditt program, eller logga in som en användare i samma katalog.
+
+   Om du loggar in för första gången kan du uppmanas att godkänna TodoListService webb-API.
+
+   För att hjälpa dig att komma åt TodoListService webb-API och ändra *att göra-* listan, begär inloggningen också en åtkomsttoken till *access_as_users* omfånget.
 
 ## <a name="pre-authorize-your-client-application"></a>För att auktorisera ditt klient program
 
-Ett sätt att tillåta användare från andra kataloger att komma åt ditt webb-API är genom att *förauktorisera* klient programmen för att få åtkomst till ditt webb-API genom att lägga till program-ID: n från klient program i listan över *förauktoriserade* program för ditt webb-API. Genom att lägga till en förauktoriserad klient behöver du inte användare som medgivande för att använda ditt webb-API. Följ stegen nedan för att auktorisera webb programmet:
+Ett sätt som du kan tillåta att användare från andra kataloger har åtkomst till ditt webb-API är att förkonfigurera klient programmet för att få åtkomst till ditt webb-API. Du gör detta genom att lägga till program-ID: t från klient programmet i listan över förauktoriserade program för ditt webb-API. Genom att lägga till en förauktoriserad klient ger du användarna åtkomst till ditt webb-API utan att behöva ange medgivande. Gör följande för att auktorisera din klient app:
 
-1. Gå tillbaka till *program registrerings portalen* och öppna egenskaperna för din **TodoListService**.
-1. I avsnittet **exponera ett API** klickar du på **Lägg till ett klient program** under avsnittet *auktoriserade klient program* .
-1. I fältet *klient-ID* klistrar du in program-ID: t för `TodoListClient` programmet.
-1. I avsnittet *auktoriserade omfattningar* väljer du omfång för detta webb-API `api://<Application ID>/access_as_user` .
-1. Tryck på knappen **Lägg till program** längst ned på sidan.
+1. Öppna egenskaperna för din TodoListService-app i **Appregistreringar** -portalen.
+1. I avsnittet **exponera ett API** , under **auktoriserade klient program**, väljer du **Lägg till ett klient program**.
+1. I rutan **klient-ID** klistrar du in program-ID: t för TodoListClient-appen.
+1. I avsnittet **auktoriserade omfattningar** väljer du omfattning för `api://<Application ID>/access_as_user` webb-API: et.
+1. Välj **Lägg till program**.
 
 ## <a name="run-your-project"></a>Köra projektet
 
-1. Tryck på `<F5>` för att köra projektet. Din *TodoListClient* bör vara öppen.
-1. Välj **Logga** in längst upp till höger (eller Rensa cacheminne/logga in) och logga sedan in antingen med ett personligt Microsoft-konto (live.com eller hotmail.com) eller arbets-eller skol konto.
+1. Tryck på F5 för att köra projektet. TodoListClient-appen bör öppnas.
+1. I det övre högra hörnet väljer du **Logga**in och loggar sedan in med en personlig Microsoft-konto, till exempel live.com eller hotmail.com, eller ett arbets-eller skol konto.
 
-## <a name="optional-restrict-sign-in-access-to-your-application"></a>Valfritt: begränsa inloggnings åtkomst till ditt program
+## <a name="optional-limit-sign-in-access-to-certain-users"></a>Valfritt: begränsa inloggnings åtkomst till vissa användare
 
-När du laddar ned det här kod exemplet och konfigurerar programmet till att använda Azure Active Directory v2-slutpunkten enligt föregående steg, har både personliga konton-som outlook.com, live.com och andra – arbets-eller skol konton från alla organisationer som är integrerade med Azure AD möjlighet att begära tokens och få åtkomst till ditt webb-API.
+När du har följt stegen ovan kan alla personliga konton, t. ex. outlook.com eller live.com eller arbets-eller skol konton från organisationer som är integrerade med Azure AD, begära tokens och få åtkomst till ditt webb-API.
 
-Använd något av alternativen för att begränsa vem som kan logga in till ditt program:
+Använd något av följande alternativ för att ange vem som kan logga in på ditt program:
 
-### <a name="option-1-restrict-access-to-a-single-organization-single-tenant"></a>Alternativ 1: begränsa åtkomsten till en enskild organisation (en enda klient)
+### <a name="option-1-limit-access-to-a-single-organization-single-tenant"></a>Alternativ 1: begränsa åtkomsten till en enskild organisation (enskild klient)
 
-Du kan begränsa inloggnings åtkomsten för ditt program till endast användar konton som finns i en enda Azure AD-klient, inklusive *gäst konton* för den klient organisationen. Det här scenariot är ett vanligt för *branschspecifika program*:
+Du kan begränsa inloggnings åtkomsten till ditt program till användar konton som finns i en enda Azure AD-klient, inklusive *gäst konton* för den klienten. Det här scenariot är vanligt för *branschspecifika program*.
 
-1. Öppna filen **App_Start \STARTUP.auth** och ändra värdet för metadata-slutpunkten som skickas till `OpenIdConnectSecurityTokenProvider` till `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (du kan också använda klient namnet, t. ex `contoso.onmicrosoft.com` .).
-2. I samma fil ställer du in `ValidIssuer` egenskapen på `TokenValidationParameters` till `"https://sts.windows.net/{Tenant ID}/"` och `ValidateIssuer` argumentet till `true` .
+1. Öppna filen *App_Start \STARTUP.auth* och ändra värdet för metadata-slutpunkten som skickas till `OpenIdConnectSecurityTokenProvider` till `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` . Du kan också använda klient namnet, till exempel `contoso.onmicrosoft.com` .
+2. I samma fil ställer du in `ValidIssuer` egenskapen på `TokenValidationParameters` till `"https://sts.windows.net/{Tenant ID}/"` och anger `ValidateIssuer` argumentet till `true` .
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Alternativ 2: Använd en anpassad metod för att validera utfärdare
 
-Du kan implementera en anpassad metod för att verifiera utfärdare med hjälp av parametern **IssuerValidator** . Mer information om hur du använder den här parametern finns i om [klassen TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet).
+Du kan implementera en anpassad metod för att verifiera utfärdare med hjälp av- `IssuerValidator` parametern. Mer information om den här parametern finns i [TokenValidationParameters-klass](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

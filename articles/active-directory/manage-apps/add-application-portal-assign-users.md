@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 5a0a158f91695bb0aba07aa412f5ba234906d493
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322508"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707704"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Snabb start: tilldela användare till en app som använder Azure AD som identitets leverantör
 
 I den tidigare snabb starten konfigurerade du egenskaperna för en app. När du ställer in de egenskaper som du konfigurerade för både tilldelade och otilldelade användare. Den här snabb starten vägleder dig genom processen att tilldela användare till appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill tilldela användare till en app som du har lagt till i din Azure AD-klient behöver du:
 
@@ -38,7 +38,7 @@ Om du vill tilldela användare till en app som du har lagt till i din Azure AD-k
 1. I Azure AD-portalen väljer du **företags program**. Hitta och välj sedan det program som du vill konfigurera.
 2. I den vänstra navigerings menyn väljer **du användare och grupper**.
    > [!NOTE]
-   > Några av de Microsoft 365-och Office 365-apparna kräver att du använder PowerShell. 
+   > Vissa av de Microsoft 365 apparna kräver användning av PowerShell. 
 3. Välj knappen **Lägg till användare** .
 4. I fönstret **Lägg till tilldelning** väljer **du användare och grupper**.
 5. Välj den användare eller grupp som du vill tilldela till programmet. Du kan också börja skriva in namnet på användaren eller gruppen i sökrutan. Du kan välja flera användare och grupper och dina val visas under **valda objekt**.
@@ -46,7 +46,7 @@ Om du vill tilldela användare till en app som du har lagt till i din Azure AD-k
     > När du tilldelar en grupp till ett program får endast användare i gruppen åtkomst. Tilldelningen överlappar inte kapslade grupper.
 
     > [!NOTE]
-    > Gruppbaserad tilldelning kräver Azure Active Directory Premium P1 eller P2 Edition. Gruppbaserad tilldelning stöds endast för säkerhets grupper. Kapslade grupp medlemskap och Office 365-grupper stöds inte för närvarande. Mer licensierings krav för de funktioner som beskrivs i den här artikeln finns på [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory). 
+    > Gruppbaserad tilldelning kräver Azure Active Directory Premium P1 eller P2 Edition. Gruppbaserad tilldelning stöds endast för säkerhets grupper. Kapslade grupp medlemskap och Microsoft 365 grupper stöds inte för närvarande. Mer licensierings krav för de funktioner som beskrivs i den här artikeln finns på [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory). 
 6. När du är färdig väljer du **Välj**.
    ![Tilldela en användare eller grupp till appen](./media/assign-user-or-group-access-portal/assign-users.png)
 7. I fönstret **användare och grupper** väljer du en eller flera användare eller grupper i listan och väljer sedan knappen **Välj** längst ned i fönstret.

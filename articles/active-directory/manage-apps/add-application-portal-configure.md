@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 719890447b976903e1c2419382ac9c9f81b4ae4a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300161"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707721"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
@@ -47,7 +47,7 @@ Redigera program egenskaperna:
 3. Ägna en stund åt att förstå alternativen som är tillgängliga för konfiguration:
     - **Aktiverat för användare att logga in?** Anger om användare som är tilldelade till programmet kan logga in.
     - **Krävs användar tilldelning?** Anger om användare som inte är tilldelade till programmet kan logga in.
-    - **Synlig för användarna?** Anger om användare som är tilldelade till en app kan se den i [Mina appar](https://myapps.microsoft.com) och Office 365 App Launcher. (Se rutmärket-menyn i det övre vänstra hörnet på en Office 365-webbplats eller på en Microsoft 365 webbplats.)
+    - **Synlig för användarna?** Anger om användare som är tilldelade till en app kan se den i [Mina appar](https://myapps.microsoft.com) och Microsoft 365 App Launcher. (Se rutmärket-menyn i det övre vänstra hörnet på en Microsoft 365 webbplats.)
     
     > [!TIP]
     > Tilldelning av användare sker i avsnittet **användare och grupper** i navigeringen.
@@ -95,4 +95,4 @@ Om du inte kommer att fortsätta med snabb starts serien kan du ta bort appen f�
 
 Gå vidare till nästa artikel om du vill lära dig hur du tilldelar användare till appen.
 > [!div class="nextstepaction"]
-> [Tilldela användare till en app](add-application-portal-assign-users.md)
+> [Tilldela användare en app](add-application-portal-assign-users.md)

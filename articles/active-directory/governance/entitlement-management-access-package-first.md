@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034584"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707500"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
 
@@ -41,6 +41,8 @@ I den här guiden får du lära dig att:
 En steg-för-steg-demonstration av processen att distribuera Azure Active Directory hantering av rättigheter, inklusive att skapa ditt första Access-paket, finns i följande videoklipp:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+Du kan också skapa ett Access-paket program mässigt med hjälp av Microsoft Graph. En själv studie kurs som visar hur du skapar ett Access-paket program mässigt finns i [API för hantering av rättigheter](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -65,7 +67,7 @@ En resurs katalog har en eller flera resurser att dela. I det här steget skapar
 
 1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
-    | Namn | Katalogroll |
+    | Name | Katalogroll |
     | --- | --- |
     | **Admin1** | Global administratör<br/>\- eller -<br/>Användaradministratör |
     | **Requestor1** | Användare |
@@ -106,7 +108,7 @@ Ett *Access-paket* är ett paket med resurser som ett team eller projekt behöve
 
 9. I fönstret Välj grupper letar du reda på och väljer gruppen **marknadsförings resurser** som du skapade tidigare.
 
-    Som standard visas grupper i och utanför den **allmänna** katalogen. När du väljer en grupp utanför den **allmänna** katalogen kommer den att läggas till i den **allmänna** katalogen.
+     Som standard visas grupper i den allmänna katalogen. När du väljer en grupp utanför den allmänna katalogen, som du kan se om du markerar kryss rutan **Se alla** , kommer den att läggas till i den allmänna katalogen.
 
     ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

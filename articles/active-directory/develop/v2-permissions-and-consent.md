@@ -1,6 +1,6 @@
 ---
 title: Microsoft Identity Platform-omfattningar, behörigheter och medgivande
-description: En beskrivning av auktorisering i slut punkten för Microsoft Identity Platform, inklusive omfång, behörigheter och medgivande.
+description: Läs mer om auktorisering i slut punkten för Microsoft Identity Platform, inklusive omfång, behörigheter och medgivande.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263235"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705698"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i slutpunkten för Microsoft Identity Platform
 
@@ -27,12 +27,12 @@ Program som integreras med Microsoft Identity Platform följer en auktoriserings
 
 Microsoft Identity Platform implementerar [OAuth 2,0](active-directory-v2-protocols.md) -Authorization-protokollet. OAuth 2,0 är en metod som innebär att en app från tredje part kan komma åt webb värd resurser för en användares räkning. Alla webb värd resurser som integreras med Microsoft Identity Platform har en resurs identifierare eller en URI för *program-ID*. Till exempel är några av Microsofts webb värd resurser:
 
-* Microsoft Graph:`https://graph.microsoft.com`
-* E-post-API för Office 365:`https://outlook.office.com`
-* Azure Key Vault:`https://vault.azure.net`
+* Microsoft Graph: `https://graph.microsoft.com`
+* Microsoft 365 e-post-API: `https://outlook.office.com`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> Vi rekommenderar starkt att du använder Microsoft Graph i stället för Office 365 Mail-API osv.
+> Vi rekommenderar starkt att du använder Microsoft Graph i stället för Microsoft 365 e-postapi, osv.
 
 Samma sak gäller för alla resurser från tredje part som har integrerats med Microsoft Identity Platform. Alla dessa resurser kan också definiera en uppsättning behörigheter som kan användas för att dela upp resursens funktioner i mindre segment. [Microsoft Graph](https://graph.microsoft.com) har exempelvis definierat behörigheter för att utföra följande uppgifter, bland annat:
 
@@ -44,9 +44,9 @@ Genom att definiera dessa typer av behörigheter har resursen detaljerad kontrol
 
 I OAuth 2,0 kallas dessa typer av behörigheter för *omfattningar*. De kallas också ofta för *behörigheter*. En behörighet visas i Microsoft Identity Platform som ett sträng värde. Om du fortsätter med Microsoft Graph exemplet är strängvärdet för varje behörighet:
 
-* Läs en användares kalender genom att använda`Calendars.Read`
-* Skriv till en användares kalender genom att använda`Calendars.ReadWrite`
-* Skicka e-post som en användare med hjälp av`Mail.Send`
+* Läs en användares kalender genom att använda `Calendars.Read`
+* Skriv till en användares kalender genom att använda `Calendars.ReadWrite`
+* Skicka e-post som en användare med hjälp av `Mail.Send`
 
 En app begär oftast dessa behörigheter genom att ange omfattningarna i begär anden till Microsoft Identity Platform permission-slutpunkten. Vissa behörigheter för hög behörighet kan dock endast beviljas genom administratörs medgivande och begärs/beviljas med hjälp av [Administratörs medgivande slut punkten](v2-permissions-and-consent.md#admin-restricted-permissions). Läs vidare om du vill veta mer.
 
@@ -134,9 +134,9 @@ Dessutom måste program använda den administrativa medgivande slut punkten för
 
 Vissa behörigheter med hög behörighet i Microsoft-eko systemet kan anges till *admin-begränsad*. Exempel på dessa typer av behörigheter är följande:
 
-* Läs alla användares fullständiga profiler med hjälp av`User.Read.All`
-* Skriva data till en organisations katalog med hjälp av`Directory.ReadWrite.All`
-* Läs alla grupper i en organisations katalog med hjälp av`Groups.Read.All`
+* Läs alla användares fullständiga profiler med hjälp av `User.Read.All`
+* Skriva data till en organisations katalog med hjälp av `Directory.ReadWrite.All`
+* Läs alla grupper i en organisations katalog med hjälp av `Groups.Read.All`
 
 Även om en konsument användare kan ge en program åtkomst till den här typen av data, begränsas organisationens användare från att bevilja åtkomst till samma uppsättning känsliga företags data. Om programmet begär åtkomst till någon av de här behörigheterna från en organisations användare får användaren ett fel meddelande om att de inte har behörighet att godkänna appens behörigheter.
 
@@ -193,9 +193,9 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| Parameter        | Villkor        | Beskrivning                                                                                |
+| Parameter        | Condition (Väderförhållanden)        | Beskrivning                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obligatorisk | Den katalog klient som du vill begära behörighet från. Kan tillhandahållas i GUID eller eget namn format eller allmänt refereras till organisationer som visas i exemplet. Använd inte "common", eftersom personliga konton inte kan tillhandahålla administrativt medgivande, förutom i kontexten för en klient. För att säkerställa bästa kompatibilitet med personliga konton som hanterar klienter använder du klient-ID när det är möjligt. |
+| `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Kan tillhandahållas i GUID eller eget namn format eller allmänt refereras till organisationer som visas i exemplet. Använd inte "common", eftersom personliga konton inte kan tillhandahålla administrativt medgivande, förutom i kontexten för en klient. För att säkerställa bästa kompatibilitet med personliga konton som hanterar klienter använder du klient-ID när det är möjligt. |
 | `client_id` | Obligatorisk | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
 | `redirect_uri` | Obligatorisk |Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i registrerings portalen för appen. |
 | `state` | Rekommenderas | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Använd tillstånd för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
@@ -283,7 +283,7 @@ I det här exemplet finns det inget medgivande för användaren mellan klienten 
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exempel 3: användaren har samtyckt och klienten begär ytterligare omfång
 
-I det här exemplet har användaren redan samtyckt till `mail.read` för-klienten. Klienten har registrerats för `contacts.read` omfånget i registreringen. När klienten gör en begäran om en token som använder `scope=https://graph.microsoft.com/.default` och begär medgivande via `prompt=consent` , kommer användaren att se en medgivande skärm för alla (och endast) de behörigheter som registrerats av programmet. `contacts.read`kommer att finnas på medgivande skärmen, men `mail.read` kommer inte. Den returnerade token är för Microsoft Graph och kommer att innehålla `mail.read` och `contacts.read` .
+I det här exemplet har användaren redan samtyckt till `mail.read` för-klienten. Klienten har registrerats för `contacts.read` omfånget i registreringen. När klienten gör en begäran om en token som använder `scope=https://graph.microsoft.com/.default` och begär medgivande via `prompt=consent` , kommer användaren att se en medgivande skärm för alla (och endast) de behörigheter som registrerats av programmet. `contacts.read` kommer att finnas på medgivande skärmen, men `mail.read` kommer inte. Den returnerade token är för Microsoft Graph och kommer att innehålla `mail.read` och `contacts.read` .
 
 ### <a name="using-the-default-scope-with-the-client"></a>Använda/.default-scope med klienten
 

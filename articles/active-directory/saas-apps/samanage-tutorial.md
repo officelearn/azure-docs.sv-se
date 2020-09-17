@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Samanage | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Samanage.
+title: 'Självstudie: Azure Active Directory integration med SolarWinds Service Desk (tidigare Samanage) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SolarWinds Service Desk (tidigare Samanage).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 56018ff0be07a48cf9448b9b92de5694ebac18bc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8d4c19e1ce10ed618cda167cd6fa7efedf4111d0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543541"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707585"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Självstudie: Azure Active Directory integrering med Samanage
+# <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Självstudie: Azure Active Directory integration med SolarWinds Service Desk (tidigare Samanage)
 
-I den här självstudien lär du dig att integrera Samanage med Azure Active Directory (AD Azure).
-Genom att integrera Samanage med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar SolarWinds med Azure Active Directory (Azure AD).
+Genom att integrera SolarWinds med Azure AD får du följande fördelar:
 
-* Du kan i Azure AD styra vem som har åtkomst till Samanage.
-* Du kan göra så att dina användare automatiskt loggas in på Samanage (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till SolarWinds.
+* Du kan göra det möjligt för användarna att logga in automatiskt till SolarWinds (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Samanage behöver du följande:
+Om du vill konfigurera Azure AD-integrering med SolarWinds Service Desk (tidigare Samanage) behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Samanage-prenumeration med enkel inloggning aktiverat
@@ -41,15 +41,15 @@ För att konfigurera Azure AD-integrering med Samanage behöver du följande:
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Samanage stöder **IDP**-initierad enkel inloggning
+* SolarWinds stöder **SP** -INITIERAd SSO
 
-## <a name="adding-samanage-from-the-gallery"></a>Lägga till Samanage från galleriet
+## <a name="adding-solarwinds-from-the-gallery"></a>Lägga till SolarWinds från galleriet
 
-För att konfigurera integreringen av Samanage till Azure AD behöver du lägga till Samanage från galleriet till listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av SolarWinds i Azure AD måste du lägga till SolarWinds från galleriet i listan över hanterade SaaS-appar.
 
-**Lägg till Samanage från galleriet genom att utföra följande steg:**
+**Utför följande steg för att lägga till SolarWinds från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. Välj **Azure Active Directory** ikon i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,31 +61,31 @@ För att konfigurera integreringen av Samanage till Azure AD behöver du lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Samanage**, väljer **Samanage** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **SolarWinds**, väljer **SolarWinds** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Samanage i resultatlistan](common/search-new-app.png)
+     ![SolarWinds i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med Samanage baserat på en testanvändare som heter **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Samanage upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med SolarWinds baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i SolarWinds upprättas.
 
-För att konfigurera och testa enkel inloggning för Azure AD med Samanage behöver du slutföra följande byggstenar:
+Om du vill konfigurera och testa enkel inloggning med SolarWinds i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Samanage](#configure-samanage-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera SolarWinds Service Desk enkel inloggning](#configure-solarwinds-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Samanage-testanvändare](#create-samanage-test-user)** – för att ha en motsvarighet för Britta Simon i Samanage som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa SolarWinds Service Desk test User](#create-solarwinds-test-user)** – för att få en motsvarighet till Britta Simon i SolarWinds Service Desk som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning i Azure AD med Samanage:
+Utför följande steg för att konfigurera enkel inloggning med SolarWinds i Azure AD:
 
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Samanage**-programintegrering och väljer **Enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **SolarWinds** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -112,7 +112,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Saman
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera Samanage** kopierar du lämpliga URL:er efter behov.
+6. I avsnittet **Konfigurera SolarWinds** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -122,9 +122,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Saman
 
     c. Utloggnings-URL
 
-### <a name="configure-samanage-single-sign-on"></a>Konfigurera enkel inloggning för Samanage
+<a name="configure-solarwinds-single-sign-on"></a>
 
-1. I ett annat webbläsarfönster loggar du in på din Samanage-företagsplats som administratör.
+### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Konfigurera enkel inloggning för SolarWinds Service Desk
+
+1. Logga in på din SolarWinds-företags webbplats som administratör i ett annat webbläsarfönster.
 
 2. Klicka på **Instrumentpanelen** och välj **Konfiguration** i det vänstra navigeringsfönstret.
    
@@ -150,7 +152,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Saman
  
     f. Öppna ditt base-64-kodade certifikat som du har laddat ned från Azure-portalen i Anteckningar, kopierar innehållet i Urklipp och klistra sedan in den i textrutan **Paste your Identity Provider x.509 Certificate below** (Klistra in x.509-certifikat för din identitetsprovider nedan).
  
-    ex. Klicka på **Create users if they do not exist in Samanage** (Skapa användare om de inte finns i Samanage).
+    ex. Klicka på **skapa användare om de inte finns i SolarWinds**.
  
     h. Klicka på **Uppdatera**.
 
@@ -181,15 +183,13 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Samanage.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SolarWinds.
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Samanage**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **SolarWinds**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **Samanage**.
-
-    ![Samanage-länken i programlistan](common/all-applications.png)
+2. I listan program väljer du **SolarWinds**.
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -205,14 +205,14 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-samanage-test-user"></a>Skapa Samanage-testanvändare
+### <a name="create-solarwinds-test-user"></a>Skapa SolarWinds test användare
 
-För att göra det möjligt för Azure AD-användare att logga in på Samanage måste de etableras i Samanage.  
-När det gäller Samanage är etablering en manuell aktivitet.
+För att Azure AD-användare ska kunna logga in på SolarWinds måste de tillhandahållas i SolarWinds.  
+När det gäller SolarWinds är etableringen en manuell uppgift.
 
 **Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på din Samanage-företagsplats som administratör.
+1. Logga in på din SolarWinds företags webbplats som administratör.
 
 2. Klicka på **Instrumentpanelen** och välj **Konfiguration** i det vänstra navigeringsfönstret.
    
@@ -231,13 +231,13 @@ När det gäller Samanage är etablering en manuell aktivitet.
     ![Skapa användare](./media/samanage-tutorial/tutorial_samanage_008.png "Skapa användare")
    
    >[!NOTE]
-   >Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt. Du kan använda andra verktyg eller API:er för Samanage-kontoskapande som tillhandahålls av Samanage för att etablera Azure Active Directory-användarkonton.
+   >Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt. Du kan använda andra verktyg för SolarWinds av användar konton eller API: er som tillhandahålls av SolarWinds för att etablera Azure Active Directory användar konton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Samanage-panelen i åtkomstpanelen bör du automatiskt loggas in på Samanage som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen SolarWinds på åtkomst panelen, bör du loggas in automatiskt på den SolarWinds som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718874"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706276"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor om Azure Multi-Factor Authentication
 
@@ -102,7 +102,7 @@ Faktureringen baseras på antalet användare som kon figurer ATS för att använ
 
 När du skapar en MFA-Provider per användare eller per autentisering faktureras din organisations Azure-prenumeration varje månad baserat på användning. Den här fakturerings modellen liknar hur Azure-fakturor används för att använda virtuella datorer och Web Apps.
 
-När du köper en prenumeration för Azure Multi-Factor Authentication betalar din organisation endast den årliga licens avgiften för varje användare. MFA-licenser och Office 365-, Azure AD Premium-eller Enterprise Mobility + Security-paket faktureras på det här sättet.
+När du köper en prenumeration för Azure Multi-Factor Authentication betalar din organisation endast den årliga licens avgiften för varje användare. MFA-licenser och Microsoft 365, Azure AD Premium eller Enterprise Mobility + Security paket faktureras på det här sättet.
 
 Mer information finns i [så här skaffar du Azure-Multi-Factor Authentication](concept-mfa-licensing.md).
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e4aa0cb2cc3ff623929222d83a560f66198f13c0
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 4044690bf042d05e4efd531826fab6cb5459b3b7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564278"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707653"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Felsöka Azure Files problem i Linux (SMB)
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller vanliga problem som är relaterade till Azure File
 Förutom fel söknings stegen i den här artikeln kan du använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) för att säkerställa att Linux-klienten har rätt krav. AzFileDiagnostics automatiserar identifieringen av de flesta problem som nämns i den här artikeln. Det hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Fel sökaren innehåller steg som hjälper dig med problem med att ansluta, mappa och montera Azure Files-resurser.
 
 > [!IMPORTANT]
-> Innehållet i den här artikeln gäller endast SMB-resurser.
+> Innehållet i den här artikeln gäller endast SMB-resurser. Mer information om NFS-resurser finns i [Felsöka Azure NFS-filresurser](storage-troubleshooting-files-nfs.md).
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Det går inte att ansluta till eller montera en Azure-filresurs
 

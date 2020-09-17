@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7e6b4524523d0659126bcd6cbe1294d700e79ed9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017553"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707823"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Google Cloud (G Suite)-anslutning
 
@@ -72,9 +72,9 @@ Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
     E-postadressattribut fylls i automatiskt för alla användare med en giltig Exchange-licens. Om användaren inte är e-postaktiverad, får hen det här felet allteftersom programmet behöver få det här attributet för att ge åtkomst.
 
-    Du kan gå till portal.office.com med ett administratörskonto och sedan i administrationscentret klicka på fakturering, prenumerationer, välja din Office 365-prenumeration och sedan klicka på tilldela till användare, välja de användare som du vill kontrollera prenumerationen för och i den högra rutan klicka på redigera licenser.
+    Du kan gå till portal.office.com med ett administratörs konto. Klicka sedan på administrations Center, fakturering, prenumerationer, välj din Microsoft 365 prenumeration och klicka på tilldela till användare, Välj de användare som du vill kontrol lera deras prenumeration och klicka på Redigera licenser i den högra rutan.
 
-    När O365-licensen har tilldelats kan det ta några minuter innan den blir aktiv. Efter det kommer attributet user.mail att fyllas i automatiskt och problemet ska vara löst.
+    När Microsoft 365 licens har tilldelats kan det ta några minuter att tillämpa. Efter det kommer attributet user.mail att fyllas i automatiskt och problemet ska vara löst.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -240,7 +240,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Skapa Google Cloud (G Suite)-anslutnings test användare
 
-Syftet med det här avsnittet är att [skapa en användare i Google Cloud (G Suite)-anslutning](https://support.google.com/a/answer/33310?hl=en) som kallas B. Simon. När användaren har skapats manuellt i Google Cloud (G Suite) Connector kommer användaren nu att kunna logga in med sina inloggnings uppgifter för Office 365.
+Syftet med det här avsnittet är att [skapa en användare i Google Cloud (G Suite)-anslutning](https://support.google.com/a/answer/33310?hl=en) som kallas B. Simon. När användaren har skapats manuellt i Google Cloud (G Suite) Connector kommer användaren nu att kunna logga in med sina Microsoft 365 inloggnings uppgifter.
 
 Google Cloud-anslutningen (G Suite) stöder även automatisk användar etablering. Om du vill konfigurera automatisk användar etablering måste du först [Konfigurera Google Cloud (G Suite) Connector för automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 

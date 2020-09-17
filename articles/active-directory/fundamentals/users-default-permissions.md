@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 363068b74bf7639460da4fa80f0e661f3b8a88b9
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5d585ac57a369c994df9871bf731157de7b23212
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568820"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707636"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vilka är standard användar behörigheterna i Azure Active Directory?
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares åtkomst består av typen av användare, deras [roll tilldelningar](active-directory-users-assign-role-azure-portal.md)och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst. Standard användar behörigheter kan bara ändras i användar inställningar i Azure AD.
@@ -36,9 +36,9 @@ Användare och kontakter | <ul><li>Läsa alla offentliga egenskaper om användar
 Grupper | <ul><li>Skapa säkerhetsgrupper<li>Skapa Microsoft 365 grupper<li>Läsa alla icke-dolda egenskaper i grupper<li>Läsa icke-dolda gruppmeddelanden<li>Läs dolda Microsoft 365 grupp medlemskap för anslutet grupper<li>Hantera egenskaper, ägarskap och medlemskap i grupper som användaren äger<li>Lägga till gäster i egna grupper<li>Hantera inställningar för dynamiskt medlemskap<li>Ta bort egna grupper<li>Återställa ägda Microsoft 365 grupper</li></ul> | <ul><li>Läsa egenskaper för alla icke-dolda grupper, inklusive medlemskap och ägarskap (även icke-anslutna grupper)<li>Läs dolda Microsoft 365 grupp medlemskap för anslutna grupper<li>Sök efter grupper efter visnings namn eller ObjectId (om det är tillåtet)</li></ul> | Inga behörigheter
 Program | <ul><li>Registrera (Skapa) ett nytt program<li>Skrivskyddade egenskaper för registrerade program och företagsprogram<li>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för egna program<li>Skapa eller ta bort programlösenord för användare<li>Ta bort egna program<li>Återställ egna program</li></ul> | <ul><li>Skrivskyddade egenskaper för registrerade program och företagsprogram</li></ul> | <ul><li>Skrivskyddade egenskaper för registrerade program och företagsprogram
 Egenskaper</li></ul> | <ul><li>Läs alla enhetsegenskaper<li>Läs alla egenskaper för egna enheter</li></ul> | Inga behörigheter | Inga behörigheter
-Katalog | <ul><li>Läs all företagsinformation<li>Läsa alla domäner<li>Läsa alla partnerkontrakt</li></ul> | <ul><li>Läsa visningsnamn och verifierade domäner</li></ul> | <ul><li>Läsa visningsnamn och verifierade domäner</li></ul>
+Katalog | <ul><li>Läs all företagsinformation<li>Läsa alla domäner<li>Läsa alla partnerkontrakt</li></ul> | <ul><li>Läs företagets visnings namn<li>Läsa alla domäner</li></ul> | <ul><li>Läs företagets visnings namn<li>Läsa alla domäner</li></ul>
 Roller och omfattningar | <ul><li>Läsa alla administrativa roller och medlemskap<li>Läsa alla egenskaper och medlemskap i administrativa enheter</li></ul> | Inga behörigheter | Inga behörigheter
-Subscriptions | <ul><li>Läsa alla prenumerationer<li>Aktivera tjänsteplanmedlem</li></ul> | Inga behörigheter | Inga behörigheter
+Prenumerationer | <ul><li>Läsa alla prenumerationer<li>Aktivera tjänsteplanmedlem</li></ul> | Inga behörigheter | Inga behörigheter
 Principer | <ul><li>Läs alla principegenskaper<li>Hantera alla egenskaper för egna principer</li></ul> | Inga behörigheter | Inga behörigheter
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Så här begränsar du standardbehörigheter för medlemsanvändare

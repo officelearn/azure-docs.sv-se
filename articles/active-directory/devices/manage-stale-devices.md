@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184949"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705545"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
@@ -71,7 +71,7 @@ Om du vill uppdatera en enhet i Azure AD behöver du ett kont som har någon av 
 
 - Global administratör
 - Moln enhets administratör
-- Administratör för Intune-tjänsten
+- Intune Service-administratör
 
 I din rensningsprincip väljer du konton som har de roller som krävs tilldelade. 
 
@@ -91,7 +91,7 @@ Om din enhet kontrolleras av Intune eller någon annan MDM-lösning fasar du ut 
 
 Ta inte bort systemhanterade enheter. Detta är vanligt vis enheter som autopilot. De här enheterna kan inte reserveras när de har tagits bort. Den nya cmdleten `Get-AzureADDevice` exkluderar systemhanterade enheter som standard. 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
+### <a name="hybrid-azure-ad-joined-devices"></a>Azure AD-anslutna hybridenheter
 
 Dina Hybrid Azure AD-anslutna enheter bör följa dina principer för hantering av lokala inaktuella enheter. 
 
@@ -175,9 +175,9 @@ Mer information om de olika typerna finns i [enhetshanteringsöversikten](overvi
 
 Alla autentiseringar där en enhet används för att autentisera för Azure AD nekas. Vanliga exempel:
 
-- **Hybrid Azure AD-ansluten enhet** – användarna kan använda enheten för att logga in på den lokala domänen. Men det får inte åtkomst till Azure AD-resurser som Office 365.
+- **Hybrid Azure AD-ansluten enhet** – användarna kan använda enheten för att logga in på den lokala domänen. De kan dock inte komma åt Azure AD-resurser som Microsoft 365.
 - **Azure AD-ansluten enhet** – Användare kan inte använda enheten till att logga in. 
-- **Mobila enheter** – Användare kan inte komma åt Azure AD-resurser som Office 365. 
+- **Mobila enheter** – användaren kan inte komma åt Azure AD-resurser som Microsoft 365. 
 
 ## <a name="next-steps"></a>Nästa steg
 

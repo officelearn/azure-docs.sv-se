@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049882"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706678"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C ISV-partner
 
@@ -37,6 +37,7 @@ Vårt ISV partner Network utökar våra lösnings funktioner som hjälper dig at
 | ![Microsofts](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) är en tjänst för ID-verifiering som möjliggör verifiering av AUTOMATISERAt ID i real tid, vilket skyddar kund information. |
 | ![Microsofts](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) är en profilerings-och identitets verifierings leverantör som verifierar användar identifiering och ger omfattande riskbedömning baserat på användarens enhet. |
 | ![Microsofts](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) är ett dokument-ID och en verifierings lösning för ansikts biometrik som gör det möjligt för företag att möta sina *kunskaper om kund* -och identitets krav i real tid.  |
+| ![Microsofts](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-saviynt.md) Cloud – ursprunglig plattform använder intelligent analys och ger integration mellan applikationer för att effektivisera IT-modernisering och främja bättre säkerhet, styrning och efterlevnad. Business modernisering ändrar hur företag granskar åtkomst begär Anden, gör åtkomst granskningar, rapporterar analyser och effektiviserar certifierings kampanjer.  |
 | ![Microsofts](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) -integreringen hjälper dig att logga in på ett säkert sätt och möjliggör lösenordsbaserad autentisering, Multi-Factor Authentication och digital License scanning.|
 | ![Microsofts](./media/partner-gallery/twilio-logo.png) | [Twilio verifiera app](./partner-twilio.md) tillhandahåller flera lösningar för att aktivera Multi-Factor Authentication (MFA) via SMS eng ång slö sen ord (eng ång slö sen ord), tidsbaserat eng ång slö sen ord (TOTP mobilapp) och push-meddelanden och för att uppfylla SCA-kraven för betal tjänsternas direktiv 2 (PSD2).|
 | ![Microsofts](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) är en identitets verifiering och en bevisning som bygger på användarens Skriv mönster och ger ID-verifierings lösningar som framtvingar Multi-Factor Authentication och hjälper till att uppfylla SCA-kraven för Payment Services-direktiv 2 (PSD2). |

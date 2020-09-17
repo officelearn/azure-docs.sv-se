@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 955efe45be27fa2f4e738066bb3b69b3604be33a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5229b123986149903d562bc0b3d6902c0136f647
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400729"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707891"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visa appar med hjälp av din Azure AD-klient för identitets hantering
 [Snabb starts serien i program hantering](view-applications-portal.md) guidar dig grunderna. I det här avsnittet får du lära dig hur du visar alla appar som använder Azure AD-klienten för identitets hantering. Den här artikeln dykningar en bit djupare i de typer av appar som du hittar.
@@ -27,7 +27,7 @@ När de filtreras till **alla program**, visar **listan** **alla program** alla 
    - **Azure AD-Appregistreringar** – appar som läggs till i din klient med hjälp av alternativet **APPREGISTRERINGAR** på Azure AD-portalen. Vanligt vis anpassade utvecklade appar med Open-ID Connect och OAuth-standarder.
    - Program för **programproxy** – ett program som körs i din lokala miljö som du vill tillhandahålla säker enkel inloggning till externt
 - När du registrerar dig för eller loggar in på, är program från tredje part integrerad med Azure Active Directory. Ett exempel är [Smartsheet](https://app.smartsheet.com/b/home) eller [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
-- Microsoft-appar som Microsoft 365 eller Office 365.
+- Microsoft-appar som Microsoft 365.
 - När du lägger till en ny program registrering genom att skapa ett anpassat program som har utvecklats med [program registret](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 - När du lägger till en ny program registrering genom att skapa ett anpassat program som har utvecklats med [v 2.0-program registrerings portalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 - När du lägger till ett program utvecklar du med hjälp av Visual Studios [ASP.net-autentiseringsmetoder](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [anslutna tjänster](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)

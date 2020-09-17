@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377870"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707415"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Fjärråtkomst till lokala program via Azure AD-programproxy
 
@@ -24,7 +24,7 @@ Azure Active Directorys Application Proxy ger säker fjärråtkomst till lokala 
 
 Azure AD-programproxy är:
 
-- **Enkelt att använda**. Användare kan komma åt dina lokala program på samma sätt som de kommer åt O365 och andra SaaS-appar som är integrerade med Azure AD. Du behöver inte ändra eller uppdatera dina program för att fungera med programproxy.
+- **Enkelt att använda**. Användare kan komma åt dina lokala program på samma sätt som de har åtkomst till Microsoft 365 och andra SaaS-appar som är integrerade med Azure AD. Du behöver inte ändra eller uppdatera dina program för att fungera med programproxy.
 
 - **Säker**. Lokala program kan använda Azures verifierings kontroller och säkerhets analys. Lokala program kan till exempel använda villkorlig åtkomst och tvåstegsverifiering. Application Proxy kräver inte att du öppnar inkommande anslutningar via brand väggen.
 

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b94bcd1cfbbf215ed912d506d27311aae502656b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 554e5a022dcb49cd861ad7198a2c375634db6d10
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115075"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705753"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifest
 
@@ -82,7 +82,7 @@ Exempel:
 | :--- | :--- |
 | Tillägg | Samling |
 
-Definierar ett anpassat beteende som en förbruknings tjänst kan använda för att anropa en app i vissa sammanhang. Till exempel kan program som kan rendera fil strömmar ange `addIns` egenskapen för dess "FileHandler"-funktion. Med den här parametern kan tjänster som Office 365 anropa programmet i kontexten för ett dokument som användaren arbetar med.
+Definierar ett anpassat beteende som en förbruknings tjänst kan använda för att anropa en app i vissa sammanhang. Till exempel kan program som kan rendera fil strömmar ange `addIns` egenskapen för dess "FileHandler"-funktion. Med den här parametern kan tjänster som Microsoft 365 anropa programmet i kontexten för ett dokument som användaren arbetar med.
 
 Exempel:
 
@@ -193,8 +193,8 @@ Som inte stöds.
 Konfigurerar det `groups` anspråk som utfärdats i en användare eller OAuth 2,0-åtkomsttoken som appen förväntar sig. Ange det här attributet genom att använda något av följande giltiga sträng värden:
 
 - `"None"`
-- `"SecurityGroup"`(för säkerhets grupper och Azure AD-roller)
-- `"All"`(detta kommer att hämta alla säkerhets grupper, distributions grupper och Azure AD-katalog roller som den inloggade användaren är medlem i.
+- `"SecurityGroup"` (för säkerhets grupper och Azure AD-roller)
+- `"All"` (detta kommer att hämta alla säkerhets grupper, distributions grupper och Azure AD-katalog roller som den inloggade användaren är medlem i.
 
 Exempel:
 
@@ -433,8 +433,8 @@ Exempel:
 | :--- | :--- |
 | parentalControlSettings | Sträng |
 
-- `countriesBlockedForMinors`anger de länder/regioner där appen blockeras för minderåriga.
-- `legalAgeGroupRule`anger den juridiska ålders grupps regel som gäller för användare av appen. Kan ställas in på,,, `Allow` `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` eller `BlockMinors` .
+- `countriesBlockedForMinors` anger de länder/regioner där appen blockeras för minderåriga.
+- `legalAgeGroupRule` anger den juridiska ålders grupps regel som gäller för användare av appen. Kan ställas in på,,, `Allow` `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` eller `BlockMinors` .
 
 Exempel:
 
@@ -555,8 +555,8 @@ Exempel:
 
 Med dynamiskt medgivande bevarar `requiredResourceAccess` Administratörs upplevelsen och användar medgivande upplevelsen för användare som använder det statiska godkännandet. Den här parametern styr dock inte användar medgivande upplevelsen för det allmänna fallet.
 
-- `resourceAppId`är den unika identifieraren för den resurs som appen kräver åtkomst till. Värdet ska vara lika med det appId som deklarerats för mål resurs appen.
-- `resourceAccess`är en matris som visar behörighets omfattningarna för OAuth 2.0 och de app-roller som appen kräver från den angivna resursen. Innehåller `id` värdena och `type` för de angivna resurserna.
+- `resourceAppId` är den unika identifieraren för den resurs som appen kräver åtkomst till. Värdet ska vara lika med det appId som deklarerats för mål resurs appen.
+- `resourceAccess` är en matris som visar behörighets omfattningarna för OAuth 2.0 och de app-roller som appen kräver från den angivna resursen. Innehåller `id` värdena och `type` för de angivna resurserna.
 
 Exempel:
 
@@ -609,10 +609,10 @@ Exempel:
 | signInAudience | Sträng |
 
 Anger vilka Microsoft-konton som stöds för det aktuella programmet. De värden som stöds är:
-- `AzureADMyOrg`– Användare med ett arbets-eller skol konto för Microsoft i min organisations Azure AD-klient (till exempel en enskild klient)
-- `AzureADMultipleOrgs`– Användare med ett arbets-eller skol konto för Microsoft i en organisations Azure AD-klient (till exempel flera innehavare)
-- `AzureADandPersonalMicrosoftAccount`– Användare med en personlig Microsoft-konto eller ett arbets-eller skol konto i en organisations Azure AD-klient
-- `PersonalMicrosoftAccount`– Personliga konton som används för att logga in på tjänster som Xbox och Skype.
+- `AzureADMyOrg` – Användare med ett arbets-eller skol konto för Microsoft i min organisations Azure AD-klient (till exempel en enskild klient)
+- `AzureADMultipleOrgs` – Användare med ett arbets-eller skol konto för Microsoft i en organisations Azure AD-klient (till exempel flera innehavare)
+- `AzureADandPersonalMicrosoftAccount` – Användare med en personlig Microsoft-konto eller ett arbets-eller skol konto i en organisations Azure AD-klient
+- `PersonalMicrosoftAccount` – Personliga konton som används för att logga in på tjänster som Xbox och Skype.
 
 Exempel:
 

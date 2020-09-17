@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: be5d86fe690d60f687622243a2f1d7771b8af7d0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604031"
+ms.locfileid: "90707772"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -87,7 +87,7 @@ Det finns två sätt att lägga till en princip via Azure Portal.
    > [!IMPORTANT]
    > Den senaste för hands versionen av åtkomst tiden är endast för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
    
-   Mer information om alternativet **senast använda** finns i [Flytta data baserat på senast använda datum (för hands version)](#move-data-based-on-last-accessed-date-preview).
+   För att kunna använda det **senast använda** alternativet väljer du **åtkomst spårning aktive rad** på sidan **livs cykel hantering** i Azure Portal. Mer information om alternativet **senast använda** finns i [Flytta data baserat på senast använda datum (för hands version)](#move-data-based-on-last-accessed-date-preview).
 
 1. Om du **har valt begränsa blobbar med filter** på sidan **information** väljer du **filter uppsättning** för att lägga till ett valfritt filter. Följande exempel filtrerar på blobbar i behållaren *mylifecyclecontainer* som börjar med "log".
 
@@ -376,6 +376,8 @@ Alternativet **senast använda** är tillgängligt i för hands versionen i föl
 
 > [!IMPORTANT]
 > Den senaste för hands versionen av åtkomst tiden är endast för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
+
+För att kunna använda det **senast använda** alternativet väljer du **åtkomst spårning aktive rad** på sidan **livs cykel hantering** i Azure Portal.
 
 #### <a name="how-last-access-time-tracking-works"></a>Hur senaste åtkomst tid spårningen fungerar
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 617128640c4f4ae4ce5ac32803e459a9a3eb448f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235646"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706459"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
 
@@ -64,7 +64,7 @@ För att avgöra vilket integrations alternativ som ska användas för programme
 |---|---|---|---|
 | Hantering av användare och grupper i Azure AD| √| √| Endast användare |
 | Hantera användare och grupper som synkroniseras från lokala Active Directory| √*| √*| Endast användare * |
-| Få åtkomst till data utanför användare och grupper under etablerings åtkomst till O365-data (team, SharePoint, e-post, kalender, dokument osv.)| X +| √| X |
+| Få åtkomst till data utanför användare och grupper under etablerings åtkomst till Microsoft 365 data (team, SharePoint, e-post, kalender, dokument osv.)| X +| √| X |
 | Skapa, läsa och uppdatera användare baserat på affärs regler| √| √| √ |
 | Ta bort användare baserat på affärs regler| √| √| X |
 | Hantera automatisk användar etablering för alla program från Azure Portal| √| X| √ |
@@ -91,7 +91,7 @@ Mer information om hur Azure AD Provisioning-tjänsten användare SCIM finns i:
 
 När du använder Microsoft Graph för etablering har du till gång till alla omfattande användar data som är tillgängliga i Graph. Förutom information om användare och grupper kan du också hämta ytterligare information, t. ex. användarens roller, chef och direkt rapporter, ägda och registrerade enheter och hundratals andra data delar som är tillgängliga i [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
-Fler än 15 000 000 organisationer och 90% av Fortune 500-företag använder Azure AD för att prenumerera på Microsofts moln tjänster som Office 365, Microsoft Azure, Enterprise Mobility Suite eller Microsoft 365. Du kan använda Microsoft Graph för att integrera din app med administrativa arbets flöden, till exempel medarbetarnas onboarding (och terminering), profil underhåll med mera. 
+Fler än 15 000 000 organisationer och 90% av Fortune 500-företag använder Azure AD och prenumererar på Microsofts moln tjänster som Microsoft 365, Microsoft Azure eller Enterprise Mobility Suite. Du kan använda Microsoft Graph för att integrera din app med administrativa arbets flöden, till exempel medarbetarnas onboarding (och terminering), profil underhåll med mera. 
 
 Läs mer om hur du använder Microsoft Graph för etablering:
 

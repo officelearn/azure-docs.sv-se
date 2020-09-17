@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178832"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706004"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ord lista för Microsoft Identity Platform-utvecklare
 
@@ -154,7 +154,7 @@ Som definieras av [OAuth2 Authorization Framework][OAuth2-Role-Def], en entitet 
 
 Som definieras av [OAuth2 Authorization Framework][OAuth2-Role-Def], en server som är värd för skyddade resurser, som kan acceptera och svara på skyddade resurs begär Anden från [klient program](#client-application) som visar en [åtkomsttoken](#access-token). Kallas även för en skyddad resurs Server eller resurs program.
 
-En resurs Server exponerar API: er och tvingar åtkomst till sina skyddade resurser via [omfattningar](#scopes) och [roller](#roles)med hjälp av auktoriserings ramverket för OAuth 2,0. Exempel på detta är [Microsoft Graph-API][Microsoft-Graph] som ger åtkomst till Azure AD-klientens data och Office 365-API: er som ger åtkomst till data, till exempel e-post och kalender.
+En resurs Server exponerar API: er och tvingar åtkomst till sina skyddade resurser via [omfattningar](#scopes) och [roller](#roles)med hjälp av auktoriserings ramverket för OAuth 2,0. Exempel på detta är [Microsoft Graph-API][Microsoft-Graph] som ger åtkomst till Azure AD-klientens data och de Microsoft 365-API: er som ger åtkomst till data, till exempel e-post och kalender.
 
 Precis som ett klient program upprättas resurs programmets identitets konfiguration via [registrering](#application-registration) i en Azure AD-klient, vilket ger både program-och tjänstens huvud objekt. Vissa API: er från Microsoft, till exempel Microsoft Graph API, har förregistrerade tjänst huvud namn som är tillgängliga i alla klienter under etableringen.
 
@@ -172,7 +172,7 @@ Precis som med [roller](#roles)ger omfattningar ett sätt för en [resurs Server
 
 Omfattningar är resurs definierade strängar (till exempel "mail. Read", "Directory. ReadWrite. all"), hanteras i [Azure Portal][AZURE-portal] via resursens [program manifest](#application-manifest)och lagras i resursens [oauth2Permissions-egenskap][Graph-Sp-Resource]. Azure Portal används också för att konfigurera klient programmet [delegerade behörigheter](#permissions) för åtkomst till en omfattning.
 
-En metod för att namnge rekommendationer är att använda formatet "Resource. operation. constraint". En detaljerad beskrivning av de omfång som exponeras av Microsoft Graph API finns i [Graph API behörighets omfattningar][Graph-Perm-Scopes]. För omfattningar som exponeras av Office 365-tjänster, se [referens för office 365 API-behörighet][O365-Perm-Ref].
+En metod för att namnge rekommendationer är att använda formatet "Resource. operation. constraint". En detaljerad beskrivning av de omfång som exponeras av Microsoft Graph API finns i [Graph API behörighets omfattningar][Graph-Perm-Scopes]. För omfattningar som exponeras av Microsoft 365 Services, se [referens för Microsoft 365-API-behörigheter][O365-Perm-Ref].
 
 ## <a name="security-token"></a>säkerhetstoken
 
@@ -202,7 +202,7 @@ En instans av en Azure AD-katalog kallas en Azure AD-klient. Den innehåller fle
 * autentisering av användar konton och registrerade program
 * REST-slutpunkter som krävs för att stödja olika protokoll, inklusive OAuth2 och SAML, inklusive slut punkt för [behörighet](#authorization-endpoint), [token-slutpunkt](#token-endpoint) och den "vanliga" slut punkt som används av [program med flera innehavare](#multi-tenant-application).
 
-Azure AD-klienter skapas/associeras med Azure-och Office 365-prenumerationer under registreringen, vilket ger identitets & åtkomst hanterings funktioner för prenumerationen. Azure-prenumerations administratörer kan också skapa ytterligare Azure AD-klienter via Azure Portal. Se [hur du får en Azure Active Directory-klient][AAD-How-To-Tenant] för information om de olika sätt som du kan få åtkomst till en klient. Se [associera eller lägga till en Azure-prenumeration till din Azure Active Directory-klient][AAD-How-Subscriptions-Assoc] om du vill ha mer information om relationen mellan prenumerationer och en Azure AD-klient och anvisningar om hur du associerar eller lägger till en prenumeration i en Azure AD-klient.
+Azure AD-klienter skapas/associeras med Azure och Microsoft 365 prenumerationer under registreringen, vilket ger identitets & åtkomst hanterings funktioner för prenumerationen. Azure-prenumerations administratörer kan också skapa ytterligare Azure AD-klienter via Azure Portal. Se [hur du får en Azure Active Directory-klient][AAD-How-To-Tenant] för information om de olika sätt som du kan få åtkomst till en klient. Se [associera eller lägga till en Azure-prenumeration till din Azure Active Directory-klient][AAD-How-Subscriptions-Assoc] om du vill ha mer information om relationen mellan prenumerationer och en Azure AD-klient och anvisningar om hur du associerar eller lägger till en prenumeration i en Azure AD-klient.
 
 ## <a name="token-endpoint"></a>token-slutpunkt
 

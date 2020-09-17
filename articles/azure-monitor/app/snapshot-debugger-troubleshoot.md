@@ -2,18 +2,18 @@
 title: Felsöka Azure Application insikter Snapshot Debugger
 description: Den här artikeln innehåller fel söknings steg och information för att hjälpa utvecklare som har problem med att aktivera eller använda Application Insights Snapshot Debugger.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671417"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707840"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Felsöka problem med att aktivera Application Insights Snapshot Debugger eller Visa ögonblicks bilder
-Om du har aktiverat Application Insights Snapshot Debugger för ditt program, men inte ser några ögonblicks bilder för undantag, kan du använda dessa instruktioner för att felsöka. Det kan finnas många olika orsaker till att ögonblicks bilder inte genereras. Du kan köra hälso kontrollen av ögonblicks bilder för att identifiera några av de möjliga vanliga orsakerna.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Felsöka problem med att aktivera Application Insights Snapshot Debugger eller Visa ögonblicks bilder
+Om du har aktiverat Application Insights Snapshot Debugger för ditt program, men inte ser några ögonblicks bilder för undantag, kan du använda dessa instruktioner för att felsöka. Det kan finnas många olika orsaker till att ögonblicksbilder inte genereras. Du kan köra hälso kontrollen av ögonblicks bilder för att identifiera några av de möjliga vanliga orsakerna.
 
 ## <a name="use-the-snapshot-health-check"></a>Använd ögonblicks bildens hälso kontroll
 Flera vanliga problem resulterar i att den öppna fel söknings ögonblicks bilden inte visas. Om du använder en föråldrad Snapshot Collector, t. ex. nått den dagliga uppladdnings gränsen. eller så kanske ögonblicks bilden tar lång tid att ladda upp. Använd ögonblicks bildens hälso kontroll för att felsöka vanliga problem.
@@ -32,13 +32,37 @@ Om detta inte löser problemet kan du läsa följande manuella fel söknings ste
 
 Kontrol lera att du använder rätt Instrumentation-nyckel i det publicerade programmet. Instrumentation-nyckeln läses vanligt vis från ApplicationInsights.config-filen. Kontrol lera att värdet är samma som Instrumentation-nyckeln för den Application Insights resurs som du ser i portalen.
 
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Kontrol lera inställningar för SSL-klient (ASP.NET)
+
+Om du har ett ASP.NET-program som finns i Azure App Service eller i IIS på en virtuell dator kan programmet inte ansluta till Snapshot Debugger-tjänsten på grund av ett saknat SSL-säkerhetsprotokoll.
+[Snapshot debugger-slutpunkten kräver TLS version 1,2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). Uppsättningen SSL-säkerhetsprotokoll är ett av knep som Aktiver ATS av httpRuntime targetFramework-värdet i avsnittet system. Web i web.config. Om httpRuntime targetFramework är 4.5.2 eller lägre ingår inte TLS 1,2 som standard.
+
+> [!NOTE]
+> HttpRuntime targetFramework-värdet är oberoende av mål ramverket som används när du skapar ditt program.
+
+Du kontrollerar inställningen genom att öppna web.config-filen och leta upp avsnittet system. Web. Se till att `targetFramework` for `httpRuntime` är inställt på 4,6 eller högre.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Att ändra värdet för httpRuntime targetFramework ändrar körnings knep som tillämpas på ditt program och kan orsaka andra, diskreta beteende ändringar. Se till att testa programmet noggrant när du har gjort den här ändringen. En fullständig lista över kompatibilitetsinställningar finns i https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> Om targetFramework är 4,7 eller högre, fastställer Windows de tillgängliga protokollen. I Azure App Service är TLS 1,2 tillgängligt. Men om du använder din egen virtuella dator kan du behöva aktivera TLS 1,2 i operativ systemet.
+
 ## <a name="preview-versions-of-net-core"></a>För hands versioner av .NET Core
 Om programmet använder en för hands version av .NET Core och Snapshot Debugger har Aktiver ATS genom [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) i portalen, kan Snapshot debugger starta. Följ anvisningarna på [aktivera Snapshot debugger för andra miljöer för](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) att först inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet med programmet, ***förutom*** att aktivera i [Application Insightss fönstret](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uppgradera till den senaste versionen av NuGet-paketet
 
-Om Snapshot Debugger har Aktiver ATS via [Application Insightss fönstret i portalen](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)bör ditt program redan köra det senaste NuGet-paketet. Om Snapshot Debugger har Aktiver ATS genom att inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, använder du Visual Studios NuGet Package Manager för att kontrol lera att du använder den senaste versionen av Microsoft. ApplicationInsights. SnapshotCollector. Viktig information finns påhttps://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Om Snapshot Debugger har Aktiver ATS via [Application Insightss fönstret i portalen](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)bör ditt program redan köra det senaste NuGet-paketet. Om Snapshot Debugger har Aktiver ATS genom att inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, använder du Visual Studios NuGet Package Manager för att kontrol lera att du använder den senaste versionen av Microsoft. ApplicationInsights. SnapshotCollector. Viktig information finns på https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ## <a name="check-the-uploader-logs"></a>Kontrol lera avuppladdnings loggarna
 
@@ -140,7 +164,7 @@ Följ dessa steg om du vill konfigurera en moln tjänst roll med en dedikerad lo
    }
    ```
 
-3. Uppdatera din Rolls ApplicationInsights.config fil för att åsidosätta den tillfälliga mapplats som används av`SnapshotCollector`
+3. Uppdatera din Rolls ApplicationInsights.config fil för att åsidosätta den tillfälliga mapplats som används av `SnapshotCollector`
    ```xml
    <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">

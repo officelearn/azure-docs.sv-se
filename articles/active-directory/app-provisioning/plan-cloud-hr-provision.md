@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235708"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706361"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -50,7 +50,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 - Kräv direkt användar etablering från Cloud HR-appen till Active Directory eller Azure AD.
 - Kräv att användare ska tillhandahållas genom att använda data som hämtats från Cloud HR-appen.
 - Kräv anslutning till, flytta och lämna användare för att synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter enbart baserat på ändrings information som identifieras i Cloud HR-appen.
-- Använd Office 365 för e-post.
+- Använd Microsoft 365 för e-post.
 
 ## <a name="learn"></a>Learn
 
@@ -61,14 +61,14 @@ Användar etablering skapar en grund för pågående identitets styrning. Det f�
 I den här artikeln används följande villkor:
 
 - **Käll system**: databasen med användare som Azure AD etablerar från. Ett exempel är en Cloud HR-app, till exempel Workday eller SuccessFactors.
-- **Mål system**: databasen med användare som Azure AD tillhandahåller. Exempel är Active Directory, Azure AD, Office 365 eller andra SaaS-appar.
+- **Mål system**: databasen med användare som Azure AD tillhandahåller. Exempel är Active Directory, Azure AD, Microsoft 365 eller andra SaaS-appar.
 - **Kopplingar-process för flyttal**: en term som används för nya anställningar, överföringar och uppsägningar med hjälp av en Cloud HR-app som ett system med poster. Processen slutförs när tjänsten har angett de attribut som krävs för mål systemet.
 
 ### <a name="key-benefits"></a>Viktiga fördelar
 
 Den här funktionen för HR-drivna IT-etablering ger följande betydande affärs förmåner:
 
-- **Öka produktiviteten:** Nu kan du automatisera tilldelningen av användar konton och Office 365-licenser och ge åtkomst till nyckel grupper. Automatiserade tilldelningar ger nya anställda omedelbar till gång till sina jobb verktyg och ökar produktiviteten.
+- **Öka produktiviteten:** Nu kan du automatisera tilldelningen av användar konton och Microsoft 365 licenser och ge åtkomst till nyckel grupper. Automatiserade tilldelningar ger nya anställda omedelbar till gång till sina jobb verktyg och ökar produktiviteten.
 - **Hantera risk:** Du kan öka säkerheten genom att automatisera ändringar baserat på medarbetarnas status eller grupp medlemskap med data som flödar in från Cloud HR-appen. Automatisering av ändringar säkerställer att användar identiteter och åtkomst till viktiga appar uppdateras automatiskt när användare övergår till eller lämnar organisationen.
 - **Hantera efterlevnad och styrning:** Azure AD stöder interna gransknings loggar för användar etablerings begär Anden som utförs av appar av både käll-och mål system. Med granskning kan du spåra vem som har åtkomst till apparna från en enda skärm.
 - **Hantera kostnad:** Automatisk etablering minskar kostnaderna genom att undvika ineffektivitet och mänskligt fel som är kopplat till manuell etablering. Det minskar behovet av anpassade användar etablerings lösningar som skapats med tiden genom att använda äldre och inaktuella plattformar.
@@ -79,7 +79,7 @@ Om du vill konfigurera Cloud HR-appen till Azure AD-integrering av användar eta
 
 Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations licens för varje användare som kommer att skickas från Cloud HR-appen och tillhandahålls till antingen Active Directory eller Azure AD. Ett felaktigt antal licenser som ägs i Cloud HR-appen kan leda till fel vid användar etablering.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD [hybrid Identity-administratör](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  för att konfigurera Azure AD Connect etablerings agenten.
 - Azure AD- [programadministratörs](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
@@ -92,7 +92,7 @@ Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations li
 
 | **Resurser** | **Länk och beskrivning** |
 |:-|:-|
-| Videoklipp | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
+| Video | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
 | | [Så här distribuerar du användar etablering i Active Azure-katalogen](https://youtu.be/pKzyts6kfrw) |
 | Självstudier | [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |

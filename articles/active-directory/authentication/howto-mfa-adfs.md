@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dac17c8592530c06dd761914e7f556b35c3674b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202998"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706327"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 
@@ -50,7 +50,7 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
 
 Tillförlitliga IP-adresser gör att administratörer kan kringgå tvåstegsverifiering för specifika IP-adresser eller federerade användare som har förfrågningar som kommer inifrån det egna intranätet. Följande avsnitt beskriver hur du konfigurerar tillförlitliga IP-adresser för Azure Multi-Factor Authentication med federerade användare och hur du kringgår tvåstegsverifiering när en begäran kommer inifrån en federerad användares intranät. Du gör detta genom att konfigurera AD FS att släppa igenom eller filtrera en mall för inkommande anspråk med anspråkstypen I företagsnätverket.
 
-I det här exemplet används Office 365 för våra förlitande partsförtroenden.
+I det här exemplet används Microsoft 365 för våra förlitande parts förtroenden.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Konfigurera anspråksreglerna för AD FS
 
@@ -80,7 +80,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 ```
 
 13. Klicka på **Slutför**.
-14. Klicka på **Använd**.
+14. Klicka på **Applicera**.
 15. Klicka på **OK**.
 16. Stäng AD FS-hantering.
 
@@ -97,4 +97,4 @@ När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 4. På sidan Tjänstinställningar, under **Tillförlitliga IP-adresser** väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
 5. Klicka på **Spara**.
 
-Klart! I det här läget behöver federerade Office 365-användare endast  använda MFA när ett anspråk kommer utifrån företagets intranät.
+Klart! I det här läget bör federerade Microsoft 365 användare bara behöva använda MFA när ett anspråk härstammar från utanför företags intranätet.

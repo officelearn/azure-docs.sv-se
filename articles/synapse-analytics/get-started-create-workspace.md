@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 46116fd7157b6a1cf8112613703aa2388b3ba7d3
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056191"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707534"
 ---
 # <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -24,13 +24,8 @@ I den här självstudien får du lära dig hur du skapar en Synapse-arbetsyta, e
 
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
 1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
-1. Välj **Lägg till** för att skapa en arbets yta med följande inställningar:
-
-    |Flik|Inställning | Föreslaget värde | Beskrivning |
-    |---|---|---|---|
-    |Grundläggande inställningar|**Namn på arbetsyta**|Du kan ge det något annat namn.| I det här dokumentet använder vi min **arbets yta**.|
-    |Grundläggande inställningar|**Region**|Matcha lagrings kontots region.|
-
+1. Välj **Lägg till** för att skapa en arbets yta.
+1. I **grunderna**väljer du ett namn på arbets ytan. I den här självstudien använder vi min **arbets yta**.
 1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste alternativet att skapa en ny. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
 1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
     1. Gå till **välj Data Lake Storage gen 2**. 

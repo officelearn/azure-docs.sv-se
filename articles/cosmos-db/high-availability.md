@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605333"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706817"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -62,7 +62,7 @@ I sällsynta fall av regionala avbrott ser Azure Cosmos DB till att databasen al
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Konton med flera regioner och en enkel-eller region (Läs regions avbrott)
 
 - Under ett avbrott i läsnings området är Azure Cosmos-konton som använder en konsekvens nivå eller en stark konsekvens med tre eller flera Läs regioner fortfarande hög tillgängliga för läsning och skrivning.
-- Azure Cosmos-konton som använder stark konsekvens med två eller färre Läs regioner (som omfattar Skriv regionen läsning &) förlorar Skriv tillgänglighet under ett Läs regions avbrott, men kommer att behålla Läs tillgänglighet för återstående regioner.
+- Azure Cosmos-konton som använder stark konsekvens med två eller färre Läs regioner (som omfattar Skriv regionen läsning &) förlorar läsnings skrivnings tillgänglighet under ett Läs regions avbrott.
 - Den berörda regionen kopplas från automatiskt och kommer att markeras som offline. [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) : er omdirigerar Läs anrop till nästa tillgängliga region i listan över önskade regioner.
 - Om ingen av regionerna i listan över föredragna regioner är tillgänglig kan återgår anrop automatiskt till den aktuella skrivregionen.
 - Inga ändringar krävs i din program kod för att hantera avbrott i läsnings området. När den berörda läsnings regionen är online synkroniseras den automatiskt med den aktuella Skriv regionen och kommer att vara tillgänglig igen för att hantera Läs begär Anden.
@@ -144,5 +144,5 @@ Härnäst kan du läsa följande artiklar:
 - [Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](consistency-levels-tradeoffs.md)
 - [Skala etablerat dataflöde globalt](scaling-throughput.md)
 - [Global distribution](global-dist-under-the-hood.md)
-- [Konsekvens nivåer i Azure Cosmos DB](consistency-levels.md)
+- [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
 - [Så här konfigurerar du ditt Cosmos-konto med flera Skriv regioner](how-to-multi-master.md)

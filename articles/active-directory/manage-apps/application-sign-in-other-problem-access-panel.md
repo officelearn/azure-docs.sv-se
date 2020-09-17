@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563921"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707976"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Felsöka problem med att logga in till ett program från Azure AD Mina appar
 
@@ -27,7 +27,7 @@ Mer information om hur du använder Azure AD som identitets leverantör för en 
 Dessa program är konfigurerade för användarens räkning i Azure AD-portalen. Programmet måste vara korrekt konfigurerat och tilldelat användaren eller en grupp som användaren är medlem i för att kunna se programmet i Mina appar. 
 
 Den typ av appar som en användare kan se hamnar i följande kategorier:
--   Microsoft 365-och Office 365-program
+-   Microsoft 365 program
 -   Program från Microsoft och tredje part som kon figurer ATS med Federation-baserad SSO
 -   Lösenordsbaserade SSO-program
 -   Program med befintliga SSO-lösningar
@@ -163,7 +163,7 @@ Följ dessa steg om du vill tilldela en licens till en användare:
 11. Välj knappen **tilldela** för att tilldela dessa licenser till den här användaren.
 
 ## <a name="troubleshooting-deep-links"></a>Felsöka djup länkar
-Djup länkar eller URL: er för användar åtkomst är länkar som användarna kan använda för att komma åt sina lösen ords-SSO-program direkt från webbläsarens URL-fält. Genom att navigera till den här länken loggas användarna automatiskt in i programmet utan att först behöva gå till Mina appar. Länken är samma som användarna använder för att få åtkomst till dessa program från Office 365-program start.
+Djup länkar eller URL: er för användar åtkomst är länkar som användarna kan använda för att komma åt sina lösen ords-SSO-program direkt från webbläsarens URL-fält. Genom att navigera till den här länken loggas användarna automatiskt in i programmet utan att först behöva gå till Mina appar. Länken är samma som användarna använder för att få åtkomst till dessa program från Microsoft 365 starta programmet.
 
 ### <a name="checking-the-deep-link"></a>Kontrollerar djup länken
 

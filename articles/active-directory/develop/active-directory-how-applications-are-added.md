@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115772"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706191"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
@@ -70,9 +70,9 @@ Precis som program objekt kan tjänstens huvud namn också skapas via flera väg
 
 * När användarna loggar in på ett program från tredje part som är integrerat med Azure AD
   * Under inloggningen uppmanas användarna att ge programmet behörighet att få åtkomst till sin profil och andra behörigheter. Den första personen som ger sitt medgivande orsakar ett huvud namn för tjänsten som representerar det program som ska läggas till i katalogen.
-* När användarna loggar in på Microsoft onlinetjänster som [Office 365](https://products.office.com/)
-  * När du prenumererar på Office 365 eller startar en utvärderings version skapas ett eller flera tjänst huvud namn i katalogen som representerar de olika tjänsterna som används för att leverera alla funktioner som är associerade med Office 365.
-  * Vissa Office 365-tjänster som SharePoint skapar tjänstens huvud namn kontinuerligt för att tillåta säker kommunikation mellan komponenter, inklusive arbets flöden.
+* När användarna loggar in på Microsoft onlinetjänster som [Microsoft 365](https://products.office.com/)
+  * När du prenumererar på Microsoft 365 eller startar en utvärderings version skapas ett eller flera tjänst huvud namn i katalogen som representerar de olika tjänsterna som används för att leverera alla funktioner som är kopplade till Microsoft 365.
+  * Vissa Microsoft 365 tjänster som SharePoint skapar tjänstens huvud namn kontinuerligt för att tillåta säker kommunikation mellan komponenter, inklusive arbets flöden.
 * När en administratör lägger till ett program från App-galleriet (då skapas även ett underliggande app-objekt)
 * Lägg till ett program för att använda [Azure-AD-programproxy](../manage-apps/application-proxy.md)
 * Ansluta ett program för enkel inloggning med hjälp av SAML eller lösen ord enkel inloggning (SSO)
@@ -116,7 +116,7 @@ Program läggs till i Azure AD för att utnyttja en eller flera av de tjänster 
 * Enkel inloggning med federation eller lösen ord
 * Användar etablering och synkronisering
 * Rollbaserad åtkomst kontroll – Använd katalogen för att definiera program roller för att utföra rollbaserade verifierings kontroller i ett program
-* OAuth Authorization Services – används av Office 365 och andra Microsoft-program för att ge åtkomst till API: er/resurser
+* OAuth-Authorization Services – används av Microsoft 365 och andra Microsoft-program för att ge åtkomst till API: er/resurser
 * Program publicering och proxy – publicera ett program från ett privat nätverk till Internet
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Vem har behörighet att lägga till program till min Azure AD-instans?

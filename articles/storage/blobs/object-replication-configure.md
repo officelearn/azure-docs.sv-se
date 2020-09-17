@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018840"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707925"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfigurera objekt replikering för block-blobar
 
@@ -150,9 +150,11 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 Om du vill skapa en replikeringsprincip med Azure CLI måste du först installera Azure CLI version 2.11.1 eller senare. Mer information finns i [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).
 
-Aktivera sedan BLOB-versioner på käll-och mål lagrings kontona och aktivera ändra feed på käll kontot. Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
+Aktivera sedan BLOB-versioner på käll-och mål lagrings kontona och aktivera ändra feed på käll kontot genom att anropa kommandot [AZ Storage Account BLOB-service-Properties Update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) . Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
 
 ```azurecli
+az login
+
 az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
@@ -174,24 +176,24 @@ Skapa käll-och mål behållare i deras respektive lagrings konton.
 ```azurecli
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container3 \
+    --name source-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container4 \
+    --name source-container-2 \
     --auth-mode login
 
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container3 \
+    --name dest-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container4 \
+    --name dest-container-1 \
     --auth-mode login
 ```
 
-Skapa en ny replikeringsprincip och tillhör ande regler på mål kontot.
+Skapa en ny replikeringsprincip och en associerad regel på mål kontot genom att anropa [AZ lagrings konto eller-princip skapa](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create).
 
 ```azurecli
 az storage account or-policy create \
@@ -199,21 +201,26 @@ az storage account or-policy create \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
+    --source-container source-container-1 \
+    --destination-container dest-container-1 \
+    --min-creation-time '2020-09-10T00:00:00Z' \
     --prefix-match a
 
+```
+
+Azure Storage anger princip-ID: t för den nya principen när den skapas. Om du vill lägga till ytterligare regler i principen anropar du [AZ lagrings konto eller-princip regel Lägg till](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) och ange princip-ID: t.
+
+```azurecli
 az storage account or-policy rule add \
     --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
     --resource-group <resource-group> \
-    --source-container source-container4 \
+    --source-container source-container-2 \
+    --destination-container dest-container-2 \
+    --policy-id <policy-id> \
     --prefix-match b
 ```
 
-Skapa principen på käll kontot med hjälp av princip-ID: t.
+Skapa sedan principen på käll kontot med hjälp av princip-ID: t.
 
 ```azurecli
 az storage account or-policy show \
@@ -229,16 +236,16 @@ az storage account or-policy show \
 
 ### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Konfigurera objekt replikering när du har åtkomst till mål kontot
 
-Om du inte har behörighet till käll lagrings kontot kan du konfigurera objekt replikering på mål kontot och ange en JSON-fil som innehåller princip definitionen till en annan användare för att skapa samma princip på käll kontot. Om käll kontot till exempel finns i en annan Azure AD-klient från mål kontot använder du den här metoden för att konfigurera objekt replikering. 
+Om du inte har behörighet till käll lagrings kontot kan du konfigurera objekt replikering på mål kontot och ange en JSON-fil som innehåller princip definitionen till en annan användare för att skapa samma princip på käll kontot. Om käll kontot till exempel finns i en annan Azure AD-klient från mål kontot kan du använda den här metoden för att konfigurera objekt replikering.
 
 Tänk på att du måste tilldelas rollen som Azure Resource Managers **deltagare** som är begränsad till nivån för mål lagrings kontot eller högre för att kunna skapa principen. Mer information finns i [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) i Azure Role-baserade Access Control (RBAC)-dokumentationen.
 
-I följande tabell sammanfattas vilka värden som ska användas för princip-ID i JSON-filen i varje scenario.
+I följande tabell sammanfattas vilka värden som ska användas för princip-ID och regel-ID: n i JSON-filen i varje scenario.
 
-| När du skapar JSON-filen för det här kontot... | Ange princip-ID: t till det här värdet... |
+| När du skapar JSON-filen för det här kontot... | Ange princip-ID och regel-ID: n till det här värdet... |
 |-|-|
-| Mål konto | Standardvärdet för sträng *värde.* Azure Storage skapar princip-ID: t åt dig. |
-| Käll konto | Princip-ID: t returnerade när du laddar ned en JSON-fil som innehåller de regler som definierats på mål kontot. |
+| Mål konto | Standardvärdet för sträng *värde.* Azure Storage skapar princip-ID och regel-ID: n åt dig. |
+| Käll konto | Värdena för princip-ID och regel-ID: n returneras när du hämtar principen som definierats på mål kontot som en JSON-fil. |
 
 I följande exempel definieras en replikeringsprincip på mål kontot med en enda regel som matchar prefixet *b* och anger den minsta skapande tiden för blobbar som ska replikeras. Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
 
@@ -307,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Om du vill använda JSON-filen för att definiera replikeringsprincipen på käll kontot med PowerShell hämtar du den lokala filen och konverterar från JSON till ett objekt. Anropa sedan kommandot [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) för att konfigurera principen för käll kontot, som du ser i följande exempel. Kom ihåg att ersätta värden inom vinkelparenteser och fil Sök vägen med dina egna värden:
+Om du vill använda JSON-filen för att konfigurera replikeringsprincipen på käll kontot med PowerShell hämtar du den lokala filen och konverterar från JSON till ett objekt. Anropa sedan kommandot [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) för att konfigurera principen för käll kontot, som du ser i följande exempel. Kom ihåg att ersätta värden inom vinkelparenteser och fil Sök vägen med dina egna värden:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -321,7 +328,24 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-E.t.
+Om du vill skriva replikeringsprincipen för mål kontot till en JSON-fil från Azure CLI anropar du kommandot [AZ Storage Account eller-policy show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) och utdata till en fil.
+
+I följande exempel skrivs princip definitionen till en JSON-fil med namnet *policy.jspå*. Kom ihåg att ersätta värden inom vinkelparenteser och fil Sök vägen med dina egna värden:
+
+```azurecli
+az storage account or-policy show \
+    --account-name <dest-account-name> \
+    --policy-id  <policy-id> > policy.json
+```
+
+Om du vill använda JSON-filen för att konfigurera replikeringsprincipen på käll kontot med Azure CLI anropar du kommandot [AZ Storage Account eller-policy Create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) och refererar till *policy.jsi* filen. Kom ihåg att ersätta värden inom vinkelparenteser och fil Sök vägen med dina egna värden:
+
+```azurecli
+az storage account or-policy create \
+    -resource-group <resource-group> \
+    --source-account <source-account-name> \
+    --policy @policy.json
+```
 
 ---
 
@@ -360,12 +384,12 @@ Ta bort en replikeringsprincip genom att ta bort principen från både käll kon
 
 ```azurecli
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <source-storage-account> \
     --resource-group <resource-group>
 
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```

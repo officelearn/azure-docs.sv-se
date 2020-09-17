@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881374"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705647"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Innehav i Azure Active Directory
 
@@ -35,8 +35,8 @@ I Azure Portal kan du konfigurera din app så att den blir en enskild klient ell
 | Målgrupp | En/flera innehavare | Vem kan logga in | 
 |----------|--------| ---------|
 | Konton endast i den här katalogen | Enskild klientorganisation | Alla användar-och gäst konton i din katalog kan använda ditt program eller API.<br>*Använd det här alternativet om mål gruppen är intern för din organisation.* |
-| Konton i valfri Azure AD-katalog | Flera innehavare | Alla användare och gäster med ett arbets-eller skol konto från Microsoft kan använda ditt program eller din API. Detta omfattar skolor och företag som använder Office 365.<br>*Använd det här alternativet om mål gruppen är affärs-eller utbildnings kunder.* |
-| Konton i alla Azure AD-kataloger och personliga Microsoft-konton (till exempel Skype, Xbox, Outlook.com) | Flera innehavare | Alla användare med ett arbets-eller skolprogram eller en privat Microsoft-konto kan använda ditt program eller API. Det omfattar skolor och företag som använder Office 365 samt personliga konton som används för att logga in på tjänster som Xbox och Skype.<br>*Använd det här alternativet om du vill rikta in dig på den bredaste uppsättningen Microsoft-konton.* | 
+| Konton i valfri Azure AD-katalog | Flera klientorganisationer | Alla användare och gäster med ett arbets-eller skol konto från Microsoft kan använda ditt program eller din API. Detta omfattar skolor och företag som använder Microsoft 365.<br>*Använd det här alternativet om mål gruppen är affärs-eller utbildnings kunder.* |
+| Konton i alla Azure AD-kataloger och personliga Microsoft-konton (till exempel Skype, Xbox, Outlook.com) | Flera klientorganisationer | Alla användare med ett arbets-eller skolprogram eller en privat Microsoft-konto kan använda ditt program eller API. Det omfattar skolor och företag som använder Microsoft 365 samt personliga konton som används för att logga in på tjänster som Xbox och Skype.<br>*Använd det här alternativet om du vill rikta in dig på den bredaste uppsättningen Microsoft-konton.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Metod tips för appar för flera klient organisationer
 

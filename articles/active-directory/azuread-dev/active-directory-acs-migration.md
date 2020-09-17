@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117795"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706259"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
 
@@ -99,9 +99,9 @@ Följ stegen i det här avsnittet för att ta reda på vilka av dina appar som k
 
 ### <a name="check-which-applications-will-be-impacted"></a>Kontrol lera vilka program som påverkas
 
-1. Använd namn området från föregående steg och gå till`https://<namespace>.accesscontrol.windows.net`
+1. Använd namn området från föregående steg och gå till `https://<namespace>.accesscontrol.windows.net`
 
-    Om ett av namn områdena till exempel är contoso-test går du till`https://contoso-test.accesscontrol.windows.net`
+    Om ett av namn områdena till exempel är contoso-test går du till `https://contoso-test.accesscontrol.windows.net`
 
 2. Under **förtroende relationer**väljer du **förlitande part program** om du vill se en lista över appar som kommer att påverkas av ACS-pensionen.
 3. Upprepa steg 1-2 för alla andra ACS-namnrymder som du har.
@@ -173,7 +173,7 @@ Tyvärr finns det ingen tjänst som erbjuder alla dessa motsvarande funktioner. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrera till Azure Active Directory
 
-En väg att överväga är att integrera dina appar och tjänster direkt med Azure AD. Azure AD är den molnbaserade identitets leverantören för Microsoft arbets-eller skol konton. Azure AD är identitets leverantören för Office 365, Azure och mycket mer. Den ger till gång till liknande funktioner för federerade autentisering till Access Control, men har inte stöd för alla Access Controls funktioner. 
+En väg att överväga är att integrera dina appar och tjänster direkt med Azure AD. Azure AD är den molnbaserade identitets leverantören för Microsoft arbets-eller skol konton. Azure AD är identitets leverantören för Microsoft 365, Azure och mycket mer. Den ger till gång till liknande funktioner för federerade autentisering till Access Control, men har inte stöd för alla Access Controls funktioner. 
 
 Det primära exemplet är Federation med sociala identitets leverantörer, till exempel Facebook, Google och Yahoo. Om dina användare loggar in med dessa typer av autentiseringsuppgifter är Azure AD inte lösningen för dig. 
 
@@ -316,7 +316,7 @@ Tjänst identiteter i Access Control används vanligt vis för att implementera 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrera till Azure Active Directory
 
-Vår rekommendation för den här typen av autentiseringspaket är att migrera till [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD är den molnbaserade identitets leverantören för Microsoft arbets-eller skol konton. Azure AD är identitets leverantören för Office 365, Azure och mycket mer. 
+Vår rekommendation för den här typen av autentiseringspaket är att migrera till [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD är den molnbaserade identitets leverantören för Microsoft arbets-eller skol konton. Azure AD är identitets leverantören för Microsoft 365, Azure och mycket mer. 
 
 Du kan också använda Azure AD för server-till-Server-autentisering med hjälp av Azure AD-implementeringen av tilldelningen av OAuth-klientautentiseringsuppgifter. I följande tabell jämförs funktionerna i Access Control Server-till-Server-autentisering med de som är tillgängliga i Azure AD.
 

@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226649"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706208"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
 
@@ -36,7 +36,7 @@ I den här artikeln kommer du att:
 Microsoft hanterar två typer av användarkonton:
 
 - **Personliga konton** (kallades tidigare Windows Live ID). De här kontona sätts upp mellan *enskilda* användare och Microsoft. De ger åtkomst till konsumentenheter och konsumenttjänster från Microsoft. De här kontona är avsedda för personligt bruk.
-- **Arbets- eller skolkonton.** De här kontona hanteras av Microsoft, åt organisationer som använder Azure Active Directory. De är avsedda för att logga in på Office 365 och andra företagstjänster från Microsoft.
+- **Arbets- eller skolkonton.** De här kontona hanteras av Microsoft, åt organisationer som använder Azure Active Directory. Dessa konton används för att logga in på Microsoft 365 och andra företags tjänster från Microsoft.
 
 Microsofts arbets- eller skolkonton tilldelas vanligtvis till slutanvändare (anställda, studenter, myndighetsanställda) av organisationerna (företag, skola/universitet, myndighet). Dessa konton är hanterade direkt i molnet (i Azure AD-plattformen) eller synkroniseras till Azure AD från en lokal katalog, t. ex. Windows Server Active Directory. Microsoft *övervakar* arbets- och skolkonton, men de ägs och kontrolleras av organisationen.
 
@@ -49,7 +49,7 @@ Microsoft visar inte varumärkena Azure och Active Directory för slutanvändare
 
 ## <a name="user-account-pictogram"></a>Piktogram för användarkonto
 
-I en tidigare version av de här riktlinjerna rekommenderar vi ett blått piktogram. Vi har fått återkoppling från användare och utvecklare och rekommenderar nu att du använder Microsofts logotyp istället. När användare ser Microsoft-logotypen förstår de att de kan återanvända kontot de använder med Office 365 och andra Microsoft-företagstjänster när de loggar in i ditt program.
+I en tidigare version av de här riktlinjerna rekommenderar vi ett blått piktogram. Vi har fått återkoppling från användare och utvecklare och rekommenderar nu att du använder Microsofts logotyp istället. Microsoft-logotypen hjälper användarna att förstå att de kan återanvända det konto som de använder med Microsoft 365 eller andra Microsoft-företag för att logga in på din app.
 
 ## <a name="signing-up-and-signing-in-with-azure-ad"></a>Registrera sig och logga in med Azure AD
 
@@ -63,13 +63,13 @@ Det kan finnas flera olika sätt att registrera sig och logga in i ditt program.
 
 Den länk du lägger in för apphämtning måste omdirigera användaren till Azure AD-godkännandesidan (auktorisering). Administratören måste kunna godkänna så att appen får åtkomst till organisationens data, som tillhandahålls av Microsoft. Information om hur du begär åtkomst beskrivs i artikeln om att [integrera app med Azure Active Directory](./quickstart-register-app.md).
 
-När administratörer har godkänt din app kan de välja att lägga till den i sina användares Office 365-programs/Start miljö (nås från rutmärket och från [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Om du vill annonsera den här funktionen kan du till exempel skriva ”Lägg till den här appen i organisationen” och visa en knapp enligt följande exempel:
+När administratörer har godkänt din app kan de välja att lägga till den i sina användares Microsoft 365 App Launcher-upplevelse (nås från rutmärket och från [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Om du vill annonsera den här funktionen kan du till exempel skriva ”Lägg till den här appen i organisationen” och visa en knapp enligt följande exempel:
 
 ![Knapp som visar text för Microsoft-logotypen och "Lägg till i min organisation"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Exempel:
 
-> *Om du redan använder Office 365 eller andra företags tjänster från Microsoft kan du bevilja <your_app_name> åtkomst till din organisations data. Detta gör att användarna kan komma åt <your_app_name> med sina befintliga arbets konton.*
+> *Om du redan använder Microsoft 365 eller andra företags tjänster från Microsoft kan du bevilja <your_app_name> åtkomst till din organisations data. Detta gör att användarna kan komma åt <your_app_name> med sina befintliga arbets konton.*
 
 Du kan ladda ned den officiella Microsoft-logotypen och använda den i din app. Högerklicka på den du vill använda och spara den på datorn.
 
@@ -102,7 +102,7 @@ Du kan ladda ned de officiella bilderna och använda dem i din app. Högerklicka
 
 **JA.** Skriv ”arbets- eller skolkonto” i kombination med knappen Logga in med Microsoft. Det här är en fras användarna känner igen och vet hur de ska använda. **NEJ.** Skriv inte andra termer, exempelvis företagskonto, jobbkonto eller affärskonto.
 
-**NEJ.** Skriv inte Office 365-ID eller Azure-ID. Office 365 är också namnet på en konsumentprodukt från Microsoft. Den använder inte Azure AD för autentisering.
+Använd **inte** "Microsoft 365-ID" eller "Azure ID". Microsoft 365 är också namnet på ett konsument erbjudande från Microsoft, som inte använder Azure AD för autentisering.
 
 **NEJ.** Ändra inte på Microsoft-logotypen.
 

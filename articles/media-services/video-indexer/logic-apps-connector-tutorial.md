@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 16a28ee01606fa9067c279183ca6c02b2857bcd7
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: fbd86b34bd6f7da8c9f49e212e397d003b71fab5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563853"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707942"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
 
@@ -21,12 +21,15 @@ Azure Media Services [video Indexer v2 REST API](https://api-portal.videoindexer
 
 För att förenkla integrationen stöder vi [Logic Apps](https://azure.microsoft.com/services/logic-apps/)   och [automatiserade](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)   anslutningar som är kompatibla med vårt API. Du kan använda kopplingarna för att konfigurera anpassade arbets flöden för att effektivt indexera och extrahera insikter från en stor mängd video-och ljudfiler, utan att behöva skriva en enda rad kod. Genom att använda kopplingarna för din integrering får du dessutom bättre insyn i arbets flödets hälso tillstånd och ett enkelt sätt att felsöka det.  
 
-För att hjälpa dig att komma igång snabbt med Video Indexer-kopplingar kommer vi att göra en genom gång av ett exempel på en Logic app och en automatiserad automatiserad lösning som du kan konfigurera. 
+För att hjälpa dig att komma igång snabbt med Video Indexer-kopplingar kommer vi att göra en genom gång av ett exempel på en Logic app och en automatiserad automatiserad lösning som du kan konfigurera. I den här självstudien visas hur du konfigurerar flöden med Logic Apps.
 
-I den här guiden får du lära dig att:
+Scenariot "Ladda upp och indexera videon automatiskt" som beskrivs i den här självstudien består av två olika flöden som fungerar tillsammans. 
+* Det första flödet utlöses när en BLOB läggs till eller ändras i ett Azure Storage konto. Den nya filen överförs till Video Indexer med en återanrops-URL för att skicka ett meddelande när indexerings åtgärden har slutförts. 
+* Det andra flödet utlöses baserat på återanrops-URL: en och sparar de extraherade insikterna till en JSON-fil i Azure Storage. Den här två flödes metoden används för att stödja asynkron uppladdning och indexering av större filer effektivt. 
+
+Den här självstudien använder Logic app för att visa hur du:
 
 > [!div class="checklist"]
-> * Ladda upp och indexera videon automatiskt
 > * Konfigurera fil överförings flödet
 > * Konfigurera flödet för JSON-extrahering
 
@@ -34,19 +37,13 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att börja med behöver du också ett Video Indexer konto tillsammans med åtkomst till API: erna via API-nyckeln. 
+* För att börja med behöver du ett Video Indexer konto tillsammans med [åtkomst till API: erna via API-nyckeln](video-indexer-use-apis.md). 
+* Du måste också ha ett Azure Storage-konto. Tänk på åtkomst nyckeln för ditt lagrings konto. Skapa två behållare – en för att lagra videor i och en för att lagra insikter som genererats av Video Indexer i.  
+* Sedan måste du öppna två separata flöden antingen på Logic Apps eller i energi spar läge (beroende på vilket du använder). 
 
-Du måste också ha ett Azure Storage-konto. Tänk på åtkomst nyckeln för ditt lagrings konto. Skapa två behållare – en för att lagra videor i och en för att lagra insikter som genererats av Video Indexer i.  
+## <a name="set-up-the-first-flow---file-upload"></a>Konfigurera det första flödet för flödes fil uppladdning   
 
-Sedan måste du öppna två separata flöden antingen på Logic Apps eller i energi spar läge (beroende på vilket du använder).  
-
-## <a name="upload-and-index-your-video-automatically"></a>Ladda upp och indexera videon automatiskt 
-
-Det här scenariot består av två olika flöden som fungerar tillsammans. Det första flödet utlöses när en BLOB läggs till eller ändras i ett Azure Storage konto. Den nya filen överförs till Video Indexer med en återanrops-URL för att skicka ett meddelande när indexerings åtgärden har slutförts. Det andra flödet utlöses baserat på återanrops-URL: en och sparar de extraherade insikterna till en JSON-fil i Azure Storage. Den här två flödes metoden används för att stödja asynkron uppladdning och indexering av större filer effektivt. 
-
-### <a name="set-up-the-file-upload-flow"></a>Konfigurera fil överförings flödet 
-
-Det första flödet utlöses när en BLOB läggs till i din Azure Storage-behållare. När den har utlösts skapas en SAS-URI som du kan använda för att ladda upp och indexera videon i Video Indexer. Börja med att skapa följande flöde. 
+Det första flödet utlöses när en BLOB läggs till i din Azure Storage-behållare. När den har utlösts skapas en SAS-URI som du kan använda för att ladda upp och indexera videon i Video Indexer. I det här avsnittet ska du skapa följande flöde. 
 
 ![Fil överförings flöde](./media/logic-apps-connector-tutorial/file-upload-flow.png)
 
@@ -56,11 +53,13 @@ Om du vill konfigurera det första flödet måste du ange din Video Indexer API-
 
 ![Anslutningsnamn och API-nyckel](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-När du har anslutit till Azure Storage och Video Indexer konton går du till avsnittet "när en BLOB läggs till eller ändras) och väljer den behållare som du vill placera dina videofiler i. 
+När du har anslutit till Azure Storage och Video Indexer konton letar du reda på och väljer utlösaren "när en BLOB läggs till eller ändras" i **Logic Apps designer**. Välj den behållare som du vill placera videofilerna i. 
 
 ![Skärm bild som visar dialog rutan när en BLOB läggs till eller ändras där du kan välja en behållare.](./media/logic-apps-connector-tutorial/container.png)
 
-Gå sedan till åtgärden "skapa SAS-URI per sökväg" och välj lista över filernas sökväg från alternativen för dynamiskt innehåll.  
+Leta sedan upp och Välj åtgärden "skapa SAS-URI per sökväg". I dialog rutan för åtgärden väljer du lista över filernas sökväg från alternativen för dynamiskt innehåll.  
+
+Lägg också till en ny "Shared Access Protocol"-parameter. Välj HttpsOnly som parameter värde.
 
 ![SAS-URI med sökväg](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
@@ -78,7 +77,7 @@ Du kan använda standardvärdet för de andra parametrarna eller ange dem efter 
 
 Klicka på Spara och låt oss gå vidare till konfigurera det andra flödet för att extrahera insikterna när överföringen och indexeringen har slutförts. 
 
-## <a name="set-up-the-json-extraction-flow"></a>Konfigurera flödet för JSON-extrahering 
+## <a name="set-up-the-second-flow---json-extraction"></a>Konfigurera den andra Flow-JSON-extraktionen  
 
 När överföringen och indexeringen har slutförts från det första flödet skickas en HTTP-begäran med rätt återanrops-URL för att utlösa det andra flödet. Sedan hämtar den insikter som genereras av Video Indexer. I det här exemplet kommer den att lagra utdata från ditt indexerings jobb i din Azure Storage.  Det är dock upp till vad du kan göra med utdata.  
 
@@ -104,7 +103,7 @@ Gå till åtgärden "skapa BLOB" och Välj sökvägen till den mapp där du vill
 
 Det här uttrycket tar utdata från åtgärden "Hämta video index" från det här flödet. 
 
-Klicka på "Spara flöde". 
+Klicka på **Spara flöde**. 
 
 När flödet har sparats skapas en HTTP POST-URL i utlösaren. Kopiera URL: en från utlösaren. 
 

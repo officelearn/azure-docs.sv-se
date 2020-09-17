@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: ce1ef0257f2003c3af01d71b7da3924ebd9ed44f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5b46dc0197022aa72b6ca4c206d1da4369234167
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603925"
+ms.locfileid: "90707687"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for PostgreSQL enskild server
 
@@ -28,10 +28,9 @@ Det nya certifikatet kommer att användas från och med den 26 oktober 2020 (10/
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Hur gör jag för att veta om min databas kommer att påverkas?
 
 Alla program som använder SSL/TLS och kontrollerar att rot certifikatet måste uppdatera rot certifikatet. Du kan identifiera om dina anslutningar verifierar rot certifikatet genom att granska anslutnings strängen.
--   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller
--   Om anslutnings strängen inkluderar `sslmode=disable` behöver du inte uppdatera certifikat.
--   Om din anslutnings sträng innehåller `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
--   Om anslutnings strängen inte är speciell sslmode behöver du inte uppdatera certifikat.
+-   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller `sslmode=verify-full` måste du uppdatera certifikatet.
+-   Om din anslutnings sträng innehåller `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
+-   Om anslutnings strängen inte anger sslmode behöver du inte uppdatera certifikat.
 
 Om du använder en-klient som sammanfattar anslutnings strängen går du igenom klientens dokumentation för att ta reda på om den verifierar certifikat.
 

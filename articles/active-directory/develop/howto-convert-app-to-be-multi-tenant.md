@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141372"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705902"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
 
@@ -141,7 +141,7 @@ Ditt program kan ha flera nivåer som representeras av sin egen registrering i A
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Flera nivåer i en enda klient
 
-Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [applikations manifest][AAD-App-Manifest]. Till exempel:
+Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [applikations manifest][AAD-App-Manifest]. Exempel:
 
 ```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
@@ -153,7 +153,7 @@ Detta visas i en intern klient med flera nivåer som anropar webb-API-exemplet i
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Flera nivåer i flera klienter
 
-Ett liknande fall händer om de olika nivåerna av ett program registreras i olika klienter. Anta till exempel att du skapar ett internt klient program som anropar Office 365 Exchange Online API. För att utveckla det ursprungliga programmet och senare för det interna programmet att köras i en kunds klient måste Exchange Online-tjänstens huvud namn finnas. I det här fallet måste utvecklare och kunden köpa Exchange Online för att det ska gå att skapa tjänstens huvud namn i sina klienter.
+Ett liknande fall händer om de olika nivåerna av ett program registreras i olika klienter. Anta till exempel att du skapar ett internt klient program som anropar Exchange Online-API: et. För att utveckla det ursprungliga programmet och senare för det interna programmet att köras i en kunds klient måste Exchange Online-tjänstens huvud namn finnas. I det här fallet måste utvecklare och kunden köpa Exchange Online för att det ska gå att skapa tjänstens huvud namn i sina klienter.
 
 Om det är ett API som skapats av en annan organisation än Microsoft måste utvecklaren av API: et tillhandahålla ett sätt för kunderna att godkänna programmet till sina kunders klienter. Den rekommenderade designen är för utvecklare av tredje part som skapar API: t, så att den också kan fungera som en webb klient för att implementera registrering. Gör så här:
 
@@ -181,7 +181,7 @@ Program med flera klienter kan också få åtkomsttoken för att anropa API: er 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du skapar ett program som kan logga in en användare från valfri Azure AD-klient. När du har aktiverat enkel inloggning (SSO) mellan din app och Azure AD kan du också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Office 365. På så sätt kan du erbjuda en anpassad upplevelse i ditt program, till exempel Visa sammanhangsbaserad information till användarna, till exempel deras profil bild eller nästa kalender möte. Mer information om hur du gör API-anrop till Azure AD-och Office 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer finns på [Microsoft Graph API][MSFT-Graph-overview].
+I den här artikeln har du lärt dig hur du skapar ett program som kan logga in en användare från valfri Azure AD-klient. När du har aktiverat enkel inloggning (SSO) mellan din app och Azure AD kan du också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Microsoft 365. På så sätt kan du erbjuda en anpassad upplevelse i ditt program, till exempel Visa sammanhangsbaserad information till användarna, till exempel deras profil bild eller nästa kalender möte. Mer information om hur du gör API-anrop till Azure AD och Microsoft 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer finns i [Microsoft Graph API][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Relaterat innehåll
 

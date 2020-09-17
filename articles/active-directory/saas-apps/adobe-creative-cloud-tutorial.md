@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 81e02bdc483c4b68901d7e81b29f3a7f423480d9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 48009246dd491ca3f4080cf85036c66605a73272
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537608"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706995"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Adobe Creative Cloud
 
@@ -102,7 +102,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | E-post | user.mail |
 
     > [!NOTE]
-    > Användare måste ha en giltig Office 365 ExO-licens för att anspråksvärden för e-post ska anges i SAML-svaret.
+    > Användare måste ha en giltig Microsoft 365 ExO-licens för att e-postanspråk svärdet ska vara ifyllt i SAML-svaret.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **Federations data XML**och väljer sedan **Ladda ned** för att ladda ned XML-metadatafilen och spara den på din dator.
 

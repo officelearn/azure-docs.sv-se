@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 23ce2f02ef96a88b6bf4471377ce97a529dbd1a9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526977"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706344"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Aktivera lösen ords lös säkerhets nyckel inloggning till lokala resurser med Azure Active Directory (för hands version)
 
@@ -57,7 +57,7 @@ Organisationer måste också uppfylla följande program varu krav.
 
 Scenariot stöder enkel inloggning (SSO) i båda följande scenarier:
 
-- För moln resurser som Office 365 och andra SAML-aktiverade program.
+- För moln resurser som Microsoft 365 och andra SAML-aktiverade program.
 - För lokala resurser och Windows-integrerad autentisering till webbplatser. Resurserna kan omfatta webbplatser och SharePoint-webbplatser som kräver IIS-autentisering och/eller resurser som använder NTLM-autentisering.
 
 ### <a name="unsupported-scenarios"></a>Scenarier som inte stöds

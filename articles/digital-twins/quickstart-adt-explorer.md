@@ -144,7 +144,7 @@ I rutan *modell* visas trycker du på ikonen *Ladda upp en modell* .
 3. Följ dialog rutan för att be dig att logga in på ditt Azure-konto.
 
 >[!NOTE]
->Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="fel när modeller hämtades: ClientAuthError: det gick inte att öppna popup-fönstret. Detta kan inträffa om du använder IE eller om popup-fönster blockeras i webbläsaren. med knappen Stäng längst ned border="false"::: 
+>Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="fel när modeller hämtades: ClientAuthError: det gick inte att öppna popup-fönstret. Detta kan inträffa om du använder IE eller om popup-fönster blockeras i webbläsaren. med knappen Stäng längst ned" border="false"::: 
 > Försök inaktivera blockering av popup-fönster eller använda en annan webbläsare.
 
 ADT Explorer kommer nu att ladda upp de här projektfilerna till din Azure Digital-instansen. De bör visas i rutan *modell* och visar sina egna namn och fullständiga modell-ID: n. Du kan klicka på *Visa modell* informations bubblor för att se DTDL-koden bakom dem.

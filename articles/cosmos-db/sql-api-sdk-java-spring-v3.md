@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b2d474f25209034034db092ca971bff6b78d73a
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 9e5b92918d93109183740be555bb805877862407
+ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068752"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90817878"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Våren data Azure Cosmos DB v3 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Du kan använda vår data Azure Cosmos DB i dina [Azure våren Cloud](https://az
 
 ## <a name="start-here"></a>Börja här
 
-# <a name="explore"></a>[Utforska](#tab/explore)
+# <a name="explore"></a>[Upptäcka](#tab/explore)
 
 <img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
 
@@ -67,22 +67,10 @@ Du kan använda vår data Azure Cosmos DB i dina [Azure våren Cloud](https://az
 
 ### <a name="configure-dependencies"></a>Konfigurera beroenden
 
-Det finns två maven-artefakter för våren data Azure Cosmos DB version 3.
-
-- Artefakt som är beroende av våren data Framework version 2,2:
   ```xml
   <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-spring-data-2-2-cosmos</artifactId>
-      <version>latest</version>
-  </dependency>
-  ```
-
-- Artefakt som är beroende av våren data Framework version 2,3:
-  ```xml
-  <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-spring-data-2-3-cosmos</artifactId>
+      <artifactId>azure-spring-data-cosmos</artifactId>
       <version>latest</version>
   </dependency>
   ```
@@ -93,7 +81,7 @@ Det finns två maven-artefakter för våren data Azure Cosmos DB version 3.
 
 Ange Azure Cosmos DB konto-och behållar information. Våren data Azure Cosmos DB skapar automatiskt klienten och ansluter till behållaren.
 
-[Application. Properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/resources/application.properties):
+[Application. Properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/resources/application.properties):
 ```
 cosmos.uri=${ACCOUNT_HOST}
 cosmos.key=${ACCOUNT_KEY}
@@ -108,30 +96,46 @@ cosmos.queryMetricsEnabled=true
 
 ### <a name="document-operations"></a>Dokument åtgärder
 
-[Skapa](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java): [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
+Fram
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Create":::
 
-[Ta bort](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java): [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
+Ta bort:
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Delete":::
 
 # <a name="query"></a>[Query](#tab/queries)
 
-[Fråga](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java): [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
+Fråga:
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Query":::
 
 ---
 
 ## <a name="resources"></a>Resurser
 
-| Resurs | Våren data Framework 2,2 | Våren data Framework 2,3 |
-|---|---|
-| **SDK-hämtning** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-2-cosmos) | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-3-cosmos) |
-|**Bidra till SDK: n** | [Våren data Azure Cosmos DB lagrings platsen på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-2-cosmos) | [Våren data Azure Cosmos DB lagrings platsen på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-3-cosmos) | 
-|**Självstudier**| [Själv studie kurs om vår data Azure Cosmos DB GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-2-cosmos-java-getting-started) | [Själv studie kurs om vår data Azure Cosmos DB GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-3-cosmos-java-getting-started) |
+* **Bidra till SDK**: t: [våren data Azure Cosmos DB lagrings platsen på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
+
+* **Självstudie**: [själv studie kurs om vår data Azure Cosmos DB GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
 ## <a name="release-history"></a>Versions historik
 
-### <a name="300-beta2-unreleased"></a>3.0.0 – beta. 2 (frisläppt)
+### <a name="300-beta2-september-17-2020"></a>3.0.0 – beta. 2 (17 september 2020)
+
+#### <a name="new-features"></a>Nya funktioner
+
+* Uppdaterade artefakt-ID till `azure-spring-data-cosmos` .
+* Azure-Cosmos-beroende till har uppdaterats `4.5.0` .
+* `Query Annotation` stöd för interna frågor.
+* Stöd för Java 11.
+* Stöd har lagts till för kapslad partitionsnyckel genom att exponera `partitionKeyPath` fältet i `@Container` anteckningen.
+* Stöd har lagts till för `limit` frågetyp som tillåter `top` och `first` som ska användas när du definierar lagrings-API: er.
+
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+
+* En fast kapslad partitionsnyckel har fel vid användning med `@GeneratedValue` anteckningen.
 
 ### <a name="300-beta1-august-17-2020"></a>3.0.0 – beta. 1 (17 augusti 2020)
+
 #### <a name="new-features"></a>Nya funktioner
+
 * Uppdaterar grupp-ID till `com.azure` .
 * Uppdaterar artefakt-ID till `azure-spring-data-2-3-cosmos` .
 * Uppdaterar Azure-Cosmos SDK-beroendet till `4.3.2-beta.2` .
@@ -143,7 +147,9 @@ cosmos.queryMetricsEnabled=true
 * Exponerar `CosmosClientBuilder` från Azure Cosmos DB SDK som fjädrande bönor till `@Configuration` klassen.
 * Uppdateringar `CosmosConfig` som innehåller frågans mått och implementering av Response Diagnostics processor.
 * Lägger till stöd för att returnera `Optional` data typen för enskilda resultat frågor.
+
 #### <a name="renames"></a>Byter namn på
+
 * `CosmosDbFactory` till `CosmosFactory` .
 * `CosmosDBConfig` till `CosmosConfig` .
 * `CosmosDBAccessException` till `CosmosAccessException` .
@@ -151,7 +157,9 @@ cosmos.queryMetricsEnabled=true
 * `DocumentIndexingPolicy` anteckning till `CosmosIndexingPolicy` anteckning.
 * `DocumentQuery` till `CosmosQuery` .
 * flaggan Application. Properties `populateQueryMetrics` till `queryMetricsEnabled` .
+
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+
 * Schemaläggning av diagnostisk loggnings uppgift till `Parallel` trådar för att undvika att blockera I/O-trådar i Netnettning.
 * Korrigerar optimistisk låsning vid borttagnings åtgärd.
 * Korrigerar problem med undantags frågor för `IN` satsen.
@@ -161,9 +169,11 @@ cosmos.queryMetricsEnabled=true
 * Tar bort standardvärdet för enhets begär ande 4 000 när behållare skapas automatiskt.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
 Läs mer om [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Lär dig mer om [våren-ramverket](https://spring.io/projects/spring-framework).

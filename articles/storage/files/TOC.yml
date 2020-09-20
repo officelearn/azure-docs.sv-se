@@ -27,6 +27,8 @@
       items:
         - name: Planera för distribution av Azure Files
           href: storage-files-planning.md
+        - name: Tillgängliga protokoll för filresurser
+          href: storage-files-compare-protocols.md
         - name: Identitetsbaserad autentisering och auktorisering
           href: storage-files-active-directory-overview.md
         - name: Nätverksöverväganden för direkt åtkomst
@@ -79,12 +81,14 @@
   items:
     - name: Skapa
       items:
-        - name: Skapa en filresurs
+        - name: Skapa en SMB-filresurs
           href: storage-how-to-create-file-share.md
         - name: Aktivera stora filresurser
           href: storage-files-how-to-create-large-file-share.md
         - name: Skapa en premium-filresurs
           href: storage-how-to-create-premium-fileshare.md
+        - name: Skapa en NFS-filresurs
+          href: storage-files-how-to-create-nfs-shares.md
     - name: Distribuera
       items:
         - name: Distribuera Azure Files
@@ -95,11 +99,13 @@
           href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Montera
       items:
-        - name: Använda Azure Files med Windows
+        - name: Montera en SMB-filresurs till Windows
           href: storage-how-to-use-files-windows.md
-        - name: Använda Azure Files med Linux
+        - name: Montera en SMB-filresurs till Linux
           href: storage-how-to-use-files-linux.md
-        - name: Använda Azure Files med macOS
+        - name: Montera en NFS-filresurs till Linux
+          href: storage-files-how-to-mount-nfs-shares.md
+        - name: Montera en SMB-filresurs till macOS
           href: storage-how-to-use-files-mac.md
     - name: Nätverk
       items:
@@ -269,12 +275,14 @@
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Felsöka
       items:
-        - name: Felsöka Azure Files på Windows
+        - name: Felsöka Azure Files på Windows (SMB)
           href: storage-troubleshoot-windows-file-connection-problems.md
-        - name: Felsöka Azure Files på Linux
+        - name: Felsöka Azure Files på Linux (SMB)
           href: storage-troubleshoot-linux-file-connection-problems.md
         - name: Felsöka Azure Files-prestanda
           href: storage-troubleshooting-files-performance.md
+        - name: Felsöka Azure Files på Linux (NFS)
+          href: storage-troubleshooting-files-nfs.md
         - name: Felsök Azure File Sync
           href: storage-sync-files-troubleshoot.md
         - name: Felsöka borttagning av Azure Files

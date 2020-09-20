@@ -33,6 +33,12 @@
       href: azure-netapp-files-cost-model.md
     - name: Riktlinjer för Azure NetApp Files-nätverksplanering
       href: azure-netapp-files-network-topologies.md
+    - name: Replikering mellan regioner
+      items:
+        - name: Förstå replikering mellan regioner
+          href: cross-region-replication-introduction.md
+        - name: Krav och överväganden för replikering mellan regioner
+          href: cross-region-replication-requirements-considerations.md
     - name: Lösningar
       items:
         - name: Lösningsarkitekturer med Azure NetApp Files
@@ -81,6 +87,16 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: Ändra tjänstnivå för en volym dynamiskt
       href: dynamic-change-volume-service-level.md
+    - name: Hantera replikering mellan regioner
+      items:
+        - name: Skapa replikeringspeering
+          href: cross-region-replication-create-peering.md
+        - name: Visa hälsostatus för replikeringsrelation
+          href: cross-region-replication-display-health-status.md
+        - name: Hantera haveriberedskap
+          href: cross-region-replication-manage-disaster-recovery.md
+        - name: Ta bort replikeringar
+          href: cross-region-replication-delete.md
     - name: Utveckla
       items:
         - name: REST-API
@@ -91,6 +107,10 @@
           href: azure-netapp-files-sdk-cli.md
         - name: Felsöka fel i resursprovidern för Azure NetApp Files
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Felsöka
+      items:
+        - name: Felsöka replikering mellan regioner
+          href: troubleshoot-cross-region-replication.md
 - name: Referens
   items:
     - name: REST

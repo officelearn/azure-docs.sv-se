@@ -1,7 +1,7 @@
 ---
-title: Log ML-experiment & mått
+title: Logga ML-experiment och mått
 titleSuffix: Azure Machine Learning
-description: Övervaka dina Azure ML-experiment och övervaka körnings mått för att förbättra skapande processen för modeller. Lägg till loggning i utbildnings skriptet med kör. log, kör. start_logging eller ScriptRunConfig.
+description: Övervaka dina Azure ML-experiment och körningen av mått för att förbättra modellskapandet. Lägg till loggning i träningsskriptet med run.log, Run.start_logging eller ScriptRunConfig.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -13,90 +13,90 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
 ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/10/2020
 ms.locfileid: "89650628"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Aktivera loggning i Azure ML-utbildningar
+# <a name="enable-logging-in-azure-ml-training-runs"></a>Aktivera loggning i Azure ML:s träningskörningar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Med Azure Machine Learning python SDK kan du logga information i real tid med hjälp av både standard-python-loggnings paketet och SDK-/regionsspecifika funktioner. Du kan logga lokalt och skicka loggar till din arbets yta i portalen.
+Med Python-SDK:n i Azure Machine Learning kan du logga information i realtid med hjälp av både standardpaketet för Python-loggning och SDK-specifika funktioner. Du kan logga lokalt och skicka loggar till din arbetsyta i portalen.
 
-Loggarna kan hjälpa dig att diagnostisera fel och varningar eller spåra prestanda mått som parametrar och modell prestanda. I den här artikeln får du lära dig hur du aktiverar loggning i följande scenarier:
+Med loggarna kan du diagnostisera fel och varningar, eller spåra prestandamått som parametrar och modellprestanda. I den här artikeln får du lära dig hur du aktiverar loggning i följande scenarier:
 
 > [!div class="checklist"]
-> * Interaktiva utbildningar
-> * Skicka utbildnings jobb med ScriptRunConfig
-> * Egna python- `logging` Inställningar
-> * Logga från ytterligare källor
+> * Interaktiva träningssessioner
+> * Skicka träningsjobb med ScriptRunConfig
+> * Inbyggda `logging`-inställningar i Python
+> * Loggning från fler källor
 
 
 > [!TIP]
-> Den här artikeln visar hur du övervakar modell inlärnings processen. Om du är intresse rad av att övervaka resursanvändningen och händelserna i Azure Machine Learning, till exempel kvoter, slutförda inlärnings körningar eller slutförda modell distributioner, se [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md).
+> Den här artikeln visar hur du övervakar modellträningsprocessen. Om du vill veta mer om att övervaka resursanvändning och händelser från Azure Machine Learning, till exempel kvoter, slutförda träningskörningar eller slutförda modelldistributioner, kan du läsa [Övervakning i Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## <a name="data-types"></a>Datatyper
 
-Du kan logga flera data typer, inklusive skalära värden, listor, tabeller, bilder, kataloger med mera. Mer information och python-kod exempel för olika data typer finns på [referens sidan kör klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
+Du kan logga flera datatyper, inklusive skalära värden, listor, tabeller, bilder, kataloger med mera. Mer information och Python-kodexempel för olika datatyper finns på [referenssidan Körningsklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
 
-## <a name="interactive-logging-session"></a>Interaktiv Logging-session
+## <a name="interactive-logging-session"></a>Interaktiv loggningssession
 
-Interaktiva loggnings sessioner används vanligt vis i Notebook-miljöer. Metoden [experiment. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) startar en interaktiv inloggningssession. Alla mått som loggas under sessionen läggs till i körnings posten i experimentet. Metoden [Run. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) avslutar sessionerna och markerar kör som slutförd.
+Interaktiva loggningssessioner används vanligtvis i miljöer med notebook-filer. Metoden [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) startar en interaktiv loggningssession. Alla mått som loggas under sessionen läggs till i körningsposten i experimentet. Metoden [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) avslutar sessionerna och markerar körningen som slutförd.
 
 ## <a name="scriptrunconfig-logs"></a>ScriptRunConfig-loggar
 
-I det här avsnittet får du lära dig hur du lägger till loggnings kod i ScriptConfig-körningar. Du kan använda klassen [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) för att kapsla in skript och miljöer för upprepnings bara körningar. Du kan också använda det här alternativet för att Visa widgeten för Visual Jupyter Notebooks för övervakning.
+I det här avsnittet får du lära dig att lägga till loggningskod i ScriptConfig-körningar. Du kan använda [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)-klassen till att kapsla in skript och miljöer för upprepningsbara körningar. Du kan också använda det här alternativet till att visa widgeten för Jupyter Notebooks vid övervakning.
 
-Det här exemplet utför en parameter svep över alpha-värden och fångar in resultaten med hjälp av metoden [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----) .
+I det här exemplet utförs en parameterrensning av alfavärden och resultaten samlas in med hjälp av metoden [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----).
 
-1. Skapa ett utbildnings skript som innehåller loggnings logiken `train.py` .
+1. Skapa ett träningsskript som innehåller loggningslogiken `train.py`.
 
-   [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 
-1. Skicka ```train.py``` skriptet för körning i en användar hanterad miljö. Hela mappen script skickas för utbildning.
+1. Skicka ```train.py```-skriptet för körning i en användarhanterad miljö. Hela skriptmappen skickas för träningen.
 
-   [! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = src)] [! Notebook-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? namn = kör)]
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
-    `show_output`Parametern aktiverar utförlig loggning så att du kan se information från inlärnings processen samt information om eventuella fjär resurser eller beräknings mål. Använd följande kod för att aktivera utförlig loggning när du skickar experimentet.
+    Parametern `show_output` aktiverar utförlig loggning så att du kan se information från träningsprocessen, samt information om eventuella fjärresurser eller beräkningsmål. Använd följande kod för att aktivera utförlig loggning när du skickar experimentet.
 
 ```python
 run = exp.submit(src, show_output=True)
 ```
 
-Du kan också använda samma parameter i `wait_for_completion` funktionen på den resulterande körningen.
+Du kan också använda samma parameter i funktionen `wait_for_completion` för den resulterande körningen.
 
 ```python
 run.wait_for_completion(show_output=True)
 ```
 
-## <a name="native-python-logging"></a>Intern python-loggning
+## <a name="native-python-logging"></a>Intern Python-loggning
 
-Vissa loggar i SDK kan innehålla ett fel som uppmanar dig att ange loggnings nivå för fel sökning. Om du vill ange loggnings nivå lägger du till följande kod i skriptet.
+Vissa loggar i SDK:n kan innehålla ett fel som uppmanar dig att ange loggningsnivån DEBUG. Om du ska ange loggningsnivån lägger du till nedanstående kod i skriptet.
 
 ```python
 import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-## <a name="additional-logging-sources"></a>Ytterligare loggnings källor
+## <a name="additional-logging-sources"></a>Fler loggningskällor
 
-Azure Machine Learning kan också logga information från andra källor under utbildningen, till exempel automatiserade maskin inlärnings körningar eller Docker-behållare som kör jobben. Dessa loggar är inte dokumenterade, men om du stöter på problem och kontaktar Microsoft support kan de använda dessa loggar vid fel sökning.
+Azure Machine Learning kan också logga information från andra källor under träningen, till exempel automatiserade maskininlärningskörningar eller Docker-containrar som kör jobben. Dessa loggar dokumenteras inte, men om du stöter på problem och kontaktar Microsofts support kan de använda loggarna vid felsökning.
 
-Information om hur du loggar mått i Azure Machine Learning designer (för hands version) finns i [så här loggar du mått i designern (för hands version)](how-to-track-designer-experiments.md)
+Information om loggning av mått i Azure Machine Learning-designern (förhandsversion) finns i [Loggning av mått i designern (förhandsversion)](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Exempelnotebook-filer
 
-Följande antecknings böcker demonstrerar begrepp i den här artikeln:
-* [instruktionen att använda – azureml/Training/träna-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [How-to-use-azureml/Track-and-Monitor-experiment/Logging-API](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
+Följande notebook-filer demonstrerar begreppen i den här artikeln:
+* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de här artiklarna för att lära dig mer om hur du använder Azure Machine Learning:
+Läs de här artiklarna om du vill lära dig mer om att använda Azure Machine Learning:
 
-* Lär dig hur du [loggar mått i Azure Machine Learning designer (för hands version)](how-to-track-designer-experiments.md).
+* Lär dig att [logga mått i Azure Machine Learning-designern (förhandsversion)](how-to-track-designer-experiments.md).
 
-* Se ett exempel på hur du registrerar den bästa modellen och distribuerar den i självstudien, [träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
+* Se ett exempel på hur du registrerar den bästa modellen och distribuerar den i självstudien [Träna en bildklassificeringsmodell med Azure Machine Learning](tutorial-train-models-with-aml.md).

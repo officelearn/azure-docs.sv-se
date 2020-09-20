@@ -51,6 +51,18 @@
   href: code-samples.md
 - name: Begrepp
   items:
+    - name: Jämför lösningar för externa identiteter
+      href: 'https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+    - name: Lär dig grunderna
+      items:
+        - name: Autentisering och auktorisering
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Token
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Protokoll
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Autentiseringsbibliotek
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
     - name: Metodtips för Azure AD B2C
       href: best-practices.md
     - name: Programtyper
@@ -341,9 +353,11 @@
                       href: aad-sspr-technical-profile.md
                     - name: Anspråkstransformering
                       href: claims-transformation-technical-profile.md
-                    - name: Teknisk profil för villkorsstyrd åtkomst
+                    - name: Villkorlig åtkomst
                       href: conditional-access-technical-profile.md
                       displayName: ca
+                    - name: ID-tokentips
+                      href: id-token-hint.md
                     - name: JWT-tokenutfärdare
                       href: jwt-issuer-technical-profile.md
                     - name: OAuth1
@@ -388,12 +402,14 @@
           href: partner-idology.md
         - name: itsme
           href: partner-itsme.md
-        - name: LexisNexis
-          href: partner-lexisnexis.md
         - name: Jumio
           href: partner-jumio.md
+        - name: LexisNexis
+          href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
+        - name: Saviynt
+          href: partner-saviynt.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio

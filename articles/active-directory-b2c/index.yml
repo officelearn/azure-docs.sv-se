@@ -12,122 +12,134 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: fe0fc7f20a81d9b887a61ca382dafcb69fc420d2
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 34cb40d385b007f8a41a6700448a1591b714c096
+  ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78187720"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90562765"
 landingContent:
-- title: Lär dig grunderna
+- title: Azure AD B2C
   linkLists:
   - linkListType: overview
     links:
     - text: Vad är Azure AD B2C?
       url: overview.md
+    - text: Jämför lösningar för externa identiteter
+      url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Kom igång med Azure AD B2C
+      url: tutorial-create-tenant.md
     - text: Översikt över funktioner och teknik
       url: technical-overview.md
-  - linkListType: get-started
-    links:
-    - text: Skapa en Azure AD B2C-klient
-      url: tutorial-create-tenant.md
-    - text: Registrera ett program
-      url: tutorial-register-applications.md
-    - text: Konfigurera användarflöden
-      url: tutorial-create-user-flows.md
-  - linkListType: video
-    links:
-    - text: Vad är Azure AD B2C? (9:35)
-      url: https://www.youtube.com/watch?v=GmBKlXED9Ug
-- title: Lägga till identitet i ASP.NET-appar
+    - text: Prissättning
+      url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+- title: Grundläggande inställningar
   linkLists:
-  - linkListType: quickstart
+  - linkListType: learn
     links:
-    - text: Konfigurera inloggning
-      url: quickstart-web-app-dotnet.md
-  - linkListType: tutorial
-    links:
-    - text: Autentisera användare i en .NET-webbapp
-      url: tutorial-web-app-dotnet.md
-    - text: Bevilja API-åtkomst till en .NET-webbapp
-      url: tutorial-web-api-dotnet.md
-    - text: Aktivera inloggning via företag och sociala medier
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: Kodexempel för webbappar och API:er
-      url: code-samples.md#web-apps-and-apis
-- title: Lägga till identitet till ensidesappar
+    - text: Autentisering och auktorisering
+      url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Token
+      url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Protokoll
+      url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Autentiseringsbibliotek
+      url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: 'Skapa en webbplats: HTML, CSS, JavaScript'
+      url: https://docs.microsoft.com/learn/modules/build-simple-website/
+- title: Vanliga användarsituationer
   linkLists:
-  - linkListType: quickstart
+  - linkListType: how-to-guide
     links:
-    - text: Konfigurera inloggning
-      url: quickstart-single-page-app.md
-  - linkListType: tutorial
-    links:
-    - text: Autentisera användare i en ensidesapp
-      url: tutorial-single-page-app.md
-    - text: Bevilja API-åtkomst till en ensidesapp
-      url: tutorial-single-page-app-webapi.md
-    - text: Aktivera inloggning via företag och sociala medier
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: Kodexempel för ensidesappar
-      url: code-samples.md#single-page-apps
-- title: Lägga till identitet i skrivbordsappar
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Konfigurera inloggning
-      url: quickstart-native-app-desktop.md
-  - linkListType: tutorial
-    links:
-    - text: Autentisera användare i interna klienter
-      url: tutorial-desktop-app.md
-    - text: Bevilja API-åtkomst till interna klienter
-      url: tutorial-desktop-app-webapi.md
-    - text: Aktivera inloggning via företag och sociala medier
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: Kodexempel för mobil- och skrivbordsappar
-      url: code-samples.md
-- title: Konfigurera vanliga identitetsscenarier
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Introduktion till användarflöden
+    - text: Möjliggör inloggning via självbetjäning
       url: user-flow-overview.md
+    - text: 'Lägg till sociala identiteter och arbetsidentiteter: OIDC/OAuth2/SAML'
+      url: tutorial-add-identity-providers.md
+    - text: Aktivera enkel inloggning (SSO)
+      url: session-overview.md
+    - text: Anpassa UI/UX
+      url: customize-ui-overview.md
+    - text: Användar- och appmigrering
+      url: user-migration.md
+- title: Lägg till inloggning till dina program
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 'Snabbstart: Webbapp'
+      url: quickstart-web-app-dotnet.md
+    - text: Intern/mobilapp
+      url: code-samples.md#mobile-and-desktop-apps
+    - text: Ensidesapp
+      url: code-samples.md#single-page-apps
+    - text: Webbapp
+      url: code-samples.md#web-apps-and-apis
+- title: 'Auktorisering: Anropa och skydda dina API:er'
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Registrera och logga in användare
-      url: tutorial-create-user-flows.md
-    - text: Anpassa användargränssnittet
-      url: customize-ui-overview.md
-    - text: Aktivera inloggning med Facebook
-      url: identity-provider-facebook.md
-  - linkListType: video
-    links:
-    - text: Konfigurera grundläggande principer (9:41)
-      url: https://www.youtube.com/watch?v=nWJ3m82536A
-- title: Skapa avancerade identitetsscenarier
+    - text: Begära åtkomsttoken
+      url: access-tokens.md
+    - text: Registrera och skydda API
+      url: tutorial-web-api-dotnet.md
+    - text: 'Exempel: Webbappar och API:er'
+      url: code-samples.md#web-apps-and-apis
+    - text: Integrera med API-gateway
+      url: secure-api-management.md?tabs=app-reg-ga
+- title: Säkerhet, sekretess och efterlevnad
   linkLists:
   - linkListType: concept
     links:
-    - text: Introduktion till anpassade principer
-      url: custom-policy-overview.md
+    - text: Hantera hot
+      url: threat-management.md
+    - text: Ta reda på var användardata lagras
+      url: data-residency.md
+    - text: Föreskrifter
+      url: overview.md
+    - text: Användaråtkomst och användningsvillkor
+      url: manage-user-access.md
+- title: Åtgärder
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Registrera och logga in användare
-      url: custom-policy-get-started.md
-    - text: Anpassa användargränssnittet
-      url: custom-policy-ui-customization.md
-    - text: Aktivera inloggning med Azure AD för flera klientorganisationer
-      url: identity-provider-azure-ad-multi-tenant-custom.md
-    - text: Lägga till din egen affärslogik med REST API:er
-      url: custom-policy-rest-api-claims-validation.md
-  - linkListType: video
+    - text: CI/CD-pipeline
+      url: deploy-custom-policies-devops.md
+    - text: Övervakning
+      url: azure-monitor.md
+    - text: Rollbaserad åtkomst för administratörer
+      url: overview.md
+    - text: Användarhantering
+      url: manage-user-accounts-graph-api.md
+    - text: Felsökning
+      url: troubleshoot-custom-policies.md?tabs-app-reg-ga
+    - text: Bästa praxis
+      url: best-practices.md
+- title: Resurser
+  linkLists:
+  - linkListType: overview
     links:
-    - text: Avancerade användningsfall med Azure AD B2C (4:54)
-      url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
+    - text: GitHub
+      url: https://github.com/azure-ad-b2c/samples
+    - text: YouTube
+      url: https://www.youtube.com/results?search_query=azure+ad+b2c
+    - text: Utbildning
+      url: solution-articles.md
+    - text: Tjänstuppdateringar
+      url: https://azure.microsoft.com/updates/?product=active-directory-b2c
+    - text: Vanliga frågor och svar
+      url: faq.md
+    - text: Microsoft Support
+      url: support-options.md
+- title: Vanliga integreringar
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 'Azure Monitor: Behålla och analysera loggar'
+      url: azure-monitor.md
+    - text: 'Azure DevOps Services: Skapa en CI/CD-pipeline'
+      url: deploy-custom-policies-devops.md
+    - text: 'Application Insights: Felsöka och få användarinsikter'
+      url: troubleshoot-with-application-insights.md
+    - text: Integrera med våra teknikpartner
+      url: partner-gallery.md

@@ -1,14 +1,14 @@
 ---
 title: Exempel på CAF Foundation-skiss – översikt
 description: Översikt över och arkitektur för Cloud Adoption Framework (CAF) for Azure Foundation-skissexemplet.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852352"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531703"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Översikt över Microsoft Cloud Adoption Framework for Azure Foundation-skissexemplet
 
@@ -18,7 +18,9 @@ Microsoft Cloud Adoption Framework for Azure (CAF) Foundation-skissen distribuer
 
 CAF Foundation-skissexemplet distribuerar rekommenderade infrastrukturresurser i Azure som kan användas av organisationer för att etablera de grundkontroller som de behöver för att hantera sin molnegendom. Det här exemplet distribuerar och framtvingar resurser, principer och mallar som gör det möjligt för en organisation att på ett säkert sätt komma igång med Azure.
 
-:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="CAF Foundation, bild som beskriver vad som installeras som en del av CAF-vägledningen för skapandet av en grund för att komma igång med Azure" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="C A F Foundation, bild som beskriver vad som installeras som en del av C A F-vägledningen för skapandet av en grund för att komma igång med Azure." border="false":::
+   Beskriver en Azure-arkitektur som uppnås genom att man distribuerar C A F Foundation-skissen.  Det är tillämpligt för en prenumeration med resursgrupper som består av ett lagringskonto för lagring av loggar, Log Analytics som är konfigurerat för att lagras i lagringskontot. Den visar också Azure Key Vault som konfigurerats med Azure Security Center-standardkonfiguration. Alla dessa kärninfrastrukturer nås via Azure Active Directory och framtvingas med Azure Policy.     
+:::image-end:::
 
 Den här implementeringen omfattar flera Azure-tjänster som används för att tillhandahålla en säker, fullständigt övervakad och företagsfärdig grund. Den här miljön består av:
 

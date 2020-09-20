@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322287"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527147"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
@@ -106,7 +106,7 @@ När du har konfigurerat budgetbeloppet väljer du **Nästa** för att konfigure
 
 Om du vill få e-postmeddelanden lägger du till azure-noreply@microsoft.com i din lista med godkända avsändare så att meddelandena inte hamnar i skräppostmappen. Mer information om händelseaviseringar finns i [Använda kostnadsaviseringar](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
 
-I exemplet nedan skapas en e-postavisering när 90% av budgeten nås. Om du skapar en budget med budget-API:et kan du även tilldela roller till personer som ska ta emot aviseringar. Det finns inte stöd för att tilldela roller till personer i Azure-portalen. Mer information om API:er för Azure-budgetar finns i [API för budgetar](/rest/api/consumption/budgets).
+I exemplet nedan skapas en e-postavisering när 90% av budgeten nås. Om du skapar en budget med budget-API:et kan du även tilldela roller till personer som ska ta emot aviseringar. Det finns inte stöd för att tilldela roller till personer i Azure-portalen. Mer information om API:er för Azure-budgetar finns i [API för budgetar](/rest/api/consumption/budgets). Se artikeln [Nationella inställningar som stöds för budgetavisering via e-post](manage-automation.md#supported-locales-for-budget-alert-emails) om du vill att en e-postavisering ska skickas på ett annat språk.
 
 Aviseringsgränser kan ligga inom ett intervall på 0,01 till 1 000 % av den budgettröskel du anger.
 

@@ -1,14 +1,14 @@
 ---
 title: Exempel på skiss för CAF Migration-landningszon – översikt
 description: Översikt över och arkitektur för Cloud Adoption Framework (CAF) for Azure Migration-landningszonskissexemplet.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852318"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531686"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Översikt över skissexemplet för Microsoft Cloud Adoption Framework for Azure Migration-landningszonen
 
@@ -20,7 +20,9 @@ Skissen för Microsoft Cloud Adoption Framework for Azure (CAF) Migration-landni
 
 Skissexemplet för CAF Migration-landningszonen distribuerar grundläggande infrastrukturresurser i Azure som kan användas av organisationer till att förbereda sin prenumeration för migrering av virtuella datorer. Det hjälper även till att etablera de styrningskontroller som krävs för att hantera molnegendomen. Det här exemplet distribuerar och framtvingar resurser, principer och mallar som gör det möjligt för en organisation att på ett säkert sätt komma igång med Azure.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="CAF Migration-landningszon, bild som beskriver vad som installeras som en del av CAF-vägledningen för den inledande landningszonen" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="C A F Migration-landningszon, bild som beskriver vad som installeras som en del av C A F-vägledningen för den inledande landningszonen." border="false":::
+   Beskriver en Azure-arkitektur som uppnås genom att man distribuerar C A F-migreringsskissen.  Det är tillämpligt för en prenumeration med resursgrupper som består av ett virtuellt Azure-nätverk, lagringskonto för lagring av loggar, Log Analytics som är konfigurerat för att lagras i lagringskontot.  Den visar också Azure Key Vault konfigurerat och Azure Migrates första installation skapad.  Alla dessa kärninfrastrukturer nås via Azure Active Directory.     
+:::image-end:::
 
 Den här miljön består av flera Azure-tjänster som används för att tillhandahålla säker, fullständigt övervakad och företagsfärdig styrning. Den här miljön består av:
 

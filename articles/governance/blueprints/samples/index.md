@@ -1,14 +1,14 @@
 ---
 title: Index för skissexempel
 description: Index över efterlevnads- och standardexempel för distribution av miljöer, principer och ramverket för molnimplementering med Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031882"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530989"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-exempel
 
@@ -42,7 +42,8 @@ Följande tabell innehåller länkar till exempel för Azure Blueprints. Alla ex
 
 ## <a name="samples-strategy"></a>Exempelstrategi
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Strategi för skissexempel" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagram över var skissexemplen passar för arkitekturens komplexitet jämfört med krav på efterlevnad." border="false":::
+   Beskriver ett koordinatsystem där arkitekturens komplexitet är på X-axeln och krav på efterlevnad på Y-axeln.  När du ökar komplexitetskraven och kraven på efterlevnaden bör du införa standardskissexempel från portalen som anges i region E.  För kunder som kommer igång med Azure använder vi C A F-baserade (Cloud adoption Framework) och Foundation-skisser och skisser för landningszoner som anges av region A och B.  Det återstående utrymmet som är tilldelat till anpassade modeller som skapats av kunder är partner för regionerna C, D och F. :::image-end:::
 
 Skisserna för CAF Foundation och CAF Migrate-landningszonen förutsätter att kunden förbereder en befintlig, ren enstaka prenumeration för migrering av lokala tillgångar och arbetsbelastningar till Azure.
 (Region A och B i bilden).  

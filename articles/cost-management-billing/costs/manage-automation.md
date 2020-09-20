@@ -3,17 +3,17 @@ title: Hantera Azure-kostnader med automatisering
 description: Den här artikeln beskriver hur du kan hantera Azure-kostnader med automatisering.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
-ms.openlocfilehash: a5ab84794884cc0c87bd766be7a0fa2fe4c52aa9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.reviewer: matrive
+ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684413"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526654"
 ---
 # <a name="manage-costs-with-automation"></a>Hantera kostnader med automatisering
 
@@ -161,6 +161,70 @@ Ett GET-anrop till budget-API:et returnerar inte de aktuella kostnader som visas
 ### <a name="automate-budget-creation"></a>Automatisera skapandet av budget
 
 Du kan automatisera skapandet av budgeten med hjälp av [budget-API:et](/rest/api/consumption/budgets). Du kan också skapa en budget med en [budgetmall](quick-create-budget-template.md). Mallar är ett enkelt sätt att standardisera Azure-distributioner samtidigt som du säkerställer att kostnadskontrollen är korrekt konfigurerad och framtvingas.
+
+#### <a name="supported-locales-for-budget-alert-emails"></a>Nationella inställningar som stöds för budgetavisering via e-post
+
+När du använder budgetar får du en avisering om kostnaderna överskrider ett angivet tröskelvärde. Du kan konfigurera upp till fem e-postmottagare per budget. Mottagarna får en e-postavisering inom 24 timmar efter att budgettröskeln har överskridits. Men en mottagare kan dock vilja få sina e-postmeddelanden på ett annat språk. Du kan använda följande språk/kulturkoder med API:erna för budgetar. Ange kulturkoden med parametern `locale`, som i följande exempel.
+
+```json
+{
+  "eTag": "\"1d681a8fc67f77a\"",
+  "properties": {
+    "timePeriod": {
+      "startDate": "2020-07-24T00:00:00Z",
+      "endDate": "2022-07-23T00:00:00Z"
+    },
+    "timeGrain": "BillingMonth",
+    "amount": 1,
+    "currentSpend": {
+      "amount": 0,
+      "unit": "USD"
+    },
+    "category": "Cost",
+    "notifications": {
+      "actual_GreaterThan_10_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 20,
+        "locale": "en-us",
+        "contactEmails": [
+          "user@contoso.com"
+        ],
+        "contactRoles": [],
+        "contactGroups": [],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+
+```
+
+Språk som stöds med en kulturkod:
+
+| Kulturkod| Språk |
+| --- | --- |
+| sv-se | Engelska (USA) |
+| ja-jp | Japanska (Japan) |
+| zh-cn | kinesiska (förenklad, Kina) |
+| de-de | Tyska (Tyskland) |
+| es-es | Spanska (Spanien, internationell) |
+| fr-fr | Franska (Frankrike) |
+| it-it | Italienska (Italien) |
+| ko-kr | Koreanska (Korea) |
+| pt-br | Portugisiska (Brasilien) |
+| ru-ru | Ryska (Ryssland) |
+| zh-tw | kinesiska (traditionell, Taiwan) |
+| cs-cz | Tjeckiska (Tjeckien) |
+| pl-pl | Polska (Polen) |
+| tr-tr | Turkiska (Turkiet) |
+| da-dk | Danska (Danmark) |
+| dn-gb | Engelska (Storbritannien) |
+| hu-hu | Ungerska (Ungern) |
+| nb-bo | Norska, bokmål (Norge) |
+| nl-nl | Nederländska (Nederländerna) |
+| pt-pt | Portugisiska (Portugal) |
+| sv-se | Svenska (Sverige) |
 
 #### <a name="common-budgets-api-configurations"></a>Vanliga budget API-konfigurationer
 

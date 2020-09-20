@@ -53,6 +53,9 @@
     - name: Ta bort åtkomst till en delegering
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
+    - name: Azure Arc-integrering
+      displayName: 'server, kubernetes, hybrid, infrastructure'
+      href: ./how-to/manage-hybrid-infrastructure-arc.md
     - name: Azure Monitor-integrering
       items:
         - name: Använda Azure Monitor-loggar i stor skala

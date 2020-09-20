@@ -20,19 +20,11 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: Skapa en intern lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: Skapa intern lastbalanserare – ARM-mall
+      href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Självstudier
   items:
-    - name: Intern lastbalanserare
-      items:
-        - name: Skapa en intern lastbalanserare – portalen
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Skapa en intern lastbalanserare – Azure CLI
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Skapa en intern lastbalanserare – Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Skapa en intern lastbalanserare – ARM-mall
-          href: load-balancer-get-started-ilb-arm-template.md
     - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Belastningsutjämna virtuella datorer i en specifik tillgänglighetszon

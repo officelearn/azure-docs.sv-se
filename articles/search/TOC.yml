@@ -3,9 +3,11 @@
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är Azure Cognitive Search?
+    - name: Vad är Cognitive Search?
       href: search-what-is-azure-search.md
-    - name: Nyheter
+    - name: Funktioner i Cognitive Search
+      href: search-features-list.md
+    - name: Senaste nytt i Cognitive Search
       href: whats-new.md
 - name: Snabbstarter
   items:
@@ -413,25 +415,27 @@
     - name: .NET
       items:
         - name: Sök-API
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: Hanterings-API
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: Sök-API
+          href: /java/api/overview/azure/search-documents-readme
         - name: Hanterings-API
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: Sök-API
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: Hanterings-API
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: Sök-API
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: Hanterings-API
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: Språkreferens för OData
       items:
         - name: Översikt

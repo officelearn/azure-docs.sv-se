@@ -11,16 +11,16 @@ ms.author: dacurwin
 ms.custom: include file
 ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
 ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/23/2020
 ms.locfileid: "87003825"
 ---
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-Ett Recovery Services valv är en hanterings enhet som lagrar återställnings punkter som skapats med tiden och som tillhandahåller ett gränssnitt för att utföra säkerhets kopierings åtgärder. Dessa inkluderar säkerhets kopieringar på begäran, återställning och skapande av säkerhets kopierings principer.
+Ett Recovery Service-valv är en hanteringsenhet som lagrar återställningspunkter skapade över tid och tillhandahåller ett gränssnitt för säkerhetskopieringsrelaterade åtgärder. Dessa inkluderar säkerhetskopieringar på begäran, återställningar och att skapa säkerhetskopieringsprinciper.
 
-Följ dessa steg om du vill skapa ett Recovery Services valv.
+Om du vill skapa ett Recovery Services-valv följer du stegen nedan.
 
 1. Logga in på din prenumeration i [Azure-portalen](https://portal.azure.com/).
 
@@ -28,41 +28,41 @@ Följ dessa steg om du vill skapa ett Recovery Services valv.
 
     ![Välj Alla tjänster](./media/backup-create-rs-vault/click-all-services.png)
 
-1. I dialogrutan **Alla tjänster** anger du *Recovery Services*. Listan över resurser filtreras enligt dina inaktuella inaktuella. Välj **Recovery Services valv**i listan över resurser.
+1. I dialogrutan **Alla tjänster** anger du *Recovery Services*. Listan med resurser filtreras enligt din inmatning. I resurslistan väljer du **Recovery Services-valv**.
 
     ![Ange och välja Recovery Services-valv](./media/backup-create-rs-vault/all-services.png)
 
     Listan över Recovery Services-valv i prenumerationen visas.
 
-1. På instrument panelen för **Recovery Services valv** väljer du **Lägg till**.
+1. På instrumentpanelen **Recovery Services-valv** väljer du **Lägg till**.
 
     ![Lägg till ett Recovery Services-valv](./media/backup-create-rs-vault/add-button-create-vault.png)
 
-    Dialog rutan **Recovery Services valv** öppnas. Ange värden för **namn**, **prenumeration**, **resurs grupp**och **plats**.
+    Dialogrutan **Recovery Services-valv** öppnas. Ange värden för **Namn**, **Prenumeration**, **Resursgrupp** och **Plats**.
 
     ![Konfigurera Recovery Services-valvet](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Namn**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst 2 men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck.
-   - **Prenumeration**: Välj den prenumeration som ska användas. Om du är medlem i endast en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standard prenumerationen (rekommenderas). Det finns flera alternativ bara om ditt arbets-eller skol konto är associerat med fler än en Azure-prenumeration.
-   - **Resurs grupp**: Använd en befintlig resurs grupp eller skapa en ny. Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Om du vill skapa en ny resurs grupp väljer du **Skapa ny** och anger namnet. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../articles/azure-resource-manager/management/overview.md).
-   - **Plats**: Välj det geografiska området för valvet. För att skapa ett valv för att skydda data källor *måste* valvet vara i samma region som data källan.
+   - **Namn**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst 2 tecken, men inte fler än 50. Namnet måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
+   - **Prenumeration**: Välj den prenumeration som ska användas. Om du bara är medlem i en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda, använder du standardprenumerationen (den föreslagna). Du kan bara välja mellan flera alternativ om ditt arbets- eller skolkonto är associerat med mer än en Azure-prenumeration.
+   - **Resursgrupp**: Använd en befintlig resursgrupp eller skapa en ny. Om du vill se en lista med tillgängliga resursgrupper i prenumerationen, väljer du **Använd befintliga** och en resurs i listrutan. Skapa en ny resursgrupp genom att välja **Skapa ny** och ange namnet. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/management/overview.md).
+   - **Plats**: Välj ett geografiskt område för valvet. Om du ska skapa ett valv som skyddar datakällor *måste* valvet finnas i samma region som datakällan.
 
       > [!IMPORTANT]
-      > Om du inte är säker på var data källan finns stänger du dialog rutan. Gå till listan över resurser i portalen. Om du har data källor i flera regioner skapar du ett Recovery Services-valv för varje region. Skapa valvet på den första platsen innan du skapar valvet för en annan plats. Du behöver inte ange lagrings konton för att lagra säkerhetskopierade data. Recovery Services valvet och Azure Backup handtaget automatiskt.
+      > Om du inte är säker på var datakällan finns, stänger du dialogrutan. Gå till listan med resurser i portalen. Om du har datakällor i flera regioner, skapar du ett Recovery Services-valv i varje region. Skapa valvet på den första platsen innan du skapar ett valv för en annan plats. Du behöver inte ange lagringskonton för att lagra säkerhetskopieringsdata. Recovery Services-valvet och Azure Backup hanterar detta automatiskt.
       >
       >
 
-1. När du har angett värdena väljer du **Granska + skapa**.
+1. När du har angett värdena väljer du **Granska och skapa**.
 
     ![Skapa Recovery Services-valvet](./media/backup-create-rs-vault/review-and-create.png)
 
-1. När du är redo att skapa Recovery Services-valvet väljer du **skapa**.
+1. När du är redo att skapa Recovery Services-valvet väljer du **Skapa**.
 
     ![Skapa Recovery Services-valvet](./media/backup-create-rs-vault/click-create-button.png)
 
-    Det kan ta en stund att skapa Recovery Services-valvet. Övervaka status meddelanden i **meddelande** fältet i det övre högra hörnet i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv väljer du **Uppdatera**.
+    Det kan ta en stund innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena i området **Meddelanden** i portalens övre högra hörn. När valvet har skapats visas det i listan med Recovery Services-valv. Om du inte ser valvet väljer du **Uppdatera**.
 
-     ![Uppdatera listan över säkerhets kopierings valv](./media/backup-create-rs-vault/refresh-button.png)
+     ![Uppdatera listan med säkerhetskopieringsvalv](./media/backup-create-rs-vault/refresh-button.png)
 
 >[!IMPORTANT]
-> Vi rekommenderar starkt att du granskar standardinställningarna för typ och **säkerhets inställningar** för **lagringsprovider** innan du konfigurerar säkerhets kopieringar i valvet. Mer information finns i avsnittet [Ange redundans för lagring](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) .
+> Vi rekommenderar starkt att du granskar standardinställningarna i **Lagringsreplikeringstyp** och **Säkerhetsinställningar** innan du konfigurerar säkerhetskopior i valvet. Mer information finns i avsnittet [Ange lagringsredundans](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).

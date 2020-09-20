@@ -592,7 +592,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Vanliga frågor och svar om diskkryptering
               href: disk-encryption-faq.md
-            - name: Diskkryptering – föregående version (AAD)
+            - name: Diskkryptering – föregående version (Azure AD)
               items:
                 - name: Översikt
                   href: disk-encryption-overview-aad.md
@@ -670,7 +670,7 @@
           href: nested-virtualization.md
         - name: Automatisk snabbkorrigering av VM-gäster (förhandsversion)
           href: automatic-vm-guest-patching.md
-    - name: Underhåll av plattform
+    - name: Kontroll av underhåll
       items:
         - name: Meddelanden om underhåll
           items:
@@ -682,7 +682,7 @@
               href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Kontroll av underhåll
+        - name: Underhåll av plattform
           items:
             - name: Översikt
               href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -696,6 +696,16 @@
           href: scheduled-events.md
         - name: Windows-tjänst för schemalagda händelser
           href: scheduled-event-service.md
+        - name: Uppgradering av operativsystemavbildning för skalningsuppsättning för virtuell dator
+          items:
+            - name: Automatiska uppgraderingar av operativsystem
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Kontroll av underhåll
+              items:
+                - name: Översikt (förhandsversion)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell (förhandsversion)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Övervaka virtuella datorer
       items:
         - name: Agenter

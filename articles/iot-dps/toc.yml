@@ -15,40 +15,52 @@
           href: quick-setup-auto-provision-cli.md
         - name: Azure RM-mall
           href: quick-setup-auto-provision-rm.md
-    - name: Etablera en enskild enhet
+    - name: Etablera en symmetrisk nyckel
       items:
-        - name: Symmetrisk nyckelattestering
-          items:
-            - name: C
-              href: quick-create-simulated-device-symm-key.md
-            - name: Java
-              href: quick-create-simulated-device-symmetric-key-java.md
-            - name: Python
-              href: quick-create-device-symmetric-key-python.md
-        - name: X.509-certifikatattestering
-          items:
-            - name: C
-              href: quick-create-simulated-device-x509.md
-            - name: Java
-              href: quick-create-simulated-device-x509-java.md
-            - name: C#
-              href: quick-create-simulated-device-x509-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-x509-node.md
-            - name: Python
-              href: quick-create-simulated-device-x509-python.md
-        - name: Attestering för en simulerad TPM-enhet
-          items:
-            - name: C
-              href: quick-create-simulated-device.md
-            - name: Java
-              href: quick-create-simulated-device-tpm-java.md
-            - name: C#
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
-            - name: Python
-              href: quick-create-simulated-device-tpm-python.md
+        - name: C
+          href: quick-create-simulated-device-symm-key.md
+        - name: Java
+          href: quick-create-simulated-device-symmetric-key-java.md
+        - name: Python
+          href: quick-create-device-symmetric-key-python.md
+    - name: Etablera en X. 509-certifikatenhet
+      items:
+        - name: C
+          href: quick-create-simulated-device-x509.md
+        - name: Java
+          href: quick-create-simulated-device-x509-java.md
+        - name: C#
+          href: quick-create-simulated-device-x509-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-x509-node.md
+        - name: Python
+          href: quick-create-simulated-device-x509-python.md
+- name: Självstudier
+  items:
+    - name: 1 – Etablera uppsättningar av enheter med registreringsgrupper
+      href: how-to-legacy-device-symm-key.md
+    - name: 2 – Etablera enheter till flera hubbar
+      items:
+        - name: Länka flera hubbar till DPS
+          href: tutorial-provision-multiple-hubs.md
+        - name: Etablera för flera innehavare
+          href: how-to-provision-multitenant.md
+        - name: Använd anpassade allokeringsprinciper
+          href: how-to-use-custom-allocation-policies.md
+- name: Exempel
+  items:
+    - name: Exempel på attestering för en simulerad TPM-enhet
+      items:
+        - name: C
+          href: quick-create-simulated-device.md
+        - name: Java
+          href: quick-create-simulated-device-tpm-java.md
+        - name: C#
+          href: quick-create-simulated-device-tpm-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-tpm-node.md
+        - name: Python
+          href: quick-create-simulated-device-tpm-python.md
     - name: 'Skapa enhetsregistreringar med hjälp av DPS-API:er'
       items:
         - name: Gruppregistrering med X.509-certifikatattestering
@@ -71,51 +83,33 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-- name: Självstudier
-  items:
-    - name: 1 – Konfigurera molnresurser
-      href: tutorial-set-up-cloud.md
-    - name: 2 – Konfigurera en enhet
-      href: tutorial-set-up-device.md
-    - name: 3 - Etablera en enhet till en IoT-hubb
-      items:
-        - name: C
-          href: tutorial-provision-device-to-hub.md
-        - name: C#
-          href: tutorial-net-provision-device-to-hub.md
-    - name: 4 - Etablera enheter till flera hubbar
-      href: tutorial-provision-multiple-hubs.md
-    - name: 5 – Konfigurera gruppregistreringar
-      href: tutorial-group-enrollments.md
 - name: Begrepp
   items:
-    - name: Automatisk etablering
-      href: concepts-auto-provisioning.md
-    - name: Omprovisionering
-      href: concepts-device-reprovision.md
-    - name: Enheter
-      href: concepts-device.md
-    - name: Säkerhet
-      href: concepts-security.md
-    - name: TLS-support
-      href: tls-support.md
-    - name: Stöd för virtuella nätverk
-      href: virtual-network-support.md
-    - name: Tjänst
+    - name: DPS-terminologi
       href: concepts-service.md
-    - name: Förstå IP-adresser för DPS
-      href: iot-dps-understand-ip-address.md
-    - name: TPM-attestering
-      href: concepts-tpm-attestation.md
     - name: Symmetrisk nyckelattestering
       href: concepts-symmetric-key-attestation.md
+    - name: X.509-certifikatattestering
+      href: concepts-x509-attestation.md
+    - name: TPM-attestering
+      href: concepts-tpm-attestation.md
+    - name: Roller och åtgärder
+      href: concepts-roles-operations.md
+    - name: Stöd för virtuella nätverk
+      href: virtual-network-support.md
+    - name: Omprovisionering
+      href: concepts-device-reprovision.md
+    - name: Förstå IP-adresser för DPS
+      href: iot-dps-understand-ip-address.md
+    - name: TLS-support
+      href: tls-support.md
     - name: Säkerhetsrutiner för enhetstillverkare
       href: concepts-device-oem-security-practices.md
 - name: Anvisningar
   items:
     - name: Ansluta MXChip IoT DevKit till IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
-    - name: Hantera konfiguration av enhetsetableringstjänsten
+    - name: Hantera enhetsetableringstjänst
       items:
         - name: Hantera registreringar – portal
           href: how-to-manage-enrollments.md
@@ -131,14 +125,12 @@
           href: how-to-revoke-device-access-portal.md
         - name: Hantera avetablering
           href: how-to-unprovision-devices.md
-    - name: Hantera enhetsetableringstjänst
-      items:
-        - name: Konfigurera enhetsetableringstjänsten med hjälp av Azure CLI
-          href: how-to-manage-dps-with-cli.md
         - name: 'Kontrollera åtkomst till Provisioning Service-API:er'
           href: how-to-control-access.md
         - name: Konfigurera IP-filtrering
           href: iot-dps-ip-filtering.md
+        - name: Konfigurera enhetsetableringstjänsten med hjälp av Azure CLI
+          href: how-to-manage-dps-with-cli.md
     - name: Etablera IoT Edge-enheter
       items:
         - name: Linux
@@ -149,12 +141,6 @@
           maintainContext: true
     - name: Använda attesteringsmekanismer med SDK
       href: use-hsm-with-sdk.md
-    - name: Etablera för flera innehavare
-      href: how-to-provision-multitenant.md
-    - name: Använd anpassade allokeringsprinciper
-      href: how-to-use-custom-allocation-policies.md
-    - name: Använda symmetriska nycklar med äldre enheter
-      href: how-to-legacy-device-symm-key.md
     - name: Använda SDK-verktyg för utveckling
       href: how-to-use-sdk-tools.md
     - name: Så här skickar du ytterligare data från enheter

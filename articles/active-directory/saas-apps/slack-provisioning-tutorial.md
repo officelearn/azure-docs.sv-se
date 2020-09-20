@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: användar etablering för slack – Azure AD'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till slack.
+title: 'Självstudier: Användarförsörjning för Slack – Azure AD'
+description: Lär dig att konfigurera Azure Active Directory till att automatiskt etablera och avetablera användarkonton till Slack.
 services: active-directory
 author: ArvindHarinder1
 manager: CelesteDG
@@ -10,60 +10,60 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 368d75ecffda49f688a7a5ce11b60693650014c6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: 6caaba06dcc2fdeaeb672b5381b240cb3f676ca9
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527833"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563100"
 ---
-# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera slack för automatisk användar etablering
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användarförsörjning
 
-Syftet med den här självstudien är att visa de steg du behöver utföra i slack och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till slack. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+Syftet med den här självstudien är att visa vilka steg du behöver utföra i Slack och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Slack. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
-> * Skapa användare i slack
-> * Ta bort användare i slack när de inte behöver åtkomst längre
-> * Behåll användarattribut synkroniserade mellan Azure AD och slack
-> * Etablera grupper och grupp medlemskap i slack
-> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-tutorial) till slack (rekommenderas)
+> * Skapa användare i Slack
+> * Ta bort användare i Slack när de inte behöver någon åtkomst längre
+> * Behålla användarattribut som är synkroniserade mellan Azure AD och Slack
+> * Etablera grupper och gruppmedlemskap i Slack
+> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-tutorial) till Slack (rekommenderas)
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
-* [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör).
-* En slack-klient med [plus](https://aadsyncfabric.slack.com/pricing) -eller bättre aktiverat.
-* Ett användar konto i slack med team administratörs behörighet.
+* [En Azure AD-klientorganisation](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
+* En Slack-klientorganisation med [plusplan](https://aadsyncfabric.slack.com/pricing) eller bättre aktiverat.
+* Ett användarkonto i Slack med teamadministratörsbehörighet.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
-1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Ta reda på vem som kommer att vara inom [omfånget för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Ta reda på vilka data som ska [mappas mellan Azure AD och slack](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
+1. Lär dig mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Ta reda på vem som finns i [etableringsomfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och Slack](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>Steg 2. Lägg till slack från Azure AD Application Gallery
+## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>Steg 2. Lägg till Slack från Azure AD-programgalleriet
 
-Lägg till slack från Azure AD-programgalleriet för att börja hantera etablering till slack. Om du tidigare har konfigurerat slack för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen från början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till Slack från Azure AD-programgalleriet och börja hantera etablering till Slack. Om du tidigare har konfigurerat Slack för enkel inloggning, kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>Steg 3. Definiera vem som ska finnas inom omfånget för etablering 
+## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>Steg 3. Definiera vem som ska finnas i etableringsomfånget 
 
-Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på attribut för användaren eller gruppen kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* När du tilldelar användare och grupper till slacket måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
+* När du tilldelar användare och grupper till Slack, måste du välja en annan roll än **Standardåtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller. 
 
-* Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-## <a name="step-4-configure-automatic-user-provisioning-to-slack"></a>Steg 4. Konfigurera automatisk användar etablering till slack 
+## <a name="step-4-configure-automatic-user-provisioning-to-slack"></a>Steg 4. Konfigurera automatisk användaretablering till Slack 
 
-I det här avsnittet får du hjälp med att ansluta Azure AD till slack-API: et för användar konto etablering och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i slack baserat på användar-och grupp tilldelning i Azure AD.
+I det här avsnittet får du hjälp med att ansluta Azure AD till Slack-API:et för användarkontoetablering och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Slack, baserat på användar- och grupptilldelning i Azure AD.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till slack i Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Konfigurera automatisk användarkontoetablering till Slack i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -71,128 +71,128 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till slack-API: et 
 
     ![Slack-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Fliken Etablering](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Fliken Etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** klickar du på **auktorisera**. Då öppnas en dialog ruta för slack-auktorisering i ett nytt webbläsarfönster.
+5. Under avsnittet **Autentiseringsuppgifter för administratör** klickar du på **Auktorisera**. En dialogruta för Slack-auktorisering öppnas i ett nytt webbläsarfönster.
 
-    ![Auktorisering](media/slack-provisioning-tutorial/authorization.png)
+    ![Skärmbild som visar knappen Auktorisera autentiseringsuppgifter för administratör.](media/slack-provisioning-tutorial/authorization.png)
 
 
-6. I det nya fönstret loggar du in på slack med ditt team administratörs konto. i dialog rutan resulterande auktorisering väljer du det slack-team som du vill aktivera etablering för och väljer sedan **auktorisera**. När du är klar återgår du till Azure Portal för att slutföra etablerings konfigurationen.
+6. I det nya fönstret loggar du in på Slack med ditt teamadministratörskonto. i dialogrutan för auktorisering väljer du det Slack-team som du vill aktivera etablering för. Välj sedan **Auktorisera**. När du är klar går du tillbaka till Azure-portalen för att slutföra etableringskonfigurationen.
 
-    ![Dialog rutan auktorisering](./media/slack-provisioning-tutorial/slackauthorize.png)
+    ![Dialogrutan Auktorisering](./media/slack-provisioning-tutorial/slackauthorize.png)
 
-7. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din slack-app. Om anslutningen Miss lyckas kontrollerar du att ditt slack-konto har team administratörs behörighet och försöker sedan igen.
+7. I Azure-portalen klickar du på **Testa anslutning** för att se att Azure AD kan ansluta till din Slack-app. Om anslutningen misslyckas kontrollerar du att ditt Slack-konto har teamadministratörsbehörighet och försöker sedan igen.
 
-8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
+8. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-postmeddelande](common/provisioning-notification-email.png)
+    ![E-postavisering](common/provisioning-notification-email.png)
 
 9. Välj **Spara**.
 
-10. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till slack**.
+10. Under avsnittet Mappningar väljer du **Synkronisera Azure Active Directory-användare till Slack**.
 
-11. I avsnittet **mappningar för attribut** granskar du de användarattribut som kommer att synkroniseras från Azure AD till slack. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha användar kontona i slack för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
+11. I avsnittet **Attributmappningar** granskar du de användarattribut som ska synkroniseras från Azure AD till Slack. Observera att de attribut som väljs som **Matchande** egenskaper kommer att användas för att matcha användarkontona i Slack vid uppdateringsåtgärder. Välj knappen Spara för att spara ändringarna.
 
    |Attribut|Typ|
    |---|---|
    |aktiv|Boolesk|
    |externalId|Sträng|
    |displayName|Sträng|
-   |Name. familyName|Sträng|
-   |Name. givenName|Sträng|
-   |rubrik|Sträng|
-   |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
+   |name.familyName|Sträng|
+   |name.givenName|Sträng|
+   |title|Sträng|
+   |emails[type eq "work"].value|Sträng|
    |userName|Sträng|
-   |Smek namn|Sträng|
-   |adresser [Type EQ "har inte angets]. streetAddress|Sträng|
-   |adresser [Type EQ "har inte angets]. plats|Sträng|
-   |adresser [Type EQ "har inte angets]. region|Sträng|
-   |adresser [Type EQ "untyped]. Postnr|Sträng|
-   |adresser [Type EQ "har inte angets]. land|Sträng|
-   |phoneNumbers [Type EQ "Mobile"]. värde|Sträng|
-   |phoneNumbers [typ EQ "Work"]. värde|Sträng|
-   |roller [Primary EQ "true"]. värde|Sträng|
+   |nickName|Sträng|
+   |addresses[type eq "untyped"].streetAddress|Sträng|
+   |addresses[type eq "untyped"].locality|Sträng|
+   |addresses[type eq "untyped"].region|Sträng|
+   |addresses[type eq "untyped"].postalCode|Sträng|
+   |addresses[type eq "untyped"].country|Sträng|
+   |phoneNumbers[type eq "mobile"].value|Sträng|
+   |phoneNumbers[type eq "work"].value|Sträng|
+   |roles[primary eq "True"].value|Sträng|
    |locale|Sträng|
-   |Name. honorificPrefix|Sträng|
-   |Foton [Type EQ "Foto"]. värde|Sträng|
+   |name.honorificPrefix|Sträng|
+   |photos[type eq "photo"].value|Sträng|
    |profileUrl|Sträng|
-   |informationen|Sträng|
+   |timezone|Sträng|
    |userType|Sträng|
-   |urn: scim: schemas: tillägg: Enterprise: 1.0. Department|Sträng|
-   |urn: scim: schemas: tillägg: Enterprise: 1.0. Manager|Referens|
-   |urn: scim: schemas: tillägg: Enterprise: 1.0. employeeNumber|Sträng|
-   |urn: scim: schemas: tillägg: Enterprise: 1.0. costCenter|Sträng|
-   |urn: scim: schemas: tillägg: Enterprise: 1.0. Organization|Sträng|
-   |urn: scim: schemas: tillägg: Enterprise: 1.0. Division|Sträng|
+   |urn:scim:schemas:extension:enterprise:1.0.department|Sträng|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|Referens|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|Sträng|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|Sträng|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|Sträng|
+   |urn:scim:schemas:extension:enterprise:1.0.division|Sträng|
 
-12. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper till slack**.
+12. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-grupper till Slack**.
 
-13. I avsnittet **mappningar för attribut** granskar du de Gruppattribut som ska synkroniseras från Azure AD till slack. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha grupperna i slack för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
+13. I avsnittet **Attributmappningar** granskar du de gruppattribut som kommer att synkroniseras från Azure AD till Slack. Observera att de attribut som väljs som **Matchande** egenskaper kommer att användas för att matcha grupperna i Slack vid uppdateringsåtgärder. Välj knappen Spara för att spara ändringarna.
 
       |Attribut|Typ|
       |---|---|
       |displayName|Sträng|
       |medlemmar|Referens|
 
-14. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Om du vill aktivera Azure AD Provisioning-tjänsten för slack ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
+15. Om du vill aktivera Azure AD-etableringstjänsten för Slack, ändrar du **Etableringsstatus** till **På** i avsnittet **Inställningar**
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
-16. Definiera de användare och/eller grupper som du vill etablera till slack genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+16. Definiera de användare och/eller grupper som du vill etablera till Slack genom att välja önskade värden i **Omfång** i avsnittet **Inställningar**.
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 17. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40: e minut, förutsatt att Azure AD Provisioning-tjänsten körs. 
+Åtgärden startar den initiala synkroniseringscykeln för alla användare och grupper som har definierats i **Omfång** i avsnittet **Inställningar**. Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40:e minut om Azure AD-etableringstjänsten körs. 
 
 ## <a name="step-5-monitor-your-deployment"></a>Steg 5. Övervaka distributionen
-När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
+När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:
 
-1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
-2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
-3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att se vilka användare som har etablerats och vilka som har misslyckats
+2. Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är att slutföras
+3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
-* När du konfigurerar Slackets **DisplayName** -attribut bör du vara medveten om följande beteenden:
+* När du konfigurerar Slack-attributet **displayName** bör du vara medveten om följande beteenden:
 
-  * Värdena är inte helt unika (t. ex. 2 användare kan ha samma visnings namn)
+  * Värdena är inte helt unika (t.ex. kan två användare ha samma visningsnamn)
 
-  * Har stöd för icke-engelska tecken, blank steg och Skift läge. 
+  * Har stöd för icke-engelska tecken, blanksteg och skiftläge. 
   
-  * Tillåten interpunktion innehåller punkter, under streck, bindestreck, apostrofer, hakparenteser (t. ex. **([{}])**) och avgränsare (t. **ex.,/;**).
+  * Tillåtna skiljetecken inkluderar punkter, understreck, bindestreck, apostrofer, hakparenteser (t.ex. **( [ { } ] )** ) och avgränsare (t.ex. **, / ;** ).
   
-  * displayName-egenskapen får inte ha ett @-Character. Om en @ ingår kan du hitta en överhoppad händelse i etablerings loggarna med beskrivningen "AttributeValidationFailed".
+  * displayName-egenskapen får inte innehålla något ”@”-tecken. Om ett ”@” ingår kan det finnas en överhoppad händelse i etableringsloggarna med beskrivningen ”AttributeValidationFailed”.
 
-  * Endast uppdateringar om de här två inställningarna har kon figurer ATS i slack s arbets plats/organisation – **profil synkronisering är aktiverat** och **användarna inte kan ändra sina visnings namn**.
+  * Uppdateringar görs endast om de här två inställningarna har konfigurerats i Slacks arbetsplats/organisation – **Profilsynkronisering har aktiverats** och **Användarna inte kan ändra sina visningsnamn**.
 
-* Slackets **username** -attribut måste vara under 21 tecken och ha ett unikt värde.
+* Slacks **userName**-attribut måste kortare än 21 tecken och ha ett unikt värde.
 
-* Slack tillåter endast matchning med attributen **användar namn** och **e-post**.  
+* Slack tillåter endast matchning med attributen **userName** och **email**.  
   
-* Vanliga erorr-koder finns dokumenterade i dokumentation om officiella slack – https://api.slack.com/scim#errors
+* Vanliga felkoder finns dokumenterade i den officiella Slack-dokumentationen – https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Ändringslogg
 
-* 06/16/2020 – attributet DisplayName har ändrats till att endast uppdateras när en ny användare skapas.
+* 06/16/2020 – Attributet DisplayName har ändrats till att endast uppdateras när en ny användare skapas.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)

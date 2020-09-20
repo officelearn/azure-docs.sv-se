@@ -28,8 +28,6 @@
           href: tutorial-discover-physical.md
         - name: Identifiera AWS-instanser
           href: tutorial-discover-aws.md
-        - name: Identifiera importerade servrar
-          href: tutorial-discover-import.md
     - name: Utvärdera
       items:
         - name: Utvärdera virtuella VMware-datorer för migrering till virtuella Azure-datorer
@@ -42,6 +40,8 @@
           href: tutorial-assess-physical.md
         - name: Utvärdera AWS-instanser för migrering till Azure
           href: tutorial-assess-aws.md
+        - name: Utvärdera importerade servrar
+          href: tutorial-discover-import.md
     - name: Migrera
       items:
         - name: Migrera virtuella VMware-datorer

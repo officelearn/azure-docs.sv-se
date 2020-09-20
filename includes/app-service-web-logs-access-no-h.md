@@ -10,20 +10,20 @@ ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905875"
 ---
-Om du vill komma åt konsol loggar som genereras inifrån din program kod i App Service aktiverar du diagnostikloggning genom att köra följande kommando i [Cloud Shell](https://shell.azure.com):
+Om du vill komma åt konsolloggarna som genereras i din programkod i App Service aktiverar du diagnostisk loggning genom att köra följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp log config --resource-group <resource-group-name> --name <app-name> --application-logging true --level Verbose
 ```
 
-Möjliga värden för `--level` är: `Error` , `Warning` , `Info` och `Verbose` . På varje efterföljande nivå ingår den föregående nivån. Exempel: `Error` innehåller endast fel meddelanden och `Verbose` innehåller alla meddelanden.
+Möjliga värden för `--level` är: `Error`, `Warning`, `Info` och `Verbose`. Varje efterföljande nivå omfattar den föregående nivån. Exempel: `Error` omfattar endast felmeddelanden och `Verbose` omfattar alla meddelanden.
 
-När Diagnostic-loggning har Aktiver ATS kör du följande kommando för att se logg strömmen:
+När diagnostisk loggning har aktiverats kör du följande kommando för att visa loggströmmen:
 
 ```azurecli-interactive
 az webapp log tail --resource-group <resource-group-name> --name <app-name>
@@ -32,6 +32,6 @@ az webapp log tail --resource-group <resource-group-name> --name <app-name>
 Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
 > [!NOTE]
-> Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
+> Du kan även granska loggfilerna från din webbläsare via `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-Om du vill stoppa logg strömningen när som helst skriver du `Ctrl` + `C` .
+Skriv `Ctrl`+`C` när som helst för att stoppa loggströmningen.

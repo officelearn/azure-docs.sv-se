@@ -1072,6 +1072,8 @@
               href: troubleshoot-not-found.md
             - name: Felsöka behörighet saknas
               href: troubleshoot-unauthorized.md
+            - name: SDK-tillgänglighet i multiregionala miljöer
+              href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
             - name: Allmän felsökning av .NET SDK

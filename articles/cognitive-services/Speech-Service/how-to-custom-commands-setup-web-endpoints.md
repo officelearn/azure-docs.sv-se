@@ -1,7 +1,7 @@
 ---
-title: Konfigurera webb slut punkter (förhands granskning)
+title: Konfigurera webbslutpunkter (förhandsversion)
 titleSuffix: Azure Cognitive Services
-description: konfigurera webb slut punkter för anpassade kommandon
+description: konfigurera webbslutpunkter för anpassade kommandon
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -12,117 +12,117 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86027689"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurera webbslutpunkter
 
-I den här artikeln får du lära dig hur du ställer in webb slut punkter i ett program med anpassade kommandon som gör det möjligt att göra HTTP-förfrågningar från ett klient program. Du kommer att utföra följande uppgifter:
+I den här artikeln får du lära dig att ställa in webbslutpunkter i programmet Anpassade kommandon, där du kan göra HTTP-begäranden från ett klientprogram. Du kommer att utföra följande uppgifter:
 
-- Konfigurera webb slut punkter i program för anpassade kommandon
-- Anropa webb slut punkter i program med anpassade kommandon
-- Ta emot svar på webb slut punkter 
-- Integrera webbslutpunkternas svar i en anpassad JSON-nyttolast, skicka och visualisera det från ett C# UWP-program för tal-SDK
+- Konfigurera webbslutpunkter i programmet Anpassade kommandon
+- Anropa webbslutpunkter i programmet Anpassade kommandon
+- Ta emot webbslutpunkternas svar 
+- Integrera webbslutpunkternas svar i en anpassad JSON-nyttolast, samt skicka och visualisera det från ett Speech SDK-klientprogram för C# UWP
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * En Azure-prenumerations nyckel för tal service: [Hämta en kostnads fri](get-started.md) eller skapa den på [Azure Portal](https://portal.azure.com)
-> * En tidigare [skapad app med anpassade kommandon](quickstart-custom-commands-application.md)
-> * En aktive rad klient app för tal SDK: [instruktioner: slut aktivitet till klient program](./how-to-custom-commands-setup-speech-sdk.md)
+> * En Azure-prenumerationsnyckel för Speech-tjänsten: [Hämta en kostnadsfritt](get-started.md) eller skapa den i [Azure-portalen](https://portal.azure.com)
+> * En tidigare [skapad app för Anpassade kommandon](quickstart-custom-commands-application.md)
+> * En Speech SDK-aktiverad klientapp: [Instruktion: Avsluta aktivitet i klientprogram](./how-to-custom-commands-setup-speech-sdk.md)
 
-## <a name="setup-web-endpoints"></a>Konfigurera webb slut punkter
+## <a name="setup-web-endpoints"></a>Konfigurera webbslutpunkter
 
-1. Öppna programmet anpassade kommandon som du skapade tidigare. 
-1. Gå till "webb slut punkter" och klicka på "ny webb slut punkt".
+1. Öppna programmet Anpassade kommandon som du skapade tidigare. 
+1. Gå till ”Webbslutpunkter” och klicka på ”Ny webbslutpunkt”.
 
    > [!div class="mx-imgBorder"]
-   > ![Ny webb slut punkt](media/custom-commands/setup-web-endpoint-new-endpoint.png)
+   > ![Ny webbslutpunkt](media/custom-commands/setup-web-endpoint-new-endpoint.png)
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställning | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
-   | Name | UpdateDeviceState | Namn för webb slut punkten. |
-   | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | URL-adressen till den slut punkt som du vill att din anpassade kommando-app ska kommunicera med. |
-   | Metod | POST | Tillåtna interaktioner (till exempel GET, POST) med din slut punkt.|
-   | Rubriker | Nyckel: app, värde: ta de första 8 siffrorna i din applicationId | De rubrik parametrar som ska ingå i begär ande huvudet.|
+   | Name | UpdateDeviceState | Namnet på webbslutpunkten. |
+   | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | URL-adressen till den slutpunkt som du vill att din anpassade kommandoapp ska kommunicera med. |
+   | Metod | POST | Tillåtna interaktioner (till exempel GET, POST) med din slutpunkt.|
+   | Sidhuvuden | Nyckel: app, Värde: använd de första 8 siffrorna i ditt applicationId | De rubrikparametrar som ska ingå i begärandets rubrik.|
 
     > [!NOTE]
-    > - Exempel webb slut punkten som skapades med [Azure Function](https://docs.microsoft.com/azure/azure-functions/), som kopplar samman med databasen som sparar TV-enhetens enhets tillstånd
-    > - Den föreslagna rubriken behövs bara för exempel slut punkten
-    > - För att se till att värdet för rubriken är unikt i vår exempel slut punkt, ska du ta de första 8 siffrorna i din applicationId
-    > - I verkligheten kan webb slut punkten vara slut punkten till den IoT- [hubb](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) som hanterar dina enheter
+    > - Exemplet på webbslutpunkten som skapades med [Azure Function](https://docs.microsoft.com/azure/azure-functions/), som kopplas ihop med databasen som sparar enhetens tillstånd för tv och fläkt
+    > - Den föreslagna rubriken behövs bara i slutpunktsexemplet
+    > - För att värdet för rubriken ska vara unikt i slutpunktsexemplet, använder du de första 8 siffrorna i ditt applicationId
+    > - I verkligheten kan webbslutpunkten vara slutpunkten för [IoT-hubben](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) som hanterar dina enheter
 
 1. Klicka på **Spara**.
 
-## <a name="call-web-endpoints"></a>Anropa webb slut punkter
+## <a name="call-web-endpoints"></a>Anropa webbslutpunkter
 
-1. Gå till kommandot **TurnOnOff** , Välj **ConfirmationResponse** under regel för slut för ande och välj sedan **Lägg till en åtgärd**.
-1. Under **ny åtgärd-typ**väljer du **anropa webb slut punkt**
-1. I **Redigera åtgärd – slut punkter**väljer du **UpdateDeviceState**, som är webb slut punkten som vi skapade.  
-1. I **konfiguration**anger du följande värden: 
+1. Gå till kommandot **TurnOnOff**, välj **ConfirmationResponse** under slutföranderegeln och välj sedan **Lägg till en åtgärd**.
+1. Under **Ny åtgärdstyp** väljer du **Anropa webbslutpunkt**
+1. I **Redigera åtgärd – Slutpunkter** väljer du **UpdateDeviceState**, som är webbslutpunkten vi skapade nyss.  
+1. I **Konfiguration** anger du följande värden: 
    > [!div class="mx-imgBorder"]
-   > ![Anropa åtgärds parametrar för webb slut punkter](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
+   > ![Anropa åtgärdsparametrar för webbslutpunkter](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställning | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
-   | Slutpunkter | UpdateDeviceState | Den webb slut punkt som du vill anropa i den här åtgärden. |
-   | Frågeparametrar | objekt = {SubjectDevice} &&värde = {mikrofonen} | Frågeparametrar som ska läggas till i URL: en för webb slut punkten.  |
-   | Innehåll i brödtext | E.t. | Bröd innehållet i begäran. |
+   | Slutpunkter | UpdateDeviceState | Den webbslutpunkt som du vill anropa med åtgärden. |
+   | Frågeparametrar | item={SubjectDevice}&&value={OnOff} | Frågeparametrarna som ska läggas till i webbslutpunktens URL.  |
+   | Brödtextinnehåll | E.t. | Brödtextinnehållet i begärandet. |
 
     > [!NOTE]
-    > - Föreslagna frågeparametrar behövs bara för exempel slut punkten
+    > - De föreslagna frågeparametrarna behövs bara i slutpunktsexemplet
 
-1. Under **åtgärden lyckades-åtgärd att köra**väljer du **Skicka tal svar**.
+1. I **Vid lyckad åtgärd – Åtgärd att utföra** väljer du **Skicka talsvar**.
     
-    I **enkel redigerare**anger du `{SubjectDevice} is {OnOff}` .
+    I **Enkelt redigeringsprogram** anger du `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Anropa webb slut punkts åtgärd vid lyckad](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Anropa webbslutpunkter vid lyckad åtgärd](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställning | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
-   | Åtgärd att köra | Skicka tal svar | Åtgärd som ska utföras om begäran till webb slut punkten lyckas |
+   | Åtgärd att utföra | Skicka talsvar | Åtgärd att utföra om begäran till webbslutpunkten lyckas |
    
    > [!NOTE]
-   > - Du kan också få direkt åtkomst till fälten i http-svaret med hjälp av `{YourWebEndpointName.FieldName}` . Exempel: `{UpdateDeviceState.TV}`
+   > - Du kan också få direkt åtkomst till fälten i http-svaret med hjälp av `{YourWebEndpointName.FieldName}`. Exempelvis: `{UpdateDeviceState.TV}`
 
-1. Välj **Skicka tal svar** på grund **av haveri åtgärd**
+1. I **Vid fel – Åtgärd att utföra** väljer du **Skicka talsvar**
 
-    I **enkel redigerare**anger du `Sorry, {WebEndpointErrorMessage}` .
+    I **Enkelt redigeringsprogram** anger du `Sorry, {WebEndpointErrorMessage}`.
 
    > [!div class="mx-imgBorder"]
-   > ![Anropa webb slut punkts åtgärd vid misslyckande](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
+   > ![Anropa webbslutpunkter vid fel](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställning | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
-   | Åtgärd att köra | Skicka tal svar | Åtgärd som ska utföras om begäran till webb slut punkten Miss lyckas |
+   | Åtgärd att utföra | Skicka talsvar | Åtgärd att utföra om begäran till webbslutpunkten misslyckas |
 
    > [!NOTE]
-   > - `{WebEndpointErrorMessage}` är valfritt. Du är kostnads fri att ta bort det om du inte vill visa något fel meddelande.
-   > - I vår exempel slut punkt skickar vi tillbaka http-svar med detaljerade fel meddelanden för vanliga fel som saknade huvud parametrar. 
+   > - `{WebEndpointErrorMessage}` är valfritt. Du kan ta bort den om du inte vill visa något felmeddelande.
+   > - I vårt slutpunktsexempel skickar vi tillbaka http-svar med detaljerade felmeddelanden om vanliga fel som t.ex. saknade rubrikparametrar. 
 
-### <a name="try-it-out-in-test-portal"></a>Testa i test portalen
-- Vid lyckad svar \
+### <a name="try-it-out-in-test-portal"></a>Testa i testportalen
+- Svaret Vid lyckad åtgärd\
 Spara, träna och testa
    > [!div class="mx-imgBorder"]
-   > ![Anropa webb slut punkts åtgärd vid lyckad](media/custom-commands/setup-web-endpoint-on-success-response.png)
-- Vid misslyckande svar \
-Ta bort en av frågeparametrar, spara, omträna och testa
+   > ![Anropa webbslutpunkter vid lyckad åtgärd](media/custom-commands/setup-web-endpoint-on-success-response.png)
+- Svaret Vid fel\
+Ta bort någon av frågeparametrarna, spara, träna om och testa
    > [!div class="mx-imgBorder"]
-   > ![Anropa webb slut punkts åtgärd vid lyckad](media/custom-commands/setup-web-endpoint-on-fail-response.png)
+   > ![Anropa webbslutpunkter vid lyckad åtgärd](media/custom-commands/setup-web-endpoint-on-fail-response.png)
 
-## <a name="integrate-with-client-application"></a>Integrera med klient program
+## <a name="integrate-with-client-application"></a>Integrera med klientprogram
 
-I [anvisningar: skicka aktivitet till klient program (för hands version)](./how-to-custom-commands-send-activity-to-client.md)har du lagt till en **Skicka aktivitet till klient** åtgärden. Aktiviteten skickas till klient programmet oavsett om åtgärden **anropar webb slut punkten** lyckas eller inte.
-I de flesta fall vill du dock bara skicka aktivitet till klient programmet när anropet till webb slut punkten lyckas. I det här exemplet är det när enhetens status har uppdaterats.
+I [Instruktioner: Skicka aktivitet till klientprogram (förhandsversion)](./how-to-custom-commands-send-activity-to-client.md), lade du till åtgärden **Skicka aktivitet till klient**. Aktiviteten skickas till klientprogrammet oavsett om åtgärden **Anropa webbslutpunkt** har slutförts eller inte.
+I de flesta fall brukar man dock vanligtvis enbart vilja skicka aktiviteten till klientprogrammet om anropet till webbslutpunkten lyckas. I det här exemplet sker det när enhetens status har uppdaterats.
 
-1. Ta bort åtgärden **Skicka aktivitet till klient** som du har lagt till tidigare.
-1. Redigera anrops webb slut punkt: 
-    1. I **konfigurationen**kontrollerar du att **frågeparametrar** är`item={SubjectDevice}&&value={OnOff}`
-    1. Vid **lyckad**åtgärd, ändra **åtgärd att köra** för att **Skicka aktivitet till klienten**
-    1. Kopiera JSON-filen nedan till **aktivitets innehållet**
+1. Ta bort åtgärden **Skicka aktivitet till klient** som du tidigare lade till.
+1. Redigera anrop till webbslutpunkt: 
+    1. I **Konfiguration** kontrollerar du att **Frågeparametrar** är `item={SubjectDevice}&&value={OnOff}`
+    1. I **Vid lyckad åtgärd** ändrar du **Åtgärd att utföra** till **Skicka aktivitet till klient**
+    1. Kopiera JSON-filen nedan till **Aktivitetsinnehåll**
    ```json
    {
      "type": "event",
@@ -132,12 +132,12 @@ I de flesta fall vill du dock bara skicka aktivitet till klient programmet när 
    }
    ```
     > [!div class="mx-imgBorder"]
-    > ![Skicka aktivitet vid lyckad](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
+    > ![Skicka aktivitet vid lyckad åtgärd](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
-Nu ska du bara skicka aktivitet till klienten när begäran till webb slut punkten har slutförts.
+Nu ska du enbart skicka aktiviteten till klienten när begärandet till webbslutpunkten lyckas.
 
-### <a name="create-visuals-for-syncing-device-state"></a>Skapa visuella objekt för synkronisering av enhets status
-Lägg till följande XML till `MainPage.xaml` ovanför `"EnableMicrophoneButton"` blocket.
+### <a name="create-visuals-for-syncing-device-state"></a>Skapa visuella objekt som synkroniserar enhetstillstånd
+Lägg till följande XML i `MainPage.xaml` ovanför blocket `"EnableMicrophoneButton"`.
 
 ```xml
 <Button x:Name="SyncDeviceStateButton" Content="Sync Device State"
@@ -147,9 +147,9 @@ Lägg till följande XML till `MainPage.xaml` ovanför `"EnableMicrophoneButton"
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Synkronisera enhets tillstånd 
+### <a name="sync-device-state"></a>Synkronisera enhetstillstånd 
 
-I `MainPage.xaml.cs` lägger du till referensen `using Windows.Web.Http;` . Lägg till följande kod i- `MainPage` klassen. Den här metoden skickar en GET-begäran till exempel slut punkten och extraherar det aktuella enhets läget för appen. Se till att ändra `<your_app_name>` till det du använde i **sidhuvudet** i den anpassade kommando webb slut punkten
+I `MainPage.xaml.cs` lägger du till referensen `using Windows.Web.Http;`. Lägg till följande kod i klassen `MainPage`. Den här metoden skickar en GET-begäran till slutpunktsexemplet och extraherar det aktuella enhetsläget för appen. Kom ihåg att ändra `<your_app_name>` till det som du använde i det anpassade kommandots **rubrik** i webbslutpunkten
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)
@@ -192,18 +192,18 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 ## <a name="try-it-out"></a>Prova nu
 
 1. Starta programmet
-1. Klicka på synkronisera enhets tillstånd. \
-Om du har testat ut appen med `turn on tv` i föregående avsnitt ser du att TV-programmen visas som "på".
+1. Klicka på Synkronisera enhetstillstånd.\
+Om du testade appen med `turn on tv` i föregående avsnitt, ser du att tv-programmen visas som ”på”.
     > [!div class="mx-imgBorder"]
-    > ![Synkronisera enhets tillstånd](media/custom-commands/setup-web-endpoint-sync-device-state.png)
+    > ![Synkronisera enhetstillstånd](media/custom-commands/setup-web-endpoint-sync-device-state.png)
 1. Välj Aktivera mikrofon
-1. Välj knappen prata
-1. Berätta`turn on the fan`
-1. Fläktens visuella tillstånd ska ändras till "på"
+1. Välj knappen Prata
+1. Säg `turn on the fan`
+1. Fläktens status bör ändras till ”på”
     > [!div class="mx-imgBorder"]
-    > ![Aktivera fläkten](media/custom-commands/setup-web-endpoint-turn-on-fan.png)
+    > ![Sätt på fläkten](media/custom-commands/setup-web-endpoint-turn-on-fan.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Aktivera en CI/CD-process för anpassade kommandon-program](./how-to-custom-commands-deploy-cicd.md)
+> [Aktivera en CI/CD-process för programmet Anpassade kommandon](./how-to-custom-commands-deploy-cicd.md)

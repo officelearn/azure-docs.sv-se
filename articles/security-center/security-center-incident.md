@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 28a6ea4ed40df909b4d74ff52703babb8e8cd949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6ddfa1f6db06c2ca06b94efec7f890c2a714b2a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791762"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883871"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Hantera säkerhets incidenter i Azure Security Center
 
@@ -62,6 +62,5 @@ I Security Center är en säkerhetsincident en sammanställning av alla aviserin
 
 Den här sidan förklaras säkerhets incident funktionerna i Security Center. Relaterad information finns på följande sidor:
 
-* [Skydd mot hot i Security Center](threat-protection.md)
-* [Säkerhets aviseringar i Security Center](security-center-alerts-overview.md)
-* [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)
+- [Säkerhets aviseringar i Security Center](security-center-alerts-overview.md)
+- [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)

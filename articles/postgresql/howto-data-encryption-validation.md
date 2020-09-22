@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117856"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884345"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Verifierar data kryptering för Azure Database for PostgreSQL
 
@@ -37,7 +37,7 @@ Den här artikeln hjälper dig att kontrol lera att data kryptering med kund han
 
 2. Om du kan se till att krypterings nyckeln har angetts på Azure Portal, krypteras data med hjälp av den kund nyckel som används i Azure Portal.
 
-  ![Översikt över åtkomst princip](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Översikt över åtkomst princip":::
 
 ### <a name="from-cli"></a>Från CLI
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883949"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och besvara säkerhetsaviseringar i Azure Security Center
 
@@ -28,7 +28,7 @@ Det här avsnittet visar hur du visar och bearbetar aviseringar som du har tagit
 * En översikt över hur Security Center genererar aviseringar finns i [hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md).
 
 > [!NOTE]
-> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. Det finns en kostnadsfri utvärderingsversion. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
+> Aktivera Avancerad identifiering genom att aktivera Azure Defender. Det finns en kostnadsfri utvärderingsversion. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
 
 ## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
 Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandväggs- och slutpunktsskyddslösningar för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp.
@@ -38,7 +38,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 
 ## <a name="manage-your-security-alerts"></a>Hantera dina säkerhets aviseringar
 
-1. På instrument panelen för Security Center går du till panelen **hot skydd** för att visa och översikt över aviseringarna.
+1. På instrument panelen för Security Center går du till panelen  **hot skydd** för att visa och översikt över aviseringarna.
 
     ![Panelen Säkerhetsaviseringar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 

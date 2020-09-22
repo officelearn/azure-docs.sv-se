@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 893b2eefc2c4c81e66bf86a1c999a3c4198a3c71
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718707"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883831"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Förbättra din säkerhetshållning med Azure Security Center
 Den här artikeln hjälper dig att förstärka din säkerhets position. Använd övervaknings funktionerna i Azure Security Center för att se till att resurs säkerheten är så tätt som möjligt och övervaka efterlevnaden av principer.
@@ -28,24 +28,12 @@ Ofta tänker vi oss att övervakning är att sitta och titta och vänta på att 
 
 När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Beroende på antalet virtuella datorer och datorer som du har med agenten installerad kan det ta en timme eller mer att samla in information om de virtuella datorerna och datorns konfiguration, t.ex. status för säkerhetsuppdatering och operativsystemkonfiguration, så att informationen blir tillgänglig. Du kan visa en fullständig lista över problem och sätt att skärpa nätverket och åtgärda risker i rutan **rekommendationer** .
 
-Du kan visa säkerhets status för dina resurser och eventuella problem per resurs typ:
-
-- Om du vill övervaka hälso tillståndet för dina dator resurser och dina appar och få rekommendationer för att förbättra säkerheten, se [skydda dina datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
-- För att övervaka dina nätverks resurser, till exempel virtuella datorer, nätverks säkerhets grupper och slut punkter och få rekommendationer för att förbättra säkerheten, se [skydda nätverket i Azure Security Center](security-center-network-recommendations.md) för mer information. 
-- För att övervaka dina data och lagrings resurser, till exempel SQL-servrar och lagrings konton, samt få rekommendationer för att förbättra säkerheten, se [skydda Azure SQL-tjänsten och data i Azure Security Center](security-center-sql-service-recommendations.md) för mer information. 
-- För att övervaka dina identitets-och åtkomst resurser, inklusive MFA-och konto behörigheter, och få rekommendationer för att förbättra säkerheten, se [övervaka identitet och åtkomst i Azure Security Center](security-center-identity-access.md) för mer information. 
-- Information om hur du övervakar just-in-Time-åtkomst till dina resurser finns i [Hantera åtkomst till virtuella datorer med just-in-Time](security-center-just-in-time.md) för mer information.
-
+Du kan visa säkerhets status för dina resurser och eventuella problem per resurs typ från [sidan till gångs inventering och hantering](asset-inventory.md).
 
 Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
 
-
-![Panelen resurssäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
-
-
-
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du fått lära dig hur du använder övervakningsfunktionerna i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md): Här får du lära dig hur du ställer in säkerhetsprinciper i Azure Security Center.

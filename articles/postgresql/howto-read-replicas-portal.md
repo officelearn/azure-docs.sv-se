@@ -6,19 +6,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 8ca4d3d2d52e79dbcaaa15eba5794a4d2d28366a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 623b9c1eccefe5d7e6027ddbed61c89720d98e9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274551"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884485"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for PostgreSQL-enskild server från Azure Portal
 
 I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for PostgreSQL från Azure Portal. Mer information om Läs repliker finns i [översikten](concepts-read-replicas.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md) som ska vara huvud servern.
 
 ## <a name="azure-replication-support"></a>Stöd för Azure-replikering
@@ -41,20 +41,20 @@ Servern måste startas om efter en ändring av den här parametern. Internt ange
 
 3. Om stöd för Azure Replication inte är inställt på minst **replik**anger du det. Välj **Spara**.
 
-   ![Azure Database for PostgreSQL-replikering-Ställ in replik och spara](./media/howto-read-replicas-portal/set-replica-save.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Azure Database for PostgreSQL-replikering-Ställ in replik och spara":::
 
 4. Starta om servern för att tillämpa ändringen genom att välja **Ja**.
 
-   ![Azure Database for PostgreSQL-replikering-bekräfta omstart](./media/howto-read-replicas-portal/confirm-restart.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL-replikering-bekräfta omstart":::
 
 5. Du får två Azure Portal-meddelanden när åtgärden har slutförts. Det finns ett meddelande om att uppdatera Server parametern. Det finns ett annat meddelande för omstart av servern som följer omedelbart.
 
-   ![Lyckade aviseringar](./media/howto-read-replicas-portal/success-notifications.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Lyckade aviseringar":::
 
 6. Uppdatera den Azure Portal sidan om du vill uppdatera verktygsfältet replikering. Nu kan du skapa Läs repliker för den här servern.
    
 
-## <a name="create-a-read-replica"></a>Skapa en Läs replik
+## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 Följ dessa steg om du vill skapa en Läs replik:
 
 1. Välj en befintlig Azure Database for PostgreSQL server som ska användas som huvud server. 
@@ -63,15 +63,15 @@ Följ dessa steg om du vill skapa en Läs replik:
 
 3. Välj **Lägg till replik**.
 
-   ![Lägg till en replik](./media/howto-read-replicas-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Lägg till en replik":::
 
 4. Ange ett namn på Läs repliken. 
 
-    ![Namnge repliken](./media/howto-read-replicas-portal/name-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Namnge repliken":::
 
 5. Välj en plats för repliken. Standard platsen är samma som för huvud servern.
 
-    ![Välja en plats](./media/howto-read-replicas-portal/location-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Välj en plats":::
 
    > [!NOTE]
    > Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
@@ -80,7 +80,7 @@ Följ dessa steg om du vill skapa en Läs replik:
 
 När Läs repliken har skapats kan den visas från fönstret **replikering** :
 
-![Visa den nya repliken i fönstret replikering](./media/howto-read-replicas-portal/list-replica.png)
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Visa den nya repliken i fönstret replikering":::
  
 
 > [!IMPORTANT]
@@ -102,15 +102,15 @@ Följ dessa steg om du vill stoppa replikeringen mellan en huvud server och en L
 
 3. Välj den replik Server för vilken du vill stoppa replikeringen.
 
-   ![Välj repliken](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Välj repliken":::
  
 4. Välj **stoppa replikering**.
 
-   ![Välj stoppa replikering](./media/howto-read-replicas-portal/select-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Välj stoppa replikering":::
  
 5. Välj **OK** för att stoppa replikeringen.
 
-   ![Bekräfta att replikeringen ska stoppas](./media/howto-read-replicas-portal/confirm-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Bekräfta att replikeringen ska stoppas":::
  
 
 ## <a name="delete-a-master-server"></a>Ta bort en huvud server
@@ -125,11 +125,11 @@ Följ dessa steg om du vill ta bort en server från Azure Portal:
 
 2. Öppna sidan **Översikt** för servern. Välj **Ta bort**.
 
-   ![På sidan Server översikt väljer du om du vill ta bort huvud servern](./media/howto-read-replicas-portal/delete-server.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="På sidan Server översikt väljer du om du vill ta bort huvud servern":::
  
 3. Ange namnet på huvud servern som ska tas bort. Bekräfta borttagningen av huvud servern genom att välja **ta bort** .
 
-   ![Bekräfta att huvud servern ska tas bort](./media/howto-read-replicas-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Bekräfta att huvud servern ska tas bort":::
  
 
 ## <a name="delete-a-replica"></a>Ta bort en replik
@@ -137,7 +137,7 @@ Du kan ta bort en Läs replik som liknar hur du tar bort en huvud server.
 
 - I Azure Portal öppnar du sidan **Översikt** för Läs repliken. Välj **Ta bort**.
 
-   ![På sidan replik översikt väljer du om du vill ta bort repliken](./media/howto-read-replicas-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="På sidan replik översikt väljer du om du vill ta bort repliken":::
  
 Du kan också ta bort Läs repliken från fönstret **replikering** genom att följa dessa steg:
 
@@ -147,15 +147,15 @@ Du kan också ta bort Läs repliken från fönstret **replikering** genom att f�
 
 3. Välj den Läs replik som ska tas bort.
 
-   ![Välj den replik som ska tas bort](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Välj den replik som ska tas bort":::
  
 4. Välj **ta bort replik**.
 
-   ![Välj Ta bort replik](./media/howto-read-replicas-portal/select-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Välj Ta bort replik":::
  
 5. Ange namnet på repliken som ska tas bort. Bekräfta borttagning av repliken genom att välja **ta bort** .
 
-   ![Bekräfta borttagning av te-replik](./media/howto-read-replicas-portal/confirm-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Bekräfta borttagning av te-replik":::
  
 
 ## <a name="monitor-a-replica"></a>Övervaka en replik
@@ -168,7 +168,7 @@ Måttet **Max fördröjning över repliker** visar fördröjningen i byte mellan
 
 2.  Välj **Mått**. I fönstret **mått** väljer du **Max fördröjning över repliker**.
 
-    ![Övervaka maximal fördröjning mellan repliker](./media/howto-read-replicas-portal/select-max-lag.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Övervaka maximal fördröjning mellan repliker":::
  
 3.  För din **agg regering**väljer du **Max**.
 
@@ -180,7 +180,7 @@ Värdet för **replik fördröjningen** visar tiden sedan den senaste återspela
 
 2. Välj **Mått**. I fönstret **mått** väljer du **replik fördröjning**.
 
-   ![Övervaka replik fördröjningen](./media/howto-read-replicas-portal/select-replica-lag.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Övervaka replik fördröjningen":::
  
 3. För din **agg regering**väljer du **Max**. 
  

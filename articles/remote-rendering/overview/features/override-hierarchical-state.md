@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024408"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884170"
 ---
 # <a name="hierarchical-state-override"></a>Åsidosätta hierarkiskt tillstånd
 
@@ -45,6 +45,10 @@ Den fasta uppsättning tillstånd som kan åsidosättas är:
   ![Alternativet disposition som används för att markera en markerad del](./media/selection-outline.png)
 
 * **`DisableCollision`**: Geometrin är undantagen från [rums frågor](spatial-queries.md). **`Hidden`** Flaggan påverkar inte flaggan kollisioner, så dessa två flaggor anges ofta tillsammans.
+
+* **`UseCutPlaneFilterMask`**: Använd en enskild filter bit mask för att kontrol lera det avskurna planet valet. Den här flaggan avgör om den enskilda filter masken ska användas eller ärvas från den överordnade. Själva filtrets bitmask anges via `CutPlaneFilterMask` egenskapen. Detaljerad information om hur filtreringen fungerar finns i [stycket selektivt avskurna plan](cut-planes.md#selective-cut-planes).
+![Selektiva klipp ut plan](./media/selective-cut-planes.png)
+
 
 > [!TIP]
 > Som ett alternativ till att inaktivera Synlighets-och rums frågor för ett fullständigt under diagram `enabled` kan status för ett spel objekt växlas. Om en hierarki är inaktive rad har detta företräde `HierarchicalStateOverrideComponent` .

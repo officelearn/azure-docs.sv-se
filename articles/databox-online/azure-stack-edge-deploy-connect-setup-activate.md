@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att ansluta till, konfigurera, aktivera Azure Stack gräns enhet i Azure Portal | Microsoft Docs
-description: Självstudier för att distribuera Azure Stack Edge instruerar dig att ansluta, konfigurera och aktivera den fysiska enheten.
+title: Självstudie för att ansluta till, konfigurera, aktivera Azure Stack Edge Pro-enhet i Azure Portal | Microsoft Docs
+description: Självstudie för att distribuera Azure Stack Edge Pro instruerar dig att ansluta, konfigurera och aktivera den fysiska enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 5a89125edf6082bbbcbaf139a648c9edc2debf81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84608442"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894250"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Självstudie: ansluta, konfigurera och aktivera Azure Stack Edge 
+# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Självstudie: ansluta, konfigurera och aktivera Azure Stack Edge Pro 
 
-I den här självstudien beskrivs hur du kan ansluta till, konfigurera och aktivera din Azure Stack Edge-enhet med hjälp av det lokala webb gränssnittet.
+I den här självstudien beskrivs hur du kan ansluta till, konfigurera och aktivera din Azure Stack Edge Pro-enhet med hjälp av det lokala webb gränssnittet.
 
 Installations-och aktiverings processen kan ta ungefär 20 minuter att slutföra.
 
@@ -31,32 +31,32 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du konfigurerar och konfigurerar Azure Stack Edge-enheten måste du kontrol lera att:
+Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet ser du till att:
 
-* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge](azure-stack-edge-deploy-install.md).
-* Du har aktiverings nyckeln från Azure Stack Edge-tjänsten som du skapade för att hantera Azure Stack Edge-enheten. Mer information finns i [förbereda för att distribuera Azure Stack Edge](azure-stack-edge-deploy-prep.md).
+* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge Pro](azure-stack-edge-deploy-install.md).
+* Du har aktiverings nyckeln från Azure Stack Edge-tjänsten som du skapade för att hantera Azure Stack Edge Pro-enheten. Mer information finns i [förbereda för att distribuera Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md).
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Anslut till konfiguration av lokalt webb gränssnitt
 
-1. Konfigurera Ethernet-kortet på datorn för att ansluta till Azure Stack Edge-enheten med en statisk IP-adress för 192.168.100.5 och undernät 255.255.255.0.
+1. Konfigurera Ethernet-kortet på datorn för att ansluta till den Azure Stack Edge Pro-enheten med en statisk IP-adress för 192.168.100.5 och undernät 255.255.255.0.
 
 2. Anslut datorn till PORT 1 på enheten. Använd följande bild för att identifiera PORT 1 på enheten.
 
     ![Baksidan på en kabelansluten enhet](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
-3. Öppna ett webbläsarfönster och öppna det lokala webb gränssnittet för enheten på `https://192.168.100.10` .  
-    Den här åtgärden kan ta några minuter efter att enheten har Aktiver ATS.
+3. Öppna en webbläsare och anslut till enhetens lokala webbgränssnitt på `https://192.168.100.10`.  
+    Den här åtgärden kan ta några minuter efter att du har aktiverat enheten.
 
-    Du ser ett fel eller en varning som anger att det är problem med webbplatsens säkerhetscertifikat.
+    Du ser ett fel eller en varning om ett problem med webbplatsens säkerhetscertifikat.
    
     ![Webbplats säkerhets certifikat fel meddelande](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
 4. Välj **Fortsätt till den här webb sidan**.  
     De här stegen kan variera beroende på vilken webbläsare du använder.
 
-5. Logga in på enhetens webb gränssnitt. Standard lösen ordet är *Password1*. 
+5. Logga in i enhetens webbgränssnitt. Standard lösen ordet är *Password1*. 
    
-    ![Inloggnings sida för Azure Stack Edge-enhet](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Inloggnings sida för Azure Stack Edge Pro-enhet](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. Ändra enhetens administratörs lösen ord vid prompten.  
     Det nya lösen ordet måste innehålla mellan 8 och 16 tecken. Det måste innehålla tre av följande tecken: versaler, gemener, numeriska tecken och specialtecken.
@@ -75,18 +75,18 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
     ![Sidan enhets namn för lokalt webb gränssnitt](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. Valfritt Välj **nätverks inställningar** i den vänstra rutan och konfigurera sedan inställningarna.  
-    Det finns sex nätverks gränssnitt på den fysiska enheten. PORT 1 och PORT 2 är 1-Gbps nätverks gränssnitt. PORT 3, PORT 4, PORT 5 och PORT 6 är alla 25 Gbit/s nätverks gränssnitt som också kan fungera som 10 Gbit/s nätverks gränssnitt. PORT 1 konfigureras automatiskt som en port för endast hantering, och PORT 2 till PORT 6 är alla data portar. Sidan **nätverks inställningar** visas nedan.
+    Det finns sex nätverksgränssnitt på den fysiska enheten. PORT 1 och PORT 2 är nätverksgränssnitt på 1 Gbit/s. PORT 3, PORT 4, PORT 5 och PORT 6 är alla 25 Gbit/s nätverks gränssnitt som också kan fungera som 10 Gbit/s nätverks gränssnitt. PORT 1 konfigureras automatiskt som en port för endast hantering, och PORT 2 till PORT 6 är alla data portar. Sidan **nätverks inställningar** visas nedan.
     
     ![Sidan nätverks inställningar för lokalt webb gränssnitt](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
-    Tänk på följande när du konfigurerar nätverks inställningarna:
+    Tänk på följande när du konfigurerar nätverksinställningarna:
 
-   - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. En IP-adress, undernät, gateway och DNS tilldelas automatiskt.
+   - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. IP-adress, undernät, gateway och DNS tilldelas automatiskt.
    - Om DHCP inte är aktive rad kan du tilldela statiska IP-adresser om det behövs.
    - Du kan konfigurera nätverks gränssnittet som IPv4.
 
      >[!NOTE] 
-     > Vi rekommenderar att du inte byter lokal IP-adress för nätverks gränssnittet från statisk till DCHP, om du inte har en annan IP-adress för att ansluta till enheten. Om du använder ett nätverks gränssnitt och växlar till DHCP, kan det vara något sätt att fastställa DHCP-adressen. Om du vill ändra till en DHCP-adress väntar du tills enheten har registrerats med tjänsten och ändrar sedan. Du kan sedan Visa IP-adresserna för alla nätverkskort i **enhets egenskaperna** i Azure Portal för din tjänst.
+     > Vi rekommenderar att du inte byter nätverksgränssnittets lokala IP-adress från statisk till DCHP om du inte har någon annan IP-adress för att ansluta till enheten. Om du använder ett nätverksgränssnitt och växlar till DHCP finns det inget sätt att fastställa DHCP-adressen. Om du vill byta till en DHCP-adress ska du vänta med ändringen tills enheten har registrerats i tjänsten. Du kan sedan Visa IP-adresserna för alla nätverkskort i **enhets egenskaperna** i Azure Portal för din tjänst.
 
 3. Valfritt I den vänstra rutan väljer du **Inställningar för webbproxy**och konfigurerar sedan webbproxyservern. Även om webbproxy-konfigurationen är valfri, kan du bara konfigurera den på den här sidan om du använder en webbproxy.
    
@@ -94,9 +94,9 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
    
    På sidan **Web Proxy-inställningar** gör du följande:
    
-   a. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://host-IP address or FQDN:Port number` . HTTPS-URL: er stöds inte.
+   a. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://host-IP address or FQDN:Port number` . Du kan inte använda HTTPS-adresser.
 
-   b. Under **autentisering**väljer du **ingen** eller **NTLM**. Om du aktiverar beräknings-och användnings IoT Edge-modulen på Azure Stack Edge-enhet rekommenderar vi att du ställer in webbproxy-autentisering på **ingen**. **NTLM** stöds inte.
+   b. Under **autentisering**väljer du **ingen** eller **NTLM**. Om du aktiverar beräknings-och användnings IoT Edge modul på din Azure Stack Edge Pro-enhet rekommenderar vi att du ställer in webbproxy-autentisering på **ingen**. **NTLM** stöds inte.
 
    c. Om du använder autentisering anger du ett användar namn och lösen ord.
 
@@ -104,8 +104,8 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
 
    > [!NOTE]
    > PAC-filer (Proxy-Auto config) stöds inte. En PAC-fil definierar hur webbläsare och andra användar agenter automatiskt kan välja rätt proxyserver (åtkomst metod) för att hämta en viss URL.
-   > Proxyservrar som försöker avlyssna och läsa all trafik (och sedan signera om allting med sin egen certifiering) är inte kompatibelt eftersom proxyns certifikat inte är betrott.
-   > Oftast fungerar transparenta proxyservrar bra med Azure Stack Edge.
+   > Proxyservrar som försöker avlyssna och läsa all trafik (och sedan signera om allting med sin egen certifiering) är inte kompatibla eftersom proxyns certifikat inte är betrott.
+   > Oftast fungerar transparenta proxyservrar bra med Azure Stack Edge Pro.
 
 4. Valfritt I det vänstra fönstret väljer du **tids inställningar**och konfigurerar sedan tids zonen och de primära och sekundära NTP-servrarna för enheten.  
     NTP-servrar krävs eftersom din enhet måste synkronisera tid så att den kan autentiseras med dina moln tjänst leverantörer.
@@ -133,8 +133,8 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
 
 6. I det vänstra fönstret väljer du **moln inställningar**och aktiverar sedan enheten med Azure Stack Edge-tjänsten i Azure Portal.
     
-    1. I rutan **aktiverings nyckel** anger du aktiverings nyckeln som du fick i [Hämta aktiverings nyckeln](azure-stack-edge-deploy-prep.md#get-the-activation-key) för Azure Stack Edge.
-    2. Välj **Tillämpa**.
+    1. I rutan **aktiverings nyckel** anger du aktiverings nyckeln som du fick i [Hämta aktiverings nyckeln](azure-stack-edge-deploy-prep.md#get-the-activation-key) för Azure Stack Edge Pro.
+    2. Välj **Använd**.
        
         ![Sidan Cloud Settings för lokalt webb gränssnitt](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
@@ -158,7 +158,7 @@ I den här självstudiekursen lärde du dig att:
 > * Ansluta till en fysisk enhet
 > * Konfigurera och aktivera den fysiska enheten
 
-Information om hur du överför data med Azure Stack Edge-enhet finns i:
+Information om hur du överför data med din Azure Stack Edge Pro-enhet finns i:
 
 > [!div class="nextstepaction"]
-> [Överför data med Azure Stack Edge](./azure-stack-edge-deploy-add-shares.md).
+> [Överför data med Azure Stack Edge Pro](./azure-stack-edge-deploy-add-shares.md).

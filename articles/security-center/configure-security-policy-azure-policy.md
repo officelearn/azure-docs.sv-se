@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a81b3016f86c6fd7de646ccbdbf533685471ac3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77430949"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894804"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurera en säkerhets princip i Azure Policy med hjälp av REST API
 
@@ -115,7 +115,7 @@ Det här exemplet visar hur du tar bort en tilldelning:
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## <a name="policy-names-reference"></a>Princip namn referens<a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Princip namn referens <a name="policy-names"></a>
 
 |Princip namn i Security Center|Princip namn som visas i Azure Policy |Parameter namn för princip påverkan|
 |----|----|----|
@@ -124,7 +124,7 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |Systemuppdateringar |Övervaka system uppdateringar som saknas i Azure Security Center |systemUpdatesMonitoringEffect|
 |Lagringskryptering |Granska avsaknad av blobkryptering för lagringskonton |storageEncryptionMonitoringEffect|
 |Åtkomst till JIT-nätverk |Övervaka möjliga nätverks åtkomst för just-in-Time (JIT) i Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Anpassningsbara programkontroller |Övervaka möjlig app-vit listning i Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Anpassningsbara programkontroller |Övervaka möjliga appars tillåtna listor i Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Nätverkssäkerhetsgrupper |Övervaka tillåtad nätverks åtkomst i Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Säkerhetskonfigurationer |Övervaka OS-sårbarheter i Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Övervaka saknade Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |

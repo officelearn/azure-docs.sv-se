@@ -1,0 +1,103 @@
+### YamlMime:Landing
+title: Dokumentation om flexibel server
+summary: Azure Database for MySQL – flexibel server är en fullständigt hanterad MySQL-databas som en tjänst som används för att hantera verksamhetskritiska arbetsbelastningar med förutsägbar prestanda och dynamisk skalbarhet. Utveckla program med Azure Database for MySQL och använd valfria verktyg för plattform och öppen källkod. Lär dig hur du använder Azure Database för MySQL med våra snabbstarter, självstudier och exempel.
+metadata:
+  description: Azure Database for MySQL – flexibel server är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare och som drivs av MySQL Community Edition.
+  author: mksuni
+  ms.author: sumuth
+  ms.date: 09/21/2020
+  ms.service: mysql
+  ms.topic: landing-page
+  ms.openlocfilehash: 09086af6cee517f9e30657802934d0f7fb1b14a9
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928912"
+landingContent:
+- title: Om flexibel server (förhandsversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är flexibel server?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa en flexibel server
+      url: quickstart-create-server-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa en PHP-app med flexibel server
+      url: tutorial-php-database-app.md
+  - linkListType: whats-new
+    links:
+    - text: Ta en titt på bloggen
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+- title: Hantera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Alternativ för compute och lagring
+      url: concepts-compute-storage.md
+    - text: MySQL-versioner
+      url: concepts-supported-versions.md
+    - text: Nätverk
+      url: concepts-networking.md
+    - text: Övervaka
+      url: concepts-monitoring.md
+    - text: Granskningsloggar
+      url: concepts-audit-logs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera en server
+      url: how-to-manage-server-portal.md
+    - text: Stoppa/starta servern
+      url: how-to-stop-start-server-portal.md
+    - text: Konfigurera och få åtkomst till loggar
+      url: how-to-configure-slow-query-logs-portal.md
+    - text: Schemalägg underhåll
+      url: how-to-maintenance-portal.md
+- title: Verksamhetskontinuitet
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Översikt över affärskontinuitet
+      url: concepts-business-continuity.md
+    - text: Hög tillgänglighet
+      url: concepts-high-availability.md
+    - text: Säkerhetskopiering och återställning
+      url: concepts-backup-restore.md
+  - linkListType: how-to-guide
+    links:
+    - text: Återställ en server
+      url: how-to-restore-server-portal.md
+- title: Ansluta
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Ansluta med PHP
+      url: connect-php.md
+    - text: Ansluta med MySQL Workbench
+      url: connect-workbench.md
+    - text: Ansluta med Python
+      url: connect-python.md
+  - linkListType: tutorial
+    links:
+    - text: Ansluta en webbapp i ett virtuellt nätverk
+      url: tutorial-webapp-server-vnet.md
+- title: Migrera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Migrera online
+      url: ../howto-migrate-online.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Referens för Azure CLI-utvecklare
+      url: /cli/azure/mysql
+    - text: Referens för REST API-utvecklare
+      url: /rest/api/mysql/
+    - text: Azure Resource Manager-mallar
+      url: /azure/templates/microsoft.dbformysql/allversions

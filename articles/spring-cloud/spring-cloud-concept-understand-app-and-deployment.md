@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297543"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892509"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Förstå appar och distribution i Azure våren Cloud
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
 **App** och **distribution** är de två viktiga begreppen i resurs modellen i Azure våren Cloud. I Azure våren Cloud är en *app* en abstraktion av en affärsappar eller en mikrotjänst.  En version av kod eller binär distribution som *appen* körs i en *distribution*.  Appar körs i en *Azure våren moln tjänst instans*eller bara *tjänst instans*, som du ser härnäst.
 
@@ -41,7 +43,7 @@ Följande funktioner/egenskaper definieras på distributions nivå och kommer at
 
 | Enum | Definition |
 |:--|:----------------|
-| CPU | Antal virtuella kärnor per app-instans |
+| Processor | Antal virtuella kärnor per app-instans |
 | Minne | Inställning som allokerar minne för att skala upp eller skala ut distributioner |
 | Instans</br>Antal | Antalet App-instanser, ange manuellt eller automatiskt |
 | Automatisk skalning | Skala instans antal automatiskt baserat på fördefinierade regler och scheman |

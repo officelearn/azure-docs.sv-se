@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 680fd298f3d772ecb9a4787342d22bf44e74ec78
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 394d048ce5978c2789e47b984abebaf30dec5f93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651093"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893581"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -184,7 +184,7 @@ Det finns inget universellt svar på "Hur gör jag för att veta om jag borde tr
 - Jämför utmatningarna för den nya modellen till dem i din gamla modell
 - Använd fördefinierade villkor för att välja om du vill ersätta din gamla modell 
 
-Ett tema med ovanstående steg är att omskolningen ska vara automatiserad, inte ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) är ett utmärkt svar för att skapa arbets flöden som rör förberedelse av data, utbildning, validering och distribution. Läs [träna modeller med Azure Machine Learning designer (för hands version)](how-to-retrain-designer.md) om du vill se hur pipelines och Azure Machine Learning designer passar i ett omskolnings scenario. 
+Ett tema med ovanstående steg är att omskolningen ska vara automatiserad, inte ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) är ett utmärkt svar för att skapa arbets flöden som rör förberedelse av data, utbildning, validering och distribution. Läs [träna modeller med Azure Machine Learning designer](how-to-retrain-designer.md) och se hur pipelines och Azure Machine Learning designer passar i ett omskolnings scenario. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatisera ML-livscykeln 
 

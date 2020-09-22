@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 57746b833e238bbd0cc99ba103f710a9239ee5ba
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665161"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893178"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Översikt över virtuella nätverks isolering och sekretess
 
@@ -28,7 +28,7 @@ Här följer de andra artiklarna i den här serien:
 
 **1. VNet-översikt**  >  [2. Skydda arbets ytan](how-to-secure-workspace-vnet.md)  >  [3. Skydda inlärnings miljö](how-to-secure-training-vnet.md)  >  [4. Skydda inferencing-miljön](how-to-secure-inferencing-vnet.md)  >  [5. Aktivera Studio-funktioner](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med följande avsnitt:
 + [Virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
@@ -63,22 +63,6 @@ Följande fem avsnitt visar hur du skyddar nätverks scenariot som beskrivs ovan
 1. Skydda [**inferencing-miljön**](#secure-the-inferencing-environment).
 1. Du kan också: [**Aktivera Studio-funktioner**](#optional-enable-studio-functionality).
 1. Konfigurera [ **brand Väggs inställningar**](#configure-firewall-settings)
-
-> [!TIP]
->  Vissa kombinationer av virtuella nätverk och Azure-tjänster kräver en Enterprise Edition-arbetsyta. Använd följande tabell för att ta reda på vilka scenarier som kräver Enterprise Edition:
->
-> | Scenario | Enterprise</br>Edition | Basic</br>Edition |
-> | ----- |:-----:|:-----:| 
-> | Inget virtuellt nätverk eller en privat länk | ✔ | ✔ |
-> | Arbets yta utan privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
-> | Arbets yta utan privat länk. Andra resurser med privat länk | ✔ | |
-> | Arbets yta med privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
-> | Arbets yta och andra resurser med privat länk | ✔ | |
-> | Arbets yta med privat länk. Andra resurser utan privat länk eller virtuellt nätverk | ✔ | ✔ |
-> | Azure Container Registry i ett virtuellt nätverk | ✔ | |
-> | Kundhanterade nycklar för arbets ytan | ✔ | |
->
-
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>Skydda arbets ytan och tillhör ande resurser
 

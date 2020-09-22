@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011862"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894807"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor och svar om data insamling, agenter och arbets ytor
 
@@ -29,9 +29,9 @@ Security Center samlar in data från dina virtuella Azure-datorer (VM), skalning
 
 Nej. Arbets ytor som skapats av Security Center, och som kon figurer ATS för Azure Monitor loggar per nod fakturering, debiteras inte Azure Monitor loggar. Security Center faktureringen baseras alltid på din Security Center säkerhets princip och de lösningar som är installerade på en arbets yta:
 
-- **Kostnads fri nivå** – Security Center aktiverar lösningen "SecurityCenterFree" på standard arbets ytan. Du debiteras inte för den kostnads fria nivån.
+- **Azure Defender av** – Security Center aktiverar lösningen "SecurityCenterFree" på standard arbets ytan. Du debiteras inte om Azure Defender är inaktive rad.
 
-- **Standard-nivå** – Security Center aktiverar säkerhets lösningen på standard arbets ytan.
+- **Azure Defender på** – Security Center aktiverar säkerhets lösningen på standard arbets ytan.
 
 Mer information om priser finns i [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -164,7 +164,7 @@ Om du tar bort Microsoft Monitoring Extension kan Security Center inte samla in 
 
 Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhets principen, men detta rekommenderas inte. Inaktivera automatiska etablerings gränser Security Center rekommendationer och aviseringar. Så här inaktiverar du automatisk etablering:
 
-1. Om din prenumeration har kon figurer ATS för standard nivån öppnar du säkerhets principen för den prenumerationen och väljer den **kostnads fria** nivån.
+1. Om din prenumeration har aktiverat Azure Defender öppnar du säkerhets principen för den prenumerationen och väljer **Azure Defender av**.
 
    ![Prisnivå][1]
 

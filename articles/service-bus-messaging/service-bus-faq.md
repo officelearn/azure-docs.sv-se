@@ -2,19 +2,18 @@
 title: Azure Service Bus vanliga frågor och svar (FAQ) | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/16/2020
+ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080821"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894531"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
 I den här artikeln beskrivs några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka [vanliga frågor och svar om Azure-support](https://azure.microsoft.com/support/faq/) för allmän pris information och supportinformation för Azure.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>Allmänna frågor om Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
@@ -36,6 +35,9 @@ Ordningen är inte säkerställd när du använder partitionerade entiteter. I h
 
  Partitionerade entiteter stöds inte längre i [Premium-SKU: n](service-bus-premium-messaging.md). 
 
+### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>Var lagrar Azure Service Bus kund information?
+Azure Service Bus lagrar kund information. Dessa data lagras automatiskt av Service Bus i en enda region, så den här tjänsten uppfyller automatiskt placering-kraven för regions data, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar måste jag öppna i brand väggen? 
 Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
 
@@ -48,7 +50,7 @@ Se följande tabell för utgående portar som du måste öppna för att kunna an
 | Protokoll | Portar | Information | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 och 5672 | Se [AMQP-protokoll guide](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 till 9354 | Se [anslutnings läge](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| SBMP | 9350 till 9354 | Se [anslutnings läge](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Vilka IP-adresser måste jag lägga till i listan över tillåtna?
@@ -59,9 +61,9 @@ Följ dessa steg om du vill hitta rätt IP-adresser som ska läggas till i lista
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den här IP-adressen är statisk. Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
+2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . 
 
-Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
+Om du använder **zon redundans** för ditt namn område måste du utföra några ytterligare steg: 
 
 1. Först kör du nslookup i namn området.
 
@@ -76,6 +78,9 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
     <name>-s3.cloudapp.net
     ```
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
+
+    > [!NOTE]
+    > Den IP-adress som returnerades av `nslookup` kommandot är inte en statisk IP-adress. Det förblir dock konstant tills den underliggande distributionen tas bort eller flyttas till ett annat kluster.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Var kan jag hitta IP-adressen för klienten som skickar/tar emot meddelanden till/från ett namn område? 
 Vi loggar inte IP-adresserna för klienter som skickar eller tar emot meddelanden till/från namn området. Återskapa nycklar så att alla befintliga klienter inte kan autentisera och granska[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)-inställningar (rollbaserad åtkomst kontroll) för att säkerställa att endast tillåtna användare eller program har åtkomst till namn området. 

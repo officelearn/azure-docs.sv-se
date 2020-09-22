@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339220"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893953"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Data Box Gateway
 
@@ -57,16 +57,16 @@ Följ de här stegen i det lokala användar gränssnittet för att ändra enhete
 
 ## <a name="manage-resource-access"></a>Hantera företagsresurser
 
-Om du vill skapa Azure Stack Edge/Data Box Gateway, IoT Hub och Azure Storage resurs måste du ha behörighet som deltagare eller högre på resurs grupps nivå. Du måste också ha motsvarande resurs leverantörer för att kunna registreras. För alla åtgärder som inbegriper aktiverings nyckel och autentiseringsuppgifter krävs även behörighet att Azure Active Directory Graph API. Dessa beskrivs i följande avsnitt.
+Om du vill skapa Azure Stack Edge Pro/Data Box Gateway, IoT Hub och Azure Storage resurs måste du ha behörighet som deltagare eller högre på resurs grupps nivå. Du måste också ha motsvarande resurs leverantörer för att kunna registreras. För alla åtgärder som inbegriper aktiverings nyckel och autentiseringsuppgifter krävs även behörighet att Azure Active Directory Graph API. Dessa beskrivs i följande avsnitt.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Hantera Microsoft Graph API-behörigheter
 
-När du genererar aktiverings nyckeln för Azure Stack Edge-enheten, eller utföra åtgärder som kräver autentiseringsuppgifter, måste du ha behörighet att Microsoft Graph API. De åtgärder som behöver autentiseringsuppgifter kan vara:
+När du genererar aktiverings nyckeln för Azure Stack Edge Pro-enheten, eller utföra åtgärder som kräver autentiseringsuppgifter, måste du ha behörighet att Microsoft Graph API. De åtgärder som behöver autentiseringsuppgifter kan vara:
 
 -  Skapa en resurs med ett associerat lagrings konto.
 -  Skapa en användare som har åtkomst till resurserna på enheten.
 
-Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects` . Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects` . Om du är gäst, kommer de åtgärder som att skapa en aktiverings nyckel att skapa en resurs på din Azure Stack Edge-enhet, vilket innebär att en användare inte kan skapa en användare.
+Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects` . Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects` . Om du är gäst, kommer de åtgärder som att generera en aktiverings nyckel att skapa en resurs på din Azure Stack Edge Pro-enhet, vilket innebär att en användare inte kan skapa en användare.
 
 Mer information om hur du ger åtkomst till användare till Microsoft Graph API finns i [referens för Microsoft Graph behörigheter](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Om du vill hämta en lista över registrerade resurs leverantörer i den aktuell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-För Azure Stack Edge-enhet `Microsoft.DataBoxEdge` ska registreras. För att registrera dig `Microsoft.DataBoxEdge` bör prenumerations administratören köra följande kommando:
+För Azure Stack Edge Pro-enhet `Microsoft.DataBoxEdge` ska registreras. För att registrera dig `Microsoft.DataBoxEdge` bör prenumerations administratören köra följande kommando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
@@ -123,7 +123,7 @@ Följ dessa steg om du vill ändra enhets läge:
 
 ## <a name="manage-power"></a>Hantera energi
 
-Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Den här åtgärden minimerar risken för skadade data.
+Du kan stänga av eller starta om den virtuella enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Den här åtgärden minskar risken för skadade data.
 
 1. I det lokala webb gränssnittet går du till **underhåll > energi inställningar**.
 2. Klicka på **Stäng** av eller **starta om** beroende på vad du vill göra.

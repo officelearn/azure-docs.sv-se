@@ -1,6 +1,6 @@
 ---
-title: Ersätt din Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du får en ersättnings Azure Stack Edge-enhet.
+title: Ersätt din Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur du får en ersättnings Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 5d5e8cc3a959c7800019107d2c682e144449b46c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100119"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893903"
 ---
-# <a name="replace-your-azure-stack-edge-device"></a>Ersätt din Azure Stack Edge-enhet
+# <a name="replace-your-azure-stack-edge-pro-device"></a>Ersätt din Azure Stack Edge Pro-enhet
 
-Den här artikeln beskriver hur du får en ersättnings Azure Stack Edge-enhet. En ersättnings enhet krävs när den befintliga enheten har ett maskin varu problem eller behöver uppgraderas. 
+Den här artikeln beskriver hur du får en ersättnings Azure Stack Edge Pro-enhet. En ersättnings enhet krävs när den befintliga enheten har ett maskin varu problem eller behöver uppgraderas. 
 
 
 I den här artikeln kan du se hur du:
@@ -31,9 +31,9 @@ I den här artikeln kan du se hur du:
 
 ## <a name="open-a-support-ticket"></a>Öppna ett support ärende
 
-Om din befintliga enhet har ett maskin varu problem öppnar du ett support ärende. Microsoft Support kommer att avgöra om en FRU-enhet (Field Replacement Unit) inte är tillgänglig för den här instansen eller om enheten behöver en maskin varu uppgradering. I båda fallen beställer support en ersättnings enhet.
+Om din befintliga enhet har ett maskin varu problem öppnar du ett support ärende. Microsoft Support avgör om en FRU-enhet (Field Replacement Unit) inte är tillgänglig för den här instansen eller om enheten behöver en maskinvaruuppgradering. I båda fallen beställer support en ersättnings enhet.
 
-1. Öppna ett support ärende med Microsoft Support som anger att du vill returnera enheten. Välj problem typen som **Azure Stack Edge-maskinvara**.
+1. Öppna ett support ärende med Microsoft Support som anger att du vill returnera enheten. Välj problem typen som **Azure Stack Edge Pro-maskinvara**.
 
     ![Öppna supportbegäran](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -47,7 +47,7 @@ Följ de här stegen för att skapa en resurs.
 
 1. Följ stegen i [skapa en ny resurs](azure-stack-edge-deploy-prep.md#create-a-new-resource) för att skapa en resurs för ersättnings enheten. 
 
-2. Se till att markera kryss rutan mot att **Jag har en Azure Stack Edge-enhet**. 
+2. Se till att markera kryss rutan mot att **Jag har en Azure Stack Edge Pro-enhet**. 
 
     ![Resurs för ersättnings enhet](media/azure-stack-edge-replace-device/replace-resource-1.png)  
 
@@ -71,4 +71,4 @@ Följ alla steg för att returnera den ursprungliga enheten:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [returnerar en Azure Stack Edge-enhet](azure-stack-edge-return-device.md).
+- Lär dig hur du [returnerar en Azure Stack Edge Pro-enhet](azure-stack-edge-return-device.md).

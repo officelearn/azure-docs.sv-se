@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477603"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893788"
 ---
 # <a name="filter-based-feature-selection"></a>Filterbaserat funktionsval
 
-Den här artikeln beskriver hur du använder modulen filtrerad funktions val i Azure Machine Learning designer (för hands version). Den här modulen hjälper dig att identifiera kolumnerna i din indata-datauppsättning som har den största förutsägelse kraften. 
+Den här artikeln beskriver hur du använder modulen filtrerad funktions val i Azure Machine Learning designer. Den här modulen hjälper dig att identifiera kolumnerna i din indata-datauppsättning som har den största förutsägelse kraften. 
 
 I allmänhet avser *funktions val* processen att tillämpa statistiska tester på indata, med en angiven utmatning. Målet är att avgöra vilka kolumner som är mer förutsägbara för utdata. I modulen filter-baserad funktions val finns flera olika funktioner för val av funktioner som du kan välja mellan. Modulen innehåller korrelations metoder som Pearson-korrelation och chi2-värden. 
 

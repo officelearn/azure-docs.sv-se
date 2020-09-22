@@ -1,0 +1,72 @@
+---
+title: Konfigurera långsamma fråge loggar – Azure Portal-Azure Database for MySQL – flexibel Server
+description: Den här artikeln beskriver hur du konfigurerar och kommer åt långsamma loggar i Azure Database for MySQL flexibel Server från Azure Portal.
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.topic: how-to
+ms.date: 9/21/2020
+ms.openlocfilehash: 1416efaa325ced623b5c7514f2f9953dc0bd2781
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90942048"
+---
+# <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurera och komma åt långsamma Query-loggar för Azure Database for MySQL flexibel server med hjälp av Azure Portal
+
+> [!IMPORTANT]
+> Azure Database for MySQL-flexibel Server är för närvarande en offentlig för hands version.
+
+Du kan konfigurera, lista och ladda ned Azure Database for MySQL flexibla servern [långsamma frågemeddelanden](concepts-slow-query-logs.md) från Azure Portal.
+
+## <a name="prerequisites"></a>Förutsättningar
+Anvisningarna i den här artikeln kräver att du har en [flexibel Server](quickstart-create-server-portal.md).
+
+## <a name="configure-logging"></a>Konfigurera loggning
+Konfigurera åtkomst till MySQLs långsamma fråga logg. 
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
+1. Välj din flexibla Server.
+
+1. Under avsnittet **Inställningar** på sid panelen väljer du **Server parametrar**.
+   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+
+1. Uppdatera **slow_query_log** -parametern till **på**.
+
+1. Ändra eventuella andra parametrar som behövs (t. ex. `long_query_time`, `log_slow_admin_statements`). Se de [långsammaste fråge logg](./concepts-slow-query-logs.md#configure-slow-query-logging) dokumenten för fler parametrar.  
+
+1. Välj **Spara**. 
+
+   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+
+På sidan **Server parametrar** kan du gå tillbaka till listan över loggar genom att stänga sidan.
+
+## <a name="set-up-diagnostics"></a>Konfigurera diagnostik
+
+Långsamma frågeuttryck är integrerade med Azure Monitor diagnostikinställningar så att du kan skicka loggar till Azure Monitor loggar, Event Hubs eller Azure Storage.
+
+1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostiska inställningar**  >  **Lägg till diagnostikinställningar**.
+
+   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+
+1. Ange ett namn på en diagnostisk inställning.
+
+1. Ange vilka destinationer som de långsamma frågeresultaten ska skickas till (lagrings konto, händelsehubben eller Log Analytics arbets yta).
+
+1. Välj **MySqlSlowLogs** som logg typ.
+    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+
+1. När du har konfigurerat data Sinks att skicka in de långsamma frågeresultaten till väljer du **Spara**.
+    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+
+1. Få åtkomst till långsamma fråga-loggar genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
+
+Om du skickas gransknings loggarna till Azure Monitor loggar (Log Analytics) kan du läsa några [exempel frågor](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) som du kan använda för analys. 
+
+## <a name="next-steps"></a>Nästa steg
+<!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->
+- Läs mer om [långsamma Query-loggar](concepts-slow-query-logs.md)
+- Mer information om parameter definitioner och MySQL-loggning finns i MySQL-dokumentationen för [loggar](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+- Lär dig mer om [gransknings loggar](concepts-audit-logs.md)

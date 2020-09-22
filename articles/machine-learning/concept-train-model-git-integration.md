@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 6d9d9f2d7363217ef4e9b13b44d3665af33cb8ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661794"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893555"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-integrering för Azure Machine Learning
 
@@ -68,14 +68,12 @@ Om dina utbildningsbaserade filer inte finns i en git-lagringsplats i utveckling
 
 Git-informationen lagras i egenskaperna för en utbildnings körning. Du kan visa den här informationen med hjälp av Azure Portal, python SDK och CLI. 
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
-1. Välj din arbets yta från [Azure Portal](https://portal.azure.com).
+1. Från [Studio-portalen](https://ml.azure.com)väljer du din arbets yta.
 1. Välj __experiment__och välj sedan ett av experimenten.
 1. Välj en av körningarna från kolumnen __Kör nummer__ .
-1. Välj __loggar__och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __ ### \_ Azure__.
-
-    ![Posten # # #_azure i portalen](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. Välj __utdata + loggar__och expandera sedan __loggarna__ och __azureml__ -posterna. Välj den länk som börjar med __ ### \_ Azure__.
 
 Den loggade informationen innehåller text som liknar följande JSON:
 

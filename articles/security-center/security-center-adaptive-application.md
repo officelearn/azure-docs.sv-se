@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276770"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894711"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Använd anpassningsbara program kontroller för att minska dina datorers attack ytor
 
@@ -50,11 +50,11 @@ Genom att definiera listor över kända säkra program och generera aviseringar 
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Allmän tillgänglighet|
-|Priset|Standard-nivå|
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
+|Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Datorer som stöds:|![Ja ](./media/icons/yes-icon.png) Azure-och icke-Azure-datorer som kör Windows och Linux<br>![Ja ](./media/icons/yes-icon.png) [Azure båg](https://docs.microsoft.com/azure/azure-arc/) -datorer|
 |Nödvändiga roller och behörigheter:|**Säkerhets läsare** och **läsar** roller kan båda Visa grupper och listor över kända säkra program<br>Rollerna **deltagare** och **säkerhets administratör** kan både redigera grupper och listor över kända säkra program|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -65,7 +65,9 @@ Om Security Center har identifierat grupper av datorer i dina prenumerationer so
 
 Välj rekommendationen eller öppna sidan adaptiva program kontroller om du vill visa en lista över föreslagna kända säkra program och grupper av datorer.
 
-1. Från Security Center menyn väljer du **adaptiva program kontroller**.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     Sidan **adaptiva program kontroller** öppnas med de virtuella datorerna grupperade på följande flikar:
 
@@ -86,7 +88,7 @@ Välj rekommendationen eller öppna sidan adaptiva program kontroller om du vill
       - Det är en Windows-dator med en befintlig [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) -princip som Aktiver ATS av antingen ett grup princip objekt eller en lokal säkerhets princip
 
       > [!TIP]
-      > Security Center behöver minst två veckors data för att definiera de unika rekommendationerna per grupp av datorer. Datorer som nyligen har skapats, eller som tillhör prenumerationer som endast nyligen har Aktiver ATS med standard nivån, visas på fliken **Ingen rekommendation** .
+      > Security Center behöver minst två veckors data för att definiera de unika rekommendationerna per grupp av datorer. Datorer som nyligen har skapats, eller som tillhör prenumerationer som nyligen har Aktiver ATS med Azure Defender, visas på fliken **Ingen rekommendation** .
 
 
 1. Öppna den **rekommenderade** fliken. Grupper med datorer med rekommenderade listor över tillåtna listor visas.
@@ -121,7 +123,7 @@ Du kan välja att redigera listan över tillåtna för en grupp datorer på grun
 
 Redigera reglerna för en grupp datorer:
 
-1. Från Security Center menyn väljer du **adaptiva program kontroller**.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
 
 1. Från fliken **konfigurerad** väljer du gruppen med den regel som du vill redigera.
 
@@ -169,7 +171,7 @@ Så här åtgärdar du problemen:
 
 ## <a name="audit-alerts-and-violations"></a>Granska aviseringar och överträdelser
 
-1. Från Security Center menyn väljer du **adaptiva program kontroller**.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
 
 1. Om du vill se grupper med datorer som har nya aviseringar granskar du grupperna som visas på fliken **konfigurerad** .
 
@@ -184,6 +186,8 @@ Så här åtgärdar du problemen:
 ## <a name="move-a-machine-from-one-group-to-another"></a>Flytta en dator från en grupp till en annan
 
 När du flyttar en dator från en grupp till en annan så ändras den program kontroll princip som tillämpas på den till inställningarna för den grupp som du flyttade den till. Du kan också flytta en dator från en konfigurerad grupp till en icke-konfigurerad grupp. om du gör det tas alla program kontroll regler bort som har tillämpats på datorn.
+
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
 
 1. På sidan **adaptiva program kontroller** går du till fliken **konfigurerad** och väljer den grupp som innehåller den dator som ska flyttas.
 

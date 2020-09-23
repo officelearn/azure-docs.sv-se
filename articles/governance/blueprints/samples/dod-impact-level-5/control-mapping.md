@@ -1,14 +1,14 @@
 ---
 title: DoD-effekter nivå 5 skiss exempel kontroller
 description: Kontroll mappning av DoD effekt nivå 5. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921324"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978361"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Kontroll mappning av DoD effekt nivå 5 skiss exempel
 
@@ -307,11 +307,8 @@ Den här skissen hjälper dig att hantera fel i informations systemet genom att 
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) fel korrigering | Borttagning av tidigare versioner av program vara/inbyggd program vara
 
-Den här skissen tilldelar princip definitioner som hjälper dig att se till att programmen använder den senaste versionen av .NET Framework, HTTP, Java, PHP, python och TLS. Den här skissen tilldelar också en princip definition som garanterar att Kubernetes-tjänster uppgraderas till den icke-sårbara versionen.
+Den här skissen tilldelar princip definitioner som hjälper dig att se till att programmen använder den senaste versionen av HTTP, Java, PHP, python och TLS. Den här skissen tilldelar också en princip definition som garanterar att Kubernetes-tjänster uppgraderas till den icke-sårbara versionen.
 
-- Se till att ".NET Framework"-versionen är den senaste, om den används som en del av API-appen
-- Se till att ".NET Framework"-versionen är den senaste, om den används som en del av Funktionsapp
-- Se till att ".NET Framework"-versionen är den senaste, om den används som en del av webbappen
 - Se till att "HTTP-version" är den senaste, om den används för att köra API-appen
 - Se till att "HTTP-version" är den senaste, om den används för att köra Function-appen
 - Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
@@ -319,7 +316,6 @@ Den här skissen tilldelar princip definitioner som hjälper dig att se till att
 - Se till att Java-version är den senaste, om den används som en del av Function-appen
 - Se till att Java-version är den senaste, om den används som en del av webbappen
 - Se till att PHP-version är den senaste, om den används som en del av API-appen
-- Se till att PHP-version är den senaste, om den används som en del av Function-appen
 - Se till att PHP-version är den senaste, om den används som en del av webbappen
 - Se till att "python-version" är den senaste, om den används som en del av API-appen
 - Se till att "python-version" är den senaste, om den används som en del av Function-appen

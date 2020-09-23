@@ -7,20 +7,17 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: f901833caf0623de643e0372c53658fa7da8c8be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 09/22/2020
+ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463719"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971413"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Åtkomst till data i lagrings konton på ett säkert sätt via ett betrott tjänst undantag
 
 Indexerare som har åtkomst till data i lagrings konton kan använda funktionen för [betrott tjänst undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för säker åtkomst till data. Den här mekanismen ger kunder som inte kan bevilja [indexerare åtkomst via IP-brandvägg-regler](search-indexer-howto-access-ip-restricted.md) ett enkelt, säkert och kostnads fritt alternativ för åtkomst till data i lagrings konton.
-
-> [!NOTE]
-> Åtkomst till lagrings kontot via den tilldelade system identiteten för en Sök tjänst är fortfarande i för hands version. Den här förhands gransknings funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Steg 1: konfigurera anslutningen till lagrings kontot via identitet
 

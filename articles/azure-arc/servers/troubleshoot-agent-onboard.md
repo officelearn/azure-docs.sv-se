@@ -1,18 +1,18 @@
 ---
-title: Felsök problem med Azure Arc-aktiverade servrar (för hands version)
-description: Den här artikeln beskriver hur du felsöker och löser problem med den anslutna dator agent som uppstår med Azure Arc-aktiverade servrar (för hands version) när du försöker ansluta till tjänsten.
-ms.date: 07/20/2020
+title: Felsök problem med Azure Arc-aktiverade servrars agent anslutning
+description: Den här artikeln beskriver hur du felsöker och löser problem med den anslutna dator agent som uppstår med Azure Arc-aktiverade servrar när du försöker ansluta till tjänsten.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213540"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900679"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Felsök problem med anslutning till anslutna dator agenter
 
-Den här artikeln innehåller information om hur du felsöker och löser problem som kan uppstå vid försök att konfigurera Azure Arc-aktiverade servrar (för hands version) anslutna dator agenter för Windows eller Linux. Både interaktiva och storskaliga installations metoder när du konfigurerar anslutning till tjänsten ingår. Allmän information finns i [Översikt över Arc-aktiverade servrar](./overview.md).
+Den här artikeln innehåller information om hur du felsöker och löser problem som kan uppstå vid försök att konfigurera Azure Arc-aktiverade servrar som är anslutna till dator agent för Windows eller Linux. Både interaktiva och storskaliga installations metoder när du konfigurerar anslutning till tjänsten ingår. Allmän information finns i [Översikt över Arc-aktiverade servrar](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Utförlig logg för agent
 

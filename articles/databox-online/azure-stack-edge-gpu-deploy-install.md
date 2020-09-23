@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att installera-UNPACK, rack, kabel Azure Stack Edge GPU fysisk enhet | Microsoft Docs
-description: Den andra själv studie kursen om hur du installerar Azure Stack Edge-GPU omfattar att packa upp, racka och kabelansluta den fysiska enheten.
+title: Självstudie för att installera-UNPACK, rack, kabel Azure Stack Edge Pro GPU fysisk enhet | Microsoft Docs
+description: Den andra själv studie kursen om hur du installerar Azure Stack Edge Pro GPU innebär att packa upp, racka och kabelansluta den fysiska enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
+ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421381"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900011"
 ---
-# <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Självstudie: installera Azure Stack Edge med GPU
+# <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Självstudie: installera Azure Stack Edge Pro med GPU
 
-I den här självstudien beskrivs hur du installerar en fysisk enhet för Azure Stack Edge med en GPU. Installationsproceduren omfattar uppackning, rackmontering och kabelanslutning av enheten. 
+I den här självstudien beskrivs hur du installerar en fysisk enhet för Azure Stack Edge Pro med en GPU. Installationsproceduren omfattar uppackning, rackmontering och kabelanslutning av enheten. 
 
 Det kan ta cirka två timmar att slutföra installationen.
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -37,12 +37,12 @@ De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
 Innan du börjar ska du kontrollera att:
 
-* Du har slutfört alla steg i [förbereda för att distribuera Azure Stack Edge med GPU](azure-stack-edge-gpu-deploy-prep.md).
+* Du har slutfört alla steg i [förbereda för att distribuera Azure Stack Edge Pro med GPU](azure-stack-edge-gpu-deploy-prep.md).
     * Du har skapat en Azure Stack Edge-resurs för att distribuera enheten.
     * Du har genererat aktiverings nyckeln för att aktivera din enhet med Azure Stack Edge-resursen.
 
  
-### <a name="for-the-azure-stack-edge-physical-device"></a>För den fysiska Azure Stack Edge-enheten
+### <a name="for-the-azure-stack-edge-pro-physical-device"></a>För den fysiska enheten för Azure Stack Edge Pro
 
 Innan du distribuerar en enhet:
 
@@ -58,7 +58,7 @@ Innan du distribuerar en enhet:
 
 Innan du börjar:
 
-- Granska nätverks kraven för att distribuera Azure Stack Edge och konfigurera Data Center nätverket enligt kraven. Mer information finns i [Azure Stack gräns för nätverks krav](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Granska nätverks kraven för att distribuera Azure Stack Edge Pro och konfigurera Data Center nätverket enligt kraven. Mer information finns i [Azure Stack gräns för nätverks krav för Edge Pro](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Se till att den minsta Internetbandbredden är 20 Mbps för att enheten ska fungera optimalt.
 
@@ -70,7 +70,7 @@ Den här enheten levereras i en enda låda. Slutför följande steg för att pac
 1. Placera lådan på en plan, jämn yta.
 2. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna den. Kontakta Microsoft Support för att få hjälp att bedöma om enheten är i gott skick.
 3. Packa upp lådan. När du har packat upp lådan kontrollerar du att det finns:
-    - En enda hölje Azure Stack gräns enhet
+    - En enda kabinett Azure Stack Edge Pro-enhet
     - Två strömkablar
     - En järn vägs pakets sammansättning
     - En broschyr om säkerhet, miljö och reglerande information
@@ -83,10 +83,10 @@ Den här enheten levereras i en enda låda. Slutför följande steg för att pac
 Enheten måste installeras i ett 19-tums standardrack. Använd följande procedur för att racka montera enheten på en standardiserad 19-tums rack lösning.
 
 > [!IMPORTANT]
-> Azure Stack gräns enheter måste vara rack montering för att fungera korrekt.
+> Azure Stack Edge Pro-enheter måste vara rack montering för att fungera korrekt.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Innan du börjar läser du säkerhets anvisningarna i broschyren om säkerhet, miljö och information. Broschyren levererades med enheten.
 - Börja installera räler på det tilldelade utrymmet som är närmast botten av rack inne slutningen.
@@ -157,11 +157,11 @@ Leta upp komponenterna för installation av järnvägs kit-sammansättningen:
 
 ## <a name="cable-the-device"></a>Kabelansluta enheten
 
-Dirigera kablarna och kablar sedan enheten. I följande procedurer förklaras hur du kan kabelansluta Azure Stack Edge-enheten för strömförsörjning och nätverk.
+Dirigera kablarna och kablar sedan enheten. Följande procedurer beskriver hur du kan kabelansluta din Azure Stack Edge Pro-enhet för strömförsörjning och nätverk.
 
 Innan du börjar kabelansluta enheten behöver du följande:
 
-- Din fysiska Azure Stack Edge-enhet, packas upp och rack montering.
+- Din fysiska Azure Stack Edge Pro-enhet, packas upp och rack montering.
 - Två strömkablar.
 - Minst en 1-GbE RJ-45-nätverkskabel för att ansluta till hanteringsgränssnittet. Det finns två 1-GbE-nätverksgränssnitt på enheten, ett för hantering och ett för data.
 - En 25-GbE SFP+-kopparkabel för varje datanätverksgränssnitt som ska konfigureras. Minst ett datanätverksgränssnitten PORT 2, PORT 3, PORT 4, PORT 5 eller PORT 6 måste vara anslutet till Internet (med anslutning till Azure).  
@@ -171,9 +171,9 @@ Innan du börjar kabelansluta enheten behöver du följande:
 > [!NOTE]
 > - Om du bara ansluter ett data nätverks gränssnitt rekommenderar vi att du använder ett 25/10-GbE-nätverkskort, till exempel PORT 3, PORT 4, PORT 5 eller PORT 6 för att skicka data till Azure. 
 > - För att få bästa prestanda och hantera stora datavolymer bör du ansluta alla dataportar.
-> - Den Azure Stack gräns enheten bör anslutas till data Center nätverket så att den kan mata in data från data käll servrar.
+> - Azure Stack Edge Pro-enheten bör anslutas till data Center nätverket så att den kan mata in data från data käll servrar.
 
-På din Azure Stack Edge-enhet:
+På din Azure Stack Edge Pro-enhet:
 
 - På Front panelen finns det disk enheter och en ström knapp.
 
@@ -232,7 +232,7 @@ Utför följande steg för att kabelansluta enheten för strömförsörjning och
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig mer om Azure Stack Edge-ämnen, till exempel hur du:
+I den här självstudien har du lärt dig mer om Azure Stack Edge Pro-ämnen, till exempel hur du:
 
 > [!div class="checklist"]
 > * Packa upp enheten
@@ -242,4 +242,4 @@ I den här självstudien har du lärt dig mer om Azure Stack Edge-ämnen, till e
 Gå vidare till nästa självstudie och lär dig hur du ansluter till din enhet.
 
 > [!div class="nextstepaction"]
-> [Anslut Azure Stack kant](./azure-stack-edge-gpu-deploy-connect.md)
+> [Anslut Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-connect.md)

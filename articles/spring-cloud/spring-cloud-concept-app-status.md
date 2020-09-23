@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037771"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892855"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Förstå appstatus i Azure Spring Cloud
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
 Azure våren Cloud-gränssnittet ger information om statusen för program som körs.  Det finns ett **Apps** -alternativ för varje resurs grupp i en prenumeration som visar allmänna status för program typer.  För varje program typ visas **program instanser**.
 
@@ -42,7 +44,7 @@ Om du vill visa allmän status för en program typ väljer du **appar** i det v�
 | Skapar | Resursen skapas. |
 | Uppdatera | Resursen uppdateras. |
 | Lyckades | Har tillhandahållit resurser och distribuerat binärfilen. |
-| Misslyckad | Det gick inte att uppnå det *slutförda* målet. |
+| Misslyckades | Det gick inte att uppnå det *slutförda* målet. |
 | Tas bort | Resursen tas bort. Detta förhindrar åtgärden och resursen är inte tillgänglig i denna status. |
 
 ## <a name="app-instances-status"></a>Status för App-instanser
@@ -59,7 +61,7 @@ Om du vill visa status för en angiven instans av en distribuerad app klickar du
 |:--:|:----------------:|
 | Startar | Binärfilen har distribuerats till den aktuella instansen. Instansen som startar jar-filen kan Miss lyckas eftersom jar inte kan köras korrekt. |
 | Körs | Instansen fungerar. |
-| Misslyckad | App-instansen kunde inte starta användarens binärfil efter flera omförsök. |
+| Misslyckades | App-instansen kunde inte starta användarens binärfil efter flera omförsök. |
 | Avslutande | App-instansen stängs av. |
 
 **Identifierings statusen för instansen rapporteras som ett av följande värden:**
@@ -72,4 +74,4 @@ Om du vill visa status för en angiven instans av en distribuerad app klickar du
 
 
 ## <a name="see-also"></a>Se även
-* [Förbereda ett Java våren-program för distribution i Azure våren Cloud](spring-cloud-tutorial-prepare-app-deployment.md)
+* [Förbered ett våren-eller Steeltoe-program för distribution i Azure våren Cloud](spring-cloud-tutorial-prepare-app-deployment.md)

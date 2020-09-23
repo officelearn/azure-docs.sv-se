@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076394"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901094"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -29,10 +29,10 @@ Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med a
 > * Undersök ytterligare för att fastställa rotorsaken och omfånget för en säkerhetsincident
 > * Sök säkerhetsdata för enklare undersökning
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För att gå igenom de funktioner som beskrivs i den här självstudien måste du vara på Security Center standard pris nivån. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+Om du vill gå igenom de funktioner som beskrivs i den här självstudien måste du ha Azure Defender aktiverat. Du kan testa Azure Defender utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabb start [Kom igång med Security Center](security-center-get-started.md) hjälper dig att uppgradera.
 
 ## <a name="scenario"></a>Scenario
 Contoso migrerade nyligen några av sina lokala resurser till Azure, inklusive vissa virtuella datorbaserade branschspecifika arbetsbelastningar och SQL-databaser. För närvarande har Contosos team som ansvarar för datorsäkerheten, CSIRT (Computer Security Incident Response Team) svårt att undersöka säkerhetsproblem på grund av bristande integrering av säkerhetsfunktionerna i de aktuella incidenthanteringsverktygen. Bristen på integrering utgör ett problem vid identifiering (det blir för många falska positiva resultat), samt vid utvärderings- och diagnostiseringsstegen. Som en del av den här migreringen beslutar de att välja Security Center för att lösa problemet.
@@ -68,13 +68,13 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
    ![Säkerhetsaviseringar](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. I listan över varningar klickar du på en säkerhetsincident för att läsa mer om incidenten. En säkerhetsincident är en samling varningar. **Säkerhetsincident har identifierats** öppnas.
+2. I listan över aviseringar väljer du en säkerhets incident, som är en samling aviseringar, för att lära dig mer om den här incidenten. **Säkerhetsincident har identifierats** öppnas.
 
-   ![Säkerhetsincident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Säkerhets incident identifierad](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. På den här skärmen ser du en beskrivning av säkerhetsincidenten överst och listan med varningar som ingår i incidenten. Klicka på den varning du vill titta närmare på för att visa mer information.
 
-   ![Säkerhetsincident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Aviserings information från incidenten](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    Typen av varning kan variera. Läs [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) för mer information om typen av varning och potentiella åtgärder. För varningar som kan avfärdas säkert kan du högerklicka på varningen och välja alternativet **Stäng**:
 
@@ -99,13 +99,12 @@ Om du vill göra en sökning öppnar du instrumentpanelen för **Security Center
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabb starter och självstudier kan du fortsätta att köra standard-nivån och behålla automatisk etablering aktive rad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
+De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta arbeta med efterföljande snabb starter och självstudier måste du ha automatisk etablering och Azure Defender aktiverat. Om du inte planerar att fortsätta eller vill inaktivera Azure Defender:
 
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
-2. Välj den prenumeration eller princip du vill ska återgå till den kostnadsfria nivån. **Säkerhetsprincip** öppnas.
-3. Under **PRINCIPKOMPONENTER** väljer du **Prisnivå**.
-4. Välj **kostnads fri** om du vill ändra prenumerationen från standard nivån till den kostnads fria nivån.
-5. Välj **Spara**.
+1. Gå tillbaka till Security Center huvud menyn och välj **priser och inställningar**.
+1. Välj den prenumeration som du vill nedgradera.
+1. Konfigurera **Azure Defender** till av.
+1. Välj **Spara**.
 
 Om du vill avaktivera automatisk etablering:
 

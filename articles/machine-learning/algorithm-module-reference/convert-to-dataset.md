@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 7df783f15280d9f5ba3330afaf504f3259aeccf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646255"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898714"
 ---
 # <a name="convert-to-dataset"></a>Konvertera till datamängd
 
-Den här artikeln beskriver hur du använder modulen konvertera till dataset i Azure Machine Learning designer (för hands version) för att konvertera data för en pipeline till designerns interna format.
+Den här artikeln beskriver hur du använder modulen konvertera till data uppsättning i Azure Machine Learning designer för att konvertera data för en pipeline till designerns interna format.
   
 Konvertering krävs inte i de flesta fall. Azure Machine Learning implicit konverterar data till det ursprungliga data uppsättnings formatet när en åtgärd utförs på data. 
 

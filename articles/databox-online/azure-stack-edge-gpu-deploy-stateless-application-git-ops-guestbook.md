@@ -1,6 +1,6 @@
 ---
-title: Distribuera PHP gäst programs app på Arc-aktiverade Kubernetes på Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du distribuerar ett tillstånds lösa program i PHP-programmet med Redis med GitOps på ett Arc-aktiverat Kubernetes-kluster för din Azure Stack Edge-enhet.
+title: Distribuera PHP gäst program på Arc-aktiverade Kubernetes på Azure Stack Edge Pro GPU-enhet | Microsoft Docs
+description: Beskriver hur du distribuerar ett tillstånds lösa program i PHP-programmet med Redis med GitOps på ett Arc-aktiverat Kubernetes-kluster för din Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319300"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899552"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Distribuera ett tillstånds lösa program i PHP-programmet med Redis på Arc-aktiverade Kubernetes-kluster på Azure Stack Edge-GPU
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuera ett tillstånds lösa program i PHP-programmet med Redis on Arc Enabled Kubernetes Cluster på Azure Stack Edge Pro GPU
 
 Den här artikeln visar hur du skapar och distribuerar ett enkelt webb program med flera nivåer med hjälp av Kubernetes och Azure Arc. Det här exemplet består av följande komponenter:
 
@@ -23,41 +23,41 @@ Den här artikeln visar hur du skapar och distribuerar ett enkelt webb program m
 - Flera replikerade Redis-instanser för att betjäna läsningar
 - Flera webb klient dels instanser
 
-Distributionen görs med hjälp av GitOps på Kubernetes-klustret på din Azure Stack Edge-enhet. 
+Distributionen görs med hjälp av GitOps på Kubernetes-klustret på din Azure Stack Edge Pro-enhet. 
 
-Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningarna på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan distribuera det tillstånds lösa programmet måste du kontrol lera att du har slutfört följande krav på enheten och klienten som du ska använda för att få åtkomst till enheten:
 
 ### <a name="for-device"></a>För enheten
 
-1. Du har inloggnings uppgifter till en 1-nod Azure Stack Edge-enhet.
+1. Du har inloggnings uppgifter till en 1-nod Azure Stack Edge Pro-enhet.
     1. Enheten är aktive rad. Se [Aktivera enheten](azure-stack-edge-gpu-deploy-activate.md).
     1. Enheten har den beräknings roll som kon figurer ATS via Azure Portal och har ett Kubernetes-kluster. Se [Konfigurera Compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-1. Du har aktiverat Azure-bågen på det befintliga Kubernetes-klustret på enheten och du har en motsvarande Azure Arc-resurs i Azure Portal. Detaljerade anvisningar finns i [Aktivera Azure Arc på Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
+1. Du har aktiverat Azure-bågen på det befintliga Kubernetes-klustret på enheten och du har en motsvarande Azure Arc-resurs i Azure Portal. Detaljerade anvisningar finns i [Aktivera Azure Arc på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
 
 ### <a name="for-client-accessing-the-device"></a>För klient åtkomst till enheten
 
-1. Du har ett Windows-klientcertifikat som ska användas för att få åtkomst till Azure Stack Edge-enheten.
+1. Du har ett Windows-klientsystem som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
   
     - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Den här artikeln beskriver proceduren när du använder en Windows-klient. 
     
-1. Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
+1. Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
     
     - Installerad `kubectl` på klienten  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge-enhet. 
+    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge Pro-enhet. 
       - Används `kubectl version` för att kontrol lera vilken version av kubectl som körs på klienten. Anteckna den fullständiga versionen.
-      - I det lokala användar gränssnittet för din Azure Stack Edge-enhet går du till **Översikt** och noterar program varu numret för Kubernetes. 
+      - I det lokala användar gränssnittet för din Azure Stack Edge Pro-enhet går du till **Översikt** och noterar Kubernetes-program varu numret. 
       - Kontrol lera att dessa två versioner är kompatibla med den mappning som finns i den Kubernetes-version som stöds <!--insert link-->.
 
-1. Du har en [GitOps-konfiguration som du kan använda för att köra en Azure Arc-distribution](https://github.com/kagoyal/dbehaikudemo). I det här exemplet ska du använda följande `yaml` filer för att distribuera Azure Stack Edge-enheten.
+1. Du har en [GitOps-konfiguration som du kan använda för att köra en Azure Arc-distribution](https://github.com/kagoyal/dbehaikudemo). I det här exemplet ska du använda följande `yaml` filer för att distribuera på din Azure Stack Edge Pro-enhet.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -176,4 +176,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [använder Kubernetes-instrumentpanelen för att övervaka distributioner på din Azure Stack Edge-enhet](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)
+Lär dig hur du [använder Kubernetes-instrumentpanelen för att övervaka distributioner på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)

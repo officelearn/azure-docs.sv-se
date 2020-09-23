@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
-ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189814"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893707"
 ---
 # <a name="score-svd-recommender"></a>Poäng för SVD-rekommenderare
 
-I den här artikeln beskrivs hur du använder den SVD-rekommenderade modulen i Azure Machine Learning designer (för hands version). Använd den här modulen för att skapa förutsägelser med hjälp av en utbildad rekommendations modell som baseras på en algoritm för enkel värdes avsammansättning (SVD).
+Den här artikeln beskriver hur du använder modulen Scores i SVD-rekommendation i Azure Machine Learning designer. Använd den här modulen för att skapa förutsägelser med hjälp av en utbildad rekommendations modell som baseras på en algoritm för enkel värdes avsammansättning (SVD).
 
 SVD-rekommendationen kan generera två olika typer av förutsägelser:
 

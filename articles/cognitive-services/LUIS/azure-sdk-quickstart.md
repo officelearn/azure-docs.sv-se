@@ -2,22 +2,22 @@
 title: 'Snabb start: Language Understanding (LUIS) SDK-klientcertifikat'
 description: Skapa och fråga en LUIS-app med LUIS SDK-klientcertifikat med den här snabb starten med C#, python eller Java Script.
 ms.topic: quickstart
-ms.date: 09/01/2020
-keywords: Azure, artificiell intelligens, AI, naturlig språk bearbetning, NLP, natur språks förståelse, NLU, AI-konversation, konversations-AI, AI-chattrobot, chattrobot Maker, LUIS, NLP AI, Luis AI, Azure Luis, förstå naturligt språk
+ms.date: 09/14/2020
+keywords: Azure, artificiell intelligens, AI, naturlig språk bearbetning, NLP, LUIS, Azure Luis, Natural Language förståelseing, AI chattrobot, chattrobot Maker, förstå naturligt språk
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 6bcdca85125d44475fadfd195c1dfda88f761f88
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323265"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972625"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Snabb start: Language Understanding (LUIS) SDK-klientcertifikat för att skapa och skicka frågor till LUIS-appen
 
-Skapa och fråga en LUIS-app med LUIS SDK-klientcertifikat med den här snabb starten med C#, python eller Java Script.
+Skapa och fråga en Azure LUIS artificiell intelligens (AI)-app med klient biblioteken för LUIS SDK med den här snabb starten med C#, python eller Java Script.
 
-Med Language Understanding (LUIS) kan du använda anpassad maskin inlärnings information till en användares svars-och naturligt språk text för att förutsäga den övergripande innebörden och hämta relevant, detaljerad information.
+Language Understanding (LUIS) gör det möjligt att använda naturlig språk bearbetning (NLP) till en användares konversation, naturligt språk text för att förutsäga den övergripande innebörden och hämta relevant, detaljerad information.
 
 * Med klient biblioteket för **redigering av SDK** kan du skapa, redigera, träna och publicera Luis-appen. * Klient biblioteket för **förutsägelse körnings-SDK** gör det möjligt att fråga den publicerade appen.
 
@@ -45,7 +45,7 @@ Du kan ta bort appen från [Luis-portalen](https://www.luis.ai) och ta bort Azur
 * Utbildning – om du får ett tränings fel indikerar detta vanligt vis en tom app (inga avsikter med exempel yttranden) eller en app med intenter eller entiteter som är felaktiga.
 * Övriga fel – eftersom koden anropar klient biblioteken med text-och JSON-objekt ser du till att du inte har ändrat koden.
 
-Andra fel – om du får ett fel som inte omfattas av föregående lista kan du meddela oss genom att ge feedback längst ned på den här sidan. Inkludera programmeringsspråk och version för de klient bibliotek som du har installerat. 
+Andra fel – om du får ett fel som inte omfattas av föregående lista kan du meddela oss genom att ge feedback längst ned på den här sidan. Inkludera programmeringsspråk och version för de klient bibliotek som du har installerat.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -53,3 +53,5 @@ Andra fel – om du får ett fel som inte omfattas av föregående lista kan du 
 * [Vad är det senaste?](whats-new.md)
 * [Avsikter](luis-concept-intent.md), [entiteter](luis-concept-entity-types.md)och [exempel yttranden](luis-concept-utterance.md)och [färdiga entiteter](luis-reference-prebuilt-entities.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
+* Förstå naturligt språk: [natur språks förståelse (NLU) och NLP (Natural Language Processing](artificial-intelligence.md) )
+* Robotar: [AI-chattrobotar](luis-csharp-tutorial-bf-v4.md "själv studie kurs om chattrobot Maker")

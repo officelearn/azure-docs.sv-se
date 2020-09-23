@@ -8,16 +8,16 @@ ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4ad0ce1aef45dc4126d3ce17c7093b885f1b8bd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938019"
+ms.locfileid: "90974125"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Prestanda nivåer för Managed disks (för hands version)
 
-Azure-disklagring erbjuder för närvarande inbyggda funktioner för burst-överföring för att uppnå högre prestanda för att hantera kortsiktig oväntad trafik. Premium-SSD har flexibiliteten att öka disk prestanda utan att öka den faktiska disk storleken, så att du kan matcha arbets Belastningens prestanda behov och minska kostnaderna. Detta är idealiskt för händelser som tillfälligt kräver en konsekvent högre prestanda nivå, till exempel jul handel, prestandatester, prestanda testning eller körning av en utbildnings miljö. Om du vill hantera dessa händelser kan du välja en högre prestanda nivå så länge som behövs, och återgå till den ursprungliga nivån när den ytterligare prestandan inte längre behövs.
+Azure-disklagring erbjuder för närvarande inbyggda funktioner för burst-överföring för att uppnå högre prestanda för att hantera kortsiktig oväntad trafik. Premium-SSD har flexibiliteten att öka disk prestanda utan att öka den faktiska disk storleken, vilket gör att du kan matcha arbets Belastningens prestanda behov och minska kostnaderna. funktionen är för närvarande en för hands version. Detta är idealiskt för händelser som tillfälligt kräver en konsekvent högre prestanda nivå, till exempel jul handel, prestandatester, prestanda testning eller körning av en utbildnings miljö. Om du vill hantera dessa händelser kan du välja en högre prestanda nivå så länge som behövs, och återgå till den ursprungliga nivån när den ytterligare prestandan inte längre behövs.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 

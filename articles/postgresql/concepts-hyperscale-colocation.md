@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74967345"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884434"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Tabell-samplacering i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -22,7 +22,7 @@ Samplacering innebär att lagra relaterad information tillsammans på samma node
 
 I Azure Database for PostgreSQL – storskalig (citus) lagras en rad i en Shard om hash-värdet för värdet i kolumnen distribution ligger inom Shard hash-intervall. Shards med samma hash-intervall placeras alltid på samma nod. Rader med samma distributions kolumn värden är alltid på samma nod i tabeller.
 
-![Shards](media/concepts-hyperscale-colocation/colocation-shards.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Shards":::
 
 ## <a name="a-practical-example-of-colocation"></a>Ett användbart exempel på samplacering
 
@@ -96,7 +96,7 @@ Därefter måste resultatet från de två stegen kombineras av programmet.
 
 Att köra frågorna måste se till att data i Shards är spridda över noderna.
 
-![Ineffektiva frågor](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Ineffektiva frågor":::
 
 I det här fallet skapar data distributionen avsevärda nack delar:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 På grund av filter och koppling på tenant_id vet citus (disscale) att hela frågan kan besvaras med hjälp av uppsättningen samplacerade Shards som innehåller data för den aktuella klienten. En enskild PostgreSQL-nod kan besvara frågan i ett enda steg.
 
-![Bättre fråga](media/concepts-hyperscale-colocation/colocation-better-query.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Bättre fråga":::
 
 I vissa fall måste frågor och tabell scheman ändras så att de inkluderar klient-ID i unika begränsningar och kopplings villkor. Den här ändringen är vanligt vis enkel.
 

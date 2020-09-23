@@ -4,12 +4,12 @@ description: Övervaka din webbapp i real tid med anpassade mått och diagnostis
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973586"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: övervaka & diagnostisera med en andra svars tid
 
@@ -148,7 +148,7 @@ Precis som med mått kan du ange valfria villkor till vilken typ av Application 
 
 Se information om ett objekt i Live-flödet genom att klicka på det. Du kan pausa matningen antingen genom att klicka på **pausa** eller helt enkelt rulla nedåt eller klicka på ett objekt. Live-matningen återupptas när du har rullat överst eller genom att klicka på objekt räknaren som samlats in när den pausades.
 
-![Exempel på aktiva startfel](./media/live-stream/sample-telemetry.png)
+![Skärm bild som visar fönstret exempel på telemetri med ett undantag valt och undantags informationen som visas längst ned i fönstret.](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>Filtrera efter Server instans
 
@@ -249,7 +249,7 @@ Men om du känner igen och litar på alla anslutna servrar kan du prova anpassad
 
 Grundläggande mått inkluderar begäran, beroende och undantags frekvens. Prestanda mått (prestanda räknare) inkluderar minne och CPU. Exempel på telemetri visar en data ström med detaljerad information om misslyckade förfrågningar och beroenden, undantag, händelser och spår.
 
- \*PerfCounters-supporten varierar något mellan versioner av .NET Core som inte riktar sig mot .NET Framework:
+ \* PerfCounters-supporten varierar något mellan versioner av .NET Core som inte riktar sig mot .NET Framework:
 
 - PerfCounters-mått stöds när de körs i Azure App Service för Windows. (AspNetCore SDK version 2.4.1 eller senare)
 - PerfCounters stöds när appen körs i Windows-datorer (virtuell dator eller moln tjänst eller lokal osv.) (AspNetCore SDK version 2.7.1 eller senare), men för appar som riktar sig till .NET Core 2,0 eller högre.

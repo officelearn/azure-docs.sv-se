@@ -5,23 +5,94 @@ author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/03/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c91237e3a14c60e477f58be0bf62f634b462960b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 16d40c334d51a66df4a4d2d56e2fa2379dda3726
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951920"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905408"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Snabb start: etablera Azure våren Cloud service
 
+::: zone pivot="programming-language-csharp"
+I den här snabb starten använder du Azure CLI för att etablera en instans av moln tjänsten Azure våren.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [.Net Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Azure våren Cloud Service stöder .NET Core 3,1 och senare versioner.
+* [Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Git](https://git-scm.com/).
+
+## <a name="install-azure-cli-extension"></a>Installera Azure CLI-tillägg
+
+Kontrol lera att din Azure CLI-version är 2.0.67 eller senare:
+
+```azurecli
+az --version
+```
+
+Installera Azure våren Cloud-tillägget för Azure CLI med hjälp av följande kommando:
+
+```azurecli
+az extension add --name spring-cloud
+```
+
+## <a name="log-in-to-azure"></a>Logga in på Azure
+
+1. Logga in på Azure CLI.
+
+    ```azurecli
+    az login
+    ```
+
+1. Om du har mer än en prenumeration väljer du den som du vill använda för den här snabb starten.
+
+   ```azurecli
+   az account list -o table
+   ```
+
+   ```azurecli
+   az account set --subscription <Name or ID of a subscription from the last step>
+   ```
+
+## <a name="provision-an-instance-of-azure-spring-cloud"></a>Etablera en instans av Azure våren Cloud
+
+1. Skapa en [resurs grupp](../azure-resource-manager/management/overview.md) som innehåller din Azure våren Cloud-tjänst. Resurs gruppens namn får innehålla alfanumeriska tecken, under streck, parenteser, bindestreck, punkt (förutom i slutet) och Unicode-tecken.
+
+   ```azurecli
+   az group create --location eastus --name <resource group name>
+   ```
+
+1. Etablera en instans av moln tjänsten Azure våren. Tjänst instans namnet måste vara unikt, vara mellan 4 och 32 tecken långt och får bara innehålla gemener, siffror och bindestreck. Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+
+    ```azurecli
+    az spring-cloud create -n <service instance name> -g <resource group name>
+    ```
+
+    Det kan ta flera minuter att slutföra kommandot.
+
+1. Ange standard resurs grupps namnet och tjänst instans namnet så att du inte behöver ange dessa värden flera gånger i efterföljande kommandon.
+
+   ```azurecli
+   az configure --defaults group=<resource group name>
+   ```
+
+   ```azurecli
+   az configure --defaults spring-cloud=<service instance name>
+   ```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Du kan skapa ett Azure våren-moln med hjälp av Azure Portal eller Azure CLI.  Båda metoderna beskrivs i följande procedurer.
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
-* Valfritt [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och installera Azure våren Cloud-tillägget med kommandot: `az extension add --name spring-cloud`
+* Valfritt [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) och installera Azure våren Cloud-tillägget med kommandot: `az extension add --name spring-cloud`
 * Valfritt [Installera Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) och [inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="provision-an-instance-of-azure-spring-cloud"></a>Etablera en instans av Azure våren Cloud
@@ -59,7 +130,7 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
 
 I följande procedur används Azure CLI-tillägget för att etablera en instans av Azure våren Cloud.
 
-1. Logga in på Azure CLI och välj din aktiva prenumeration. Se till att välja den aktiva prenumeration som är vit listas för Azure våren Cloud
+1. Logga in på Azure CLI och välj din aktiva prenumeration.
 
     ```azurecli
     az login
@@ -85,9 +156,25 @@ I följande procedur används Azure CLI-tillägget för att etablera en instans 
 
     Tjänst instansen tar cirka fem minuter att distribuera.
 ---
+::: zone-end
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Hoppa över det här steget om du tänker fortsätta till nästa snabb start i den här serien.
+
+I den här snabb starten skapade du Azure-resurser som kommer fortsätta att debiteras om de finns kvar i din prenumeration. Om du inte tänker fortsätta till nästa snabb start och du inte förväntar dig att behöva dessa resurser i framtiden, tar du bort resurs gruppen med hjälp av portalen eller genom att köra följande kommando i Cloud Shell:
+
+```azurecli
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+I den här snabb starten anger du också standard resurs grupps namnet. Om du inte tänker fortsätta med nästa snabb start tar du bort standardvärdet genom att köra följande CLI-kommando:
+
+```azurecli
+az configure --defaults group=
+```
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"]
-> [Konfigurera konfigurations Server](spring-cloud-quickstart-setup-config-server.md)
-
-
+> [Konfigurera konfigurationsserver](spring-cloud-quickstart-setup-config-server.md)

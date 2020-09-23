@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508244"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984583"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Självstudiekurs: Övervaka virtuella Windows-datorer i Azure Security Center
 
@@ -36,7 +36,7 @@ För att komma åt instrumentpanelen i Security Center går du till Azure-portal
 
 Security Center gör mer än att identifiera data och lämna rekommendationer för de problem som upptäcks. Om en virtuell dator har distribuerats utan en ansluten nätverkssäkerhetsgrupp visar Security Center en rekommendation med åtgärder som du kan vidta. Du kan avhjälpa problemen automatiskt utan att behöva stänga Security Center.  
 
-![Rekommendationer](./media/tutorial-azure-security/recommendations.png)
+![Skärm bild som visar sidan rekommendationer, som innehåller en beskrivning, resurs, tillstånd och allvarlighets grad för rekommendationer.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Konfigurera datainsamling
 

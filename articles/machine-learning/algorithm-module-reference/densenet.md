@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: db0e2f90ee45d4e1c0173cbc037084793a66e149
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69c18c24ae9a8eb4c1fd54c1f8530e126a40b004
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450649"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898527"
 ---
 # <a name="densenet"></a>DenseNet
 
-Den här artikeln beskriver hur du använder **DenseNet** -modulen i Azure Machine Learning designer (för hands version) för att skapa en bild klassificerings modell med DenseNet-algoritmen.  
+Den här artikeln beskriver hur du använder modulen **DenseNet** i Azure Machine Learning designer för att skapa en bild klassificerings modell med DenseNet-algoritmen.  
 
 Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en etikettad data uppsättning. I avsnittet [konvertera till en avbildnings katalog](convert-to-image-directory.md) hittar du mer information om hur du hämtar en etikettad avbildnings katalog. Du kan träna modellen genom att tillhandahålla modellen och den märkta bild katalogen som indata för att [träna Pytorch-modellen](train-pytorch-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen med [Poäng avbildnings modell](score-image-model.md).
 
@@ -49,7 +49,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Name             | Intervall | Typ    | Default     | Beskrivning                              |
+| Name             | Intervall | Typ    | Standardvärde     | Beskrivning                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | Modellnamn       | Alla   | Läge    | densenet201 | Namn på en viss densenet-struktur     |
 | Tränats       | Alla   | Boolesk | Sant        | Om du vill använda en förtränad modell på ImageNet |
@@ -57,7 +57,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="output"></a>Utdata  
 
-| Name            | Typ                    | Beskrivning                              |
+| Namn            | Typ                    | Beskrivning                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modell som inte är tränad | UntrainedModelDirectory | En densenet modell som kan anslutas till träna Pytorch-modellen. |
 

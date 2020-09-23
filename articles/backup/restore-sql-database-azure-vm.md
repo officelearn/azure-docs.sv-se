@@ -1,16 +1,16 @@
 ---
 title: Återställa SQL Server-databaser på en virtuell Azure-dator
-description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup.
+description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup. Du kan också använda återställning mellan regioner för att återställa databaserna till en sekundär region.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377989"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985369"
 ---
-# <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
+# <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server-databaser på virtuella Azure-datorer
 
 Den här artikeln beskriver hur du återställer en SQL Server databas som körs på en virtuell Azure-dator (VM) som tjänsten [Azure Backup](backup-overview.md) har säkerhetskopierat till ett Azure Backup Recovery Services-valv.
 
@@ -23,14 +23,14 @@ Azure Backup kan återställa SQL Server databaser som körs på virtuella Azure
 - Återställ till ett visst datum eller en angiven tidpunkt (till den andra) med hjälp av säkerhets kopior av transaktions loggen. Azure Backup identifierar automatiskt rätt fullständig differentiell säkerhets kopiering och kedja av logg säkerhets kopior som krävs för att återställa baserat på den valda tiden.
 - Återställ en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande innan du återställer en databas:
 
 - Du kan återställa databasen till en instans av en SQL Server i samma Azure-region.
 - Mål servern måste vara registrerad på samma valv som källan.
 - Om du vill återställa en TDE-krypterad databas till en annan SQL Server måste du först [återställa certifikatet till mål servern](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) -aktiverade databaser ska återställas med alternativet [Återställ som filer](#restore-as-files) .
+- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) -aktiverade databaser ska återställas med alternativet [Återställ som filer](#restore-as-files) .
 - Innan du återställer Master-databasen startar du SQL Server-instansen i enanvändarläge genom att använda Start alternativet **-m AzureWorkloadBackup**.
   - Värdet för **-m** är namnet på klienten.
   - Det är bara det angivna klient namnet som kan öppna anslutningen.
@@ -168,6 +168,51 @@ Om du har valt **fullständig & differentiell** som återställnings typ gör du
 Om den totala sträng storleken för filer i en databas är större än en [viss gräns](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup lagra listan över databasfiler i en annan depå komponent så att du inte kan ange sökvägen till mål återställningen under återställningen. Filerna kommer att återställas till standard Sök vägen för SQL i stället.
 
   ![Återställ databasen med stor fil](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## <a name="cross-region-restore"></a>Återställning mellan regioner
+
+Som en av återställnings alternativen kan du med återställningen mellan regioner (CRR) återställa SQL-databaser som finns på virtuella Azure-datorer i en sekundär region, som är en Azure-kopplad region.
+
+Om du vill publicera till funktionen under för hands versionen läser du [avsnittet innan du börjar](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Om du vill se om CRR har Aktiver ATS följer du anvisningarna i [Konfigurera återställning av kors region](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Visa säkerhets kopierings objekt i sekundär region
+
+Om CRR har Aktiver ATS kan du Visa säkerhets kopierings objekt i den sekundära regionen.
+
+1. Från portalen går du till **Recovery Services valv**  >  **säkerhets kopierings objekt**.
+1. Välj **sekundär region** om du vill visa objekten i den sekundära regionen.
+
+>[!NOTE]
+>Endast de typer av säkerhets kopierings hantering som stöder funktionen CRR visas i listan. För närvarande tillåts endast stöd för återställning av sekundär regions data till en sekundär region.
+
+![Säkerhetskopiera objekt i sekundär region](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Databaser i sekundär region](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Återställ i sekundär region
+
+Användar upplevelsen för sekundär regions återställning liknar den primära regionen återställa användar upplevelsen. När du konfigurerar information i fönstret Återställ konfiguration för att konfigurera återställningen uppmanas du bara att ange parametrar för sekundär region.
+
+![Var och hur du återställer](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>Det virtuella nätverket i den sekundära regionen måste tilldelas unikt och kan inte användas för andra virtuella datorer i den resurs gruppen.
+
+![Avisering om aktivering av återställning pågår](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- Återställnings jobbet kan inte avbrytas när återställningen har utlösts och i data överförings fasen.
+>- De Azure-roller som krävs för att återställa i den sekundära regionen är desamma som de i den primära regionen.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Övervaka återställnings jobb för sekundär region
+
+1. Från portalen går du till **Recovery Services valv**  >  **säkerhets kopierings jobb**
+1. Välj **sekundär region** om du vill visa objekten i den sekundära regionen.
+
+    ![Säkerhets kopierings jobb filtrerade](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

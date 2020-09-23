@@ -1,19 +1,19 @@
 ---
 title: Inbyggda princip definitioner för Azure API för FHIR
 description: Visar Azure Policy inbyggda princip definitioner för Azure API för FHIR. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 52827a65983485342df2861e25413f4bda343ee5
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: a16fadbeb13211ab91d0d0a80d8f29062b615d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007323"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986283"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-api-for-fhir"></a>Azure Policy inbyggda definitioner för Azure API för FHIR
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0155ae92e3179918273d6a19773aa15b67949ea
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743991"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985588"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Snabb start: ansluta till en virtuell dator med en privat IP-adress och Azure skydds
 
@@ -41,7 +41,7 @@ Den här snabb starts artikeln visar hur du ansluter till en virtuell dator med 
 
 När du skapar en skydds-värd i portalen genom att använda en befintlig virtuell dator, kommer olika inställningar automatiskt att motsvara den virtuella datorn och/eller det virtuella nätverket.
 
-1. Öppna [Azure Portal](https://portal.azure.com). Gå till den virtuella datorn och klicka sedan på **Anslut**.
+1. Öppna [Azure-portalen](https://portal.azure.com). Gå till den virtuella datorn och klicka sedan på **Anslut**.
 
    ![inställningar för virtuell dator](./media/quickstart-host-portal/vm-settings.png)
 1. Välj **skydds**i list rutan.
@@ -66,13 +66,13 @@ När du skapar en skydds-värd i portalen genom att använda en befintlig virtue
 
    ![Skapa skydds-värd](./media/quickstart-host-portal/bastion-settings.png)
 
-## <a name="connect"></a><a name="connect"></a>Anslut
+## <a name="connect"></a><a name="connect"></a>Gå
 
 När skydds har distribuerats till det virtuella nätverket ändras skärmen till sidan Anslut.
 
 1. Ange användar namn och lösen ord för den virtuella datorn. Välj sedan **Anslut**.
 
-   ![connect](./media/quickstart-host-portal/connect.png)
+   ![Skärm bild som visar dialog rutan Anslut med Azure skydds, där du uppmanas att ange ett användar namn och lösen ord.](./media/quickstart-host-portal/connect.png)
 1. RDP-anslutningen till den virtuella datorn via skydds öppnas direkt i Azure Portal (via HTML5) med port 443 och skydds-tjänsten.
 
    ![RDP-anslutning](./media/quickstart-host-portal/443-rdp.png)

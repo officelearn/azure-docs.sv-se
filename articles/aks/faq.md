@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927155"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905340"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -115,7 +115,7 @@ För att skydda systemets stabilitet och förhindra att anpassade kontroll enhet
 
 Om du har ett kritiskt användnings fall där något har distribuerats på Kube (rekommenderas inte) som du behöver omfattas av din anpassade-webhook, kan du lägga till nedanstående etikett eller antecknings anteckning så att inträde-tvång ignorerar den.
 
-Etikett: ```"admissions.enforcer/disabled": "true"``` eller anteckning:```"admissions.enforcer/disabled": true```
+Etikett: ```"admissions.enforcer/disabled": "true"``` eller anteckning: ```"admissions.enforcer/disabled": true```
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Är Azure Key Vault integrerat med AKS?
 
@@ -163,7 +163,7 @@ Du kan, men AKS rekommenderar inte detta. Uppgraderingar bör helst utföras nä
 
 Nej, ta bort/ta bort alla noder i ett felaktigt tillstånd eller ta bort dem från klustret innan du uppgraderar.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Jag har kört ett kluster borttagnings fel men ser felet`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Jag har kört ett kluster borttagnings fel men ser felet `[Errno 11001] getaddrinfo failed` 
 
 Oftast orsakas detta av användare som har en eller flera nätverks säkerhets grupper (NSG: er) som fortfarande används och som är kopplade till klustret.  Ta bort dem och försök att ta bort dem igen.
 
@@ -173,7 +173,11 @@ Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: [AKS-t
 
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mitt kluster fungerade men det går inte att etablera belastningsutjämnare, montera PVC: er osv. 
 
-Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: [AKS-tjänstens huvud namn](./kubernetes-service-principal.md) och [AKS uppdatera autentiseringsuppgifter](./update-credentials.md).
+Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: [AKS-tjänstens huvud namn](./kubernetes-service-principal.md)  och [AKS uppdatera autentiseringsuppgifter](./update-credentials.md).
+
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>Kan jag skala mitt AKS-kluster till noll?
+Du kan helt [stoppa ett pågående AKS-kluster](start-stop-cluster.md)och Spara på respektive beräknings kostnader. Dessutom kan du också välja att [skala eller automatiskt skala alla eller vissa `User` resurspooler](scale-cluster.md#scale-user-node-pools-to-0) till 0, och endast underhålla den nödvändiga kluster konfigurationen.
+Du kan inte skala [system-nodkonfigurationer](use-system-pools.md) direkt till 0.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Kan jag använda API: erna för skalnings uppsättningen för virtuella datorer för att skala manuellt?
 

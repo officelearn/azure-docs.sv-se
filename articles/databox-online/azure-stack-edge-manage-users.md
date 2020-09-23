@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge hantera användare | Microsoft Docs
-description: Beskriver hur du använder Azure Portal för att hantera användare på Azure Stack Edge.
+title: Azure Stack Edge Pro hantera användare | Microsoft Docs
+description: Beskriver hur du använder Azure Portal för att hantera användare på din Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 1012ce417fb4952878dada29a9080c70954ed21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fb82e95d9d7dcfdf59bd05f91beff8e1184955e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339645"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904380"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge"></a>Använd Azure Portal för att hantera användare på din Azure Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera användare på Azure Azure Stack Edge Pro
 
-Den här artikeln beskriver hur du hanterar användare på din Azure Stack Edge. Du kan hantera Azure Stack Edge via Azure Portal eller via det lokala webb gränssnittet. Använd Azure-portalen om du vill lägga till, ändra eller ta bort användare.
+Den här artikeln beskriver hur du hanterar användare i Azure Stack Edge Pro. Du kan hantera Azure Stack Edge Pro via Azure Portal eller via det lokala webb gränssnittet. Använd Azure-portalen om du vill lägga till, ändra eller ta bort användare.
 
 I den här artikeln kan du se hur du:
 

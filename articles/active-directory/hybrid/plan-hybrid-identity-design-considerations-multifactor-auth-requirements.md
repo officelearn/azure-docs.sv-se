@@ -1,6 +1,6 @@
 ---
 title: Hybrid Identity design – Multi-Factor Authentication-krav Azure | Microsoft Docs
-description: Med villkorlig åtkomst kontroll kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och beviljas åtkomst till programmet.
+description: Med villkorlig åtkomst kontroll verifierar Azure AD de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8ddf372e234bab242e4b28ba53dce7dd68cc89
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109300"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976047"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Fastställ krav för Multi-Factor Authentication för din hybrid identitets lösning
 I den här världen av rörlighet har användare som har åtkomst till data och program i molnet och från vilken enhet som helst som skyddar den här informationen blivit ytterst stor.  Varje dag finns det en ny rubrik om en säkerhets överträdelse.  Även om det inte finns någon garanti för sådana överträdelser, använder Multi-Factor Authentication ett extra säkerhets lager för att förhindra dessa överträdelser.

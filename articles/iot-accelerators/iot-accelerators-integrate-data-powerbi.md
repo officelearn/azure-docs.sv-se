@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74184242"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975998"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualisera data för fjärrövervakning med Power BI
 
 I den här självstudien får du lära dig hur du ansluter data från CosmosDB till Power BI. När den här anslutningen har upprättats kan du skapa egna anpassade instrument paneler och lägga till dem på instrument panelen för fjärr styrning. Den här Workstream gör det möjligt för fler specialiserade grafer att skapas, utöver de som finns i rutan. Du kan sedan använda den här självstudien för att integrera med andra data strömmar eller bygga anpassade instrument paneler som ska konsumeras utanför din lösning för fjärr styrning. Genom att skapa instrument paneler i Power BI innebär det att du även kan göra så att varje panel interagerar med varandra när du väljer vissa delar. Du kan till exempel ha ett filter som visar bara information om dina simulerade Last bilar och varje del av din instrument panel skulle se till att du bara visar simulerad Last bils information. Om du vill använda ett annat verktyg än Power BI kan du också utöka de här stegen till att använda visualiserings verktyget och hookar till Cosmos-databasen eller den anpassade databasen om du har konfigurerat en. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha en fjärran sluten övervaknings lösning som körs
 - Du måste ha åtkomst till [Azure Portal](https://portal.azure.com) och din prenumeration på vilken IoT Hub och lösning körs
@@ -45,7 +45,7 @@ I den här självstudien får du lära dig hur du ansluter data från CosmosDB t
    - URI
    - Primärnyckel
 
-     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![Skärm bild som visar ett Azure Cosmos D B-konto med objektet nycklar valt.](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Konfigurera data strömmen i Power BI
   

@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278147"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905480"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
 I Azure Security Center finns det många olika typer av aviseringar för många olika resurs typer. Security Center genererar aviseringar för resurser som har distribuerats i Azure och även för resurser som distribueras i lokala miljöer och hybrid moln miljöer.
 
-Säkerhets aviseringar utlöses av avancerade identifieringar och är bara tillgängliga på standard nivån för Azure Security Center. Det finns en kostnadsfri utvärderingsversion. Du kan uppgradera från sidan för **pris & inställningar** . Läs mer om [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
+Säkerhets aviseringar utlöses av avancerade identifieringar och är bara tillgängliga med Azure Defender. Det finns en kostnadsfri utvärderingsversion. Du kan uppgradera från sidan för **pris & inställningar** . Läs mer om [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="respond-to-todays-threats"></a>Svara på dagens hot <a name="respond-threats"> </a>
 
@@ -45,7 +45,7 @@ Med hjälp av incidenter ger Security Center en enda vy över en angrepps kampan
 
 ## <a name="how-does-security-center-detect-threats"></a>Hur identifierar Security Center hot? <a name="detect-threats"> </a>
 
-Microsofts säkerhetsforskare söker hela tiden efter hot. På grund av Microsofts globala närvaro i molnet och lokalt, har de till gång till en mycket uppsättning telemetri. Med den breda samlingen av data uppsättningar kan du upptäcka nya angrepps mönster och trender i sina lokala konsument-och företags produkter, samt dess onlinetjänster. Detta gör i sin tur att identifieringsalgoritmerna i Security Center snabbt kan uppdateras allt eftersom angripare hittar nya och alltmer sofistikerade sätt att utnyttja systemen. Och för dig som kund innebär det att du kan hålla jämna steg med dagens snabbt föränderliga hotmiljö.
+Microsofts säkerhetsforskare söker hela tiden efter hot. På grund av vår globala närvaro i molnet och lokalt har vi till gång till en mycket uppsättning telemetri. Med den breda samlingen av data uppsättningar kan vi upptäcka nya angrepps mönster och trender i alla lokala konsument-och företags produkter, samt vår onlinetjänster. Detta gör i sin tur att identifieringsalgoritmerna i Security Center snabbt kan uppdateras allt eftersom angripare hittar nya och alltmer sofistikerade sätt att utnyttja systemen. Och för dig som kund innebär det att du kan hålla jämna steg med dagens snabbt föränderliga hotmiljö.
 
 Security Center samlar in, analyserar och integrerar loggdata från dina Azure-resurser och nätverket för att identifiera verkliga hot och minska antalet falska positiva identifieringar. Den fungerar även med anslutna partner lösningar som brand Väggs-och slut punkts skydds lösningar. Security Center analyserar informationen, som ofta korrelerar information från flera källor, för att identifiera hot.
 
@@ -90,6 +90,5 @@ Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieri
 
 I den här artikeln har du lärt dig om de olika typerna av aviseringar som är tillgängliga i Security Center. Mer information finns i:
 
-* [Skydd mot hot i Azure Security Center](threat-protection.md) – en kort beskrivning av källorna till de säkerhets aviseringar som visas av Azure Security Center 
-* **Säkerhets aviseringar i Azure aktivitets logg** – förutom att vara tillgängliga i Azure Portal eller program mässigt, granskas säkerhets aviseringar och incidenter som händelser i [Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Mer information om händelse schemat finns i [säkerhets aviseringar i Azure aktivitets logg](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Säkerhets aviseringar i Azure aktivitets logg** – förutom att vara tillgängliga i Azure Portal eller program mässigt, granskas säkerhets aviseringar och incidenter som händelser i [Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Mer information om händelse schemat finns i [säkerhets aviseringar i Azure aktivitets logg](https://go.microsoft.com/fwlink/?linkid=2114113)
 

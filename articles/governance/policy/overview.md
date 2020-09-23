@@ -1,25 +1,24 @@
 ---
 title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905988"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
-Azure Policy hjälper till att upprätthålla organisations standarder och utvärdera kompatibiliteten i stor skala. Med hjälp av instrument panelen för efterlevnad får du en sammanställd vy som utvärderar miljöns övergripande tillstånd, med möjlighet att öka detalj nivån till per-resurs-granularitet per princip. Det hjälper också till att se till att dina resurser efterlevs genom Mass reparation av befintliga resurser och automatisk reparation av nya resurser.
+Azure Policy hjälper till att framtvinga organisationsstandarder och utvärdera efterlevnad i stor skala. Med hjälp av instrument panelen för efterlevnad får du en sammanställd vy som utvärderar miljöns övergripande tillstånd, med möjlighet att öka detalj nivån till per-resurs-granularitet per princip. Det hjälper också till att se till att dina resurser efterlevs genom Mass reparation av befintliga resurser och automatisk reparation av nya resurser.
 
 Vanliga användnings fall för Azure Policy inkluderar implementering av styrning för resurs konsekvens, regelefterlevnad, säkerhet, kostnad och hantering. Princip definitioner för dessa vanliga användnings fall är redan tillgängliga i din Azure-miljö som inbyggda moduler för att hjälpa dig att komma igång.
 
 ## <a name="overview"></a>Översikt
 
-Azure Policy utvärderar resurser i Azure genom att jämföra egenskaperna för dessa resurser med affärs regler. Dessa affärs regler, som beskrivs i [JSON-format](./concepts/definition-structure.md), kallas för [princip definitioner](#policy-definition). För att förenkla hanteringen kan flera affärs Regler grupperas tillsammans för att bilda ett [princip initiativ](#initiative-definition) (kallas ibland för en _policySet_). När dina affärs regler har skapats [tilldelas](#assignments) princip definitionen eller initiativet alla resurser som stöds av Azure, till exempel [hanterings grupper](../management-groups/overview.md), prenumerationer, [resurs grupper](../../azure-resource-manager/management/overview.md#resource-groups)eller enskilda resurser. Tilldelningen gäller för alla resurser inom tilldelningens [omfattning](../../azure-resource-manager/management/overview.md#understand-scope) .
-Under omfattningar kan undantas vid behov.
+Azure Policy utvärderar resurser i Azure genom att jämföra egenskaperna för dessa resurser med affärs regler. Dessa affärs regler, som beskrivs i [JSON-format](./concepts/definition-structure.md), kallas för [princip definitioner](#policy-definition). För att förenkla hanteringen kan flera affärs Regler grupperas tillsammans för att bilda ett [princip initiativ](#initiative-definition) (kallas ibland för en _policySet_). När dina affärs regler har skapats [tilldelas](#assignments) princip definitionen eller initiativet alla resurser som stöds av Azure, till exempel [hanterings grupper](../management-groups/overview.md), prenumerationer, [resurs grupper](../../azure-resource-manager/management/overview.md#resource-groups)eller enskilda resurser. Tilldelningen gäller för alla resurser inom [Resource Manager-omfånget](../../azure-resource-manager/management/overview.md#understand-scope) för tilldelningen. Under omfattningar kan undantas vid behov. Mer information finns [i omfattning i Azure policy](./concepts/scope.md).
 
 Azure Policy använder ett [JSON-format](./concepts/definition-structure.md) för att forma logiken som utvärderingen använder för att avgöra om en resurs är kompatibel eller inte. Definitioner inkluderar metadata och princip regeln. Den definierade regeln kan använda funktioner, parametrar, logiska operatorer, villkor och egenskaps- [alias](./concepts/definition-structure.md#aliases) för att matcha exakt det scenario du önskar. Princip regeln avgör vilka resurser i tilldelnings omfånget som ska utvärderas.
 
@@ -71,7 +70,7 @@ Kombinationen av RBAC och Azure Policy ger fullständig omfattnings kontroll i A
 Azure Policy har flera behörigheter, som kallas åtgärder, i två olika resursprovidrar:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft. PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
 Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen som **deltagar resurs princip** omfattar de flesta Azure policy åtgärder. **Ägare** har fullständiga behörigheter. Både **deltagare** och **läsare** har åtkomst till alla _Läs_ Azure policy-åtgärder. **Deltagare** kan utlösa resurs reparation, men kan inte _skapa_ definitioner eller tilldelningar.
 
@@ -102,11 +101,11 @@ Här följer några råd och tips att tänka på:
 
 ## <a name="azure-policy-objects"></a>Azure Policy objekt
 
-### <a name="policy-definition"></a>Definition av princip
+### <a name="policy-definition"></a>Principdefinition
 
 Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en definierad effekt som träder ikraft om villkoren är uppfyllda.
 
-Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Ett exempel:
+Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
 
 - **Tillåtna lagrings konto SKU: er** (neka): avgör om ett lagrings konto som distribueras är inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
 - **Tillåten resurs typ** (neka): definierar de resurs typer som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
@@ -116,7 +115,7 @@ Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard
 - **Lägg till tagg och dess standardvärde** (append): tillämpar en obligatorisk tagg och dess värde för en resurs.
 - **Ej tillåtna resurs typer** (neka): förhindrar att en lista över resurs typer distribueras.
 
-För att implementera dessa principdefinitioner (både inbyggda och anpassade definitioner) måste du tilldela dem. Du kan tilldela de här principerna via Azure Portal, PowerShell eller Azure CLI.
+För att implementera dessa principdefinitioner (både inbyggda och anpassade definitioner) måste du tilldela dem. Du kan tilldela de här principerna via Azure-portalen, PowerShell eller Azure CLI.
 
 Principutvärdering sker med flera olika åtgärder, till exempel tilldelning av principer eller principuppdateringar. En fullständig lista finns i [Principutvärderingsutlösare](./how-to/get-compliance-data.md#evaluation-triggers).
 
@@ -124,7 +123,7 @@ Läs mer om principdefinitionernas strukturer i artikeln, [struktur för princip
 
 Principparametrar underlättar hanteringen av principer genom att minska antalet principdefinitioner du måste skapa. Du kan definiera parametrar när du skapar en principdefinition så att den blir mer allmän. Sedan kan du återanvända den principdefinitionen för olika scenarier. Det gör du genom att ange olika värden när du tilldelar principdefinitionen. Till exempel ange du en uppsättning platser för en prenumeration.
 
-Parametrar definieras när du skapar en principdefinition. När en parameter definieras ges den ett namn och eventuellt ett givet värde. Du kan till exempel definiera en parameter för en princip med titeln _plats_. Sedan kan du ge den olika värden som _EastUS_ eller _WestUS_ när du tilldelar en princip.
+Parametrar definieras när du skapar en principdefinition. När en parameter definieras tilldelas den ett namn och eventuellt ett bestämt värde. Du kan till exempel definiera en parameter för en princip med titeln _plats_. Sedan kan du ge den olika värden som _EastUS_ eller _WestUS_ när du tilldelar en princip.
 
 Mer information om principparametrar finns i [Struktur för definitioner – parametrar](./concepts/definition-structure.md#parameters).
 
@@ -145,7 +144,7 @@ Precis som principparametrar underlättar initiativparametrar initiativhantering
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
-| Princip | Parameternamn |Parametertyp  |Anteckning |
+| Policy | Parameternamn |Parametertyp  |Anteckning |
 |---|---|---|---|
 | principA | allowedLocations | matris  |Den här parametern förväntar sig en lista med strängar för ett värde eftersom parametertypen har definierats som en matris |
 | principB | allowedSingleLocation |sträng |Den här parametern förväntar sig ett ord som värde eftersom parametertypen har definierats som en sträng |

@@ -11,21 +11,21 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 006aab66eb220c3bb74794ba78bf1495583b653e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0dcede7e6c15fbc0bae39370431d14696cb4026e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648309"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905662"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Distribuera din befintliga modell med Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 I den här artikeln får du lära dig hur du registrerar och distribuerar en maskin inlärnings modell som du har tränat utanför Azure Machine Learning. Du kan distribuera som en webb tjänst eller till en IoT Edge enhet.  När du har distribuerat kan du övervaka din modell och identifiera data avvikelser i Azure Machine Learning. 
 
 Mer information om begreppen och termerna i den här artikeln finns i [Hantera, distribuera och övervaka Machine Learning-modeller](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [En Azure Machine Learning arbets yta](how-to-manage-workspace.md)
   + Python-exempel förutsätter att `ws` variabeln är inställd på din Azure Machine Learning-arbetsyta. Mer information om hur du ansluter till arbets ytan finns i [dokumentationen för Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=trueworkspace).
@@ -274,7 +274,7 @@ Mer information om distribution finns i [hur och var modeller ska distribueras](
 
 ## <a name="request-response-consumption"></a>Användning av begäran-svar
 
-Efter distributionen visas bedömnings-URI: n. Denna URI kan användas av klienter för att skicka begär anden till tjänsten. Följande exempel är en grundläggande python-klient som skickar data till tjänsten och visar svaret:
+Efter distributionen visas bedömnings-URI: n. Denna URI kan användas av klienter för att skicka begär anden till tjänsten. Följande exempel är en enkel python-klient som skickar data till tjänsten och visar svaret:
 
 ```python
 import requests

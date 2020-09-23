@@ -3,16 +3,17 @@ title: Hanterad disk-bursting
 description: Lär dig mer om disk burst för Azure-diskar och disk burst för virtuella Azure-datorer
 author: albecker1
 ms.author: albecker
-ms.date: 04/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: ab54b68ab3f7984ee18a39cf3a81fa663af54dee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594462"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889101"
 ---
 # <a name="disk-bursting"></a>Diskutvidgning
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -20,6 +21,10 @@ ms.locfileid: "82594462"
 ## <a name="virtual-machine-level-bursting"></a>Burst-överföring på virtuell dator
 Stöd för burst-överföring på virtuell dator har Aktiver ATS i alla regioner i det offentliga molnet med de storlekar som stöds: 
 - [Lsv2-serien](../lsv2-series.md)
+
+Burst-överföring på VM-nivå är också tillgängligt i USA, västra centrala, för följande storlekar som stöds:
+- [Dsv3-serien](../dv3-dsv3-series.md)
+- [Esv3-serien](../ev3-esv3-series.md)
 
 Bursting är aktiverat som standard för virtuella datorer som har stöd för det.
 

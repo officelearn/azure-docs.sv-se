@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477518"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898487"
 ---
 # <a name="partition-and-sample-module"></a>Partition och exempel modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd modulen partition och exempel för att utföra sampling på en data uppsättning eller skapa partitioner från din data uppsättning.
 
@@ -71,7 +71,7 @@ Det här alternativet stöder enkel slumpmässig provtagning eller Stratified sl
 
 1. Lägg till **partition och exempel** modul i din pipeline och Anslut data uppsättningen.
 
-1. **Partition eller exempel läge**: Ange det här alternativet för att **Sampla**.
+1. **Partition eller exempel läge**: Ange det här alternativet för att  **Sampla**.
 
 1. **Samplings frekvens**: Ange ett värde mellan 0 och 1. Det här värdet anger procent andelen av rader från käll data uppsättningen som ska inkluderas i data uppsättningen för utdata.
 

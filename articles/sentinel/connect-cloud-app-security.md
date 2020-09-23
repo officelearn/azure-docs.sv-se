@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 6be2805cab1bcaadb7878be69399e14ffe59d7b0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659728"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904549"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Anslut data från Microsoft Cloud App Security 
 
 Med [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) -anslutaren (MCAS) kan du strömma aviseringar och [Cloud Discovery loggar](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) från MCAS till Azure Sentinel. På så sätt kan du få insyn i dina molnappar, få avancerade analyser för att identifiera och bekämpa cyberhot och styra hur dina data överförs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Användaren måste ha läs-och Skriv behörighet på arbets ytan.
 - Användaren måste ha behörighet som global administratör eller säkerhets administratör på arbets ytans klient organisation.
@@ -48,7 +48,7 @@ Om Cloud App Security distribueras och matas in med dina data kan aviserings inf
 
 1. Klicka på **tillämpa ändringar**.
 
-1. Du kan välja om du vill att aviseringarna från Azure Defender (tidigare Azure Security Center) automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter**väljer du **aktive rad** för att aktivera standard analys regeln som automatiskt skapar incidenter från aviseringar. Du kan sedan redigera regeln under **analys**på fliken  **aktiva regler** .
+1. Du kan välja om du vill att Azure Defender-aviseringar från Azure Security Center automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter**väljer du **aktive rad** för att aktivera standard analys regeln som automatiskt skapar incidenter från aviseringar. Du kan sedan redigera regeln under **analys**på fliken  **aktiva regler** .
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Cloud App Security aviseringar skriver `SecurityAlert` du i frågefönstret. För schemat för Cloud Discovery loggar skriver du `McasShadowItReporting` .
 

@@ -1,14 +1,14 @@
 ---
 title: Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
-description: Aviseringar för tjänst hälsa gör att du kan visa meddelanden om tjänst hälsa som publicerats av Microsoft Azure.
+description: Visa dina meddelanden om tjänst hälsa i Azure Portal. Meddelanden om tjänst hälsa publiceras av Azure-infrastrukturen i aktivitets loggen i Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 9f8297ae708d3f4e7921221f2c4bacee12a7a2b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089574"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967780"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa aviseringar om hälsotillståndet för tjänsten med hjälp av Azure-portalen
 

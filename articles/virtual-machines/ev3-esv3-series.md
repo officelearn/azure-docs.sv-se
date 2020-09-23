@@ -5,14 +5,14 @@ author: joelpelley
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 09/22/2020
 ms.author: lahugh
-ms.openlocfilehash: f9ef048fa7cc4b795f409326988e3276743b6992
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2fe09d785d282b0f3954e2285b15458c867a9401
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648963"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906186"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3- och Esv3-serien
 
@@ -36,17 +36,17 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal nätverkskort | Nätverksbandbredd |
-|---|---|---|---|---|---|---|---|
-| Standard_E2_v3  | 2  | 16  | 50   | 4  | 3 000/46/23     | 2|1000  |
-| Standard_E4_v3  | 4  | 32  | 100  | 8  | 6 000/93/46     | 2|2000  |
-| Standard_E8_v3  | 8  | 64  | 200  | 16 | 12 000/187/93   | 4|4000  |
-| Standard_E16_v3 | 16 | 128 | 400  | 32 | 24 000/375/187  | 8|8000  |
-| Standard_E20_v3 | 20 | 160 | 500  | 32 | 30000/469/234  | 8|10000 |
-| Standard_E32_v3 | 32 | 256 | 800  | 32 | 48 000/750/375  | 8|16000 |
-| Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96 000/1 000/500 | 8|24000 |
-| Standard_E64_v3 | 64 | 432 | 1600 | 32 | 96 000/1 000/500 | 8|30000 |
-| Standard_E64i_v3 <sup>1, 2</sup> | 64 | 432 | 1600 | 32 | 96 000/1 000/500 | 8|30000 |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal nätverkskort/nätverksbandbredd |
+|---|---|---|---|---|---|---|
+| Standard_E2_v3  | 2  | 16  | 50   | 4  | 3 000/46/23     | 2/1000  |
+| Standard_E4_v3  | 4  | 32  | 100  | 8  | 6 000/93/46     | 2/2000  |
+| Standard_E8_v3  | 8  | 64  | 200  | 16 | 12 000/187/93   | 4/4000  |
+| Standard_E16_v3 | 16 | 128 | 400  | 32 | 24 000/375/187  | 8/8000  |
+| Standard_E20_v3 | 20 | 160 | 500  | 32 | 30000/469/234  | 8/10000 |
+| Standard_E32_v3 | 32 | 256 | 800  | 32 | 48 000/750/375  | 8/16000 |
+| Standard_E48_v3 | 48 | 384 | 1200 | 32 | 96 000/1 000/500 | 8/24000 |
+| Standard_E64_v3 | 64 | 432 | 1600 | 32 | 96 000/1 000/500 | 8/30000 |
+| Standard_E64i_v3 <sup>1, 2</sup> | 64 | 432 | 1600 | 32 | 96 000/1 000/500 | 8/30000 |
 
 <sup>1</sup> begränsad kärn storlek är tillgänglig.
 
@@ -68,21 +68,23 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v3 | 2 | 16 | 32 | 4 | 4000/32 (50) | 3200/48 | 2/1000 |
-| Standard_E4s_v3 <sup>1</sup>  | 4  | 32  | 64  | 8  | 8000/64 (100)   | 6400/96   | 2|2000 |
-| Standard_E8s_v3 <sup>1</sup>  | 8  | 64  | 128 | 16 | 16000/128 (200) | 12800/192 | 4|4000 |
-| Standard_E16s_v3 <sup>1</sup> | 16 | 128 | 256 | 32 | 32000/256 (400) | 25600/384 | 8|8000 |
-| Standard_E20s_v3 | 20 | 160 | 320 | 32 | 40000/320 (400) | 32000/480 | 8/10000 |
-| Standard_E32s_v3 <sup>1</sup>  | 32 | 256 | 512 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
-| Standard_E48s_v3 <sup>1</sup>  | 48 | 384 | 768 | 32 | 96000/768 (1200)   | 76800/1152 | 8|24000 |
-| Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 80000/1200 | 8|30000 |
-| Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 80000/1200 | 8|30000 |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Genomflöde med burst och temporär lagring: IOPS/Mbit/s<sup>3</sup> | Maximalt antal cachelagrade diskar: IOPS/MBps |  Burst-överföring av cachelagrade diskar: IOPS/Mbit/s<sup>3</sup>| Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_E2s_v3                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
+| Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8000/64 (100)      | 8000/200    | 6400/96    | 8000/200 | 2/2000 |
+| Standard_E8s_v3 <sup>1</sup>   | 8  | 64  | 128 | 16 | 16000/128 (200)    | 16000/400   | 12800/192  | 16000/400 | 4/4000 |
+| Standard_E16s_v3 <sup>1</sup>  | 16 | 128 | 256 | 32 | 32000/256 (400)    | 32000/800   | 25600/384  | 32000/800 | 8/8000 |
+| Standard_E20s_v3               | 20 | 160 | 320 | 32 | 40000/320 (400)    | 40000/1000  | 32000/480  | 40000/1000 | 8/10000 |
+| Standard_E32s_v3 <sup>1</sup>  | 32 | 256 | 512 | 32 | 64000/512 (800)    | 64000/1600  | 51200/768  | 64000/1600 | 8/16000 |
+| Standard_E48s_v3 <sup>1</sup>  | 48 | 384 | 768 | 32 | 96000/768 (1200)   | 96000/2000  | 76800/1152 | 80000/2000 | 8/24000 |
+| Standard_E64s_v3 <sup>1</sup>  | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
+| Standard_E64is_v3 <sup>2</sup> | 64 | 432 | 864 | 32 | 128000/1024 (1600) | 128000/2000 | 80000/1200 | 80000/2000 | 8/30000 |
 
 <sup>1</sup> begränsad kärn storlek är tillgänglig.
 
 <sup>2</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
+
+<sup>3</sup> virtuella datorer i Esv3- [serien kan överföra](linux/disk-bursting.md) disk prestanda och få upp till deras burst-Max i upp till 30 minuter i taget.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -94,11 +96,8 @@ Minnes bebetjänings uppdateringar: stöds
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
-
-Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
-
-Mer information om disk typer: [disk typer](./disks-types.md#ultra-disk)
-
+- [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
+- Mer information om disk typer finns i [vilka disk typer som är tillgängliga i Azure?](disks-types.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

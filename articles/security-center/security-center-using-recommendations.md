@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569058"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904681"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använda Azure Security Center-rekommendationer för att förbättra säkerheten
 
@@ -41,7 +41,7 @@ David, från Contosos IT-säkerhet, har redan valt att publicera Security Center
 
 Security Center analyserar automatiskt säkerhets läget för Contosos Azure-resurser och tillämpar standard säkerhets principer. När Security Center identifierar potentiella säkerhets problem skapas **rekommendationer** baserat på de kontroller som anges i säkerhets principen. 
 
-David kör Azure Security Standard-nivån, över alla prenumerationer för att få en fullständig uppsättning rekommendationer och säkerhetsfunktioner. Jeff registrerar också alla befintliga lokala servrar som ännu inte har migrerats till molnet så att de kan dra nytta av Security Center hybrid support över sina [Windows](quick-onboard-windows-computer.md) -och [Linux](quick-onboard-linux-computer.md) -servrar.
+David kör Azure-säkerhet med Azure Defender aktiverat, över alla prenumerationer för att få en fullständig uppsättning rekommendationer och säkerhetsfunktioner. Jeff registrerar också alla befintliga lokala servrar som ännu inte har migrerats till molnet så att de kan dra nytta av Security Center hybrid support över sina [Windows-och Linux-servrar](quickstart-onboard-machines.md).
 
 Jeff är en moln arbets belastnings ägare. Jeff ansvarar för att tillämpa säkerhets kontroller i enlighet med Contosos säkerhets principer. 
 
@@ -60,9 +60,9 @@ Som en del av de dagliga övervaknings aktiviteterna loggar Jeff in på Azure oc
 
 3. Jeff måste bestämma vilka rekommendationer som ska hanteras först. Jeff klickar på säkra poäng och börjar hantera rekommendationer baserat på hur mycket det förbättrar sina [säkra Poäng](secure-score-security-controls.md).
 
-4. Eftersom Jeff har många anslutna virtuella datorer och servrar, bestämmer Jeff att fokusera på data **behandling och appar**.
+4. Eftersom Jeff har många anslutna virtuella datorer, bestämmer Jeff att fokusera på sina datorer i [till gångs inventering](asset-inventory.md).
 
-5. När Jeff klickar på **Compute och appar**, ser de en lista över rekommendationer och hanterar dem enligt den säkra Poäng effekten.
+5. När Jeff öppnar till gångs inventeringen visas en lista över rekommendationer. Jeff hanterar dem enligt den säkra poängen.
 
 6. Jeff har flera virtuella datorer som är riktade mot Internet och eftersom deras portar exponeras, så är de oroar att en angripare kan få kontroll över servrarna. Så Jeff väljer att använda [**just-in-Time VM-åtkomst**](security-center-just-in-time.md).
 

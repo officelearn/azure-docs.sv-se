@@ -5,16 +5,19 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076019"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888786"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autentisera Azure våren Cloud med Key Vault i GitHub-åtgärder
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
+
 Key Vault är en säker plats för att lagra nycklar. Företags användare måste lagra autentiseringsuppgifter för CI/CD-miljöer i den omfattning som de styr. Nyckeln för att hämta autentiseringsuppgifter i nyckel valvet bör begränsas till resurs omfånget.  Den har enbart åtkomst till nyckel valvets omfång, inte hela Azure-omfånget. Det är som en nyckel som bara kan öppna en stark ruta, inte en huvud nyckel som kan öppna alla dörrar i en byggnad. Det är ett sätt att hämta en nyckel till en annan nyckel, vilket är användbart i ett CICD-arbetsflöde. 
 
 ## <a name="generate-credential"></a>Generera autentiseringsuppgifter
@@ -43,7 +46,7 @@ Spara sedan resultaten till GitHub- **hemligheter** enligt beskrivningen i [Konf
 ## <a name="add-access-policies-for-the-credential"></a>Lägg till åtkomst principer för autentiseringsuppgiften
 De autentiseringsuppgifter som du har skapat ovan kan bara få allmän information om Key Vault, inte innehållet som den lagrar.  Om du vill hämta hemligheterna som lagras i Key Vault måste du ange åtkomst principer för autentiseringsuppgifterna.
 
-Gå till **Key Vault** instrument panelen i Azure Portal, klicka på menyn **åtkomst kontroll** och öppna sedan fliken **roll tilldelningar** . Välj **appar** för **typ** och `This resource` **omfång**.  Du bör se de autentiseringsuppgifter som du skapade i föregående steg:
+Gå till **Key Vault** instrument panelen i Azure Portal, klicka på menyn **åtkomst kontroll** och öppna sedan fliken **roll tilldelningar** . Välj **appar** för **typ** och `This resource` för **omfång**.  Du bör se de autentiseringsuppgifter som du skapade i föregående steg:
 
  ![Ange åtkomst princip](./media/github-actions/key-vault1.png)
 

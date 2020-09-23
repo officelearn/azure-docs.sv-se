@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207365"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986238"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till resurs fel sökning i Azure Network Watcher
 
 Virtual Network gatewayer ger anslutning mellan lokala resurser och andra virtuella nätverk i Azure. Gatewayer för övervakning och deras anslutningar är viktiga för att säkerställa att kommunikationen inte bryts. Network Watcher ger möjlighet att felsöka gatewayer och anslutningar. Kapaciteten kan anropas via portalen, PowerShell, Azure CLI eller REST API. När den anropas diagnostiserar Network Watcher hälso tillståndet för gatewayen eller anslutningen och returnerar lämpliga resultat. Begäran är en tids krävande transaktion. Resultaten returneras när diagnostiken är klar.
 
-![portal][2]
+![Skärm bild som visar Network Watcher V P N-diagnostik.][2]
 
 ## <a name="results"></a>Resultat
 
@@ -54,11 +54,11 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 | PlannedMaintenance |  Gateway-instansen är under underhåll  |Nej|
 | UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring. | Nej |
 | VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Nej |
-| PlatformInActive | Det är något problem med plattformen. | Nej|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Nej|
-| ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Ja|
-| GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Ja |
+| PlatformInActive | Det är något problem med plattformen. | No|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | No|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| No|
+| ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Yes|
+| GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Yes |
 
 ### <a name="connection"></a>Anslutning
 
@@ -68,15 +68,15 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 | GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
 | PlannedMaintenance | Gateway-instansen är under underhåll  |Nej|
 | UserDrivenUpdate | Det här felet inträffar när en användaruppdatering pågår. Uppdateringen kan vara en storleksändring.  | Nej |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | Nej |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Nej |
-| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Nej|
-| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
-| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
-| Autentisering | I förväg delad nyckel matchar inte | Ja|
-| PeerReachability | Det går inte att komma åt peer-gatewayen. | Ja|
-| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse-fel | Ett fel uppstod vid parsning av WFP-loggen. |Ja|
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett fel i tillståndsavsökningen. | No |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | No |
+| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |No|
+| ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Yes |
+| ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Yes|
+| Autentisering | I förväg delad nyckel matchar inte | Yes|
+| PeerReachability | Det går inte att komma åt peer-gatewayen. | Yes|
+| IkePolicyMismatch | Peer-gatewayen har IKE-principer som inte stöds av Azure. | Yes|
+| WfpParse-fel | Ett fel uppstod vid parsning av WFP-loggen. |Yes|
 
 ## <a name="supported-gateway-types"></a>Gateway-typer som stöds
 

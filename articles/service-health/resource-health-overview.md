@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Resource Health
-description: Översikt över Azure Resource Health
+description: Lär dig hur Azure Resource Health hjälper dig att diagnostisera och få support för tjänst problem som påverkar dina Azure-resurser.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: f0d2fdb8e1c8b92dba526650405405db8ae8a776
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041582"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967871"
 ---
 # <a name="resource-health-overview"></a>Översikt över Resource Health
  
@@ -32,11 +32,11 @@ Hälso tillståndet för en resurs visas som en av följande status värden.
 
 ![Status för * tillgängligt * för en virtuell dator som har meddelandet "nyligen löst"](./media/resource-health-overview/Available.png)
 
-### <a name="unavailable"></a>Inte tillgänglig
+### <a name="unavailable"></a>Ej tillgänglig
 
 *Otillgänglig* innebär att tjänsten har identifierat en pågående plattforms-eller icke-plattforms händelse som påverkar resursens hälso tillstånd.
 
-#### <a name="platform-events"></a>Plattforms händelser
+#### <a name="platform-events"></a>Plattformshändelser
 
 Plattforms händelser utlöses av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade incidenter (t. ex. en oplanerad värd omstart eller degraderad värd maskin vara som är förväntad för att bli misslyckad efter ett angivet tids fönster).
 
@@ -84,7 +84,7 @@ Du kan komma åt upp till 30 dagars historik i avsnittet **hälso historik** i R
 
 Öppna Resource Health för en resurs:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Bläddra till resursen.
 3. Välj **resurs hälsa**på resurs menyn i det vänstra fönstret.
 

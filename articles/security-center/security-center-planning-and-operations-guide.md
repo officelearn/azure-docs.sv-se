@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461331"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904838"
 ---
 # <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -120,7 +120,7 @@ Security Center-principer innehåller följande komponenter:
 - [Datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agentetablering och datainsamlingsinställningar.
 - [Säkerhets princip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure policy](../governance/policy/overview.md) som avgör vilka kontroller som övervakas och rekommenderas av Security Center, eller Använd Azure policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer över hanterings grupper.
 - [E-postmeddelanden](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): säkerhetskontakter och inställningar för meddelanden.
-- [Prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): val av kostnadsfritt eller standardpris, som bestämmer vilka Security Center-funktioner som är tillgängliga för resurser i omfattningen (kan anges för prenumerationer, resursgrupper och arbetsytor).
+- [Pris nivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): med eller utan Azure Defender som avgör vilka Security Center funktioner som är tillgängliga för resurser i området (kan anges för prenumerationer, resurs grupper och arbets ytor).
 
 > [!NOTE]
 > Om du anger en säkerhetskontakt säkerställer du att Azure kan nå rätt person i organisationen om en säkerhetsincident inträffar. Mer information om hur du aktiverar den här rekommendationen finns i [Lägga till kontaktuppgifter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
@@ -158,12 +158,12 @@ Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusiv
 För arbetsytor som skapats av Azure Security Center sparas data i 30 dagar. För befintliga arbetsytor baseras kvarhållningen på arbetsytans prisnivå. Om du vill kan du även använda en befintlig arbetsyta.
 
 > [!NOTE]
-> Microsoft arbetar hårt för att skydda sekretessen och säkerheten för dessa data. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst. Mer information om datahantering och sekretess finns i [Datasäkerhet i Azure Security Center](security-center-data-security.md).
+> Microsoft gör starka åtaganden för att skydda sekretessen och säkerheten för dessa data. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst. Mer information om datahantering och sekretess finns i [Datasäkerhet i Azure Security Center](security-center-data-security.md).
 >
 
 ## <a name="onboarding-non-azure-resources"></a>Publicera icke-Azure-resurser
 
-Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. Mer information om hur du publicerar icke-Azure-resurser finns i [Publicera i Azure Security Center Standard för förbättrad säkerhet](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers).
+Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. Läs [andra icke-Azure-datorer](quickstart-onboard-machines.md) om du vill ha mer information om hur du registrerar icke-Azure-resurser.
 
 ## <a name="ongoing-security-monitoring"></a>Fortlöpande säkerhetsövervakning
 När rekommendationerna i Security Center har ställts in och tillämpats är det dags att fundera över driftrutinerna i Security Center.
@@ -191,7 +191,7 @@ Du bör också regelbundet övervaka befintliga resurser för konfigurations än
 
 Som en del av dina säkerhetsåtgärder bör du även vidta förebyggande åtgärder för att begränsa åtkomsten till virtuella datorer och kontrollera programmen som körs på virtuella datorer. Genom att låsa inkommande trafik till dina virtuella Azure-datorer minskar du exponeringen för attacker och samtidigt ger du enkel anslutningsåtkomst till virtuella datorer när det behövs. Använd [just-in-Time-](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) funktionen för VM-åtkomst för att skärpa åtkomsten till dina virtuella datorer.
 
-Du kan använda [anpassningsbara program kontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) för att begränsa vilka program som kan köras på dina virtuella datorer som finns i Azure. Bland andra förmåner hjälper detta till att förstärka dina virtuella datorer mot skadlig kod. Med maskin inlärning analyseras Security Center processer som körs i den virtuella datorn för att hjälpa dig att skapa vit listning-regler.
+Du kan använda [anpassningsbara program kontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) för att begränsa vilka program som kan köras på dina virtuella datorer som finns i Azure. Bland andra förmåner hjälper detta till att förstärka dina virtuella datorer mot skadlig kod. Med hjälp av maskin inlärning analyserar Security Center processer som körs i den virtuella datorn så att du kan skapa List regler.
 
 
 ## <a name="incident-response"></a>Incidenthantering
@@ -199,7 +199,7 @@ Security Center identifierar och varnar dig om hot så fort de uppstår. Organis
 
 Även om den här artikeln inte har avsikt att hjälpa dig att skapa en egen incident svars plan ska vi använda Microsoft Azure säkerhets svar i moln livs cykeln som grund för incident svars faser. Stegen visas i följande diagram:
 
-![Misstänkt aktivitet](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Steg för incident svaret i moln livs cykeln](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > National Institute of Standards and Technology (NIST) har en [handbok för hantering av datasäkerhetsrelaterade incidenter](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) som kan vara till hjälp när du vill skapa en egen plan.

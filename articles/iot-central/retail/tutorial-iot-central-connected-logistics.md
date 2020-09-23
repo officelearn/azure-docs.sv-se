@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
-ms.date: 09/11/2020
-ms.openlocfilehash: 5818e57f29558cbb5a29592cd4e1d7ae2eebbec1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.topic: tutorial
+ms.date: 10/20/2019
+ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531550"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980700"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Självstudie: Distribuera och gå igenom en ansluten logistik-Programmall
 
@@ -23,6 +23,10 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa ett anslutet logistik program.
 > * Använd viktiga funktioner i programmet.
+> * Använd instrument panelen för att visa den kritiska logistik enhetens åtgärds aktivitet.
+> * Använd enhets mal len
+> * Följ regler
+> * Använda jobb
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -41,6 +45,7 @@ Skapa programmet med följande steg:
 
 3. **Skapa app** öppnar formuläret **ny** app. Ange följande uppgifter:
 
+
     * **Program namn**: du kan använda det föreslagna standard namnet eller ange ett eget program namn.
     * **URL**: du kan använda den föreslagna standard-URL: en eller ange en egen, unik minnes adress. Sedan rekommenderas standardinställningen om du redan har en Azure-prenumeration. Du kan börja med en kostnads fri utvärderings prenumerations plan på 7 dagar och välja att konvertera till en standard pris plan när som helst innan det kostnads fria slutet går ut.
     * **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
@@ -52,11 +57,22 @@ Skapa programmet med följande steg:
 
 ## <a name="walk-through-the-application"></a>Gå igenom programmet
 
-I följande avsnitt får du stegvisa anvisningar genom de viktigaste funktionerna i programmet:
+Nedan visas en skärm bild som visar hur du väljer den anslutna logistik program mal len.
+
+> [!div class="mx-imgBorder"]
+> ![Skärm bild som visar hur du väljer program mal len ansluten logistik](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
+
+I följande avsnitt får du stegvisa anvisningar genom programmets viktiga funktioner.
 
 ### <a name="dashboard"></a>Instrumentpanel
 
 När du har distribuerat program mal len är standard instrument panelen en riktad Portal operatör med fokus på portalen. Northwind-näringsidkare är en fiktiv logistik leverantör som hanterar en Last flotta till sjöss och på marken. På den här instrument panelen visas två olika gateways som tillhandahåller telemetri från försändelser, tillsammans med tillhör ande kommandon, jobb och åtgärder.
+
+> [!div class="mx-imgBorder"]
+> ![Skärm bild som visar hur du skapar en app från program mal len ansluten logistik](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
+
+> [!div class="mx-imgBorder"]
+> ![Skärm bild som visar fakturerings alternativen när du skapar programmet](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
 
 Den här instrument panelen är förkonfigurerad för att visa den kritiska logistik enhetens Operations-aktivitet.
 
@@ -114,6 +130,8 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort pr
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Rensa mall":::
 
 ## <a name="next-steps"></a>Nästa steg
-
-* Lär dig mer om den [anslutna logistik konceptet](./architecture-connected-logistics.md)
+* Lär dig mer om 
+> [!div class="nextstepaction"]
+> [Anslutet logistik koncept](./architecture-connected-logistics.md)
 * Läs mer om andra [IoT Central mallar för butik](./overview-iot-central-retail.md)
+* Läs mer om [IoT Central översikt](../core/overview-iot-central.md)

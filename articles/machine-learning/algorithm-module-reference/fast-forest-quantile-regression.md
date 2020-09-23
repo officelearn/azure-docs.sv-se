@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100272"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907962"
 ---
-# <a name="fast-forest-quantile-regression"></a>Fast skog Quantile regression
+# <a name="fast-forest-quantile-regression"></a>Fast Forest Quantile Regression
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en fast skogs quantile Regressions modell i en pipeline. Snabb skogs quantile regression är användbart om du vill veta mer om distributionen av det förväntade värdet, i stället för att få ett enda genomsnitts förutsägelse värde. Den här metoden har många program, inklusive:  
   
@@ -32,7 +32,7 @@ Den här Regressions algoritmen är en **övervakad** inlärnings metod, vilket 
 
 ## <a name="more-about-quantile-regression"></a>Mer om quantile regression
 
-Det finns många olika typer av regression. I den mest grundläggande meningen innebär regression att du kan anpassa en modell till ett mål, uttryckt som en numerisk Vector. Statistiker har dock utvecklat alltmer avancerade metoder för regression.
+Det finns många olika typer av regression. Bara genom att använda regression innebär att en modell läggs till i ett mål uttryckt som en numerisk Vector. Statistiker har dock utvecklat alltmer avancerade metoder för regression.
 
 Den enklaste definitionen av *quantile* är ett värde som delar upp en uppsättning data i grupper med samma storlek. Därför markerar quantile-värdena gränserna mellan grupper. Quantiles är värden som tas med jämna mellanrum från inversen av den kumulativa fördelnings funktionen (CDF) i en slumpmässig variabel.
 

@@ -1,6 +1,6 @@
 ---
-title: Aktivera och inaktivera data bevarande principer – Azure SQL Edge (för hands version)
-description: Lär dig hur du aktiverar och inaktiverar data lagrings principer i Azure SQL Edge (för hands version)
+title: Aktivera och inaktivera data bevarande principer – Azure SQL Edge
+description: Lär dig hur du aktiverar och inaktiverar data lagrings principer i Azure SQL Edge
 keywords: SQL Edge, data kvarhållning
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9787f2cfa87a16d9e7dd1753e4389977c6753b81
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550727"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902500"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Aktivera och inaktivera data lagrings principer
 
@@ -23,9 +23,6 @@ I det här avsnittet beskrivs hur du aktiverar och inaktiverar data lagrings pri
 ## <a name="enable-data-retention-for-a-database"></a>Aktivera datakvarhållning för en databas
 
 I följande exempel visas hur du aktiverar datakvarhållning med hjälp av [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
-
-> [!NOTE]
-> Aktivera funktionen för datakvarhållning i Azure SQL Edge (för hands version) genom att aktivera TF 12825 som ett start alternativ eller använda DBCC TRACEON-kommandot. Mer information om hur du aktiverar spårnings flaggor med hjälp av en MSSQL. conf-fil finns i [Konfigurera med hjälp av en MSSQL. conf-fil](configure.md#configure-by-using-an-mssqlconf-file). 
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -59,12 +56,12 @@ Den `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD 
 
 - DATA_DELETION-anger om data kvarhållning är på eller av.
 - FILTER_COLUMN-namnet på kolumnen i tabellen som ska användas för att kontrol lera om raderna är föråldrade eller inte. Filter kolumnen kan bara vara en kolumn med följande data typer 
-    - Datum
+    - Date
     - Datatyp
     - DateTime
     - DateTime2
     - DateTimeOffset
-- RETENTION_PERIOD – ett heltals värde följt av en enhets beskrivning. De tillåtna enheterna är dag, vecka, månad och år.
+- RETENTION_PERIOD – ett heltals värde följt av en enhets beskrivning. De tillåtna enheterna är dag, dagar, vecka, veckor, månad, månader, år och år.
 
 I följande exempel visas hur du aktiverar datakvarhållning för tabellen med hjälp av [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
 
@@ -98,9 +95,9 @@ Inställningen datakvarhållning i databasen och tabellen används tillsammans f
 |Databas alternativ | Tabell alternativ | Beteende |
 |----------------|--------------|----------|
 | OFF | OFF | Principen för data bevarande är inaktive rad och både automatisk och manuell rensning av inaktuella poster är inaktive rad.|
-| OFF | ON  | Principen för data bevarande är aktive rad för tabellen, men både Auto och manuell rensning av inaktuella poster är inaktiverat. |
+| OFF | ON  | Principen för data bevarande är aktive rad för tabellen. Automatisk rensning av föråldrade poster har inaktiverats, men en manuell rensnings metod kan användas för att rensa föråldrade poster. |
 | ON | OFF | Principen för data bevarande är aktive rad på databas nivå. Eftersom alternativet är inaktiverat på tabell nivå finns det dock ingen kvarhållning baserad rensning av inaktuella rader.|
-| ON | ON | Principen för data bevarande är aktive rad för både databasen och tabellerna. Automatisk/manuell rensning av föråldrade poster har Aktiver ATS |
+| ON | ON | Principen för data bevarande är aktive rad för både databasen och tabellerna. Automatisk rensning av föråldrade poster har Aktiver ATS. |
 
 ## <a name="disable-data-retention-on-a-table"></a>Inaktivera datakvarhållning av data i en tabell 
 

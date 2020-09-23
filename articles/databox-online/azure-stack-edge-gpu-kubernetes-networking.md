@@ -1,6 +1,6 @@
 ---
-title: Förstå Kubernetes-nätverk på Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur Kubernetes-nätverk fungerar på en Azure Stack Edge-enhet.
+title: Förstå Kubernetes-nätverk på Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur Kubernetes-nätverk fungerar på en Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 4eab89710e031ead0a3758afd2367e60d26f395b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 001304ad6eda27db2285aaa9ad8b28929e2a04f8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268133"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899318"
 ---
-# <a name="kubernetes-networking-in-your-azure-stack-edge-gpu-device"></a>Kubernetes nätverk i Azure Stack Edge GPU-enhet
+# <a name="kubernetes-networking-in-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes nätverk i din Azure Stack Edge Pro GPU-enhet
 
-På din Azure Stack Edge-enhet skapas ett Kubernetes-kluster när du konfigurerar Compute-rollen. När Kubernetes-klustret har skapats kan program i behållare distribueras i Kubernetes-klustret i poddar. Det finns olika sätt att använda nätverk för poddar i ditt Kubernetes-kluster. 
+På din Azure Stack Edge Pro-enhet skapas ett Kubernetes-kluster när du konfigurerar Compute-rollen. När Kubernetes-klustret har skapats kan program i behållare distribueras i Kubernetes-klustret i poddar. Det finns olika sätt att använda nätverk för poddar i ditt Kubernetes-kluster. 
 
-I den här artikeln beskrivs nätverk i ett Kubernetes-kluster i allmänhet och specifikt i kontexten för din Azure Stack Edge-enhet. 
+Den här artikeln beskriver nätverk i ett Kubernetes-kluster i allmänhet och specifikt inom ramen för din Azure Stack Edge Pro-enhet. 
 
 ## <a name="networking-requirements"></a>Nätverks krav
 
@@ -59,9 +59,9 @@ For discovery of applications within the cluster, Kubernetes cluster has a
 When an application or the end user would first use the IP address associated with the service of type load balancer to discover the service. Then it would use the label select `app = WS` to discover the pods associated with the application. The `kube-proxy` component would then distribute the traffic and ensure that it hits one of the web server application pods. If the web server app wanted to talk to the database app, then it would simply use the name of the service and using the name and the DNS server pod, resolve the name to an IP address. Again using labels and label selector, it would discover the pods associated with the database application. The `kube-proxy` would then distribute the traffic across each of the database app nodes.-->
 
 
-## <a name="kubernetes-networking-on-azure-stack-edge"></a>Kubernetes nätverk på Azure Stack Edge
+## <a name="kubernetes-networking-on-azure-stack-edge-pro"></a>Kubernetes nätverk på Azure Stack Edge Pro
 
-Calico, Metallb och Core DNS är alla komponenter som är installerade för nätverk på din Azure Stack Edge. 
+Calico, Metallb och Core DNS är alla komponenter som är installerade för nätverk på din Azure Stack Edge Pro. 
 
 - **Calico** tilldelar en IP-adress från ett privat IP-adressintervall till varje Pod och konfigurerar nätverk för dessa poddar så att Pod på en nod kan kommunicera med Pod på en annan nod. 
 - **Metallb** körs på en i-kluster-Pod och tilldelar IP-adresser till tjänster av typen Load Balancer. IP-adresser för belastnings utjämning väljs från tjänstens IP-intervall som tillhandahålls via det lokala användar gränssnittet. 
@@ -80,8 +80,8 @@ IP-tilldelningen är för:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera Kubernetes-nätverk på Azure Stack Edge se:
+Om du vill konfigurera Kubernetes-nätverk på Azure Stack Edge Pro, se:
 
-- [Exponera ett tillstånds löst program externt i Azure Stack Edge via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+- [Exponera ett tillstånds löst program externt i Azure Stack Edge Pro via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
-- [Exponera ett tillstånds löst program externt på din Azure Stack Edge via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Exponera ett tillstånds löst program externt i Azure Stack Edge Pro via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

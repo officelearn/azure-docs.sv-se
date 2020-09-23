@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 7e8cea18999bec34eba6630a96dca089fd4725af
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 1d31fc70aaf8449ed8bdafe4e290113e20865906
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016357"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902357"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 
@@ -99,15 +99,15 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > I den här snabb starten ska du inte ändra andra värden i *appsettings.js* i filen.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Steg 4: Skapa och kör programmet
-> 
+>
 > Skapa och kör appen i Visual Studio genom att välja menyn **felsök** > **Starta fel sökning**eller genom att trycka på `F5` nyckeln.
-> 
+>
 > Du uppmanas att ange dina autentiseringsuppgifter och sedan uppmanas att godkänna de behörigheter som krävs för din app. Välj **Godkänn** i medgivande frågan.
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-01-consent.png" alt-text="Dialog rutan medgivande som visar de behörigheter som appen begär från > användare":::
-> 
+>
 > När du har samtyckt till de begärda behörigheterna visar appen att du har loggat in med dina Azure Active Directory autentiseringsuppgifter.
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Webbläsaren som visar den webbapp som körs och användaren är inloggad":::
 
 ## <a name="more-information"></a>Mer information
@@ -143,7 +143,7 @@ Mellanprogram *Microsoft. AspNetCore. Authentication* använder en `Startup` kla
 
 Raden som innehåller `.AddMicrosoftIdentityWebApp` lägger till Microsoft Identity Platform-autentisering till ditt program. Den konfigureras sedan att logga in med hjälp av Microsoft Identity Platform-slutpunkten baserat på informationen i `AzureAD` avsnittet i *appsettings.jsi* konfigurations filen:
 
-| *appsettings.jspå* nyckel | Description                                                                                                                                                          |
+| *appsettings.jspå* nyckel | Beskrivning                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ClientId`             | **Program-ID** för programmet som är registrerat i Azure Portal.                                                                                       |
 | `Instance`             | STS-slutpunkt (Security Token Service) för användaren att autentisera. Det här värdet är vanligt vis `https://login.microsoftonline.com/` som anger det offentliga Azure-molnet. |

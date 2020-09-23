@@ -8,21 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/08/2020
-ms.openlocfilehash: e765422ebfce1a4328bac9a17edb8b581f87e6f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.date: 09/22/2020
+ms.openlocfilehash: 7185adf559f429feb0ada60fef65e1edb106da66
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661713"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907632"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
 Arbets ytan är toppnivå resursen för Azure Machine Learning, vilket ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning.  Arbets ytan har en historik över alla utbildningar som körs, inklusive loggar, mått, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen.  
 
 När du har en modell som du gillar kan du registrera den med arbets ytan. Sedan använder du de registrerade modell-och bedömnings skripten för att distribuera till Azure Container Instances, Azure Kubernetes-tjänsten eller till en FPGA (Field-programmerbar grind array) som en REST-baserad HTTP-slutpunkt. Du kan också distribuera modellen till en Azure IoT Edge enhet som en modul.
-
-Vilka priser och funktioner som är tillgängliga beror på om [Basic eller Enterprise Edition](overview-what-is-azure-ml.md#sku) har valts för arbets ytan. Du väljer versionen när du [skapar arbets ytan](#create-workspace).  Du kan också [Uppgradera](#upgrade) från Basic till Enterprise Edition.
 
 ## <a name="taxonomy"></a>Taxonomi 
 
@@ -53,7 +51,7 @@ Du kan interagera med din arbets yta på följande sätt:
 
 + På webben:
     + [Azure Machine Learning Studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer (för hands version)](concept-designer.md) – endast tillgängligt i [Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsytor.
+    + [Azure Machine Learning Designer](concept-designer.md) 
 + I valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + I valfri R-miljö med [Azure Machine Learning SDK för R (för hands version)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
@@ -80,7 +78,6 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 |---------------------------|---------|---------|------------|------------|------------|
 | Skapa en arbetsyta        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Hantera åtkomst till arbets ytan    | **&check;**   || |  **&check;**    ||
-| Uppgradera till Enterprise Edition    | **&check;** | **&check;**  | |     ||
 | Skapa och hantera beräknings resurser    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
 | Skapa en virtuell dator för Notebook |   | **&check;** | |     ||
 
@@ -88,8 +85,6 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 > Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a> Skapa en arbets yta
-
-När du skapar en arbets yta bestämmer du om du vill skapa den med [Basic-eller Enterprise-versionen](overview-what-is-azure-ml.md#sku). Versionen avgör vilka funktioner som är tillgängliga i arbets ytan. Med Enterprise Edition får du till gång till [Azure Machine Learning designer](concept-designer.md) och Studio versionen av att skapa [automatiserade maskin inlärnings experiment](tutorial-first-experiment-automated-ml.md).  Mer information och pris information finns i [Azure Machine Learning prissättning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Det finns flera sätt att skapa en arbets yta:  
 
@@ -101,32 +96,35 @@ Det finns flera sätt att skapa en arbets yta:
 > [!NOTE]
 > Namnet på arbets ytan är Skift läges okänsligt.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Uppgradera till Enterprise Edition
-
-Du kan [uppgradera din arbets yta från Basic till Enterprise Edition](how-to-manage-workspace.md#upgrade) med Azure Portal. Du kan inte nedgradera en Enterprise Edition-arbetsyta till en Basic Edition-arbetsyta. 
-
 ## <a name="associated-resources"></a><a name="resources"></a> Associerade resurser
 
 När du skapar en ny arbets yta skapar den automatiskt flera Azure-resurser som används av arbets ytan:
 
++ [Azure Storage konto](https://azure.microsoft.com/services/storage/): används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med dina Azure Machine Learning beräknings instanser lagras också här. 
+  
+  > [!IMPORTANT]
+  > Som standard är lagrings kontot ett allmänt v1-konto. Du kan [uppgradera detta till General-Purpose v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) när arbets ytan har skapats. Aktivera inte hierarkiskt namn område på lagrings kontot efter uppgraderingen till General-Purpose v2.
+
+  Om du vill använda ett befintligt Azure Storage konto kan det inte vara ett Premium konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiska namn områden stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
+  
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registrerar Docker-behållare som du använder under utbildningen och när du distribuerar en modell. För att minimera kostnaderna är ACR en **Lazy-inläst** tills distributions avbildningar skapas.
-+ [Azure Storage konto](https://azure.microsoft.com/services/storage/): används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med dina Azure Machine Learning beräknings instanser lagras också här.
+
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): lagrar övervaknings information om dina modeller.
+
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): lagrar hemligheter som används av beräknings mål och annan känslig information som krävs av arbets ytan.
 
 > [!NOTE]
 > Förutom att skapa nya versioner kan du också använda befintliga Azure-tjänster.
 
-### <a name="azure-storage-account"></a>Azure Storage-konto
+<a name="wheres-enterprise"></a>
 
-Det Azure Storage konto som skapas som standard med arbets ytan är ett allmänt v1-konto. Du kan uppgradera detta till General-Purpose v2 När arbets ytan har skapats genom att följa stegen i artikeln [Uppgradera till ett allmänt lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) .
+## <a name="what-happened-to-enterprise-edition"></a>Vad hände med Enterprise Edition
 
-> [!IMPORTANT]
-> Aktivera inte hierarkiskt namn område på lagrings kontot efter uppgraderingen till General-Purpose v2.
+Från och med september 2020 är alla funktioner som var tillgängliga i Enterprise Edition-arbetsytorna nu tillgängliga i Basic Edition-arbetsytor. Det går inte längre att skapa nya företags arbets ytor.  Alla SDK-, CLI-eller Azure Resource Manager-anrop som använder `sku` parametern fortsätter att fungera, men en grundläggande arbets yta kommer att tillhandahållas.
 
-Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiska namn områden stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
+Från och med den 21 december kommer alla Enterprise Edition-arbetsytor automatiskt att ställas in på Basic-versionen, som har samma funktioner. Ingen nedtid sker under den här processen. Den 1 januari 2021 kommer Enterprise Edition att avvecklas. 
 
-
+I båda versionerna är kunderna ansvariga för kostnaden för Azure-resurser som förbrukas och behöver inte betala ytterligare avgifter för Azure Machine Learning. Mer information finns på [sidan med Azure Machine Learning prissättning](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -137,5 +135,5 @@ För att komma igång med Azure Machine Learning, se:
 + [Hantera en arbetsyta](how-to-manage-workspace.md)
 + [Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK](tutorial-1st-experiment-sdk-setup.md)
 + [Självstudie: kom igång med Azure Machine Learning med R SDK](tutorial-1st-r-experiment.md)
-+ [Självstudie: skapa din första klassificerings modell med automatisk maskin inlärning](tutorial-first-experiment-automated-ml.md) (endast tillgängligt i [Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsytor)
-+ [Självstudie: förutsäga Automobile-priset med designern](tutorial-designer-automobile-price-train-score.md) (endast tillgängligt i [Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsytor)
++ [Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning](tutorial-first-experiment-automated-ml.md) 
++ [Självstudie: förutsäga Automobile-priset med designern](tutorial-designer-automobile-price-train-score.md)

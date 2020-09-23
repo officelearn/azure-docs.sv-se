@@ -6,27 +6,27 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f093d9b1a67d5e6836fc7f760b0336c9923f5186
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611134"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902072"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
-Med funktionen Läs replik kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad Server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med PostgreSQL-motorn för intern replikering.
+Med funktionen Läs replik kan du replikera data från en Azure Database for PostgreSQL-server till en skrivskyddad Server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med PostgreSQL-motorns interna replikeringsteknik.
 
-Repliker är nya servrar som du hanterar precis som vanliga Azure Database for PostgreSQL-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
+Repliker är nya servrar som du hanterar ungefär som vanliga Azure Database for PostgreSQL-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
 Lär dig hur du [skapar och hanterar repliker](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-a-read-replica"></a>När du ska använda en Läs replik
-Funktionen Läs replik hjälper till att förbättra prestanda och skalning för Läs intensiva arbets belastningar. Läs arbets belastningar kan isoleras till replikerna, medan Skriv arbets belastningar kan dirigeras till huvud servern.
+Funktionen Läs replik hjälper till att förbättra prestanda och skalning för Läs intensiva arbets belastningar. Läsarbetsbelastningar kan isoleras till replikerna, medan skrivarbetsbelastningar kan dirigeras till huvudservern.
 
 Ett vanligt scenario är att låta BI och analytiska arbets belastningar använda Läs repliken som data källa för rapportering.
 
-Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets bördan på huvud servern. Den här funktionen är inte riktad mot Skriv intensiva arbets belastningar.
+Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets bördan på huvud servern. Den här funktionen är inte riktad mot skrivintensiva arbetsbelastningar.
 
 Funktionen Läs replik använder PostgreSQL asynkron replikering. Funktionen är inte avsedd för synkrona scenarier för replikering. Det kommer att bli en mätbar fördröjning mellan huvud servern och repliken. Data på repliken kommer slutligen att bli konsekventa med data i huvud servern. Använd den här funktionen för arbets belastningar som kan hantera denna fördröjning.
 
@@ -38,7 +38,7 @@ Du kan skapa en Läs replik i en annan region än huvud servern. Replikering mel
 
 Du kan ha en huvud server i valfri [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). En huvud server kan ha en replik i dess kopplade region eller Universal Replica-regioner. I bilden nedan visas vilka replik regioner som är tillgängliga beroende på din huvud region.
 
-[![Läs replik regioner](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Läs replik regioner":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan alltid skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. Det här är Universal Replica-regionerna:

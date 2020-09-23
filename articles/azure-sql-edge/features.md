@@ -1,6 +1,6 @@
 ---
-title: Funktioner som stöds i Azure SQL Edge (för hands version)
-description: Lär dig mer om de funktioner som stöds av Azure SQL Edge (för hands version).
+title: Funktioner som stöds i Azure SQL Edge
+description: Lär dig mer om de funktioner som stöds av Azure SQL Edge.
 keywords: Introduktion till SQL Edge, vad är SQL Edge, SQL Edge-översikt
 services: sql-edge
 ms.service: sql-edge
@@ -9,21 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462709"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886528"
 ---
-# <a name="supported-features-of-azure-sql-edge-preview"></a>Funktioner som stöds i Azure SQL Edge (för hands version) 
+# <a name="supported-features-of-azure-sql-edge"></a>Funktioner som stöds i Azure SQL Edge 
 
-Azure SQL Edge bygger på den senaste versionen av Microsoft SQL Server Database Engine i Linux. Den har stöd för en delmängd av funktionerna som stöds i SQL Server 2019 på Linux, förutom vissa funktioner som för närvarande inte stöds eller är tillgängliga i SQL Server 2019 på Linux (eller i SQL Server i Windows).
+Azure SQL Edge bygger på den senaste versionen av SQL Database-motorn. Den har stöd för en delmängd av funktionerna som stöds i SQL Server 2019 på Linux, förutom vissa funktioner som för närvarande inte stöds eller är tillgängliga i SQL Server 2019 på Linux (eller i SQL Server i Windows).
 
 En fullständig lista över de funktioner som stöds i SQL Server på Linux finns i [utgåvor och stödda funktioner i SQL Server 2019 i Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). För utgåvor och stödda funktioner i SQL Server i Windows, se [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
-
-> [!NOTE]
-> Azure SQL Edge är för närvarande en för hands version och kan därför inte användas i produktions miljöer. Microsoft rekommenderar att du kör Azure SQL Edge i produktions miljöer, beroende på valideringen av distributionen och dina användnings fall.
 
 ## <a name="azure-sql-edge-editions"></a>Azure SQL Edge-utgåvor
 
@@ -36,9 +33,7 @@ Azure SQL Edge är tillgängligt med två olika utgåvor eller program varu plan
 
 ## <a name="operating-system"></a>Operativsystem
 
-Azure SQL Edge-behållare är för närvarande baserade på Ubuntu 16,04 och det finns bara stöd för att köra på Docker-värdar som kör antingen Ubuntu 16,04 LTS (rekommenderas) eller Ubuntu 18,04 LTS. Det är möjligt att köra Azure SQL Edge-behållare på andra operativ system värdar, till exempel kan köras på andra distributioner av Linux eller Windows (med Docker CE eller Docker EE), men Microsoft rekommenderar inte att du gör detta, eftersom den här konfigurationen inte kan testas grundligt.
-
-Azure SQL Edge stöds för närvarande bara för distribution via Azure IoT Edge. Mer information finns i [Azure IoT Edge system som stöds](https://docs.microsoft.com/azure/iot-edge/support).
+Azure SQL Edge-behållare baseras på Ubuntu 18,04, och det är därför bara stöd för att köra på Docker-värdar som kör antingen Ubuntu 18,04 LTS (rekommenderas) eller Ubuntu 20,04 LTS. Det är möjligt att köra Azure SQL Edge-behållare på andra operativ system värdar, till exempel kan köras på andra distributioner av Linux eller Windows (med Docker CE eller Docker EE), men Microsoft rekommenderar inte att du gör detta, eftersom den här konfigurationen inte kan testas grundligt.
 
 Den rekommenderade konfigurationen för att köra Azure SQL Edge i Windows är att konfigurera en virtuell Ubuntu-dator på Windows-värden och sedan köra Azure SQL Edge i den virtuella Linux-datorn.
 
@@ -46,7 +41,7 @@ Det rekommenderade och fil system som stöds för Azure SQL Edge är EXT4 och XF
 
 ## <a name="hardware-support"></a>Maskinvarustöd
 
-Azure SQL Edge kräver en 64-bitars processor (antingen x64 eller ARM64), med minst en processor och ett GB RAM-minne på värden. Även om start minnes utrymmet för Azure SQL Edge är nära 500 MB krävs ytterligare minne för andra IoT Edge moduler som körs på gräns enheten. De faktiska minnes-och processor kraven för Azure SQL Edge varierar beroende på komplexiteten för arbets belastningen och mängden data som bearbetas. När du väljer maskin vara för din lösning rekommenderar Microsoft att du kör omfattande prestandatester för att säkerställa att de nödvändiga prestanda egenskaperna för din lösning är uppfyllda.  
+Azure SQL Edge kräver en 64-bitars processor (antingen x64 eller ARM64), med minst en processor och ett GB RAM-minne på värden. Även om start minnes storleken för Azure SQL Edge är nära 450MB, krävs ytterligare minne för andra IoT Edge moduler eller processer som körs på gräns enheten. De faktiska minnes-och processor kraven för Azure SQL Edge varierar beroende på komplexiteten för arbets belastningen och mängden data som bearbetas. När du väljer maskin vara för din lösning rekommenderar Microsoft att du kör omfattande prestandatester för att säkerställa att de nödvändiga prestanda egenskaperna för din lösning är uppfyllda.  
 
 ## <a name="azure-sql-edge-components"></a>Azure SQL Edge-komponenter
 
@@ -76,6 +71,7 @@ I följande lista finns SQL Server 2019 på Linux-funktioner som inte stöds fö
 | &nbsp; | PolyBase. Observera att du kan konfigurera Azure SQL Edge som mål för externa tabeller i PolyBase. |
 | &nbsp; | Språk utöknings Bart med Java och Spark. |
 | &nbsp; | Active Directory-integrering. |
+| &nbsp; | Automatisk krympning av databas. Egenskapen automatisk krympning för en databas kan anges med hjälp av `ALTER DATABASE <database_name> SET AUTO_SHRINK ON` kommandot, men ändringen har ingen påverkan. Den automatiska krympningen kommer inte att köras mot databasen. Användare kan fortfarande krympa databasfilerna med hjälp av DBCC-kommandon. |
 | &nbsp; | Databas ögonblicks bilder. |
 | &nbsp; | Stöd för beständigt minne. |
 | &nbsp; | Microsoft koordinator för distribuerad transaktion. |

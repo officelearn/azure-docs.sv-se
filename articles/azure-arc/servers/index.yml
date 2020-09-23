@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Azure Arc-servrar (förhandsversion)
-summary: Azure Arc-servrar
+title: Azure Arc-aktiverade servrar
+summary: Azure Arc-aktiverade servrar
 metadata:
-  title: Azure Arc-servrar
+  title: Azure Arc-aktiverade servrar
   description: Läs mer om hur du hanterar lokala datorer i Azure
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 9080f5bb770f5cb86284b5816c340a614843038c
-  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.openlocfilehash: f03e869e884fff8a1d196817b658c28bbdc55ca9
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/24/2020
-  ms.locfileid: "88763837"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90908106"
 landingContent:
 - title: Ansluta datorer till Azure med Azure Arc-aktiverade servrar
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     links:
     - text: Vad är Azure Arc-aktiverade servrar?
       url: overview.md
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
     - text: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
       url: onboard-portal.md
@@ -30,3 +30,9 @@ landingContent:
       url: onboard-service-principal.md
     - text: Ansluta datorer till Azure med PowerShell DSC
       url: onboard-dsc.md
+- title: Snabbstarter på 10 minuter
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuera Arc-aktiverad agent för servrar
+      url: ./learn/quick-enable-hybrid-vm.md

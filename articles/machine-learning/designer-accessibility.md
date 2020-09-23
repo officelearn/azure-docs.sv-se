@@ -1,5 +1,5 @@
 ---
-title: Använda hjälpmedels funktionerna i designern (förhands granskning)
+title: Använda hjälpmedels funktionerna i designern
 titleSuffix: Azure Machine Learning
 description: Lär dig mer om kortkommandon och skärm läsarenas hjälpmedels funktioner i designern.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210364"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893422"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Använd ett tangent bord för Azure Machine Learning designer (förhands granskning)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Använd ett tangent bord för Azure Machine Learning designer
 
 Lär dig hur du använder ett tangent bord och en skärm läsare för att använda Azure Machine Learning designer. En lista över kortkommandon som fungerar överallt i Azure Portal finns i [kortkommandon i Azure Portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658556"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886374"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -78,8 +78,6 @@ Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISE
 
    * För begränsad eller ingen kod upplevelse kan du prova Azure Machine Learning Studio-webbupplevelsen på [https://ml.azure.com](https://ml.azure.com/)  
    * För python-utvecklare kan du ta en titt på [Azure Machine Learning python SDK](how-to-configure-auto-train.md) 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Ange källa och format för etiketten utbildnings data**: numpy-matriser eller Pandas-dataframe
 
@@ -172,25 +170,25 @@ Tänk på följande faktorer när du väljer Compute-målet:
 
 ### <a name="feature-availability"></a>Funktionstillgänglighet 
 
- Fler funktioner är tillgängliga när du använder fjärrberäkningen, som du ser i tabellen nedan. Vissa av dessa funktioner är endast tillgängliga i en Enterprise-arbetsyta.
+ Fler funktioner är tillgängliga när du använder fjärrberäkningen, som du ser i tabellen nedan. 
 
-| Funktion                                                    | Fjärransluten | Lokal | Innebär <br>Enterprise-arbetsyta |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Data strömning (stöd för stora data, upp till 100 GB)          | ✓      |       | ✓                             |
-| DNN – BERT text funktionalisering and Training             | ✓      |       | ✓                             |
-| Föråldrad GPU-support (utbildning och härledning)        | ✓      |       | ✓                             |
-| Stöd för bild klassificering och etikettering                  | ✓      |       | ✓                             |
-| ARIMA, Prophet och ForecastTCN modeller för Prognosticering | ✓      |       | ✓                             |
-| Flera körningar/iterationer parallellt                       | ✓      |       | ✓                             |
-| Skapa modeller med tolknings möjligheter i AutoML Studio Web Experience UI      | ✓      |       | ✓                             |
-| Anpassning av funktions teknik i gränssnittet för Studio Web Experience                        | ✓      |       | ✓                              |
-| Justering av Azure ML-min parameter                             | ✓      |       |                               |
-| Support för Azure ML pipeline-arbetsflöde                         | ✓      |       |                               |
-| Fortsätt en körning                                             | ✓      |       |                               |
-| Prognosticering                                                | ✓      | ✓     | ✓                             |
-| Skapa och köra experiment i antecknings böcker                    | ✓      | ✓     |                               |
-| Registrera och visualisera experimentets information och mått i användar gränssnittet | ✓      | ✓     |                               |
-| Data guardrails                                            | ✓      | ✓     |                               |
+| Funktion                                                    | Fjärransluten | Lokal | 
+|------------------------------------------------------------|--------|-------|
+| Data strömning (stöd för stora data, upp till 100 GB)          | ✓      |       | 
+| DNN – BERT text funktionalisering and Training             | ✓      |       |
+| Föråldrad GPU-support (utbildning och härledning)        | ✓      |       |
+| Stöd för bild klassificering och etikettering                  | ✓      |       |
+| ARIMA, Prophet och ForecastTCN modeller för Prognosticering | ✓      |       | 
+| Flera körningar/iterationer parallellt                       | ✓      |       |
+| Skapa modeller med tolknings möjligheter i AutoML Studio Web Experience UI      | ✓      |       |
+| Anpassning av funktions teknik i gränssnittet för Studio Web Experience| ✓      |       |
+| Justering av Azure ML-min parameter                             | ✓      |       |
+| Support för Azure ML pipeline-arbetsflöde                         | ✓      |       |
+| Fortsätt en körning                                             | ✓      |       |
+| Prognosticering                                                | ✓      | ✓     |
+| Skapa och köra experiment i antecknings böcker                    | ✓      | ✓     |
+| Registrera och visualisera experimentets information och mått i användar gränssnittet | ✓      | ✓     |
+| Data guardrails                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>Många modeller 
 

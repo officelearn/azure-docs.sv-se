@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 1490687e85d2f59b8cfa28712ef075b451363534
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564227"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987648"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Självstudie: skapa en grafisk Runbook
 
@@ -218,7 +218,7 @@ Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigure
 
 23. Hovra över `Login to Azure` tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till `Specify Subscription Id` . Din Runbook bör se ut så här nu.
 
-    ![Konfiguration av runbook-autentisering](../media/automation-tutorial-runbook-graphical/runbook-auth-config.png)
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Skärm bild av runbooken när du har dragit pilen till "ange prenumerations-ID".":::
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Steg 7 – Lägga till aktivitet för att starta en virtuell dator
 

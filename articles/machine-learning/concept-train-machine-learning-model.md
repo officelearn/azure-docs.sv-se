@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0a0420b470ee6bf0c7fbb9885e496eaabaf7ef4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651014"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893533"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -32,7 +32,7 @@ Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, f
 
 + [Azure Machine Learning SDK för r](#r-sdk): SDK för r använder Reticulate-paketet för att binda till Azure Machine learnings python SDK. På så sätt kan du komma åt kärn objekt och metoder som implementeras i python SDK från valfri R-miljö.
 
-+ **Designer**: Azure Machine Learning designer (för hands version) ger dig en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
++ **Designer**: Azure Machine Learning designer är en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
 
 + **CLI**: Machine Learning CLI innehåller kommandon för vanliga aktiviteter med Azure Machine Learning och används ofta för **skript och automatiserade uppgifter**. När du till exempel har skapat ett utbildnings skript eller en pipeline kan du använda CLI för att starta en utbildning i ett schema eller när datafilerna som används för träningen uppdateras. För utbildnings modeller tillhandahåller den kommandon som skickar utbildnings jobb. Den kan skicka jobb med kör konfigurationer eller pipeliner.
 

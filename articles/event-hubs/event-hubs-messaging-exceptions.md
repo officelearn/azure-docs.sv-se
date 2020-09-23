@@ -3,12 +3,12 @@ title: Azure-Event Hubs – undantag
 description: Den här artikeln innehåller en lista över undantag och föreslagna åtgärder för Azure Event Hubs Messaging.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a93daa88c468a22838a6f9012f0c4622447f5555
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3a7023dc44d7280284fec1eccf00a3dbe88b7ec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512375"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908386"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs meddelande undantag – .NET
 I det här avsnittet listas de .NET-undantag som genereras av .NET Framework API: er. 
@@ -19,10 +19,10 @@ Event Hubs .NET-API: er genererar undantag som kan ingå i följande kategorier,
 
  - Användar kodnings fel: 
  
-   - [System. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)
-   - [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1)
-   - [System. OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1)
-   - [System. Runtime. Serialization. SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1)
+   - [System. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)
+   - [System. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true)
+   - [System. OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true)
+   - [System. Runtime. Serialization. SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1&preserve-view=true)
    
    Allmän åtgärd: försök att åtgärda koden innan du fortsätter.
  
@@ -30,7 +30,7 @@ Event Hubs .NET-API: er genererar undantag som kan ingå i följande kategorier,
  
    - [Microsoft. Service Bus. Messaging. MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception)
    - [Microsoft. Azure. EventHubs. MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception)
-   - [System. UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1)
+   - [System. UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true)
    
    Allmän åtgärd: Granska konfigurationen och ändra om det behövs.
    
@@ -45,7 +45,7 @@ Event Hubs .NET-API: er genererar undantag som kan ingå i följande kategorier,
  
  - Andra undantag: 
  
-   - [System. Transactions. TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1)
+   - [System. Transactions. TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true)
    - [System. TimeoutException](#timeoutexception)
    - [Microsoft. Service Bus. Messaging. MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception)
    - [Microsoft. Service Bus. Messaging. SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception)
@@ -57,11 +57,11 @@ I följande tabell visas meddelande undantags typer och deras orsaker, samt för
 
 | Undantags typ | Beskrivning/orsak/exempel | Föreslagen åtgärd | Observera vid automatisk/omedelbar återförsök |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) |Servern svarade inte på den begärda åtgärden inom den angivna tiden, vilken styrs av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Servern kan ha slutfört den begärda åtgärden. Detta undantag kan inträffa på grund av fördröjningar i nätverket eller andra infrastrukturer. |Kontrol lera system tillstånd för konsekvens och försök igen om det behövs.<br /> Se [TimeoutException](#timeoutexception). | Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
-| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |Den begärda användar åtgärden tillåts inte i servern eller tjänsten. Mer information finns i undantags meddelandet. Till [exempel genererar detta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) undantag om meddelandet togs emot i [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) -läge. | Kontrol lera koden och dokumentationen. Se till att den begärda åtgärden är giltig. | Det går inte att göra ett nytt försök. |
-| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) | Ett försök gjordes att anropa en åtgärd för ett objekt som redan har stängts, avbrutits eller tagits bort. I sällsynta fall tas den omgivande transaktionen redan bort. | Kontrol lera koden och se till att den inte anropar åtgärder på ett borttaget objekt. | Det går inte att göra ett nytt försök. |
-| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) | [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) -objektet kunde inte hämta en token, token är ogiltig eller så innehåller token inte de anspråk som krävs för att utföra åtgärden. | Kontrol lera att token-providern har skapats med rätt värden. Kontrol lera konfigurationen av Access Control Service. | Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
-| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) | Ett eller flera argument som angavs för metoden är ogiltiga. URI: n som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [skapa](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) innehåller Sök vägs segment (n). URI-schemat som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) är ogiltigt. Egenskap svärdet är större än 32 KB. | Kontrol lera anrops koden och se till att argumenten är korrekta. | Det går inte att göra ett nytt försök. |
+| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) |Servern svarade inte på den begärda åtgärden inom den angivna tiden, vilken styrs av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Servern kan ha slutfört den begärda åtgärden. Detta undantag kan inträffa på grund av fördröjningar i nätverket eller andra infrastrukturer. |Kontrol lera system tillstånd för konsekvens och försök igen om det behövs.<br /> Se [TimeoutException](#timeoutexception). | Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true) |Den begärda användar åtgärden tillåts inte i servern eller tjänsten. Mer information finns i undantags meddelandet. Till [exempel genererar detta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) undantag om meddelandet togs emot i [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) -läge. | Kontrol lera koden och dokumentationen. Se till att den begärda åtgärden är giltig. | Det går inte att göra ett nytt försök. |
+| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true) | Ett försök gjordes att anropa en åtgärd för ett objekt som redan har stängts, avbrutits eller tagits bort. I sällsynta fall tas den omgivande transaktionen redan bort. | Kontrol lera koden och se till att den inte anropar åtgärder på ett borttaget objekt. | Det går inte att göra ett nytt försök. |
+| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true) | [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) -objektet kunde inte hämta en token, token är ogiltig eller så innehåller token inte de anspråk som krävs för att utföra åtgärden. | Kontrol lera att token-providern har skapats med rätt värden. Kontrol lera konfigurationen av Access Control Service. | Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
+| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) | Ett eller flera argument som angavs för metoden är ogiltiga. URI: n som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [skapa](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) innehåller Sök vägs segment (n). URI-schemat som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) är ogiltigt. Egenskap svärdet är större än 32 KB. | Kontrol lera anrops koden och se till att argumenten är korrekta. | Det går inte att göra ett nytt försök. |
 | [Microsoft. Service Bus. Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft. Azure. EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | Entiteten som är kopplad till åtgärden finns inte eller har tagits bort. | Kontrol lera att entiteten finns. | Det går inte att göra ett nytt försök. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Klienten kan inte upprätta en anslutning till Event Hub. |Kontrol lera att det angivna värd namnet är rätt och att värden kan kontaktas. | Försök igen kan vara till hjälp om det finns tillfälliga anslutnings problem. |
 | [Microsoft. Service Bus. Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft. Azure. EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Tjänsten kan för närvarande inte bearbeta begäran. | Klienten kan vänta en stund och sedan försöka igen. <br /> Se [ServerBusyException](#serverbusyexception). | Klienten kan försöka igen efter ett visst intervall. Om ett återförsök resulterar i ett annat undantag, kontrol lera beteendet för återförsök i detta undantag. |
@@ -80,9 +80,12 @@ Detta undantag kan inträffa om det maximala antalet mottagare (5) redan har öp
 Event Hubs har en gräns på 20 konsument grupper per Event Hub. När du försöker skapa fler får du en [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
-En [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) anger att en åtgärd som initierats av användaren tar längre tid än tids gränsen för åtgärden. 
+En [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) anger att en åtgärd som initierats av användaren tar längre tid än tids gränsen för åtgärden. 
 
 För Event Hubs anges tids gränsen antingen som en del av anslutnings strängen eller via [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). Själva fel meddelandet kan variera, men det innehåller alltid det timeout-värde som har angetts för den aktuella åtgärden. 
+
+Tids gränser förväntas inträffa under eller mellan underhålls åtgärder, till exempel Event Hubs tjänst uppdateringar (eller) operativ system uppdateringar på resurser som kör tjänsten. Vid uppdateringar av operativ systemet flyttas entiteter och noderna uppdateras eller startas om, vilket kan orsaka timeout. Information om service nivå avtal (SLA) för Azure Event Hubs-tjänsten finns i [SLA för Event Hubs](https://azure.microsoft.com/support/legal/sla/event-hubs/). 
+
 
 ### <a name="common-causes"></a>Vanliga orsaker
 Det finns två vanliga orsaker till det här felet: felaktig konfiguration eller tillfälligt tjänst fel.
@@ -121,5 +124,5 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Översikt över Event Hubs](./event-hubs-about.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
+* [Skapa en Händelsehubben](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

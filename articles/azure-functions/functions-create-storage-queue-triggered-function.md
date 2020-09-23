@@ -5,18 +5,18 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c4c20579f2306b61741f3c6ab1549285271435a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d722d420597bb459d3e7b6d2ca33fdc49bfe6f09
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123351"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981575"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Skapa en funktion som utlöses av Azure Queue Storage
 
 Läs hur du skapar en funktion som utlöses när meddelanden skickas till en Azure Storage-kö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -43,7 +43,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
     :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Namnge och konfigurera kö Storage-utlöst funktion." border="true":::
 
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
     | **Namn** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
     | **Könamn**   | myqueue-items    | Namnet på den kö som ska anslutas till i ditt Storage-konto. |
@@ -89,7 +89,7 @@ Nu när du har en lagringskö kan du testa funktionen genom att lägga till ett 
 
 1. Välj **Lägg till meddelande**och skriv "Hello World!" i **meddelande text**. Välj **OK**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Gå till kön för kön objekt i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Skärm bild som visar knappen Lägg till meddelande markerad och meddelande text fältet är markerat." border="true":::
 
 1. Vänta några sekunder och gå sedan tillbaka till dina funktionsloggar och kontrollera att det nya meddelandet har lästs från kön.
 

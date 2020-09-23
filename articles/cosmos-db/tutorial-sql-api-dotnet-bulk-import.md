@@ -5,15 +5,15 @@ author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b16402f809da18588b26995e7129d2f27575b48d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019257"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981921"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
 
@@ -86,7 +86,7 @@ Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att aut
 1.  Navigera till ditt Azure Cosmos-konto.
 1.  Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto.
 
-Om du använder Azure Cosmos DB emulatorn hämtar du autentiseringsuppgifterna för [emulatorn från den här artikeln](local-emulator.md#authenticating-requests).
+Om du använder Azure Cosmos DB emulatorn hämtar du autentiseringsuppgifterna för [emulatorn från den här artikeln](local-emulator.md#authenticate-requests).
 
 ## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>Steg 5: initiera CosmosClient-objektet med stöd för Mass körning
 

@@ -1,7 +1,7 @@
 ---
-title: Vanliga frågor och svar (FAQ)
+title: Vanliga frågor och svar
 titleSuffix: Azure SQL Managed Instance
-description: Vanliga frågor och svar om Azure SQL Managed instance
+description: Vanliga frågor och svar (FAQ) om Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661426"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887385"
 ---
-# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure SQL Managed instance
+# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Den här artikeln innehåller de vanligaste frågorna om [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md).
@@ -102,7 +102,7 @@ Ja, det kan du. Instruktioner finns i [Flytta resurser mellan regioner](../datab
 
 **Hur kan jag ta bort min hanterade instans?**
 
-Du kan ta bort hanterade instanser via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) eller [Resource Manager REST-API: er](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Du kan ta bort hanterade instanser via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) eller [Resource Manager REST API: er](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Hur lång tid tar det att skapa eller uppdatera en instans eller återställa en databas?**
 
@@ -299,7 +299,7 @@ Det här krävs inte. Du kan antingen [skapa ett virtuellt nätverk för Azure S
 
 Nej. För närvarande har vi inte stöd för att placera en hanterad instans i ett undernät som redan innehåller andra resurs typer.
 
-## <a name="connectivity"></a>Anslutning 
+## <a name="connectivity"></a>Anslutningar 
 
 **Kan jag ansluta till min hanterade instans med hjälp av IP-adress?**
 
@@ -350,7 +350,7 @@ För att minimera eventuella data exfiltrerings risker rekommenderar vi att du a
 - Få åtkomst till instansen med ett konto med låg privilegie rad DBA.
 - Konfigurera åtkomst till JIT-bygel för kontot sysadmin.
 - Aktivera [SQL-granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)och integrera den med aviserings metoder.
-- Aktivera [hot identifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) från paketet [Advanced Data Security (Ads)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
+- Aktivera [hot identifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) från [Azure Defender för SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) Suite.
 
 ## <a name="dns"></a>DNS
 

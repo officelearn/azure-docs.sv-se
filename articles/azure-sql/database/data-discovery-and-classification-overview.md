@@ -1,5 +1,5 @@
 ---
-title: Dataidentifiering och klassificering
+title: Data Discovery & Classification
 description: Data identifiering & klassificering för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004111"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886500"
 ---
-# <a name="data-discovery--classification"></a>Dataidentifiering och klassificering
+# <a name="data-discovery--classification"></a>Data Discovery & Classification
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Data identifierings & klassificeringen är inbyggd i Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics. Den innehåller avancerade funktioner för att upptäcka, klassificera, märka och rapportera känsliga data i dina databaser.
@@ -30,8 +30,6 @@ Dina mest känsliga data kan omfatta affärs-, finans-, sjukvårds-eller personl
 - Bidra till att uppfylla standarder för data sekretess och krav för regelefterlevnad.
 - Olika säkerhets scenarier, till exempel övervakning (granskning) och aviseringar om avvikande åtkomst till känsliga data.
 - Kontrol lera åtkomst till och härdning av säkerheten för databaser som innehåller mycket känsliga data.
-
-Data identifiering & klassificering är en del av det [avancerade data säkerhets](advanced-data-security.md) erbjudandet, som är ett enhetligt paket för avancerade funktioner i Azure SQL. Du kan komma åt och hantera data identifierings & klassificering via det centrala SQL-avsnittet **Avancerad data säkerhet** i Azure Portal.
 
 > [!NOTE]
 > Information om SQL Server lokalt finns i avsnittet [SQL data Discovery & klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,33 +75,25 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 > [!NOTE]
 > I exemplet nedan används Azure SQL Database, men du bör välja lämplig produkt som du vill konfigurera data identifiering & klassificering.
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 
-2. Gå till **Avancerad data säkerhet** under **säkerhets** rubriken i Azure SQL Databases fönstret. Välj **Avancerad data säkerhet**och välj sedan **klassificerings kortet data identifierings &** .
+1. Gå till **data identifiering & klassificering** under säkerhets rubriken i Azure SQL Databases fönstret. På fliken Översikt finns en sammanfattning av databasens aktuella klassificerings tillstånd. Sammanfattningen innehåller en detaljerad lista över alla klassificerade kolumner, som du även kan filtrera så att endast vissa schema delar, informations typer och etiketter visas. Om du inte har klassificerat några kolumner än går [du vidare till steg 4](#step-4).
 
-   ![Fönstret Avancerad data säkerhet i Azure Portal](./media/data-discovery-and-classification-overview/data_classification.png)
+1. Om du vill ladda ned en rapport i Excel-format väljer du **Exportera** i den övre menyn i fönstret.
 
-3. På sidan för **data identifiering & klassificering** innehåller fliken **Översikt** en sammanfattning av databasens aktuella klassificerings tillstånd. Sammanfattningen innehåller en detaljerad lista över alla klassificerade kolumner, som du även kan filtrera så att endast vissa schema delar, informations typer och etiketter visas. Om du inte har klassificerat några kolumner än går [du vidare till steg 5](#step-5).
-
-   ![Sammanfattning av aktuellt klassificerings tillstånd](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
-4. Om du vill ladda ned en rapport i Excel-format väljer du **Exportera** i den övre menyn i fönstret.
-
-5. <a id="step-5"></a>Om du vill börja klassificera dina data väljer du fliken **klassificering** på sidan **klassificering av data identifiering &** .
+1. <a id="step-4"></a>Om du vill börja klassificera dina data väljer du fliken **klassificering** på sidan **klassificering av data identifiering &** .
 
     Klassificerings motorn söker igenom databasen efter kolumner som innehåller potentiellt känsliga data och innehåller en lista över rekommenderade kolumn klassificeringar.
 
-6. Visa och tillämpa klassificerings rekommendationer:
+1. Visa och tillämpa klassificerings rekommendationer:
 
    - Om du vill visa en lista över rekommenderade kolumn klassificeringar väljer du panelen rekommendationer längst ned i fönstret.
 
    - Om du vill godkänna en rekommendation för en speciell kolumn markerar du kryss rutan i den vänstra kolumnen i relevant rad. Markera kryss rutan längst till vänster i tabell rubriken rekommendationer för att markera alla rekommendationer som godkända.
 
-       ![Granska och välj i listan över klassificerings rekommendationer](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - Välj **acceptera markerade rekommendationer**för att tillämpa de valda rekommendationerna.
 
-7. Du kan också klassificera kolumner manuellt, som ett alternativ eller förutom den rekommendationbaserade klassificeringen:
+1. Du kan också klassificera kolumner manuellt, som ett alternativ eller förutom den rekommendationbaserade klassificeringen:
 
    1. Välj **Lägg till klassificering** i den översta menyn i fönstret.
 
@@ -111,9 +101,7 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 
    1. Välj **Lägg till klassificering** längst ned i kontext fönstret.
 
-      ![Välj en kolumn som ska klassificeras](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
-
-8. Om du vill slutföra klassificeringen och etiketten (tag) i databas kolumnerna med de nya klassificerings-metadata väljer du **Spara** i den övre menyn i fönstret.
+1. Om du vill slutföra klassificeringen och etiketten (tag) i databas kolumnerna med de nya klassificerings-metadata väljer du **Spara** i den övre menyn i fönstret.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Granska åtkomst till känsliga data
 
@@ -128,14 +116,14 @@ Dessa inbyggda roller kan läsa data klassificeringen för en databas:
 - Ägare
 - Läsare
 - Deltagare
-- SQL Security Manager
+- SQL-säkerhetshanteraren
 - Administratör för användaråtkomst
 
 Dessa inbyggda roller kan ändra data klassificeringen för en databas:
 
 - Ägare
 - Deltagare
-- SQL Security Manager
+- SQL-säkerhetshanteraren
 
 Lär dig mer om rollbaserade behörigheter i [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
@@ -191,6 +179,5 @@ Du kan använda REST API för att program mässigt hantera klassificeringar och 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Nästa steg
 
-- Läs mer om [Avancerad data säkerhet](advanced-data-security.md).
 - Överväg att konfigurera [Azure SQL-granskning](../../azure-sql/database/auditing-overview.md) för övervakning och granskning av åtkomst till dina klassificerade känsliga data.
 - En presentation som innehåller & klassificering för data identifiering finns i avsnittet [upptäcka, klassificera, etikettera & skydda SQL-data | Data som visas](https://www.youtube.com/watch?v=itVi9bkJUNc).

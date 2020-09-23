@@ -1,11 +1,11 @@
-- name: Dokumentation om Azure Stack Edge och Data Box Gateway
+- name: Dokumentation om Azure Stack Edge Pro och Data Box Gateway
   href: /azure/databox-online/
   expanded: true
-- name: Azure Stack Edge med GPU (förhandsversion)
+- name: Azure Stack Edge Pro – GPU
   items:
     - name: Översikt
       items:
-        - name: Vad är Azure Stack Edge med GPU?
+        - name: Vad är Azure Stack Edge Pro med GPU?
           href: azure-stack-edge-gpu-overview.md
     - name: Självstudier
       items:
@@ -45,7 +45,7 @@
               href: azure-stack-edge-gpu-technical-specifications-compliance.md
             - name: Specifikationer för strömsladd
               href: azure-stack-edge-technical-specifications-power-cords-regional.md
-        - name: Förstå Kubernetes
+        - name: Förstå Kubernetes (förhandsversion)
           items:
             - name: Vad är Kubernetes?
               href: azure-stack-edge-gpu-kubernetes-overview.md
@@ -67,7 +67,7 @@
               href: azure-stack-edge-gpu-deploy-sample-module.md
             - name: GPU-modul via Marketplace
               href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-        - name: Distribuera Kubernetes-arbetsbelastningar
+        - name: Distribuera Kubernetes-arbetsbelastningar (förhandsversion)
           items:
             - name: Via kubectl
               items:
@@ -83,13 +83,13 @@
               items:
                 - name: Tillståndslös app
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
-            - name: Via Azure Arc
+            - name: Via Azure Arc (förhandsversion)
               items:
                 - name: Aktivera Arc på Kubernetes-kluster
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Distribuera tillståndslös app via GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
-        - name: Konfigurera Azure Resource Manager
+        - name: Konfigurera Azure Resource Manager (förhandsversion)
           items:
             - name: Ansluta via Azure PowerShell
               href: azure-stack-edge-j-series-connect-resource-manager.md
@@ -97,7 +97,7 @@
               href: azure-stack-edge-j-series-set-azure-resource-manager-password.md
             - name: Konfigurera klientinställningar för TLS
               href: azure-stack-edge-j-series-configure-tls-settings.md
-        - name: Distribuera virtuella datorer
+        - name: Distribuera virtuella datorer (förhandsversion)
           items:
             - name: Distribuera virtuella datorer – mallar
               href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
@@ -136,7 +136,7 @@
         - name: Hantera enhet
           items:
             - name: 'Kraft, åtkomst, anslutning'
-              href: azure-stack-edge-manage-access-power-connectivity-mode.md
+              href: azure-stack-edge-gpu-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Tillämpa uppdateringar
@@ -161,7 +161,9 @@
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Viktig information
       items:
-        - name: 2008 – Viktig information
+        - name: 2009 – allmän tillgänglighet
+          href: azure-stack-edge-gpu-2009-release-notes.md
+        - name: 2008 – förhandsversion
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: Referens
       items:
@@ -171,11 +173,11 @@
           href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
         - name: .NET SDK
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
-- name: Azure Stack Edge med FPGA
+- name: Azure Stack Edge Pro – FPGA
   items:
     - name: Översikt
       items:
-        - name: Vad är Azure Stack Edge med FPGA?
+        - name: Vad är Azure Stack Edge Pro med FPGA?
           href: azure-stack-edge-overview.md
     - name: Självstudier
       items:
@@ -259,6 +261,18 @@
           href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
         - name: .NET SDK
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
+- name: Azure Stack Edge Pro R
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure Stack Edge Pro R?
+          href: azure-stack-edge-j-series-overview.md
+- name: Azure Stack Edge Mini R
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure Stack Edge Mini R?
+          href: azure-stack-edge-k-series-overview.md
 - name: Data Box Gateway
   items:
     - name: Översikt
@@ -323,9 +337,9 @@
           href: data-box-gateway-release-notes.md
 - name: Resurser
   items:
-    - name: Exempel på Azure Stack Edge C#-moduler (.NET)
+    - name: Exempel på Azure Stack Edge Pro C#-moduler (.NET)
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Azure Stack Edge/Data Box Gateway-produkt
+    - name: Azure Stack Edge Pro/Data Box Gateway-produkt
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

@@ -1,6 +1,6 @@
 ---
 title: Algoritm- och modulreferens
-description: Lär dig mer om modulerna som är tillgängliga i Azure Machine Learning designer (för hands version)
+description: Lär dig mer om modulerna som är tillgängliga i Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048100"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886394"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Algoritmen & module-referens för Azure Machine Learning designer
 
-Det här referens innehållet ger teknisk bakgrund på var och en av Machine Learning-algoritmerna och modulerna som är tillgängliga i Azure Machine Learning designer (för hands version).
+Detta referens innehåll ger teknisk bakgrund på var och en av Machine Learning-algoritmer och moduler som är tillgängliga i Azure Machine Learning designer.
 
 Varje modul representerar en uppsättning kod som kan köras separat och utföra en maskin inlärnings uppgift, med de nödvändiga inmatningarna. En modul kan innehålla en viss algoritm eller utföra en uppgift som är viktig i Machine Learning, till exempel värde utbyte som saknas eller statistisk analys.
 
@@ -43,7 +43,7 @@ Hjälp med att välja algoritmer finns i
 
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
-| Regression | Förutsäg ett värde. | [Förbättrad regression för beslutsträd](boosted-decision-tree-regression.md) <br/> [Regression för beslutsskog](decision-forest-regression.md) <br/> [Fast skog Quantile regression](fast-forest-quantile-regression.md)  <br/> [Linjär regression](linear-regression.md)  <br/> [Regression för Neural Network](neural-network-regression.md)  <br/> [Poisson-regression](poisson-regression.md)  <br/>|
+| Regression | Förutsäg ett värde. | [Förbättrad regression för beslutsträd](boosted-decision-tree-regression.md) <br/> [Regression för beslutsskog](decision-forest-regression.md) <br/> [Fast Forest Quantile Regression](fast-forest-quantile-regression.md)  <br/> [Linjär regression](linear-regression.md)  <br/> [Regression för Neural Network](neural-network-regression.md)  <br/> [Poisson-regression](poisson-regression.md)  <br/>|
 | Klustring | Gruppera data tillsammans.| [K-means-klustring](k-means-clustering.md)
 | Klassificering | Förutsäg en klass.  Välj mellan binära (två klasser) eller algoritmer för multiklasser.| [Förbättrat beslutsträd med flera klasser](multiclass-boosted-decision-tree.md) <br/> [Beslutsskog med två klasser](multiclass-decision-forest.md) <br/> [Logistic Regression med flera klasser](multiclass-logistic-regression.md)  <br/> [Neural Network med flera klasser](multiclass-neural-network.md) <br/> [En-mot- alla-multiklass](one-vs-all-multiclass.md) <br/> [Genomsnittsperceptron med två klasser](two-class-averaged-perceptron.md) <br/>  [Tvåklassigt förbättrat beslutsträd](two-class-boosted-decision-tree.md)  <br/> [Beslutsskog med två klasser](two-class-decision-forest.md) <br/>  [Logistic Regression med två klasser](two-class-logistic-regression.md) <br/> [Neural Network med två klasser](two-class-neural-network.md) <br/> [Tvåklassig dator för vektorstöd](two-class-support-vector-machine.md) | 
 

@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 304f80dcb2da4ed60bd94e9fb4d71d985da87cc2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662000"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889136"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabb start: kom igång med Azure Sentinel
 
@@ -44,7 +44,6 @@ Huvud delen av översikts sidan ger en överblick över en överskådlig säkerh
 
    ![Karta över skadlig trafik](./media/qs-get-visibility/map.png)
 
-
 - **Senaste incidenter**: om du vill visa dina senaste incidenter, deras allvarlighets grad och antalet aviseringar som är associerade med incidenten. Om du ser som plötslig topp i en speciell typ av avisering, kan det betyda att det finns ett aktivt angrepp som körs för tillfället. Om du till exempel har en plötslig topp på 20 pass-The-hash-händelser från Microsoft Defender för identitet (tidigare Azure ATP), är det möjligt att någon för närvarande försöker attackera dig.
 
 - **Avvikelser i data källan**: Microsofts dataanalytiker skapade modeller som kontinuerligt söker efter avvikelser i data källor. Om det inte finns några avvikelser visas inget. Om avvikelser upptäcks bör du ta en djup inblick i dem för att se vad som hände. Klicka till exempel på insamling i Azure-aktivitet. Du kan klicka på **diagrammet** för att se när insamling skedde och sedan filtrera efter aktiviteter som inträffade under den tids perioden för att se vad som orsakade insamling.
@@ -67,7 +66,7 @@ Inbyggda arbets böcker ger integrerade data från dina anslutna data källor s�
       ![Palo-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Du kan anpassa arbets böckerna antingen genom att redigera huvud knappen fråga ![ ](./media/qs-get-visibility/edit-query-button.png) . Du kan klicka på knappen knapp ![ Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
+Du kan anpassa arbets böckerna antingen genom att redigera huvud knappen fråga ![ ](./media/qs-get-visibility/edit-query-button.png) . Du kan klicka på knappen ![ Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
 
 Mer information om hur du arbetar med frågor finns i [Självstudier: visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

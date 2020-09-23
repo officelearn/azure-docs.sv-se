@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus

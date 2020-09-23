@@ -11,13 +11,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79128873"
 ---
-Om du vill återställa enheten måste du rensa alla data på data disken och start disken på enheten på ett säkert sätt. 
+Om du återställa enheten måste du på ett säkert sätt rensa alla data på datadisken och startdisken på enheten. 
 
 Använd `Reset-HcsAppliance` cmdleten för att rensa både data diskarna och start disken eller bara data diskarna. Med `ClearData` `BootDisk` växlarna och kan du rensa data diskarna och start disken.
 
-`BootDisk`Växeln rensar start disken och gör enheten oanvändbar. Den bör endast användas när enheten behöver returneras till Microsoft. Mer information finns i [returnera enheten till Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+`BootDisk`Växeln rensar start disken och gör enheten oanvändbar. Den bör bara användas när enheten måste returneras till Microsoft. Mer information finns i [returnera enheten till Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
 
-Om du använder enhets återställning i det lokala webb gränssnittet rensas bara data diskarna på ett säkert sätt, men start disken hålls intakt. Start disken innehåller enhets konfigurationen.
+Om du använder enhetsåterställningen i det lokala webbgränssnittet rensas bara datadiskarna på ett säkert sätt, men startdisken hålls intakt. Startdisken innehåller enhetskonfigurationen.
 
 1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
 2. Skriv följande i kommandotolken:

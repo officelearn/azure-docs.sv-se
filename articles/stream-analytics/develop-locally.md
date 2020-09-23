@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 70097ad02c17f8c23bd9613487a905ccd562635e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 797577ce976f71f41ece0d103bd0145775d48b56
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337559"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885589"
 ---
 # <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Utveckla och felsöka Azure Stream Analytics jobb lokalt
 
@@ -25,7 +25,7 @@ Miljöerna i följande tabell stöder lokal utveckling:
 
 |Miljö                              |Beskrivning    |
 |-----------------------------------------|------------|
-|[Visual Studio Code](visual-studio-code-explore-jobs.md)| Med [tillägget Azure Stream Analytics-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) för Visual Studio Code kan du skapa, hantera, testa Stream Analytics-jobbet både lokalt och i molnet med omfattande IntelliSense och ursprunglig käll kontroll. Stöd för utveckling på Linux, MacOS och Windows. Mer information finns i [skapa ett Azure Stream Analytics jobb i Visual Studio Code](quick-create-vs-code.md). Tillägget har även stöd för [Visual Studio-Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/) som är en utvecklings miljö med en moln värd.|
+|[Visual Studio Code](visual-studio-code-explore-jobs.md)| Med [tillägget Azure Stream Analytics-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) för Visual Studio Code kan du skapa, hantera, testa Stream Analytics-jobbet både lokalt och i molnet med omfattande IntelliSense och ursprunglig käll kontroll. Stöd för utveckling på Linux, MacOS och Windows. Mer information finns i [skapa ett Azure Stream Analytics jobb i Visual Studio Code](quick-create-visual-studio-code.md). Tillägget har även stöd för [Visual Studio-Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/) som är en utvecklings miljö med en moln värd.|
 |[Visual Studio 2019](stream-analytics-tools-for-visual-studio-install.md) |Stream Analytics verktyg är en del av Azure-utveckling och data lagring och bearbetning av arbets belastningar i Visual Studio. Du kan använda Visual Studio för att skriva anpassade C#-användardefinierade funktioner och deserialiserare. Mer information finns i [skapa ett Azure Stream Analytics jobb med hjälp av Visual Studio](stream-analytics-quick-create-vs.md).|
 |[Kommando tolk eller Terminal](stream-analytics-tools-for-visual-studio-cicd.md)|Azure Stream Analytics CI/CD NuGet-paketet innehåller verktyg för Visual Studio Project build, lokal testning på en godtycklig dator. Azure Stream Analytics CI/CD NPM-paketet innehåller verktyg för Visual Studio Code Project-versioner (som genererar en Azure Resource Manager mall) på en godtycklig dator.|
 

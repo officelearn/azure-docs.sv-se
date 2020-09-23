@@ -13,7 +13,7 @@ ms.locfileid: "67187785"
 ---
 Här följer de protokoll som stöds för klienter som ansluter till enheten.
 
-|**Protokoll** |**5**   |**Anteckningar**  |
+|**Protokoll** |**Versioner**   |**Kommentarer**  |
 |---------|---------|---------|
 |SMB    | 2. X, 3. X      | SMB 1 stöds inte.|
 |NFS (för närvarande i för hands version)     |3,0, 4,1        | Mac OS stöds inte med NFS v 4.1.         |

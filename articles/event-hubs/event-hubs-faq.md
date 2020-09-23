@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/16/2020
+ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883385"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -55,6 +55,9 @@ Du kan konfigurera kvarhållningsperioden för de infångade data på ditt lagri
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Hur gör jag för att övervaka mina Event Hubs?
 Event Hubs utvärderar uttömmande Mät värden som ger resursernas tillstånd att [Azure Monitor](../azure-monitor/overview.md). De gör det också möjligt att utvärdera den övergripande hälsan för tjänsten Event Hubs inte bara på namn områdes nivån, utan även på enhets nivå. Lär dig mer om vilken övervakning som erbjuds för [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
+### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Var lagrar Azure Event Hubs kund information?
+Azure Event Hubs lagrar kund information. Dessa data lagras automatiskt av Event Hubs i en enda region, så den här tjänsten uppfyller automatiskt placering-kraven för regions data, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar måste jag öppna i brand väggen? 
 Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
 
@@ -78,9 +81,9 @@ Följ dessa steg om du vill hitta rätt IP-adresser som ska läggas till i lista
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
+2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . 
 
-Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
+Om du använder **zon redundans** för ditt namn område måste du utföra några ytterligare steg: 
 
 1. Först kör du nslookup i namn området.
 
@@ -94,9 +97,12 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+
+    > [!NOTE]
+    > Den IP-adress som returnerades av `nslookup` kommandot är inte en statisk IP-adress. Det förblir dock konstant tills den underliggande distributionen tas bort eller flyttas till ett annat kluster.
 3. Kör nslookup för var och en med suffix S1, S2 och S3 för att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighets zoner. 
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Var hittar jag klient-IP skickar eller tar emot meddelanden till mitt namn område?
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Var hittar jag klient-IP skickar eller tar emot meddelanden till mitt namn område?
 Börja med att aktivera [IP-filtrering](event-hubs-ip-filtering.md) i namn området. 
 
 Aktivera sedan diagnostikloggar för [Event Hubs händelser för virtuella nätverks anslutningar](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) genom att följa anvisningarna i [Aktivera diagnostikloggar](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). IP-adressen som anslutningen nekas till visas.

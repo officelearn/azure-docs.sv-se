@@ -1,5 +1,5 @@
 ---
-title: Köra batchförutsägelser med Azure Machine Learning Designer (förhandsversion)
+title: Köra batch-förutsägelser med Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar en modell och konfigurerar en pipeline för batch förutsägelse med hjälp av designern. Distribuera pipelinen som en parametriserad webb tjänst, som kan utlösas från alla HTTP-bibliotek.
 services: machine-learning
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661493"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883087"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Köra batchförutsägelser med Azure Machine Learning Designer (förhandsversion)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Köra batch-förutsägelser med Azure Machine Learning designer
+
 
 I den här artikeln får du lära dig hur du använder designern för att skapa en batch förutsägelse-pipeline. Med batch förutsägelse kan du kontinuerligt räkna ut stora data uppsättningar på begäran med hjälp av en webb tjänst som kan utlösas från alla HTTP-bibliotek.
 
@@ -31,7 +31,7 @@ I den här instruktionen får du lära dig att utföra följande uppgifter:
 
 Information om hur du konfigurerar batch-Bedömningstjänster med hjälp av SDK finns i den medföljande [instruktionen](how-to-run-batch-predictions.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här instruktionen förutsätter att du redan har en utbildnings pipeline. För en guidad introduktion till designern, slutför du [en del av själv studie kursen för designern](tutorial-designer-automobile-price-train-score.md). 
 

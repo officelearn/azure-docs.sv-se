@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886202"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurera data delningar och kors validering i automatiserad maskin inlärning
 
@@ -31,13 +31,13 @@ En låg kod eller ingen kod får [du i skapa dina automatiserade Machine Learnin
 > [!NOTE]
 > Studio stöder för närvarande utbildning/validering av data delningar och alternativ för kors validering, men det går inte att ange enskilda datafiler för verifierings uppsättningen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här artikeln behöver du
 
 * En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
 
-* Bekanta dig med att ställa in ett automatiserat maskin inlärnings experiment med Azure Machine Learning SDK. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för det grundläggande automatiserade maskin inlärnings experimentet.
+* Bekanta dig med att ställa in ett automatiserat maskin inlärnings experiment med Azure Machine Learning SDK. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för de grundläggande automatiserade tipsen för maskin inlärning.
 
 * En förståelse för kors validerings-och tåg-och verifierings data delas upp som ML-begrepp. En förklaring på hög nivå
 

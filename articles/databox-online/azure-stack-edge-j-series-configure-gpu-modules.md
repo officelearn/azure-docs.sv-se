@@ -1,6 +1,6 @@
 ---
-title: Köra en GPU-modul på Microsoft Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du konfigurerar och kör en modul på GPU på en Azure Stack Edge-enhet via Azure Portal.
+title: Köra en GPU-modul på Microsoft Azure Stack Edge Pro GPU-enhet | Microsoft Docs
+description: Beskriver hur du konfigurerar och kör en modul på GPU på en Azure Stack Edge Pro-enhet via Azure Portal.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 419b8beb866711e80b4366df4398eb248256021b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8b9f1180639f638e72fdea2f87958628a2e9e86b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266960"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891471"
 ---
-# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-device"></a>Konfigurera och köra en modul på GPU på Azure Stack Edge-enhet
+# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Konfigurera och köra en modul på GPU på Azure Stack Edge Pro-enhet
 
-Din Azure Stack Edge-enhet innehåller en eller flera GPU: er (Graphics Processing Unit). GPU: er är ett populärt alternativ för AI-beräkningar när de erbjuder parallella bearbetnings möjligheter och är snabbare vid bild åter givning än CPU: er (Central bearbetnings enheter). Om du vill ha mer information om GPU: n som finns i Azure Stack Edge-enheten går du till [Azure Stack gräns enhetens tekniska specifikationer](azure-stack-edge-gpu-technical-specifications-compliance.md).
+Din Azure Stack Edge Pro-enhet innehåller en eller flera GPU: er (Graphics Processing Unit). GPU: er är ett populärt alternativ för AI-beräkningar när de erbjuder parallella bearbetnings möjligheter och är snabbare vid bild åter givning än CPU: er (Central bearbetnings enheter). Om du vill ha mer information om GPU: n som finns i din Azure Stack Edge Pro-enhet går du till [Azure Stack tekniska specifikationer för Edge Pro-enhet](azure-stack-edge-gpu-technical-specifications-compliance.md).
 
-Den här artikeln beskriver hur du konfigurerar och kör en modul på GPU: n på Azure Stack Edge-enheten. I den här artikeln ska du använda en offentligt tillgänglig **siffra** för container som skrivits för NVIDIA T4-GPU: er. Den här proceduren kan användas för att konfigurera andra moduler som publiceras av NVIDIA för dessa GPU: er.
+Den här artikeln beskriver hur du konfigurerar och kör en modul på GPU: n på din Azure Stack Edge Pro-enhet. I den här artikeln ska du använda en offentligt tillgänglig **siffra** för container som skrivits för NVIDIA T4-GPU: er. Den här proceduren kan användas för att konfigurera andra moduler som publiceras av NVIDIA för dessa GPU: er.
 
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har åtkomst till en GPU-aktiverad Azure Stack Edge-enhet med en nod. Enheten aktive ras med en resurs i Azure.  
+1. Du har åtkomst till en GPU-aktiverad 1-Node Azure Stack Edge Pro-enhet. Enheten aktive ras med en resurs i Azure.  
 
 ## <a name="configure-module-to-use-gpu"></a>Konfigurera modulen för att använda GPU
 
-Följ dessa steg om du vill konfigurera en modul att använda GPU: n på Azure Stack Edge-enheten för att köra en modul.
+Följ dessa steg om du vill konfigurera en modul att använda GPU: n på din Azure Stack Edge Pro-enhet för att köra en modul.
 
 1. I Azure Portal går du till den resurs som är kopplad till din enhet. 
 
@@ -54,7 +54,7 @@ Följ dessa steg om du vill konfigurera en modul att använda GPU: n på Azure S
 
     ![Konfigurera modulen för att använda GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
-    I den högra rutan ser du den IoT Edge enhet som är kopplad till Azure Stack Edge-enheten. Detta motsvarar IoT Edge enhet som du skapade i föregående steg när du skapade IoT Hub resursen. 
+    I den högra rutan ser du den IoT Edge enhet som är kopplad till din Azure Stack Edge Pro-enhet. Detta motsvarar IoT Edge enhet som du skapade i föregående steg när du skapade IoT Hub resursen. 
     
 6. Välj den här IoT Edge enheten.
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170266"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883236"
 ---
 # <a name="train-pytorch-model"></a>Träna Pytorch-modell
 
-Den här artikeln beskriver hur du använder modulen **träna Pytorch modell** i Azure Machine Learning designer (för hands version) för att träna Pytorch modeller som DenseNet. Träningen sker efter att du har definierat en modell och angett dess parametrar och kräver etiketterade data. 
+Den här artikeln beskriver hur du använder modulen **träna Pytorch-modell** i Azure Machine Learning designer för att träna Pytorch modeller som DenseNet. Träningen sker efter att du har definierat en modell och angett dess parametrar och kräver etiketterade data. 
 
 ## <a name="how-to-use-train-pytorch-model"></a>Använda träna Pytorch-modellen 
 
@@ -66,15 +66,15 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Namn          | Intervall            | Typ    | Standard | Beskrivning                              |
+| Name          | Intervall            | Typ    | Standardvärde | Beskrivning                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Epoker        | > 0               | Integer | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
-| Batchstorlek    | > 0               | Integer | 16      | Hur många instanser som ska tränas i en batch   |
+| Epoker        | > 0               | Heltal | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
+| Batchstorlek    | > 0               | Heltal | 16      | Hur många instanser som ska tränas i en batch   |
 | Inlärningstakt | >= Double. Epsilon | Float   | 0,001   | Den inledande inlärnings takten för Stochastic gradient brantaste-optimering. |
-| Slumpmässigt utsäde   | Alla              | Integer | 1       | Startvärdet för den slump tals generator som används av modellen. |
-| Tålamod      | > 0               | Integer | 3       | Hur många epoker till tidig stängning av utbildning   |
+| Slumpmässigt utsäde   | Alla              | Heltal | 1       | Startvärdet för den slump tals generator som används av modellen. |
+| Tålamod      | > 0               | Heltal | 3       | Hur många epoker till tidig stängning av utbildning   |
 
-###  <a name="outputs"></a>Outputs (Utdata)  
+###  <a name="outputs"></a>Utdata  
 
 | Namn          | Typ           | Beskrivning   |
 | ------------- | -------------- | ------------- |

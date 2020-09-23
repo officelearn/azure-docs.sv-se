@@ -11,15 +11,15 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b239ab14437083b74f4501eabb588e929152431
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647420"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897245"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Med hjälp av den automatiserade ML-funktionen i Azure Machine Learning kan du upptäcka modeller med höga prestanda utan att du behöver implementera om varje möjlig metod. Tillsammans med Azure Machine Learning pipelines kan du skapa arbets flöden som kan användas för att snabbt identifiera algoritmen som fungerar bäst för dina data. I den här artikeln får du lära dig hur du effektivt ansluter ett steg för förberedelse av data till ett automatiserat ML-steg. Med automatisk ML kan du snabbt upptäcka vilken algoritm som passar bäst för dina data, samtidigt som du lägger på vägen till MLOps och modellens livs cykel driftsättning med pipelines.
 
@@ -29,7 +29,7 @@ Med hjälp av den automatiserade ML-funktionen i Azure Machine Learning kan du u
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  
 
-* Grundläggande förtrogenhet med Azures [automatiserade funktioner för maskin inlärning](concept-automated-ml.md) och [Machine Learning-pipeline](concept-ml-pipelines.md) och SDK.
+* Bekanta dig med Azures [automatiserade funktioner för maskin inlärning](concept-automated-ml.md) och [Machine Learning i pipeline](concept-ml-pipelines.md) och SDK.
 
 ## <a name="review-automated-mls-central-classes"></a>Granska automatiserade MLs centrala klasser
 
@@ -368,7 +368,7 @@ Ibland kan du se användning `X` av data funktioner och `y` data etiketter. Den 
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>Registrera modellen som genererats av automatisk ML 
 
-Det sista steget i en Basic ML-pipeline registrerar den skapade modellen. Genom att lägga till modellen i arbets ytans modell register, är den tillgänglig i portalen och kan användas med en version. Registrera modellen genom att skriva en annan `PythonScriptStep` som tar `model_data` utdata från `AutoMLStep` .
+Det sista steget i en enkel ML-pipeline registrerar den skapade modellen. Genom att lägga till modellen i arbets ytans modell register, är den tillgänglig i portalen och kan användas med en version. Registrera modellen genom att skriva en annan `PythonScriptStep` som tar `model_data` utdata från `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>Skriv koden för att registrera modellen
 

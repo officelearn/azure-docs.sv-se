@@ -11,15 +11,15 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 2888e46d26a58e8451f38accbb9073d657f8ea1b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d511520e274af9c6dea3f443693249ede368fd99
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651466"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893260"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som används av Azure Machine Learning. Azure Machine Learning kan använda lagrings konton för att lagra data eller utbildade modeller.
 
@@ -28,7 +28,7 @@ Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure S
 > [!IMPORTANT]
 > Autentiseringsuppgifterna som registreras med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) aktiverat för din Key Vault, se till att följa den här artikeln för att uppdatera autentiseringsuppgifter. Det går inte att avregistrera data lagret och omregistrera det med samma namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 

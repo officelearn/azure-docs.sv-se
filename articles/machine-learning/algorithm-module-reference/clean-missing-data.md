@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477705"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898824"
 ---
 # <a name="clean-missing-data-module"></a>Rensa data modul som saknas
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att ta bort, ersätta eller härleda saknade värden. 
 
@@ -48,7 +48,7 @@ Med den här modulen kan du definiera en rensnings åtgärd. Du kan också spara
 
 ### <a name="replace-missing-values"></a>Ersätt saknade värden  
 
-Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.md) i en uppsättning data tillämpas samma rengörings åtgärd på alla kolumner som du väljer. Om du behöver rensa olika kolumner med olika metoder kan du därför använda separata instanser av modulen.
+Varje gången du använder modulen  [Rensa data som saknas](./clean-missing-data.md) i en uppsättning data tillämpas samma rengörings åtgärd på alla kolumner som du väljer. Om du behöver rensa olika kolumner med olika metoder kan du därför använda separata instanser av modulen.
 
 1.  Lägg till modulen [Rensa data som saknas](./clean-missing-data.md) i pipelinen och Anslut den data uppsättning som saknar värden.  
   

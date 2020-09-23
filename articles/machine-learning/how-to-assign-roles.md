@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661931"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893402"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview) används för att hantera åtkomst till Azure-resurser. Användare i Azure Active Directory tilldelas vissa roller som ger åtkomst till resurser. Azure tillhandahåller både inbyggda roller och möjligheten att skapa anpassade roller.
 
@@ -46,7 +45,7 @@ Om du är ägare till en arbets yta kan du lägga till och ta bort roller för a
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST-API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure Resource Manager mallar](/azure/role-based-access-control/role-assignments-template)
+- [Azure Resource Manager-mallar](/azure/role-based-access-control/role-assignments-template)
 
 Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du använda CLI-kommandon för att tilldela roller till användare:
 
@@ -135,7 +134,6 @@ Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och
 | Aktivitet | Omfång på prenumerations nivå | Omfång på resurs grupps nivå | Omfång på arbets ytans nivå |
 | ----- | ----- | ----- | ----- |
 | Skapa ny arbets yta | Krävs inte | Ägare eller deltagare | Ej tillämpligt (blir ägare eller ärver högre omfattnings roll efter att det har skapats) |
-| Uppdatera versionen av arbets ytan | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `/workspaces/write` |
 | Begär Amlcompute kvot för prenumerations nivå eller Ange gräns för arbets ytans kvot | Ägare, eller deltagare eller anpassad roll </br>tillåts `/locations/updateQuotas/action`</br> vid prenumerations omfång | Inte auktoriserad | Inte auktoriserad |
 | Skapa nytt beräknings kluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `/workspaces/computes/write` |
 | Skapa en ny beräknings instans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner
 
     * Skapa en ny arbets yta
     * Tilldelar kvoter för prenumerations-eller arbets ytans nivå
-    * Uppgradera arbets ytans utgåva
 
     Administratören för arbets ytan kan inte heller skapa en ny roll. Den kan bara tilldela befintliga inbyggda eller anpassade roller inom omfånget för deras arbets yta:
 
@@ -415,11 +412,7 @@ Du måste ha behörighet för hela omfattningen av din nya roll definition. Om d
 
 > [!NOTE]
 > Roll uppdateringar kan ta 15 minuter till en timme att tillämpa på alla roll tilldelningar i det omfånget.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>F. Kan jag definiera en roll som förhindrar uppdatering av arbets ytans version? 
 
-Ja, du kan definiera en roll som förhindrar uppdatering av arbets ytans version. Eftersom uppdatering av arbets ytan är ett KORRIGERINGs anrop för objektet arbets yta gör du detta genom att lägga till följande åtgärd i `"NotActions"` matrisen i din JSON-definition: 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>F. Vilka behörigheter krävs för att utföra kvot åtgärder på en arbets yta? 
 

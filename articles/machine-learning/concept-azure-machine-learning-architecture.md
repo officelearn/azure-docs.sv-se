@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651262"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886313"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -193,7 +193,7 @@ Ett exempel på hur du distribuerar en modell som en webb tjänst finns [i Distr
 
 #### <a name="real-time-endpoints"></a>Real tids slut punkter
 
-När du distribuerar en tränad modell i designern (för hands version) kan du [distribuera modellen som en slut punkt i real tid](tutorial-designer-automobile-price-deploy.md). En slut punkt i real tid tar ofta emot en enskild begäran via REST-slutpunkten och returnerar en förutsägelse i real tid. Detta är i motsats till batchbearbetning, som bearbetar flera värden samtidigt och sparar resultaten när de har slutförts till ett data lager.
+När du distribuerar en tränad modell i designern kan du [distribuera modellen som en slut punkt i real tid](tutorial-designer-automobile-price-deploy.md). En slut punkt i real tid tar ofta emot en enskild begäran via REST-slutpunkten och returnerar en förutsägelse i real tid. Detta är i motsats till batchbearbetning, som bearbetar flera värden samtidigt och sparar resultaten när de har slutförts till ett data lager.
 
 #### <a name="pipeline-endpoints"></a>Pipeline-slutpunkter
 
@@ -229,7 +229,7 @@ Pipeline-steg kan återanvändas och kan köras utan att köra föregående steg
 
 Studio är också den plats där du kommer åt de interaktiva verktyg som ingår i Azure Machine Learning:
 
-+ [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes steg utan att skriva kod
++ [Azure Machine Learning designer](concept-designer.md) för att utföra arbets flödes steg utan att skriva kod
 + Webb upplevelse för [Automatisk maskin inlärning](concept-automated-ml.md)
 + [Azure Machine Learning antecknings böcker](how-to-run-jupyter-notebooks.md) för att skriva och köra din egen kod i integrerade Jupyter Notebook-servrar.
 + [Data](how-to-create-labeling-projects.md) som används för att skapa, hantera och övervaka projekt för att förse dina data med etiketter
@@ -242,6 +242,7 @@ Studio är också den plats där du kommer åt de interaktiva verktyg som ingår
 
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R (för](https://azure.github.io/azureml-sdk-for-r/reference/index.html) hands version).
++ Använd [Azure Machine Learning designer](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod. 
 + Använd [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) för Automation.
 + [Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
 

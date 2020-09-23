@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2232aa46b0586ca62e80c8b9002271a67e4021c1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0217766c92ddcd1907eca2c6702d91b02e06c03
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893645"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -95,7 +95,7 @@ En Azure ML-pipeline är kopplad till en Azure Machine Learning arbets yta och e
 
 ### <a name="a-simple-python-pipeline"></a>En enkel python-pipeline
 
-Det här kodfragmentet visar de objekt och anrop som behövs för att skapa och köra en grundläggande `Pipeline` :
+Det här kodfragmentet visar de objekt och anrop som behövs för att skapa och köra ett `Pipeline` :
 
 ```python
 ws = Workspace.from_config() 
@@ -152,7 +152,7 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 
 ## <a name="next-steps"></a>Nästa steg
 
-Azure ML-pipelines är en kraftfull funktion som börjar leverera värde i de tidiga utvecklings faserna. Värdet ökar när teamet och projektet växer. Den här artikeln innehåller förklaras hur pipeliner anges med Azure Machine Learning python SDK och dirigeras på Azure. Du har sett några grundläggande käll koder och har introducerats för några av de `PipelineStep` klasser som är tillgängliga. Du bör ha en uppfattning om när du ska använda Azure ML-pipeliner och hur Azure kör dem. 
+Azure ML-pipelines är en kraftfull funktion som börjar leverera värde i de tidiga utvecklings faserna. Värdet ökar när teamet och projektet växer. Den här artikeln innehåller förklaras hur pipeliner anges med Azure Machine Learning python SDK och dirigeras på Azure. Du har sett några enkla käll koder och har introducerats för några av de `PipelineStep` klasser som är tillgängliga. Du bör ha en uppfattning om när du ska använda Azure ML-pipeliner och hur Azure kör dem. 
 
 
 + Lär dig hur du [skapar din första pipeline](how-to-create-your-first-pipeline.md).

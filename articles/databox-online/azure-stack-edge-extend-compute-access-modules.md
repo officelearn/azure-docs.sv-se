@@ -1,6 +1,6 @@
 ---
-title: Hantera beräknings nätverk på Azure Stack Edge för att få åtkomst till moduler | Microsoft Docs
-description: Beskriver hur du utökar beräknings nätverket på Azure Stack Edge för att få åtkomst till moduler via en extern IP-adress.
+title: Hantera beräknings nätverk på Azure Stack Edge Pro för att komma åt moduler | Microsoft Docs
+description: Beskriver hur du utökar beräknings nätverket på Azure Stack Edge Pro för att komma åt moduler via en extern IP-adress.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,31 +8,31 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342994"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894113"
 ---
-# <a name="enable-compute-network-on-your-azure-stack-edge"></a>Aktivera beräknings nätverk på Azure Stack Edge
+# <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Aktivera beräknings nätverk på Azure Stack Edge Pro
 
-I den här artikeln beskrivs hur modulerna som körs på Azure Stack Edge kan komma åt beräknings nätverket som är aktiverat på enheten.
+Den här artikeln beskriver hur modulerna som körs på Azure Stack Edge Pro kan komma åt beräknings nätverket som är aktiverat på enheten.
 
 Utför följande steg för att konfigurera nätverket:
 
-- Aktivera ett nätverks gränssnitt på din Azure Stack Edge-enhet för data bearbetning
-- Lägg till en modul för att få åtkomst till Compute Network på din Azure Stack Edge
+- Aktivera ett nätverks gränssnitt på din Azure Stack Edge Pro-enhet för data bearbetning
+- Lägg till en modul för att få åtkomst till Compute Network på Azure Stack Edge Pro
 - Kontrol lera att modulen har åtkomst till det aktiverade nätverks gränssnittet
 
 I den här självstudien använder du en modul för webserver-app för att demonstrera scenariot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar behöver du:
 
-- En Azure Stack Edge-enhet med enhets konfigurationen har slutförts.
-- Du har slutfört **Konfigurera beräknings** steget enligt [självstudien: transformera data med Azure Stack Edge](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) på enheten. Enheten bör ha en tillhör ande IoT Hub resurs, en IoT-enhet och en IoT Edge enhet.
+- En Azure Stack Edge Pro-enhet med enhets konfigurationen slutförd.
+- Du har slutfört **Konfigurera beräknings** steget enligt [självstudien: transformera data med Azure Stack Edge Pro](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) på enheten. Enheten bör ha en tillhör ande IoT Hub resurs, en IoT-enhet och en IoT Edge enhet.
 
 ## <a name="enable-network-interface-for-compute"></a>Aktivera nätverks gränssnitt för beräkning
 
@@ -55,10 +55,10 @@ Utför följande steg i det lokala webb gränssnittet för att konfigurera berä
 
 ## <a name="add-webserver-app-module"></a>Lägg till modul för webserver-app
 
-Utför följande steg för att lägga till en modul för webserver-app på din Azure Stack Edge-enhet.
+Utför följande steg för att lägga till en modul för webserver-app på din Azure Stack Edge Pro-enhet.
 
-1. Gå till den IoT Hub resurs som är kopplad till Azure Stack Edge-enheten och välj sedan **IoT Edge enhet**.
-2. Välj den IoT Edge enhet som är kopplad till Azure Stack Edge-enheten. Välj **Ange moduler**på **enhets informationen**. I **Lägg till moduler**väljer du **+ Lägg till** och väljer sedan **IoT Edge modul**.
+1. Gå till den IoT Hub resurs som är kopplad till din Azure Stack Edge Pro-enhet och välj sedan **IoT Edge enhet**.
+2. Välj den IoT Edge enhet som är kopplad till din Azure Stack Edge Pro-enhet. Välj **Ange moduler**på **enhets informationen**. I **Lägg till moduler**väljer du **+ Lägg till** och väljer sedan **IoT Edge modul**.
 3. På bladet **IoT Edge anpassade moduler** :
 
     1. Ange ett **namn** för den webserver-app som du vill distribuera.

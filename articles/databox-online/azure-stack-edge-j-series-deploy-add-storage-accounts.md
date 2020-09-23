@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att överföra data till lagrings konto med Azure Stack Edge-GPU | Microsoft Docs
-description: Lär dig hur du lägger till och ansluter till lokala och gräns lagrings konton på Azure Stack Edge GPU-enhet.
+title: Självstudie för att överföra data till lagrings konto med Azure Stack Edge Pro GPU | Microsoft Docs
+description: Lär dig hur du lägger till och ansluter till lokala och gräns lagrings konton på Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 66c09b7fa0eb8fbf709441da5996fb2237b3e284
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256404"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891065"
 ---
-# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-gpu"></a>Självstudie: överföra data via lagrings konton med Azure Stack Edge-GPU 
+# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Självstudie: överföra data via lagrings konton med Azure Stack Edge Pro GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-I den här självstudien beskrivs hur du lägger till och ansluter till lagrings konton på din Azure Stack Edge-enhet. När du har lagt till lagrings kontona kan Azure Stack Edge överföra data till Azure.
+I den här självstudien beskrivs hur du lägger till och ansluter till lagrings konton på din Azure Stack Edge Pro-enhet. När du har lagt till lagrings kontona kan Azure Stack Edge Pro överföra data till Azure.
 
 Den här proceduren kan ta cirka 30 minuter att slutföra.
 
@@ -33,11 +33,11 @@ I den här guiden får du lära dig att:
  
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du lägger till lagrings konton i Azure Stack Edge, se till att:
+Innan du lägger till lagrings konton i Azure Stack Edge Pro, se till att:
 
-- Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+- Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
-- Du har aktiverat den fysiska enheten enligt beskrivningen i [aktivera Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Du har aktiverat den fysiska enheten enligt beskrivningen i [aktivera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## <a name="add-an-edge-storage-account"></a>Lägg till ett gräns lagrings konto
@@ -135,7 +135,7 @@ Vart och ett av dessa steg beskrivs i följande avsnitt.
 
 ### <a name="get-certificate"></a>Hämta certifikat
 
-Åtkomst till Blob Storage via HTTPS kräver ett SSL-certifikat för enheten. Du kommer också att ladda upp det här certifikatet till din Azure Stack Edge-enhet som *. pfx* -fil med en privat nyckel som är kopplad till den. Mer information om hur du skapar (endast för testning och utveckling) och laddar upp certifikaten till din Azure Stack Edge-enhet finns på:
+Åtkomst till Blob Storage via HTTPS kräver ett SSL-certifikat för enheten. Du kommer också att överföra det här certifikatet till din Azure Stack Edge Pro-enhet som *. pfx* -fil med en privat nyckel som är kopplad till den. Mer information om hur du skapar (endast för testning och utveckling) och laddar upp certifikaten till din Azure Stack Edge Pro-enhet finns på:
 
 - [Skapa BLOB-slutpunktens certifikat](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional).
 - [Ladda upp BLOB-slutpunktens certifikat](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
@@ -167,15 +167,15 @@ Följ stegen för att [Konfigurera och verifiera den anslutning som du använde 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig mer om följande Azure Stack Edge-ämnen:
+I den här självstudien har du lärt dig om följande Azure Stack Edge Pro-ämnen:
 
 > [!div class="checklist"]
 > * Lägg till ett lagrings konto
 > * Anslut till ett lagrings konto
 
-Gå vidare till nästa självstudie om du vill lära dig hur du omvandlar dina data med hjälp av Azure Stack Edge:
+Om du vill lära dig hur du omvandlar dina data med hjälp av Azure Stack Edge Pro går du vidare till nästa självstudie:
 
 > [!div class="nextstepaction"]
-> [Transformera data med Azure Stack Edge](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Transformera data med Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 

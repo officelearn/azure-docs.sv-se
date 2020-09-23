@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 02f4fe4f97d3e976675757835e3931666d1c6410
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857760"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898403"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Bedöma Vowpal Wabbit-modell
-Den här artikeln beskriver hur du använder modulen **score Vowpal Wabbit modell** i Azure Machine Learning designer (för hands version) för att generera poäng för en uppsättning indata med hjälp av en befintlig utbildad Vowpal Wabbit-modell.  
+Den här artikeln beskriver hur du använder modulen **score Vowpal Wabbit modell** i Azure Machine Learning designer för att generera poäng för en uppsättning indata med hjälp av en befintlig utbildad Vowpal Wabbit-modell.  
 
 Den här modulen innehåller den senaste versionen av Vowpal Wabbit Framework, version 8.8.1. Använd den här modulen för att räkna data med hjälp av en tränad modell som sparas i VW version 8-format.  
 
@@ -74,7 +74,7 @@ Vowpal Wabbit har många kommando rads alternativ för att välja och justera al
 
 Följande parametrar stöds inte i Azure Machine Learning Studio (klassisk).  
 
--   De indata/utdata-alternativ som anges i[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   De indata/utdata-alternativ som anges i [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      De här egenskaperna har redan kon figurer ATS automatiskt av modulen.  
   

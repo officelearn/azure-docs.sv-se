@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ac440db4c1dbddd317743e2d681a62251624d9bd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561659"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898127"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Skapa beräknings mål för modell utbildning och distribution med python SDK
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln använder du Azure Machine Learning python SDK för att skapa och hantera beräknings mål. Du kan också skapa och hantera beräknings mål med:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md), 

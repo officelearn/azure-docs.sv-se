@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Portal för att felsöka Azure Stack Edge med GPU | Microsoft Docs
-description: Beskriver hur du felsöker GPU-problem med Azure Stack Edge.
+title: Använd Azure Portal för att felsöka Azure Stack Edge Pro med GPU | Microsoft Docs
+description: Beskriver hur du felsöker GPU-problem med Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b82631ca78826dd927c6773c47072038eb4ab1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9deb10336d959a3f706cfc0ba970c3b83d5cd0a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290131"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891548"
 ---
-# <a name="troubleshoot-issues-on-your-azure-stack-edge-gpu-device"></a>Felsök problem i Azure Stack Edge GPU-enhet 
+# <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Felsök problem med din Azure Stack Edge Pro GPU-enhet 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Den här artikeln beskriver hur du felsöker problem på GPU-enheten för Azure Stack Edge. 
+Den här artikeln beskriver hur du felsöker problem med GPU-enheten för Azure Stack Edge Pro. 
 
 
 ## <a name="run-diagnostics"></a>Kör diagnostik
@@ -55,7 +55,7 @@ Utför följande steg för att hämta ett supportpaket.
 
 ## <a name="gather-advanced-security-logs"></a>Samla in avancerade säkerhets loggar
 
-De avancerade säkerhets loggarna kan vara program varu-eller maskin varu intrångs loggar för din Azure Stack Edge-enhet.
+De avancerade säkerhets loggarna kan vara program varu-eller maskin varu intrångs loggar för din Azure Stack Edge Pro-enhet.
 
 ### <a name="software-intrusion-logs"></a>Program varu intrångs loggar
 
@@ -67,7 +67,7 @@ Program varu intrång eller standard brand Väggs loggar samlas in för inkomman
 
 - Om inget särskilt alternativ för inkludering anges ingår brand Väggs loggen som standard i support paketet.
 
-- I support paketet är brand Väggs loggen `pfirewall.log` och placerad i rotmappen. Här är ett exempel på program varu intrångs loggen för Azure Stack Edge-enheten. 
+- I support paketet är brand Väggs loggen `pfirewall.log` och placerad i rotmappen. Här är ett exempel på program varu intrångs loggen för Azure Stack Edge Pro-enheten. 
 
     ```
     #Version: 1.5
@@ -101,7 +101,7 @@ För att identifiera maskin varu intrång i enheten loggas alla chassi händelse
 
 - Om det inte finns något särskilt alternativ för att inkludera, ingår maskin varu intrångs loggen som standard i support paketet.
 
-- I support paketet är maskin varu intrångs loggen `HWIntrusion.txt` och placerad i rotmappen. Här är ett exempel på maskin varu intrångs logg för Azure Stack Edge-enheten. 
+- I support paketet är maskin varu intrångs loggen `HWIntrusion.txt` och placerad i rotmappen. Här är ett exempel på maskin varu intrångs logg för Azure Stack Edge Pro-enheten. 
 
     ```
     09/04/2019 15:51:23 system Critical The chassis is open while the power is off.
@@ -143,7 +143,7 @@ Här är de fel som kan visas under konfigurationen av Azure Resource Manager f�
 | **Problem/fel** |  **Lösning** | 
 |------------|-----------------|
 |Allmänna frågor|<li>[Kontrol lera att gräns enheten är korrekt konfigurerad](#verify-the-device-is-configured-properly).<li> [Kontrol lera att klienten är korrekt konfigurerad](#verify-the-client-is-configured-properly)|
-|Add-AzureRmEnvironment: ett fel uppstod när begäran skickades.<br>På rad: 1 tecken: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|Det här felet innebär att din Azure Stack Edge-enhet inte kan kontaktas eller har kon figurer ATS korrekt. Kontrol lera att gräns enheten och klienten är korrekt konfigurerade. Vägledning finns i raden **allmänna problem** i den här tabellen.|
+|Add-AzureRmEnvironment: ett fel uppstod när begäran skickades.<br>På rad: 1 tecken: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|Det här felet innebär att din Azure Stack Edge Pro-enhet inte kan kontaktas eller har kon figurer ATS korrekt. Kontrol lera att gräns enheten och klienten är korrekt konfigurerade. Vägledning finns i raden **allmänna problem** i den här tabellen.|
 |Tjänsten returnerade ett fel. Check InnerException för mer information: den underliggande anslutningen stängdes: det gick inte att upprätta en förtroende relation för den säkra SSL/TLS-kanalen. |   Det här felet beror troligen på en eller flera åtgärder för att utföra egna certifikat på ett felaktigt sätt. [Här](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-connect-resource-manager#step-2-create-and-install-certificates)kan du hitta vägledning. |
 |Åtgärden returnerade en ogiltig status kod ' ServiceUnavailable ' <br> Svars status koden indikerar inte lyckad: 503 (tjänsten är inte tillgänglig). | Det här felet kan vara resultatet av något av dessa villkor.<li>ArmStsPool är i stoppat läge.</li><li>Någon av webbplatserna för Azure Resource Manager/säkerhetstoken-tjänster är nere.</li><li>Kluster resursen för Azure Resource Manager är nere.</li><br><strong>Obs:</strong> Det kan lösa problemet genom att starta om enheten, men du bör samla in support paketet så att du kan felsöka det ytterligare.|
 |AADSTS50126: ogiltigt användar namn eller lösen ord.<br>Spårnings-ID: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>Korrelations-ID: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Tidsstämpel: 2019-11-15 09:21:57Z: fjärrservern returnerade ett fel: (400) felaktig begäran.<br>På rad: 1 tecken: 1 |Det här felet kan vara resultatet av något av dessa villkor.<li>För ett ogiltigt användar namn och lösen ord kontrollerar du att kunden har ändrat lösen ordet från Azure Portal genom att följa stegen [här](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password) och sedan använda rätt lösen ord.<li>För ett ogiltigt klient-ID är klient-ID: t ett fast GUID och ska anges till `c0257de7-538f-415c-993a-1b87a031879d`</li>|
@@ -182,7 +182,7 @@ Här är de fel som kan visas under konfigurationen av Azure Resource Manager f�
 
 ## <a name="blob-storage-on-device"></a>Blob Storage på enhet 
 
-Här är felen som rör Blob Storage på Azure Stack Edge/Data Box Gateway-enhet.
+Här är felen som rör Blob Storage på Azure Stack Edge Pro/Data Box Gateway Device.
 
 | **Problem/fel** |  **Lösning** | 
 |--------------------|-----------------|
@@ -197,7 +197,7 @@ Här är felen som rör Blob Storage på Azure Stack Edge/Data Box Gateway-enhet
 |AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas: `Error parsing source location… The SSL connection could not be established` .|Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |Värdet för ett av HTTP-huvudena har fel format.|Den installerade versionen av Microsoft Azure Storages biblioteket för python stöds inte av Data Box-enhet. Se Azure Data Box Blob Storage-krav för versioner som stöds.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED]...| Innan du kör python anger du REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade SSL-certifikatfil (se hur du [hämtar certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. Till exempel på Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
-|Anslutnings tiden är slut.|Logga in på Azure Stack Edge och kontrol lera att den är olåst. När enheten startas om förblir den låst tills någon loggar in.|
+|Anslutnings tiden är slut.|Logga in på Azure Stack Edge Pro och kontrol lera att den är olåst. När enheten startas om förblir den låst tills någon loggar in.|
 
 
 ## <a name="next-steps"></a>Nästa steg

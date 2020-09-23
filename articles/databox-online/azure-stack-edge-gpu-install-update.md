@@ -1,6 +1,6 @@
 ---
-title: Installera uppdatering på Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du tillämpar uppdateringar med hjälp av Azure Portal och lokalt webb gränssnitt för Azure Stack Edge-GPU-enhet och Kubernetes-klustret på enheten
+title: Installera uppdatering på Azure Stack Edge Pro GPU-enhet | Microsoft Docs
+description: Beskriver hur du tillämpar uppdateringar med hjälp av Azure Portal och lokalt webb gränssnitt för Azure Stack Edge Pro GPU-enhet och Kubernetes-klustret på enheten
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268252"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899504"
 ---
-# <a name="update-your-azure-stack-edge-with-gpu"></a>Uppdatera din Azure Stack Edge med GPU 
+# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>Uppdatera Azure Stack Edge Pro med GPU 
 
-I den här artikeln beskrivs de steg som krävs för att installera uppdateringen på din Azure Stack Edge med GPU via det lokala webb gränssnittet och via Azure Portal. Du tillämpar program uppdateringar eller snabb korrigeringar för att hålla din Azure Stack Edge-enhet och tillhör ande Kubernetes-cluaster på enheten uppdaterad. 
+I den här artikeln beskrivs de steg som krävs för att installera uppdateringen på Azure Stack Edge Pro med GPU via det lokala webb gränssnittet och via Azure Portal. Du tillämpar program uppdateringar eller snabb korrigeringar för att hålla din Azure Stack Edge Pro-enhet och tillhör ande Kubernetes-cluaster på enheten uppdaterad. 
 
 > [!IMPORTANT]
 > - Uppdatering **2008** motsvarar **2.1.1328.1904** program varu version på enheten. Information om den här uppdateringen finns i [viktig information](azure-stack-edge-gpu-2008-release-notes.md).
 >
-> - Kom ihåg att om du installerar en uppdatering eller snabb korrigering startas enheten om. Den här uppdateringen kräver att du installerar två uppdateringar i tur och ordning. Först installerar du enhetens program uppdateringar och sedan Kubernetes-uppdateringar. Med tanke på att Azure Stack Edge är en enda nod-enhet avbryts alla i/O-åtgärder och enheten upplever ett drift stopp på upp till 30 minuter för enhetens program uppdatering.
+> - Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Den här uppdateringen kräver att du installerar två uppdateringar i tur och ordning. Först installerar du enhetens program uppdateringar och sedan Kubernetes-uppdateringar. Med tanke på att Azure Stack Edge Pro är en enda Node-enhet avbryts alla i/O-åtgärder och enheten upplever en stillestånds tid på upp till 30 minuter för enhetens program uppdatering.
 
 Om du vill installera uppdateringar på enheten måste du först konfigurera platsen för uppdaterings servern. När uppdaterings servern har kon figurer ATS kan du tillämpa uppdateringarna via Azure Portal gränssnittet eller det lokala webb gränssnittet.
 
@@ -57,7 +57,7 @@ Vi rekommenderar att du installerar uppdateringar via Azure Portal. Enheten sök
 
 2. På bladet **enhets uppdateringar** kontrollerar du att du har granskat de licens villkor som är associerade med nya funktioner i viktig information.
 
-    Du kan välja att **Ladda ned och installera** uppdateringarna eller bara **Hämta** uppdateringarna. Du kan sedan välja att installera dessa uppdateringar senare.
+    Du kan välja att **Ladda ned och installera** uppdateringarna eller bara **Hämta** uppdateringarna. Du kan sedan välja att installera uppdateringarna senare.
 
     ![Program varu version efter uppdatering](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png)    
 
@@ -82,7 +82,7 @@ Vi rekommenderar att du installerar uppdateringar via Azure Portal. Enheten sök
 
     ![Program varu version efter uppdatering](./media/azure-stack-edge-gpu-install-update/portal-update-6.png)
 
-    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **Install** (Installera).
+    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **installera**.
   
     ![Program varu version efter uppdatering](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 
@@ -159,13 +159,13 @@ Utför följande steg för att ladda ned uppdateringen från Microsoft Update ka
 
     ![Sökkatalog](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. I rutan Sök i Microsoft Updates katalogen anger du Knowledge Base-numret för snabb korrigeringen eller villkoren för den uppdatering som du vill ladda ned. Ange till exempel **Azure Stack Edge**och klicka sedan på **Sök**.
+2. I rutan Sök i Microsoft Updates katalogen anger du Knowledge Base-numret för snabb korrigeringen eller villkoren för den uppdatering som du vill ladda ned. Ange till exempel **Azure Stack Edge Pro**och klicka sedan på **Sök**.
    
-    Uppdaterings listan visas som **Azure Stack Edge 2006**.
+    Uppdaterings listan visas som **Azure Stack Edge Pro 2006**.
    
     ![Sökkatalog](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
 
-4. Välj **Download** (Ladda ned). Det finns två filer att ladda ned med *SoftwareUpdatePackage.exe* och *Kubernetes_Package.exe* suffix som motsvarar enhets program uppdateringar respektive Kubernetes uppdateringar. Ladda ned filerna till en mapp på det lokala systemet. Du kan också kopiera mappen till en nätverks resurs som kan kontaktas från enheten.
+4. Välj **Hämta**. Det finns två filer att ladda ned med *SoftwareUpdatePackage.exe* och *Kubernetes_Package.exe* suffix som motsvarar enhets program uppdateringar respektive Kubernetes uppdateringar. Ladda ned filerna till en mapp på det lokala systemet. Du kan också kopiera mappen till en nätverks resurs som kan kontaktas från enheten.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Installera uppdateringen eller snabb korrigeringen
 
@@ -215,4 +215,4 @@ Den här proceduren tar cirka 20 minuter att slutföra. Utför följande steg f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [du administrerar din Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+Lär dig mer om hur [du administrerar Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

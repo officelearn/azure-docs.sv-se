@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: dd01b8e85be52de898e6b22fb4da810e9184482d
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1bedeb752a18d7a0212ede2b34526efb8ea09287
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055834"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905828"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure Database for MySQL
 
@@ -42,7 +42,7 @@ Konfigurera MySQL Workbench för att ansluta säkert över SSL.
 
 1. I fältet **SSL-ca-fil:** anger du sökvägen till filen **BaltimoreCyberTrustRoot. CRT. pem**.
 
-   ![Spara SSL-konfiguration](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+   :::image type="content" source="./media/howto-configure-ssl/mysql-workbench-ssl.png" alt-text="Spara SSL-konfiguration":::
 
 För befintliga anslutningar kan du binda SSL genom att högerklicka på anslutnings ikonen och välja Redigera. Gå sedan till fliken **SSL** och bind certifikat filen.
 
@@ -63,7 +63,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Använd Azure Portalen, gå till Azure Database for MySQL-servern och klicka sedan på **anslutnings säkerhet**. Använd växlings knappen för att aktivera eller inaktivera inställningen **tvinga SSL-anslutning** och klicka sedan på **Spara**. Microsoft rekommenderar att alltid aktivera inställningen **tvinga SSL-anslutning** för förbättrad säkerhet.
 
-![Skärm bild av Azure Portal att använda SSL-anslutningar i Azure Database for MySQL](./media/howto-configure-ssl/enable-ssl.png)
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Skärm bild av Azure Portal att använda SSL-anslutningar i Azure Database for MySQL":::
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ea8c13e134eceeb27bd064e794d46d711092a867
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450733"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905195"
 ---
 # <a name="resnet"></a>ResNet
 
-Den här artikeln beskriver hur du använder **ResNet** -modulen i Azure Machine Learning designer (för hands version) för att skapa en bild klassificerings modell med ResNet-algoritmen.  
+Den här artikeln beskriver hur du använder **ResNet** -modulen i Azure Machine Learning designer för att skapa en bild klassificerings modell med ResNet-algoritmen..  
 
 Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en etikettad data uppsättning. Mer information om hur du hämtar en mappad avbildnings katalog hittar du i avsnittet [konvertera till avbildnings katalog](convert-to-image-directory.md) . Du kan träna modellen genom att tillhandahålla en modell och en etikettad bild katalog som indata för att [träna Pytorch-modellen](train-pytorch-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen med [Poäng avbildnings modell](score-image-model.md).
 
@@ -46,7 +46,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="module-parameters"></a>Parametrar för modul  
 
-| Name       | Intervall | Typ    | Default           | Beskrivning                              |
+| Name       | Intervall | Typ    | Standardvärde           | Beskrivning                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
 | Modellnamn | Alla   | Läge    | resnext101 \_ 32x8d | Namn på en viss ResNet-struktur       |
 | Tränats | Alla   | Boolesk | Sant              | Om du vill använda en förtränad modell på ImageNet |
@@ -54,7 +54,7 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 ###  <a name="output"></a>Utdata  
 
-| Name            | Typ                    | Beskrivning                              |
+| Namn            | Typ                    | Beskrivning                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modell som inte är tränad | UntrainedModelDirectory | En ResNet modell som kan anslutas till träna Pytorch-modellen. |
 

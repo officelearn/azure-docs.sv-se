@@ -1,5 +1,5 @@
 ---
-title: Definiera en ny Gateway-enhets typ i Azure IoT Central | Microsoft Docs
+title: Självstudie – definiera en ny Gateway-enhets typ i Azure IoT Central | Microsoft Docs
 description: Den här självstudien visar dig som ett verktyg för att definiera en ny enhets typ för IoT gateway i ditt Azure IoT Central-program.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81758125"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967902"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definiera en ny enhets typ för IoT gateway i ditt Azure IoT Central-program
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Självstudie – definiera en ny enhets typ för IoT gateway i ditt Azure IoT Central-program
 
 *Den här artikeln gäller lösnings byggare och enhets utvecklare.*
 
@@ -31,6 +31,9 @@ I den här självstudien skapar du en mall för **Smart Building** gateway-enhet
 * Skicka sin egen telemetri, till exempel temperatur.
 * Besvara skrivbara egenskaps uppdateringar gjorda av en operatör. En operatör kan exempelvis ändra sändnings intervallet för telemetri.
 * Svara på kommandon, t. ex. omstart av enheten.
+
+> [!div class="checklist"]
+> Skapa mallar för underordnade enheter skapa en mall för en gateway-enhet publicera enhets mal len skapa de simulerade enheterna
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -107,7 +110,7 @@ För att lägga till moln egenskaper till enhets mal len för **Smart skapande G
 
     | Visningsnamn      | Semantiktyp | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Ingen          | Datum   |
+    | Senaste servicedatum | Ingen          | Date   |
     | Kundnamn     | Ingen          | Sträng |
 
 2. Välj **Spara**.

@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701804"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900045"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Cognitive Services containers
 
@@ -22,11 +22,16 @@ ms.locfileid: "83701804"
 
 **F: Vad är tillgängligt?**
 
-**A:** Med Azure Cognitive Services-behållare kan utvecklare använda samma intelligenta API: er som är tillgängliga i Azure, men med [fördelarna](../cognitive-services-container-support.md#features-and-benefits) med skapa behållare. Vissa behållare är tillgängliga som en gated Preview-version som kan kräva att ett program får åtkomst. Andra behållare är offentligt tillgängliga som en icke-grind för hands version eller är allmänt tillgängliga. Du hittar en fullständig lista över behållare och deras tillgänglighet i stöd för [behållare i Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) -artikeln. 
+**A:** Med Azure Cognitive Services-behållare kan utvecklare använda samma intelligenta API: er som är tillgängliga i Azure, men med [fördelarna](../cognitive-services-container-support.md#features-and-benefits) med skapa behållare. Vissa behållare är tillgängliga som en gated Preview-version som kan kräva att ett program får åtkomst. Andra behållare är offentligt tillgängliga som en icke-grind för hands version eller är allmänt tillgängliga. Du hittar en fullständig lista över behållare och deras tillgänglighet i stöd för [behållare i Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) -artikeln. Du kan också Visa behållare i [Docker-hubben](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 **F: finns det någon skillnad mellan Cognitive Services molnet och behållarna?**
 
 **A:** Cognitive Services behållare är ett alternativ till Cognitive Services molnet. Behållare erbjuder samma funktioner som motsvarande moln tjänster. Kunder kan distribuera behållare lokalt eller i Azure. Kärn tekniken för AI, pris nivåer, API-nycklar och API-signatur är samma som för behållaren och motsvarande moln tjänster. Här är [funktionerna och fördelarna](../cognitive-services-container-support.md#features-and-benefits) med att välja behållare över deras moln tjänst motsvarande.
+
+**F: Hur gör jag för att åtkomst och användning av en gated Preview-behållare?**
+
+**A:** Tidigare var gated Preview-behållare värdbaserade på `containerpreview.azurecr.io` lagrings platsen. Från och med september 22 2020 är dessa behållare värdbaserade på Microsoft-Container Registry och om du laddar ned dem behöver du inte använda kommandot Docker login. Du kan köra en port för förhands granskning om din Azure-resurs skapades med det godkända ID: t för Azure-prenumerationen. Du kommer inte att kunna köra behållaren om din Azure-prenumeration inte har godkänts efter att du fyllt i [formuläret för begäran](https://aka.ms/csgate).
+
 
 **F: kommer behållare att vara tillgängliga för alla Cognitive Services och vilka är nästa uppsättning behållare som vi ska förvänta oss?**
 
@@ -77,6 +82,22 @@ Vi testar inte behållare med OpenShift, men normalt bör Cognitive Services beh
 
 **A:** Kunderna uppmuntras att vara indelade [offentligt och att rösta på andra](https://cognitive.uservoice.com/) som har gjort samma där potentiella problem överlappar varandra. Användar röst verktyget kan användas för både produkt feedback och funktions rekommendationer.
 
+**F: vilka status meddelanden och fel returneras av Cognitive Services behållare?**
+
+**A:** I följande tabell visas en lista över status meddelanden och fel.
+
+|Status  | Beskrivning  |
+|---------|---------|
+| `Valid` | Din API-nyckel är giltig, ingen åtgärd krävs. |
+| `Invalid` |   Din API-nyckel är ogiltig. Du måste ange en giltig API-nyckel för att köra behållaren. Hitta din API-nyckel och tjänst region i avsnittet **nycklar och slut punkt** för Azure Cognitive Services-resursen i Azure Portal. |
+| `Mismatch` | Du har angett en API-nyckel eller en slut punkt för en annan typ av kognitiva tjänst resurser. Hitta din API-nyckel och tjänst region i avsnittet **nycklar och slut punkt** för din Azure Cognitive Services-resurs. |
+| `CouldNotConnect` | Behållaren kunde inte ansluta till fakturerings slut punkten. Kontrol lera `Retry-After` värdet och vänta tills den här perioden har slutförts innan du gör ytterligare förfrågningar. |
+| `OutOfQuota` | API-nyckeln är utanför kvoten. Du kan antingen uppgradera pris nivån eller vänta tills ytterligare kvot görs tillgänglig. Hitta din nivå i avsnittet **pris nivå** i din Azure-tjänst resurs, i Azure Portal. |
+| `BillingEndpointBusy` | Fakturerings slut punkten är upptagen för tillfället. Kontrol lera `Retry-After` värdet och vänta tills den här perioden har slutförts innan du gör ytterligare förfrågningar. |
+| `ContainerUseUnauthorized` | Den angivna API-nyckeln har inte behörighet att använda med den här behållaren. Du använder förmodligen en gated-behållare, så se till att ditt Azure-prenumerations-ID godkänns genom att skicka en [online-begäran](https://aka.ms/csgate). |
+| `Unknown` | Servern kan för närvarande inte bearbeta fakturerings begär Anden. |
+
+
 **F: Vem kontaktar jag för support?**
 
 **A:** Kund support kanaler är desamma som Cognitive Services Cloud-erbjudandet. Alla Cognitive Services-behållare innehåller loggnings funktioner som hjälper oss och community Support-kunder. Mer support finns i följande alternativ.
@@ -104,7 +125,7 @@ Utforska följande taggar för potentiella frågor och svar som passar dina beho
 
 * [Avvikelseidentifiering][ad-containers-billing]
 * [Visuellt innehåll][cv-containers-billing]
-* [Ansikte][fa-containers-billing]
+* [Ansiktsigenkänning][fa-containers-billing]
 * [Formigenkänning][fr-containers-billing]
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
@@ -131,7 +152,7 @@ Utforska följande taggar för potentiella frågor och svar som passar dina beho
 
 * [Avvikelseidentifiering][ad-containers-recommendations]
 * [Visuellt innehåll][cv-containers-recommendations]
-* [Ansikte][fa-containers-recommendations]
+* [Ansiktsigenkänning][fa-containers-recommendations]
 * [Formigenkänning][fr-containers-recommendations]
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]

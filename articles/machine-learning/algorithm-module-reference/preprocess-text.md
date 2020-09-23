@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4112d26d6a21ac800e20bb67ce24a35ca9d09a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477501"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905231"
 ---
 # <a name="preprocess-text"></a>Förbearbeta text
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd modulen för **Förbearbetad text** för att rensa och förenkla text. Det stöder följande vanliga text bearbetnings åtgärder:
 
@@ -71,7 +71,7 @@ Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
     * **Ta bort duplicerade tecken**: Välj det här alternativet om du vill ta bort extra tecken i sekvenser som upprepas för fler än två gånger. En sekvens som "AAAAA" skulle till exempel minskas till "AA".
     
     * **Ta bort e-post adresser**: Välj det här alternativet om du vill ta bort en sekvens av formatet `<string>@<string>` .  
-    * **Ta bort webb adresser**: Välj det här alternativet om du vill ta bort en sekvens som innehåller följande URL-prefix: `http` , `https` , `ftp` ,`www`
+    * **Ta bort webb adresser**: Välj det här alternativet om du vill ta bort en sekvens som innehåller följande URL-prefix: `http` , `https` , `ftp` , `www`
     
 1. **Expandera verb**: det här alternativet gäller endast för språk som använder verb-kontrakt. för närvarande endast på engelska. 
 

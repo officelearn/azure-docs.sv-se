@@ -1,6 +1,6 @@
 ---
-title: Distribuera Kubernetes-tillstånds lös app på Azure Stack Edge-GPU via IoT Edge modul | Microsoft Docs
-description: Beskriver hur du distribuerar ett Kubernetes-tillstånds löst program på Azure Stack Edge GPU-enhet med hjälp av en IoT Edge-modul som nås via en extern IP-adress.
+title: Distribuera Kubernetes-tillstånds lös app på Azure Stack Edge Pro GPU via modulen IoT Edge | Microsoft Docs
+description: Beskriver hur du distribuerar ett Kubernetes-tillstånds löst program på din Azure Stack Edge Pro GPU-enhet med hjälp av en IoT Edge modul som nås via en extern IP-adress.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254176"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899517"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>Använd IoT Edge modul för att köra ett Kubernetes tillstånds löst program på Azure Stack Edge GPU-enhet
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Använd IoT Edge modul för att köra ett Kubernetes tillstånds löst program på din Azure Stack Edge Pro GPU-enhet
 
-I den här artikeln beskrivs hur du kan använda en IoT Edge-modul för att distribuera ett tillstånds lösa program på din Azure Stack Edge-enhet.
+I den här artikeln beskrivs hur du kan använda en IoT Edge-modul för att distribuera ett tillstånds lösa program på din Azure Stack Edge Pro-enhet.
 
 Om du vill distribuera det tillstånds lösa programmet utför du följande steg:
 
 - Se till att kraven har slutförts innan du distribuerar en IoT Edge-modul.
-- Lägg till en IoT Edge-modul för att få åtkomst till Compute Network på Azure Stack Edge.
+- Lägg till en IoT Edge-modul för att få åtkomst till Compute Network på din Azure Stack Edge Pro.
 - Kontrol lera att modulen har åtkomst till det aktiverade nätverks gränssnittet.
 
 I den här instruktions artikeln använder du en modul för webserver-app för att demonstrera scenariot.
@@ -31,19 +31,19 @@ I den här instruktions artikeln använder du en modul för webserver-app för a
 
 Innan du börjar behöver du:
 
-- En Azure Stack Edge-enhet. Se till att:
+- En Azure Stack Edge Pro-enhet. Se till att:
 
     - Inställningarna för beräknings nätverket konfigureras på enheten.
     - Enheten aktive ras enligt stegen i [Självstudier: Aktivera enheten](azure-stack-edge-gpu-deploy-activate.md).
-- Du har slutfört **Konfigurera beräknings** steget enligt [självstudien: Konfigurera compute på din Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-configure-compute.md) på enheten. Enheten bör ha en tillhör ande IoT Hub resurs, en IoT-enhet och en IoT Edge enhet.
+- Du har slutfört **Konfigurera beräknings** steget enligt [självstudien: Konfigurera compute på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-configure-compute.md) på enheten. Enheten bör ha en tillhör ande IoT Hub resurs, en IoT-enhet och en IoT Edge enhet.
 
 
 ## <a name="add-webserver-app-module"></a>Lägg till modul för webserver-app
 
-Utför följande steg för att lägga till en modul för webserver-app på din Azure Stack Edge-enhet.
+Utför följande steg för att lägga till en modul för webserver-app på din Azure Stack Edge Pro-enhet.
 
 1. I den IoT Hub resurs som är kopplad till din enhet går du till **Automatisk enhets hantering > IoT Edge**.
-1. Markera och klicka på den IoT Edge enhet som är kopplad till Azure Stack Edge-enheten. 
+1. Markera och klicka på den IoT Edge enhet som är kopplad till din Azure Stack Edge Pro-enhet. 
 
     ![Välj IoT Edge enhet](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
 

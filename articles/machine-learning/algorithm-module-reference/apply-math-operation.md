@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456751"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898887"
 ---
 # <a name="apply-math-operation"></a>Använda matematisk åtgärd
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd funktionen Använd matematik för att skapa beräkningar som tillämpas på numeriska kolumner i data uppsättningen för indata. 
 
@@ -36,7 +36,7 @@ Leta efter den åtgärd du behöver i följande kategorier:
   
      Funktionerna i kategorin **Basic** kan användas för att ändra ett enda värde eller en kolumn med värden. Du kan till exempel få det absoluta värdet för alla tal i en kolumn eller beräkna kvadratroten för varje värde i en kolumn.  
   
--   [Compare](#comparison-operations)  
+-   [Jämför](#comparison-operations)  
   
       Funktionerna i kategorin **Jämför** används för jämförelse: du kan göra en par jämförelse av värdena i två kolumner eller jämföra varje värde i en kolumn med en viss konstant. Du kan till exempel jämföra kolumner för att avgöra om värdena var samma i två data uppsättningar. Eller så kan du använda en konstant, till exempel ett maximalt tillåtet värde, för att hitta avvikande värden i en numerisk kolumn.  
   
@@ -138,7 +138,7 @@ Returnerar e upphöjt till kraften i värdet i den markerade kolumnen. Detta är
 
 Returnerar bas 2 upphöjt till argumenten, lösning för y = x * 2<sup>t</sup> där t är en kolumn med värden som innehåller exponenter.  
 
-I **kolumn uppsättning**väljer du den kolumn som innehåller exponent värden t.
+I  **kolumn uppsättning**väljer du den kolumn som innehåller exponent värden t.
 
 För **Exp2** kan du ange ett andra argument x, som kan vara antingen en konstant eller en annan kolumn med värden. I den **andra argument typen**anger du om du vill ge multiplikatorn x som en konstant eller ett värde i en kolumn.  
 
@@ -306,7 +306,7 @@ Returnerar decimal delen av värdena i **kolumn uppsättningen**till den angivna
 
 Returnerar decimal delen av värdena i **kolumn uppsättningen**till den angivna precisionen.  
 
-### <a name="remainder"></a>Del
+### <a name="remainder"></a>Rest
 
 Returnerar resten av värdena i **kolumn uppsättningen**.  
 
@@ -577,8 +577,8 @@ Anta att din data uppsättning har flera kolumner och att du lägger till data u
 |Num1|Num2|Num3|Lägg till (Num1_Num1)|Lägg till (Num2_Num2)|Lägg till (Num3_Num3)|
 |----|----|----|----|----|----|
 |1|5|2|2|10|4|
-|2|3|-1|4|6|-2|
-|0|1|-1|0|2|-2|
+|2|3|-1|4|6|−2|
+|0|1|-1|0|2|−2|
 
 Om du behöver utföra mer komplexa beräkningar kan du kedja flera instanser av **Använd matematik-åtgärd**. Du kan till exempel lägga till två kolumner genom att använda en instans av **Använd matematik-åtgärd**och sedan använda en annan instans av **Använd matematik-åtgärd** för att dividera summan med en konstant för att få medelvärdet.  
   

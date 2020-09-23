@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192738"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905168"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Bedöma modulen Wide and Deep Recommender
 
-Den här artikeln beskriver hur du använder modulen **score wide och djup rekommenderar** i Azure Machine Learning designer (för hands version) för att skapa förutsägelser baserade på en utbildad rekommendations modell, baserat på den breda & djup inlärningen från Google.
+Den här artikeln beskriver hur du använder modulen **Poäng och djup rekommenderar** i Azure Machine Learning designer för att skapa förutsägelser baserade på en utbildad rekommendations modell, baserat på den breda & djup inlärningen från Google.
 
 Den breda och djupgående rekommendationen kan generera två olika typer av förutsägelser:
 

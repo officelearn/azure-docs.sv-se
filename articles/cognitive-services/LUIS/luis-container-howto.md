@@ -11,14 +11,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f5409fea1cdbbc35e9068fae6b3ba7fbc2a95580
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547400"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889494"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
+
 
 Behållaren Language Understanding (LUIS) läser in din utbildade eller publicerade Language Understanding modell. Som en [Luis-app](https://www.luis.ai)ger Docker-behållaren åtkomst till frågan förutsägelser från BEHÅLLAREns API-slutpunkter. Du kan samla in loggar från behållaren och överföra tillbaka dem till Language Understanding-appen för att förbättra appens förutsägelse noggrannhet.
 
@@ -66,10 +69,10 @@ Core och minne motsvarar `--cpus` `--memory` inställningarna och som används s
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med `docker pull`
 
-Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) kommandot för att ladda ned en behållar avbildning från `mcr.microsoft.com/azure-cognitive-services/luis` lagrings platsen:
+Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) kommandot för att ladda ned en behållar avbildning från `mcr.microsoft.com/azure-cognitive-services/language/luis` lagrings platsen:
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/language/luis:latest
 ```
 
 En fullständig beskrivning av tillgängliga taggar, till exempel som `latest` används i föregående kommando, finns i [Luis](https://go.microsoft.com/fwlink/?linkid=2043204) på Docker Hub.
@@ -206,7 +209,7 @@ docker run --rm -it -p 5000:5000 ^
 --cpus 2 ^
 --mount type=bind,src=c:\input,target=/input ^
 --mount type=bind,src=c:\output\,target=/output ^
-mcr.microsoft.com/azure-cognitive-services/luis ^
+mcr.microsoft.com/azure-cognitive-services/language/luis ^
 Eula=accept ^
 Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}

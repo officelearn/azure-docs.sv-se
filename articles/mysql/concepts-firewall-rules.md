@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c677b0278d29c499d4369967c1c76132a1ae9d21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519855"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882663"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure Database for MySQL server brand Väggs regler
 Brand väggar förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -25,7 +25,7 @@ All databas åtkomst till din Azure Database for MySQL Server blockeras som stan
 
 Anslutnings försök från Internet och Azure måste först passera brand väggen innan de kan komma åt din Azure Database for MySQL databas, som du ser i följande diagram:
 
-![Exempel flöde för hur brand väggen fungerar](./media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="./media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Exempel flöde för hur brand väggen fungerar":::
 
 ## <a name="connecting-from-the-internet"></a>Ansluta från Internet
 Brand Väggs regler på server nivå gäller för alla databaser på Azure Database for MySQL-servern.
@@ -43,7 +43,7 @@ Om en fast utgående IP-adress inte är tillgänglig för din Azure-tjänst kan 
 > Alternativet **Tillåt åtkomst till Azure-tjänster** konfigurerar brand väggen så att alla anslutningar från Azure, inklusive anslutningar från andra kunders prenumerationer. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 > 
 
-![Konfigurera Tillåt åtkomst till Azure-tjänster i portalen](./media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Konfigurera Tillåt åtkomst till Azure-tjänster i portalen":::
 
 ### <a name="connecting-from-a-vnet"></a>Ansluta från ett virtuellt nätverk
 Överväg att använda [VNet-tjänstens slut punkter](./concepts-data-access-and-security-vnet.md)för att ansluta säkert till din Azure Database for MySQL-server från ett VNet. 
@@ -68,7 +68,7 @@ Tänk på följande när åtkomst till Microsoft Azure databasen för MySQL Serv
 
 * **Det går inte att ansluta från Azure-resursen med tillåtet IP:** Kontrol lera om **Microsoft. SQL** -tjänstens slut punkt har Aktiver ATS för under nätet som du ansluter från. Om **Microsoft. SQL** har Aktiver ATS anger det att du bara vill använda [slut punkts regler för VNet-tjänsten](concepts-data-access-and-security-vnet.md) i det under nätet.
 
-   Du kan till exempel se följande fel om du ansluter från en virtuell Azure-dator i ett undernät där **Microsoft. SQL** är aktiverat men saknar motsvarande VNet-regel:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+   Du kan till exempel se följande fel om du ansluter från en virtuell Azure-dator i ett undernät där **Microsoft. SQL** är aktiverat men saknar motsvarande VNet-regel:  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 ## <a name="next-steps"></a>Nästa steg
 

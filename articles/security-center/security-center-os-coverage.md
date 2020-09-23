@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: f02e45804234fc8f8aa2b966db7ddce5efc9cfd1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2092a1aa3d5157db0392397e86553c5cc9da9de2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998840"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883793"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
@@ -55,7 +55,7 @@ Virtuella datorer skapas också i en kund prenumeration som en del av vissa Azur
 
 Virtuella datorer som körs i en moln tjänst stöds också. Endast webb-och arbets roller för moln tjänster som körs i produktions platser övervakas. Mer information om moln tjänster finns i [Översikt över Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-Skydd för virtuella datorer som finns i Azure Stack stöds också. Mer information om Security Centers integrering med Azure Stack finns i [publicera dina Azure Stack virtuella datorer i Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
+Skydd för virtuella datorer som finns i Azure Stack stöds också. Mer information om Security Centers integrering med Azure Stack finns i [publicera dina Azure Stack virtuella datorer i Security Center](quickstart-onboard-machines.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,16 +11,16 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 195fc6100229fca2a05198ffa80108057ad8ad65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646078"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897593"
 ---
 # <a name="collect-data-from-models-in-production"></a>Samla in data från modeller i produktion
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Den här artikeln visar hur du samlar in data från en Azure Machine Learning modell som distribuerats i ett Azure Kubernetes service-kluster (AKS). Insamlade data lagras sedan i Azure Blob Storage.
 

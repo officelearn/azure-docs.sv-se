@@ -1,6 +1,6 @@
 ---
-title: sys. external_streaming_jobs (Transact-SQL) – Azure SQL Edge (för hands version)
-description: Lär dig mer om att använda sys. external_streaming_jobs i Azure SQL Edge (för hands version)
+title: sys. external_streaming_jobs (Transact-SQL) – Azure SQL Edge
+description: Lär dig mer om att använda sys. external_streaming_jobs i Azure SQL Edge
 keywords: sys. external_streaming_jobs, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: c4da73e3197df894a0726556b4e92141818a520e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9643c58f5c9fa1db3e3eb7ec75ce6d3b41620aa3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233077"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900340"
 ---
-# <a name="sysexternal_streaming_jobs-transact-sql"></a>sys. external_streaming_jobs (Transact-SQL)
+# <a name="sysexternal_streaming_jobs-transact-sql"></a>sys.external_streaming_jobs (Transact-SQL)
 
 Returnerar en rad för varje externt strömnings jobb som skapats inom databasens omfattning.
 
@@ -26,7 +26,7 @@ Returnerar en rad för varje externt strömnings jobb som skapats inom databasen
 |**object_id**|**int**|objekt identifierings nummer för Stream-objektet. Är unikt i databasen.|
 |**principal_id**|**int**|ID för huvud kontot som äger den här sammansättningen|
 |**schema_id**|**int**| ID för det schema som innehåller objektet.|
-|**parent_object_id**|**identitet**| objekt identifierings nummer för det överordnade objektet för den här data strömmen. I den aktuella implementeringen är det här värdet alltid null|
+|**parent_object_id**|**id**| objekt identifierings nummer för det överordnade objektet för den här data strömmen. I den aktuella implementeringen är det här värdet alltid null|
 |**bastyp**|**char (2)**|Objekt typ. För Stream-objekt är typen alltid "EJ"|
 |**type_desc**|**nvarchar (60)**| Beskrivning av objekt typen. För Stream-objekt är typen alltid EXTERNAL_STREAMING_JOB|
 |**create_date**|**datetime**| Datum då objektet skapades.|

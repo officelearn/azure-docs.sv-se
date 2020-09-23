@@ -1,6 +1,6 @@
 ---
-title: Logga support ärende för Azure Stack Edge, Azure Data Box Gateway | Microsoft Docs
-description: Lär dig hur du loggar support förfrågan om problem som rör dina Azure Stack Edge-eller Data Box Gateways beställningar.
+title: Logga support ärende för Azure Stack Edge Pro, Azure Data Box Gateway | Microsoft Docs
+description: Lär dig hur du loggar support förfrågan om problem som rör Azure Stack Edge Pro eller Data Box Gateway beställningar.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d513471e288c1aadbf70b24ef367965a0b69a80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339917"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904519"
 ---
-# <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Öppna ett support ärende för Azure Stack Edge och Azure Data Box Gateway
+# <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Öppna ett support ärende för Azure Stack Edge Pro och Azure Data Box Gateway
 
-Den här artikeln gäller Azure Stack Edge och Azure Data Box Gateway som hanteras av Azure Stack Edge/Azure Data Box Gateway-tjänsten. Om du stöter på problem med tjänsten kan du skapa en tjänstbegäran för teknisk support. Den här artikeln vägleder dig genom:
+Den här artikeln gäller Azure Stack Edge Pro och Azure Data Box Gateway som hanteras av Azure Stack Edge Pro/Azure Data Box Gateway-tjänsten. Om du stöter på problem med tjänsten kan du skapa en tjänstbegäran för teknisk support. Den här artikeln vägleder dig genom:
 
 * Så här skapar du en support förfrågan.
 * Så här hanterar du en livs cykel för support begär Anden från portalen.
@@ -26,20 +26,20 @@ Den här artikeln gäller Azure Stack Edge och Azure Data Box Gateway som hanter
 
 Utför följande steg för att skapa en support förfrågan:
 
-1. Gå till din Azure Stack Edge-eller Data Box Gateways ordning. Gå till avsnittet **support + fel sökning** och välj sedan **ny supportbegäran**.
+1. Gå till din Azure Stack Edge Pro-eller Data Box Gateways ordning. Gå till avsnittet **support + fel sökning** och välj sedan **ny supportbegäran**.
 
 2. I **ny supportbegäran**, på fliken **grundläggande** , vidtar du följande steg:
 
     1. I list rutan **ärende typ** väljer du **teknisk**.
     2. Välj din **prenumeration**.
-    3. Under **tjänst**kontrollerar du **Mina tjänster**. Välj **Azure Stack kant-och data Box Gateway**i list rutan.
+    3. Under **tjänst**kontrollerar du **Mina tjänster**. Välj **Azure Stack Edge Pro och data Box Gateway**i list rutan.
     4. Välj din **resurs**. Detta motsvarar namnet på din order.
     5. Ge en kort **Sammanfattning** av problemet som du upplever. 
     6. Välj **problem typ**.
     7. Välj en motsvarande **problem under typ**baserat på den problem typ du har valt.
     8. Välj **Nästa: lösningar >>**.
 
-        ![Grunderna](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Grundläggande inställningar](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. Gör så här på fliken **information** :
 
@@ -98,5 +98,5 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [felsöker problem som rör Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+Lär dig hur du [felsöker problem som rör Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
 Lär dig hur du [felsöker problem som rör data Box Gateway](data-box-gateway-troubleshoot.md).

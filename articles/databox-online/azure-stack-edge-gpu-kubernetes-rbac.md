@@ -1,6 +1,6 @@
 ---
-title: Förstå Kubernetes-rollbaserade Access Control på Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur Kubernetes-rollbaserade Access Control sker på en Azure Stack Edge-enhet.
+title: Förstå Kubernetes-rollbaserade Access Control på Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur Kubernetes-rollbaserad Access Control sker på en Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 285a41230175392dafb69a99ca08be1f72339439
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 1f194424a4030a2b829af6c8f5b97a3c200bd2e6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318972"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899280"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Kubernetes rollbaserade Access Control på din Azure Stack Edge-GPU-enhet
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes-rollbaserad Access Control på din Azure Stack Edge Pro GPU-enhet
 
 
-När du konfigurerar Compute-rollen på din Azure Stack Edge-enhet skapas ett Kubernetes-kluster. Du kan använda Kubernetes rollbaserad åtkomst kontroll (RBAC) för att begränsa åtkomsten till kluster resurserna på enheten.
+När du konfigurerar Compute-rollen på din Azure Stack Edge Pro-enhet skapas ett Kubernetes-kluster. Du kan använda Kubernetes rollbaserad åtkomst kontroll (RBAC) för att begränsa åtkomsten till kluster resurserna på enheten.
 
-De här artiklarna ger en översikt över RBAC-systemet som tillhandahålls av Kubernetes, och hur är Kubernetes RBAC implementerad på din Azure Stack Edge-enhet. 
+De här artiklarna ger en översikt över RBAC-systemet som tillhandahålls av Kubernetes, och hur är Kubernetes RBAC implementerad på din Azure Stack Edge Pro-enhet. 
 
 ## <a name="rbac-for-kubernetes"></a>RBAC för Kubernetes
 
@@ -34,7 +34,7 @@ Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i
 
 Namn områden är avsedda att användas i miljöer med många användare som sprids över flera team eller projekt. Mer information finns i [Kubernetes-namnområden](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
-Din Azure Stack Edge-enhet har följande namn rymder:
+Din Azure Stack Edge Pro-enhet har följande namn rymder:
 
 - **System namn område** – det här namn området är där kärn resurser finns, till exempel nätverks funktioner som DNS och proxy eller Kubernetes-instrumentpanelen. Du distribuerar vanligt vis inte dina egna program till det här namn området. Använd det här namn området för att felsöka problem med Kubernetes-kluster. 
 
@@ -73,9 +73,9 @@ Kubernetes har begreppet roll-och roll bindning som gör att du kan ge behörigh
 
 Med den här metoden kan du logiskt särskilja ett enda Kubernetes-kluster, där användare bara kan komma åt program resurserna i sitt tilldelade namn område. 
 
-## <a name="rbac-on-azure-stack-edge"></a>RBAC på Azure Stack Edge
+## <a name="rbac-on-azure-stack-edge-pro"></a>RBAC på Azure Stack Edge Pro
 
-I den aktuella implementeringen av RBAC gör Azure Stack Edge att du kan vidta följande åtgärder från en begränsad PowerShell-körnings utrymme:
+I den aktuella implementeringen av RBAC gör Azure Stack Edge Pro att du kan vidta följande åtgärder från en begränsad PowerShell-körnings utrymme:
 
 - Skapa namn områden.  
 - Skapa ytterligare användare.
@@ -83,11 +83,11 @@ I den aktuella implementeringen av RBAC gör Azure Stack Edge att du kan vidta f
 - Hämta `kubeconfig` filen med information för att få åtkomst till Kubernetes-klustret.
 
 
-Azure Stack Edge-enheten har flera system namn rymder och du kan skapa användar namn områden med `kubeconfig` filer för att komma åt dessa namn områden. Användarna har fullständig kontroll över dessa namn områden och kan skapa eller ändra användare eller bevilja användare åtkomst. Endast kluster administratören har fullständig åtkomst till system namn rymder och resurser i hela klustret. En `aseuser` har skrivskyddad åtkomst till system namn rymder.
+Azure Stack Edge Pro-enheten har flera system namn rymder och du kan skapa användar namn områden med `kubeconfig` filer för att komma åt dessa namn områden. Användarna har fullständig kontroll över dessa namn områden och kan skapa eller ändra användare eller bevilja användare åtkomst. Endast kluster administratören har fullständig åtkomst till system namn rymder och resurser i hela klustret. En `aseuser` har skrivskyddad åtkomst till system namn rymder.
 
-Här är ett diagram som illustrerar implementeringen av RBAC på Azure Stack Edge-enhet.
+Här är ett diagram som illustrerar implementeringen av RBAC på Azure Stack Edge Pro-enhet.
 
-![RBAC på Azure Stack Edge-enhet](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![RBAC på Azure Stack Edge Pro-enhet](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 I det här diagrammet har Alice, Bob och Klas endast åtkomst till tilldelade användar namn områden, som i det här fallet är `ns1` , `ns2` `ns3` respektive. I dessa namn områden har de administratörs åtkomst. Kluster administratören å andra sidan har administratörs behörighet för system namn rymder och resurser i hela klustret.
 
@@ -109,10 +109,10 @@ Du kan använda `kubectl` kommandon för att skapa namn områden och användare,
 
 5. Installera `kubectl` och börja distribuera program till `kubectl` . 
 
-Detaljerade steg-för-steg-anvisningar finns i [komma åt Kubernetes-kluster via kuebctl på din Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+Detaljerade steg-för-steg-anvisningar finns i [komma åt Kubernetes-kluster via kuebctl på din Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 
-När du arbetar med namn områden och användare på dina Azure Stack Edge-enheter gäller följande varningar:
+När du arbetar med namn områden och användare på dina Azure Stack Edge Pro-enheter gäller följande villkor:
 
 - Du får inte utföra några åtgärder, till exempel skapa användare, bevilja eller återkalla namn områdes åtkomst till användare, för alla system namn rymder. Exempel på system namn rymder är,,,, `kube-system` `metallb-system` `kubernetes-dashboard` `default` `kube-node-lease` , `kube-public` . System namn rymder innehåller också de namn områden som är reserverade för distributions typer som `iotedge` (IoT Edge namnrymd) och `azure-arc` (Azure Arc-namnrymd).
 - Du kan skapa användar namn rymder och inom dessa namn områden, skapa ytterligare användare och bevilja eller återkalla namn områdes åtkomst till dessa användare.

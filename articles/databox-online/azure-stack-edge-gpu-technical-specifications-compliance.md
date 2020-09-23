@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge med tekniska GPU-specifikationer och efterlevnad | Microsoft Docs
-description: Lär dig mer om tekniska specifikationer och efterlevnad för din Azure Stack Edge-enhet med GPU
+title: Microsoft Azure Stack Edge Pro med GPU tekniska specifikationer och efterlevnad | Microsoft Docs
+description: Lär dig mer om tekniska specifikationer och efterlevnad för din Azure Stack Edge Pro-enhet med GPU
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266671"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899037"
 ---
-# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>Tekniska specifikationer och efterlevnad för Azure Stack Edge med GPU 
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Tekniska specifikationer och efterlevnad för Azure Stack Edge Pro med GPU 
 
-Maskin varu komponenterna i Azure Stack Edge med en onboard Graphics Processing Unit (GPU) följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver maskin vara, strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder.
+Maskin varu komponenterna i Azure Stack Edge Pro med en onboard Graphics Processing Unit (GPU) följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver maskin vara, strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder.
 
 ## <a name="compute-and-memory-specifications"></a>Beräknings-och minnes specifikationer
 
-Azure Stack Edge-enheten har följande specifikationer för beräkning och minne:
+Azure Stack Edge Pro-enheten har följande specifikationer för beräkning och minne:
 
 | Specifikation           | Värde                  |
 |-------------------------|----------------------------|
@@ -31,7 +31,7 @@ Azure Stack Edge-enheten har följande specifikationer för beräkning och minne
 
 ## <a name="compute-acceleration-specifications"></a>Specifikationer för beräknings acceleration
 
-En GPU (Graphics Processing Unit) ingår på varje Azure Stack Edge-enhet som möjliggör Kubernetes, djup inlärning och maskin inlärnings scenarier.
+En GPU (Graphics Processing Unit) ingår på varje Azure Stack Edge Pro-enhet som möjliggör Kubernetes, djup inlärning och maskin inlärnings scenarier.
 
 | Specifikation           | Värde                  |
 |-------------------------|----------------------------|
@@ -40,25 +40,25 @@ En GPU (Graphics Processing Unit) ingår på varje Azure Stack Edge-enhet som m�
 
 ## <a name="power-supply-unit-specifications"></a>Specifikationer för strömförsörjnings enhet
 
-Azure Stack Edge-enheten har två 100-240 V-strömförsörjnings enheter (PSUs) med högpresterande fläktar. De två PSUs ger en redundant energi konfiguration. Om ett PSU Miss lyckas fortsätter enheten att fungera normalt på den andra PSU tills den felaktiga modulen har ersatts. I följande tabell visas de tekniska specifikationerna för PSUs.
+Azure Stack Edge Pro-enheten har två 100-240 V-enheter för strömförsörjning (PSUs) med högpresterande fläktar. De två PSUs ger en redundant energi konfiguration. Om ett PSU Miss lyckas fortsätter enheten att fungera normalt på den andra PSU tills den felaktiga modulen har ersatts. I följande tabell visas de tekniska specifikationerna för PSUs.
 
 | Specifikation           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Maximal uteffekt    | 750 W                     |
 | Frequency               | 50/60 Hz                   |
 | Val av spännings intervall | Automatisk mellan: 100-240 V AC |
-| Hot pluggable           | Ja                        |
+| Hot pluggable           | Yes                        |
 
 
 ## <a name="network-interface-specifications"></a>Specifikationer för nätverks gränssnitt
 
-Din Azure Stack Edge-enhet har sex nätverks gränssnitt, PORT1-PORT6.
+Din Azure Stack Edge Pro-enhet har sex nätverks gränssnitt, PORT1-PORT6.
 
 | Specifikation           | Beskrivning                 |
 |-------------------------|----------------------------|
 |  Nätverksgränssnitt    | **2 X 1 GbE-gränssnitt** – 1 hanterings gränssnitt port 1 används för inledande installation och är statisk som standard. När den första installationen är klar kan du använda gränssnittet för data med valfri IP-adress. Men vid återställning återgår gränssnittet till statisk IP. <br>Den andra gränssnitts porten 2 är användaren konfigurerbar, kan användas för data överföring och är DHCP som standard. <br>**4 X 25 GbE-gränssnitt** – dessa data gränssnitt, Port 3 till port 6, kan konfigureras av användaren som DHCP (standard) eller statisk. De kan också arbeta som 10 GbE-gränssnitt.  | 
 
-Azure Stack Edge-enheten har följande nätverks maskin vara:
+Din Azure Stack Edge Pro-enhet har följande nätverks maskin vara:
 
 * **Anpassad Microsoft Qlogic Cavium 25G Norwegian Developers Conference adapter** -port 1 till Port 4.
 * **Mellanox dual port 25G ConnectX – 4 kanal nätverkskort** -Port 5 och port 6.
@@ -79,7 +79,7 @@ En fullständig lista över kablar, växlar och Sänd tagare som stöds för des
 
 ## <a name="storage-specifications"></a>Storage-specifikationer
 
-Azure Stack gräns enheterna har fem 2,5 "NVMe DC P4610-SSD, med en kapacitet på 1,6 TB. Startenheten är 240 GB SATA SSD. Den totala användbara kapaciteten för enheten är ungefär 8,28 TB. I följande tabell visas enhetens lagrings kapacitet.
+Azure Stack Edge Pro-enheter har fem 2,5 "NVMe DC P4610-SSD, var och en med en kapacitet på 1,6 TB. Startenheten är 240 GB SATA SSD. Den totala användbara kapaciteten för enheten är ungefär 8,28 TB. I följande tabell visas enhetens lagrings kapacitet.
 
 |     Specifikation                          |     Värde             |
 |--------------------------------------------|-----------------------|
@@ -97,7 +97,7 @@ Azure Stack gräns enheterna har fem 2,5 "NVMe DC P4610-SSD, med en kapacitet p�
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
 
-Your Azure Stack Edge device also contains the following hardware:
+Your Azure Stack Edge Pro device also contains the following hardware:
 
 * iDRAC baseboard management
 * Performance fans
@@ -172,4 +172,4 @@ I det här avsnittet visas de specifikationer som är relaterade till inne slutn
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+[Distribuera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)

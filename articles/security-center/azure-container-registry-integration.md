@@ -10,33 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1335b1034304b7efe2b113f7ff2d2927fea41638
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056609"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977355"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Azure Container Registry avbildnings genomsökning av Security Center
 
 Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
-Om du är på Azure Security Center standard nivån kan du lägga till behållar register paketet. Den här valfria funktionen ger djupare insyn i säkerhets riskerna för avbildningarna i dina Azure Resource Managerbaserade register. Aktivera eller inaktivera paketet på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, som visas på [sidan med priser](security-center-pricing.md). Genom att aktivera paket för behållar register ser du till att Security Center är redo att skanna bilder som skickas till registret. 
-
-## <a name="availability"></a>Tillgänglighet
-
-|Aspekt|Information|
-|----|:----|
-|Versions tillstånd:|Allmän tillgänglighet|
-|Priset|Standard-nivå|
-|Register och avbildningar som stöds:|![Ja ](./media/icons/yes-icon.png) -värdbaserade Linux-ACR register som är tillgängliga från det offentliga Internet och ger åtkomst till gränssnittet.<br>![Inga ](./media/icons/no-icon.png) Windows-värdbaserade ACR-register.<br>![Inga ](./media/icons/no-icon.png) privata register-Security Center kräver att dina register kan nås från det offentliga Internet. Security Center kan för närvarande inte ansluta till, eller skanna, register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private Link.<br>![Det ](./media/icons/no-icon.png) finns inga super minimalist-bilder som [Docker](https://hub.docker.com/_/scratch/) -avbildningar, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS.|
-|Nödvändiga roller och behörigheter:|Rollen **säkerhets läsare** och [Azure Container Registry läsare](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
-|||
-
-
+Aktivera **Azure Defender för behållar register** för djupare insyn i säkerhets riskerna för avbildningarna i dina Azure Resource Managerbaserade register. Aktivera eller inaktivera planen på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, som visas på [sidan med priser](security-center-pricing.md). Genom att aktivera Azure Defender ser du till att Security Center är redo att skanna bilder som skickas till registret. 
 
 
 ## <a name="when-are-images-scanned"></a>När skannas bilder?
@@ -74,7 +61,7 @@ Avbildnings genomsökningar utlöses vid varje push-överföring.
 Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/subassessments/list/). Du kan också använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Vilka register typer genomsöks? Vilka typer faktureras?
-I [avsnittet tillgänglighet](#availability) visas de typer av behållar register som stöds av behållar register paketet. 
+I avsnittet tillgänglighet visas de typer av behållar register som stöds av Azure Defender för behållar register. 
 
 Om register som inte stöds är anslutna till din Azure-prenumeration genomsöks de inte och du debiteras inte för dem.
 
@@ -87,4 +74,4 @@ Mer information om Security Center behållar säkerhetsfunktioner finns i:
 
 * [Integration med Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Skydd av virtuella datorer](security-center-virtual-machine-protection.md) – beskriver Security Center rekommendationer
+

@@ -1,6 +1,6 @@
 ---
 title: 'Webb tjänstens indata/utdata: modulreferens'
-description: Lär dig mer om webbtjänst-modulerna i Azure Machine Learning designer (för hands version)
+description: Lär dig mer om webbtjänst-modulerna i Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: ded976fc9090535f3c683b5c6351646a55265205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751105"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883217"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Moduler för indata för webb tjänst och webb tjänst
 
-Den här artikeln beskriver modulerna för indata för webb tjänsten och webb tjänstens utdata i Azure Machine Learning designer (för hands version).
+Den här artikeln beskriver modulerna för indata för webb tjänsten och webb tjänstens utdata i Azure Machine Learning designer.
 
 Webb tjänstens indatamängd kan bara ansluta till en indataport med typen **DataFrameDirectory**. Webb tjänstens output-modul kan bara anslutas från en utgående port med typen **DataFrameDirectory**. Du hittar de två modulerna i modul trädet under **webb tjänst** kategorin. 
 

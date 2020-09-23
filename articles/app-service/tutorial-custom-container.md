@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, webbapp, Linux, Windows, Docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fdc15ecd79a6672d2a46b4da284533965977d753
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958498"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982862"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrera anpassad program vara till Azure App Service med en anpassad behållare
 
@@ -56,7 +56,7 @@ Det här teckensnittet är offentligt tillgängligt från [Google Fonts](https:/
 
 Skriv `Ctrl+F5` för att köra appen utan felsökning. Appen visas i din standardwebbläsare. 
 
-![Dialogrutan Nytt ASP.NET-projekt](media/tutorial-custom-container/local-app-in-browser.png)
+:::image type="content" source="media/tutorial-custom-container/local-app-in-browser.png" alt-text="Skärm bild som visar appen som visas i standard webbläsaren.":::
 
 Eftersom den använder ett installerat teckensnitt kan inte appen köras i sandbox-miljön för App Service. Du kan dock distribuera den med hjälp av en Windows-container i stället, eftersom du kan installera teckensnittet i Windows-containern.
 
@@ -64,7 +64,7 @@ Eftersom den använder ett installerat teckensnitt kan inte appen köras i sandb
 
 I Solution Explorer högerklickar du på projektet **CustomFontSample** och väljer **Lägg till** > **Container Orchestration Support** (Stöd för containerorkestrering).
 
-![Dialogrutan Nytt ASP.NET-projekt](media/tutorial-custom-container/enable-container-orchestration.png)
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Skärm bild av fönstret Solution Explorer som visar CustomFontSample-projekt, Lägg till och behållare Orchestrator-support meny alternativ som valts.":::
 
 Välj **Docker Skriv**  >  **OK**.
 
@@ -98,13 +98,13 @@ Du hittar _InstallFont.ps1_ i projektet **CustomFontSample**. Det är ett enkelt
 
 I Solution Explorer högerklickar du på projektet **CustomFontSample** och väljer **Publicera**.
 
-![Dialogrutan Nytt ASP.NET-projekt](media/tutorial-custom-container/open-publish-wizard.png)
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Skärm bild av Solution Explorer som visar CustomFontSample-projektet och publicera valt.":::
 
 ### <a name="create-registry-and-publish"></a>Skapa register och publicera
 
 I guiden publicera väljer du **container Registry**  >  **Skapa ny Azure Container Registry**  >  **publicera**.
 
-![Dialogrutan Nytt ASP.NET-projekt](media/tutorial-custom-container/create-registry.png)
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Skärm bild av publicerings guiden som visar Container Registry, skapar nya Azure Container Registry och knappen publicera har valts.":::
 
 ### <a name="sign-in-with-azure-account"></a>Logga in med Azure-konto
 
@@ -211,7 +211,7 @@ De strömmade loggarna ser ut så här:
 
 ::: zone pivot="container-linux"
 
-Azure App Service använder Docker-behållar tekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar. Om du vill se en lista över inbyggda avbildningar kör du Azure CLI-kommandot, ["AZ webapp List-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). Om dessa bilder inte uppfyller dina behov kan du bygga och distribuera en anpassad avbildning.
+Azure App Service använder Docker-behållar tekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar. Om du vill se en lista över inbyggda avbildningar kör du Azure CLI-kommandot, ["AZ webapp List-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Om dessa bilder inte uppfyller dina behov kan du bygga och distribuera en anpassad avbildning.
 
 I den här guiden får du lära dig att:
 
@@ -346,7 +346,7 @@ ENTRYPOINT ["init.sh"]
 
 I det här avsnittet och de som följer kan du etablera resurser i Azure som du push-överför avbildningen till och sedan distribuera en behållare till Azure App Service. Du börjar med att skapa en resurs grupp där du kan samla in alla dessa resurser.
 
-Kör kommandot [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) för att skapa en resurs grupp:
+Kör kommandot [AZ Group Create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) för att skapa en resurs grupp:
 
 ```azurecli-interactive
 az group create --name AppSvc-DockerTutorial-rg --location westus2
@@ -358,7 +358,7 @@ Du kan ändra `--location` värdet för att ange en region nära dig.
 
 I det här avsnittet ska du push-överföra avbildningen till Azure Container Registry från vilken App Service kan distribuera den.
 
-1. Kör [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) kommandot för att skapa en Azure Container Registry:
+1. Kör [`az acr create`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-create) kommandot för att skapa en Azure Container Registry:
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group AppSvc-DockerTutorial-rg --sku Basic --admin-enabled true
@@ -366,7 +366,7 @@ I det här avsnittet ska du push-överföra avbildningen till Azure Container Re
     
     Ersätt `<registry-name>` med ett lämpligt namn för registret. Namnet får bara innehålla bokstäver och siffror och måste vara unikt i hela Azure.
 
-1. Kör [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) kommandot för att hämta autentiseringsuppgifter för registret:
+1. Kör [`az acr show`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-show) kommandot för att hämta autentiseringsuppgifter för registret:
 
     ```azurecli-interactive
     az acr credential show --resource-group AppSvc-DockerTutorial-rg --name <registry-name>
@@ -413,7 +413,7 @@ I det här avsnittet ska du push-överföra avbildningen till Azure Container Re
 
 Om du vill distribuera en behållare till Azure App Service skapar du först en webbapp på App Service och ansluter sedan webb programmet till behållar registret. När webbappen startar hämtar App Service automatiskt avbildningen från registret.
 
-1. Skapa en App Service plan med [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) kommandot:
+1. Skapa en App Service plan med [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest&preserve-view=true#az-appservice-plan-create) kommandot:
 
     ```azurecli-interactive
     az appservice plan create --name AppSvc-DockerTutorial-plan --resource-group AppSvc-DockerTutorial-rg --is-linux
@@ -421,7 +421,7 @@ Om du vill distribuera en behållare till Azure App Service skapar du först en 
 
     En App Service plan motsvarar den virtuella datorn som är värd för webbappen. Som standard använder föregående kommando en [pris nivå](https://azure.microsoft.com/pricing/details/app-service/linux/) som är kostnads fri för den första månaden. Du kan styra nivån med `--sku` parametern.
 
-1. Skapa webbappen med [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) kommandot:
+1. Skapa webbappen med [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-create) kommandot:
 
     ```azurecli-interactive
     az webapp create --resource-group AppSvc-DockerTutorial-rg --plan AppSvc-DockerTutorial-plan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -429,7 +429,7 @@ Om du vill distribuera en behållare till Azure App Service skapar du först en 
     
     Ersätt `<app-name>` med ett namn för webbappen, som måste vara unikt i hela Azure. Ersätt även `<registry-name>` med namnet på ditt register från föregående avsnitt.
 
-1. Använd [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) för att ställa in `WEBSITES_PORT` miljövariabeln som förväntat av appens kod: 
+1. Använd [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) för att ställa in `WEBSITES_PORT` miljövariabeln som förväntat av appens kod: 
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group AppSvc-DockerTutorial-rg --name <app-name> --settings WEBSITES_PORT=8000
@@ -439,7 +439,7 @@ Om du vill distribuera en behållare till Azure App Service skapar du först en 
     
     Mer information om den här miljövariabeln finns i [readme i exemplets GitHub-lagringsplats](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Aktivera [hanterad identitet](./overview-managed-identity.md) för webbappen med hjälp av- [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) kommandot:
+1. Aktivera [hanterad identitet](./overview-managed-identity.md) för webbappen med hjälp av- [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest&preserve-view=true#az-webapp-identity-assign) kommandot:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -449,7 +449,7 @@ Om du vill distribuera en behållare till Azure App Service skapar du först en 
 
     Med hanterad identitet kan du ge webbappen behörighet att få åtkomst till andra Azure-resurser utan att behöva några speciella autentiseringsuppgifter.
 
-1. Hämta ditt prenumerations-ID med [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) kommandot, som du behöver i nästa steg:
+1. Hämta ditt prenumerations-ID med [`az account show`](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az-account-show) kommandot, som du behöver i nästa steg:
 
     ```azurecli-interactive
     az account show --query id --output tsv
@@ -472,7 +472,7 @@ Mer information om dessa behörigheter finns i [Vad är rollbaserad åtkomst kon
 
 Du kan utföra de här stegen när avbildningen har överförts till behållar registret och App Service är helt etablerad.
 
-1. Använd [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) kommandot för att ange behållar registret och avbildningen som ska distribueras för webb programmet:
+1. Använd [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest&preserve-view=true#az-webapp-config-container-set) kommandot för att ange behållar registret och avbildningen som ska distribueras för webb programmet:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io
@@ -559,7 +559,7 @@ I det här avsnittet ska du göra en ändring i webb program koden, återskapa b
     
     Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
-    Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
+    Du kan även granska loggfilerna från din webbläsare via `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
 1. Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 

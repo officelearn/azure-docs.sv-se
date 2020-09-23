@@ -1,6 +1,6 @@
 ---
-title: Date_Bucket (Transact-SQL) – Azure SQL Edge (för hands version)
-description: Lär dig mer om att använda Date_Bucket i Azure SQL Edge (för hands version)
+title: Date_Bucket (Transact-SQL) – Azure SQL Edge
+description: Lär dig mer om att använda Date_Bucket i Azure SQL Edge
 keywords: Date_Bucket, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 63b7ad84b0866c91e84007a188b82de65983790f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458858"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886848"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
@@ -61,7 +61,7 @@ Ett uttryck som kan matcha till något av följande värden:
 + **DateTimeOffset**
 + **datetime2**
 + **smalldatetime**
-+ **tid**
++ **time**
 
 För *datum* `DATE_BUCKET` accepterar att ett kolumn uttryck, ett uttryck eller en användardefinierad variabel om de matchar någon av de data typer som anges ovan.
 
@@ -74,7 +74,7 @@ Ett valfritt uttryck som kan matcha till något av följande värden:
 + **DateTimeOffset**
 + **datetime2**
 + **smalldatetime**
-+ **tid**
++ **time**
 
 Data typen för `Origin` måste matcha `Date` Parameterns datatyp. 
 

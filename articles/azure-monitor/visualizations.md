@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325533"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983600"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en översikt över tillgängliga metoder för att visualisera logg-och mått data som lagras i Azure Monitor.
@@ -21,7 +21,7 @@ Visualiseringar som diagram och diagram kan hjälpa dig att analysera dina över
 ## <a name="workbooks"></a>Arbetsböcker
 [Arbets böcker](./platform/workbooks-overview.md) är interaktiva dokument som ger djupgående insikter om dina data, undersökningar och samarbete i teamet. Vissa exempel där arbets böcker är användbara är fel söknings guider och incident Postmortem.
 
-![Arbetsbok](media/visualizations/workbook.png)
+![Diagrammet visar skärm dum par av flera sidor från en arbets bok, inklusive analys av sid visningar, användning och tid som lagts på sidan.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Fördelar
 - Stöder både mått och loggar.
@@ -39,7 +39,7 @@ Visualiseringar som diagram och diagram kan hjälpa dig att analysera dina över
 ## <a name="azure-dashboards"></a>Azure-instrumentpaneler
 [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md) är den primära instrument panels tekniken för Azure. De är särskilt användbara när man tillhandahåller en enda panel med glas över din Azure-infrastruktur och tjänster så att du snabbt kan identifiera viktiga problem.
 
-![Instrumentpanel](media/visualizations/dashboard.png)
+![Skärm bild som visar ett exempel på en Azure-instrumentpanel med anpassningsbar information.](media/visualizations/dashboard.png)
 
 Här är en video genom gång av hur du skapar instrument paneler.
 
@@ -88,7 +88,7 @@ Här är en video genom gång av hur du skapar instrument paneler.
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/) är en öppen plattform som perfekt på drift instrument paneler. Det är särskilt användbart för att identifiera och isolera och sorterar drift incidenter. Du kan lägga till [Grafana Azure Monitor data källans plugin-program](platform/grafana-plugin.md) i din Azure-prenumeration för att visualisera dina Azure Metric-data.
 
-![Grafana](media/visualizations/grafana.png)
+![Skärm bild som visar Grafana-visualiseringar.](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>Fördelar
 - Omfattande visualiseringar.
@@ -120,7 +120,7 @@ Du kan komma åt data i logg-och mät data i Azure Monitor via deras API med hj�
 Med [vyer i Azure Monitor](platform/view-designer.md) kan du skapa anpassade visualiseringar med loggdata. De används av [övervaknings lösningar](insights/solutions.md) för att presentera de data som de samlar in.
 
 
-![Vy](media/visualizations/view.png)
+![Skärm bild som visar en panel för övervakning av behållare och den detaljerade Azure Monitor vy som öppnas när du väljer den.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Fördelar
 - Omfattande visualiseringar för loggdata.

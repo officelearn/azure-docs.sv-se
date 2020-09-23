@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 4f6252ffbb880e347a89594cb267fb99d576dc7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89040460"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902925"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 
@@ -34,13 +34,13 @@ Studio erbjuder flera redigerings upplevelser beroende på typ av projekt och an
 
   Skriv och kör din egen kod i hanterade [Jupyter Notebook servrar](how-to-run-jupyter-notebooks.md) som är direkt integrerade i Studio. 
 
-+ **Azure Machine Learning designer (för hands version)**
++ **Azure Machine Learning Designer**
 
   Använd designern för att träna och distribuera Machine Learning-modeller utan att skriva någon kod. Dra och släpp data uppsättningar och moduler för att skapa ML-pipeliner. Prova [själv studie kursen om designer](tutorial-designer-automobile-price-train-score.md).
 
     ![Exempel på Azure Machine Learning designer](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **Automatiserat gränssnitt för Machine Learning (för hands version)**
++ **Automatiserat gränssnitt för Machine Learning**
 
   Lär dig hur du skapar [automatiserade ml-experiment](tutorial-first-experiment-automated-ml.md) med ett lättanvänt gränssnitt. 
 
@@ -55,7 +55,7 @@ Studio erbjuder flera redigerings upplevelser beroende på typ av projekt och an
 Hantera dina Machine Learning-tillgångar direkt i webbläsaren. Till gångar delas i samma arbets yta mellan SDK och Studio för en sömlös upplevelse. Använd Studio för att hantera:
 
 - Modeller
-- Datamängder
+- Datauppsättningar
 - Datalager
 - Beräknings resurser
 - Notebooks
@@ -82,7 +82,7 @@ I följande tabell sammanfattas viktiga skillnader mellan ML Studio (klassisk) o
 
 | Funktion | ML Studio (klassisk) | Azure Machine Learning |
 |---| --- | --- |
-| Dra och släpp gränssnitt | Klassisk miljö | Uppdaterad erfarenhet – [Azure Machine Learning designer (för hands version)](concept-designer.md) <br/>(Kräver Enterprise-arbetsyta) | 
+| Dra och släpp gränssnitt | Klassisk miljö | Uppdaterad erfarenhet – [Azure Machine Learning designer](concept-designer.md)| 
 | Kod-SDK: er | Stöd saknas | Fullständigt integrerat med [Azure Machine Learning python](https://docs.microsoft.com/python/api/overview/azure/ml/) -och [R](tutorial-1st-r-experiment.md) SDK: er |
 | Experiment | Skalbar (10 GB inlärnings data gräns) | Skala med beräknings mål |
 | Inlärnings mål | Patentskyddat beräknings mål, endast CPU-stöd | Brett utbud av anpassningsbara [inlärnings mål](concept-compute-target.md#train). Innehåller stöd för GPU och CPU | 

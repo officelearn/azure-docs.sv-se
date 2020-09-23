@@ -4,12 +4,12 @@ description: Att förstå vilka åtgärds regler i Azure Monitor är och hur du 
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983139"
 ---
 # <a name="action-rules-preview"></a>Åtgärds regler (förhands granskning)
 
@@ -21,7 +21,7 @@ Med åtgärds regler kan du definiera eller ignorera åtgärder i Azure Resource
 
 ### <a name="suppression-of-alerts"></a>Under tryckning av aviseringar
 
-Det finns många scenarier där det är praktiskt att ignorera de meddelanden som genereras av aviseringar. De här scenarierna sträcker sig från under tryckning under en planerad underhålls period som ska undertryckas under icke-kontors tid. Teamet som ansvarar för **ContosoVM** vill t. ex. Ignorera aviserings aviseringar för den kommande helgen, eftersom **ContosoVM** har planerat underhåll.
+Det finns många scenarier där det är praktiskt att ignorera de meddelanden som genereras av aviseringar. De här scenarierna sträcker sig från under tryckning under en planerad underhålls period som ska undertryckas under icke-kontors tid. Teamet som ansvarar för  **ContosoVM** vill t. ex. Ignorera aviserings aviseringar för den kommande helgen, eftersom **ContosoVM** har planerat underhåll.
 
 Även om teamet kan inaktivera varje varnings regel som är konfigurerad på **ContosoVM** manuellt (och aktivera den igen efter underhåll), är det inte en enkel process. Med åtgärds regler kan du definiera under tryckning av aviseringar i skala med möjligheten att flexibelt konfigurera under trycknings perioden. I föregående exempel kan teamet definiera en åtgärds regel på **ContosoVM** som förhindrar alla aviserings aviseringar för helgen.
 
@@ -44,11 +44,11 @@ Du kan få åtkomst till funktionen genom att välja **Hantera åtgärder** frå
 
 Välj **+ ny åtgärds regel**.
 
-![Lägg till ny åtgärds regel](media/alerts-action-rules/action-rules-new-rule.png)
+![Skärm bild som visar sidan Hantera åtgärder med knappen Ny åtgärds regel markerad.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Du kan också skapa en åtgärds regel när du konfigurerar en varnings regel.
 
-![Lägg till ny åtgärds regel](media/alerts-action-rules/action-rules-alert-rule.png)
+![Skärm bild som visar sidan Skapa regel med knappen Skapa åtgärds regel markerad.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 Nu bör du se sidan Flow för att skapa åtgärds regler. Konfigurera följande element:
 
@@ -103,7 +103,7 @@ Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åt
 ### <a name="action-rule-details"></a>Åtgärds regel information
 
 Konfigurera senast följande information för åtgärds regeln:
-* Namn
+* Name
 * Resurs grupp där den sparas
 * Beskrivning
 
@@ -111,19 +111,19 @@ Konfigurera senast följande information för åtgärds regeln:
 
 Du kan skapa åtgärds regler med Azure CLI med hjälp av kommandot [AZ Monitor åtgärd-Rule Create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) .  `az monitor action-rule`Referensen är bara en av många [Azure CLI-referenser för Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
-### <a name="prepare-your-environment"></a>Förbereda din miljö
+### <a name="prepare-your-environment"></a>Förbered din miljö
 
 1. [Installera Azure CLI](/cli/azure/install-azure-cli)
 
    Om du vill kan du också använda Azure Cloud Shell för att slutföra stegen i den här artikeln.  Azure Cloud Shell är en interaktiv gränssnitts miljö som du använder via webbläsaren.  Starta Cloud Shell med någon av följande metoder:
 
-   - Öppna Cloud Shell genom att gå till[https://shell.azure.com](https://shell.azure.com)
+   - Öppna Cloud Shell genom att gå till [https://shell.azure.com](https://shell.azure.com)
 
    - Välj knappen **Cloud Shell** på Meny raden i det övre högra hörnet i [Azure Portal](https://portal.azure.com)
 
 1. Logga in.
 
-   Om du använder en lokal installation av CLI loggar du in med kommandot [AZ login](/cli/azure/reference-index#az-login) .  Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.
+   Om du använder en lokal installation av CLI loggar du in med kommandot [AZ login](/cli/azure/reference-index#az-login) .  Slutför autentiseringsprocessen genom att följa anvisningarna i terminalen.
 
     ```azurecli
     az login
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 Logg aviseringar som du skapar med alternativet [antal resultat](alerts-unified-log.md) genererar en enskild varnings instans genom att använda hela Sök resultatet (som kan sträcka sig över flera datorer). I det här scenariot, om en åtgärds regel använder filtret för **aviserings kontext (nytto Last)** , fungerar det på varnings instansen så länge det finns en matchning. I scenario 2, som beskrivs tidigare, om Sök resultaten för den genererade logg aviseringen innehåller både **dator-01** och **dator-02**, ignoreras hela meddelandet. Ingen avisering har genererats för **dator-02** alls.
 
-![Åtgärds regler och logg aviseringar (antal resultat)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Diagrammet visar åtgärds regler och logg aviseringar med en enda varnings instans markerad.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 Om du vill använda logg aviseringar med åtgärds regler skapar du logg aviseringar med alternativet [mått mått](alerts-unified-log.md) . Separata varnings instanser skapas med det här alternativet baserat på dess definierade grupp fält. I scenario 2 genereras separata varnings instanser för **dator-01** och **dator-02**. På grund av åtgärds regeln som beskrivs i scenariot ignoreras endast meddelandet för **dator-01** . Meddelandet för **dator-02** fortsätter att utlösa som vanligt.
 
@@ -272,7 +272,7 @@ När du har definierat ett omfång när du konfigurerar en åtgärds regel kan d
 * En supermängd: till exempel är åtgärds regeln som du definierar i en resurs grupp och den överlappande åtgärds regeln finns i den prenumeration som innehåller resurs gruppen.
 * Ett snitt: till exempel är den åtgärds regel som du definierar för **VM1** och **VM2**, och den överlappande åtgärds regeln är på **VM2** och **VM3**.
 
-![Överlappande åtgärds regler](media/alerts-action-rules/action-rules-overlapping.png)
+![Skärm bild som visar sidan ny åtgärds regel med överlappande åtgärds regler som visas i de åtgärds regler som definierats i samma omfattnings fönster.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>När jag konfigurerar en varnings regel är det möjligt att veta om det redan finns definierade åtgärds regler som kan agera på den varnings regel Jag definierar?
 

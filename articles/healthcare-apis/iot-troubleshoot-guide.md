@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 088d1e409f14fdba02311d1ff17eb655f6e41ad3
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053464"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982991"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Fel söknings guide för Azure IoT Connector för FHIR (för hands version)
 
@@ -26,9 +26,37 @@ Du kan använda konverterings mappnings-JSON-kopior för att redigera och arkive
 > [!TIP]
 > Om du kommer att öppna ett [Azures tekniska support](https://azure.microsoft.com/support/create-ticket/) ärende för Azure IoT-ANSLUTNINGSPROGRAMMET för FHIR, måste du ta med kopior av konverterings-JSON-JSON för att hjälpa till med fel söknings processen.
 
+## <a name="device-and-fhir-conversion-mapping-json-template-validations-for-azure-iot-connector-for-fhir-preview"></a>Mappning av JSON-mall för enhets-och FHIR konvertering för Azure IoT Connector för FHIR (för hands version)
+I det här avsnittet får du lära dig om validerings processen som Azure IoT Connector för FHIR utför för att validera JSON-mallarna för enhets-och FHIR konverterings mappning innan de tillåts att sparas för användning.  Dessa element krävs i JSON för enhets-och FHIR-konverterings mappning.
+
+**Enhets mappning**
+
+|Element|Obligatorisk|
+|:-------|:------|
+|Typnamn|Sant|
+|TypeMatchExpression|Sant|
+|DeviceIdExpression|Sant|
+|TimestampExpression|Sant|
+|Värden []. Värdets namn|Sant|
+|Värden []. ValueExpression|Sant|
+
+> [!NOTE]
+> Värden []. ValueName och värden []. ValueExpression
+>
+> De här elementen krävs endast om du har en värde post i matrisen. det är inte tillåtet att mappa några värden. Detta används när Telemetrin som skickas är en händelse. Exempel: när en Wearable IoMT-enhet placeras eller tas bort. Elementen (-erna) har inga värden förutom ett namn som Azure IoT Connector för FHIR matchar och genererar. I FHIR-konverteringen mappar Azure IoT Connector för FHIR till ett kod möjligt koncept baserat på den semantiska typen – inga faktiska värden fylls i.
+
+**FHIR-mappning**
+
+|Element|Obligatorisk|
+|:------|:-------|
+|Typnamn|Sant|
+
+> [!NOTE]
+> Detta är det enda obligatoriska mappnings elementet för FHIR verifieras just nu.
+
 ## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>Fel meddelanden och korrigeringar för Azure IoT Connector för FHIR (för hands version)
 
-|Meddelande|Visat|Villkor|Åtgärda| 
+|Meddelande|Visat|Condition (Väderförhållanden)|Åtgärda| 
 |-------|---------|---------|---|
 |Ogiltigt mappnings namn, mappnings namn ska vara enhets-eller FHIR.|API|Den angivna mappnings typen är inte enhets-eller FHIR.|Använd en av de två mappnings typer som stöds (till exempel: enhet eller FHIR).|
 |Verifieringen misslyckades. Nödvändig information saknas eller är ogiltig.|API och Azure Portal|Försök att spara en konverterings mappning saknar nödvändig information eller element.|Lägg till information om konverterings mappning som saknas eller element och försök att spara konverterings mappningen igen.|
@@ -42,8 +70,8 @@ Du kan använda konverterings mappnings-JSON-kopior för att redigera och arkive
 
 ##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Varför visas inte min Azure IoT Connector för FHIR-data (för hands version) i Azure API för FHIR?
 
-|Potentiella problem  |Korrigeringar            |
-|------------------|-----------------|
+|Potentiella problem|Korrigeringar|
+|----------------|-----|
 |Data bearbetas fortfarande.|Data skickas till Azure-API: et för FHIR i batchar (var 15: e minut).  Det är möjligt att data fortfarande bearbetas och att ytterligare tid krävs för att data ska sparas i Azure API för FHIR.|
 |Mappnings-JSON för enhets konvertering har inte kon figurer ATS.|Konfigurera och spara omvandlings-JSON för enhets konvertering.|
 |FHIR Conversion mappnings-JSON har inte kon figurer ATS.|Konfigurera och spara FHIR Conversion Mapping JSON.|
@@ -67,22 +95,22 @@ Mappnings filens kopior bör tillhandahållas till teknisk support för Azure n�
 
 1. Välj **"IoT Connector (förhands granskning)"** på den nedre vänstra sidan av Azure-API: t för FHIR resurs instrument panel i avsnittet **"tillägg"** .
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT-koppling" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT-Connector1" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
 2. Välj **"Connector"** som du vill kopiera konverterings-JSON från.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT-koppling" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT-Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Den här processen kan också användas för att kopiera och spara innehållet i JSON-filen **"Konfigurera FHIR-mappning"** .
 
 3. Välj **Konfigurera enhets mappning**.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT-koppling" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT-Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Välj innehållet i JSON och gör en kopierings åtgärd (till exempel: Välj CTRL + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT-koppling" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT-Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Gör en Inklistrings åtgärd (till exempel: Välj Ctrl + v) i en ny fil i en redigerare (till exempel Visual Studio Code, Notepad) och spara filen med ett *. JSON-tillägg.
 

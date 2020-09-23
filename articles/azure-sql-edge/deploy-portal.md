@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure SQL Edge (för hands version) med hjälp av Azure Portal
-description: Lär dig hur du distribuerar Azure SQL Edge (för hands version) med hjälp av Azure Portal
+title: Distribuera Azure SQL Edge med hjälp av Azure Portal
+description: Lär dig hur du distribuerar Azure SQL Edge med hjälp av Azure Portal
 keywords: Distribuera SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,27 +8,27 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816872"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886736"
 ---
-# <a name="deploy-azure-sql-edge-preview"></a>Distribuera Azure SQL Edge (för hands version) 
+# <a name="deploy-azure-sql-edge"></a>Distribuera Azure SQL Edge 
 
-Azure SQL Edge (för hands version) är en Relations databas motor som är optimerad för IoT och Azure IoT Edge distributioner. Det innehåller funktioner för att skapa ett högpresterande lagrings-och bearbetnings lager för IoT-program och-lösningar. Den här snabb starten visar hur du kommer igång med att skapa en Azure SQL Edge-modul via Azure IoT Edge med hjälp av Azure Portal.
+Azure SQL Edge är en Relations databas motor som är optimerad för IoT och Azure IoT Edge distributioner. Det innehåller funktioner för att skapa ett högpresterande lagrings-och bearbetnings lager för IoT-program och-lösningar. Den här snabb starten visar hur du kommer igång med att skapa en Azure SQL Edge-modul via Azure IoT Edge med hjälp av Azure Portal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 * Skapa ett [Azure-IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Registrera en [IoT Edge-enhet från Azure Portal](../iot-edge/how-to-register-device-portal.md).
 * Förbered IoT Edge-enheten för att [distribuera IoT Edge modul från Azure Portal](../iot-edge/how-to-deploy-modules-portal.md).
 
-> [!NOTE]
+> [!NOTE]   
 > Om du vill distribuera en virtuell Azure Linux-dator som en IoT Edge enhet, se den här [snabb starts guiden](../iot-edge/quickstart-linux.md).
 
 ## <a name="deploy-sql-edge-module-from-azure-marketplace"></a>Distribuera SQL Edge-modulen från Azure Marketplace
@@ -51,75 +51,73 @@ Azure Marketplace är ett online-program och tjänster för tjänster där du ka
    |IoT Hub   |  Namnet på IoT Hub där IoT Edges enheten är registrerad och välj sedan alternativet för att distribuera till en enhet|
    |IoT Edge enhets namn  |  Namnet på den IoT Edge enhet där SQL Edge skulle distribueras |
 
-4. På sidan **Ange moduler** navigerar du till avsnittet om distributions moduler och klickar på **Konfigurera** mot SQL Edge-modulen. 
+4. På sidan **Ange moduler på enheten:** klickar du på modulen Azure SQL Edge under **IoT Edge moduler**. Standardmodulens namn är inställt på *AzureSQLEdge*. 
 
-5. I fönstret **IoT Edge anpassade moduler** anger du önskade värden för miljövariablerna och/eller anpassar alternativen för att skapa och önskade egenskaper för modulen. En fullständig lista över miljövariabler som stöds refererar [SQL Server behållar miljö variabler](/sql/linux/sql-server-linux-configure-environment-variables/).
+5. I avsnittet *Modulnamn* i bladet **Uppdatera IoT Edge modul** anger du önskade värden för namnet på IoT Edge- *modulen*, *startar om principen* och *önskad status*. 
+
+   > [!IMPORTANT]    
+   > Ändra eller uppdatera inte bild- **URI** -inställningarna i modulen.
+
+6. I avsnittet *miljövariabler* på bladet **Uppdatera IoT Edge modul** anger du önskade värden för miljövariablerna. En fullständig lista över variabler i Azure SQL Edge-miljön beskrivs [Konfigurera med miljövariabler](configure.md#configure-by-using-environment-variables). Följande standard miljö variabler är definierade för modulen. 
 
    |**Parameter**  |**Beskrivning**|
    |---------|---------|
    | Name | Namn för modulen. |
-   |SA_PASSWORD  | Ange ett starkt lösen ord för SQL Edge admin-kontot. |
-   |MSSQL_LCID   | Anger språk-ID: t som ska användas för SQL Server. Till exempel är 1036 franska. |
-   |MSSQL_COLLATION | Ställer in standard sortering för SQL Server. Den här inställningen åsidosätter standard mappningen för språk-ID (LCID) till sortering. |
+   | MSSQL_SA_PASSWORD  | Ändra standardvärdet om du vill ange ett starkt lösen ord för SQL Edge admin-kontot. |
+   | MSSQL_LCID   | Ändra standardvärdet för att ange önskat språk-ID för SQL Edge. Till exempel är 1036 franska. |
+   | MSSQL_COLLATION | Ändra standardvärdet om du vill ange standard sorteringen för SQL Edge. Den här inställningen åsidosätter standard mappningen för språk-ID (LCID) till sortering. |
 
-   > [!NOTE]
-   > Ändra inte eller uppdatera **avbildnings-URI: n** eller **ACCEPT_EULA** inställningarna i modulen.
+   > [!IMPORTANT]    
+   > Ändra eller uppdatera inte **ACCEPT_EULA** miljövariabeln för modulen.
 
-6. I fönstret **IoT Edge anpassade moduler** uppdaterar du det önskade värdet för behållaren skapa alternativ för **värd porten**. Om du behöver distribuera mer än en SQL DB Edge-modul, se till att uppdatera monterings alternativet för att skapa ett nytt käll & mål par för den permanenta volymen. Mer information om monteringar och volymer finns i [använda volymer](https://docs.docker.com/storage/volumes/) i Docker-dokumentationen. 
-
-   ```json
-       {
-         "HostConfig": {
-           "Binds": [
-             "sqlvolume:/sqlvolume"
-           ],
-           "PortBindings": {
-             "1433/tcp": [
-               {
-                 "HostPort": "1433"
-               }
-             ]
-           },
-           "Mounts": [
-             {
-               "Type": "volume",
-               "Source": "sqlvolume",
-               "Target": "/var/opt/mssql"
-             }
-           ]
-         },
-         "Env": [
-           "MSSQL_AGENT_ENABLED=TRUE",
-           "MSSQL_PID=Developer"
-         ]
-       }
-   ```
-
-7. I fönstret **IoT Edge anpassade moduler** uppdaterar du *önskade egenskaper för set-modulen* för att inkludera platsen för SQL-paketet och informationen om Stream Analytics-jobbet. Dessa två fält är valfria och ska användas om du vill distribuera SQL Edge-modulen med en databas och ett strömmande jobb.
+7. På bladet *behållar skapande alternativ* i bladet **Update IoT Edge-modul** uppdaterar du följande alternativ enligt krav. 
+   - **Värd port:** Mappa den angivna värd porten till port 1433 (standard-SQL-port) i behållaren.
+   - **Binder** och **monterar:** om du behöver distribuera mer än en SQL Edge-modul, se till att du uppdaterar monterings alternativet för att skapa ett nytt käll & mål par för den permanenta volymen. Mer information om monteringar och volymer finns i [använda volymer](https://docs.docker.com/storage/volumes/) i Docker-dokumentationen. 
 
    ```json
-       {
-         "properties.desired":
-         {
-           "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-           "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-         }
-       }
+   {
+    "HostConfig": {
+        "CapAdd": [
+            "SYS_PTRACE"
+        ],
+        "Binds": [
+            "sqlvolume:/sqlvolume"
+        ],
+        "PortBindings": {
+            "1433/tcp": [
+                {
+                    "HostPort": "1433"
+                }
+            ]
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Source": "sqlvolume",
+                "Target": "/var/opt/mssql"
+            }
+        ]
+    },
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "PlanId=asde-developer-on-iot-edge"
+    ]
+   }
    ```
-
-8. I fönstret **IoT Edge anpassade moduler** anger du *starta om principen* till alltid och *önskad status* för att köra.
-9. I fönstret **IoT Edge anpassade moduler** klickar du på **Spara**.
-10. Klicka på **Nästa**på sidan **Ange moduler** .
-11. På sidan **Ange väg (valfritt)** på sidan **Ange moduler** anger du vägarna för modulen till modulen eller modulen för att IoT Edge Hub-kommunikation se [distribuera moduler och upprätta vägar i IoT Edge](../iot-edge/module-composition.md).
-12. Klicka på **Nästa**.
-13. Klicka på **Skicka**.
+   > [!IMPORTANT]    
+   > Ändra inte miljön- `PlanId` variabeln som definierats i inställningen skapa konfiguration. Om det här värdet ändras går det inte att starta Azure SQL Edge-behållaren. 
+   
+8. Klicka på **Uppdatera**i fönstret **Uppdatera IoT Edge-modulen** .
+9. På sidan **Ange moduler på enhet** klickar du på **nästa: vägar >** om du behöver definiera vägar för distributionen. Annars klickar du på **Granska + skapa**. Mer information om hur du konfigurerar vägar finns i [distribuera moduler och upprätta vägar i IoT Edge](../iot-edge/module-composition.md).
+11. Klicka på **skapa**i fönstret **Uppdatera IoT Edge-modul** .
 
 ## <a name="connect-to-azure-sql-edge"></a>Ansluta till Azure SQL Edge
 
 I följande steg används kommando rads verktyget för Azure SQL Edge, **SQLCMD**, inuti behållaren för att ansluta till Azure SQL Edge.
 
-> [!NOTE]
-> SQLCMD-verktyget är inte tillgängligt i ARM64-versionen av SQL Edge-behållare.
+> [!NOTE]      
+> SQL Command line tools (SQLCMD) är inte tillgängliga i ARM64-versionen av Azure SQL Edge-behållare.
 
 1. Använd `docker exec -it` kommandot för att starta ett interaktivt bash-gränssnitt i den behållare som körs. I följande exempel `azuresqledge` är namnet som anges av `Name` parametern för din IoT Edge-modul.
 
@@ -133,14 +131,14 @@ I följande steg används kommando rads verktyget för Azure SQL Edge, **SQLCMD*
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
    ```
 
-   > [!TIP]
+   > [!TIP]    
    > Du kan utelämna lösen ordet på kommando raden för att uppmanas att ange det.
 
 3. Om det lyckas, bör du komma till en **SQLCMD** kommando tolk: `1>` .
 
 ## <a name="create-and-query-data"></a>Skapa och fråga efter data
 
-I följande avsnitt får du stegvisa anvisningar genom att använda **SQLCMD** och Transact-SQL för att skapa en ny databas, lägga till data och köra en enkel fråga.
+I följande avsnitt får du stegvisa anvisningar genom att använda **SQLCMD** och Transact-SQL för att skapa en ny databas, lägga till data och köra en fråga.
 
 ### <a name="create-a-new-database"></a>Skapa en ny databas
 
@@ -220,8 +218,9 @@ Du kan ansluta och köra SQL-frågor mot din Azure SQL Edge-instans från alla e
 
 I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge enhet. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-- [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md).
-- [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge](tutorial-deploy-azure-resources.md).
+- [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md)
+- [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med IoT Edge](tutorial-deploy-azure-resources.md)
 - [Data strömning i Azure SQL Edge](stream-data.md)
+- [Felsöka vanliga distributionsfel](troubleshoot.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: utforma en databas för flera innehavare (citus) – Azure Database for PostgreSQL'
-description: I den här självstudien visas hur du utformar en databas med flera innehavare med hjälp av Azure Database for PostgreSQL citus-skalning.
+description: I den här självstudien visas hur du får ett skalbart program med flera klienter med Azure Database for PostgreSQL storskalig (citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: b28307783957af2613152c2a8305f3650aa352ac
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530734"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895261"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en databas med flera innehavare med Azure Database for PostgreSQL – storskalig (citus)
 
@@ -275,6 +275,5 @@ I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror
 
 I den här självstudien har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data. Du har lärt dig att fråga data både inom och mellan klienter och att anpassa schemat per klient.
 
-Nu kan du läsa om begreppen storskalighet.
-> [!div class="nextstepaction"]
-> [Storskaliga nodtyper](https://aka.ms/hyperscale-concepts)
+- Lär dig mer om [Node-typer](https://aka.ms/hyperscale-concepts) för Server grupper
+- Fastställ bästa [initial storlek](howto-hyperscale-scaling.md#picking-initial-size) för Server gruppen

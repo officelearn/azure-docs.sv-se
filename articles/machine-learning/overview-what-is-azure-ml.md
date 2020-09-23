@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 72de3c45d0def7cf4a48884ee49be256179ac0a4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f8be403a9aa095a24ec4802aad0364b535ed7c5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659514"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902913"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -41,7 +41,7 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Maskin inlärnings verktyg för att passa varje uppgift 
 
 Azure Machine Learning innehåller alla verktyg och data forskare som behöver för sina Machine Learning-arbetsflöden, inklusive:
-+ [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md) (för hands version): dra-n-släpp-moduler för att bygga experimenten och sedan distribuera pipeliner.
++ [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md): dra-n-släpp-moduler för att bygga experimenten och sedan distribuera pipeliner.
 
 + Jupyter Notebook: Använd våra [exempel Notebook-anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks) eller skapa egna antecknings böcker för att utnyttja våra SDK: er <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">för python</a> -exempel för din maskin inlärning. 
 
@@ -71,7 +71,7 @@ Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-m
 
 [Azure Machine Learning Studio](https://studio.azureml.net) är en webb portal i Azure Machine Learning för alternativ med låg kod och ingen kod för modell utbildning, distribution och till gångs hantering. Studio integreras med Azure Machine Learning SDK för en sömlös upplevelse. Mer information finns i [Vad är Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
-+ **Azure Machine Learning designer (för hands version)**
++ **Azure Machine Learning Designer**
 
   Använd [designern](concept-designer.md) för att träna och distribuera Machine Learning-modeller utan att skriva någon kod. Försök att komma igång med [design guiden](tutorial-designer-automobile-price-train-score.md) . 
 
@@ -124,15 +124,6 @@ Azure Machine Learning fungerar med andra tjänster på Azure-plattformen och in
 ### <a name="secure-communications"></a>Säker kommunikation
 
 Ditt Azure Storage-konto, beräknings mål och andra resurser kan användas på ett säkert sätt i ett virtuellt nätverk för att träna modeller och utföra en härledning. Mer information finns i [Översikt över virtuell nätverks isolering och sekretess](how-to-network-security-overview.md).
-
-## <a name="basic--enterprise-editions"></a><a name="sku"></a>Grundläggande & Enterprise-versioner
-
-Azure Machine Learning erbjuder två versioner som är skräddarsydda för dina maskin inlärnings behov:
-+ **Basic**: bra för utveckling med öppen källkod i moln skala med en kod för första upplevelsen.
-
-+ **Enterprise**: hela Basic Plus ett webb gränssnitt (Studio) + säker, omfattande ml livs cykel hantering för alla färdighets nivåer.
-
-Läs mer om dessa versioner och vilka funktioner de låser upp i [artikeln Azure Machine Learning utgåvor](concept-editions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

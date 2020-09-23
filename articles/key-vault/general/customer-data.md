@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189928"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983242"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault kund data funktioner
 
-Azure Key Vault tar emot kund information under skapandet eller uppdateringen av valv, nycklar, hemligheter, certifikat och hanterade lagrings konton. Den här kund informationen är direkt synlig i Azure Portal och via REST API. Kund information kan redige ras eller tas bort genom att uppdatera eller ta bort objektet som innehåller data.
+Azure Key Vault tar emot kund information under skapandet eller uppdateringen av valv, hanterade HSM-pooler, nycklar, hemligheter, certifikat och hanterade lagrings konton. Den här kund informationen är direkt synlig i Azure Portal och via REST API. Kund information kan redige ras eller tas bort genom att uppdatera eller ta bort objektet som innehåller data.
 
 System åtkomst loggar genereras när en användare eller ett program har åtkomst till Key Vault. Detaljerade åtkomst loggar är tillgängliga för kunder som använder Azure Insights.
 
@@ -52,7 +52,7 @@ Azure Key Vault diagnostikloggar som innehåller personliga data kan hämtas gen
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Key Vault loggning](logging.md))
+- [Azure Key Vault loggning](logging.md)
 
 - [Översikt av mjuk borttagning för Azure Key Vault](soft-delete-cli.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Om Azure Key Vault nycklar, hemligheter och certifikat – Azure Key Vault
+title: Översikt över Azure Key Vault REST API
 description: Översikt över Azure Key Vault REST-gränssnittet och information om utvecklare för nycklar, hemligheter och certifikat.
 services: key-vault
 author: msmbaldwin
@@ -9,23 +9,49 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cb8a29c5d2eff46eecb2cf977bfb492f28731e68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b2d3753cd31b54c500b2757520f2634eb1b2794a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043638"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983274"
 ---
-# <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
+# <a name="azure-key-vault-rest-api-overview"></a>Översikt över Azure Key Vault REST API
 
-Azure Key Vault gör det möjligt för Microsoft Azure program och användare att lagra och använda flera typer av hemliga/viktiga data:
+Azure Key Vault gör det möjligt för Microsoft Azure program och användare att lagra och använda flera typer av hemliga/viktiga data. Key Vault Resource provider stöder två resurs typer: valv och hanterade HSM: er.
 
-- Kryptografiska nycklar: stöder flera nyckel typer och algoritmer och möjliggör användning av HSM (Hardware Security modules) för nycklar med hög värde. Mer information finns i [om nycklar](../keys/about-keys.md).
-- Hemligheter: ger säker lagring av hemligheter, t. ex. lösen ord och databas anslutnings strängar. Mer information finns i [om hemligheter](../secrets/about-secrets.md).
-- Certifikat: stöder certifikat, som bygger på nycklar och hemligheter och lägger till en automatiserad förnyelse funktion. Mer information finns i [om certifikat](../certificates/about-certificates.md).
-- Azure Storage: kan hantera nycklar för ett Azure Storage konto åt dig. Internt Key Vault kan ange (Sync) nycklar med ett Azure Storage konto och återskapa (rotera) nycklarna med jämna mellanrum. Mer information finns i [Hantera lagrings konto nycklar med Key Vault](../secrets/overview-storage-keys.md).
+## <a name="dns-suffixes-for-base-url"></a>DNS-suffix för bas-URL
+ Tabellen nedan visar det grundläggande URL-suffixet som används av data Plans slut punkten för valv och hanterade HSM-pooler i olika moln miljöer.
 
-Mer allmän information om Key Vault finns i [om Azure Key Vault](overview.md).
+Moln miljö | DNS-suffix för valv | DNS-suffix för hanterade HSM: er
+---|---|---
+Azure-moln | . vault.azure.net | . managedhsm.azure.net
+Azure Kina-moln | . vault.azure.cn | Stöds inte
+Azure US Government | . vault.usgovcloudapi.net | Stöds inte
+Azure tyskt-moln | . vault.microsoftazure.de | Stöds inte
+|||
+
+
+## <a name="object-types"></a>Objekt typer
+ Tabellen nedan visar objekt typer och deras suffix i bas-URL: en.
+
+Objekttyp|URL-suffix|Valv|Hanterade HSM-pooler
+--|--|--|--
+**Kryptografiska nycklar**||
+HSM-skyddade nycklar|/keys|Stöds|Stöds
+Program vara – skyddade nycklar|/keys|Stöds|Stöds inte
+**Andra objekt typer**||
+Hemligheter|/secrets|Stöds|Stöds inte
+Certifikat|/certificates|Stöds|Stöds inte
+Lagringskontonycklar|/storageaccount|Stöds|Stöds inte
+|||
+- **Kryptografiska nycklar**: stöder flera nyckel typer och algoritmer och möjliggör användning av program skyddade och HSM-skyddade nycklar. Mer information finns i [om nycklar](../keys/about-keys.md).
+- **Hemligheter**: ger säker lagring av hemligheter, t. ex. lösen ord och databas anslutnings strängar. Mer information finns i [om hemligheter](../secrets/about-secrets.md).
+- **Certifikat**: stöder certifikat, som bygger på nycklar och hemligheter och lägger till en automatiserad förnyelse funktion. Mer information finns i [om certifikat](../certificates/about-certificates.md).
+- **Azure Storage konto nycklar**: kan hantera nycklar för ett Azure Storage konto åt dig. Internt Key Vault kan ange (Sync) nycklar med ett Azure Storage konto och återskapa (rotera) nycklarna med jämna mellanrum. Mer information finns i [Hantera lagrings konto nycklar med Key Vault](../secrets/overview-storage-keys.md).
+
+Mer allmän information om Key Vault finns i [om Azure Key Vault](overview.md). Mer information om hanterade HSM-pooler finns i vad är [Azure Key Vault hanterad HSM?](../managed-hsm/overview.md)
+
 
 ## <a name="data-types"></a>Datatyper
 
@@ -46,21 +72,26 @@ Se JOSE-specifikationerna för relevanta data typer för nycklar, kryptering och
 
 Objekt som lagras i Key Vault versioner skapas när en ny instans av ett objekt skapas. Varje version tilldelas en unik identifierare och URL. När ett objekt skapas första gången får den ett unikt versions-ID och markerat som den aktuella versionen av objektet. Om du skapar en ny instans med samma objekt namn får det nya objektet ett unikt versions-ID, vilket gör att den blir den aktuella versionen.  
 
-Objekt i Key Vault kan åtgärdas genom att specifing en version eller genom att utesluta version för åtgärder på den aktuella versionen av objektet. Till exempel kan en nyckel med namnet, som `MasterKey` utför åtgärder utan specifing en version, orsaka att systemet använder den senaste tillgängliga versionen. Att utföra åtgärder med den versions bara identifierade identifieraren gör att systemet använder den aktuella versionen av objektet.  
+Objekt i Key Vault kan åtgärdas genom att ange en version eller genom att utesluta version för åtgärder på den aktuella versionen av objektet. Till exempel kan en nyckel med namnet, som `MasterKey` utför åtgärder utan att ange en version, orsaka att systemet använder den senaste tillgängliga versionen. Att utföra åtgärder med den versions bara identifierade identifieraren gör att systemet använder den aktuella versionen av objektet.  
 
 Objekt identifieras unikt inom Key Vault med hjälp av en URL. Inga två objekt i systemet har samma URL, oavsett Geo-plats. Den fullständiga URL: en till ett objekt kallas för objekt-ID. URL: en består av ett prefix som identifierar Key Vault, objekt typ, användardefinierat objekt namn och en objekt version. Objekt namnet är Skift läges okänsligt och oföränderligt. Identifierare som inte innehåller objekt versionen kallas för bas identifierare.  
 
 Mer information finns i [autentisering, begär Anden och svar](authentication-requests-and-responses.md)
 
-En objekt identifierare har följande allmänna format:  
+En objekt identifierare har följande allmänna format (beroende på behållar typ):  
 
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **För valv**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+
+- **För hanterade HSM-pooler**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+
+> [!NOTE]
+> Se [stöd för objekt](#object-types) typer för typer av objekt som stöds av varje behållar typ.
 
 Där:  
 
 | Element | Beskrivning |  
 |-|-|  
-|`keyvault-name`|Namnet på ett nyckel valv i Microsoft Azure Key Vault-tjänsten.<br /><br /> Key Vault namn väljs av användaren och är globalt unika.<br /><br /> Key Vault namn måste vara en 3-24-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
+|`vault-name` eller `hsm-name`|Namnet på ett valv eller en hanterad HSM-pool i Microsoft Azure Key Vault-tjänsten.<br /><br />Valv namn och namn på hanterad HSM-pool väljs av användaren och är globalt unika.<br /><br />Valv namnet och namnet på den hanterade HSM-poolen måste vara en 3-24-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
 |`object-type`|Objektets typ, "nycklar", "hemligheter" eller "certifikat".|  
 |`object-name`|Ett `object-name` är ett användardefinierat namn för och måste vara unikt inom en Key Vault. Namnet måste vara en 1-127-tecken sträng, med början på en bokstav och endast innehålla 0-9, a-z, A-Z och-.|  
 |`object-version`|En `object-version` är en systemgenererad 32 tecken Strängs identifierare som kan användas för att adressera en unik version av ett objekt.|  

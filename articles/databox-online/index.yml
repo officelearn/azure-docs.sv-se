@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om Azure Stack Edge och Azure Data Box Gateway – Onlineöverföring
-summary: Använd Azure Data Box Gateway- och Azure Stack Edge-enheter för överföring av data med höga prestanda via nätverket. Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala. Använd Azure Stack Edge för att filtrera, analysera och transformera data innan de flyttas till Azure. Azure Data Box Edge har nyligen bytt namn till Azure Stack Edge.
+summary: Använd Azure Stack Edge- och Azure Data Box Gateway-enheter för överföring av data med hög prestanda via nätverket. Använd Azure Stack Edge Pro-enheter med maskinvara för beräkningsacceleration för att filtrera, analysera och transformera data innan de flyttas till Azure. Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala.
 metadata:
   title: Dokumentation om Azure Stack Edge och Azure Data Box Gateway – Onlineöverföring
-  description: Data Box Gateway, Azure Stack Edge (tidigare Data Box Edge)-dokumentation för dataöverföring med höga prestanda till Azure via nätverk.
+  description: Data Box Gateway, Azure Stack Edge-dokumentation för dataöverföring med hög prestanda till Azure via nätverk.
   services: databox
   ms.service: databox
   ms.subservice: edge
@@ -11,22 +11,28 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 11/04/2019
-  ms.openlocfilehash: bf4f5d7589bdf9ae9b456f7dbe24c8d5fc02afaf
-  ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+  ms.date: 09/08/2020
+  ms.openlocfilehash: 2995a94f1b56144afd191bc3e8eb97c2da4593ef
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82562363"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90902993"
 landingContent:
 - title: Om Azure Stack Edge och Data Box Gateway
   linkLists:
   - linkListType: overview
     links:
+    - text: Vad är Azure Stack Edge Pro GPU?
+      url: azure-stack-edge-gpu-overview.md
+    - text: Vad är Azure Stack Edge Pro FPGA?
+      url: azure-stack-edge-overview.md
+    - text: Vad är Azure Stack Edge R?
+      url: azure-stack-edge-j-series-overview.md
+    - text: Vad är Azure Stack Edge Mini?
+      url: azure-stack-edge-k-series-overview.md
     - text: Vad är Data Box Gateway?
       url: data-box-gateway-overview.md
-    - text: Vad är Azure Stack Edge?
-      url: azure-stack-edge-overview.md
   - linkListType: architecture
     links:
     - text: Välj alternativ för dataöverföring i Azure
@@ -35,28 +41,36 @@ landingContent:
       url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
   - linkListType: whats-new
     links:
-    - text: Viktig information om 1905
-      url: data-box-gateway-1905-release-notes.md
+    - text: 2009 – viktig information
+      url: azure-stack-edge-gpu-2008-release-notes.md
 - title: Krav och begränsningar
   linkLists:
   - linkListType: concept
     links:
+    - text: Krav för Azure Stack Edge Pro GPU
+      url: azure-stack-edge-gpu-system-requirements.md
+    - text: Krav för Azure Stack Edge Pro FPGA
+      url: azure-stack-edge-gpu-system-requirements.md
     - text: Data Box Gateway – krav
       url: data-box-gateway-system-requirements.md
-    - text: Krav för Azure Stack Edge
-      url: azure-stack-edge-system-requirements.md
+    - text: Azure Stack Edge Pro – begränsningar
+      url: azure-stack-edge-limits.md
     - text: Data Box Gateway – begränsningar
       url: data-box-gateway-limits.md
-    - text: Gränser för Azure Stack Edge
-      url: azure-stack-edge-limits.md
 - title: Distribuera
   linkLists:
   - linkListType: tutorial
     links:
+    - text: Visa checklista före distribution
+      url: azure-stack-edge-gpu-deploy-checklist.md
+    - text: Azure Stack Edge Pro GPU
+      url: azure-stack-edge-gpu-deploy-prep.md
     - text: Data Box Gateway
       url: data-box-gateway-deploy-prep.md
-    - text: Azure Stack Edge
-      url: azure-stack-edge-deploy-prep.md
+    - text: GPU-modul via Marketplace
+      url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+    - text: Kubernetes-arbetsbelastning via IoT Edge
+      url: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
 - title: Utveckla
   linkLists:
   - linkListType: how-to-guide
@@ -65,31 +79,31 @@ landingContent:
       url: azure-stack-edge-create-iot-edge-module.md
   - linkListType: download
     links:
-    - text: Exempel – C# för Azure Stack Edge
+    - text: Exempel – C# för Azure Stack Edge Pro GPU
       url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 - title: Hantera
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Azure Stack Edge Pro-filresurser
+      url: azure-stack-edge-manage-shares.md
     - text: Data Box Gateway-filresurser
       url: data-box-gateway-manage-shares.md
-    - text: Filresurser för Azure Stack Edge
-      url: azure-stack-edge-manage-shares.md
     - text: Edge-beräkning
       url: azure-stack-edge-manage-compute.md
-    - text: Nätverk för databehandling på gränsenheter
-      url: azure-stack-edge-extend-compute-access-modules.md
+    - text: Edge-lagringskonton
+      url: azure-stack-edge-j-series-manage-storage-accounts.md
 - title: Felsöka
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Azure Stack Edge GPU
+      url: azure-stack-edge-gpu-troubleshoot.md
     - text: Data Box Gateway
       url: data-box-gateway-troubleshoot.md
-    - text: Azure Stack Edge
-      url: azure-stack-edge-troubleshoot.md
     - text: Moduler för databehandling i Edge
-      url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
-    - text: Returnera eller ersätta Azure Stack Edge
+      url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge
+    - text: Returnera Azure Stack Edge GPU
       url: azure-stack-edge-return-device.md
     - text: Öppna supportbegäran
       url: azure-stack-edge-contact-microsoft-support.md

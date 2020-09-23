@@ -2,22 +2,40 @@
 title: Autentisering, begäranden och svar
 description: Lär dig hur Azure Key Vault använder JSON-formaterade begär Anden och svar och om obligatorisk autentisering för att använda ett nyckel valv.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191793"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983267"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
+
+Azure Key Vault tillhandahåller två typer av behållare för att lagra och hantera hemligheter för dina moln program:
+
+|Behållar typ|Objekt typer som stöds|Data Plans slut punkt|
+|--|--|--|
+| **Valv**|<ul><li>Program vara – skyddade nycklar</li><li>HSM-skyddade nycklar (med Premium-SKU)</li><li>Certifikat</li><li>Lagringskontonycklar</li></ul> | https://{valv-Name}. valv. Azure. net
+|**Hanterad HSM** |<ul><li>HSM-skyddade nycklar</li></ul> | https://{HSM-Name}. managedhsm. Azure. net
+
+Här är URL-suffixen som används för att komma åt varje typ av objekt
+
+|Objekttyp|URL-suffix|
+|--|--|
+|Program vara – skyddade nycklar| /keys |
+|HSM-skyddade nycklar| /keys |
+|Hemligheter|/secrets|
+|Certifikat| /certificates|
+|Lagringskontonycklar|/storageaccounts
+||
 
 Azure Key Vault stöder JSON-formaterade begär Anden och svar. Begär anden till Azure Key Vault dirigeras till en giltig Azure Key Vault-URL med hjälp av HTTPS med vissa URL-parametrar och JSON-kodade begär Anden och svars texter.
 
@@ -36,7 +54,9 @@ Det här avsnittet beskriver information om Azure Key Vault tjänsten. Allmän i
 
 - SIGNERA en sammanfattning med hjälp av en nyckel med namnet TESTKEY i en Key Vault use- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  Auktoriteten för en begäran till en Key Vault är alltid följande:  `https://{keyvault-name}.vault.azure.net/`  
+- Auktoriteten för en begäran till en Key Vault är alltid följande:
+  - För valv: `https://{keyvault-name}.vault.azure.net/`
+  - För hanterade HSM: er: `https://{HSM-name}.managedhsm.azure.net/`
 
   Nycklar lagras alltid under/Keys sökväg, hemligheter lagras alltid under/Secrets-sökvägen.  
 

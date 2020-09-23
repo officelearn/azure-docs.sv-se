@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431293"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983754"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Anslut en VPN Gateway (virtuell nätverksgateway) till virtuellt WAN
 
@@ -47,7 +47,7 @@ Aktivera aktivt-aktivt läge på sidan **konfiguration** av virtuell nätverksga
 
 På sidan **konfiguration** av virtuell nätverksgateway kan du konfigurera **BGP ASN**. Ändra BGP-ASN. BGP ASN får inte vara 65515. 66515 kommer att användas av Azure Virtual WAN.
 
-![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "BGP")
+![Skärm bild som visar en konfigurations sida för virtuell nätverksgateway med konfigurera BGP ASN valt.](./media/connect-virtual-network-gateway-vwan/bgp.png "BGP")
 
 ### <a name="public-ip-addresses"></a><a name="pip"></a>Offentliga IP-adresser
 

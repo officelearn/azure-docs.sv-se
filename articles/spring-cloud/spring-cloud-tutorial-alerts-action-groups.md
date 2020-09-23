@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299235"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892539"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Självstudie: så här övervakar du våren Cloud-resurser med hjälp av aviseringar och åtgärds grupper
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
 Azure våren Cloud-aviseringar stöder övervaknings resurser baserat på villkor som tillgängligt lagrings utrymme, antal begär Anden eller data användning. En avisering skickar ett meddelande när priser eller villkor uppfyller de definierade specifikationerna.
 
@@ -58,11 +60,11 @@ På sidan **Lägg till åtgärds grupp** :
 
 ## <a name="set-up-alert"></a>Konfigurera avisering 
 
-Föregående steg skapade en **Åtgärds grupp** som använder e-post. Du kan också använda telefon meddelande, Webhooks, Azure Functions osv.  
+Föregående steg skapade en **Åtgärds grupp** som använder e-post. Du kan också använda telefon meddelande, Webhooks, Azure Functions och så vidare. Följande steg konfigurerar en **avisering**.
 
-Om du vill konfigurera en **avisering**går du tillbaka till sidan **aviseringar** och klickar på **Hantera aviserings regler**.
+1. gå tillbaka till sidan **aviseringar** och klicka på **Hantera aviserings regler**.
 
-  ![Skärm bilds portalen definiera avisering](media/alerts-action-groups/alerts-2.png)
+   ![Skärm bilds portalen definiera avisering](media/alerts-action-groups/alerts-2.png)
 
 1. Välj **resursen** för aviseringen.
 
@@ -84,9 +86,9 @@ Om du vill konfigurera en **avisering**går du tillbaka till sidan **aviseringar
 
 1. Klicka på **Klar**.
 
-Mer information om de villkor som är tillgängliga för övervakning finns i [alternativ för användar Portal mått](spring-cloud-concept-metrics.md#user-metrics-options).
+   Mer information om de villkor som är tillgängliga för övervakning finns i [alternativ för användar Portal mått](spring-cloud-concept-metrics.md#user-metrics-options).
 
- Under **åtgärder**klickar du på **Välj åtgärds grupp**. Från fönstret **åtgärder** väljer du den tidigare definierade **Åtgärds gruppen**.
+1. Under **åtgärder**klickar du på **Välj åtgärds grupp**. I fönstret **åtgärder** väljer du den tidigare definierade **Åtgärds gruppen**.
 
    ![Skärm bilds portalen ny varnings regel 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -98,13 +100,13 @@ Mer information om de villkor som är tillgängliga för övervakning finns i [a
 
    ![Skärm bilds portalen ny varnings regel 5](media/alerts-action-groups/alerts-3-4.png)
 
-Kontrol lera att den nya varnings regeln har Aktiver ATS.
+1. Kontrol lera att den nya varnings regeln har Aktiver ATS.
 
    ![Skärm bilds portalen ny aviserings regel 6](media/alerts-action-groups/alerts-4.png)
 
 Du kan också skapa en regel med hjälp av sidan **mått** :
 
-   ![Skärm bilds portalen ny varnings regel 7](media/alerts-action-groups/alerts-5.png)
+![Skärm bilds portalen ny varnings regel 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

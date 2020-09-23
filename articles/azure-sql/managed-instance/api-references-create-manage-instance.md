@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4627c094c3913d01f06c237b133e1ed0ea4ed2e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503012"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969801"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Hanterad API-referens för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,6 +44,8 @@ Om du vill skapa och hantera hanterade instanser med Azure PowerShell använder 
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returnerar information om en hanterad instans.|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Anger egenskaper för en hanterad instans.|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Tar bort en hanterad instans.|
+|[Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)|Hämtar en lista över hanterings åtgärder som har utförts på den hanterade instansen eller en speciell åtgärd.|
+|[Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)|Avbryter den speciella hanterings åtgärden som utförs på den hanterade instansen.|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Skapar en SQL-hanterad instans databas.|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Returnerar information om en SQL-hanterad instans databas.|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Tar bort en SQL-hanterad instans databas.|
@@ -63,6 +65,9 @@ Om du vill skapa och konfigurera hanterade instanser med [Azure CLI](/cli/azure)
 |[AZ SQL mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Hämtar information om en hanterad instans.|
 |[AZ SQL mi-uppdatering](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Uppdaterar en hanterad instans.|
 |[AZ SQL mi Delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Tar bort en hanterad instans.|
+|[AZ SQL mi op-lista](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_list)|Hämtar en lista över hanterings åtgärder som utförs på den hanterade instansen.|
+|[AZ SQL mi op show](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_show)|Hämtar den angivna hanterings åtgärden som utförs på den hanterade instansen.|
+|[AZ SQL mi op Cancel](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Avbryter den speciella hanterings åtgärden som utförs på den hanterade instansen.|
 |[AZ SQL EXTEXTB Create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Skapar en hanterad databas.|
 |[AZ SQL EXTEXTB-lista](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Visar en lista över tillgängliga hanterade databaser.|
 |[AZ SQL EXTEXTB-återställning](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Återställer en hanterad databas.|
@@ -80,8 +85,8 @@ Använd följande T-SQL-kommandon om du vill skapa och konfigurera instans datab
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[SKAPA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Skapar en ny instans databas i SQL-hanterad instans. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
-| [ÄNDRA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Ändrar en instans databas i SQL-hanterad instans.|
+|[SKAPA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|Skapar en ny instans databas i SQL-hanterad instans. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
+| [ÄNDRA DATABAS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |Ändrar en instans databas i SQL-hanterad instans.|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>REST API: skapa och konfigurera hanterade instanser
 
@@ -95,6 +100,9 @@ Använd dessa REST API begär Anden för att skapa och konfigurera hanterade ins
 |[Hanterade instanser – lista](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Returnerar en lista med hanterade instanser i en prenumeration.|
 |[Hanterade instanser – lista efter resurs grupp](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Returnerar en lista med hanterade instanser i en resurs grupp.|
 |[Hanterade instanser – uppdatera](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Uppdaterar en hanterad instans.|
+|[Hanterade instans åtgärder – lista efter hanterad instans](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Hämtar en lista över hanterings åtgärder som utförs på den hanterade instansen.|
+|[Hanterade instans åtgärder – Hämta](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Hämtar den angivna hanterings åtgärden som utförs på den hanterade instansen.|
+|[Hanterade instans åtgärder – Avbryt](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Avbryter den speciella hanterings åtgärden som utförs på den hanterade instansen.|
 
 ## <a name="next-steps"></a>Nästa steg
 

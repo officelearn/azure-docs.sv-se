@@ -1,14 +1,14 @@
 ---
 title: Logg aviseringar från Azure Monitor för behållare | Microsoft Docs
-description: Den här artikeln beskriver hur du skapar anpassade aviseringar baserat på logg frågor för minnes-och processor användning från Azure Monitor för behållare.
+description: Den här artikeln beskriver hur du skapar anpassade logg aviseringar för minnes-och processor användning från Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c023471ae041fa524fc4a2164c633ca80bcfdd88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099936"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973727"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Så här skapar du logg aviseringar från Azure Monitor för behållare
 

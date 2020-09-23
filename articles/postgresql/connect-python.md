@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: a9303909eb98fc0ff2d7582fa7f5807a879e7958
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182690"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901812"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
@@ -23,7 +23,7 @@ I den här snabb starten arbetar du med en Azure Database for PostgreSQL med pyt
 > Om du vill bygga ett django-program med PostgreSQL kan du checka in självstudien, [distribuera en django-webbapp med en postgresql-](../app-service/containers/tutorial-python-postgresql-app.md) självstudie.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -46,7 +46,7 @@ Att ansluta till en Azure Database for PostgreSQL-databas kräver det fullständ
    
    Du behöver också ditt administratörs lösen ord. Om du glömmer bort det kan du återställa det från den här sidan. 
    
-   ![Azure Database for PostgreSQL-servernamn](./media/connect-python/1-connection-string.png)
+   :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Azure Database for PostgreSQL-servernamn":::
 
 ## <a name="how-to-run-the-python-examples"></a>Så här kör du python-exemplen
 
@@ -55,9 +55,9 @@ För varje kod exempel i den här artikeln:
 1. Skapa en ny fil i en text redigerare. 
    
 1. Lägg till kod exemplet i filen. I koden ersätter du:
-   - `<server-name>`och `<admin-username>` med de värden som du kopierade från Azure Portal.
-   - `<admin-password>`med lösen ordet för servern.
-   - `<database-name>`med namnet på din Azure Database for PostgreSQL-databas. En standard databas med namnet *postgres* skapades automatiskt när du skapade servern. Du kan byta namn på databasen eller skapa en ny databas med hjälp av SQL-kommandon. 
+   - `<server-name>` och `<admin-username>` med de värden som du kopierade från Azure Portal.
+   - `<admin-password>` med lösen ordet för servern.
+   - `<database-name>` med namnet på din Azure Database for PostgreSQL-databas. En standard databas med namnet *postgres* skapades automatiskt när du skapade servern. Du kan byta namn på databasen eller skapa en ny databas med hjälp av SQL-kommandon. 
    
 1. Spara filen i projektmappen med fil namns tillägget *. py* , till exempel *postgres-INSERT.py*. För Windows kontrollerar du att UTF-8-kodning är markerat när du sparar filen. 
    
@@ -105,7 +105,7 @@ conn.close()
 
 När koden körs skapas följande utdata:
 
-![Kommandoradsutdata](media/connect-python/2-example-python-output.png)
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Kommandoradsutdata":::
 
 ## <a name="read-data"></a>Läsa data
 Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor.exesöta](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **Select** -instruktionen för att läsa data. Den här funktionen accepterar en fråga och returnerar en resultat uppsättning att iterera över med hjälp av [cursor. fetchall ()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

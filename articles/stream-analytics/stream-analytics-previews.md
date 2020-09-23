@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: e11d5b14bdf6b134fefea79a1f709ec73499bd20
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0020efea69fc684ff6ebebf286718aa2a720910e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900801"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics för hands versions funktioner
 
@@ -25,10 +25,6 @@ Följande funktioner finns i offentlig för hands version. Du kan dra nytta av d
 ### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Autentisera för att SQL Database utdata med hanterade identiteter
 
 Azure Stream Analytics stöder [autentisering med hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för Azure SQL Database utgående mottagare. Hanterade identiteter eliminerar begränsningar för användarbaserade autentiseringsmetoder, t. ex. behovet av att autentisera på grund av lösen ords ändringar. 
-
-### <a name="output-to-azure-synapse-analytics"></a>Utdata till Azure Synapse Analytics
-
-Azure Stream Analytics jobb kan matas ut till en SQL-adresspool i [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) och kan bearbeta data flödes hastigheter upp till 200 MB/s. Detta stöder de mest krävande real tids analys och frekventa data bearbetnings behov för arbets belastningar som rapportering och instrument paneler.  
 
 ### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Resultat av hög prestanda i real tid med anpassade ML-modeller som hanteras av Azure Machine Learning
 
@@ -52,7 +48,7 @@ Visual Studio-verktyg för Azure Stream Analytics förbättra den lokala testnin
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code för Azure Stream Analytics
 
-Azure Stream Analytics-jobb kan skapas i Visual Studio Code. Se kursen för att [komma igång med vs Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+Azure Stream Analytics-jobb kan skapas i Visual Studio Code. Se kursen för att [komma igång med vs Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code).
 
 ### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Lokal testning med real tids data i Visual Studio Code
 

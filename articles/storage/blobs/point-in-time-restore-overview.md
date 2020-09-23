@@ -1,27 +1,29 @@
 ---
-title: Återställning av tidpunkt för block-blobar (för hands version)
+title: Återställning av tidpunkter för block-blobar
 titleSuffix: Azure Storage
 description: Återställning av tidpunkter för block-blobar ger skydd mot oavsiktlig borttagning eller skada genom att göra det möjligt att återställa ett lagrings konto till dess tidigare tillstånd vid en viss tidpunkt.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068310"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987029"
 ---
-# <a name="point-in-time-restore-for-block-blobs-preview"></a>Återställning av tidpunkt för block-blobar (för hands version)
+# <a name="point-in-time-restore-for-block-blobs"></a>Återställning av tidpunkter för block-blobar
 
 Återställning vid tidpunkt ger skydd mot oavsiktlig borttagning eller skada genom att göra det möjligt att återställa block BLOB-data till ett tidigare tillstånd. Återställning på plats-till-tid är användbart i scenarier där en användare eller ett program oavsiktligt tar bort data eller där ett program fel skadar data. Vid tidpunkts återställning aktive ras även testnings scenarier som kräver att en data uppsättning återställs till ett känt tillstånd innan ytterligare tester körs.
 
-Information om hur du aktiverar återställning av tidpunkter för ett lagrings konto finns i [Aktivera och hantera tidpunkts återställning för block-blobar (för hands version)](point-in-time-restore-manage.md).
+Återställning av punkt-i-tid stöds endast för generella v2-lagrings konton. Endast data i nivåerna frekvent och låg frekvent åtkomst kan återställas med återställning vid tidpunkter.
+
+Information om hur du aktiverar återställning av tidpunkter för ett lagrings konto finns i [utföra en tidpunkts återställning på block BLOB-data](point-in-time-restore-manage.md).
 
 ## <a name="how-point-in-time-restore-works"></a>Så här fungerar återställning av tidpunkt
 
@@ -48,17 +50,15 @@ Tänk på följande begränsningar för återställnings åtgärder:
 > Läs åtgärder från den sekundära platsen kan fortsätta under återställnings åtgärden om lagrings kontot är geo-replikerat.
 
 > [!CAUTION]
-> Återställning vid tidpunkt stöder bara återställnings åtgärder på block-blobbar. Det går inte att återställa åtgärder på behållare. Om du tar bort en behållare från lagrings kontot genom att anropa åtgärden [ta bort behållare](/rest/api/storageservices/delete-container) under för hands versionen av tidpunkten för återställning av tidpunkt, kan den behållaren inte återställas med en återställnings åtgärd. Ta bort enskilda blobbar under för hands versionen, i stället för att ta bort en behållare, om du kanske vill återställa dem.
+> Återställning vid tidpunkt stöder bara återställnings åtgärder på block-blobbar. Det går inte att återställa åtgärder på behållare. Om du tar bort en behållare från lagrings kontot genom att anropa åtgärden [ta bort behållare](/rest/api/storageservices/delete-container) , kan den behållaren inte återställas med en återställnings åtgärd. I stället för att ta bort en behållare tar du bort enskilda blobbar om du kanske vill återställa dem.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Krav för återställning av punkt-till-tid
 
-Vid återställning från tidpunkt krävs att följande Azure Storage funktioner är aktiverade:
+Vid återställning från tidpunkt krävs att följande Azure Storage funktioner aktive ras innan du kan aktivera återställning vid tidpunkter:
 
 - [Mjuk borttagning](soft-delete-overview.md)
-- [Ändra feed (förhands granskning)](storage-blob-change-feed.md)
+- [Ändra feed](storage-blob-change-feed.md)
 - [BLOB-versioner](versioning-overview.md)
-
-Aktivera de här funktionerna för lagrings kontot innan du aktiverar tidpunkts återställning. Se till att du registrerar dig för för hands versionerna av ändra feed och blob-versioner innan du aktiverar dem.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Kvarhållningsperiod för återställning av tidpunkt
 
@@ -72,83 +72,17 @@ Kvarhållningsperioden för återställning av plats-i-tid måste vara minst en 
 
 För att initiera en återställnings åtgärd måste klienten ha Skriv behörighet till alla behållare i lagrings kontot. Om du vill bevilja behörighet att auktorisera en återställnings åtgärd med Azure Active Directory (Azure AD) tilldelar du rollen **lagrings konto deltagare** rollen som säkerhets objekt på lagrings kontots, resurs gruppens eller prenumerationens nivå.
 
-## <a name="about-the-preview"></a>Om för hands versionen
+## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-Återställning av punkt-i-tid stöds endast för generella v2-lagrings konton. Endast data i nivåerna frekvent och låg frekvent åtkomst kan återställas med återställning vid tidpunkter.
+Återställning av tidpunkt för block-blobar har följande begränsningar och kända problem:
 
-Följande regioner har stöd för återställning av tidpunkt vid tid i för hands versionen:
-
-- Kanada, centrala
-- Kanada, östra
-- Frankrike, centrala
-
-För hands versionen innehåller följande begränsningar:
-
-- Det finns inte stöd för att återställa Premium block-blobar.
-- Det finns inte stöd för att återställa blobar på arkivnivå. Om till exempel en blog på frekvent nivå flyttades till en arkivnivå för två dagar sedan, och en återställningsåtgärd återställer till en punkt för tre dagar sedan, återställs inte bloben till frekvent nivå.
+- Endast block-blobar i ett standard lagrings konto för allmän användning v2 kan återställas som en del av en återställnings åtgärd vid tidpunkten. Det går inte att lägga till blobar, Page blob-och Premium block-blobar. Om du har tagit bort en behållare under kvarhållningsperioden, återställs inte den behållaren med återställnings åtgärden vid tidpunkten. Om du vill veta mer om att skydda behållare från borttagning, se [mjuk borttagning för behållare (för hands version)](soft-delete-container-overview.md).
+- Endast block-blobar på frekventa eller låg frekventa nivåer kan återställas i en tidpunkt då en återställning utförs vid en viss tidpunkt. Det finns inte stöd för att återställa block-blobar på Arkiv nivå. Om till exempel en blog på frekvent nivå flyttades till en arkivnivå för två dagar sedan, och en återställningsåtgärd återställer till en punkt för tre dagar sedan, återställs inte bloben till frekvent nivå. För att återställa en arkiverad BLOB, flytta först bort den från Arkiv lag rings nivån.
+- Om en block-BLOB i intervallet som ska återställas har ett aktivt lån kommer återställningen av återställnings tiden att Miss läge. Bryt eventuella aktiva lån innan du påbörjar återställnings åtgärden.
 - Det finns inte stöd för att återställa Azure Data Lake Storage Gen2 enkla och hierarkiska namn områden.
-- Det finns inte stöd för att återställa lagrings konton med kund tillhandahållna nycklar.
 
 > [!IMPORTANT]
-> För hands versionen av tidpunkt för återställning är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
-
-### <a name="register-for-the-preview"></a>Registrera dig för för hands versionen
-
-Om du vill registrera dig för för hands versionen kör du följande kommandon:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-# Register for the point-in-time restore preview
-Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>Kontrol lera registrerings status
-
-Registrering för återställning av tidpunkt är automatisk och bör ta mindre än 10 minuter. Kör följande kommandon för att kontrol lera status för registreringen:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName RestoreBlobRanges
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
+> Om du återställer block blobbar till en punkt som är tidigare än den 22 september 2020 kommer för hands versions begränsningar för återställning av punkt-i-tid att tillämpas. Microsoft rekommenderar att du väljer en återställnings punkt som är lika med eller senare än den 22 september 2020 för att dra nytta av den allmänt tillgängliga funktionen för återställning av en viss tidpunkt.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
@@ -158,13 +92,9 @@ Om du vill uppskatta kostnaden för en återställnings åtgärd granskar du log
 
 Mer information om priser för återställning av tidpunkter finns i [blocking BLOB-prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="ask-questions-or-provide-feedback"></a>Ställ frågor eller ge feedback
-
-Om du vill ställa frågor om för hands versionen av tidpunkt för återställning eller lämna feedback kontaktar du Microsoft på pitrdiscussion@microsoft.com .
-
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera och hantera tidpunkts återställning för block-blobar (för hands version)](point-in-time-restore-manage.md)
-- [Ändra stöd för feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md)
+- [Utföra en tidpunkts återställning på block BLOB-data](point-in-time-restore-manage.md)
+- [Ändra stöd för feed i Azure Blob Storage](storage-blob-change-feed.md)
 - [Aktivera mjuk borttagning för blobar](soft-delete-enable.md)
 - [Aktivera och hantera BLOB-versioner](versioning-enable.md)

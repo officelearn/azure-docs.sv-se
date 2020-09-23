@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086123"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892572"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analysera loggar och mått med diagnostikinställningar
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
 Med hjälp av diagnostikprogrammet i Azure våren Cloud kan du analysera loggar och mät värden med någon av följande tjänster:
 
@@ -25,11 +27,11 @@ Med hjälp av diagnostikprogrammet i Azure våren Cloud kan du analysera loggar 
 Välj den logg kategori och den mått kategori som du vill övervaka.
 
 > [!TIP]
-> Vill du bara strömma dina loggar? Kolla ut detta [Azure CLI-kommando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Vill du bara strömma dina loggar? Kolla ut detta [Azure CLI-kommando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Loggar
 
-|Loggas | Beskrivning |
+|Logga | Beskrivning |
 |----|----|
 | **ApplicationConsole** | Konsol logg för alla kund program. |
 | **SystemLogs** | För närvarande är endast [vår moln konfigurations Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) loggar i den här kategorin. |
@@ -106,7 +108,7 @@ Det finns olika metoder för att visa loggar och mått enligt beskrivningen unde
     | limit 50
     ```
 > [!NOTE]
-> `==`är Skift läges känslig, men `=~` är inte det.
+> `==` är Skift läges känslig, men `=~` är inte det.
 
 Om du vill veta mer om frågespråket som används i Log Analytics, se [Azure Monitor logg frågor](../azure-monitor/log-query/query-language.md).
 
@@ -176,7 +178,7 @@ AppPlatformLogsforSpring
 
 Azure Monitor ger omfattande stöd för att skicka frågor till program loggar med hjälp av Log Analytics. Mer information om den här tjänsten finns [i kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md). Mer information om hur du skapar frågor för att analysera dina program loggar finns i [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 ### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Hur konverterar du flera rader i Java stack-spår till en enda rad?
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Du kanske kan använda samma strategi för andra Java logg bibliotek.
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Snabb start: Distribuera ditt första Azure våren Cloud-program](spring-cloud-quickstart.md)

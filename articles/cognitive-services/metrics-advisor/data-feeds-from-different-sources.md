@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4dc3c46b65bab48b8923af985f0c2c29fcddc53b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938188"
+ms.locfileid: "90973383"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Lägg till datafeeds från olika data källor i mått Advisor
 
@@ -27,10 +27,10 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 | ---------------------|-------------|
 |**Basic** | Du måste kunna tillhandahålla grundläggande parametrar för åtkomst till data källor. Till exempel en anslutnings sträng eller nyckel. Data flödes administratörer kan visa dessa autentiseringsuppgifter. |
 | **AzureManagedIdentity** | [Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för Azure-resurser är en funktion i Azure Active Directory. Den tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering.|
-| **AzureSQLConnectionString**| Lagra AzureSQL-anslutningssträngen som en **entitet för autentisering** i Metric Advisor och Använd den direkt varje gång när du registrerar Mät data. Endast administratörer för entiteten autentisering kan visa dessa autentiseringsuppgifter, men gör det möjligt för behöriga användare att skapa datafeeds utan att behöva känna till information om autentiseringsuppgifterna. |
-| **DataLakeGen2SharedKey**| Lagra din data Lake-Kontoreferensen som en **entitet för autentisering** i mått Advisor och Använd den direkt varje gång när du registrerar Mät data. Endast administratörer för entiteten autentisering kan visa dessa autentiseringsuppgifter, men gör det möjligt för behöriga användare att skapa datafeed utan att behöva känna till autentiseringsuppgifterna.|
-| **ServicePrincipal**| Lagra tjänstens huvud namn som en **entitet för autentisering** i Metric Advisor och Använd det direkt varje gång när du registrerar Mät data. Endast administratörer för entiteten autentisering kan visa autentiseringsuppgifterna, men gör det möjligt för behöriga användare att skapa datafeed utan att behöva känna till autentiseringsuppgifterna.|
-| **ServicePrincipalInKeyVault**|Lagra tjänstens huvud namn i nyckel valvet som en **entitet för autentisering** i mått Advisor och Använd det direkt varje gång när du registrerar Mät data. Endast administratörer för **entiteten autentisering** kan visa autentiseringsuppgifterna, men du kan också lämna användare som har möjlighet att skapa datafeed utan att behöva känna till detaljerade autentiseringsuppgifter. |
+| **AzureSQLConnectionString**| Lagra AzureSQL-anslutningssträngen som en **entitet för autentiseringsuppgifter** i Metric Advisor och Använd den direkt varje gång när du registrerar Mät data. Endast administratörer för entiteten autentiseringsuppgifter kan visa dessa autentiseringsuppgifter, men gör det möjligt för behöriga användare att skapa datafeeds utan att behöva känna till information om autentiseringsuppgifterna. |
+| **DataLakeGen2SharedKey**| Lagra din data Lake-Kontoreferensen som en **entitet för autentiseringsuppgifter** i mått Advisor och Använd den direkt varje gång när du registrerar Mät data. Endast administratörer för entiteten autentiseringsuppgifter kan visa dessa autentiseringsuppgifter, men gör det möjligt för behöriga användare att skapa datafeed utan att behöva känna till autentiseringsuppgifterna.|
+| **Tjänstens huvud namn**| Lagra tjänstens huvud namn som en **entitet för autentiseringsuppgifter** i mått Advisor och Använd det direkt varje gång när du registrerar Mät data. Endast administratörer för entiteten för autentiseringsuppgifter kan visa autentiseringsuppgifterna, men gör det möjligt för behöriga användare att skapa datafeed utan att behöva känna till autentiseringsuppgifterna.|
+| **Tjänstens huvud namn från Key Vault**|Lagra tjänstens huvud namn i ett nyckel valv som en **entitet för autentiseringsuppgifter** i mått Advisor och Använd det direkt varje gång när du registrerar Mät data. Endast administratörer för en **entitet för autentiseringsuppgifter** kan visa autentiseringsuppgifterna, men du kan också lämna användare som har möjlighet att skapa datafeeds utan att behöva känna till detaljerade autentiseringsuppgifter. |
 
 ## <a name="data-sources-supported-and-corresponding-authentication-types"></a>Data källor som stöds och motsvarande autentiseringstyper
 
@@ -41,8 +41,8 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 |[**Azure Blob Storage (JSON)**](#blob) | Grundläggande<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Grundläggande |
 |[**Azure Datautforskaren (Kusto)**](#kusto) | Grundläggande<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Grundläggande<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | Grundläggande<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
+|[**Azure Data Lake Storage Gen2**](#adl) | Grundläggande<br>DataLakeGen2SharedKey<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | Grundläggande<br>ManagedIdentity<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Grundläggande | 
 |[**ElasticSearch**](#es) | Grundläggande |
 |[**Http-begäran**](#http) | Grundläggande | 
@@ -51,7 +51,7 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 |[**MySQL**](#mysql) | Grundläggande |
 |[**PostgreSQL**](#pgsql)| Grundläggande|
 
-Skapa en **entitet för autentisering** och Använd den för autentisering till dina data källor. I följande avsnitt anges de parametrar som krävs för *grundläggande* autentisering. 
+Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentisering till dina data källor. I följande avsnitt anges de parametrar som krävs för *grundläggande* autentisering. 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 

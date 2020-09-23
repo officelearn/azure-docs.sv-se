@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 34caefba5bae660ca150f6e447b1d59b7174c768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857757"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907795"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Träna Vowpal Wabbit-modell
-Den här artikeln beskriver hur du använder modulen **träna Vowpal Wabbit Model** i Azure Machine Learning designer (för hands version) för att skapa en maskin inlärnings modell med Vowpal Wabbit.  
+Den här artikeln beskriver hur du använder modulen **träna Vowpal Wabbit modell** i Azure Machine Learning designer för att skapa en maskin inlärnings modell med Vowpal Wabbit.  
 
 Om du vill använda Vowpal Wabbit för maskin inlärning formaterar du indata enligt Vowpal Wabbit-krav och förbereder data i det format som krävs. Använd den här modulen för att ange kommando rads argument för Vowpal-Wabbit. 
 
@@ -112,7 +112,7 @@ I allmänhet stöds alla utom en begränsad uppsättning argument. Använd [wiki
 
 Följande parametrar stöds inte:
 
--   De indata/utdata-alternativ som anges i[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   De indata/utdata-alternativ som anges i [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      De här egenskaperna har redan kon figurer ATS automatiskt av modulen.  
   

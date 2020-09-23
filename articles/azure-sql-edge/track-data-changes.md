@@ -1,6 +1,6 @@
 ---
-title: Spåra data ändringar i Azure SQL Edge (för hands version)
-description: Lär dig mer om ändrings spårning och registrering av ändrings data i Azure SQL Edge (för hands version).
+title: Spåra data ändringar i Azure SQL Edge
+description: Lär dig mer om ändrings spårning och registrering av ändrings data i Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d5d5f74a816bf745faf5decf761cd453f40123
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669604"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900064"
 ---
-# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Spåra data ändringar i Azure SQL Edge (för hands version)
+# <a name="track-data-changes-in-azure-sql-edge"></a>Spåra data ändringar i Azure SQL Edge
 
 Azure SQL Edge stöder de två SQL Server funktionerna som spårar ändringar av data i en databas: [ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) och [insamling av ändrings data](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Dessa funktioner gör det möjligt för program att fastställa ändringar av data ändringar (Insert-, Update-och Delete-åtgärder) som har gjorts till användar tabeller i en databas. Du kan aktivera registrering av ändrings data och ändrings spårning på samma databas. Inga särskilda överväganden krävs.
 
@@ -60,10 +60,10 @@ Mer information finns i [temporala tabeller](https://docs.microsoft.com/sql/rela
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Data strömning i Azure SQL Edge (för hands version)](stream-data.md)
-- [Machine Learning och AI med ONNX i Azure SQL Edge (för hands version)](onnx-overview.md)
-- [Konfigurera replikering till Azure SQL Edge (för hands version)](configure-replication.md)
-- [Säkerhetskopiera och återställa databaser i Azure SQL Edge (för hands version)](backup-restore.md)
+- [Data strömning i Azure SQL Edge ](stream-data.md)
+- [Machine Learning och AI med ONNX i Azure SQL Edge ](onnx-overview.md)
+- [Konfigurera replikering till Azure SQL Edge](configure-replication.md)
+- [Säkerhetskopiera och återställa databaser i Azure SQL Edge](backup-restore.md)
 
 
 

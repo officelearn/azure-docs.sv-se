@@ -1,0 +1,351 @@
+---
+title: 'Självstudie: Använd dina egna data'
+titleSuffix: Azure Machine Learning
+description: Del 4 i Azure ML kom igång-serien visar hur du kan använda dina egna data i en fjärran sluten utbildning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: tutorial
+author: aminsaied
+ms.author: amsaied
+ms.reviewer: sgilley
+ms.date: 09/15/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 876ba76655572979a1d831a1ca07e5f3871a3283
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946648"
+---
+# <a name="tutorial-use-your-own-data-part-4-of-4"></a>Självstudie: Använd dina egna data (del 4 av 4)
+
+Den här självstudien visar hur du laddar upp och använder dina egna data för att träna maskin inlärnings modeller i Azure Machine Learning.
+
+Den här självstudien är **del fyra i en själv studie serie i fyra delar** där du får lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade Machine Learning-uppgifter i Azure. Den här självstudien bygger på det arbete som du avslutade i [del 1: konfiguration](tutorial-1st-experiment-sdk-setup-local.md), [del 2: kör "Hello World"](tutorial-1st-experiment-hello-world.md)och [del 3: träna en modell](tutorial-1st-experiment-sdk-train.md).
+
+I [del 3: träna en modell](tutorial-1st-experiment-sdk-train.md)hämtades data med hjälp av den inbyggda `torchvision.datasets.CIFAR10` metoden i PyTorch-API: et. I många fall kommer du dock att vilja använda dina egna data i en fjärran sluten utbildning. Den här artikeln visar arbets flödet som du kan använda för att arbeta med dina egna data i Azure Machine Learning.
+
+I den här kursen får du:
+
+> [!div class="checklist"]
+> * Konfigurera utbildnings skript för att använda data i en lokal katalog
+> * Testa utbildnings skriptet lokalt
+> * Ladda upp data till Azure
+> * Skapa kontroll skript
+> * Förstå de nya Azure Machine Learning begreppen (skicka parametrar, data uppsättningar, data lager)
+> * Skicka in och kör ditt utbildnings skript
+> * Visa dina kod utdata i molnet
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Slutför [del 3](tutorial-1st-experiment-sdk-train.md) av serien.
+* Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.
+* Lokal utvecklings miljö. Detta omfattar men är inte begränsat till Visual Studio Code, Jupyter eller pycharm med.
+* Python (version 3.5-3.7).
+
+## <a name="adjust-the-training-script"></a>Justera övnings skriptet
+Nu har du ditt utbildnings skript (självstudie/src/träna. py) som körs i Azure Machine Learning och kan övervaka modell prestanda. Låt oss parametrize övnings skriptet genom att introducera argument. Genom att använda argument kan du enkelt jämföra olika hyperparmeters.
+
+Nu är vårt utbildnings skript inställt på att ladda ned CIFAR10-datauppsättningen på varje körning. Python-koden nedan har justerats för att läsa data från en katalog.
+
+>[!NOTE] 
+> Användningen av `argparse` för att parametize skriptet.
+
+```python
+# tutorial/src/train.py
+import os
+import argparse
+import torch
+import torch.optim as optim
+import torchvision
+import torchvision.transforms as transforms
+
+from model import Net
+from azureml.core import Run
+
+run = Run.get_context()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data_path', type=str, help='Path to the training data')
+    parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for SGD')
+    parser.add_argument('--momentum', type=float, default=0.9, help='Momentum for SGD')
+    args = parser.parse_args()
+    
+    print("===== DATA =====")
+    print("DATA PATH: " + args.data_path)
+    print("LIST FILES IN DATA PATH...")
+    print(os.listdir(args.data_path))
+    print("================")
+    
+    # prepare DataLoader for CIFAR10 data
+    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+    trainset = torchvision.datasets.CIFAR10(
+        root=args.data_path,
+        train=True,
+        download=False,
+        transform=transform,
+    )
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+
+    # define convolutional network
+    net = Net()
+
+    # set up pytorch loss /  optimizer
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = optim.SGD(
+        net.parameters(),
+        lr=args.learning_rate,
+        momentum=args.momentum,
+    )
+
+    # train the network
+    for epoch in range(2):
+
+        running_loss = 0.0
+        for i, data in enumerate(trainloader, 0):
+            # unpack the data
+            inputs, labels = data
+
+            # zero the parameter gradients
+            optimizer.zero_grad()
+
+            # forward + backward + optimize
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            # print statistics
+            running_loss += loss.item()
+            if i % 2000 == 1999:
+                loss = running_loss / 2000
+                run.log('loss', loss) # log loss metric to AML
+                print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
+                running_loss = 0.0
+
+    print('Finished Training')
+```
+
+### <a name="understanding-the-code-changes"></a>Förstå kod ändringarna
+
+Den kod som används i `train.py` har använt `argparse` biblioteket för att konfigurera `data_path` , `learning_rate` , och `momentum` .
+
+```python
+# .... other code
+parser = argparse.ArgumentParser()
+parser.add_argument('--data_path', type=str, help='Path to the training data')
+parser.add_argument('--learning_rate', type=float, default=0.001, help='Learning rate for SGD')
+parser.add_argument('--momentum', type=float, default=0.9, help='Momentum for SGD')
+args = parser.parse_args()
+# ... other code
+```
+
+`train.py`Skriptet har också anpassats för att uppdatera optimeringen så att de använder de användardefinierade parametrarna:
+
+```python
+optimizer = optim.SGD(
+    net.parameters(),
+    lr=args.learning_rate,     # get learning rate from command-line argument
+    momentum=args.momentum,    # get momentum from command-line argument
+)
+```
+
+## <a name="test-the-script-locally"></a>Testa skriptet lokalt
+
+Ditt skript accepterar nu _data Sök vägen_ som ett argument. Börja med genom att testa det lokalt. Lägg till i din själv studie katalog struktur en mapp med namnet `data` . Katalog strukturen bör se ut så här:
+
+```txt
+tutorial
+└──.azureml
+|  └──config.json
+|  └──pytorch-env.yml
+└──data
+└──src
+|  └──hello.py
+|  └──model.py
+|  └──train.py
+└──01-create-workspace.py
+└──02-create-compute.py
+└──03-run-hello.py
+└──04-run-pytorch.py
+```
+
+Om du inte körde `train.py` lokalt i den föregående själv studie kursen har du inte `data/` katalogen. I det här fallet kör du `torchvision.datasets.CIFAR10` metoden lokalt med `download=True` i `train.py` skriptet.
+
+För att köra det ändrade tränings skriptet lokalt, anropa:
+
+```bash
+python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
+```
+
+Du undviker att ladda ned CIFAR10-datauppsättningen genom att skicka in en lokal sökväg till data. Du kan också experimentera med olika värden för _inlärnings frekvens_ _och_ avvikande egenskaper utan att behöva hårdkoda dem i övnings skriptet.
+
+## <a name="upload-the-data-to-azure"></a>Ladda upp data till Azure
+
+För att kunna köra det här skriptet i Azure Machine Learning måste du göra dina utbildnings data tillgängliga i Azure. Din Azure Machine Learning-arbetsyta levereras med ett _standard_ - **datalager** – ett Azure Blob Storage-konto – som du kan använda för att lagra dina tränings data.
+
+>[!NOTE] 
+> Med Azure Machine Learning kan du ansluta andra molnbaserade data lager som lagrar dina data. Mer information finns i [data lager dokumentation](./concept-data.md).  
+
+Skapa ett nytt python-kontroll skript `05-upload-data.py` som anropas i `tutorial` katalogen:
+
+```python
+# tutorial/05-upload-data.py
+from azureml.core import Workspace
+ws = Workspace.from_config()
+datastore = ws.get_default_datastore()
+datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=True)
+```
+
+`target_path`Anger sökvägen till data lagret där CIFAR10-data ska överföras.
+
+>[!TIP] 
+> Även om du använder Azure Machine Learning för att överföra data kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda upp Ad hoc-filer. Om du behöver ett ETL-verktyg kan [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) användas för att mata in dina data i Azure.
+
+Kör python-filen för att överföra data (Obs: uppladdningen ska vara snabb, mindre än 60 sekunder.)
+
+```bash
+python 05-upload-data.py
+```
+Du bör se följande standardutdata:
+```txt
+Uploading ./data\cifar-10-batches-py\data_batch_2
+Uploaded ./data\cifar-10-batches-py\data_batch_2, 4 files out of an estimated total of 9
+.
+.
+Uploading ./data\cifar-10-batches-py\data_batch_5
+Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
+Uploaded 9 files
+```
+
+
+## <a name="create-a-control-script"></a>Skapa ett kontroll skript
+
+När du har gjort det tidigare skapar du ett nytt python-kontroll skript med namnet `06-run-pytorch-data.py` :
+
+```python
+# tutorial/06-run-pytorch-data.py
+from azureml.core import Workspace
+from azureml.core import Experiment
+from azureml.core import Environment
+from azureml.core import ScriptRunConfig
+from azureml.core import Dataset
+
+if __name__ == "__main__":
+    ws = Workspace.from_config()
+    
+    datastore = ws.get_default_datastore()
+    dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))
+
+    experiment = Experiment(workspace=ws, name='day1-experiment-data')
+
+    config = ScriptRunConfig(
+        source_directory='./src',
+        script='train.py',
+        compute_target='cpu-cluster',
+        arguments=[
+            '--data_path', dataset.as_named_input('input').as_mount(),
+            '--learning_rate', 0.003,
+            '--momentum', 0.92],
+        )
+    
+    # set up pytorch environment
+    env = Environment.from_conda_specification(name='pytorch-env',file_path='.azureml/pytorch-env.yml')
+    config.run_config.environment = env
+
+    run = experiment.submit(config)
+    aml_url = run.get_portal_url()
+    print("Submitted to an Azure Machine Learning compute cluster. Click on the link below")
+    print("")
+    print(aml_url)
+```
+
+### <a name="understand-the-code-changes"></a>Förstå kod ändringarna
+
+Kontroll skriptet liknar det som [ingår i del 3 i den här serien](tutorial-1st-experiment-sdk-train.md) med följande nya rader:
+
+:::row:::
+   :::column span="":::
+      `dataset = Dataset.File.from_files( ... )`
+   :::column-end:::
+   :::column span="2":::
+      En [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) används för att referera till de data som du överförde till Azure Blob Store. Data uppsättningar är ett abstraktions lager ovanpå dina data som är utformade för att förbättra tillförlitligheten och tillförlitligheten.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `config = ScriptRunConfig(...)`
+   :::column-end:::
+   :::column span="2":::
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) har ändrats för att innehålla en lista över argument som ska skickas till `train.py` . `dataset.as_named_input('input').as_mount()`Argumentet innebär att katalogen som anges kommer att _monteras_ på beräknings målet.
+   :::column-end:::
+:::row-end:::
+
+## <a name="submit-run-to-azure-machine-learning"></a>Skicka kör till Azure Machine Learning
+
+Skicka nu om körningen för att använda den nya konfigurationen:
+
+```bash
+python 06-run-pytorch-data.py
+```
+
+Då skrivs en URL till experimentet i Azure Machine Learning Studio. Om du navigerar till länken kommer du att kunna se din kod som körs.
+
+### <a name="inspect-the-70_driver_log-log-file"></a>Granska 70_driver_log logg filen
+
+I Azure Machine Learning Studio navigerar du till experimentet (genom att klicka på URL-utdata från cellen ovan) följt av **utdata + loggar**. Klicka på 70_driver_log.txt-filen – du bör se följande utdata:
+
+```txt
+Processing 'input'.
+Processing dataset FileDataset
+{
+  "source": [
+    "('workspaceblobstore', 'datasets/cifar10')"
+  ],
+  "definition": [
+    "GetDatastoreFiles"
+  ],
+  "registration": {
+    "id": "XXXXX",
+    "name": null,
+    "version": null,
+    "workspace": "Workspace.create(name='XXXX', subscription_id='XXXX', resource_group='X')"
+  }
+}
+Mounting input to /tmp/tmp9kituvp3.
+Mounted input to /tmp/tmp9kituvp3 as folder.
+Exit __enter__ of DatasetContextManager
+Entering Run History Context Manager.
+Current directory:  /mnt/batch/tasks/shared/LS_root/jobs/dsvm-aml/azureml/tutorial-session-3_1600171983_763c5381/mounts/workspaceblobstore/azureml/tutorial-session-3_1600171983_763c5381
+Preparing to call script [ train.py ] with arguments: ['--data_path', '$input', '--learning_rate', '0.003', '--momentum', '0.92']
+After variable expansion, calling script [ train.py ] with arguments: ['--data_path', '/tmp/tmp9kituvp3', '--learning_rate', '0.003', '--momentum', '0.92']
+
+Script type = None
+===== DATA =====
+DATA PATH: /tmp/tmp9kituvp3
+LIST FILES IN DATA PATH...
+['cifar-10-batches-py', 'cifar-10-python.tar.gz']
+```
+
+Information
+
+1. Azure Machine Learning har monterat BLOB Store till beräknings klustret automatiskt åt dig.
+2. Det ``dataset.as_named_input('input').as_mount()`` som används i kontroll skriptet matchar monterings punkten
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+
+Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbetsytans egenskaper och välj **Ta bort**.
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här självstudien såg vi hur du laddar upp data till Azure med hjälp av en `Datastore` . Data lagret hanteras som moln lagring för din arbets yta, vilket ger dig en beständig och flexibel plats för att skydda dina data.
+
+Du har sett hur du ändrar ditt utbildnings skript för att acceptera en data Sök väg via kommando raden. Genom att använda en `Dataset` kan du montera en katalog till fjärrkörningen. 
+
+Nu när du har en modell kan du lära dig:
+
+* [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md)

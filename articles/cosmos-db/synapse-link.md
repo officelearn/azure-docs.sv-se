@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814398"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891489"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -21,7 +21,7 @@ ms.locfileid: "88814398"
 
 Azure Synapse-länken för Azure Cosmos DB är en molnbaserad hybrid transaktions-och analys bearbetnings funktion (HTAP) som gör att du kan köra nära real tids analys över drifts data i Azure Cosmos DB. Azure Synapse-länken skapar en tätt sömlös integrering mellan Azure Cosmos DB och Azure Synapse Analytics.
 
-Med hjälp av [Azure Cosmos DB Analytical Store](analytical-store-introduction.md), ett fullständigt isolerat kolumn lager, ger Azure Synapse-länken ingen analys av Extract-Transformation-load (ETL) i [Azure Synapse-analys](../synapse-analytics/overview-what-is.md) mot dina operativa data i stor skala. Affärsanalytiker, data tekniker och data experter kan nu använda Synapse Spark eller Synapse SQL för att köra nära real tids Business Intelligence, analyser och maskin inlärnings pipeliner. Du kan åstadkomma detta utan att påverka prestanda för dina transaktions arbets belastningar på Azure Cosmos DB. 
+Med hjälp av [Azure Cosmos DB Analytical Store](analytical-store-introduction.md), ett fullständigt isolerat kolumn lager, ger Azure Synapse-länken ingen analys av Extract-Transformation-load (ETL) i [Azure Synapse-analys](../synapse-analytics/overview-what-is.md) mot dina operativa data i stor skala. Affärsanalytiker, data tekniker och data experter kan nu använda Synapse Spark eller Synapse SQL för att köra nära real tids Business Intelligence, analyser och maskin inlärnings pipeliner. Du kan åstadkomma detta utan att påverka prestanda för dina transaktionsarbetsbelastningar på Azure Cosmos DB. 
 
 Följande bild visar Azure Synapse Link integration med Azure Cosmos DB och Azure Synapse Analytics: 
 
@@ -40,7 +40,6 @@ Med Azure Synapse-länken kan du direkt komma åt Azure Cosmos DB analys lager m
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Insikter i nära real tid i dina användnings data
 
 Nu kan du få omfattande insikter om dina drift data i nära real tid med hjälp av Azure Synapse-länken. ETL-baserade system tenderar att ha högre latens för att analysera dina drift data, på grund av många lager som behövs för att extrahera, transformera och läsa in drift data. Med inbyggd integrering av Azure Cosmos DB analys lager med Azure Synapse Analytics kan du analysera drift data i nära real tid och aktivera nya affärs scenarier. 
-
 
 ### <a name="no-impact-on-operational-workloads"></a>Ingen påverkan på drift arbets belastningar
 
@@ -91,7 +90,7 @@ Du kan fråga data från Azure Cosmos DB analys lager samtidigt, med interop öv
 
 Den här integrationen möjliggör följande HTAP-scenarier för olika användare:
 
-* En BI-tekniker som vill modellera och publicera en rapport för att komma åt drift data i Azure Cosmos DB direkt via Synapse SQL.
+* En BI-tekniker som vill modellera och publicera en Power BI rapport för att komma åt direkt användnings data i Azure Cosmos DB direkt via Synapse SQL.
 
 * En dataanalytiker som vill härleda insikter från användnings data i en Azure Cosmos DB-behållare genom att fråga den med Synapse SQL, läsa data i skala och kombinera dessa resultat med andra data källor.
 
@@ -115,16 +114,15 @@ I sådana fall ger Synapse-länken en mer integrerad analys upplevelse utan att 
 
 Synapse-länk rekommenderas inte om du söker efter traditionella informations lager krav som hög samtidighet, arbets belastnings hantering och persistence av agg regeringar över flera data källor. Mer information finns i [vanliga scenarier som kan användas med Azure Synapse-länken för Azure Cosmos DB](synapse-link-use-cases.md).
 
-
 ## <a name="limitations"></a>Begränsningar
 
-* Under den offentliga för hands versionen stöds endast Azure Synapse-länken för API: et för Azure Cosmos DB SQL (Core). Stöd för Azure Cosmos DB s API för MongoDB & API för Cassandra är för närvarande under en gated Preview. Om du vill begära åtkomst till gated Preview, e-posta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com).
+* Azure Synapse-länken stöds för API: et för Azure Cosmos DB SQL (Core) och Azure Cosmos DB s API för MongoDB. Stöd för API för Cassandra är för närvarande under en gated Preview. Om du vill begära åtkomst till gated Preview, e-posta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com).
 
-* För närvarande kan analys lagret bara aktive ras för nya behållare (både nya och befintliga Azure Cosmos DB-konton).
-
-* I för hands versionen stöds inte säkerhets kopiering och återställning av behållare för Synapse-länk aktiverade databas konton. Om du har produktions arbets belastningar som kräver säkerhets kopierings-och återställnings funktioner rekommenderar vi inte att du aktiverar Synapse-länken på dessa databas konton. 
+* För närvarande kan analys lagret bara aktive ras för nya behållare. Om du vill använda analytisk lagring för befintliga behållare migrerar du data från dina befintliga behållare till nya behållare med hjälp av [Azure Cosmos DB Migreringsverktyg](cosmosdb-migrationchoices.md). Du kan aktivera Synapse-länk på nya och befintliga Azure Cosmos DB-konton.
 
 * Att komma åt Azure Cosmos DB analys lager med SQL Server utan Synapse är för närvarande överbelastad för hands version. Om du vill begära åtkomst, e-posta [Azure Cosmos DBS teamet](mailto:cosmosdbsynapselink@microsoft.com).
+
+* I för hands versionen stöds inte säkerhets kopiering och återställning av behållare för Synapse-länk aktiverade databas konton. Om du har arbets belastningar som kräver säkerhets kopierings-och återställnings funktioner rekommenderar vi inte att du aktiverar Synapse-länken för dessa databas konton. 
 
 * Det går inte att komma åt Azure Cosmos DB Analytics Store med SQL-etableringen för Synapse.
 

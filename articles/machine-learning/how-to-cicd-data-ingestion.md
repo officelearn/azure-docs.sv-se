@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 47b41e807c4d7b9a9fce6591da6655db74f483f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228893"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971260"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps för en pipeline för data inmatning
 
@@ -168,11 +168,11 @@ labels = np.array(data['target'])
 
 Det här namnet skiljer sig åt i ***utvecklings***-, ***frågor***-, ***UAT***-och ***produktions*** miljöer. I en komplex pipeline med flera aktiviteter kan det finnas flera anpassade egenskaper. Det är en bra idé att samla in alla dessa värden på en plats och definiera dem som pipeline- ***variabler***:
 
-![ADF-variabler](media/how-to-cicd-data-ingestion/adf-variables.png)
+![Skärm bild som visar en antecknings bok som heter PrepareData och M L kör pipelinen som kallas M L kör pipeline överst med fliken variabler som valts nedan med alternativet att lägga till nya variabler, var och en med ett namn, typ och standardvärde.](media/how-to-cicd-data-ingestion/adf-variables.png)
 
 Pipeline-aktiviteterna kan referera till pipelines-variablerna när de faktiskt använder dem:
 
-![ADF – Notebook-Parameters](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
+![Skärm bild som visar en antecknings bok som heter PrepareData och M L kör pipelinen som kallas M L kör pipeline överst med fliken Inställningar som du valt nedan.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
 Azure Data Factory arbets ytan exponerar ***inte*** pipeline-variabler som standardvärden för Azure Resource Manager-mallar. Arbets ytan använder [standard mal len Parameterisering](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) som avgör vilka pipeline-egenskaper som ska visas som Azure Resource Manager mallparametrar. Om du vill lägga till pipeline-variabler i listan uppdaterar du `"Microsoft.DataFactory/factories/pipelines"` avsnittet i [standard Parameterisering-mallen](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) med följande kodfragment och placerar resultatet JSON-filen i roten i källmappen:
 

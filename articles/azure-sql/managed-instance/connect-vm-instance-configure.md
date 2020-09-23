@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 72d5a722e6c1e6b936c6ec0386036317e887bb92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542661"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969837"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Snabb start: Konfigurera en virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,11 +85,11 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
    | **Plats** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
    | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|
-   |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösen ordet när som helst när du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|
+   |**Lösenord**|Valfritt giltigt lösenord|Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösen ordet när som helst när du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|
    | **Storlek på virtuell dator** | Vilken giltig storlek som helst | Standardvärdet i den här mallen för **Standard_B2s** räcker för den här snabb starten. |
    | **Plats**|[resourceGroup (). location].| Ändra inte det här värdet. |
    | **Virtual Network namn**|Det virtuella nätverk där du skapade den hanterade instansen|
-   | **Under näts namn**|Namnet på det undernät som du skapade i föregående procedur| Välj inte det undernät där du skapade den hanterade instansen.|
+   | **Namn på undernät**|Namnet på det undernät som du skapade i föregående procedur| Välj inte det undernät där du skapade den hanterade instansen.|
    | **artefakt plats** | [Deployment (). Properties. templateLink. URI] | Ändra inte det här värdet. |
    | **SAS-token för artefakt plats** | Lämna tomt | Ändra inte det här värdet. |
 
@@ -110,7 +110,7 @@ Följande steg visar hur du ansluter till din nya virtuella dator med hjälp av 
 
 1. När distributionen är klar går du till den virtuella datorresursen.
 
-    ![Virtuell dator](./media/connect-vm-instance-configure/vm.png)  
+    ![Skärm bild som visar Azure Portal med översikts sidan för den valda virtuella datorn och ansluter markerat.](./media/connect-vm-instance-configure/vm.png)  
 
 2. Välj **Anslut**.
 

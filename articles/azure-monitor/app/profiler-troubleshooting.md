@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049787"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979391"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera eller Visa Application Insights Profiler
 
@@ -79,12 +79,12 @@ För att profiler ska fungera korrekt:
    1. På menyn **verktyg** väljer du **instrument panel för WebJobs**.  
       Fönstret **WebJobs** öppnas. 
    
-      ![profiler-webbjobb]   
+      ![Skärm bild som visar fönstret WebJobs som visar namn, status och senaste körnings tid för jobb.][profiler-webjob]   
    
    1. Om du vill visa information om webb jobbet, inklusive loggen, väljer du länken **ApplicationInsightsProfiler3** .  
      Informations fönstret för **kontinuerliga webbjobb** öppnas.
 
-      ![profiler-jobb-logg]
+      ![Skärm bild som visar informations fönstret för kontinuerliga webbjobb.][profiler-webjob-log]
 
 Om du inte kan ta reda på varför profiler inte fungerar för dig kan du hämta loggen och skicka den till vårt team för att få hjälp serviceprofilerhelp@microsoft.com . 
     
@@ -191,5 +191,5 @@ Om ditt program ansluter till Internet via en proxy eller en brand vägg, kan du
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[profiler-webbjobb]:./media/profiler-troubleshooting/Profiler-webjob.png
-[profiler-jobb-logg]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png

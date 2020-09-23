@@ -1,6 +1,6 @@
 ---
-title: Distribuera GPU-modul på Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du aktiverar beräkning och gör din Azure Stack Edge-enhets beräkning-klar via det lokala användar gränssnittet.
+title: Distribuera GPU-modul på Azure Stack Edge Pro GPU-enhet | Microsoft Docs
+description: Beskriver hur du aktiverar beräkning och gör din Azure Stack Edge Pro-enhet Compute-Ready via det lokala användar gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,22 +8,22 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254567"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899723"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Distribuera en GPU-aktiverad IoT-modul på Azure Stack Edge GPU-enhet
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Distribuera en GPU-aktiverad IoT-modul på Azure Stack Edge Pro GPU-enhet
 
-Den här artikeln beskriver hur du distribuerar en GPU-aktiverad IoT Edge-modul på din Azure Stack Edge GPU-enhet. 
+I den här artikeln beskrivs hur du distribuerar en GPU-aktiverad IoT Edge-modul på din Azure Stack Edge Pro GPU-enhet. 
 
 I den här artikeln kan du se hur du:
-  - Förbered Azure Stack Edge för att köra en GPU-modul.
+  - Förbered Azure Stack Edge Pro för att köra en GPU-modul.
   - Hämta och installera exempel kod från en git-lagringsplats.
   - Skapa lösningen och generera ett distributions manifest.
-  - Distribuera lösningen till Azure Stack Edge-enhet.
+  - Distribuera lösningen till Azure Stack Edge Pro-enhet.
   - Övervaka utdata från modulen.
 
 
@@ -35,8 +35,8 @@ GPU-exemplet i den här artikeln innehåller PyTorch-och TensorFlow-kod för att
 
 Innan du börjar ska du kontrollera att du har:
 
-- Du har åtkomst till en GPU-aktiverad Azure Stack Edge-enhet med en nod. Enheten aktive ras med en resurs i Azure. Se [Aktivera enheten](azure-stack-edge-gpu-deploy-activate.md).
-- Du har konfigurerat Compute på den här enheten. Följ stegen i [Självstudier: Konfigurera Compute på Azure Stack Edge-enheten](azure-stack-edge-gpu-deploy-configure-compute.md).
+- Du har åtkomst till en GPU-aktiverad 1-Node Azure Stack Edge Pro-enhet. Enheten aktive ras med en resurs i Azure. Se [Aktivera enheten](azure-stack-edge-gpu-deploy-activate.md).
+- Du har konfigurerat Compute på den här enheten. Följ stegen i [självstudien: Konfigurera Compute på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-configure-compute.md).
 - En Azure Container Registry (ACR). Gå till bladet **åtkomst nycklar** och anteckna ACR-inloggnings servern, användar namnet och lösen ordet. Mer information finns i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
 - Följande utvecklings resurser på en Windows-klient:
     - [Azure CLI 2,0 eller senare](https://aka.ms/installazurecliwindows)
@@ -144,9 +144,9 @@ Innan du börjar ska du kontrollera att du har:
 
 1. I kommandopaletten i VS Code kör du **Azure IoT Hub: Select IoT Hub** (Azure IoT Hub: Välj IoT Hub).
 
-2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. I det här fallet väljer du den prenumeration som används för att distribuera Azure Stack Edge-enheten och väljer IoT Edge enheten som skapats för din Azure Stack Edge-enhet. Detta inträffar när du konfigurerar Compute via Azure Portal i föregående steg.
+2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. I det här fallet väljer du den prenumeration som används för att distribuera Azure Stack Edge Pro-enheten och väljer IoT Edge enheten som skapats för din Azure Stack Edge Pro-enhet. Detta inträffar när du konfigurerar Compute via Azure Portal i föregående steg.
 
-3. I VS Code-Utforskaren expanderar du avsnittet Azure IoT Hub. Under **enheter**bör du se IoT Edge enhet som motsvarar din Azure Stack Edge-enhet. 
+3. I VS Code-Utforskaren expanderar du avsnittet Azure IoT Hub. Under **enheter**bör du se IoT Edge enhet som motsvarar din Azure Stack Edge Pro-enhet. 
 
     1. Välj den enheten, högerklicka och välj **starta övervakning inbyggd händelse slut punkt**.
   
@@ -156,7 +156,7 @@ Innan du börjar ska du kontrollera att du har:
 
         ![Modul i IoT Hub](media/azure-stack-edge-gpu-deploy-sample-module/module-iot-hub-1.png)  
 
-    3. I VS Code-terminalen bör även IoT Hub händelser visas som övervaknings resultatet för Azure Stack Edge-enheten.
+    3. I VS Code-terminalen bör även IoT Hub händelser visas som övervaknings resultatet för din Azure Stack Edge Pro-enhet.
 
         ![Övervaka utdata](media/azure-stack-edge-gpu-deploy-sample-module/monitor-events-output-1.png) 
 

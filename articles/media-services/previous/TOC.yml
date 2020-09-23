@@ -323,11 +323,12 @@
           items:
             - name: Uppgiften förinställd
               href: indexer-task-preset.md
+    - name: Analysera innehåll
+      items:
         - name: Bearbeta med ansiktsredigering
           href: media-services-face-redaction.md
-          items:
-            - name: Genomgång av ansiktsredigering
-              href: media-services-redactor-walkthrough.md
+        - name: Genomgång av ansiktsredigering
+          href: media-services-redactor-walkthrough.md
     - name: Konfigurera telemetri
       href: media-services-telemetry-overview.md
       items:

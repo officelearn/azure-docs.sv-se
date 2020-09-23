@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Använd klient biblioteket för avancerad läsare'
+title: 'Snabb start: klient bibliotek för avancerad läsare'
 titleSuffix: Azure Cognitive Services
-description: 'API: t för avancerad läsare erbjuder klient bibliotek som gör det enkelt att integrera Sök funktioner i dina program. Använd den här snabb starten för att börja skicka Sök begär Anden och få tillbaka resultatet.'
+description: Klient biblioteket för avancerad läsare gör det enkelt att integrera tjänsten för avancerad läsning i dina webb program för att förbättra Läs förståelse. I den här snabb starten får du lära dig hur du använder avancerad läsare för text markering, identifierar delar av tal, läser in markerad text, översättning med mera.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,17 +9,18 @@ zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-csharp
-ms.openlocfilehash: c5f02c473fb4a44fb8c0235658d3c8f6e3279844
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: cog-serv-seo-aug-2020
+keywords: Visa bilder, delar av tal, läsa markerad text, översätta ord, läsa förståelse
+ms.openlocfilehash: 621be6293b4ac487cafafc14498524c97fdc6d82
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505428"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978264"
 ---
-# <a name="quickstart-use-the-immersive-reader-client-library"></a>Snabb start: Använd klient biblioteket för avancerad läsare
+# <a name="quickstart-get-started-with-immersive-reader"></a>Snabb start: kom igång med avancerad läsare
 
 ::: zone pivot="programming-language-csharp"
 

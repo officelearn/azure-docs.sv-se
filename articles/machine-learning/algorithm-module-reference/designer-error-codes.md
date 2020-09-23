@@ -1,7 +1,7 @@
 ---
-title: Felsöka fel i modulen designer (för hands version)
+title: Felsöka fel i designer-modul
 titleSuffix: Azure Machine Learning
-description: Felsöka modulens felkoder i Azure Machine Learning designer (för hands version)
+description: Felsöka fel koder för moduler i Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 023a28c6f1d89d0975ff8ecac2466c51c05fa9da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876928"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908093"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Undantag och fel koder för designern (för hands version)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Undantag och fel koder för designern
 
-I den här artikeln beskrivs fel meddelandena och undantags koderna i Azure Machine Learning designer (för hands version) för att hjälpa dig att felsöka dina pipelines i Machine Learning.
+I den här artikeln beskrivs fel meddelandena och undantags koderna i Azure Machine Learning designer som hjälper dig att felsöka dina pipelines i Machine Learning.
 
 Du hittar fel meddelandet i designern genom att följa dessa steg:  
 
@@ -491,7 +491,7 @@ Det kan också hända att en etikett kolumn finns i data uppsättningen, men int
 
 **Lösning:**
 
-+ Öppna den modul som genererade felet och ta reda på om en etikett kolumn finns. Namnet eller data typen för kolumnen spelar ingen roll, så länge kolumnen innehåller ett enda resultat (eller beroende variabel) som du försöker förutsäga. Om du inte är säker på vilken kolumn som har etiketten söker du efter ett generiskt namn, till exempel *klass* eller *mål*. 
++ Öppna den modul som genererade felet och ta reda på om en etikett kolumn finns. Namnet eller data typen för kolumnen spelar ingen roll, så länge kolumnen innehåller ett enda resultat (eller beroende variabel) som du försöker förutsäga. Om du inte är säker på vilken kolumn som har etiketten söker du efter ett generiskt namn, till exempel  *klass* eller *mål*. 
 +  Om data uppsättningen inte innehåller någon etikett kolumn, är det möjligt att kolumnen etikett har tagits bort direkt eller av misstag. Det kan också vara att data uppsättningen inte är utdata från en underordnad poängsättnings-modul.
 + Om du uttryckligen vill markera kolumnen som etikett-kolumn, lägger du till modulen [Redigera metadata](edit-metadata.md) och ansluter data uppsättningen. Markera endast kolumnen etikett och välj **etikett** i list rutan **fält** . 
 + Om fel kolumn har valts som etikett kan du välja **Rensa etikett** från **fälten** för att åtgärda metadata för kolumnen. 

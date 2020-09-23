@@ -1,29 +1,29 @@
 ---
 title: Skapa certifikat med Microsoft Azure Stack Hub readiness Checker-verktyget | Microsoft Docs
-description: Beskriver hur du skapar certifikat begär Anden och sedan hämtar och installerar certifikat på Azure Stack Edge GPU-enhet med hjälp av verktyget Azure Stack Hub readiness Checker.
-services: Azure Stack Edge
+description: Beskriver hur du skapar certifikat begär Anden och sedan hämtar och installerar certifikat på din Azure Stack Edge Pro GPU-enhet med hjälp av verktyget Azure Stack Hub readiness Checker.
+services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 7a6cf265f0be177aab436d544e694c5d59cfffd5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891091"
 ---
-# <a name="create-certificates-for-your-azure-stack-edge-using-azure-stack-hub-readiness-checker-tool"></a>Skapa certifikat för din Azure Stack Edge med Azure Stack Hub readiness Checker-verktyget 
+# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Skapa certifikat för din Azure Stack Edge Pro med Azure Stack Hub readiness Checker-verktyget 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Den här artikeln beskriver hur du skapar certifikat för din Azure Stack Edge med hjälp av Azure Stack Hub readiness Checker-verktyget. 
+Den här artikeln beskriver hur du skapar certifikat för Azure Stack Edge Pro med hjälp av Azure Stack Hub readiness Checker-verktyget. 
 
 ## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Använda Azure Stack Hub readiness Checker-verktyget
 
-Använd Azure Stack Hub readiness Checker-verktyget för att skapa certifikat signerings förfrågningar (kund tjänst representant) för en Azure Stack distribution av Edge-enheter. Du kan skapa dessa förfrågningar när du har placerat en order för Azure Stack Edge-enheten och väntar på att enheten ska anlända. 
+Använd Azure Stack Hub readiness Checker-verktyget för att skapa certifikat signerings förfrågningar (kund tjänst representant) för en Azure Stack distribution av Edge Pro-enheter. Du kan skapa dessa förfrågningar när du har placerat en order för Azure Stack Edge Pro-enheten och väntar på att enheten ska anlända. 
 
 > [!NOTE]
 > Använd endast det här verktyget i test-eller utvecklings syfte och inte för produktions enheter. 
@@ -37,12 +37,12 @@ Du kan använda verktyget Azure Stack Hub readiness Checker (AzsReadinessChecker
 - VPN-certifikat
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Kontrol lera följande om du vill skapa kund service representanter för Azure Stack Edge-enhets distribution: 
+Kontrol lera följande om du vill skapa kund service representanter för Azure Stack Edge Pro-enhets distribution: 
 
 - Du har en klient som kör Windows 10 eller Windows Server 2016 eller senare. 
-- Du har laddat ned verktyget Microsoft Azure Stack Hub readiness Checker 1.2002.1133.85 [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker) på det här systemet. Du kan behöva söka efter det här paketet. Endast den här versionen av verktyget kan skapa certifikat för Azure Stack Edge-enheter.
+- Du har laddat ned verktyget Microsoft Azure Stack Hub readiness Checker 1.2002.1133.85 [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker) på det här systemet. Du kan behöva söka efter det här paketet. Endast den här versionen av verktyget kan skapa certifikat för Azure Stack Edge Pro-enheter.
 - Du har följande information för certifikaten:
   - Enhetsnamn
   - Nodens serie nummer
@@ -50,7 +50,7 @@ Kontrol lera följande om du vill skapa kund service representanter för Azure S
 
 ## <a name="generate-certificate-signing-requests"></a>Generera begär Anden om certifikat signering
 
-Använd de här stegen för att förbereda Azure Stack Edge-enhetens certifikat:
+Använd de här stegen för att förbereda Azure Stack Edge Pro-enhetens certifikat:
 
 1. Kör PowerShell som administratör (5,1 eller senare).
 2. Installera Azure Stack Hub readiness Checker-verktyget. I PowerShell-prompten skriver du: 
@@ -121,15 +121,15 @@ Använd de här stegen för att förbereda Azure Stack Edge-enhetens certifikat:
     Du ser också en INF-mapp. Detta innehåller en hantering. <Edge-enhets namn> informations filen i klartext som förklarar certifikat informationen.  
 
 
-6. Skicka filerna till din certifikat utfärdare (antingen intern eller offentlig). Se till att certifikat utfärdaren genererar certifikat med hjälp av den genererade begäran som uppfyller Azure Stack gräns certifikat krav för [Node-certifikat](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [slut punkts certifikat](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)och [lokala UI-certifikat](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Skicka filerna till din certifikat utfärdare (antingen intern eller offentlig). Se till att certifikat utfärdaren genererar certifikat med hjälp av den genererade begäran som uppfyller Azure Stack gräns för gräns-och användar krav för [Node-certifikat](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [slut punkts certifikat](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)och [lokala UI-certifikat](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
 
 ## <a name="prepare-certificates-for-deployment"></a>Förbereda certifikat för distribution
 
-De certifikatfiler som du får från certifikat utfärdaren (CA) måste importeras och exporteras med egenskaper som matchar Azure Stack gräns enhetens certifikat krav. Utför följande steg på samma system som du genererade begär Anden om certifikat signering.
+De certifikatfiler som du får från certifikat utfärdaren (CA) måste importeras och exporteras med egenskaper som matchar Azure Stack Edge Pro-enhetens certifikat krav. Utför följande steg på samma system som du genererade begär Anden om certifikat signering.
 
-- Om du vill importera certifikaten följer du stegen i [Importera certifikat på klienterna som har åtkomst till din Azure Stack Edge-enhet](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Om du vill importera certifikaten följer du stegen i [Importera certifikat på klienterna som har åtkomst till din Azure Stack Edge Pro-enhet](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- Exportera certifikaten genom att följa stegen i [Exportera certifikat från klienten med åtkomst till Azure Stack Edge-enheten](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Exportera certifikaten genom att följa stegen i [Exportera certifikat från klienten med åtkomst till Azure Stack Edge Pro-enheten](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 
 ## <a name="validate-certificates"></a>Verifiera certifikat
@@ -152,4 +152,4 @@ Först ska du skapa en lämplig mappstruktur och placera certifikaten i motsvara
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera din Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-prep.md)
+[Distribuera din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-prep.md)

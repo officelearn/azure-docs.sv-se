@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068854"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984603"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>Mjuk borttagning aktive ras på alla nyckel valv
 
 > [!WARNING]
 > **Överändrad ändring**: möjligheten att välja bort mjuk borttagning kommer att bli föråldrad i slutet av året och det mjuka borttagnings skyddet aktive ras automatiskt för alla nyckel valv.  Azure Key Vault användare och administratörer bör aktivera mjuk borttagning av nyckel valven direkt.
+>
+> För hanterad HSM är mjuk borttagning aktiverat som standard och kan inte inaktive ras.
 
 När en hemlighet tas bort från ett nyckel valv utan mjuka borttagnings skydd tas hemligheten bort permanent. Användare kan för närvarande inte ta bort mjuk borttagning när nyckel valvet skapas, men för att skydda dina hemligheter från oavsiktlig eller skadlig borttagning av en användare, kommer Microsoft snart att aktivera mjuk borttagnings skydd på **alla** nyckel valv och användare kommer inte längre att kunna välja eller inaktivera mjuk borttagning.
 

@@ -7,17 +7,20 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: d8f3b4d57f00ef33bbf566c36babafd83be9a5df
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9d572545f589475dc2b460db90329fe8b0a838c2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299634"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904294"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Så här identifierar och löser du problem i Azure våren Cloud
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
+
 Azure våren Cloud Diagnostics är en interaktiv upplevelse som hjälper dig att felsöka din app. Ingen konfiguration krävs. När du hittar problem pekar Azure våren Cloud Diagnostics upp vad som är fel och vägleder dig till information som hjälper dig att felsöka och lösa problemet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här kursen behöver du:
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -25,7 +28,7 @@ För att slutföra den här kursen behöver du:
 * Minst ett program som redan har skapats i din tjänst instans.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Gå till sidan diagnostik
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Gå till **översikts** sidan för Azure våren-molnet.
 3. Öppna **diagnostisera och lös problem** på menyn på vänster sida av sidan.
 

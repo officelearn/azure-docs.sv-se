@@ -3,12 +3,12 @@ title: Konfigurera IP-brandvägg för Azure Relay namnrymd
 description: Den här artikeln beskriver hur du använder brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Relay namn områden.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141864"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976016"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurera IP-brandvägg för ett Azure Relay-namnområde
 Som standard är relä namn rymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -27,9 +27,9 @@ IP-brandväggens regler tillämpas på namn områdes nivå. Reglerna gäller dä
 Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandvägg för ett namn område. 
 
 1. Navigera till ditt **relä namn område** i [Azure Portal](https://portal.azure.com).
-2. Välj alternativet **nätverk** på den vänstra menyn. Om du väljer alternativet **alla nätverk** i avsnittet **Tillåt åtkomst från** accepterar relä namn området anslutningar från alla IP-adresser. Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+2. Välj alternativet **nätverk** på den vänstra menyn. Om du väljer alternativet **alla nätverk** i avsnittet  **Tillåt åtkomst från** accepterar relä namn området anslutningar från alla IP-adresser. Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
-    ![Brand vägg – alternativet alla nätverk är valt](./media/ip-firewall/all-networks-selected.png)
+    ![Skärm bild som visar sidan nätverk med alternativet alla nätverk valt.](./media/ip-firewall/all-networks-selected.png)
 1. Om du vill begränsa åtkomsten till vissa nätverk och IP-adresser väljer du alternativet **valda nätverk** . I avsnittet **brand vägg** följer du dessa steg:
     1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
     2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
@@ -51,7 +51,7 @@ Mallen tar en parameter: **ipMask**, som är en enskild IPv4-adress eller ett bl
 > ```json
 > "defaultAction": "Allow"
 > ```
-> till
+> på
 > ```json
 > "defaultAction": "Deny"
 > ```

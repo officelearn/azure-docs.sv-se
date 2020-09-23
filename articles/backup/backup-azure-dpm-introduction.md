@@ -3,12 +3,12 @@ title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar
 description: I den här artikeln lär du dig att förbereda för säkerhets kopiering av System Center Data Protection Manager (DPM) till Azure med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021042"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975450"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -61,7 +61,7 @@ Du kan välja mellan Geo-redundant lagring och lokalt redundant lagring.
 
 - Valvet använder geo-redundant lagring som standard.
 - Om valvet är din primära säkerhets kopia lämnar du alternativet inställt på Geo-redundant lagring. Om du vill ha ett billigare alternativ som inte är lika beständigt kan du använda följande procedur för att konfigurera lokalt redundant lagring.
-- Lär dig mer om [Azure Storage](../storage/common/storage-redundancy.md)och alternativen [Geo-redundant](../storage/common/storage-redundancy.md) och [lokalt redundant](../storage/common/storage-redundancy.md) lagring.
+- Lär dig mer om [Azure Storage](../storage/common/storage-redundancy.md)och de [geo-redundanta](../storage/common/storage-redundancy.md#geo-redundant-storage), [lokalt redundanta](../storage/common/storage-redundancy.md#locally-redundant-storage) och [zon redundanta](../storage/common/storage-redundancy.md#zone-redundant-storage) lagrings alternativen.
 - Ändra lagrings inställningarna före den första säkerhets kopieringen. Om du redan har säkerhetskopierat ett objekt kan du sluta säkerhetskopiera det i valvet innan du ändrar lagrings inställningarna.
 
 Så här redigerar du inställningen för lagringsreplikering:
@@ -131,7 +131,7 @@ Alla datorer som säkerhets kopie ras av Azure Backup måste ha säkerhets kopie
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registrera DPM-servern i valvet
 
-1. I DPM-administratörskonsolen > **hantering**väljer du **online**. Välj **Registrera**. Guiden Registrera Server öppnas.
+1. I DPM-administratörskonsolen > **hantering**väljer du **online**. Välj **Register** (Registrera). Guiden Registrera Server öppnas.
 2. I **proxykonfiguration**anger du proxyinställningarna efter behov.
 
     ![Proxykonfiguration](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
@@ -165,7 +165,7 @@ Alla datorer som säkerhets kopie ras av Azure Backup måste ha säkerhets kopie
 
 7. Välj **Registrera** för att registrera DPM-servern på valvet.
 
-När servern har registrerats till valvet är du nu redo att börja säkerhetskopiera till Microsoft Azure. Du måste konfigurera skydds gruppen i DPM-konsolen för att säkerhetskopiera arbets belastningar till Azure. [Lär dig hur](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) du distribuerar skydds grupper.
+När servern har registrerats till valvet är du nu redo att börja säkerhetskopiera till Microsoft Azure. Du måste konfigurera skydds gruppen i DPM-konsolen för att säkerhetskopiera arbets belastningar till Azure. [Lär dig hur](/system-center/dpm/create-dpm-protection-groups) du distribuerar skydds grupper.
 
 ## <a name="troubleshoot-vault-credentials"></a>Felsöka autentiseringsuppgifter för valvet
 

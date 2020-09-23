@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087192"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983615"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory-priser genom exempel
 
@@ -38,7 +38,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 
 3. En schema utlösare för att köra pipelinen varje timme.
 
-   ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Diagrammet visar en pipeline med en schema utlösare. I pipeline flödar kopierings aktiviteten till en indata-datauppsättning som flödar till en länkad S3-tjänst och kopierings aktiviteten också till en data uppsättning för utdata som flödar till en Azure Storage länkad tjänst.](media/pricing-concepts/scenario1.png)
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |
@@ -69,7 +69,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 2. En Azure Databricks-aktivitet för data omvandlingen.
 3. En schema utlösare för att köra pipelinen varje timme.
 
-![Scenario2](media/pricing-concepts/scenario2.png)
+![Diagrammet visar en pipeline med en schema utlösare. I pipeline kan du kopiera aktivitets flöden till en indata-datauppsättning, en data uppsättning för utdata och en DataBricks-aktivitet som körs på Azure Databricks. Indata-datauppsättningen flödar till en v-länkad S3-tjänst. Den resulterande data uppsättningen flödar till en Azure Storage länkad tjänst.](media/pricing-concepts/scenario2.png)
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |
@@ -103,7 +103,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 3. En Azure Databricks-aktivitet för data omvandlingen.
 4. En schema utlösare för att köra pipelinen varje timme.
 
-![Scenario3](media/pricing-concepts/scenario3.png)
+![Diagrammet visar en pipeline med en schema utlösare. I pipeline kan du kopiera aktivitets flöden till en indata-datauppsättning, en data uppsättning för utdata och en söknings aktivitet som flödar till en DataBricks-aktivitet, som körs på Azure Databricks. Indata-datauppsättningen flödar till en v-länkad S3-tjänst. Den resulterande data uppsättningen flödar till en Azure Storage länkad tjänst.](media/pricing-concepts/scenario3.png)
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |

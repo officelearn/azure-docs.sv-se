@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984895"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage 
 
@@ -37,7 +37,7 @@ ADF erbjuder en server lös arkitektur som gör det möjligt att använda parall
 
 Kunderna har migrerat petabyte av data som består av hundratals miljoner filer från Amazon S3 till Azure Blob Storage, med ett varaktigt data flöde på 2 Gbit/s och högre. 
 
-![prestanda](media/data-migration-guidance-s3-to-azure-storage/performance.png)
+![Diagrammet visar flera filpartitioner i ett W S S3-lager med associerade kopierings åtgärder till Azure Blob Storage en D L S Gen2.](media/data-migration-guidance-s3-to-azure-storage/performance.png)
 
 Bilden ovan illustrerar hur du kan uppnå hög hastighet för data förflyttning genom olika nivåer av parallellitet:
  
@@ -57,11 +57,11 @@ Som standard överför ADF data från Amazon S3 till Azure Blob Storage eller Az
 
 Alternativt, om du inte vill att data ska överföras över offentliga Internet, kan du öka säkerheten genom att överföra data via en privat peering-länk mellan AWS Direct Connect och Azure Express Route.  Se lösnings arkitekturen nedan om hur detta kan uppnås. 
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösningsarkitekturen
 
 Migrera data över offentliga Internet:
 
-![lösning – arkitektur – offentligt – nätverk](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![Diagrammet visar migrering över Internet med H T T P från en A W S S3-butik via Azure Integration Runtime i en D Azure-Azure Storage. Körningen har en kontroll kanal med Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
 - I den här arkitekturen överförs data säkert med HTTPS över offentligt Internet. 
 - Både källan Amazon S3 och Azure-Blob Storage eller Azure Data Lake Storage Gen2 har kon figurer ATS för att tillåta trafik från alla IP-adresser i nätverket.  Se den andra arkitekturen nedan om hur du kan begränsa nätverks åtkomsten till ett speciellt IP-adressintervall. 
@@ -70,7 +70,7 @@ Migrera data över offentliga Internet:
 
 Migrera data över privat länk: 
 
-![lösning – arkitektur – privat nätverk](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![Diagrammet visar migrering över en privat peering-anslutning från ett W S S3-lager via lokal integration runtime på Azure virtuella datorer till V net service-slutpunkter till Azure Storage. Körningen har en kontroll kanal med Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - I den här arkitekturen görs datamigrering via en privat peering-länk mellan AWS Direct Connect och Azure Express Route, så att data aldrig passerar över offentliga Internet.  Den kräver användning av AWS VPC och Azure Virtual Network. 
 - Du måste installera ADF-integration runtime med egen värd på en virtuell Windows-dator i ditt virtuella Azure-nätverk för att uppnå den här arkitekturen.  Du kan skala upp dina egna IR-VM: ar manuellt eller skala ut till flera virtuella datorer (upp till 4 noder) för att helt utnyttja nätverket och lagrings-IOPS/bandbredd. 
@@ -122,7 +122,7 @@ Om du stöter på fel som rapporteras av ADF Copy-aktivitet kan du antingen mins
 
 Tänk på följande pipeline som skapats för att migrera data från S3 till Azure Blob Storage: 
 
-![priser – pipeline](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![Diagrammet visar en pipeline för att migrera data, med manuell utlösare som flödar till lookup, som flödar till en underordnad pipeline för varje partition som innehåller kopierings flödet till den lagrade proceduren. Utanför pipelinen flödar den lagrade proceduren till Azure SQL D B, som flödar för att söka efter och ett W S S3-flöden att kopiera, som flödar till Blob Storage.](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
 Låt oss anta följande: 
 
@@ -135,7 +135,7 @@ Låt oss anta följande:
 
 Här är det uppskattade priset baserat på ovanstående antaganden: 
 
-![priser – tabell](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+![Skärm bild av en tabell visar ett uppskattat pris.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Ytterligare referenser 
 - [Amazon Simple Storage Service Connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)

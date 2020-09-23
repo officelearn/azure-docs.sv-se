@@ -1,6 +1,6 @@
 ---
-title: Hantering av Azure Stack Edge Compute | Microsoft Docs
-description: Beskriver hur du hanterar kant beräknings inställningarna, t. ex. utlösare, moduler, Visa beräknings konfiguration, ta bort konfiguration via Azure Portal på Azure Stack Edge.
+title: Hantering av Azure Stack Edge Pro Compute | Microsoft Docs
+description: Beskriver hur du hanterar kant beräknings inställningarna, t. ex. utlösare, moduler, Visa beräknings konfiguration, ta bort konfiguration via Azure Portal på Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 9d34bd1750b798407b493dcde01b04118d66a2d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339849"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904442"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge"></a>Hantera beräkning på Azure Stack Edge
+# <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Hantera beräkning av Azure Stack Edge Pro
 
-Den här artikeln beskriver hur du hanterar data bearbetning på Azure Stack Edge. Du kan hantera beräkningen via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att hantera moduler, utlösare och beräknings konfiguration och det lokala webb gränssnittet för att hantera beräknings inställningar.
+Den här artikeln beskriver hur du hanterar beräkningar på Azure Stack Edge Pro. Du kan hantera beräkningen via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att hantera moduler, utlösare och beräknings konfiguration och det lokala webb gränssnittet för att hantera beräknings inställningar.
 
 I den här artikeln kan du se hur du:
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="manage-triggers"></a>Hantera utlösare
 
-Händelser är saker som sker i din moln miljö eller på din enhet som du kanske vill vidta åtgärder för. Till exempel, när en fil skapas i en resurs, är det en händelse. Utlösare ökar händelserna. För din Azure Stack Edge kan utlösare vara som svar på fil händelser eller ett schema.
+Händelser är saker som sker i din molnmiljö eller på din enhet som du kanske vill vidta någon åtgärd för. När en fil skapas i en resurs är det till exempel en händelse. Utlösare utlöser de här händelserna. Utlösare för Azure Stack Edge Pro kan vara svar på fil händelser eller ett schema.
 
 - **Fil**: dessa utlösare är svar på fil händelser som att skapa en fil, ändra en fil.
 - **Schemalagd**: dessa utlösare är som svar på ett schema som du kan definiera med start datum, start tid och upprepnings intervallet.
@@ -82,7 +82,7 @@ Listan över utlösare uppdateras för att återspegla borttagningen.
 
 ## <a name="manage-compute-configuration"></a>Hantera beräknings konfiguration
 
-Använd Azure Portal om du vill visa beräknings konfigurationen, ta bort en befintlig beräknings konfiguration eller uppdatera beräknings konfigurationen för att synkronisera åtkomst nycklar för IoT-enheten och IoT Edge enheten för Azure Stack gränsen.
+Använd Azure Portal för att Visa beräknings konfigurationen, ta bort en befintlig beräknings konfiguration eller uppdatera beräknings konfigurationen för att synkronisera åtkomst nycklar för IoT-enheten och IoT Edge enheten för din Azure Stack Edge Pro.
 
 ### <a name="view-compute-configuration"></a>Visa beräknings konfiguration
 
@@ -111,11 +111,11 @@ Utför följande steg i Azure Portal för att ta bort den befintliga Edge Comput
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synkronisera IoT-enheten och IoT Edge enhets åtkomst nycklar
 
-När du konfigurerar Compute på Azure Stack Edge skapas en IoT-enhet och en IoT Edge enhet. De här enheterna tilldelas automatiskt symmetriska åtkomst nycklar. Som en säkerhets åtgärd roteras dessa nycklar regelbundet via IoT Hub tjänsten.
+När du konfigurerar Compute på Azure Stack Edge Pro skapas en IoT-enhet och en IoT Edge enhet. De här enheterna tilldelas automatiskt symmetriska åtkomst nycklar. Som en säkerhets åtgärd roteras dessa nycklar regelbundet via IoT Hub tjänsten.
 
 Om du vill rotera dessa nycklar går du till IoT Hub tjänst som du har skapat och väljer IoT-enheten eller IoT Edge enheten. Varje enhet har en primär åtkomst nyckel och sekundära åtkomst nycklar. Tilldela den primära åtkomst nyckeln till den sekundära åtkomst nyckeln och återskapa den primära åtkomst nyckeln.
 
-Om din IoT-enhet och IoT Edge enhets nycklar har roterats måste du uppdatera konfigurationen på din Azure Stack Edge för att få de senaste åtkomst nycklarna. Synkroniseringen hjälper enheten att hämta de senaste nycklarna för din IoT-enhet och IoT Edge enhet. Azure Stack Edge använder bara de primära åtkomst nycklarna.
+Om din IoT-enhet och IoT Edge enhets nycklar har roterats måste du uppdatera konfigurationen på din Azure Stack Edge Pro för att få de senaste åtkomst nycklarna. Synkroniseringen hjälper enheten att hämta de senaste nycklarna för din IoT-enhet och IoT Edge enhet. Azure Stack Edge Pro använder bara de primära åtkomst nycklarna.
 
 Utför följande steg i Azure Portal för att synkronisera åtkomst nycklarna för enheten.
 

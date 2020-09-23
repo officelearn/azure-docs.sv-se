@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958719"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983002"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -70,15 +70,15 @@ Du distribuerar vanligt vis ett webb projekt med `customErrors` flaggan i Web.co
 
 **Server fel i programmet '/':**
 
-![Fel sida för hjälp](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png" alt-text="Skärm bild som visar ett Server fel i program fel i en webbläsare.":::
 
 **Ett fel uppstod:**
 
-![Fel sida för hjälp](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Skärm bild som visar ett exempel på ett allmänt fel som inträffar i en webbläsare.":::
 
 **Sidan kan inte visas på webbplatsen**
 
-![Fel sida för hjälp](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Skärm bild som visar en webbplats kan inte visa sidan fel i en webbläsare.":::
 
 Det enklaste sättet att hitta orsaken till felet är ofta att aktivera detaljerade fel meddelanden, som den första av de föregående skärm bilderna förklarar hur du gör. Detta kräver en ändring i den distribuerade Web.configs filen. Du kan redigera *Web.config* -filen i projektet och distribuera om projektet, eller skapa en [Web.config omvandling](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) och distribuera en fel söknings version, men det finns ett snabbare sätt: i **Solution Explorer**kan du direkt Visa och redigera filer i fjärrappen med hjälp av funktionen för *fjärrvisning* .
 
@@ -97,7 +97,7 @@ Det enklaste sättet att hitta orsaken till felet är ofta att aktivera detaljer
     ![Redigera Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 4. Uppdatera webbläsaren som visar ett fel meddelande om att det inte går att hjälpa och nu får du ett detaljerat fel meddelande, till exempel i följande exempel:
 
-    ![Detaljerat fel meddelande](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
+    ![Detaljerat felmeddelande](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
     (Det fel som visas skapades genom att lägga till raden som visas i rött till *Views\Home\Index.cshtml*.)
 
@@ -139,7 +139,7 @@ Det här avsnittet visar hur du felsöker fel sökning med det projekt som du sk
 
 1. Högerklicka på din app i **Server Explorer**och klicka sedan på **bifoga fel sökare**.
 
-    ![Bifoga fel sökare](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Skärm bild av fönstret Server Explorer som visar att en app har valts och sedan klickar på Bifoga fel sökare.":::
 
     Webbläsaren öppnas automatiskt på Start sidan som körs i Azure. Du kan behöva vänta 20 sekunder eller så medan Azure konfigurerar servern för fel sökning. Den här fördröjningen sker bara första gången du kör i fel söknings läge på en app i en 48-timmarsperiod. När du startar fel sökningen igen under samma period är det ingen fördröjning.
 
@@ -192,7 +192,7 @@ Fjärrfelsökning fungerar bara med kontinuerliga WebJobs. Schemalagda webbjobb 
 
 8. Klicka på **bifoga fel sökare**.
 
-    ![Bifoga fel sökare](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Skärm bild av Server Explorer som visar ContosoAdsWebJob som marker ATS på den nedrullningsbara menyn och bifoga fel sökning har valts.":::
 
     Webbläsaren öppnas automatiskt på Start sidan som körs i Azure. Du kan behöva vänta 20 sekunder eller så medan Azure konfigurerar servern för fel sökning. Den här fördröjningen sker bara första gången du kör i fel söknings läge på en app i en 48-timmarsperiod. När du startar fel sökningen igen under samma period är det ingen fördröjning.
 
@@ -340,11 +340,11 @@ Med `WebPageTraceListener` kan du Visa spårningsutdata genom att bläddra till 
 1. Lägg till *trace. AXD* i webb adressen i adress fältet i webbläsarfönstret och tryck sedan på RETUR (URL: en liknar `http://localhost:53370/trace.axd` ).
 1. På sidan **program spårning** klickar du på **Visa information** på den första raden (inte på BrowserLink-raden).
 
-    ![Trace. AXD](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Skärm bild av sidan program spårning i en webbläsare som visar Visa detaljer valda på den första raden.":::
 
     Sidan **information om begäran** visas och i avsnittet **Spåra information** visas utdata från de spårnings instruktioner som du har lagt till i- `Index` metoden.
 
-    ![Trace. AXD](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Skärm bild av sidan förfrågnings information i en webbläsare som visar ett meddelande markerat i avsnittet spåra information.":::
 
     Som standard `trace.axd` är endast tillgängligt lokalt. Om du vill göra den tillgänglig från en fjärran sluten app kan du lägga till `localOnly="false"` `trace` elementet i *Web.config* -filen, som visas i följande exempel:
 
@@ -361,11 +361,12 @@ Med `WebPageTraceListener` kan du Visa spårningsutdata genom att bläddra till 
     När Visual Studio har publicerat din uppdatering öppnas ett webbläsarfönster till din start sida (förutsatt att du inte har rensat **mål-URL: en** på fliken **anslutning** ).
 3. I **Server Explorer**högerklickar du på din app och väljer **Visa strömmande loggar**.
 
-    ![Visa strömmande loggar i snabb menyn](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Skärm bild av Server Explorer när du har högerklickat på din app, med Visa strömmande loggar som marker ATS i ett nytt fönster.":::
 
     Fönstret **utdata** visar att du är ansluten till tjänsten för logg strömning och lägger till en meddelande rad varje minut som går genom att visa utan att logga in.
 
-    ![Visa strömmande loggar i snabb menyn](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Skärm bild av fönstret utdata som visar ett exempel på en anslutning till en logg strömnings tjänst med meddelande rader.":::
+
 4. I webbläsarfönstret som visar programmets start sida klickar du på **Kontakta**.
 
     Inom några sekunder visas utdata från spårningen på fel nivå som du har lagt till `Contact` i-metoden i fönstret **utdata** .
@@ -393,7 +394,7 @@ Med `WebPageTraceListener` kan du Visa spårningsutdata genom att bläddra till 
 ### <a name="output-window-features"></a>Funktioner i utmatnings fönster
 Fliken **Microsoft Azure loggar** i fönstret **utdata** har flera knappar och en text ruta:
 
-![Knappar på fliken loggar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Skärm bild som visar knapparna och text rutan på fliken Microsoft Azure loggar i fönstret utdata.":::
 
 Dessa utför följande funktioner:
 
@@ -457,14 +458,15 @@ Alla loggar som du kan övervaka i fönstret **utdata** kan också laddas ned so
 
 1. Klicka på **Hämta strömmande loggar**i fönstret **utdata** .
 
-    ![Knappar på fliken loggar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Skärm bild av fönstret utdata som visar knappen Hämta direkt uppspelnings loggar markerad.":::
 
     Utforskaren öppnas i mappen *hämtade filer* med den nedladdade filen vald.
 
-    ![Hämtad fil](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Skärm bild av mappen hämtningar i Utforskaren med en nedladdad fil vald.":::
+
 2. Extrahera *. zip* -filen och se följande mappstruktur:
 
-    ![Hämtad fil](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Skärm bild av fil strukturen. zip-filmappstrukturen när filen har extraherats.":::
 
    * Spårnings loggar för program är i *txt* -filer i mappen *LogFiles\Application* .
    * Webb server loggar finns i *. log* -filer i mappen *LogFiles\http\RawLogs* Du kan använda ett verktyg som [log parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) för att visa och manipulera de här filerna.

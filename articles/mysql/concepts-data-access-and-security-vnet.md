@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 77980541049740c5f706d54d289472a076103137
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: f114dd4d4f0a9a26a8aab1f8aeecd4d29678a8d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461909"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896289"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MySQL
 
@@ -19,7 +19,7 @@ ms.locfileid: "89461909"
 
 Om du vill skapa en regel för virtuellt nätverk måste du först vara ett [virtuellt nätverk][vm-virtual-network-overview] (VNet) och en [tjänst slut punkt för virtuellt nätverk][vm-virtual-network-service-endpoints-overview-649d] för regeln som ska refereras. Följande bild illustrerar hur en Virtual Network tjänst slut punkt fungerar med Azure Database for MySQL:
 
-![Exempel på hur en VNet-tjänst slut punkt fungerar](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="Exempel på hur en VNet-tjänst slut punkt fungerar":::
 
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MySQL distribueras för Generell användning och minnesoptimerade servrar.

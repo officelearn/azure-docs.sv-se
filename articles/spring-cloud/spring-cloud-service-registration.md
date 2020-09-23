@@ -4,19 +4,25 @@ description: Lär dig hur du automatiserar tjänst identifiering och registrerin
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/05/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c3e26b157630df6004292c93a0a0a47307d5949a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1e60799878cc30b729344c03df36a4c5e4f4a199
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071016"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904218"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>Identifiera och registrera dina våren Cloud-tjänster
 
 Tjänst identifiering är ett nyckel krav för en mikroservad arkitektur.  Det tar tid att konfigurera varje klient manuellt och vi presenterar risken för mänskligt fel.  Azure våren Cloud Service-registret löser det här problemet.  När den har kon figurer ATS kommer en tjänst register server att styra registreringen och identifieringen av programmets mikrotjänster. Tjänst register servern hanterar ett register med de distribuerade mikrotjänster, aktiverar belastnings utjämning på klient sidan och tar bort tjänst leverantörer från klienter utan att behöva använda DNS.
+
+::: zone pivot="programming-language-csharp"
+Information om hur du konfigurerar tjänst registrering för en Steeltoe-app finns i [förbereda ett Java våren-program för distribution i Azure våren Cloud](spring-cloud-tutorial-prepare-app-deployment.md).
+::: zone-end
+::: zone pivot="programming-language-java"
 
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrera ditt program med vår moln tjänst register
 
@@ -56,3 +62,4 @@ Slutligen lägger vi till en anteckning till den översta klassen i programmet
 Källan till moln tjänstens register server kommer att matas in som en miljö variabel i ditt program.  Mikrotjänster kommer nu att kunna registrera sig själva med tjänstens register Server och identifiera andra beroende mikrotjänster.
 
 Observera att det kan ta några minuter innan ändringarna sprids från servern till alla mikrotjänster.
+::: zone-end

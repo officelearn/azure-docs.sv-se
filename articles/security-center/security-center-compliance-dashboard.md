@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519651"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895824"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Självstudie: förbättra din regelefterlevnad
 ---
@@ -35,8 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att gå igenom de funktioner som beskrivs i den här självstudien måste du ha Security Center standard pris nivån. Du kan prova Security Center Standard utan kostnad.
-Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) vägleder dig genom uppgraderingen till Standard.
+För att gå igenom de funktioner som beskrivs i den här självstudien måste [Azure Defender](azure-defender.md) vara aktiverat. Du kan prova Azure Defender kostnads fritt i 30 dagar.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Utvärdera din regelefterlevnad
 
@@ -72,13 +71,13 @@ Med tanke på informationen i instrumentpanelen för regelefterlevnad kan du fö
 
 1.  Du kan välja en viss resurs för att visa mer information och lösa rekommendationerna för den resursen. <br>På exempelvis fliken **Azure CIS-standard** kan du klicka på rekommendationen **Require secure transfer to storage account** (Kräv säker överföring till lagringskonto).
 
-    ![rekommendation för efterlevnad](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    ![Välj rekommendationen * * Kräv säker överföring till lagrings kontot * *](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
 1. När du klickar dig igenom rekommendationens information och väljer en resurs som inte är felfri leder den dig direkt till miljön för att aktivera **säker lagringsöverföring** i Azure-portalen.
 
     Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
-    ![rekommendation för efterlevnad](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
+    ![Konfiguration av lagringskonto](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  När du vidtar åtgärder för att lösa rekommendationerna visas din påverkan i rapporten i instrumentpanelen för efterlevnad eftersom din kompatibilitetspoäng ökar.
 

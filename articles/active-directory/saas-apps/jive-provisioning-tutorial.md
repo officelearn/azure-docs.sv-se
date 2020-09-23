@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fec959ee34f9491b6510390d4b390e652690897e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 351c7e21bfe59b22f451adddad8fed220c218358
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547094"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983131"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Självstudie: Konfigurera jives för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i jiv
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 *   En Azure Active Directory-klient.
 *   En jives-aktiverad prenumeration med enkel inloggning.
@@ -61,9 +61,9 @@ Som en del av den här proceduren måste du ange en säkerhetstoken för använd
 
 1. Välj din instans av jives och välj sedan fliken **etablering** .
 
-1. Ställ in **etablerings läget** på **automatiskt**. 
+1. Ange **Etableringsläge** som **Automatiskt**. 
 
-    ![etablerings](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar sidan jives etablering med etablerings läget inställt på automatiskt och andra värden som du kan ange.](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
    
@@ -97,6 +97,6 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](jive-tutorial.md)

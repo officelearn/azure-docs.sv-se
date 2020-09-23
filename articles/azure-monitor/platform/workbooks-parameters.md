@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor arbets böcker skapa parametrar
-description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
+description: Lär dig hur parametrar tillåter att arbets boks författare samlar in inmatade användare och refererar till dem i andra delar av arbets boken.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8be7dd170d5e4e3bddb09bc1b163fba7a841a6b7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984572"
 ---
 # <a name="workbook-parameters"></a>Arbets boks parametrar
 
@@ -40,8 +40,8 @@ Dessa parameter värden kan refereras till i andra delar av arbets böcker, anti
 4. I fönstret ny parameter som öppnas anger du:
     1. Parameter namn: `TimeRange` *(Observera att parameter __namn__ **får inte** innehålla blank steg eller specialtecken)*
     2. Visnings namn: `Time Range` *( __visnings namn__ kan dock innehålla blank steg, specialtecken, emoji osv.)*  
-    2. Parameter typ:`Time range picker`
-    3. Kunna`checked`
+    2. Parameter typ: `Time range picker`
+    3. Kunna `checked`
     4. Tillgängliga tidsintervall: senaste timmen, de senaste 12 timmarna, de senaste 24 timmarna, de senaste 48 timmarna, de senaste 3 dagarna, senaste 7 dagarna och alternativet Tillåt anpassat tidsintervall
 5. Skapa parametern genom att välja Spara i verktygsfältet.
 
@@ -62,7 +62,7 @@ Så här kommer arbets boken att se ut i Read-mode i formatet "Pills".
 
 ### <a name="in-kql"></a>I KQL
 1. Lägg till en frågeplan i arbets boken och välj en Application Insights resurs.
-2. I KQL anger du ett tids omfattnings filter med hjälp av parametern:`| where timestamp {TimeRange}`
+2. I KQL anger du ett tids omfattnings filter med hjälp av parametern: `| where timestamp {TimeRange}`
 3. Detta utökar tiden för utvärdering av fråga till `| where timestamp > ago(1d)` , vilket är tids intervall svärdet för parametern.
 4. Kör fråga för att visa resultaten
 
@@ -70,7 +70,7 @@ Så här kommer arbets boken att se ut i Read-mode i formatet "Pills".
 
 ### <a name="in-text"></a>I text 
 1. Lägg till en text kontroll i arbets boken.
-2. I markdown anger du`The chosen time range is {TimeRange:label}`
+2. I markdown anger du `The chosen time range is {TimeRange:label}`
 3. Välj _klar redigering_
 4. Text kontrollen visar text: _det valda tidsintervallet är de senaste 24 timmarna_
 

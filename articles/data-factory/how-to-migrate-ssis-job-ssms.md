@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b95162d34b706b0bbb3e2940ea214e5a662655d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82627593"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984902"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrera SQL Server Agent jobb till ADF med SSMS
 
@@ -31,7 +31,7 @@ För utvalda SQL Agent-jobb med tillämpliga jobb stegs typer i allmänhet kan *
     > Paket platsen för fil systemet stöds bara.
 - Migrera tillämpliga jobb med tillämpliga jobb steg till motsvarande ADF-resurser enligt nedan:
 
-|Objekt för SQL Agent-jobb  |ADF-resurs  |Anteckningar|
+|Objekt för SQL Agent-jobb  |ADF-resurs  |Kommentarer|
 |---------|---------|---------|
 |SQL Agent-jobb|pipeline     |Namnet på pipelinen *som ska genereras för \<job name> *. <br> <br> Inbyggda Agent jobb är inte tillämpliga: <li> Underhålls jobb för SSIS-Server <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |SSIS jobb steg|Kör SSIS-paket-aktivitet|<li> Namnet på aktiviteten blir \<step name> . <li> Det proxy-konto som används i jobb steget migreras som Windows-autentisering för aktiviteten. <li> *Körnings alternativ* förutom att *använda 32-bitars körning* som definierats i jobb steget ignoreras i migreringen. <li> *Verifieringen* som definierats i jobb steget kommer att ignoreras i migreringen.|
@@ -46,7 +46,7 @@ Funktionen som beskrivs i den här artikeln kräver SQL Server Management Studio
 ## <a name="migrate-ssis-jobs-to-adf"></a>Migrera SSIS-jobb till ADF
 
 1. I SSMS i Object Explorer väljer du SQL Server Agent, väljer jobb, högerklickar och väljer **MIGRERA SSIS-jobb till ADF**.
-![hoppmeny](media/how-to-migrate-ssis-job-ssms/menu.png)
+![Skärm bild som visar SQL Server Management Studio Object Explorer, där du kan välja jobb och sedan migrera S S-jobb till en D F.](media/how-to-migrate-ssis-job-ssms/menu.png)
 
 1. Logga in Azure, välj Azure-prenumeration, Data Factory och Integration Runtime. Azure Storage är valfritt, som används i steget för att mappa paket platser om SSIS-jobb som ska migreras har fil system paket för SSIS.
 ![hoppmeny](media/how-to-migrate-ssis-job-ssms/step1.png)
@@ -57,28 +57,28 @@ Funktionen som beskrivs i den här artikeln kräver SQL Server Management Studio
     1. Uppdatera sökvägen till käll katalogen. Giltiga sökvägar är sökvägar eller sökvägar till överordnade mappar i paket.
     1. Uppdatera sökvägen till målmappen. Standard är en relativ sökväg till standard lagrings kontot, som väljs i steg 1.
     1. Ta bort en vald mappning via **ta bort mappning**.
-![step2 ](media/how-to-migrate-ssis-job-ssms/step2.png)
- ![ step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![Skärm bild som visar sidan mappnings-s-paket och konfigurations Sök vägar där du kan lägga till mappning. ](media/how-to-migrate-ssis-job-ssms/step2.png)
+ ![ Skärm bild som visar sidan kartans S-paket och konfigurations Sök vägar, där du kan uppdatera Sök vägarna till käll-och målmappen.](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Välj tillämpliga jobb som ska migreras och konfigurera inställningarna för motsvarande *utförda SSIS-paket-aktivitet*.
 
     - *Standardinställning*, gäller för alla valda steg som standard. Mer information om varje egenskap finns på *fliken Inställningar* för [aktiviteten kör SSIS-paket](how-to-invoke-ssis-package-ssis-activity.md) när paket platsen är *fil system (paket)*.
-    ![steg 3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    ![Skärm bild som visar sidan Välj S S. s jobb där du kan konfigurera inställningarna för motsvarande utförda SSIS-paket-aktivitet.](media/how-to-migrate-ssis-job-ssms/step3-1.png)
     - *Steg inställning*, konfigurera inställningen för ett valt steg.
         
         **Använd standardinställning**: standard är markerat. Avmarkera om du vill konfigurera inställningen endast för valt steg.  
         Mer information om andra egenskaper finns på *fliken Inställningar* för [aktiviteten kör SSIS-paket](how-to-invoke-ssis-package-ssis-activity.md) när paket platsen är *fil system (paket)*.
-    ![steg 3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+    ![Skärm bild som visar sidan Välj S. S-jobb där du kan använda standardinställningarna.](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
 1. Skapa och distribuera ARM-mall.
     1. Välj eller ange sökvägen till utmatningen för ARM-mallarna i de migrerade ADF-pipelinen. Mappen kommer att skapas automatiskt om den inte finns.
     2. Välj alternativet för **att distribuera arm-mallar till data fabriken**:
         - Standardvärdet är omarkerat. Du kan distribuera skapade ARM-mallar senare manuellt.
         - Välj om du vill distribuera genererade ARM-mallar till Data Factory direkt.
-    ![step4](media/how-to-migrate-ssis-job-ssms/step4.png)
+    ![Skärm bild som visar sidan Konfigurera migrering där du kan välja eller ange en sökväg för ARM-mallarna i de migrerade ADF-pipelinerna och välja alternativet för att distribuera ARM-mallar till din data fabrik.](media/how-to-migrate-ssis-job-ssms/step4.png)
 
 1. Migrera och kontrol lera sedan resultatet.
-![step5](media/how-to-migrate-ssis-job-ssms/step5.png)
+![Skärm bild som visar sidan för migrerings resultat, som visar förloppet för migreringen.](media/how-to-migrate-ssis-job-ssms/step5.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

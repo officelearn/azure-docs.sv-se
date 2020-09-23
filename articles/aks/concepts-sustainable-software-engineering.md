@@ -4,18 +4,18 @@ description: Lär dig mer om hållbara program varu tekniker i Azure Kubernetes 
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: bc2240b3cb8508109f6dd25c4c80ff31ba197cfd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087164"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984971"
 ---
-# <a name="sustainable-software-engineering-principals-in-azure-kubernetes-service-aks"></a>Hållbara Software Engineering-huvud i Azure Kubernetes service (AKS)
+# <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Hållbara principer för program varu teknik i Azure Kubernetes service (AKS)
 
-De hållbara principerna för program varu teknik är en uppsättning kompetenser som hjälper dig att definiera, bygga och köra hållbara program. Det övergripande målet är att minska ditt kol avtryck för varje aspekt av ditt program. Policys [. grönt-projektet][principals-green] har en översikt över de viktigaste principerna för hållbar program varu teknik.
+De hållbara principerna för program varu teknik är en uppsättning kompetenser som hjälper dig att definiera, bygga och köra hållbara program. Det övergripande målet är att minska ditt kol avtryck för varje aspekt av ditt program. I policys [. grönt-projektet][principles-green] finns en översikt över principerna för en hållbar program varu teknik.
 
-En viktig idé att förstå om hållbar program varu teknik är att det är en förändring i prioriteringar och fokus. I många fall är program vara utformat och körs på ett sätt som fokuserar på snabba prestanda och låg latens. En hållbar program varu teknik fokuserar på att minska så mycket kol utsläpp som möjligt. I vissa fall kan du få snabbare prestanda eller lägre svars tid genom att använda hållbara program tekniks objekt, till exempel genom att sänka den totala nätverks resan. I andra fall kan minskning av kol utsläpp orsaka sämre prestanda eller ökad latens, till exempel att fördröja arbets belastningar med låg prioritet. Innan du överväger att använda hållbara program tekniks objekt i ditt program kan du läsa igenom prioriteringar, behov och program varu program.
+En viktig idé att förstå om hållbar program varu teknik är att det är en förändring i prioriteringar och fokus. I många fall är program vara utformat och körs på ett sätt som fokuserar på snabba prestanda och låg latens. En hållbar program varu teknik fokuserar på att minska så mycket kol utsläpp som möjligt. I vissa fall kan du få snabbare prestanda eller lägre svars tid genom att tillämpa hållbara principer för program varu teknik, till exempel genom att sänka den totala nätverks resan. I andra fall kan minskning av kol utsläpp orsaka sämre prestanda eller ökad latens, till exempel att fördröja arbets belastningar med låg prioritet. Innan du överväger att använda hållbara policys för program varu teknik för ditt program bör du granska prioriteringar, behov och program varor.
 
 ## <a name="measure-and-optimize"></a>Mät och optimera
 
@@ -74,4 +74,4 @@ Läs mer om funktionerna i AKS som nämns i den här artikeln:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principals-green]: https://principles.green/
+[principles-green]: https://principles.green/

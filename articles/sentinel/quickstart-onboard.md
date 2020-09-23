@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0e0530432fd72335a9ed9ab4d53ca5bc80c7c6da
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889031"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
 I den här snabb starten lär du dig att använda Azure Sentinel på kort sikt. 
 
-För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft 365 Defender (tidigare lösningar för Microsoft Threat Protection), Microsoft 365 källor (inklusive Office 365), Azure AD, Microsoft Defender för identitet (tidigare Azure ATP), Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
+För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga i real tid och ger integration i real tid, inklusive Microsoft 365 Defender-lösningar (tidigare Microsoft Threat Protection), Microsoft 365 källor (inklusive Office 365), Azure AD, Microsoft Defender för identitet (tidigare Azure ATP), Microsoft Cloud App Security, Azure Defender-varningar från Azure Security Center. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel. 
 
 När du har anslutit dina data källor väljer du från ett galleri med arbets böcker som skapats av experten som är baserade på dina data. Dessa arbets böcker kan enkelt anpassas efter dina behov.
 
@@ -41,7 +41,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
  
 ## <a name="enable-azure-sentinel"></a>Aktivera Azure Sentinel <a name="enable"></a>
 
-1. Logga in på Azure-portalen. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
+1. Logga in på Azure Portal. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
 
 1. Sök efter och välj **Azure Sentinel**.
 
@@ -54,7 +54,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
    ![Välj en arbets yta](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
-   > - Standard arbets ytor som skapats av Azure Defender (tidigare Azure Security Center) visas inte i listan. Du kan inte installera Azure Sentinel på dem.
+   > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.
    > - Azure Sentinel kan köras på arbets ytor i alla [ga-regioner med Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) förutom regionerna Kina och Tyskland (suverän). Data som genereras av Azure Sentinel (t. ex. incidenter, bok märken och varnings regler som kan innehålla vissa kund uppgifter från dessa arbets ytor) sparas antingen i Europa (för arbets ytor som finns i Europa) i Australien (för arbets ytor i Australien) eller i östra USA (för arbets ytor som finns i en annan region).
 
    >[!IMPORTANT]
@@ -64,7 +64,6 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
    >   Om du redan har flyttat arbets ytan inaktiverar du alla aktiva regler under **analyser** och aktiverar dem igen efter fem minuter. Detta bör vara effektivt i de flesta fall, men för att kunna upprepas, stöds den inte och görs på egen risk.
 
 1. Välj **Lägg till Azure Sentinel**.
-  
 
 ## <a name="connect-data-sources"></a>Ansluta till datakällor
 

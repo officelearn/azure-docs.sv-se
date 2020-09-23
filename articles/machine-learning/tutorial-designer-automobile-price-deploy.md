@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Distribuera ML-modeller med designer (för hands version)'
+title: 'Självstudie: Distribuera ML-modeller med designern'
 titleSuffix: Azure Machine Learning
-description: Den här självstudien visar hur du skapar en förutsägelse analys lösning i Azure Machine Learning designer (för hands version). Träna, score och distribuera en maskin inlärnings modell med hjälp av dra-och-släpp-moduler.
+description: Den här självstudien visar hur du skapar en förutsägelse analys lösning i Azure Machine Learning designer. Träna, score och distribuera en maskin inlärnings modell med hjälp av dra-och-släpp-moduler.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 453971d776a0953a344d147bca387a81f65ac73c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287990"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896631"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Självstudie: Distribuera en maskin inlärnings modell med designern
+
 
 Du kan distribuera den förutsägande modellen som utvecklats i [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) för att ge andra möjlighet att använda den. I del ett tränar du din modell. Nu är det dags att generera nya förutsägelser baserat på användarindata. I den här delen av självstudien får du göra följande:
 
@@ -28,7 +28,7 @@ Du kan distribuera den förutsägande modellen som utvecklats i [del ett av sjä
 > * Distribuera real tids slut punkten.
 > * Testa real tids slut punkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i designern.
 

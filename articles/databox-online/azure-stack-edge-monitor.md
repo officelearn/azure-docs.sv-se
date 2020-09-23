@@ -1,6 +1,6 @@
 ---
-title: Övervaka din Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du använder det Azure Portal och lokala webb gränssnittet för att övervaka Azure Stack Edge.
+title: Övervaka din Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur du använder det Azure Portal och lokala webb gränssnittet för att övervaka Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339560"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904398"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Övervaka Azure Stack Edge
+# <a name="monitor-your-azure-stack-edge-pro"></a>Övervaka Azure Stack Edge Pro
 
-Den här artikeln beskriver hur du övervakar Azure Stack Edge. Du kan övervaka din enhet genom att använda Azure Portal eller det lokala webb gränssnittet. Använd Azure Portal för att Visa enhets händelser, konfigurera och hantera aviseringar och visa mått. Använd det lokala webb gränssnittet på din fysiska enhet för att Visa maskin varu status för de olika enhets komponenterna.
+Den här artikeln beskriver hur du övervakar Azure Stack Edge Pro. Du kan övervaka din enhet genom att använda Azure Portal eller det lokala webb gränssnittet. Använd Azure Portal för att Visa enhets händelser, konfigurera och hantera aviseringar och visa mått. Använd det lokala webb gränssnittet på din fysiska enhet för att Visa maskin varu status för de olika enhets komponenterna.
 
 I den här artikeln kan du se hur du:
 
@@ -34,10 +34,10 @@ I den här artikeln kan du se hur du:
 
 ## <a name="view-hardware-status"></a>Visa maskin varu status
 
-Utför följande steg i det lokala webb gränssnittet för att Visa maskin varu statusen för dina enhets komponenter.
+Utför följande steg i det lokala webbgränssnittet för att visa maskinvarustatusen för dina enhetskomponenter.
 
-1. Anslut till det lokala webb gränssnittet på enheten.
-2. Gå till **underhålls > maskin varu status**. Du kan visa hälso tillståndet för de olika enhets komponenterna.
+1. Anslut till enhetens lokala webbgränssnitt.
+2. Gå till **underhålls > maskin varu status**. Du kan visa hälsotillståndet för de olika enhetskomponenterna.
 
     ![Visa maskin varu status](media/azure-stack-edge-monitor/view-hardware-status.png)
 

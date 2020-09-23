@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892192"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985018"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -75,7 +75,7 @@ Här är what's som stöds om du vill säkerhetskopiera virtuella Azure-datorer:
 
 Här är what's som stöds om du vill säkerhetskopiera Linux-datorer:
 
-**Typ av säkerhetskopiering** | **Linux (Azure-godkänt)**
+**Typ av säkerhets kopiering** | **Linux (Azure-godkänt)**
 --- | ---
 **Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds inte. MARS-agenten kan bara installeras på Windows-datorer.
 **Använda agent tillägget för att säkerhetskopiera virtuell Azure-dator som kör Linux** | Programkonsekvent säkerhets kopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Återställning på filnivå.<br/><br/> Återställ genom att skapa en virtuell dator från en återställningspunkt eller disk.
@@ -133,7 +133,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Begränsningar**
+**Inställning** | **Gränser**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
 **Maximal förfallo tid för en återställnings punkt** | Obegränsad
@@ -149,10 +149,10 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | Inga                                                           | Ej tillämpligt               |
-| SQL-/SAP HANA          | Inga                                                           | Ej tillämpligt               |
-| DATABASSERVER                    | Inga                                                           | Ej tillämpligt               |
+| Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner och suveräna moln.  |
+| SQL-/SAP HANA | Yes                                                          | Alla offentliga Azure-regioner och suveräna moln.             |
+| MARS-agent/lokalt  | No                                                           | Saknas               |
+| DATABASSERVER                    | No                                                           | Saknas               |
 
 ## <a name="next-steps"></a>Nästa steg
 

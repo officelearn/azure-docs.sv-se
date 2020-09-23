@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4ce14b9d467e4badc833a1e1e4d8e1d08d232b1a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f88960207188779949560218b298fd36d6a8f25e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085338"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985229"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -69,7 +69,7 @@ I det här avsnittet ska du distribuera din Node.js-app till Azure med VS Code o
 
 1. I **Azure App Service** Explorer med vs Code väljer du ikonen blå UPPIL för att distribuera appen till Azure. (Du kan också anropa samma kommando från **kommando rads verktyget** (**CTRL** + **Shift** + **P**) genom att skriva "distribuera till webbapp" och välja **Azure App Service: distribuera till Web App**).
 
-    ![Distribuera till webbapp](media/quickstart-nodejs/deploy.png)
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Skärm bild av Azure App tjänsten i VS Code som visar den blå pilens ikon vald.":::
         
 1. Välj mappen *NodeJS-dok-Hello-World* .
 
@@ -141,7 +141,7 @@ Du kan visa loggens utdata (anrop till `console.log` ) från appen direkt i fön
 
 1. När du uppmanas väljer du att aktivera loggning och starta om programmet. När appen har startats om öppnas VS Code-utdatafönstret med en anslutning till logg strömmen. 
 
-    ![Aktivera loggning och omstart](media/quickstart-nodejs/enable-restart.png)
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Skärm bild av Visual Studio Code-prompten för att aktivera loggning och starta om programmet med knappen Ja markerat.":::
 
 1. Efter några sekunder visar utdatafönstret ett meddelande som anger att du är ansluten till logg strömnings tjänsten. Du kan generera fler utdata-aktiviteter genom att uppdatera sidan i webbläsaren.
 
@@ -215,7 +215,7 @@ I VS Code bör du se din Azure-e-postadress i statusfältet och din prenumeratio
 Skapa sedan ett Node.js-program som kan distribueras till molnet. Den här snabb starten använder en program generator för att snabbt Autogenerera ut programmet från en Terminal.
 
 > [!TIP]
-> Om du redan har slutfört [guidenNode.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)kan du gå vidare till [distribuera till Azure](#deploy-to-azure).
+> Om du redan har slutfört [ guidenNode.js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)kan du gå vidare till [distribuera till Azure](#deploy-to-azure).
 
 ### <a name="scaffold-a-new-application-with-the-express-generator"></a>Autogenerera ett nytt program med Express generatorn
 
@@ -263,7 +263,7 @@ code .
 
 I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribuera appen till Azure.
 
-![Distribuera till webbapp](./media/quickstart-nodejs/deploy.png)
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Skärm bild av Azure App Service menyn i Visual Studio Code med pilen blå distribution vald.":::
 
 > [!TIP]
 > Du kan också distribuera från **kommando paletten** (Ctrl + Shift + P) genom att skriva "distribuera till webbapp" och köra kommandot **Azure App Service: distribuera till** webbapp.
@@ -280,11 +280,11 @@ I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribue
 
 1. Välj **Ja** när du uppmanas att uppdatera konfigurationen så att den körs `npm install` på mål servern. Din app distribueras sedan.
 
-    ![Konfigurerad distribution](./media/quickstart-nodejs/server-build.png)
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Skärm bild av prompten för att uppdatera konfigurationen på mål servern med knappen Ja markerad.":::
 
 1. När distributionen startar uppmanas du att uppdatera arbets ytan så att senare distributioner automatiskt riktar sig till samma App Service-webbapp. Välj **Ja** för att se till att ändringarna distribueras till rätt app.
 
-    ![Konfigurerad distribution](./media/quickstart-nodejs/save-configuration.png)
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Skärm bild av prompten för att uppdatera din arbets yta med knappen Ja markerad.":::
 
 > [!TIP]
 > Se till att ditt program lyssnar på porten som tillhandahålls av PORT miljö variabeln: `process.env.PORT` .
@@ -314,7 +314,7 @@ Fönstret VS Code output öppnas med en anslutning till logg strömmen.
 
 ![Visa strömmande loggar](./media/quickstart-nodejs/view-logs.png)
 
-![Aktivera loggning och omstart](./media/quickstart-nodejs/enable-restart.png)
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Skärm bild av VS Code-prompten för att aktivera fil loggning och starta om webbappen med knappen Ja markerat.":::
 
 Efter några sekunder visas ett meddelande som anger att du är ansluten till logg strömnings tjänsten. Uppdatera sidan några gånger för att se mer aktivitet.
 

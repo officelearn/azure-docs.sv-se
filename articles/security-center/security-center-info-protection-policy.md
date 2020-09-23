@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7586cca21d470bcb0cf637ca0370f5dfcb59406
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711093"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901111"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information Protection-principen i Azure Security Center (för hands version)
  
@@ -56,7 +56,7 @@ Om du vill anpassa information Protection-principen för din Azure-klient måste
  
 4. Etiketter visas i stigande känslighets ordning. Om du vill ändra rangordningen mellan etiketter drar du etiketterna för att ändra ordning på dem i tabellen, eller Använd knapparna **Flytta upp** och **Flytta ned** för att ändra ordningen. 
  
-    ![Konfigurera information Protection-princip](./media/security-center-info-protection-policy/move-up.png)
+    ![Etikett lista](./media/security-center-info-protection-policy/move-up.png)
  
 5. Se till att klicka på **Spara** längst upp på skärmen när du är färdig.
  
@@ -66,7 +66,7 @@ Om du vill anpassa information Protection-principen för din Azure-klient måste
 1. Du kan hantera och anpassa informations typer genom att klicka på **Hantera informations typer**.
 2. Om du vill lägga till en ny **informations typ**väljer du **skapa informations typ** på den översta menyn. Du kan konfigurera ett namn, en beskrivning och Sök efter mönster strängar för **informations typen**. Sök mönster strängar kan också använda nyckelord med jokertecken (med tecknet%) som den automatiserade identifierings motorn använder för att identifiera känsliga data i dina databaser, baserat på kolumnernas metadata.
  
-    ![Konfigurera information Protection-princip](./media/security-center-info-protection-policy/info-types.png)
+    ![Skapa informations typ](./media/security-center-info-protection-policy/info-types.png)
  
 3. Du kan också konfigurera inbyggda **informations typer** genom att lägga till fler Sök mönster strängar, inaktivera några av de befintliga strängarna eller genom att ändra beskrivningen. Du kan inte ta bort inbyggda **informations typer** eller redigera deras namn. 
 4. **Informations typer** visas i ordning efter stigande identifierings rangordning, vilket innebär att typerna som är högre i listan försöker matcha först. Om du vill ändra rangordningen mellan informations typer drar du typerna till rätt plats i tabellen eller använder knapparna **Flytta upp** och **Flytta ned** för att ändra ordningen. 

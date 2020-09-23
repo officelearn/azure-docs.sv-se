@@ -6,54 +6,54 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 1b2268426b66ddb9ffdd48d6901ab991e76cb95c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037451"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892145"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testa Stream Analytics frågor lokalt mot Real tids indata med hjälp av Visual Studio Code
 
 Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt mot Real tids indata. Indatamängden kan komma från en källa som Azure Event Hubs eller Azure IoT Hub. Resultatet skickas som JSON-filer till en mapp i projektet med namnet **LocalRunOutputs**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [.net Core SDK](https://dotnet.microsoft.com/download) och starta om Visual Studio Code.
 
-* Använd [den här snabb](quick-create-vs-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med hjälp av Visual Studio Code.
+* Använd [den här snabb](quick-create-visual-studio-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med hjälp av Visual Studio Code.
 
 ## <a name="define-a-live-stream-input"></a>Definiera en real tids indata
 
 1. Högerklicka på mappen **indata** i Stream Analytics-projektet. Välj sedan **ASA: Lägg till inmatare** på snabb menyn.
 
-   ![Lägg till indata från mappen Inputs](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
+   ![Lägg till indata från mappen Inputs](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
    Du kan också välja **Ctrl + Shift + P** för att öppna kommando paletten och ange **ASA: Lägg till inmatade**.
 
-   ![Lägg till Stream Analytics inmatade objekt i Visual Studio Code](./media/quick-create-vs-code/add-input.png)
+   ![Lägg till Stream Analytics inmatade objekt i Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Välj en typ av indatakälla från den nedrullningsbara listan.
 
-   ![Välj IoT Hub som indatamängds alternativ](./media/quick-create-vs-code/iot-hub.png)
+   ![Välj IoT Hub som indatamängds alternativ](./media/quick-create-visual-studio-code/iot-hub.png)
 
 3. Om du har lagt till indatamängden från kommando paletten väljer du det Stream Analytics fråga-skript som ska använda indatamängden. Den ska fyllas i automatiskt med fil Sök vägen till **myASAproj. asaql**.
 
-   ![Välj ett Stream Analytics skript i Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
+   ![Välj ett Stream Analytics skript i Visual Studio Code](./media/quick-create-visual-studio-code/asa-script.png)
 
 4. Välj **Välj från dina Azure-prenumerationer** på den nedrullningsbara menyn.
 
-    ![Välj från prenumerationer](./media/quick-create-vs-code/add-input-select-subscription.png)
+    ![Välj från prenumerationer](./media/quick-create-visual-studio-code/add-input-select-subscription.png)
 
 5. Konfigurera den nyligen genererade JSON-filen. Du kan använda funktionen CodeLens för att ange en sträng, välja i en nedrullningsbar listruta eller ändra texten direkt i filen. Följande skärm bild visar **val från dina prenumerationer** som exempel.
 
-   ![Konfigurera indatatyper i Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+   ![Konfigurera indatatyper i Visual Studio Code](./media/quick-create-visual-studio-code/configure-input.png)
 
 ## <a name="preview-input"></a>Förhandsgranska ininformation
 
 Se till att indata kommer genom att välja **Förhandsgranska data** i konfigurations filen för Live-indata från den översta raden. Vissa indata kommer från en IoT-hubb och visas i förhands gransknings fönstret. Det kan ta några sekunder innan för hands versionen visas.
 
- ![Förhandsgranska Live-ingångar](./media/quick-create-vs-code/preview-live-input.png)
+ ![Förhandsgranska Live-ingångar](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## <a name="run-queries-locally"></a>Kör frågor lokalt
 

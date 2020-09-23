@@ -1,6 +1,6 @@
 ---
-title: Anslut till Azure Resource Manager på Azure Stack Edge GPU-enhet
-description: Beskriver hur du ansluter till den Azure Resource Manager som körs på din Azure Stack Edge-GPU med Azure PowerShell.
+title: Anslut till Azure Resource Manager på din Azure Stack Edge Pro GPU-enhet
+description: Beskriver hur du ansluter till Azure Resource Manager som körs på din Azure Stack Edge Pro-GPU med Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cf57d81c2ef56662abbd529a5de90e03c00e091a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269819"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891228"
 ---
-# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Anslut till Azure Resource Manager på din Azure Stack Edge-enhet
+# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Anslut till Azure Resource Manager på din Azure Stack Edge Pro-enhet
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager tillhandahåller ett hanterings lager som gör att du kan skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Azure Stack Edge-enheten stöder samma Azure Resource Manager-API: er för att skapa, uppdatera och ta bort virtuella datorer i en lokal prenumeration. Med det här stödet kan du hantera enheten på ett sätt som är konsekvent med molnet. 
+Azure Resource Manager tillhandahåller ett hanterings lager som gör att du kan skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Azure Stack Edge Pro-enheten stöder samma Azure Resource Manager-API: er för att skapa, uppdatera och ta bort virtuella datorer i en lokal prenumeration. Med det här stödet kan du hantera enheten på ett sätt som är konsekvent med molnet. 
 
-I den här självstudien beskrivs hur du ansluter till lokala API: er på din Azure Stack Edge-enhet via Azure Resource Manager med Azure PowerShell.
+I den här självstudien beskrivs hur du ansluter till lokala API: er på din Azure Stack Edge Pro-enhet via Azure Resource Manager med Azure PowerShell.
 
 ## <a name="about-azure-resource-manager"></a>Om Azure Resource Manager
 
-Azure Resource Manager tillhandahåller ett konsekvent hanterings lager för att anropa API: et för Azure Stack Edge-enhet och utföra åtgärder som att skapa, uppdatera och ta bort virtuella datorer. Arkitekturen i Azure Resource Manager beskrivs i följande diagram.
+Azure Resource Manager tillhandahåller ett konsekvent hanterings lager för att anropa API: et för Azure Stack Edge Pro-enheten och utföra åtgärder som att skapa, uppdatera och ta bort virtuella datorer. Arkitekturen i Azure Resource Manager beskrivs i följande diagram.
 
 ![Diagram för Azure Resource Manager](media/azure-stack-edge-j-series-connect-resource-manager/edge-device-flow.svg)
 
 
-## <a name="endpoints-on-azure-stack-edge-device"></a>Slut punkter för Azure Stack gräns enhet
+## <a name="endpoints-on-azure-stack-edge-pro-device"></a>Slut punkter för Azure Stack Edge Pro-enhet
 
 I följande tabell sammanfattas olika slut punkter som exponeras på din enhet, de protokoll som stöds och portarna för att få åtkomst till dessa slut punkter. I artikeln hittar du referenser till dessa slut punkter.
 
@@ -47,7 +47,7 @@ Processen för att ansluta till lokala API: er för enheten med hjälp av Azure 
 
 | Aktivitets # | Du kommer att göra detta steg... | .. på den här platsen. |
 | --- | --- | --- |
-| 1. | [Konfigurera Azure Stack Edge-enhet](#step-1-configure-azure-stack-edge-device) | Lokalt webb gränssnitt |
+| 1. | [Konfigurera din Azure Stack Edge Pro-enhet](#step-1-configure-azure-stack-edge-pro-device) | Lokalt webb gränssnitt |
 | 2. | [Skapa och installera certifikat](#step-2-create-and-install-certificates) | Windows-klient/lokalt webb gränssnitt |
 | 3. | [Granska och konfigurera förutsättningarna](#step-3-install-powershell-on-the-client) | Windows-klient |
 | 4. | [Konfigurera Azure PowerShell på klienten](#step-4-set-up-azure-powershell-on-the-client) | Windows-klient |
@@ -59,13 +59,13 @@ I följande avsnitt beskrivs var och en av stegen ovan för att ansluta till Azu
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar ska du kontrol lera att klienten som används för att ansluta till enheten via Azure Resource Manager använder TLS 1,2. Mer information finns i [Konfigurera TLS 1,2 på Windows-klienten som använder Azure Stack Edge-enhet](azure-stack-edge-j-series-configure-tls-settings.md).
+Innan du börjar ska du kontrol lera att klienten som används för att ansluta till enheten via Azure Resource Manager använder TLS 1,2. Mer information finns i [Konfigurera TLS 1,2 på Windows-klienten som har åtkomst till Azure Stack Edge Pro-enhet](azure-stack-edge-j-series-configure-tls-settings.md).
 
-## <a name="step-1-configure-azure-stack-edge-device"></a>Steg 1: Konfigurera Azure Stack Edge-enhet 
+## <a name="step-1-configure-azure-stack-edge-pro-device"></a>Steg 1: Konfigurera Azure Stack Edge Pro-enhet 
 
-Utför följande steg i det lokala webb gränssnittet för din Azure Stack Edge-enhet.
+Utför följande steg i det lokala webb gränssnittet för din Azure Stack Edge Pro-enhet.
 
-1. Slutför nätverks inställningarna för din Azure Stack Edge-enhet. 
+1. Slutför nätverks inställningarna för din Azure Stack Edge Pro-enhet. 
 
     ![Sidan nätverks inställningar för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
@@ -83,7 +83,7 @@ Utför följande steg i det lokala webb gränssnittet för din Azure Stack Edge-
 
 ## <a name="step-2-create-and-install-certificates"></a>Steg 2: skapa och installera certifikat
 
-Certifikaten garanterar att kommunikationen är betrodd. På din Azure Stack Edge-enhet genereras självsignerad installation, blob och Azure Resource Manager certifikat automatiskt. Du kan också ta med en egen signerad blob och Azure Resource Manager certifikat.
+Certifikaten garanterar att kommunikationen är betrodd. På din Azure Stack Edge Pro-enhet genereras självsignerade installationer, blob-och Azure Resource Manager-certifikat automatiskt. Du kan också ta med en egen signerad blob och Azure Resource Manager certifikat.
 
 När du använder ett signerat certifikat måste du också ha motsvarande signerings kedja av certifikatet. För signerings kedjan, Azure Resource Manager och blob-certifikaten på enheten behöver du även motsvarande certifikat på klient datorn för att autentisera och kommunicera med enheten.
 
@@ -319,7 +319,7 @@ Ange Azure Resource Managers miljö och kontrol lera att enheten för klient kom
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Ställ in miljön som Azure Stack Edge och porten som ska användas för Azure Resource Manager samtal som 443. Du definierar miljön på två sätt:
+2. Ange miljön som Azure Stack Edge Pro och porten som ska användas för Azure Resource Manager samtal som 443. Du definierar miljön på två sätt:
 
     - Konfigurera miljön. Ange följande kommando:
 
@@ -329,7 +329,7 @@ Ange Azure Resource Managers miljö och kontrol lera att enheten för klient kom
     
     Mer information finns på [set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
-    - Definiera miljö inlinjen för varje cmdlet som du kör. Detta säkerställer att alla API-anrop går igenom rätt miljö. Som standard går anropen via Azures offentliga, men du vill att de ska gå igenom den miljö som du har angett för Azure Stack Edge-enhet.
+    - Definiera miljö inlinjen för varje cmdlet som du kör. Detta säkerställer att alla API-anrop går igenom rätt miljö. Som standard går anropen via Azures offentliga, men du vill att de ska gå igenom den miljö som du har angett för Azure Stack Edge Pro-enhet.
 
     - Se mer information om [hur du växlar AzureRM-miljöer](#switch-environments).
 
@@ -376,7 +376,7 @@ Ange Azure Resource Managers miljö och kontrol lera att enheten för klient kom
 
 
 > [!IMPORTANT]
-> Anslutningen till Azure Resource Manager upphör att gälla var 1,5: e timme eller om Azure Stack Edge-enheten startas om. Om detta händer kommer alla cmdletar som du kör att returnera fel meddelanden till den inverkan som du inte är ansluten till Azure längre. Du måste logga in igen.
+> Anslutningen till Azure Resource Manager upphör att gälla var 1,5: e timme eller om din Azure Stack Edge Pro-enhet startas om. Om detta händer kommer alla cmdletar som du kör att returnera fel meddelanden till den inverkan som du inte är ansluten till Azure längre. Du måste logga in igen.
 
 ## <a name="switch-environments"></a>Växla miljöer
 
@@ -460,4 +460,4 @@ Du har nu bytt till den avsedda miljön.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera virtuella datorer på din Azure Stack Edge-enhet](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Distribuera virtuella datorer på din Azure Stack Edge Pro-enhet](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

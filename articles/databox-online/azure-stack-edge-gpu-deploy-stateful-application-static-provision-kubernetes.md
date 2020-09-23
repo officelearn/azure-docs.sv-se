@@ -1,6 +1,6 @@
 ---
-title: Använd kubectl för att distribuera Kubernetes-tillstånds känslig app via statiskt etablerad resurs på Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en statiskt etablerad resurs med hjälp av kubectl på en Azure Stack Edge GPU-enhet.
+title: Använd kubectl för att distribuera Kubernetes-tillstånds känslig app via statiskt etablerad resurs på Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en statiskt etablerad resurs med hjälp av kubectl på en Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,50 +8,50 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: d9200b66d51292271f546eb111f3355649318b91
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8366c5b7a05b35891bcf87e446229357a5511359
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899546"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med en PersistentVolume på din Azure Stack Edge-enhet
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med en PersistentVolume på din Azure Stack Edge Pro-enhet
 
 Den här artikeln visar hur du distribuerar ett tillstånds känsligt program med en instans i Kubernetes med en PersistentVolume (PV) och en distribution. Distributionen använder `kubectl` kommandon i ett befintligt Kubernetes-kluster och distribuerar MySQL-programmet. 
 
-Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
+Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan distribuera det tillstånds känsliga programmet måste du kontrol lera att du har slutfört följande krav på enheten och klienten som du ska använda för att få åtkomst till enheten:
 
 ### <a name="for-device"></a>För enheten
 
-- Du har inloggnings uppgifter till en 1-nod Azure Stack Edge-enhet.
+- Du har inloggnings uppgifter till en 1-nod Azure Stack Edge Pro-enhet.
     - Enheten är aktive rad. Se [Aktivera enheten](azure-stack-edge-gpu-deploy-activate.md).
     - Enheten har den beräknings roll som kon figurer ATS via Azure Portal och har ett Kubernetes-kluster. Se [Konfigurera Compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### <a name="for-client-accessing-the-device"></a>För klient åtkomst till enheten
 
-- Du har ett Windows-klientcertifikat som ska användas för att få åtkomst till Azure Stack Edge-enheten.
+- Du har ett Windows-klientsystem som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
     - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Den här artikeln beskriver proceduren när du använder en Windows-klient. 
     
-    - Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
+    - Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
       - Ett `userns1` namn område har skapats via `New-HcsKubernetesNamespace` kommandot. 
       - En användare har skapats `user1` via `New-HcsKubernetesUser` kommandot. 
       - Beviljas `user1` åtkomst till `userns1` via `Grant-HcsKubernetesNamespaceAccess` kommandot.       
       - Installerat `kubectl` på klienten och sparade `kubeconfig` filen med användar konfigurationen till C: \\ Users \\ &lt; username &gt; \\ . Kube. 
     
-    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge-enhet. 
+    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge Pro-enhet. 
         - Används `kubectl version` för att kontrol lera vilken version av kubectl som körs på klienten. Anteckna den fullständiga versionen.
-        - I det lokala användar gränssnittet för din Azure Stack Edge-enhet går du till **Översikt** och noterar program varu numret för Kubernetes. 
+        - I det lokala användar gränssnittet för din Azure Stack Edge Pro-enhet går du till **Översikt** och noterar Kubernetes-program varu numret. 
         - Kontrol lera att dessa två versioner är kompatibla med den mappning som finns i den Kubernetes-version som stöds <!-- insert link-->. 
 
 
-Du är redo att distribuera ett tillstånds känsligt program på Azure Stack Edge-enheten. 
+Du är redo att distribuera ett tillstånds känsligt program på din Azure Stack Edge Pro-enhet. 
 
 ## <a name="provision-a-static-pv"></a>Etablera ett statiskt PV
 
@@ -102,7 +102,7 @@ Alla `kubectl` kommandon som du använder för att skapa och hantera tillstånds
 
     Detta anspråk uppfylls av alla befintliga PV som har allokerats statiskt när du skapade resursen i det tidigare steget. På din enhet skapas ett stort PV på 32 TB för varje resurs. NUVÄRDEt uppfyller de krav som anges av PVC och PVC: n måste vara kopplad till detta nuvärde.
 
-    Kopiera och spara följande `mysql-deployment.yml` fil i en mapp på Windows-klienten som du använder för att få åtkomst till Azure Stack Edge-enheten.
+    Kopiera och spara följande `mysql-deployment.yml` fil i en mapp på Windows-klienten som du använder för att få åtkomst till Azure Stack Edge Pro-enheten.
     
     ```yml
     apiVersion: v1
@@ -354,4 +354,4 @@ NUVÄRDEt är inte längre kopplat till PVC: n eftersom den har tagits bort. Nä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar lagring dynamiskt finns i [distribuera ett tillstånds känsligt program via dynamisk etablering på en Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)
+Information om hur du konfigurerar lagring dynamiskt finns i [distribuera ett tillstånds känsligt program via dynamisk etablering på en Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)

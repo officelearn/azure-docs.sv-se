@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 01a256e17b1101782eaee9bebd85f5e7093773d3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1dfc8d473d0cfe663569d2508404bf190f2da841
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287782"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901581"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Neka offentlig nätverks åtkomst i Azure Database for PostgreSQL enskild server med Azure Portal
 
 I den här artikeln beskrivs hur du kan konfigurera en Azure Database for PostgreSQL enskild server för att neka alla offentliga konfigurationer och bara tillåta anslutningar via privata slut punkter för att ytterligare förbättra nätverks säkerheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -33,13 +33,13 @@ Följ dessa steg för att ställa in PostgreSQL-Server neka offentlig nätverks 
 
 1. I **neka offentlig nätverks åtkomst**väljer du **Ja** för att aktivera neka offentlig åtkomst för postgresql-servern.
 
-    ![Azure Database for PostgreSQL enskild server neka nätverks åtkomst](./media/howto-deny-public-network-access/deny-public-network-access.PNG)
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Azure Database for PostgreSQL enskild server neka nätverks åtkomst":::
 
 1. Klicka på **Spara** för att spara ändringarna.
 
 1. Ett meddelande bekräftar att anslutnings säkerhets inställningen har Aktiver ATS.
 
-    ![Azure Database for PostgreSQL enskild server neka nätverks åtkomst](./media/howto-deny-public-network-access/deny-public-network-access-success.png)
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Azure Database for PostgreSQL enskild server neka nätverks åtkomst":::
 
 ## <a name="next-steps"></a>Nästa steg
 

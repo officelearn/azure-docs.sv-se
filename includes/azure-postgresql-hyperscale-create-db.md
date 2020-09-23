@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "74973430"
 ---
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -24,7 +24,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 ## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Skapa en Azure Database for PostgreSQL-storskalig (citus)
 
 Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
-1. Klicka på **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
+1. Klicka på **skapa en resurs**  i det övre vänstra hörnet av Azure Portal.
 2. Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
 3. För distributions alternativet klickar du på knappen **skapa** under **Server grupp för citus-Server.**
 4. Fyll i formuläret om den nya servern och uppge följande information:

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera TLS 1,2 på Windows-klienter som har åtkomst till Azure Stack Edge GPU-enhet
-description: Beskriver hur du konfigurerar TLS 1,2 på Windows-klienter som har åtkomst till Azure Stack Edge GPU-enhet.
+title: Konfigurera TLS 1,2 på Windows-klienter som har åtkomst till Azure Stack Edge Pro GPU-enhet
+description: Beskriver hur du konfigurerar TLS 1,2 på Windows-klienter som har åtkomst till Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf6b591ef3158a5944b1ebeb37dd0ef5935f7215
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268510"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891180"
 ---
-# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-device"></a>Konfigurera TLS 1,2 på Windows-klienter som har åtkomst till Azure Stack Edge-enhet
+# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Konfigurera TLS 1,2 på Windows-klienter som har åtkomst till Azure Stack Edge Pro-enhet
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Om du använder en Windows-klient för att få åtkomst till din Azure Stack Edge-enhet, måste du konfigurera TLS 1,2 på klienten. Den här artikeln innehåller resurser och rikt linjer för att konfigurera TLS 1,2 på din Windows-klient. 
+Om du använder en Windows-klient för att få åtkomst till din Azure Stack Edge Pro-enhet måste du konfigurera TLS 1,2 på klienten. Den här artikeln innehåller resurser och rikt linjer för att konfigurera TLS 1,2 på din Windows-klient. 
 
 De rikt linjer som anges här baseras på test som utförs på en klient som kör Windows Server 2016.
 

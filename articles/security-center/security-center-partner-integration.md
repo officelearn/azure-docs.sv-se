@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180855"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883932"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -35,11 +35,11 @@ För närvarande omfattar integrerade säkerhetslösningar sårbarhets bedömnin
 > [!NOTE]
 > Security Center installerar inte Log Analytics-agenten på virtuella partner enheter eftersom de flesta säkerhets leverantörer förhindrar att externa agenter körs på sina enheter.
 
-Om du vill veta mer om integrering av sårbarhets sökverktyg från Qualys, inklusive en inbyggd skanner som är tillgänglig för kunder på standard nivå, se [sårbarhets bedömningar för Azure-Virtual Machines](deploy-vulnerability-assessment-vm.md).
+Mer information om hur du integrerar verktyg för sårbarhets sökning från Qualys, inklusive en inbyggd skanner som är tillgänglig för Azure Defender-kunder, finns i [sårbarhets bedömningar för Azure-Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 Security Center erbjuder även sårbarhets analys för din:
 
-* SQL-databaser – Se [utforska rapporter om sårbarhets bedömning på instrument panelen för sårbarhets bedömning](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* SQL-databaser – Se [utforska rapporter om sårbarhets bedömning på instrument panelen för sårbarhets bedömning](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
 * Azure Container Registry avbildningar – se [Azure Container Registry integration med Security Center (förhands granskning)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Så här integreras säkerhetslösningar
@@ -88,7 +88,7 @@ Välj **Visa** för ytterligare information och alternativ, till exempel:
 Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men inte är anslutna till Security Center och visar lösningarna i avsnittet **identifierade lösningar** . Dessa lösningar omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)och partner lösningar.
 
 > [!NOTE]
-> Standard nivån för Security Center krävs på prenumerations nivå för funktionen identifierade lösningar. Se [prissättning](security-center-pricing.md) för att lära dig mer om pris nivåerna.
+> Aktivera **Azure Defender** på prenumerations nivå för funktionen identifierade lösningar. Se [prissättning](security-center-pricing.md) för att lära dig mer om pris nivåerna.
 >
 
 Välj **Anslut** under en lösning för att integrera med Security Center och bli informerad om säkerhets aviseringar.

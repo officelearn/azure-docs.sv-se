@@ -1,6 +1,6 @@
 ---
-title: Använda certifikat med Azure Stack Edge-GPU | Microsoft Docs
-description: Beskriver hur du använder certifikat med Azure Stack Edge GPU-enhet, inklusive varför du ska använda, vilka typer och hur du laddar upp certifikat på enheten.
+title: Använda certifikat med Azure Stack Edge Pro GPU | Microsoft Docs
+description: Beskriver hur du använder certifikat med Azure Stack Edge Pro GPU-enhet, inklusive varför du ska använda, vilka typer och hur du laddar upp certifikat på enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,28 +8,28 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf7f9236c8f0835d0041b4b0c454a492330ef878
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268884"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890747"
 ---
-# <a name="use-certificates-with-azure-stack-edge-gpu-device"></a>Använda certifikat med Azure Stack Edge GPU-enhet
+# <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Använda certifikat med Azure Stack Edge Pro GPU-enhet
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-I den här artikeln beskrivs vilka typer av certifikat som kan installeras på din Azure Stack Edge-enhet. Artikeln innehåller också information om varje certifikat typ tillsammans med proceduren för att installera och identifiera förfallo datumet. 
+I den här artikeln beskrivs vilka typer av certifikat som kan installeras på din Azure Stack Edge Pro-enhet. Artikeln innehåller också information om varje certifikat typ tillsammans med proceduren för att installera och identifiera förfallo datumet. 
 
 ## <a name="about-certificates"></a>Om certifikat
 
 Ett certifikat tillhandahåller en länk mellan en **offentlig nyckel** och en entitet (till exempel domän namn) som har **signerats** (verifierats) av en betrodd tredje part (till exempel en **certifikat utfärdare**).  Ett certifikat är ett bekvämt sätt att distribuera betrodda offentliga krypterings nycklar. Certifikat garanterar att kommunikationen är betrodd och att du skickar krypterad information till rätt server. 
 
-När din Azure Stack Edge-enhet konfigureras från början, genereras automatiskt signerade certifikat. Du kan också ta med dina egna certifikat. Det finns rikt linjer som du måste följa om du planerar att ta med dina egna certifikat.
+När din Azure Stack Edge Pro-enhet konfigureras första gången skapas automatiskt signerade certifikat. Du kan också ta med dina egna certifikat. Det finns rikt linjer som du måste följa om du planerar att ta med dina egna certifikat.
 
 ## <a name="types-of-certificates"></a>Typer av certifikat
 
-De olika typerna av certifikat som används på Azure Stack Edge-enheten är följande: 
+De olika typerna av certifikat som används på din Azure Stack Edge Pro-enhet är följande: 
 - Signeringscertifikat
     - Rotcertifikatutfärdare
     - Medel
@@ -68,7 +68,7 @@ Dessa certifikat kan vara rot certifikat eller mellanliggande certifikat. Rot ce
 
 ## <a name="node-certificates"></a>Node-certifikat
 
-<!--Your Azure Stack Edge device could be a 1-node device or a 4-node device.--> Alla noder i enheten kommunicerar ständigt med varandra och måste därför ha en förtroende relation. Med hjälp av Node-certifikat kan du upprätta förtroendet. Node-certifikat kommer också att spelas upp när du ansluter till noden enhet med hjälp av en fjärran sluten PowerShell-session över https.
+<!--Your Azure Stack Edge Pro device could be a 1-node device or a 4-node device.--> Alla noder i enheten kommunicerar ständigt med varandra och måste därför ha en förtroende relation. Med hjälp av Node-certifikat kan du upprätta förtroendet. Node-certifikat kommer också att spelas upp när du ansluter till noden enhet med hjälp av en fjärran sluten PowerShell-session över https.
 
 ### <a name="caveats"></a>Varningar
 
@@ -121,9 +121,9 @@ Du kan komma åt din enhets lokala webb gränssnitt via en webbläsare. För att
 
 ## <a name="iot-edge-device-certificates"></a>IoT Edge enhets certifikat
 
-Din Azure Stack Edge-enhet är också en IoT-enhet med den beräkning som har Aktiver ATS av en IoT Edge enhet som är ansluten till den. För säker kommunikation mellan den här IoT Edge enheten och de efterföljande enheterna som kan ansluta till den, kan du också ladda upp IoT Edge certifikat. 
+Din Azure Stack Edge Pro-enhet är också en IoT-enhet med den beräkning som har Aktiver ATS av en IoT Edge enhet som är ansluten till den. För säker kommunikation mellan den här IoT Edge enheten och de efterföljande enheterna som kan ansluta till den, kan du också ladda upp IoT Edge certifikat. 
 
-Enheten har självsignerade certifikat som kan användas om du bara vill använda beräknings scenariot med enheten. Om Azure Stack gräns enheten dock är ansluten till efterföljande enheter måste du ta med dina egna certifikat.
+Enheten har självsignerade certifikat som kan användas om du bara vill använda beräknings scenariot med enheten. Om Azure Stack Edge Pro-enheten dock är ansluten till efterföljande enheter måste du ta med dina egna certifikat.
 
 Det finns tre IoT Edge-certifikat som du måste installera för att aktivera förtroende relationen:
 
@@ -140,7 +140,7 @@ Mer information om IoT Edge certifikat finns i [Azure IoT Edge certifikat inform
 
 ## <a name="support-session-certificates"></a>Stöd för certifikatutfärdarcertifikat
 
-Om Azure Stack Edge-enheten drabbas av problem kan en fjärrpowershell-supportbegäran öppnas på enheten för att felsöka problemen. Om du vill aktivera en säker, krypterad kommunikation över den här support-sessionen kan du ladda upp ett certifikat.
+Om din Azure Stack Edge Pro-enhet drabbas av några problem kan en fjärrpowershell-supportbegäran öppnas på enheten för att felsöka problemen. Om du vill aktivera en säker, krypterad kommunikation över den här support-sessionen kan du ladda upp ett certifikat.
 
 ### <a name="caveats"></a>Varningar
 
@@ -155,7 +155,7 @@ Om Azure Stack Edge-enheten drabbas av problem kan en fjärrpowershell-supportbe
 
 <!--## VPN certificates
 
-If VPN is configured on your Azure Stack Edge device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
+If VPN is configured on your Azure Stack Edge Pro device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
 
 ### Caveats
 
@@ -262,7 +262,7 @@ $DeviceSerial = "HWDC1T2"
 New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","$DeviceSerial.$domain","management.$AppName.$domain","login.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
-När certifikaten har skapats är nästa steg att ladda upp certifikaten på din Azure Stack Edge-enhet
+När certifikaten har skapats är nästa steg att ladda upp certifikaten på din Azure Stack Edge Pro-enhet
 
 
 ## <a name="upload-certificates"></a>Ladda upp certifikat 
@@ -401,7 +401,7 @@ Säkerhets kopian av. pfx-filen sparas nu på den plats som du har valt och är 
 
 ## <a name="supported-certificate-algorithms"></a>Algoritmer som stöds
 
- Endast Rivest – Shamir – Adleman-certifikat (RSA) stöds med Azure Stack Edge-enheten. Om Elliptic Curve-ECDSA (Digital Signature Algorithm) används är enhets beteendet obestämd.
+ Endast Rivest – Shamir – Adleman-certifikat (RSA) stöds med din Azure Stack Edge Pro-enhet. Om Elliptic Curve-ECDSA (Digital Signature Algorithm) används är enhets beteendet obestämd.
 
  Certifikat som innehåller en offentlig RSA-nyckel kallas RSA-certifikat. Certifikat som innehåller en offentlig nyckel för Elliptic Curve-kryptografiska (ECC) kallas ECDSA (Elliptic Curve Digital Signature Algorithm). 
 
@@ -418,4 +418,4 @@ Visa certifikatets förfallo datum på sidan **certifikat** i enhetens lokala we
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera din Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-prep.md)
+[Distribuera din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-prep.md)

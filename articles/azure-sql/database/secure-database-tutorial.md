@@ -7,15 +7,15 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer: ''
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496924"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885411"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Självstudie: skydda en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ I den här guiden får du lära du dig hur man:
 > - Skapa brandväggsregler på servernivå och databasnivå
 > - Konfigurera en Azure Active Directory (Azure AD)-administratör
 > - Hantera användaråtkomst med SQL-autentisering, Azure AD-autentisering och säkra anslutningssträngar
-> - Aktivera säkerhetsfunktioner som avancerad datasäkerhet, granskning, datamaskering och kryptering
+> - Aktivera säkerhetsfunktioner, till exempel Azure Defender för SQL, granskning, data maskning och kryptering
 
 Azure SQL Database skyddar data genom att göra det möjligt för dig att:
 
@@ -62,7 +62,7 @@ För alla steg i självstudien loggar du in på [Azure Portal](https://portal.az
 
 Databaser i SQL Database skyddas av brand väggar i Azure. Som standard avvisas alla anslutningar till servern och databasen. Läs mer i [brand Väggs regler på server nivå och databas nivå](firewall-configure.md).
 
-Ställ in **Tillåt åtkomst till Azure-tjänster** på **AV** för den säkraste konfigurationen. Skapa sedan en [reserverad IP (klassisk distribution)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) för resursen som behöver anslutas, till exempel en virtuell Azure-dator eller molntjänst, och tillåt endast att den IP-adressen får åtkomst via brandväggen. Om du använder distributionsmodellen [resurshanteraren](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) krävs en dedikerad offentlig IP-adress för varje resurs.
+Ställ in **Tillåt åtkomst till Azure-tjänster** på **AV** för den säkraste konfigurationen. Skapa sedan en [reserverad IP (klassisk distribution)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) för resursen som behöver anslutas, till exempel en virtuell Azure-dator eller molntjänst, och tillåt endast att den IP-adressen får åtkomst via brandväggen. Om du använder distributions modellen för [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) krävs en dedikerad offentlig IP-adress för varje resurs.
 
 > [!NOTE]
 > SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till servern om administratören öppnar port 1433.
@@ -233,30 +233,30 @@ Så här kopierar du en säker anslutningssträng:
 
 ## <a name="enable-security-features"></a>Aktivera säkerhetsfunktioner
 
-Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure-portalen. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Mer information finns i [Avancerad datasäkerhet](advanced-data-security.md), [Granskning](../../azure-sql/database/auditing-overview.md), [Dynamisk datamaskning](dynamic-data-masking-overview.md) och [Transparent datakryptering](transparent-data-encryption-tde-overview.md).
+Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure-portalen. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Läs mer i [Azure Defender for SQL](azure-defender-for-sql.md), [granskning](../../azure-sql/database/auditing-overview.md), [dynamisk data maskning](dynamic-data-masking-overview.md)och [transparent data kryptering](transparent-data-encryption-tde-overview.md).
 
-### <a name="advanced-data-security"></a>Avancerad datasäkerhet
+### <a name="azure-defender-for-sql"></a>Azure Defender för SQL
 
-Funktionen för avancerad datasäkerhet identifierar potentiella hot när de inträffar och innehåller säkerhetsaviseringar om avvikande aktiviteter. Användare kan utforska misstänkta händelser med granskningsfunktionen och avgöra om händelsen orsakades av ett försök att komma åt, tränga in i eller utnyttja data i databasen. Användare kan också få en översikt över säkerhet som innehåller en sårbarhetsbedömning och verktyget för dataidentifiering och klassificering.
+Funktionen Azure Defender för SQL identifierar potentiella hot när de inträffar och ger säkerhets aviseringar om avvikande aktiviteter. Användare kan utforska misstänkta händelser med granskningsfunktionen och avgöra om händelsen orsakades av ett försök att komma åt, tränga in i eller utnyttja data i databasen. Användare kan också få en översikt över säkerhet som innehåller en sårbarhetsbedömning och verktyget för dataidentifiering och klassificering.
 
 > [!NOTE]
 > Ett exempel på hot är SQL-inmatning, en process där angripare matar in skadliga SQL i indataprogrammet. Ett program kan sedan omedvetet köra skadlig SQL och ge angripare åtkomst till att tränga in i eller ändra data i databasen.
 
-Så här aktiverar du avancerad datasäkerhet:
+Så här aktiverar du Azure Defender för SQL:
 
 1. I Azure Portal väljer du **SQL-databaser** på den vänstra menyn och väljer din databas på sidan **SQL-databaser** .
 
 1. På **översiktssidan** väljer du **Servernamn**. Sidan Server öppnas.
 
-1. På sidan **SQL-server** letar du upp avsnittet **Säkerhet** och väljer **Avancerad datasäkerhet**.
+1. På **SQL Server** -sidan, leta upp avsnittet **säkerhet** och välj **Security Center**.
 
-   1. Välj **PÅ** under **Avancerad datasäkerhet** för att aktivera funktionen. Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
+   1. Aktivera funktionen genom att välja **på** under **Azure Defender for SQL** . Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
 
       ![Navigeringsfönster](./media/secure-database-tutorial/threat-settings.png)
 
       Du kan också konfigurera e-postmeddelanden för att få säkerhetsaviseringar, lagringsinformation och typer för identifiering av hot.
 
-1. Gå tillbaka till sidan **SQL-databaser** i din databas och välj **Avancerad datasäkerhet** i avsnittet **Säkerhet**. Här hittar du olika säkerhetsindikatorer som är tillgängliga för databasen.
+1. Gå tillbaka till sidan **SQL-databaser** i databasen och välj **Security Center** under avsnittet **säkerhet** . Här hittar du olika säkerhetsindikatorer som är tillgängliga för databasen.
 
     ![Hotstatus](./media/secure-database-tutorial/threat-status.png)
 
@@ -266,7 +266,7 @@ Om avvikande aktiviteter identifieras får du ett e-postmeddelande med informati
 
 ### <a name="auditing"></a>Granskning
 
-Gransknings funktionen spårar databas händelser och skriver händelser till en Gransknings logg i antingen Azure Storage, Azure Monitor loggar eller till en händelsehubben. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
+Gransknings funktionen spårar databas händelser och skriver händelser till en Gransknings logg i antingen Azure Storage, Azure Monitor loggar eller till en händelsehubben. Granskning hjälper till att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insikter om i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
 
 Så här aktiverar du granskning:
 
@@ -347,7 +347,7 @@ I den här självstudien har du lärt dig att förbättra säkerheten för din d
 > - Skapa brandväggsregler på servernivå och databasnivå
 > - Konfigurera en administratör för Azure Active Directory (AD Azure)
 > - Hantera användaråtkomst med SQL-autentisering, Azure AD-autentisering och säkra anslutningssträngar
-> - Aktivera säkerhetsfunktioner som avancerad datasäkerhet, granskning, datamaskering och kryptering
+> - Aktivera säkerhetsfunktioner, till exempel Azure Defender för SQL, granskning, data maskning och kryptering
 
 I nästa självstudie får du lära dig hur du implementerar en geo-distribution.
 

@@ -1,20 +1,20 @@
 ---
-title: Azure Monitor för Azure cache för Redis (för hands version) | Microsoft Docs
+title: Azure Monitor för Azure-cache för Redis | Microsoft Docs
 description: I den här artikeln beskrivs Azure Monitor för Azure Redis Cache-funktionen, som ger cache-ägare en snabb förståelse för prestanda-och användnings problem.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2020
-ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/10/2020
+ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045859"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887005"
 ---
-# <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Utforska Azure Monitor för Azure cache för Redis (för hands version)
+# <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Utforska Azure Monitor för Azure cache för Redis
 
-För alla Azure-cache för Redis-resurser tillhandahåller Azure Monitor för Azure cache för Redis (för hands version) en enhetlig, interaktiv vy av:
+För alla Azure-cache för Redis-resurser ger Azure Monitor för Azure cache för Redis en enhetlig, interaktiv vy av:
 
 - Övergripande prestanda
 - Fel
@@ -50,7 +50,7 @@ Gör så här om du vill visa användning och prestanda för dina lagrings konto
 
     ![Sökrutan med ordet "Monitor" och Sök resultatet för tjänster som visar "övervaka" med en hastighets mätare](./media/cosmosdb-insights-overview/search-monitor.png)
 
-1. Välj **Azure-cache för Redis (för hands version)**. Om det här alternativet inte finns väljer du **mer**  >  **Azure-cache för Redis**.
+1. Välj **Azure-cache för Redis**. Om det här alternativet inte finns väljer du **mer**  >  **Azure-cache för Redis**.
 
 ### <a name="overview"></a>Översikt
 
@@ -79,7 +79,7 @@ När du väljer resurs namnet Azure cache för Redis markerat i blått visas sta
 - **Cachemissar**
 - **Fel (max)**
 
-### <a name="operations"></a>Åtgärder
+### <a name="operations"></a>Operations
 
 När du väljer **åtgärder** överst på sidan öppnas **Åtgärds** tabellen i arbets boks mal len. Den visar dessa kolumner:
 
@@ -128,9 +128,9 @@ Få åtkomst till Azure Monitor för Azure cache för Redis direkt från en ensk
 
 1. I Azure Portal väljer du Azure cache för Redis.
 
-2. I listan väljer du en enskild Azure-cache för Redis-resurs. I avsnittet övervakning väljer du insikter (för hands version).
+2. I listan väljer du en enskild Azure-cache för Redis-resurs. I avsnittet övervakning väljer du insikter.
 
-    ![Skärm bild av meny alternativ med orden "insikter (för hands version)" markerade i en röd ruta](./media/redis-cache-insights-overview/insights.png)
+    ![Skärm bild av meny alternativ med orden "Insights" markerade i en röd ruta](./media/redis-cache-insights-overview/insights.png)
 
 Dessa vyer är också tillgängliga genom att välja resurs namnet för en Azure-cache för Redis-resurs från arbets boken Azure Monitors nivå.
 
@@ -168,7 +168,7 @@ Om du vill visa eller dölja alla vyer i en arbets bok väljer du expansions sym
 
 ![En markerad symbol för att utöka arbets boken](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cache-for-redis-preview"></a>Anpassa Azure Monitor för Azure cache för Redis (för hands version)
+## <a name="customize-azure-monitor-for-azure-cache-for-redis"></a>Anpassa Azure Monitor för Azure cache för Redis
 
 Eftersom den här upplevelsen har skapats ovanpå Azure Monitor arbetsboksmall kan du välja **Anpassa**  >  **Redigera**  >  **Spara** för att spara en kopia av den ändrade versionen i en anpassad arbets bok.
 

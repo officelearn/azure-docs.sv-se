@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156551"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025339"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
@@ -207,3 +207,33 @@ Om du till exempel har listat Alice och Bob som första god kännare, anger du C
     ![Åtkomst paket-princip-aktivera princip inställning](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Klicka på **Nästa**.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>Lägg till information om beställare (för hands version) i ett Access-paket
+
+1. Gå till fliken **information om beställare** och klicka på fliken **frågor** .
+ 
+1. Skriv in vad du vill be beställaren, även kallat visnings strängen, för frågan i rutan **fråga** .
+
+    ![Åtkomst paket – princip – aktivera inställning för begär ande information](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. Om du vill lägga till dina egna lokaliserings alternativ klickar du på **Lägg till lokalisering**.
+    1. I fönstret **Lägg till lokaliseringar för fråga** väljer du **språk koden** för det språk som du vill lokalisera frågan i.
+    1. Skriv frågan i den **lokaliserade text** rutan på det språk som du har konfigurerat.
+    1. När du har lagt till alla nödvändiga lokaliseringar klickar du på **Spara**.
+
+    ![Åtkomst paket – princip – konfigurera lokaliserad text](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Välj det **svars format** som du vill att beställare ska besvara. Svars formaten är: *kort text*, *flera alternativ*och *långt text*.
+ 
+    ![Åtkomst paket-princip – Välj Visa och redigera flera alternativ svars format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. Om du väljer flera alternativ klickar du på knappen **Visa och redigera** för att konfigurera svars alternativen.
+    1. När du har valt Visa och redigera fönstret **Visa/redigera fråga** öppnas.
+    1. Ange de svars alternativ som du vill ge den begär Ande när du besvarar frågan i rutan **svars värden** .
+    1. Skriv in så många svar som du behöver och klicka sedan på **Spara**.
+    
+    ![Åtkomst paket-princip – ange flera alternativ](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. Om du vill kräva att beställare besvarar den här frågan när du begär åtkomst till ett Access-paket, klickar du på kryss rutan under **obligatorisk**.
+
+1. Klicka på Nästa

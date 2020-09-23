@@ -7,17 +7,20 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f892064d0910029db37c56f731a072a6c7514e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: eaf99f5e92cbb9277f2d4143e14070f1900cdbef
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299617"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888486"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Strömma apploggar för Azure Spring Cloud i realtid
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
+
 Azure våren Cloud gör det möjligt att logga strömning i Azure CLI för att få real tids program konsol loggar för fel sökning. Du kan också [Analysera loggar och mått med diagnostikinställningar](./diagnostic-services.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [Azure CLI-tillägget](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) för våren Cloud, lägsta version 0.2.0.
 * En instans av **Azure våren Cloud** med ett program som körs, till exempel [våren Cloud App](./spring-cloud-quickstart.md).

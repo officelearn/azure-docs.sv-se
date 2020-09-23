@@ -6,25 +6,26 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/30/2020
+ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 1a46cba6e3b74a2f8d4b63ab631830569c521291
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6f1c016efb300dea2cdef91c84bb901cffd09fa0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246456"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025350"
 ---
 Kom igång med klient biblioteket för avvikelse detektor för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
 Använd klient biblioteket för avvikelse detektor för .NET för att:
 
-* Identifiera avvikelser i data uppsättningen för tids serier, som en batch-begäran
+* Identifiera avvikelser i din tids serie data uppsättning som en batch-begäran
 * Identifiera avvikelse status för den senaste data punkten i din tids serie
+* Identifiera trend ändrings punkter i din data uppsättning.
 
-Dokumentation om biblioteks [referens](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/)  |  [Hitta koden på GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
+Dokumentation om biblioteks [referens](https://aka.ms/anomaly-detector-dotnet-ref)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.2)  |  [Hitta koden på GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -65,7 +66,7 @@ Build succeeded.
 I program katalogen installerar du klient biblioteket för avvikelse detektor för .NET med följande kommando:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
+dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
 ```
 
 Öppna *program.cs* -filen från projekt katalogen och Lägg till följande med `directives` :
@@ -78,11 +79,11 @@ I programmets `main()` metod skapar du variabler för resursens Azure-plats och 
 
 ## <a name="object-model"></a>Objekt modell
 
-Klienten för avvikelse detektor är ett [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) -objekt som autentiserar till Azure med hjälp av [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), som innehåller din nyckel. Klienten erbjuder två metoder för avvikelse identifiering: på en hel data uppsättning med hjälp av [EntireDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync)och den senaste data punkten med [LastDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync).
+Klienten för avvikelse detektor är ett [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) -objekt som autentiserar till Azure med hjälp av [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), som innehåller din nyckel. Klienten kan utföra avvikelse identifiering på en hel data uppsättning med hjälp av [EntireDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync)eller den senaste data punkten med [LastDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync). Metoden [ChangePointDetectAsync](https://aka.ms/anomaly-detector-dotnet-ref) identifierar punkter som markerar ändringar i en trend.
 
 Time Series-data skickas som en serie [punkter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) i ett [Request](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) -objekt. `Request`Objektet innehåller egenskaper för att beskriva data (till exempel[granularitet](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity) ) och parametrar för avvikelse identifiering.
 
-Avvikelse detektorns svar är antingen ett [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse) -eller [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse) -objekt, beroende på vilken metod som används.
+Avvikelse detektorns svar är antingen ett [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse)-, [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse)-eller [changePointDetectResponse](https://aka.ms/anomaly-detector-dotnet-ref) -objekt, beroende på vilken metod som används.
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -92,6 +93,7 @@ Dessa kodfragment visar hur du gör följande med klient biblioteket för avvike
 * [Läs in en tids serie data uppsättning från en fil](#load-time-series-data-from-a-file)
 * [Identifiera avvikelser i hela data uppsättningen](#detect-anomalies-in-the-entire-data-set)
 * [Identifiera avvikelse statusen för den senaste data punkten](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Identifiera ändrings punkterna i data uppsättningen](#detect-change-points-in-the-data-set)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -125,6 +127,12 @@ Skapa en metod för att anropa klientens [EntireDetectAsync ()-](https://docs.mi
 Skapa en metod för att anropa klientens [LastDetectAsync ()-](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) Metod med `Request` objektet och väntar svaret som ett [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) -objekt. Kontrol lera svarets [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) -attribut för att avgöra om den senaste data punkten som skickats var en avvikelse eller inte.
 
 [!code-csharp[LastDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=latestPointExample)]
+
+## <a name="detect-change-points-in-the-data-set"></a>Identifiera ändrings punkter i data uppsättningen
+
+Skapa en metod för att anropa klientens [DetectChangePointAsync](https://aka.ms/anomaly-detector-dotnet-ref) -Metod med `Request` objektet och väntar svaret som ett [ChangePointDetectResponse](https://aka.ms/anomaly-detector-dotnet-ref) -objekt. Kontrol lera svarets IsChangePoint-värden och skriv ut alla `true` . Dessa värden motsvarar trend ändrings punkter, om de påträffades.
+
+[!code-csharp[DetectChangePoint() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=changePointExample)]
 
 ## <a name="run-the-application"></a>Kör programmet
 

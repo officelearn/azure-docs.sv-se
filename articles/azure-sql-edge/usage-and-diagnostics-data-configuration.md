@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650483"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888042"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge-användning och diagnostik-data konfiguration
 
@@ -61,6 +61,9 @@ group by data_source_type
 
 Insamling av användning och diagnostikdata på Azure SQL Edge kan inaktive ras med någon av metoderna nedan.
 
+> [!NOTE]
+> Det går inte att inaktivera användnings-och diagnostikdata för Developer-versionen.
+
 ### <a name="disable-usage-and-diagnostics-using-environment-variables"></a>Inaktivera användning och diagnostik med miljövariabler
 
 Om du vill inaktivera data insamling för användning och diagnostik på Azure SQL Edge lägger du till följande miljö variabel och anger värdet till `*False*` . Mer information om hur du konfigurerar Azure SQL Edge med miljövariabler finns [i Konfigurera användning av miljövariabler](configure.md#configure-by-using-environment-variables).
@@ -68,7 +71,7 @@ Om du vill inaktivera data insamling för användning och diagnostik på Azure S
 `MSSQL_TELEMETRY_ENABLED = TRUE | FALSE`
 
 - TRUE – aktiverar insamling av användnings-och diagnostikdata. Det här är standardkonfigurationen.
-- FALSe-inaktiverar insamling av användnings-och diagnostikdata
+- FALSe-inaktiverar insamling av användnings-och diagnostikdata.
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Inaktivera användning och diagnostik med hjälp av MSSQL. conf-filen
 

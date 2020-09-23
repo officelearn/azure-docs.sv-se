@@ -13,15 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378210"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894765"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassad nätverks härdning i Azure Security Center
 Lär dig hur du konfigurerar anpassad nätverks härdning i Azure Security Center.
+
+## <a name="availability"></a>Tillgänglighet
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
+|Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
+|Nödvändiga roller och behörigheter:|Skriv behörighet för datorns NSG: er|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Vad är anpassad nätverks härdning?
 Genom att använda [nätverks säkerhets grupper (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) för att filtrera trafik till och från resurser förbättras nätverks säkerhets position. Det kan dock fortfarande finnas fall där den faktiska trafiken som flödar genom NSG är en del av de NSG-regler som definierats. I dessa fall kan ytterligare förbättra säkerheten position genom att skärpa NSG-reglerna, baserat på de faktiska trafik mönstren.
@@ -37,15 +46,6 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
 ![Vy över nätverks härdning](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="availability"></a>Tillgänglighet
-
-|Aspekt|Information|
-|----|:----|
-|Versions tillstånd:|Allmän tillgänglighet|
-|Priset|Standard-nivå|
-|Nödvändiga roller och behörigheter:|Skriv behörighet för datorns NSG: er|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
-|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visa aviseringar och regler för anpassad nätverks härdning
@@ -56,7 +56,7 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
    * Ej **genomsökta resurser**: virtuella datorer som den anpassningsbara algoritmen för nätverks härdning inte kan köras på på grund av någon av följande orsaker:
       * **Virtuella datorer är klassiska virtuella**datorer: endast Azure Resource Manager virtuella datorer stöds.
       * Det finns **inte tillräckligt med data**: för att skapa korrekta rekommendationer för trafik härdning måste Security Center minst 30 dagars trafik data.
-      * Den **virtuella datorn skyddas inte av ASC-standarden**: endast virtuella datorer som är inställda på Security Center standard pris nivån är berättigade till den här funktionen.
+      * Den **virtuella datorn skyddas inte av Azure Defender**: endast virtuella datorer som skyddas med [Azure Defender för servrar](defender-for-servers-introduction.md) är berättigade till den här funktionen.
 
      ![resurser som inte är felfria](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -69,7 +69,7 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
 
 1. Välj en virtuell dator från fliken **felaktiga resurser** . De aviseringar och rekommenderade regler för härdning visas i listan.
 
-     ![härdnings regler](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+     ![Härdnings regler](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > Fliken **regler** visar en lista över regler som rekommenderar att du lägger till anpassade nätverks härdningar. Fliken **aviseringar** visar en lista över de aviseringar som har genererats på grund av trafik, som flödar till resursen, som inte ligger inom det tillåtna IP-intervallet i de rekommenderade reglerna.
@@ -106,14 +106,14 @@ Några viktiga rikt linjer för att ändra en regel för anpassad nätverks här
 
 1. Om du vill ändra några av parametrarna för en regel går du till fliken **regler** , klickar på de tre punkterna (...) i slutet av regelns rad och klickar på **Redigera**.
 
-   ![Redigera regel](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Redigerar s-regel](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. I fönstret **Redigera regel** uppdaterar du informationen som du vill ändra och klickar på **Spara**.
 
    > [!NOTE]
-   > När du har klickat på **Spara**har du ändrat regeln. *Men du har inte tillämpat den på NSG.* Om du vill tillämpa det måste du välja regeln i listan och klicka på **tillämpa** (som förklaras i nästa steg).
+   > När du har klickat på **Spara**har du ändrat regeln. *Men du har inte tillämpat den på NSG.* Om du vill tillämpa det måste du välja regeln i listan och välja **Använd** (som förklaras i nästa steg).
 
-   ![Redigera regel](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Välja Spara](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. Om du vill tillämpa den uppdaterade regeln väljer du den uppdaterade regeln i listan och klickar på **Använd**.
 
@@ -150,4 +150,4 @@ Vid behov kan du ta bort en rekommenderad regel för den aktuella sessionen. Du 
 
 1. Klicka på de tre punkterna (...) i slutet av regelns rad på fliken **regler** och klicka sedan på **ta bort**.  
 
-    ![härdnings regler](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Ta bort en regel](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

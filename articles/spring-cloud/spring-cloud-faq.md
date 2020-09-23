@@ -4,15 +4,16 @@ description: I den här artikeln får du svar på vanliga frågor om Azure våre
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322049"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888718"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -61,9 +62,11 @@ Om du stöter på problem med Azure våren Cloud kan du skapa en [support förfr
 
 För det snabbaste sättet att komma igång med Azure våren Cloud följer du anvisningarna i [snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md).
 
+::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Vilken Java-körning stöder Azure våren Cloud?
 
 Azure våren Cloud har stöd för Java 8 och 11. Se [Java Runtime och OS-versioner](#java-runtime-and-os-versions)
+::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Var kan jag se mina vår moln program loggar och mått?
 
@@ -75,12 +78,14 @@ Azure våren Cloud stöder export av vår moln program loggar och mät värden t
 
 Ja. Mer information finns i [Självstudier: använda distribuerad spårning med Azure våren Cloud](spring-cloud-tutorial-distributed-tracing.md).
 
+::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>Vilka resurs typer stöder tjänst bindning?
 
 Tre tjänster stöds för närvarande:
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure cache för Redis.
+::: zone-end
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Kan jag visa, lägga till eller flytta beständiga volymer inifrån mina program?
 
@@ -96,6 +101,7 @@ Du kan ta bort de diagnostiska inställningarna för våren-molnet med hjälp av
  az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
 ```
 
+::: zone pivot="programming-language-java"
 ## <a name="java-runtime-and-os-versions"></a>Java Runtime och OS-versioner
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Vilka versioner av Java Runtime stöds i Azure våren Cloud?
@@ -136,10 +142,11 @@ Du kan öppna ett support ärende med Azure-supporten.  Se [så här skapar du e
 
 Den senaste versionen av Ubuntu LTS används, för närvarande [Ubuntu 20,04 LTS (fokus fossa)](https://releases.ubuntu.com/focal/) är standard operativ systemet.
 
-### <a name="how-often-will-os-security-patches-be-applied"></a>Hur ofta kommer säkerhets korrigeringar för operativ system att tillämpas?
+### <a name="how-often-are-os-security-patches-applied"></a>Hur ofta tillämpas säkerhets korrigeringar för operativ systemet?
 
-Säkerhets korrigeringar som gäller Azure våren Cloud kommer att distribueras till produktion varje månad.
-Viktiga säkerhets korrigeringar (CVE Poäng >= 9) som gäller Azure våren Cloud kommer att lanseras så snart som möjligt.
+Säkerhets korrigeringar som gäller Azure våren Cloud distribueras till produktion varje månad.
+Viktiga säkerhets korrigeringar (CVE Poäng >= 9) som är tillämpliga på Azure våren Cloud lanseras så snart som möjligt.
+::: zone-end
 
 ## <a name="deployment"></a>Distribution
 
@@ -158,6 +165,7 @@ Ja. Mer information finns i [starta ditt våren Cloud-program från käll koden]
 
 Nej.
 
+::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Vilka är bästa praxis för att migrera befintliga våren Cloud-mikrotjänster till Azure våren Cloud?
 
 När du migrerar befintliga våren Cloud-mikrotjänster till Azure våren-molnet är det en bra idé att Observera följande bästa praxis:
@@ -168,8 +176,22 @@ När du migrerar befintliga våren Cloud-mikrotjänster till Azure våren-molnet
 * Vi rekommenderar att du använder officiella, stabila, vridnings fjäder-bibliotek. Icke-officiella, beta-eller förgrenings versioner av pivotal våren-bibliotek har inget stöd för service avtal (SLA).
 
 Efter migreringen övervakar du dina CPU/RAM-mått och nätverks trafik för att säkerställa att program instanserna skalas på rätt sätt.
+::: zone-end
 
-## <a name="trouble-shooting"></a>Felsöka
+::: zone pivot="programming-language-csharp"
+## <a name="net-core-versions"></a>.NET Core-versioner
+
+### <a name="which-net-core-versions-are-supported"></a>Vilka .NET Core-versioner stöds?
+
+.NET Core 3,1 och senare versioner.
+
+### <a name="how-long-will-net-core-31-be-supported"></a>Hur lång tid kommer .NET Core 3,1 att stödjas?
+
+Till dec 3, 2022. Se [.net Core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+::: zone-end
+
+
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Vilka konsekvenser för tjänst registret är sällan otillgängliga?
 

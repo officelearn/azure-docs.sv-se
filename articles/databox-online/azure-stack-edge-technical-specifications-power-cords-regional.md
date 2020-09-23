@@ -1,6 +1,6 @@
 ---
-title: Tekniska specifikationer för Microsoft Azure Stack Edge-nätsladd baserat på plats | Microsoft Docs
-description: Lär dig mer om de tekniska specifikationerna för dina Azure Stack Edge-nätkablar.
+title: Tekniska specifikationer för Microsoft Azure Stack Edge Pro Power sladdar baserat på plats | Microsoft Docs
+description: Lär dig mer om de tekniska specifikationerna för dina Azure Stack Edge Pro-nätkablar.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 34f5b578581c5a11b3dbfba76f68819c2ed706d0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055936"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903617"
 ---
-# <a name="azure-stack-edge-power-cord-specifications"></a>Specifikationer för Azure Stack Edge-nätsladd
+# <a name="azure-stack-edge-pro-power-cord-specifications"></a>Specifikationer för Azure Stack Edge Pro-ström sladd
 
-Din Azure Stack Edge-enhet behöver en ström sladd som varierar beroende på din Azure-region.
+Din Azure Stack Edge Pro-enhet behöver en ström sladd som kan variera beroende på din Azure-region.
 
 ## <a name="supported-power-cords"></a>Ström kablar som stöds
 
@@ -158,4 +158,4 @@ Du kan använda följande tabell för att hitta rätt stub-specifikationer för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tekniska specifikationer för Azure Stack Edge](data-box-edge-technical-specifications-compliance.md)
+[Tekniska specifikationer för Azure Stack Edge Pro](data-box-edge-technical-specifications-compliance.md)

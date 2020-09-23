@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: 8a988895cd8999d15c32d7056d35abf40aeaba7e
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: a37fbee4361d4a87c43a42cae66c425eba1e0877
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420701"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887052"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for MySQL att använda Azure Portal
 
@@ -21,13 +21,13 @@ Azure Database for MySQL stöder konfiguration av vissa Server parametrar. I den
 
 1. Logga in på Azure Portal och leta sedan upp Azure Database for MySQL-servern.
 2. Under avsnittet **Inställningar** klickar du på **Server parametrar** för att öppna sidan Server parametrar för Azure Database for MySQL-servern.
-![Sidan Azure Portal Server parametrar](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+:::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Sidan Azure Portal Server parametrar":::
 3. Leta upp de inställningar du behöver för att justera. Granska kolumnen **Beskrivning** för att förstå syfte och tillåtna värden.
-![Räkna upp listruta](./media/howto-server-parameters/3-toggle_parameter.png)
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Räkna upp listruta":::
 4. Klicka på  **Spara** för att spara ändringarna.
-![Spara eller ta bort ändringar](./media/howto-server-parameters/4-save_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Spara eller ta bort ändringar":::
 5. Om du har sparat nya värden för parametrarna kan du alltid återställa allt tillbaka till standardvärdena genom att välja **Återställ alla till standard**.
-![Återställ alla till standard](./media/howto-server-parameters/5-reset_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Återställ alla till standard":::
 
 ## <a name="setting-parameters-not-listed"></a>Ange parametrar som inte listas
 
@@ -41,7 +41,7 @@ Om den server parameter som du vill uppdatera inte visas i Azure Portal, kan du 
 4. Klicka på **Spara** för att spara ändringarna.
 
 >[!Note]
-> `init_connect` kan användas för att ändra parametrar som inte kräver superprivilegier på sessions nivå. Du kan kontrol lera om du kan ange parametern med hjälp av `init_connect` , köra `set session parameter_name=YOUR_DESIRED_VALUE;` kommandot och om det uppstår fel med **åtkomst nekad. du måste ha super Privileges** -fel och du kan inte ange parametern med init_connect.
+> `init_connect` kan användas för att ändra parametrar som inte kräver superprivilegier på sessionsnivå. Kontrollera om du kan ange parametern med `init_connect` genom att köra kommandot `set session parameter_name=YOUR_DESIRED_VALUE;`. Om kommandot returnerar ett fel av typen **Åtkomst nekad; du behöver superprivilegier**, betyder det att du inte kan ange parametern med ”init_connect”.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tids zons parametern
 
@@ -69,7 +69,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Tids zonen på global nivå kan ställas in från sidan **Server parametrar** i Azure Portal. I nedan anges den globala tids zonen till värdet "US/Pacific".
 
-![Ange tids zons parameter](./media/howto-server-parameters/timezone.png)
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Ange tids zons parameter":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Ange tids zonen för sessionen
 

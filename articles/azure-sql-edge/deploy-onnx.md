@@ -1,6 +1,6 @@
 ---
 title: Distribuera och göra förutsägelser med ONNX
-description: Lär dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Edge (för hands version) eller Azure SQL-hanterad instans (för hands version) och kör sedan inbyggt förutsägelse på data med den överförda ONNX-modellen.
+description: Lär dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Edge eller Azure SQL-hanterad instans (för hands version) och kör sedan inbyggt förutsägelse på data med den överförda ONNX-modellen.
 keywords: Distribuera SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
@@ -8,22 +8,22 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718789"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886822"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Distribuera och göra förutsägelser med en ONNX-modell
 
-I den här snabb starten får du lära dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till [Azure SQL Edge (för hands version)](onnx-overview.md) eller [Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)och sedan kör inbyggt förutsägelser på data med den överförda ONNX-modellen.
+I den här snabb starten får du lära dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till [Azure SQL Edge](onnx-overview.md) eller [Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)och sedan kör inbyggt förutsägelser på data med den överförda ONNX-modellen.
 
 Den här snabb starten baseras på **scikit – lära** och använder [data uppsättningen Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du använder Azure SQL Edge och du inte har distribuerat en Azure SQL Edge-modul följer du stegen i [Distribuera SQL Edge (för hands version) med hjälp av Azure Portal](deploy-portal.md).
+* Om du använder Azure SQL Edge och du inte har distribuerat en Azure SQL Edge-modul följer du stegen för att [Distribuera SQL Edge med hjälp av Azure Portal](deploy-portal.md).
 
 * Installera [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
@@ -394,7 +394,7 @@ SELECT predict_input.id
 FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p;
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Machine Learning och AI med ONNX i SQL Edge](onnx-overview.md)
 * [Machine Learning Services i Azure SQL-hanterad instans (för hands version)](../azure-sql/managed-instance/machine-learning-services-overview.md)

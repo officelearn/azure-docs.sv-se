@@ -1,19 +1,19 @@
 ---
 title: Granska WAF-loggar med Azure Log Analytics
 titleSuffix: Azure Application Gateway
-description: Den här artikeln visar hur du kan använda Azure Log Analytics för att undersöka Application Gateway brand Väggs loggar för webb program
+description: Den här artikeln visar hur du kan använda Azure-Log Analytics för att undersöka Application Gateway Länkar för brand vägg för webbaserade program (WAF).
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 88e360c5630c24dd997f72bda3fc4a480264763d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a5925b9667cf0db5003584c3bf6a30d8611c5ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086922"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985991"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Använd Log Analytics för att undersöka Application Gateway Länkar för brand vägg för webbaserade program (WAF)
 

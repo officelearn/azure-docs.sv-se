@@ -1,6 +1,6 @@
 ---
 title: Design av hybrid identitet – hanterings uppgifter Azure | Microsoft Docs
-description: Med villkorlig åtkomst kontroll kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och beviljas åtkomst till programmet.
+description: Azure AD kontrollerar de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet med villkorlig åtkomst kontroll.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c416bf19acb1736eeed679c16dbd87de1cc98537
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109388"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986526"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid identitets livs cykel
 Identiteten är en av grunderna i din Enterprise Mobility-och program åtkomst strategi. Oavsett om du loggar in på din mobila enhet eller SaaS-app, är din identitet nyckeln för att få åtkomst till allt. På sin högsta nivå omfattar en identitets hanterings lösning att förena och synkronisera dina identitets lager, vilket omfattar automatisering och centralisera processen för etablering av resurser. Identitets lösningen bör vara en centraliserad identitet i både lokalt och i molnet och kan också använda någon form av identitets Federation för att upprätthålla centraliserad autentisering och dela och samar beta med externa användare och företag på ett säkert sätt. Resurs intervall från operativ system och program till personer i, eller som är kopplade till, en organisation. Organisations strukturen kan ändras för att hantera etablerings principer och procedurer.

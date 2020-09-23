@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056322"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904854"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Skydda dina hanterings portar med just-in-Time-åtkomst
 
@@ -33,15 +33,15 @@ Den här sidan lär dig hur du inkluderar JIT i ditt säkerhets program. Du lär
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Allmän tillgänglighet|
-|Priset|Standard-nivå|
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
+|Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Virtuella datorer som stöds:|![Ja ](./media/icons/yes-icon.png) distribuerade virtuella datorer via Azure Resource Manager.<br>![Inga ](./media/icons/no-icon.png) virtuella datorer har distribuerats med klassiska distributions modeller. [Läs mer om de här distributions modellerna](../azure-resource-manager/management/deployment-models.md).<br>![Inga ](./media/icons/no-icon.png) virtuella datorer skyddas av Azure-brandväggar som styrs av [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
 |Nödvändiga roller och behörigheter:|**Reader** -och **SecurityReader** -roller kan båda Visa JIT-status och parametrar.<br>Om du vill skapa anpassade roller som kan fungera med JIT, se [vilka behörigheter som krävs för att konfigurera och använda JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Om du vill skapa en roll med minst privilegier för användare som behöver begära JIT-åtkomst till en virtuell dator och inte utföra några andra JIT-åtgärder, använder du [set-JitLeastPrivilegedRole-skriptet](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) från community-sidorna för Security Center GitHub.|
 |Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
-## <a name="enable-jit-vm-access"></a>Aktivera JIT VM-åtkomst<a name="jit-configure"></a>
+## <a name="enable-jit-vm-access"></a>Aktivera JIT VM-åtkomst <a name="jit-configure"></a>
 
 Du kan aktivera JIT VM-åtkomst med dina egna anpassade alternativ för en eller flera virtuella datorer som använder Security Center eller program mässigt. 
 
@@ -51,13 +51,13 @@ Vart och ett av dessa alternativ beskrivs i en separat flik nedan.
 
 ### <a name="azure-security-center"></a>[**Azure Security Center**](#tab/jit-config-asc)
 
-### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Aktivera JIT på dina virtuella datorer från Azure Security Center<a name="jit-asc"></a>
+### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Aktivera JIT på dina virtuella datorer från Azure Security Center <a name="jit-asc"></a>
 
-![Konfigurera JIT VM-åtkomst i Azure Security Center](./media/security-center-just-in-time/jit-config-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Konfigurera JIT VM-åtkomst i Azure Security Center":::
 
 Från Security Center kan du aktivera och konfigurera JIT VM-åtkomsten.
 
-1. Från Security Center menyn väljer du **VM-åtkomst just-in-Time**.
+1. Öppna Azure Defender-instrumentpanelen och i det avancerade skydds avsnittet väljer du **VM-åtkomst just-in-Time**.
 
     Den **just-in-Time-** sidan för VM-åtkomst öppnas med de virtuella datorerna grupperade på följande flikar:
 
@@ -101,13 +101,13 @@ Från Security Center kan du aktivera och konfigurera JIT VM-åtkomsten.
 
 
 
-### <a name="edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-center"></a>Redigera JIT-konfigurationen på en JIT-aktiverad virtuell dator med hjälp av Security Center<a name="jit-modify"></a>
+### <a name="edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-center"></a>Redigera JIT-konfigurationen på en JIT-aktiverad virtuell dator med hjälp av Security Center <a name="jit-modify"></a>
 
 Du kan ändra en VM: s just-in-Time-konfiguration genom att lägga till och konfigurera en ny port för att skydda den virtuella datorn, eller genom att ändra någon annan inställning som är relaterad till en redan skyddad port.
 
 Redigera befintliga JIT-regler för en virtuell dator:
 
-1. Från Security Center menyn väljer du **VM-åtkomst just-in-Time**.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
 
 1. Från fliken **konfigurerad** högerklickar du på den virtuella dator som du vill lägga till en port i och väljer Redigera. 
 
@@ -241,7 +241,7 @@ Vart och ett av dessa alternativ beskrivs i en separat flik nedan.
 
 När en virtuell dator har JIT-aktiverad måste du begära åtkomst för att ansluta till den. Du kan begära åtkomst på något av de sätt som stöds, oavsett hur du har aktiverat JIT.
 
-![Begär JIT-åtkomst från Security Center](./media/security-center-just-in-time/jit-request-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Begär JIT-åtkomst från Security Center":::
 
 1. På sidan **just-in-Time VM-åtkomst** väljer du fliken **konfigurerad** .
 
@@ -365,7 +365,7 @@ Du kan få insikter om VM-aktiviteter med loggs ökning. Så här visar du logga
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du ställer in och använder just-in-Time-åtkomst till virtuella datorer. Om du vill veta varför JIT bör användas läser du artikeln begrepp som förklarar de hot som det är försvara mot:
+I den här artikeln har du lärt dig hur du konfigurerar och använder just-in-Time-åtkomst till virtuella datorer. Om du vill veta varför JIT bör användas läser du artikeln begrepp som förklarar de hot som det är försvara mot:
 
 > [!div class="nextstepaction"]
 > [JIT-Förklarning](just-in-time-explained.md)

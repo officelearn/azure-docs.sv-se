@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ea04633708e866b6f200bef0eb6e331c06873e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 20efae411ae4d2fae9bf3b5e69dbfdd98da1603a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948247"
+ms.locfileid: "90985646"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Vad är Azure Stack Edge Mini R?
 
@@ -35,7 +35,7 @@ Azure Stack Edge Mini R har följande funktioner:
 |Accelererad AI-inferencing| Aktive rad av Intel Movidius myriaden X-VPU.|
 |Kabelanslutna och trådlösa | Tillåter kabelanslutna och trådlösa data överföringar.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
-|Frånkopplat läge| Enhet och tjänst kan hanteras alternativt via Azure Stack. <br> Distribuera, kör, hantera program i offlineläge. <br> Frånkopplat läge stöder scenarier med offlineuppladdning.|
+|Frånkopplat läge|  Enhet och tjänst kan hanteras alternativt via Azure Stack hubb. Distribuera, kör, hantera program i offlineläge. <br> Frånkopplat läge stöder scenarier med offlineuppladdning.|
 |Protokoll som stöds     |Stöder standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [Azure Stack Edge Mini R system krav](azure-stack-edge-gpu-system-requirements.md).|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
 |Dubbel kryptering    | Med hjälp av Självkrypterande enhet får du det första krypterings lagret. VPN tillhandahåller det andra krypterings lagret. BitLocker-stöd för lokal kryptering av data och säker data överföring till molnet via *https* .|

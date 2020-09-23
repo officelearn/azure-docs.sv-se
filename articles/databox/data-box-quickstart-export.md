@@ -2,19 +2,19 @@
 title: 'Snabbstart: Exportera data för Microsoft Azure Data Box'
 description: Lär dig hur du snabbt exporterar dina Azure Data Box-data på Azure-portalen
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
 ms.date: 07/17/2020
-ms.author: twooley
+ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 55366096a9eef7380ad8df855931c4d675973631
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 01fdaa95dd396e5545b65bada2a9d6410169230b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783067"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052468"
 ---
 # <a name="quickstart-get-started-with-azure-data-box-to-export-data-from-azure"></a>Snabbstart: Kom igång med Azure Data Box och exportera data från Azure
 

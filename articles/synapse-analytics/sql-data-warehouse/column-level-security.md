@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208101"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986222"
 ---
 # <a name="column-level-security"></a>Säkerhet på kolumn nivå
 
@@ -28,9 +28,9 @@ Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relationa
 
 Säkerhet på kolumn nivå fören klar utformningen och kodningen av säkerhet i ditt program, så att du kan begränsa kolumn åtkomsten för att skydda känsliga data. Till exempel ser du till att specifika användare bara har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databasen tillämpar åtkomst begränsningar varje gång data åtkomsten görs från vilken nivå som helst. Den här begränsningen gör din säkerhet mer tillförlitlig och robust genom att minska det totala säkerhets systemets Area. Dessutom eliminerar säkerhet på kolumn nivå behovet av att introducera vyer för att filtrera bort kolumner för att få åtkomst begränsningar för användarna.
 
-Du kan implementera säkerhet på kolumn nivå med instruktionen [bevilja](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Med den här mekanismen stöds både SQL-och Azure Active Directory-autentisering (AAD).
+Du kan implementera säkerhet på kolumn nivå med instruktionen [bevilja](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Med den här mekanismen stöds både SQL-och Azure Active Directory-autentisering (Azure AD).
 
-![CLS](./media/column-level-security/cls.png)
+![Diagrammet visar en schematisk tabell med den första kolumnen med ett stängt hänglås och dess celler en orange färg medan de andra kolumnerna är vita celler.](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Syntax
 

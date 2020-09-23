@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/03/2020
-ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440126"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897395"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Hantera Azure Machine Learning-resurser med VS Code-tillägget (förhands granskning)
 
@@ -24,7 +24,7 @@ Lär dig hur du hanterar Azure Machine Learning-resurser med VS Code-tillägget.
 
 ![Azure Machine Learning VS Code-tillägg](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett kan du registrera dig och prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. Om du inte har det kan du [installera det](https://code.visualstudio.com/docs/setup/setup-overview).
@@ -44,7 +44,6 @@ Mer information finns i [arbets ytor](concept-workspace.md).
     1. Välj en Azure-prenumeration
     1. Välj eller skapa en ny resurs grupp för att etablera arbets ytan i
     1. Välj den plats där arbets ytan ska etableras.
-    1. Välj mellan *Basic* -och *Enterprise* -versionen. Läs mer om de olika [Azure Machine Learning-versionerna](concept-editions.md).
 
 Alternativa metoder för att skapa en arbets yta är:
 

@@ -11,16 +11,16 @@ ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.openlocfilehash: 2182c9bc7588947ece5a309018359a8bcfa3ff41
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 355d96fe5a617effab89fbd038f7f1785215f88f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320212"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897686"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Använd differentiell sekretess i Azure Machine Learning (för hands version)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Lär dig hur du använder metod tips för differentiell integritet för att Azure Machine Learning modeller med WhiteNoise python-paket.
 
@@ -29,7 +29,7 @@ Differentiell integritet är den guld standard definitionen av sekretess. System
 > [!NOTE]
 > Observera att vi byter namn på Toolkit och kommer att introducera det nya namnet under de kommande veckorna. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 - [Python 3](https://www.python.org/downloads/)
@@ -152,11 +152,11 @@ Du kan använda biblioteket för att skapa mer komplexa analys diagram, med fler
 | Antal         | Gaussisk   | Långa       |
 | Histogram     | Geometriska  | Ihopfogning   |
 | Medelvärde          | Laplace    | Digitalisera   |
-| Quantiles     |            | Filter     |
+| Kvantiler     |            | Filtrera     |
 | Summa           |            | Tillvitelse |
 | Varians/kovarians |      | Transformering  |
 
-Mer information finns i den [bärbara datorn för grundläggande data analys](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) .
+Mer information finns i [Data Analysis Notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) .
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>Ungefärligt verktyg för differentiellt privata versioner
 
@@ -249,6 +249,6 @@ with wn.Analysis() as analysis:
 Mer information finns i [antecknings boken för kovarians](
 https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/covariance.ipynb)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Utforska [WhiteNoise-exempel Notebooks](https://github.com/opendifferentialprivacy/whitenoise-samples/tree/master/analysis).

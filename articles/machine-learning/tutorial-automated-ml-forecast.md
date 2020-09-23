@@ -10,20 +10,17 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092307"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896680"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Självstudie: prognostisera efter frågan med automatiserad maskin inlärning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 I den här självstudien använder du Automatisk maskin inlärning eller automatiserad ML i Azure Machine Learning Studio för att skapa en prognos modell för tids serier som förutsäger efter frågan för en cykel delnings tjänst.
-
->[!IMPORTANT]
-> Den automatiska ML-upplevelsen i Azure Machine Learning Studio är en för hands version. Vissa funktioner kanske inte stöds eller har begränsade funktioner.
 
 Exempel på en klassificerings modell finns i [Självstudier: skapa en klassificerings modell med automatiserad ml i Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -38,8 +35,8 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Enterprise Edition Azure Machine Learning-arbetsyta. Om du inte har en arbets yta [skapar du en Enterprise Edition-arbetsyta](how-to-manage-workspace.md). 
-    * Automatisk maskin inlärning i Azure Machine Learning Studio är endast tillgängligt för Enterprise Edition-arbetsytor. 
+* En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md). 
+
 * Hämta [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data filen
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Kom igång i Azure Machine Learning Studio
@@ -60,7 +57,7 @@ I den här självstudien får du skapa ett automatiserat ML experiment i Azure M
 
 Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta i form av en Azure Machine Learning data uppsättning. På så sätt kan du se till att dina data formateras korrekt för experimentet.
 
-1. I formuläret **Välj data uppsättning** väljer du **från lokala filer** från List rutan **+ skapa data uppsättning** . 
+1. I formuläret **Välj data uppsättning** väljer du **från lokala filer** från List rutan  **+ skapa data uppsättning** . 
 
     1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Data uppsättnings typen ska vara standard i **tabell**, eftersom automatisk ML i Azure Machine Learning Studio endast stöder tabell data uppsättningar.
     
@@ -88,7 +85,7 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. 
     
-        1. I det här exemplet väljer du att ignorera de **vardagliga** och **registrerade** kolumnerna. De här kolumnerna är en uppdelning av kolumnen **CNT** så därför inkluderar vi dem inte.
+        1. I det här exemplet väljer du att ignorera de **vardagliga** och **registrerade** kolumnerna. De här kolumnerna är en uppdelning av kolumnen  **CNT** så därför inkluderar vi dem inte.
 
         1. I det här exemplet ska du också lämna standardvärdena för **egenskaperna** och **typen**. 
         
@@ -100,14 +97,14 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
 
     1. Välj din data uppsättning när den visas i listan.
 
-    1. Välj **Nästa**.
+    1. Välj  **Nästa**.
 
 ## <a name="configure-experiment-run"></a>Konfigurera experiment körning
 
 När du har läst in och konfigurerat dina data konfigurerar du ditt fjärrberäknings mål och väljer vilken kolumn i dina data du vill förutsäga.
 
 1. Fyll i formuläret **Konfigurera körning** enligt följande:
-    1. Ange ett experiment namn:`automl-bikeshare`
+    1. Ange ett experiment namn: `automl-bikeshare`
 
     1. Välj **CNT** som mål kolumn, vad du vill förutsäga. Den här kolumnen visar antalet totala hyres hyror för cykel resurser.
 
@@ -115,7 +112,7 @@ När du har läst in och konfigurerat dina data konfigurerar du ditt fjärrberä
 
         Fält | Beskrivning | Värde för självstudier
         ----|---|---
-        Compute-namn |Ett unikt namn som identifierar din beräknings kontext.|cykel – beräkning
+        Namn på beräkning |Ett unikt namn som identifierar din beräknings kontext.|cykel – beräkning
         Typ av virtuell &nbsp; dator &nbsp;|Välj typ av virtuell dator för din beräkning.|PROCESSOR (Central bearbetnings enhet)
         &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
         Min/högsta antal noder| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
@@ -156,7 +153,7 @@ Slutför installationen av ditt automatiserade ML-experiment genom att ange akti
 
 ## <a name="run-experiment"></a>Kör experiment
 
-Om du vill köra experimentet väljer du **Slutför**. Skärmen **Kör information** öppnas med status för **körning** högst upp bredvid körnings numret. Den här statusen uppdateras när experimentet fortskrider.
+Om du vill köra experimentet väljer du **Slutför**. Skärmen **Kör information**  öppnas med status för **körning** högst upp bredvid körnings numret. Den här statusen uppdateras när experimentet fortskrider.
 
 >[!IMPORTANT]
 > Förberedelserna tar **10-15 minuter** för att förbereda experiment körningen.
@@ -195,7 +192,7 @@ Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar u
     ----|----
     Distributions namn| bikeshare – distribuera
     Distributions Beskrivning| cykel resurs-distribution efter behov
-    Compute-typ | Välj Azure Compute Instance (ACI)
+    Typ av beräkning | Välj Azure Compute Instance (ACI)
     Aktivera autentisering| Inaktivera. 
     Använda anpassade distributions till gångar| Inaktivera. Om du inaktiverar tillåter det att standard driv rutins filen (bedömnings skript) och miljö filen skapas automatiskt. 
     

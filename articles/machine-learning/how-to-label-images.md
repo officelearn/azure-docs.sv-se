@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307207"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897566"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
@@ -24,7 +24,7 @@ När projekt administratören har [skapat ett etikett projekt](https://docs.micr
 > * Etikett verktygen
 > * Så här använder du verktygen för vissa etikett uppgifter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [Microsoft-konto](https://account.microsoft.com/account) eller ett Azure Active Directory konto för organisationen och projektet
 * Deltagar nivå åtkomst till arbets ytan som innehåller ett etikett projekt.
@@ -103,7 +103,7 @@ Du korrigerar ett misstag genom att klicka på "**X**" för att ta bort en enski
 Azure aktiverar bara knappen **Skicka** när du har tillämpat minst en tagg på varje bild. Välj **Skicka** för att spara ditt arbete.
 
 
-## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Tagga bilder och ange avgränsnings rutor för objekt identifiering
+## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Tagga bilder och ange avgränsningsrutor för objektidentifiering
 
 Om ditt projekt är av typen objekt identifiering (avgränsnings rutor) anger du en eller flera markerings rutor i bilden och använder en tagg för varje ruta. Bilder kan ha flera avgränsnings rutor, var och en med en enda tagg. Använd **Visa detaljerade instruktioner** för att avgöra om flera avgränsnings rutor används i projektet.
 
@@ -111,7 +111,7 @@ Om ditt projekt är av typen objekt identifiering (avgränsnings rutor) anger du
 1. Välj rektangulär **Box-** verktyget ![ ](./media/how-to-label-images/rectangular-box-tool.png) eller välj "R".
 3. Klicka och dra diagonalt över ditt mål för att skapa en grov markerings ruta. Dra i kanterna eller hörnen för att justera avgränsnings rutan.
 
-![En skärm bild visar en grundläggande avgränsnings ruta.](./media/how-to-label-images/bounding-box-sequence.png)
+![Skapa avgränsnings ruta](./media/how-to-label-images/bounding-box-sequence.png)
 
 Om du vill ta bort en avgränsnings ruta klickar du på det X-formade mål som visas bredvid markerings rutan när du har skapat den.
 

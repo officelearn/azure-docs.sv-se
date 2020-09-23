@@ -1,6 +1,6 @@
 ---
 title: Kärn rapporter från Verizon | Microsoft Docs
-description: 'Du kan visa användnings mönster för CDN med hjälp av följande rapporter: bandbredd, överförda data, träffar, cache-status, antal träffar i cachen, IPV4/IPV6-data överförs.'
+description: Lär dig att komma åt och Visa Verizon Core-rapporter via hanterings portalen för Verizon-profiler.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888442"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985544"
 ---
 # <a name="core-reports-from-verizon"></a>Core-rapporter från Verizon
 
@@ -77,7 +77,7 @@ I den här rapporten beskrivs distribution av status koder för förfrågningar 
 I den här rapporten beskrivs distributionen av cacheträffar och Cachemissar för klient begär Anden. Eftersom det snabbaste prestanda resultatet från cacheträffar kan du optimera data leverans hastigheten genom att minimera Cachemissar och utgångna cacheträffar. 
 
 Om du vill minska cache-missar konfigurerar du din ursprungs server så att du kan minimera användningen av följande: 
- * `no-cache`svarshuvuden
+ * `no-cache` svarshuvuden
  * Cachelagring av frågesträngar, såvida det inte är absolut nödvändigt  
  * Svars koder som inte är cache-cache
 
@@ -132,6 +132,6 @@ Den här rapporten visar distributionen av trafik användning i IPV4 vs IPV6.
 
 ![Överförda IPV4/IPV6-data](./media/cdn-reports/cdn-ipv4-ipv6.png)
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 Rapporter kan bara genereras under de senaste 18 månaderna.
 

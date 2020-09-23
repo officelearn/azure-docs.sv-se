@@ -4,12 +4,12 @@ description: Konfigurera webbtester i Application Insights. Få aviseringar om e
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310284"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986038"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Övervaka tillgängligheten för en webbplats
 
@@ -69,7 +69,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 |Inställningen| Förklaring
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
-|**Form** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
+|**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
 |**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskelvärde och antalet test platser är **tröskelvärdet för aviserings platsens tröskel**  =  **antal test platser – 2, med minst fem test platser.**|
 
 ## <a name="see-your-availability-test-results"></a>Visa tillgänglighetstestresultat
@@ -78,7 +78,7 @@ Tillgänglighets test resultat kan visualiseras med vyer för både linje och pu
 
 Efter några minuter klickar du på **Uppdatera** för att se test resultaten.
 
-![Rad visning](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Skärm bild som visar tillgänglighets sidan med knappen Uppdatera markerad.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 I scatterplot-vyn visas exempel på de test resultat som har diagnostiska test – steg information i dem. Testmotorn lagrar diagnosinformation för tester som innehåller fel. För lyckade tester lagras diagnosinformation för en delmängd av körningarna. Hovra över någon av de gröna/röda punkterna för att se testet, test namnet och platsen.
 

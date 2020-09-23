@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: duau
-ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401477"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986366"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Skapa ExpressRoute Direct med hjälp av Azure Portal
 
@@ -97,7 +97,7 @@ Följande steg hjälper dig att skapa en ExpressRoute-krets från ExpressRoute D
 
 1. I avsnittet ExpressRoute Direct- **Inställningar** väljer du **kretsar**och väljer sedan **+ Lägg till**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Lägg till" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Skärm bild som visar ExpressRoute-inställningarna med valda kretsar och Lägg till markerade." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Konfigurera inställningarna på **konfigurations** sidan.
 

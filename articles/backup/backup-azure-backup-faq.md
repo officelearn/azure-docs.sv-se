@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017744"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986421"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -45,7 +45,7 @@ Ja. Information om hur du flyttar ett Recovery Services-valv finns i den här [a
 
 Nej. Säkerhetskopierade data som lagras i ett valv kan inte flyttas till ett annat valv.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Kan jag ändra från GRS till LRS efter en säkerhetskopiering?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Kan jag ändra inställningen för redundans efter en säkerhets kopiering?
 
 Typen av lagrings replikering är som standard inställd på Geo-redundant lagring (GRS). När du har konfigurerat säkerhets kopieringen är alternativet att ändra inaktiverat och kan inte ändras.
 

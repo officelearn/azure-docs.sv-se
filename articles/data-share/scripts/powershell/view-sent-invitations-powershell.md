@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell-skript: lista Azure Data Share-inbjudningar som skickas till en konsument | Microsoft Docs'
-description: Det här PowerShell-skriptet accepterar inbjudningar från en befintlig data resurs.
+description: Lär dig hur det här PowerShell-skriptet får inbjudningar som skickas till en konsument och se ett exempel på det skript som du kan använda.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 157b844afd9d59b6c03c7ae8585bc2182370d3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f0374ba5b98c145359d18143584e23fc543c552
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70307157"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985621"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>Använd PowerShell för att hämta en inbjudan till data resursen
 
@@ -38,7 +38,7 @@ Get-AzDataShareInvitation -location -invitationId
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Hämta och visa en lista över inbjudningar till skickade data resurser. |
 |||

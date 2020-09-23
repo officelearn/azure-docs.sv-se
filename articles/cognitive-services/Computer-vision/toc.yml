@@ -109,6 +109,22 @@
       href: concept-recognizing-text.md
     - name: Identifiering av innehåll som är olämpligt för barn
       href: concept-detecting-adult-content.md
+- name: Ansvarsfull AI
+  items:
+    - name: Transparensinformation
+      items:
+        - name: Introduktion till rumslig analys
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview'
+        - name: Egenskaper och begränsningar
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations'
+    - name: 'Efterlevnad, sekretess och säkerhet'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2'
+    - name: Ansvarig användning för AI-distribution
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment'
+    - name: Utlämnande av designriktlinjer
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design'
+    - name: Forskningsinsikter
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights'
 - name: Containrar
   items:
     - name: Läs API-container
@@ -125,6 +141,20 @@
         - name: Använda containerinstanser
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+    - name: Container för rumslig analys
+      items:
+        - name: Konfigurera värddatorn och kör containern
+          href: spatial-analysis-container.md
+        - name: Konfigurera åtgärder
+          href: spatial-analysis-operations.md
+        - name: Distribuera en webbapp för att räkna människor
+          href: Spatial-analysis-web-app.md
+        - name: Loggning och felsökning
+          href: spatial-analysis-logging.md
+        - name: Zon- och linjeplacering
+          href: spatial-analysis-zone-line-placement.md
+        - name: Kameraplacering
+          href: spatial-analysis-camera-placement.md
 - name: Anvisningar
   items:
     - name: 'Anropa API:et för visuellt innehåll'

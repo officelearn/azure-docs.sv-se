@@ -4,8 +4,8 @@
   items:
     - name: Vad är Stream Analytics?
       href: stream-analytics-introduction.md
-    - name: Lösningsmönster från slutpunkt till slutpunkt
-      href: stream-analytics-solution-patterns.md
+    - name: Stream Analytics-kluster
+      href: cluster-overview.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -23,7 +23,11 @@
         - name: Visual Studio
           href: stream-analytics-quick-create-vs.md
         - name: Visual Studio-koden
-          href: quick-create-vs-code.md
+          href: quick-create-visual-studio-code.md
+    - name: Skapa ett kluster
+      items:
+        - name: Azure Portal
+          href: create-cluster.md
 - name: Självstudier
   items:
     - name: 1 – Skapa/hantera ett jobb
@@ -42,6 +46,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Begrepp
   items:
+    - name: Lösningsmönster från slutpunkt till slutpunkt
+      href: stream-analytics-solution-patterns.md
     - name: Välja en strömningsanalysteknik
       href: streaming-technologies.md
     - name: Välja ett jobbutvecklingsverktyg
@@ -145,6 +151,14 @@
   items:
     - name: Hantera
       items:
+        - name: Kluster
+          items:
+            - name: Skapa och ta bort privata slutpunkter
+              href: private-endpoints.md
+            - name: Lägga till och ta bort jobb
+              href: manage-jobs-cluster.md
+            - name: Skala klusterstorlek
+              href: scale-cluster.md
         - name: Autoskala jobb
           href: stream-analytics-autoscale.md
         - name: Uppdatera autentiseringsuppgifter
@@ -234,6 +248,14 @@
           href: stream-analytics-cicd-api.md
         - name: Exportera och distribuera med Azure Resource Manager
           href: resource-manager-export.md
+    - name: Kontinuerlig integrering och distribution
+      items:
+        - name: Översikt över CI/CD
+          href: cicd-overview.md
+        - name: 'Kompilera, testa och distribuera med PowerShell'
+          href: cicd-tools.md
+        - name: Konfigurera en pipeline med Azure DevOps
+          href: set-up-cicd-pipeline.md
     - name: Visual Studio
       items:
         - name: Installera verktygen
@@ -260,8 +282,6 @@
           href: visual-studio-code-local-run-live-input.md
         - name: Felsöka frågor med hjälp av jobbdiagram
           href: debug-locally-using-job-diagram-vs-code.md
-        - name: Konfigurera CI/CD-pipeliner
-          href: setup-cicd-vs-code.md
         - name: Utforska jobb
           href: visual-studio-code-explore-jobs.md
         - name: JobConfig.json-fält

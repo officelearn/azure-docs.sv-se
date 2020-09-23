@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082292"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984872"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Använd Azure SQL-hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory
 
@@ -141,7 +141,7 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
 
     Värd namnet för den offentliga slut punkten anges i formatet <mi_name>. public. <dns_zone>. database.windows.net och att porten som används för anslutningen är 3342.  
 
-    ![Katalog-offentlig-slutpunkt](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![Skärm bild som visar integration runtime-installationen med skapa S-katalogen vald och slut punkten för katalog databas servern angavs.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. Välj Azure AD-autentisering när det gäller.
 
@@ -157,7 +157,7 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
 
     Mer information om hur du ansluter Azure-SSIS IR till ett virtuellt nätverk finns i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).
 
-    ![Anslut till virtuella nätverk](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![Skärm bild som visar avancerade inställningar för integration runtime-installationen, där du kan välja ett virtuellt nätverk som din körning ska ansluta till.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 Mer information om hur du skapar en Azure-SSIS IR finns [i skapa en Azure-SSIS integration runtime i Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
 

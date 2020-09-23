@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87451048"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905395"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Självstudie: Konfigurera autoskalning för mikrotjänstprogram
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
+
 Autoskalning är en inbyggd funktion i Azure våren Cloud som hjälper mikrotjänstprogram att utföra sina bästa när efter frågan förändras. Detta inkluderar ändring av antalet virtuella processorer, minne och App-instanser. Den här artikeln beskriver hur du konfigurerar inställningar för autoskalning för dina program med hjälp av Microsoft Azure-portalen eller Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -68,4 +71,4 @@ Om du är på Basic-nivån och är begränsad av en eller flera av dessa gränse
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över autoskalning i Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Autoskalning av Azure CLI-övervakning](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Autoskalning av Azure CLI-övervakning](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)

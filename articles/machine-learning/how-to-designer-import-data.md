@@ -1,7 +1,7 @@
 ---
-title: Importera data till designern (för hands version)
+title: Importera data till designern
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du importerar data till Azure Machine Learning designer (för hands version) från olika data källor.
+description: Lär dig hur du importerar data till Azure Machine Learning designer från olika data källor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006992"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985611"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importera data till Azure Machine Learning designer (förhands granskning)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Importera data till Azure Machine Learning designer
 
 I den här artikeln får du lära dig hur du importerar dina egna data i designern för att skapa anpassade lösningar. Det finns två sätt att importera data till designern: 
 
@@ -32,7 +32,7 @@ Vi rekommenderar att du använder data [uppsättningar](concept-data.md#datasets
 
 ### <a name="register-a-dataset"></a>Registrera en data uppsättning
 
-Du kan registrera befintliga data uppsättningar [program mässigt med SDK](how-to-create-register-datasets.md#datasets-sdk) eller [visuellt i Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
+Du kan registrera befintliga data uppsättningar [program mässigt med SDK](how-to-create-register-datasets.md#datasets-sdk) eller [visuellt i Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 Du kan också registrera utdata för alla designer-moduler som en data uppsättning.
 
@@ -68,7 +68,7 @@ Vi rekommenderar att du använder data uppsättningar för att importera data, m
 Detaljerad information om hur du använder modulen importera data finns på [sidan Importera data referens](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Om din data uppsättning har för många kolumner kan följande fel uppstå: "verifieringen misslyckades på grund av storleks begränsning". Undvik detta genom att [registrera data uppsättningen i gränssnittet för data uppsättningar](how-to-create-register-datasets.md#datasets-ui).
+> Om din data uppsättning har för många kolumner kan följande fel uppstå: "verifieringen misslyckades på grund av storleks begränsning". Undvik detta genom att [registrera data uppsättningen i gränssnittet för data uppsättningar](how-to-connect-data-ui.md#create-datasets).
 
 ## <a name="supported-sources"></a>Källor som stöds
 
@@ -90,7 +90,7 @@ Designern stöder tabell data uppsättningar som skapats från följande källor
 Designern identifierar internt följande data typer:
 
 * Sträng
-* Integer
+* Heltal
 * Decimal
 * Boolesk
 * Date
@@ -107,4 +107,4 @@ Om din arbets yta finns i ett virtuellt nätverk måste du utföra ytterligare k
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig grunderna i designern med [Självstudier: förutsäga det mobila priset med designern](tutorial-designer-automobile-price-train-score.md).
+Lär dig grunderna i designern i den här [självstudien: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md).

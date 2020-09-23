@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246834"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984134"
 ---
 # <a name="state-management-with-service-fabric"></a>Tillstånds hantering med Service Fabric
 
@@ -22,7 +22,7 @@ Med Service Fabric nät kan du enkelt distribuera ett nytt program och ansluta d
 
 Behållare använder ofta temporära diskar. Temporära diskar är tillfälliga, så du får en ny temporär disk och förlorar informationen när en behållare kraschar. Det är också svårt att dela information på temporära diskar med andra behållare. Volymer är kataloger som monteras i dina behållar instanser som du kan använda för att spara tillstånd. -Volymer ger dig generell fil lagring och gör att du kan läsa och skriva filer med hjälp av normal disk-I/O-fil-API: er. Volym resursen beskriver hur du monterar en katalog och vilken lagrings plats som ska användas. Du kan välja antingen Azure File Storage eller Service Fabric volym disk för att lagra data.
 
-![Volymer][image3]
+![Diagrammet visar tjänst, som flödar till volym, som flödar både för att Service Fabric tillförlitlig volym på en replikerad lokal disk och för att Azure Files volym på nätverks lagring.][image3]
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric tillförlitlig volym
 

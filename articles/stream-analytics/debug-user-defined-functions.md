@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 758846e2b4bfa42c9f6db0dc330c12e38a2f8c96
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 25be55021e4f07b0803d8b7cc1bb48ab05a3ea3b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432361"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889618"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Felsöka användardefinierade funktioner i Azure Stream Analytics 
 
@@ -47,7 +47,7 @@ Kompileringen sker när det Stream Analytics projektet kompileras eller körs. R
 
 Eftersom det inte finns något fel söknings stöd för JavaScript-funktioner i Stream Analytics direkt, kan du felsöka genom att kapsla in funktionen i en HTML-webbplats och hämta utdata därifrån.
 
-I följande exempel visas hur du felsöker JavaScript-UDF: er med vissa begränsningar i en integrerad körnings miljö i [Visual Studio Code](quick-create-vs-code.md).
+I följande exempel visas hur du felsöker JavaScript-UDF: er med vissa begränsningar i en integrerad körnings miljö i [Visual Studio Code](quick-create-visual-studio-code.md).
 
 ### <a name="prerequisites"></a>Förutsättningar
 

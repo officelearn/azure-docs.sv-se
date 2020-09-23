@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401732"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986569"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurera anpassade aviseringar för att övervaka annonserade vägar
 
@@ -299,7 +299,7 @@ I utlösaren för upprepnings schema kan du ange tids zonen och en upprepning f�
 
 I slutet av arbets flödes konfigurationen kan du kontrol lera konsekvensen för upprepnings frekvensen genom att köra arbets flödet några gånger och sedan verifiera resultatet i **körnings historiken**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Upprepning" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Skärm bild som visar upprepnings intervall och frekvens värden." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. skapa ett jobb
 
@@ -320,7 +320,7 @@ En Logic app får åtkomst till andra appar, tjänster och plattformen via anslu
 
 5. På sidan **skapa jobb** måste tjänstens huvud namn ha rollen "läsare" i **resurs gruppen** som är värd för Automation-kontot och "automatiserings jobb operatör" på **Automation-kontot**. Kontrol lera också att du har lagt till **Runbook-namnet** som en ny parameter.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Roller" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Skärm bild som visar skapa jobb värden i upprepning, där du kan kontrol lera Runbook-namnet." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. Hämta jobbets utdata
 
@@ -343,7 +343,7 @@ Informationen i utdata från Azure Automation skapa jobb åtgärd (föregående 
 
 3. Klicka i **innehålls** rutan. När listan med dynamiskt innehåll visas väljer du **innehåll**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Innehåll" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Skärm bild som visar dialog rutan parsa JSON med innehåll valt." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. Parsning av en JSON kräver ett schema. Schemat kan genereras med hjälp av utdata från Automation-runbooken. Öppna en ny webbläsarsession, kör Automation-runbooken och hämta utdata. Återgå till åtgärden **Logic Apps parsa JSON-dataåtgärder** . Längst ned på sidan väljer **du Använd exempel nytto last för att generera schemat**.
 
@@ -363,7 +363,7 @@ I det här steget i arbets flödet skapar vi ett villkor för att skicka ett lar
 
 1. Under **åtgärden Hämta utdata för jobb**väljer du **nytt steg**. Sök efter och välj **variabler**i sökrutan.
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Variabler":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Skärm bild som visar dialog rutan Välj en åtgärd med variabel i sökrutan och markerade variabler.":::
 
 2. Välj åtgärden **initiera variabel** i listan **åtgärder** .
 
@@ -371,7 +371,7 @@ I det här steget i arbets flödet skapar vi ett villkor för att skicka ett lar
 
 3. Ange namnet på variabeln. I **typ**väljer du **sträng**. Variabelns **värde** kommer att tilldelas senare i arbets flödet.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Sträng" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Skärm bild som visar parse JSON som är associerad med Initialize-variabeln, där du kan ange ett namn, en typ och ett värde." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="7-create-a-for-each-action"></a><a name="cycles-json"></a>7. skapa en "för varje"-åtgärd
 
@@ -379,7 +379,7 @@ När JSON parsas lagrar åtgärden **parsa JSON-data åtgärder** innehållet i 
 
 1. Under **initiera variabel**väljer du **Lägg till en åtgärd**. Skriv "för varje" som filter i rutan Sök.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Kontroll":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Skärm bild som visar dialog rutan Välj en åtgärd för varje i sökrutan och kontrollen vald.":::
 
 2. I listan **åtgärder** väljer du åtgärden **för varje kontroll**.
 
@@ -387,7 +387,7 @@ När JSON parsas lagrar åtgärden **parsa JSON-data åtgärder** innehållet i 
 
 3. Klicka i text rutan **Välj utdata från föregående steg** . När listan med **dynamiskt innehåll** visas väljer du **texten**, som är utdata från den parsade JSON-filen.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Brödtext":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Skärm bild som visar en initierad variabel som är associerad med för varje, som innehåller text rutan Välj utdata från föregående steg.":::
 
 4. Vi vill ange ett villkor för varje element i JSON-brödtext. I åtgärds gruppen väljer du **kontroll**.
 

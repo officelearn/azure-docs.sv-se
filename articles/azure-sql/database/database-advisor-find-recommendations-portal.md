@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921222"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970673"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,7 +35,7 @@ Använd följande steg för att hitta prestanda rekommendationer på Azure Porta
 
 Prestanda rekommendationer visas i tabellen som liknar den som visas på följande bild:
 
-![Rekommendationer](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Skärm bild som visar prestanda rekommendationer i en tabell med åtgärds-och rekommendations beskrivning.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Rekommendationerna sorteras efter deras potentiella påverkan på prestanda i följande kategorier:
 

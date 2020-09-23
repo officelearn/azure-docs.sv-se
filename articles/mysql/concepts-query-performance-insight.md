@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 51b478e5184c79e11d95ff004a652b2e5298558f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83402619"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884908"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Information om frågeprestanda i Azure Database for MySQL
 
@@ -35,7 +35,7 @@ Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta 
 
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att Query Performance Insight ska fungera måste data finnas i [frågearkivet](concepts-query-store.md).
 
@@ -51,7 +51,7 @@ På fliken **tids krävande frågor** visas de 5 främsta frågorna med genomsni
 
 Du kan klicka och dra i diagrammet för att begränsa till ett specifikt tidsfönster. Du kan också använda ikonerna zooma in och ut för att visa en kortare eller längre tids period.
 
-![Query Performance Insight tids krävande frågor](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight tids krävande frågor"::: 
 
 ### <a name="wait-statistics"></a>Vänta med statistik
 
@@ -64,7 +64,7 @@ Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av v�
 
 Frågor som visas i vyn vänta med statistik grupperas efter de frågor som uppvisar störst vänte tid under det angivna tidsintervallet.
 
-![Query Performance Insight väntar på statistik](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight väntar på statistik":::
 
 ## <a name="next-steps"></a>Nästa steg
 

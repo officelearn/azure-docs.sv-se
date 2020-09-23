@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076042"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892552"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
 I den här artikeln beskrivs några strategier som du kan använda för att skydda dina Azure våren Cloud-program från att drabbas av drift stopp.  En region eller ett Data Center kan drabbas av drift stopp som orsakas av regionala katastrofer, men noggrann planering kan minimera påverkan på dina kunder.
 
@@ -41,7 +43,7 @@ Du behöver två tjänst instanser av Azure våren Cloud som distribueras i två
 
 **Två tjänst instans uppgifter:**
 
-| Tjänstens namn | Plats | Program |
+| Tjänstens namn | Position | Program |
 |--|--|--|
 | service – exempel – a | East US | Gateway/auth-service/account-service |
 | service – exempel-b | Europa, västra | Gateway/auth-service/account-service |
@@ -51,7 +53,7 @@ Du behöver två tjänst instanser av Azure våren Cloud som distribueras i två
 3. Skapa en Traffic Manager och två slut punkter: [skapa en Traffic Manager profil med hjälp av Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
 
 Här är Traffic Manager-profilen:
-* Traffic Manager DNS-namn:`http://asc-bcdr.trafficmanager.net`
+* Traffic Manager DNS-namn: `http://asc-bcdr.trafficmanager.net`
 * Slut punkts profiler: 
 
 | Profil | Typ | Mål | Prioritet | Anpassade huvud inställningar |
@@ -62,3 +64,8 @@ Här är Traffic Manager-profilen:
 4. Skapa en CNAME-post i DNS-zonen: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. Nu är miljön helt konfigurerad. Kunderna ska kunna komma åt appen via: bcdr-test.contoso.com
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Snabb start: Distribuera ditt första Azure våren Cloud-program](spring-cloud-quickstart.md)
+ 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: df7b8d23b68e8040e9a7485565b8d7b35cf378d6
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 16ec78d6d4d2ceb9498cc25d482c24ccdc6b9f56
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667601"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901196"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -31,9 +31,10 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 
 
+
 ## <a name="alerts-for-windows-machines"></a><a name="alerts-windows"></a>Aviseringar för Windows-datorer
 
-[Mer information och anmärkningar](threat-protection.md#windows-machines)
+[Mer information och anmärkningar](defender-for-servers-introduction.md)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
@@ -110,7 +111,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 |**Misstänkt hämtning med Certutil upptäcktes [sett flera gånger]**|Analys av värd data på% {komprometterad värd} identifierade användning av certutil.exe, ett inbyggt administratörs verktyg för nedladdning av en binärfil i stället för det traditionella syftet som relaterar till att hantera certifikat och certifikat data. Angripare har till gång till missbruk av legitima administratörs verktyg för att utföra skadliga åtgärder, till exempel att använda certutil.exe för att ladda ned och avkoda en skadlig körbar fil som sedan kommer att köras. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|Medium|
 |**Misstänkt hämtning med Certutil upptäckt**|Analys av värd data på% {komprometterad värd} identifierade användning av certutil.exe, ett inbyggt administratörs verktyg för nedladdning av en binärfil i stället för det traditionella syftet som relaterar till att hantera certifikat och certifikat data. Angripare har till gång till missbruk av legitima administratörs verktyg för att utföra skadliga åtgärder, till exempel att använda certutil.exe för att ladda ned och avkoda en skadlig körbar fil som sedan kommer att köras.|-|Medium|
 |**Misstänkt process kördes [sett flera gånger]**|Dator loggar indikerar att den misstänkta processen:% {misstänkt process} kördes på datorn, ofta kopplad till angripare försöker få åtkomst till autentiseringsuppgifter. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|Hög|
-|**Misstänkt process kördes**|Dator loggar indikerar att den misstänkta processen:% {misstänkt process} kördes på datorn, ofta kopplad till angripare försöker få åtkomst till autentiseringsuppgifterna.|-|Hög|
+|**Misstänkt process kördes**|Dator loggar indikerar att den misstänkta processen:% {misstänkt process} kördes på datorn, ofta kopplad till angripare försöker få åtkomst till autentiseringsuppgifter.|-|Hög|
 |**Misstänkt process namn upptäcktes [sett flera gånger]**|Analys av värd data på% {komprometterad värd} har identifierat en process vars namn är misstänkt, till exempel som motsvarar ett känt angrepps verktyg eller som heter på ett sätt som gör det möjligt att dölja angrepps verktyg som försöker dölja sig i rent syn. Den här processen kan vara en legitim aktivitet eller en indikation på att någon av datorerna har komprometterats. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|Medium|
 |**Misstänkt process namn identifierat**|Analys av värd data på% {komprometterad värd} har identifierat en process vars namn är misstänkt, till exempel som motsvarar ett känt angrepps verktyg eller som heter på ett sätt som gör det möjligt att dölja angrepps verktyg som försöker dölja sig i rent syn. Den här processen kan vara en legitim aktivitet eller en indikation på att någon av datorerna har komprometterats.|-|Medium|
 |**Misstänkt process termins överföring**|Analys av värd data indikerar en misstänkt process avslutnings överföring i% {Machine Name}. Mer specifikt avlivades% {NumberOfCommands} processer mellan% {BEGIN} och% {avslutande}.|-|Låg|
@@ -125,7 +126,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-linux-machines"></a><a name="alerts-linux"></a>Aviseringar för Linux-datorer
 
-[Mer information och anmärkningar](threat-protection.md#linux-machines)
+[Mer information och anmärkningar](defender-for-servers-introduction.md)
 
 |Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|Allvarlighetsgrad|
 |----|----|:----:|--|
@@ -217,7 +218,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-azure-app-service"></a><a name="alerts-azureappserv"></a>Aviseringar för Azure App Service
 
-[Mer information och anmärkningar](threat-protection.md#app-services)
+[Mer information och anmärkningar](defender-for-app-service-introduction.md)
 
 | Varning                                                                                            | Beskrivning                                                                                                                                                                                                                                                                                                                                                                           | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -242,7 +243,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-containers---azure-kubernetes-service-clusters"></a><a name="alerts-akscluster"></a>Aviseringar för behållare – Azure Kubernetes service-kluster
 
-[Mer information och anmärkningar](threat-protection.md#azure-containers)
+[Mer information och anmärkningar](defender-for-kubernetes-introduction.md)
 
 | Varning                                                   | Beskrivning                                                                                                                                                                                                                                                                                                 | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -260,7 +261,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-containers---host-level"></a><a name="alerts-containerhost"></a>Aviseringar för behållare – värd nivå
 
-[Mer information och anmärkningar](threat-protection.md#azure-containers)
+[Mer information och anmärkningar](defender-for-kubernetes-introduction.md)
 
 | Varning                                              | Beskrivning                                                                                                                                                                                                                                                                                                | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -276,7 +277,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-sql-database-and-azure-synapse-analytics"></a><a name="alerts-sql-db-and-warehouse"></a>Aviseringar för SQL Database-och Azure Synapse-analys
 
-[Mer information och anmärkningar](threat-protection.md#data-sql)
+[Mer information och anmärkningar](defender-for-sql-introduction.md)
 
 | Varning                                           | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                 | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -292,7 +293,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-azure-storage"></a><a name="alerts-azurestorage"></a>Aviseringar för Azure Storage
 
-[Mer information och anmärkningar](threat-protection.md#azure-storage)
+[Mer information och anmärkningar](defender-for-storage-introduction.md)
 
 | Varning                                                         | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -315,7 +316,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-azure-cosmos-db-preview"></a><a name="alerts-azurecosmos"></a>Aviseringar för Azure Cosmos DB (för hands version)
 
-[Mer information och anmärkningar](threat-protection.md#cosmos-db)
+[Mer information och anmärkningar](other-threat-protections.md#cosmos-db)
 
 | Varning                                                         | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -326,7 +327,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-azure-network-layer"></a><a name="alerts-azurenetlayer"></a>Aviseringar för Azure nätverks lager
 
-[Mer information och anmärkningar](threat-protection.md#network-layer)
+[Mer information och anmärkningar](other-threat-protections.md#network-layer)
 
 | Varning                                                                 | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -351,7 +352,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-azure-resource-manager-preview"></a><a name="alerts-azureresourceman"></a>Aviseringar för Azure Resource Manager (för hands version)
 
-[Mer information och anmärkningar](threat-protection.md#management-layer)
+[Mer information och anmärkningar](other-threat-protections.md#management-layer)
 
 | Varning                                                                          | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -368,9 +369,9 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 |                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                    |          |
 
 
-## <a name="alerts-for-azure-key-vault-preview"></a><a name="alerts-azurekv"></a>Aviseringar för Azure Key Vault (för hands version)
+## <a name="alerts-for-azure-key-vault"></a><a name="alerts-azurekv"></a>Aviseringar för Azure Key Vault
 
-[Mer information och anmärkningar](threat-protection.md#azure-keyvault)
+[Mer information och anmärkningar](defender-for-key-vault-introduction.md)
 
 | Varning                                                        | Beskrivning                                                                                                                                                                                                                                                                                                                            | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -388,7 +389,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 ## <a name="alerts-for-azure-ddos-protection"></a><a name="alerts-azureddos"></a>Aviseringar för Azure DDoS Protection
 
-[Mer information och anmärkningar](threat-protection.md#azure-ddos)
+[Mer information och anmärkningar](other-threat-protections.md#azure-ddos)
 
 | Varning                                   | Beskrivning                                                          | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
@@ -425,7 +426,6 @@ Security Center som stöds av Killing-kedjeen är baserade på [Mitre to&CK- &tr
 ## <a name="next-steps"></a>Nästa steg
 Mer information om aviseringar finns i följande avsnitt:
 
-* [Skydd mot hot i Azure Security Center](threat-protection.md)
-* [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
-* [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md)
+- [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
+- [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md)

@@ -7,17 +7,17 @@ author: dylankil
 manager: guillasi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-javascript
 ms.author: dylankil
-ms.openlocfilehash: 63a7e7756eee80b8d57c168890ba3613bbd11f01
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 572bd35a916ed97ab0c846e2b8d561bd27b145cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602286"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978241"
 ---
-Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
+[Avancerad läsare](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra Läs förståelse för nya läsare, språkutbildningar och personer med inlärnings skillnader som Dyslexia. Du kan använda avancerad läsare i dina program för att isolera text för att förbättra fokus, Visa bilder för vanliga ord, markera delar av tal, läsa den markerade texten, översätta ord och fraser i real tid och mycket mer.
 
 I den här snabb starten skapar du en Android-app från grunden och integrerar den fördjupade läsaren. Ett fullständigt fungerande exempel på den här snabb starten finns [på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
 
@@ -25,6 +25,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Git](https://git-scm.com/).
 * [SDK för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk).
@@ -34,27 +35,27 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Starta ett nytt projekt i Android Studio. Käll koden för det här exemplet är tillgänglig som en del av [SDK: n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
 
-![Nytt projekt](../../media/android/java/android-studio-create-project.png)
+![Nytt projekt – Android](../../media/android/java/android-studio-create-project.png)
 
 I fönstret **Välj projekt väljer du** **Tom aktivitet**och väljer sedan **Nästa**.
 
-![Tomt aktivitets projekt](../../media/android/java/android-studio-empty-activity.png)
+![Tomt aktivitets projekt – Android](../../media/android/java/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>Konfigurera projektet
 
 Ge projektet namnet **QuickstartJava**och välj en plats där du vill spara den. Välj **Java** som programmeringsspråk och välj sedan **Slutför**.
 
-![Konfigurera projektet](../../media/android/java/android-studio-configure-project.png)
+![Konfigurera projektet – Android](../../media/android/java/android-studio-configure-project.png)
 
 ## <a name="set-up-assets-and-authentication"></a>Konfigurera till gångar och autentisering
 
 Skapa en ny **/assets** -mapp.
 
-![Skapa en mapp för nya till gångar](../../media/android/java/android-studio-assets-folder.png)
+![Skapa en ny till gång-mapp – Android](../../media/android/java/android-studio-assets-folder.png)
 
  Skapa en fil med namnet **Kuvert** i mappen till gångar. Lägg till följande namn och värden och ange lämpliga värden. Spara inte den här kuvert filen i käll kontrollen eftersom den innehåller hemligheter som inte ska publiceras.
 
-![Skapa en ny kuvert fil](../../media/android/java/android-studio-create-env-file.png)
+![Skapa en ny kuvert fil – Android](../../media/android/java/android-studio-create-env-file.png)
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -81,13 +82,13 @@ dependencies {
 }
 ```
 
-![App gradle-implementeringar](../../media/android/java/android-studio-build-gradle.png)
+![App gradle-implementeringar – Android](../../media/android/java/android-studio-build-gradle.png)
 
 ## <a name="update-app-strings-and-layout-resources"></a>Uppdatera program strängar och layout resurser
 
 Ersätt innehållet i **res/String/strings.xml** med följande strängar som ska användas i appen.
 
-![App-strings.xml](../../media/android/java/android-studio-strings.png)
+![App strings.xml – Android](../../media/android/java/android-studio-strings.png)
 
 ```strings.xml
 <resources>
@@ -97,7 +98,7 @@ Ersätt innehållet i **res/String/strings.xml** med följande strängar som ska
 
     <string name="app_name">ImmersiveReaderSDK</string>
     <string name="geographyTitle">Geography</string>
-    <string name="geographyTextEn">The study of Earth’s landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live. The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians.Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
+    <string name="geographyTextEn">The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live. The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians. Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
     <string name="geographyTextFr">L\'étude des reliefs de la Terre est appelée géographie physique. Les reliefs peuvent être des montagnes et des vallées. Il peut aussi s\'agira de glaciers, delacs ou de rivières. Les reliefs sont parfois appelés caractéristiques physiques. Il est important que les élèves connaissent la géographie physique de laTerre. Les saisons, l\'atmosphère et tous les processus naturels de la Terre affectent l\'endroit où les gens sont capables de vivre. La géographie est l\'un desfacteurs que les gens utilisent pour décider où ils veulent vivre. Les caractéristiques physiques d\'une région sont souvent riches en ressources. Àl\'intérieur d\'une nation, les chaînes de montagnes deviennent des frontières naturelles pour les zones de peuplement. Aux États-Unis, les principaleschaînes de montagnes sont la Sierra Nevada, les montagnes Rocheuses et les Appalaches.Les sources d\'eau douce influencent également l\'endroit où lesgens s\'installent. Les gens ont besoin d\'eau pour boire. Ils en ont aussi besoin pour se laver. Tout au long de l\'histoire, les gens se sont installés près del\'eau douce. Vivre près d\'une source d\'eau permet de s\'assurer que les gens ont l\'eau dont ils ont besoin. Il y avait un bonus supplémentaire, aussi. L\'eaupourrait être utilisée comme voie de voyage pour les personnes et les marchandises. Beaucoup d\'Américains vivent près des sources d\'eau populaires,telles que le fleuve Mississippi, le fleuve Colorado et les Grands Lacs.Mountains et les déserts ont été installés par moins de gens que les zones desplaines. Cependant, ils disposent de ressources précieuses.Les gens ont une réponse.</string>
     <string name="immersiveReaderButtonText">Immersive Reader</string>
 </resources>
@@ -105,7 +106,7 @@ Ersätt innehållet i **res/String/strings.xml** med följande strängar som ska
 
 Ersätt innehållet i **res/layout/activity_main.xml** med följande XML som ska användas i appen. XML-koden är appens UI-layout.
 
-![App-activity_main.xml](../../media/android/java/android-studio-activity-main-xml.png)
+![App activity_main.xml – Android](../../media/android/java/android-studio-activity-main-xml.png)
 
 ```activity_main.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -206,9 +207,9 @@ Ersätt innehållet i **res/layout/activity_main.xml** med följande XML som ska
 
 Skapa en ny layout resurs fil i mappen **resurs/layout/** mapp och ge den namnet **activity_immersive_reader**. Ersätt sedan dess innehåll med följande XML. Den här XML-koden lägger till komponenten webbvy som ska användas av IRActivity Java-koden som skapas i ett senare steg. För tillfället är det odefinierat och kommer att orsaka fel.
 
-![Skapa ny resurs fil för layout](../../media/android/java/android-studio-new-layout-resource.png)
+![Skapa ny resurs fil för layout – Android](../../media/android/java/android-studio-new-layout-resource.png)
 
-![Konfigurera den nya layout resursen](../../media/android/java/android-studio-activity-immersive-reader.png)
+![Konfigurera den nya layout resursen – Android](../../media/android/java/android-studio-activity-immersive-reader.png)
 
 ```activity_immersive_reader.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -235,7 +236,7 @@ Skapa en ny layout resurs fil i mappen **resurs/layout/** mapp och ge den namnet
 
 I mappen **/Java/com.example.quickstartjava** ser du en befintlig **MainActivity. java** Java-klassfil. Den här mappen är den plats där appens logiken har skapats.
 
-![MainActivity](../../media/android/java/android-studio-main-activity-java.png)
+![MainActivity – Android](../../media/android/java/android-studio-main-activity-java.png)
 
 Ersätt **MainActivity. java** -innehåll med följande kod. Det finns några klasser som refereras till i kod som ännu inte finns och som kommer att skapas senare.
 
@@ -292,7 +293,7 @@ Vi skapar 16 fler Java-klassfiler i mappen **/Java/com.example.quickstartjava** 
 
 Om du vill skapa en ny **ImmersiveReader. java** -klassfil högerklickar du på mappen i Android Studio, väljer **ny**och väljer sedan **Java-klass**. Du använder samma metod för att skapa Java-klassfiler för varje ny Java-klassfil som du skapar.
 
-![ImmersiveReader](../../media/android/java/android-studio-immersivereader-java.png)
+![ImmersiveReader – Android](../../media/android/java/android-studio-immersivereader-java.png)
 
 Ersätt **ImmersiveReader. java** -innehåll med följande kod:
 
@@ -376,7 +377,7 @@ public class ImmersiveReader {
 
 Skapa en ny **IRActivity. java** Java-klassfil.
 
-![IRActivity](../../media/android/java/android-studio-iractivity-java.png)
+![IRActivity – Android](../../media/android/java/android-studio-iractivity-java.png)
 
 Ersätt **IRActivity. java** -innehåll med följande kod:
 
@@ -460,7 +461,7 @@ public class ImmersiveReader {
 
 Skapa en ny **IRError. java** Java-klassfil.
 
-![IRError](../../media/android/java/android-studio-irerror-java.png)
+![IRError – Android](../../media/android/java/android-studio-irerror-java.png)
 
 Ersätt **IRError. java** -innehåll med följande kod:
 
@@ -539,7 +540,7 @@ public class IRError implements Parcelable {
 
 Skapa en ny **felkod. java** Java-klassfil.
 
-![Fel](../../media/android/java/android-studio-error-java.png)
+![Fel – Android](../../media/android/java/android-studio-error-java.png)
 
 Ersätt **error. java** -innehåll med följande kod:
 
@@ -570,7 +571,7 @@ public class Error {
 
 Skapa en ny **ReadableContent. java** Java-klassfil.
 
-![ReadableContent](../../media/android/java/android-studio-readablecontent-java.png)
+![ReadableContent – Android](../../media/android/java/android-studio-readablecontent-java.png)
 
 Ersätt **ReadableContent. java** -innehåll med följande kod:
 
@@ -614,7 +615,7 @@ public class ReadableContent {
 
 Skapa en ny **ReadableTextChunk. java** Java-klassfil.
 
-![ReadableTextChunk](../../media/android/java/android-studio-readabletextchunk-java.png)
+![ReadableTextChunk – Android](../../media/android/java/android-studio-readabletextchunk-java.png)
 
 Ersätt **ReadableTextChunk. java** -innehåll med följande kod:
 
@@ -646,7 +647,7 @@ public class ReadableTextChunk {
 
 Skapa en ny **IRDataHolder. java** Java-klassfil.
 
-![IRDataHolder](../../media/android/java/android-studio-irdataholder-java.png)
+![IRDataHolder – Android](../../media/android/java/android-studio-irdataholder-java.png)
 
 Ersätt **IRDataHolder. java** -innehåll med följande kod:
 
@@ -711,7 +712,7 @@ public class IRDataHolder {
 
 Skapa en ny **IRAuthenticator. java** Java-klassfil.
 
-![IRAuthenticator](../../media/android/java/android-studio-irauthenticator-java.png)
+![IRAuthenticator – Android](../../media/android/java/android-studio-irauthenticator-java.png)
 
 Ersätt **IRAuthenticator. java** -innehåll med följande kod:
 
@@ -822,7 +823,7 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
 
 Skapa en ny **IRLauncher. java** Java-klassfil.
 
-![IRLauncher](../../media/android/java/android-studio-irlauncher-java.png)
+![IRLauncher – Android](../../media/android/java/android-studio-irlauncher-java.png)
 
 Ersätt **IRLauncher. java** -innehåll med följande kod:
 
@@ -1015,7 +1016,7 @@ public class IRLauncher {
 
 Skapa en ny **IRStore. java** Java-klassfil.
 
-![IRStore](../../media/android/java/android-studio-irstore-java.png)
+![IRStore – Android](../../media/android/java/android-studio-irstore-java.png)
 
 Ersätt **IRStore. java** -innehåll med följande kod:
 
@@ -1097,7 +1098,7 @@ public class AuthenticationTask extends AsyncTask<Void, Void, String> {
 
 Skapa en ny **segment. java** Java-klassfil.
 
-![Segment](../../media/android/java/android-studio-chunk-java.png)
+![Segment – Android](../../media/android/java/android-studio-chunk-java.png)
 
 Ersätt **segment. java** -innehåll med följande kod:
 
@@ -1134,7 +1135,7 @@ public class Chunk {
 
 Skapa en ny **innehålls. java** Java-klassfil.
 
-![Innehåll](../../media/android/java/android-studio-content-java.png)
+![Innehåll – Android](../../media/android/java/android-studio-content-java.png)
 
 Ersätt **Content. java** -innehåll med följande kod:
 
@@ -1170,7 +1171,7 @@ public class Content {
 
 Skapa ett nytt **alternativ. java** Java-klassfil.
 
-![Alternativ](../../media/android/java/android-studio-options-java.png)
+![Alternativ – Android](../../media/android/java/android-studio-options-java.png)
 
 Ersätt **Options. java** -innehåll med följande kod:
 
@@ -1204,7 +1205,7 @@ public class Options {
 
 Skapa en ny **meddelande. java** -klassfil i Java.
 
-![Meddelande](../../media/android/java/android-studio-message-java.png)
+![Meddelande – Android](../../media/android/java/android-studio-message-java.png)
 
 Ersätt **Message. java** -innehåll med följande kod:
 
@@ -1242,7 +1243,7 @@ public class Message {
 
 Skapa en ny **WebAppInterface. java** Java-klassfil.
 
-![WebAppInterface](../../media/android/java/android-studio-webappinterface-java.png)
+![WebAppInterface – Android](../../media/android/java/android-studio-webappinterface-java.png)
 
 Ersätt **WebAppInterface. java** -innehåll med följande kod:
 
@@ -1293,9 +1294,9 @@ public class WebAppInterface {
 
 WebView-implementeringen kräver att HTML fungerar. Högerklicka på mappen **/assets** , skapa en ny fil och ge den namnet **immersiveReader.html**.
 
-![Skapa en ny HTML-fil](../../media/android/java/android-studio-immersive-reader-html.png)
+![Skapa en ny HTML-fil – Android](../../media/android/java/android-studio-immersive-reader-html.png)
 
-![Plats för HTML-till gång](../../media/android/java/android-studio-immersive-reader-html-assets.png)
+![HTML-tillgångs plats – Android](../../media/android/java/android-studio-immersive-reader-html-assets.png)
 
 Lägg till följande HTML och Java Script. Den här koden lägger till avancerad läsar-SDK i appen och använder den för att öppna den fördjupade läsaren genom att använda appens kod som vi har skrivit.
 
@@ -1352,7 +1353,7 @@ Licensed under the MIT License. -->
 
 ## <a name="set-up-app-permissions"></a>Konfigurera program behörigheter
 
-![AndroidManifest](../../media/android/java/android-studio-android-manifest-xml.png)
+![AndroidManifest – Android](../../media/android/java/android-studio-android-manifest-xml.png)
 
 Eftersom programmet måste göra nätverks anrop till den fördjupade läsaren SDK för att kunna fungera måste du se till att appens behörigheter är konfigurerade för att tillåta nätverks åtkomst. Ersätt innehållet i **/Manifests/-AndroidManifest.xml** med följande XML:
 
@@ -1389,7 +1390,7 @@ Eftersom programmet måste göra nätverks anrop till den fördjupade läsaren S
 
 Använd Android Studio för att köra appen på en enhets-emulator. När du väljer **Avancerad läsare**öppnas den fördjupade läsaren med innehållet i appen.
 
-![Avancerad läsare](../../media/android/java/android-studio-device-emulator.png)
+![Avancerad läsare – Android](../../media/android/java/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

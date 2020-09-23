@@ -8,14 +8,14 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442113"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885169"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -647,7 +647,7 @@ Med avancerat skydd kan du identifiera och svara på potentiella hot när de int
 
 **Bästa praxis**:
 
-- Konfigurera [Avancerad data säkerhet (Ads)](advanced-data-security.md#getting-started-with-ads)   för en bestämd Server eller en hanterad instans. Du kan också konfigurera annonser för alla servrar och hanterade instanser i en prenumeration genom att växla till [Azure Security Center standard nivån](../../security-center/security-center-pricing.md).
+- Konfigurera [Azure Defender för SQL](azure-defender-for-sql.md)   för en bestämd Server eller en hanterad instans. Du kan också konfigurera Azure Defender för SQL för alla servrar och hanterade instanser i en prenumeration genom att växla till [Azure Security Center standard nivån](../../security-center/security-center-pricing.md).
 
 - För en fullständig utrednings erfarenhet rekommenderar vi att du aktiverar [SQL Database granskning](../../azure-sql/database/auditing-overview.md). Med granskning kan du spåra databas händelser och skriva dem till en Gransknings logg i ett Azure Storage konto eller i Azure Log Analytics-arbetsytan.
 

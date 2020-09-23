@@ -4,15 +4,15 @@ description: Azures säkerhets bas linje för Azure SQL Database och Azure SQL-h
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ce297b436ce79a4a0a14d0f6e9ad900de61a8dc9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231035"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885207"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Azures säkerhets bas linje för Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -285,15 +285,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: aktivera aviseringar för avvikande aktivitet
 
-**Vägledning**: Använd Azure Security Center Avancerat skydd för Azure SQL Database för övervakning och aviseringar om avvikande aktivitet. Aktivera avancerad data säkerhet för dina SQL-databaser. Avancerad data säkerhet omfattar funktioner för att identifiera och klassificera känsliga data, Visa och minimera potentiella databas sårbarheter och upptäcka avvikande aktiviteter som kan tyda på ett hot mot databasen.
+**Vägledning**: Använd Azure Security Center Avancerat skydd för Azure SQL Database för övervakning och aviseringar om avvikande aktivitet. Aktivera Azure Defender för SQL för dina SQL-databaser. Azure Defender för SQL innehåller funktioner för Visa och åtgärder för att minska risken för databas sårbarheter och upptäcka avvikande aktiviteter som kan tyda på ett hot mot databasen.
 
 Förstå Avancerat skydd och aviseringar för Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Så här aktiverar du avancerad data säkerhet för Azure SQL Database:
+Så här aktiverar du Azure Defender för SQL för Azure SQL Database:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Hantera aviseringar i Azure Security Center:
 
@@ -333,7 +333,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning**: Azure Active Directory (AAD) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd AAD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
+**Vägledning**: Azure Active Directory (Azure AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
 Så här hämtar du en katalog roll i Azure AD med PowerShell:
 
@@ -381,7 +381,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
 
-**Vägledning**: Aktivera Azure Active Directory (AAD) Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
+**Vägledning**: Aktivera Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
 Så här aktiverar du MFA i Azure:
 
@@ -445,13 +445,13 @@ Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/a
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 
-**Vägledning**: skapa en Azure Active Directory-administratör (AAD) för servern.
+**Vägledning**: skapa en Azure Active Directory-administratör (Azure AD) för servern.
 
 Konfigurera och hantera Azure Active Directory-autentisering med Azure SQL:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-Så här skapar och konfigurerar du en AAD-instans:
+Så här skapar och konfigurerar du en Azure AD-instans:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -461,7 +461,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 
-**Vägledning**: Azure Active Directory (AAD) innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användarnas åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst.
+**Vägledning**: Azure Active Directory (Azure AD) innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användarnas åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst.
 
 Så här använder du granskningar av Azure Identity Access:
 
@@ -473,7 +473,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3,11: övervaka försök att komma åt inaktiverade konton
 
-**Vägledning**: Konfigurera Azure Active Directory (AAD)-autentisering med Azure SQL och skapa diagnostikinställningar för Azure Active Directory användar konton, skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. Konfigurera önskade aviseringar i Log Analytics arbets ytan.
+**Vägledning**: Konfigurera Azure Active Directory (Azure AD)-autentisering med Azure SQL och skapa diagnostikinställningar för Azure Active Directory användar konton, skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. Konfigurera önskade aviseringar i Log Analytics arbets ytan.
 
 Konfigurera och hantera Azure Active Directory-autentisering med Azure SQL:
 
@@ -489,7 +489,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: avisering om beteende för beteende för konto inloggning
 
-**Vägledning**: använda Azure Active Directory (AAD) identitets skydd och risk identifieringar för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Dessutom kan du mata in data i Azure Sentinel för ytterligare undersökning.
+**Vägledning**: Använd Azure Active Directory (Azure AD) identitets skydd och risk identifieringar för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Dessutom kan du mata in data i Azure Sentinel för ytterligare undersökning.
 
 Så här visar du Azure AD-riskfyllda inloggningar:
 
@@ -599,7 +599,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: använda Azure Active Directory (AAD) för att autentisera och kontrol lera åtkomst till Azure SQL Database instanser.
+**Vägledning**: använda Azure Active Directory (Azure AD) för att autentisera och kontrol lera åtkomst till Azure SQL Database instanser.
 
 Så här integrerar du Azure SQL Database med Azure Active Directory för autentisering:
 
@@ -655,15 +655,15 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
-**Vägledning**: aktivera avancerad data säkerhet för Azure SQL Database och följ rekommendationer från Azure Security Center om att utföra sårbarhets bedömningar på dina servrar.
+**Vägledning**: Aktivera Azure Defender för SQL för Azure SQL Database och följ rekommendationer från Azure Security Center om att utföra sårbarhets bedömningar på dina servrar.
 
 Så här kör du sårbarhets bedömningar på Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-Så här aktiverar du avancerad data säkerhet:
+Så här aktiverar du Azure Defender för SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning:
 
@@ -993,7 +993,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
 
-**Vägledning**: Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AAD). Med hanterade identiteter kan du autentisera till alla tjänster som stöder AAD-autentisering, inklusive Azure Key Vault, utan autentiseringsuppgifter i din kod.
+**Vägledning**: Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Azure Key Vault utan autentiseringsuppgifter i din kod.
 
 Självstudie: Använd en Windows VM-systemtilldelad hanterad identitet för att få åtkomst till Azure SQL:
 

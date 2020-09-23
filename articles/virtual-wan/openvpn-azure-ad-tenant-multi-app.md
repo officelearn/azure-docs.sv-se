@@ -1,18 +1,18 @@
 ---
 title: 'Virtuellt WAN: Azure AD-klient för olika användar grupper: Azure AD-autentisering'
-description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
+description: Konfigurera en Azure AD-klient för P2S OpenVPN-autentisering och skapa och registrera flera appar i Azure AD för att tillåta olika åtkomst för olika användare och grupper.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 57fd36366eef284e2975633fbb34549f4316cde6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507700"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988259"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient (AD) för P2S OpenVPN-protokoll anslutningar
 
@@ -123,11 +123,11 @@ Använd den här [länken](https://go.microsoft.com/fwlink/?linkid=2117554) för
 
 1. Välj ellipsen (...) bredvid den klient profil som du vill ta bort. Välj sedan **ta bort**.
 
-    ![ta bort](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Välj **ta bort** för att ta bort.
 
-    ![ta bort](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Diagnostisera anslutnings problem
 

@@ -1,81 +1,75 @@
 ---
 title: Exportera Azure Cosmos DB emulatorcertifikat
-description: När du utvecklar i språk och körningar som inte använder Windows certifikat arkiv måste du exportera och hantera TLS/SSL-certifikaten. Det här inlägget innehåller stegvisa instruktioner.
+description: Lär dig hur du exporterar Azure Cosmos DB emulator-certifikatet för användning med Java, python och Node.js appar. Certifikaten bör exporteras och användas för språk-och körnings miljöer som inte använder Windows certifikat arkiv.
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java
-ms.openlocfilehash: e1321c0d5b1f83ffcfd3f46384dfb3af792c9b8b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8f2714c7c49aa5e02747ce726da29a98485b5fbd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373104"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988235"
 ---
-# <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorcertifikat för användning med Java, Python och Node.js
+# <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exportera Azure Cosmos DB emulator-certifikat för användning med Java-, python-och Node.js-appar
 
-[**Ladda ned emulatorn**](https://aka.ms/cosmosdb-emulator)
+Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Azure Cosmos-emulatorn har endast stöd för säker kommunikation via TLS-anslutningar.
 
-Azure Cosmos DB emulatorn tillhandahåller en lokal miljö som emulerar tjänsten Azure Cosmos DB för utveckling, inklusive användning av TLS-anslutningar. Det här inlägget visar hur du exporterar TLS/SSL-certifikat för användning i språk och körningar som inte integreras med Windows-certifikatarkivet, till exempel Java, som använder sitt eget [certifikat Arkiv](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) och python som använder [socket-omslag](https://docs.python.org/2/library/ssl.html) och Node.js som använder [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Du kan läsa mer om emulatorn i [Använda Azure Cosmos DB-emulatorn för utveckling och testning](./local-emulator.md).
+Certifikaten i Azure Cosmos DB lokala emulatorn skapas första gången du kör emulatorn. Det finns två certifikat. En av dem används för att ansluta till den lokala emulatorn och den andra används för att hantera standard kryptering av emulatorns data i emulatorn. Det certifikat som du ska exportera är anslutningscertifikatet med namnet "DocumentDBEmulatorCertificate".
 
-Den här självstudien omfattar följande uppgifter:
+När du använder emulatorn för att utveckla appar på olika språk, till exempel Java, python eller Node.js, måste du exportera emulatorns certifikat och importera det till det begärda certifikat arkivet.
 
-> [!div class="checklist"]
-> * Rotera certifikat
-> * Exportera TLS/SSL-certifikat
-> * Lär dig hur du använder certifikat i Java, Python och Node.js
+.NET-språket och körnings miljön använder Windows certifikat Arkiv för att på ett säkert sätt ansluta till den Azure Cosmos DB lokala emulatorn när programmet körs på en Windows OS-värd. Andra språk har sin egen metod för att hantera och använda certifikat. Till exempel använder Java det egna [certifikat arkivet](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), python använder [socket-omslag](https://docs.python.org/2/library/ssl.html)och Node.js använder [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-## <a name="certification-rotation"></a>Rotation av certifikat
+Den här artikeln visar hur du exporterar TLS/SSL-certifikat för användning i olika språk och körnings miljöer som inte integreras med Windows certifikat arkiv. Du kan läsa mer om emulatorn i [Använda Azure Cosmos DB-emulatorn för utveckling och testning](./local-emulator.md).
 
-Certifikat i den lokala Azure Cosmos DB-emulatorn skapas första gången emulatorn körs. Det finns två certifikat. Ett för att ansluta till den lokala emulatorn och ett för att hantera hemligheter i emulatorn. Det certifikat som du ska exportera är anslutningscertifikatet med namnet "DocumentDBEmulatorCertificate".
+## <a name="export-the-azure-cosmos-db-tlsssl-certificate"></a><a id="export-emulator-certificate"></a>Exportera Azure Cosmos DB TLS/SSL-certifikat
 
-Du kan återskapa båda certifikaten genom att klicka på **Återställ data** enligt nedan från den Azure Cosmos DB-emulator som körs i systemfältet i Windows. Om du återskapar certifikaten och har installerat dem i Java-certifikatarkivet eller använt dem någon annanstans måste du uppdatera dem, annars kommer ditt program inte längre att ansluta till den lokala emulatorn.
-
-:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Återställa data för den lokala Azure Cosmos DB-emulatorn":::
-
-## <a name="how-to-export-the-azure-cosmos-db-tlsssl-certificate"></a>Så här exporterar du Azure Cosmos DB TLS/SSL-certifikat
+Du måste exportera emulator-certifikatet för att kunna använda emulatorns slut punkt från språk och körnings miljöer som inte integreras med Windows certifikat arkiv. Du kan exportera certifikatet med hjälp av certifikat hanteraren i Windows. Använd följande steg-för-steg-instruktioner för att exportera "DocumentDBEmulatorCertificate"-certifikatet som en BASE-64-kodad X. 509-fil (. cer):
 
 1. Starta certifikathanteraren i Windows genom att köra certlm.msc och gå till mappen Personligt -> Certifikat. Öppna certifikatet med namnet **DocumentDbEmulatorCertificate**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-2. Klicka på **Detaljer** och sedan **OK**.
+1. Klicka på **Detaljer** och sedan **OK**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Steg 2 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-3. Klicka på **Kopiera till fil...**.
+1. Klicka på **Kopiera till fil...**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Steg 3 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-4. Klicka på **Nästa**.
+1. Klicka på **Nästa**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Steg 4 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-5. Klicka på **Nej, exportera inte den privata nyckeln** och sedan på **Nästa**.
+1. Klicka på **Nej, exportera inte den privata nyckeln** och sedan på **Nästa**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Steg 5 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-6. Klicka på **Base-64 encoded X.509 (.CER)** och sedan på **Nästa**.
+1. Klicka på **Base-64 encoded X.509 (.CER)** och sedan på **Nästa**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Steg 6 för att exportera den lokala Azure DB Cosmos DB-emulatorn":::
 
-7. Ge certifikatet ett namn. I det här fallet är det **documentdbemulatorcert**. Klicka sedan på **Nästa**.
+1. Ge certifikatet ett namn. I det här fallet är det **documentdbemulatorcert**. Klicka sedan på **Nästa**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Steg 7 för att exportera den lokala Azure DB Cosmos DB-emulatorn":::
 
-8. Klicka på **Slutför**.
+1. Klicka på **Slutför**.
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Steg 8 för att exportera den lokala Azure DB Cosmos DB-emulatorn":::
 
-## <a name="how-to-use-the-certificate-in-java"></a>Så här använder du certifikatet i Java
+## <a name="use-the-certificate-with-java-apps"></a>Använda certifikatet med Java-appar
 
-När du kör Java-program eller MongoDB-program som använder Java-klienten är det enklare att installera certifikatet i Java standard certifikat arkivet än att skicka `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flaggorna. Till exempel är det inkluderade java demo programmet ( `https://localhost:8081/_explorer/index.html` ) beroende av standard certifikat arkivet.
+När du kör Java-program eller MongoDB-program som använder en Java-baserad klient är det enklare att installera certifikatet i Java standard certifikat arkivet än att skicka `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flaggorna. Till exempel är det inkluderade java demo programmet ( `https://localhost:8081/_explorer/index.html` ) beroende av standard certifikat arkivet.
 
-Följ instruktionerna i avsnittet [om hur du lägger till ett certifikat i Java CA certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. Observera att du kommer att arbeta i katalogen %JAVA_HOME% när du kör nyckelverktyget.
+Följ instruktionerna i arkivet för att [lägga till ett certifikat i Java-certifikaten](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X. 509-certifikatet till standard-Java-certifikatarkivet. Kom ihåg att du arbetar i katalogen *% JAVA_HOME%* när du kör-verktyget. När certifikatet har importer ATS till certifikat arkivet kommer klienter för SQL och Azure Cosmos DBs API för MongoDB att kunna ansluta till Azure Cosmos-emulatorn.
 
-Du kan också skapa och köra ett "bash"-skript som gör detta automatiskt:
+Du kan också köra följande bash-skript för att importera certifikatet:
+
 ```bash
 #!/bin/bash
 
@@ -90,26 +84,26 @@ sudo $JAVA_HOME/bin/keytool -cacerts -delete -alias cosmos_emulator
 sudo $JAVA_HOME/bin/keytool -cacerts -importcert -alias cosmos_emulator -file $EMULATOR_CERT_PATH
 ```
 
-När TLS/SSL-certifikatet "CosmosDBEmulatorCertificate" har installerats ska programmet kunna ansluta och använda den lokala Azure Cosmos DB-emulatorn. Om du fortfarande har problem kan du leta efter en lösning i artikeln om [felsökning för SSL/TLS-anslutningar](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). Antagligen har inte certifikatet installerats i certifikatarkivet %JAVA_HOME%/jre/lib/security/cacerts. Om du t.ex. har flera installerade versioner av Java kanske ditt program använder ett annat cacerts-certifikatarkiv än det du uppdaterade.
+När TLS/SSL-certifikatet "CosmosDBEmulatorCertificate" har installerats ska programmet kunna ansluta och använda den lokala Azure Cosmos DB-emulatorn. Om du har problem kan du följa artikeln [FELSÖKA SSL/TLS-anslutningar](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) . I de flesta fall kanske certifikatet inte har installerats i *% JAVA_HOME%/jre/lib/security/cacerts* -butiken. Om du till exempel har flera installerade versioner av Java-programmet kanske du använder ett annat cacerts-Arkiv än det som du har uppdaterat.
 
-## <a name="how-to-use-the-certificate-in-python"></a>Så här använder du certifikatet i Python
+## <a name="use-the-certificate-with-python-apps"></a>Använd certifikatet med python-appar
 
-Som standard försöker [python SDK (version 2.0.0 eller högre)](sql-api-sdk-python.md) för SQL API inte att försöka använda TLS/SSL-certifikatet vid anslutning till den lokala emulatorn. Om du däremot vill använda TLS-verifiering kan du följa exemplen i dokumentationen för [python socket-omslutningar](https://docs.python.org/2/library/ssl.html) .
+När du ansluter till emulatorn från python-appar är TLS-verifiering inaktiverat. Som standard försöker [python SDK (version 2.0.0 eller högre)](sql-api-sdk-python.md) för SQL API inte att använda TLS/SSL-certifikatet vid anslutning till den lokala emulatorn. Om du vill använda TLS-verifiering kan du följa exemplen i dokumentationen för [python socket-omslag](https://docs.python.org/2/library/ssl.html) .
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Så här använder du certifikat i Node.js
 
-Som standard försöker [Node.js SDK (version 1.10.1 eller högre)](sql-api-sdk-node.md) för SQL API inte att försöka använda TLS/SSL-certifikatet vid anslutning till den lokala emulatorn. Om du däremot vill använda TLS-verifiering kan du följa exemplen i [Node.js-dokumentationen](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+När du ansluter till emulatorn från Node.js SDK: er är TLS-verifiering inaktiverat. Som standard försöker [Node.js SDK (version 1.10.1 eller högre)](sql-api-sdk-node.md) för SQL-API: t inte använda TLS/SSL-certifikatet vid anslutning till den lokala emulatorn. Om du däremot vill använda TLS-verifiering kan du följa exemplen iNode.js- [ dokumentationen](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+
+## <a name="rotate-emulator-certificates"></a>Rotera emulator-certifikat
+
+Du kan framtvinga återskapande av emulatorns certifikat genom att välja **Återställ data** från Azure Cosmos DB-emulatorn som körs i Windows-fältet. Observera att den här åtgärden också raderar alla data som lagras lokalt av emulatorn.
+
+:::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png" alt-text="Återställa data för den lokala Azure Cosmos DB-emulatorn":::
+
+Om du har installerat certifikatet i Java-certifikatarkivet eller använt dem någon annan stans måste du importera dem igen med hjälp av aktuella certifikat. Programmet kan inte ansluta till den lokala emulatorn förrän du har uppdaterat certifikaten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du gjort följande:
+* [Använd kommando rads parametrar och PowerShell-kommandon för att styra emulatorn](emulator-command-line-parameters.md)
+* [Felsöka problem med emulatorn](troubleshoot-local-emulator.md)
 
-> [!div class="checklist"]
-> * Roterat certifikat
-> * Exportera TLS/SSL-certifikatet
-> * Du har lärt dig hur du använder certifikat i Java, Python och Node.js
-
-Om du vill lära dig mer om Azure Cosmos DB fortsätter du till avsnittet om begrepp. 
-
-> [!div class="nextstepaction"]
->[Justerbara datakonsekvensnivåer i Azure Cosmos DB](../cosmos-db/consistency-levels.md)

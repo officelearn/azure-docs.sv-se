@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1899baa927bffdaedd1d7ee00f442c449480fc04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533877"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986854"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Snabb start: skapa en hanterad instans av SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -124,7 +124,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 > 3. Välj den SQL-hanterade instansen distributions åtgärd pågår.
 
 > [!IMPORTANT]
-> - Skapandet av SQL-hanterad instans är en tids krävande åtgärd som kan ta några timmar i taget, beroende på särskilda omständigheter. Se [varaktighet för hanterings åtgärder](management-operations-overview.md#management-operations-duration) för vanliga skapande tider.
+> - Skapandet av SQL-hanterad instans är en tids krävande åtgärd som kan ta några timmar i taget, beroende på särskilda omständigheter. Se [varaktighet för hanterings åtgärder](management-operations-overview.md#duration) för vanliga skapande tider.
 > - Det gick inte att skapa en SQL-hanterad instans i fall när det finns andra effekter, t. ex. tids krävande återställnings-eller skalnings åtgärder på andra hanterade instanser i samma undernät. Mer information finns i [hanterings åtgärder mellan påverkan](management-operations-overview.md#management-operations-cross-impact).
 > - För att kunna hämta statusen för skapandet av hanterade instanser måste du ha **Läs behörighet** över resurs gruppen. Om du inte har den här behörigheten eller återkalla den medan den hanterade instansen håller på att skapas, kan detta orsaka att SQL-hanterad instans inte visas i listan över distributioner av resurs grupper.
 >
@@ -161,7 +161,7 @@ Om du vill finjustera nätverks inställningarna bör du kontrol lera följande:
 > Om du har konfigurerat en offentlig slut punkt för SQL-hanterad instans måste du öppna portar för att tillåta nätverks trafik att tillåta anslutningar till SQL-hanterad instans från det offentliga Internet. Mer information finns i [Konfigurera en offentlig slut punkt för SQL-hanterad instans](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) .
 >
 
-## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Hämta anslutnings information till SQL-hanterad instans
+## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Hämta anslutningsinformation till SQL Managed Instance
 
 Följ dessa steg för att hämta värd namnet och det fullständiga domän namnet (FQDN) för att ansluta till SQL-hanterad instans:
 

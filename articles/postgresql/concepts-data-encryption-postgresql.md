@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902135"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -43,7 +43,7 @@ DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtko
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Hur data kryptering med kundhanterat nyckel arbete
 
-![Diagram som visar en översikt över Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png" alt-text="Diagram som visar en översikt över Bring Your Own Key":::
 
 För att en PostgreSQL-Server ska kunna använda Kundhanterade nycklar som lagras i Key Vault för kryptering av DEK ger en Key Vault administratör följande åtkomst behörighet till servern:
 
@@ -79,7 +79,7 @@ När du använder data kryptering med hjälp av en kundhanterad nyckel är det h
 * Se till att Key Vault och Azure Database for PostgreSQL en enskild server finns i samma region, för att säkerställa snabbare åtkomst för DEK-omslutning och åtgärder vid avbrytande.
 * Lås bara Azure-valvet till **privat slut punkt och valda nätverk** och Tillåt bara att *betrodda Microsoft* -tjänster skyddar resurserna.
 
-    ![betrodd-tjänst-med-AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="betrodd-tjänst-med-AKV":::
 
 Här är rekommendationer för att konfigurera en kundhanterad nyckel:
 

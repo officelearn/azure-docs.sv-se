@@ -6,24 +6,24 @@ author: mamccrea
 ms.author: mamccrea
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.openlocfilehash: 00705e40ca17959701af325ed52a4c3754d35122
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4b4ddd7db4891c642ec2002bbe992314fe67a20f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891974"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Utforska Azure Stream Analytics med Visual Studio Code (för hands version)
 
 Azure Stream Analytics för kod tillägget Visual Studio ger utvecklare en smidig upplevelse för att hantera sina Stream Analytics-jobb. Den kan användas i Windows, Mac och Linux. Med Azure Stream Analytics-tillägget kan du:
 
-- [Skapa](quick-create-vs-code.md), starta och stoppa jobb
+- [Skapa](quick-create-visual-studio-code.md), starta och stoppa jobb
 - Exportera befintliga jobb till ett lokalt projekt
 - Visa lista över jobb och Visa jobb enheter
 
 ## <a name="export-a-job-to-a-local-project"></a>Exportera ett jobb till ett lokalt projekt
 
-Om du vill exportera ett jobb till ett lokalt projekt letar du reda på det jobb som du vill exportera i **Stream Analytics Explorer** i Visual Studio Code. Välj sedan en mapp för projektet. Projektet exporteras till den mapp du väljer och du kan fortsätta att hantera jobbet från Visual Studio Code. Mer information om hur du använder Visual Studio Code för att hantera Stream Analytics-jobb finns i [snabb](quick-create-vs-code.md)starten för Visual Studio Code.
+Om du vill exportera ett jobb till ett lokalt projekt letar du reda på det jobb som du vill exportera i **Stream Analytics Explorer** i Visual Studio Code. Välj sedan en mapp för projektet. Projektet exporteras till den mapp du väljer och du kan fortsätta att hantera jobbet från Visual Studio Code. Mer information om hur du använder Visual Studio Code för att hantera Stream Analytics-jobb finns i [snabb](quick-create-visual-studio-code.md)starten för Visual Studio Code.
 
 ![Exportera ASA-jobb i Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
 
@@ -44,4 +44,4 @@ Du kan använda vyn jobb för att interagera med Azure Stream Analytics-jobb fr�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett Azure Stream Analytics moln jobb i Visual Studio Code (för hands version)](quick-create-vs-code.md)
+* [Skapa ett Azure Stream Analytics moln jobb i Visual Studio Code (för hands version)](quick-create-visual-studio-code.md)

@@ -7,12 +7,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75431553"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901064"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
@@ -20,7 +20,7 @@ Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analyt
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -30,15 +30,15 @@ Innan du definierar Stream Analytics jobbet bör du förbereda indata. Real tids
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **skapa en resurs** > **Sakernas Internet** > **IoT Hub**.
+2. Välj **skapa en resurs**  >  **Sakernas Internet**  >  **IoT Hub**.
 
 3. I rutan **IoT-hubb** anger du följande information:
    
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
-   |Prenumeration  | \<Din prenumeration\> |  Ange den prenumeration som du vill använda. |
+   |Prenumeration  | \<Your subscription\> |  Välj den Azure-prenumeration som du vill använda. |
    |Resursgrupp   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
-   |Region  |  \<Välj den region som är närmast dina användare\> | Välj en geografisk plats där du kan hantera din IoT-hubb. Använd den plats som är närmast dina användare. |
+   |Region  |  \<Select the region that is closest to your users\> | Välj en geografisk plats där du kan hantera din IoT-hubb. Använd den plats som är närmast dina användare. |
    |IoT-hubbnamn  | MyASAIoTHub  |   Välj ett namn för din IoT-hubb.   |
 
    ![Skapa en IoT Hub](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
@@ -61,7 +61,7 @@ Innan du definierar Stream Analytics jobbet bör du förbereda indata. Real tids
 
 ## <a name="create-blob-storage"></a>Skala bloblagring
 
-1. I det övre vänstra hörnet av Azure Portal väljer du **skapa ett resurs** > **lagrings** > **lagrings konto**.
+1. I det övre vänstra hörnet av Azure Portal väljer du **skapa ett resurs**  >  **lagrings**  >  **lagrings konto**.
 
 2. I fönsterrutan **Skapa lagringskonto** anger du namn, plats och resursgrupp för lagringskonto. Välj samma plats och resursgrupp som den IoT-hubb som du skapade. Klicka sedan på **Granska + skapa** för att skapa kontot.
 
@@ -77,22 +77,22 @@ Innan du definierar Stream Analytics jobbet bör du förbereda indata. Real tids
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.  
 
-3. Välj **analys** > **Stream Analytics jobb** i resultat listan.  
+3. Välj **analys**  >  **Stream Analytics jobb** i resultat listan.  
 
 4. Fyll i sidan för Stream Analytics-jobbet med följande information:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Jobbnamn   |  MyASAJob   |   Ange ett namn som identifierar Stream Analytics-jobbet. Stream Analytics-jobbets namn får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. |
-   |Prenumeration  | \<Din prenumeration\> |  Välj den Azure-prenumeration som du vill använda för jobbet. |
+   |Prenumeration  | \<Your subscription\> |  Välj den Azure-prenumeration som du vill använda för jobbet. |
    |Resursgrupp   |   asaquickstart-resourcegroup  |   Använd samma resursgrupp som din IoT-hubb. |
-   |Plats  |  \<Välj den region som är närmast dina användare\> | Välj den geografiska plats där du kan ha ditt Stream Analytics-jobb. Använd den plats som är närmast dina användare för att få bättre prestanda och minska kostnaderna för dataöverföring. |
+   |Position  |  \<Select the region that is closest to your users\> | Välj den geografiska plats där du kan ha ditt Stream Analytics-jobb. Använd den plats som är närmast dina användare för att få bättre prestanda och minska kostnaderna för dataöverföring. |
    |Strömningsenheter  | 1  |   Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).   |
-   |Värdmiljö  |  Molnet  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet. |
+   |Värdmiljö  |  Moln  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet. |
 
    ![Skapa jobb](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -106,14 +106,14 @@ I det här avsnittet konfigurerar du en IoT-hubbenhetsinmatning till Stream Anal
 
 1. Gå till Stream Analytics-jobbet.  
 
-2. Välj **indata** > **Lägg till data ström** > **IoT Hub**.  
+2. Välj **indata**  >  **Lägg till data ström**  >  **IoT Hub**.  
 
 3. Fyll sodan **IoT-hubb** med följande värden:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias  |  IoTHubInput   |  Ange ett namn som identifierar jobbets indata.   |
-   |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
+   |Prenumeration   |  \<Your subscription\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |IoT Hub  |  MyASAIoTHub |  Ange namnet på den IoT-hubb som du skapade i föregående avsnitt. |
 
 4. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
@@ -124,14 +124,14 @@ I det här avsnittet konfigurerar du en IoT-hubbenhetsinmatning till Stream Anal
 
 1. Gå till Stream Analytics-jobbet som du skapade tidigare.  
 
-2. Välj **utdata** > **Lägg till** > **blob-lagring**.  
+2. Välj **utdata**  >  **Lägg till**  >  **blob-lagring**.  
 
 3. Fyll i följande värden på sidan **Blob Storage**:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Utdataalias |   BlobOutput   |   Ange ett namn som identifierar jobbets utdata. |
-   |Prenumeration  |  \<Din prenumeration\>  |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
+   |Prenumeration  |  \<Your subscription\>  |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto |  asaquickstartstorage |   Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.       |
    |Container |   container1  |  Välj en befintlig container som du skapade i ditt lagringskonto.   |
 
@@ -186,7 +186,7 @@ Ta bort resurs gruppen, Stream Analytics jobbet och alla relaterade resurser nä
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med hjälp Azure-portalen. Du kan också distribuera Stream Analytics jobb med hjälp av [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md)och [Visual Studio Code](quick-create-vs-code.md).
+I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med hjälp Azure-portalen. Du kan också distribuera Stream Analytics jobb med hjälp av [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md)och [Visual Studio Code](quick-create-visual-studio-code.md).
 
 Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
 

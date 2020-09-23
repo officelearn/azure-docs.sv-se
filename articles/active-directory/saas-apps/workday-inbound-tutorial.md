@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974369"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -373,7 +373,7 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
 1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
 
    >[!div class="mx-imgBorder"]
-   >![Skärm bild av Microsoft Azure AD ansluta till etablerings agenten som körs i tjänster](./media/workday-inbound-tutorial/services.png)
+   >![Skärm bild av Microsoft Azure AD ansluta till etablerings agenten som körs i tjänster.](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Del 3: Konfigurera anslutning till arbets dagar och Active Directory i etablerings appen
 I det här steget upprättar vi anslutningen till arbets dagar och Active Directory i Azure Portal. 
@@ -390,9 +390,9 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    
      | URL-format | WWS-API-version som används | XPATH-ändringar krävs |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v-21.1 | Inga |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | Inga |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Ja |
+     | https://####.workday.com/ccx/service/tenantName | v-21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Yes |
 
       > [!NOTE]
      > Om ingen versions information anges i URL: en använder appen Workday-WWS (Web Services) och inga ändringar krävs för standard-XPATH API-uttryck som levereras med appen. Om du vill använda en viss WWS API-version anger du versions nummer i URL: en <br>
@@ -1154,7 +1154,7 @@ I samband med datakvarhållning genererar inte Azure AD Provisioning-tjänsten r
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan arbets dagar och Azure Active Directory](workday-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 * [Lär dig hur du använder Microsoft Graph API: er för att hantera etablerings konfiguration](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

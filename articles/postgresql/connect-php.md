@@ -8,18 +8,18 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: 000f3cd9598bc4bdffa896be47466d157c7df8c1
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8443742fb883a63ec869157de7bf436d8f6f5ad6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901888"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: använda PHP för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [PHP](https://secure.php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om PHP och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa DB – Portal](quickstart-create-server-database-portal.md)
 - [Skapa DB – Azure CLI](quickstart-create-server-database-azure-cli.md)
@@ -50,7 +50,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
 2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver**).
 3. Klicka på servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
- ![Azure Database for PostgreSQL-servernamn](./media/connect-php/1-connection-string.png)
+ :::image type="content" source="./media/connect-php/1-connection-string.png" alt-text="Azure Database for PostgreSQL-servernamn":::
 
 ## <a name="connect-and-create-a-table"></a>Ansluta och skapa en tabell
 Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE**-SQL-instruktionen följt av **INSERT INTO**-SQL-instruktioner för att lägga till rader i tabellen.

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 9c5d6359ce0e79fce2e80911ff78d19cc88162b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81180cc0d9cc7754e5a3e935c09441995f16c56a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208713"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907557"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Förskottsbetala för Azure Database for PostgreSQL-beräknings resurser för en server med reserverad kapacitet
 
@@ -46,7 +46,7 @@ Anta till exempel att du kör ett allmänt syfte Gen5 – 32 vCore PostgreSQL Da
 4. Fyll i de obligatoriska fälten. Befintliga eller nya databaser som matchar de attribut du väljer kvalificera för att hämta den reserverade kapacitets rabatten. Det faktiska antalet Azure Database for PostgreSQL-servrar som får rabatten beroende på omfattning och vald kvantitet.
 
 
-![Översikt över reserverade priser](media/concepts-reserved-pricing/postgresql-reserved-price.png)
+:::image type="content" source="media/concepts-reserved-pricing/postgresql-reserved-price.png" alt-text="Översikt över reserverade priser":::
 
 
 I följande tabell beskrivs obligatoriska fält.
@@ -59,7 +59,7 @@ I följande tabell beskrivs obligatoriska fält.
 | Distributions typ | Den Azure Database for PostgreSQL resurs typ som du vill köpa reservationen för.
 | Prestanda nivå | Tjänst nivån för Azure Database for PostgreSQL-servrarna.
 | Term | Ett år
-| Kvantitet | Mängden data bearbetnings resurser som köps i Azure Database for PostgreSQL reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure Database for PostgreSQL-server med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla servrar.
+| Quantity | Mängden data bearbetnings resurser som köps i Azure Database for PostgreSQL reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure Database for PostgreSQL-server med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla servrar.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 

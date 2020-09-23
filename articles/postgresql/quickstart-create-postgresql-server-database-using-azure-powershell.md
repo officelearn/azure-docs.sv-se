@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 76c5bac600f05094f2e2a354cd5cf5895d9d45d2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 082adc0753cb8e41bc61f5703445e6b8507202b5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496618"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902684"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Snabb start: skapa en Azure Database for PostgreSQL-enskild server med PowerShell
 
@@ -21,7 +21,7 @@ I den här snabb starten beskrivs hur du använder PowerShell för att skapa en 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -66,10 +66,10 @@ Följande tabell innehåller en lista över parametrar och exempel värden som a
 | Sku                        | GP_Gen5_2        | Namnet på SKU:n. Följer konventions **pris – nivå för \_ beräknings skapande \_ virtuella kärnor** i korthet. Mer information om SKU-parametern finns i informationen som följer den här tabellen.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35.                                                                                                                                                                                                                                                                       |
 | GeoRedundantBackup         | Enabled          | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Det går inte att aktivera det här värdet för servrar i den grundläggande pris nivån och det kan inte ändras efter att servern har skapats. Tillåtna värden: Enabled, Disabled.                                                                                                      |
-| Location                   | westus           | Azure-regionen för-servern.                                                                                                                                                                                                                                                                                                         |
+| Position                   | westus           | Azure-regionen för-servern.                                                                                                                                                                                                                                                                                                         |
 | SslEnforcement             | Enabled          | Om SSL ska vara aktiverat eller inte för den här servern. Tillåtna värden: Enabled, Disabled.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Serverns lagringskapacitet (enheten är megabyte). Giltig StorageInMb är minst 5120 MB och ökar i steg om 1024 MB. Mer information om lagrings storleks gränser finns i [Azure Database for PostgreSQL pris nivåer](./concepts-pricing-tiers.md).                                                                               |
-| Version                    | 9.6              | Huvudversion för PostgreSQL.                                                                                                                                                                                                                                                                                                                 |
+| Version                    | 9,6              | Huvudversion för PostgreSQL.                                                                                                                                                                                                                                                                                                                 |
 | AdministratorUserName      | myadmin          | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Lösen ordet för administratörs användaren i form av en säker sträng. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.                                       |
 
@@ -141,7 +141,7 @@ Om din klientdator har PostgreSQL installerat, kan du använda en lokal instans 
    ```
 
    > [!TIP]
-   > Om du föredrar att använda en URL-sökväg för att ansluta till postgres, kodar URL @-tecknet i användar namnet med `%40` . Anslutnings strängen för psql skulle exempelvis vara,`psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres`
+   > Om du föredrar att använda en URL-sökväg för att ansluta till postgres, kodar URL @-tecknet i användar namnet med `%40` . Anslutnings strängen för psql skulle exempelvis vara, `psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres`
 
 1. När du är ansluten till servern, skapar du en blank databas i prompten.
 
@@ -165,11 +165,11 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
 
 1. I dialogrutan **Skapa – Server** på fliken **Allmänt** anger du ett unikt eget namn för servern, t.ex. **mydemoserver**.
 
-   ![Fliken ”Allmänt”](./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="Fliken Allmänt":::
 
 1. Fyll i inställningstabellen i dialogrutan **Skapa – Server** på fliken **Anslutning**.
 
-   ![Fliken ”Anslutning”](./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="Fliken anslutning":::
 
     pgAdmin-parameter |Värde|Beskrivning
     ---|---|---
@@ -177,7 +177,7 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
     Port | 5432 | Porten som ska användas när du ansluter till Azure Database för PostgreSQL-servern.
     Underhållsdatabas | *postgres* | Systemgenererat standardnamn för databasen.
     Användarnamn | Inloggningsnamn för serveradministratör | Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn \@ Server*namn.
-    lösenordsinställning | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
+    Lösenord | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
     Roll | Lämna tomt | Du behöver inte ange ett rollnamn nu. Lämna fältet tomt.
     SSL-läge | *Kräv* | Du kan ställa in TLS/SSL-läget på SSL-fliken i pgAdmin. Som standard skapas alla Azure Database for PostgreSQL-servrar med TLS tvingande aktiverat. Om du vill inaktivera TLS-framtvingande, se [Konfigurera verk ställande av TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
 
@@ -193,7 +193,7 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
 
 1. Välj **Ägare** för databasen från den nedrullningsbara listan. Välj ditt inloggningsnamn som serveradministratör, förslagsvis som i vårt exempel: **my admin**.
 
-   ![Skapa en databas i pgAdmin](./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Skapa en databas i pgAdmin":::
 
 1. Välj **Spara** för att skapa en tom databas.
 

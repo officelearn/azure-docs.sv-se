@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902794"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MySQL med hjälp av Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Säkerhets kopiering sker automatiskt
 Azure Database for MySQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MySQL-server och-databas](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -32,7 +32,7 @@ Du kan välja mellan att konfigurera servern för antingen lokalt redundanta sä
 
 När du skapar en server via Azure Portal, är **pris nivå** fönstret där du väljer antingen **lokalt redundant** eller **geografiskt redundant** säkerhets kopiering för servern. Det här fönstret är också där du väljer **kvarhållningsperiod för säkerhets kopior** – hur lång tid (i antal dagar) som du vill att serverns säkerhets kopior ska lagras.
 
-   ![Pris nivå – Välj redundans för säkerhets kopiering](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
 
 Mer information om hur du anger dessa värden under skapa finns i [snabb starten för Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md).
 
@@ -41,7 +41,7 @@ Kvarhållningsperioden för säkerhets kopior kan ändras på en server genom f�
 2. Välj din Azure Database for MySQL-server. Den här åtgärden öppnar **översikts** sidan.
 3. Välj **pris nivå** på menyn under **Inställningar**. Med skjutreglaget kan du ändra **kvarhållningsperioden för säkerhets kopior** till dina preferenser mellan 7 och 35 dagar.
 I skärm bilden nedan har den ökats till 34 dagar.
-![Kvarhållning av säkerhets kopior har ökat](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Kvarhållning av säkerhets kopior har ökat":::
 
 4. Bekräfta ändringen genom att klicka på **OK** .
 
@@ -57,11 +57,11 @@ Följande steg återställer exempel servern till en tidpunkt:
 
 2. I verktygsfältet på sidan **Översikt** för servern väljer du **Återställ**.
 
-   ![Azure Database for MySQL-översikt – knappen Återställ](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for MySQL-översikt – knappen Återställ":::
 
 3. Fyll i formuläret Återställ med den information som behövs:
 
-   ![Azure Database for MySQL-återställnings information](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL-återställnings information":::
    - **Återställnings punkt**: Välj den tidpunkt som du vill återställa till.
    - **Mål server**: Ange ett namn för den nya servern.
    - **Plats**: du kan inte välja region. Som standard är det samma som käll servern.

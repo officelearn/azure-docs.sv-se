@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5604153d31a2828bcefbeccbd2f4fea428e878b5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 95f877c9030d51e68b97a21875ff3ff05b383457
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961541"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973757"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 
@@ -80,7 +80,7 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
 1. Ange de värden som anges i följande tabell i dialog rutan **värd plan: skapa ny** .
 
-   | Inställning  | Föreslaget värde | Beskrivning |
+   | Inställningen  | Föreslaget värde | Beskrivning |
    | -------- | --------------- | ----------- |
    | **Värdplan**  | *myFirstAzureWebAppPlan* | Namnet på App Service-planen. |
    | **Plats**      | *Europa, västra* | Datacenter som är värd för webbappen. |
@@ -137,7 +137,7 @@ Om du vill hantera din webbapp går du till [Azure Portal](https://portal.azure.
 
 På sidan **app Services** väljer du namnet på din webbapp.
 
-![Portalnavigering till Azure-app](./media/quickstart-dotnetcore/select-app-service.png)
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Skärm bild av App Services sidan med ett exempel på en webbapp vald.":::
 
 **Översikts** sidan för din webbapp innehåller alternativ för grundläggande hantering som att bläddra, stoppa, starta, starta om och ta bort. Den vänstra menyn innehåller fler sidor för att konfigurera din app.
 
@@ -304,7 +304,7 @@ Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> f
 
 I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-![Portalnavigering till Azure-app](./media/quickstart-dotnetcore/portal-app-service-list.png)
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Skärm bild av sidan App Services som visar att ett exempel på en Azure-app har valts.":::
 
 Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 

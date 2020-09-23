@@ -9,17 +9,42 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/04/2020
-ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900592"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Viktig information om Azure SQL Edge 
 
 I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje ny version av Azure SQL Edge.
+
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>SQL-motor versions nummer – 15.0.2000.1549
+
+### <a name="whats-new"></a>Nyheter
+1. Ubuntu 18,04-baserade behållar avbildningar. 
+2. Stöd för `IGNORE NULL` och `RESPECT NULL` syntax med `LAST_VALUE()` och- `FIRST_VALUE()` funktioner. 
+3. Tillförlitlighets förbättringar för förutsägelse med ONNX.
+4. Stöd för principbaserad rensning av datakvarhållning.      
+   - Stöd för optimerad rensning för grupperade columnstore-index.
+5. Stöd för nya funktioner 
+   - Snabb återställning
+   - Automatisk justering av frågor
+
+### <a name="fixes"></a>Korrigeringar
+1. Ytterligare fel meddelanden och information om fel sökning av TSQL streaming-åtgärder. 
+2. Förbättringar för att bevara batteri tiden i vilo läge. 
+3. TSQL-strömmande motor korrigerar: 
+   - Rensa för stoppat strömmande jobb 
+   - Korrigeringar för förbättringar av lokalisering och Unicode-hantering
+4. Princip baserad rensning för datakvarhållning
+   - Korrigeringar för skapande och rensnings scenarier för bevarande principer.
+5. Korrigeringar för aktiviteter i bakgrunden för att förbättra energi besparingarna för låg energi läge.
+
 
 ## <a name="ctp-23"></a>CTP 2,3
 ### <a name="sql-engine-build-number---15020001549"></a>SQL-motor versions nummer – 15.0.2000.1549
@@ -33,7 +58,7 @@ I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje
 
 ### <a name="fixes"></a>Korrigeringar
 1. Ytterligare fel meddelanden och information om fel sökning av TSQL streaming-åtgärder. 
-2. Imporvements för att bevara batteri tiden i vilo läge. 
+2. Förbättringar för att bevara batteri tiden i vilo läge. 
 3. TSQL-strömmande motor korrigerar: 
    - Åtgärda problem med den fastnade vattenstämpeln med hoppande-fönstret 
    - Åtgärda undantags hantering i ramverk för att se till att det samlas in som användar åtgärds fel

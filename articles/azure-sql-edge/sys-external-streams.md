@@ -1,6 +1,6 @@
 ---
-title: sys. external_streams (Transact-SQL) – Azure SQL Edge (för hands version)
-description: Lär dig mer om att använda sys. external_streams i Azure SQL Edge (för hands version)
+title: sys. external_streams (Transact-SQL) – Azure SQL Edge
+description: Lär dig mer om att använda sys. external_streams i Azure SQL Edge
 keywords: sys. external_streams, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 8200d1814537a76db357704d6baf3bf482c587e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04950f01c06bc3c8ed3bb11a790310c2319a0579
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235115"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900302"
 ---
 # <a name="sysexternal_streams-transact-sql"></a>sys.external_streams (Transact-SQL)
 
@@ -26,7 +26,7 @@ Returnerar en rad för varje externt Stream-objekt som skapats inom databasens o
 |**object_id**|**int**|objekt identifierings nummer för Stream-objektet. Är unikt i databasen.|
 |**principal_id**|**int**|ID för huvud kontot som äger den här sammansättningen|
 |**schema_id**|**int**| ID för det schema som innehåller objektet.|
-|**parent_object_id**|**identitet**| objekt identifierings nummer för det överordnade objektet för den här data strömmen. I den aktuella implementeringen är det här värdet alltid null|
+|**parent_object_id**|**id**| objekt identifierings nummer för det överordnade objektet för den här data strömmen. I den aktuella implementeringen är det här värdet alltid null|
 |**bastyp**|**char (2)**|Objekt typ. För Stream-objekt är typen alltid ' ES '|
 |**type_desc**|**nvarchar (60)**| Beskrivning av objekt typen. För Stream-objekt är typen alltid EXTERNAL_STREAM|
 |**create_date**|**datetime**| Datum då objektet skapades.|

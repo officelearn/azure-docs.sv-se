@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att filtrera, analysera data med beräkning på Azure Stack Edge-GPU | Microsoft Docs
-description: Lär dig hur du konfigurerar Compute-rollen på Azure Stack Edge-GPU och använder den för att transformera data innan du skickar dem till Azure.
+title: Självstudie för att filtrera, analysera data med Compute på Azure Stack Edge Pro GPU | Microsoft Docs
+description: Lär dig hur du konfigurerar Compute-rollen på Azure Stack Edge Pro GPU och använder den för att transformera data innan du skickar dem till Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f4a8786c8d86f43d3433dd51fe7696fd523025a9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: 95c59cff1f47fe720e2dbc65c5b0a69a09be2f2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293578"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903185"
 ---
-# <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Självstudie: Konfigurera Compute på Azure Stack Edge GPU-enhet
+# <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Självstudie: Konfigurera Compute på Azure Stack Edge Pro GPU-enhet
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-I den här självstudien beskrivs hur du konfigurerar en beräknings roll och skapar ett Kubernetes-kluster på din Azure Stack Edge-enhet. 
+I den här självstudien beskrivs hur du konfigurerar en beräknings roll och skapar ett Kubernetes-kluster på din Azure Stack Edge Pro-enhet. 
 
 Den här proceduren kan ta cirka 20 till 30 minuter att slutföra.
 
@@ -34,16 +34,16 @@ I den här guiden får du lära dig att:
  
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du ställer in en beräknings roll på Azure Stack Edge-enhet ser du till att:
+Innan du ställer in en beräknings roll på din Azure Stack Edge Pro-enhet ser du till att:
 
-- Du har aktiverat Azure Stack Edge-enheten enligt beskrivningen i [aktivera Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Du har aktiverat din Azure Stack Edge Pro-enhet enligt beskrivningen i [aktivera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 - Kontrol lera att du har följt instruktionerna i [Aktivera beräknings nätverk](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) och:
     - Aktiverat ett nätverks gränssnitt för beräkning.
     - Tilldelade Kubernetes Node IP-adresser och Kubernetes external service IP-adresser.
 
 ## <a name="configure-compute"></a>Konfigurera beräkning
 
-Om du vill konfigurera Compute på Azure Stack Edge skapar du en IoT Hub resurs via Azure Portal.
+Om du vill konfigurera Compute på Azure Stack Edge Pro skapar du en IoT Hub resurs via Azure Portal.
 
 1. I Azure Portal av Azure Stack Edge-resursen går du till **Översikt**. Välj **Kom igång**i den högra rutan på **beräknings** panelen.
 
@@ -58,7 +58,7 @@ Om du vill konfigurera Compute på Azure Stack Edge skapar du en IoT Hub resurs 
    
     |Fält  |Värde  |
     |---------|---------|
-    |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används en standard-nivå (S1) för att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnads fri nivå skapar du en och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
+    |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används nivån Standard (S1) till att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnadsfri nivå skapar du en sådan och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
     |Name     |Ange ett namn för din IoT Hub-resurs.         |
 
     ![Kom igång med Compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
@@ -72,17 +72,17 @@ Om du vill konfigurera Compute på Azure Stack Edge skapar du en IoT Hub resurs 
     ![Kom igång med Compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
-    > Om dialog rutan **Konfigurera beräkning** stängs innan IoT Hub är kopplad till Azure Stack Edge-enheten, skapas IoT Hub men visas inte i beräknings konfigurationen. 
+    > Om dialog rutan **Konfigurera beräkning** stängs innan IoT Hub är kopplad till Azure Stack Edge Pro-enheten, skapas IoT Hub men visas inte i beräknings konfigurationen. 
     
 När Edge-beräkningsrollen har konfigurerats på Edge-enheten så skapas två enheter: en IoT-enhet och en IoT Edge-enhet. Bägge enheter kan visas i IoT Hub-resursen. En IoT Edge runtime körs också på den här IoT Edge enheten. För tillfället är det bara Linux-plattformen tillgänglig för din IoT Edge-enhet.
 
 Det kan ta 20-30 minuter för dig att konfigurera Compute sedan bakgrunden, de virtuella datorerna och Kubernetes-klustret skapas. 
 
-När du har konfigurerat beräkningen i Azure Portal finns ett Kubernetes-kluster och en standard användare som är associerad med IoT-namnrymden (ett system namn område som styrs av Azure Stack Edge). 
+När du har konfigurerat beräkningen i Azure Portal finns ett Kubernetes-kluster och en standard användare som är associerad med IoT-namnrymden (ett system namn område som styrs av Azure Stack Edge Pro). 
 
 ## <a name="get-kubernetes-endpoints"></a>Hämta Kubernetes-slutpunkter
 
-Om du vill konfigurera en klient för åtkomst till Kubernetes-kluster behöver du Kubernetes-slutpunkten. Följ dessa steg för att hämta Kubernetes API-slutpunkt från det lokala användar gränssnittet för din Azure Stack Edge-enhet.
+Om du vill konfigurera en klient för åtkomst till Kubernetes-kluster behöver du Kubernetes-slutpunkten. Följ de här stegen för att hämta Kubernetes API-slutpunkt från det lokala gränssnittet för din Azure Stack Edge Pro-enhet.
 
 1. I det lokala webb gränssnittet på enheten går du till sidan **enheter** .
 2. Under **enhetens slut punkter**kopierar du **Kubernetes API-tjänstens** slut punkt. Den här slut punkten är en sträng i följande format: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]` . 
@@ -117,7 +117,7 @@ I den här självstudiekursen lärde du dig att:
 > * Hämta Kubernetes-slutpunkter
 
 
-Information om hur du administrerar Azure Stack Edge-enheten finns i:
+Information om hur du administrerar din Azure Stack Edge Pro-enhet finns i:
 
 > [!div class="nextstepaction"]
-> [Använd lokalt webb gränssnitt för att administrera en Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Använd lokalt webb gränssnitt för att administrera Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

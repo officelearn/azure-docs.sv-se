@@ -8,14 +8,14 @@ ms.custom: seo-dt-2019, sqldbrb=1
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
-ms.reviewer: vanto, carlrab
-ms.date: 08/05/2019
-ms.openlocfilehash: 2f4e9841a44252829fae283a12ba804219204022
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: vanto
+ms.date: 09/21/2020
+ms.openlocfilehash: 19da4581ef44d7c7cc51eac839c7db018793e557
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321554"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885123"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Konfigurera Avancerat skydd för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,18 +24,16 @@ ms.locfileid: "84321554"
 
 Du kan få meddelanden om identifierade hot via [e-postmeddelanden](threat-detection-overview.md#explore-detection-of-a-suspicious-event) eller [Azure Portal](threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
-[Avancerat skydd](threat-detection-overview.md) är en del av det [avancerade data säkerhets](advanced-data-security.md) erbjudandet, som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via den centrala SQL Advanced Data Security-portalen.
+[Avancerat skydd](threat-detection-overview.md) är en del av [Azure Defender för SQL](azure-defender-for-sql.md) -erbjudandet, som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via den centrala Azure Defender för SQL-portalen.
 
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Konfigurera Avancerat skydd i Azure Portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Gå till konfigurations sidan för den server som du vill skydda. I säkerhets inställningarna väljer du **Avancerad data säkerhet**.
-3. På sidan **Avancerad data säkerhets** konfiguration:
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Gå till konfigurations sidan för den server som du vill skydda. I säkerhets inställningarna väljer du **Security Center**.
+3. På konfigurations sidan för **Azure Defender** :
 
-   - Aktivera avancerad data säkerhet på servern.
+   - Aktivera Azure Defender på servern.
    - I **Inställningar för avancerat skydd**i rutan **skicka aviseringar till** text anger du en lista över e-postmeddelanden som ska ta emot säkerhets aviseringar vid identifiering av avvikande databas aktiviteter.
-  
-   ![Konfigurera Avancerat skydd](./media/threat-detection/set_up_threat_detection.png)
 
 ## <a name="set-up-advanced-threat-protection-using-powershell"></a>Konfigurera Advanced Threat Protection med PowerShell
 
@@ -45,7 +43,7 @@ Ett skript exempel finns i [Konfigurera granskning och Avancerat skydd med Power
 
 - Läs mer om [Avancerat skydd](threat-detection-overview.md).
 - Läs mer om [Avancerat skydd i SQL-hanterad instans](../managed-instance/threat-detection-configure.md).  
-- Läs mer om [Avancerad data säkerhet](advanced-data-security.md).
+- Läs mer om [Azure Defender för SQL](azure-defender-for-sql.md).
 - Läs mer om [granskning](../../azure-sql/database/auditing-overview.md)
 - Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Mer information om priser finns på sidan med [SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/)  

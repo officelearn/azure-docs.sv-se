@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att överföra data till resurser med Azure Stack Edge-GPU | Microsoft Docs
-description: Lär dig hur du lägger till och ansluter till resurser på Azure Stack Edge GPU-enhet.
+title: Självstudie för att överföra data till resurser med Azure Stack Edge Pro GPU | Microsoft Docs
+description: Lär dig hur du lägger till och ansluter till resurser på Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4d7453ba34a7bc1dd26d0201f604c9028974c1a2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 3c0a72c9daa72cffcfe2e5e45bbb6214a13e0a7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268935"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891105"
 ---
-# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-gpu"></a>Självstudie: överföra data via resurser med Azure Stack Edge-GPU
+# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Självstudie: överföra data via resurser med Azure Stack Edge Pro GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-I den här självstudien beskrivs hur du lägger till och ansluter till resurser på din Azure Stack Edge-enhet. När du har lagt till resurserna kan Azure Stack Edge överföra data till Azure.
+I den här självstudien beskrivs hur du lägger till och ansluter till resurser på din Azure Stack Edge Pro-enhet. När du har lagt till resurserna kan Azure Stack Edge Pro överföra data till Azure.
 
 Den här proceduren kan ta upp till 10 minuter att slutföra.
 
@@ -33,11 +33,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du lägger till resurser i Azure Stack Edge, se till att:
+Innan du lägger till resurser i Azure Stack Edge Pro, se till att:
 
-* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
-* Du har aktiverat den fysiska enheten enligt beskrivningen i [aktivera Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+* Du har aktiverat den fysiska enheten enligt beskrivningen i [aktivera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 ## <a name="add-a-share"></a>Lägga till en resurs
 
@@ -66,7 +66,7 @@ Om du vill skapa en resurs, gör du så här:
     Vilken typ av tjänst som du väljer beror på vilket format som du vill att dina data ska använda i Azure. I det här exemplet, eftersom vi vill lagra data som block blobbar i Azure väljer du **blockera BLOB**. Om du väljer **Page BLOB**ser du till att dina data är 512 byte justerade. Till exempel är en VHDX alltid justerad för 512 byte.
 
    > [!IMPORTANT]
-   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
     e. Skapa en ny BLOB-behållare eller Använd en befintlig i list rutan. Om du skapar en BLOB-behållare anger du ett behållar namn. En container skapas på lagringskontot med det nyligen skapade resursnamnet om det inte redan finns en.
    
@@ -120,7 +120,7 @@ Utför följande steg på den Windows-klient som du använder för att ansluta t
 
 ### <a name="connect-to-an-smb-share"></a>Ansluta till en SMB-resurs
 
-På din Windows Server-klient som är ansluten till din Azure Stack Edge-enhet ansluter du till en SMB-resurs genom att ange följande kommandon:
+På din Windows Server-klient som är ansluten till din Azure Stack Edge Pro-enhet ansluter du till en SMB-resurs genom att ange följande kommandon:
 
 
 1. I ett kommandofönster skriver du:
@@ -158,15 +158,15 @@ På din Windows Server-klient som är ansluten till din Azure Stack Edge-enhet a
 
 ### <a name="connect-to-an-nfs-share"></a>Ansluta till en NFS-resurs
 
-Gör följande på Linux-klienten som är ansluten till din Azure Stack Edge-enhet:
+Gör följande på Linux-klienten som är ansluten till din Azure Stack Edge Pro-enhet:
 
 1. Kontrollera att klienten har NFSv4-klienten installerad. Om du vill installera NFS-klienten använder du följande kommando:
 
    `sudo apt-get install nfs-common`
 
-    Mer information finns i [det här avsnittet om att installera NFSv4-klienten](https://help.ubuntu.com/community/NFSv4Howto).
+    Mer information finns i [Installera NFSv4-klienten](https://help.ubuntu.com/community/NFSv4Howto).
 
-2. När NFS-klienten har installerats monterar du NFS-resursen som du skapade i Azure Stack Edge-enheten med hjälp av följande kommando:
+2. När NFS-klienten har installerats monterar du NFS-resursen som du skapade i Azure Stack Edge Pro-enhet med hjälp av följande kommando:
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
 
@@ -176,7 +176,7 @@ Gör följande på Linux-klienten som är ansluten till din Azure Stack Edge-enh
     > `sync`Om du använder alternativet när du monterar resurser förbättras överförings takten för stora filer.
     > Innan du monterar filresurserna kontrollerar du om de kataloger som kommer att fungera som monteringspunkter på den lokala datorn redan har skapats. Dessa kataloger får inte innehålla några filer eller undermappar.
 
-    I följande exempel visas hur du ansluter via NFS till en resurs på din Azure Stack Edge-enhet. Enhetens IP-adress är `10.10.10.60`. `mylinuxshare2`-resursen är monterad på den virtuella Ubuntu-datorn. Resursens monteringspunkt är `/home/azurestackedgeubuntuhost/edge`.
+    I följande exempel visas hur du ansluter via NFS till en resurs på din Azure Stack Edge Pro-enhet. Enhetens IP-adress är `10.10.10.60`. `mylinuxshare2`-resursen är monterad på den virtuella Ubuntu-datorn. Resursens monteringspunkt är `/home/azurestackedgeubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/azurestackedgeubuntuhost/Edge`
 
@@ -188,15 +188,15 @@ Gör följande på Linux-klienten som är ansluten till din Azure Stack Edge-enh
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig mer om följande Azure Stack Edge-ämnen:
+I den här självstudien har du lärt dig om följande Azure Stack Edge Pro-ämnen:
 
 > [!div class="checklist"]
 > * Lägga till en resurs
 > * Ansluta till resurs
 
-Gå vidare till nästa självstudie om du vill lära dig hur du omvandlar dina data med hjälp av Azure Stack Edge:
+Om du vill lära dig hur du omvandlar dina data med hjälp av Azure Stack Edge Pro går du vidare till nästa självstudie:
 
 > [!div class="nextstepaction"]
-> [Transformera data med Azure Stack Edge](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Transformera data med Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 

@@ -4,12 +4,12 @@ description: Spåra problem med automatisk skalning i Azure som används i Servi
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751329"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979039"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Felsöka Azures autoskalning
  
@@ -47,7 +47,7 @@ Vi har en enkel autoskalning-inställning för en skalnings uppsättning för vi
 
 Vi går igenom måtten från AutoScale-tjänsten.
  
-![Procent processor exempel för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Skärm bild som visar ett procent processor exempel för skalnings uppsättningar för virtuella datorer.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Procent processor exempel för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -72,7 +72,7 @@ Om värdet för **utgående flöde per instans** är större än 10 bör AutoSca
 
 I det här fallet beräknas det observerade mått svärdet för autoskalning som det faktiska mått svärdet dividerat med antalet instanser. Om det observerade Metric-värdet är mindre än tröskelvärdet initieras ingen skalnings åtgärd. 
  
-![Exempel på skalnings uppsättning för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Skärm bild som visar sidan Genomsnittligt antal utgående flöden med ett exempel på mått diagram för skalnings uppsättning för virtuella datorer.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Exempel på skalnings uppsättning för skalnings uppsättning för virtuell dator](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 

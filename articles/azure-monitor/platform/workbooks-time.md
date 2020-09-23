@@ -1,6 +1,6 @@
 ---
 title: Tids parametrar för Azure Monitor arbets böcker
-description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
+description: Lär dig hur du ställer in tids parametrar så att användarna kan ställa in tids kontexten för analyser. Tids parametrarna används av nästan alla rapporter.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658021"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972875"
 ---
 # <a name="workbook-time-parameters"></a>Tids parametrar för arbets bok
 
@@ -25,9 +25,9 @@ Med tids parametrar kan användarna ange tids kontexten för analysen och det an
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`TimeRange`
-    2. Parameter typ:`Time range picker`
-    3. Kunna`checked`
+    1. Parameter namn: `TimeRange`
+    2. Parameter typ: `Time range picker`
+    3. Kunna `checked`
     4. Tillgängliga tidsintervall: senaste timmen, de senaste 12 timmarna, de senaste 24 timmarna, de senaste 48 timmarna, de senaste 3 dagarna, senaste 7 dagarna och alternativet Tillåt anpassat tidsintervall
 5. Skapa parametern genom att välja Spara i verktygsfältet.
 
@@ -48,7 +48,7 @@ Så här kommer arbets boken att se ut i Read-mode.
 
 ### <a name="in-kql"></a>I KQL
 1. Lägg till en frågeplan i arbets boken och välj en Application Insights resurs.
-2. I KQL anger du ett tids omfattnings filter med hjälp av parametern:`| where timestamp {TimeRange}`
+2. I KQL anger du ett tids omfattnings filter med hjälp av parametern: `| where timestamp {TimeRange}`
 3. Detta utökar tiden för utvärdering av fråga till `| where timestamp > ago(1d)` , vilket är tids intervall svärdet för parametern.
 4. Kör fråga för att visa resultaten
 
@@ -56,7 +56,7 @@ Så här kommer arbets boken att se ut i Read-mode.
 
 ### <a name="in-text"></a>I text 
 1. Lägg till en text kontroll i arbets boken.
-2. I markdown anger du`The chosen time range is {TimeRange:label}`
+2. I markdown anger du `The chosen time range is {TimeRange:label}`
 3. Välj _klar redigering_
 4. Text kontrollen visar text: _det valda tidsintervallet är de senaste 24 timmarna_
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905739"
+ms.locfileid: "90988076"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -361,6 +361,17 @@ Här är information:
 * Telemetri skickas också till Microsoft/Azure-prenumerationen.
 
 [![Arbets flöde för störningar](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
+
+## <a name="audit-and-manage-compliance"></a>Granska och hantera efterlevnad
+
+[Azure policy](/azure/governance/policy) är ett styrnings verktyg som gör att du kan se till att Azure-resurserna är kompatibla med dina principer. Med Azure Machine Learning kan du tilldela följande principer:
+
+* **Kundhanterad nyckel**: granska eller Använd om arbets ytor måste använda en kundhanterad nyckel.
+* **Privat länk**: granska om arbets ytor använder en privat slut punkt för att kommunicera med ett virtuellt nätverk.
+
+Mer information om Azure Policy finns i Azure Policy- [dokumentationen](/azure/governance/policy/overview).
+
+Mer information om principerna som är speciella för Azure Machine Learning finns i [Granska och hantera efterlevnad med Azure policy](how-to-integrate-azure-policy.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,17 +1,17 @@
 ---
 title: Uppgradera Log Analytics instrument panels visualiseringar
-description: Frågor som du kan starta från och ändra efter behov
+description: Lär dig hur du uppgraderar Log Analytics instrument panels visualiseringar med frågor som kan ge kraftfulla insikter.
 ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988248"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Uppgradera Log Analytics instrument panels visualiseringar
 

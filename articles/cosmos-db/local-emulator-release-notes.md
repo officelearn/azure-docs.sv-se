@@ -2,16 +2,16 @@
 title: Hämtnings-och viktig information för Azure Cosmos-emulatorn
 description: Hämta versions anteckningar för Azure Cosmos-emulatorn för olika versioner och information om hämtning.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
-ms.openlocfilehash: 268470f846f31e3577b12c217ddcb3c128136101
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/21/2020
+ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086648"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988178"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -26,25 +26,25 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 
 ## <a name="release-notes"></a>Viktig information
 
-### <a name="2115-08232020"></a>2.11.5 (08/23/2020)
+### <a name="2115-23-august-2020"></a>2.11.5 (23 augusti 2020)
 
 Den här versionen lägger till två nya start alternativ för Cosmos-emulator: 
 
 * "/EnablePreview" – den aktiverar förhands gransknings funktioner för emulatorn. För hands versions funktionerna som fortfarande är under utveckling och som kan nås via CI och exempel skrivning.
-* "/EnableAadAuthentication" – det gör att emulatorn kan acceptera anpassade AAD-token som ett alternativ till huvud nycklarna i Azure Cosmos. Den här funktionen är fortfarande under utveckling; Det finns för närvarande inte stöd för vissa roll tilldelningar och andra inställningar för behörighet.
+* "/EnableAadAuthentication" – det gör att emulatorn kan acceptera anpassade Azure Active Directory tokens som ett alternativ till huvud nycklarna för Azure Cosmos. Den här funktionen är fortfarande under utveckling; Det finns för närvarande inte stöd för vissa roll tilldelningar och andra behörighets inställningar.
 
-### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+### <a name="2112-07-july-2020"></a>2.11.2 (07 juli 2020)
 
-- Den här versionen ändrar hur ETL-spårningar krävs när fel sökning av Cosmos-emulatorn samlas in. WPR (Windows Performance runtime-verktyg) är nu standard verktygen för att samla in ETL-baserade spår medan den gamla LOGMAN-baserade insamlingen är inaktuell. Den här ändringen krävs delvis eftersom de senaste säkerhets uppdateringarna i Windows hade en oväntad inverkan på hur LOGMAN fungerar vid körning via Cosmos-emulatorn.
+- Den här versionen ändrar hur ETL-spårningar krävs när fel sökning av Cosmos-emulatorn samlas in. WPR (Windows Performance runtime-verktyg) är nu standard verktygen för att fånga ETL-baserade spår medan tidigare LOGMAN-baserad infångning är inaktuell. Den här ändringen krävs delvis eftersom de senaste säkerhets uppdateringarna i Windows hade en oväntad inverkan på hur LOGMAN fungerar vid körning via Cosmos-emulatorn.
 
-### <a name="2111-06102020"></a>2.11.1 (06/10/2020)
+### <a name="2111-10-june-2020"></a>2.11.1 (10 juni 2020)
 
-- I den här versionen åtgärdas några buggar som rör emulator Datautforskaren. I vissa fall när du använder emulatorn Datautforskaren via en webbläsare, går det inte att ansluta till Cosmos-emulatorns slut punkt och alla relaterade åtgärder som att skapa en databas eller en behållare kommer att Miss lyckas. Det andra problem som har åtgärd ATS är relaterat till att skapa ett objekt från en JSON-fil med Datautforskaren överförings åtgärd.
+- I den här versionen åtgärdas några buggar som rör emulator Datautforskaren. I vissa fall när du använder emulatorn Datautforskaren via en webbläsare, går det inte att ansluta till Cosmos-emulatorns slut punkt och alla relaterade åtgärder som att skapa en databas eller en behållare resulterar i fel. Det andra problem som har åtgärd ATS är relaterat till att skapa ett objekt från en JSON-fil med Datautforskaren överförings åtgärd.
 
 ### <a name="2110"></a>2.11.0
 
 - I den här versionen införs stöd för autoskalning av allokerat data flöde. De här nya funktionerna är möjligheten att ange en anpassad högsta insamlad data flödes nivå i enheter för programbegäran (RU/s), aktivera autoskalning på befintliga databaser och behållare, samt programmerings stöd via Azure Cosmos DB SDK: er.
-- Åtgärda ett problem när du skickar frågor till en stor mängd dokument (över 1 GB). emulatorn kommer inte att fungera med intern fel status kod 500.
+- Åtgärda ett problem vid frågor till och med ett stort antal dokument (över 1 GB). emulatorn Miss känner till den interna fel status koden 500.
 
 ### <a name="292"></a>2.9.2
 
@@ -64,7 +64,7 @@ Den här versionen lägger till två nya start alternativ för Cosmos-emulator:
 
 ### <a name="270"></a>2.7.0
 
-- Den här versionen åtgärdar en regression som hindrar användare från att köra frågor mot SQL API-kontot från emulatorn vid användning av .NET Core-eller x86 .NET-baserade klienter.
+- Den här versionen åtgärdar en regression, som hindrade användare från att köra frågor mot SQL API-kontot från emulatorn vid användning av .NET Core-eller x86 .NET-baserade klienter.
 
 ### <a name="246"></a>2.4.6
 

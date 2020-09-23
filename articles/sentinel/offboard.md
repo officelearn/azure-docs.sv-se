@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662007"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885833"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Ta bort Azure Sentinel från din arbets yta
 
@@ -48,13 +48,13 @@ När från kopplingen har identifierats börjar offboarding-processen.
 
 -   AWS
 
--   Säkerhets aviseringar för Microsoft-tjänster: Microsoft Defender för identitet (*tidigare Azure ATP*) Microsoft Cloud App Security inklusive Cloud Discovery Shadow IT repor ting, Azure AD Identity Protection, Microsoft Defender för slut punkt (*tidigare Microsoft Defender ATP*), Azure Defender (*tidigare Azure Security Center*)
+-   Säkerhets aviseringar för Microsoft-tjänster: Microsoft Defender för identitet (*tidigare Azure ATP*) Microsoft Cloud App Security inklusive Cloud Discovery Shadow IT repor ting, Azure AD Identity Protection, Microsoft Defender för slut punkt (*tidigare Microsoft Defender ATP*), Azure Defender-aviseringar från Azure Security Center
 
 -   Hotinformation
 
--   Vanliga säkerhets loggar (inklusive CEF-baserade loggar, Barracuda och syslog) (om du har Azure Defender kommer dessa loggar att fortsätta att samlas in.)
+-   Vanliga säkerhets loggar (inklusive CEF-baserade loggar, Barracuda och syslog) (om du får Azure Defender-aviseringar från Azure Security Center kommer dessa loggar att fortsätta att samlas in.)
 
--   Windows säkerhets händelser (om du har Azure Defender kommer dessa loggar att fortsätta att samlas in.)
+-   Säkerhets händelser i Windows (om du får Azure Defender-aviseringar från Azure Security Center kommer dessa loggar att fortsätta att samlas in.)
 
 Inom de första 48 timmarna går det inte längre att komma åt data-och analys reglerna (inklusive automatiserings konfiguration i real tid) eller fråga i Azure Sentinel.
 

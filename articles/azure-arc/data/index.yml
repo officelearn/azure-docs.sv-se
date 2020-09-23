@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Azure Arc-aktiverade datatjänster
+summary: Kör Azure-datatjänster, i gränsen och i miljöer med flera moln med Kubernetes i valfri infrastruktur.
+metadata:
+  title: Azure Arc-aktiverade datatjänster (förhandsversion)
+  description: Kör Azure-datatjänster, i gränsen och i miljöer med flera moln med Kubernetes i valfri infrastruktur.
+  ms.service: azure-arc
+  ms.subservice: azure-arc-data
+  ms.topic: landing-page
+  author: MikeRayMSFT
+  ms.author: mikeray
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3ef94bfc9d3870c4c91116fb2aaf26387999a8da
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928928"
+landingContent:
+- title: Om
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Arc-aktiverade datatjänster?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Anslutningslägen och krav
+      url: connectivity.md
+    - text: Storage-konfiguration
+      url: storage-configuration.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa datakontrollant
+      url: create-data-controller.md
+    - text: Installera klientverktyg
+      url: install-client-tools.md
+- title: Azure Arc-aktiverad PostgreSQL-hyperskala (förhandsversion)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa
+      url: create-postgresql-hyperscale-server-group.md
+    - text: Ansluta
+      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - text: Migrera
+      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+    - text: Återställ
+      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+- title: Azure Arc-aktiverad SQL-hanterad instans (förhandsversion)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa
+      url: create-sql-managed-instance.md
+    - text: Ansluta
+      url: connect-managed-instance.md
+    - text: Migrera
+      url: migrate-to-managed-instance.md
+    - text: Återställ
+      url: restore-adventureworks-sample-db.md

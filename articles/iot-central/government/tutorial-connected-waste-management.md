@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77426368"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972432"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
 
@@ -131,13 +131,13 @@ Så här visar du enhets mal len:
 
 1. Klicka på **mallar för enheter** i den vänstra rutan i programmet i IoT Central. 
 
-    ![Enhets mall](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Skärm bild som visar listan över enhetsspecifika mallar i programmet](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. I listan mallar för enheter visas **anslutet avfall**. Öppna genom att klicka på namnet.
 
 3. Bekanta dig med funktionerna i enhets mal len. Du kan se att det definierar sensorer som *Fyllnings nivå*, *odor-mätare*, *vikt*, *plats*och andra.
 
-   ![Enhets mall](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Skärm bild som visar information om den anslutna enhets mal len för avfalls platser](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -179,7 +179,7 @@ I IoT Central kan du skapa simulerade enheter för att testa enhetens mall och p
 
 1. Navigera till **enheten** från IoT Central vänstra rutan. 
 
-   ![Enheter](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
+   ![Egenskaper](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
 2. Välj och klicka på ansluten spill lager enhet.  
 
@@ -265,8 +265,9 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort pr
 1. Öppna fliken Administration i det vänstra fönstret i ditt IoT Central-program.
 2. Välj program inställningar och klicka på knappen Ta bort längst ned på sidan.
 
-  
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [anslutna metoder för avfalls hantering](./concepts-connectedwastemanagement-architecture.md)
+* Läs mer om
+ 
+> [!div class="nextstepaction"]
+> [Metoder för ansluten avfalls hantering](./concepts-connectedwastemanagement-architecture.md)

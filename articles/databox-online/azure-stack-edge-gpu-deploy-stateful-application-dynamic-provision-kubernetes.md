@@ -1,6 +1,6 @@
 ---
-title: Använd kubectl för att distribuera Kubernetes-tillstånds känslig app via en dynamiskt etablerad resurs på Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en dynamiskt etablerad resurs med hjälp av kubectl på en Microsoft Azure Stack Edge-GPU-enhet.
+title: Använd kubectl för att distribuera Kubernetes-tillstånds känslig app via en dynamiskt etablerad resurs på Azure Stack Edge Pro GPU-enhet | Microsoft Docs
+description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en dynamiskt etablerad resurs med hjälp av kubectl på en Microsoft Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d37152f7dec78d5f5db21fdde9a8ec25c36c4e05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254329"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899479"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med StorageClass på din Azure Stack Edge GPU-enhet
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med StorageClass på din Azure Stack Edge Pro GPU-enhet
 
 Den här artikeln visar hur du distribuerar ett tillstånds känsligt program med en instans i Kubernetes med hjälp av en StorageClass för att dynamiskt tillhandahålla lagring och en distribution. Distributionen använder `kubectl` kommandon i ett befintligt Kubernetes-kluster och distribuerar MySQL-programmet. 
 
-Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
+Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -28,30 +28,30 @@ Innan du kan distribuera det tillstånds känsliga programmet måste du kontrol 
 
 ### <a name="for-device"></a>För enheten
 
-- Du har inloggnings uppgifter till en 1-nod Azure Stack Edge-enhet.
+- Du har inloggnings uppgifter till en 1-nod Azure Stack Edge Pro-enhet.
     - Enheten är aktive rad. Se [Aktivera enheten](azure-stack-edge-gpu-deploy-activate.md).
     - Enheten har den beräknings roll som kon figurer ATS via Azure Portal och har ett Kubernetes-kluster. Se [Konfigurera Compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### <a name="for-client-accessing-the-device"></a>För klient åtkomst till enheten
 
-- Du har ett Windows-klientcertifikat som ska användas för att få åtkomst till Azure Stack Edge-enheten.
+- Du har ett Windows-klientsystem som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
     - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Den här artikeln beskriver proceduren när du använder en Windows-klient. 
     
-    - Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
+    - Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
       - Ett `userns1` namn område har skapats via `New-HcsKubernetesNamespace` kommandot. 
       - En användare har skapats `user1` via `New-HcsKubernetesUser` kommandot. 
       - Beviljas `user1` åtkomst till `userns1` via `Grant-HcsKubernetesNamespaceAccess` kommandot.       
       - Installerat `kubectl` på klienten och sparade `kubeconfig` filen med användar konfigurationen till C: \\ Users \\ &lt; username &gt; \\ . Kube. 
     
-    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge-enhet. 
+    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge Pro-enhet. 
         - Används `kubectl version` för att kontrol lera vilken version av kubectl som körs på klienten. Anteckna den fullständiga versionen.
-        - I det lokala användar gränssnittet för din Azure Stack Edge-enhet går du till **Översikt** och noterar program varu numret för Kubernetes. 
+        - I det lokala användar gränssnittet för din Azure Stack Edge Pro-enhet går du till **Översikt** och noterar Kubernetes-program varu numret. 
         - Kontrol lera att dessa två versioner är kompatibla med den mappning som finns i den Kubernetes-version som stöds<!-- insert link-->. 
 
 
-Du är redo att distribuera ett tillstånds känsligt program på Azure Stack Edge-enheten. 
+Du är redo att distribuera ett tillstånds känsligt program på din Azure Stack Edge Pro-enhet. 
 
 
 ## <a name="deploy-mysql"></a>Distribuera MySQL
@@ -78,7 +78,7 @@ Alla `kubectl` kommandon som du använder för att skapa och hantera tillstånds
 
 1. Du kommer att använda följande YAML-filer. `mysql-deployment.yml`Filen beskriver en distribution som kör MySQL och refererar till PVC: n. Filen definierar en volym montering för `/var/lib/mysql` och skapar sedan en PVC som söker efter en 20 GB-volym. Ett dynamiskt PV har tillhandahållits och PVC: n är kopplad till detta PV.
 
-    Kopiera och spara följande `mysql-deployment.yml` fil i en mapp på Windows-klienten som du använder för att få åtkomst till Azure Stack Edge-enheten.
+    Kopiera och spara följande `mysql-deployment.yml` fil i en mapp på Windows-klienten som du använder för att få åtkomst till Azure Stack Edge Pro-enheten.
     
     ```yml
     apiVersion: v1
@@ -126,7 +126,7 @@ Alla `kubectl` kommandon som du använder för att skapa och hantera tillstånds
               claimName: mysql-pv-claim-sc
     ```
     
-2. Kopiera och Spara som en `mysql-pvc.yml` fil i samma mapp som du sparade `mysql-deployment.yml` . Om du vill använda den inbyggda StorageClass som Azure Stack Edge-enhet på en ansluten datadisk anger du `storageClassName` fältet i PVC-objektet till `ase-node-local` och accessModes ska vara `ReadWriteOnce` . 
+2. Kopiera och Spara som en `mysql-pvc.yml` fil i samma mapp som du sparade `mysql-deployment.yml` . Om du vill använda den inbyggda StorageClass som Azure Stack Edge Pro-enhet på en ansluten datadisk, anger du `storageClassName` fältet i PVC-objektet till `ase-node-local` och accessModes ska vara `ReadWriteOnce` . 
 
     > [!NOTE] 
     > Kontrol lera att YAML-filerna har rätt indrag. Du kan kontrol lera med [yaml luddfri](http://www.yamllint.com/) för att validera och sedan Spara.
@@ -326,4 +326,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar nätverk via kubectl finns i [distribuera ett tillstånds lösa program på en Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)
+Information om hur du konfigurerar nätverk via kubectl finns i [distribuera ett tillstånds lösa program på en Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)

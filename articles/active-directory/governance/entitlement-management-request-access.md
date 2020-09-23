@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798502"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979892"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter
 
@@ -80,6 +80,12 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 Om du begär åtkomst till ett Access-paket som har flera principer som gäller kan du bli ombedd att välja en princip. Till exempel kan en Access Package Manager Konfigurera ett Access-paket med två principer för två grupper av interna anställda. Den första principen kan ge åtkomst i 60 dagar och kräver godkännande. Den andra principen kan tillåta åtkomst i 2 dagar och kräver inte godkännande. Om du stöter på det här scenariot måste du välja den princip som du vill använda.
 
 ![Min åtkomst Portal – begär åtkomst – flera principer](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>Fyll i information om beställare
+
+Du kan begära åtkomst till ett Access-paket som kräver affärs justering och ytterligare information om begär Ande innan du beviljar åtkomst till Access-paketet. Fyll i all information om begär Ande som krävs för att få åtkomst till Access-paketet.
+
+![Min åtkomst Portal – begär åtkomst-Fyll i information om beställare](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>Skicka en begäran igen
 

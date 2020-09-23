@@ -1,0 +1,54 @@
+---
+title: Azure Defender för Key Vault – fördelar och funktioner
+description: Lär dig mer om fördelarna och funktionerna i Azure Defender för Key Vault.
+author: memildin
+ms.author: memildin
+ms.date: 9/12/2020
+ms.topic: conceptual
+ms.service: security-center
+ms.custom: references_regions
+manager: rkarlin
+ms.openlocfilehash: 06818e443568918e2ee87bbfbec81836ea85648b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90941841"
+---
+# <a name="introduction-to-azure-defender-for-key-vault"></a>Introduktion till Azure Defender för Key Vault
+
+Azure Key Vault är en moln tjänst som skyddar krypterings nycklar och hemligheter som certifikat, anslutnings strängar och lösen ord. 
+
+Aktivera **Azure Defender för Key Vault** för Azure-internt Avancerat skydd mot skydd för Azure Key Vault, vilket ger ytterligare ett lager av säkerhets information. 
+
+## <a name="availability"></a>Tillgänglighet
+
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
+|Priset|**Azure Defender för Key Vault** faktureras så som visas på [sidan med priser](security-center-pricing.md)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|||
+
+## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>Vilka är fördelarna med Azure Defender för Key Vault?
+
+Azure Defender identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Key Vault-konton. Det här skydds lagret gör att du kan åtgärda hot utan att vara säkerhets expert och utan att behöva hantera säkerhets övervaknings system från tredje part.  
+
+När avvikande aktiviteter inträffar visar Azure Defender varningar och skickar dem via e-post till relevanta medlemmar i din organisation. Dessa aviseringar innehåller information om den misstänkta aktiviteten och rekommendationer om hur du undersöker och åtgärdar hot. 
+
+## <a name="azure-defender-for-key-vault-alerts"></a>Aviseringar för Azure Defender för Key Vault
+När du får en avisering från Azure Defender för Key Vault rekommenderar vi att du undersöker och svarar på aviseringen enligt beskrivningen i [svara på Azure Defender för Key Vault](defender-for-key-vault-usage.md). Azure Defender för Key Vault skyddar program och autentiseringsuppgifter, så även om du är van vid det program eller den användare som utlöste aviseringen, är det viktigt att kontrol lera situationen kring varje avisering.
+
+Aviseringarna visas i Key Vault **säkerhets** sida, på Azure Defender-instrumentpanelen och på aviserings sidan för Security Center.
+
+:::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Azure Key Vault s säkerhets sida":::
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här artikeln har du lärt dig om Azure Defender för Key Vault.
+
+Information om relaterade material finns i följande artiklar: 
+
+- [Key Vault säkerhets aviseringar](alerts-reference.md#alerts-azurekv)– avsnittet Key Vault i referens tabellen för alla Azure Security Center aviseringar
+- [Exportera aviseringar till en SIEM](continuous-export.md)
+- [Ignorera aviseringar från Azure Defender](alerts-suppression-rules.md)

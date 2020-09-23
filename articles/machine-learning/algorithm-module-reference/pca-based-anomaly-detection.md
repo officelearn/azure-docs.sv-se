@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898466"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>PCA-baserad avvikelse identifierings modul
 
-Den här artikeln beskriver hur du använder den PCA-baserade modulen för avvikelse identifiering i Azure Machine Learning designer (för hands version) för att skapa en modell för avvikelse identifiering baserat på Principal Component Analysis (PCA).
+Den här artikeln beskriver hur du använder den PCA-baserade modulen för avvikelse identifiering i Azure Machine Learning designer för att skapa en modell för avvikelse identifiering baserat på Principal Component Analysis (PCA).
 
 Med den här modulen kan du skapa en modell i scenarier där det är enkelt att hämta tränings data från en klass, till exempel giltiga transaktioner, men svårt att få tillräckligt med exempel på mål avvikelser. 
 
@@ -109,4 +109,4 @@ För varje ny indata beräknar avvikelse detektorn först sin projektion i eigen
 
 Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 
-Se [undantag och felkoder för designern (för hands version)](designer-error-codes.md) för en lista med fel som är speciella för designer-modulerna.
+Se [undantag och felkoder för designern](designer-error-codes.md) för en lista med fel som är speciella för designer-modulerna.

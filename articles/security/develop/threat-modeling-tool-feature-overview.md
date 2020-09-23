@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540010"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980676"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Översikt över Threat Modeling Tool funktioner
 
@@ -83,7 +83,7 @@ Utifrån den mall du väljer kan du hitta alla stenciler som är tillgängliga f
 | --------------------------------------- | ------------ |
 | **Process** | Program, plugin-program för webbläsare, trådar, virtuella datorer |
 | **Extern interaktör** | Autentiseringsproviders, webbläsare, användare, webb program |
-| **Data lager** | Cache, lagring, konfigurationsfiler, databaser, register |
+| **Datalager** | Cache, lagring, konfigurationsfiler, databaser, register |
 | **Data flöde** | Binärt, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, Named pipe, RPC/DCOM, SMB, UDP |
 | **Förtroende linje/gräns gräns** | Företags nätverk, Internet, dator, Sandbox, användare/kernelläge |
 
@@ -122,7 +122,7 @@ Hovra över **öppna en modell** för att visa två alternativ: **öppna från d
 
 När du väljer **feedback, förslag och problem**går du till MSDN-forumet för sdl-verktyg. Du kan läsa vad andra personer säger om verktyget, inklusive lösningar och nya idéer.
 
-![Feedback](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Skärm bild som visar en knapp med feedback, förslag och problem för texten.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>vyn Design
 
@@ -158,7 +158,7 @@ Du kan ansluta element på två sätt:
 
 Om du skapar en hot modell och glömmer att ansluta data flöden till element får du ett meddelande. Du kan ignorera meddelandet, eller så kan du följa anvisningarna för att åtgärda problemet. 
 
-![Meddelanden](./media/threat-modeling-tool-feature-overview/messages.png)
+![Skärm bild som visar en hot modell koppling som inte är ansluten till element, med ett meddelande om att problemet uppstår.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Kommentarer
 
@@ -178,7 +178,7 @@ När du väljer ett hot kan du använda tre distinkta funktioner:
 | --------------------------------------- | ------------ |
 | **Läs indikator** | <p>Hotet markeras som läst, vilket hjälper dig att hålla koll på de objekt som du har granskat.</p><p>![Läs-/oläst indikator](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Interaktions fokus** | <p>Interaktion i diagrammet som tillhör ett hot är markerat.</p><p>![Interaktions fokus](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Hot egenskaper** | <p>Ytterligare information om hotet visas i fönstret **hot egenskaper** .</p><p>![Hot egenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **Hotegenskaper** | <p>Ytterligare information om hotet visas i fönstret **hot egenskaper** .</p><p>![Hotegenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Prioritets ändring
 
@@ -190,13 +190,13 @@ Du kan ändra prioritets nivån för varje genererat hot. Olika färger gör det
 
 Som du ser i föregående bild kan du ändra den information som genereras av verktyget. Du kan också lägga till information i vissa fält, till exempel motivering. Dessa fält genereras av mallen. Om du behöver mer information för varje hot kan du göra ändringar.
 
-![Hot egenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)
+![Hotegenskaper](./media/threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Rapporter
 
 När du har ändrat prioritet och uppdaterat statusen för varje genererat hot kan du spara filen och/eller skriva ut en rapport. Gå till **rapporten**  >  **skapa fullständig rapport**. Namnge rapporten och se något som liknar följande bild:
 
-![Rapport](./media/threat-modeling-tool-feature-overview/report.png)
+![Skärm bild som visar ett exempel på en Threat Model-rapport, inklusive en sammanfattning, diagram och annan information.](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

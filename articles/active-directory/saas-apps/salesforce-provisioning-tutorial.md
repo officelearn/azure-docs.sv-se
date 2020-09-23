@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 66bba0d4825300a6cead2453a67518af631234b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543512"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979777"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg som krävs för att utfö
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klient
 * En Salesforce.com-klient
@@ -65,9 +65,9 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 3. Välj din instans av Salesforce och välj sedan fliken **etablering** .
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![etablerings](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar sidan för Salesforce-etablering med etablerings läget inställt på automatiskt och andra värden som du kan ange.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
 
@@ -129,6 +129,6 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

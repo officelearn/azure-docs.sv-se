@@ -1,23 +1,23 @@
 ---
-title: Koncept för väder tjänster | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om de begrepp som gäller för Microsoft Azure Maps väder tjänster.
+title: Begrepp för väder tjänster i Microsoft Azure Maps
+description: Lär dig mer om de begrepp som gäller för Microsoft Azure Maps väder tjänster.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132117"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972036"
 ---
 # <a name="weather-services-in-azure-maps"></a>Väder tjänster i Azure Maps
 
-Den här artikeln beskriver begrepp som gäller [Azure Maps väder tjänster](https://aka.ms/AzureMapsWeatherService). Vi rekommenderar att du går igenom den här artikeln innan du börjar med väder-API: erna. 
+Den här artikeln beskriver begrepp som gäller [Azure Maps väder tjänster](https://aka.ms/AzureMapsWeatherService). Vi rekommenderar att du går igenom den här artikeln innan du börjar med väder-API: erna.
 
 ## <a name="unit-types"></a>Enhets typer
 
@@ -56,27 +56,27 @@ Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconC
 
 | Ikon nummer |Ikon| Dag | Natten | Text |
 |-------------|:----:|-----|-------|------|
-| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  Inga    | Solig|
-| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  Inga    | Mest solig|
-| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  Inga    | Delvis solig|
-| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  Inga    | Tillfälligt moln|
-| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  Inga    | Hazy solsken |
-| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Yes |  Inga    | Mest moln|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Ja |  Nej    | Solig|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Ja |  Nej    | Mest solig|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Ja |  Nej    | Delvis solig|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Ja |  Nej    | Tillfälligt moln|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Ja |  Nej    | Hazy solsken |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Ja |  Nej    | Mest moln|
 | 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Ja |  Ja   | Molnet |
 | 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Ja |  Ja   | Dreary (Overcast)|
 | 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Ja |  Ja   | Strålkastar|
 | 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Ja |  Ja   | Dusch|
-| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Yes |  Inga    | Mest moln med duschar|
-| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Yes |  Inga    | Delvis solig med duschar|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Ja |  Nej    | Mest moln med duschar|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Ja |  Nej    | Delvis solig med duschar|
 | 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Ja |  Ja   | Thunderstorms|
-| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Yes |  Inga    | Mest moln med thunderstorms|
-| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Yes |  Inga    | Delvis solig med thunderstorms|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Ja |  Nej    | Mest moln med thunderstorms|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Ja |  Nej    | Delvis solig med thunderstorms|
 | 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Ja |  Ja   | Lilla|
 | 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Ja |  Ja   | Flurries|
-| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  Inga    | Mest moln med Flurries|
-| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  Inga    | Delvis solig med Flurries|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Ja |  Nej    | Mest moln med Flurries|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Ja |  Nej    | Delvis solig med Flurries|
 | 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Ja |  Ja   | Snö|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  Inga    | Mest moln med snö|     
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Ja |  Nej    | Mest moln med snö|     
 | 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Ja |  Ja   | Ice |
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Ja |  Ja   | Sleet|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Ja |  Ja   | Frysning av regn|
@@ -84,18 +84,18 @@ Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconC
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Ja |  Ja   | Frekvent|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Ja |  Ja   | Kall|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Ja |  Ja   | Lindning|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Inga  |  Yes   | Rensa|
-| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Inga  |  Yes   | Oftast rensa|
-| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Inga  |  Yes   | Delvis Molnt|
-| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Inga  |  Yes   | Tillfälligt moln|
-| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Inga  |  Yes   | Hazy Moonlight|
-| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Inga  |  Ja   | Mest moln|
-| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Inga  |  Ja   | Delvis moln med duschar|
-| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Inga  |  Ja   | Mest moln med duschar|
-| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | Inga  |  Ja   | Delvis moln med thunderstorms|
-| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | Inga  |  Ja   | Mest moln med thunderstorms|
-| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | Inga  |  Ja   | Mest moln med Flurries|
-| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Inga  |  Ja   | Mest moln med snö|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nej  |  Ja   | Rensa|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nej  |  Ja   | Oftast rensa|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nej  |  Ja   | Delvis Molnt|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nej  |  Ja   | Tillfälligt moln|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Nej  |  Ja   | Hazy Moonlight|
+| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Nej  |  Ja   | Mest moln|
+| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Nej  |  Ja   | Delvis moln med duschar|
+| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Nej  |  Ja   | Mest moln med duschar|
+| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | Nej  |  Ja   | Delvis moln med thunderstorms|
+| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | Nej  |  Ja   | Mest moln med thunderstorms|
+| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | Nej  |  Ja   | Mest moln med Flurries|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Nej  |  Ja   | Mest moln med snö|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Färg skala för polärdiagram och satellit bilder
@@ -472,3 +472,169 @@ Detaljerad färgpalett för infraröda satellit paneler visas nedan.
 |307,57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>Index-ID och index grupper ID
+
+[Hämta dagliga index-API: er](https://aka.ms/AzureMapsWeatherDailyIndices) gör det möjligt för användare att begränsa returnerade resultat till vissa index typer eller index grupper.
+
+Nedan visas en tabell med tillgängliga index-ID: n, deras namn och en länk till deras intervall uppsättningar. Under den här tabellen är en tabell som visar de olika index grupperna.
+
+  Index namn |  ID  | Värde intervall
+  -------------------------- |---|-----
+  Arthritis-smärta             |21 | [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
+  Asthma                     |23|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
+  Strand &-pool               |10| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Cykling                  |4| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Vanliga kall                |25|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
+  Kompostering                 |38| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Konstruktion               |14| [Dåligt – utmärkt 1](#poor-excellent-1)
+  COPD                       |44|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
+  Hund promenad bekvämlighet        |43| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Driving (Bil)                    |40|  [Dåligt – utmärkt 2](#poor-excellent-2)
+  Damm & dander              |18| [Låg – Extreme 1](#low-extreme-1)
+  Fält beredskap            |32| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Fiskezon                    |13| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Fördröjningar vid flygning              |-3|  [Mycket osannolikt 2](#very-unlikely-very-likely-2)
+  Flu                        |26|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
+  Flygande rese index        |31| [Utmärkt – dåligt](#excellent-poor)
+  Bränsle ekonomi               |37| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Golf väder               |5| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Gräs tillväxt              |33| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Hår frizz                 |42| [Osannolikt-nödfall](#unlikely-emergency)
+  Frisk hjärtas lämplighet      |16| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Vandra                     |3| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Start energi effektivitet     |36| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Hotjakt                    | 20| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Inomhus aktivitet            | −2| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Jogging                    |2| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Kite som flyger                |9| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Matta mowing                |28| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Migraine          |27|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
+  Morgon skolan Bus         |35| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Mosquito-aktivitet          |17|[Låg – Extreme 1](#low-extreme-1)
+  Utomhus aktivitet           |29| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Utomhus Barbecue           |24| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Konsert, Utomhus            |8| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Körs                    |1|  [Dåligt – utmärkt 1](#poor-excellent-1)
+  Artiklar                     |6| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Thirst                     |41| [Låg-Extreme 2](#low-extreme-2)
+  Framför                    |11| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Shopping                   |39| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Sinus             |30|  [Fördelaktig – extrema risker](#beneficial-at-extreme-risk)
+  Skateboarding              | 7| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Skid väder                | 15| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Snö dagar                  | 19| [Mycket troligt](#very-unlikely-very-likely)
+  Jord fukt              | 34| [Dåligt – utmärkt 1](#poor-excellent-1)
+  Stargazing                 | 12| [Dåligt – utmärkt 1](#poor-excellent-1)
+
+Nedan visas listan över tillgängliga index grupper (indexGroupId):
+
+  ID   | Gruppnamn | Index i den här gruppen |
+  -------- | ------------------|------
+  1       |Alla | Alla
+  2       |Aches och lacker | Arthritis-smärta (21) </br> Migraine (27) </br> Sinus (30)
+  3       |Andnings skydd | Asthma (23) </br> Vanlig kall (25) </br> Flu-prognos (26)
+  4       |Redskap | Fält beredskap (32) </br> Trädgårds mowing (28) </br> Jord fuktighet (34)</br>
+  5       |Förstör | Sammansättning (38) </br> Start energi effektivitet (36) </br> Bränsle ekonomi (37)
+  6       |Utomhus levande | Utomhus Barbecue (24) </br> Mosquito-aktivitet (17)
+  7       |Strand och Marine | Strand & pool (10) </br> Fiske (13) </br> Segling (11)
+  8       |Sportsman | Fiske (13) </br> Jakt (20) </br> Utomhus aktivitet (29)</br>
+  9       |Bruk |  Fält beredskap (32) </br>  Jord fuktighet (34)
+  10      |Hälsa | Arthritis-smärta (21) </br> Asthma (23) </br> Vanlig kall (25) </br> Damm & dander (18) </br> Flu (26) </br> Frisk hjärta (16) </br> Migraine (27)
+  11      |Bruk | Utomhus Barbecue (24) </br> Strand & pool (10) </br> Bikallning (4) </br> Konsert (8) </br>  Fält beredskap (32) </br> Fiske (13) </br> Golf väder (5) </br> Vandra (3) </br> Jakt (20) </br> Jogging (2) </br> Kite (9) </br> Mosquito-aktivitet (17)</br> Trädgårds mowing (28) </br> Utomhus aktivitet (29) </br> Körs (1) </br> Segling (11) </br> Skateboarding (7) </br> Skid väder (15) </br>  Jord fuktighet (34)</br> Stargazing (12) </br> Tennis (6)
+  12      |Tävling | Bikallning (4) </br> Golf väder (5) </br> Vandra (3) </br>  Jogging (2) </br> Körs (1) </br> Skateboarding (7) </br> Skid väder (15) </br>Tennis (6)
+  13      |Start | Start energi effektivitet (36) </br> Bränsle ekonomi (37) </br> Inomhus aktivitet (-2)
+
+## <a name="daily-index-range-sets"></a>Intervall uppsättningar för dagligt index
+
+[Hämta dagliga index-API: er](https://aka.ms/AzureMapsWeatherDailyIndices) returnerar det intervallbaserade värdet och dess associerade kategori namn för varje index-ID. Intervall uppsättningar är inte desamma för alla index. I tabellerna nedan visas de olika intervall uppsättningarna som används av de index som stöds i [index-ID: n och index grupps-ID: n](#index-ids-and-index-groups-ids). För att ta reda på vilka index som används, går du till avsnittet [index-ID och index grupper ID](#index-ids-and-index-groups-ids) i det här dokumentet.
+
+### <a name="poor-excellent-1"></a>Dåligt – utmärkt 1
+
+  | Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Dålig              |  0 |                2,99
+  Ganska bra              |  3  |               4,99
+  Bra              |  5  |              6,99
+  Väldigt bra         |  7  |               8,99
+  Utmärkt         |  9  |               10
+
+### <a name="poor-excellent-2"></a>Dåligt – utmärkt 2
+
+ | Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Dålig           |0              |  3
+  Ganska bra           |3,01           |  6
+  Bra           |6,01           |  7.5
+  Väldigt bra      |7,51           |  8,99
+  Utmärkt      |9              |  10
+
+### <a name="excellent-poor"></a>Utmärkt – dåligt
+
+ | Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Utmärkt      |     0,00        |    1,00
+  Väldigt bra        |   1.01          |  3.00
+  Bra             |   3,01          |  5,00
+  Ganska bra             |   5,01          |  7,00
+  Dålig             |   7,01          |  10.00
+
+### <a name="low-extreme-1"></a>Låg – Extreme 1
+
+   | Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Låg                |  0         |        1,99
+  Måttlig           |  2         |        3,99
+  Hög               |  4         |        5.99
+  Mycket hög          |  6         |        7,99
+  Extrem            |  8         |        10
+
+### <a name="low-extreme-2"></a>Låg-Extreme 2
+
+   | Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Låg                |  0            |      2,99
+  Måttlig           |  3            |      4,99
+  Hög               |  5            |      6,99
+  Mycket hög          |  7            |      8,99
+  Extrem            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>Mycket troligt
+
+ | Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Mycket osannolik      | 0     |           1,99
+  Mot           | 2     |           3,99
+  Eventuellt           | 4     |           5.99
+  Förmoda             | 6     |           7,99
+  Mycket troligt        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>Mycket osannolikt 2
+
+ | Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Mycket osannolik      |  0,00     |         1,00
+  Mot           |  1.01     |         3.00
+  Eventuellt           |  3,01     |         5,00
+  Förmoda             |  5,01     |         7,00
+  Mycket troligt        |  7,01     |         10.00
+
+### <a name="unlikely-emergency"></a>Osannolikt-nödfall
+
+| Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Mot         |  0     |          2,99
+  Titta på            |  3     |          4,99
+  Rådgivande         |  5     |          6,99
+  Varning          |  7     |          8,99
+  Akut        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>Fördelaktig – extrema risker
+
+| Kategorinamn | Intervall start | Slut intervall |
+  ----------------|--------------|------------
+  Fördelaktigt        |    0        |        1,99
+  Neutral           |    2        |        3,99
+  I fara           |    4        |        5.99
+  Med hög risk      |    6        |        7,99
+  Vid extrema risker   |    8        |        10

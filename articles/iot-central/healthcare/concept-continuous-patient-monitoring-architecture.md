@@ -1,6 +1,6 @@
 ---
 title: Kontinuerlig övervaknings arkitektur för patient i Azure IoT Central | Microsoft Docs
-description: Lär dig mer om en kontinuerlig arkitektur för övervakning av patient lösningar.
+description: Självstudie – lär dig mer om en kontinuerlig arkitektur för patient övervaknings lösning.
 author: philmea
 ms.author: philmea
 ms.date: 09/14/2020
@@ -8,16 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: bd0d2f3368f6a2c39b3a9e95c577d85dfe0d87d7
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: ffecd09d1084188195da83568ab3fe32ef2cdaac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068087"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972234"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arkitektur för kontinuerlig övervakning av patienter
 
 I den här artikeln beskrivs arkitekturen för en lösning som skapats från program mal len **kontinuerlig övervakning av patienter** :
+
+Kontinuerliga övervaknings lösningar för patienter kan skapas med hjälp av den app-mall som anges och med hjälp av den arkitektur som beskrivs nedan som vägledning.
 
 :::image type="content" source="media/cpm-architecture.png" alt-text="Arkitektur för kontinuerlig övervakning av patienter":::
 

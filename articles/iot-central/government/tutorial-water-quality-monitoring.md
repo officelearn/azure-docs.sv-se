@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82024480"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972367"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i Azure IoT Central
 
@@ -170,7 +170,7 @@ Programmet för övervakning av vatten kvalitet som du skapade från program mal
 
 1. Välj **enheter** i fönstret längst till vänster i ditt program.
 
-   ![Enheter](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
+   ![Egenskaper](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
 
 1. Välj en simulerad enhet.
 
@@ -256,4 +256,7 @@ Om du inte kommer att fortsätta att använda programmet tar du bort programmet 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [begrepp för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md).
+* Lär dig mer om 
+
+> [!div class="nextstepaction"]
+> [koncept för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md).

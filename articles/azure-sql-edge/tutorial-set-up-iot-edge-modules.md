@@ -7,14 +7,14 @@ ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
-ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.reviewer: sourabha, sstein
+ms.date: 09/22/2020
+ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84235023"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886487"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurera IoT Edge moduler och anslutningar
 
@@ -23,39 +23,6 @@ I del två av den här självstudien i tre delar om förutsägelse av järn Malm
 - Azure SQL Edge
 - IoT Edge modul för data Generator
 
-## <a name="create-azure-stream-analytics-module"></a>Skapa Azure Stream Analytics modul
-
-Skapa en Azure Stream Analytics-modul som ska användas i den här självstudien. Mer information om hur du använder strömnings jobb med SQL Edge finns i [använda strömnings jobb med SQL Edge](stream-analytics.md).
-
-När Azure Stream Analytics jobb har skapats med värd miljön inställd som Edge, ställer du in indata och utdata för självstudien.
-
-1. Skapa **indata**genom att klicka på **+ Lägg till strömmande data**. Fyll i avsnittet information med följande information:
-
-   Fält|Värde
-   -----|-----
-   Format för händelse serialisering|JSON
-   Kodning|UTF-8
-   Händelse komprimerings typ|Ingen
-
-2. Skapa **utdata**genom att klicka på **+ Lägg till** och välja SQL Database. Fyll i avsnittet information med följande information.
-
-   > [!NOTE]
-   > Lösen ordet som anges i det här avsnittet måste anges för SQL SA-lösenord när du distribuerar SQL Edge-modulen i avsnittet **Distribuera Azure SQL Edge-modulen**.
-
-   Fält|Värde
-   -----|-----
-   Databas|IronOreSilicaPrediction
-   Servernamn|TCP:., 1433
-   Användarnamn|sa
-   lösenordsinställning|Ange ett starkt lösen ord
-   Tabell|IronOreMeasurements1
-
-3. Navigera till avsnittet **fråga** och Ställ in frågan enligt följande:
-
-   `SELECT * INTO <name_of_your_output_stream> FROM <name_of_your_input_stream>`
-   
-4. Under **Konfigurera**väljer du **publicera**och väljer sedan knappen **publicera** . Spara SAS-URI: n för användning med modulen SQL Database Edge.
-
 ## <a name="specify-container-registry-credentials"></a>Ange autentiseringsuppgifter för container registret
 
 Autentiseringsuppgifterna för behållar register som är värdar för modulblad måste anges. Dessa finns i behållar registret som skapades i din resurs grupp. Navigera till avsnittet **åtkomst nycklar** . Anteckna följande fält:
@@ -63,7 +30,7 @@ Autentiseringsuppgifterna för behållar register som är värdar för modulblad
 - Registernamn
 - Inloggningsserver
 - Användarnamn
-- lösenordsinställning
+- Lösenord
 
 Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
 
@@ -77,57 +44,165 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
 
    _Fält_|_Värde_
    -------|-------
-   Namn|Registernamn
+   Name|Registernamn
    Adress|Inloggningsserver
    Användarnamn|Användarnamn
-   lösenordsinställning|lösenordsinställning
+   Lösenord|Lösenord
   
 ## <a name="deploy-the-data-generator-module"></a>Distribuera modulen data Generator
 
-1. I avsnittet **IoT Edge moduler** klickar du på **+ Lägg till** och väljer **IoT Edge modul**.
+1. I avsnittet **IoT Edge** under **Automatisk enhets hantering**klickar du på **enhets-ID**. I den här självstudien är ID: t `IronOrePredictionDevice` och klickar sedan på **Ange moduler**.
 
-2. Ange ett namn på IoT Edge modul och avbildnings-URI.
-   Avbildnings-URI: n finns i behållar registret i resurs gruppen. Välj avsnittet **databaser** under **tjänster**. I den här självstudien väljer du den lagrings plats som heter `silicaprediction` . Välj lämplig tagg. Bild-URI: n kommer att ha formatet:
+2.  Under avsnittet **IoT Edge moduler** på sidan **Ange moduler på enhet:** klickar du på **+ Lägg till** och väljer **IoT Edge modul**.
+
+3. Ange ett giltigt namn och bild-URI för IoT Edge-modulen.
+   Avbildnings-URI: n finns i behållar registret i resurs gruppen som skapades i del ett av den här självstudien. Välj avsnittet **databaser** under **tjänster**. I den här självstudien väljer du den lagrings plats som heter `silicaprediction` . Välj lämplig tagg. Bild-URI: n kommer att ha formatet:
 
    *inloggnings Server för containerregistry* / *namn på databas*:*taggnamn*
 
-   Ett exempel:
+   Exempel:
 
    ```
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
    ```
 
-3. Klicka på **Lägg till**.
+4. Lämna *principen för omstart* och *önskade status* fält som är.
+
+5. Klicka på **Lägg till**.
+
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Distribuera Azure SQL Edge-modulen
 
-1. Distribuera Azure SQL Edge-modulen genom att följa stegen som beskrivs i [Distribuera Azure SQL Edge (för hands version)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+1. Distribuera Azure SQL Edge-modulen genom att klicka på **+ Lägg till** och sedan **Marketplace-modul**. 
 
-2. På sidan **Ange väg** på sidan **Ange moduler** anger du vägarna för modulen till IoT Edge Hub-kommunikationen på följande sätt. 
+2. På bladet **Marketplace för IoT Edge module** söker du efter *Azure SQL Edge* och väljer *Azure SQL Edge Developer*. 
+
+3. Konfigurera Azure SQL Edge-modulen genom att klicka på den nyligen tillagda *Azure SQL Edge* -modulen under **IoT Edge moduler** . Mer information om konfigurations alternativen finns i [Distribuera Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+
+4. Lägg till `MSSQL_PACKAGE` miljövariabeln i *Azure SQL Edge* module-distributionen och ange SAS-URL: en för databasen DACPAC-filen som skapades i steg 8 i [del ett](tutorial-deploy-azure-resources.md) av den här självstudien.
+
+5. Klicka på **Uppdatera**
+
+6. På sidan **Ange moduler på enheten** klickar du på **nästa: vägar >**.
+
+7. I fönstret vägar på sidan **Ange moduler på enhet** anger du vägarna för modulen för att IoT Edge Hub-kommunikation enligt beskrivningen nedan. Se till att uppdatera modulernas namn i flödes definitionerna nedan.
 
    ```
-   FROM /messages/modules/<your_data_generator_module>/outputs/<your_output_stream_name> INTO
-   BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/<your_input_stream_name>")
+   FROM /messages/modules/<your_data_generator_module>/outputs/IronOreMeasures INTO
+   BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/IronOreMeasures")
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```
-   FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/Input1")
+   FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/IronOreMeasures")
    ```
 
-3. I **modulens dubbla** inställningar ser du till att SQLPackage och ASAJonInfo uppdateras med relevanta SAS-URL: er som du sparade tidigare i självstudien.
 
-   ```json
-       {
-         "properties.desired":
-         {
-           "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-           "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-         }
-       }
+7. På sidan **Ange moduler på enheten** klickar du på **Nästa: granska + skapa >**
+
+8. På sidan **Ange moduler på enheten** klickar du på **skapa**
+
+## <a name="create-and-start-the-t-sql-streaming-job-in-azure-sql-edge"></a>Skapa och starta T-SQL streaming-jobbet i Azure SQL Edge.
+
+1. Öppna Azure Data Studio.
+
+2. På fliken **Välkommen** startar du en ny anslutning med följande information:
+
+   |_Fält_|_Värde_|
+   |-------|-------|
+   |Anslutningstyp| Microsoft SQL Server|
+   |Server|Offentlig IP-adress som anges i den virtuella datorn som skapades för den här demon|
+   |Användarnamn|sa|
+   |Lösenord|Det starka lösen ord som användes när Azure SQL Edge-instansen skapades|
+   |Databas|Standardvärde|
+   |Server grupp|Standardvärde|
+   |Namn (valfritt)|Ange ett valfritt namn|
+
+3. Klicka på **Anslut**
+
+4. Öppna en ny antecknings bok på menyn **Arkiv** och använd kortkommandot CTRL + N.
+
+5. I fönstret ny fråga kör du skriptet nedan för att skapa strömnings jobbet T-SQL. Se till att ändra följande variabler innan du kör skriptet. 
+   - *SQL_SA_Password:* Det MSSQL_SA_PASSWORD värde som angavs när Azure SQL Edge-modulen distribuerades. 
+   
+   ```sql
+   Use IronOreSilicaPrediction
+   Go
+
+   Declare @SQL_SA_Password varchar(200) = '<SQL_SA_Password>'
+   declare @query varchar(max) 
+
+   /*
+   Create Objects Required for Streaming
+   */
+
+   CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MyStr0ng3stP@ssw0rd';
+
+   If NOT Exists (select name from sys.external_file_formats where name = 'JSONFormat')
+   Begin
+      CREATE EXTERNAL FILE FORMAT [JSONFormat]  
+      WITH ( FORMAT_TYPE = JSON)
+   End 
+
+
+   If NOT Exists (select name from sys.external_data_sources where name = 'EdgeHub')
+   Begin
+      Create EXTERNAL DATA SOURCE [EdgeHub] 
+      With(
+         LOCATION = N'edgehub://'
+      )
+   End 
+
+   If NOT Exists (select name from sys.external_streams where name = 'IronOreInput')
+   Begin
+      CREATE EXTERNAL STREAM IronOreInput WITH 
+      (
+         DATA_SOURCE = EdgeHub,
+         FILE_FORMAT = JSONFormat,
+         LOCATION = N'IronOreMeasures'
+       )
+   End
+
+
+   If NOT Exists (select name from sys.database_scoped_credentials where name = 'SQLCredential')
+   Begin
+       set @query = 'CREATE DATABASE SCOPED CREDENTIAL SQLCredential
+                 WITH IDENTITY = ''sa'', SECRET = ''' + @SQL_SA_Password + ''''
+       Execute(@query)
+   End 
+
+   If NOT Exists (select name from sys.external_data_sources where name = 'LocalSQLOutput')
+   Begin
+      CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
+      LOCATION = 'sqlserver://tcp:.,1433',CREDENTIAL = SQLCredential)
+   End
+
+   If NOT Exists (select name from sys.external_streams where name = 'IronOreOutput')
+   Begin
+      CREATE EXTERNAL STREAM IronOreOutput WITH 
+      (
+         DATA_SOURCE = LocalSQLOutput,
+         LOCATION = N'IronOreSilicaPrediction.dbo.IronOreMeasurements'
+      )
+   End
+
+   EXEC sys.sp_create_streaming_job @name=N'IronOreData',
+   @statement= N'Select * INTO IronOreOutput from IronOreInput'
+
+   exec sys.sp_start_streaming_job @name=N'IronOreData'
    ```
 
-## <a name="next-steps"></a>Nästa steg
+6. Använd följande fråga för att kontrol lera att data från modulen datagenerering strömmas i databasen. 
+
+   ```sql
+   Select Top 10 * from dbo.IronOreMeasurements
+   order by timestamp desc
+   ```
+
+
+I den här självstudien har vi distribuerat data Generator-modulen och SQL Edge-modulen. Sedan har vi skapat ett strömmande jobb för att strömma data som genererats av modulen för data generering till SQL. 
+
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Distribuera ML-modell på Azure SQL Edge med ONNX](tutorial-run-ml-model-on-sql-edge.md)

@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77016518"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972297"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Skapa lösningar för myndigheter med Azure IoT Central
 
@@ -72,12 +72,10 @@ Den anslutna mallen för avfalls hanterings program består av förkonfigurerade
 
 Kom igång med [självstudierna för anslutet hanterings program](./tutorial-connected-waste-management.md).
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 * Prova någon av de statliga Programmallarna i IoT Central för kostnads fri [skapa app](https://apps.azureiotcentral.com/build/government)
 * Lär dig mer om [begrepp för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md)
 * Lär dig mer om [övervaknings koncept för vattenförbrukning](./concepts-waterconsumptionmonitoring-architecture.md)
 * Lär dig mer om [anslutna avfalls hanterings koncept](./concepts-connectedwastemanagement-architecture.md)  
-* Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
- 
+* Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 

@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a9501df45d598c85f8c694c5d07db4f959615c00
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892617"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968182"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
 
@@ -27,9 +27,9 @@ För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL AP
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
 
-* Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med `https://localhost:8081` slut punkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).  
+* Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda [Azure Cosmos DB emulatorn](/azure/cosmos-db/local-emulator) med `https://localhost:8081` slut punkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticate-requests).  
 
-* [Java Development Kit (JDK) 1.7 +](/java/azure/jdk/?view=azure-java-stable)  
+* [Java Development Kit (JDK) 1.7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
   - I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.  
 
   - Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
@@ -94,7 +94,7 @@ Den klonade lagrings platsen innehåller två exempel: "bulkimport" och "bulkupd
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
    ```
-   API: et för Mass import accepterar en samling JSON-serialiserade dokument och har följande syntax, mer information finns i [API-dokumentationen](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   API: et för Mass import accepterar en samling JSON-serialiserade dokument och har följande syntax, mer information finns i [API-dokumentationen](/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkImportResponse importAll(
@@ -131,16 +131,16 @@ Den klonade lagrings platsen innehåller två exempel: "bulkimport" och "bulkupd
 6. När mål beroendena har genererats kan du anropa Mass import programmet med hjälp av följande kommando:  
 
    ```bash
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    Mass import verktyget skapar en ny databas och en samling med databas namnet, samlings namnet och data flödes värden som anges i App.config-filen. 
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Mass uppdaterings data i Azure Cosmos DB
 
-Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exemplet ska du ange fältet namn till ett nytt värde och ta bort fältet Beskrivning från de befintliga dokumenten. En fullständig uppsättning fält uppdaterings åtgärder som stöds finns i [API-dokumentationen](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
+Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exemplet ska du ange fältet namn till ett nytt värde och ta bort fältet Beskrivning från de befintliga dokumenten. En fullständig uppsättning fält uppdaterings åtgärder som stöds finns i [API-dokumentationen](/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Definierar uppdaterings objekt tillsammans med motsvarande fält uppdaterings åtgärder. I det här exemplet ska du använda SetUpdateOperation för att uppdatera namn fältet och UnsetUpdateOperation för att ta bort fältet Beskrivning från alla dokument. Du kan också utföra andra åtgärder, t. ex. öka ett dokument fält med ett angivet värde, push-specificera värden till ett mat ris fält eller ta bort ett enskilt värde från ett mat ris fält. Mer information om olika metoder som tillhandahålls av Mass uppdaterings-API: [et](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)finns i API-dokumentationen.  
+1. Definierar uppdaterings objekt tillsammans med motsvarande fält uppdaterings åtgärder. I det här exemplet ska du använda SetUpdateOperation för att uppdatera namn fältet och UnsetUpdateOperation för att ta bort fältet Beskrivning från alla dokument. Du kan också utföra andra åtgärder, t. ex. öka ett dokument fält med ett angivet värde, push-specificera värden till ett mat ris fält eller ta bort ett enskilt värde från ett mat ris fält. Mer information om olika metoder som tillhandahålls av Mass uppdaterings-API: [et](/java/api/com.microsoft.azure.documentdb.bulkexecutor)finns i API-dokumentationen.  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -162,7 +162,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   Mass uppdaterings-API: n accepterar en samling objekt som ska uppdateras. Varje uppdaterings objekt anger listan över fält uppdaterings åtgärder som ska utföras på ett dokument som identifieras av ett ID och ett nyckel värde för partitionen. Mer information finns i API- [dokumentationen](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   Mass uppdaterings-API: n accepterar en samling objekt som ska uppdateras. Varje uppdaterings objekt anger listan över fält uppdaterings åtgärder som ska utföras på ett dokument som identifieras av ett ID och ett nyckel värde för partitionen. Mer information finns i API- [dokumentationen](/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkUpdateResponse updateAll(
@@ -195,7 +195,7 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
 4. När mål beroendena har genererats kan du anropa Mass uppdaterings programmet med hjälp av följande kommando:
 
    ```bash
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## <a name="performance-tips"></a>Prestandatips 

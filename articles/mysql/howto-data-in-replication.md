@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168226"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904000"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database for MySQL Datareplikering
 
@@ -23,7 +23,7 @@ I den här artikeln beskrivs hur du konfigurerar [datareplikering](concepts-data
 > Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
 >
 
-För att skapa en replik i Azure Database for MySQL-tjänsten synkroniserar [datareplikering](concepts-data-in-replication.md) data från en lokal MySQL-server lokalt, i virtuella datorer (VM) eller i moln databas tjänster. Datareplikering baseras på positionsbaserad replikering med en binär loggfil (binlog) som är inbyggd i MySQL. Mer information om BinLog-replikering finns i [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+För att skapa en replik i Azure Database for MySQL-tjänsten synkroniserar [datareplikering](concepts-data-in-replication.md)  data från en lokal MySQL-server lokalt, i virtuella datorer (VM) eller i moln databas tjänster. Datareplikering baseras på positionsbaserad replikering med en binär loggfil (binlog) som är inbyggd i MySQL. Mer information om BinLog-replikering finns i [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Granska [begränsningarna och kraven](concepts-data-in-replication.md#limitations-and-considerations) för datareplikering innan du utför stegen i den här artikeln.
 
@@ -105,15 +105,15 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
    Om du vill skapa en replikeringsprincip i MySQL Workbench öppnar du panelen **användare och privilegier** från **hanterings** panelen. Klicka sedan på **Lägg till konto**. 
  
-   ![Användare och behörigheter](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Användare och behörigheter":::
 
    Skriv användar namnet i fältet **inloggnings namn** . 
 
-   ![Synkronisera användare](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Synkronisera användare":::
  
    Klicka på panelen **administrativa roller** och välj sedan **Replikera slavar** i listan med **globala privilegier**. Klicka sedan på **Verkställ** för att skapa replikeringsprincipen.
 
-   ![Replikering slav](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replikering slav":::
 
 1. Ställ in huvud servern på skrivskyddat läge
 
@@ -133,7 +133,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    ```
    Resultatet bör vara som följer. Glöm inte att anteckna det binära fil namnet som det kommer att användas i senare steg.
 
-   ![Huvud status resultat](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Huvud status resultat":::
  
 ## <a name="dump-and-restore-master-server"></a>Dumpa och Återställ huvud server
 
@@ -169,8 +169,8 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    - master_host: värd namnet för huvud servern
    - master_user: användar namn för huvud servern
    - master_password: lösen ordet för huvud servern
-   - master_log_file: det binära logg fils namnet körs inte`show master status`
-   - master_log_pos: binär logg position körs`show master status`
+   - master_log_file: det binära logg fils namnet körs inte `show master status`
+   - master_log_pos: binär logg position körs `show master status`
    - master_ssl_ca: certifikat utfärdarens kontext. Om du inte använder SSL skickar du en tom sträng.
        - Vi rekommenderar att du skickar den här parametern i som en variabel. Se följande exempel för mer information.
 
@@ -226,7 +226,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    show slave status;
    ```
 
-   Om statusen `Slave_IO_Running` och `Slave_SQL_Running` är "Ja" och värdet för `Seconds_Behind_Master` är "0" fungerar replikeringen bra. `Seconds_Behind_Master`anger hur sen repliken är. Om värdet inte är "0" innebär det att repliken bearbetar uppdateringar. 
+   Om statusen `Slave_IO_Running` och `Slave_SQL_Running` är "Ja" och värdet för `Seconds_Behind_Master` är "0" fungerar replikeringen bra. `Seconds_Behind_Master` anger hur sen repliken är. Om värdet inte är "0" innebär det att repliken bearbetar uppdateringar. 
 
 ## <a name="other-stored-procedures"></a>Andra lagrade procedurer
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa en Load Balancer-Azure-mall'
+title: 'Snabb start: skapa en offentlig belastningsutjämnare – Azure-mall'
 titleSuffix: Azure Load Balancer
-description: Den här snabb starten visar hur du skapar en belastningsutjämnare med hjälp av Azure Resource Manager mall.
+description: Den här snabb starten visar hur du skapar en belastningsutjämnare med hjälp av en Azure Resource Manager mall.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,16 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d83d58d608fc184f94ae70e60c56fe8fdc1e5eaa
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 66d702846bac5825239e891ce47f8cca5bb857f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706055"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984418"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Snabb start: skapa en Load Balancer för att belastningsutjämna virtuella datorer med en ARM-mall
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer genom att använda en ARM-mall
 
-Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Den här snabb starten visar hur du distribuerar en Azure Resource Manager-mall (ARM-mall) som skapar en standard belastningsutjämnare för att belastningsutjämna virtuella datorer. Att använda en ARM-mall tar färre steg jämfört med andra distributions metoder.
+Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. 
+
+Den här snabb starten visar hur du distribuerar en standard belastningsutjämnare för att belastningsutjämna virtuella datorer.
+
+Att använda en ARM-mall tar färre steg jämfört med andra distributions metoder.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -40,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-load-balancer-standard-create/).
 
-Load Balancer och offentliga IP-SKU: er måste matcha. När du skapar en Standard Load Balancer måste du också skapa en ny standard-offentlig IP-adress som är konfigurerad som klient del för standard belastnings utjämningen. Använd [den här mallen](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/)om du vill skapa en grundläggande Load Balancer. Microsoft rekommenderar att du använder standard-SKU för produktions arbets belastningar.
+Belastnings utjämning och offentliga IP-SKU: er måste matcha. När du skapar en standard belastningsutjämnare måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del för standard belastnings utjämningen. Använd [den här mallen](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/)om du vill skapa en enkel belastningsutjämnare. Microsoft rekommenderar att du använder standard-SKU för produktions arbets belastningar.
 
 :::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
 
@@ -52,7 +56,7 @@ Flera Azure-resurser har definierats i mallen:
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft. Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 av dem).
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 av dem).
-- [**Microsoft. Compute/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 av dem): används för att konfigurera IIS och webb sidor.
+- [**Microsoft. Compute/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 av dem): används för att konfigurera IIS (Internet Information Server) och webb sidor.
 
 Du hittar fler mallar som är relaterade till Azure Load Balancer i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -91,7 +95,7 @@ Det tar cirka 10 minuter att distribuera mallen. När det är slutfört ser utda
 
 ![Azure Standard Load Balancer Resource Manager-mall PowerShell-distribution av utdata](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell kan du också använda Azure Portal, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-portal.md).
+Azure PowerShell används för att distribuera mallen. Du kan också använda Azure Portal, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-portal.md).
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
@@ -115,13 +119,23 @@ Om du vill se belastningsutjämnaren distribuerar trafik över alla tre virtuell
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver dem tar du bort resurs gruppen, belastningsutjämnaren och alla relaterade resurser. Om du vill göra det går du till Azure Portal, väljer den resurs grupp som innehåller belastningsutjämnaren och väljer sedan **ta bort resurs grupp**.
+När du inte längre behöver dem tar du bort: 
+
+* Resursgrupp
+* Lastbalanserare
+* Relaterade resurser
+
+Gå till Azure Portal, Välj den resurs grupp som innehåller belastningsutjämnaren och välj sedan **ta bort resurs grupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en standard belastningsutjämnare, anslutna virtuella datorer till den, konfigurerat trafik regeln för belastnings utjämning, gjorde en hälso avsökning och testade belastnings utjämning.
+I den här snabbstarten kommer du att göra följande:
 
-Om du vill veta mer kan du fortsätta till självstudierna för Load Balancer.
+* Skapade en standard belastningsutjämnare och anslutna virtuella datorer till den.
+* Konfigurerat trafik regel för belastnings utjämning och hälso avsökningen.
+* Belastnings utjämning har testats.
+
+Om du vill veta mer kan du fortsätta till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

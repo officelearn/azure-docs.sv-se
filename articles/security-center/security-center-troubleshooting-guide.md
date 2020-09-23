@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462402"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904738"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
@@ -105,10 +105,10 @@ I följande tabell visas resurser som krävs för kommunikation.
 
 | Agentresurs | Portar | Kringgå HTTPS-kontroll |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Ja |
-| *.oms.opinsights.azure.com | 443 | Ja |
-| *.blob.core.windows.net | 443 | Ja |
-| *.azure-automation.net | 443 | Ja |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Om du får problem med att komma igång med agenten, kan du hitta mer information i artikeln [Felsökning av problem med att komma igång med Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
@@ -132,7 +132,7 @@ Om du har problem med att läsa in instrumentpanelen för Security Center ska du
 
 ## <a name="contacting-microsoft-support"></a>Kontakta Microsoft Support
 
-Vissa problem kan identifieras med hjälp av rikt linjerna i den här artikeln, andra du kan också hitta dokumenterade på sidan Security Center offentlig [Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-security-center.html). Men om du behöver ytterligare fel sökning kan du öppna en ny supportbegäran med hjälp av **Azure Portal** enligt nedan:
+Vissa problem kan identifieras med hjälp av rikt linjerna i den här artikeln, andra du kan också hitta dokumenterade på Security Center offentliga [Microsoft Q&en sida](https://docs.microsoft.com/answers/topics/azure-security-center.html). Men om du behöver ytterligare fel sökning kan du öppna en ny supportbegäran med hjälp av **Azure Portal** enligt nedan:
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Exempel på pipelines & data uppsättningar för designern (för hands version)
+title: Exempel på pipeliner & data uppsättningar för designern
 titleSuffix: Azure Machine Learning
 description: Använd exempel i Azure Machine Learning designer för att komma igång med dina pipelines i Machine Learning.
 services: machine-learning
@@ -10,21 +10,21 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: cbeb37599d28241dac3829af3891b2810cca4dce
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662121"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889755"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Exempel på pipelines & data uppsättningar för Azure Machine Learning designer (för hands version)
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exempel på pipelines & data uppsättningar för Azure Machine Learning designer
 
 Använd de inbyggda exemplen i Azure Machine Learning designer för att snabbt komma igång med att skapa dina egna maskin inlärnings pipeliner. Azure Machine Learning designer [GitHub-lagringsplatsen](https://github.com/Azure/MachineLearningDesigner) innehåller detaljerad dokumentation som hjälper dig att förstå några vanliga scenarier för maskin inlärning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree).
-* En Azure Machine Learning-arbetsyta med Enterprise SKU.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree)
+* En Azure Machine Learning-arbetsyta 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -138,5 +138,5 @@ Exempel data uppsättningarna finns i kategorin **data uppsättnings** - **exemp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig grunderna för förutsägelse analys och maskin inlärning med [Självstudier: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md)
+Lär dig grunderna i förutsägelse analys och maskin inlärning med [Självstudier: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md)
 

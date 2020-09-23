@@ -6,22 +6,22 @@ author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: overview
-ms.date: 04/06/2020
+ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 4e92f974ce7d6c03143276808c4ca4d09d607a84
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967587"
 ---
 # <a name="confidential-computing-on-azure"></a>Konfidentiell data behandling i Azure
 
-Med Azures konfidentiella data behandling kan du isolera känsliga data medan de bearbetas i molnet. Många branscher använder konfidentiell data behandling för att skydda sina data. Följande arbets belastningar är:
+Med Azures konfidentiella data behandling kan du isolera känsliga data medan de bearbetas i molnet. Många branscher använder konfidentiell data behandling för att skydda sina data genom att använda konfidentiell dator användning för att:
 
-- Skydda finansiella data
+- Säkra finansiella data
 - Skydda patient information
-- Köra Machine Learning-processer på känslig information
+- Köra Machine Learning-processer med känslig information
 - Utföra algoritmer på krypterade data uppsättningar från flera källor
 
 
@@ -39,74 +39,58 @@ Vi vet att det är viktigt att skydda dina moln data. Vi hör dina problem. Här
 
 Microsoft Azure hjälper dig att minimera din attack yta så att du får bättre data skydd. Azure erbjuder redan många verktyg för att skydda [**data i vila**](../security/fundamentals/encryption-atrest.md) genom modeller som kryptering på klient sidan och kryptering på Server sidan. Dessutom erbjuder Azure mekanismer för att kryptera [**data under överföring**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) via säkra protokoll som TLS och https. På den här sidan introduceras en tredje del av data krypteringen – kryptering av **data som används**.
 
+## <a name="introduction-to-confidential-computing"></a>Introduktion till konfidentiell dator användning 
 
-## <a name="introduction-to-confidential-computing"></a>Introduktion till konfidentiell dator användning<a id="intro to acc"></a>
+Konfidentiell data behandling är en bransch term som definieras av kopia ( [konfidentiell Computing Consortium](https://confidentialcomputing.io/) ) – en grund som är dedikerad för att definiera och påskynda införandet av konfidentiell dator användning. KOPIA definierar konfidentiell bearbetning som: det skydd av data som används genom att utföra beräkningar i en maskinvarubaserad betrodd körnings miljö (TEE).
 
-Konfidentiell data behandling är en bransch term som definieras av kopia ( [konfidentiell Computing Consortium](https://confidentialcomputing.io/) ) – en grund som är dedikerad för att definiera och påskynda införandet av konfidentiell dator användning. KOPIA definierar konfidentiell data behandling som skydd av data som används genom att utföra beräkningar i en maskinvarubaserad betrodd körnings miljö (TEE).
+En TEE är en miljö som tillämpar körning av enbart auktoriserad kod. Alla data i TEE kan inte läsas eller manipuleras av någon kod utanför miljön. 
 
-En TEE är en miljö som tillämpar körning av enbart auktoriserad kod. Alla data i TEE kan inte läsas eller manipuleras av någon kod utanför miljön.
-
-### <a name="enclaves"></a>Enclaves
-
-Enclaves är säkra delar av en maskin varu processor och minne. Det finns inget sätt att visa data eller kod inuti enklaven, även med en fel sökare. Om ej betrott kod försök ändrar innehållet i enklaven-minnet inaktive ras miljön och åtgärderna nekas.
-
-När du utvecklar program kan du använda- [program verktyg](#oe-sdk) för att avskärma delar av koden och data i enklaven. Dessa verktyg ser till att din kod och dina data inte kan visas eller ändras av någon utanför den betrodda miljön. 
-
-I grunden kan du tänka på en enklaven som en säker ruta. Du anger krypterad kod och data i rutan. Från utsidan av rutan kan du inte se något. Du ger enklaven en nyckel för att dekryptera data, och sedan bearbetas och krypteras data innan de skickas ut från enklaven.
-
-### <a name="attestation"></a>Hälsoattestering
-
-Du vill ha en kontroll och verifiera att din betrodda miljö är säker. Den här verifieringen är processen för attestering. 
-
-Attestering gör det möjligt för en förlitande part att ha ökat förtroende för att deras program vara (1) körs i en enklaven och (2) att enklaven är uppdaterat och säkert. En enklaven ställer till exempel den underliggande maskin varan för att generera en autentiseringsuppgift som innehåller bevis på att enklaven finns på plattformen. Rapporten kan sedan ges till en andra enklaven som verifierar att rapporten genererades på samma plattform.
-
-Attestering måste implementeras med hjälp av en säker attesterings tjänst som är kompatibel med systemprogram vara och kisel. [Intels attesterings-och etablerings tjänster](https://software.intel.com/sgx/attestation-services) är kompatibla med virtuella Azure-datorer med konfidentiella data behandling.
+### <a name="lessen-the-need-for-trust"></a>Minskar behovet av förtroende
+Att köra arbets belastningar i molnet kräver förtroende. Du ger förtroendet till olika providrar som aktiverar olika komponenter i ditt program.
 
 
-## <a name="using-azure-for-cloud-based-confidential-computing"></a>Använda Azure för molnbaserad konfidentiell data behandling<a id="cc-on-azure"></a>
+Program **varu leverantörer**: lita på program vara genom att distribuera lokal, med hjälp av öppen källkod eller genom att skapa interna program program.
 
-Med Azures konfidentiella data behandling kan du utnyttja funktioner för konfidentiell användning i en virtualiserad miljö. Nu kan du använda verktyg, program och moln infrastruktur för att bygga ovanpå säker maskin vara. 
+**Maskin varu leverantörer**: betrodd maskin vara genom att använda lokal maskin vara eller intern maskin vara. 
 
-### <a name="virtual-machines"></a>Virtual Machines
+**Infrastruktur leverantörer**: lita på moln leverantörer eller hantera dina egna lokala data Center.
 
-Azure är den första moln leverantören som erbjuder konfidentiell data behandling i en virtualiserad miljö. Vi har utvecklat virtuella datorer som fungerar som ett abstraktions lager mellan maskin varan och ditt program. Du kan köra arbets belastningar i skala och med alternativ för redundans och tillgänglighet.  
 
-#### <a name="intel-sgx-enabled-virtual-machines"></a>Intel SGX-aktiverade Virtual Machines
+Med Azures konfidentiella data behandling blir det enklare att lita på moln leverantören genom att minska behovet av förtroende mellan olika aspekter av beräknings molnets infrastruktur. Azures konfidentiella data behandling minimerar förtroende för värd operativ systemets kernel, hypervisor, VM-administratör och värd administratör.
 
-I Azures konfidentiella virtuella datorer är en del av PROCESSORns maskin vara reserverad för en del av kod och data i ditt program. Den här begränsade delen är enklaven. 
+### <a name="reducing-the-attack-surface"></a>Minska attack ytan
+Den betrodda beräknings basen (TCB) syftar på alla Systems maskin vara, inbyggd program vara och program varu komponenter som tillhandahåller en säker miljö. Komponenterna inuti TCB betraktas som "kritiska". Om en komponent inuti TCB komprometteras kan hela systemets säkerhet äventyras. 
 
-![VM-modell](media/overview/hardware-backed-enclave.png)
+En lägre TCB innebär högre säkerhet. Det finns mindre risk för exponering för olika sårbarheter, skadlig kod, attacker och skadliga personer. Med Azures konfidentiella data behandling kan du sänka TCB för dina moln arbets belastningar genom att erbjuda TEEs. TEEs minska dina TCB till binärfiler, kod och bibliotek för betrodda körningar. När du använder Azure-infrastruktur och tjänster för konfidentiell data behandling kan du ta bort alla Microsoft från din TCB.
 
-Azures infrastruktur för konfidentiell behandling består för närvarande av en special-SKU av virtuella datorer (VM). De här virtuella datorerna körs på Intel-processorer med Software Guard-tillägget (Intel SGX). [Intel SGX](https://intel.com/sgx) är den komponent som möjliggör det ökade skyddet som vi har med konfidentiell dator användning. 
 
-Idag erbjuder Azure [DCsv2-serien](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) som bygger på Intel SGX-teknik för maskinvarubaserad enklaven-skapande. Du kan skapa säkra enklaven-baserade program som ska köras i DCsv2-serien med virtuella datorer för att skydda dina program data och kod som används. 
+## <a name="using-azure-for-cloud-based-confidential-computing"></a>Använda Azure för molnbaserad konfidentiell data behandling <a id="cc-on-azure"></a>
 
-Du kan [läsa mer](virtual-machine-solutions.md) om att distribuera virtuella datorer med Azure konfidentiell dator med maskinvarubaserad betrodda enclaves.
+Med Azures konfidentiella data behandling kan du utnyttja funktioner för konfidentiell användning i en virtualiserad miljö. Nu kan du använda verktyg, program och moln infrastruktur för att bygga ovanpå säker maskin vara.  
 
-## <a name="application-development"></a>Program utveckling<a id="application-development"></a>
+**Förhindra obehörig åtkomst**: kör känsliga data i molnet. Lita på att Azure ger bästa möjliga data skydd, med liten till ingen ändring från vad som gjorts idag.
 
-För att dra nytta av kraften i enclaves och isolerade miljöer måste du använda verktyg som stöder konfidentiell dator användning. Det finns olika verktyg som stöder enklaven program utveckling. Du kan till exempel använda de här ramverken med öppen källkod: 
+**Regelefterlevnad: Migrera**till molnet och behåll fullständig kontroll över data för att uppfylla myndighets bestämmelser för att skydda personlig information och säkra organisations-IP.
 
-- [Öppna enklaven Software Development Kit (SDK)](https://github.com/openenclave/openenclave)
-- [CCF (konfidentiellt konsortiet Framework)](https://github.com/Microsoft/CCF)
+**Säkert och ej betrott samarbete**: ta itu med problem med arbets skala genom att kamma data mellan organisationer, även konkurrenter, för att låsa upp breda data analyser och djupare insikter.
 
-### <a name="overview"></a>Översikt
+**Isolerad bearbetning**: erbjud en ny våg med produkter som tar bort ansvar för privata data med blind bearbetning. Användar data kan inte till och med hämtas av tjänst leverantören. 
 
-Ett program som skapats med enclaves är partitionerat på två sätt:
-1. En "ej betrodd" komponent (värden)
-1. En "betrodd" komponent (enklaven)
+## <a name="get-started"></a>Kom igång
+### <a name="azure-compute"></a>Azure Compute
+Bygg program ovanpå konfidentiella Compute IaaS-erbjudanden i Azure.
+- Virtual Machines (VM): [DCsv2-serien](confidential-computing-enclaves.md)
+- Azure-Kubernetes (AKS): [dirigera konfidentiella behållare](confidential-nodes-aks-overview.md)
 
-**Värden** är den plats där ditt enklaven-program körs ovanpå och är en icke-betrodd miljö. Enklaven-koden som har distribuerats på värden kan inte nås av värden. 
+### <a name="azure-security"></a>Säkerhet i Azure 
+Se till att dina arbets belastningar är säkra genom verifierings metoder och maskin vara-baserad nyckel hantering. 
+- Attestering: [Microsoft Azure attestering (förhands granskning)](https://docs.microsoft.com/azure/attestation/overview)
+- Nyckel hantering: hanterad-HSM (för hands version)
 
-**Enklaven** är den plats där program koden och dess cachelagrade data/minne körs. Säkra beräkningar bör ske i enclaves för att säkerställa hemligheter och känsliga data, förbli skyddade. 
-
-Under program design är det viktigt att identifiera och fastställa vilken del av programmet som måste köras i enclaves. Den kod som du väljer att placera i den betrodda komponenten är isolerad från resten av ditt program. När enklaven har initierats och koden har lästs in i minnet, kan den koden inte läsas eller ändras från ej betrodda komponenter. 
-
-### <a name="open-enclave-software-development-kit-oe-sdk"></a>Öppna enklaven Software Development Kit (OE SDK)<a id="oe-sdk"></a>
-
-Använd ett bibliotek eller ramverk som stöds av din Provider om du vill skriva kod som körs i en enklaven. [Open ENKLAVEN SDK](https://github.com/openenclave/openenclave) (OE SDK) är en SDK med öppen källkod som tillåter abstraktion av olika konfidentiella data funktioner. 
-
-OE SDK är konstruerat som ett enda abstraktions lager för all maskin vara på valfri KRYPTOGRAFIPROVIDER. Med OE SDK kan du använda virtuella datorer i Azure konfidentiella datorer för att skapa och köra program ovanpå enclaves.
+### <a name="develop"></a>Utveckla
+Börja använda utveckla enklaven-medvetna program och distribuera konfidentiella algoritmer med hjälp av det konfidentiella inferencing-ramverket.
+- Skriv program som ska köras på virtuella DCsv2-datorer: [Open-ENKLAVEN SDK](https://github.com/openenclave/openenclave)
+- Konfidentiella ML-modeller i ONNX Runtime: [konfidentiell inferencing (beta)](https://aka.ms/confidentialinference)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,18 +7,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1b1249fe7159e2a3a8d2a74d22f274a9766e7922
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185833"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896323"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd MySQL Workbench för att ansluta och fråga efter data i Azure Database for MySQL
 
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett MySQL Workbench-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
@@ -40,7 +40,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 3. Klicka på servernamnet.
 
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
- ![Azure Database för MySQL-servernamn](./media/connect-php/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database för MySQL-servernamn":::
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Ansluta till servern med MySQL Workbench 
 Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
@@ -49,7 +49,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 
 2.    I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
-![konfigurera ny anslutning](./media/connect-workbench/2-setup-new-connection.png)
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="konfigurera ny anslutning":::
 
 | **Inställning** | **Föreslaget värde** | **Fältbeskrivning** |
 |---|---|---|
@@ -58,7 +58,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 | Värdnamn | *Server namn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för MySQL. Vår exempelserver visas som mydemoserver.mysql.database.azure.com. Använd det fullständiga domännamnet (\*.mysql.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern.  |
 | Port | 3306 | Använd alltid port 3306 när du ansluter till Azure Database för MySQL. |
 | Användarnamn |  *inloggnings namn för Server administratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för MySQL. Vår användarnamn i exemplet är myadmin@mydemoserver. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *användar namn \@ Server*namn.
-| lösenordsinställning | ditt lösenord | Klicka på **lagra i valv...** för att spara lösen ordet. |
+| Lösenord | ditt lösenord | Klicka på **lagra i valv...** för att spara lösen ordet. |
 
 3.   Klicka på **Testanslutning** för att testa om alla parametrar är rätt konfigurerade. 
 
@@ -74,7 +74,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Skapa en tabell, infoga data, läsa data, uppdatera data, ta bort data
 1. Kopiera och klistra in SQL-exempelkoden på en tom SQL-flik för att visa exempeldata.
 
-    Den här koden skapar en tom databas med namnet quickstartdb och skapar sedan en exempeltabell med namnet inventory. Den infogar vissa rader och läser sedan raderna. Den ändrar data med en update-instruktion och läser raderna igen. Den tar slutligen bort en rad och läser sedan raderna igen.
+    Den här koden skapar en tom databas med namnet quickstartdb och skapar sedan en exempeltabell med namnet inventory. Den infogar några rader och läser sedan raderna. Den ändrar data med ett uppdateringsuttryck och läser raderna igen. Slutligen tar den bort en rad och läser sedan raderna igen.
     
     ```sql
     -- Create a database
@@ -103,7 +103,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 
     Skärmbilden visar ett exempel på SQL-koden i SQL Workbench och utdata efter att den har körts.
     
-    ![Fliken SQL i MySQL Workbench för att köra SQL-exempelkod](media/connect-workbench/3-workbench-sql-tab.png)
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Fliken SQL i MySQL Workbench för att köra SQL-exempelkod":::
 
 2. Om du vill köra SQL-exempelkoden klickar du på blixtikonen i verktygsfältet på fliken **SQL-fil**.
 3. Lägg märke till de tre resultaten med flikar i avsnittet med **rutnätet med resultat** mitt på sidan. 

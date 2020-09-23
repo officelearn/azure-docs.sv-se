@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20e6d26808964c8e697c694bd796af2851e7ca48
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 61339a22fc3823325ff5356112c2df8a800010a0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450546"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985200"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Använd dynamiska grupper med Uppdateringshantering
 
@@ -45,7 +45,7 @@ Klicka på **Förhandsgranska**om du vill förhandsgranska resultatet av din dyn
 
 En dynamisk grupp för datorer som inte är Azure-datorer använder sparade sökningar, även kallade dator grupper. Information om hur du skapar en sparad sökning finns i [skapa en dator grupp](../../azure-monitor/platform/computer-groups.md#creating-a-computer-group). När din sparade sökning har skapats kan du välja den i listan över sparade sökningar i **uppdaterings hantering** i Azure Portal. Klicka på **Förhandsgranska** för att förhandsgranska datorerna i den sparade sökningen.
 
-![Välj grupper](./media/update-mgmt-groups/select-groups-2.png)
+![Skärm bild som visar sidan Välj grupper för icke-Azure (för hands version) och förhands gransknings fönstret på höger sida.](./media/update-mgmt-groups/select-groups-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

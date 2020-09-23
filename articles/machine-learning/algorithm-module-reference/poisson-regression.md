@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099787"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905255"
 ---
 # <a name="poisson-regression"></a>Poisson-regression
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en Poisson regression-modell i en pipeline. Poisson-regressionen är avsedd för förutsägelse av numeriska värden, vanligt vis antal. Därför bör du bara använda den här modulen för att skapa en Regressions modell om de värden som du försöker förutsäga uppfyller följande villkor:
 
@@ -49,7 +49,7 @@ Eftersom Response-variabeln har en Poisson-distribution, gör modellen olika ant
 
 ## <a name="how-to-configure-poisson-regression"></a>Så här konfigurerar du Poisson-regression
 
-1. Lägg till **Poisson regression** -modulen i din pipeline i designer (för hands version). Du hittar den här modulen under **Machine Learning algoritmer**i **Regressions** kategorin.
+1. Lägg till **Poisson regression** -modulen i din pipeline i designern. Du hittar den här modulen under **Machine Learning algoritmer**i **Regressions** kategorin.
 
 2. Lägg till en data uppsättning som innehåller tränings data av rätt typ. 
 

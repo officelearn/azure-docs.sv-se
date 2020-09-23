@@ -11,15 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650910"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897384"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Lär dig hur du kör dina Jupyter-anteckningsböcker direkt i din arbets yta i Azure Machine Learning Studio. Även om du kan starta [Jupyter](https://jupyter.org/) eller [JupyterLab](https://jupyterlab.readthedocs.io)kan du även redigera och köra dina antecknings böcker utan att lämna arbets ytan.
 
@@ -224,7 +224,7 @@ Alla [tillgängliga Jupyter-kernels](https://github.com/jupyter/jupyter/wiki/Jup
 
 En indikator bredvid List rutan **Compute** visar dess status.  Statusen visas också i själva List rutan.  
 
-|Color |Beräknings status |
+|Färg |Beräknings status |
 |---------|---------| 
 | Green | Beräkning som körs |
 | Red |Det gick inte att beräkna | 
@@ -234,7 +234,7 @@ En indikator bredvid List rutan **Compute** visar dess status.  Statusen visas o
 
 En indikator bredvid List rutan **kernel** visar dess status.
 
-|Color |Kernel-status |
+|Färg |Kernel-status |
 |---------|---------|
 |  Green |Kernel-ansluten, inaktiv, upptagen|
 |  Mörkgrå |Kernel inte ansluten |

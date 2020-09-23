@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433948"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905623"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
 
@@ -33,10 +33,10 @@ Med de här verktygen kan du:
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Allmänt tillgänglig|
-|Priset|Kostnadsfri nivå|
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
+|Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)<br>Måste också ha Skriv behörighet för mål resursen|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Ja](./media/icons/yes-icon.png) Kina, gov (till Event Hub), andra gov|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) Kina, gov (till Event Hub), andra gov|
 |||
 
 
@@ -89,7 +89,7 @@ API: et tillhandahåller ytterligare funktioner som inte är tillgängliga från
 * **Mer fokuserat omfång** – API: et ger en mer detaljerad nivå för omfattningen av dina export konfigurationer. När du definierar en export med API: et kan du göra det på resurs grupps nivå. Om du använder sidan för **kontinuerlig export** i Security Center användarens Portal gränssnitt måste du definiera den på prenumerations nivå.
 
     > [!TIP]
-    > Om du har konfigurerat flera export konfigurationer med hjälp av API: et, eller om du har använt API-endast parametrar, kommer dessa extra funktioner inte att visas i Security Center användar gränssnittet. I stället är det en banderoll som informerar dig om att andra konfigurationer finns.
+    > Om du har konfigurerat flera export konfigurationer med hjälp av API: et, eller om du har använt endast API-parametrar, kommer dessa extra funktioner inte att visas i Security Center användar gränssnittet. I stället är det en banderoll som informerar dig om att andra konfigurationer finns.
 
 Läs mer om automations-API: et i [REST API-dokumentationen](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
@@ -123,13 +123,13 @@ Om du vill flytta de kontinuerligt exporterade data automatiskt från den konfig
 
 ## <a name="continuous-export-to-a-log-analytics-workspace"></a>Löpande export till en Log Analytics-arbetsyta
 
-Om du vill analysera Azure Security Center data i en Log Analytics arbets yta eller använda Azure-aviseringar tillsammans med Security Center kan du konfigurera kontinuerlig export till din Log Analytics-arbetsyta.
+Om du vill analysera Azure Security Center data i en Log Analytics arbets yta eller använda Azure-aviseringar tillsammans med Security Center konfigurerar du löpande export till din Log Analytics-arbetsyta.
 
-Om du vill exportera till en Log Analytics arbets yta måste du ha Security Center Log Analytics-lösningar som är aktiverade på din arbets yta. Om du använder Azure Portal aktive ras Security Centers lösning för gratis nivå automatiskt när du aktiverar kontinuerlig export. Men om du konfigurerar dina inställningar för kontinuerlig export program mässigt måste du manuellt välja den kostnads fria eller standard pris nivån för den nödvändiga arbets ytan från **pris & inställningar**.  
+Om du vill exportera till en Log Analytics arbets yta måste du ha Security Center Log Analytics-lösningar som är aktiverade på din arbets yta. Om du använder Azure Portal aktive ras Security Centers kostnads fri lösning automatiskt när du aktiverar kontinuerlig export. Men om du konfigurerar dina inställningar för kontinuerlig export program mässigt måste du aktivera eller inaktivera Azure Defender manuellt från sidan **pris & inställningar** .
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabeller och scheman
 
-Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* respektive *SecurityRecommendations* . Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du är på nivån kostnads fri eller standard (se [prissättning](security-center-pricing.md)): säkerhet (' säkerhet och granskning ') eller SecurityCenterFree.
+Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* respektive *SecurityRecommendations* . Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du har aktiverat Azure Defender: Security (' Säkerhet och granskning ') eller SecurityCenterFree.
 
 ![* SecurityAlert *-tabellen i Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 

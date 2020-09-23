@@ -372,6 +372,8 @@
       href: /azure/cloud-adoption-framework/get-started/
     - name: Arkitekturcenter
       href: /azure/architecture/
+    - name: Azure Hybrid-förmån
+      href: azure-hybrid-benefit-linux.md
 - name: Anvisningar
   items:
     - name: 'Skapa VM:ar'

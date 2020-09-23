@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661729"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889967"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du felsöker och felsöker [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) och [Azure Machine Learning designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+I den här artikeln får du lära dig att felsöka och felsöka [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) och [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information finns i How to:
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
@@ -108,31 +107,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>Söka efter och läsa pipeline-loggfiler
-
-Logg filen `70_driver_log.txt` innehåller: 
-
-* Alla uttryckta instruktioner under körningen av skriptet
-* Stack spårning för skriptet 
-
-Om du vill hitta den här och andra loggfiler i portalen börjar du med att klicka på pipeline-körningen i din arbets yta.
-
-![Sidan körnings lista för pipeline](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Gå till sidan körnings information för pipeline.
-
-![Sidan körnings information för pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Klicka på modulen för det aktuella steget. Gå till fliken **loggar** . Andra loggar innehåller information om bygg processen för miljö avbildning och steg förberedelse skript.
-
-![Fliken logg för körning av informations sida](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Körningar för *publicerade pipelines* finns på fliken **slut punkter** i din arbets yta. Körningar för *icke-publicerade pipelines* kan hittas i **experiment** eller **pipeliner**.
-
-Mer information om loggning och spårning från en `ParallelRunStep` finns i [fel söknings-och fel söknings ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Logga in Azure Machine Learning designer (förhands granskning)
+## <a name="azure-machine-learning-designer"></a>Azure Machine Learning Designer
 
 För pipeliner som skapats i designern kan du hitta **70_driver_log** -filen på antingen sidan redigering eller på sidan körnings information för pipelinen.
 

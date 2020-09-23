@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747535"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967499"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -61,16 +61,16 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 
 * Kanada, centrala
 * USA, västra centrala
-* USA, östra
+* East US
 * USA, östra 2
 * USA, norra centrala
 * USA, södra centrala
-* USA, centrala
+* Central US
 * USA, västra
 * USA, västra 2
 * Frankrike, centrala
 * Europa, västra
-* Europa, norra
+* Norra Europa
 * Brasilien, södra
 * Storbritannien, västra
 * Storbritannien, södra
@@ -91,17 +91,17 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 Arbets ytan Log Analytics måste finnas i följande regioner:
 * Kanada, centrala
 * USA, västra centrala
-* USA, östra
+* East US
 * USA, östra 2
 * USA, norra centrala
 * USA, södra centrala
-* USA, centrala
+* Central US
 * USA, västra
 * USA, västra 2
-* USA, centrala
+* Central US
 * Frankrike, centrala
 * Europa, västra
-* Europa, norra
+* Norra Europa
 * Brasilien, södra
 * Storbritannien, västra
 * Storbritannien, södra
@@ -115,7 +115,7 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 * US Gov, Virginia
 * Kina, östra 2
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="user-access-requirements"></a>Krav för användar åtkomst
 
@@ -339,7 +339,7 @@ Trafik distribution per Programgateway & Load Balancer, topologi, topp källor f
  - Veta vilket undernät som är konversation till vilken Application Gateway eller Load Balancer. Om du upptäcker oväntade konversationer kan du korrigera konfigurationen.
  - Om falska nätverk är konversation med en Programgateway eller Load Balancer kan du korrigera det genom att konfigurera NSG-regler för att blockera de falska nätverken. 
 
-    ![undernät – topologi-demonstration – trafik-distribution-till-a-Application-Gateway-undernät-med-avser](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![Skärm bild som visar en under näts topologi med trafik distribution till ett Application Gateway-undernät med avseende på flöden.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visa portar och virtuella datorer som tar emot trafik från Internet
 

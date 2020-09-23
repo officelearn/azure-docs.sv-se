@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145662"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986505"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -41,10 +41,11 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
 
 ### <a name="modify-storage-replication"></a>Ändra Storage Replication
 
-Som standard använder valven [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md).
+Som standard använder valven [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Om valvet är din primära mekanism för säkerhets kopiering rekommenderar vi att du använder GRS.
-* Du kan använda [Lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) för ett billigare alternativ.
+* Du kan använda [Lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) för ett billigare alternativ.
+* [Zone-redundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikerar dina data i [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), vilket garanterar data placering och återhämtning i samma region.
 
 Ändra lagrings replik typen enligt följande:
 

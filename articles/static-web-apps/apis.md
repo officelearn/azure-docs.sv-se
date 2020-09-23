@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 09daffa74ccd279c8187391ba3b86063aed7d204
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6724d8eb8df29ccfb033f5951ec56b7770e3c413
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607023"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903573"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>API-stöd i för hands versionen av Azure statisk Web Apps med Azure Functions
 
@@ -20,19 +20,19 @@ Azures statiska Web Apps tillhandahåller Server lös API-slutpunkter via [Azure
 
 - **Integrerad säkerhet** med direkt åtkomst till användarautentisering [och rollbaserad auktoriseringsdata](user-information.md) .
 - **Sömlös routning** som gör _API_ -vägen tillgänglig för webbappen på ett säkert sätt utan att anpassade CORS-regler krävs.
-- **Azure Functions** v3-kompatibel med Node.js 12.
-- **Http-utlösare** och utgående bindningar.
+- **Azure Functions** v3-kompatibel med Node.js 12, .net Core 3,1 och python 3,8.
+- **Http-utlösare** och indata/utdata-bindningar.
 
 ## <a name="configuration"></a>Konfiguration
 
-API-slutpunkter är tillgängliga för webbappen via _API_ -vägen. Även om den här vägen är fast har du kontroll över mappen där du hittar den associerade Azure Functions-appen. Du kan ändra den här platsen genom [att redigera arbets flödets yaml-fil](github-actions-workflow.md#build-and-deploy) som finns i mappen _. GitHub/arbets flöden_ för databasen.
+API-slutpunkter är tillgängliga för webbappen via _API_ -vägen. Även om den här vägen är fast har du kontroll över mappen och projektet där du hittar den associerade Azure Functions-appen. Du kan ändra den här platsen genom [att redigera arbets flödets yaml-fil](github-actions-workflow.md#build-and-deploy) som finns i mappen _. GitHub/arbets flöden_ för databasen.
 
 ## <a name="constraints"></a>Villkor
 
 Azures statiska Web Apps tillhandahåller ett API via Azure Functions. Funktionerna i Azure Functions fokuserar på en bestämd uppsättning funktioner som gör att du kan skapa ett API för en webbapp och tillåta att webbappen ansluter till API: et på ett säkert sätt. Dessa funktioner följer vissa begränsningar, inklusive:
 
 - API-vägens prefix måste vara _API_.
-- Appen API Functions måste vara i Java Script.
+- API: t måste antingen vara en JavaScript-, C#-eller python Azure Functions-app.
 - Flödes regler för API-funktioner stöder bara [omdirigeringar](routes.md#redirects) och [skydd av vägar med roller](routes.md#securing-routes-with-roles).
 - Utlösare är begränsade till [http](../azure-functions/functions-bindings-http-webhook.md).
   - In-och utdata- [bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings) stöds.

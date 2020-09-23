@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: c31f3c998df918466e707c95f041592051e8251c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045322"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903819"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Felsöka Azure Stream Analytics frågor lokalt med hjälp av jobb diagram i Visual Studio Code
 
@@ -27,7 +27,7 @@ Ett Azure Stream Analytics-skript används för att transformera indata till utd
 
 ### <a name="start-local-testing"></a>Starta lokal testning
 
-Använd den här [snabb](quick-create-vs-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med Visual Studio Code eller [Exportera ett befintligt jobb till ett lokalt projekt](visual-studio-code-explore-jobs.md). Autentiseringsuppgifter för indata och utdata fylls i automatiskt för exporterade jobb.
+Använd den här [snabb](quick-create-visual-studio-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med Visual Studio Code eller [Exportera ett befintligt jobb till ett lokalt projekt](visual-studio-code-explore-jobs.md). Autentiseringsuppgifter för indata och utdata fylls i automatiskt för exporterade jobb.
 
 Följ dessa [instruktioner](visual-studio-code-local-run.md)om du vill testa frågan med lokala indata. Om du vill testa med Live-indatamängden [konfigurerar](stream-analytics-add-inputs.md) du inflyttningen till nästa steg. 
 
@@ -108,7 +108,7 @@ Välj **jobb Sammanfattning** längst upp till höger i jobb diagrammet för att
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabb start: skapa ett Stream Analytics jobb med Visual Studio Code](quick-create-vs-code.md)
+* [Snabb start: skapa ett Stream Analytics jobb med Visual Studio Code](quick-create-visual-studio-code.md)
 * [Utforska Azure Stream Analytics med Visual Studio Code](visual-studio-code-explore-jobs.md)
 * [Testa Stream Analytics frågor lokalt med exempel data med Visual Studio Code](visual-studio-code-local-run.md)
 * [Testa Azure Stream Analytics jobb lokalt med Live-indatamängden med Visual Studio Code](visual-studio-code-local-run-live-input.md)

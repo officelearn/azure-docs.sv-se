@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 4cf491a27fbe53a5f5bf0e8351e5bb684b3492f1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 26470709b37c2623c581499ec55572da402e96cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101995"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906455"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>Konfigurera TLS-inställningar i Azure Database for PostgreSQL enskild server med Azure Portal
 
@@ -35,13 +35,13 @@ Följ de här stegen för att ange PostgreSQL lägsta TLS-version:
 
 1. I **lägsta TLS-version**väljer du **1,2** för att neka anslutningar med en TLS-version som är mindre än TLS 1,2 för din postgresql-server.
 
-    ![Azure Database for PostgreSQL TLS-konfiguration för enskild server](./media/howto-tls-configurations/setting-tls-value.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Azure Database for PostgreSQL TLS-konfiguration för enskild server":::
 
 1. Klicka på **Spara** för att spara ändringarna.
 
 1. Ett meddelande bekräftar att anslutnings säkerhets inställningen har Aktiver ATS.
 
-    ![Azure Database for PostgreSQL-konfiguration av en enskild server-TLS lyckades](./media/howto-tls-configurations/setting-tls-value-success.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Azure Database for PostgreSQL-konfiguration av en enskild server-TLS lyckades":::
 
 ## <a name="next-steps"></a>Nästa steg
 

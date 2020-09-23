@@ -1,6 +1,6 @@
 ---
-title: Konto hantering för Azure Stack gräns för GPU-lagring | Microsoft Docs
-description: Beskriver hur du använder Azure Portal för att hantera lagrings kontot på Azure Stack Edge.
+title: Konto hantering för Azure Stack Edge Pro GPU Storage | Microsoft Docs
+description: Beskriver hur du använder Azure Portal för att hantera lagrings kontot på din Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 3b190a108651f4b127c2f009c383613922a59018
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254311"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904546"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Använd Azure Portal för att hantera Edge Storage-konton på din Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera Edge Storage-konton på din Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Den här artikeln beskriver hur du hanterar Edge Storage-konton på Azure Stack Edge. Du kan hantera Azure Stack Edge via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att lägga till eller ta bort gräns lagrings konton på enheten.
+Den här artikeln beskriver hur du hanterar Edge Storage-konton på Azure Stack Edge Pro. Du kan hantera Azure Stack Edge Pro via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att lägga till eller ta bort gräns lagrings konton på enheten.
 
 ## <a name="about-edge-storage-accounts"></a>Om Edge Storage-konton
 
-Du kan överföra data från Azure Stack Edge-enheten via SMB-, NFS-eller REST-protokollen. Om du vill överföra data till Blob Storage med hjälp av REST-API: er måste du skapa Edge Storage-konton på Azure Stack Edge. 
+Du kan överföra data från din Azure Stack Edge Pro-enhet via SMB-, NFS-eller REST-protokollen. Om du vill överföra data till Blob Storage med hjälp av REST-API: er måste du skapa Edge Storage-konton på Azure Stack Edge Pro. 
 
-De gräns lagrings konton som du lägger till på Azure Stack Edge-enheten mappas till Azure Storage-konton. Alla data som skrivs till gräns lagrings kontona flyttas automatiskt till molnet.
+De gräns lagrings konton som du lägger till på Azure Stack Edge Pro-enheten mappas till Azure Storage-konton. Alla data som skrivs till gräns lagrings kontona flyttas automatiskt till molnet.
 
 Ett diagram som beskriver de två typerna av konton och hur data flödar från var och en av dessa konton till Azure visas nedan:
 

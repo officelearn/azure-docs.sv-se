@@ -1,6 +1,6 @@
 ---
-title: Översikt över Kubernetes-kluster på Microsoft Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur Kubernetes implementeras på din Azure Stack Edge-enhet.
+title: Översikt över Kubernetes-kluster på Microsoft Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur Kubernetes implementeras på din Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: be7e01644d7d1f232c50b1efbadf100671a262fe
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268116"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899258"
 ---
-# <a name="kubernetes-on-your-azure-stack-edge-gpu-device"></a>Kubernetes på din Azure Stack Edge-GPU-enhet
+# <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes på din Azure Stack Edge Pro GPU-enhet
 
-Kubernetes är en populär plattform med öppen källkod för att dirigera program i behållare. Den här artikeln innehåller en översikt över Kubernetes och en beskrivning av hur Kubernetes fungerar på din Azure Stack Edge-enhet. 
+Kubernetes är en populär plattform med öppen källkod för att dirigera program i behållare. Den här artikeln innehåller en översikt över Kubernetes och en beskrivning av hur Kubernetes fungerar på din Azure Stack Edge Pro-enhet. 
 
 ## <a name="about-kubernetes"></a>Om Kubernetes 
 
@@ -27,19 +27,19 @@ Som en öppen plattform kan du använda Kubernetes för att skapa program med ö
 
 Mer information finns i [så här fungerar Kubernetes](https://www.youtube.com/watch?v=q1PcAawa4Bg&list=PLLasX02E8BPCrIhFrc_ZiINhbRkYMKdPT&index=2&t=0s).
 
-## <a name="kubernetes-on-azure-stack-edge"></a>Kubernetes på Azure Stack Edge
+## <a name="kubernetes-on-azure-stack-edge-pro"></a>Kubernetes på Azure Stack Edge Pro
 
-På din Azure Stack Edge-enhet kan du skapa ett Kubernetes-kluster genom att konfigurera data bearbetningen. När Compute-rollen har kon figurer ATS distribueras och konfigureras Kubernetes-klustret, inklusive huvud-och arbetsnoderna. Klustret används sedan för arbets belastnings distribution via `kubectl` , IoT Edge eller Azure-båge.
+På din Azure Stack Edge Pro-enhet kan du skapa ett Kubernetes-kluster genom att konfigurera beräkningen. När Compute-rollen har kon figurer ATS distribueras och konfigureras Kubernetes-klustret, inklusive huvud-och arbetsnoderna. Klustret används sedan för arbets belastnings distribution via `kubectl` , IoT Edge eller Azure-båge.
 
-Azure Stack Edge-enheten är tillgänglig som en konfiguration med 1 nod som utgör infrastruktur klustret. Kubernetes-klustret är skilt från infrastruktur klustret och distribueras ovanpå infrastruktur klustret. Infrastruktur klustret ger den beständiga lagringen för Azure Stack Edge-enheten medan Kubernetes-klustret endast är ansvarigt för programdirigering. 
+Azure Stack Edge Pro-enheten är tillgänglig som en konfiguration med 1 nod som utgör infrastruktur klustret. Kubernetes-klustret är skilt från infrastruktur klustret och distribueras ovanpå infrastruktur klustret. Infrastruktur klustret ger den beständiga lagringen för din Azure Stack Edge Pro-enhet medan Kubernetes-klustret endast är ansvarigt för programdirigering. 
 
 Kubernetes-klustret i det här fallet har en huvud-nod och en arbetsnoden. Kubernetes-noderna i ett kluster är virtuella datorer som kör dina program och moln arbets flöden. 
 
 Huvudnoden Kubernetes ansvarar för att underhålla det önskade läget för klustret. Huvudnoden styr också arbetsnoden som i sin tur kör program i behållare. 
 
-I följande diagram illustreras implementeringen av Kubernetes på en Edge-enhet med 1 nod Azure Stack. 1-nodens enhet är inte hög tillgänglig och om den enskilda noden kraschar, stängs enheten av. Kubernetes-klustret försvinner också.
+Följande diagram illustrerar implementeringen av Kubernetes på en Azure Stack Edge Pro-enhet med 1 nod. 1-nodens enhet är inte hög tillgänglig och om den enskilda noden kraschar, stängs enheten av. Kubernetes-klustret försvinner också.
 
-![Kubernetes-arkitektur för en 1-nods Azure Stack Edge-enhet](media/azure-stack-edge-gpu-kubernetes-overview/kubernetes-architecture-1-node.png)
+![Kubernetes-arkitektur för en 1-nods Azure Stack Edge Pro-enhet](media/azure-stack-edge-gpu-kubernetes-overview/kubernetes-architecture-1-node.png)
 
 Mer information om Kubernetes-kluster arkitekturen finns i [Kubernetes Core-koncept](https://kubernetes.io/docs/concepts/architecture/).
 
@@ -53,33 +53,33 @@ Mer information om Kubernetes-kluster arkitekturen finns i [Kubernetes Core-konc
 
 ## <a name="storage-volume-provisioning"></a>Lagrings volym etablering
 
-För att stödja arbets belastningar för program kan du montera lagrings volymer för beständiga data på dina Azure Stack gräns enhets resurser. Du kan använda både statiska och dynamiska volymer. 
+För att stödja arbets belastningar för program kan du montera lagrings volymer för beständiga data på dina Azure Stack Edge Pro-enhets resurser. Du kan använda både statiska och dynamiska volymer. 
 
-Mer information finns i lagrings etablerings alternativ för program i [Kubernetes-lagring för din Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md).
+Mer information finns i lagrings etablerings alternativ för program i [Kubernetes-lagring för din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-storage.md).
 
 ## <a name="networking"></a>Nätverk
 
-Med Kubernetes Networking kan du konfigurera kommunikation i ditt Kubernetes-nätverk, inklusive behållare-till-container-nätverk, Pod-till-Pod-nätverk, Pod-till-tjänst-nätverk och Internet-till-tjänst-nätverk. Mer information finns i nätverks modellen i Kubernetes- [nätverk för din Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-networking.md).
+Med Kubernetes Networking kan du konfigurera kommunikation i ditt Kubernetes-nätverk, inklusive behållare-till-container-nätverk, Pod-till-Pod-nätverk, Pod-till-tjänst-nätverk och Internet-till-tjänst-nätverk. Mer information finns i nätverks modellen i Kubernetes- [nätverk för din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-networking.md).
 
 ## <a name="updates"></a>Uppdateringar
 
-När nya Kubernetes-versioner blir tillgängliga kan klustret uppgraderas med de standard uppdateringar som är tillgängliga för din Azure Stack Edge-enhet. Anvisningar om hur du uppgraderar finns i [tillämpa uppdateringar för Azure Stack Edge](azure-stack-edge-gpu-install-update.md).
+När nya Kubernetes-versioner blir tillgängliga kan klustret uppgraderas med de standard uppdateringar som är tillgängliga för din Azure Stack Edge Pro-enhet. Anvisningar om hur du uppgraderar finns i [tillämpa uppdateringar för Azure Stack Edge Pro](azure-stack-edge-gpu-install-update.md).
 
 ## <a name="access-monitoring"></a>Åtkomst, övervakning
 
-Kubernetes-klustret på din Azure Stack Edge-enhet tillåter rollbaserad åtkomst kontroll (RBAC). Mer information finns i [rollbaserad åtkomst kontroll för Kubernetes-kluster på din Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-rbac.md).
+Kubernetes-klustret på din Azure Stack Edge Pro-enhet tillåter rollbaserad åtkomst kontroll (RBAC). Mer information finns i [rollbaserad åtkomst kontroll för Kubernetes-kluster på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-rbac.md).
 
-Du kan också övervaka hälso tillståndet för klustret och resurserna via Kubernetes-instrumentpanelen. Behållar loggar är också tillgängliga. Mer information finns i [använda Kubernetes-instrumentpanelen för att övervaka Kubernetes-klustrets hälso tillstånd på din Azure Stack Edge-enhet](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+Du kan också övervaka hälso tillståndet för klustret och resurserna via Kubernetes-instrumentpanelen. Behållar loggar är också tillgängliga. Mer information finns i [använda Kubernetes-instrumentpanelen för att övervaka Kubernetes-klustrets hälso tillstånd på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 
 Azure Monitor är också tillgängligt som ett tillägg för att samla in hälso data från behållare, noder och styrenheter. Mer information finns i [Azure Monitor översikt](../azure-monitor/overview.md)
 
 <!--## Private container registry
 
-Kubernetes on Azure Stack Edge device allows for the private storage of your images by providing a local container registry.-->
+Kubernetes on Azure Stack Edge Pro device allows for the private storage of your images by providing a local container registry.-->
 
 ## <a name="application-management"></a>Programhantering
 
-När ett Kubernetes-kluster har skapats på din Azure Stack Edge-enhet kan du hantera de program som distribueras i det här klustret via någon av följande metoder:
+När ett Kubernetes-kluster har skapats på din Azure Stack Edge Pro-enhet kan du hantera de program som distribueras i det här klustret via någon av följande metoder:
 
 - Inbyggd åtkomst via `kubectl`
 - IoT Edge 
@@ -92,16 +92,16 @@ Dessa metoder beskrivs i följande avsnitt.
 
 När Kubernetes-klustret har distribuerats kan du hantera de program som distribueras i klustret lokalt från en klient dator. Du använder ett inbyggt verktyg som *kubectl* via kommando raden för att interagera med programmen. 
 
-Mer information om hur du distribuerar Kubernetes-kluster finns i [distribuera ett Kubernetes-kluster på din Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Mer information om hantering finns i [använda kubectl för att hantera Kubernetes-kluster på din Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+Mer information om hur du distribuerar Kubernetes-kluster finns i [distribuera ett Kubernetes-kluster på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Mer information om hantering finns i [använda kubectl för att hantera Kubernetes-kluster på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 
 ### <a name="kubernetes-and-iot-edge"></a>Kubernetes och IoT Edge
 
-Kubernetes kan också integreras med IoT Edge arbets belastningar på Azure Stack Edge-enhet där Kubernetes tillhandahåller skalning och eko systemet och IoT tillhandahåller IoT-det koncentriska eko systemet. Kubernetes-skiktet används som ett infrastruktur lager för att distribuera Azure IoT Edge-arbetsbelastningar. Modulens livs längd och utjämning av nätverks belastning hanteras av Kubernetes medan gräns programmets plattform hanteras av IoT Edge.
+Kubernetes kan också integreras med IoT Edge arbets belastningar på Azure Stack Edge Pro-enhet där Kubernetes tillhandahåller skalning och eko systemet och IoT tillhandahåller IoT-koncentriskt eko system. Kubernetes-skiktet används som ett infrastruktur lager för att distribuera Azure IoT Edge-arbetsbelastningar. Modulens livs längd och utjämning av nätverks belastning hanteras av Kubernetes medan gräns programmets plattform hanteras av IoT Edge.
 
 Om du vill ha mer information om hur du distribuerar program i ditt Kubernetes-kluster via IoT Edge går du till: 
 
-- [Exponera tillstånds lösa program på Azure Stack Edge-enhet via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+- [Exponera tillstånds lösa program på Azure Stack Edge Pro-enhet via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
 
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes och Azure-båge
@@ -111,6 +111,6 @@ Azure Arc är ett hybrid hanterings verktyg som gör att du kan distribuera prog
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Kubernetes Storage på [Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md).
-- Förstå Kubernetes Network Model på [Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-networking.md).
-- Distribuera [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) i Azure Portal.
+- Läs mer om Kubernetes-lagring på [Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-storage.md).
+- Förstå Kubernetes Network Model på [Azure Stack Edge Pro Device](azure-stack-edge-gpu-kubernetes-networking.md).
+- Distribuera [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) i Azure Portal.

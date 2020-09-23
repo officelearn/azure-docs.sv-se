@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 29e790959e941abc133f95297dc09c951152a503
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903534"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Konfigurera avvikelseidentifieringscontainrar
 
@@ -25,11 +25,11 @@ Körnings miljön för **avvikelse detektor** behållare konfigureras med hjälp
 
 Den här behållaren har följande konfigurations inställningar:
 
-|Obligatorisk|Inställningen|Syfte|
+|Obligatorisk|Inställning|Syfte|
 |--|--|--|
 |Yes|[ApiKey](#apikey-configuration-setting)|Används för att spåra fakturerings information.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Gör att du kan lägga till stöd för [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) -telemetri till din behållare.|
-|Yes|[Fakturering](#billing-configuration-setting)|Anger slut punkts-URI för tjänst resursen på Azure.|
+|Yes|[Billing](#billing-configuration-setting)|Anger slut punkts-URI för tjänst resursen på Azure.|
 |Yes|[Villkoren](#eula-setting)| Anger att du har accepterat licensen för behållaren.|
 |No|[Fluent](#fluentd-settings)|Skriv logg och, om du vill, Metric-data till en Fluent-Server.|
 |No|[Http-proxy](#http-proxy-credentials-settings)|Konfigurera en HTTP-proxy för att göra utgående begär Anden.|
@@ -57,11 +57,11 @@ Du hittar den här inställningen på följande plats:
 
 Du hittar den här inställningen på följande plats:
 
-* Azure Portal: **avvikelse detektorns** översikt, märkt`Endpoint`
+* Azure Portal: **avvikelse detektorns** översikt, märkt `Endpoint`
 
-|Obligatorisk| Name | Datatyp | Description |
+|Obligatorisk| Name | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Yes| `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](anomaly-detector-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Ja| `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](anomaly-detector-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Licens avtals inställning
 
@@ -88,7 +88,7 @@ De avvikande detektor behållarna använder inte indata eller utdata monteras f�
 
 Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](anomaly-detector-container-howto.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfritt| Name | Datatyp | Description |
+|Valfritt| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåtet| `Input` | Sträng | Avvikelse detektor behållare använder inte detta.|
 |Valfritt| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -121,7 +121,7 @@ Följande Docker-exempel är för behållaren för avvikelse detektor.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -131,7 +131,7 @@ Följande Docker-exempel är för behållaren för avvikelse detektor.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e9496dc70d847d0e9e830a216e8f435b1c48d878
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543443"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900971"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhands granskning)
 
@@ -33,23 +33,39 @@ Slutför följande steg innan du lägger till en Machine Learning-modell som en 
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Lägga till en maskin inlärnings modell i ditt jobb
 
-Du kan lägga till Azure Machine Learning funktioner till ditt Stream Analytics-jobb direkt från Azure Portal.
+Du kan lägga till Azure Machine Learning funktioner till ditt Stream Analytics-jobb direkt från Azure Portal eller Visual Studio Code.
 
-1. Navigera till Stream Analytics jobb i Azure Portal och välj **funktioner** under **jobb sto pol Ogin**. Välj sedan **Azure ml-tjänsten** i list menyn **+ Lägg till** .
+### <a name="azure-portal"></a>Azure Portal
 
-   ![Lägg till Azure ML UDF](./media/machine-learning-udf/add-azureml-udf.png)
+1. Navigera till Stream Analytics jobb i Azure Portal och välj **funktioner** under **jobb sto pol Ogin**. Välj sedan **Azure Machine Learning tjänst** på list menyn **+ Lägg till** .
+
+   ![Lägg till Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
 2. Fyll i formuläret för **Azure Machine Learning tjänst funktionen** med följande egenskaps värden:
 
-   ![Konfigurera Azure ML UDF](./media/machine-learning-udf/configure-azureml-udf.png)
+   ![Konfigurera Azure Machine Learning UDF](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-I följande tabell beskrivs varje egenskap för Azure ML-tjänst funktioner i Stream Analytics.
+### <a name="visual-studio-code"></a>Visuell Studio-kod
+
+1. Öppna ditt Stream Analytics-projekt i Visual Studio Code och högerklicka på mappen **Functions** . Välj sedan **Lägg till funktion**. Välj **Machine Learning UDF** i list rutan.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Lägg till UDF i VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Lägg till Azure Machine Learning UDF i VS Code":::
+
+2. Ange funktions namnet och fyll i inställningarna i konfigurations filen genom **att använda Välj från dina prenumerationer** i CodeLens.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Välj Azure Machine Learning UDF i VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Konfigurera Azure Machine Learning UDF i VS Code":::
+
+I följande tabell beskrivs varje egenskap för Azure Machine Learning tjänst funktioner i Stream Analytics.
 
 |Egenskap|Beskrivning|
 |--------|-----------|
 |Funktions Ali Aset|Ange ett namn för att anropa funktionen i frågan.|
 |Prenumeration|Din Azure-prenumeration..|
-|Azure ML-arbetsyta|Arbets ytan Azure Machine Learning som du använde för att distribuera din modell som en webb tjänst.|
+|Azure Machine Learning-arbetsyta|Arbets ytan Azure Machine Learning som du använde för att distribuera din modell som en webb tjänst.|
 |Distributioner|Webb tjänsten som är värd för din modell.|
 |Funktions under skrift|Signaturen för webb tjänsten härleds från API: ns schema specifikation. Om din signatur inte kan läsas in, kontrollerar du att du har angett exempel indata och utdata i bedömnings skriptet för att automatiskt generera schemat.|
 |Antal parallella förfrågningar per partition|Det här är en avancerad konfiguration för optimering av storskaliga data flöden. Det här talet representerar de samtidiga förfrågningar som skickas från varje partition av ditt jobb till webb tjänsten. Jobb med sex enheter för strömning (SU) och lägre har en partition. Jobb med 12 SUs har två partitioner, 18 SUs har tre partitioner och så vidare.<br><br> Om ditt jobb till exempel har två partitioner och du anger den här parametern till fyra, kommer det att finnas åtta samtidiga förfrågningar från jobbet till din webb tjänst. Vid den här tiden är standardvärdet 20 och kan inte uppdateras.|
@@ -168,4 +184,3 @@ För att förhindra sådan fördröjning kontrollerar du att ditt Azure Kubernet
 
 * [Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript](stream-analytics-javascript-user-defined-functions.md)
 * [Skala ditt Stream Analytics jobb med Azure Machine Learning Studio (klassisk)-funktionen](stream-analytics-scale-with-machine-learning-functions.md)
-

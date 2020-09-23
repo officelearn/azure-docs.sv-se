@@ -1,0 +1,214 @@
+- name: Azure Arc-aktiverad datatjänstdokumentation
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure Arc-aktiverade datatjänster
+      href: overview.md
+    - name: Viktig information
+      href: release-notes.md
+- name: Snabbstarter
+  items:
+    - name: Skapa datakontrollant
+      href: create-data-controller.md
+- name: Begrepp
+  items:
+    - name: Anslutningslägen och krav
+      href: connectivity.md
+    - name: Storage-konfiguration
+      href: storage-configuration.md
+- name: Anvisningar
+  items:
+    - name: Installera verktygen
+      items:
+        - name: Installera klientverktyg
+          href: install-client-tools.md
+        - name: azdata
+          items:
+            - name: Installera
+              href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: macOS
+              href: /sql/azdata/install/deploy-install-azdata-macos?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Windows
+              href: /sql/azdata/install/deploy-install-azdata-installer?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Linux med apt
+              href: /sql/azdata/install/deploy-install-azdata-linux-package?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Linux med yum
+              href: /sql/azdata/install/deploy-install-azdata-yum?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Linux med zypper
+              href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Linux med Pip
+              href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: Skapa datakontrollant
+      items:
+        - name: Skapa datakontrollant (Azure Data Studio)
+          href: create-data-controller-azure-data-studio.md
+        - name: Skapa datakontrollantresurs (portal)
+          href: create-data-controller-resource-in-azure-portal.md
+        - name: Skapa datakontrollant (azdata)
+          href: create-data-controller-using-azdata.md
+        - name: Skapa datakontrollant med Kubernetes
+          href: create-data-controller-using-k8s-native-tools.md
+    - name: Vanliga upplevelser i Azure Arc-aktiverade datatjänster
+      items:
+        - name: Övervaka med instrumentpaneler (Azure Data Studio)
+          href: azure-data-studio-dashboards.md
+        - name: Visa faktureringsdata (Azure)
+          href: view-billing-data-in-azure.md
+        - name: Visa datakontrollant (portal)
+          href: view-data-controller-in-azure-portal.md
+        - name: Ta bort resurser
+          href: delete-azure-resources.md
+        - name: Avinstallera Azure Arc-datakontrollant
+          href: uninstall-azure-arc-data-controller.md
+    - name: Hantera
+      items:
+        - name: Övervaka med Grafana och Kibana
+          href: monitor-grafana-kibana.md
+        - name: Ladda upp mått och loggar
+          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Databasinstanslager
+          href: view-arc-data-services-inventory-in-azure-portal.md
+        - name: Hämta användarnamn och lösenord för datakontrollant
+          href: retrieve-the-username-password-for-data-controller.md
+    - name: Felsökning
+      items:
+        - name: Guide
+          href: troubleshoot-guide.md
+        - name: Hämta loggar
+          href: troubleshooting-get-logs.md
+- name: Azure Arc-aktiverad PostgreSQL-hyperskala (förhandsversion)
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure Arc-aktiverad PostgreSQL-hyperskala
+          href: what-is-azure-arc-enabled-postgres-hyperscale.md
+    - name: Snabbstarter
+      items:
+        - name: Versioner som stöds
+          href: supported-versions-postgres-hyperscale.md
+        - name: Skapa Postgres hyperskala-servergrupp (CLI)
+          href: create-postgresql-hyperscale-server-group.md
+        - name: Skapa Postgres hyperskala-servergrupp (Azure Data Studio)
+          href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Ansluta
+          href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - name: Begrepp
+      items:
+        - name: Distribuera data
+          href: concepts-distributed-postgres-hyperscale.md
+        - name: Placering av servergrupp
+          href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
+    - name: Så här gör du
+      items:
+        - name: Hantera
+          items:
+            - name: Säkerhetskopiera och återställa
+              href: backup-restore-postgresql-hyperscale.md
+            - name: Konfigurera och skala
+              items:
+                - name: Visa konfiguration
+                  href: show-configuration-postgresql-hyperscale-server-group.md
+                - name: Skala ut – lägga till arbetsnoder
+                  href: scale-out-postgresql-hyperscale-server-group.md
+                - name: Skala upp|ned minnen och virtuella kärnor
+                  href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
+                - name: Konfigurera serverparametrar
+                  href: configure-server-parameters-postgresql-hyperscale.md
+            - name: Ta bort
+              href: delete-postgresql-hyperscale-server-group.md
+            - name: Lista över servergrupper
+              href: list-server-groups-postgres-hyperscale.md
+            - name: 'Övervakning, logganalys, faktureringsinformation Azure Portal'
+              href: monitoring-log-analytics-azure-portal-postgresql.md
+            - name: Skydda
+              href: configure-security-postgres-hyperscale.md
+            - name: Hantera servergrupp (Azure Data Studio)
+              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+            - name: Använda Postgres-tillägg
+              href: using-extensions-in-postgresql-hyperscale-server-group.md
+        - name: Migrera
+          items:
+            - name: Migrera PostgreSQL-data till en servergrupp med Postgres-hyperskala
+              href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+            - name: Återställa exempeldatabasen AdventureWorks
+              href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+        - name: Felsöka
+          href: troubleshoot-postgresql-hyperscale-server-group.md
+- name: Azure Arc-aktiverad SQL-hanterad instans (förhandsversion)
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Azure Arc-aktiverad SQL-hanterad instans
+          href: managed-instance-overview.md
+        - name: Funktioner
+          href: managed-instance-features.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa hanterad SQL-instans
+          href: create-sql-managed-instance.md
+        - name: Skapa SQL-hanterad instans (Azure Data Studio)
+          href: create-sql-managed-instance-azure-data-studio.md
+        - name: Ansluta
+          href: connect-managed-instance.md
+    - name: Så här gör du
+      items:
+        - name: Hantera
+          items:
+            - name: Konfigurera
+              href: configure-managed-instance.md
+            - name: 'Övervakning, logganalys, faktureringsinformation Azure Portal'
+              href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: Ta bort
+              href: delete-managed-instance.md
+        - name: Migrera
+          items:
+            - name: Migrera till SQL-hanterad instans (Azure Arc)
+              href: migrate-to-managed-instance.md
+            - name: Återställa AdventureWorks
+              href: restore-adventureworks-sample-db.md
+- name: Referens
+  items:
+    - name: azdata
+      items:
+        - name: azdata
+          href: /sql/azdata/reference/reference-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: notebook
+          href: /sql/azdata/reference/reference-azdata-notebook?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: postgres
+          href: /sql/azdata/reference/reference-azdata-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: sql
+          href: /sql/azdata/reference/reference-azdata-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: azdata-arc
+          href: /sql/azdata/reference/reference-azdata-arc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc
+          href: /sql/azdata/reference/reference-azdata-arc-dc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-config
+          href: /sql/azdata/reference/reference-azdata-arc-dc-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-debug
+          href: /sql/azdata/reference/reference-azdata-arc-dc-debug?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-endpoint
+          href: /sql/azdata/reference/reference-azdata-arc-dc-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-status
+          href: /sql/azdata/reference/reference-azdata-arc-dc-status?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres
+          href: /sql/azdata/reference/reference-azdata-arc-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-backup
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-endpoint
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-server
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-server?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-server-backup
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-server-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-server-config
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-server-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-resource
+          href: /sql/azdata/reference/reference-azdata-arc-resource?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-resource-kind
+          href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-sql
+          href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-sql-mi
+          href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-sql-mi-config
+          href: /sql/azdata/reference/reference-azdata-arc-sql-mi-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json

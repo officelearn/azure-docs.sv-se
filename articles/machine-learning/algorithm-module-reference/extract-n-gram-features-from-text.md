@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477620"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907973"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrahera N-gram-funktioner från text module-referens
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version). Använd extrahera N-g-funktioner från text-modulen för att *funktionalisera* ostrukturerade text data. 
+I den här artikeln beskrivs en modul i Azure Machine Learning designer. Använd extrahera N-g-funktioner från text-modulen för att *funktionalisera* ostrukturerade text data. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Konfiguration av extrahera N-gram-funktioner från textmodul
 
@@ -125,7 +125,7 @@ Ord listan innehåller en n-gram-ordlista med termen frekvens Poäng som generer
 + **DF**: term frekvens poängen för n-gram i den ursprungliga sökkorpus.
 + **IDF**: resultatet av den inverterade dokument frekvensen för n-gram i den ursprungliga sökkorpus.
 
-Du kan uppdatera den här data uppsättningen manuellt, men du kan införa fel. Ett exempel:
+Du kan uppdatera den här data uppsättningen manuellt, men du kan införa fel. Exempel:
 
 * Ett fel uppstår om modulen hittar dubblettrader med samma nyckel i den angivna ord listan. Se till att inga två rader i ord listan har samma ord.
 * Schemat för vokabulärens data uppsättningar måste matcha exakt, inklusive kolumn namn och kolumn typer. 

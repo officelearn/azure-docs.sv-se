@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 314004d2b62d5616c1d7925b82fd9f050d0a1fd0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441807"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906925"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Azures säkerhets bas linje för Azure IoT Hub
 
@@ -71,7 +71,7 @@ Azure DDoS Protection Basic är redan aktiverat och tillgängligt utan ytterliga
 
 - [IoT Hub IP-filter](iot-hub-ip-filtering.md)
 
-- [Azure Security Center för IoT misstänkt IP-adress kommunikation](../asc-for-iot/concept-security-alerts.md)
+- [Azure Security Center för IoT misstänkt IP-adress kommunikation](../defender-for-iot/concept-security-alerts.md)
 
 - [Hantera Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
 
@@ -234,7 +234,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 - [Övervaka Azure IoT Hub Health](iot-hub-monitor-resource-health.md)
 - [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
-- [Azure Security Center för IoT-aviseringar](../asc-for-iot/concept-security-alerts.md)
+- [Azure Security Center för IoT-aviseringar](../defender-for-iot/concept-security-alerts.md)
 
 - [Så här aviserar du om Log Analytics-loggdata](../azure-monitor/learn/tutorial-response.md)
 

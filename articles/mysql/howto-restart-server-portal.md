@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: aa79d1ba2cba86bf3f381ff78fd630ce455128d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107877"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902752"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Starta om Azure Database for MySQL server med Azure Portal
 I det här avsnittet beskrivs hur du kan starta om en Azure Database for MySQL-server. Du kan behöva starta om servern för underhålls orsaker, vilket orsakar ett kort avbrott eftersom servern utför åtgärden.
@@ -32,19 +32,19 @@ Följande steg startar om MySQL-servern:
 
 2. I verktygsfältet på serverns **översikts** sida klickar du på **starta om**.
 
-   ![Azure Database for MySQL-översikt – knappen starta om](./media/howto-restart-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database for MySQL-översikt – knappen starta om":::
 
 3. Bekräfta att du vill starta om servern genom att klicka på **Ja** .
 
-   ![Bekräfta Azure Database for MySQL omstart](./media/howto-restart-server-portal/3-restart-confirm.png)
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Bekräfta Azure Database for MySQL omstart":::
 
 4. Observera att Server statusen ändras till "omstart".
 
-   ![Azure Database for MySQL-restart-status](./media/howto-restart-server-portal/4-restarting-status.png)
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL-restart-status":::
 
 5. Bekräfta att servern har startats om.
 
-   ![Azure Database for MySQL-omstart lyckades](./media/howto-restart-server-portal/5-restart-success.png)
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL-omstart lyckades":::
 
 ## <a name="next-steps"></a>Nästa steg
 

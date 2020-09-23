@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Portal för att felsöka Azure Stack Edge | Microsoft Docs
-description: Lär dig hur du felsöker problem på din Azure Stack Edge. Du kan köra diagnostik, samla in information för support och använda loggar för att felsöka.
+title: Använd Azure Portal för att felsöka Azure Stack Edge Pro | Microsoft Docs
+description: Lär dig hur du felsöker problem på Azure Stack Edge Pro. Du kan köra diagnostik, samla in information för support och använda loggar för att felsöka.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134572"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903661"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Felsök problem med Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Felsök problem med Azure Stack Edge-Pro
 
-I den här artikeln beskrivs hur du felsöker problem på din Azure Stack Edge. 
+Den här artikeln beskriver hur du felsöker problem i Azure Stack Edge Pro. 
 
 I den här artikeln kan du se hur du:
 
@@ -65,7 +65,7 @@ Eventuella fel som uppstod under uppladdnings- och uppdateringsprocesserna ingå
 
       ![Ansluta till och Visa resurs innehåll](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Välj _mappen Microsoft Azure Stack Edge_. Den här mappen innehåller två undermappar:
+2. Välj _mappen Microsoft Azure Stack Edge Pro_. Den här mappen innehåller två undermappar:
 
     * Ladda upp mappen som innehåller loggfiler för uppladdningsfelen.
     * Uppdatera mappen för fel som uppstått under uppdateringen.

@@ -1,25 +1,25 @@
 ---
 title: Dataplacering
-description: Data placering och information om Azure Arc-aktiverade servrar (för hands version).
+description: Data placering och information om Azure Arc-aktiverade servrar.
 ms.topic: reference
-ms.date: 08/25/2020
+ms.date: 09/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8f207f5889c1764eebcc6081960ff70c0d5bca3a
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8b4b8171bd7133e52928a5227c488bd6234ce686
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048864"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908118"
 ---
-# <a name="azure-arc-enabled-servers-preview-data-residency"></a>Azure Arc-aktiverade servrar (för hands version): data placering
+# <a name="azure-arc-enabled-servers-data-residency"></a>Azure Arc-aktiverade servrar: data placering
 
-I den här artikeln beskrivs begreppet data placering och hur det gäller för Azure Arc-aktiverade servrar (för hands version).
+I den här artikeln beskrivs begreppet data placering och hur det gäller Azure Arc-aktiverade servrar.
 
-Azure Arc-aktiverade servrar (för hands version) är **[tillgängliga i för hands versionen](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** i **USA, Europa eller Asien och Stillahavsområdet**.
+Azure Arc-aktiverade servrar **[finns i](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** **USA, Europa eller Asien och Stillahavsområdet**.
 
 ## <a name="data-residency"></a>Dataplacering
 
-Azure Arc-aktiverade servrar (för hands version) lagra konfigurations inställningar för [Azure VM-tillägg](manage-vm-extensions.md) (det vill säga egenskaps värden) tillägget kräver att du anger innan du försöker aktivera på den anslutna datorn. Om du till exempel aktiverar Log Analytics VM-tillägget uppmanas du att Log Analytics **arbetsyte-ID: t** och **primär nyckeln**.
+Azure Arc-aktiverade servrar lagrar konfigurations inställningar för [Azure VM-tillägg](manage-vm-extensions.md) (det vill säga egenskaps värden) tillägget kräver att du anger innan du försöker aktivera på den anslutna datorn. Om du till exempel aktiverar Log Analytics VM-tillägget uppmanas du att Log Analytics **arbetsyte-ID: t** och **primär nyckeln**.
 
 Information om metadata om den anslutna datorn samlas också in. Specifikt:
 
@@ -28,7 +28,7 @@ Information om metadata om den anslutna datorn samlas också in. Specifikt:
 * Fullständigt kvalificerat domän namn (FQDN)
 * Version av ansluten dator agent
 
-Med ARC-aktiverade servrar (för hands version) kan du ange den region där dina data ska lagras. Microsoft kan replikeras till andra regioner för data återhämtning, men Microsoft replikerar eller flyttar inte data utanför geografien. Dessa data lagras i den region där Azure Arc-datorns resurs har kon figurer ATS. Om datorn till exempel är registrerad med ARC i regionen USA, östra, lagras dessa data i regionen USA.
+Med ARC-aktiverade servrar kan du ange den region där dina data ska lagras. Microsoft kan replikeras till andra regioner för data återhämtning, men Microsoft replikerar eller flyttar inte data utanför geografien. Dessa data lagras i den region där Azure Arc-datorns resurs har kon figurer ATS. Om datorn till exempel är registrerad med ARC i regionen USA, östra, lagras dessa data i regionen USA.
 
 Mer information om vår regionala stöd för återhämtning och efterlevnad finns i [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/).
 

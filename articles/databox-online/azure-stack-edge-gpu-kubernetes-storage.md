@@ -1,6 +1,6 @@
 ---
-title: Förstå Kubernetes Storage Management på Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur Kubernetes Storage Management sker på en Azure Stack Edge-enhet.
+title: Förstå Kubernetes Storage Management på Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Beskriver hur Kubernetes Storage Management sker på en Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 57574b66ddb20e592a5979a4b827347f7c8e09af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268099"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899272"
 ---
-# <a name="kubernetes-storage-management-on-your-azure-stack-edge-gpu-device"></a>Kubernetes lagrings hantering på Azure Stack Edge-GPU-enhet
+# <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes lagrings hantering på din Azure Stack Edge Pro GPU-enhet
 
-På din Azure Stack Edge-enhet skapas ett Kubernetes-kluster när du konfigurerar Compute-rollen. När Kubernetes-klustret har skapats kan program i behållare distribueras i Kubernetes-klustret i poddar. Det finns olika sätt att tillhandahålla lagring till poddar i ditt Kubernetes-kluster. 
+På din Azure Stack Edge Pro-enhet skapas ett Kubernetes-kluster när du konfigurerar Compute-rollen. När Kubernetes-klustret har skapats kan program i behållare distribueras i Kubernetes-klustret i poddar. Det finns olika sätt att tillhandahålla lagring till poddar i ditt Kubernetes-kluster. 
 
-I den här artikeln beskrivs metoder för att etablera lagring på ett Kubernetes-kluster i allmänhet och särskilt i kontexten för din Azure Stack Edge-enhet. 
+I den här artikeln beskrivs metoder för att etablera lagring på ett Kubernetes-kluster i allmänhet och särskilt inom ramen för din Azure Stack Edge Pro-enhet. 
 
 ## <a name="storage-requirements-for-kubernetes-pods"></a>Lagrings krav för Kubernetes-poddar
 
@@ -75,9 +75,9 @@ Följande steg inträffar:
 1. **Montera PVC till container**: när PVC: n är kopplad till nuvärdet kan du montera PVC: n på behållaren på en sökväg på samma sätt som statisk etablering och läsa från eller skriva till resursen.
 
 
-## <a name="storage-provisioning-on-azure-stack-edge"></a>Lagrings etablering på Azure Stack Edge
+## <a name="storage-provisioning-on-azure-stack-edge-pro"></a>Lagrings etablering på Azure Stack Edge Pro
 
-På den Azure Stack gräns enheten skapas statiskt allokerat `PersistentVolumes` med enhetens lagrings kapacitet. När du etablerar en resurs och **använder alternativet dela med Edge Compute** är aktiverat, skapar den här åtgärden en PV-resurs automatiskt i Kubernetes-klustret.
+På den Azure Stack Edge Pro-enheten skapas statiskt allokerat `PersistentVolumes` med enhetens lagrings funktioner. När du etablerar en resurs och **använder alternativet dela med Edge Compute** är aktiverat, skapar den här åtgärden en PV-resurs automatiskt i Kubernetes-klustret.
 
 ![Skapa lokal delning i Azure Portal för statisk etablering](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
@@ -85,7 +85,7 @@ Om du vill använda moln nivåer kan du skapa en gräns moln resurs med hjälp a
 
 ![Skapa moln delning i Azure Portal för statisk etablering](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
-Du kan skapa både SMB-och NFS-resurser för att etablera PVs statiskt på Azure Stack Edge-enhet. När PV har allokerats skickar du en PVC som gör det möjligt att kräva lagringen. Här är ett exempel på en PVC-distribution `yaml` som hävdar lagringen och använder resurserna som du etablerade.
+Du kan skapa både SMB-och NFS-resurser för att etablera PVs statiskt på Azure Stack Edge Pro-enhet. När PV har allokerats skickar du en PVC som gör det möjligt att kräva lagringen. Här är ett exempel på en PVC-distribution `yaml` som hävdar lagringen och använder resurserna som du etablerade.
 
 
 ```yml
@@ -103,13 +103,13 @@ spec:
   storageClassName: ""
 ```
 
-Mer information finns i [distribuera ett tillstånds känsligt program via statisk etablering på din Azure Stack Edge via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+Mer information finns i [distribuera ett tillstånds känsligt program via statisk etablering på Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
-Azure Stack Edge har också en inbyggd `StorageClass` anropad `ase-node-local` som använder en datadisk som är ansluten till Kubernetes-noden. Detta `StorageClass` stöder dynamisk etablering. Du kan skapa en `StorageClass` referens i pod-program och ett PV skapas automatiskt åt dig. Mer information finns i Kubernetes- [instrumentpanelen](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) för att fråga efter `ase-node-local StorageClass` .
+Azure Stack Edge Pro har också en inbyggd `StorageClass` anropad `ase-node-local` som använder ett datadisk utrymme som är kopplat till Kubernetes-noden. Detta `StorageClass` stöder dynamisk etablering. Du kan skapa en `StorageClass` referens i pod-program och ett PV skapas automatiskt åt dig. Mer information finns i Kubernetes- [instrumentpanelen](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) för att fråga efter `ase-node-local StorageClass` .
 
 ![Inbyggd lagrings klass i Kubernetes-instrumentpanelen](./media/azure-stack-edge-gpu-kubernetes-storage/dynamic-provisioning-builtin-storage-class-1.png)
 
-Mer information finns i [distribuera ett tillstånds känsligt program via dynamisk etablering på din Azure Stack Edge via kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
+Mer information finns i [distribuera ett tillstånds känsligt program via dynamisk etablering på Azure Stack Edge Pro via kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
 
 ## <a name="choose-storage-type"></a>Välj lagrings typ
 
@@ -127,8 +127,8 @@ Mer information om åtkomst lägen finns i [Kubernetes Volumes Access mode](http
 
 Information om hur du kan etablera en statiskt `PersistentVolume` , finns i:
 
-- [Distribuera ett tillstånds känsligt program via statisk etablering på din Azure Stack Edge via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+- [Distribuera ett tillstånds känsligt program via statisk etablering på Azure Stack Edge Pro via kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
 Information om hur du kan etablera en `StorageClass` , finns i:
 
-- [Distribuera ett tillstånds känsligt program via dynamisk etablering på din Azure Stack Edge via kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
+- [Distribuera ett tillstånds känsligt program via dynamisk etablering på Azure Stack Edge Pro via kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).

@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420897"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907791"
 ---
 # <a name="train-wide--deep-recommender"></a>Träna bred & djup rekommendation
-Den här artikeln beskriver hur du använder modulen **träna Wide & djup rekommenderar** i Azure Machine Learning designer (för hands version) för att träna en rekommendations modell. Den här modulen baseras på bred & djup inlärning, som föreslås av Google.
+Den här artikeln beskriver hur du använder modulen **träna Wide & djup rekommenderar** i Azure Machine Learning designer för att träna en rekommendations modell. Den här modulen baseras på bred & djup inlärning, som föreslås av Google.
 
 Den **tränade & djup rekommenderar** -modulen läser en data uppsättning med tre olika användar objekt – omdömen och, om det finns några funktioner för användare och objekt. Den returnerar en utbildad bred & djup rekommendation.  Du kan sedan använda den tränade modellen för att generera bedömnings förutsägelser eller rekommendationer med hjälp av modulen [Poäng och djup rekommenderar](score-wide-and-deep-recommender.md) .  
 
@@ -77,14 +77,14 @@ Data uppsättningen för objekt funktioner måste innehålla objekt identifierar
 
 Ett exempel på en typisk uppsättning objekt funktioner kan se ut så här:  
 
-|MovieId|Rubrik|Ursprungligt språk|Genrer|År|
+|MovieId|Rubrik|Ursprungligt språk|Genrer|Year|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|Godfather|Engelska|Drama|1972|
 |31381|Borta med vridningen|Engelska|Historik|1939|
 
 ### <a name="train-the-model"></a>Träna modellen
 
-1.  Lägg till modulen **träna bred och djup rekommendation** i ditt experiment i designern (för hands version) och Anslut den till inlärnings data uppsättningen.  
+1.  Lägg till modulen **träna bred och djup rekommenderarare** i designern och Anslut den till inlärnings data uppsättningen.  
   
 2. Om du har en separat data uppsättning för antingen användar funktioner och/eller objekt funktioner, kan du ansluta dem till modulen **träna bred och djup rekommenderar** .  
   

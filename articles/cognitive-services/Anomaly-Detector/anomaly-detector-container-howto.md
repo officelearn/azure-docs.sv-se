@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0ae3b66d8093c0498011d9f93cd8d869b85f9003
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903549"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>Installera och kör avvikelse detektor behållare (förhands granskning)
+# <a name="install-and-run-anomaly-detector-containers"></a>Installera och kör avvikelseidentifieringscontainrar 
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Avvikelseidentifiering har följande containerfunktioner:
 
 | Funktion | Funktioner |
 |--|--|
-| Avvikelse detektor | <li> Identifierar avvikelser när de inträffar i real tid. <li> Identifierar avvikelser i alla data uppsättningar som en batch. <li> Härleder det förväntade normala intervallet av dina data. <li> Stöder känslighets justering för avvikelse identifiering så att den bättre passar dina data. |
+| Avvikelse detektor | <li> Identifierar avvikelser när de inträffar i real tid. <li> Identifierar avvikelser i alla data uppsättningar som en batch. <li> Identifierar trend ändrings punkter i din data uppsättning som en batch.<li> Härleder det förväntade normala intervallet av dina data. <li> Stöder känslighets justering för avvikelse identifiering så att den bättre passar dina data. |
 
 Detaljerad information om API: er finns i:
 * [Läs mer om API-tjänsten för avvikelse detektor](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -67,7 +69,7 @@ Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 | Container | Lagringsplats |
 |-----------|------------|
-| kognitiva tjänster – avvikelser-detektor | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| kognitiva tjänster – avvikelser-detektor | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -95,7 +97,7 @@ Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandl
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -177,7 +179,7 @@ Mer information om dessa alternativ finns i [Configure containers](anomaly-detec
 I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra avvikelser som behållare. Sammanfattningsvis:
 
 * Avvikelse detektor tillhandahåller en Linux-behållare för Docker, inkapsling av avvikelse identifiering med batch vs streaming, förväntat intervalls-härledning och känslighets justering.
-* Behållar avbildningar laddas ned från ett privat Azure Container Registry dedikerat för för hands version.
+* Behållar avbildningar hämtas från ett privat Azure Container Registry dedikerat för behållare.
 * Behållar avbildningar körs i Docker.
 * Du kan använda antingen REST API eller SDK för att anropa åtgärder i avvikande detektor behållare genom att ange behållarens värd-URI.
 * Du måste ange fakturerings information när du instansierar en behållare.

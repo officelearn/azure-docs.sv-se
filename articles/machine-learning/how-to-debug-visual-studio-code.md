@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530309"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907610"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktiv fel sökning med Visual Studio Code
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Lär dig att interaktivt felsöka Azure Machine Learning pipelines och distributioner med Visual Studio Code (VS Code) och [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -109,7 +109,7 @@ Om du vill aktivera fel sökning gör du följande ändringar i python-skripten 
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-Följande python-exempel visar en grundläggande `train.py` fil som aktiverar fel sökning:
+Följande python-exempel visar en enkel `train.py` fil som aktiverar fel sökning:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.

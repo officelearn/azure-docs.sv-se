@@ -1,6 +1,6 @@
 ---
-title: Distribuera virtuella datorer på din Azure Stack Edge-enhet via mallar
-description: 'Beskriver hur du skapar och hanterar virtuella datorer (VM: ar) på en Azure Stack Edge-enhet med hjälp av mallar.'
+title: Distribuera virtuella datorer på din Azure Stack Edge Pro-enhet via mallar
+description: 'Beskriver hur du skapar och hanterar virtuella datorer (VM: ar) på en Azure Stack Edge Pro-enhet med hjälp av mallar.'
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419834"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899707"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Distribuera virtuella datorer på Azure Stack Edge-GPU-enhet via mallar
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Distribuera virtuella datorer på din Azure Stack Edge Pro GPU-enhet via mallar
 
-I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge-enhet med hjälp av mallar. Dessa mallar är JavaScript Object Notation-filer (JSON) som definierar infrastrukturen och konfigurationen för den virtuella datorn. I de här mallarna anger du de resurser som ska distribueras och egenskaperna för dessa resurser.
+I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge Pro-enhet med hjälp av mallar. Dessa mallar är JavaScript Object Notation-filer (JSON) som definierar infrastrukturen och konfigurationen för den virtuella datorn. I de här mallarna anger du de resurser som ska distribueras och egenskaperna för dessa resurser.
 
 Mallar är flexibla i olika miljöer eftersom de kan ta parametrar som indata vid körning från en fil. Standard namngivnings strukturen är `TemplateName.json` för mallen och `TemplateName.parameters.json` för parameter filen. Mer information om ARM-mallar finns i [Azure Resource Manager mallar?](../azure-resource-manager/templates/overview.md).
 
@@ -25,7 +25,7 @@ I den här självstudien använder vi fördefinierade exempel mallar för att sk
 
 ## <a name="vm-deployment-workflow"></a>Arbets flöde för distribution av virtuell dator
 
-Om du vill distribuera Azure Stack Edge-VM: ar över många enheter, kan du använda en enda virtuell Sysprep-hårddisk för din fulla flotta, samma mall för distribution och bara göra mindre ändringar i parametrarna för den mallen för varje distributions plats (dessa ändringar kan göras manuellt, eller program mässig.) 
+Om du vill distribuera virtuella Azure Stack Edge Pro-datorer över många enheter, kan du använda en enda virtuell Sysprep-hårddisk för din fulla flotta, samma mall för distribution och bara göra mindre ändringar i parametrarna för den mallen för varje distributions plats (dessa ändringar kan göras manuellt, eller program mässigt). 
 
 Den övergripande översikten över arbets flödet för distribution med hjälp av mallar är följande:
 
@@ -57,13 +57,13 @@ Den övergripande översikten över arbets flödet för distribution med hjälp 
 
 ## <a name="device-prerequisites"></a>Enhets krav
 
-Konfigurera de här förutsättningarna på Azure Stack Edge-enheten.
+Konfigurera dessa krav på din Azure Stack Edge Pro-enhet.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## <a name="client-prerequisites"></a>Klient krav
 
-Konfigurera de här kraven på klienten som ska användas för att få åtkomst till Azure Stack Edge-enheten.
+Konfigurera de här förutsättningarna på klienten som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
 
 1. [Ladda ned Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om du använder den för att ladda upp en virtuell hård disk. Du kan också ladda ned AzCopy för att ladda upp en virtuell hård disk. Du kan behöva konfigurera TLS 1,2 på klient datorn om du kör äldre versioner av AzCopy. 
 1. [Ladda ned filerna för VM-mallarna och-parametrarna](https://aka.ms/ase-vm-templates) till klient datorn. Zippa upp den till en katalog som du ska använda som arbets katalog.
@@ -108,7 +108,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Endast lokala lagrings konton som lokalt redundant lagring (Standard_LRS eller Premium_LRS) kan skapas via Azure Resource Manager. Om du vill skapa lagrings konton på nivå, se stegen i [Lägg till, Anslut till lagrings konton på Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Endast lokala lagrings konton som lokalt redundant lagring (Standard_LRS eller Premium_LRS) kan skapas via Azure Resource Manager. Om du vill skapa lagrings konton på nivå, se stegen i [Lägg till, Anslut till lagrings konton på Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Ett exempel på utdata visas nedan.
 
@@ -145,7 +145,7 @@ Kontrol lera att du redan har lagt till BLOB-URI: n i hosts-filen för den klien
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-I en typisk miljö skulle du ha konfigurerat din DNS så att alla lagrings konton pekar på den Azure Stack gräns enheten med en `*.blob.devicename.domainname.com` post.
+I en typisk miljö skulle du ha konfigurerat din DNS så att alla lagrings konton pekar på den Azure Stack Edge Pro-enheten med en `*.blob.devicename.domainname.com` post.
 
 ### <a name="optional-install-certificates"></a>Valfritt Installera certifikat
 
@@ -215,7 +215,7 @@ Kopiera eventuella disk avbildningar som ska användas i sid-blobar i det lokala
 
 <!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 
 ```powershell
@@ -269,7 +269,7 @@ Filen `CreateImageAndVnet.parameters.json` tar följande parametrar:
     }
 ```
 
-Redigera filen `CreateImageAndVnet.parameters.json` och Lägg till följande för din Azure Stack Edge-enhet:
+Redigera filen `CreateImageAndVnet.parameters.json` och Lägg till följande för din Azure Stack Edge Pro-enhet:
 
 1. Ange vilken OS-typ som motsvarar den virtuella hård disk som du vill ladda upp. OS-typen kan vara Windows eller Linux.
 
@@ -341,7 +341,7 @@ Redigera filen `CreateImageAndVnet.parameters.json` och Lägg till följande fö
 Distribuera mallen `CreateImageAndVnet.json` . Den här mallen distribuerar VNet-och avbildnings resurserna som ska användas för att skapa virtuella datorer i senare steg.
 
 > [!NOTE]
-> När du distribuerar mallen om du får ett autentiseringsfel kan dina Azure-autentiseringsuppgifter för den här sessionen ha gått ut. Kör `login-AzureRM` kommandot igen för att ansluta till Azure Resource Manager på Azure Stack Edge-enheten igen.
+> När du distribuerar mallen om du får ett autentiseringsfel kan dina Azure-autentiseringsuppgifter för den här sessionen ha gått ut. Kör `login-AzureRM` kommandot igen för att ansluta till Azure Resource Manager på din Azure Stack Edge Pro-enhet igen.
 
 1. Kör följande kommando: 
     
@@ -437,7 +437,7 @@ Använd parameter filen om du vill skapa en virtuell dator `CreateVM.parameters.
         }
 ```    
 
-Tilldela lämpliga parametrar i `CreateVM.parameters.json` för din Azure Stack Edge-enhet.
+Tilldela lämpliga parametrar i `CreateVM.parameters.json` för din Azure Stack Edge Pro-enhet.
 
 1. Ange ett unikt namn, ett namn på ett nätverks gränssnitt och ett namn för ipconfig. 
 1. Ange ett användar namn, lösen ord och en VM-storlek som stöds.
@@ -594,7 +594,7 @@ Följ dessa steg för att ansluta till en virtuell Linux-dator.
 
 <!--## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
 
@@ -609,9 +609,9 @@ Tillägg, skalnings uppsättningar, tillgänglighets uppsättningar, ögonblicks
 
 <!--## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 

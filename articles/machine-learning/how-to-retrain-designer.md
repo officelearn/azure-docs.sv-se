@@ -1,7 +1,7 @@
 ---
-title: Träna om modeller med hjälp av Azure Machine Learning designer (förhands granskning)
+title: Träna om modeller med hjälp av Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer (för hands version).
+description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661612"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905683"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Omträningsmodeller med Azure Machine Learning Designer (förhandsversion)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Träna modeller med Azure Machine Learning designer
+
 
 I den här instruktions artikeln får du lära dig hur du använder Azure Machine Learning designer för att omträna en maskin inlärnings modell. Du kommer att använda publicerade pipelines för att automatisera arbets flödet och ange parametrar för att träna din modell på nya data. 
 
@@ -30,14 +30,14 @@ I den här artikeln kan du se hur du:
 > * Publicera din utbildnings pipeline.
 > * Träna din modell med nya parametrar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure Machine Learning-arbetsyta med Enterprise SKU.
-* Slutför del 1 av den här instruktions serien, [transformera data i designern](how-to-designer-transform-data.md).
+* En Azure Machine Learning-arbetsyta
+* Slutför del 1 av den här instruktions serien, [transformera data i designern](how-to-designer-transform-data.md)
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-Den här artikeln förutsätter också att du har grundläggande kunskaper om att skapa pipelines i designern. Slutför [självstudien](tutorial-designer-automobile-price-train-score.md)för en guidad introduktion. 
+Den här artikeln förutsätter också att du har kunskaper om att skapa pipelines i designern. Slutför [självstudien](tutorial-designer-automobile-price-train-score.md)för en guidad introduktion. 
 
 ### <a name="sample-pipeline"></a>Exempel på pipeline
 

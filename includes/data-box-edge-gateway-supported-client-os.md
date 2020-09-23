@@ -13,7 +13,7 @@ ms.locfileid: "67187788"
 ---
 Här är en lista över operativ system som stöds för klienter eller värdar som är anslutna till din enhet. Dessa versioner av operativ systemet testades internt.
 
-| **Operativ system/plattform** | **5** |
+| **Operativ system/plattform** | **Versioner** |
 | --- | --- |
 | Windows Server |2012 R2 <br> 2016 <br> 2019|
 | Windows |8, 10 |

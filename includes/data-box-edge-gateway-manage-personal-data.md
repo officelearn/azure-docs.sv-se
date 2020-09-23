@@ -16,9 +16,9 @@ ms.locfileid: "67187984"
   - Telefonnummer
   - E-postadress
   - Gatuadress
-  - Ort
+  - City
   - POST nummer
-  - Status
+  - Tillstånd
   - Land/provins/region
   - Spårningsnummer för leveransen
 

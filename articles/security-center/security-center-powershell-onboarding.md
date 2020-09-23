@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080762"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904803"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera onboarding av Azure Security Center med hjälp av PowerShell
 
@@ -29,9 +29,9 @@ När du registrerar Azure Security Center med hjälp av PowerShell kan du automa
 
 Den här artikeln innehåller ett exempel på ett PowerShell-skript som kan ändras och användas i din miljö för att distribuera Security Center över dina prenumerationer. 
 
-I det här exemplet aktiverar vi Security Center för en prenumeration med ID: d07c0080-170c-4c24-861d-9c817742786c och tillämpar de rekommenderade inställningarna som ger en hög skydds nivå genom att implementera standard Security Center, som tillhandahåller avancerade hot skydd och identifierings funktioner:
+I det här exemplet aktiverar vi Security Center för en prenumeration med ID: d07c0080-170c-4c24-861d-9c817742786c och tillämpar de rekommenderade inställningarna som ger en hög skydds nivå genom att aktivera Azure Defender, som tillhandahåller funktioner för avancerad hot skydd och identifiering:
 
-1. Ange [Security Center standard skydds nivå](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Aktivera [Azure Defender](azure-defender.md). 
  
 2. Ange Log Analytics arbets ytan som Log Analytics agent ska skicka de data som samlas in på de virtuella datorer som är associerade med prenumerationen – i det här exemplet en befintlig användardefinierad arbets yta (min arbets yta).
 
@@ -61,7 +61,7 @@ De här stegen bör utföras innan du kör Security Center-cmdlet: ar:
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. Valfritt: Ange täcknings nivå (pris nivå) för prenumerationerna (om den inte är definierad är pris nivån inställd på kostnads fri):
+1. Valfritt: Ange täcknings nivå (Azure Defender på/av) för prenumerationerna. Om odefinierad, är Defender av:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 

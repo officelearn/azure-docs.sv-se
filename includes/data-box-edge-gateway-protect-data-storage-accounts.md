@@ -11,12 +11,12 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562140"
 ---
-Enheten är associerad med ett lagrings konto som används som mål för dina data i Azure. Åtkomst till lagrings kontot styrs av prenumerations-och 2 512-bitars lagrings åtkomst nycklar som är kopplade till det lagrings kontot.
+Enheten associeras med ett lagringskonto som används som mål för dina data i Azure. Åtkomsten till lagringskontot styrs via prenumerationen och två lagringsåtkomstnycklar på 512 bitar som är kopplade till lagringskontot.
 
-En av nycklarna används för autentisering när Azure Stack Edge-enheten har åtkomst till lagrings kontot. Den andra nyckeln lagras i reserv, så du kan rotera nycklarna med jämna mellanrum.
+En av nycklarna används för autentisering när Azure Stack Edge-enheten ansluter till lagringskontot. Den andra nyckeln sparas i reserv så du kan rotera nycklarna med jämna mellanrum.
 
-Av säkerhets skäl kräver många data Center nyckel rotation. Vi rekommenderar att du följer dessa metod tips för nyckel rotation:
+Många datacenter kräver nyckelrotation av säkerhetsskäl. Vi rekommenderar att du följer dessa metod tips för nyckel rotation:
 
-- Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Skydda din konto nyckel noggrant. Distribuera inte lösen ordet till andra användare, hårdkoda det eller spara det var som helst med vanlig text som är tillgänglig för andra.
+- Din nyckel för lagringskontot liknar rotlösenordet för lagringskontot. Skydda din kontonyckel noga. Sprid inte lösenordet till andra användare, hårdkoda det eller spara det i klartext där andra kan se.
 - Återskapa din konto nyckel via Azure Portal om du tror att den kan komprometteras. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../articles/storage/common/storage-account-keys-manage.md).
 - Azure-administratören bör regelbundet ändra eller återskapa den primära eller sekundära nyckeln med hjälp av lagrings avsnittet i Azure Portal för att komma åt lagrings kontot direkt.

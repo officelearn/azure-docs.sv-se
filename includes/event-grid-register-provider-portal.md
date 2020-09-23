@@ -19,7 +19,7 @@ ms.locfileid: "81605647"
 
 Om du inte har använt Event Grid förut i din Azure-prenumeration kan du behöva registrera Event Grid-resursprovidern.
 
-På Azure Portal:
+I Azure-portalen:
 
 1. Välj **prenumerationer** på den vänstra menyn.
 1. Välj den prenumeration som du använder för Event Grid.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612834"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906380"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Vanliga frågor och svar om kunder som redan använder Azure Monitor loggar<a name="existingloganalyticscust"></a>
 
@@ -32,10 +32,11 @@ En Security Center lösning installeras på den arbets yta som valts på skärme
 > Om Log Analytics-agenten installeras direkt på den virtuella datorn (inte som ett Azure-tillägg) installerar Security Center inte Log Analytics agenten och säkerhets övervakningen är begränsad.
 
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Installerar Security Center lösningar på mina befintliga Log Analytics arbets ytor? Vilka är fakturerings konsekvenserna?
-När Security Center identifierar att en virtuell dator redan är ansluten till en arbets yta som du har skapat, kan Security Center aktivera lösningar på den här arbets ytan enligt pris nivån. Lösningarna tillämpas bara på relevanta virtuella Azure-datorer, via [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md), så att faktureringen förblir densamma.
+När Security Center identifierar att en virtuell dator redan är ansluten till en arbets yta som du har skapat, kan Security Center aktivera lösningar på den här arbets ytan enligt pris konfigurationen. Lösningarna tillämpas bara på relevanta virtuella Azure-datorer, via [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md), så att faktureringen förblir densamma.
 
-- **Kostnads fri nivå** – Security Center installerar lösningen "SecurityCenterFree" på arbets ytan. Du debiteras inte för den kostnads fria nivån.
-- **Standard-nivån** – Security Center installerar Security-lösningen på arbets ytan.
+- **Azure Defender av** – Security Center installerar lösningen "SecurityCenterFree" på arbets ytan. Du debiteras inte.
+- 
+- **Azure Defender på** – Security Center installerar säkerhets lösningen på arbets ytan.
 
    ![Lösningar på standard arbets ytan](./media/security-center-platform-migration-faq/solutions.png)
 
@@ -45,4 +46,4 @@ Om en virtuell dator redan har Log Analytics-agenten installerad som ett Azure-t
 När Security Center installerar Log Analytics agent på virtuella datorer används standard arbets ytorna som skapats av Security Center om Security Center inte pekar på en befintlig arbets yta.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Jag har redan säkerhets lösning på mina arbets ytor. Vilka är fakturerings konsekvenserna?
-Säkerhets & gransknings lösningen används för att aktivera Security Center standard-nivå funktioner för virtuella Azure-datorer. Om säkerhets & gransknings lösningen redan är installerad på en arbets yta använder Security Center den befintliga lösningen. Faktureringen har inte ändrats.
+Gransknings lösningen för säkerhets & används för att aktivera **Azure Defender för servrar**. Om säkerhets & gransknings lösningen redan är installerad på en arbets yta använder Security Center den befintliga lösningen. Faktureringen har inte ändrats.

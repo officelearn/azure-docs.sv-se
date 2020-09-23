@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -30,12 +30,12 @@ ms.locfileid: "73633753"
 
 1. Ange följande information för att konfigurera din nya arbets yta:
 
-   Field|Beskrivning 
+   Fält|Beskrivning 
    ---|---
    Namn på arbetsyta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra.  
-   Prenumeration |Ange den prenumeration som du vill använda.
+   Prenumeration |Välj den Azure-prenumeration som du vill använda.
    Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. 
-   Plats | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
+   Position | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
    Arbetsyte version | Välj **Basic** som arbets ytans typ för den här självstudien. Typ av arbets yta (Basic & Enterprise) bestämmer vilka funktioner du kommer att ha åtkomst till och prissättning. Allt i den här självstudien kan utföras med en grundläggande eller Enterprise-arbetsyta.
 
 1. När du är färdig med konfigurationen av arbets ytan väljer du **Granska + skapa**. 

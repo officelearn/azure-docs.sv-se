@@ -8,20 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277501"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906317"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Skydda resurser i Windows administrations Center med Security Center
 
 Windows administrations Center är ett hanterings verktyg för dina Windows-servrar. Det är en enda plats för system administratörer som har till gång till de flesta av de vanligaste administratörs verktygen. Inifrån Windows administrations Center kan du direkt publicera dina lokal-servrar i Azure Security Center. Du kan sedan Visa en sammanfattning av dina säkerhets rekommendationer och aviseringar direkt i Windows administrations Center-upplevelsen.
 
 > [!NOTE]
-> Din Azure-prenumeration och den associerade Log Analytics arbets ytan måste båda ha Security Center standard nivå aktive rad för att kunna aktivera integrering med Windows administrations Center.
-> Standard nivån är kostnads fri under de första 30 dagarna om du inte tidigare har använt den på prenumerationen och arbets ytan. Mer information finns [på sidan med pris information](security-center-pricing.md).
+> Din Azure-prenumeration och den associerade Log Analytics arbets ytan måste båda ha Azure Defender aktiverat för att kunna aktivera integrering av Windows administrations Center.
+> Azure Defender är kostnads fritt under de första 30 dagarna om du inte tidigare har använt det på prenumerationen och arbets ytan. Mer information finns [på sidan med pris information](security-center-pricing.md).
 >
 
 När du har registrerat en server från Windows administrations Center till Azure Security Center kan du:
@@ -46,8 +46,8 @@ Genom att kombinera dessa två verktyg blir Security Center det enda fönstret a
 1. Följ anvisningarna för att ansluta servern till Security Center. När du har angett nödvändig information och bekräftat, gör Security Center nödvändiga konfigurations ändringar för att säkerställa att alla följande är uppfyllda:
     * En Azure-Gateway har registrerats.
     * Servern har en arbets yta att rapportera till och en associerad prenumeration.
-    * Security Center standard nivån Log Analytics lösning är aktive rad på arbets ytan. Den här lösningen innehåller Security Center standard-nivå funktioner för *alla* servrar och virtuella datorer som rapporterar till den här arbets ytan.
-    * Security Center standard pris nivån för den virtuella datorn är aktive rad för prenumerationen.
+    * Security Center Log Analyticss lösning är aktive rad på arbets ytan. Den här lösningen tillhandahåller Azure Defender-funktioner för *alla* servrar och virtuella datorer som rapporterar till den här arbets ytan.
+    * Azure Defender för-servrar är aktiverat i prenumerationen.
     * Log Analytics Agent installeras på servern och konfigureras att rapportera till den valda arbets ytan. Om servern redan rapporterar till en annan arbets yta har den kon figurer ATS för att rapportera till den nyligen valda arbets ytan.
 
     > [!NOTE]
@@ -63,12 +63,8 @@ När du har registrerat dig kan du Visa aviseringar och rekommendationer direkt 
 ## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Se säkerhets rekommendationer och aviseringar för hanterade Windows administrations Center-servrar i Security Center
 Från Azure Security Center:
 
-* Öppna **compute &-appar** och klicka på fliken **virtuella datorer och datorer** om du vill visa säkerhets rekommendationer för alla dina Windows administrations Center-servrar. Filtrera listan efter resurs "Server" som visas här:
-
-    [![Visa säkerhets rekommendationer för Windows administrations Center hanterade servrar](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* Om du vill visa säkerhets rekommendationer för alla dina Windows administrations Center-servrar öppnar du [till gångs inventering](asset-inventory.md) och filtrerar till den typ av dator som du vill undersöka. Välj fliken **virtuella datorer och datorer** .
 
 * Öppna **säkerhets aviseringar**för att Visa säkerhets aviseringar för alla dina Windows administrations Center-servrar. Klicka på **filter** och se till att **endast** "icke-Azure" är valt:
 
-    ![Filtrera säkerhets aviseringar för hanterade servrar i Windows administrations Center](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![Visa säkerhets aviseringar för hanterade servrar i Windows administrations Center](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrera säkerhets aviseringar för hanterade servrar i Windows administrations Center" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

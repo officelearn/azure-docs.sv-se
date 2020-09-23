@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f60a0167e7ac09b1fdfee87cc8412cdbe19053
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255978"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968860"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av REST API-anrop
 
@@ -37,11 +37,9 @@ I den här artikeln använder du en sväng för att ringa till Azure Resource Ma
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Om du använder Windows installerar du Windows- [undersystemet för Linux](/windows/wsl/about) eller använder [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure Portal.
-- [Installera den lokala Azure CLI-konsolen](/cli/azure/install-azure-cli)om du använder [Windows-undersystemet för Linux](/windows/wsl/about) eller ett [Linux-distributions operativ system](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
-- Om du använder en lokal Azure CLI-konsol loggar du in på Azure med `az login` med ett konto som är associerat med den Azure-prenumeration som du vill hantera system eller användarens tilldelade hanterade identiteter.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Du kan köra alla kommandon i den här artikeln antingen i molnet eller lokalt:
+    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md)för att köra i molnet.
+    - Om du vill köra lokalt installerar du [sväng](https://curl.haxx.se/download.html) och [Azure CLI](/cli/azure/install-azure-cli)och loggar sedan in på Azure med hjälp av [AZ login](/cli/azure/reference-index#az-login) med ett konto som är associerat med den Azure-prenumeration som du vill hantera system eller användarens tilldelade hanterade identiteter.
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 

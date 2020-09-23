@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771367"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904717"
 ---
-# <a name="azure-security-center-readiness-roadmap"></a>Beredskapsöversikt för Azure Security Center
+# <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center beredskaps översikt
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
 
 ## <a name="understanding-security-center"></a>Förstå Security Center
@@ -29,12 +29,12 @@ Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mo
 Använd följande resurser för att komma igång med Security Center.
 
 Artiklar
-* [Introduktion till Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Snabbstartsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introduktion till Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Snabbstartsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-Videoklipp
-* [Snabb introduktionsvideo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
-* [Översikt över Security Center-funktioner för skydd, identifiering och svar](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
+Video
+- [Snabb introduktionsvideo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
+- [Översikt över Security Center-funktioner för skydd, identifiering och svar](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>Planering och drift
 
@@ -42,20 +42,16 @@ För att få ut mesta möjliga av Security Center är det viktigt att veta hur o
 
 Med följande resurser får du hjälp under planerings- och driftprocesserna.
 
-Artikel
-* [Planerings- och användningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Planerings- och bruksanvisning för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Registrering av datorer till Security Center
-Security Center identifierar automatiskt eventuella Azure-prenumerationer eller arbetsytor som inte är aktiverade för Security Center Standard. Det inkluderar Azure-prenumerationer med Security Center – Kostnadsfri och arbetsytor som inte har någon aktiverad säkerhetslösning.
+Security Center identifierar automatiskt de Azure-prenumerationer eller arbets ytor som inte skyddas av Azure Defender. Detta inkluderar Azure-prenumerationer som använder Security Center lediga och arbets ytor som inte har säkerhets lösningen aktive rad.
 
 Med följande resurser får du hjälp under registreringsprocesserna.
 
-Artikel
-* [Registrering till Azure Security Center Standard för ökad säkerhet](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
-
-Video
-* [Azure Security Center Hybrid – Översikt](https://youtu.be/NMa4L_M597k)
+- [Publicera icke-Azure-datorer](quickstart-onboard-machines.md)
+- [Azure Security Center Hybrid – Översikt](https://youtu.be/NMa4L_M597k)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>Minimera säkerhetsproblem med Security Center
 Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandväggs- och slutpunktsskyddslösningar för att identifiera verkliga hot och minimera antalet falska positiva identifieringar.
@@ -63,21 +59,20 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 Följande resurser hjälper dig att hantera säkerhetsaviseringar och skydda dina resurser.
 
 Artiklar    
-* [Övervakning av säkerhetshälsa i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
-* [Skydda nätverket i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Skydda Azure SQL-tjänsten och data i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Övervakning av säkerhetshälsa i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+- [Skydda nätverket i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Skydda Azure SQL-tjänsten och data i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
 Video    
-* [Minimera säkerhetsproblem med Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
+- [Minimera säkerhetsproblem med Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Security Center för svar om incidenter
 För att minska kostnaderna och skadan är det viktigt att ha en incident svars plan på plats innan en attack äger rum. Azure Security Center kan användas i olika faser av en incidenthantering.
 
 Med följande resurser kan du lära dig hur Security Center kan införlivas i processen för incidenthantering.
 
-Videoklipp    
+Video    
 * [Incidenthantering i Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Reagera snabbt på hot med nästa generations säkerhetsåtgärder och undersökning](https://youtu.be/e8iFCz5RM4g)
 
@@ -91,7 +86,7 @@ Virtuella Azure-datorer kan dra nytta av funktioner för avancerat molnskydd i S
 
 Använd följande resurser för att lära dig mer om hur du använder funktionerna i Security Center.
 
-Videoklipp    
+Video    
 * [Azure Security Center – just-in-Time VM-åtkomst](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center – Anpassningsbara programkontroller](https://youtu.be/wWWekI1Y9ck)
 
@@ -119,6 +114,4 @@ Artiklar
 ## <a name="community-resources"></a>Community-resurser
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Sidan Microsoft Q&en fråga för Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
-
-
+* [F&en sida för Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)

@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "77474114"
 ---
-Frågor till behållaren debiteras enligt pris nivån för den Azure-resurs som används för `ApiKey`.
+Frågor till behållaren debiteras enligt pris nivån för den Azure-resurs som används för `ApiKey` .
 
 Azure Cognitive Services-behållare är inte licensierade för att köras utan att vara anslutna till avläsnings-/fakturerings slut punkten. Du måste göra det möjligt för behållarna att kommunicera fakturerings information med fakturerings slut punkten hela tiden. Cognitive Services behållare skickar inte kund information, till exempel den bild eller text som analyseras, till Microsoft.
 
@@ -21,10 +21,10 @@ Containern behöver de fakturerings argument värden som ska köras. Dessa värd
 
 ### <a name="billing-arguments"></a>Fakturerings argument
 
-<a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank"> `docker run` Kommandot startar behållaren när alla tre av följande alternativ finns med <span class="docon docon-navigate-external x-hidden-focus"></span> </a> giltiga värden:
+<a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank"> `docker run` Kommandot startar behållaren när alla tre av följande alternativ finns med giltiga värden <span class="docon docon-navigate-external x-hidden-focus"></span> </a> :
 
 | Alternativ | Beskrivning |
 |--------|-------------|
-| `ApiKey` | API-nyckeln för den Cognitive Services resurs som används för att spåra fakturerings information.<br/>Värdet för det här alternativet måste anges till en API-nyckel för den etablerade resurs som anges i `Billing`. |
+| `ApiKey` | API-nyckeln för den Cognitive Services resurs som används för att spåra fakturerings information.<br/>Värdet för det här alternativet måste anges till en API-nyckel för den etablerade resurs som anges i `Billing` . |
 | `Billing` | Slut punkten för den Cognitive Services resursen som används för att spåra fakturerings information.<br/>Värdet för det här alternativet måste anges till slut punkts-URI för en etablerad Azure-resurs.|
 | `Eula` | Anger att du har accepterat licensen för behållaren.<br/>Värdet för det här alternativet måste vara inställt på **acceptera**. |

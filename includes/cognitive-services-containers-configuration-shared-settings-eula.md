@@ -11,9 +11,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "67712507"
 ---
-`Eula` Inställningen indikerar att du har accepterat licensen för behållaren. Du måste ange ett värde för den här konfigurations inställningen och värdet måste anges till `accept`.
+`Eula`Inställningen indikerar att du har accepterat licensen för behållaren. Du måste ange ett värde för den här konfigurations inställningen och värdet måste anges till `accept` .
 
-|Krävs| Name | Datatyp | Beskrivning |
+|Obligatorisk| Name | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Eula` | Sträng | Licens godkännande<br><br>Exempel:<br>`Eula=accept` |
 

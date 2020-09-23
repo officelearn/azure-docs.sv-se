@@ -10,16 +10,16 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419120"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897444"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Tolkning: modell förklaringar i automatiserad Machine Learning (för hands version)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 I den här artikeln får du lära dig hur du får förklaringar för automatisk maskin inlärning (ML) i Azure Machine Learning. Med automatisk ML får du bättre funktioner. 
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 - Aktivera visualiseringar så att du kan se mönster i data och förklaringar.
 - Implementera tolkning under härledning eller poängsättning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Tolknings funktioner. Kör `pip install azureml-interpret azureml-contrib-interpret` för att hämta de nödvändiga paketen.
 - Kunskap om att skapa automatiserade ML-experiment. Mer information om hur du använder Azure Machine Learning SDK finns i [själv studie kursen om regressions modell](tutorial-auto-train-models.md) eller hur du [konfigurerar automatiserade ml-experiment](how-to-configure-auto-train.md).
@@ -43,7 +43,7 @@ Hämta förklaringen från `best_run` , som innehåller förklaringar för de fu
 > [!Warning]
 > Tolkning, bästa modell förklaring, är inte tillgänglig för experiment med automatisk ML-prognoser som rekommenderar följande algoritmer som bästa modell: 
 > * ForecastTCN
-> * Medelvärde 
+> * Genomsnitt 
 > * Naive
 > * Säsongs genomsnitt 
 > * Säsongs Naive

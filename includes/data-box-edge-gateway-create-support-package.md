@@ -31,11 +31,11 @@ Om du får problem med enheten kan du skapa ett support paket från system logga
 
     De parametrar som används är följande:
 
-    - `-Path`-Ange nätverket eller den lokala sökvägen för att kopiera support paketet till. kunna
-    - `-Credential`– Ange autentiseringsuppgifterna för att få åtkomst till den skyddade sökvägen.
-    - `-Zip`-Ange om du vill generera en zip-fil.
-    - `-Include`-Ange om du vill inkludera de komponenter som ska ingå i support paketet. Om inget anges `Default` antas detta.
-    - `-IncludeArchived`-Ange om du vill inkludera arkiverade loggar i support paketet.
-    - `-IncludePeriodicStats`-Ange om du vill inkludera periodiska stat loggar i support paketet.
+    - `-Path` -Ange nätverket eller den lokala sökvägen för att kopiera support paketet till. kunna
+    - `-Credential` – Ange autentiseringsuppgifterna för att få åtkomst till den skyddade sökvägen.
+    - `-Zip` -Ange om du vill generera en zip-fil.
+    - `-Include` -Ange om du vill inkludera de komponenter som ska ingå i support paketet. Om inget anges `Default` antas detta.
+    - `-IncludeArchived` -Ange om du vill inkludera arkiverade loggar i support paketet.
+    - `-IncludePeriodicStats` -Ange om du vill inkludera periodiska stat loggar i support paketet.
 
     

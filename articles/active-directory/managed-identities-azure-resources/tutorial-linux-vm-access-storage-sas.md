@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260245"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968780"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en systemtilldelad hanterad identitet för virtuell Linux-dator
 
@@ -154,7 +154,7 @@ echo "This is a test file." > test.txt
 
 Sedan autentiserar du med CLI-kommandot `az storage` med hjälp av SAS-autentiseringsuppgiften och laddar upp filen till blobcontainern. För det här steget behöver du [installera den senaste versionen av Azure CLI](/cli/azure/install-azure-cli) på din virtuella dator, om du inte redan har gjort det.
 
-```azurecli-interactive
+```azurecli
  az storage blob upload --container-name 
                         --file 
                         --name
@@ -176,7 +176,7 @@ Du kan dessutom ladda ned filen med hjälp av Azure CLI och autentisera med SAS-
 
 Begäran: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download --container-name
                          --file 
                          --name 

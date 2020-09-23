@@ -13,13 +13,13 @@ ms.locfileid: "73484096"
 ---
 Behållaren har följande konfigurations inställningar:
 
-|Krävs|Inställningen|Syfte|
+|Obligatorisk|Inställning|Syfte|
 |--|--|--|
-|Ja|[ApiKey](#apikey-configuration-setting)|Spårar fakturerings information.|
-|Nej|[ApplicationInsights](#applicationinsights-setting)|Aktiverar tillägg av stöd för [Azure Application insikter](https://docs.microsoft.com/azure/application-insights) -telemetri till din behållare.|
-|Ja|[Fakturering](#billing-configuration-setting)|Anger slut punkts-URI för tjänst resursen på Azure.|
-|Ja|[Villkoren](#eula-setting)| Anger att du har accepterat licensen för behållaren.|
-|Nej|[Fluent](#fluentd-settings)|Skriver logg och, om du vill, Metric-data till en Fluent-Server.|
-|Nej|HTTP-proxy|Konfigurerar en HTTP-proxy för att göra utgående begär Anden.|
-|Nej|[Loggning](#logging-settings)|Tillhandahåller ASP.NET Core loggnings stöd för din behållare. |
-|Nej|[Monterar](#mount-settings)|Läser och skriver data från värddatorn till behållaren och från behållaren tillbaka till värddatorn.|
+|Yes|[ApiKey](#apikey-configuration-setting)|Spårar fakturerings information.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Aktiverar tillägg av stöd för [Azure Application insikter](https://docs.microsoft.com/azure/application-insights) -telemetri till din behållare.|
+|Yes|[Billing](#billing-configuration-setting)|Anger slut punkts-URI för tjänst resursen på Azure.|
+|Yes|[Villkoren](#eula-setting)| Anger att du har accepterat licensen för behållaren.|
+|No|[Fluent](#fluentd-settings)|Skriver logg och, om du vill, Metric-data till en Fluent-Server.|
+|No|HTTP-proxy|Konfigurerar en HTTP-proxy för att göra utgående begär Anden.|
+|No|[Loggning](#logging-settings)|Tillhandahåller ASP.NET Core loggnings stöd för din behållare. |
+|No|[Monterar](#mount-settings)|Läser och skriver data från värddatorn till behållaren och från behållaren tillbaka till värddatorn.|

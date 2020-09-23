@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Se hur du matar in meddelanden för telemetri från IoT Hub.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 8/11/2020
+ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7e6c200f0bec90fb73122e50885f2e6ad7420aeb
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564397"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983322"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Mata in IoT Hub telemetri i Azure Digitals, dubbla
 
@@ -31,20 +31,20 @@ Innan du fortsätter med det här exemplet måste du konfigurera följande resur
 
 ### <a name="example-telemetry-scenario"></a>Exempel scenario för telemetri
 
-Den här instruktionen beskriver hur du skickar meddelanden från IoT Hub till Azures digitala dubbla, med hjälp av en Azure-funktion. Det finns många möjliga konfigurationer och matchnings strategier som du kan använda för detta, men exemplet för den här artikeln innehåller följande delar:
-* En termometer-enhet i IoT Hub, med ett känt enhets-ID.
+Den här instruktionen beskriver hur du skickar meddelanden från IoT Hub till Azures digitala dubbla, med hjälp av en Azure-funktion. Det finns många möjliga konfigurationer och matchnings strategier som du kan använda för att skicka meddelanden, men exemplet för den här artikeln innehåller följande delar:
+* En termometer-enhet i IoT Hub, med ett känt enhets-ID
 * En digital enhet som representerar enheten, med ett matchande ID
 
 > [!NOTE]
 > I det här exemplet används en enkel ID-matchning mellan enhets-ID: t och motsvarande digitala dubbla ID, men det är möjligt att ge mer sofistikerade mappningar från enheten till dess dubbla (till exempel med en mappnings tabell).
 
-När en händelse för temperatur telemetri skickas av termometer-enheten, bör *temperatur* egenskapen för den digitala enheten uppdateras. Det här scenariot beskrivs i ett diagram nedan:
+När en händelse för temperatur telemetri skickas av termostat-enheten, bearbetar en Azure-funktion Telemetrin och egenskapen *temperatur* för den digitala enheten bör uppdateras. Det här scenariot beskrivs i ett diagram nedan:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet visas en IoT Hub enhet som skickar temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Lägg till en modell och dubbla
 
-Du behöver en dubbla för att uppdatera med IoT Hub-information.
+Du kan lägga till/Ladda upp en modell med kommandot CLI nedan och sedan skapa en dubbel med den här modellen som kommer att uppdateras med information från IoT Hub.
 
 Modellen ser ut så här:
 ```JSON
@@ -129,7 +129,9 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Uppdatera din Azure Function-kod
 
-Nu när du förstår koden från de tidigare exemplen öppnar du Visual Studio och ersätter din Azure Function-kod med denna exempel kod.
+Nu när du förstår koden från de tidigare exemplen öppnar du Azure-funktionen från avsnittet [*krav*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) i Visual Studio. (Om du inte har en Azure-funktion kan du gå till länken i förutsättningarna för att skapa en nu).
+
+Ersätt din Azure Function-kod med den här exempel koden.
 
 ```csharp
 using System;
@@ -191,21 +193,52 @@ namespace IotHubtoTwins
     }
 }
 ```
+Spara funktions koden och publicera Function-appen till Azure. Du kan göra detta genom att läsa avsnittet om att [*publicera Funktionsapp*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) avsnittet i [*How-to: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md).
+
+Efter en lyckad publicering visas utdata i Visual Studio-kommando fönstret som visas nedan:
+
+```cmd
+1>------ Build started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+1>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>------ Publish started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\Out\
+2>Publishing C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\adtIngestFunctionSample - 20200911112545669.zip to https://adtingestfunctionsample20200818134346.scm.azurewebsites.net/api/zipdeploy...
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
+```
+Du kan också kontrol lera status för publicerings processen i [Azure Portal](https://portal.azure.com/). Sök efter din _resurs grupp_ och navigera till _aktivitets loggen_ och leta efter _Hämta publicerings profil för webbapp_ i listan och kontrol lera att statusen har slutförts.
+
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Skärm bild av Azure Portal som visar publicerings processens status.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Anslut din funktion till IoT Hub
 
-1. Konfigurera ett händelse mål för Hub-data. I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen. Under **händelser**skapar du en prenumeration för Azure-funktionen. 
+Konfigurera ett händelse mål för Hub-data.
+I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen som du skapade i avsnittet [*krav*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . Under **händelser**skapar du en prenumeration för Azure-funktionen.
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Skärm bild av Azure Portal som visar hur du lägger till en händelse prenumeration.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Skärm bild av Azure Portal som visar hur du lägger till en händelse prenumeration.":::
 
-2. På sidan **Skapa händelse prenumeration** fyller du i fälten enligt följande:
-    1. Namn på den prenumeration du vill ha under **namn**.
-    2. Under **händelse schema**väljer du **Event Grid schema**.
-    3. Under **namn på system ämne**väljer du ett unikt namn.
-    4. Under **händelse typer**väljer du **enhets telemetri** som händelse typ för att filtrera till.
-    5. Under **slut punkts information**väljer du din Azure-funktion som en slut punkt.
+På sidan **Skapa händelse prenumeration** fyller du i fälten enligt följande:
+  1. Namn på den prenumeration du vill ha under **namn**.
+  2. Under **händelse schema**väljer du _Event Grid schema_.
+  3. Under **händelse typer**väljer du kryss rutan _telemetri för enheter_ och avmarkerar andra händelse typer.
+  4. Välj _Azure Function_under **typ av slut punkt**.
+  5. Under **slut punkt**väljer du _Välj en slut punkts_ länk för att skapa en slut punkt.
+    
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Skärm bild av Azure Portal för att skapa information om händelse prenumerationen":::
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/event-subscription-2.png" alt-text="Skärm bild av Azure Portal som visar information om händelse prenumerationen":::
+Verifiera nedanstående information på sidan _Välj Azure-funktion_ som öppnas.
+ 1. **Prenumeration**: din Azure-prenumeration
+ 2. **Resurs grupp**: din resurs grupp
+ 3. **Function-app**: namnet på din Function-app
+ 4. **Fack**: _produktion_
+ 5. **Funktion**: Välj din Azure-funktion i list rutan.
+
+Spara informationen genom att välja knappen _Bekräfta markering_ .            
+      
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Skärm bild av Azure Portal för att välja Azure Function":::
+
+Klicka på _skapa_ om du vill skapa en händelse prenumeration.
 
 ## <a name="send-simulated-iot-data"></a>Skicka simulerade IoT-data
 

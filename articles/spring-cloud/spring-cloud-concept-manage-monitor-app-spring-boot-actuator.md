@@ -7,18 +7,20 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299515"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904285"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Hantera och övervaka appen med Azure Spring Boot Actuator
 
+**Den här artikeln gäller för:** ✔️ Java
+
 När du har distribuerat ny binärfil till appen kanske du vill kontrol lera funktionerna och se information om ditt program som körs. Den här artikeln förklarar hur du får åtkomst till API: et från en test slut punkt som tillhandahålls av Azure våren Cloud och som visar produktions klara funktioner för din app.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här artikeln förutsätter vi att du har ett program med vår start 2. x som kan distribueras och startas på Azure våren Cloud service.  Se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Verifiera appen via test slut punkten
@@ -73,5 +75,7 @@ Nu kan du gå tillbaka till fönstret Översikt över appen och vänta tills eta
 Om du vill visa alla inbyggda slut punkter, se [exponera slut punkter](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Förstå mått för Azure våren Cloud](spring-cloud-concept-metrics.md)
-* [Förstå app-status i Azure våren Cloud](spring-cloud-concept-app-status.md))
+* [Förstå appstatus i Azure Spring Cloud](spring-cloud-concept-app-status.md)
+

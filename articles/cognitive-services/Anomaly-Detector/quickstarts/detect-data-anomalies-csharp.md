@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a364588d77fb24e96c831ce541c5bb4e63d93e98
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a5a3757a33beebb6e688dbea13259723da9280cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922352"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904566"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och C #
 
-Använd den här snabb starten för att börja använda de två identifierings lägena för avvikelse detektor API: erna för att identifiera avvikelser i dina tids serie data. Detta C#-program skickar två API-begäranden som innehåller JSON-formaterade Time Series-data och hämtar svaren.
+Använd den här snabb starten för att börja använda API: t för avvikelse identifiering för att identifiera avvikelser i dina tids serie data. Det här C#-programmet skickar API-begäranden som innehåller JSON-formaterade Time Series-data och hämtar svaren.
 
 | API-begäran                                        | Programutdata                                                                                                                                         |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Identifiera avvikelser som en batch                        | JSON-svaret som innehåller avvikelse status (och andra data) för varje data punkt i tids serie data och positionerna för identifierade avvikelser. |
-| Identifiera avvikelse statusen för den senaste data punkten | JSON-svaret som innehåller avvikelse status (och andra data) för den senaste data punkten i tids serie data.                                        |
+| Identifiera avvikelse statusen för den senaste data punkten | JSON-svaret som innehåller avvikelse status (och andra data) för den senaste data punkten i tids serie data. |
+| Identifiera ändrings punkter som markerar nya data trender | JSON-svaret som innehåller de identifierade ändrings punkterna i tids serie data. |
 
- Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Du hittar käll koden för den här snabb starten på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
+Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Du hittar käll koden för den här snabb starten på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -61,6 +62,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
     |------------------------------------|--------------------------------------------------|
     | Batch-identifiering                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Identifiering på den senaste data punkten | `/anomalydetector/v1.0/timeseries/last/detect`   |
+    | Identifiering av ändrings punkt | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
@@ -95,6 +97,18 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
 
+## <a name="detect-change-points-in-the-data"></a>Identifiera ändrings punkter i data
+
+1. Skapa en ny funktion som kallas `detectChangePoints()` . Skapa begäran och skicka den genom `Request()` att anropa funktionen med slut punkten, URL: en för avvikelse identifiering i batch, din prenumerations nyckel och tids serie data.
+
+2. Deserialisera JSON-objektet och skriv det till-konsolen.
+
+3. Om svaret innehåller ett `code` fält skriver du ut felkoden och fel meddelandet.
+
+4. Annars kan du hitta positionerna för ändrings punkter i data uppsättningen. Svarets `isChangePoint` fält innehåller en matris med booleska värden, som anger om en data punkt har identifierats som en ändrings punkt. Konvertera detta till en sträng mat ris med funktionen Response Object `ToObject<bool[]>()` . Upprepa genom matrisen och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexen för trend ändrings punkter, om de påträffades.
+
+    [!code-csharp[Detect change points](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectChangePoints)]
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Läs in dina Time Series-data och skicka begäran
 
 1. I appens huvud metod läser du in dina JSON Time Series-data med `File.ReadAllText()` .
@@ -108,5 +122,6 @@ Använd den här snabb starten för att börja använda de två identifierings l
 Ett lyckat svar returneras i JSON-format. Klicka på länkarna nedan om du vill visa JSON-svaret på GitHub:
 * [Exempel svar för batch-identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Exempel svar på senaste Poäng identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Exempel svar för ändring av Poäng identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

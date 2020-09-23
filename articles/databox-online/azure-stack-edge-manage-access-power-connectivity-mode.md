@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge-enhetens åtkomst, energi läge och anslutnings läge | Microsoft Docs
-description: Beskriver hur du hanterar åtkomst, energi och anslutnings läge för Azure Stack Edge-enhet som hjälper till att överföra data till Azure
+title: Azure Stack Edge Pro-enhets åtkomst, energi läge och anslutnings läge | Microsoft Docs
+description: Beskriver hur du hanterar åtkomst, energi och anslutnings läge för Azure Stack Edge Pro-enhet som hjälper till att överföra data till Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079803"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904415"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Hantera åtkomst, energi och anslutnings läge för Azure Stack Edge
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Stack Edge Pro
 
-Den här artikeln beskriver hur du hanterar åtkomst, ström och anslutnings läge för din Azure Stack Edge. De här åtgärderna utförs via det lokala webb gränssnittet eller Azure Portal.
+Den här artikeln beskriver hur du hanterar åtkomst, ström och anslutnings läge för din Azure Stack Edge Pro. De här åtgärderna utförs via det lokala webb gränssnittet eller Azure Portal.
 
 I den här artikeln kan du se hur du:
 
@@ -29,7 +29,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="manage-device-access"></a>Hantera enhets åtkomst
 
-Åtkomsten till din Azure Stack Edge-enhet styrs av användningen av ett enhets lösen ord. Du kan ändra lösen ordet via det lokala webb gränssnittet. Du kan också återställa enhetens lösen ord i Azure Portal.
+Åtkomsten till din Azure Stack Edge Pro-enhet styrs av användningen av ett enhets lösen ord. Du kan ändra lösen ordet via det lokala webb gränssnittet. Du kan också återställa enhetens lösen ord i Azure Portal.
 
 ### <a name="change-device-password"></a>Ändra enhetens lösenord
 
@@ -61,12 +61,12 @@ Om du vill skapa Azure Stack Edge/Data Box Gateway, IoT Hub och Azure Storage re
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Hantera Microsoft Graph API-behörigheter
 
-När du genererar aktiverings nyckeln för Azure Stack Edge-enheten, eller utföra åtgärder som kräver autentiseringsuppgifter, måste du ha behörighet att Azure Active Directory Graph API. De åtgärder som behöver autentiseringsuppgifter kan vara:
+När du genererar aktiverings nyckeln för Azure Stack Edge Pro-enheten, eller utföra åtgärder som kräver autentiseringsuppgifter, måste du ha behörighet att Azure Active Directory Graph API. De åtgärder som behöver autentiseringsuppgifter kan vara:
 
 -  Skapa en resurs med ett associerat lagrings konto.
 -  Skapa en användare som har åtkomst till resurserna på enheten.
 
-Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects` . Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects` . Om du är gäst, kommer åtgärder som att generera en aktiverings nyckel att skapa en resurs på din Azure Stack Edge-enhet, skapa en användare, konfiguration av Edge Compute-rollen och återställa enhetens lösen ord.
+Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects` . Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects` . Om du är gäst, kommer åtgärder som att generera en aktiverings nyckel att skapa en resurs på din Azure Stack Edge Pro-enhet, skapa en användare, konfiguration av Edge Compute-rollen och återställa enhetens lösen ord.
 
 Mer information om hur du ger åtkomst till användare till Microsoft Graph API finns i [referens för Microsoft Graph behörigheter](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Om du vill hämta en lista över registrerade resurs leverantörer i den aktuell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-För Azure Stack Edge-enhet `Microsoft.DataBoxEdge` ska registreras. För att registrera dig `Microsoft.DataBoxEdge` bör prenumerations administratören köra följande kommando:
+För Azure Stack Edge Pro-enhet `Microsoft.DataBoxEdge` ska registreras. För att registrera dig `Microsoft.DataBoxEdge` bör prenumerations administratören köra följande kommando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

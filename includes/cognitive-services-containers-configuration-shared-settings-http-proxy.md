@@ -13,7 +13,7 @@ ms.locfileid: "88639146"
 ---
 Om du behöver konfigurera en HTTP-proxy för att göra utgående begär Anden använder du följande två argument:
 
-| Namn | Datatyp | Beskrivning |
+| Name | Datatyp | Beskrivning |
 |--|--|--|
 |HTTPS_PROXY|sträng|Proxyservern som ska användas, till exempel `https://proxy:8888`<br>`<proxy-url>`|
 |HTTPS_PROXY_CREDS|sträng|Alla autentiseringsuppgifter som krävs för att autentisera mot proxyservern, till exempel username: Password.|

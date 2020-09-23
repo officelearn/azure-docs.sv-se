@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a9da4689a1b5579f90a1df0feb487e50d57a9d98
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2f9ac119a3365eff39fe1a65ff8b553d3900b117
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269224"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969325"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Visa tjänstens huvud namn för en hanterad identitet med hjälp av PowerShell
 
@@ -36,13 +36,15 @@ I den här artikeln får du lära dig hur du visar tjänstens huvud namn för en
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md).
 - Om du inte redan har ett Azure-konto kan du [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
 - Aktivera [systemtilldelad identitet på en virtuell dator eller ett](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) [program](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
-- Installera den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps)
+- Om du vill köra exempel skripten har du två alternativ:
+    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md)som du kan öppna med knappen **prova** på det övre högra hörnet av kodblock.
+    - Kör skript lokalt genom att installera den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps)och logga sedan in på Azure med hjälp av `Connect-AzAccount` .
 
 ## <a name="view-the-service-principal"></a>Visa tjänstens huvud namn
 
 Följande kommando visar hur du visar tjänstens huvud namn för en virtuell dator eller ett program med systemtilldelad identitet aktive rad. Ersätt `<VM or application name>` med dina egna värden.
 
-```powershell
+```azurepowershell-interactive
 Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 

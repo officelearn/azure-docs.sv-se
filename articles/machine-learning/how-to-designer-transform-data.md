@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 06ba65b9ef031b1d33477a15e01f3e0be53b5e53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897805"
+ms.locfileid: "90983835"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformera data i Azure Machine Learning designer
 
@@ -112,7 +112,7 @@ Nu när din pipeline har kon figurer ATS för att dela data måste du ange var d
     **Fil format**: CSV
 
     > [!NOTE]
-    > Den här artikeln förutsätter att du har åtkomst till ett data lager som är registrerat på den aktuella Azure Machine Learning-arbetsytan. Instruktioner för hur du konfigurerar ett data lager finns i [Anslut till Azure Storage Services](how-to-access-data.md#studio).
+    > Den här artikeln förutsätter att du har åtkomst till ett data lager som är registrerat på den aktuella Azure Machine Learning-arbetsytan. Instruktioner för hur du konfigurerar ett data lager finns i [Anslut till Azure Storage Services](how-to-connect-data-ui.md#create-datastores).
 
     Om du inte har ett data lager kan du skapa ett nu. I den här artikeln sparas data uppsättningarna till det standard-Blob Storage-konto som är kopplat till arbets ytan. Den sparar data uppsättningarna i `azureml` behållaren i en ny mapp med namnet `data` .
 

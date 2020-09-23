@@ -3,12 +3,12 @@ title: Förstå omfattning i Azure Policy
 description: Beskriver begreppet omfattning i Azure Resource Manager och hur det gäller Azure Policy för att kontrol lera vilka resurser Azure Policy utvärdera.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dee5d2bdbcb5aa86e293652af3bc5008f56b7877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941932"
+ms.locfileid: "90984432"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Förstå omfattning i Azure Policy
 
@@ -34,6 +34,8 @@ En tilldelning har flera egenskaper som anger ett omfång. Användningen av dess
 - Inkludering – en resurs-hierarki eller en enskild resurs bör utvärderas för efterlevnad av definitionen. `properties.scope`Egenskapen för ett tilldelnings objekt bestämmer vad som ska tas med och utvärderas för kompatibilitet. Mer information finns i [tilldelnings definition](./assignment-structure.md).
 
 - Uteslutning-en resurs-hierarki eller en enskild resurs bör inte utvärderas för efterlevnad av definitionen. `properties.notScopes` _Mat ris_ egenskapen för ett tilldelnings objekt avgör vad som ska undantas. Resurser inom dessa omfattningar utvärderas inte eller ingår inte i antalet kompatibla. Mer information finns i [tilldelnings definition-undantagna omfång](./assignment-structure.md#excluded-scopes).
+
+Utöver egenskaperna för princip tilldelningen är [princip undantags](./exemption-structure.md) objekt. Undantag förbättrar omfattnings artikeln genom att tillhandahålla en metod för att identifiera en del av en tilldelning som inte ska utvärderas.
 
 - Undantag (**kostnads fri för hands versions** funktion) – en mappstruktur eller en enskild resurs bör utvärderas för att kontrol lera efterlevnaden av definitionen, men kommer inte att utvärderas på grund av ett avstående eller en annan metod. Resurser i det här läget visas som **undantagna** i rapporterna för efterlevnad så att de kan spåras. Objektet undantag skapas i resurspoolen eller en enskild resurs som ett underordnat objekt, vilket fastställer undantagets omfattning. En resurs-eller enskild resurs kan undantas till flera tilldelningar. Undantaget kan konfigureras att upphöra att gälla enligt ett schema med hjälp av `expiresOn` egenskapen. Mer information finns i [undantags definition](./exemption-structure.md).
 

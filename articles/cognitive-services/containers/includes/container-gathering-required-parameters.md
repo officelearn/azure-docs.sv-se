@@ -17,17 +17,17 @@ ms.locfileid: "80875065"
 ---
 ## <a name="gathering-required-parameters"></a>Nödvändiga parametrar samlas in
 
-Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licens avtalet för slutanvändare (EULA) måste vara närvarande med värdet `accept`. Dessutom behövs både en slut punkts-URL och API-nyckel.
+Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licens avtalet för slutanvändare (EULA) måste vara närvarande med värdet `accept` . Dessutom behövs både en slut punkts-URL och API-nyckel.
 
-### <a name="endpoint-uri-endpoint_uri"></a>Slut punkts-URI`{ENDPOINT_URI}`
+### <a name="endpoint-uri-endpoint_uri"></a>Slut punkts-URI `{ENDPOINT_URI}`
 
 URI-värdet för **slut punkten** är tillgängligt på sidan Azure Portal *Översikt* för motsvarande kognitiva tjänst resurs. Gå till sidan *Översikt* , Hovra över slut punkten och en `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ikon visas. Kopiera och använd vid behov.
 
 ![Samla in slut punkts-URI för senare användning](../media/overview-endpoint-uri.png)
 
-### <a name="keys-api_key"></a>Nyckel`{API_KEY}`
+### <a name="keys-api_key"></a>Nyckel `{API_KEY}`
 
-Den här nyckeln används för att starta behållaren och är tillgänglig på sidan Azure Portals nycklar för motsvarande kognitiva tjänst resurser. Gå till sidan *nycklar* och klicka `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> på ikonen.
+Den här nyckeln används för att starta behållaren och är tillgänglig på sidan Azure Portals nycklar för motsvarande kognitiva tjänst resurser. Gå till sidan *nycklar* och klicka på `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ikonen.
 
 ![Hämta en av de två nycklarna för senare användning](../media/keys-copy-api-key.png)
 

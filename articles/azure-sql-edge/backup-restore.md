@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiera och återställa databaser – Azure SQL Edge (för hands version)
-description: Läs mer om säkerhets kopierings-och återställnings funktioner i Azure SQL Edge (för hands version).
+title: Säkerhetskopiera och återställa databaser – Azure SQL Edge
+description: Lär dig mer om säkerhets kopierings-och återställnings funktioner i Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 92a37babbcc0bbba3845267ca2eb0f95b9fceafa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667870"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905956"
 ---
-# <a name="back-up-and-restore-databases-in-azure-sql-edge-preview"></a>Säkerhetskopiera och återställa databaser i Azure SQL Edge (för hands version) 
+# <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Säkerhetskopiera och återställa databaser i Azure SQL Edge 
 
-Azure SQL Edge bygger på de senaste versionerna av Microsoft SQL Server Database Engine i Linux. Den ger liknande säkerhets kopierings-och återställnings databas funktioner som är tillgängliga i SQL Server på Linux och SQL Server som körs i behållare. Säkerhets kopierings-och återställnings komponenten är ett viktigt skydd för att skydda data som lagras i dina Azure SQL Edge-databaser. 
+Azure SQL Edge bygger på de senaste versionerna av Microsoft SQL Database-motorn. Den ger liknande säkerhets kopierings-och återställnings databas funktioner som är tillgängliga i SQL Server på Linux och SQL Server som körs i behållare. Säkerhets kopierings-och återställnings komponenten är ett viktigt skydd för att skydda data som lagras i dina Azure SQL Edge-databaser. 
 
 För att minimera risken för katastrof data förlust bör du säkerhetskopiera databaserna regelbundet för att bevara ändringar i dina data regelbundet. Med en välplanerad strategi för säkerhetskopiering och återställning kan du skydda databaser mot dataförlust på grund av en mängd olika fel. Testa strategin genom att återställa en uppsättning säkerhets kopior och sedan återställa databasen så att du kan förbereda dig för att effektivt svara på en katastrof.
 
@@ -75,7 +75,7 @@ I följande exempel använder du `BACKUP DATABASE` Transact-SQL-kommandot för a
 
 ### <a name="back-up-to-url"></a>Säkerhetskopiera till URL
 
-Azure SQL Edge stöder säkerhets kopiering till både sid-blobar och block-blobar. Mer information finns i [säkerhetskopiera för att blockera BLOB vs Page BLOB](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15#blockbloborpageblob). I följande exempel säkerhets kopie ras databasen *IronOreSilicaPrediction* till en Block-Blob. 
+Azure SQL Edge stöder säkerhets kopiering till både sid-blobar och block-blobar. Mer information finns i [säkerhetskopiera för att blockera BLOB vs Page BLOB](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). I följande exempel säkerhets kopie ras databasen *IronOreSilicaPrediction* till en Block-Blob. 
 
 1. Om du vill konfigurera säkerhets kopieringar för att blockera blobbar måste du först skapa en signatur för signatur för delad åtkomst (SAS) som du kan använda för att skapa en SQL Server autentiseringsuppgift på Azure SQL Edge. Skriptet skapar en SAS som är associerad med en lagrad åtkomst princip. Mer information finns i [signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). Skriptet skriver också det T-SQL-kommando som krävs för att skapa autentiseringsuppgiften på SQL Server. Följande skript förutsätter att du redan har en Azure-prenumeration med ett lagrings konto och en lagrings behållare för säkerhets kopiorna.
 
@@ -133,7 +133,10 @@ Azure SQL Edge stöder säkerhets kopiering till både sid-blobar och block-blob
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Återställa en databas i Azure SQL Edge
 
-I Azure SQL Edge kan du återställa från en lokal disk, en nätverks plats eller ett Azure Blob Storage-konto. Mer information om återställning och återställning i SQL Server finns i [Översikt över återställning och återställning](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15). En översikt över den enkla återställnings modellen i SQL Server finns i [fullständig databas återställning (enkel återställnings modell)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model?view=sql-server-ver15).
+I Azure SQL Edge kan du återställa från en lokal disk, en nätverks plats eller ett Azure Blob Storage-konto. Mer information om återställning och återställning i SQL Server finns i [Översikt över återställning och återställning](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). En översikt över den enkla återställnings modellen i SQL Server finns i [fullständig databas återställning (enkel återställnings modell)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+
+> [!IMPORTANT] 
+> Databaser som har skapats i Azure SQL Edge kan inte återställas på en instans av Microsoft SQL Server eller Azure SQL. Dessutom kan en databas som skapas på Microsoft SQL Server eller Azure SQL återställas på Azure SQL Edge, förutsatt att databasen inte innehåller några av de funktioner som inte stöds av Azure SQL Edge. 
 
 ### <a name="restore-from-a-local-disk"></a>Återställa från en lokal disk
 

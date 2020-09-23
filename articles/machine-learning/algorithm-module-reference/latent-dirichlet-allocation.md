@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751700"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907853"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Tilldelnings modul för latend Dirichlet
 
-I den här artikeln beskrivs hur du använder den Latende Dirichlet i Azure Machine Learning designer (för hands version) för att gruppera annars oklassificerad text i kategorier. 
+I den här artikeln beskrivs hur du använder den Latende Dirichlet i Azure Machine Learning designer för att gruppera annars oklassificerad text i kategorier. 
 
 Latend Dirichlet Allocation (LDA) används ofta i naturlig språk bearbetning för att hitta texter som liknar varandra. En annan vanlig term är *ämnes modeller*.
 
@@ -58,7 +58,7 @@ Den här modulen kräver en data uppsättning som innehåller en kolumn med text
 
     Eftersom LDA skapar en stor funktions mat ris från texten, analyseras vanligt vis en enskild text kolumn.
 
-4. Ange ett heltal mellan 1 och 1000 som anger hur många kategorier eller ämnen som du vill härleda från inmatad text för **antal ämnen i modell**.
+4. Ange ett heltal mellan 1 och 1000 som anger hur många kategorier eller ämnen som du vill härleda från inmatad text för  **antal ämnen i modell**.
 
     Som standard skapas 5 ämnen.
 
@@ -75,7 +75,7 @@ Den här modulen kräver en data uppsättning som innehåller en kolumn med text
     + Värdena i matrisen för funktions ämnen visas som en sannolikhet var `P(word|topic)` .
 
     > [!NOTE] 
-    > I Azure Machine Learning designer (för hands version) stöder scikit-biblioteket inte längre avnormaliserade *doc_topic_distr* utdata från version 0,19. I den här modulen kan **normaliserings** parametern endast användas för *mat ris utdata i funktions ämnet* . *Transformerade data uppsättnings* utdata är alltid normaliserade.
+    > I Azure Machine Learning Designer stöder biblioteket inte längre scikit *doc_topic_distr* utdata från version 0,19. I den här modulen kan **normaliserings** parametern endast användas för *mat ris utdata i funktions ämnet* . *Transformerade data uppsättnings* utdata är alltid normaliserade.
 
 7. Välj alternativet **Visa alla alternativ**och ställ sedan in det på **Sant** om du vill ange följande avancerade parametrar.
 
@@ -148,7 +148,7 @@ Du kan ofta förbättra precisionen för modeller som baseras på LDA med hjälp
 
 Mer information finns i [Förbearbeta text](preprocess-text.md).
 
-I designern kan du också använda R-eller Python-bibliotek för text bearbetning: [Kör R-skript](execute-r-script.md), [Kör Python-skript](execute-python-script.md).
+I designern kan du också använda R-eller Python-bibliotek för text bearbetning: [Kör R-skript](execute-r-script.md),  [Kör Python-skript](execute-python-script.md).
 
 
 
@@ -181,26 +181,26 @@ När term indexen har beräknats jämför ett avstånds beroende likhets mått e
 
 ###  <a name="module-parameters"></a>Parametrar för modul
 
-|Name|Typ|Intervall|Valfritt|Default|Beskrivning|  
+|Namn|Typ|Intervall|Valfritt|Standardvärde|Beskrivning|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Mål kolumn (er)|Kolumn val||Obligatorisk|StringFeature|Mål kolumn namn eller index.|  
-|Antal ämnen som ska modelleras|Integer|[1; 1000]|Obligatorisk|5|Modellera dokument distributionen mot N ämnen.|  
-|N-gram|Integer|[1; 10]|Obligatorisk|2|Ordningen för N-gram genereras under hashing.|  
+|Antal ämnen som ska modelleras|Heltal|[1; 1000]|Obligatorisk|5|Modellera dokument distributionen mot N ämnen.|  
+|N-gram|Heltal|[1; 10]|Obligatorisk|2|Ordningen för N-gram genereras under hashing.|  
 |Normalisera|Boolesk|Sant eller falskt|Obligatorisk|true|Normalisera utdata till sannolikhet.  Den transformerade data uppsättningen kommer att vara P (ämne&#124;dokument) och matrisen för funktions ämnet är P (Word&#124;-avsnittet).|  
 |Visa alla alternativ|Boolesk|Sant eller falskt|Obligatorisk|Falskt|Visar ytterligare parametrar som är speciella för scikit – lära online-LDA.|  
 |Rho-parameter|Float|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Avsnittet Word föregående distribution.|  
 |Alpha-parameter|Float|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Dokument ämnet tidigare distribution.|  
-|Uppskattat antal dokument|Integer|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|1000|Uppskattat antal dokument. Motsvarar `total_samples` parametern.|  
-|Storlek på batchen|Integer|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|32|Storlek på batchen.|  
-|Initialt värde för iteration som används i uppdaterings schema för inlärnings takt|Integer|[0; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|0|Det första värdet som downweights inlärnings pris för tidiga iterationer. Motsvarar `learning_offset` parametern.|  
+|Uppskattat antal dokument|Heltal|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|1000|Uppskattat antal dokument. Motsvarar `total_samples` parametern.|  
+|Storlek på batchen|Heltal|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|32|Storlek på batchen.|  
+|Initialt värde för iteration som används i uppdaterings schema för inlärnings takt|Heltal|[0; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|0|Det första värdet som downweights inlärnings pris för tidiga iterationer. Motsvarar `learning_offset` parametern.|  
 |Effekt som tillämpas på iterationen under uppdateringar|Float|[0.0; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,5|Effekt som tillämpas på antalet iterationer för att kontrol lera inlärnings takten. Motsvarar `learning_decay` parametern. |  
-|Antal upprepningar av utbildning|Integer|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|25|Antal upprepningar av inlärning.|  
+|Antal upprepningar av utbildning|Heltal|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|25|Antal upprepningar av inlärning.|  
 |Versions ord lista för ngrams|Boolesk|Sant eller falskt|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad|Sant|Skapar en ord lista med ngrams innan du beräknar LDA. Användbart för modell besiktning och tolkning.|  
-|Maximal storlek för ngram-ordlista|Integer|[1; int. MaxValue|Gäller när alternativet **build-ordlistan för ngrams** är **Sant**|20000|Maximal storlek för ngrams-ordlistan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå.|  
-|Antal bitar som ska användas för hashing av funktioner.|Integer|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad och **build-ordlistan för ngrams** är **falskt**|12|Antal bitar som ska användas för hashing av funktioner.| 
+|Maximal storlek för ngram-ordlista|Heltal|[1; int. MaxValue|Gäller när alternativet **build-ordlistan för ngrams** är **Sant**|20000|Maximal storlek för ngrams-ordlistan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå.|  
+|Antal bitar som ska användas för hashing av funktioner.|Heltal|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad och **build-ordlistan för ngrams** är **falskt**|12|Antal bitar som ska användas för hashing av funktioner.| 
 |Build-ordlista av ngrams före LDA|Boolesk|Sant eller falskt|Gäller när kryss rutan **Visa alla alternativ** är markerad|Sant|Skapar en ord lista med ngrams före LDA. Användbart för modell besiktning och tolkning.|  
-|Maximalt antal ngrams i ord listan|Integer|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet build- **ordlista för ngrams** är **Sant**|20000|Maximal storlek för ord listan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå.|  
-|Antal hash-bitar|Integer|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet build- **ordlista för ngrams** är **falskt**|12|Antal bitar som ska användas vid hashing av funktioner.|   
+|Maximalt antal ngrams i ord listan|Heltal|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet build- **ordlista för ngrams** är **Sant**|20000|Maximal storlek för ord listan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå.|  
+|Antal hash-bitar|Heltal|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet build- **ordlista för ngrams** är **falskt**|12|Antal bitar som ska användas vid hashing av funktioner.|   
 
 
 ## <a name="next-steps"></a>Nästa steg

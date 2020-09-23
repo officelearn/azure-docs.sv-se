@@ -1,27 +1,27 @@
 ---
-title: Distribuera virtuella datorer på Azure Stack Edge-enhetens GPU via Azure CLI och python
-description: Beskriver hur du skapar och hanterar virtuella datorer på en Azure Stack Edge-GPU-enhet med hjälp av Azure CLI och python.
+title: Distribuera virtuella datorer på Azure Stack Edge Pro-enhetens GPU via Azure CLI och python
+description: Beskriver hur du skapar och hanterar virtuella datorer (VM) på en Azure Stack Edge Pro GPU-enhet med hjälp av Azure CLI och python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500240"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890717"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på Azure Stack Edge GPU-enhet med hjälp av Azure CLI och python
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på Azure Stack Edge Pro GPU-enhet med hjälp av Azure CLI och python
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
 
-I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge-enhet med hjälp av Azure Command Line Interface (CLI) och python.
+I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge Pro-enhet med Azure Command Line Interface (CLI) och python.
 
 ## <a name="vm-deployment-workflow"></a>Arbets flöde för distribution av virtuell dator
 
@@ -43,13 +43,13 @@ Arbets flödet för distributionen illustreras i följande diagram.
 10. Skapa ett virtuellt nätverk
 11. Skapa en VNIC med VNet-undernätets ID
 
-En detaljerad förklaring av arbets flödes diagrammet finns i [distribuera virtuella datorer på Azure Stack Edge-enhet med Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Information om hur du ansluter till Azure Resource Manager finns i [ansluta till Azure Resource Manager med Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+En detaljerad förklaring av arbets flödes diagrammet finns i [distribuera virtuella datorer på din Azure Stack Edge Pro-enhet med Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Information om hur du ansluter till Azure Resource Manager finns i [ansluta till Azure Resource Manager med Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-enhet med hjälp av Azure CLI och python måste du kontrol lera att du har slutfört de krav som anges i följande steg:
+Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge Pro-enhet med hjälp av Azure CLI och python måste du kontrol lera att du har slutfört de krav som anges i följande steg:
 
-1. Du har slutfört nätverks inställningarna på Azure Stack Edge-enheten enligt beskrivningen i [steg 1: konfigurera Azure Stack Edge-enhet](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Du har slutfört nätverks inställningarna på din Azure Stack Edge Pro-enhet enligt beskrivningen i [steg 1: konfigurera Azure Stack Edge Pro-enhet](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Aktiverat ett nätverks gränssnitt för beräkning. Nätverks gränssnittets IP-adress används för att skapa en virtuell växel för VM-distributionen. Följande steg vägleder dig genom processen:
 
@@ -58,7 +58,7 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
         > [!IMPORTANT] 
         > Du kan bara konfigurera en port för beräkning.
 
-    2. Aktivera beräkning i nätverks gränssnittet. Azure Stack Edge skapar och hanterar en virtuell växel som motsvarar det nätverks gränssnittet.
+    2. Aktivera beräkning i nätverks gränssnittet. Azure Stack Edge Pro skapar och hanterar en virtuell växel som motsvarar det nätverks gränssnittet.
 
     <!--If you decide to use another network interface for compute, make sure that you:
 
@@ -68,9 +68,9 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
 
     - You can now enable another network interface for compute.-->
 
-3. Du har skapat och installerat alla certifikat på din Azure Stack Edge-enhet och i det betrodda arkivet för din klient. Följ proceduren som beskrivs i [steg 2: skapa och installera certifikat](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Du har skapat och installerat alla certifikat på din Azure Stack Edge Pro-enhet och i det betrodda arkivet för din klient. Följ proceduren som beskrivs i [steg 2: skapa och installera certifikat](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Du har skapat ett base64-kodat *. cer* 64-certifikat (PEM format) för din Azure Stack Edge-enhet. Detta överförs redan som en signerings kedja på enheten och installeras i det betrodda rot arkivet på klienten. Det här certifikatet krävs också i *PEM* -format för att python ska fungera på den här klienten.
+4. Du har skapat ett Base-64-kodat *. cer* -certifikat (PEM format) för din Azure Stack Edge Pro-enhet. Detta överförs redan som en signerings kedja på enheten och installeras i det betrodda rot arkivet på klienten. Det här certifikatet krävs också i *PEM* -format för att python ska fungera på den här klienten.
 
     Konvertera certifikatet till PEM-format med hjälp av `certutil` kommandot. Du måste köra det här kommandot i katalogen som innehåller ditt certifikat.
 
@@ -199,7 +199,7 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-### <a name="trust-the-azure-stack-edge-ca-root-certificate"></a>Lita på Azure Stack Edge-certifikat utfärdarens rot certifikat
+### <a name="trust-the-azure-stack-edge-pro-ca-root-certificate"></a>Lita på Azure Stack Edge Pro CA rot certifikat
 
 1. Hitta certifikat platsen på din dator. Platsen kan variera beroende på var du har installerat `az cli` . Kör Windows PowerShell som administratör. Växla till sökvägen där `az cli` installerat python: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe` .
 
@@ -219,7 +219,7 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
       
     Anteckna den här platsen när du kommer att använda den senare – `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`
 
-2. Lita på Azure Stack Edge-certifikat utfärdarens rot certifikat genom att lägga till det i det befintliga python-certifikatet. Du kommer att ange sökvägen till den plats där du sparade PEM-certifikatet tidigare.
+2. Lita på Azure Stack Edge Pro CA rot certifikat genom att lägga till det i det befintliga python-certifikatet. Du kommer att ange sökvägen till den plats där du sparade PEM-certifikatet tidigare.
 
     ```powershell
     $pemFile = "<Path to the pem format certificate>"
@@ -252,12 +252,12 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
     
-    Write-Host "Python Cert store was updated to allow the Azure Stack Edge CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Edge Pro CA root certificate"
     ```
     
-### <a name="connect-to-azure-stack-edge"></a>Anslut till Azure Stack Edge
+### <a name="connect-to-azure-stack-edge-pro"></a>Anslut till Azure Stack Edge Pro
 
-1. Registrera din Azure Stack Edge-miljö genom att köra `az cloud register` kommandot.
+1. Registrera din Azure Stack Edge Pro-miljö genom att köra `az cloud register` kommandot.
 
     I vissa fall dirigeras direkt utgående Internet anslutning via en proxy eller brand vägg som tillämpar SSL-avlyssning. I dessa fall kan AZ Cloud register-kommandot inte köras med ett fel, till exempel \" att det inte går att hämta slut punkter från molnet. \" Undvik det här felet genom att ange följande miljövariabler i Windows PowerShell:
 
@@ -266,7 +266,7 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Ange miljövariabler för skriptet för Azure Resource Manager slut punkt, plats där resurserna skapas och sökvägen till den plats där den virtuella käll hård disken finns. Platsen för resurserna är fast i alla Azure Stack gräns enheter och är inställd på `dbelocal` . Du måste också ange adressprefix och en privat IP-adress. Alla följande miljövariabler är värden baserade på dina värden med undantag av `AZURE_RESOURCE_LOCATION` , som ska hårdkodad till `"dbelocal"` .
+2. Ange miljövariabler för skriptet för Azure Resource Manager slut punkt, plats där resurserna skapas och sökvägen till den plats där den virtuella käll hård disken finns. Platsen för resurserna är fast i alla Azure Stack Edge Pro-enheter och är inställd på `dbelocal` . Du måste också ange adressprefix och en privat IP-adress. Alla följande miljövariabler är värden baserade på dina värden med undantag av `AZURE_RESOURCE_LOCATION` , som ska hårdkodad till `"dbelocal"` .
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -308,7 +308,7 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Logga in på din Azure Stack Edge-miljö med hjälp av `az login` kommandot. Du kan logga in på Azure Stack Edge-miljö antingen som en användare eller som [tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Logga in på din Azure Stack Edge Pro-miljö med hjälp av `az login` kommandot. Du kan logga in på Azure Stack Edge Pro-miljö antingen som en användare eller som [tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
    Följ dessa steg om du vill logga in som en *användare*:
 

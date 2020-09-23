@@ -1,6 +1,6 @@
 ---
-title: C# IoT Edge modul för Azure Stack Edge med GPU | Microsoft Docs
-description: Lär dig hur du utvecklar en C# IoT Edge-modul som kan distribueras på din Azure Stack Edge-GPU-enhet.
+title: C# IoT Edge modul för Azure Stack Edge Pro med GPU | Microsoft Docs
+description: Lär dig hur du utvecklar en C# IoT Edge-modul som kan distribueras på din Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,37 +8,37 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c981208438529ec7c23ab3c3089f4d57d77c2714
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 628dec7f1ba44d81243aeff2657e2311119c566a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268969"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891193"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Azure Stack kant
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Den här artikeln beskriver hur du skapar en IoT Edge-modul för distribution med Azure Stack Edge-enhet. Azure Stack Edge är en lagrings lösning som gör att du kan bearbeta data och skicka dem via nätverket till Azure.
+Den här artikeln beskriver hur du skapar en IoT Edge-modul för distribution med din Azure Stack Edge Pro-enhet. Azure Stack Edge Pro är en lagrings lösning som gör att du kan bearbeta data och skicka dem över nätverket till Azure.
 
-Du kan använda Azure IoT Edge moduler med Azure Stack Edge för att transformera data när de flyttas till Azure. Modulen som används i den här artikeln implementerar logiken för att kopiera en fil från en lokal resurs till en moln resurs på din Azure Stack Edge-enhet.
+Du kan använda Azure IoT Edge moduler med Azure Stack Edge Pro för att transformera data när de flyttas till Azure. Modulen som används i den här artikeln implementerar logiken för att kopiera en fil från en lokal resurs till en moln resurs på din Azure Stack Edge Pro-enhet.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa ett behållar register för att lagra och hantera dina moduler (Docker-avbildningar).
-> * Skapa en IoT Edge-modul som ska distribueras på Azure Stack Edge-enheten.
+> * Skapa en IoT Edge-modul som ska distribueras på din Azure Stack Edge Pro-enhet.
 
 
 ## <a name="about-the-iot-edge-module"></a>Om modulen IoT Edge
 
-Din Azure Stack Edge-enhet kan distribuera och köra IoT Edge moduler. Edge-moduler är i princip Docker-behållare som utför en speciell uppgift, till exempel mata in ett meddelande från en enhet, transformera ett meddelande eller skicka ett meddelande till ett IoT Hub. I den här artikeln kommer du att skapa en modul som kopierar filer från en lokal resurs till en moln resurs på din Azure Stack Edge-enhet.
+Din Azure Stack Edge Pro-enhet kan distribuera och köra IoT Edge moduler. Edge-moduler är i princip Docker-behållare som utför en speciell uppgift, till exempel mata in ett meddelande från en enhet, transformera ett meddelande eller skicka ett meddelande till ett IoT Hub. I den här artikeln ska du skapa en modul som kopierar filer från en lokal resurs till en moln resurs på din Azure Stack Edge Pro-enhet.
 
-1. Filerna skrivs till den lokala resursen på din Azure Stack Edge-enhet.
+1. Filerna skrivs till den lokala resursen på din Azure Stack Edge Pro-enhet.
 2. Fil händelse generatorn skapar en fil händelse för varje fil som skrivs till den lokala resursen. Fil händelserna skapas också när en fil ändras. Fil händelserna skickas sedan till IoT Edge Hub (i IoT Edge Runtime).
 3. Den anpassade modulen IoT Edge bearbetar fil händelsen för att skapa ett fil händelse objekt som också innehåller en relativ sökväg till filen. Modulen genererar en absolut sökväg med den relativa fil Sök vägen och kopierar filen från den lokala resursen till moln resursen. Modulen tar sedan bort filen från den lokala resursen.
 
-![Så här fungerar Azure IoT Edge-modulen på Azure Stack Edge](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
+![Så här fungerar Azure IoT Edge-modulen på Azure Stack Edge Pro](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
 
 När filen finns i moln resursen överförs den automatiskt till ditt Azure Storage-konto.
 
@@ -46,11 +46,11 @@ När filen finns i moln resursen överförs den automatiskt till ditt Azure Stor
 
 Innan du börjar ska du kontrollera att du har:
 
-- En Azure Stack Edge-enhet som kör.
+- En Azure Stack Edge Pro-enhet som kör.
 
     - Enheten har också en tillhör ande IoT Hub-resurs.
     - Enhetens beräknings roll har kon figurer ATS.
-    Mer information finns i [Konfigurera Compute](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) för din Azure Stack Edge.
+    Mer information finns i [Konfigurera Compute](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) för din Azure Stack Edge Pro.
 
 - Följande utvecklings resurser:
 
@@ -278,4 +278,4 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i FileC
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill distribuera och köra modulen på Azure Stack Edge, se stegen i [lägga till en modul](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module).
+Om du vill distribuera och köra modulen på Azure Stack Edge Pro, se stegen i [lägga till en modul](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module).

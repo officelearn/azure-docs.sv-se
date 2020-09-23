@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186596"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987271"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -33,7 +33,7 @@ Om du vill skapa eller uppdatera ett Automation-konto och utföra de uppgifter s
 * För att skapa ett Automation-konto måste ditt Azure AD-användarkonto läggas till i en roll med behörigheter som motsvarar ägar rollen för `Microsoft.Automation` resurser. Mer information finns i [rollbaserad Access Control i Azure Automation](automation-role-based-access-control.md).
 * I Azure Portal, under **Azure Active Directory**  >  **Hantera**  >  **användar inställningar**, om **Appregistreringar** har angetts till **Ja**, kan användare som inte är administratörer i Azure AD-klienten [Registrera Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Om **Appregistreringar** är inställt på **Nej**, måste den användare som utför den här åtgärden ha minst en programutvecklare-roll i Azure AD.
 
-Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratören/rollen som administratör i prenumerationen, läggs du till Active Directory som gäst. I det här scenariot ser du det här meddelandet i fönstret Lägg till Automation-konto:`You do not have permissions to create.`
+Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratören/rollen som administratör i prenumerationen, läggs du till Active Directory som gäst. I det här scenariot ser du det här meddelandet i fönstret Lägg till Automation-konto: `You do not have permissions to create.`
 
 Om du först lägger till en användare i rollen global administratör/superadministratör kan du ta bort användaren från prenumerationens Active Directory instans. Du kan läsa användaren till användar rollen i Active Directory. Så här verifierar du användar roller:
 
@@ -59,7 +59,7 @@ Utför följande steg för att skapa ett Azure Automation konto i Azure Portal:
    > [!NOTE]
    > Om du ser följande meddelande i fönstret Lägg till Automation-konto är ditt konto inte medlem i rollen prenumerations administratörer och en administratör för prenumerationen.
    >
-   > ![Varning för Lägg till Automation-konto](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Skärm bild av prompten du har inte behörighet att skapa ett Kör som-konto i Azure Active Directory.":::
 
 1. I fönstret Lägg till Automation-konto anger du ett namn för det nya Automation-kontot i fältet **namn** . Du kan inte ändra det här namnet efter att det har valts. 
 
@@ -74,7 +74,7 @@ Utför följande steg för att skapa ett Azure Automation konto i Azure Portal:
    > [!NOTE]
    > Om du väljer att inte skapa kör som-kontot genom att välja **Nej** för **skapa kör som-konto för Azure**visas ett meddelande i fönstret Lägg till Automation-konto. Även om kontot har skapats i Azure Portal, har kontot inte någon motsvarande Autentiseringsidentitet i den klassiska distributions modell prenumerationen eller i Azure Resource Manager prenumerations katalog tjänst. Automation-kontot har därför inte åtkomst till resurser i din prenumeration. Detta förhindrar att Runbooks som refererar till det här kontot kan autentisera och utföra åtgärder mot resurser i dessa distributions modeller.
    >
-   > ![Varning för Lägg till Automation-konto](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Skärm bild av prompt med meddelande "du har valt att inte skapa ett Kör som-konto."":::
    >
    > När tjänstens huvud namn inte har skapats är deltagar rollen inte tilldelad.
    >
@@ -105,4 +105,4 @@ Klassiska kör som-konton skapas inte längre som standard när du skapar ett Az
 * Information om hur du kommer igång med PowerShell-Runbooks finns i [Självstudier: skapa en PowerShell-Runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [självstudie: skapa en PowerShell Workflow-Runbook](learn/automation-tutorial-runbook-textual.md).
 * Information om hur du kommer igång med python 2-Runbooks finns i [Självstudier: skapa en python 2-Runbook](learn/automation-tutorial-runbook-textual-python2.md).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

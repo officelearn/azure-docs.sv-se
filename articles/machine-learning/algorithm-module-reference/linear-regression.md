@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137469"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907840"
 ---
 # <a name="linear-regression-module"></a>Linjär Regressions modul
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en linjär Regressions modell för användning i en pipeline.  Linjär regression försöker upprätta en linjär relation mellan en eller flera oberoende variabler och ett numeriskt resultat, eller en beroende variabel. 
 
@@ -25,7 +25,7 @@ Du använder den här modulen för att definiera en linjär Regressions metod oc
 
 ## <a name="about-linear-regression"></a>Om linjär regression
 
-Linjär regression är en gemensam statistisk metod som har antagits i maskin inlärning och förbättrats med många nya metoder för att anpassa linjen och mäta fel. I den mest grundläggande meningen refererar regression till förutsägelse av ett numeriskt mål. Linjär regression är fortfarande ett bra val när du vill ha en enkel modell för en grundläggande förutsägelse aktivitet. Linjär regression tenderar också att arbeta bra på högdimensionella, glesa data uppsättningar som saknar komplexitet.
+Linjär regression är en gemensam statistisk metod som har antagits i maskin inlärning och förbättrats med många nya metoder för att anpassa linjen och mäta fel. Helt enkelt refererar regressionen till förutsägelse av ett numeriskt mål. Linjär regression är fortfarande ett bra val när du vill ha en enkel modell för en grundläggande förutsägelse aktivitet. Linjär regression tenderar också att arbeta bra på högdimensionella, glesa data uppsättningar som saknar komplexitet.
 
 Azure Machine Learning stöder en mängd Regressions modeller, förutom linjär regression. Termen "regression" kan dock tolkas löst och vissa typer av regressioner som tillhandahålls i andra verktyg stöds inte.
 

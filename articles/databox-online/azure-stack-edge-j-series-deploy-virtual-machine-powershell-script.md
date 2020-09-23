@@ -1,6 +1,6 @@
 ---
-title: Distribuera virtuella datorer på Azure Stack Edge GPU-enhet via Azure PowerShell
-description: 'Beskriver hur du skapar och hanterar virtuella datorer (VM: ar) på en Azure Stack Edge-enhet med Azure PowerShell.'
+title: Distribuera virtuella datorer på Azure Stack Edge Pro GPU-enhet via Azure PowerShell
+description: 'Beskriver hur du skapar och hanterar virtuella datorer (VM: ar) på en Azure Stack Edge Pro-enhet med Azure PowerShell.'
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,26 +8,26 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: ab303dd42d9064a9fa1392e27adc361d5b761cf0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256131"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890646"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell-script"></a>Distribuera virtuella datorer på Azure Stack Edge GPU-enhet via Azure PowerShell-skript
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Distribuera virtuella datorer på Azure Stack Edge Pro GPU-enhet via Azure PowerShell-skript
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge-enhet med ett Azure PowerShell-skript.
+I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge Pro-enhet med ett Azure PowerShell-skript.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-enhet med det här skriptet måste du kontrol lera att du har slutfört kraven som anges i följande steg:
+Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge Pro-enhet med det här skriptet måste du kontrol lera att du har slutfört kraven som anges i följande steg:
 
-### <a name="for-azure-stack-edge-device-via-the-local-web-ui"></a>För Azure Stack Edge-enhet via det lokala webb gränssnittet
+### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>För Azure Stack Edge Pro-enhet via det lokala webb gränssnittet
 
-1. Du har slutfört nätverks inställningarna på Azure Stack Edge-enheten enligt beskrivningen i [steg 1: konfigurera Azure Stack Edge-enhet](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Du har slutfört nätverks inställningarna på din Azure Stack Edge Pro-enhet enligt beskrivningen i [steg 1: konfigurera Azure Stack Edge Pro-enhet](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Aktiverat ett nätverks gränssnitt för beräkning. Nätverks gränssnittets IP-adress används för att skapa en virtuell växel för VM-distributionen. Följande steg vägleder dig genom processen:
 
@@ -36,9 +36,9 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
         > [!IMPORTANT] 
         > Du kan bara konfigurera en port för beräkning.
 
-    2. Aktivera beräkning i nätverks gränssnittet. Azure Stack Edge skapar och hanterar en virtuell växel som motsvarar det nätverks gränssnittet.
+    2. Aktivera beräkning i nätverks gränssnittet. Azure Stack Edge Pro skapar och hanterar en virtuell växel som motsvarar det nätverks gränssnittet.
 
-3. Du har skapat och installerat alla certifikat på din Azure Stack Edge-enhet och i det betrodda rot arkivet för din klient. Följ proceduren som beskrivs i [steg 2: skapa och installera certifikat](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Du har skapat och installerat alla certifikat på din Azure Stack Edge Pro-enhet och i det betrodda rot arkivet för din klient. Följ proceduren som beskrivs i [steg 2: skapa och installera certifikat](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
 ### <a name="for-your-windows-client"></a>För Windows-klienten
 

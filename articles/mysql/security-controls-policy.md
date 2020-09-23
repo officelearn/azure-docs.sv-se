@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroll av efterlevnad för Azure Database for MySQL
 description: Visar Azure Policy regler för regelefterlevnad som är tillgängliga för Azure Database for MySQL. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera kompatibiliteten för dina Azure-resurser.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 679b4f6ca8960c735fec9b83c1a30152e6e95b2d
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 0964edd95405ef0d8c291739fc46a482f4d60301
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019451"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987085"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mysql"></a>Azure Policy kontroll av efterlevnad för Azure Database for MySQL
 

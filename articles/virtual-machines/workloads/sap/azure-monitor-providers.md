@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor för SAP-lösnings leverantörer | Microsoft Docs
-description: Den här artikeln innehåller svar på vanliga frågor om Azure Monitor för SAP-lösningar
+description: Den här artikeln innehåller svar på vanliga frågor om Azure Monitor för SAP Solutions-leverantörer.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 267d600270e834cf4f1f077452fda7459fac3029
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e18d0b84e987e6c36f3f3b4215743025cac76d45
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525457"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987263"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Azure Monitor för SAP Solutions-providers (för hands version)
 

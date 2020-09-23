@@ -7,14 +7,18 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cc8f347330904bfab980b79cf5c5f351ce16629
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa66f17c6f96ac7f70188c5a28c0b180ed2f03e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906891"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Använda krets brytarens instrument panel med Azure våren Cloud
+
+**Den här artikeln gäller för:** ✔️ Java
+
+::: zone pivot="programming-language-java"
 Våren [Cloud Netflix turbin](https://github.com/Netflix/Turbine) används ofta för att aggregera flera [hystrix](https://github.com/Netflix/Hystrix) -dataströmmar så att strömmar kan övervakas i en enda vy med hjälp av hystrix-instrumentpanelen. Den här självstudien visar hur du använder dem i Azure våren Cloud.
 > [!NOTE]
 > Netflix hystrix används ofta i många befintliga våren-molnappar, men är inte längre i aktiv utveckling. Om du utvecklar ett nytt projekt ska du använda i stället våren-implementeringar av moln krets brytare som [resilience4j](https://github.com/resilience4j/resilience4j). Annorlunda än den turbin som visas i den här självstudien, kombinerar det nya molnet för moln Kretss ramverk till micrometer. Vi arbetar fortfarande med stöd för micrometer i Azure våren-molnet och kommer därför inte att omfattas av den här självstudien.
@@ -71,7 +75,7 @@ Kopiera den turbin Stream-URL: en `https://<SERVICE-NAME>-hystrix-turbine.azurem
 > I produktion ska hystrix-instrumentpanelen och mått data strömmen inte exponeras för Internet.
 
 ### <a name="using-private-test-endpoints"></a>Använda privata test slut punkter
-Hystrixs mått strömmar är också tillgängliga från `test-endpoint` . Som en backend-tjänst har vi inte tilldelat en offentlig slut punkt för `recommendation-service` , men vi kan visa sina mått med test-Endpoint på`https://primary:<KEY>@<SERVICE-NAME>.test.azuremicroservices.io/recommendation-service/default/actuator/hystrix.stream`
+Hystrixs mått strömmar är också tillgängliga från `test-endpoint` . Som en backend-tjänst har vi inte tilldelat en offentlig slut punkt för `recommendation-service` , men vi kan visa sina mått med test-Endpoint på `https://primary:<KEY>@<SERVICE-NAME>.test.azuremicroservices.io/recommendation-service/default/actuator/hystrix.stream`
 
 ![Hystrix-test – slut punkts data ström](media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png)
 
@@ -80,3 +84,4 @@ Hystrix-instrumentpanelen bör fungera på som en webbapp `test-endpoint` . Om d
 ## <a name="next-steps"></a>Nästa steg
 * [Etablera en tjänst instans på Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
 * [Förbereda ett Java våren-program för distribution i Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+::: zone-end

@@ -1,6 +1,6 @@
 ---
 title: Snabb start – övervaka dina enheter i Azure IoT Central
-description: Som operatör lär du dig att använda ditt Azure IoT Central-program för att övervaka dina enheter.
+description: Snabb start – som en operatör lär du dig att använda ditt Azure IoT Central-program för att övervaka dina enheter.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1dec52bbf1435cd7e363edf111f769d3e2cffb6a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80998923"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987344"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Snabb start: Använd Azure IoT Central för att övervaka dina enheter
 
@@ -22,7 +22,7 @@ ms.locfileid: "80998923"
 
 Den här snabb starten visar dig, som en operatör, hur du använder ditt Microsoft Azure IoT Central-program för att övervaka dina enheter och ändra inställningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du slutföra de tre föregående snabb starterna [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md), [lägga till en simulerad enhet i IoT Central programmet](./quick-create-simulated-device.md) och [Konfigurera regler och åtgärder för enheten](quick-configure-rules.md).
 

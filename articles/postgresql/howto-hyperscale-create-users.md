@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825964"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907418"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Skapa användare i Azure Database for PostgreSQL-storskalig (citus)
 
@@ -48,11 +48,11 @@ Som nämnts `citus` saknar administratörs kontot behörighet att skapa ytterlig
 
 1. Gå till sidan **roller** för din skalnings Server grupp och klicka på **+ Lägg till**:
 
-   ![Sidan roller](media/howto-hyperscale-create-users/1-role-page.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Sidan roller":::
 
 2. Ange roll namn och lösen ord. Klicka på **Spara**.
 
-   ![Lägg till roll](media/howto-hyperscale-create-users/2-add-user-fields.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Lägg till roll":::
 
 Användaren kommer att skapas på noden koordinator i Server gruppen och spridas till alla arbetsnoder. Roller som skapas via Azure Portal har `LOGIN` attributet, vilket innebär att de är sanna användare som kan logga in på databasen.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Om du vill uppdatera en användare går du till sidan **roller** för din skalnings Server grupp och klickar på ellipserna **...** bredvid användaren. Ellipserna öppnar en meny för att ta bort användaren eller återställa lösen ordet.
 
-   ![Redigera en roll](media/howto-hyperscale-create-users/edit-role.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Redigera en roll":::
 
 `citus`Rollen är privilegie rad och kan inte tas bort.
 

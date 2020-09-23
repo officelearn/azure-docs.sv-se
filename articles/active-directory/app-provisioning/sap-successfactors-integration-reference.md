@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808464"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969532"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Hur Azure Active Directory etablering integreras med SAP SuccessFactors 
 
@@ -63,7 +63,7 @@ För varje användare i SuccessFactors hämtar Azure AD Provisioning-tjänsten f
 | 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Endast IF- `jobCode` eller `jobCodeId` Attribute mappas |
 | 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Endast IF- `payGrade` attribut mappas |
 | 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Endast IF- `location` attribut mappas |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Om mappningen innehåller något av följande attribut:`officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Om mappningen innehåller något av följande attribut: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
 | 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Endast IF- `eventReason` attribut mappas |
 | 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Endast om `assignmentType` har mappats |
 | 20 | EmploymentType-listruta                | employmentNav/jobInfoNav/employmentTypeNav | Endast om `employmentType` har mappats |
@@ -166,9 +166,9 @@ Azure AD SuccessFactors-Provisioning-appens schema levereras med [90 och fördef
    * Om attributet är en del av entiteten *användare* söker du efter attributet under noden *employmentNav/userNav* .
    * Om attributet är en del av *EmpJob* -entiteten söker du efter attributet under *employmentNav/jobInfoNav-* noden. 
 1. Konstruera den JSON-sökväg som är kopplad till attributet och Lägg till det här nya attributet i listan över SuccessFactors-attribut. 
-   * Exempel 1: anta att du vill lägga till attributet *okToRehire*, som är en del av *employmentNav* -entiteten, och sedan använda JSONPath`$.employmentNav.results[0].okToRehire`
-   * Exempel 2: anta att du vill lägga till attributet *timeZone*, som är en del av *userNav* -entiteten, och sedan använda JSONPath`$.employmentNav.results[0].userNav.timeZone`
-   * Exempel 3: anta att du vill lägga till attributet *flsaStatus*, som är en del av *jobInfoNav* -entiteten, och sedan använda JSONPath`$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
+   * Exempel 1: anta att du vill lägga till attributet *okToRehire*, som är en del av *employmentNav* -entiteten, och sedan använda JSONPath  `$.employmentNav.results[0].okToRehire`
+   * Exempel 2: anta att du vill lägga till attributet *timeZone*, som är en del av *userNav* -entiteten, och sedan använda JSONPath `$.employmentNav.results[0].userNav.timeZone`
+   * Exempel 3: anta att du vill lägga till attributet *flsaStatus*, som är en del av *jobInfoNav* -entiteten, och sedan använda JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. Spara schemat. 
 1. Starta om etablering.
 
@@ -182,14 +182,14 @@ Som standard är följande anpassade attribut i förväg definierade i Azure AD 
 Låt oss säga att *customString35* -attributet i *EmpJobInfo* lagrar plats beskrivningen i din anställdes centrala instans. Du vill flöda det här värdet till Active Directory *physicalDeliveryOfficeName* -attribut. Använd stegen nedan för att konfigurera attribut-mappning för det här scenariot: 
 
 1. Redigera SuccessFactors-attributlistan för att lägga till ett nytt attribut med namnet *empJobNavCustomString35*.
-1. Ange JSONPath API-uttryck för det här attributet som:`$.employmentNav.results[0].jobInfoNav.results[0].customString35`
+1. Ange JSONPath API-uttryck för det här attributet som: `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
 1. Spara och Läs in mappnings ändringen i Azure Portal.  
 1. I bladet attribut-mappning mappar du *empJobNavCustomString35* till *physicalDeliveryOfficeName*.
 1. Spara mappningen.
 
 Utöka det här scenariot: 
-* Om du vill mappa *custom35* -attribut från entiteten *användare* använder du JSONPath`$.employmentNav.results[0].userNav.custom35`
-* Om du vill mappa *customString35* -attribut från entiteten *EmpEmployment* använder du JSONPath`$.employmentNav.results[0].customString35`
+* Om du vill mappa *custom35* -attribut från entiteten *användare* använder du JSONPath `$.employmentNav.results[0].userNav.custom35`
+* Om du vill mappa *customString35* -attribut från entiteten *EmpEmployment* använder du JSONPath `$.employmentNav.results[0].customString35`
 
 ### <a name="handling-worker-conversion-scenario"></a>Hantera konverterings scenario för arbetare
 
@@ -199,20 +199,20 @@ Konvertering av arbetare är en process för att konvertera en befintlig heltids
 1. Rulla nedåt och klicka på **Visa avancerade alternativ**.
 1. Klicka på länken **granska schemat här** för att öppna schema redigeraren. 
 
-   >![granska – schema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![Skärm bild som visar länken granska schemat som öppnar schema redigeraren.](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. Klicka på **nedladdnings** länken för att spara en kopia av schemat innan du redigerar. 
 
-   >![Ladda ned – schema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![Skärm bild som visar schema redigeraren med Hämta Välj för att spara en kopia av schemat.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. Tryck på CTRL-H-tangenten i schema redigeraren för att öppna kontrollen Sök och ersätt.
-1. Kopiera i text rutan Sök och klistra in värdet`$.employmentNav.results[0]`
+1. Kopiera i text rutan Sök och klistra in värdet `$.employmentNav.results[0]`
 1. I rutan Ersätt text kopierar du och klistrar in värdet `$.employmentNav.results[?(@.userNav != null)]` . Observera det blank steg `!=` som omger operatorn, vilket är viktigt för lyckad bearbetning av JSONPath-uttrycket. 
    >![Sök-Ersätt-Conversion](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
 1. Klicka på alternativet för att ersätta alla för att uppdatera schemat. 
 1. Spara schemat. 
 1. Ovanstående process uppdaterar alla JSONPath-uttryck enligt följande: 
-   * Gammal JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Ny JSONPath:`$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
+   * Gammal JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Ny JSONPath: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
 1. Starta om etablering. 
 
 ### <a name="handling-rehire-scenario"></a>Hantering av återställnings scenario
@@ -230,13 +230,13 @@ Om du vill hantera det här återställnings scenariot (alternativ 2), så att d
 1. Klicka på länken **granska schemat här** för att öppna schema redigeraren.   
 1. Klicka på **nedladdnings** länken för att spara en kopia av schemat innan du redigerar.   
 1. Tryck på CTRL-H-tangenten i schema redigeraren för att öppna kontrollen Sök och ersätt.
-1. Kopiera i text rutan Sök och klistra in värdet`$.employmentNav.results[0]`
+1. Kopiera i text rutan Sök och klistra in värdet `$.employmentNav.results[0]`
 1. I rutan Ersätt text kopierar du och klistrar in värdet `$.employmentNav.results[-1:]` . Det här JSONPath-uttrycket returnerar den senaste *EmpEmployment* -posten.   
 1. Klicka på alternativet för att ersätta alla för att uppdatera schemat. 
 1. Spara schemat. 
 1. Ovanstående process uppdaterar alla JSONPath-uttryck enligt följande: 
-   * Gammal JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Ny JSONPath:`$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
+   * Gammal JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Ny JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
 1. Starta om etablering. 
 
 Schema ändringen stöder även scenariot för arbets konvertering. 
@@ -254,13 +254,13 @@ Använd stegen nedan för att hämta attribut som tillhör standard tilldelninge
 1. Klicka på länken **granska schemat här** för att öppna schema redigeraren.   
 1. Klicka på **nedladdnings** länken för att spara en kopia av schemat innan du redigerar.   
 1. Tryck på CTRL-H-tangenten i schema redigeraren för att öppna kontrollen Sök och ersätt.
-1. Kopiera i text rutan Sök och klistra in värdet`$.employmentNav.results[0]`
+1. Kopiera i text rutan Sök och klistra in värdet `$.employmentNav.results[0]`
 1. I rutan Ersätt text kopierar du och klistrar in värdet `$.employmentNav.results[?(@.assignmentClass == 'ST')]` . 
 1. Klicka på alternativet för att ersätta alla för att uppdatera schemat. 
 1. Spara schemat. 
 1. Ovanstående process uppdaterar alla JSONPath-uttryck enligt följande: 
-   * Gammal JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Ny JSONPath:`$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
+   * Gammal JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Ny JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. Läs in bladets attribut-mappning igen. 
 1. Rulla nedåt och klicka på **Visa avancerade alternativ**.
 1. Klicka på **Redigera attributlistan för SuccessFactors**.
@@ -278,7 +278,7 @@ När en användare i Employee Central har samtidiga/flera jobb, finns det två *
 1. Öppna bladet attributs mappning i din SuccessFactors-etablerings app. 
 1. Rulla nedåt och klicka på **Visa avancerade alternativ**.
 1. Klicka på **Redigera attributlistan för SuccessFactors**.
-1. Anta att du vill hämta den avdelning som är kopplad till jobb 1 och jobb 2. Den fördefinierade Attribute- *avdelningen* hämtar redan värdet för avdelning för det första jobbet. Du kan definiera ett nytt attribut med namnet *secondJobDepartment* och ange JSONPath-uttrycket till`$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
+1. Anta att du vill hämta den avdelning som är kopplad till jobb 1 och jobb 2. Den fördefinierade Attribute- *avdelningen* hämtar redan värdet för avdelning för det första jobbet. Du kan definiera ett nytt attribut med namnet *secondJobDepartment* och ange JSONPath-uttrycket till `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. Du kan nu antingen flöda båda avdelnings värden till Active Directory attribut eller selektivt flöda ett värde med uttrycks mappning. 
 1. Spara mappningen. 
 1. Starta om etablering. 
@@ -294,7 +294,7 @@ Det här avsnittet beskriver olika Skriv-och bakgrunds scenarier. Den rekommende
 | 1 | * Ange endast företags-e-post som primär. <br> * Ange inte telefonnummer. | true | true | falskt | \[Inte angivet\] | \[Inte angivet\] | 
 | 2 | * I SuccessFactors är företags-e-post och företags telefon primärt <br> * Du kan alltid flöda Azure AD-telefonnummer till företags telefon och mobil till mobil telefon. | true | true | falskt | telephoneNumber | mobil | 
 | 3 | * I SuccessFactors är företags-e-post och mobil telefon primärt <br> * Du kan alltid flöda Azure AD-telefonnummer till företags telefon och mobil till mobil telefon | true | falskt | true |  telephoneNumber | mobil | 
-| 4 | * I SuccessFactors Business e-mail är primärt <br> * I Azure AD kontrollerar du om det finns telefonnummer till arbetet, om det är tillgängligt, kontrollerar du om det finns ett mobiltelefon nummer som endast primärt om det inte finns något mobil nummer. | true | Använd uttrycks mappning:`IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Använd uttrycks mappning:`IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobil | 
+| 4 | * I SuccessFactors Business e-mail är primärt <br> * I Azure AD kontrollerar du om det finns telefonnummer till arbetet, om det är tillgängligt, kontrollerar du om det finns ett mobiltelefon nummer som endast primärt om det inte finns något mobil nummer. | true | Använd uttrycks mappning: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Använd uttrycks mappning: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobil | 
 | 5 | * I SuccessFactors Business-e-post och företags telefon är primär. <br> * I Azure AD, om mobil är tillgängligt, anger du det som företags telefon, annars använder du telephoneNumber. | true | true | falskt | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Inte angivet\] | 
 
 * Om det inte finns någon mappning för telefonnumret i attributet Write-back-Mapping, inkluderas endast e-post i Skriv tillbaka.

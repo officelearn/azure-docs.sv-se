@@ -4,12 +4,12 @@ description: Kom igång med Application Insights. Analysera användning, tillgä
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323459"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987152"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
 
@@ -112,11 +112,11 @@ Du kan använda prestanda gransknings upplevelsen för att granska långsamma dr
 
 Vi kan välja ett större tidsintervall för att få en bättre uppfattning om användar upplevelsen för den här åtgärden. Vi kan sedan också begränsa tids perioden för ett särskilt tidsintervall där åtgärden var långsam. I följande exempel har vi växlat från standardvärdet för 24 timmar till tidsintervallet sju dagar och zoomat in i fönstret 9:47 till 12:47 tids period mellan tis 12 och ons 13. Både varaktighets fördelningen och antalet prov-och profiler spår har uppdaterats till höger.
 
-![Hämta kunder/information tre varaktigheter i intervallet för 7 dagar med ett tidsfönster](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Skärm bild som visar prestanda (för hands version) med tre varaktigheter i intervallet 7 dagar med ett tidsfönster](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 För att begränsa den långsamma upplevelsen kan vi härnäst zooma in de varaktigheter som ligger mellan 95 och 99 percentilen. Dessa representerar 4% av användar interaktioner som var långsamma.
 
-![Hämta kunder/information tre varaktigheter i intervallet för 7 dagar med ett tidsfönster](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Skärm bild som visar ERHÅLLna kunder/information tre varaktigheter i intervallet 7 dagar med en tidsperiod.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Vi kan nu antingen titta på de representativa exemplen genom att klicka på knappen exempel eller vid spårning av representativa profiler, genom att klicka på spårnings knappen för profiler. I det här exemplet finns fyra spår som har samlats in för Hämta kunder/information i tids perioden och intervallets varaktighet.
 
@@ -126,7 +126,7 @@ Ibland kommer problemet inte att finnas i din kod, utan i stället ett beroende 
 
 Prestanda undersöknings upplevelsen visar relevanta insikter längs den exempel uppsättning som du beslutade att fokusera på. Det bästa sättet att titta på alla tillgängliga insikter är att växla till ett tidsintervall i 30 dagar och sedan välja övergripande för att se insikter över alla åtgärder under den senaste månaden.
 
-![Hämta kunder/information tre varaktigheter i intervallet för 7 dagar med ett tidsfönster](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Skärm bild som visar prestanda (för hands version) med det övergripande fönstret öppet och insikter valt.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg

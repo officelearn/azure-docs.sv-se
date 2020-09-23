@@ -1,6 +1,6 @@
 ---
 title: Installera Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Azure | Microsoft Docs
-description: Revara värd för dina IBM z/OS-arbetsbelastningar med hjälp av Micro Focus-utveckling och test miljö på Azure Virtual Machines (VM).
+description: I den här artikeln får du lära dig hur du installerar Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: maggsl
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 59566fc051b1e84d8e271b3c9d061f2481dcc58f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 11fde4480f4e2ed9feda00fa2af0e5937a77b9ad
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245323"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986885"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Installera Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Azure
 
@@ -29,7 +29,7 @@ Den här installationen använder virtuella Azure-datorer som kör Windows Serve
 
 Motsvarande utvecklings miljö för Enterprise Server är företags utvecklare, som körs på antingen Microsoft Visual Studio 2017 eller senare, Visual Studio Community (kostnads fri att ladda ned) eller Sol förmörkelse. Den här artikeln visar hur du distribuerar den med en virtuell Windows Server 2016-dator som medföljer Visual Studio 2017 eller senare installerat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du gå igenom följande krav:
 

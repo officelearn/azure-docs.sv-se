@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967461"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Skapa ett konto som stöder Kundhanterade nycklar för tabeller och köer
 
-Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard använder Queue Storage och table Storage en nyckel som är begränsad till tjänsten och hanteras av Microsoft. Du kan också välja att använda Kundhanterade nycklar för att kryptera kö-eller tabell data. Om du vill använda Kundhanterade nycklar med köer och tabeller måste du först skapa ett lagrings konto som använder en krypterings nyckel som är begränsad till kontot, i stället för till tjänsten. När du har skapat ett konto som använder konto krypterings nyckeln för kö-och tabell data kan du konfigurera Kundhanterade nycklar med Azure Key Vault för det lagrings kontot.
+Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard använder Queue Storage och table Storage en nyckel som är begränsad till tjänsten och hanteras av Microsoft. Du kan också välja att använda Kundhanterade nycklar för att kryptera kö-eller tabell data. Om du vill använda Kundhanterade nycklar med köer och tabeller måste du först skapa ett lagrings konto som använder en krypterings nyckel som är begränsad till kontot, i stället för till tjänsten. När du har skapat ett konto som använder konto krypterings nyckeln för kö-och tabell data kan du konfigurera Kundhanterade nycklar för lagrings kontot.
 
 Den här artikeln beskriver hur du skapar ett lagrings konto som förlitar sig på en nyckel som är begränsad till kontot. När kontot först skapas använder Microsoft konto nyckeln för att kryptera data i kontot och Microsoft hanterar nyckeln. Du kan sedan konfigurera Kundhanterade nycklar för kontot för att dra nytta av dessa förmåner, inklusive möjligheten att tillhandahålla egna nycklar, uppdatera nyckel versionen, rotera nycklarna och återkalla åtkomst kontroller.
 
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Saknas
 
 ---
 
@@ -94,7 +94,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Saknas
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Saknas
 
 ---
 
@@ -215,11 +215,7 @@ Följande JSON-exempel skapar ett allmänt-syfte v2-lagrings konto som är konfi
 
 ---
 
-När du har skapat ett konto som förlitar sig på konto krypterings nyckeln kan du läsa följande artiklar för att konfigurera Kundhanterade nycklar med Azure Key Vault:
-
-- [Konfigurera kundhanterade nycklar med Azure Key Vault med hjälp av Azure-portalen](storage-encryption-keys-portal.md)
-- [Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av PowerShell](storage-encryption-keys-powershell.md)
-- [Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI](storage-encryption-keys-cli.md)
+När du har skapat ett konto som förlitar sig på konto krypterings nyckeln kan du konfigurera Kundhanterade nycklar som lagras i Azure Key Vault eller i Key Vault hanterad maskin säkerhets modell (HSM) (för hands version). Information om hur du lagrar Kundhanterade nycklar i ett nyckel valv finns i [Konfigurera kryptering med Kundhanterade nycklar som lagras i Azure Key Vault](customer-managed-keys-configure-key-vault.md). Information om hur du lagrar Kundhanterade nycklar i en hanterad HSM finns i [Konfigurera kryptering med Kundhanterade nycklar som lagras i Azure Key Vault hanterad HSM (för hands version)](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="verify-the-account-encryption-key"></a>Verifiera konto krypterings nyckeln
 
@@ -248,11 +244,12 @@ az storage account show /
 
 # <a name="template"></a>[Mall](#tab/template)
 
-E.t.
+Saknas
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage-kryptering av vilande data](storage-service-encryption.md) 
+- [Azure Storage-kryptering av vilande data](storage-service-encryption.md)
+- [Kundhanterade nycklar för Azure Storage kryptering](customer-managed-keys-overview.md)
 - [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

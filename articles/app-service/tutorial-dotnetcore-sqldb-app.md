@@ -1,19 +1,19 @@
 ---
-title: 'Självstudie: ASP.NET Core med SQL Database'
-description: Lär dig hur du får igång en .NET Core-app som fungerar i Azure App Service med anslutning till en SQL Database.
+title: 'Självstudie: ASP.NET Core med Azure SQL Database'
+description: Lär dig hur du skaffar en .NET Core-app som fungerar i Azure App Service, med anslutning till en Azure SQL Database.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 27b01a86d1bc44b5adb977f10339a0f2d56a64d4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b83dfbd715a6b27491fd5f5efd41213210092325
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958566"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982893"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service
+# <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Självstudie: Bygg en ASP.NET Core-och Azure SQL Database-app i Azure App Service
 
 ::: zone pivot="platform-windows"  
 
@@ -482,7 +482,7 @@ az webapp log tail --name <app-name> --resource-group myResourceGroup
 
 Uppdatera Azure-app i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Du kan nu se konsolloggarna som skickas till terminalen. Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
-Om du vill stoppa logg strömningen när som helst skriver du `Ctrl` + `C` .
+Skriv `Ctrl`+`C` när som helst för att stoppa loggströmningen.
 
 Mer information om att anpassa ASP.NET Core-loggar finns i [Loggning i ASP.NET Core](/aspnet/core/fundamentals/logging).
 

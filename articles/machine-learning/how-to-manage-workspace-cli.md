@@ -10,19 +10,19 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661636"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897354"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-ar
 > [!IMPORTANT]
 > Om du använder Azure Cloud Shell kan du hoppa över det här avsnittet. Cloud Shell autentiserar automatiskt dig med det konto som du loggar in i din Azure-prenumeration.
 
-Det finns flera sätt som du kan autentisera till din Azure-prenumeration från CLI. Den mest grundläggande är att interaktivt autentisera med hjälp av en webbläsare. För att autentisera interaktivt, öppna en kommando rad eller Terminal och Använd följande kommando:
+Det finns flera sätt som du kan autentisera till din Azure-prenumeration från CLI. Det enklaste är att interaktivt autentisera med hjälp av en webbläsare. För att autentisera interaktivt, öppna en kommando rad eller Terminal och Använd följande kommando:
 
 ```azurecli-interactive
 az login
@@ -109,9 +109,6 @@ Mer information om hur du arbetar med resurs grupper finns i [AZ Group](https://
 
 Om du vill skapa en ny arbets yta där __tjänsterna skapas automatiskt__, använder du följande kommando:
 
-> [!TIP]
-> Kommandona i det här avsnittet skapar en Basic Edition-arbetsyta. Om du vill skapa en företags arbets yta använder du `--sku enterprise` växeln med `az ml workspace create` kommandot. Mer information om Azure Machine Learning-versioner finns i [Azure Machine Learning](overview-what-is-azure-ml.md#sku).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -161,7 +158,7 @@ Mer information om hur du använder en privat slut punkt och ett virtuellt nätv
 
 Som standard lagras mått och metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar. 
 
-Om du skapar en __företags__ version av Azure Machine Learning kan du använda ange din egen nyckel. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration. Använd `--cmk-keyvault` parametern för att ange Azure Key Vault som innehåller nyckeln och `--resource-cmk-uri` för att ange URL: en för nyckeln i valvet.
+I stället för att använda den Microsoft-hanterade nyckeln kan du använda ange din egen nyckel. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration. Använd `--cmk-keyvault` parametern för att ange Azure Key Vault som innehåller nyckeln och `--resource-cmk-uri` för att ange URL: en för nyckeln i valvet.
 
 > [!IMPORTANT]
 > Innan du använder `--cmk-keyvault` `--resource-cmk-uri` parametrarna och måste du först utföra följande åtgärder:

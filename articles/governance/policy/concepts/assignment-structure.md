@@ -1,14 +1,14 @@
 ---
 title: Information om princip tilldelnings strukturen
 description: Beskriver den princip tilldelnings definition som används av Azure Policy för att relatera princip definitioner och parametrar till resurser för utvärdering.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904077"
 ---
 # <a name="azure-policy-assignment-structure"></a>Tilldelningsstruktur i Azure Policy
 
@@ -17,7 +17,7 @@ Princip tilldelningar används av Azure Policy för att definiera vilka resurser
 Du använder JSON för att skapa en princip tilldelning. Princip tilldelningen innehåller element för:
 
 - visningsnamn
-- beskrivning
+- description
 - metadata
 - tvingande läge
 - undantagna omfattningar
@@ -61,7 +61,7 @@ Egenskapen **enforcementMode** ger kunderna möjlighet att testa resultatet av e
 
 Den här egenskapen har följande värden:
 
-|Läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Description |
+|Läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Beskrivning |
 |-|-|-|-|-|-|
 |Enabled |Standardvärde |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
 |Inaktiverad |DoNotEnforce |sträng |Ja |Nej | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
@@ -70,7 +70,10 @@ Om **enforcementMode** inte anges i en princip eller initiativ definition använ
 
 ## <a name="excluded-scopes"></a>Undantagna omfattningar
 
-Tilldelningens **omfattning** inkluderar alla underordnade resurs behållare och underordnade resurser. Om en underordnad resurs behållare eller underordnad resurs inte ska ha definitionen tillämpad, kan var och en uteslutas från utvärderingen genom att ställa in **notScopes**. Den här egenskapen är en matris som aktiverar undantag för en eller flera resurs behållare eller resurser från utvärderingen. **notScopes** kan läggas till eller uppdateras när den inledande tilldelningen har skapats.
+Tilldelningens **omfattning** inkluderar alla underordnade resurs behållare och underordnade resurser. Om en underordnad resurs behållare eller underordnad resurs inte ska ha definitionen tillämpad, kan var och en _uteslutas_ från utvärderingen genom att ställa in **notScopes**. Den här egenskapen är en matris som aktiverar undantag för en eller flera resurs behållare eller resurser från utvärderingen. **notScopes** kan läggas till eller uppdateras när den inledande tilldelningen har skapats.
+
+> [!NOTE]
+> En _undantagen_ resurs skiljer sig från en _undantagen_ resurs. Mer information finns i [förstå omfattning i Azure policy](./scope.md).
 
 ## <a name="policy-definition-id"></a>ID för princip definition
 

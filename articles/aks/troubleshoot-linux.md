@@ -1,19 +1,19 @@
 ---
 title: Prestandaverktyg för Linux
 titleSuffix: Azure Kubernetes Service
-description: Lär dig hur du felsöker och löser vanliga problem när du använder Azure Kubernetes service (AKS)
+description: Lär dig hur du använder Linux-prestandaräknare för att felsöka och lösa vanliga problem när du använder Azure Kubernetes service (AKS).
 services: container-service
 author: alexeldeib
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
-ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74f65780594c7bc938ed6d59437473c4363e5848
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77925610"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982030"
 ---
 # <a name="linux-performance-troubleshooting"></a>Fel sökning av Linux-prestanda
 
@@ -62,7 +62,7 @@ $ dmesg --level=err | tail
 
 dmesg dumpar kernel-bufferten. Händelser som OOMKill lägger till en post i kernel-bufferten. Att hitta en OOMKill eller andra resurs överbelastnings meddelanden i dmesg-loggar är en stark indikator på ett problem.
 
-### <a name="top"></a>överst
+### <a name="top"></a>top
 
 ```
 $ top
@@ -78,13 +78,13 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-`top`ger en omfattande översikt över det aktuella system läget. Rubrikerna ger viss användbar sammanställd information:
+`top` ger en omfattande översikt över det aktuella system läget. Rubrikerna ger viss användbar sammanställd information:
 
 - tillstånd för uppgifter: köra, vilande, stoppad.
 - PROCESSOR användningen, i det här fallet visar inaktiv tid.
 - Totalt, ledigt och använt system minne.
 
-`top`kan missa processer för kortvariga processer; alternativ som `htop` och `atop` tillhandahålla liknande gränssnitt när du åtgärdar några av dessa brister.
+`top` kan missa processer för kortvariga processer; alternativ som `htop` och `atop` tillhandahålla liknande gränssnitt när du åtgärdar några av dessa brister.
 
 ## <a name="cpu"></a>Processor
 
@@ -108,7 +108,7 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat`skriver ut liknande CPU-information överst, men uppdelad efter CPU-tråd. Att se alla kärnor på en gång kan vara användbart för att upptäcka hög obalanserad processor användning, till exempel när ett enda trådat program använder en kärna med 100% belastning. Det här problemet kan vara svårare att upptäcka när det sammanställs över alla processorer i systemet.
+`mpstat` skriver ut liknande CPU-information överst, men uppdelad efter CPU-tråd. Att se alla kärnor på en gång kan vara användbart för att upptäcka hög obalanserad processor användning, till exempel när ett enda trådat program använder en kärna med 100% belastning. Det här problemet kan vara svårare att upptäcka när det sammanställs över alla processorer i systemet.
 
 ### <a name="vmstat"></a>vmstat
 
@@ -119,7 +119,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`innehåller liknande information `mpstat` och `top` räknar upp antalet processer som väntar på CPU (r-kolumnen), minnes statistik och procent andel CPU-tid som tillbringas i varje arbets tillstånd.
+`vmstat` innehåller liknande information `mpstat` och `top` räknar upp antalet processer som väntar på CPU (r-kolumnen), minnes statistik och procent andel CPU-tid som tillbringas i varje arbets tillstånd.
 
 ## <a name="memory"></a>Minne
 
@@ -134,7 +134,7 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-`free`visar grundläggande information om totalt minne samt använt och ledigt minne. `vmstat`kan vara mer användbart även för grundläggande minnes analyser på grund av dess förmåga att tillhandahålla rullande utdata.
+`free` visar grundläggande information om totalt minne samt använt och ledigt minne. `vmstat` kan vara mer användbart även för grundläggande minnes analyser på grund av dess förmåga att tillhandahålla rullande utdata.
 
 ## <a name="disk"></a>Disk
 
@@ -157,21 +157,21 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`ger djupgående insikter om disk användning. Det här anropet skickas `-x` för utökad statistik, `-y` för att hoppa över medelvärden för det inledande utskriften av utskrifter sedan start, och `1 1` för att ange att vi ska ha 1-sekunders intervall, slutar efter ett block med utdata. 
+`iostat` ger djupgående insikter om disk användning. Det här anropet skickas `-x` för utökad statistik, `-y` för att hoppa över medelvärden för det inledande utskriften av utskrifter sedan start, och `1 1` för att ange att vi ska ha 1-sekunders intervall, slutar efter ett block med utdata. 
 
-`iostat`exponerar många användbara statistik:
+`iostat` exponerar många användbara statistik:
 
-- `r/s`och `w/s` läsningar per sekund och skrivningar per sekund. Summan av dessa värden är IOPS.
-- `rkB/s`och `wkB/s` är kilobyte Läs/skrivna per sekund. Summan av dessa värden är data flöde.
-- `await`är den genomsnittliga iowait tiden i millisekunder för begär anden i kö.
-- `avgqu-sz`är den genomsnittliga kös Tor lek under det angivna intervallet.
+- `r/s` och `w/s` läsningar per sekund och skrivningar per sekund. Summan av dessa värden är IOPS.
+- `rkB/s` och `wkB/s` är kilobyte Läs/skrivna per sekund. Summan av dessa värden är data flöde.
+- `await` är den genomsnittliga iowait tiden i millisekunder för begär anden i kö.
+- `avgqu-sz` är den genomsnittliga kös Tor lek under det angivna intervallet.
 
 På en virtuell Azure-dator:
 
 - summan av `r/s` och `w/s` för en enskild block enhet får inte överstiga DISKens SKU-gränser.
-- summan av `rkB/s` och `wkB/s` för en enskild block enhet får inte överstiga DISKens SKU-gränser
+- summan av `rkB/s` och `wkB/s`  för en enskild block enhet får inte överstiga DISKens SKU-gränser
 - summan av `r/s` och `w/s` för alla block enheter får inte överskrida gränserna för VM-SKU: n.
-- summan av `rkB/s` och ' wkB/s för alla block enheter får inte överskrida gränserna för VM SKU: n.
+- summan av  `rkB/s` och ' wkB/s för alla block enheter får inte överskrida gränserna för VM SKU: n.
 
 Observera att OS-disken räknas som en hanterad disk av den minsta SKU: n som motsvarar dess kapacitet. Till exempel motsvarar en 1024GB OS-disk en P30-disk. Tillfälliga OS-diskar och temporära diskar har inte enskilda disk gränser. de begränsas endast av de fullständiga gränserna för virtuella datorer.
 
@@ -199,10 +199,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`är ett kraftfullt verktyg för en mängd olika analyser. Även om det här exemplet använder sin möjlighet att mäta nätverks statistik, är det lika kraftfullt att mäta processor-och minnes förbrukning. I det här exemplet anropas `sar` med `-n` flagga för att ange `DEV` nyckelordet (nätverks enhet), som visar nätverks data flöde per enhet.
+`sar` är ett kraftfullt verktyg för en mängd olika analyser. Även om det här exemplet använder sin möjlighet att mäta nätverks statistik, är det lika kraftfullt att mäta processor-och minnes förbrukning. I det här exemplet anropas `sar` med `-n` flagga för att ange `DEV` nyckelordet (nätverks enhet), som visar nätverks data flöde per enhet.
 
 - Summan av `rxKb/s` och `txKb/s` är det totala data flödet för en specifik enhet. När det här värdet överskrider gränsen för det etablerade Azure-NÄTVERKSKORTet kommer arbets belastningarna på datorn att uppleva ökad nätverks fördröjning.
-- `%ifutil`mäter användning för en specifik enhet. Eftersom det här värdet närmar sig 100% kommer arbets belastningarna att uppleva ökad nätverks fördröjning.
+- `%ifutil` mäter användning för en specifik enhet. Eftersom det här värdet närmar sig 100% kommer arbets belastningarna att uppleva ökad nätverks fördröjning.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -323,4 +323,4 @@ IpExt:
     InECT0Pkts: 14
 ```
 
-`netstat`kan Introspect en mängd olika nätverks statistik, som här anropas med sammanfattning av utdata. Det finns många användbara fält här beroende på problemet. Ett användbart fält i avsnittet TCP är "misslyckade anslutnings försök". Detta kan vara en indikation på antalet SNAT-portar eller andra problem som gör utgående anslutningar. En hög hastighet för återsända segment (även under avsnittet TCP) kan tyda på problem med paket leverans. 
+`netstat` kan Introspect en mängd olika nätverks statistik, som här anropas med sammanfattning av utdata. Det finns många användbara fält här beroende på problemet. Ett användbart fält i avsnittet TCP är "misslyckade anslutnings försök". Detta kan vara en indikation på antalet SNAT-portar eller andra problem som gör utgående anslutningar. En hög hastighet för återsända segment (även under avsnittet TCP) kan tyda på problem med paket leverans. 

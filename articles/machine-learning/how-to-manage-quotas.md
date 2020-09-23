@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141133"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897412"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 I den här artikeln får du lära dig om förkonfigurerade gränser för Azure-resurser för din [Azure Machine Learning](overview-what-is-azure-ml.md) prenumeration och vilka kvoter du kan hantera. Dessa gränser är placerade för att förhindra budget överskridningar på grund av bedrägerier och för att uppfylla Azures kapacitets begränsningar. 
 
@@ -99,8 +99,6 @@ Om du vill ange kvoter på arbets ytans nivå går du till valfri arbets yta i d
 
 
 > [!NOTE]
-> Detta är endast en Enterprise-version-funktion. Om du har både en [Basic-och en Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsyta i din prenumeration kan du använda den för att bara ange kvoter på dina företags arbets ytor. Dina grundläggande arbets ytor kommer att fortsätta att ha prenumerations nivå kvoten som är standard beteendet.
->
 > Du behöver behörighet för prenumerations nivå för att ange kvot på arbets ytans nivå. Detta gäller så att enskilda arbets ytans ägare inte kan redigera eller öka sina kvoter och starta encroaching till resurser som har tagits ur bruk för en annan arbets yta. Därför passar en prenumerations administratör bäst att allokera och distribuera dessa kvoter mellan arbets ytor.
 
 
@@ -137,7 +135,7 @@ Gränserna kan inte höjas ovanför det maximala gräns värde som visas i tabel
 När du begär en kvot ökning måste du välja den tjänst som du begär för att öka kvoten mot, vilket kan vara tjänster som Machine Learning tjänst kvot, container instanser eller lagrings kvot. Förutom Azure Machine Learning Compute kan du klicka på knappen **begär kvot** och Visa kvoten enligt stegen ovan.
 
 > [!NOTE]
-> [Kostnads fria utvärderings prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera den kostnads fria utvärderings versionen av Azure till "betala per](../billing/billing-upgrade-azure-subscription.md) användning" och [vanliga frågor om utvärderings prenumeration](https://azure.microsoft.com/free/free-account-faq).
+> [Kostnads fria utvärderings prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera den kostnads fria utvärderings versionen av Azure till "betala per](../billing/billing-upgrade-azure-subscription.md) användning" och  [vanliga frågor om utvärderings prenumeration](https://azure.microsoft.com/free/free-account-faq).
 
 ## <a name="next-steps"></a>Nästa steg
 

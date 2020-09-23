@@ -1,77 +1,68 @@
 ---
 title: Översikt – Azure Database for MySQL
 description: Lär dig mer om tjänsten Azure Database for MySQL, en Relations databas tjänst i Microsoft-molnet baserat på MySQL Community Edition.
-author: ajlam
+author: savjani
 ms.service: mysql
-ms.author: andrela
+ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 2a44896ff7cabb9e44c02be9f3dba201298d4794
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763668"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903950"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Vad är Azure Database for MySQL?
 
 Azure Database for MySQL är en Relations databas tjänst i Microsoft-molnet baserat på [MySQL Community Edition](https://www.mysql.com/products/community/) (tillgänglig i GPLv2-licensen) databas motor, version 5,6, 5,7 och 8,0. Azure Database for MySQL levererar:
 
-- Inbyggd hög tillgänglighet utan extra kostnad.
-- Förutsägbar prestanda med hjälp av priser för användningsbaserad betalning.
-- Skala efter behov inom några sekunder.
-- Säkrad för att skydda känsliga data i vila och under rörelse.
-- Automatisk säkerhetskopiering och återställning av tidpunkt för upp till 35 dagar.
-- Säkerhet och efterlevnad i företagsklass.
+- Inbyggd hög tillgänglighet.
+- Data skydd med automatiska säkerhets kopieringar och tidpunkts återställning i upp till 35 dagar.
+- Automatiserat underhåll av underliggande maskin vara, operativ system och databas motor för att hålla tjänsten säker och uppdaterad.
+- Förutsägbar prestanda med inkluderande Betala per användning-prissättning.
+- Elastisk skalning inom några sekunder.
+- Kontroller för kostnads optimering med möjlighet att stoppa/starta servern. 
+- Säkerhet på företags nivå och branschledande efterlevnad för att skydda känsliga data i vila och i rörelse.
+- Övervakning och automatisering för att förenkla hanteringen och övervakningen av storskaliga distributioner.
+- Branschledande support upplevelser.
 
 Dessa funktioner kräver nästan ingen administration och de tillhandahålls utan extra kostnad. De gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. Du kan dessutom fortsätta att utveckla programmet med verktygen med öppen källkod och på valfri plattform, och leverera med den hastighet och effektivitet som verksamheten kräver utan att du behöver lära dig nya färdigheter.
 
-![Azure Database for MySQL konceptuellt diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
+:::image type="content" source="media/overview/1-azure-db-for-mysql-conceptual-diagram.png" alt-text="Azure Database for MySQL konceptuellt diagram":::
 
-Den här artikeln är en introduktion till Azure Database for MySQL grundläggande begrepp och funktioner relaterade till prestanda, skalbarhet och hanterbarhet, med länkar till information. Läs följande snabbstarter innan du börjar:
+## <a name="deployment-models"></a>Distributionsmodeller
 
-- [Skapa en Azure Database för MySQL med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Skapa en Azure Database för MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
+Azure Database for MySQL som drivs av MySQL Community Edition finns i två distributions lägen:
+- Enskild server 
+- Flexibel server (förhandsversion)
+  
+### <a name="azure-database-for-mysql---single-server"></a>Azure Database for MySQL-enskild server
 
-En uppsättning Azure CLI-exempel finns här:
+Azure Database for MySQL enskild server är en fullständigt hanterad databas tjänst med minimala krav för anpassning av databasen. Plattformen för enskild server är utformad för att hantera de flesta av funktionerna för databas hantering, till exempel korrigering, säkerhets kopiering, hög tillgänglighet, säkerhet med minimal användar konfiguration och kontroll. Arkitekturen är optimerad för inbyggd hög tillgänglighet med 99,99% tillgänglighet för enskild tillgänglighets zon. Den stöder community-versionen av MySQL 5,6, 5,7 och 8,0. Tjänsten är allmänt tillgänglig idag i många olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/services/).
 
-- [Azure CLI-exempel för Azure Database for MySQL](sample-scripts-azure-cli.md)
+Distributions alternativet för enskild server har tre pris nivåer: Basic, Generell användning och Minnesoptimerade. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](concepts-pricing-tiers.md).
 
-## <a name="automated-patching"></a>Automatisk uppdatering
-Tjänsten utför automatisk uppdatering av underliggande maskin vara, operativ system och databas motor. Korrigeringen innehåller säkerhets-och program uppdateringar för den underliggande maskin varan, operativ systemet och databas motorn. För MySQL-motorn är lägre versions uppgraderingar automatiska och ingår som en del av korrigerings versionen. När communityn släpper en lägre version, integreras den automatiskt som en del av test cykeln för tjänsten. Testningen av den lägre versionen utförs på några av de kanoniska arbets belastningarna för MySQL. Den lägre versionen av MySQL-motorn utvärderas för tillförlitlighet (inga krascher), tillgänglighet, säkerhet och prestanda. Det är inte alla lägre versioner som släpps till produktion i tjänsten, men det är utvärderas baserat på den kritiska fel korrigeringen och ett nytt öknings värde. Detta är att göra den högra balansen mellan nytt ökande värde och minimera variablerna i systemet för stabilitet. Det finns inga användar åtgärder eller konfigurations inställningar som krävs för korrigering. Uppdaterings frekvensen är tjänst som hanteras baserat på nytto lastens allvarlighets grad. I allmänhet följer tjänsten varje månads versions schema som en del av den kontinuerliga integreringen och versionen. Användare kan prenumerera på ett [planerat underhålls meddelande](concepts-monitoring.md) för att få ett meddelande om kommande underhåll 72 timmar före händelsen.
+Enkla servrar lämpar sig bäst för inbyggda Cloud-program som är utformade för att hantera automatiserad uppdatering utan att det krävs någon detaljerad kontroll över uppdaterings schemats och anpassade MySQL-konfigurationsinställningar. 
 
-## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning på några sekunder
-Tjänsten Azure Database for MySQL erbjuder flera tjänst nivåer: Basic, Generell användning och Minnesoptimerade. Varje nivå erbjuder olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-service-tiers.md).
+Detaljerad översikt över distributions läget för en enskild server finns i [Översikt över en enskild server](single-server-overview.md).
 
-## <a name="monitoring-and-alerting"></a>Övervakning och avisering
-Hur avgör du när du ska reglera upp eller ner? Du kan använda de inbyggda funktionerna för prestandaövervakning och avisering, tillsammans med prestandaklassificering baserat på virtuella kärnor. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner de virtuella kärnorna baserat på dina aktuella eller beräknade prestandakrav. Mer information finns i [Aviseringar](howto-alert-on-metric.md).
+### <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL-flexibel Server (för hands version)
 
-## <a name="keep-your-app-and-business-running"></a>Håll igång din app och din verksamhet
-Azures branschledande serviceavtal (SLA) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Med varje Azure Database for MySQL server kan du dra nytta av inbyggd säkerhet, fel tolerans och data skydd som du annars skulle behöva köpa, utforma, utveckla och hantera. Med Azure Database for MySQL kan du använda återställning av tidpunkt för att återställa en server till ett tidigare tillstånd, så långt tillbaka som 35 dagar.
+Azure Database for MySQL flexibel Server är en fullständigt hanterad databas tjänst som är utformad för att ge mer detaljerad kontroll och flexibilitet för funktioner i databas hantering och konfigurations inställningar. I allmänhet tillhandahåller tjänsten mer flexibilitet och anpassningar baserat på användar kraven. Den flexibla Server arkitekturen gör det möjligt för användare att välja hög tillgänglighet i en zon för enskild tillgänglighet och över flera tillgänglighets zoner. Flexibla servrar ger bättre kostnads optimerings kontroller med möjligheten att stoppa/starta Server-och data bearbetnings nivåer, idealiska för arbets belastningar som inte behöver fullständig beräknings kapacitet kontinuerligt. Tjänsten stöder för närvarande community-versionen av MySQL 5,7 med planer för att lägga till nyare versioner snart. Tjänsten är för närvarande en offentlig för hands version som är tillgänglig idag i många olika [Azure-regioner](https://azure.microsoft.com/global-infrastructure/services/).
 
-## <a name="secure-your-data"></a>Skydda dina data
-Azure Database Services har en tradition av data säkerhet som Azure Database for MySQL har behållit, med funktioner som begränsar åtkomst, skyddar data i vila och i rörelse och hjälper dig att övervaka aktiviteten. Besök [Azure Säkerhetscenter](https://www.microsoft.com/trustcenter/security) för information om Azures plattformssäkerhet. Mer information om Azure Database for MySQL säkerhetsfunktioner finns i [säkerhets översikten](concepts-security.md).
+Flexibla servrar lämpar sig bäst för 
+- Program utveckling som kräver bättre kontroll och anpassningar.
+- Zon redundant hög tillgänglighet
+- Hanterade underhålls fönster
 
-## <a name="contacts"></a>Kontakter
-Om du har frågor eller förslag som du kan behöva för att arbeta med Azure Database for MySQL skickar du ett e-postmeddelande till Azure Database for MySQL-teamet ([ @Ask Azure dB för MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Den här e-postadressen är inte ett alias för teknisk support.
-
-Tänk dessutom på följande kontaktpunkter efter behov:
-
-- Kontakta Azure Support genom att [skicka in ett supportärende från Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Om du vill åtgärda ett problem med ditt konto, skickar du in ett [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
-- Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+Detaljerad översikt över flexibelt Server distributions läge finns i [Översikt över flexibla](flexible-server/overview.md)servrar.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har läst en introduktion till Azure Database for MySQL och besvarat frågan "Vad är Azure Database for MySQL?" du är redo att:
 
-- På prissättningssidan finns kostnadsjämförelser och kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/mysql/)
-- Kom igång genom att skapa din första server. [Skapa en Azure Database för MySQL med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Bygg din första app med önskat språk:
-  - [Python](./connect-python.md)
-  - [Node.JS](./connect-nodejs.md)
-  - [Java](./connect-java.md)
-  - [Ruby](./connect-ruby.md)
-  - [PHP](./connect-php.md)
-  - [.NET (C#)](./connect-csharp.md)
-  - [Kör](./connect-go.md)
+Läs mer om de två distributions lägena för Azure Database for MySQL och välj rätt alternativ baserat på dina behov.
+
+- [Enskild server](single-server/index.yml)
+- [Flexibel Server](flexible-server/index.yml)
+- [Välj rätt MySQL-distributions alternativ för din arbets belastning](select-right-deployment-type.md)

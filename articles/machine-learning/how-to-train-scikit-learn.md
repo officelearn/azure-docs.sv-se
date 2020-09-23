@@ -10,15 +10,15 @@ author: jpe316
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ce052fa80d8aa0d30d1de7268b82e727c952cab1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b63ef36d7df43168ed132a740bab026e6e00f3f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648194"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897229"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 I den här artikeln får du lära dig hur du kör dina scikit-utbildnings skript med Azure Machine Learning.
 
@@ -26,7 +26,7 @@ Exempel skripten i den här artikeln används för att klassificera Iris blomma-
 
 Oavsett om du tränar en Machine Learning-scikit – lär dig modell från grunden eller om du använder en befintlig modell i molnet, kan du använda Azure Machine Learning för att skala ut utbildnings jobb med öppen källkod med elastiska moln beräknings resurser. Du kan bygga, distribuera, hantera och övervaka modeller av produktions klass med Azure Machine Learning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden i någon av följande miljöer:
  - Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs

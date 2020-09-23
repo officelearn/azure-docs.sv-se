@@ -1,14 +1,14 @@
 ---
 title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895380"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -206,8 +206,10 @@ När du skapar ett initiativ eller en princip måste du ange definitions platsen
 
 Om definitions platsen är:
 
-- Endast **prenumerations** resurser i den prenumerationen kan tilldelas principen.
-- **Hanterings grupp** – endast resurser inom underordnade hanterings grupper och underordnade prenumerationer kan tilldelas principen. Om du planerar att tillämpa princip definitionen på flera prenumerationer måste platsen vara en hanterings grupp som innehåller en prenumeration.
+- Endast **prenumerations** resurser i den prenumerationen kan tilldelas princip definitionen.
+- **Hanterings grupp** – endast resurser inom underordnade hanterings grupper och underordnade prenumerationer kan tilldelas princip definitionen. Om du planerar att tillämpa princip definitionen på flera prenumerationer måste platsen vara en hanterings grupp som innehåller varje prenumeration.
+
+Mer information finns i [förstå omfattning i Azure policy](./scope.md#definition-location).
 
 ## <a name="policy-rule"></a>Principregel
 
@@ -576,16 +578,16 @@ Alla [funktioner i Resource Manager-mallar](../../../azure-resource-manager/temp
 Följande funktion är tillgänglig för användning i en princip regel, men skiljer sig från användning i en Azure Resource Manager mall (ARM-mall):
 
 - `utcNow()` – Till skillnad från en ARM-mall, kan den här egenskapen användas utanför _DefaultValue_.
-  - Returnerar en sträng som har angetts till aktuellt datum och aktuell tid i universellt ISO 8601 DateTime-format ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
+  - Returnerar en sträng som har angetts till aktuellt datum och aktuell tid i Universal ISO 8601 DateTime-format `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 Följande funktioner är endast tillgängliga i princip regler:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **datetime**: [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. fffffffZ '
-  - **numberOfDaysToAdd**: [required] heltal-antal dagar som ska läggas till
+  - **datetime**: [required] sträng-sträng i formatet Universal ISO 8601 datetime `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
+  - **numberOfDaysToAdd**: [required] heltal-antal dagar att lägga till.
 - `field(fieldName)`
   - **FieldName**: [required] sträng-namnet på det [fält](#fields) som ska hämtas
-  - Returnerar värdet för det fältet från den resurs som utvärderas av IF-villkoret
+  - Returnerar värdet för det fältet från den resurs som utvärderas av IF-villkoret.
   - `field` används i första hand med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på den resurs som utvärderas. Ett exempel på den här användningen kan visas i [DeployIfNotExists-exemplet](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Returnerar API-versionen för den begäran som utlöste princip utvärderingen (exempel: `2019-09-01` ).

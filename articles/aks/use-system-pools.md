@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647506"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888959"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
-I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. Node-pooler innehåller de underliggande virtuella datorer som kör dina program. System-nodkonfigurationer och användar-Node-pooler är två olika lägen för resurspooler för dina AKS-kluster. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Varje AKS-kluster måste innehålla minst en adresspool för system med minst en nod.
+I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. Node-pooler innehåller de underliggande virtuella datorer som kör dina program. System-nodkonfigurationer och användar-Node-pooler är två olika lägen för resurspooler för dina AKS-kluster. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel `CoreDNS` och `metrics-server` . Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Varje AKS-kluster måste innehålla minst en adresspool för system med minst en nod.
 
 > [!Important]
 > Om du kör en pool med en enda pool för AKS-klustret i en produktions miljö rekommenderar vi att du använder minst tre noder för Node-poolen.
@@ -164,7 +164,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > Om du vill använda AKS-kluster före API-version 2020-03-02 lägger du till en ny system-adresspool och tar sedan bort den ursprungliga standardnoden.
 
-Tidigare kunde du inte ta bort noden system Node, som var den första standardnoden i ett AKS-kluster. Nu har du möjlighet att ta bort alla noder från klustren. Eftersom AKS-kluster kräver minst en adresspool måste du ha minst två resurspooler för system på ditt AKS-kluster innan du kan ta bort ett av dem.
+Du måste ha minst två AKS-pooler på ditt-kluster innan du kan ta bort ett av dem.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool

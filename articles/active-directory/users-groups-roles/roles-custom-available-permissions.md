@@ -1,6 +1,6 @@
 ---
-title: Tillgängliga anpassade administratörs roll behörigheter – Azure AD | Microsoft Docs
-description: Anpassad administratörs roll behörigheter för att delegera identitets hantering.
+title: Anpassade roll behörigheter för app-registrering – Azure AD | Microsoft Docs
+description: Delegera roll behörigheter för anpassad administratör för hantering av app-registreringar.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732114"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967691"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Under typer och behörigheter för program registrering i Azure Active Directory
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Program registrerings behörigheter för anpassade roller i Azure Active Directory
 
 Den här artikeln innehåller tillgängliga registrerings behörigheter för program för anpassade roll definitioner i Azure Active Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Behörigheter för att hantera program med en enda katalog
+## <a name="permissions-for-managing-single-tenant-applications"></a>Behörigheter för att hantera program med en enda klient
 
-När du väljer behörigheter för den anpassade rollen har du möjlighet att ge åtkomst till endast hantera program i en katalog. Program med en enda katalog är bara tillgängliga för användare i Azure AD-organisationen där programmet är registrerat. Program med en enda katalog definieras som att de **konto typer som stöds** har angetts till "konton endast i den här organisations katalogen". I Graph API har signInAudience-egenskapen angetts till "AzureADMyOrg" i en enda katalog.
+När du väljer behörigheter för den anpassade rollen har du möjlighet att ge åtkomst till endast hantera program med en klient. program med en enda klient är bara tillgängliga för användare i Azure AD-organisationen där programmet är registrerat. program med en enda klient organisation definieras som att de **konto typer som stöds** har angetts till "konton endast i den här organisations katalogen". I Graph API har signInAudience-egenskapen angetts till "AzureADMyOrg" i en enda klient.
 
-Om du vill bevilja åtkomst till endast hantera program med en katalog använder du behörigheterna nedan med under typen **program. organisationen**. Till exempel Microsoft. Directory/Applications. min organisation/Basic/Update.
+Om du vill bevilja åtkomst till enbart hantering av program med en enda klient använder du behörigheterna nedan med under typen **program. organisationen**. Till exempel Microsoft. Directory/Applications. min organisation/Basic/Update.
 
 Se [översikten över anpassade roller](roles-custom-overview.md) för att få en förklaring av det allmänna villkorets undertyp, behörighet och egenskaps uppsättnings medelvärde. Följande information är specifik för program registreringar.
 
@@ -95,7 +95,7 @@ Ger samma behörigheter som Microsoft. Directory/Applications/standard/Read, men
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/allProperties/Update
 
-Möjlighet att uppdatera alla egenskaper för program med en enda katalog och flera kataloger.
+Möjlighet att uppdatera alla egenskaper för program med en enda klient och flera innehavare.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>Microsoft. Directory/Applications. min organisation/allProperties/Update
 
@@ -103,7 +103,7 @@ Ger samma behörigheter som Microsoft. Directory/Applications/allProperties/Upda
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>Microsoft. Directory/program/mål grupp/uppdatering
 
-Möjlighet att uppdatera den signInAudience-egenskap som stöds i en och flera katalog program.
+Möjlighet att uppdatera den signInAudience-egenskap som stöds för program med en enda klient och flera innehavare.
 
 ![Den här behörigheten beviljar åtkomst till den konto typ egenskap som stöds på sidan för program registrering](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ Möjlighet att uppdatera egenskaperna för certifikat och klient hemligheter på
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>Microsoft. Directory/Applications. min organisation/autentiseringsuppgifter/uppdatera
 
-Ger samma behörigheter som Microsoft. Directory/Applications/credentials/Update, men endast för program med en katalog.
+Ger samma behörigheter som Microsoft. Directory/Applications/credentials/Update, men endast för program med en enda klient.
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>Microsoft. Directory/program/ägare/uppdatering
 

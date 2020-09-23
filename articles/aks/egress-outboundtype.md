@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796977"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975286"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Anpassa utgående kluster med en användardefinierad väg
 
@@ -51,7 +51,7 @@ Följande konfiguration görs av AKS.
 
 Nedan är en nätverkstopologi som distribueras i AKS-kluster som standard, som använder `outboundType` sig av `loadBalancer` .
 
-![outboundtype – lb](media/egress-outboundtype/outboundtype-lb.png)
+![Diagrammet visar ingångs-och utgångs uppgifter i p, där ingången I P dirigerar trafik till en belastningsutjämnare som dirigerar trafik till och från ett internt kluster och annan trafik till utgående I P, som dirigerar trafik till Internet, M C R, Azure-tjänster som krävs och ett K S kontroll plan.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>Utgående typ av userDefinedRouting
 

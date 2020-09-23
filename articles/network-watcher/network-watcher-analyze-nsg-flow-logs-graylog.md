@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497122"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984057"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödes loggar för nätverks säkerhets grupper i Azure med hjälp av Network Watcher och Graylog
 
@@ -175,10 +175,10 @@ Mer information om det här plugin-programmet finns i [dokumentationen](https://
 
 Nu när du har upprättat en anslutning till flödes loggarna med Logstash och konfigurerat Graylog-servern måste du konfigurera Graylog för att godkänna inkommande loggfiler.
 
-1. Navigera till webb gränssnittet för Graylog-servern med hjälp av den URL som du har konfigurerat för det. Du kan komma åt gränssnittet genom att dirigera webbläsaren till`http://<graylog-server-ip>:9000/`
+1. Navigera till webb gränssnittet för Graylog-servern med hjälp av den URL som du har konfigurerat för det. Du kan komma åt gränssnittet genom att dirigera webbläsaren till `http://<graylog-server-ip>:9000/`
 
 2. Du navigerar till sidan konfiguration genom att välja List rutan **system** i det övre navigerings fältet till höger och sedan klicka på **indata**.
-   Du kan också navigera till`http://<graylog-server-ip>:9000/system/inputs`
+   Du kan också navigera till `http://<graylog-server-ip>:9000/system/inputs`
 
    ![Komma igång](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
@@ -186,7 +186,7 @@ Nu när du har upprättat en anslutning till flödes loggarna med Logstash och k
 
    Se till att binda indatamängden till IP-adressen som du konfigurerade Graylog-servern på. IP-adressen ska matcha **värd** fältet för UDP-utdata från konfigurations filen för Logstash. Standard porten bör vara *12201*. Se till att porten matchar **port** fältet i UDP-utdata som anges i Logstash-konfigurations filen.
 
-   ![Indata](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Skärm bild som visar Graylog-indata, med alternativ för att starta och hitta indata.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
    När du startar indata bör du se att den visas under avsnittet **lokala indata** , som du ser i följande bild:
 
@@ -200,11 +200,11 @@ Nu när du har upprättat en anslutning till flödes loggarna med Logstash och k
 
 Efter att Graylog-servern har kunnat samla in meddelanden kan du söka igenom meddelandena. Om du vill kontrol lera meddelanden som skickas till din Graylog-Server klickar du på knappen "**Visa mottagna meddelanden**" i den GELF UDP-indata som du skapade på sidan **indata** -konfiguration. Du dirigeras till en skärm som liknar följande bild: 
 
-![Histogram](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+![Skärm bild som visar Graylog-servern som visar Sök resultat, histogram och meddelanden.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
 Om du klickar på den blå länken% {Message} expanderas varje meddelande för att visa parametrarna för varje flödes tupel, som du ser i följande bild:
 
-![Meddelanden](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+![Skärm bild som visar meddelande information från Graylog-servern.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
 Som standard ingår alla meddelande fält i sökningen om du inte väljer ett särskilt meddelande fält att söka efter. Om du vill söka efter vissa meddelanden (dvs. – Flow-tupler från en specifik käll-IP) du kan använda Graylog search Query-språket som [dokumenterat](https://docs.graylog.org/en/2.2/pages/queries.html)
 
@@ -214,11 +214,11 @@ Nu när Graylog har kon figurer ATS igång kan du använda några av funktionern
 
 ### <a name="create-a-dashboard"></a>Skapa en instrumentpanel
 
-1. I det övre navigerings fältet väljer du **instrument paneler** eller navigerar till`http://<graylog-server-ip>:9000/dashboards/`
+1. I det övre navigerings fältet väljer du **instrument paneler** eller navigerar till `http://<graylog-server-ip>:9000/dashboards/`
 
 2. Därifrån klickar du på knappen grön **skapa instrument panel** och fyller i det korta formuläret med rubriken och beskrivningen för instrument panelen. Tryck på knappen **Spara** för att skapa den nya instrument panelen. En instrument panel ser ut ungefär som på följande bild:
 
-    ![Instrumentpaneler](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![Skärm bild som visar Graylog Server-instrumentpaneler med alternativen för att skapa och redigera instrument paneler.](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>Lägg till widgetar
 

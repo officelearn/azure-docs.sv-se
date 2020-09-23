@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f8156b01244012d78214f2ba8c49ed76dbceed6d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eb5c4e4c4dfb73b2f7c9dc9f2629296790790885
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118791"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896144"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Neka offentlig nätverks åtkomst i Azure Database for MySQL att använda Azure Portal
 
@@ -33,13 +33,13 @@ Följ dessa steg om du vill ställa in MySQL server neka offentlig nätverks åt
 
 1. I **neka offentlig nätverks åtkomst**väljer du **Ja** för att aktivera neka offentlig åtkomst för MySQL-servern.
 
-    ![Azure Database for MySQL neka nätverks åtkomst](./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG" alt-text="Azure Database for MySQL neka nätverks åtkomst":::
 
 1. Klicka på **Spara** för att spara ändringarna.
 
 1. Ett meddelande bekräftar att anslutnings säkerhets inställningen har Aktiver ATS.
 
-    ![Azure Database for MySQL nekad nätverks åtkomst](./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Azure Database for MySQL nekad nätverks åtkomst":::
 
 ## <a name="next-steps"></a>Nästa steg
 

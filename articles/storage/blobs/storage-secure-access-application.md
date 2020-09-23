@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001181"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967525"
 ---
 # <a name="secure-access-to-application-data"></a>Säker åtkomst till program data
 
@@ -160,7 +160,7 @@ Följande klasser, egenskaper och metoder används i den föregående aktivitete
 
 [Azure Storage kryptering](../common/storage-service-encryption.md) hjälper dig att skydda och skydda dina data genom att kryptera data i vila och genom att hantera kryptering och dekryptering. Alla data krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), ett av de starkaste blockchiffer som finns.
 
-Du kan välja att låta Microsoft hantera krypterings nycklar, eller så kan du ta med dina egna nycklar med Kundhanterade nycklar med Azure Key Vault. Mer information finns i [använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](../common/encryption-customer-managed-keys.md).
+Du kan välja att låta Microsoft hantera krypterings nycklar, eller så kan du ta med dina egna nycklar med Kundhanterade nycklar som lagras i Azure Key Vault eller Key Vault-hanterad maskin varu säkerhets modell (HSM) (för hands version). Mer information finns i [kund hanterade nycklar för Azure Storage kryptering](../common/customer-managed-keys-overview.md).
 
 Azure Storage kryptering krypterar automatiskt data i alla prestanda nivåer (standard och Premium), alla distributions modeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (BLOB, kö, tabell och fil).
 

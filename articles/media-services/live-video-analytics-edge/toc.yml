@@ -51,6 +51,10 @@
         - name: Med OVMS via ett HTTP-tillägg
           displayName: 'intel, OpenVINO'
           href: use-intel-openvino-tutorial.md
+        - name: Använda Custom Vision
+          href: custom-vision-tutorial.md
+        - name: Använda Rumslig analys
+          href: spatial-analysis-tutorial.md
 - name: Exempel
   items:
     - name: Exempel på C#-direktmetod
@@ -89,6 +93,8 @@
       href: manage-recording-policy-how-to.md
     - name: Anropa direkta metoder med portalen
       href: use-azure-portal-to-invoke-direct-methods.md
+    - name: Distribuera på Azure Stack Edge
+      href: deploy-azure-stack-edge-how-to.md
     - name: Felsöka
       href: troubleshoot-how-to.md
 - name: Referens

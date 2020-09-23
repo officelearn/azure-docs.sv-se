@@ -1,25 +1,37 @@
 ---
-title: Om Azure Key Vault nycklar – Azure Key Vault
+title: Om nycklar – Azure Key Vault
 description: Översikt över Azure Key Vault REST-gränssnittet och information om utvecklare för nycklar.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 76e9c342f87a3aa1d04a8f4be4065af73e6ba9f2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651304"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967557"
 ---
-# <a name="about-azure-key-vault-keys"></a>Om Azure Key Vault-nycklar
+# <a name="about-keys"></a>Om nycklar
 
-Azure Key Vault stöder flera nyckel typer och algoritmer och aktiverar användning av HSM (Hardware Security modules) för nycklar med hög värde.
+Azure Key Vault tillhandahåller två typer av resurser för att lagra och hantera kryptografiska nycklar:
+
+|Resurstyp|Nyckel skydds metoder|Bas-URL för data Plans slut punkt|
+|--|--|--|
+| **Valv** | Program vara-skyddad<br/><br/>och<br/><br/>HSM-skyddad (med Premium-SKU)</li></ul> | https://{valv-Name}. valv. Azure. net |
+| **Hanterade HSM-pooler** | HSM-skyddad | https://{HSM-Name}. managedhsm. Azure. net |
+||||
+
+- **Valv** – valven ger dig en låg kostnad, enkel att distribuera, flera klient organisationer, zoner – flexibel (där det är tillgängligt), nyckel hanterings lösning med hög tillgänglighet som passar för de flesta vanliga moln program scenarier.
+- **Hanterad HSM: er** -hanterad HSM tillhandahåller en enda klient, zon flexibel (där tillgänglig), hög tillgänglig HSM: er för att lagra och hantera dina kryptografiska nycklar. Lämplig för program-och användnings scenarier som hanterar nycklar med högt värde. Bidrar också till att uppfylla de mest strikta kraven för säkerhet, efterlevnad och regler. 
+
+> [!NOTE]
+> Med valv kan du också lagra och hantera flera typer av objekt som hemligheter, certifikat och lagrings konto nycklar, utöver de kryptografiska nycklarna.
 
 Kryptografiska nycklar i Key Vault representeras som JSON-webbnyckel [JWK]-objekt. JOSE-specifikationerna (JSON) och Java Script Object signing and Encryption () är: JavaScript Object Notation
 
@@ -28,30 +40,49 @@ Kryptografiska nycklar i Key Vault representeras som JSON-webbnyckel [JWK]-objek
 -   [JSON-webbalgoritmer (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON-webbsignatur (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-De grundläggande JWK/JWA-specifikationerna utökas också för att aktivera nyckel typer som är unika för Key Vault implementeringen. Om du exempelvis importerar nycklar med hjälp av HSM-leverantörsspecifik paketering, möjliggör säker transport av nycklar som bara kan användas i Key Vault HSM: er. 
+De grundläggande JWK/JWA-specifikationerna utökas också för att aktivera nyckel typer som är unika för Azure Key Vault och hanterade HSM-implementeringar. 
 
-Azure Key Vault stöder både program skyddade och HSM-skyddade nycklar:
+HSM-skyddade nycklar (kallas även HSM-nycklar) bearbetas i en HSM-modul (Hardware Security Module) och bibehålls alltid HSM-skydds gränser. 
 
-- **Program skyddade nycklar**: en nyckel som bearbetas i program vara med Key Vault, men krypteras i vila med en system nyckel som finns i en HSM. Klienter kan importera en befintlig RSA-eller EC-nyckel (Elliptic Curve) eller begära att Key Vault generera en.
-- **HSM-potected-nycklar**: en nyckel som bearbetas i en HSM-modul (Hardware Security Module). Nycklarna skyddas i en av Key Vault HSM-säkerhetsvärldaren (det finns en säkerhets värld per geografi för att underhålla isoleringen). Klienter kan importera en RSA-eller EC-nyckel, i program varu skydds formulär eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault att generera en nyckel. Den här nyckel typen lägger till key_hsm-attributet i JWK för att hämta HSM-nyckel materialet.
+- Valv använder **FIPS 140-2 nivå 2** -verifierade HSM: er för att skydda HSM-nycklar i delad HSM-Server infrastruktur. 
+- Hanterade HSM-pooler använder **FIPS 140-2 nivå 3** -VERIFIERAde HSM-moduler för att skydda dina nycklar. Varje HSM-pool är en isolerad instans av en enskild klient organisation med en egen [säkerhets domän](../managed-hsm/security-domain.md) som tillhandahåller fullständig kryptografisk isolering från alla andra HSM-pooler som delar samma maskin varu infrastruktur.
 
-Mer information om geografiska gränser finns [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/privacy/)  
+Dessa nycklar skyddas i HSM-pooler med en enda klient. Du kan importera en RSA-, EC-och symmetrisk nyckel, i mjuk form eller genom att exportera från en HSM-enhet som stöds. Du kan också generera nycklar i HSM-pooler. När du importerar HSM-nycklar med hjälp av nycklar med hjälp av metoden som beskrivs i [BYOK (ta med din egen nyckel)](../keys/byok-specification.md), aktive ras Secure transport Key material till hanterade HSM-pooler. 
 
-## <a name="cryptographic-protection"></a>Kryptografiskt skydd
+Mer information om geografiska gränser finns [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
-Key Vault stöder endast RSA-och Elliptic-kurv nycklar. 
+## <a name="key-types-protection-methods-and-algorithms"></a>Nyckel typer, skydds metoder och algoritmer
 
--   **EG**: Elliptic kurv nyckel för program vara – skyddad.
--   **EC-HSM**: "hård" Elliptic kurv nyckel.
--   **RSA**: programvaru-skyddad RSA-nyckel.
--   **RSA-HSM**: "hård" RSA-nyckel.
+Key Vault stöder RSA, EC och symmetriska nycklar. 
 
-Key Vault stöder RSA-nycklar av storlekarna 2048, 3072 och 4096. Key Vault stöder Elliptic kurv nyckel typer P-256, P-384, P-521 och P-256 KB (SECP256K1).
+### <a name="hsm-protected-keys"></a>HSM-skyddade nycklar
 
-De kryptografiska moduler som Key Vault använder, om HSM eller program vara, är FIPS (Federal Information Processing Standards) som verifieras. Du behöver inte göra något särskilt för att köra i FIPS-läge. Nycklar som **skapas** eller **importeras** som HSM-skyddade bearbetas i en HSM, verifieras till FIPS 140-2 nivå 2. Nycklar som **skapas** eller **importeras** som program varu skyddade bearbetas i kryptografiska moduler validerade till FIPS 140-2 nivå 1.
+|Nyckeltyp|Valv (endast Premium-SKU)|Hanterade HSM-pooler|
+|--|--|--|--|
+**EC-HSM**: Elliptic kurv nyckel|FIPS 140-2 nivå 2 HSM|FIPS 140-2 nivå 3 HSM
+**RSA-HSM**: RSA-nyckel|FIPS 140-2 nivå 2 HSM|FIPS 140-2 nivå 3 HSM
+**okt-HSM**: symmetrisk|Stöds inte|FIPS 140-2 nivå 3 HSM
+||||
+
+### <a name="software-protected-keys"></a>Program vara – skyddade nycklar
+
+|Nyckeltyp|Valv|Hanterade HSM-pooler|
+|--|--|--|--|
+**RSA**: "program vara-skyddad" RSA-nyckel|FIPS 140-2-nivå 1|Stöds inte
+**EG**: "Software-Protected" Elliptic Curve Key|FIPS 140-2-nivå 1|Stöds inte
+||||
+
+### <a name="supported-algorithms"></a>Algoritmer som stöds
+
+|Nyckel typer/storlekar/kurvor| Kryptera/dekryptera<br>(Radbryt/packa upp) | Signera/verifiera | 
+| --- | --- | --- |
+|EG-P256, EC-P256K, EG-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
+|RSA 2, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP – 256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|AES 128-bit, 256-bitars| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
+|||
 
 ###  <a name="ec-algorithms"></a>EC-algoritmer
- Följande algoritms identifierare stöds med EG-och EC-HSM-nycklar i Key Vault. 
+ Följande algoritms identifierare stöds med EC-HSM-nycklar
 
 #### <a name="curve-types"></a>Kurv typer
 
@@ -68,12 +99,13 @@ De kryptografiska moduler som Key Vault använder, om HSM eller program vara, ä
 -   **ES512** -ECDSA för SHA-512-sammandrag och nycklar som skapats med kurva P-521. Den här algoritmen beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>RSA-algoritmer  
- Följande algoritms identifierare stöds med RSA-och RSA-HSM-nycklar i Key Vault.  
+ Följande algoritms identifierare stöds med RSA-och RSA-HSM-nycklar  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, KRYPTERA/DEKRYPTERA
 
 -   **RSA1_5** -RSAES-PKCS1-V1_5 [RFC3447] nyckel kryptering  
 -   **RSA-OAEP** – RSAES med optimalt OAEP (asymmetrisk krypterings utfyllnad) [RFC3447], med standard parametrarna som anges i RFC 3447 i avsnitt A. 2.1. Dessa standard parametrar använder en hash-funktion i SHA-1 och en mask-funktion för MGF1 med SHA-1.  
+-  **RSA-OAEP-256** – RSAES med optimal asymmetriska krypterings utfyllnad med hash-funktionen SHA-256 och en mask funktion för MGF1 med SHA-256
 
 #### <a name="signverify"></a>SIGNERA/VERIFIERA
 
@@ -83,11 +115,19 @@ De kryptografiska moduler som Key Vault använder, om HSM eller program vara, ä
 -   **RS256** -RSASSA-PKCS-V1_5 använder SHA-256. Det program som angavs Digest-värde måste beräknas med SHA-256 och måste vara 32 byte långt.  
 -   **RS384** -RSASSA-PKCS-V1_5 använder SHA-384. Det program som angavs Digest-värde måste beräknas med SHA-384 och måste vara 48 byte långt.  
 -   **RS512** -RSASSA-PKCS-V1_5 använder SHA-512. Det program som angavs Digest-värde måste beräknas med SHA-512 och måste vara 64 byte långt.  
--   **RSNULL** – se [RFC2437], ett specialiserat användnings fall för att aktivera vissa TLS-scenarier.  
+-   **RSNULL** – se [RFC2437](https://tools.ietf.org/html/rfc2437), ett specialiserat användnings fall för att aktivera vissa TLS-scenarier.  
+
+###  <a name="symmetric-key-algorithms"></a>Algoritmer för symmetrisk nyckel
+- **AES-kW** – AES Key wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
+- **AES-GCM** -AES-kryptering i Galois Counter mode ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC** -AES-kryptering i läget cipher block Chaining ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+
+> [!NOTE] 
+> Den aktuella AES-GCM-implementeringen och motsvarande API: er är experimentella. Implementeringen och API: erna kan ändras väsentligen i framtida iterationer. 
 
 ##  <a name="key-operations"></a>Nyckel åtgärder
 
-Key Vault stöder följande åtgärder på nyckel objekt:  
+Hanterad HSM stöder följande åtgärder på nyckel objekt:  
 
 -   **Skapa**: tillåter att en klient skapar en nyckel i Key Vault. Nyckelns värde genereras av Key Vault och lagras, och frigörs inte till klienten. Asymmetriska nycklar kan skapas i Key Vault.  
 -   **Importera**: tillåter att en klient importerar en befintlig nyckel till Key Vault. Asymmetriska nycklar kan importeras till Key Vault att använda ett antal olika förpacknings metoder inom en JWK-konstruktion. 
@@ -142,8 +182,8 @@ Mer information om andra möjliga attribut finns i [JSON-webbnyckeln (JWK)](http
 
 Du kan ange ytterligare programspecifika metadata i form av taggar. Key Vault stöder upp till 15 taggar, som var och en kan ha ett 256-namn och ett värde på 256.  
 
->[!Note]
->Taggarna kan läsas av en anropare om de har *listan* eller *får* behörighet till den objekt typen (nycklar, hemligheter eller certifikat).
+> [!NOTE] 
+> Taggarna kan läsas av en anropare om de har *listan* eller *får* behörighet till nyckeln.
 
 ##  <a name="key-access-control"></a>Nyckelåtkomstkontroll
 
@@ -176,10 +216,10 @@ Följande behörigheter kan beviljas, per användare/tjänstens huvud konto, i �
 Mer information om hur du arbetar med nycklar finns [i nyckel åtgärder i Key Vault REST API referens](/rest/api/keyvault). Information om hur du etablerar behörigheter finns i [valv – skapa eller uppdatera](/rest/api/keyvault/vaults/createorupdate) och [valv – uppdatera åtkomst princip](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
 ## <a name="next-steps"></a>Nästa steg
-
 - [Om Key Vault](../general/overview.md)
-- [Om nycklar, hemligheter och certifikat](../general/about-keys-secrets-certificates.md)
+- [Om hanterad HSM](../managed-hsm/overview.md)
 - [Om hemligheter](../secrets/about-secrets.md)
 - [Om certifikat](../certificates/about-certificates.md)
+- [Översikt över Key Vault REST API](../general/about-keys-secrets-certificates.md)
 - [Autentisering, begär Anden och svar](../general/authentication-requests-and-responses.md)
 - [Utvecklarguide för Key Vault](../general/developers-guide.md)

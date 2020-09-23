@@ -6,20 +6,20 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7adeb9682336b19cc87d8c73a7f9ad8bda5e7828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e814487cb4dab9c8c19daab2ea3bb81391d4a98f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564064"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983684"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>Konfigurera en tunnel för alltid på VPN-enheter för virtuellt WAN
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste skapa en punkt-till-plats-konfiguration och redigera den virtuella hubben. Anvisningar finns i följande avsnitt:
 
@@ -34,7 +34,7 @@ Du måste skapa en punkt-till-plats-konfiguration och redigera den virtuella hub
 
 Om du vill ta bort profilen kör du följande kommando:
 
-![Rensa](./media/howto-always-on-device-tunnel/cleanup.png)
+![Skärm bild som visar ett PowerShell-fönster som kör kommandot Remove-VpnConnection-Name MachineCertTest.](./media/howto-always-on-device-tunnel/cleanup.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

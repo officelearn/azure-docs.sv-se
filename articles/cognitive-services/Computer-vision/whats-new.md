@@ -8,20 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: b8741d17c55a786d7a90d1c311039f2855adf43b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530666"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904097"
 ---
 # <a name="whats-new-in-computer-vision"></a>Vad är nytt i Visuellt innehåll
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="september-2020"></a>September 2020
+
+### <a name="spatial-analysis-container-preview"></a>Förhands granskning av rums analys behållare
+
+[Behållaren för rums analys](spatial-analysis-container.md) är nu i för hands version. Med funktionen för spatial analys i Visuellt innehåll kan du analysera real tids strömnings video för att förstå spatiala relationer mellan människor och deras rörelse genom fysiska miljöer. Rums analys är en Docker-behållare som du kan använda lokalt. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Read API v 3.1 offentlig för hands version lägger till OCR för japanska
 I Visuellt innehåll Läs-API v 3.1, som är allmänt tillgänglig, läggs dessa funktioner till:

@@ -9,14 +9,17 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419273"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972264"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Ge åtkomst till Key Vault nycklar, certifikat och hemligheter med en rollbaserad åtkomst kontroll i Azure (för hands version)
+
+> [!NOTE]
+> Key Vault Resource provider stöder två resurs typer: **valv** och **hanterade HSM: er**. Åtkomst kontroll som beskrivs i den här artikeln gäller endast **valv**. Mer information om åtkomst kontroll för hanterad HSM finns i [hanterad HSM Access Control](../managed-hsm/access-control.md).
 
 Rollbaserad åtkomst kontroll i Azure (Azure RBAC) är ett auktoriserings system som bygger på [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) och ger detaljerad åtkomst hantering av Azure-resurser.
 
@@ -61,10 +64,6 @@ Mer information om definitioner av inbyggda Azure-roller finns i [inbyggda rolle
 Den nya Azure RBAC-behörighets modellen för Key Vault ger ett alternativ till åtkomst princips modellen för valv. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Aktivera Azure RBAC-behörigheter på Key Vault
-
-Under för hands versionen måste du använda Azure RBAC-taggen (Microsoft_Azure_KeyVault_RBACEnabled = true) för att se de nya behörighets modell alternativen.
-
-https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Om du ställer in Azure RBAC-behörighets modell inaktive ras alla behörigheter för åtkomst principer. Det kan orsaka avbrott när motsvarande Azure-roller inte är tilldelade.

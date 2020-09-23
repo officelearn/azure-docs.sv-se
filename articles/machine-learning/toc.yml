@@ -15,21 +15,28 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: Python SDK
+    - name: Python (dag 1)
       expanded: true
       items:
-        - name: Skapa ett första ML-experiment
-          items:
-            - name: 1. Konfigurera arbetsyta och utvecklingsmiljö
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Träna din första modell
-              href: tutorial-1st-experiment-sdk-train.md
+        - name: 1. Konfigurera lokal dator
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. Hello World
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Träna en modell
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Hämta dina egna data
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Jupyter Notebook
+      expanded: true
+      items:
         - name: Klassificering av avbildning (MNIST-data)
           items:
-            - name: 1. Träna en modell
+            - name: 1. Konfigurera beräkningsinstans
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Träna en modell
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Distribuera en modell
+            - name: 3. Distribuera en modell
               href: tutorial-deploy-models-with-aml.md
         - name: Regression med automatiserad ML (data från taxibilar i New York)
           items:
@@ -92,8 +99,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Begrepp
   items:
-    - name: Skillnad mellan Enterprise- och Basic-utgåvor
-      href: concept-editions.md
     - name: Planera och hantera kostnader
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -201,6 +206,9 @@
         - name: Säker kodning
           href: concept-secure-code-best-practice.md
           displayName: security threat
+        - name: Granska och hantera efterlevnad
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
     - name: Ansvarsfull ML
       items:
         - name: Översikt över ansvarsfull ML
@@ -287,12 +295,15 @@
               href: how-to-designer-import-data.md
         - name: Åtkomst till data
           items:
-            - name: Ansluta till Azure Storage
+            - name: Ansluta till Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Hämta data från ett datalager
+            - name: Hämta data från ett datalager (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
+            - name: Ansluta till data (användargränssnitt)
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set'
+              href: how-to-connect-data-ui.md
         - name: Hantera och använda data
           items:
             - name: Träna med datauppsättningar
@@ -448,6 +459,9 @@
         - name: Profilmodeller
           displayName: profile resource requirement
           href: how-to-deploy-profile-model.md
+        - name: Distribuera designermodeller
+          displayName: 'designer, studio'
+          href: how-to-deploy-model-designer.md
         - name: (Förhandsversion) Distribution utan kod
           displayName: no code
           href: how-to-deploy-no-code-deployment.md

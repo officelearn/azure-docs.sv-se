@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "66117576"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970002"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudie: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
 
@@ -26,7 +26,7 @@ Contoso vill distribuera en modul för den intelligenta nätverksgränsen till o
 
 Följande diagram visar huvudkomponenterna i självstudiescenariot:
 
-![Översikt](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![Diagram som visar att olje Pumps uttag är anslutet till i o T Edge Stream Analytics-modulen i o T Edge-enheten för telemetri och kommandon. Filtrerad telemetri går till i o T Edge-enheten i den fjärrstyrda lösnings acceleratorn i molnet. Molnet innehåller också distribution och paket. Distributionen distribuerar i o T Edge-körningsmiljön i enheten.](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 I den här kursen får du:
 
@@ -82,8 +82,8 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
     | ------- | ----- |
     | Jobb     | Taggar  |
     | Jobbnamn | AddEdgeTag |
-    | Tangent     | IsOilPump |
-    | Värde   | J     |
+    | Nyckel     | IsOilPump |
+    | Värde   | Y     |
     | Typ    | Text  |
 
     [![Lägg till tagg](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
@@ -99,7 +99,7 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
     | Namn    | OilPumps |
     | Fält   | Tags.IsOilPump |
     | Operator | = Lika med |
-    | Värde    | J |
+    | Värde    | Y |
     | Typ     | Text |
 
     [![Skapa enhets grupp](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
@@ -283,7 +283,7 @@ Nu är du redo att distribuera paketet till din enhet.
 
     [![Skapa distribution](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
-    Klicka på **Använd**.
+    Klicka på **Applicera**.
 
 Du måste vänta några minuter medan paketet distribueras till din enhet och telemetri börjar flöda från enheten.
 
@@ -325,7 +325,7 @@ Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa e
 
     [![Skapa regel](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 
-    Klicka på **Använd**.
+    Klicka på **Applicera**.
 
 1. Gå till sidan **Instrumentpanel**. En avisering som visas i panelen **Aviseringar** när temperaturen i enheten **oil-pump** överstiger 300.
 

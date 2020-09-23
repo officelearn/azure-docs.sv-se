@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73839171"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970091"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Använd Video Indexer redigeraren för att skapa projekt
 
@@ -51,11 +51,11 @@ Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapa
     
     I bilden nedan söker vi till exempel efter videor som nämner "GitHub".
     
-    ![GitHub](./media/video-indexer-view-edit/github.png)
+    ![Skärm bild som visar sökning efter videor som nämner GitHub med två resultat.](./media/video-indexer-view-edit/github.png)
 
     Du kan filtrera resultaten ytterligare genom att välja **filter resultat**. Du kan filtrera för att visa videor som har en viss person i dem eller för att ange att du bara vill visa video resultat som är ett visst språk eller som har en specifik ägare. <br/> Du kan också ange omfattningen för frågan. Om du till exempel vill söka efter "GitHub" i OCR väljer du **visuell text**.
 
-    ![Filter](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtrera](./media/video-indexer-view-edit/visual-text.png)
 
     Du kan skikta flera filter till frågan. Använd **+** / **-** knapparna för att lägga till/ta bort filter. Använd **Rensa filter** för att ta bort alla filter.
 1. Om du vill lägga till videor markerar du dem och väljer sedan **Lägg till**.
@@ -63,7 +63,7 @@ Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapa
 
     Du kan ändra ordningen på videor genom att dra och släppa eller genom att välja menyn List meny och välja **Flytta ned** eller **Flytta upp**. Du kan också ta bort videon från det här projektet från menyn lista. 
 
-    ![Ordna om](./media/video-indexer-view-edit/rearrange.png)
+    ![Skärm bild som visar Video Indexer med en snabb meny för en av videorna för att ta bort, rensa markeringen eller flytta ned.](./media/video-indexer-view-edit/rearrange.png)
     
     Du kan när som helst lägga till fler videor i projektet genom att välja **Lägg till videor**. Du kan också lägga till flera förekomster av samma video i projektet. Du kanske vill göra detta om du vill visa ett klipp från en video och sedan ett klipp från en annan och ett annat klipp från den första videon. 
 
@@ -81,7 +81,7 @@ Om du klickar på nedåtpilen till höger om varje video kommer du att öppna in
 
     Du kanske till exempel vill se klipp där GitHub anges medan Donovan Brown är på skärmen. För detta måste du lägga till ett "inkludera"-filter som har "personer" som typ av insikter. Sedan måste du skriva in "Donovan Brown" i Sök fältet för filtret.
     
-    ![Inkludera](./media/video-indexer-view-edit/include.png)
+    ![Skärm bild som visar Video Indexer med personer som är markerade för ett include-filter.](./media/video-indexer-view-edit/include.png)
     
     Om du vill att klipp där GitHub anges medan Donovan Brown _inte_ finns på skärmen, ändrar du bara filtret "ta med" till ett "exkludera"-filter med hjälp av list rutan. 
 
@@ -96,7 +96,7 @@ Om du klickar på nedåtpilen till höger om varje video kommer du att öppna in
 > [!TIP]
 > När du väljer och sorterar dina klipp kan du förhandsgranska videon i spelaren på höger sida av sidan. 
 
-![Förhandsgranskning](./media/video-indexer-view-edit/preview.png)
+![Skärm bild som visar Video Indexer med förhands granskningen av en video på höger sida av fönstret.](./media/video-indexer-view-edit/preview.png)
 
 Kom ihåg att spara projektet när du gör ändringar genom att välja **Spara projekt**. 
 
@@ -107,7 +107,7 @@ Kom ihåg att spara projektet när du gör ändringar genom att välja **Spara p
 
 1. När du är färdig kontrollerar du att projektet har sparats. Nu kan du återge det här projektet. Välj **rendera och hämta**. 
 
-    ![Spara](./media/video-indexer-view-edit/save.png)
+    ![Skärm bild som visar Video Indexer med alternativet att rendera och ladda ned ditt projekt.](./media/video-indexer-view-edit/save.png)
 
     Det kommer att finnas en popup-meny som visar att video Indexer kommer att återge en fil och sedan skickas länken till e-postmeddelandet. Välj Fortsätt. 
     

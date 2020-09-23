@@ -1,14 +1,14 @@
 ---
 title: Att tänka på med Cloud Solution Provider-programmet
 description: För CSP-partner hjälper Azure delegerad resurs hantering att förbättra säkerheten och kontrollen genom att aktivera detaljerade behörigheter.
-ms.date: 07/29/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429453"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967154"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure-Lighthouse och Cloud Solution Provider-programmet
 
@@ -23,7 +23,7 @@ Med [Azure Lighthouse](../overview.md)kan du använda Azure-delegerad resurs han
 
 Med ADMINISTRATE kommer alla användare med [Administratörs agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) rollen i din klient organisation ha administrate åtkomst till Azure-prenumerationer som du skapar via CSP-programmet. Alla användare som behöver åtkomst till kunders prenumerationer måste vara medlemmar i den här gruppen. ADMINISTRATE tillåter inte flexibiliteten att skapa distinkta grupper som fungerar med olika kunder, eller för att aktivera olika roller för grupper eller användare.
 
-![Hantering av innehavare med ADMINISTRATE](../media/csp-1.jpg)
+![Diagram som visar klient hantering med hjälp av ADMINISTRATE.](../media/csp-1.jpg)
 
 ## <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
@@ -31,7 +31,7 @@ Med Azure Lighthouse kan du tilldela olika grupper till olika kunder eller rolle
 
 När du registrerar en prenumeration som du har skapat via CSP-programmet följer du stegen som beskrivs i [publicera en prenumeration på Azure Lighthouse](../how-to/onboard-customer.md). Alla användare som har rollen administratörs agent i din klient organisation kan utföra denna onboarding.
 
-![Hantering av innehavare med ADMINISTRATE och Azure delegerad resurs hantering](../media/csp-2.jpg)
+![Diagram som visar klient hantering med hjälp av ADMINISTRATE och Azure-delegerad resurs hantering.](../media/csp-2.jpg)
 
 > [!TIP]
 > [Hanterade tjänst erbjudanden](managed-services-offers.md) med privata planer stöds inte med prenumerationer som upprättats via en åter försäljare av program varan för Cloud Solution Provider (CSP). Du kan publicera dessa prenumerationer på Azure-Lighthouse med [hjälp av Azure Resource Manager mallar](../how-to/onboard-customer.md).
@@ -39,7 +39,7 @@ När du registrerar en prenumeration som du har skapat via CSP-programmet följe
 > [!NOTE]
 > Sidan [ **Mina kunder** i Azure Portal](../how-to/view-manage-customers.md) innehåller nu en **moln lösnings leverantör (förhands granskning)** , som visar fakturerings information och resurser för CSP-kunder som har [undertecknat Microsofts kund avtal (MCA)](/partner-center/confirm-customer-agreement) och som ingår i [Azure-prenumerationen](/partner-center/azure-plan-get-started). Mer information finns i [Kom igång med ditt fakturerings konto för Microsoft partner avtal](../../cost-management-billing/understand/mpa-overview.md).
 >
-> CSP-kunder kan visas i det här avsnittet oavsett om de också har registrerats för Azure-delegerad resurs hantering. Om de har det visas de också i avsnittet **kunder** , enligt beskrivningen i [Visa och hantera kunder och delegerade resurser](../how-to/view-manage-customers.md). På samma sätt behöver inte en CSP-kund visas i avsnittet **Cloud Solution Provider (för hands version)** i **Mina kunder** för att du ska kunna publicera dem för Azure-delegerad resurs hantering.
+> CSP-kunder kan visas i det här avsnittet oavsett om de också har publicerats till Azure-Lighthouse. Om de har det visas de också i avsnittet **kunder** , enligt beskrivningen i [Visa och hantera kunder och delegerade resurser](../how-to/view-manage-customers.md). På samma sätt behöver inte en CSP-kund visas i avsnittet **Cloud Solution Provider (för hands version)** i **Mina kunder** för att du ska kunna publicera dem på Azure Lighthouse.
 
 ## <a name="next-steps"></a>Nästa steg
 

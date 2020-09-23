@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: skicka en Sök förfrågan till REST API med Node.js-Entitetssökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av C# och få ett JSON-svar.
+description: Använd den här snabb starten för att skicka en begäran till Entitetssökning i Bing REST API med Node.js och ta emot ett JSON-svar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 82bdd8f3890f1685aa442463287fe72bde08d518
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a3e09a26593911e7f8f113ee0db41aa99390b14d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405967"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970564"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med Node.js
 

@@ -5,22 +5,22 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973092"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
 
 Lär dig hur du använder Azure Functions för att skapa en funktion utan [Server](https://azure.microsoft.com/solutions/serverless/) som körs baserat på ett schema som du definierar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
-+ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
++ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-azure-function-app"></a>Skapa en Azure Functions-app
 
@@ -44,11 +44,11 @@ Din nya Function-app är redo att användas. Därefter skapar du en funktion i a
 
 1. Konfigurera den nya utlösaren med de inställningar som anges i tabellen nedanför bilden och välj sedan **skapa funktion**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Välj timer-utlösaren i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Skärm bild som visar den nya funktions sidan där mallen timer-utlösare har valts." border="true":::
     
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
-    | **Namn** | Default | Det här är namnet på den timerutlösta funktionen. |
+    | **Namn** | Standardvärde | Det här är namnet på den timerutlösta funktionen. |
     | **Schema** | 0 \* /1 \* \* \*\* | Ett [CRON-uttryck](functions-bindings-timer.md#ncrontab-expressions) med sex fält som schemalägger att funktionen ska köras varje minut. |
 
 ## <a name="test-the-function"></a>Testa funktionen

@@ -1,18 +1,18 @@
 ---
-title: Vad är nytt med Azure Arc-aktiverade servrar (för hands version)
-description: Den här artikeln innehåller viktig information om Azure Arc-aktiverade servrar (för hands version). För många av de sammanfattade problemen finns det länkar till ytterligare information.
+title: Vad är nytt med Azure Arc-aktiverade Server agenter
+description: Den här artikeln innehåller viktig information om Azure Arc-aktiverade Server agenter. För många av de sammanfattade problemen finns det länkar till ytterligare information.
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 3b739401603f6dc18b9f48fb3cb6e28023a051ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532179"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908159"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-preview-agent"></a>Vad är nytt med Azure Arc-aktiverade servrar (för hands version)
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Vad är nytt med Azure Arc-aktiverade Server agenter
 
-Azure Arc-aktiverade servrar (förhands granskning) anslutna dator agenter får fort löp ande förbättringar. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
+Azure Arc-aktiverade servrar som är anslutna till dator agenten får fort löp ande förbättringar. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
 - De senaste versionerna
 - Kända problem
@@ -60,4 +60,4 @@ Om du använder en äldre version av Linux-agenten och konfigurerat den för att
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du utvärderar eller aktiverar Arc-aktiverade servrar (förhands granskning) över flera hybrid datorer kan du läsa [Översikt över anslutna dator agenter](agent-overview.md) för att förstå krav, teknisk information om agenten och distributions metoder.
+Innan du utvärderar eller aktiverar Arc-aktiverade servrar över flera hybrid datorer kan du läsa [Översikt över anslutna dator agenter](agent-overview.md) för att förstå krav, teknisk information om agenten och distributions metoder.

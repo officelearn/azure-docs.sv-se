@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/09/2020
-ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/22/2020
+ms.openlocfilehash: ac0b04db783571b6ef31161adaf18b4220244c6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950484"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969813"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Förhands gransknings funktioner i Azure Kognitiv sökning
 
@@ -23,9 +23,8 @@ Förhands gransknings funktioner som övergår till allmän tillgänglighet tas 
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
-| [**Azure Machine Learning (AML) kunskap**](cognitive-search-aml-skill.md) | AI-berikning| En ny färdighets typ som integrerar en inferencing-slutpunkt från Azure Machine Learning. Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md). | Använd [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/) eller 2019-05-06 – för hands version. Det finns även i portalen, i färdigheter design, förutsatt att Kognitiv sökning och Azure ML-tjänster distribueras i samma prenumeration. |
-| [**featuresMode-parameter**](/rest/api/searchservice/search-documents#featuresmode) | Relevans (Poängsättning) | Utökning av relevans för att inkludera information: per fält likhets poäng, per fält villkors frekvens och per fält antal unika tokens matchade. Du kan använda dessa data punkter i [anpassade bedömnings lösningar](https://github.com/Azure-Samples/search-ranking-tutorial). | Lägg till den här Frågeparametern med [Sök dokument (rest)](/rest/api/searchservice/search-documents) med API-version = 2020-06 -30-preview eller 2019-05-06-Preview. |
-| [**Hanterad tjänst identitet**](search-howto-managed-identities-data-sources.md) | Indexerare, säkerhet| Registrera en Sök tjänst med Azure Active Directory för att göra den till en betrodd tjänst och Använd sedan RBAC-behörigheter på Azure-datakällor för att tillåta skrivskyddad åtkomst av en indexerare. | Använd den här funktionen när du använder portalen eller [skapa data källa (rest)](/rest/api/searchservice/create-data-source) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
+| [**Azure Machine Learning (AML) kunskap**](cognitive-search-aml-skill.md) | AI-berikning| En ny färdighets typ som integrerar en inferencing-slutpunkt från Azure Machine Learning. Kom igång med [den här självstudien](cognitive-search-tutorial-aml-custom-skill.md). | Använd [sök REST API 2020-06-30 – för hands version](https://docs.microsoft.com/rest/api/searchservice/) eller 2019-05-06 – för hands version. Det finns även i portalen, i färdigheter design, förutsatt att Kognitiv sökning och Azure ML-tjänster distribueras i samma prenumeration. |
+| [**featuresMode-parameter**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | Relevans (Poängsättning) | Utökning av relevans för att inkludera information: per fält likhets poäng, per fält villkors frekvens och per fält antal unika tokens matchade. Du kan använda dessa data punkter i [anpassade bedömnings lösningar](https://github.com/Azure-Samples/search-ranking-tutorial). | Lägg till den här Frågeparametern med [Sök dokument (rest)](https://docs.microsoft.com/rest/api/searchservice/search-documents) med API-version = 2020-06 -30-preview eller 2019-05-06-Preview. |
 | [**Felsöka sessioner**](cognitive-search-debug-session.md) | Portal, AI-anrikning (färdigheter) | Ett färdigheter-redigeringsprogram i sessionen som används för att undersöka och lösa problem med en färdigheter. Korrigeringar som tillämpas under en felsökningssession kan sparas i en färdigheter i tjänsten. | Endast Portal, med länkar mellan sidor på översikts sidan för att öppna en felsökningssession. |
 | [**Mjuk borttagning av inbyggd BLOB**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexerare, Azure-blobar| Azure Blob Storage-indexeraren i Azure Kognitiv sökning identifierar blobbar som är i ett mjukt borttaget läge och tar bort motsvarande sökdokument under indexeringen. | Lägg till den här konfigurations inställningen med hjälp av [skapa indexerare (rest)](/rest/api/searchservice/create-indexer) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
 | [**Anpassad Sök kompetens för entitet**](cognitive-search-skill-custom-entity-lookup.md ) | AI-anrikning (färdigheter) | En kognitiv färdighet som söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att söka efter matchningar som liknar varandra, men som inte exakt stämmer. | Referera till förhands gransknings kunskapen med färdigheter-redigeraren i portalen eller [skapa färdigheter (rest)](/rest/api/searchservice/create-skillset) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |

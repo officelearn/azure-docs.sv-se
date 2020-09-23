@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 - devx-track-javascript
-ms.openlocfilehash: c7717416e58e772bee4ec8bf655d1341187a96e6
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7eba6adffcdd3dab3263e82faf51ac90bae79b89
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019401"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968160"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (Node.js)
 
@@ -338,12 +338,12 @@ Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som en enhets utvecklare har du nu lärt dig grunderna för hur du skapar en enhet med hjälp av Node.js, men vissa föreslagna nästa steg är att:
-
-* Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.
-* Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
-
 Om du föredrar att fortsätta med en uppsättning IoT Central själv studie kurser och lära dig mer om hur du skapar en IoT Central lösning, se:
 
 > [!div class="nextstepaction"]
 > [Mall för att skapa en gateway-enhet](./tutorial-define-gateway-device-type.md)
+
+Som en enhets utvecklare har du nu lärt dig grunderna för hur du skapar en enhet med hjälp av Node.js, men vissa föreslagna nästa steg är att:
+
+* Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.
+* Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.

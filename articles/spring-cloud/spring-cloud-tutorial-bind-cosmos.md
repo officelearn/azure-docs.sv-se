@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7fb1f88ab5eaf22047f5a696ec9cb021981cdd5e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9b7af755c7f0903787bb3798ea1f6877cae180f1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297186"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908310"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Bind en Azure Cosmos DB-databas till ditt Azure våren Cloud-program
+
+**Den här artikeln gäller för:** ✔️ Java
 
 I stället för att manuellt konfigurera dina våren Boot-program kan du automatiskt binda utvalda Azure-tjänster till dina program med hjälp av Azure våren Cloud. Den här artikeln visar hur du binder ditt program till en Azure Cosmos DB-databas.
 

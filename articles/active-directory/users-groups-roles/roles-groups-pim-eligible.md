@@ -1,6 +1,6 @@
 ---
 title: Tilldela en roll till en grupp med hjälp av Privileged Identity Management i Azure AD | Microsoft Docs
-description: Förhandsgranska anpassade Azure AD-roller för att delegera identitets hantering. Hantera Azure-roller i Azure Portal, PowerShell eller Graph API.
+description: Lär dig hur du kan tilldela en Azure Active Directory-roll (Azure AD) till en grupp med Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343da87048cf43c04a137376e9a7f24270ce729a
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971173"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Tilldela en roll till en grupp med hjälp av Privileged Identity Management
 
@@ -104,6 +104,6 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använd moln grupper för att hantera roll tilldelningar](roles-groups-concept.md)
-- [Fel söknings roller tilldelade till moln grupper](roles-groups-faq-troubleshooting.md)
+- [Felsökningsroller tilldelade till molngrupper](roles-groups-faq-troubleshooting.md)
 - [Konfigurera inställningarna för Azure AD admin-rollen i Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Tilldela Azure-resurs roller i Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

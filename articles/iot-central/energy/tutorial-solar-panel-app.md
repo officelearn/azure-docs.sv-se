@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84310010"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971313"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Självstudie: skapa och gå igenom en mall för övervakning av solpanels program 
 
@@ -76,7 +76,7 @@ Adatum är ett fiktivt energi företag som övervakar och hanterar sol paneler. 
 > [!div class="mx-imgBorder"]
 > ![Instrument panel för sol panel övervakning](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
-### <a name="devices"></a>Enheter
+### <a name="devices"></a>Egenskaper
 Appen levereras med ett exempel på en sol-panels enhet. Du kan se enhets informationen genom att klicka på fliken **enheter** .
 
 > [!div class="mx-imgBorder"]
@@ -105,8 +105,9 @@ Om du väljer att inte fortsätta använda programmet tar du bort programmet med
     > [!div class="mx-imgBorder"]
     > ![Ta bort program](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
-
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om program arkitekturen på solpanelen se [begrepps artikeln](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Lär dig mer om program arkitekturen i sol panelen se 
+> [!div class="nextstepaction"]
+> [begrepps artikeln](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Skapa programmallar på solpanelen gratis: [solpanels app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/)

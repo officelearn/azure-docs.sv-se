@@ -7,18 +7,76 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294007"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908295"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Använd distribuerad spårning med Azure våren Cloud
 
 Med de distribuerade spårnings verktygen i Azure våren-molnet kan du enkelt felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen ger kraftfull, distribuerad spårnings funktion från Azure Portal.
 
-I den här artikeln lär du dig hur du:
+::: zone pivot="programming-language-csharp"
+I den här artikeln får du lära dig hur du aktiverar en .NET Core Steeltoe-app för att använda distribuerad spårning.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill följa dessa procedurer behöver du en Steeltoe-app som redan är [för beredd för distribution till Azure våren Cloud](spring-cloud-tutorial-prepare-app-deployment.md).
+
+## <a name="dependencies"></a>Beroenden
+
+Installera följande NuGet-paket
+
+* [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+* [Steeltoe. Management. ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
+
+## <a name="update-startupcs"></a>Uppdatera Startup.cs
+
+1. I `ConfigureServices` -metoden anropar du- `AddDistributedTracing` och- `AddZipkinExporter` metoderna.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration);
+       services.AddZipkinExporter(Configuration);
+   }
+   ```
+
+1. `Configure`Anropa metoden i-metoden `UseTracingExporter` .
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {
+        app.UseTracingExporter();
+   }
+   ```
+
+## <a name="update-configuration"></a>Uppdatera konfiguration
+
+Lägg till följande inställningar i konfigurations källan som ska användas när appen körs i Azure våren Cloud:
+
+1. Ange `management.tracing.alwaysSample` till Sant.
+
+2. Om du vill se spårnings förrymder som skickas mellan Eureka-servern, konfigurations servern och användarens appar: ange `management.tracing.egressIgnorePattern` till "/API/v2/spans |/v2/Apps/.* /Permissions |/Eureka/.*| /oauth/.*".
+
+*appsettings.jspå* är till exempel följande egenskaper:
+ 
+```json
+"management": {
+    "tracing": {
+      "alwaysSample": true,
+      "egressIgnorePattern": "/api/v2/spans|/v2/apps/.*/permissions|/eureka/.*|/oauth/.*"
+    }
+  }
+```
+
+Mer information om distribuerad spårning i .NET Core Steeltoe-appar finns i [distribuerad spårning](https://steeltoe.io/docs/3/tracing/distributed-tracing) i Steeltoe-dokumentationen.
+::: zone-end
+::: zone pivot="programming-language-java"
+I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Aktivera distribuerad spårning i Azure Portal.
@@ -26,10 +84,10 @@ I den här artikeln lär du dig hur du:
 > * Visa beroende kartor för mikrotjänst program.
 > * Sök spårnings data med olika filter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa de här procedurerna behöver du en moln tjänst för Azure våren som redan är etablerad och körs. Slutför [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart.md) för att etablera och köra en moln tjänst för Azure våren.
-    
+Om du vill följa de här procedurerna behöver du en moln tjänst för Azure våren som redan är etablerad och körs. Slutför snabb starten för [ditt första Azure våren Cloud-program](spring-cloud-quickstart.md) för att etablera och köra en moln tjänst för Azure våren.
+
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
 1. Lägg till följande rad i filen Application. Properties:
@@ -73,6 +131,7 @@ spring.sleuth.sampler.probability=0.5
 ```
 
 Om du redan har skapat och distribuerat ett program kan du ändra samplings frekvensen. Gör detta genom att lägga till föregående rad som en miljö variabel i Azure CLI eller Azure Portal.
+::: zone-end
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 

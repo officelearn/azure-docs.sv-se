@@ -10,23 +10,29 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 08/21/2020
-  ms.openlocfilehash: 6dec6bb451e7a330138c9a2a65f2a7dec7202a6a
-  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+  ms.openlocfilehash: a2bf337f5bcd5d4fb5810025b6d2aaa8da15201c
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89051329"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90908222"
 highlightedContent:
   items:
+  - title: Om Azure Arc
+    itemType: overview
+    url: overview.md
   - title: Azure Arc-aktiverade servrar (förhandsversion)
     itemType: overview
     url: ./servers/overview.md
   - title: Azure Arc-aktiverade Kubernetes (förhandsversion)
     itemType: overview
     url: ./kubernetes/overview.md
-  - title: Om Azure Arc
+  - title: Azure Arc-aktiverade datatjänster (förhandsversion)
     itemType: overview
-    url: overview.md
+    url: ./data/overview.md
+  - title: Azure Arc-aktiverad SQL Server (förhandsversion)
+    itemType: overview
+    url: https://docs.microsoft.com/en-us/sql/sql-server/
 productDirectory:
   title: Azure Arc-aktiverade tjänster
   summary: Se hur du kör tjänster var som helst.
@@ -43,13 +49,31 @@ productDirectory:
     - url: ./servers/index.yml
       text: Se mer...
   - title: Azure Arc-aktiverade Kubernetes
-    imageSrc: ./media/containers-101-kubernetes-services.svg
+    imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
     - url: ./kubernetes/connect-cluster.md
       text: Anslut kluster
     - url: ./kubernetes/use-gitops-connected-cluster.md
       text: Distribuera konfigurationer med GitOps
     - url: ./kubernetes/index.yml
+      text: Se mer...
+  - title: Azure Arc-aktiverade datatjänster (förhandsversion)
+    imageSrc: ./media/manage-756-azure-arc.svg
+    links:
+    - url: ./data/install-client-tools.md
+      text: Installera verktygen
+    - url: ./data/create-sql-managed-instance.md
+      text: Skapa hanterad SQL-instans
+    - url: ./data/create-postgresql-hyperscale-server-group.md
+      text: Skapa PostgreSQL-hyperskala
+    - url: ./data/index.yml
+      text: Se mer...
+  - title: Azure Arc-aktiverad SQL Server (förhandsversion)
+    imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
+    links:
+    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+      text: Utvärdera dina SQL-instanser
+    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
       text: Se mer...
 conceptualContent:
   title: Kom igång

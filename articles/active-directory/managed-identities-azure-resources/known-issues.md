@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4bcd36a1ce38d4d9eb6a0faec470f7427852894b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260228"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969148"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -33,15 +33,13 @@ ms.locfileid: "89260228"
 > [!NOTE]
 > Hanterade identiteter för Azure-resurser är det nya namnet på tjänsten som tidigare hade namnet Hanterad tjänstidentitet (MSI).
 
-
 ### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Hur kan du hitta resurser som har en hanterad identitet?
 
 Du kan hitta listan över resurser som har en systemtilldelad hanterad identitet med hjälp av följande Azure CLI-kommando: 
 
-`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
-
-
-
+```azurecli-interactive
+az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
+```
 
 ### <a name="do-managed-identities-have-a-backing-app-object"></a>Har Managed identiteter ett säkerhetskopierat app-objekt?
 
@@ -72,8 +70,6 @@ Säkerhets gränserna för identiteten är den resurs som den är kopplad till. 
 - Om systemtilldelad hanterad identitet inte är aktive rad och det bara finns en tilldelad hanterad identitet, kommer IMDS att använda den enskilda användaren som tilldelats den hanterade identiteten. 
 - Om systemtilldelad hanterad identitet inte är aktive rad och det finns flera tilldelade hanterade identiteter, måste du ange en hanterad identitet i begäran.
 
-
-
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Kommer Managed identiteter att återskapas automatiskt om jag flyttar en prenumeration till en annan katalog?
 
 Nej. Om du flyttar en prenumeration till en annan katalog måste du återskapa dem manuellt och ge Azure-roll tilldelningar igen.
@@ -88,7 +84,6 @@ Nej. Hanterade identiteter stöder för närvarande inte scenarier mellan katalo
 
 - Systemtilldelad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft.Compute/virtualMachines/write. Den här åtgärden ingår i de resursbaserade inbyggda rollerna som [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Användardefinierad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft.Compute/virtualMachines/write. Förutom roll tilldelningen [hanterad identitets operatör](../../role-based-access-control/built-in-roles.md#managed-identity-operator) över den hanterade identiteten.
-
 
 
 ## <a name="known-issues"></a>Kända problem
@@ -112,7 +107,7 @@ Om du flyttar en virtuell dator i körnings läge fortsätter den att köras und
 Utlös en uppdatering på den virtuella datorn så att den kan hämta korrekta värden för hanterade identiteter för Azure-resurser. Du kan göra en ändring av en VM-egenskap för att uppdatera referensen till de hanterade identiteterna för Azures resurs identitet. Du kan till exempel ange ett nytt tagg värde på den virtuella datorn med följande kommando:
 
 ```azurecli-interactive
- az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
+az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
 Det här kommandot anger en ny tagg "fixVM" med värdet 1 på den virtuella datorn. 
@@ -124,8 +119,6 @@ När den virtuella datorn har startats kan taggen tas bort med hjälp av följan
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Överföra en prenumeration mellan Azure AD-kataloger
 

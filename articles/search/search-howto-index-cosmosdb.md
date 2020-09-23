@@ -9,18 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: db6dfb36c579f57f9cef66fa00a07b0d1dc2bc03
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9402b1d38457c979f00d05f56b8ed45d2d37dfca
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929677"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971677"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB-data med hjälp av en indexerare i Azure Cognitive Search 
 
 > [!IMPORTANT] 
 > SQL API är allmänt tillgängligt.
-> MongoDB API, Gremlin API och API för Cassandra support finns för närvarande i offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Du kan begära åtkomst till för hands versionerna genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). [REST API version 2020-06-30-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
+> MongoDB API, Gremlin API och API för Cassandra support finns för närvarande i offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Du kan begära åtkomst till för hands versionerna genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). 
+> [REST API Preview-versioner](search-api-preview.md) innehåller de här funktionerna. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 > [!WARNING]
 > Endast Cosmos DB samlingar med en [indexerings princip](/azure/cosmos-db/index-policy) inställd på [konsekvent](/azure/cosmos-db/index-policy#indexing-mode) stöds av Azure kognitiv sökning. Indexering av samlingar med en Lazy-indexerings princip rekommenderas inte och kan leda till att data saknas. Samlingar med inaktiverade index stöds inte.
@@ -31,7 +32,7 @@ Eftersom terminologin kan vara förvirrande, är det värt att notera att [Azure
 
 Cosmos DB indexeraren i Azure Kognitiv sökning kan crawla [Azure Cosmos DB objekt](../cosmos-db/databases-containers-items.md#azure-cosmos-items) som nås via olika protokoll. 
 
-+ För [SQL API](../cosmos-db/sql-query-getting-started.md), som är allmänt tillgänglig, kan du använda [portalen](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations)eller [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) för att skapa data källan och indexeraren.
++ För [SQL API](../cosmos-db/sql-query-getting-started.md), som är allmänt tillgänglig, kan du använda [portalen](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations)eller [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer) för att skapa data källan och indexeraren.
 
 + För [MongoDB-API (för hands version)](../cosmos-db/mongodb-introduction.md)kan du använda antingen [portalen](#cosmos-indexer-portal) eller [REST API version 2020-06-30-Preview](search-api-preview.md) för att skapa data källan och indexeraren.
 
@@ -183,7 +184,7 @@ Bröd texten i begäran innehåller definitionen av data källan, som ska inneh�
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**bastyp**| Krävs. Måste vara `cosmosdb` . |
 |**klientautentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB anslutnings sträng.<br/><br/>För **SQL-samlingar**är anslutnings strängar i följande format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>För version 3,2 och version 3,6 **MongoDB Collections** använder du följande format för anslutnings strängen: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller**för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
-| **fönster** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
+| **container** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
 | **dataChangeDetectionPolicy** | Rekommenderas. Se avsnittet [Indexera ändrade dokument](#DataChangeDetectionPolicy) .|
 |**dataDeletionDetectionPolicy** | Valfritt. Se avsnittet [Indexera borttagna dokument](#DataDeletionDetectionPolicy) .|
 
@@ -275,7 +276,7 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
 | Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
-| Andra JSON-objekt |Ej tillämpligt |
+| Andra JSON-objekt |Saknas |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
 
@@ -304,10 +305,10 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt tillgängliga REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [Microsoft. Azure. search. Models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft. Azure. search. Models. datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. Indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [Microsoft. Azure. search. Models. datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype)
++ [Microsoft. Azure. search. Models. index](/dotnet/api/microsoft.azure.search.models.index)
++ [Microsoft. Azure. search. Models. Indexer](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="DataChangeDetectionPolicy"></a>
 

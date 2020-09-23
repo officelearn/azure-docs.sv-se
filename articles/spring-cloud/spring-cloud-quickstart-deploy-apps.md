@@ -7,15 +7,177 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8931c22c3656cf9708756153268ab1d9d87b8343
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 94caa879aa005f8f41e44b8a56400e87f6174247
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050836"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908341"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Snabb start: bygga och distribuera appar till Azure våren Cloud
 
+::: zone pivot="programming-language-csharp"
+I den här snabb starten skapar och distribuerar du mikrotjänstprogram till Azure våren-molnet med hjälp av Azure CLI.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Slutför föregående snabb starter i den här serien:
+
+  * [Etablera Azure våren Cloud Service](spring-cloud-quickstart-provision-service-instance.md).
+  * [Konfigurera konfigurations servern för Azure våren Cloud](spring-cloud-quickstart-setup-config-server.md).
+
+## <a name="download-the-sample-app"></a>Ladda ned exempelprogrammet
+
+Om du har använt Azure Cloud Shell fram till den här punkten växlar du till en lokal kommando tolk för följande steg.
+
+1. Skapa en ny mapp och klona exempel App-lagringsplatsen.
+
+   ```console
+   mkdir source-code
+   ```
+
+   ```console
+   cd source-code
+   ```
+
+   ```console
+   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
+   ```
+
+1. Navigera till databasens katalog.
+
+   ```console
+   cd Azure-Spring-Cloud-Samples
+   ```
+
+## <a name="deploy-planetweatherprovider"></a>Distribuera PlanetWeatherProvider
+
+1. Skapa en app för PlanetWeatherProvider-projektet i Azure våren Cloud-instansen.
+
+   ```azurecli
+   az spring-cloud app create --name planet-weather-provider --runtime-version NetCore_31
+   ```
+
+   Om du vill aktivera automatisk tjänst registrering har du gett appen samma namn som värdet för `spring.application.name` i projektets *appsettings.js* fil:
+
+   ```json
+   "spring": {
+     "application": {
+       "name": "planet-weather-provider"
+     }
+   }
+   ```
+
+   Det kan ta flera minuter att köra det här kommandot.
+
+1. Ändra katalogen till `PlanetWeatherProvider` projektmappen.
+
+   ```console
+   cd steeltoe-sample/src/planet-weather-provider
+   ```
+
+1. Skapa binärfilerna och *. zip* -filen som ska distribueras.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+   > [!TIP]
+   > Projekt filen innehåller följande XML-kod för att paketera binärfilerna i en *. zip* -fil när de skrivs till mappen *./Publish* :
+   >
+   > ```xml
+   > <Target Name="Publish-Zip" AfterTargets="Publish">
+   >   <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip" Overwrite="true" />
+   > </Target>
+   > ```
+
+1. Distribuera till Azure.
+
+   Kontrol lera att kommando tolken finns i projektmappen innan du kör följande kommando.
+
+   ```console
+   az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
+   ```
+
+   `--main-entry`Alternativet anger den relativa sökvägen från *. zip* -filens rotmapp till den *DLL* -fil som innehåller programmets start punkt. När tjänsten överför *zip* -filen extraheras alla filer och mappar och försök görs att köra start punkten i den angivna *DLL* -filen.
+
+   Det kan ta flera minuter att köra det här kommandot.
+
+## <a name="deploy-solarsystemweather"></a>Distribuera SolarSystemWeather
+
+1. Skapa en annan app i din Azure våren Cloud-instans, den här gången för SolarSystemWeather-projektet:
+
+   ```azurecli
+   az spring-cloud app create --name solar-system-weather --runtime-version NetCore_31
+   ```
+
+   `solar-system-weather` är det namn som anges i `SolarSystemWeather` projektets *appsettings.jsi* filen.
+
+   Det kan ta flera minuter att köra det här kommandot.
+
+1. Ändra katalog till `SolarSystemWeather` projektet.
+
+   ```console
+   cd ../solar-system-weather
+   ```
+
+1. Skapa binärfiler och *. zip* -filen som ska distribueras.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+1. Distribuera till Azure.
+
+   ```console
+   az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
+   ```
+   
+   Det kan ta flera minuter att köra det här kommandot.
+
+## <a name="assign-public-endpoint"></a>Tilldela offentlig slut punkt
+
+Testa programmet genom att skicka en HTTP GET-begäran till `solar-system-weather` programmet från en webbläsare.  Om du vill göra det behöver du en offentlig slut punkt för begäran.
+
+1. Kör följande kommando för att tilldela slut punkten.
+
+   ```azurecli
+   az spring-cloud app update -n solar-system-weather --is-public true
+   ```
+
+1. Kör följande kommando för att hämta slut punktens URL.
+
+   Windows:
+
+   ```azurecli
+   az spring-cloud app show -n solar-system-weather -o table
+   ```
+
+   Linux:
+
+   ```azurecli
+   az spring-cloud app show --name solar-system-weather | grep url
+   ```
+
+## <a name="test-the-application"></a>Testa programmet
+
+Skicka en GET-begäran till `solar-system-weather` appen. I en webbläsare navigerar du till den offentliga URL: en som har `/weatherforecast` lagts till i slutet av den. Exempel:
+
+```
+https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
+```
+
+Utdata är JSON:
+
+```json
+[{"Key":"Mercury","Value":"very warm"},{"Key":"Venus","Value":"quite unpleasant"},{"Key":"Mars","Value":"very cool"},{"Key":"Saturn","Value":"a little bit sandy"}]
+```
+
+Detta svar visar att både mikrotjänst-appar fungerar. `SolarSystemWeather`Appen returnerar data som hämtats från `PlanetWeatherProvider` appen.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Det här dokumentet beskriver hur du skapar och distribuerar program för mikrotjänster till Azure våren Cloud med:
 * Azure CLI
 * Maven-plugin
@@ -23,12 +185,12 @@ Det här dokumentet beskriver hur du skapar och distribuerar program för mikrot
 
 Innan du distribuerar med Azure CLI eller Maven ska du slutföra exemplen som [etablerar en instans av Azure våren Cloud](spring-cloud-quickstart-provision-service-instance.md) och [konfigurerar konfigurations servern](spring-cloud-quickstart-setup-config-server.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
-* Valfritt [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och installera Azure våren Cloud-tillägget med kommandot: `az extension add --name spring-cloud`
-* Valfritt [Installera Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) och [inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* Valfritt [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) och installera Azure våren Cloud-tillägget med kommandot: `az extension add --name spring-cloud`
+* Valfritt [Installera Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) och [Logga](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in) in
 
 ## <a name="deployment-procedures"></a>Distributions procedurer
 
@@ -111,7 +273,7 @@ Vi behöver ett sätt att komma åt programmet via en webbläsare. Vårt Gateway
 
 ### <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>Generera konfigurationer och distribuera till Azure våren-molnet
 
-1. Generera konfigurationer genom att köra följande kommando i rotmappen för PiggyMetrics som innehåller den överordnade POM. Om du redan har loggat in med Azure CLI kommer kommandot automatiskt att hämta autentiseringsuppgifterna. Annars loggas du in med anvisningarna. Se vår [wiki-sida](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) för mer information.
+1. Generera konfigurationer genom att köra följande kommando i rotmappen för PiggyMetrics som innehåller den överordnade POM. Om du redan har loggat in med Azure CLI kommer kommandot automatiskt att hämta autentiseringsuppgifterna. Annars loggas du in med anvisningarna. Mer information finns på vår [wiki-sida](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
@@ -148,7 +310,7 @@ För att kunna distribuera till Azure måste du logga in med ditt Azure-konto me
 
     ![Distribuera till Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. I fältet **namn** lägger du till *: Gateway* till det befintliga **namnet** refererar till konfigurationen.
+1. I fältet **namn** lägger du till *: Gateway* till det befintliga **namnet**.
 1. I text rutan **artefakt** väljer du *com. piggymetrics: Gateway: 1.0-Snapshot*.
 1. I text rutan **prenumeration** verifierar du din prenumeration.
 1. I text rutan **fjäder moln** väljer du instansen av Azure våren-molnet som du skapade i [etablera Azure våren Cloud-instansen](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
@@ -158,7 +320,7 @@ För att kunna distribuera till Azure måste du logga in med ditt Azure-konto me
 
     ![Distribuera till Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. I avsnittet **före start** i dialog rutan dubbelklickar du på *Kör maven mål*.
+1. I avsnittet **före start** i dialog rutan dubbelklickar du på *Kör maven-mål*.
 1. I text rutan **arbets katalog** navigerar du till mappen *piggymetrics/Gateway* .
 1. I text rutan **kommando rad** anger du *Package-DskipTests*. Klicka på **OK**.
 1. Starta distributionen genom att klicka på knappen **Kör** längst ned i dialog rutan **Distribuera Azure våren Cloud App** . Plugin-programmet kör kommandot `mvn package` på `gateway` appen och distribuerar jar som genereras av `package` kommandot.
@@ -174,7 +336,7 @@ Du kan upprepa stegen ovan för att distribuera `auth-service` och `account-serv
 1. Upprepa dessa procedurer för att konfigurera och distribuera `account-service` .
 ---
 
-Navigera till URL: en som anges i de föregående stegen för att komma åt PiggyMetrics-programmet. otillräcklig. `https://<service instance name>-gateway.azuremicroservices.io`
+Navigera till URL: en som anges i de föregående stegen för att komma åt PiggyMetrics-programmet. Exempelvis: `https://<service instance name>-gateway.azuremicroservices.io`
 
 ![Åtkomst PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
@@ -189,15 +351,25 @@ Du kan också navigera Azure Portal för att hitta URL: en.
 
     ![Navigera i app Second](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
+::: zone-end
+
 ## <a name="clean-up-resources"></a>Rensa resurser
-I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort resurs gruppen från portalen eller genom att köra följande kommando i Cloud Shell:
+
+Hoppa över det här steget om du tänker fortsätta till nästa snabb start i den här serien.
+
+I de här snabb starterna skapade du Azure-resurser som kommer fortsätta att debiteras om de finns kvar i din prenumeration. Om du inte tänker fortsätta till nästa snabb start och du inte förväntar dig att behöva dessa resurser i framtiden, tar du bort resurs gruppen med hjälp av portalen eller genom att köra följande kommando i Cloud Shell:
+
 ```azurecli
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
-I föregående steg anger du också standard resurs gruppens namn. Om du vill ta bort standardvärdet kör du följande kommando i Cloud Shell:
+
+I en tidigare snabb start anger du också standard resurs gruppens namn. Om du inte tänker fortsätta med nästa snabb start tar du bort standardvärdet genom att köra följande CLI-kommando:
+
 ```azurecli
 az configure --defaults group=
 ```
+
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Loggar, statistik och spårning](spring-cloud-quickstart-logs-metrics-tracing.md)
+

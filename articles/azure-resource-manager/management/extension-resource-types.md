@@ -2,13 +2,13 @@
 title: Filnamnstillägg för resurstyper
 description: Visar en lista över Azures resurs typer som används för att utöka funktionerna i andra resurs typer.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 09/22/2020
+ms.openlocfilehash: 8b80c63d361f3ad8199fd669178f7bf88dabe02e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374022"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969739"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Resurs typer som utökar funktioner i andra resurser
 
@@ -21,6 +21,8 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. Advisor/undertrycker
 - Microsoft. AlertsManagement/Alerts
 - Microsoft. AlertsManagement/alertsSummary
+- Microsoft. Authorization/accessReviewScheduleDefinitions
+- Microsoft. Authorization/accessReviewScheduleSettings
 - Microsoft. Authorization/check Access
 - Microsoft. Authorization/denyAssignments
 - Microsoft. Authorization/findOrphanRoleAssignments
@@ -34,6 +36,7 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. Authorization/roleAssignments
 - Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
+- Microsoft. automanage/configurationProfileAssignments
 - Microsoft. fakturering/billingPeriods
 - Microsoft. fakturering/billingPermissions
 - Microsoft. fakturering/billingRoleAssignments
@@ -47,24 +50,24 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. förbrukning/budgetar
 - Microsoft. förbrukning/avgifter
 - Microsoft. förbrukning/CostTags
+- Microsoft. förbrukning/kredit
+- Microsoft. förbrukning/händelser
 - Microsoft. förbrukning/prognoser
+- Microsoft. förbrukning/partier
 - Microsoft. förbrukning/Marketplace
 - Microsoft. förbrukning/OperationResults
 - Microsoft. förbrukning/OperationStatus
 - Microsoft. förbrukning/Pricesheets
+- Microsoft. förbrukning/produkter
 - Microsoft. förbrukning/ReservationDetails
 - Microsoft. förbrukning/ReservationRecommendationDetails
 - Microsoft. förbrukning/ReservationRecommendations
 - Microsoft. förbrukning/ReservationSummaries
 - Microsoft. förbrukning/ReservationTransactions
 - Microsoft. förbrukning/Taggar
+- Microsoft. förbrukning/klient organisationer
 - Microsoft. förbrukning/villkor
 - Microsoft. förbrukning/UsageDetails
-- Microsoft. förbrukning/kredit
-- Microsoft. förbrukning/händelser
-- Microsoft. förbrukning/partier
-- Microsoft. förbrukning/produkter
-- Microsoft. förbrukning/klient organisationer
 - Microsoft. ContainerInstance/serviceAssociationLinks
 - Microsoft. CostManagement/Alerts
 - Microsoft. CostManagement/budgetar
@@ -73,6 +76,7 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. CostManagement/export
 - Microsoft. CostManagement/ExternalSubscriptions
 - Microsoft. CostManagement/Prediktion
+- Microsoft. CostManagement/Insights
 - Microsoft. CostManagement/fråga
 - Microsoft. CostManagement/Reportconfigs
 - Microsoft. CostManagement/-rapporter
@@ -93,17 +97,19 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. Insights/diagnosticSettingsCategories
 - Microsoft. Insights/eventtypes
 - Microsoft. Insights/extendedDiagnosticSettings
+- Microsoft. Insights/generateLiveToken
 - Microsoft. Insights/guestDiagnosticSettingsAssociation
 - Microsoft. Insights/logDefinitions
 - Microsoft. Insights/loggar
+- Microsoft. Insights/metricbaselines
 - Microsoft. Insights/metricDefinitions
 - Microsoft. Insights/metricNamespaces
-- Microsoft. Insights/metricbaselines
 - Microsoft. Insights/mått
 - Microsoft. Insights/mina arbets böcker
 - Microsoft. Insights/topologi
 - Microsoft. Insights/transaktioner
 - Microsoft. Insights/vmInsightsOnboardingStatuses
+- Microsoft. KubernetesConfiguration/Extensions
 - Microsoft. KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
 - Microsoft. Maintenance/configurationAssignments
@@ -128,20 +134,22 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. ResourceHealth/Notifications
 - Microsoft. Resources/Links
 - Microsoft. Resources/Tags
-- Microsoft. Security/Compliances
-- Microsoft. Security/InformationProtectionPolicies
 - Microsoft. Security/adaptiveNetworkHardenings
 - Microsoft. Security/advancedThreatProtectionSettings
 - Microsoft. Security/assessmentMetadata
 - Microsoft. Security/bedömningar
 - Microsoft. Security/complianceResults
+- Microsoft. Security/Compliances
 - Microsoft. Security/dataCollectionAgents
 - Microsoft. Security/deviceSecurityGroups
+- Microsoft. Security/InformationProtectionPolicies
+- Microsoft. Security/iotSensors
 - Microsoft. Security/jitPolicies
 - Microsoft. Security/serverVulnerabilityAssessments
+- Microsoft. Security/sqlVulnerabilityAssessments
 - Microsoft. SecurityInsights/agg regeringar
-- Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/alertRules
+- Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/automationRules
 - Microsoft. SecurityInsights/bok märken
 - Microsoft. SecurityInsights/fall
@@ -153,6 +161,7 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. SecurityInsights/officeConsents
 - Microsoft. SecurityInsights/inställningar
 - Microsoft. SecurityInsights/threatIntelligence
+- Microsoft. SecurityInsights/watchlists
 - Microsoft. SoftwarePlan/hybridUseBenefits
 - Microsoft. Subscription/CreateSubscription
 - Microsoft. support/supporttickets

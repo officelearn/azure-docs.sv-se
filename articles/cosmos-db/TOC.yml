@@ -768,6 +768,8 @@
                   href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
                 - name: Guide efter migrering
                   href: mongodb-post-migration.md
+            - name: Uppgradera från MongoDB 3.2 till 3.6
+              href: mongodb-version-upgrade.md
             - name: Hämta anslutningssträngen
               href: connect-mongodb-account.md
             - name: Ansluta med Studio 3T
@@ -832,7 +834,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -917,7 +919,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -944,7 +946,7 @@
               href: table-sdk-python.md
             - name: 'REST-API:er för tabellagring'
               href: /rest/api/storageservices/table-service-rest-api
-    - name: Etcd-API
+    - name: etcd-API
       items:
         - name: Översikt
           items:
@@ -1108,7 +1110,7 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Ändringsflöde – Async Java-exempel
           href: create-sql-api-java-changefeed.md
-    - name: Analys med Azure Synapse Link
+    - name: Analys och BI med Azure Synapse Link
       items:
         - name: Konfigurera Azure Synapse Link
           href: configure-synapse-link.md
@@ -1116,6 +1118,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Fråga med Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Använda Power BI med Synapse Link
+          href: synapse-link-power-bi.md
     - name: Inbyggd analys med Apache Spark
       items:
         - name: Azure Databricks Spark-anslutningsapp
@@ -1198,12 +1202,16 @@
           href: monitor-cosmos-db-reference.md
         - name: Programloggning med Logic Apps
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Utveckla lokalt
+    - name: Utveckla lokalt med emulator
       items:
-        - name: Använd emulatorn
+        - name: Installera och använda emulatorn
           href: local-emulator.md
-        - name: Exportera certifikat
+        - name: Exportera emulatorcertifikat
           href: local-emulator-export-ssl-certificates.md
+        - name: Kommandoradsparametrar för emulatorn
+          href: emulator-command-line-parameters.md
+        - name: Felsökning för emulatorn
+          href: troubleshoot-local-emulator.md
         - name: Visual Studio Code-tillägg
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Konfigurera pipeline för Azure DevOps CI/CD

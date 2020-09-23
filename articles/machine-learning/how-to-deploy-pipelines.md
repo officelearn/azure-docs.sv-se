@@ -11,22 +11,22 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 08529d1bb50a1a5d5b3c7d0296aa36f021f45e98
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ddc8186e85001a2a3ed2ed9f57b8f025133ef16a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646093"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897757"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicera och spåra maskin inlärnings pipeliner
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Den här artikeln visar hur du kan dela en pipeline för maskin inlärning med dina kollegor eller kunder.
 
 Maskin inlärnings pipeliner är återanvändbara arbets flöden för Machine Learning-uppgifter. En fördel med pipelines har ökat samarbete. Du kan också versions pipelines, så att kunderna kan använda den aktuella modellen när du arbetar med en ny version. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser
 

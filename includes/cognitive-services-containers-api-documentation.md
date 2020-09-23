@@ -15,11 +15,11 @@ ms.locfileid: "86108942"
 
 Det finns flera sätt att verifiera att behållaren körs. Leta reda på den *externa IP-* adressen och den exponerade porten för den aktuella behållaren och öppna din favorit webbläsare. Använd de olika URL: erna för begäran nedan för att verifiera att behållaren körs. URL: erna för exempel begär Anden som anges nedan är `http://localhost:5000` , men din speciella behållare kan variera. Tänk på att du är beroende av behållarens *externa IP* -adress och exponerad port.
 
-| Begärans-URL | Syfte |
+| URL för begäran | Syfte |
 |--|--|
-| `http://localhost:5000/` | Behållaren är en start sida. |
+| `http://localhost:5000/` | Containern tillhandahåller en startsida. |
 | `http://localhost:5000/ready` | Begärd med GET, detta ger en verifiering av att behållaren är redo att acceptera en fråga mot modellen.  Den här begäran kan användas för Kubernetes [Live och beredskaps avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://localhost:5000/status` | Begärd med GET, kontrollerar detta om den API-nyckel som används för att starta behållaren är giltig utan att orsaka en slut punkts fråga. Den här begäran kan användas för Kubernetes [Live och beredskaps avsökningar](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
-| `http://localhost:5000/swagger` | Behållaren innehåller en fullständig uppsättning dokumentation för slut punkterna och en funktion för att **testa den** . Med den här funktionen kan du ange dina inställningar i ett webbaserat HTML-formulär och göra frågan utan att behöva skriva någon kod. När frågan returnerar visas ett exempel på ett spiral kommando som visar de HTTP-rubriker och det text format som krävs. |
+| `http://localhost:5000/swagger` | Containern tillhandahåller en fullständig uppsättning dokumentation för slutpunkterna samt en **Prova**-funktion. Med den här funktionen kan du ange dina inställningar i ett webbaserat HTML-formulär och göra frågan utan att behöva skriva någon kod. När frågan returnerar visas ett exempel på ett spiral kommando som visar de HTTP-rubriker och det text format som krävs. |
 
 ![Behållarens start sida](./media/cognitive-services-containers-api-documentation/container-webpage.png)

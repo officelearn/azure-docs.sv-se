@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
-ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: ''
+ms.date: 09/21/2020
+ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612094"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907060"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Azure-tillgänglighetszoner försöker skydda mot avbrott i en enda data centers
 
 Service avtalet [(SLA)](https://azure.microsoft.com/support/legal/sla/) för Azure, som drivs av ett globalt nätverk av Microsoft-hanterade data Center, hjälper till att hålla appen igång 24/7. Azure-plattformen hanterar fullständigt alla databaser och garanterar ingen data förlust och en hög procent andel data tillgänglighet. Azure hanterar automatiskt korrigering, säkerhets kopiering, replikering, fel identifiering, underliggande potentiell maskin vara, program vara eller nätverks fel, distribution av fel korrigeringar, redundans, databas uppgraderingar och andra underhålls aktiviteter. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premium-tillgänglighet uppnås genom att integrera beräkning och lagring på en enda nod för prestanda och sedan implementera teknik som liknar Always on-tillgänglighetsgrupper. En fullständig beskrivning av funktionerna för hög tillgänglighet i Azure SQL Database finns [SQL Database tillgänglighet](high-availability-sla.md). 
 
-Dessutom ger SQL Database inbyggd [affärs kontinuitet och globala skalbarhets](business-continuity-high-availability-disaster-recover-hadr-overview.md) funktioner. Dessa omfattar:
+Dessutom ger SQL Database inbyggd [affärs kontinuitet och globala skalbarhets](business-continuity-high-availability-disaster-recover-hadr-overview.md) funktioner. Exempel:
 
 - [Automatisk säkerhets kopiering](automated-backups-overview.md):
 
@@ -165,11 +165,8 @@ SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet oc
 
 ### <a name="advance-threat-protection"></a>Skydd mot Avancerat skydd
 
-Avancerad data säkerhet är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den innehåller funktioner för att identifiera och klassificera känsliga data, hantera dina databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på ett hot mot databasen. Det ger en enda plats för att aktivera och hantera dessa funktioner.
+Azure Defender för SQL är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Den innehåller funktioner för att hantera dina databas sårbarheter och identifiera avvikande aktiviteter som kan tyda på ett hot mot databasen. Det ger en enda plats för att aktivera och hantera dessa funktioner.
 
-- [Data identifiering och klassificering](data-discovery-and-classification-overview.md):
-
-  Den här funktionen innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Den ger insyn i databas klassificerings tillstånd och spårar åtkomsten till känsliga data i databasen och utanför dess gränser.
 - [Sårbarhets bedömning](sql-vulnerability-assessment.md):
 
   Den här tjänsten kan upptäcka, spåra och hjälpa dig att åtgärda eventuella sårbarheter i databasen. Den ger inblick i ditt säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
@@ -185,6 +182,10 @@ Avancerad data säkerhet är ett enhetligt paket för avancerade SQL-säkerhetsf
 
 SQL Database hjälper till att skydda dina data med hjälp av kryptering. För data i rörelse används [Transport Layer Security](https://support.microsoft.com/kb/3135244). För data i vila används [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). För data som används används [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
+### <a name="data-discovery-and-classification"></a>Dataidentifiering och -klassificering
+
+[Data identifiering och klassificering](data-discovery-and-classification-overview.md) innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Den ger insyn i databas klassificerings tillstånd och spårar åtkomsten till känsliga data i databasen och utanför dess gränser.
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 
 Med SQL Database kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster med [Azure Active Directory-integrering](authentication-aad-overview.md). Den här funktionen förenklar hanteringen av behörighet och ger ökad säkerhet. Azure Active Directory stöder [Multi-Factor Authentication](authentication-mfa-ssms-overview.md) för att öka säkerheten för data och program, samtidigt som den har stöd för en enda inloggnings process.
@@ -196,7 +197,7 @@ SQL Database gör byggandet och underhållet av appar enklare och mer produktivt
 |Verktyg|Beskrivning|
 |:---|:---|
 |[Azure-portalen](https://portal.azure.com/)|Ett webbaserat program för att hantera alla Azure-tjänster.|
-|[Azure Data Studio](/sql/azure-data-studio/)|Ett databas verktyg över plattformar som körs på Windows, MacOS och Linux.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Ett databas verktyg över plattformar som körs på Windows, macOS och Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer, från SQL Server till SQL Database.|
 |[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, databaser i Azure SQL Database, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för frågor Microsoft SQL Server, Azure SQL Database och Azure Azure Synapse Analytics (tidigare SQL Data Warehouse).|

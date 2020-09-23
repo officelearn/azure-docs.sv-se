@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 32603514db76ceba4f1d9f8873c99b2e8a97eddf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: aad160f8a4ec96a1e0e627684c598062079b57e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185918"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896312"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for MySQL
 
@@ -24,7 +24,7 @@ I den här snabb starten ansluter du till en Azure Database for MySQL med hjälp
 
 Det här avsnittet förutsätter att du är bekant med att utveckla med python, men du är inte nybörjare på att arbeta med Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En Azure Database for MySQL-server. [Skapa en Azure Database for MySQL-server med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller [skapa en Azure Database for MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
@@ -63,11 +63,11 @@ Hämta anslutnings informationen som du behöver för att ansluta till Azure Dat
    
 1. I Portal Sök fältet söker du efter och väljer den Azure Database for MySQL server som du skapade, till exempel **mydemoserver**.
    
-   ![Azure Database for MySQL-servernamn](./media/connect-python/1_server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Azure Database för MySQL-servernamn":::
    
 1. På sidan **Översikt** av servern anger du **Server namnet** och **inloggnings namnet för Server administratören**. Om du glömmer ditt lösen ord kan du också återställa lösen ordet från den här sidan.
    
-   ![Azure Database for MySQL-servernamn](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database för MySQL-servernamn":::
 
 ## <a name="run-the-python-examples"></a>Köra python-exempel
 

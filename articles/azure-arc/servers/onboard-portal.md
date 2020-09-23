@@ -1,19 +1,19 @@
 ---
 title: Ansluta hybrid datorer till Azure från Azure Portal
-description: I den här artikeln får du lära dig hur du installerar agenten och ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar (för hands version) från Azure Portal.
-ms.date: 08/07/2020
+description: I den här artikeln får du lära dig hur du installerar agenten och ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar från Azure Portal.
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23415bc648ae31b9073adb71d6f066a28c144c9d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7435256dda68b2689aeb19b237f499d50b418055
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213513"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887618"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
-Du kan aktivera Azure Arc-aktiverade servrar (för hands version) för ett eller ett litet antal Windows-eller Linux-datorer i din miljö genom att utföra en uppsättning steg manuellt. Du kan också använda en automatiserad metod genom att köra ett mall-skript som vi tillhandahåller. Det här skriptet automatiserar nedladdning och installation av båda agenterna.
+Du kan aktivera Azure Arc-aktiverade servrar för ett eller ett litet antal Windows-eller Linux-datorer i din miljö genom att utföra en uppsättning steg manuellt. Du kan också använda en automatiserad metod genom att köra ett mall-skript som vi tillhandahåller. Det här skriptet automatiserar nedladdning och installation av båda agenterna.
 
 Den här metoden kräver att du har administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och i Windows, är du medlem i den lokala gruppen Administratörer.
 
@@ -27,14 +27,14 @@ Skriptet för att automatisera nedladdningen och installationen, och för att up
 
 1. Gå till [Azure Portal](https://aka.ms/hybridmachineportal)i webbläsaren.
 
-1. På sidan **datorer – Azure-båge** väljer du antingen **Lägg till**, längst upp till vänster eller alternativet **skapa dator-Azure-båge** längst ned i fönstret i mitten.
+1. På sidan **servrar – Azure-båge** väljer du **Lägg till** längst upp till vänster.
 
-1. På sidan **Välj en metod** markerar du rutan **Lägg till datorer med interaktiv skript** och väljer sedan **skapa skript**.
+1. På sidan **Välj en metod** väljer du panelen **Lägg till servrar med interaktiv skript** och väljer sedan **skapa skript**.
 
 1. På sidan **skapa skript** väljer du den prenumeration och resurs grupp där du vill att datorn ska hanteras i Azure. Välj en Azure-plats där datorns metadata ska lagras.
 
     >[!NOTE]
-    >Azure Arc-aktiverade servrar (för hands version) stöder endast följande regioner:
+    >Azure Arc-aktiverade servrar stöder bara följande regioner:
     >- Platsen eastus
     >- WestUS2
     >- Västeuropa
@@ -42,15 +42,21 @@ Skriptet för att automatisera nedladdningen och installationen, och för att up
     >
     >Granska ytterligare överväganden när du väljer en region [här](overview.md#supported-regions) i översikts artikeln.
 
-1. På sidan **generera skript** i list rutan **operativ system** väljer du det operativ system som skriptet ska köras på.
+1. På sidan **förutsättningar** granskar du informationen och väljer sedan **Nästa: resursinformation**.
 
-1. Om datorn kommunicerar via en proxyserver för att ansluta till Internet väljer du **Nästa: proxyserver**.
+1. På sidan **Resursinformation** anger du följande:
 
-1. På fliken **proxyserver** anger du IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>` .
+    1. I list rutan **resurs grupp** väljer du den resurs grupp som datorn ska hanteras från.
+    1. I list rutan **region** väljer du den Azure-region där du vill lagra metadata för servrarna.
+    1. I list rutan **operativ system** väljer du det operativ system som skriptet ska konfigureras för att köras på.
+    1. Om datorn kommunicerar via en proxyserver för att ansluta till Internet anger du IP-adressen för proxyservern eller det namn och port nummer som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>` .
+    1. Välj **Nästa: Taggar**.
 
-1. Välj **Granska + generera**.
+1. På sidan **taggar** granskar du standard **koderna för fysiska platser** och anger ett värde, eller så anger du en eller flera **anpassade taggar** som stöder dina standarder.
 
-1. På fliken **Granska och skapa** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Om du fortfarande behöver göra ändringar väljer du **föregående**.
+1. Välj **Nästa: Ladda ned och kör skript**.
+
+1. På sidan **Ladda ned och kör skript** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Om du fortfarande behöver göra ändringar väljer du **föregående**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Installera och verifiera agenten i Windows
 
@@ -147,7 +153,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Kontrollera anslutningen med Azure Arc
 
-När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
 
 ![En lyckad Server anslutning](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -155,4 +161,4 @@ När du har installerat agenten och konfigurerat den för att ansluta till Azure
 
 - Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-policy.md)och mycket mer.
 
-- Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+- Läs mer om [[Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).

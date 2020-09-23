@@ -4,17 +4,17 @@ description: Azure Storage skyddar dina data genom att automatiskt kryptera dem 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/24/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078205"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985766"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
 
@@ -38,8 +38,8 @@ Information om kryptering och nyckel hantering för Azure Managed disks finns i 
 
 Data i ett nytt lagrings konto krypteras med Microsoft-hanterade nycklar som standard. Du kan fortsätta att förlita dig på Microsoft-hanterade nycklar för kryptering av dina data, eller så kan du hantera kryptering med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar har du två alternativ. Du kan använda båda typerna av nyckel hantering eller båda:
 
-- Du kan ange en *kundhanterad nyckel* med Azure Key Vault som ska användas för att kryptera och dekryptera data i Blob Storage och i Azure Files. <sup>1, 2</sup> mer information om Kundhanterade nycklar finns i [använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](encryption-customer-managed-keys.md).
-- Du kan ange en *anpassad nyckel* för Blob Storage-åtgärder. En klient som gör en Läs-eller skrivbegäran mot Blob Storage kan inkludera en krypterings nyckel på begäran om detaljerad kontroll över hur BLOB-data krypteras och dekrypteras. Mer information om kundspecifika nycklar finns i [Ange en krypterings nyckel på en begäran till Blob Storage](encryption-customer-provided-keys.md).
+- Du kan ange en *kundhanterad nyckel* som ska användas för att kryptera och dekryptera data i Blob Storage och i Azure Files. <sup>1, 2</sup> Kundhanterade nycklar måste lagras i Azure Key Vault eller Azure Key Vault-hanterad maskin varu säkerhets modell (HSM) (för hands version). Mer information om Kundhanterade nycklar finns i [använda Kundhanterade nycklar för Azure Storage kryptering](encryption-customer-managed-keys.md).
+- Du kan ange en *anpassad nyckel* för Blob Storage-åtgärder. En klient som gör en Läs-eller skrivbegäran mot Blob Storage kan inkludera en krypterings nyckel på begäran om detaljerad kontroll över hur BLOB-data krypteras och dekrypteras. Mer information om kundspecifika nycklar finns i [Ange en krypterings nyckel på en begäran till Blob Storage](../blobs/encryption-customer-provided-keys.md).
 
 I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kryptering.
 
@@ -47,7 +47,7 @@ I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kry
 |--|--|--|--|
 | Kryptering/dekryptering | Azure | Azure | Azure |
 | Azure Storage tjänster som stöds | Alla | Blob Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
-| Nyckel lagring | Microsoft nyckel lager | Azure Key Vault | Kundens egna nyckel lager |
+| Nyckel lagring | Microsoft nyckel lager | Azure Key Vault eller Key Vault HSM | Kundens egna nyckel lager |
 | Största ansvar för nyckel rotation | Microsoft | Kund | Kund |
 | Nyckel kontroll | Microsoft | Kund | Kund |
 
@@ -56,6 +56,14 @@ I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kry
 
 > [!NOTE]
 > Microsoft-hanterade nycklar roteras på rätt sätt enligt kraven för efterlevnad. Om du har specifika krav för nyckel rotation rekommenderar Microsoft att du flyttar till Kundhanterade nycklar så att du kan hantera och granska rotationen själv.
+
+## <a name="doubly-encrypt-data-with-infrastructure-encryption"></a>Dubblera kryptering av data med infrastruktur kryptering
+
+Kunder som kräver höga garantier för att deras data är säkra kan också aktivera 256-bitars AES-kryptering på Azure Storage infrastruktur nivå. När infrastruktur kryptering har Aktiver ATS krypteras data i ett lagrings konto två gånger &mdash; på tjänst nivå och en gång på infrastruktur nivå &mdash; med två olika krypteringsalgoritmer och två olika nycklar. Dubbel kryptering av Azure Storage data skyddar mot ett scenario där en av krypteringsalgoritmerna eller nycklarna kan komprometteras. I det här scenariot fortsätter det ytterligare lagret med kryptering att skydda dina data.
+
+Kryptering på tjänst nivå stöder användning av antingen Microsoft-hanterade nycklar eller kund hanterade nycklar med Azure Key Vault. Kryptering på infrastruktur nivå är beroende av Microsoft-hanterade nycklar och använder alltid en separat nyckel.
+
+Mer information om hur du skapar ett lagrings konto som möjliggör infrastruktur kryptering finns i [skapa ett lagrings konto med infrastruktur kryptering aktiverat för dubbel kryptering av data](infrastructure-encryption-enable.md).
 
 ## <a name="encryption-scopes-for-blob-storage-preview"></a>Krypterings omfång för Blob Storage (för hands version)
 
@@ -102,6 +110,5 @@ Om krypterings omfattningen är skyddad med Kundhanterade nycklar för Azure Key
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure Key Vault?](../../key-vault/general/overview.md)
-- [Konfigurera kundhanterade nycklar för Azure Storage-kryptering från Azure-portalen](storage-encryption-keys-portal.md)
-- [Konfigurera kundhanterade nycklar för Azure Storage-kryptering från PowerShell](storage-encryption-keys-powershell.md)
-- [Konfigurera kundhanterade nycklar för Azure Storage-kryptering från Azure CLI](storage-encryption-keys-cli.md)
+- [Kundhanterade nycklar för Azure Storage kryptering](customer-managed-keys-overview.md)
+- [Krypterings omfång för Blob Storage (för hands version)](../blobs/encryption-scope-overview.md)

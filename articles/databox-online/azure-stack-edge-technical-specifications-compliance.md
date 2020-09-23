@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge Technical Specifications and Compliance | Microsoft Docs
-description: Lär dig mer om tekniska specifikationer och efterlevnad för din Azure Stack Edge
+title: Tekniska specifikationer och efterlevnad för Microsoft Azure Stack Edge Pro | Microsoft Docs
+description: Lär dig mer om tekniska specifikationer och efterlevnad för din Azure Stack Edge Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652048"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883439"
 ---
-# <a name="azure-stack-edge-technical-specifications"></a>Tekniska specifikationer för Azure Stack Edge
+# <a name="azure-stack-edge-pro-technical-specifications"></a>Tekniska specifikationer för Azure Stack Edge Pro
 
-Maskin varu komponenterna i Microsoft Azure Stack gräns enheten följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder.
+Maskin varu komponenterna i din Microsoft Azure Stack Edge Pro-enhet följer de tekniska specifikationer och reglerings standarder som beskrivs i den här artikeln. De tekniska specifikationerna beskriver strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder.
 
 ## <a name="compute-memory-specifications"></a>Beräkning, minnes krav
 
-Azure Stack Edge-enheten har följande specifikationer för beräkning och minne:
+Azure Stack Edge Pro-enheten har följande specifikationer för beräkning och minne:
 
 | Specifikation           | Värde                  |
 |-------------------------|----------------------------|
@@ -30,7 +30,7 @@ Azure Stack Edge-enheten har följande specifikationer för beräkning och minne
 
 ## <a name="fpga-specifications"></a>FPGA-specifikationer
 
-En fält programmerbar grind mat ris (FPGA) ingår på varje Azure Stack Edge-enhet som aktiverar Machine Learning (ML) scenarier.
+En fält programmerbar grind mat ris (FPGA) ingår på varje Azure Stack Edge Pro-enhet som möjliggör Machine Learning-scenarier (ML).
 
 | Specifikation           | Värde                  |
 |-------------------------|----------------------------|
@@ -38,27 +38,27 @@ En fält programmerbar grind mat ris (FPGA) ingår på varje Azure Stack Edge-en
 
 ## <a name="power-supply-unit-specifications"></a>Specifikationer för strömförsörjnings enhet
 
-Azure Stack Edge-enheten har två 100-240 V-strömförsörjnings enheter (PSUs) med högpresterande fläktar. De två PSUs ger en redundant energi konfiguration. Om ett PSU Miss lyckas fortsätter enheten att fungera normalt på den andra PSU tills den felaktiga modulen har ersatts. I följande tabell visas de tekniska specifikationerna för PSUs.
+Azure Stack Edge Pro-enheten har två 100-240 V-enheter för strömförsörjning (PSUs) med högpresterande fläktar. De två PSUs ger en redundant energi konfiguration. Om ett PSU Miss lyckas fortsätter enheten att fungera normalt på den andra PSU tills den felaktiga modulen har ersatts. I följande tabell visas de tekniska specifikationerna för PSUs.
 
 | Specifikation           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Maximal uteffekt    | 750 W                     |
-| Frekvens               | 50/60 Hz                   |
+| Frequency               | 50/60 Hz                   |
 | Val av spännings intervall | Automatisk mellan: 100-240 V AC |
-| Hot pluggable           | Ja                        |
+| Hot pluggable           | Yes                        |
 
-### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Specifikationer för Azure Stack Edge-ström sladd per region
+### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Specifikationer för Azure Stack Edge Pro-ström sladd per region
 
-Din Azure Stack Edge-enhet behöver en ström sladd som varierar beroende på din Azure-region.
-Tekniska specifikationer för alla ström kablar som stöds finns i [Azure Stack Edge Power Gateway-specifikationer per region](azure-stack-edge-technical-specifications-power-cords-regional.md).
+Din Azure Stack Edge Pro-enhet behöver en ström sladd som varierar beroende på din Azure-region.
+Tekniska specifikationer för alla de ström sladdar som stöds finns i [Azure Stack Edge Pro Power kabel-specifikationer per region](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
 
 ## <a name="network-interface-specifications"></a>Specifikationer för nätverks gränssnitt
 
-Din Azure Stack Edge-enhet har 6 nätverks gränssnitt, PORT1-PORT6.
+Din Azure Stack Edge Pro-enhet har 6 nätverks gränssnitt, PORT1-PORT6.
 
 | Specifikation           | Beskrivning                 |
 |-------------------------|----------------------------|
@@ -66,7 +66,7 @@ Din Azure Stack Edge-enhet har 6 nätverks gränssnitt, PORT1-PORT6.
 
 ## <a name="storage-specifications"></a>Storage-specifikationer
 
-Azure Stack gräns enheterna har 9 X 2,5 "NVMe-SSD, med en kapacitet på 1,6 TB. Av dessa SSD, 1 är en operativ system disk och de andra 8 är data diskar. Den totala användbara kapaciteten för enheten är ungefär 12,5 TB. I följande tabell finns information om enhetens lagrings kapacitet.
+Azure Stack Edge Pro-enheter har 9 X 2,5 "NVMe-SSD, med en kapacitet på 1,6 TB. Av dessa SSD, 1 är en operativ system disk och de andra 8 är data diskar. Den totala användbara kapaciteten för enheten är ungefär 12,5 TB. I följande tabell finns information om enhetens lagrings kapacitet.
 
 |     Specifikation                          |     Värde             |
 |--------------------------------------------|-----------------------|
@@ -116,7 +116,7 @@ I det här avsnittet visas de specifikationer som är relaterade till inne slutn
 
 |     Hölje         |     Temperatur intervall för omgivning     |     Omgivande relativ fuktighet     |     Maximal dagg punkt     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    Verksamhetsrelaterade        |    10 ° C – 35 ° C (50 °F-86 °F)         |    10% – 80% icke-kondenserande.         |    29 ° C (84 °F)            |
+|    Operativ        |    10 ° C – 35 ° C (50 °F-86 °F)         |    10% – 80% icke-kondenserande.         |    29 ° C (84 °F)            |
 |    Fungerar inte    |    – 40 ° c till 65 ° c (-40 °F-149 °F)     |    5%-95% icke-kondenserande.          |    33 ° C (91 °F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luft flöde, höjd, stöt, vibration, orientering, säkerhet och EMC
@@ -146,4 +146,4 @@ I det här avsnittet visas de specifikationer som är relaterade till inne slutn
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distribuera Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Distribuera Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

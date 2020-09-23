@@ -1,6 +1,6 @@
 ---
-title: Använda SQL Database DACPAC och BACPAC-paket – Azure SQL Edge (för hands version)
-description: Lär dig mer om att använda DACPACs och BacPacs i Azure SQL Edge (för hands version)
+title: Använda SQL Database DACPAC och BACPAC-paket – Azure SQL Edge
+description: Lär dig mer om att använda DACPACs och BacPacs i Azure SQL Edge
 keywords: SQL Edge, sqlpackage
 services: sql-edge
 ms.service: sql-edge
@@ -9,37 +9,29 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 52c8e9586d8ee53cdaac28cb1c48d2927d82c2ed
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462767"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887488"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Database DACPAC-och BACPAC-paket i SQL Edge
 
-Azure SQL Edge (för hands version) är en optimerad Relations databas motor som är avsedd för IoT-och Edge-distributioner. Den bygger på de senaste versionerna av Microsoft SQL Server Database Engine, som ger branschledande prestanda-, säkerhets-och fråge bearbetnings funktioner. Tillsammans med de branschledande Relations databas hanterings funktionerna i SQL Server ger Azure SQL Edge inbyggd strömnings kapacitet för analys i real tid och komplex händelse bearbetning.
+Azure SQL Edge är en optimerad relationsdatabasmotor som är avsedd för IoT- och Edge-distributioner. Den bygger på de senaste versionerna av Microsoft SQL Database-motorn, som tillhandahåller branschledande prestanda-, säkerhets-och fråge bearbetnings funktioner. Tillsammans med de branschledande Relations databas hanterings funktionerna i SQL Server ger Azure SQL Edge inbyggd strömnings kapacitet för analys i real tid och komplex händelse bearbetning.
 
-Azure SQL Edge tillhandahåller också en inbyggd implementering av SqlPackage.exe som gör att du kan distribuera ett [SQL Database DACPAC-och BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under distributionen av SQL Edge. SQL Database DACPACs kan distribueras till SQL Edge med SqlPackage-parametern som exponeras via `module twin's desired properties` alternativet för SQL Edge-modulen:
+Azure SQL Edge tillhandahåller också en inbyggd implementering av SqlPackage.exe som gör att du kan distribuera ett [SQL Database DACPAC-och BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under distributionen av SQL Edge. 
 
-```json
-{
-    "properties.desired":
-    {
-        "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-        "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-    }
-}
-```
-
-|Fält | Beskrivning |
-|------|-------------|
-| SqlPackage | Azure Blob Storage-URI för *zip* -filen som innehåller SQL Database DAC-eller BACPAC-paketet. Zip-filen kan innehålla både flera DAC-paket eller BACPAC-filer.
-| ASAJobInfo | Azure Blob Storage URI för jobbet ASA Edge.
+SQL Database DACPAC-och BACPAC-paket kan distribueras till SQL Edge med `MSSQL_PACKAGE` miljövariabeln. Miljö variabeln kan konfigureras med något av följande.  
+- En lokal mapplats i SQL-behållaren som innehåller DACPAC-och BACPAC-filerna. Den här mappen kan mappas till en värd volym med hjälp av antingen monterings punkter eller data volym behållare. 
+- En lokal fil Sök väg inom SQL container-mappningen till DACPAC eller BACPAC-filen. Den här fil Sök vägen kan mappas till en värd volym med hjälp av antingen monterings punkter eller data volym behållare. 
+- En lokal fil Sök väg inom SQL container-mappningen till en zip-fil som innehåller DACPAC-eller BACPAC-filerna. Den här fil Sök vägen kan mappas till en värd volym med hjälp av antingen monterings punkter eller data volym behållare. 
+- En Azure Blob SAS-URL till en zip-fil som innehåller filerna DACPAC och BACPAC.
+- En Azure Blob SAS-URL till en DACPAC-eller BACPAC-fil. 
 
 ## <a name="use-a-sql-database-dac-package-with-sql-edge"></a>Använda ett SQL Database DAC-paket med SQL Edge
 
-Följ dessa steg om du vill använda ett SQL Database DAC `(*.dacpac)` -paket eller en BACPAC `(*.bacpac)` -fil med SQL Edge:
+Om du vill distribuera (eller importera) ett SQL Database DAC-paket `(*.dacpac)` eller en BACPAC `(*.bacpac)` -fil med Azure Blob Storage och en zip-fil följer du stegen nedan. 
 
 1. Skapa/extrahera ett DAC-paket eller exportera en BACPAC-fil med hjälp av mekanismen nedan. 
     - Skapa eller extrahera ett SQL Database DAC-paket. Mer information om hur du skapar ett DAC-paket för en befintlig SQL Server databas finns i [extrahera en DAC från en databas](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) .
@@ -59,34 +51,22 @@ Följ dessa steg om du vill använda ett SQL Database DAC `(*.dacpac)` -paket el
 
     4. På sidan **IoT Edge enhets** enhet väljer du **ange modul**.
 
-    5. På sidan **Ange moduler** väljer du **Konfigurera** mot SQL Edge-modulen.
+    5. På sidan **Ange moduler** och klicka på Azure SQL Edge-modulen.
 
-    6. I fönstret **IoT Edge anpassade moduler** väljer du **Ange önskade egenskaper för modulens dubbla**. Uppdatera önskade egenskaper för att inkludera URI för `SQLPackage` alternativet, som visas i följande exempel.
+    6. I fönstret **uppdatera IoT Edge-modulen** väljer du **miljövariabler**. Lägg till `MSSQL_PACKAGE` miljövariabeln och ange SAS-URL: en som genererades i steg 3 ovan som värde för miljövariabeln. 
 
-        > [!NOTE]
-        > SAS-URI: n i följande JSON är bara ett exempel. Ersätt URI: n med faktisk URI från distributionen.
+    7. Välj **Uppdatera**.
 
-        ```json
-            {
-                "properties.desired":
-                {
-                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac and/or the bacpac files",
-                }
-            }
-        ```
+    8. På sidan **Ange moduler** väljer du **Granska + skapa**.
 
-    7. Välj **Spara**.
+    9. På sidan **Ange moduler** väljer du **skapa**.
 
-    8. På sidan **Ange moduler** väljer du **Nästa**.
+5. Efter uppdateringen laddas paketfilerna ned, zippas upp och distribueras mot SQL Edge-instansen.
 
-    9. På sidan **Ange moduler** väljer du **Nästa** och **skickar**sedan.
-
-5. Efter uppdateringen laddas paket filen ned, zippas upp och distribueras mot SQL Edge-instansen.
-
-Vid varje omstart av Azure SQL Edge-behållaren `*.dacpac` laddas och utvärderas fil paketet för ändringar. Om en ny version av DACPAC-filen påträffas distribueras ändringarna till databasen i SQL Edge. BACPAC-filer 
+Vid varje omstart av Azure SQL Edge-behållaren försöker SQL Edge hämta det zippade fil paketet och utvärdera för ändringar. Om en ny version av DACPAC-filen påträffas distribueras ändringarna till databasen i SQL Edge.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Distribuera SQL Edge via Azure Portal](deploy-portal.md).
 - [Strömma data](stream-data.md)
-- [Machine Learning och AI med ONNX i SQL Edge (för hands version)](onnx-overview.md)
+- [Machine Learning och AI med ONNX i SQL Edge](onnx-overview.md)

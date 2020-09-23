@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421390"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985174"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Tilldela Azure AD-roller i Privileged Identity Management
 
@@ -75,6 +75,30 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
     ![Ny tilldelning – meddelande](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>Tilldela en roll med begränsad omfattning
+
+För vissa roller kan omfattningen av beviljade behörigheter begränsas till en enskild administratörs enhet, tjänstens huvud namn eller program. Den här proceduren är ett exempel på om du tilldelar en roll som har omfånget för en administrativ enhet. En lista över roller som stöder omfång via administrativ enhet finns i [tilldela begränsade roller till en administrativ enhet](../users-groups-roles/roles-admin-units-assign-roles.md). Den här funktionen är för närvarande distribuerad till Azure AD-organisationer.
+
+1. Logga in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med administratörs behörighet för privilegierade roller.
+
+1. Välj **Azure Active Directory**  >  **roller och administratörer**.
+
+1. Välj **användar administratör**.
+
+    ![Kommandot Lägg till tilldelning är tillgängligt när du öppnar en roll i portalen](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. Välj **Lägg till tilldelningar**.
+
+    ![När en roll stöder omfång kan du välja ett omfång](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. På sidan **Lägg till tilldelningar** kan du:
+
+   - Välj en användare eller grupp som ska tilldelas rollen
+   - Välj roll omfång (i det här fallet administrativa enheter)
+   - Välj en administrativ enhet för omfånget
+
+Mer information om hur du skapar administrativa enheter finns i [lägga till och ta bort administrativa enheter](../users-groups-roles/roles-admin-units-manage.md).
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Uppdatera eller ta bort en befintlig roll tilldelning
 
 Följ dessa steg om du vill uppdatera eller ta bort en befintlig roll tilldelning.
@@ -101,7 +125,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
 1. Välj **roller** eller **medlemmar**.
 
-    ![Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![öppna Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Välj **Lägg till medlem** för att öppna **Lägg till hanterade medlemmar**.
 
@@ -111,7 +135,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
 1. Välj **Välj medlemmar**, Välj de användare som du vill tilldela rollen och välj sedan **Välj**.
 
-    ![Välj en roll](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Välj en användare eller grupp som ska tilldelas](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. I **Lägg till hanterade medlemmar**väljer du **OK** för att lägga till användaren i rollen.
 
@@ -169,7 +193,7 @@ Följ dessa steg om du vill ta bort en särskild användare från en administrat
 
 1. I meddelandet som ber dig att bekräfta väljer du **Ja**.
 
-    ![Ta bort en roll](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Bekräfta borttagningen](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     Roll tilldelningen tas bort.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c8694c90fedccbecee1fee09e7146bf2d0aaa6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601171"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969400"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Skapa, Visa eller ta bort en användardefinierad hanterad identitet med hjälp av REST API-anrop
 
@@ -34,10 +34,23 @@ I den här artikeln får du lära dig hur du skapar, visar och tar bort en anvä
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Om du använder Windows installerar du Windows- [undersystemet för Linux](/windows/wsl/about) eller använder [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure Portal.
-- Om du använder [Windows-undersystemet för Linux](/windows/wsl/about) eller ett [Linux-distributions operativ](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)system [installerar du den lokala Azure CLI-konsolen](/cli/azure/install-azure-cli).
-- Om du använder en lokal Azure CLI-konsol loggar du in på Azure med `az login` med ett konto som är associerat med den Azure-prenumeration som du vill distribuera eller hämta information om hanterad identitets information som tilldelats av användaren.
-- Hämta en Bearer-åtkomsttoken med hjälp av `az account get-access-token` följande användare tilldelade hanterade identitets åtgärder.
+- Du kan köra alla kommandon i den här artikeln antingen i molnet eller lokalt:
+    - Använd [Azure Cloud Shell](../../cloud-shell/overview.md)för att köra i molnet.
+    - Om du vill köra lokalt installerar du [sväng](https://curl.haxx.se/download.html) och [Azure CLI](/cli/azure/install-azure-cli).
+
+## <a name="obtain-a-bearer-access-token"></a>Hämta en åtkomst-token för ett innehav
+
+1. Om du kör lokalt loggar du in på Azure via Azure CLI:
+
+    ```
+    az login
+    ```
+
+1. Hämta en åtkomsttoken med [AZ-konto get-Access-token](/cli/azure/account#az_account_get_access_token)
+
+    ```azurecli-interactive
+    az account get-access-token
+    ```
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet 
 
@@ -91,7 +104,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 För att ta bort en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
 > [!NOTE]
-> Om du tar bort en tilldelad hanterad identitet tas inte referensen bort från den resurs som den tilldelades. Om du vill ta bort en användardefinierad hanterad identitet från en virtuell dator med hjälp av vändning ser du [ta bort en användardefinierad identitet från en virtuell Azure-dator](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> Om du tar bort en tilldelad hanterad identitet tas inte referensen bort från den resurs som den tilldelades. Om du vill ta bort en användardefinierad hanterad identitet från en virtuell dator med hjälp av vändning ser du [ta bort en användardefinierad identitet från en virtuell Azure-dator](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup

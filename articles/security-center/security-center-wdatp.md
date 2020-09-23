@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 28242341ddd21adea33e56c3e1f35f0677e5921a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907354"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
@@ -28,11 +28,11 @@ Azure Security Center integreras med [Microsoft Defender Advanced Threat Protect
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|**Allmän tillgänglighet**|
-|Priset|Standard-nivå|
-|Datorer som stöds:|![Ja](./media/icons/yes-icon.png) Azure-datorer som kör Windows<br>![Ja](./media/icons/yes-icon.png) Azure Arc-datorer som kör Windows|
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
+|Priset|Kräver [Azure Defender](security-center-pricing.md)|
+|Datorer som stöds:|![Yes](./media/icons/yes-icon.png) Azure-datorer som kör Windows<br>![Yes](./media/icons/yes-icon.png) Azure Arc-datorer som kör Windows|
 |Nödvändiga roller och behörigheter:|Aktivera/inaktivera integrering: **säkerhets administratör** eller **ägare**<br>Så här visar du MDATP-aviseringar i Security Center: **säkerhets läsare**, **läsare**, **resurs grupps deltagare**, **resurs grupp ägare**, **säkerhets administratör**, **prenumerations ägare**eller **prenumerations deltagare**|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln.<br>![Inga](./media/icons/no-icon.png) GCC kunder som kör arbets belastningar i offentliga Azure-moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln.<br>![No](./media/icons/no-icon.png) GCC kunder som kör arbets belastningar i offentliga Azure-moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -57,7 +57,7 @@ Genom att integrera Defender ATP med Azure Security Center kan du också dra nyt
 
 ## <a name="platform-support"></a>Plattformssupport
 
-Microsoft Defender ATP i Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1. För virtuella Azure-datorer behöver du en prenumeration på standard nivå och för virtuella datorer som inte är Azure-datorer behöver du endast standard nivå på arbets ytans nivå.
+Microsoft Defender ATP i Security Center stöder identifiering på Windows Server 2016, 2012 R2 och 2008 R2 SP1. För virtuella Azure-datorer behöver du en för att aktivera Azure Defender på din prenumeration och för virtuella datorer som inte är Azure-datorer behöver du bara ha Azure Defender aktiverat på arbets ytans nivå.
 
 Server slut punkts övervakning med denna integrering har inaktiverats för Office 365 GCC-kunder.
 
@@ -74,24 +74,25 @@ Om du vill publicera servrar till Security Center klickar **du på gå till Azur
 
 1. I området **onboarding** väljer eller skapar du en arbets yta där data ska lagras.
 
-2. Om du inte kan se alla dina arbets ytor kan det bero på otillräcklig behörighet, se till att din arbets yta är inställd på Azure Security Standard-pris nivån. Mer information finns i [Uppgradera till Security Center standard nivå för ökad säkerhet](security-center-pricing.md).
+2. Om du inte kan se alla dina arbets ytor kan det bero på otillräcklig behörighet, se till att din arbets yta skyddas av Azure Defender.
     
 3. Välj **Lägg till servrar** för att visa instruktioner om hur du installerar Log Analytics agenten. 
 
-4. När du har registrerat dig kan du övervaka datorerna under **Compute och apps**.
+4. När du har registrerat dig kan du övervaka datorerna i [inventarie lagret](asset-inventory.md).
 
    ![Publicera datorer](media/security-center-wdatp/onboard-computers.png)
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Aktivera Microsoft Defender ATP-integrering
 
-Om du vill se om Microsoft Defender ATP-integrering är aktive rad väljer du pris för **säkerhets Center**  >  **& inställningar** > klickar på din prenumeration.
+Om du vill se om Microsoft Defender ATP-integrering är aktive rad väljer du pris för **Security Center**  >  **& inställningar** > väljer din prenumeration.
+
 Här kan du se de integreringar som är aktiverade för tillfället.
 
   ![Sidan Azure Security Center inställningar för hot identifiering med Microsoft Defender ATP-integrering aktive rad](media/security-center-wdatp/enable-integrations.png)
 
-- Om du redan har registrerat servrarna på Azure Security Center standard nivå behöver du inte vidta några ytterligare åtgärder. Azure Security Center kommer automatiskt att publicera servrarna till Microsoft Defender ATP. Onboarding kan ta upp till 24 timmar.
+- Om du redan har aktiverat Azure Defender krävs ingen ytterligare åtgärd. Azure Security Center kommer automatiskt att publicera servrarna till Microsoft Defender ATP. Onboarding kan ta upp till 24 timmar.
 
-- Om du aldrig har publicerat servrarna på Azure Security Center standard nivå, kan du registrera dem på Azure Security Center som vanligt.
+- Om du aldrig har registrerat servrarna på Azure Security Center kan du publicera dem på Azure Security Center och aktivera Azure Defender som vanligt.
 
 - Om du har publicerat servrarna via Microsoft Defender ATP:
   - I dokumentationen hittar du vägledning om [hur du avpublicera Server-datorer](https://go.microsoft.com/fwlink/p/?linkid=852906).

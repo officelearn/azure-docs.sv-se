@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 971554443e5b420cf759f86013445a6ff9069dea
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4599346cd4538151f6c758253f1f1bf29bafdcbf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706859"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985771"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for MySQL
 
@@ -122,8 +122,28 @@ Dessa certifikat som används av Azure Database for MySQL tillhandahålls av bet
 ### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. om jag använder Läs repliker behöver jag bara utföra den här uppdateringen på huvud servern eller Läs replikerna?
 Eftersom den här uppdateringen är en ändring på klient sidan, om klienten som används för att läsa data från replik servern, måste du även tillämpa ändringarna för dessa klienter.
 
-### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. har vi en fråga på Server sidan för att kontrol lera om SSL används?
+### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. behöver jag utföra någon åtgärd om jag använder datareplikering?
+Om du använder [data i replikering](concepts-data-in-replication.md) för att ansluta till Azure Database for MySQL, finns det två saker att tänka på:
+*   Om datareplikeringen kommer från en virtuell dator (lokal eller virtuell Azure-dator) till Azure Database for MySQL måste du kontrol lera om SSL används för att skapa repliken. Kör **Visa slav status** och kontrol lera följande inställning.  
+
+    ```azurecli-interactive
+    Master_SSL_Allowed            : Yes
+    Master_SSL_CA_File            : ~\azure_mysqlservice.pem
+    Master_SSL_CA_Path            :
+    Master_SSL_Cert               : ~\azure_mysqlclient_cert.pem
+    Master_SSL_Cipher             :
+    Master_SSL_Key                : ~\azure_mysqlclient_key.pem
+    ```
+
+    Om du ser certifikatet som tillhandahålls för CA_file, SSL_Cert och SSL_Key måste du uppdatera filen genom att lägga till det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
+
+*   Om datareplikeringen är mellan två Azure Database for MySQL måste du återställa repliken genom att köra **anropa MySQL. az_replication_change_master** och ange det nya dubbla rot certifikatet som sista parameter [master_ssl_ca](howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication)
+
+### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. har vi en fråga på Server sidan för att kontrol lera om SSL används?
 För att kontrol lera om du använder SSL-anslutning för att ansluta till servern, se [SSL-verifiering](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
-### <a name="13-what-if-i-have-further-questions"></a>13. Vad händer om jag har fler frågor?
-Om du har frågor kan du få svar från community-experter i [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). [Kontakta oss](mailto:AzureDatabaseforMySQL@service.microsoft.com) om du har en Support plan och behöver teknisk hjälp
+### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. finns det en åtgärd som behövs om jag redan har DigiCertGlobalRootG2 i min certifikat fil?
+Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2**.
+
+### <a name="15-what-if-i-have-further-questions"></a>15. Vad händer om jag har fler frågor?
+Om du har frågor kan du få svar från community-experter i [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). [Kontakta oss](mailto:AzureDatabaseforMySQL@service.microsoft.com)om du har en Support plan och behöver teknisk hjälp.

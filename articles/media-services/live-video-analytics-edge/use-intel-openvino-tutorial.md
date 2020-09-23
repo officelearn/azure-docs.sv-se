@@ -4,20 +4,23 @@ description: I den här självstudien använder du en AI-modell server som tillh
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e620da1a4f0b7f782d478314fb0e2e83ab9a124a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567595"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906621"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Självstudie: analysera direktsänd video med hjälp av poly™ Model Server – AI-tillägg från Intel 
 
-I den här självstudien får du lära dig hur du använder det Open™ modell Server – AI-tillägget från Intel för att analysera ett direktuppspelat video flöde från en (simulerad) IP-kamera. Du ser hur den här härlednings servern ger dig åtkomst till modeller för att identifiera objekt (en person, ett fordon eller en cykel) och en modell för att klassificera fordon. En delmängd av bild rutorna i direktsänd video-feed skickas till den här härlednings servern och resultaten skickas till IoT Edge Hub. 
+I den här självstudien får du lära dig hur du använder det Open™ modell Server – AI-tillägget från Intel för att analysera ett direktuppspelat video flöde från en (simulerad) IP-kamera. Du ser hur den här härlednings servern ger dig åtkomst till modeller för att identifiera objekt (en person, ett fordon eller en cykel) och en modell för att klassificera fordon. En delmängd av bild rutorna i direktsänd video-feed skickas till den här härlednings servern och resultaten skickas till IoT Edge Hub.
 
-Den här självstudien använder en virtuell Azure-dator som en IoT Edge enhet och använder en simulerad direktuppspelad video ström. Den baseras på exempel kod som skrivits i C# och bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) . 
+Den här självstudien använder en virtuell Azure-dator som en IoT Edge enhet och använder en simulerad direktuppspelad video ström. Den baseras på exempel kod som skrivits i C# och bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) .
 
-## <a name="prerequisites"></a>Krav
+> [!NOTE]
+> Den här självstudien kräver att en x86-64-dator används som din gräns enhet.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto som innehåller en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/)med följande tillägg:
@@ -40,7 +43,7 @@ I den här snabb starten ska du använda video analys i real tid för IoT Edge t
 ## <a name="overview"></a>Översikt
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="Översikt":::
+> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Översikt":::
 
 Det här diagrammet visar hur signal flödet i den här snabb starten. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når noden för [http-tilläggsbegäranden](media-graph-concept.md#http-extension-processor) . 
 
@@ -53,6 +56,7 @@ I de här självstudierna får du:
 1. Rensa resurser.
 
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>Om Open™ modell Server – AI-tillägg från Intel
+
 Intel®-fördelningen av poly- [™ Toolkit](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) (öppen visuell härledning och neurala nätverks optimering) är ett kostnads fritt program varu paket som hjälper utvecklare och data forskare att påskynda arbetet med arbets belastningar, effektivisera djup inlärning och distributioner och möjliggör enkel, heterogen körning av Intel®-plattformar från gränsen till molnet. Den innehåller Intel® djup inlärnings distributions verktyg med modell optimering och drift sättnings motor och den [öppna modellen Zoo](https://github.com/openvinotoolkit/open_model_zoo) -lagringsplatsen som innehåller mer än 40 optimerade förtränade modeller.
 
 För att kunna bygga komplexa video analys lösningar med höga prestanda bör live video analys på IoT Edge modul kombineras med en kraftfull härlednings motor som kan dra nytta av skalan i kanten. I den här självstudien skickas en härlednings förfrågan till [open™ modell Server – AI-tillägget från Intel](https://aka.ms/lva-intel-ovms), en Edge-modul som har utformats för att fungera med real tids analys på IoT Edge. Den här modulen för den här härlednings servern innehåller™ modell Server (OVMS) för, en utgångs punkt som drivs av poly-™ Toolkit, som är mycket optimerad för arbets belastningar för dator vision och som utvecklats för Intel®-arkitekturer. Ett tillägg har lagts till i OVMS för enkel uppspelning av video ramar och utöknings resultat mellan härlednings servern och video analys i IoT Edge modul, vilket ger dig möjlighet att köra valfri modell för openprodukts-™ Toolkit som stöds (du kan anpassa modulen för härlednings Server genom att ändra [koden](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Du kan välja fler än en mängd olika accelerations funktioner som tillhandahålls av Intel®-maskinvara. Detta inkluderar CPU: er (Atom, Core, Xeon), FPGAs, VPUs.

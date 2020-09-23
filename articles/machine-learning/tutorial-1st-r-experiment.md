@@ -10,15 +10,15 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 8d5a8555b2bd57dc024318464e38f042469beb4b
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458679"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906730"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > Azure Machine Learning R SDK är för närvarande en offentlig för hands version.
@@ -38,7 +38,7 @@ I den här självstudien utför du följande åtgärder:
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -80,7 +80,7 @@ Klona https://github.com/azure/azureml-sdk-for-r GitHub-lagringsplatsen för en 
 > Resten av den här artikeln innehåller samma innehåll som du ser i "  *träna-and-Deploy-First-Model". RMD* -fil. Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden. 
 
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
 Installations programmet för ditt utvecklings arbete i den här självstudien innehåller följande åtgärder:
 
 * Installera de paket som krävs

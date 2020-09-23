@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: experimentera i Jupyter Notebooks (python)'
-titleSuffix: Machine Learning - Azure
-description: I den här självstudien kommer du att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks.  I del 1 skapar du en arbets yta där du kan hantera experiment och ML-modeller.
+title: 'Självstudie: kom igång i Jupyter Notebooks (python)'
+titleSuffix: Azure Machine Learning
+description: Installations program för Jupyter Notebook själv studie kurser.  Skapa en Azure Machine Learning arbets yta, klona Jupyter-anteckningsböcker till arbets ytan och skapa en beräknings instans där du kör antecknings böckerna.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,44 +10,42 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff23a42d9b96b8411d8b2f82ab8303e2a8a69953
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: de52013628f5d02bedcf72a99e0fad25cabe5d8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896892"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Självstudie: kom igång med Azure Machine Learning i Jupyter Notebooks
 
-I den här självstudien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks. Den här självstudien är **del ett i en själv studie kurs i två delar**, och täcker konfiguration och konfiguration av python-miljön, samt skapa en arbets yta för att hantera experiment och maskin inlärnings modeller. [**Del två**](tutorial-1st-experiment-sdk-train.md) bygger på detta för att träna flera Machine Learning-modeller och introducera modell hanterings processen med hjälp av både Azure Machine Learning Studio och SDK.
+I den här självstudien slutför du stegen för att komma igång med Azure Machine Learning med hjälp av Jupyter notebooks på en [hanterad molnbaserad arbets Station (beräknings instans)](concept-compute-instance.md). Den här självstudien är en markör till alla andra Jupyter Notebook själv studie kurser.
 
 I den här kursen får du:
 
 > [!div class="checklist"]
-> * Skapa en [Azure Machine Learning-arbetsyta](concept-workspace.md) som ska användas i nästa självstudie.
+> * Skapa en [Azure Machine Learning-arbetsyta](concept-workspace.md) som ska användas i andra Jupyter Notebook självstudier.
 > * Klona självstudiernas antecknings böcker till din mapp i arbets ytan.
 > * Skapa en molnbaserad beräknings instans med Azure Machine Learning python SDK installerat och förkonfigurerat.
-
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i tjänsten. 
+En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i tjänsten.
 
-Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser. 
+Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 > Anteckna din **arbets yta** och din **prenumeration**. Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
 
 ## <a name="run-notebook-in-your-workspace"></a><a name="azure"></a>Kör antecknings boken på din arbets yta
 
-I den här självstudien använder du moln antecknings boken i din arbets yta för en installations fri och förkonfigurerad upplevelse. Använd [din egen miljö](how-to-configure-environment.md#local) om du vill ha kontroll över din miljö, dina paket och beroenden.
+Azure Machine Learning innehåller en molnbaserad Notebook-server i din arbets yta för en installations fri och förkonfigurerad upplevelse. Använd [din egen miljö](tutorial-1st-experiment-sdk-setup-local.md) om du vill ha kontroll över din miljö, dina paket och beroenden.
 
- Följ med i den här videon eller Använd de detaljerade stegen nedan för att klona och köra självstudien från din arbets yta. 
+ Följ tillsammans med den här videon eller Använd de detaljerade stegen nedan för att klona och köra själv studie antecknings boken från din arbets yta.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
@@ -71,7 +69,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Mappen för att klona självstudier":::
 
-1. En lista över mappar visar alla användare som har åtkomst till arbets ytan.  Välj din mapp för att klona **självstudierna** där.
+1. En lista över mappar visar alla användare som har åtkomst till arbets ytan.  Välj din mapp för att klona **självstudierna**  där.
 
 ### <a name="open-the-cloned-notebook"></a><a name="open"></a>Öppna den klonade antecknings boken
 
@@ -80,12 +78,11 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
     > [!IMPORTANT]
     > Du kan visa antecknings böcker i mappen **exempel** , men du kan inte köra en antecknings bok därifrån.  För att kunna köra en antecknings bok, se till att du öppnar den klonade versionen av antecknings boken i avsnittet **användarfiler** .
     
-1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i **självstudierna/skapa-First-ml-experimentet** .
+1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i **självstudierna/bild klassificerings-mnist** -datamappen.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Öppna mappen självstudier":::
 
-
-1. I det översta fältet väljer du en beräknings instans som ska användas för att köra antecknings boken. De här virtuella datorerna är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents). 
+1. I det översta fältet väljer du en beräknings instans som ska användas för att köra antecknings boken. De här virtuella datorerna är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents).
 
 1. Om inga virtuella datorer hittas väljer du **+ Lägg** till för att skapa den virtuella beräknings instansen. 
 
@@ -107,17 +104,11 @@ Om du har anpassade widgetar eller vill använda Jupyter/JupyterLab väljer du L
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du slutfört följande uppgifter:
-
-* En Azure Machine Learning-arbetsyta har skapats.
-* Skapat och konfigurerat en molnbaserad Notebook-server i din arbets yta.
-
-I **del två** av självstudien kör du koden i `tutorial-1st-experiment-sdk-train.ipynb` för att träna en maskin inlärnings modell. 
+Nu när du har skapat en utvecklings miljö kan du fortsätta med att träna en modell i en Jupyter Notebook:
 
 > [!div class="nextstepaction"]
-> [Självstudie: träna din första modell](tutorial-1st-experiment-sdk-train.md)
+> [Självstudie: träna bild klassificerings modeller med MNIST-data och scikit-lär](tutorial-train-models-with-aml.md)
 
-> [!IMPORTANT]
-> Om du inte planerar följande del 2 av den här själv studie kursen eller någon annan själv studie kurs bör du [stoppa den virtuella datorn i molnet Notebook-servern](tutorial-1st-experiment-sdk-train.md#clean-up-resources) när du inte använder den för att minska kostnaderna.
+<a name="stop-compute-instance"></a> Om du inte planerar att följa de här självstudierna nu bör du stoppa den virtuella datorn för moln Notebook-servern när du inte använder den för att minska kostnaderna:
 
-
+[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]

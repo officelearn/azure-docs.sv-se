@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203547"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906695"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Träna och distribuera en bild klassificering TensorFlow modell med Azure Machine Learning Visual Studio Code Extension (för hands version)
 
@@ -61,7 +61,7 @@ Det första du behöver göra för att skapa ett program i Azure Machine Learnin
 1. Välj **skapa en ny resurs grupp**. 
 1. Ge resurs gruppen namnet "TeamWorkspace-RG" och tryck på **RETUR**. 
 1. Välj en plats för din arbets yta. Vi rekommenderar att du väljer en plats som ligger närmast platsen som du planerar att distribuera din modell. Till exempel "västra USA 2".
-1. När du uppmanas att välja typ av arbets yta väljer du **Basic** för att skapa en grundläggande arbets yta. Mer information om olika erbjudanden för arbets ytor finns i [Azure Machine Learning översikt](./overview-what-is-azure-ml.md#sku).
+1. När du uppmanas att välja typ av arbets yta väljer du **Basic**.
 
 I det här läget görs en begäran till Azure för att skapa en ny arbets yta i ditt konto. Efter några minuter visas den nya arbets ytan i noden prenumeration. 
 

@@ -10,21 +10,21 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 808f71ae138922b93e3742f7ff2f526e419cf58c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645885"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897499"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Samla in loggfiler för Machine Learning-pipeline i Application Insights för aviseringar och fel sökning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Python-biblioteket för [openräkning](https://opencensus.io/quickstart/python/) kan användas för att dirigera loggar till Application Insights från dina skript. Genom att aggregera loggar från pipeline-körningar på en plats kan du bygga frågor och diagnostisera problem. Med hjälp av Application Insights kan du spåra loggar över tid och jämföra pipeline-loggar i flera körningar.
 
 Om du loggar in på samma plats får du en historik över undantag och fel meddelanden. Eftersom Application Insights integreras med Azure-aviseringar kan du även skapa aviseringar baserat på Application Insights frågor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Följ stegen för att skapa en [Azure Machine Learning](./how-to-manage-workspace.md) arbets yta och [skapa din första pipeline](./how-to-create-your-first-pipeline.md)
 * [Konfigurera utvecklings miljön](./how-to-configure-environment.md) för att installera Azure Machine Learning SDK.

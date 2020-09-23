@@ -3,12 +3,12 @@ title: Information om princip undantags strukturen
 description: Beskriver den princip undantags definition som används av Azure Policy för att undanta resurser från utvärdering av initiativ eller definitioner.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941352"
+ms.locfileid: "90968041"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy undantags struktur
 
@@ -99,11 +99,12 @@ Det här fältet måste vara det fullständiga Sök vägs namnet för antingen e
 
 Om `policyAssignmentId` är för en initiativ tilldelning `policyDefinitionReferenceIds` kan egenskapen användas för att ange vilka princip definitioner i initiativet som ämnes resursen har undantaget. Eftersom resursen kan undantas från en eller flera princip definitioner som ingår är den här egenskapen en _matris_. Värdena måste matcha värdena i initiativ definitionen i `policyDefinitions.policyDefinitionReferenceId` fälten.
 
-## <a name="required-permissions"></a>Behörigheter som krävs
+## <a name="exemption-category"></a>Undantags kategori
 
-De Azure RBAC-behörigheter som krävs för att hantera princip undantags objekt finns i `Microsoft.Authorization/policyExemptions` Åtgärds gruppen. De inbyggda rollerna [resurs princip deltagare](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) och [säkerhets administratör](../../../role-based-access-control/built-in-roles.md#security-admin) har både och har `read` `write` behörigheten och [princip insikter data Writer (för hands version)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) `read` .
+Det finns två undantags kategorier och används för att gruppera undantag:
 
-Undantag har ytterligare säkerhets åtgärder på grund av konsekvenserna av att bevilja ett undantag. Förutom att du behöver `Microsoft.Authorization/policyExemptions/write` utföra åtgärden i resurspoolen eller en enskild resurs måste skaparen av ett undantag ha `exempt/Action` verbet på mål tilldelningen.
+- **Dämpat**: undantaget beviljas eftersom princip avsikten är uppfyllt genom en annan metod.
+- **Befrielse: undantaget**beviljas eftersom resursens icke-hälsotillstånd är tillfälligt accepterat. En annan orsak till att använda den här kategorin är för en resurs-eller resurs-hierarki som ska uteslutas från en eller flera definitioner i ett initiativ, men bör inte uteslutas från hela initiativet.
 
 ## <a name="expiration"></a>Förfallodatum
 
@@ -111,6 +112,12 @@ Om du vill ange när en mappstruktur eller en enskild resurs inte längre är _u
 
 > [!NOTE]
 > Princip undantagen tas inte bort när `expiresOn` datumet har nåtts. Objektet bevaras för Arkiv hållning, men undantaget hanteras inte längre.
+
+## <a name="required-permissions"></a>Behörigheter som krävs
+
+De Azure RBAC-behörigheter som krävs för att hantera princip undantags objekt finns i `Microsoft.Authorization/policyExemptions` Åtgärds gruppen. De inbyggda rollerna [resurs princip deltagare](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) och [säkerhets administratör](../../../role-based-access-control/built-in-roles.md#security-admin) har både och har `read` `write` behörigheten och [princip insikter data Writer (för hands version)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) `read` .
+
+Undantag har ytterligare säkerhets åtgärder på grund av konsekvenserna av att bevilja ett undantag. Förutom att du behöver `Microsoft.Authorization/policyExemptions/write` utföra åtgärden i resurspoolen eller en enskild resurs måste skaparen av ett undantag ha `exempt/Action` verbet på mål tilldelningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

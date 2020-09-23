@@ -3,12 +3,12 @@ title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000370"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985524"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -48,7 +48,7 @@ Azure Backup aktiverar data skydd för olika arbets belastningar (lokalt och i m
 
 ### <a name="management-plane"></a>Hanteringsplanet
 
-* **Åtkomst kontroll** – Recovery Services valvet tillhandahåller hanterings funktionerna och är tillgängliga via API: erna för Azure Portal, SDK, CLI och till och med rest. Det är också en RBAC-begränsning, som ger dig möjlighet att begränsa åtkomsten till säkerhets kopior enbart till behöriga säkerhets kopierings administratörer.
+* **Åtkomst kontroll** – valv (Recovery Services-och säkerhets kopierings valv) tillhandahåller hanterings funktioner och är tillgängliga via Azure Portal, säkerhets kopierings Center, valv instrument paneler, SDK, CLI och till och med REST-API: er. Det är också en RBAC-begränsning, som ger dig möjlighet att begränsa åtkomsten till säkerhets kopior enbart till behöriga säkerhets kopierings administratörer.
 
 * **Princip hantering** – Azure Backup principer i varje valv definierar när säkerhets kopiorna ska utlösas och hur länge de behöver behållas. Du kan också hantera dessa principer och tillämpa dem på flera objekt.
 
@@ -58,7 +58,7 @@ Azure Backup aktiverar data skydd för olika arbets belastningar (lokalt och i m
 
 ## <a name="vault-considerations"></a>Valv överväganden
 
-Azure Backup använder Recovery Services valv för att dirigera och hantera säkerhets kopior. Det använder också valv för att lagra säkerhetskopierade data. Effektiv valv design hjälper organisationer att skapa en struktur för att organisera och hantera säkerhets kopierings till gångar i Azure som stöd för dina affärs prioriteringar. Tänk på följande rikt linjer när du skapar ett valv:  
+Azure Backup använder valv (Recovery Services-och säkerhets kopierings valv) för att dirigera och hantera säkerhets kopior. Det använder också valv för att lagra säkerhetskopierade data. Effektiv valv design hjälper organisationer att skapa en struktur för att organisera och hantera säkerhets kopierings till gångar i Azure som stöd för dina affärs prioriteringar. Tänk på följande rikt linjer när du skapar ett valv:  
 
 ### <a name="align-to-subscription-design-strategy"></a>Anpassa till prenumerationens design strategi
 
@@ -71,7 +71,8 @@ Du kan använda ett enda valv eller flera valv för att organisera och hantera s
 * Om dina arbets belastningar hanteras av en enda prenumeration och en enda resurs kan du använda ett enda valv för att övervaka och hantera reserv fastigheten.
 
 * Om dina arbets belastningar sprids över prenumerationer kan du skapa flera valv, en eller flera per prenumeration.
-  * För att förenkla övervakningen av operativa aktiviteter i alla valv, prenumerationer och klienter kan du använda Backup Explorer och-rapporter. [Lär dig mer här](monitor-azure-backup-with-backup-explorer.md) för att få en sammanställd vy.
+  * Med Backup Center kan du ha en enda fönster ruta för att hantera alla uppgifter som är relaterade till säkerhets kopiering. [Läs mer här]().
+  * Du kan anpassa dina vyer med mallar för arbets böcker. Backup Explorer är en sådan mall för virtuella Azure-datorer. [Läs mer här](monitor-azure-backup-with-backup-explorer.md).
   * Om du behöver konsekvent princip över valv kan du använda Azure policy för att sprida säkerhets kopierings principen över flera valv. Du kan skriva en anpassad [Azure policy definition](../governance/policy/concepts/definition-structure.md) som använder ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) -resultatet för att sprida en säkerhets kopierings princip över flera valv. Du [kan tilldela den här Azure policy](../governance/policy/assign-policy-portal.md) definition till ett visst omfång (prenumerations-eller rg), så att den distribuerar en "säkerhets kopierings princip"-resurs till alla Recovery Services-valv inom omfånget för Azure policy tilldelningen. Inställningarna för säkerhets kopierings principen (t. ex. säkerhets kopierings frekvens, kvarhållning och så vidare) ska anges av användaren som parametrar i Azure Policy tilldelningen.
 
 * När organisationens utrymme växer kan du vilja flytta arbets belastningar mellan prenumerationer av följande orsaker: justera efter säkerhets kopierings princip, konsolidera valv, kompromissa med lägre redundans för att spara pengar (flytta från GRS till LRS).  Azure Backup stöder flytt av ett Recovery Services valv i Azure-prenumerationer eller till en annan resurs grupp inom samma prenumeration. [Läs mer här](backup-azure-move-recovery-services-vault.md).

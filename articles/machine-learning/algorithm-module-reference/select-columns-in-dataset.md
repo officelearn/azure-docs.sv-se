@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153782"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890287"
 ---
 # <a name="select-columns-in-dataset-module"></a>Välj kolumner i data uppsättnings modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att välja en delmängd av kolumner som ska användas i underordnade åtgärder. Modulen tar inte bort kolumnerna från käll data uppsättningen fysiskt. i stället skapas en delmängd av kolumner, ungefär som en databas *vy* eller *projektion*.
 
@@ -62,7 +62,7 @@ Det finns flera alternativ i modulen för att välja kolumner efter namn:
     Om data uppsättningen är bred kan det vara lättare att använda index eller genererade listor med namn, i stället för att välja kolumner separat. Förutsatt att du har för berett listan i förväg:
 
     1. Klicka på alternativet **med regler** . 
-    2. Välj **inga kolumner**, Välj **Inkludera**och klicka sedan i text rutan med det röda utrops tecknet. 
+    2. Välj **inga kolumner**, Välj  **Inkludera**och klicka sedan i text rutan med det röda utrops tecknet. 
     3. Klistra in eller Skriv en kommaavgränsad lista över tidigare validerade kolumn namn. Du kan inte spara modulen om en kolumn har ett ogiltigt namn, så se till att du kontrollerar namnen på förhand.
     
     Du kan också använda den här metoden för att ange en lista med kolumner som använder sina index värden. 

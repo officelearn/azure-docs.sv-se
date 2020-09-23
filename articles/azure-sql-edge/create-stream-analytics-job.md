@@ -1,6 +1,6 @@
 ---
-title: Skapa ett T-SQL-strömmande jobb i Azure SQL Edge (för hands version)
-description: Lär dig mer om att skapa Stream Analytics jobb i Azure SQL Edge (för hands version).
+title: Skapa ett T-SQL-strömmande jobb i Azure SQL Edge
+description: Lär dig mer om att skapa Stream Analytics jobb i Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,19 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888102"
 ---
-# <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Skapa ett Azure Stream Analytics jobb i Azure SQL Edge (för hands version) 
+# <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Skapa ett data strömnings jobb i Azure SQL Edge 
 
-Den här artikeln beskriver hur du skapar ett T-SQL streaming-jobb i Azure SQL Edge (för hands version). Du skapar indata och utdata för det externa Stream-objektet, och sedan definierar du direkt uppspelnings jobb frågan som en del av direkt uppspelnings jobbet.
-
-> [!NOTE]
-> Aktivera funktionen T-SQL-direktuppspelning i Azure SQL Edge genom att aktivera TF 11515 som ett start alternativ eller använda [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) -kommandot. Mer information om hur du aktiverar spårnings flaggor med hjälp av en MSSQL. conf-fil finns i [Konfigurera med hjälp av en MSSQL. conf-fil](configure.md#configure-by-using-an-mssqlconf-file).
+Den här artikeln beskriver hur du skapar ett T-SQL streaming-jobb i Azure SQL Edge. Du skapar indata och utdata för det externa Stream-objektet, och sedan definierar du direkt uppspelnings jobb frågan som en del av direkt uppspelnings jobbet.
 
 ## <a name="configure-the-external-stream-input-and-output-objects"></a>Konfigurera indata och utdata för det externa Stream-objektet
 
@@ -41,7 +38,7 @@ Azure SQL Edge stöder för närvarande endast följande data källor som indata
 
 | Typ av data Källa | Indata | Resultat | Beskrivning |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge hubb | Y | Y | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Azure IoT Edge hubb | J | J | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
 | SQL Database | N | J | Anslutning till data källa för att skriva strömmande data till SQL Database. Databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
 | Kafka | J | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel-eller AMD-versioner av Azure SQL Edge. Den är inte tillgänglig för ARM64-versionen av Azure SQL Edge.|
 
@@ -251,9 +248,9 @@ Direkt uppspelnings jobbet kan ha någon av följande statusar:
 | Bearbetar | Direkt uppspelnings jobbet körs och bearbetar indata. Det här tillståndet anger ett felfritt tillstånd för strömnings jobbet. |
 | Degraderad | Direkt uppspelnings jobbet körs, men det fanns några icke-allvarliga fel under bearbetningen av indata. Inmatnings jobbet kommer att fortsätta köras, men kommer att släppa indata som stöter på fel. |
 | Stoppad | Direkt uppspelnings jobbet har stoppats. |
-| Misslyckad | Streaming-jobbet misslyckades. Detta är vanligt vis ett tecken på ett allvarligt fel under bearbetningen. |
+| Misslyckades | Streaming-jobbet misslyckades. Detta är vanligt vis ett tecken på ett allvarligt fel under bearbetningen. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa metadata som är kopplade till strömmande jobb i Azure SQL Edge (för hands version)](streaming-catalog-views.md) 
+- [Visa metadata som är associerade med strömmande jobb i Azure SQL Edge](streaming-catalog-views.md) 
 - [Skapa en extern ström](create-external-stream-transact-sql.md)

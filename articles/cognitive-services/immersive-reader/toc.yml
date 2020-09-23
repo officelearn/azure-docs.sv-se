@@ -1,14 +1,9 @@
 - name: Dokumentation om Avancerad läsare
   href: index.yml
-- name: Översikt
-  items:
-    - name: Vad är Avancerad läsare?
-      href: Overview.md
-- name: Snabbstarter
-  expanded: true
-  items:
-    - name: Använda klientbiblioteket
-      href: ./quickstarts/client-libraries.md
+- name: Vad är Avancerad läsare?
+  href: Overview.md
+- name: Snabbstart
+  href: ./quickstarts/client-libraries.md
 - name: Självstudier
   items:
     - name: Starta Avancerad läsare (Android)

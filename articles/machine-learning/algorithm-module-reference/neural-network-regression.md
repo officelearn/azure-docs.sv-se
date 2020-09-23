@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137696"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890354"
 ---
 # <a name="neural-network-regression-module"></a>Neurala Network regression-modul
 
@@ -24,7 +24,7 @@ ms.locfileid: "82137696"
   
 ## <a name="module-overview"></a>Översikt över modul  
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
   
@@ -50,7 +50,7 @@ Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskriv
     
     Det här alternativet är bäst om du redan är bekant med neurala-nätverk. Du använder språket net # för att definiera nätverks arkitekturen.  
 
-##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a>Skapa en neurala-nätverks modell med standard arkitekturen
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a> Skapa en neurala-nätverks modell med standard arkitekturen
 
 1.  Lägg till **neurala Network regression** -modulen i din pipeline i designern. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **Regressions** kategorin. 
   

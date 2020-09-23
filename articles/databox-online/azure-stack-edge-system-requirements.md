@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack gräns system krav | Microsoft Docs
-description: Lär dig mer om program-och nätverks kraven för din Azure Stack Edge
+title: System krav för Microsoft Azure Stack Edge Pro | Microsoft Docs
+description: Lär dig mer om program-och nätverks kraven för din Azure Stack Edge Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 921dcb05401c61a9fb581595c20112e67f696c5e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a1a0462b82629b16bd8ccbe269fb1a917357d542
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371318"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883509"
 ---
-# <a name="azure-stack-edge-system-requirements"></a>System krav för Azure Stack Edge
+# <a name="azure-stack-edge-pro-system-requirements"></a>System krav för Azure Stack Edge Pro
 
-I den här artikeln beskrivs viktiga system krav för din Microsoft Azure Stack Edge-lösning och för klienter som ansluter till Azure Stack Edge. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Azure Stack Edge. Du kan referera tillbaka till den här informationen vid behov under distributionen och efterföljande åtgärder.
+I den här artikeln beskrivs viktiga system krav för din Microsoft Azure Stack Edge Pro-lösning och för klienter som ansluter till Azure Stack Edge Pro. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Azure Stack Edge Pro. Du kan referera tillbaka till den här informationen vid behov under distributionen och efterföljande åtgärder.
 
-System kraven för Azure Stack Edge är:
+System kraven för Azure Stack Edge Pro är:
 
 - **Program varu krav för värdar** – beskriver plattformar som stöds, webbläsare för det lokala konfigurations gränssnittet, SMB-klienter och eventuella ytterligare krav för klienter som har åtkomst till enheten.
 - **Nätverks krav för enheten** – ger information om eventuella nätverks krav för den fysiska enhetens drift.
@@ -46,9 +46,9 @@ System kraven för Azure Stack Edge är:
 
 ## <a name="networking-port-requirements"></a>Krav för nätverks port
 
-### <a name="port-requirements-for-azure-stack-edge"></a>Port krav för Azure Stack Edge
+### <a name="port-requirements-for-azure-stack-edge-pro"></a>Port krav för Azure Stack Edge Pro
 
-I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning från vilken inkommande klient begär åtkomst till din enhet. *Ut* eller *utgående* avser i vilken riktning din Azure Stack Edge-enhet skickar data externt, utöver distributionen, till exempel utgående till Internet.
+I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning från vilken inkommande klient begär åtkomst till din enhet. *Ut* eller *utgående* avser i vilken riktning din Azure Stack Edge Pro-enhet skickar data externt, utöver distributionen, till exempel utgående till Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -58,17 +58,17 @@ Azure IoT Edge tillåter utgående kommunikation från en lokal Edge-enhet till 
 
 Använd följande tabell för port konfiguration för servrar som är värdar för Azure IoT Edge Runtime:
 
-| Port nr. | In eller ut | Port omfång | Krävs | Vägledning |
+| Port nr. | In eller ut | Port omfång | Obligatorisk | Vägledning |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Ut       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller DPS (Azure IoT Device Provisioning service).|
+| TCP 443 (HTTPS)| Ut       | WAN        | Yes      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller DPS (Azure IoT Device Provisioning service).|
 
 Fullständig information finns i [brand Väggs-och port konfigurations regler för IoT Edge distribution](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
 ## <a name="url-patterns-for-firewall-rules"></a>URL-mönster för brand Väggs regler
 
-Nätverks administratörer kan ofta konfigurera avancerade brand Väggs regler baserat på URL-mönster för att filtrera inkommande och utgående trafik. Din Azure Stack Edge-enhet och tjänsten är beroende av andra Microsoft-program som Azure Service Bus, Azure Active Directory Access Control, lagrings konton och Microsoft Update-servrar. URL-mönstren som är kopplade till dessa program kan användas för att konfigurera brand Väggs regler. Det är viktigt att förstå att URL-mönstren som är kopplade till dessa program kan ändras. Dessa ändringar kräver att nätverks administratören övervakar och uppdaterar brand Väggs regler för Azure Stack kanten som och när det behövs.
+Nätverks administratörer kan ofta konfigurera avancerade brand Väggs regler baserat på URL-mönster för att filtrera inkommande och utgående trafik. Din Azure Stack Edge Pro-enhet och tjänsten är beroende av andra Microsoft-program som Azure Service Bus, Azure Active Directory Access Control, lagrings konton och Microsoft Update-servrar. URL-mönstren som är kopplade till dessa program kan användas för att konfigurera brand Väggs regler. Det är viktigt att förstå att URL-mönstren som är kopplade till dessa program kan ändras. Dessa ändringar kräver att nätverks administratören övervakar och uppdaterar brand Väggs regler för din Azure Stack Edge Pro som och när det behövs.
 
-Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, baserat på Azure Stack Edge-fasta IP-adresser, i de flesta fall. Du kan dock använda informationen nedan för att ange avancerade brand Väggs regler som behövs för att skapa säkra miljöer.
+Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, baserat på Azure Stack Gränsbaserade fasta IP-adresser, i de flesta fall. Du kan dock använda informationen nedan för att ange avancerade brand Väggs regler som behövs för att skapa säkra miljöer.
 
 > [!NOTE]
 > - IP-adresserna för enheten (källa) ska alltid anges till alla molnbaserade nätverks gränssnitt.
@@ -104,7 +104,7 @@ Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, b
 
 ## <a name="compute-sizing-considerations"></a>Överväganden vid beräkning av storlek
 
-Använd din upplevelse när du utvecklar och testar din lösning för att se till att det finns tillräckligt med kapacitet på din Azure Stack Edge-enhet och du får optimala prestanda från din enhet.
+Använd din upplevelse när du utvecklar och testar din lösning för att se till att det finns tillräckligt med kapacitet på din Azure Stack Edge Pro-enhet och du får optimala prestanda från din enhet.
 
 Faktorer som du bör ta hänsyn till:
 
@@ -123,16 +123,16 @@ Om du vill förstå och förfina lösningens prestanda kan du använda:
 - Beräknings måtten som är tillgängliga i Azure Portal. Gå till din Azure Stack Edge-resurs och gå sedan till **övervakning > mått**. Titta på processor **användningen för Edge Compute-Memory** och **Edge Compute-procent** för att förstå de tillgängliga resurserna och hur är resurserna förbrukade.
 - De övervaknings kommandon som är tillgängliga via PowerShell-gränssnittet på enheten, till exempel:
 
-    - `dkr`statistik för att hämta en Live-ström med användnings statistik för container (er). Kommandot stöder CPU, minnes användning, minnes gräns och nätverkets IO-mått.
-    - `dkr system df`för att få information om mängden disk utrymme som används. 
-    - `dkr image [prune]`för att rensa oanvända avbildningar och frigöra utrymme.
-    - `dkr ps --size`för att visa den ungefärliga storleken på en behållare som körs. 
+    - `dkr` statistik för att hämta en Live-ström med användnings statistik för container (er). Kommandot stöder CPU, minnes användning, minnes gräns och nätverkets IO-mått.
+    - `dkr system df` för att få information om mängden disk utrymme som används. 
+    - `dkr image [prune]` för att rensa oanvända avbildningar och frigöra utrymme.
+    - `dkr ps --size` för att visa den ungefärliga storleken på en behållare som körs. 
 
     Mer information om tillgängliga kommandon finns i [övervaka och felsöka Compute-moduler](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Till sist kontrollerar du att du validerar din lösning på din data uppsättning och kvantifierar prestanda på Azure Stack Edge innan du distribuerar i produktion.
+Till sist kontrollerar du att du validerar din lösning på din data uppsättning och kvantifierar prestandan på Azure Stack Edge Pro innan du distribuerar den i produktionen.
 
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Distribuera Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Distribuera Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

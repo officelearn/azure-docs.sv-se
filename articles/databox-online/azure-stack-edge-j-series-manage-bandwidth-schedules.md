@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge-GPU hantera bandbredds scheman | Microsoft Docs
-description: Beskriver hur du använder Azure Portal för att hantera bandbredds scheman på Azure Stack Edge-GPU.
+title: Azure Stack Edge Pro GPU hantera bandbredds scheman | Microsoft Docs
+description: Beskriver hur du använder Azure Portal för att hantera bandbredds scheman på Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b9edb4f694a5ff7d15b06be41cc20db3b64b97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265702"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890664"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-gpu"></a>Använd Azure Portal för att hantera bandbredds scheman på Azure Stack Edge-GPU 
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Använd Azure Portal för att hantera bandbredds scheman på Azure Stack Edge Pro GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Den här artikeln beskriver hur du hanterar bandbredds scheman på Azure Stack Edge. Med bandbreddsscheman kan du konfigurera användningen av nätverksbandbredd mellan scheman under olika tider på dagen. Schemana kan användas för upp- och nedladdningar mellan din enhet och molnet.
+Den här artikeln beskriver hur du hanterar bandbredds scheman på Azure Stack Edge Pro. Med bandbreddsscheman kan du konfigurera användningen av nätverksbandbredd mellan scheman under olika tider på dagen. Schemana kan användas för upp- och nedladdningar mellan din enhet och molnet.
 
-Du kan lägga till, ändra eller ta bort bandbredds scheman för Azure Stack Edge via Azure Portal.
+Du kan lägga till, ändra eller ta bort bandbredds scheman för Azure Stack Edge Pro via Azure Portal.
 
 I den här artikeln kan du se hur du:
 
@@ -42,9 +42,9 @@ Lägg till ett schema genom att utföra följande steg i Azure Portal.
 
 3. I **Lägg till schema**: 
 
-   1. Ange **Startdag**, **Slutdag**, **Starttid** och **Sluttid** för schemat.
+   1. Ange **Start dag**, **slut dag**, **Start tid**och **slut tid** för schemat.
    2. Markera alternativet **alla dagar** om schemat ska köras hela dagen.
-   3. **Bandbreddshastighet** är den bandbredd i megabit per sekund (Mbit/s) som används av din enhet i åtgärder som rör molnet (upp- och nedladdning). Ange ett tal mellan 20 och 2 147 483 647 för det här fältet.
+   3. **Bandbredds hastighet** är den bandbredd i megabit per sekund (Mbit/s) som används av enheten i åtgärder som involverar molnet (både uppladdning och nedladdning). Ange ett tal mellan 20 och 2 147 483 647 för det här fältet.
    4. Markera **Obegränsad** bandbredd om du inte vill begränsa upp- och nedladdningen.
    5. Välj **Lägg till**.
 
@@ -73,7 +73,7 @@ Gör följande om du vill redigera ett bandbreddsschema.
 
 ## <a name="delete-a-schedule"></a>Ta bort ett schema
 
-Utför följande steg för att ta bort ett schema för bandbredd som är kopplat till din Azure Stack Edge-enhet.
+Utför följande steg för att ta bort ett schema för bandbredd som är kopplat till din Azure Stack Edge Pro-enhet.
 
 1. Gå till Azure Stack Edge-resursen i Azure Portal och gå sedan till **bandbredd**.  
 

@@ -1,6 +1,6 @@
 ---
-title: Distribuera virtuella datorer på Azure Stack Edge GPU-enhet via Azure PowerShell
-description: Beskriver hur du skapar och hanterar virtuella datorer på en Azure Stack Edge-GPU-enhet med Azure PowerShell.
+title: Distribuera virtuella datorer på Azure Stack Edge Pro GPU-enhet via Azure PowerShell
+description: Beskriver hur du skapar och hanterar virtuella datorer (VM) på en Azure Stack Edge Pro GPU-enhet med Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890699"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Distribuera virtuella datorer på Azure Stack Edge GPU-enhet via Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Distribuera virtuella datorer på Azure Stack Edge Pro GPU-enhet via Azure PowerShell
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge-enhet med Azure PowerShell.
+I den här självstudien beskrivs hur du skapar och hanterar en virtuell dator på din Azure Stack Edge Pro-enhet med Azure PowerShell.
 
 ## <a name="vm-deployment-workflow"></a>Arbets flöde för distribution av virtuell dator
 
@@ -27,7 +27,7 @@ Arbets flödet för distributionen illustreras i följande diagram.
 
 ![Arbets flöde för distribution av virtuell dator](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
@@ -128,7 +128,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Endast lokala lagrings konton som lokalt redundant lagring (Standard_LRS eller Premium_LRS) kan skapas via Azure Resource Manager. Om du vill skapa lagrings konton på nivå, se stegen i [Lägg till, Anslut till lagrings konton på Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Endast lokala lagrings konton som lokalt redundant lagring (Standard_LRS eller Premium_LRS) kan skapas via Azure Resource Manager. Om du vill skapa lagrings konton på nivå, se stegen i [Lägg till, Anslut till lagrings konton på Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Ett exempel på utdata visas nedan.
 
@@ -193,7 +193,7 @@ Om du använder *https*måste du installera lämpliga certifikat på enheten. I 
 
 Kopiera eventuella disk avbildningar som ska användas i sid-blobar i det lokala lagrings kontot som du skapade i föregående steg. Du kan använda ett verktyg som [AzCopy](../storage/common/storage-use-azcopy-v10.md) för att ladda upp den virtuella hård disken till lagrings kontot som du skapade i tidigare steg. 
 
-Innan du använder AzCopy kontrollerar du att [AzCopy har kon figurer ATS korrekt](#configure-azcopy) för användning med blob Storage REST API-versionen som du använder med Azure Stack Edge-enhet.
+Innan du använder AzCopy måste du kontrol lera att [AzCopy har kon figurer ATS korrekt](#configure-azcopy) för användning med blob Storage REST API-versionen som du använder med din Azure Stack Edge Pro-enhet.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -445,11 +445,11 @@ The public IP in this case will be the same as the private IP that you passed du
 
 ## <a name="manage-vm"></a>Hantera virtuell dator
 
-I följande avsnitt beskrivs några vanliga åtgärder kring den virtuella dator som du skapar på din Azure Stack Edge-enhet.
+I följande avsnitt beskrivs några vanliga åtgärder kring den virtuella dator som du skapar på din Azure Stack Edge Pro-enhet.
 
 ### <a name="list-vms-running-on-the-device"></a>Visa lista över virtuella datorer som körs på enheten
 
-Kör följande kommando för att returnera en lista över alla virtuella datorer som körs på din Azure Stack Edge-enhet.
+Kör följande kommando för att returnera en lista över alla virtuella datorer som körs på din Azure Stack Edge Pro-enhet.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -502,7 +502,7 @@ Mer information om den här cmdleten finns i [cmdleten Remove-AzureRmVm](https:/
 
 Storleken på den virtuella datorn avgör hur mycket beräkningsresurser (t.ex. CPU, GPU och minne) som är tillgängligt för den virtuella datorn. Virtuella datorer måste skapas med en virtuell dator med lämplig storlek för arbetsbelastningen. Även om alla datorer ska köras på samma maskin vara, har dator storlekarna olika begränsningar för disk åtkomst, som kan hjälpa dig att hantera den totala disk åtkomsten över dina virtuella datorer. Om arbetsbelastningen ökar kan man även ändra storlek på den befintliga virtuella datorn.
 
-Följande virtuella datorer i standard Dv2-serien stöds för att skapa Azure Stack Edge-enhet.
+Följande virtuella datorer i standard Dv2-serien stöds för att skapa Azure Stack Edge Pro-enhet.
 
 ### <a name="dv2-series"></a>Dv2-serien
 |Storlek     |Virtuell processor     |Minne (GiB) | Temp-lagring (GiB)  | Högsta data flöde för OS-diskar (IOPS) | Maximal data flöde för temp-lagring (IOPS) | Maximalt antal data diskar/data flöde (IOPS) | Maximalt antal nätverkskort |
@@ -547,9 +547,9 @@ Tillägg, skalnings uppsättningar, tillgänglighets uppsättningar, ögonblicks
 
 ## <a name="configure-azcopy"></a>Konfigurera AzCopy
 
-När du installerar den senaste versionen av AzCopy måste du konfigurera AzCopy för att säkerställa att den matchar Blob Storage REST API-versionen av Azure Stack Edge-enheten.
+När du installerar den senaste versionen av AzCopy måste du konfigurera AzCopy för att säkerställa att den matchar Blob Storage REST API version av din Azure Stack Edge Pro-enhet.
 
-Konfigurera en global variabel som matchar Blob Storage REST API-versionen på klienten som används för att få åtkomst till din Azure Stack Edge-enhet.
+Konfigurera en global variabel som matchar Blob Storage REST API-versionen på klienten som används för att få åtkomst till din Azure Stack Edge Pro-enhet.
 
 ### <a name="on-windows-client"></a>På Windows-klient 
 

@@ -1,21 +1,90 @@
 ---
-title: Förbereda ett Java våren-program för distribution i Azure våren Cloud
-description: Lär dig hur du förbereder ett Java våren-program för distribution till Azure våren Cloud.
+title: Förbereda ett program för distribution i Azure våren Cloud
+description: Lär dig hur du förbereder ett program för distribution till Azure våren Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 02/03/2020
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 59318cca33ba1607498546161764aa3aaaaea13e
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014947"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906828"
 ---
-# <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java våren-program för distribution i Azure våren Cloud
+# <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett program för distribution i Azure våren Cloud
 
+::: zone pivot="programming-language-csharp"
+Azure våren Cloud tillhandahåller robusta tjänster för att vara värd för, övervaka, skala och uppdatera en Steeltoe-app. Den här artikeln visar hur du förbereder ett befintligt Steeltoe-program för distribution till Azure våren Cloud. 
+
+I den här artikeln beskrivs beroenden, konfigurationen och koden som krävs för att köra en .NET Core Steeltoe-app i Azure våren Cloud. Information om hur du distribuerar ett program till Azure våren Cloud finns i [distribuera ditt första Azure våren Cloud-program](spring-cloud-quickstart.md).
+
+>[!Note]
+> Steeltoe support för Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Mer information om stöd för för hands versionerna finns i [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller filen [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+##  <a name="supported-versions"></a>Versioner som stöds
+
+Azure våren Cloud stöder:
+
+* .NET Core 3,1
+* Steeltoe 2,4
+
+## <a name="dependencies"></a>Beroenden
+
+Installera paketet [Microsoft. Azure. SpringCloud. client](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) .
+
+## <a name="update-programcs"></a>Uppdatera Program.cs
+
+`Program.Main`Anropa metoden i-metoden `UseAzureSpringCloudService` :
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .UseAzureSpringCloudService();
+```
+
+## <a name="enable-eureka-server-service-discovery"></a>Aktivera identifiering av Eureka-Server
+
+I konfigurations källan som ska användas när appen körs i Azure våren-molnet, anger `spring.application.name` du samma namn som Azure våren Cloud-appen som projektet ska distribueras till.
+
+Om du till exempel distribuerar ett .NET-projekt `EurekaDataProvider` som heter en Azure våren Cloud-app som heter `planet-weather-provider` *appSettings.jspå* -filen, ska du inkludera följande JSON:
+
+```json
+"spring": {
+  "application": {
+    "name": "planet-weather-provider"
+  }
+}
+```
+
+## <a name="use-service-discovery"></a>Använda tjänst identifiering
+
+Om du vill anropa en tjänst med hjälp av identifiering av Eureka Server-tjänsten gör du HTTP-begäranden till `http://<app_name>` där `app_name` är värdet för `spring.application.name` mål programmet. Till exempel anropar följande kod `planet-weather-provider` tjänsten:
+
+```csharp
+using (var client = new HttpClient(discoveryHandler, false))
+{
+    var responses = await Task.WhenAll(
+        client.GetAsync("http://planet-weather-provider/weatherforecast/mercury"),
+        client.GetAsync("http://planet-weather-provider/weatherforecast/saturn"));
+    var weathers = await Task.WhenAll(from res in responses select res.Content.ReadAsStringAsync());
+    return new[]
+    {
+        new KeyValuePair<string, string>("Mercury", weathers[0]),
+        new KeyValuePair<string, string>("Saturn", weathers[1]),
+    };
+}
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Det här avsnittet visar hur du förbereder ett befintligt Java våren-program för distribution till Azure våren Cloud. Om Azure våren Cloud har kon figurer ATS korrekt tillhandahåller robusta tjänster för att övervaka, skala och uppdatera ditt Java våren Cloud-program.
 
 Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
@@ -244,3 +313,4 @@ Inkludera följande `spring-cloud-starter-sleuth` och `spring-cloud-starter-zipk
 I det här avsnittet har du lärt dig hur du konfigurerar ditt Java våren-program för distribution till Azure våren Cloud. Information om hur du konfigurerar en konfigurations Server instans finns i [Konfigurera en konfigurations Server instans](spring-cloud-tutorial-config-server.md).
 
 Fler exempel finns på GitHub: [Azure våren Cloud-exempel](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+::: zone-end

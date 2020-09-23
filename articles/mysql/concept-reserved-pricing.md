@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: a8a5914b51b56fbe8b4b7b7ba331f58ec451f975
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86933b324d7216a6097102cf237d0402d9f63234
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731891"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882679"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Förskotts betalning för Azure Database for MySQL beräknings resurser med reserverad kapacitet
 
@@ -43,7 +43,7 @@ Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore MySQL-databa
 4. Fyll i de obligatoriska fälten. Befintliga eller nya databaser som matchar de attribut du väljer kvalificera för att hämta den reserverade kapacitets rabatten. Det faktiska antalet Azure Database for MySQL-servrar som får rabatten beroende på omfattning och vald kvantitet.
 
 
-![Översikt över reserverade priser](media/concepts-reserved-pricing/mysql-reserved-price.png)
+:::image type="content" source="media/concepts-reserved-pricing/mysql-reserved-price.png" alt-text="Översikt över reserverade priser":::
 
 
 I följande tabell beskrivs obligatoriska fält.
@@ -56,7 +56,7 @@ I följande tabell beskrivs obligatoriska fält.
 | Distributions typ | Den Azure Database for MySQL resurs typ som du vill köpa reservationen för.
 | Prestanda nivå | Tjänst nivån för Azure Database for MySQL-servrarna.
 | Term | Ett år
-| Kvantitet | Mängden data bearbetnings resurser som köps i Azure Database for MySQL reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure Database for MySQL-server med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla servrar.
+| Quantity | Mängden data bearbetnings resurser som köps i Azure Database for MySQL reserverade kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure Database for MySQL-server med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, skulle du ange kvantitet som 16 för att maximera förmånen för alla servrar.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 

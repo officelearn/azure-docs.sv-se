@@ -11,16 +11,16 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 968685b64b1412751ca990842d95e9d2ffb251a6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 15e1af35def6a3cb6ffaf5df2db53326fba60bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650552"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883069"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 I den här artikeln får du lära dig hur du skapar och kör en [pipeline för maskin inlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Använd **ml-pipelines** för att skapa ett arbets flöde som häftar samman olika ml-faser. Publicera sedan den pipelinen för senare åtkomst eller dela med andra. Spåra ML-pipelines för att se hur din modell presterar i verkligheten och för att identifiera data drift. ML-pipelines är idealiska för scenarier med batch-poäng, med hjälp av olika beräkningar, återanvända steg i stället för att köra om dem, samt dela ML-arbetsflöden med andra.
 
@@ -32,7 +32,7 @@ ML pipelines körs på beräknings mål (se [Vad är beräknings mål i Azure Ma
 
 Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 
@@ -361,4 +361,4 @@ När du startar en utbildning som kör där käll katalogen är en lokal git-lag
 - Använd [dessa Jupyter-anteckningsböcker på GitHub](https://aka.ms/aml-pipeline-readme) för att utforska maskin inlärnings pipeliner ytterligare
 - Se SDK Reference-hjälpen för [azureml-pipeline-Core-](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) paket och AzureML- [pipeline – steg-](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) paketet
 - Se tips om [hur du](how-to-debug-pipelines.md) felsöker och felsöker pipelines =
-- Lär dig hur du kör antecknings böcker genom [att följa artikeln Använd Jupyter Notebooks för att utforska den här tjänsten](samples-notebooks.md).
+- Lär dig att köra notebook-filer genom att följa artikeln [Använda Jupyter-notebooks till att utforska tjänsten](samples-notebooks.md).

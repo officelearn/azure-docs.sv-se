@@ -1,5 +1,5 @@
 ---
-title: Stöd för containrar
+title: Azure Cognitive Services-behållare
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur Docker-behållare kan få Cognitive Services närmare dina data.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 9/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 141b82467f2b437cfd4a8125d86618b85e48a6ef
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424657"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906988"
 ---
-# <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
+# <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-behållare
 
 > [!WARNING]
 > Den 11 juni 2020 meddelade Microsoft att de inte kommer att sälja teknik för ansiktsigenkänning till polismyndigheter i USA förrän starka föreskrifter som rör användningen av dessa tekniker och som bygger på de mänskliga rättigheterna har införts. Därför kan kunder inte använda ansikts igenkännings funktioner eller funktioner som ingår i Azure-tjänster, till exempel ansikte eller Video Indexer, om en kund är eller tillåter att sådana tjänster används av eller för en polis avdelning i USA.
@@ -54,20 +54,21 @@ Azure Cognitive Services-behållare innehåller följande uppsättning Docker-be
 
 | Tjänst | Pris nivå som stöds | Container | Beskrivning |
 |--|--|--|--|
-| [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
+| [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ([bild](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
 | [Visuellt innehåll][cv-containers] | F0, S1 | **Läsa** | Extraherar utskriven text från bilder av olika objekt med olika ytor och bakgrunder, till exempel inleveranser, affischer och visitkort. I Läs behållaren identifieras även *handskriven text* i bilder och innehåller stöd för PDF/TIFF/flera sidor.<br/><br/>**Viktigt:** Läs behållaren fungerar för närvarande endast med engelska. |
 | [Ansiktsigenkänning][fa-containers] | F0, S0 | **Ansiktsigenkänning** | Identifierar människo ansikten i bilder och identifierar attribut, inklusive ansikts landmärken (till exempel näsaer och ögon), kön, ålder och andra maskin förväntade ansikts funktioner. Förutom identifiering kan FACET kontrol lera om två ansikten i samma bild eller olika bilder är desamma genom att använda en säkerhets poäng, eller jämföra ansikten mot en databas för att se om det redan finns ett liknande eller identiskt ansikte. Det kan också organisera liknande ansikten i grupper med hjälp av delade visuella egenskaper.<br>[Begär åtkomst][request-access] |
 | [Formulär igenkänning][fr-containers] | F0, S0 | **Formigenkänning** | Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär.<br>[Begär åtkomst][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **Luis** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Läser in en utbildad eller publicerad Language Understanding modell, som även kallas LUIS-app, i en Docker-behållare och ger åtkomst till frågans förutsägelser från behållarens API-slutpunkter. Du kan samla in frågeuttryck från behållaren och överföra tillbaka dem till Luis- [portalen](https://www.luis.ai) för att förbättra appens förutsägelse noggrannhet. |
-| [Speech Service API][sp-containers-stt] | F0, S0 | **Tal till text** | Transkriberar kontinuerlig realtidsöversättning av tal till text. |
-| [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech till text** | Översätter kontinuerlig real tids tal till text med hjälp av en anpassad modell. |
-| [Speech Service API][sp-containers-tts] | F0, S0 | **Text till tal** | Konverterar text till naturligt tal. |
-| [Speech Service API][sp-containers-ctts] | F0, S0 | **Anpassad text till tal** | Konverterar text till naturligt ljuds tal med hjälp av en anpassad modell. |
-| [Speech Service API][sp-containers-ntts] | F0, S0 | **Neurala text till tal** | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. |
+| [Speech Service API][sp-containers-stt] | F0, S0 | **Tal till text** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Transkriberar kontinuerlig realtidsöversättning av tal till text. |
+| [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-till-text** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Översätter kontinuerlig real tids tal till text med hjälp av en anpassad modell. |
+| [Speech Service API][sp-containers-tts] | F0, S0 | **Text till tal** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Konverterar text till naturligt tal. |
+| [Speech Service API][sp-containers-ctts] | F0, S0 | **Anpassad text till tal** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Konverterar text till naturligt ljuds tal med hjälp av en anpassad modell. |
+| [Speech Service API][sp-containers-ntts] | F0, S0 | **Neurala text till tal** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. |
 | [Textanalys][ta-containers-keyphrase] | F0, S | **Extrahering av diskussionsämne** ([bild](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extraherar viktiga fraser för att identifiera huvud punkterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
 | [Textanalys][ta-containers-language] | F0, S | **Språkidentifiering** ([bild](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | För upp till 120 språk identifierar det språk som indatamängden är skrivet i och rapporterar en enda språkkod för varje dokument som skickas på begäran. Språkkoden paras med poäng som anger styrkan hos poängen. |
 | [Textanalys][ta-containers-sentiment] | F0, S | **Attitydanalys v3** ([bild](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyserar rå text för LED trådar om positiv eller negativ sentiment. Den här versionen av sentiment-analys returnerar sentiment etiketter (till exempel *positivt* eller *negativt*) för varje dokument och mening i det. |
 | [Textanalys][ta-containers-health] | F0, S | **Textanalys för hälsa** | Extrahera och märk medicinsk information från ostrukturerad klinisk text. |
+| [Rums analys][spa-containers] | S0 | **Rums analys** | Extrahera och märk medicinsk information från ostrukturerad klinisk text. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -86,7 +87,7 @@ Azure Cognitive Services-behållare är offentligt tillgängliga via din Azure-p
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du använder Azure Cognitive Services-behållare:
 
@@ -127,6 +128,7 @@ Installera och utforska de funktioner som finns i behållare i Azure Cognitive S
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

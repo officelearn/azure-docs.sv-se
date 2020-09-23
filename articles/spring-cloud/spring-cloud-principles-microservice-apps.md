@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1c403398f7320cefa16a4a570645a6d7d750acc7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297509"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906869"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Java och Base OS för Spring Microservice Apps
+
+**Den här artikeln gäller för:** ✔️ Java
+
 Följande är principer för att underhålla felfria Java-och bas operativ system för våren mikroservice-appar.
 ## <a name="principles-for-healthy-java-and-base-os"></a>Principer för felfritt Java och bas-OS
 * Måste vara samma grundläggande operativ system mellan nivåer – Basic | Standard | Denaturering.
@@ -52,5 +55,6 @@ Azul Systems söker kontinuerligt efter ändringar i bas operativ system och beh
 > ![Standard distribution](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 ## <a name="next-steps"></a>Nästa steg
-* [Snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md)
+
+* [Snabb start: Distribuera ditt första Azure våren Cloud-program](spring-cloud-quickstart.md)
 * [Java-långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)

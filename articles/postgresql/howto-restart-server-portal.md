@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 4bd5b2d3715376aaca689c4589c3aab41a78f514
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d25c8908b46608ac64bcf135404a070740413fe0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120916"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907372"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Starta om Azure Database for PostgreSQL – en server med hjälp av Azure Portal
 I det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-Server. Du kan behöva starta om servern för underhålls orsaker, vilket orsakar ett kort avbrott eftersom servern utför åtgärden.
@@ -32,19 +32,19 @@ Följande steg startar om PostgreSQL-servern:
 
 2. I verktygsfältet på serverns **översikts** sida klickar du på **starta om**.
 
-   ![Azure Database for PostgreSQL-översikt – knappen starta om](./media/howto-restart-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database for PostgreSQL-översikt – knappen starta om":::
 
 3. Bekräfta att du vill starta om servern genom att klicka på **Ja** .
 
-   ![Bekräfta Azure Database for PostgreSQL omstart](./media/howto-restart-server-portal/3-restart-confirm.png)
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Bekräfta Azure Database for PostgreSQL omstart":::
 
 4. Observera att Server statusen ändras till "omstart".
 
-   ![Azure Database for PostgreSQL-restart-status](./media/howto-restart-server-portal/4-restarting-status.png)
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for PostgreSQL-restart-status":::
 
 5. Bekräfta att servern har startats om.
 
-   ![Azure Database for PostgreSQL-omstart lyckades](./media/howto-restart-server-portal/5-restart-success.png)
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for PostgreSQL-omstart lyckades":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 884aa18b1a29b1c4f1bbf1159a5d48870529c72b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 086feb3aa7c9a38756fded58538eb22e094a5960
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565714"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906794"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Vad är Azures statiska Web Apps för hands version?
 
@@ -24,7 +24,7 @@ Arbets flödet för den statiska Azure-Web Apps är anpassat till en utvecklares
 
 När du skapar en Azure Static Web Apps-resurs skapar Azure ett GitHub Actions-arbetsflöde på lagringsplatsen för appens källkod som övervakar den gren som du har valt. Varje gång du push-skickar eller accepterar pull-begäranden till den bevakade grenen skapar och distribuerar GitHub-åtgärden automatiskt appen och dess API till Azure.
 
-Statiska webbappar skapas vanligtvis med hjälp av bibliotek och ramverk som Angular, React, Svelte eller Vue. Dessa appar består av HTML, CSS, JavaScript och bildtillgångar. Med en traditionell webb server betjänas dessa till gångar från en enda server tillsammans med eventuella nödvändiga API-slutpunkter.
+Statiska webbappar skapas ofta med hjälp av bibliotek och ramverk som vinkel, reagera, svelte, Vue eller blixt. Dessa appar består av HTML, CSS, JavaScript och bildtillgångar. Med en traditionell webb server betjänas dessa till gångar från en enda server tillsammans med eventuella nödvändiga API-slutpunkter.
 
 Med statiska Web Apps separeras statiska till gångar från en traditionell webb server och betjänas i stället från platser geografiskt fördelade över hela världen. Den här distributionen gör att det går mycket snabbare att hantera filer eftersom filerna är fysiskt närmare slutanvändarna. Dessutom är API-slutpunkterna värdbaserade med en [arkitektur utan server](../azure-functions/functions-overview.md), vilket gör att du inte behöver ha en fullständig backend-server samtidigt.
 
@@ -44,7 +44,7 @@ Med statiska Web Apps separeras statiska till gångar från en traditionell webb
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Vad du kan göra med statiska Web Apps
 
-- **Bygg moderna JavaScript-program** med ramverk och bibliotek som [vinkel](getting-started.md?tabs=angular), [reagera](getting-started.md?tabs=react), [svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react) med en [Azure Functions](apis.md) backend.
+- Skapa **moderna webb program** med JavaScript-ramverk och bibliotek som [vinkel](getting-started.md?tabs=angular), [reagera](getting-started.md?tabs=react), [svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react)eller med hjälp av [blixt](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) för att skapa WebAssembly-program med en [Azure Functions](apis.md) backend.
 - **Publicera statiska platser** med ramverk som [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Distribuera webb program** med ramverk som [Next.js](deploy-nextjs.md) och [Nuxt.js](deploy-nuxtjs.md).
 

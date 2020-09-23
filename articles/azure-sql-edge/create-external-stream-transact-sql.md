@@ -1,6 +1,6 @@
 ---
-title: Skapa extern ström (Transact-SQL) – Azure SQL Edge (för hands version)
-description: Lär dig mer om CREATE EXTERNAL STREAM-instruktionen i Azure SQL Edge (för hands version)
+title: Skapa extern ström (Transact-SQL) – Azure SQL Edge
+description: Lär dig mer om CREATE EXTERNAL STREAM-instruktionen i Azure SQL Edge
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489552"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888174"
 ---
 # <a name="create-external-stream-transact-sql"></a>Skapa extern ström (Transact-SQL)
 
@@ -100,7 +100,7 @@ WITH  ( <with_options> )
    - För objekt platsen Azure Blob Storage Stream refererar till det Sök vägs mönster som ska användas i BLOB-behållaren. Mer information om den här funktionen hittar du i (/articles/Stream-Analytics/Stream-Analytics-define-outputs.MD # Blob-Storage-and-Azure-Data-Lake-Gen2)
 
 - **INPUT_OPTIONS**: Ange alternativ som nyckel/värde-par för tjänster som Kafka, IoT Edge hubb som är indata till strömnings frågor
-    - PARTITIONER: antal partitioner som definierats för ett ämne
+    - PARTITIONER: antalet partitioner som definierats för ett ämne. Det maximala antalet partitioner som kan användas är begränsat till 32.
       - Gäller för Kafka-indataströmmen
     - CONSUMER_GROUP: händelse-och IoT-hubbar begränsar antalet läsare i en konsument grupp (till 5). Om du lämnar det här fältet tomt används konsument gruppen $Default.
       - Reserverad för framtida användning. Gäller inte för Azure SQL Edge.  
@@ -247,6 +247,5 @@ WITH
 
 ## <a name="see-also"></a>Se även
 
-- [ÄNDRA extern ström (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [SLÄPP extern ström (Transact-SQL)](drop-external-stream-transact-sql.md) 
 

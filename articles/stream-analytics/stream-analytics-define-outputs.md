@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068991"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907163"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Utdata från Azure Stream Analytics
 
@@ -24,17 +24,17 @@ Vissa utmatnings typer stöder [partitionering](#partitioning)och [utgående bat
 
 | Utdatatyp | Partitionering | Säkerhet | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Ja|Azure Active Directory användare </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory användare </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|Ja, måste aktive ras.|SQL User auth </br> MSI (för hands version)|
-|[Azure Synapse Analytics (för hands version)](azure-synapse-analytics-output.md)|Inga|SQL User auth|
-|[Blob Storage och Azure Data Lake gen 2](blob-storage-azure-data-lake-gen2-output.md)|Ja|MSI </br> Åtkomstnyckel|
-|[Azure Event Hubs](event-hubs-output.md)|Ja|Åtkomstnyckel|
-|[Power BI](power-bi-output.md)|Inga|Azure Active Directory användare </br> MSI|
-|[Azure Table Storage](table-storage-output.md)|Ja|Kontonyckel|
-|[Azure Service Bus-köer](service-bus-queues-output.md)|Ja|Åtkomstnyckel|
-|[Azure Service Bus ämnen](service-bus-topics-output.md)|Ja|Åtkomstnyckel|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Ja|Åtkomstnyckel|
-|[Azure Functions](azure-functions-output.md)|Ja|Åtkomstnyckel|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|SQL User auth|
+|[Blob Storage och Azure Data Lake gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Åtkomstnyckel|
+|[Azure Event Hubs](event-hubs-output.md)|Yes|Åtkomstnyckel|
+|[Power BI](power-bi-output.md)|No|Azure Active Directory användare </br> MSI|
+|[Azure Table Storage](table-storage-output.md)|Yes|Kontonyckel|
+|[Azure Service Bus-köer](service-bus-queues-output.md)|Yes|Åtkomstnyckel|
+|[Azure Service Bus ämnen](service-bus-topics-output.md)|Yes|Åtkomstnyckel|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Åtkomstnyckel|
+|[Azure Functions](azure-functions-output.md)|Yes|Åtkomstnyckel|
 
 ## <a name="partitioning"></a>Partitionering
 

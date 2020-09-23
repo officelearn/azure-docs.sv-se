@@ -1,6 +1,6 @@
 ---
-title: Machine Learning och AI med ONNX i Azure SQL Edge (för hands version)
-description: Machine Learning i Azure SQL Edge (för hands version) stöder modeller i formatet Open neurala Network Exchange (ONNX). ONNX är ett öppet format som du kan använda för att Interchange modeller mellan olika ramverk och verktyg för maskin inlärning.
+title: Machine Learning och AI med ONNX i Azure SQL Edge
+description: Machine Learning i Azure SQL Edge stöder modeller i ONNX-formatet (Open neurala Network Exchange). ONNX är ett öppet format som du kan använda för att Interchange modeller mellan olika ramverk och verktyg för maskin inlärning.
 keywords: Distribuera SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368064"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907136"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine Learning och AI med ONNX i SQL Edge (för hands version)
+# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine Learning och AI med ONNX i SQL Edge
 
-Machine Learning i Azure SQL Edge (för hands version) stöder modeller i formatet [Open neurala Network Exchange (ONNX)](https://onnx.ai/) . ONNX är ett öppet format som du kan använda för att Interchange modeller mellan olika [ramverk och verktyg för maskin inlärning](https://onnx.ai/supported-tools).
+Machine Learning i Azure SQL Edge stöder modeller i [ONNX-formatet (Open neurala Network Exchange)](https://onnx.ai/) . ONNX är ett öppet format som du kan använda för att Interchange modeller mellan olika [ramverk och verktyg för maskin inlärning](https://onnx.ai/supported-tools).
 
 ## <a name="overview"></a>Översikt
 
@@ -36,7 +36,7 @@ Så här hämtar du en modell i ONNX-formatet:
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)
    * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
    * [Keras](https://github.com/onnx/keras-onnx)
-   * [Scikit – lär dig](https://github.com/onnx/sklearn-onnx)
+   * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
    * [CoreML](https://github.com/onnx/onnxmltools)
     
     En fullständig lista över ramverk som stöds och exempel finns i [konvertera till ONNX-format](https://github.com/onnx/tutorials#converting-to-onnx-format).
@@ -55,4 +55,4 @@ Modellens indata ska vara strukturerade så att varje indata till modellen motsv
 ## <a name="next-steps"></a>Nästa steg
 
 - [Distribuera SQL Edge via Azure Portal](deploy-portal.md)
-- [Distribuera en ONNX-modell på Azure SQL Edge (för hands version)](deploy-onnx.md)
+- [Distribuera en ONNX-modell på Azure SQL Edge ](deploy-onnx.md)

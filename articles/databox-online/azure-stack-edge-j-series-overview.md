@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 8bf9bb172d559dbb1f92b376b60a914ec24769d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 265bc1bb86c7fe8424656aa9adb30ddbe847e6fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948253"
+ms.locfileid: "90985654"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Vad är Azure Stack Edge Pro R?
 
-Azure Stack Edge Pro R är en maskinvaru-som-tjänst-lösning. Microsoft levererar en hållbar, robust, Server klass, portabel enhet för över nätverks data överföring till Azure. Enheterna är utrustade med en GPU (Graphic Processing Unit) är optimerade för AI-, analys-och Server lös data behandling. De robusta enheterna är lämpliga för användning i de miljöer som är för svåra.
+Azure Stack Edge Pro R är en maskinvaru-som-tjänst-lösning. Microsoft levererar en hållbar, robust, Server klass, gräns enhet för över nätverks data överföringen till Azure. Enheterna är utrustade med en GPU (Graphic Processing Unit) är optimerade för AI-, analys-och Server lös data behandling. De robusta enheterna är lämpliga för användning i de svåraste miljöerna.
 
 Den här artikeln innehåller en översikt över Azure Stack Edge Pro R-lösningen, viktiga funktioner och scenarier där du kan distribuera den här enheten.
 
@@ -28,13 +28,13 @@ Azure Stack Edge Pro R har följande funktioner:
 
 |Funktion |Beskrivning  |
 |---------|---------|
-|Robust, bärbar maskin vara| Robust 85 lb. Server klass maskin vara som är utformad för miljöer med tufft syfte. Enheten är portabel i en 2-persons bärväska. |
+|Robust maskin vara| Robust Server klass maskin vara utformad för svåra miljöer. Enheten är portabel i en 2-persons bärväska. |
 |Molnbaserad hantering     |Enhet och tjänst hanteras via Azure Portal.|
 |Edge Compute-arbetsbelastningar   |Möjliggör analys, bearbetning och filtrering av data. Stöder virtuella datorer och arbets belastningar i behållare.|
 |Accelererad AI-inferencing| Aktiverat av en NVIDIA T4-GPU.|
 |Höga prestanda | Beräkning och data överföringar med höga prestanda.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
-|Frånkopplat läge| Enhet och tjänst kan hanteras alternativt via Azure Stack. <br> Distribuera, kör, hantera program i offlineläge. <br> Frånkopplat läge stöder scenarier med offlineuppladdning.|
+|Frånkopplat läge| Enhet och tjänst kan hanteras alternativt via Azure Stack hubb. Distribuera, kör, hantera program i offlineläge. <br> Frånkopplat läge stöder scenarier med offlineuppladdning.|
 |Protokoll som stöds     |Stöd för standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [system krav för Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
 |Dubbel kryptering    | Med hjälp av Självkrypterande enheter får du det första krypterings lagret. VPN tillhandahåller det andra krypterings lagret. BitLocker-stöd för lokal kryptering av data och säker data överföring till molnet via *https* .|
@@ -81,5 +81,5 @@ Azure Stack Edge Pro R fysisk enhet, Azure-resurs och mål lagrings konto som du
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska [system kraven för Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).
-- Förstå [Azure Stack Edge Pro R-gränser](azure-stack-edge-limits.md).
+<!--- Understand the [Azure Stack Edge Pro R limits](azure-stack-edge-limits.md).-->
 

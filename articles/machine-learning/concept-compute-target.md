@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883204"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -68,7 +68,7 @@ När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, 
 
 
 > [!NOTE]
-> När ett beräknings kluster är inaktivt skalas det till 0 noder, så du betalar inte när det inte används.  En beräknings *instans*är dock alltid aktive rad och har inte autoskalning.  Du bör [stoppa beräknings instansen](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) när du inte använder den för att undvika extra kostnader. 
+> När ett beräknings kluster är inaktivt skalas det till 0 noder, så du betalar inte när det inte används.  En beräknings *instans*är dock alltid aktive rad och har inte autoskalning.  Du bör [stoppa beräknings instansen](concept-compute-instance.md#managing-a-compute-instance) när du inte använder den för att undvika extra kostnader. 
 
 ### <a name="supported-vm-series-and-sizes"></a>VM-serien och storlekar som stöds
 

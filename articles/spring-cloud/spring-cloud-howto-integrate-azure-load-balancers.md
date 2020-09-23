@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 4315427598d004459862bcf12959e22e83c84d5d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299734"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906933"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrera Azure Spring Cloud med Azure Load Balance Solutions
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
 
 Azure våren Cloud stöder mikrotjänster på Azure.  Att öka verksamheten kan kräva flera data Center med hantering av flera instanser av Azure våren Cloud.
 
@@ -24,7 +26,7 @@ Azure tillhandahåller redan olika belastnings Utjämnings lösningar. Det finns
 2.  Integrera Azure våren Cloud med Azure App Gateway
 3.  Integrera Azure våren Cloud med Azures front dörr
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure våren Cloud: [så här skapar du en moln tjänst för Azure våren](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager: [så här skapar du en Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)

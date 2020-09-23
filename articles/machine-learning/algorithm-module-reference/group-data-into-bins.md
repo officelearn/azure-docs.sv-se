@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751723"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907030"
 ---
 # <a name="group-data-into-bins-module"></a>Gruppera data i modulen lager
 
-Den här artikeln beskriver hur du använder grupp data i modulen lager platser i Azure Machine Learning designer (för hands version) för att gruppera nummer eller ändra distributionen av kontinuerliga data.
+Den här artikeln beskriver hur du använder grupp data i modulen lager platser i Azure Machine Learning designer, för att gruppera nummer eller ändra distributionen av kontinuerliga data.
 
 Grupp data till modulen lager platser stöder flera alternativ för diskretisering-data. Du kan anpassa hur lager plats kanter är inställda och hur värdena fördelas på lager platserna. Du kan till exempel:  
 
@@ -50,7 +50,7 @@ Eftersom det finns många sätt att gruppera data på, rekommenderar vi att du e
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Så här konfigurerar du grupp data till lager platser
 
-1. Lägg till **grupp data** i modulen lager i din pipeline i designern (för hands version). Du hittar den här modulen i kategorin **data omvandling**.
+1. Lägg till **grupp data i modulen lager** i din pipeline i designern. Du hittar den här modulen i kategorin **data omvandling**.
 
 2. Anslut den data uppsättning som har numeriska data till bin. Kvantifieringsfel kan bara användas för kolumner som innehåller numeriska data. 
 

@@ -4,14 +4,14 @@ description: Lär dig mer om Azure Cosmos DB transaktionell (rad-och kolumnbaser
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505530"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900273"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -30,11 +30,11 @@ ETL-pipelinen blir också komplexa vid hantering av uppdateringar av användning
 
 ## <a name="column-oriented-analytical-store"></a>Kolumn-orienterad analys lager
 
-Azure Cosmos DB Analytical Store tar itu med de komplexitets-och latens utmaningar som inträffar med de traditionella ETL-pipelinen. Azure Cosmos DB Analytical Store kan automatiskt synkronisera dina drift data till ett separat kolumn lager. Formatet för kolumn lagring är lämpligt för analys frågor med stor skala som ska utföras på ett optimerat sätt, vilket leder till att förbättra svars tiderna för sådana frågor.
+Azure Cosmos DB Analytical Store tar itu med de komplexitets-och latens utmaningar som inträffar med de traditionella ETL-pipelinen. Azure Cosmos DB Analytical Store kan automatiskt synkronisera dina drift data till ett separat kolumn lager. Formatet för kolumn lagring är lämpligt för storskaliga analys frågor som ska utföras på ett optimerat sätt, vilket leder till att förbättra svars tiderna för sådana frågor.
 
 Med Azure Synapse-länken kan du nu skapa inga ETL HTAP-lösningar genom att länka direkt till Azure Cosmos DB analys lager från Synapse Analytics. Med den kan du köra storskalig storskalig analys i real tid på dina användnings data.
 
-## <a name="analytical-store-details"></a>Information om analys lager
+## <a name="features-of-analytical-store"></a>Funktioner i analys lager 
 
 När du aktiverar analytisk lagring på en Azure Cosmos DB behållare skapas en ny kolumn lagring internt baserat på drift data i din behållare. Det här kolumn arkivet är bestående separat från det radbaserade transaktions arkivet för den behållaren. Infogningar, uppdateringar och borttagningar i dina användnings data synkroniseras automatiskt till analytisk lagring. Du behöver inte ändra feed eller ETL för att synkronisera data.
 
@@ -72,33 +72,92 @@ Genom att använda vågrät partitionering kan Azure Cosmos DB transaktions lage
 
 Azure Cosmos DB transaktions lager är schema-oberoende, och det gör att du kan iterera i dina transaktions program utan att behöva hantera schema-eller index hantering. I motsats till detta är Azure Cosmos DB Analytical Store schematiserade för att optimera prestanda för analytiska frågor. Med funktionen för automatisk synkronisering hanterar Azure Cosmos DB schemats härledning över de senaste uppdateringarna från transaktions arkivet.  Den hanterar också schema representationen i den analytiska lagringen som ingår i den här typen av hantering av kapslade data typer.
 
-Om det finns en schema utveckling där nya egenskaper läggs till över tid, visar analys arkivet automatiskt ett uppdelat schema över alla historiska scheman i transaktions arkivet.
+När schemat utvecklas och nya egenskaper läggs till med tiden visar analys arkivet automatiskt ett uppdelat schema över alla historiska scheman i transaktions arkivet.
 
-Om alla drift data i Azure Cosmos DB följer ett väldefinierat schema för analys, härleds schemat automatiskt och visas korrekt i analys lagret. Om det väldefinierade schemat för analys, enligt definitionen nedan, överträds av vissa objekt, kommer de inte att tas med i analys lagret. Om du har blockerade scenarier på grund av ett väldefinierat schema för analys definition, e-posta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com).
+##### <a name="schema-constraints"></a>Schema begränsningar
 
-Ett väldefinierat schema för analys definieras med följande överväganden:
+Följande begränsningar gäller för användnings data i Azure Cosmos DB när du aktiverar analytisk lagring så att det automatiskt härleds och representerar schemat korrekt:
 
-* En egenskap har alltid samma typ över flera objekt
-
-  * Har till exempel `{"a":123} {"a": "str"}` inte ett väldefinierat schema eftersom det `"a"` ibland är en sträng och ibland ett tal. 
+* Du kan ha högst 200 egenskaper på valfri kapslings nivå i schemat och ett maximalt kapslings djup på 5.
   
-    I det här fallet registrerar analys arkivet data typen `“a”` som data typen för `“a”` i det första objektet i behållarens livs längd. Objekt där data typen `“a”` skiljer sig, tas inte med i analys lagret.
+  * Ett objekt med 201-egenskaper på den översta nivån uppfyller inte den här begränsningen och kommer därför inte att visas i analys lagret.
+  * Ett objekt med fler än fem kapslade nivåer i schemat uppfyller inte heller den här begränsningen och kommer därför inte att visas i analys lagret. Följande objekt uppfyller till exempel inte kravet:
+
+     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+
+* Egenskaps namn måste vara unika vid jämförelse av Skift läges okänslighet. Följande objekt uppfyller till exempel inte den här begränsningen och kommer därför inte att visas i analys lagret:
+
+  `{"Name": "fred"} {"name": "john"}` – "Name" och "name" är desamma vid jämförelse i ett skift läges okänsligt sätt.
+
+##### <a name="schema-representation"></a>Schema representation
+
+Det finns två lägen för schema representation i analys lagret. De här lägena har kompromisser mellan enkelhetens enkelhet, hantering av polymorfiska scheman och enkelhet av frågekörning:
+
+* Väldefinierad schema representation
+* Schema representation med fullständig åter givning
+
+> [!NOTE]
+> För SQL (Core) API-konton, när analys lager är aktiverat, är standard schema representationen i analys lagret väl definierad. För Azure Cosmos DB-API för MongoDB-konton är standard schema representationen i analys lagret en fullständig åter givning av schema. Om du har scenarier som kräver en annan schema representation än standard erbjudandet för var och en av dessa API: er, kan du kontakta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com) för att aktivera det.
+
+**Väldefinierad schema representation**
+
+Den väldefinierade schema representationen skapar en enkel tabell representation av schema-oberoende data i transaktions arkivet. Den väldefinierade schema representationen har följande överväganden:
+
+* En egenskap har alltid samma typ för flera objekt.
+
+  * Har till exempel `{"a":123} {"a": "str"}` inte ett väldefinierat schema eftersom det `"a"` ibland är en sträng och ibland ett tal. I det här fallet registrerar analys arkivet data typen `“a”` som data typen för `“a”` i det första objektet i behållarens livs längd. Objekt där data typen `“a”` skiljer sig, tas inte med i analys lagret.
   
     Det här villkoret gäller inte för null-egenskaper. Är till exempel `{"a":123} {"a":null}` fortfarande väl definierat.
 
-* Mat ris typer måste innehålla en enda upprepad typ
+* Mat ris typer måste innehålla en enskild upprepad typ.
 
-  * Är till exempel `{"a": ["str",12]}` inte ett väldefinierat schema eftersom matrisen innehåller en blandning av heltals-och sträng typer
+  * Är till exempel `{"a": ["str",12]}` inte ett väldefinierat schema eftersom matrisen innehåller en blandning av heltals-och sträng typer.
 
-* Det finns högst 200 egenskaper på alla kapslings nivåer för ett schema och ett maximalt kapslings djup på 5
+> [!NOTE]
+> Om Azure Cosmos DB Analytical Store följer den väldefinierade schema representationen och specifikationen ovan överträds av vissa objekt, kommer dessa objekt inte att tas med i analys lagret.
 
-  * Ett objekt med 201 egenskaper på den översta nivån har inte ett väldefinierat schema.
+**Schema representation med fullständig åter givning**
 
-  * Ett objekt med fler än fem kapslade nivåer i schemat har inte heller ett väldefinierat schema. Till exempel `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+Schema representationen full Fidelity är utformad för att hantera en hel bredd av polymorfa scheman i schemat-oberoende drift data. I den här schema representationen tas inga objekt bort från analys lagret även om de väldefinierade schema begränsningarna (som inte är blandade med blandade data typer eller data mat ris) överträds.
 
-* Egenskaps namn är unika när de jämförs i ett skift läges okänsligt sätt
+Detta uppnås genom att översätta löv egenskaperna för användnings data till analys lagret med distinkta kolumner baserat på data typen för värden i egenskapen. Löv egenskaps namnen utökas med data typer som suffix i analys lagrets schema, så att de kan vara frågor utan tvetydighet.
 
-  * Följande objekt har till exempel inte ett väldefinierat schema `{"Name": "fred"} {"name": "john"}` – `"Name"` och `"name"` är samma vid jämförelse i ett skift läges okänsligt sätt
+Låt oss till exempel ta följande exempel dokument i transaktions arkivet:
+
+```json
+{
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+Egenskapen lövnod `streetName` i det kapslade objektet visas `address` i analys lagrings schema som en kolumn `address.object.streetName.int32` . Data typen läggs till som suffix till kolumnen. På så sätt, om ett annat dokument läggs till i transaktions lagret där värdet för egenskapen lövnod `streetNo` är "123" (Observera att det är en sträng), utvecklas schemat för analys lagret automatiskt utan att ändra typen av en tidigare skriven kolumn. En ny kolumn som läggs till i analys arkivet, så som `address.object.streetName.string` värdet "123" lagras.
+
+**Data typen för mappning av suffix**
+
+Här är en karta över alla egenskaps data typer och deras suffix i analys lagret:
+
+|Ursprunglig datatyp  |Huvudnamnssuffix  |Exempel  |
+|---------|---------|---------|
+| Double |  ".float64" |    24,99|
+| Matris | ". matris" |    ["a", "b"]|
+|Binär | ". Binary" |0|
+|Boolesk    | ". bool"   |Sant|
+|Int32  | ". Int32"  |123|
+|Int64  | ". Int64"  |255486129307|
+|Null   | ". null"   | null|
+|Sträng|    ". sträng" | "ABC"|
+|Timestamp |    ". timestamp" |  Tidsstämpel (0, 0)|
+|DateTime   |". datum"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
+|Dokument   |". objekt" |    {"a": "a"}|
 
 ### <a name="cost-effective-archival-of-historical-data"></a>Kostnads effektiv arkivering av historiska data
 
@@ -155,15 +214,17 @@ Analytiskt TTL på en behållare anges med hjälp av `AnalyticalStoreTimeToLiveI
 * Om detta är tillgängligt och värdet är inställt på ett positivt tal "n": objekt upphör att gälla från analys lagret "n" efter deras senaste ändrings tid i transaktions arkivet. Den här inställningen kan utnyttjas om du vill behålla dina användnings data under en begränsad tids period i analys lagret, oavsett lagring av data i transaktions arkivet
 
 Några saker att tänka på:
-*   När analys lagret har Aktiver ATS med ett analytiskt TTL-värde kan det uppdateras till ett annat giltigt värde senare 
-*   När transaktions-TTL kan ställas in på behållaren eller objekt nivån, kan analytiskt TTL endast anges på behållar nivån för närvarande
-*   Du kan få längre kvarhållning av dina drift data i analys lagret genom att ställa in analytiskt TTL->= transaktions-TTL på behållar nivån
-*   Analys lagret kan göras för att spegla transaktions lagret genom att ställa in analys-TTL = transaktions-TTL
 
-När du aktiverar anaytical Store på en behållare:
- * med hjälp av Azure Portal är analytiskt TTL inställt på standardvärdet-1. Du kan ändra det här värdet till n sekunder genom att navigera till behållar inställningar under Datautforskaren. 
+*   När analys lagret har Aktiver ATS med ett analytiskt TTL-värde kan det uppdateras till ett annat giltigt värde senare. 
+*   Även om transaktions-TTL kan anges på behållarens eller objekt nivån, kan analytiskt TTL endast anges på behållar nivån för närvarande.
+*   Du kan få längre kvarhållning av dina drift data i analys lagret genom att ange analytiskt TTL->= transaktions-TTL på behållar nivån.
+*   Analys lagret kan göras för att spegla transaktions lagret genom att ställa in analys-TTL = transaktions-TTL.
+
+När du aktiverar analytisk lagring på en behållare:
+
+* Från Azure Portal anges alternativet för analytiskt TTL till standardvärdet-1. Du kan ändra det här värdet till n sekunder genom att navigera till behållar inställningar under Datautforskaren. 
  
- * med hjälp av Azure SDK eller PowerShell eller CLI kan du aktivera analytiskt TTL genom att ställa in det på antingen-1 eller n. 
+* I Azure SDK eller PowerShell eller CLI kan du aktivera alternativet för analys-TTL genom att ställa in det på antingen-1 eller n. 
 
 Mer information finns i [så här konfigurerar du analytiskt TTL-värde på en behållare](configure-synapse-link.md#create-analytical-ttl).
 

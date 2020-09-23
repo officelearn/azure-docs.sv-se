@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Machine Learning
 description: Visar Azure Policy inbyggda princip definitioner för Azure Machine Learning. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 author: j-martens
 ms.author: jmartens
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 802af69a82b0ca5a7c3fbf9a326831c5ed4db1b4
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 04878a7fecf99bd1215d83a4da1e2e3c4c62f713
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024453"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981011"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Azure Policy inbyggda princip definitioner för Azure Machine Learning
 

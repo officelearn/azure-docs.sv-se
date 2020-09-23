@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321827"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973338"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Skapa och distribuera ARM-mallar med hjälp av IntelliJ-idén
 
@@ -22,7 +22,7 @@ När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -60,13 +60,13 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
 ## <a name="edit-and-update-an-existing-deployment"></a>Redigera och uppdatera en befintlig distribution
 
-1. Välj **Redigera distribution** från snabb meny eller Visa egenskapsvyn innan. En annan flik öppnas som visar mall-och parametervärdena för distributionen på Azure. Om du vill spara filerna på en lokal plats kan du klicka på **Exportera mallfil** eller **Exportera parameter**filen.
+1. Välj **Redigera distribution** från snabb meny eller Visa egenskapsvyn innan. En annan flik öppnas som visar mall-och parametervärdena för distributionen på Azure. Om du vill spara filerna på en lokal plats kan du klicka på **Exportera mallfil**  eller **Exportera parameter**filen.
 
     ![Redigera distribution av Resource Manager-mall](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 
 1. Du kan redigera de två filerna på den här sidan och distribuera ändringarna till Azure. Här ändrar vi värdet för **storageAccountType** i parameter-filer från `Standard_LRS` till `Standard_GRS` . Klicka sedan på **Uppdatera distribution** längst ned och bekräfta uppdateringen.
 
-    ![Redigera distribution av Resource Manager-mall](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Skärm bild som visar Resource Manager-mallen med frågan om uppdaterings distribution visas.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. När uppdaterings distributionen har slutförts kan du kontrol lera på portalen att det skapade lagrings kontot har ändrats till `Standard_GRS` .
 

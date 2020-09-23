@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev och hur routning fungerar
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: abdd8a573b7e120c5494b8878c2eb19813fc9507
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213402"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981301"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Hur routning fungerar med Azure dev Spaces
 
@@ -55,7 +55,7 @@ Du kan också skapa ett nytt dev-utrymme som härleds från ett annat dev-utrymm
 
 Det härledda dev-utrymmet kommer också att dirigera begär Anden mellan sina egna program och de program som delas från dess överordnade. Routningen fungerar genom att försöka skicka begäran till ett program i det härledda dev-utrymmet och återgå till det delade programmet från det överordnade dev-utrymmet. Routningen kommer att återgå till det delade programmet på det föräldrarade utrymmet om programmet inte finns i det överordnade utrymmet.
 
-Till exempel:
+Exempel:
 * *Standard* för dev-utrymme har program *service* och *serviceB*.
 * *Azureuser* för dev-ytan härleds från *standard*.
 * En uppdaterad version av *servicen* har distribuerats till *azureuser*.
@@ -64,11 +64,7 @@ När du använder *azureuser*kommer alla begär Anden att *serva* att dirigeras 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Några exempel på hur Azure dev Spaces använder routning för att ge snabb iteration och utveckling, se [hur den lokala processen med Kubernetes fungerar][how-it-works-local-process-kubernetes], [hur fjärrfelsökar din kod med Azure dev Spaces][how-it-works-remote-debugging]och [GitHub åtgärder & Azure Kubernetes service][pr-flow].
+Om du vill se ett exempel på hur Azure dev Spaces använder routning för att ge snabb iteration och utveckling, se [hur fjärrfelsökning av din kod med Azure dev Spaces fungerar][how-it-works-remote-debugging].
 
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[troubleshooting]: troubleshooting.md

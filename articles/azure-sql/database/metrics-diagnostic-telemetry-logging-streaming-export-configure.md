@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085624"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973050"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurera direkt uppspelnings export av Azure SQL Database-och SQL-hanterad instans Diagnostic-telemetri
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Denna diagnostiska telemetri kan strömmas till någon av följande Azure-resurs
 
 Denna diagnostiska telemetri strömmas till någon av dessa destinationer och kan användas för att mäta resursutnyttjande och köra statistik för att få bättre prestanda övervakning.
 
-![Arkitektur](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
+![Diagrammet visar många SQL-databaser och databaser i hanterade instanser som skickar telemetri till Azure-diagnostik som vidarebefordrar information till Azure SQL-analys, Händelsehubben och lagring.](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## <a name="enable-and-configure-the-streaming-export-of-diagnostic-telemetry"></a>Aktivera och konfigurera den strömmande exporten av Diagnostic-telemetri
 
@@ -96,7 +96,7 @@ Du kan använda menyn **diagnostikinställningar** på Azure Portal för att akt
 
 Välj någon av följande flikar för att få stegvisa anvisningar om hur du konfigurerar strömnings exporten av Diagnostic-telemetri i Azure Portal och skript för att utföra samma med PowerShell och Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/azure-portal)
 
 ### <a name="elastic-pools-in-azure-sql-database"></a>Elastiska pooler i Azure SQL Database
 
@@ -605,7 +605,7 @@ Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.c
 |Meddelande|Fel meddelande i oformaterad text |
 |user_defined_b|Är den användardefinierade biten för fel |
 |error_number_d|Felkod |
-|Severity|Felets allvarlighets grad |
+|Allvarlighetsgrad|Felets allvarlighets grad |
 |state_d|Tillstånd för felet |
 |query_hash_s|Fråga hash för den misslyckade frågan, om den är tillgänglig |
 |query_plan_hash_s|Fråga plan-hash för den misslyckade frågan, om den är tillgänglig |
@@ -748,7 +748,7 @@ Läs mer om det [intelligent Insights logg formatet](intelligent-insights-use-di
 Information om hur du aktiverar loggning och förstår de mått och logg kategorier som stöds av de olika Azure-tjänsterna finns i:
 
 - [Översikt över mått i Microsoft Azure](../../azure-monitor/platform/data-platform.md)
-- [Översikt över Azures plattforms loggar](../../azure-monitor/platform/platform-logs-overview.md)
+- [Översikt över Azure-plattformsloggar](../../azure-monitor/platform/platform-logs-overview.md)
 
 Läs mer om Event Hubs:
 

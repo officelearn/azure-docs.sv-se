@@ -3,12 +3,12 @@ title: Skapa Azure Advisor aviseringar för nya rekommendationer med Azure Porta
 description: Skapa Azure Advisor aviseringar för ny rekommendation
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507224"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973652"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Skapa Azure Advisor aviseringar om nya rekommendationer med hjälp av Azure Portal 
 
@@ -63,8 +63,7 @@ Mer information om åtgärds grupper finns i [skapa och hantera åtgärds gruppe
 
 8. I avsnittet aviserings information, ge aviseringen ett namn och en kort beskrivning. Om du vill att din avisering ska vara aktive rad lämnar du **aktivera regeln när** du har skapat urvalet till **Ja**. Välj sedan den resurs grupp som du vill spara aviseringen till. Detta påverkar inte rekommendationens mål omfång. 
 
-    ![Azure Advisor banderoll](./media/advisor-alerts/create8.png)
-
+    :::image type="content" source="./media/advisor-alerts/create8.png" alt-text="Skärm bild av avsnittet aviserings information.":::
 
 
 ## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Konfigurera rekommendations aviseringar för att använda en webhook
@@ -170,7 +169,7 @@ Om du inte använder det gemensamma schemat ser din nytto Last ut ungefär så h
 }
 ```
 
-I båda schemana kan du identifiera rekommendationer för Advisor-händelser genom att leta efter **eventSource** `Recommendation` och **operationName** är `Microsoft.Advisor/recommendations/available/action` .
+I båda schemana kan du identifiera rekommendationer för Advisor-händelser genom att leta efter **eventSource** `Recommendation` och **operationName**  är `Microsoft.Advisor/recommendations/available/action` .
 
 Några av de andra viktiga fälten som du kanske vill använda är: 
 
@@ -188,11 +187,11 @@ Från Azure Advisor kan du redigera, ta bort eller inaktivera och aktivera avise
 
 1. I **portalen**väljer du **Azure Advisor**.
 
-    ![Azure Advisor banderoll](./media/advisor-alerts/create1.png)
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Skärm bild av menyn Azure Portal som visar Azure Advisor vald.":::
 
 2. I avsnittet **övervakning** på den vänstra menyn väljer du **aviseringar**.
 
-    ![Azure Advisor banderoll](./media/advisor-alerts/create2.png)
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Skärm bild av Azure Portal menyn som visar aviseringar valda.":::
 
 3. Om du vill redigera en avisering klickar du på aviseringens namn för att öppna aviseringen och redigera de fält som du vill redigera.
 

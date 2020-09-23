@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962646"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981114"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service
 
@@ -79,7 +79,7 @@ Om din app inte har något certifikat för den valda anpassade domänen har du t
 
 Använd följande tabell som hjälp för att konfigurera TLS-bindning i dialog rutan **TLS/SSL-bindning** och klicka sedan på **Lägg till bindning**.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |-|-|
 | Anpassad domän | Domän namnet som TLS/SSL-bindningen ska läggas till för. |
 | Tumavtryck för privat certifikat | Certifikatet som ska bindas. |
@@ -108,7 +108,7 @@ Det finns två ändringar som du måste göra, eventuellt:
 
 I olika webbläsare, bläddrar du till `https://<your.custom.domain>` för att kontrol lera att appen fungerar.
 
-![Portalnavigering till Azure-app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Skärm bild som visar ett exempel på att bläddra till din anpassade domän med contoso.com-URL: en markerad.":::
 
 Din program kod kan inspektera protokollet via huvudet "x-AppService-proto". Rubriken kommer att ha värdet `http` eller `https` . 
 

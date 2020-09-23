@@ -1,15 +1,15 @@
 ---
 title: Skapa och konfigurera Recovery Services-valv
-description: I den här artikeln får du lära dig hur du skapar och konfigurerar Recovery Services valv som lagrar säkerhets kopior och återställnings punkter.
+description: I den här artikeln får du lära dig hur du skapar och konfigurerar Recovery Services valv som lagrar säkerhets kopior och återställnings punkter. Lär dig hur du använder återställning mellan regioner för att återställa i en sekundär region.
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81c6fd47ccea2ea17a20535df04931727c23be6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177201"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981487"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Skapa och konfigurera ett Recovery Services valv
 
@@ -30,34 +30,45 @@ Azure Backup hanterar automatiskt lagring för valvet. Du måste ange hur lagrin
 
 1. Välj typ av lagrings replikering och välj **Spara**.
 
-     ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Ange lagringskonfigurationen för det nya valvet](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - Vi rekommenderar att om du använder Azure som primär slut punkt för lagring av säkerhets kopior fortsätter du att använda standardvärdet **Geo-redundant** .
    - Om du inte använder Azure som primär slutpunkt för lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring.
-   - Lär dig mer om [geo](../storage/common/storage-redundancy.md) och [lokal](../storage/common/storage-redundancy.md) redundans.
+   - Lär dig mer om [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) och [lokal](../storage/common/storage-redundancy.md#locally-redundant-storage) redundans.
+   - Om du behöver data tillgänglighet utan stillestånds tid i en region, garantera data placering, väljer du [zon-redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
 >Inställningarna för lagrings replikering för valvet är inte relevanta för säkerhets kopiering av Azure-filresurs eftersom den aktuella lösningen är ögonblicks bild och det finns inga data som överförs till valvet. Ögonblicks bilder lagras i samma lagrings konto som den säkerhetskopierade fil resursen.
 
 ## <a name="set-cross-region-restore"></a>Ange återställning av kors region
 
-Som en av återställnings alternativen kan du med återställningen mellan regioner (CRR) återställa virtuella Azure-datorer i en sekundär region, som är en [Azure-kopplad region](../best-practices-availability-paired-regions.md). Med det här alternativet kan du:
+Med alternativet återställnings alternativ **över regions återställning (CRR)** kan du återställa data i en sekundär, [kopplad Azure-kopplad region](../best-practices-availability-paired-regions.md).
+
+Den har stöd för följande data Källor:
+
+- Virtuella Azure-datorer
+- SQL-databaser som finns på virtuella Azure-datorer
+- SAP HANA databaser som finns på virtuella Azure-datorer
+
+Genom att använda återställning mellan regioner kan du:
 
 - genomför övningar när det finns ett krav på granskning eller efterlevnad
-- Återställ den virtuella datorn eller disken om det finns en katastrof i den primära regionen.
+- återställa data om det finns en katastrof i den primära regionen
+
+När du återställer en virtuell dator kan du återställa den virtuella datorn eller disken. Om du återställer från SQL/SAP HANA-databaser som finns på virtuella Azure-datorer kan du återställa databaser eller deras filer.
 
 Om du vill välja den här funktionen väljer du **Aktivera återställning av kors region** från **konfigurations fönstret för säkerhets kopiering** .
 
-För den här processen finns det prissättnings effekter på lagrings nivå.
+Eftersom den här processen är på lagrings nivå finns det [pris effekter](https://azure.microsoft.com/pricing/details/backup/).
 
 >[!NOTE]
 >Innan du börjar:
 >
 >- Granska [support matrisen](backup-support-matrix.md#cross-region-restore) för en lista över hanterade typer och regioner som stöds.
->- Funktionen för återställning av kors region (CRR) har nu förvisats i alla offentliga Azure-regioner.
+>- Funktionen för återställning av kors region (CRR) har nu förvisats i alla offentliga Azure-regioner och suveräna moln.
 >- CRR är ett alternativ för att välja en valv nivå för alla GRS-valv (inaktiverat som standard).
 >- Efter väljer kan det ta upp till 48 timmar innan säkerhets kopierings objekten är tillgängliga i sekundära regioner.
->- För närvarande stöds endast CRR för säkerhets kopierings hantering av virtuella Azure-datorer (klassisk virtuell Azure-dator stöds inte).  När ytterligare hanterings typer stöder CRR registreras de **automatiskt** .
+>- För närvarande stöds endast CRR för virtuella Azure-datorer i Azure Resource Manager virtuella Azure-datorer. Klassiska virtuella Azure-datorer stöds inte.  När ytterligare hanterings typer stöder CRR registreras de **automatiskt** .
 >- Återställning mellan regioner kan för närvarande inte återställas till GRS eller LRS när skyddet initieras för första gången.
 
 ### <a name="configure-cross-region-restore"></a>Konfigurera återställning mellan regioner
@@ -69,15 +80,13 @@ Ett valv som skapats med GRS-redundans omfattar alternativet att konfigurera fun
 1. Från portalen går du till Recovery Services valv > inställningar > egenskaper.
 2. Välj **Aktivera återställning mellan regioner i det här valvet** för att aktivera funktionen.
 
-   ![Innan du väljer Aktivera återställning mellan regioner i det här valvet](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Aktivera återställning mellan regioner](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
-   ![När du har valt Aktivera återställning mellan regioner i det här valvet](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+I de här artiklarna finns mer information om säkerhets kopiering och återställning med CRR:
 
-Lär dig hur du [visar säkerhets kopierings objekt i den sekundära regionen](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
-
-Lär dig hur du [återställer i den sekundära regionen](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
-
-Lär dig hur du [övervakar återställnings jobb för sekundär region](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+- [Återställning mellan regioner för virtuella Azure-datorer](backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Återställning mellan regioner för SQL-databaser](restore-sql-database-azure-vm.md#cross-region-restore)
+- [Återställning mellan regioner för SAP HANA databaser](sap-hana-db-restore.md#cross-region-restore)
 
 ## <a name="set-encryption-settings"></a>Ange krypterings inställningar
 
@@ -99,7 +108,7 @@ Instruktioner för var och en av de här stegen finns [i den här artikeln](encr
 
 ## <a name="modifying-default-settings"></a>Ändra standardinställningar
 
-Vi rekommenderar starkt att du granskar standardinställningarna för typ och **säkerhets inställningar** för **lagringsprovider** innan du konfigurerar säkerhets kopieringar i valvet.
+Vi rekommenderar starkt att du granskar standardinställningarna i **Lagringsreplikeringstyp** och **Säkerhetsinställningar** innan du konfigurerar säkerhetskopior i valvet.
 
 - **Typen av lagringsprovider** är som standard inställd på **Geo-redundant** (GRS). När du har konfigurerat säkerhets kopieringen inaktive ras alternativet att ändra.
   - Om du ännu inte har konfigurerat säkerhets kopian [följer du de här stegen](#set-storage-redundancy) för att granska och ändra inställningarna.

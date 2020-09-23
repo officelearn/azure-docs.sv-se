@@ -1,6 +1,6 @@
 ---
 title: Översikt över migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager
-description: Den här artikeln går igenom den plattforms oberoende migreringen av resurser från klassisk till Azure Resource Manager
+description: Gå igenom plattforms oberoende migrering av resurser från klassisk till Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: cbcd949f417513d941a54bbeafa57a1df689de99
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3a9f406692557e996b01711a4b9a8dc98f070a4c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507169"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973360"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Plattforms stöd för migrering av IaaS-resurser från klassisk till Azure Resource Manager i Linux
 

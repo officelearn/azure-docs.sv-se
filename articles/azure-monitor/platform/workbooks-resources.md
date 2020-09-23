@@ -1,6 +1,6 @@
 ---
 title: Resurs parametrar för Azure Monitor-arbetsböcker
-description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
+description: Lär dig hur du använder resurs parametrar för att tillåta plockning av resurser i arbets böcker. Använd resurs parametrarna för att ange det omfång som data ska hämtas från.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504999"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972851"
 ---
 # <a name="workbook-resource-parameters"></a>Resurs parametrar för arbets bok
 
@@ -27,12 +27,12 @@ Värden från resurs väljare kan komma från arbets bokens kontext, statisk lis
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`Applications`
-    2. Parameter typ:`Resource picker`
-    3. Kunna`checked`
-    4. Tillåt flera val:`checked`
-5. Hämta data från:`Workbook Resources`
-6. Inkludera endast resurs typer:`Application Insights`
+    1. Parameter namn: `Applications`
+    2. Parameter typ: `Resource picker`
+    3. Kunna `checked`
+    4. Tillåt flera val: `checked`
+5. Hämta data från: `Workbook Resources`
+6. Inkludera endast resurs typer: `Application Insights`
 7. Skapa parametern genom att välja Spara i verktygsfältet.
 
 ![Bild som visar hur du skapar en resurs parameter med hjälp av arbets boks resurser](./media/workbooks-resources/resource-create.png)
@@ -42,13 +42,13 @@ Värden från resurs väljare kan komma från arbets bokens kontext, statisk lis
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`Applications`
-    2. Parameter typ:`Resource picker`
-    3. Kunna`checked`
-    4. Tillåt flera val:`checked`
-5. Hämta data från:`Query`
-    1. Frågetyp:`Azure Resource Graph`
-    2. Prenumerationer`Use default subscriptions`
+    1. Parameter namn: `Applications`
+    2. Parameter typ: `Resource picker`
+    3. Kunna `checked`
+    4. Tillåt flera val: `checked`
+5. Hämta data från: `Query`
+    1. Frågetyp: `Azure Resource Graph`
+    2. Prenumerationer `Use default subscriptions`
     3. Lägg till det här kodfragmentet i kontrollen fråga
     ```kusto
     where type == 'microsoft.insights/components'
@@ -68,11 +68,11 @@ Värden från resurs väljare kan komma från arbets bokens kontext, statisk lis
 2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
 3. Klicka på knappen blå _Lägg till parameter_ .
 4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn:`Applications`
-    2. Parameter typ:`Resource picker`
-    3. Kunna`checked`
-    4. Tillåt flera val:`checked`
-5. Hämta data från:`JSON`
+    1. Parameter namn: `Applications`
+    2. Parameter typ: `Resource picker`
+    3. Kunna `checked`
+    4. Tillåt flera val: `checked`
+5. Hämta data från: `JSON`
     1. Lägg till det här JSON-kodfragmentet i innehålls kontrollen
     ```json
     [

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069586"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974534"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installera och konfigurera Windows Azure Diagnostics-tillägget (WAD)
 [Tillägget Azure Diagnostics](diagnostics-extension-overview.md) är en agent i Azure Monitor som samlar in övervaknings data från gäst operativ systemet och arbets belastningar på virtuella Azure-datorer och andra beräknings resurser. Den här artikeln innehåller information om hur du installerar och konfigurerar Windows Diagnostics-tillägget och en beskrivning av hur data lagras i och Azure Storage konto.
@@ -51,7 +51,7 @@ Du kan installera och Konfigurera diagnostik-tillägget på en enskild virtuell 
 
 6. På fliken **loggar** väljer du de loggar som ska samlas in från den virtuella datorn. Loggar kan skickas till lagrings-eller händelse nav, men inte Azure Monitor. Använd [Log Analytics-agenten](log-analytics-agent.md) för att samla in gäst loggar till Azure Monitor.
 
-   ![Loggar](media/diagnostics-extension-windows-install/logs.png)
+   ![Skärm bild som visar fliken loggar med olika loggar som har valts för en virtuell dator.](media/diagnostics-extension-windows-install/logs.png)
 
 7. På fliken **krasch dum par** anger du de processer som ska samla in minnes dum par efter en krasch. Data skrivs till lagrings kontot för den diagnostiska inställningen och du kan också ange en BLOB-behållare.
 
@@ -59,7 +59,7 @@ Du kan installera och Konfigurera diagnostik-tillägget på en enskild virtuell 
 
 8. På fliken **mottagare** anger du om du vill skicka data till andra platser än Azure Storage. Om du väljer **Azure Monitor**skickas gäst prestanda data till Azure Monitor mått. Du kan inte konfigurera händelse Hubbs mottagaren med hjälp av Azure Portal.
 
-   ![Mottagare](media/diagnostics-extension-windows-install/sinks.png)
+   ![Skärm bild som visar fliken mottagare med alternativet Skicka diagnostikdata till Azure Monitor aktiverat.](media/diagnostics-extension-windows-install/sinks.png)
    
    Om du inte har aktiverat en tilldelad identitet som har kon figurer ATS för den virtuella datorn kan du se varningen nedan när du sparar en konfiguration med Azure Monitor mottagare. Klicka på banderollen för att aktivera identiteten som tilldelats av systemet.
    
@@ -67,7 +67,7 @@ Du kan installera och Konfigurera diagnostik-tillägget på en enskild virtuell 
 
 9. I **agenten**kan du ändra lagrings kontot, ange disk kvoten och ange om du vill samla in diagnostiska infrastruktur loggar.  
 
-   ![Agent](media/diagnostics-extension-windows-install/agent.png)
+   ![Skärm bild som visar fliken agent med alternativet att ange lagrings kontot.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Klicka på **Spara** för att spara konfigurationen. 
 

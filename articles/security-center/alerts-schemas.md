@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126220"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901342"
 ---
 # <a name="security-alerts-schemas"></a>Säkerhets aviserings scheman
 
-Användare av Azure Security Center standard nivå får säkerhets aviseringar när Security Center identifierar hot mot sina resurser.
+Om din prenumeration har aktiverat Azure Defender får du säkerhets aviseringar när Security Center identifierar hot mot resurserna.
 
 Du kan visa dessa säkerhets aviseringar i Azure Security Center s sidor för **skydd mot hot** , eller via externa verktyg som:
 
@@ -149,7 +149,7 @@ Du kan visa säkerhets aviserings händelser i aktivitets loggen genom att söka
 |**eventName**|Underfälten värde och localizedValue innehåller aviseringens visnings namn|
 |**kategori**|Under fälten värde och localizedValue är konstant – "säkerhet"|
 |**eventTimestamp**|UTC-tidsstämpel för när aviseringen genererades|
-|**identitet**|Fullständigt kvalificerat aviserings-ID|
+|**id**|Fullständigt kvalificerat aviserings-ID|
 |**nivå**|Konstant, "information"|
 |**operationId**|Se correlationId|
 |**operationName**|Värde fältet är konstant – "Microsoft. Security/locations/Alerts/Activate/Action", och det lokaliserade värdet är "Aktivera avisering" (kan eventuellt lokaliseras av användar språket)|

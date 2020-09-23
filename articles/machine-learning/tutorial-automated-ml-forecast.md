@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896680"
+ms.locfileid: "90979085"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Självstudie: prognostisera efter frågan med automatiserad maskin inlärning
 
@@ -236,7 +236,7 @@ I den här artikeln finns anvisningar om hur du skapar ett schema för Power BI 
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
 + Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
 + Läs mer om [funktionalisering](how-to-configure-auto-features.md#featurization).
-+ Läs mer om [data profilering](how-to-use-automated-ml-for-ml-models.md#profile).
++ Läs mer om [data profilering](how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > Den här data uppsättningen för cykel resursen har ändrats för den här självstudien. Den här data uppsättningen har gjorts tillgänglig som en del av en [Kaggle-tävling](https://www.kaggle.com/c/bike-sharing-demand/data) och var ursprungligen tillgänglig via [kapital Bikeshare](https://www.capitalbikeshare.com/system-data). Det kan också finnas i den [Machine Learning databasen med](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

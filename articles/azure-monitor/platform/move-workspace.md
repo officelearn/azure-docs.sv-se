@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566292"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979685"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -96,7 +96,7 @@ Använd följande procedur för att flytta din arbets yta med Azure Portal:
 4. Välj en mål **prenumeration** och **resurs grupp**. Om du flyttar arbets ytan till en annan resurs grupp i samma prenumeration visas inte **prenumerations** alternativet.
 5. Klicka på **OK** för att flytta arbets ytan och valda resurser.
 
-    ![Portalen](media/move-workspace/portal.png)
+    ![Skärm bild som visar översikts fönstret i arbets ytan Log Analytics med alternativ för att ändra resurs grupp och prenumerations namn.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Om du vill flytta din arbets yta med PowerShell använder du [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) som i följande exempel:

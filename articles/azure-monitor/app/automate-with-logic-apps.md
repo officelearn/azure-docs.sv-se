@@ -3,12 +3,12 @@ title: Automatisera Azure Application insikter-processer med Logic Apps
 description: Lär dig hur du snabbt kan automatisera upprepade processer genom att lägga till Application Insights Connector i din Logic app.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323204"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970870"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatisera Application Insights processer med Logic Apps
 
@@ -36,7 +36,7 @@ I den här självstudien får du lära dig hur du skapar en Logic-app som använ
 
     ![Fönstret Logic App Designer](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. I rutan **intervall** skriver du **1** och sedan,**frekvens** Box, väljer du **dag**.
+1. I rutan  **intervall** skriver du **1** och sedan,**frekvens** Box, väljer du **dag**.
 
     ![Fönstret Logic App Designer "upprepning"](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -53,7 +53,7 @@ I den här självstudien får du lära dig hur du skapar en Logic-app som använ
 
 För att slutföra det här steget måste du ha ett program-ID och en API-nyckel för din resurs. Du kan hämta dem från Azure Portal, som du ser i följande diagram:
 
-![Program-ID i Azure Portal](./media/automate-with-logic-apps/5apiaccess.png)
+![Skärm bild som visar sidan för API-åtkomst i Azure Portal med knappen Skapa API-nyckel vald.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![Program-ID i Azure Portal](./media/automate-with-logic-apps/6apikey.png)
 
@@ -103,7 +103,7 @@ När du skapar egna frågor måste du kontrol lera att de fungerar korrekt i Ana
     
    d. Klicka på list rutan **Lägg till ny parameter** och välj bilagor och är HTML.
 
-      ![Office 365 Outlook-konfiguration](./media/automate-with-logic-apps/10emailbody.png)
+      ![Skärm bild som visar fönstret skicka ett e-postmeddelande med bröd text rutan och menyn med dynamiskt innehåll markerat med bröd texten på höger sida.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Office 365 Outlook-konfiguration](./media/automate-with-logic-apps/11emailparameter.png)
 

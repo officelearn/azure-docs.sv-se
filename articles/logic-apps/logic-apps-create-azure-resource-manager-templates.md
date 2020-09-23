@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 07fb91f081719a2e51cff45be67bbe9f362123f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066069"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971787"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Skapa Azure Resource Manager-mallar för att automatisera distributionen för Azure Logic Apps
 
@@ -60,14 +60,14 @@ De här exemplen visar hur du skapar och distribuerar Logi Kap par med hjälp av
 
 1. För det enklaste sättet att installera LogicAppTemplate-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/LogicAppTemplate)kör du följande kommando:
 
-   ```text
-   PS> Install-Module -Name LogicAppTemplate
+   ```powershell
+   Install-Module -Name LogicAppTemplate
    ```
 
    Kör följande kommando för att uppdatera till den senaste versionen:
 
-   ```text
-   PS> Update-Module -Name LogicAppTemplate
+   ```powershell
+   Update-Module -Name LogicAppTemplate
    ```
 
 Alternativt kan du installera manuellt genom att följa stegen i GitHub för [Logic app Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator).
@@ -80,28 +80,43 @@ När du kör `Get-LogicAppTemplate` kommandot med det här verktyget hämtar kom
 
 ### <a name="generate-template-with-powershell"></a>Skapa mall med PowerShell
 
-Om du vill skapa din mall efter att ha installerat LogicAppTemplate-modulen och [Azure CLI](/cli/azure/?view=azure-cli-latest)kör du följande PowerShell-kommando:
+Om du vill skapa din mall efter att ha installerat LogicAppTemplate-modulen och [Azure CLI](/cli/azure/)kör du följande PowerShell-kommando:
 
-```text
-PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```powershell
+$parameters = @{
+    Token = (az account get-access-token | ConvertFrom-Json).accessToken
+    LogicApp = '<logic-app-name>'
+    ResourceGroup = '<Azure-resource-group-name>'
+    SubscriptionId = $SubscriptionId
+    Verbose = $true
+}
+
+Get-LogicAppTemplate @parameters | Out-File C:\template.json
 ```
 
 Om du vill följa rekommendationen för rörledningar i en token från [Azure Resource Manager klient verktyget](https://github.com/projectkudu/ARMClient)kör du det här kommandot i stället för `$SubscriptionId` ditt Azure-prenumerations-ID:
 
-```text
-PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```powershell
+$parameters = @{
+    LogicApp = '<logic-app-name>'
+    ResourceGroup = '<Azure-resource-group-name>'
+    SubscriptionId = $SubscriptionId
+    Verbose = $true
+}
+
+armclient token $SubscriptionId | Get-LogicAppTemplate @parameters | Out-File C:\template.json
 ```
 
 Efter extraheringen kan du skapa en parameter fil från mallen genom att köra det här kommandot:
 
-```text
-PS> Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-name>.json'
+```powershell
+Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-name>.json'
 ```
 
 Kör det här kommandot för extraktion med Azure Key Vault referenser (endast statisk):
 
-```text
-PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
+```powershell
+Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
 | Parametrar | Krävs | Beskrivning |

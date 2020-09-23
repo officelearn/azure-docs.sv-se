@@ -8,17 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935389"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971636"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Stegvis anrikning och cachelagring i Azure Kognitiv sökning
 
 > [!IMPORTANT] 
-> Stegvis anrikning är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API versionerna 2019-05-06-Preview och 2020-06-30 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande ingen portal eller .NET SDK-support.
+> Stegvis anrikning är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [REST API för hands versioner](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande ingen portal eller .NET SDK-support.
 
 *Stegvis anrikning* är en funktion som är riktad mot [färdighetsuppsättningar](cognitive-search-working-with-skillsets.md). Den använder Azure Storage för att spara bearbetnings resultatet som släpps av en pipeline-pipeline för åter användning i framtida indexerare körs. När det är möjligt återanvänder indexeraren alla cachelagrade utdata som fortfarande är giltiga. 
 
@@ -166,7 +167,7 @@ REST API-versionen `2020-06-30-Preview` ger stegvis berikning genom ytterligare 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Stegvis anrikning är en kraftfull funktion som utökar ändrings spårningen till färdighetsuppsättningar och AI-anrikning. AIncremental-anrikning möjliggör åter användning av befintligt bearbetat innehåll när du itererar över färdigheter-designen.
+Stegvis anrikning är en kraftfull funktion som utökar ändrings spårningen till färdighetsuppsättningar och AI-anrikning. Stegvisa anrikning möjliggör åter användning av befintligt bearbetat innehåll när du itererar över färdigheter design.
 
 I nästa steg ska du aktivera cachelagring på en befintlig indexerare eller lägga till ett cacheminne när du definierar en ny indexerare.
 

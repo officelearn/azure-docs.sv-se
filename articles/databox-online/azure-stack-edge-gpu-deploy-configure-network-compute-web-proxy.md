@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att konfigurera nätverks inställningar för Azure Stack Edge-enhet med GPU i Azure Portal | Microsoft Docs
-description: Självstudie för att distribuera Azure Stack Edge GPU gör att du kan konfigurera inställningar för nätverk, beräknings nätverk och webbproxy för den fysiska enheten.
+title: Självstudie för att konfigurera nätverks inställningar för Azure Stack Edge Pro-enhet med GPU i Azure Portal | Microsoft Docs
+description: Självstudie för att distribuera Azure Stack Edge Pro GPU instruerar dig att konfigurera nätverks-, beräknings nätverk och webbproxyinställningar för den fysiska enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/03/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cc111f0df889efd1d3720e2ec0e4aaa452efd801
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: c3ce12a91a0cf13bda000f7f729f6249fd04600c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461875"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894020"
 ---
-# <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Självstudie: Konfigurera nätverk för Azure Stack Edge med GPU
+# <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Självstudie: Konfigurera nätverk för Azure Stack Edge Pro med GPU
 
-I den här självstudien beskrivs hur du konfigurerar nätverk för din Azure Stack Edge-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
+I den här självstudien beskrivs hur du konfigurerar nätverk för din Azure Stack Edge Pro-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
 
 Anslutnings processen kan ta ungefär 20 minuter att slutföra.
 
@@ -26,18 +26,18 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Krav
+> * Förutsättningar
 > * Konfigurera nätverk
 > * Aktivera beräknings nätverk
 > * Konfigurera webbproxy
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste du kontrol lera att:
+Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
-* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
-* Du har anslutit till det lokala webb gränssnittet på enheten enligt beskrivningen i [Anslut till Azure Stack Edge](azure-stack-edge-gpu-deploy-connect.md)
+* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
+* Du har anslutit till det lokala webb gränssnittet på enheten som beskrivs i [Anslut till Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-connect.md)
 
 
 ## <a name="configure-network"></a>Konfigurera nätverk
@@ -86,23 +86,23 @@ Följ dessa steg om du vill konfigurera nätverket för enheten.
      > * Vi rekommenderar att du inte byter nätverksgränssnittets lokala IP-adress från statisk till DCHP om du inte har någon annan IP-adress för att ansluta till enheten. Om du använder ett nätverksgränssnitt och växlar till DHCP finns det inget sätt att fastställa DHCP-adressen. Om du vill ändra till en DHCP-adress väntar du tills enheten har Aktiver ATS med tjänsten och ändrar sedan. Du kan sedan Visa IP-adresserna för alla nätverkskort i **enhets egenskaperna** i Azure Portal för din tjänst.
 
 
-    När du har konfigurerat och tillämpat nätverks inställningarna går du tillbaka för att **komma igång**.
+    När du har konfigurerat och tillämpat nätverks inställningarna väljer du nästa: Compute för att konfigurera Compute Network.
 
 ## <a name="enable-compute-network"></a>Aktivera beräknings nätverk
 
-Följ dessa steg om du vill aktivera Compute och konfigurera Compute Network.
+Följ dessa steg om du vill aktivera Compute och konfigurera Compute Network. 
 
-1. Gå till sidan **Kom igång** i enhetens lokala webb gränssnitt. Välj **beräknings nätverk**på panelen **nätverk** .  
+<!--1. Go to the **Get started** page in the local web UI of your device. On the **Network** tile, select **Compute network**.  
 
-    ![Compute-sidan i lokalt användar gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-1.png)
+    ![Compute page in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-1.png)-->
 
-2. På sidan **Beräkna** väljer du ett nätverks gränssnitt som du vill aktivera för beräkning. 
+1. På sidan **Beräkna** väljer du ett nätverks gränssnitt som du vill aktivera för beräkning. 
 
-    ![Compute-sidan i lokalt användar gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
+    ![Compute-sidan i lokalt användar gränssnitt 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
-2. I dialog rutan **nätverks inställningar** väljer du **Aktivera**. När du aktiverar beräkning skapas en virtuell växel på enheten i nätverks gränssnittet. Den virtuella växeln används för beräknings infrastrukturen på enheten. 
+1. I dialog rutan **nätverks inställningar** väljer du **Aktivera**. När du aktiverar beräkning skapas en virtuell växel på enheten i nätverks gränssnittet. Den virtuella växeln används för beräknings infrastrukturen på enheten. 
     
-3. Tilldela **Kubernetes Node IP-adresser**. Dessa statiska IP-adresser är för den virtuella Compute-datorn. 
+1. Tilldela **Kubernetes Node IP-adresser**. Dessa statiska IP-adresser är för den virtuella Compute-datorn.  
 
     För en *n*-Node-enhet anges ett sammanhängande intervall med minst *n + 1* IPv4-adresser (eller mer) för den virtuella beräknings datorn med hjälp av start-och slut-IP-adresserna. Den angivna Azure Stack Edge är en 1-nods enhet, minst 2 sammanhängande IPv4-adresser tillhandahålls.
 
@@ -110,34 +110,40 @@ Följ dessa steg om du vill aktivera Compute och konfigurera Compute Network.
     > Kubernetes på Azure Stack Edge använder 172.27.0.0/16 undernät för Pod och 172.28.0.0/16 under nätet för tjänsten. Se till att de inte används i nätverket. Om dessa undernät redan används i nätverket kan du ändra dessa undernät genom att köra `Set-HcsKubeClusterNetworkInfo` cmdleten från PowerShell-gränssnittet på enheten. Mer information finns i [ändra Kubernetes-Pod och tjänst under nät](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-4. Tilldela **Kubernetes external service IP-adresser**. Dessa är också IP-adresser för belastnings utjämning. Dessa sammanhängande IP-adresser är för tjänster som du vill exponera utanför Kubernetes-klustret och du anger det statiska IP-intervallet beroende på antalet tjänster som exponeras. 
+1. Tilldela **Kubernetes external service IP-adresser**. Dessa är också IP-adresser för belastnings utjämning. Dessa sammanhängande IP-adresser är för tjänster som du vill exponera utanför Kubernetes-klustret och du anger det statiska IP-intervallet beroende på antalet tjänster som exponeras. 
     
     > [!IMPORTANT]
-    > Vi rekommenderar starkt att du anger minst 1 IP-adress för Azure Stack Edge Hub-tjänsten för att få åtkomst till Compute-moduler. Alternativt kan du ange ytterligare IP-adresser för andra tjänster/IoT Edge moduler (1 per tjänst/modul) som behöver nås från utanför klustret. IP-adresserna för tjänsten kan uppdateras senare. 
+    > Vi rekommenderar starkt att du anger minst 1 IP-adress för Azure Stack Edge Pro Hub-tjänsten för att få åtkomst till Compute-moduler. Alternativt kan du ange ytterligare IP-adresser för andra tjänster/IoT Edge moduler (1 per tjänst/modul) som behöver nås från utanför klustret. IP-adresserna för tjänsten kan uppdateras senare. 
     
-5. Välj **Använd**.
+1. Välj **Använd**.
 
-    ![Compute-sidan i lokalt användar gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
+    ![Compute-sidan i lokalt användar gränssnitt 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
+1. Konfigurationen tar några minuter att tillämpa och du kan behöva uppdatera webbläsaren. Du kan se att den angivna porten är aktive rad för beräkning. 
+ 
+    ![Compute-sidan i lokalt gränssnitt 4](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 
+    Välj **Nästa: webbproxy** för att konfigurera webbproxy.  
+
+  
 ## <a name="configure-web-proxy"></a>Konfigurera webbproxy
 
 Detta är en valfri konfiguration.
 
 > [!IMPORTANT]
-> * Om du aktiverar beräknings-och användnings IoT Edge modul på Azure Stack Edge-enhet rekommenderar vi att du ställer in webbproxy-autentisering som **ingen**. NTLM stöds inte.
->* PAC-filer (Proxy-Auto config) stöds inte. En PAC-fil definierar hur webbläsare och andra användar agenter automatiskt kan välja rätt proxyserver (åtkomst metod) för att hämta en viss URL. Proxyservrar som försöker avlyssna och läsa all trafik (och sedan signera om allting med sin egen certifiering) är inte kompatibelt eftersom proxyns certifikat inte är betrott. Oftast fungerar transparenta proxyservrar bra med Azure Stack Edge. Icke-transparenta webb-proxyservrar stöds inte.
+> * Om du aktiverar beräknings-och användnings IoT Edge modul på din Azure Stack Edge Pro-enhet rekommenderar vi att du anger webbproxy-autentisering som **ingen**. NTLM stöds inte.
+>* PAC-filer (Proxy-Auto config) stöds inte. En PAC-fil definierar hur webbläsare och andra användar agenter automatiskt kan välja rätt proxyserver (åtkomst metod) för att hämta en viss URL. Proxyservrar som försöker avlyssna och läsa all trafik (och sedan signera om allting med sin egen certifiering) är inte kompatibelt eftersom proxyns certifikat inte är betrott. Oftast fungerar transparenta proxyservrar bra med Azure Stack Edge Pro. Icke-transparenta webb-proxyservrar stöds inte.
 
-1. Gå till sidan **Kom igång** i enhetens lokala webb gränssnitt.
-2. Konfigurera inställningarna för webbproxyservern på panelen **nätverk** . Även om webbproxy-konfigurationen är valfri, kan du bara konfigurera den på den här sidan om du använder en webbproxy.
+<!--1. Go to the **Get started** page in the local web UI of your device.
+2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.
 
-   ![Sidan Web Proxy-inställningar för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-1.png)
+   ![Local web UI "Web proxy settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-1.png)-->
 
-3. Gör följande på sidan **Web Proxy-inställningar** :
+1. Gör följande på sidan **Web Proxy-inställningar** :
 
     1. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://host-IP address or FQDN:Port number` . Du kan inte använda HTTPS-adresser.
 
-    2. Under **autentisering**väljer du **ingen** eller **NTLM**. Om du aktiverar beräknings-och användnings IoT Edge-modulen på Azure Stack Edge-enhet rekommenderar vi att du ställer in webbproxy-autentisering på **ingen**. **NTLM** stöds inte.
+    2. Under **autentisering**väljer du **ingen** eller **NTLM**. Om du aktiverar beräknings-och användnings IoT Edge modul på din Azure Stack Edge Pro-enhet rekommenderar vi att du ställer in webbproxy-autentisering på **ingen**. **NTLM** stöds inte.
 
     3. Om du använder autentisering anger du ett användar namn och lösen ord.
 
@@ -145,7 +151,7 @@ Detta är en valfri konfiguration.
     
    ![Sidan Web Proxy-inställningar för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
 
-4. När inställningarna har tillämpats går du tillbaka till **Kom igång**.
+2. När inställningarna har tillämpats väljer du **Nästa: enhet**.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -153,13 +159,13 @@ Detta är en valfri konfiguration.
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Konfigurera nätverk
 > * Aktivera beräknings nätverk
 > * Konfigurera webbproxy
 
 
-Information om hur du konfigurerar Azure Stack Edge-enheten finns i:
+Information om hur du konfigurerar din Azure Stack Edge Pro-enhet finns i:
 
 > [!div class="nextstepaction"]
 > [Konfigurera enhetsinställningar](./azure-stack-edge-gpu-deploy-set-up-device-update-time.md)

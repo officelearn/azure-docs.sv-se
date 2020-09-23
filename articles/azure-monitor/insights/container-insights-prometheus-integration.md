@@ -3,12 +3,12 @@ title: Konfigurera Azure Monitor för containers Prometheus-integrering | Micros
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att kassera mått från Prometheus med ditt Kubernetes-kluster.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8c83d962a31150b31f5883150a2f7bd8d4b49183
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069432"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971364"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurera skrapning av Prometheus-mått med Azure Monitor för containrar
 
@@ -44,7 +44,7 @@ Aktiv kasse ring av mått från Prometheus utförs från ett av två perspektiv:
 
 När en URL anges, kommer Azure Monitor för behållare bara att kassera slut punkten. När Kubernetes-tjänsten anges, matchas tjänst namnet med klustrets DNS-server för att hämta IP-adressen och sedan kasseras den lösta tjänsten.
 
-|Omfång | Tangent | Datatyp | Värde | Beskrivning |
+|Omfång | Nyckel | Datatyp | Värde | Beskrivning |
 |------|-----|-----------|-------|-------------|
 | Hela klustret | | | | Ange en av följande tre metoder för att kassera slut punkter för mått. |
 | | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en bestämd Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
@@ -347,7 +347,7 @@ InsightsMetrics
 
 Resultatet kommer att visa resultat som liknar följande:
 
-![Logga frågeresultaten för data inmatnings volym](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Skärm bild visar logg frågeresultaten för data inmatnings volym](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 För att uppskatta vad varje mått storlek i GB är en månad för att förstå om den inmatade mängden data som tas emot i arbets ytan är hög, så tillhandahålls följande fråga.
 

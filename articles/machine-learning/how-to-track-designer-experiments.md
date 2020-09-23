@@ -1,5 +1,5 @@
 ---
-title: Logg mått i designern (för hands version)
+title: Logga mått i designern
 titleSuffix: Azure Machine Learning
 description: Övervaka dina Azure ML-experiment i designer. Aktivera loggning med hjälp av modulen kör Python-skript och Visa de loggade resultaten i Studio.
 services: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950416"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885981"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Aktivera loggning i Azure Machine Learning designer (för hands version) pipeliner
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Aktivera loggning i Azure Machine Learning designer-pipeliner
+
 
 I den här artikeln får du lära dig hur du lägger till loggnings kod till designer-pipeliner. Du lär dig också hur du visar dessa loggar med hjälp av webb portalen för Azure Machine Learning Studio.
 
@@ -78,5 +78,6 @@ När pipeline-körningen är klar kan du se *Mean_Absolute_Error* på sidan expe
 
 I den här artikeln har du lärt dig hur du använder loggar i designern. För nästa steg, se följande relaterade artiklar:
 
-* Lär dig hur du felsöker designer-pipeliner, finns i [felsöka & FELSÖKA ml-pipelines](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
+
+* Lär dig hur du felsöker designer-pipeliner, finns i [felsöka & FELSÖKA ml-pipelines](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Lär dig hur du använder python SDK för att logga mått i redigerings miljön för SDK, se [Aktivera loggning i Azure ml-utbildningar](how-to-track-experiments.md).

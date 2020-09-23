@@ -11,21 +11,21 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5c7568b0914b5e60d1a47971424f1f04f41745da
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e984c0c43dcc47c3e11a36f3d5c32bf2ddb9973a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646949"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902323"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Använd hemligheter för autentisering av autentiseringsuppgifter i Azure Machine Learning utbildnings körningar
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 I den här artikeln får du lära dig hur du använder hemligheter i utbildning på ett säkert sätt. Autentiseringsinformation som ditt användar namn och lösen ord är hemligheter. Om du till exempel ansluter till en extern databas för att fråga efter tränings data måste du skicka ditt användar namn och lösen ord till fjärrkörnings kontexten. Att koda sådana värden till utbildnings skript i klartext är inte säkra eftersom det exponerar hemligheten. 
 
 I stället har din Azure Machine Learning-arbetsyta en tillhör ande resurs som kallas för en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Använd den här Key Vault för att skicka hemligheter till fjärrkörningar på ett säkert sätt via en uppsättning API: er i Azure Machine Learning python SDK.
 
-Det grundläggande flödet för att använda hemligheter är:
+Standard flödet för att använda hemligheter är:
  1. Logga in på Azure på den lokala datorn och Anslut till din arbets yta.
  2. På den lokala datorn anger du en hemlighet i arbets ytans Key Vault.
  3. Skicka en fjärrkörning.

@@ -8,20 +8,20 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: bb821d00a168e3b8f0636b93696376dc8b5d492e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83772906"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988000"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Vanliga frågor och svar om Azures konfidentiella data behandling
 
-Den här artikeln innehåller svar på några av de vanligaste frågorna om att köra [konfidentiella data behandlings arbets belastningar på Azure](overview.md).
+Den här artikeln innehåller svar på några av de vanligaste frågorna om att köra [konfidentiella arbets belastningar på virtuella Azure-datorer](overview.md).
 
 Om ditt Azure-problem inte åtgärdas i den här artikeln kan du gå till Azure-forumen på [MSDN och Stack Overflow](https://azure.microsoft.com/support/forums/). Du kan publicera ditt problem i dessa forum eller publicera på [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Du kan också skicka in en support förfrågan för Azure. Om du vill skicka en supportbegäran väljer du hämta support på [Sidan Support för Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="confidential-computing-virtual-machines"></a>Konfidentiell bearbetning Virtual Machines<a id="vm-faq"></a>
+## <a name="confidential-computing-virtual-machines"></a>Konfidentiell bearbetning Virtual Machines <a id="vm-faq"></a>
 
 **Hur kan jag distribuera virtuella datorer i DCsv2-serien på Azure?**
 
@@ -51,7 +51,7 @@ Kontrol lera att du har valt en [tillgänglig region](https://azure.microsoft.co
 
 **Vad är skillnaden mellan virtuella datorer i DCsv2-serien och DC-serien?**
 
-Virtuella datorer i VM-serien körs på äldre 6-kärnors Intel-processorer med Intel SGX och har mindre total minne, mindre EPC-minne (enklaven Page cache) och är bara tillgängliga i två regioner (östra USA och Europa, väst i Standard_DC2s och Standard_DC4s storlek). Det finns inga planer på att göra dessa virtuella datorer allmänt tillgängliga och rekommenderas inte för produktions användning. Om du vill distribuera de här virtuella DATORerna använder du Marketplace-instansen för den [konfidentiella Compute DC-serien [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) .
+Virtuella datorer i VM-serien körs på äldre 6-kärnors Intel-processorer med Intel SGX och har mindre total minne, mindre EPC-minne (enklaven Page cache) och är bara tillgängliga i två regioner (östra USA och Europa, väst i Standard_DC2s och Standard_DC4s storlek). Det finns inga planer på att göra dessa virtuella datorer allmänt tillgängliga och rekommenderas inte för produktions användning. Om du vill distribuera de här virtuella DATORerna använder du Marketplace-instansen för den  [konfidentiella Compute DC-serien [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) .
 
 **Är virtuella DCsv2-datorer tillgängliga globalt?**
 

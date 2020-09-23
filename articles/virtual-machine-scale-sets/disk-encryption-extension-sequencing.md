@@ -1,6 +1,6 @@
 ---
 title: Sekvensering av tillägg för skalnings uppsättningar för virtuella datorer i Azure Virtual Machine Azure Disk Encryption
-description: Den här artikeln innehåller anvisningar om hur du aktiverar Microsoft Azure disk kryptering för virtuella Linux IaaS-datorer.
+description: I den här artikeln lär du dig hur du aktiverar Microsoft Azure disk kryptering för virtuella Linux IaaS-datorer.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1aff05e51bcbc99f33325efb905ade819ae22e02
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83117265"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988023"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Använd Azure Disk Encryption med sekvensering av tillägg för skalnings uppsättning för virtuell dator
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 2711160534270f38845ab7b48234f4a441c236b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45506b87bf13b44e035655dbdf0fac03ea50612c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195875"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893865"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Azure Data Box Gateway säkerhet och data skydd
 
@@ -38,7 +38,7 @@ Tjänsten Data Box Gateway är en hanterings tjänst som finns i Azure. Tjänste
 
 Den Data Box Gateway enheten är en virtuell enhet som är etablerad i hypervisorn för ett lokalt system som du anger. Enheten hjälper till att skicka data till Azure. Din enhet:
 
-- Behöver en aktiverings nyckel för att få åtkomst till tjänsten Azure Stack Edge/Data Box Gateway.
+- Behöver en aktiverings nyckel för att få åtkomst till Azure Stack Edge Pro/Data Box Gateway-tjänsten.
 - Skyddas hela tiden av ett enhets lösen ord.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->

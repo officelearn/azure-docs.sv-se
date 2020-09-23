@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b66511720966ff978c8460b9ac69ad133b7501
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 7f8a8f76ce7d46c0a44dd86ef1490c1c74a7992a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707228"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979505"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Vanliga scenarier i hantering av Azure AD-berättigande
 
@@ -119,24 +119,24 @@ Det finns flera sätt som du kan konfigurera rättighets hantering för din orga
 1. [Titta på video: daglig hantering: saker har ändrats](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Öppna Access-paketet
 1. [Öppna livs cykel inställningarna](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Uppdatera inställningarna för förfallo datum](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [Uppdatera inställningarna för förfallo datum](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>Access Package Manager: uppdatera hur åtkomst godkänns för ett projekt
 
 1. [Titta på video: daglig hantering: saker har ändrats](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Öppna en befintlig princip för inställningar för begäran och godkännande](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [Uppdatera godkännande inställningarna](entitlement-management-access-package-request-policy.md#approval)
+1. [Öppna en befintlig princip för förfrågnings inställningar](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [Uppdatera godkännande inställningarna](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### <a name="access-package-manager-update-the-people-for-a-project"></a>Access Package Manager: uppdatera personerna för ett projekt
 
 1. [Titta på video: daglig hantering: saker har ändrats](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Ta bort användare som inte längre behöver åtkomst](entitlement-management-access-package-assignments.md)
-1. [Öppna en befintlig princip för inställningar för begäran och godkännande](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Öppna en befintlig princip för förfrågnings inställningar](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Lägg till användare som behöver åtkomst](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Access Package Manager: tilldela vissa användare direkt till ett Access-paket
 
-1. [Om användarna behöver olika livs cykel inställningar lägger du till en ny princip i Access-paketet](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [Om användarna behöver olika livs cykel inställningar lägger du till en ny princip i Access-paketet](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Tilldela åtkomst paketet vissa användare direkt](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>Tilldelningar och rapporter

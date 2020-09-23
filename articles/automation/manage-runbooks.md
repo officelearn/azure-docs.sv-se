@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447826"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987585"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -268,7 +268,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
-## <a name="schedule-a-runbook-in-the-azure-portal"></a>Schemalägg en Runbook i Azure Portal
+## <a name="schedule-a-runbook-in-the-azure-portal"></a>Schemalägg en runbook i Azure Portal
 
 När din Runbook har publicerats kan du schemalägga den för åtgärden:
 
@@ -293,7 +293,7 @@ I sammanfattningen visas ett antal och en grafisk representation av jobb status 
 
 Om du klickar på panelen visas jobb sidan som innehåller en sammanfattande lista över alla jobb som körs. Den här sidan visar status, Runbook-namn, start tid och slut för ande tid för varje jobb.
 
-![Sidan jobb för Automation-konto](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Skärm bild av sidan jobb.":::
 
 Du kan filtrera listan över jobb genom att välja **filter jobb**. Filtrera på en angiven Runbook, jobb status eller ett alternativ i list rutan och ange tidsintervallet för sökningen.
 
@@ -301,7 +301,7 @@ Du kan filtrera listan över jobb genom att välja **filter jobb**. Filtrera på
 
 Du kan också Visa jobb sammanfattnings information för en angiven Runbook genom att välja denna Runbook från sidan Runbooks i ditt Automation-konto och sedan välja **jobb**. Den här åtgärden visar sidan jobb. Härifrån kan du klicka på en jobb post för att visa information och utdata.
 
-![Sidan jobb för Automation-konto](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Skärm bild av sidan jobb med knappen fel markerat.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Hämta jobb status med PowerShell
 

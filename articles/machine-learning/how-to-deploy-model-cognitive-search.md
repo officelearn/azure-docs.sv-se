@@ -10,15 +10,15 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: 88dde6e3deeebcb93da3fcd278721a0f5d4bf900
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 101a27e12239394abb1bd79176c4509278d67a81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646061"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886070"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Distribuera en modell för användning med Cognitive Search
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Den här artikeln lär dig hur du använder Azure Machine Learning för att distribuera en modell för användning med [Azure kognitiv sökning](../search/search-what-is-azure-search.md).
 
@@ -41,7 +41,7 @@ När du distribuerar en modell för användning med Azure Kognitiv sökning mås
 * Entry-skriptet måste också acceptera JSON-data som indata och generera JSON som utdata.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 

@@ -1,25 +1,22 @@
 ---
-title: Konfigurera en anslutning till ett lagrings konto med hjälp av en hanterad identitet (förhands granskning)
+title: Konfigurera en anslutning till ett lagrings konto med hjälp av en hanterad identitet
 titleSuffix: Azure Cognitive Search
-description: Lär dig hur du konfigurerar en Indexer-anslutning till ett Azure Storage konto med hjälp av en hanterad identitet (förhands granskning)
+description: Lär dig hur du konfigurerar en Indexer-anslutning till ett Azure Storage-konto med hjälp av en hanterad identitet
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917983"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971518"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Konfigurera en anslutning till ett Azure Storage konto med hjälp av en hanterad identitet (förhands granskning)
-
-> [!IMPORTANT] 
-> Stöd för att konfigurera en anslutning till en data källa med hjälp av en hanterad identitet finns för närvarande i offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Konfigurera en anslutning till ett Azure Storage konto med en hanterad identitet
 
 Den här sidan beskriver hur du konfigurerar en Indexer-anslutning till ett Azure Storage-konto med hjälp av en hanterad identitet i stället för att ange autentiseringsuppgifter i anslutnings strängen för data käll objekt.
 
@@ -68,7 +65,7 @@ I det här steget ska du ge Azure Kognitiv sökning-tjänstens behörighet att l
 
 ### <a name="3---create-the-data-source"></a>3 – skapa data källan
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från ett lagrings konto med hjälp av [REST API](/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från ett lagrings konto med hjälp av [REST API](/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
 
 När du indexerar från ett lagrings konto måste data källan ha följande obligatoriska egenskaper:
 
@@ -150,6 +147,7 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 ## <a name="see-also"></a>Se även
 
 Läs mer om Azure Storage indexerare:
+
 * [Azure Blob-indexeraren](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 indexerare](search-howto-index-azure-data-lake-storage.md)
 * [Azure Table-indexeraren](search-howto-indexing-azure-tables.md)

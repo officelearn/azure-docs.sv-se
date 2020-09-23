@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928776"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979610"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Säkerhet i Azure Kognitiv sökning – översikt
 
@@ -94,7 +94,7 @@ Om du vill kontrol lera åtkomsten till din Sök tjänst ytterligare kan du skap
 
 Du kan använda portalen för att [Konfigurera inkommande åtkomst](service-configure-firewall.md).
 
-Du kan också använda REST-API: er för hantering. Med hjälp av [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) -parametern i API version 2020-03-13 kan du begränsa åtkomsten till din tjänst genom att identifiera IP-adresser, individuellt eller i ett intervall, som du vill bevilja åtkomst till din Sök tjänst.
+Du kan också använda REST-API: er för hantering. Från och med API version 2020-03-13, med parametern [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) , kan du begränsa åtkomsten till din tjänst genom att identifiera IP-adresser, individuellt eller i ett intervall, som du vill bevilja åtkomst till din Sök tjänst.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Privat slut punkt (ingen Internet trafik)
 
@@ -123,7 +123,7 @@ Om du behöver detaljerad kontroll över varje användare över Sök resultat ka
 | Metod | Beskrivning |
 |----------|-------------|
 |[Säkerhets trimning baserat på identitets filter](search-security-trimming-for-azure-search.md)  | Dokumenterar det grundläggande arbets flödet för att implementera åtkomst kontroll för användar identitet. Det omfattar att lägga till säkerhets identifierare i ett index och sedan förklarar filtreringen för fältet för att trimma resultat från otillåtet innehåll. |
-|[Säkerhets trimning baserat på Azure Active Directory identiteter](search-security-trimming-for-azure-search-with-aad.md)  | Den här artikeln är utökad i föregående artikel, som innehåller steg för att hämta identiteter från Azure Active Directory (AAD), en av de [kostnads fria tjänsterna](https://azure.microsoft.com/free/) i Azure Cloud Platform. |
+|[Säkerhets trimning baserat på Azure Active Directory identiteter](search-security-trimming-for-azure-search-with-aad.md)  | Den här artikeln visar hur du hämtar identiteter från Azure Active Directory (Azure AD), en av de [kostnads fria tjänsterna](https://azure.microsoft.com/free/) i Azure Cloud Platform. |
 
 ## <a name="administrative-rights"></a>Administrativa rättigheter
 

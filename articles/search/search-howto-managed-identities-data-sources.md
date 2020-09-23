@@ -1,25 +1,22 @@
 ---
-title: Konfigurera en anslutning till en data källa med hjälp av en hanterad identitet (förhands granskning)
+title: Konfigurera en anslutning till en data källa med hjälp av en hanterad identitet
 titleSuffix: Azure Cognitive Search
-description: Lär dig hur du konfigurerar en Indexer-anslutning till en data källa med hjälp av en hanterad identitet (förhands granskning)
+description: Lär dig hur du konfigurerar en Indexer-anslutning till en data källa med hjälp av en hanterad identitet
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936596"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971553"
 ---
-# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Konfigurera en indexerare-anslutning till en data källa med hjälp av en hanterad identitet (förhands granskning)
-
-> [!IMPORTANT] 
-> Stöd för att konfigurera en anslutning till en data källa med hjälp av en hanterad identitet finns för närvarande i offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
+# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Konfigurera en indexerare-anslutning till en data källa med hjälp av en hanterad identitet
 
 En [indexerare](search-indexer-overview.md) i Azure kognitiv sökning är en sökrobot som gör det möjligt att hämta data från data källan till Azure kognitiv sökning. En indexerare hämtar en data källans lutning från det data käll objekt som du skapar. Objektet datakällobjektet innehåller vanligt vis autentiseringsuppgifter för mål data källan. Objektet datakällobjektet kan till exempel innehålla en Azure Storage konto nyckel om du vill indexera data från en Blob Storage-behållare.
 

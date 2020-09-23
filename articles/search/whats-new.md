@@ -6,20 +6,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/01/2020
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 788b3f5e9f4012e418ece691ebb5fbc5d2f866af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931853"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979584"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
 Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="feature-announcements-in-2020"></a>Funktions meddelanden i 2020
+
+### <a name="september-2020"></a>September 2020
+
+Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan RBAC-behörigheter för att ge identiteten skrivskyddade behörigheter till Azure Data källor. Du kan också välja funktionen [undantag för betrodda tjänster](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ.
+
+
+|Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
+|------------------------------|----------|-------------|---------------|
+| [Hanterad tjänst identitet](search-howto-managed-identities-data-sources.md) | Indexerare, säkerhet | Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan RBAC-behörigheter för att bevilja åtkomst till Azure-datakällor. Den här metoden eliminerar behovet av autentiseringsuppgifter för anslutnings strängen. <br><br>Ett annat sätt att använda en hanterad tjänst identitet är via ett [betrott undantag](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ. | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller [skapa data källa (rest)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) med API-version = 2020-06-30. |
+| [Utgående begär Anden med en privat länk](search-indexer-howto-access-private.md) | Indexerare, säkerhet | Skapa en delad privat länk resurs som indexerare kan använda för att få åtkomst till Azure-resurser som skyddas av en privat Azure-länk. Mer information om alla sätt som du kan använda för att skydda indexerings anslutningar finns i [skydda indexerare-resurser med hjälp av funktioner i Azure nätverks säkerhet](search-indexer-securing-resources.md). | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller den [delade privata länk resursen](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) med API-version = 2020-08-01. |
+| [Hanterings REST API (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Ny stabil REST API ger stöd för att skapa delade privata länk resurser. | Allmänt tillgänglig. |
+| [Hanterings REST API (2020-08-01-för hands version)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Lägger till delad privat länk resurs för Azure Functions och Azure SQL för MySQL-databaser. | Offentlig för hands version. |
+| [Hantering .NET SDK 4,0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Azure SDK-uppdatering för hanterings-SDK, riktad REST API version 2020-08-01. | Allmänt tillgänglig. |
 
 ### <a name="august-2020"></a>Augusti 2020
 
@@ -31,9 +44,9 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.Docklient bibliotek för uments](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK för .NET | .NET-klient bibliotek som släpps av Azure SDK-teamet och har utformats för konsekvens med andra .NET-klient bibliotek. <br/><br/>Version 11 är riktad mot search REST API-version = 2020-06-30, men har ännu inte stöd för kunskaps lager, geospatiala typer eller [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). <br/><br/>Mer information finns i  [snabb start: skapa ett index](search-get-started-dotnet.md) och [Uppgradera till Azure.Search.Documents (V11)](search-dotnet-sdk-migration-version-11.md). | Allmänt tillgänglig. </br> Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) från NuGet. |
-| [azure.search.docklient bibliotek för uments](/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK för Python| Python-klientcertifikat som publicerats av Azure SDK-teamet och som utformats för konsekvens med andra python-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [paketet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) från pypi. |
-| [@azure/search-documents klient bibliotek](/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Azure SDK för Java Script | JavaScript-klientcertifikat som publicerats av Azure SDK-teamet och som har utformats för konsekvens med andra Java Script-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [ @azure/search-documents paketet](https://www.npmjs.com/package/@azure/search-documents) från NPM. |
+| [Azure.Search.Docklient bibliotek för uments](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK för .NET | .NET-klient bibliotek som släpps av Azure SDK-teamet och har utformats för konsekvens med andra .NET-klient bibliotek. <br/><br/>Version 11 är riktad mot search REST API-version = 2020-06-30, men har ännu inte stöd för kunskaps lager, geospatiala typer eller [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). <br/><br/>Mer information finns i  [snabb start: skapa ett index](search-get-started-dotnet.md) och [Uppgradera till Azure.Search.Documents (V11)](search-dotnet-sdk-migration-version-11.md). | Allmänt tillgänglig. </br> Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) från NuGet. |
+| [azure.search.docklient bibliotek för uments](/python/api/overview/azure/search-documents-readme)  | Azure SDK för Python| Python-klientcertifikat som publicerats av Azure SDK-teamet och som utformats för konsekvens med andra python-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [paketet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) från pypi. |
+| [@azure/search-documents klient bibliotek](/javascript/api/overview/azure/search-documents-readme)  | Azure SDK för Java Script | JavaScript-klientcertifikat som publicerats av Azure SDK-teamet och som har utformats för konsekvens med andra Java Script-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [ @azure/search-documents paketet](https://www.npmjs.com/package/@azure/search-documents) från NPM. |
 
 ### <a name="june-2020"></a>Juni 2020
 

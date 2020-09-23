@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 9ac30bdcb137afb26a8461f98a36b568ebe179b0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459019"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988335"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,7 +45,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    E.t.       |    Eko svar    |
+    |    ICMPv4             |    Saknas       |    Eko svar    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -74,15 +74,17 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     Se [utforma platstopologi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-platser och-tjänster. 
     
-<!--
-* Azure NetApp Files supports DES, Kerberos AES 128, and Kerberos AES 256 encryption types (from the least secure to the most secure). The user credentials used to join Active Directory must have the highest corresponding account option enabled that matches the capabilities enabled for your Active Directory.   
+* Du kan aktivera AES-kryptering för en SMB-volym genom att markera rutan **AES-kryptering** i fönstret [Anslut Active Directory](#create-an-active-directory-connection) . Azure NetApp Files stöder krypterings typerna DES, Kerberos AES 128 och Kerberos AES 256 (från den minst säkra som är säkrast). Om du aktiverar AES-kryptering måste de användarautentiseringsuppgifter som används för att ansluta till Active Directory ha det högsta motsvarande konto alternativet som matchar de funktioner som har Aktiver ATS för din Active Directory.    
 
-    For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
+    Om din Active Directory till exempel endast har AES-128-funktionen, måste du aktivera alternativet AES-128 konto för autentiseringsuppgifterna för användaren. Om din Active Directory har AES-256-funktionen måste du aktivera alternativet AES-256 konto (som också stöder AES-128). Om din Active Directory inte har någon Kerberos-krypterings kapacitet använder Azure NetApp Files DES som standard.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
+    Du kan aktivera konto alternativen i egenskaperna för Active Directory användare och datorer Microsoft Management Console (MMC):   
 
-    ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
--->
+    ![Active Directory användare och datorer MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
+
+* Azure NetApp Files stöder [LDAP-signering](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), vilket möjliggör säker överföring av LDAP-trafik mellan Azure NetApp Files-tjänsten och de [Active Directory domän kontrol Lanterna](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Om du följer anvisningarna i Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) för LDAP-signering bör du aktivera funktionen LDAP-signering i Azure NetApp Files genom att markera rutan **LDAP-signering** i fönstret [Anslut Active Directory](#create-an-active-directory-connection) . 
+
+    Konfiguration av [LDAP-kanals bindning](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) har ingen inverkan på den Azure NetApp Files tjänsten. 
 
 Se Azure NetApp Files [FAQ (FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) ) om ytterligare AD-information. 
 
@@ -160,8 +162,56 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
         Om du använder Azure NetApp Files med Azure Active Directory Domain Services är organisationsenhetens sökväg `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
 
+    ![Anslut Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+
+    * **AES-kryptering**   
+        Markera den här kryss rutan om du vill aktivera AES-kryptering för en SMB-volym. Se [krav för Active Directory anslutningar](#requirements-for-active-directory-connections) för krav. 
+
+        ![Active Directory AES-kryptering](../media/azure-netapp-files/active-directory-aes-encryption.png)
+
+        **AES-kryptering** är för närvarande en för hands version. Om det här är första gången du använder den här funktionen ska du registrera funktionen innan du använder den: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
+        ```
+
+        Kontrol lera status för funktions registreringen: 
+
+        > [!NOTE]
+        > **RegistrationState** kan vara i ett `Registering` tillstånd i upp till 60 minuter innan den ändras till `Registered` . Vänta tills statusen har **registrerats** innan du fortsätter.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
+        ```
+        
+        Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
+
+    * **LDAP-signering**   
+        Markera den här kryss rutan om du vill aktivera LDAP-signering. Den här funktionen möjliggör säker LDAP-sökning mellan Azure NetApp Files tjänsten och de användardefinierade [Active Directory Domain Services domän kontrol Lanterna](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). Mer information finns i [ADV190023 | Microsofts vägledning för att aktivera bindning av LDAP-kanaler och LDAP-signering](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
+
+        ![Active Directory LDAP-signering](../media/azure-netapp-files/active-directory-ldap-signing.png) 
+
+        Funktionen **LDAP-signering** är för närvarande en för hands version. Om det här är första gången du använder den här funktionen ska du registrera funktionen innan du använder den: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
+        ```
+
+        Kontrol lera status för funktions registreringen: 
+
+        > [!NOTE]
+        > **RegistrationState** kan vara i ett `Registering` tillstånd i upp till 60 minuter innan den ändras till `Registered` . Vänta tills statusen har **registrerats** innan du fortsätter.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
+        ```
+        
+        Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
+
      * **Användare av säkerhets kopierings princip**  
         Du kan inkludera ytterligare konton som kräver förhöjd behörighet för det dator konto som skapas för användning med Azure NetApp Files. De angivna kontona kommer att kunna ändra NTFS-behörigheter på fil-eller mappnivå. Du kan till exempel ange ett icke-privilegierat tjänst konto som används för att migrera data till en SMB-filresurs i Azure NetApp Files.  
+
+        ![Active Directory säkerhets kopierings princip användare](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
         Funktionen **säkerhets kopierings princip användare** är för närvarande en för hands version. Om det här är första gången du använder den här funktionen ska du registrera funktionen innan du använder den: 
 
@@ -178,11 +228,11 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Du kan också använda Azure CLI-kommandon [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) och [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) Registrera funktionen och Visa registrerings status. 
+        Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
 
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 
-    ![Anslut Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+        ![Active Directory autentiseringsuppgifter](../media/azure-netapp-files/active-directory-credentials.png)
 
 3. Klicka på **Anslut**.  
 

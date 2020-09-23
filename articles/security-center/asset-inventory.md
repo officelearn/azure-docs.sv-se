@@ -7,13 +7,13 @@ services: security-center
 ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
-ms.topic: conceptual
-ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.topic: how-to
+ms.openlocfilehash: dfba8bc1713e14099413a6c01d0af8508ba0eb73
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181121"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895168"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Utforska och hantera dina resurser med till gångs inventering och hanterings verktyg
 
@@ -25,22 +25,25 @@ När en resurs har utestående rekommendationer visas de i inventeringen.
 
 Använd den här vyn och dess filter för att åtgärda sådana frågor som:
 
-- Vilken av mina standard prenumerationer på standard nivån har enastående rekommendationer?
+- Vilka av mina prenumerationer med Azure Defender aktiverat har du enastående rekommendationer?
 - Vilka av mina datorer med taggen "produktion" saknas Log Analytics agenten?
-- Hur många av mina datorer, taggade med en speciell tagg har du enastående rekommendationer?
+- Hur många av mina datorer som är taggade med en speciell tagg har du enastående rekommendationer?
 - Hur många resurser i en speciell resurs grupp har säkerhets resultat från en sårbarhets bedömnings tjänst?
 
 Till gångs hanterings möjligheterna för det här verktyget är väsentliga och fortsätter att växa. 
+
+> [!TIP]
+> Säkerhets rekommendationerna är desamma som på sidan **rekommendationer** , men här är de filtrerade till den resurs typ som du har valt. Mer information om hur du löser rekommendationer finns [i implementera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Tillgänglighet
 
 |Aspekt|Information|
 |----|:----|
-|Versions tillstånd:|Förhandsgranskning|
+|Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|Alla användare|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -56,7 +59,7 @@ Inventerings sidan innehåller följande verktyg:
 
 - **Filter** – flera filter överst på sidan ger ett sätt att snabbt förfina listan över resurser enligt den fråga som du försöker besvara. Om du till exempel vill svara på frågan *vilka av mina datorer med taggen "produktion" saknas Log Analytics agenten?* du kan kombinera **agent övervaknings** filtret med **tagg** filtret som du ser i följande klipp:
 
-    ![Filtrering av produktions resurser som inte övervakas](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtrering av produktions resurser som inte övervakas":::
 
     När du har tillämpat filter uppdateras sammanfattnings värdena så att de relaterar till frågeresultaten. 
 
@@ -69,8 +72,9 @@ Inventerings sidan innehåller följande verktyg:
 
 - Med **alternativ för till gångs hantering** – med lager kan du utföra komplexa identifierings frågor. När du har hittat de resurser som matchar dina frågor tillhandahåller inventeringen genvägar för åtgärder som:
 
-    - Tilldela taggar till de filtrerade resurserna – Markera kryss rutorna bredvid de resurser som du vill tagga
-    - Publicera nya servrar till Security Center – Använd verktygsfälts knappen **Lägg till icke-Azure-servrar**
+    - Tilldela taggar till de filtrerade resurserna – Markera kryss rutorna bredvid de resurser som du vill tagga.
+    - Publicera nya servrar till Security Center – Använd verktygsfälts knappen **Lägg till icke-Azure-servrar** .
+    - Automatisera arbets belastningar med Azure Logic Apps – Använd knappen **Utlös Logic app** för att köra en Logic app på en eller flera resurser. Dina Logi Kap par måste förberedas i förväg och acceptera relevant utlösare (HTTP-begäran). [Läs mer om Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Hur fungerar inventarie Inventory?
@@ -86,11 +90,11 @@ Med hjälp av [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data
 
 1. Välj **inventering**i Security Center marginal List.
 
-1. Om du vill visa en speciell resurs anger du namnet i rutan **Filtrera efter namn** .
+1. Använd rutan **Filtrera efter namn** för att visa en speciell resurs eller använd filtren enligt beskrivningen nedan.
 
 1. Välj de relevanta alternativen i filtren för att skapa en speciell fråga som du vill utföra.
 
-    ![Inventerings filter](./media/asset-inventory/inventory-filters.png)
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Lager filtrerings alternativ" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Som standard sorteras resurserna efter antalet aktiva säkerhets rekommendationer.
 
@@ -106,19 +110,24 @@ Med hjälp av [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data
     > [!TIP]
     > **Säkerhets resultaten innehåller** och **taggarna** filtrerar bara ett enda värde. Om du vill filtrera efter mer än ett använder du **Lägg till filter**.
 
-1. Om du vill använda filtret för **pris nivå** väljer du ett eller flera alternativ (ledig, delvis eller standard):
+1. Om du vill använda **Azure Defender** -filtret väljer du ett eller flera alternativ (av, på eller delvis):
 
-    - **Kostnads fria** resurser som finns på den kostnads fria pris nivån
-    - **Standard** – resurser som finns på standard pris nivån
-    - **Delvis** – detta gäller för prenumerationer på standard pris nivån men har några av de valfria säkerhets planerna inaktiverade. Följande prenumeration är till exempel på standard nivån men har fem element på standard nivån inaktive rad. 
+    - **Av** -resurser som inte skyddas av en Azure Defender-plan. Du kan högerklicka på någon av dessa och uppgradera dem:
 
-        ![Prenumeration på standard pris nivå (delvis)](./media/asset-inventory/pricing-tier-partial.png)
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Uppgradera en resurs till Azure Defender från höger klick" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+
+    - **On** Resurser som skyddas av en Azure Defender-plan
+    - **Delvis** – detta gäller **prenumerationer** som har vissa men inte alla Azure Defender-planer inaktiverade. Följande prenumeration har till exempel fem Azure Defender-planer inaktiverade. 
+
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Prenumeration delvis i Azure Defender":::
 
 1. Om du vill undersöka resultatet av din fråga ytterligare väljer du de resurser som intresserar dig.
 
-1. Du kan också välja **Visa i resurs diagram Utforskaren** för att öppna frågan i resurs diagram Utforskaren.
+1. Om du vill visa de aktuella valda filter alternativen som en fråga i resurs diagram Utforskaren väljer du **Visa i resurs diagram Utforskaren**.
 
     ![Inventerings fråga i ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+
+1. Köra en tidigare definierad Logic-app med 
 
 1. Om du har definierat vissa filter och lämnat sidan öppen kan Security Center inte uppdatera resultatet automatiskt. Eventuella ändringar i resurserna påverkar inte de resultat som visas om du inte manuellt laddar om sidan eller väljer **Uppdatera**.
 
@@ -127,22 +136,19 @@ Med hjälp av [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data
 
 ### <a name="why-arent-all-of-my-subscriptions-machines-storage-accounts-etc-shown"></a>Varför visas inte alla mina prenumerationer, datorer, lagrings konton osv.
 
-I vyn lager visas dina resurser från ett CSPM-perspektiv (Cloud Security position Management). Filtren returnerar inte alla resurser i miljön. endast de med de utestående (eller "aktiva") rekommendationerna. 
+I vyn lager visas dina Security Center anslutna resurser från ett CSPM-perspektiv (Cloud Security position Management). Filtren returnerar inte alla resurser i miljön. endast de med de utestående (eller "aktiva") rekommendationerna. 
 
-Om du till exempel har nio prenumerationer men bara åtta för närvarande har rekommendationer, och du filtrerar efter **resurs typ = prenumerationer** , visas bara de åtta prenumerationerna med aktiva rekommendationer:
+Följande skärm bild visar till exempel en användare med åtkomst till 38-prenumerationer, men endast 10 har för närvarande rekommendationer. Så när de filtrerar efter **resurs typ = prenumerationer**visas endast de 10 prenumerationer med aktiva rekommendationer i inventeringen:
 
-![Inget retur resultat returnerades när det inte finns några aktiva rekommendationer](./media/asset-inventory/filtered-subscriptions-some.png)
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Inget retur resultat returnerades när det inte finns några aktiva rekommendationer":::
 
-
-### <a name="why-do-some-of-my-resources-show-blank-values-in-the-pricing-or-agent-monitoring-columns"></a>Varför visar några av mina resurser tomma värden i kolumnerna priser eller agent övervakning?
+### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Varför visar några av mina resurser tomma värden i kolumnerna för Azure Defender eller agent övervakning?
 
 Alla Security Center övervakade resurser har inte agenter. Till exempel Azure Storage konton eller PaaS resurser som diskar, Logic Apps, Data Lake analys och Event Hub.
 
 När priser eller agent övervakning inte är relevanta för en resurs, visas inget i dessa kolumner i inventeringen.
 
-![Vissa resurser visar tom information i kolumner för agent övervakning eller pris sättning](./media/asset-inventory/agent-pricing-blanks.png)
-
-
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Vissa resurser visar tom information i agent övervakning eller Azure Defender-kolumner":::
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -151,5 +157,4 @@ I den här artikeln beskrivs sidan till gångs lager i Azure Security Center.
 Mer information om relaterade verktyg finns på följande sidor:
 
 - [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-
 - [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)

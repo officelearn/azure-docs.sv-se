@@ -6,26 +6,27 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/30/2020
+ms.date: 09/10/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 836582003c4b4bd47d2b90b845ae414210d16edd
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 4a4b6d02845c9767b7ab668dd172da38150fc89e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246173"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025038"
 ---
 Kom igång med klient biblioteket för avvikelse detektor för Java Script. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
 Använd klient biblioteket för avvikelse detektor för Java Script för att:
 
-* Identifiera avvikelser i data uppsättningen för tids serier, som en batch-begäran
+* Identifiera avvikelser i din tids serie data uppsättning som en batch-begäran
 * Identifiera avvikelse status för den senaste data punkten i din tids serie
+* Identifiera trend ändrings punkter i din data uppsättning.
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector)  |  [Hitta koden på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+Dokumentation om biblioteks [referens](https://go.microsoft.com/fwlink/?linkid=2090788)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector)  |  [Paket (NPM)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector)  |  [Hitta koden på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * Den aktuella versionen av [Node.js](https://nodejs.org/)
@@ -64,18 +65,18 @@ Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat milj
 Installera `ms-rest-azure` och `azure-cognitiveservices-anomalydetector` NPM-paketen. Det CSV-parsande biblioteket används också i den här snabb starten:
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
+npm install @azure/ai-anomaly-detector @azure/ms-rest-js csv-parse
 ```
 
 Appens `package.json` fil kommer att uppdateras med beroenden.
 
 ## <a name="object-model"></a>Objekt modell
 
-Klienten för avvikelse detektor är ett [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) -objekt som autentiserar till Azure med hjälp av din nyckel. Klienten erbjuder två metoder för avvikelse identifiering: på en hel data uppsättning med hjälp av [entireDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)och den senaste data punkten med [LastDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). 
+Klienten för avvikelse detektor är ett [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) -objekt som autentiserar till Azure med hjälp av din nyckel. Klienten kan utföra avvikelse identifiering på en hel data uppsättning med hjälp av [entireDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)eller den senaste data punkten med [LastDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). Metoden [ChangePointDetectAsync](https://go.microsoft.com/fwlink/?linkid=2090788) identifierar punkter som markerar ändringar i en trend. 
 
 Time Series-data skickas som en serie med [punkter](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) i ett [Request](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) -objekt. `Request`Objektet innehåller egenskaper för att beskriva data (till exempel[granularitet](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) ) och parametrar för avvikelse identifiering. 
 
-Avvikelse detektorns svar är ett [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) -eller [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) -objekt beroende på vilken metod som används. 
+Avvikelse detektorns svar är ett [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest)-, [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest)-eller [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) -objekt beroende på vilken metod som används. 
 
 ## <a name="code-examples"></a>Kodexempel 
 
@@ -85,6 +86,7 @@ De här kodfragmenten visar hur du gör följande med klient biblioteket för av
 * [Läs in en tids serie data uppsättning från en fil](#load-time-series-data-from-a-file)
 * [Identifiera avvikelser i hela data uppsättningen](#detect-anomalies-in-the-entire-data-set) 
 * [Identifiera avvikelse statusen för den senaste data punkten](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Identifiera ändrings punkterna i data uppsättningen](#detect-change-points-in-the-data-set)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -116,6 +118,12 @@ Anropa API: et för att identifiera avvikelser genom hela tids serien som en bat
 Anropa API: t för avvikelse detektor för att avgöra om den senaste data punkten är en avvikelse med klientens [lastDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) -Metod och lagra det returnerade [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) -objektet. Svarets `isAnomaly` värde är ett booleskt värde som anger den punktens avvikelse status.  
 
 [!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
+
+## <a name="detect-change-points-in-the-data-set"></a>Identifiera ändrings punkter i data uppsättningen
+
+Anropa API: et för att identifiera ändrings punkter i tids serien med klientens [detectChangePoint ()-](https://go.microsoft.com/fwlink/?linkid=2090788) metod. Lagra det returnerade [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) -objektet. Upprepa i svars `isChangePoint` listan och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexen för trend ändrings punkter, om de påträffades.
+
+[!code-javascript[detect change points](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=changePointDetection)]
 
 ## <a name="run-the-application"></a>Kör programmet
 

@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 97c21ca300ee070b2cebaa01a585c1618899b1eb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fa0c2f5bb00122b40fb4f4ea06b7cf55c0248904
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691891"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025149"
 ---
 
-![Översikt](../../../media/quickstarts/overview-grpc.png)
+![Översikt](../../../media/quickstarts/gRPC-extension.svg)
 
 Det här diagrammet visar hur signal flödet i den här snabb starten. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real Time Streaming Protocol). En [RTSP-källmapp](../../../media-graph-concept.md#rtsp-source) hämtar video flödet från den här servern och skickar video bild rutor till noden för [avkänning av rörelser](../../../media-graph-concept.md#motion-detection-processor) . Den här processorn identifierar rörelse och när identifieringen ska skickas, skickas video bild rutor till [gRPC-tillägget processor](../../../media-graph-concept.md#grpc-extension-processor) .
 

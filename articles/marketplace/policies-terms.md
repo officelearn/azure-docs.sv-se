@@ -3,16 +3,16 @@ title: Principer och villkor för affärs platser, Azure Marketplace
 description: Microsofts principer och villkor för affärs platser gäller för alla utgivare och erbjudanden i Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: reference
+ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: cd936307eaacc7b2a46bac23c8fcfc9e2769135c
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4ddf37d5f2e7f569e5447dfe321574e3f9ccc778
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006728"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974840"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Principer och villkor för den kommersiella marknadsplatsen
 
@@ -25,12 +25,11 @@ Erbjudanden på den kommersiella marknaden måste följa våra principer och vil
 
 ## <a name="policies-and-terms"></a>Policyer och villkor
 
-* [Certifieringsprinciper för Commercial Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies)
-
-* [Principer för klassificering och recension](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
-
-* [Azure Marketplace-villkor](https://docs.microsoft.com/legal/marketplace/terms)
+- [Certifieringsprinciper för Commercial Marketplace](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
+- [Microsoft AppSource och gransknings principer för Azure Marketplace](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
+- [Deltagandepolicyer för Azure Marketplace](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
+- [Azure Marketplace-villkor](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## <a name="next-step"></a>Nästa steg
 
-Besök sidan för [publicerings guide för kommersiella platser](./marketplace-publishers-guide.md) .
+Besök sidan för [publicerings guide för kommersiella platser](marketplace-publishers-guide.md) .

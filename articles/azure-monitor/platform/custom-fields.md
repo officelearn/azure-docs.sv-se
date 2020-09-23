@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906810"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974706"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Skapa anpassade fält i en Log Analytics arbets yta i Azure Monitor (förhands granskning)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906810"
 
 Med funktionen **anpassade fält** i Azure Monitor kan du utöka befintliga poster i arbets ytan Log Analytics genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
 
-![Översikt](media/custom-fields/overview.png)
+![Diagrammet visar en ursprunglig post som är associerad med en modifierad post i en Log Analytics arbets yta med egenskaps värde par som har lagts till i den ursprungliga egenskapen i den ändrade posten.](media/custom-fields/overview.png)
 
 Exempel posten nedan har till exempel viktiga data täckta i händelse beskrivningen. Om du extraherar dessa data till en separat egenskap gör den tillgänglig för sådana åtgärder som sortering och filtrering.
 
@@ -81,7 +81,7 @@ I följande avsnitt går vi igenom ett komplett exempel på hur du skapar ett an
 
 Vi anger följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036, vilket är händelsen som indikerar att en tjänst startas eller stoppas.
 
-![Söka i data](media/custom-fields/query.png)
+![Skärm bild som visar en fråga för en händelse källa och ID.](media/custom-fields/query.png)
 
 Sedan väljer och expanderar du alla poster med händelse-ID 7036.
 

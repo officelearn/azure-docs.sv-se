@@ -2,28 +2,32 @@
 title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/09/2020
+ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526331"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887228"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
 Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 
+> [!NOTE]
+> Stöd för ARM64-enheter finns i video analys i real tid på IoT Edge build-versioner `1.0.4` och senare.
+> Stöd för att köra Azure IoT Edge runtime på ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Linux-dator som uppfyller kraven för maskin vara/SW för video analys i real tid
+* En x86-64-eller ARM64-enhet som kör ett av de [Linux-operativsystem som stöds](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
 * Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
 * [Skapa och konfigurera IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrera IoT Edge enhet](../../iot-edge/how-to-register-device.md)
 * [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Skapa ett Azure Media Services-konto](../latest/create-account-howto.md)
 
-    * Använd något av följande regioner: USA, östra 2, centrala USA, norra centrala USA, Östra Japan, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike Central, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
+    * Använd något av följande regioner: östra USA 2, östra USA, centrala USA, norra centrala USA, Östra Japan, västra USA, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike, centrala, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
     * Vi rekommenderar att du använder GPv2-lagrings konton (General-Purpose v2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Konfigurera Azure-resurser för att använda live video analys
@@ -81,7 +85,6 @@ sudo chown -R edgeuser /var/media
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Distribuera Live Video Analytics Edge-modulen
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 Live video analys på IoT Edge exponerar modulens dubbla egenskaper som dokumenteras i [modulens dubbla konfigurations schema](module-twin-configuration-schema.md). 
 
 ### <a name="deploy-using-the-azure-portal"></a>Distribuera med hjälp av Azure-portalen
@@ -252,4 +255,4 @@ Sedan kan du testa exemplet genom att anropa en direkt metod. Läs [direkt metod
 Prova [snabb start: kom igång – direktsända video analyser på IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]
-> I kommandot kommer du att köras härnäst, använda din `device-id` i stället för standard `lva-sample-device` .
+> Om du fortsätter med ovanstående snabb start, när du anropar de direkta metoderna med Visual Studio Code, använder du enheten som lades till i IoT Hub via den här artikeln, i stället för standardvärdet `lva-sample-device` .

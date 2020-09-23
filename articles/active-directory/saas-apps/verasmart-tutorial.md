@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 1aa52c81b7abbfb355ef06f6ae93a5dd4c985042
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5b5f115ab2fb7036287c976a94b9e123bf6ed42
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88532440"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982802"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verasmart"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med VeraSMART
 
@@ -131,7 +131,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till konfigurationen för **Administration**av  ->  **Security**  ->  **säkerhetsautentisering**.
 
-    ![Konfiguration](./media/verasmart-tutorial/configuration.png)
+    ![Skärm bild som visar VeraSMART med administration, sedan säkerhet och sedan konfiguration av autentisering har valts.](./media/verasmart-tutorial/configuration.png)
 
 1. Utför följande steg på följande sida:
 
@@ -164,7 +164,7 @@ När du klickar på panelen VeraSMART på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

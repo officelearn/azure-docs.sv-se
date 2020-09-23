@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053702"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887499"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 
@@ -35,6 +35,7 @@ Med avvikelse identifieraren kan du automatiskt identifiera avvikelser i tids se
 |---------|---------|
 |Identifiera avvikelser när de inträffar i real tid. | Identifiera avvikelser i dina strömmande data genom att använda tidigare visade data punkter för att avgöra om det senaste är en avvikelse. Den här åtgärden genererar en modell med de data punkter som du skickar och avgör om mål punkten är en avvikelse. Genom att anropa API: et med varje ny data punkt som du skapar kan du övervaka dina data när de skapas. |
 |Identifiera avvikelser i alla data uppsättningar som en batch. | Använd din tids serie för att identifiera eventuella avvikelser som kan finnas i dina data. Den här åtgärden genererar en modell med alla tids serie data, där varje punkt analyseras med samma modell.         |
+|Identifiera ändrings punkter i data uppsättningen som en batch. | Använd din tids serie för att identifiera eventuella trend ändrings punkter som finns i dina data. Den här åtgärden genererar en modell med alla tids serie data, där varje punkt analyseras med samma modell.    |
 | Få mer information om dina data. | Få värdefull information om dina data och observerade avvikelser, inklusive förväntade värden, avvikande gränser och positioner. |
 | Justera gränser för avvikelse identifiering. | API: t för avvikelse detektor skapar automatiskt gränser för avvikelse identifiering. Justera gränserna för att öka eller minska API: ns känslighet till data avvikelser och bättre anpassa dina data. |
 
@@ -45,7 +46,7 @@ Om du vill köra demonstrationen måste du skapa en avvikelse identifierings res
 
 ## <a name="notebook"></a>Notebook-fil
 
-Om du vill veta hur du anropar API: t för avvikelse detektor kan du prova den här [Azure-anteckningsboken](https://aka.ms/adNotebook). Den här webb värd Jupyter Notebook visar hur du skickar en API-begäran och visualiserar resultatet.
+Om du vill veta hur du anropar API: t för avvikelse detektor kan du prova den här [antecknings boken](https://aka.ms/adNotebook) Den här Jupyter Notebook visar hur du skickar en API-begäran och visualiserar resultatet.
 
 Utför följande steg för att köra antecknings boken:
 
@@ -54,7 +55,7 @@ Utför följande steg för att köra antecknings boken:
 1. Avmarkera alternativet "offentlig" i dialog rutan innan du slutför klonings åtgärden, annars är din bärbara dator, inklusive eventuella prenumerations nycklar, offentlig.
 1. Klicka på **Kör vid kostnads fri beräkning**
 1. Välj en av antecknings böckerna.
-1. Lägg till din giltiga API-prenumerations nyckel för avvikelse `subscription_key` detektor i variabeln.
+1. Lägg till din giltiga API-prenumerations nyckel för avvikelse detektor i `subscription_key` variabeln.
 1. Ändra `endpoint` variabeln till din slut punkt. Exempelvis: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Klicka på **cell**och **Kör alla**på den översta meny raden.
 
@@ -92,4 +93,4 @@ Du kan läsa pappers [seriens avvikelse identifierings tjänst på Microsoft](ht
 
 * [Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API](quickstarts/detect-data-anomalies-csharp.md)
 * API: t online- [demon](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) för avvikelse detektor
-* Avvikelse detektor [REST API referens](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+* Avvikelse detektor [REST API referens](https://aka.ms/anomaly-detector-rest-api-ref)

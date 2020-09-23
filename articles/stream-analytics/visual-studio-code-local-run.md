@@ -6,22 +6,22 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: a47b641f4f5049beb605490122a33d407ac3e222
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044370"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903808"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testa Stream Analytics frågor lokalt med exempel data med Visual Studio Code
 
 Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt med exempel data. Du kan hitta frågeresultaten i JSON-filer i mappen **LocalRunOutputs** i projektet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [.net Core SDK](https://dotnet.microsoft.com/download) och starta om Visual Studio Code.
 
-* Använd den här [snabb](quick-create-vs-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med Visual Studio Code.
+* Använd den här [snabb](quick-create-visual-studio-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med Visual Studio Code.
 
 ## <a name="prepare-sample-data"></a>Förbereda exempel data
 
@@ -31,17 +31,17 @@ Du måste förbereda exempelfilerna med indata först. Om du redan har några ex
 
 2. När data har visats klickar du på **Spara som** för att spara data till en lokal fil.
 
- ![Förhandsgranska Live-ingångar](./media/quick-create-vs-code/preview-live-input.png)
+ ![Förhandsgranska Live-ingångar](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## <a name="define-a-local-input"></a>Definiera en lokal indatamängd
 
 1. Klicka på **input.js** under indata-mappen i Stream Analytics-projektet. Välj sedan **Lägg till lokal inström** från den översta raden.
 
-    ![Lägg till lokal Indatatyp från projekt](./media/quick-create-vs-code/add-input-from-project.png)
+    ![Lägg till lokal Indatatyp från projekt](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
     Du kan också använda **Ctrl + Shift + P** för att öppna kommando paletten och ange **ASA: Lägg till information**.
 
-   ![Lägg till Stream Analytics in VS Code](./media/quick-create-vs-code/add-input.png)
+   ![Lägg till Stream Analytics in VS Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Välj **lokal indatamängd**.
 

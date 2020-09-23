@@ -1,6 +1,6 @@
 ---
-title: Anslut och fråga Azure SQL Edge (för hands version)
-description: Lär dig hur du ansluter till och frågar Azure SQL Edge (för hands version).
+title: Anslut och fråga Azure SQL Edge
+description: Lär dig hur du ansluter till och frågar Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373121"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888230"
 ---
-# <a name="connect-and-query-azure-sql-edge-preview"></a>Anslut och fråga Azure SQL Edge (för hands version)
+# <a name="connect-and-query-azure-sql-edge"></a>Anslut och fråga Azure SQL Edge
 
 När du har distribuerat en behållare i Azure SQL Edge kan du ansluta till databas motorn från någon av följande platser:
 

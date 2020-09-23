@@ -1,14 +1,14 @@
 ---
 title: Översikt över Recovery Services-valv
-description: En översikt och jämförelse mellan Recovery Services valv och Azure Backup valv.
+description: En översikt över Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889625"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975147"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -30,7 +30,7 @@ Ett Recovery Services-valv är en entitet som lagrar säkerhets kopior och åter
 
 - Azure Backup hanterar automatiskt lagring för valvet. Se hur [lagrings inställningarna kan ändras](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- Mer information om redundans finns i de här artiklarna om [geo](../storage/common/storage-redundancy.md) -och [lokal](../storage/common/storage-redundancy.md) redundans.
+- Mer information om lagrings redundans finns i de här artiklarna om [geo](../storage/common/storage-redundancy.md#geo-zone-redundant-storage)-, [lokal](../storage/common/storage-redundancy.md#locally-redundant-storage) -och [zonindelade](../storage/common/storage-redundancy.md#zone-redundant-storage) -redundans.
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>Krypterings inställningar i Recovery Services valvet
 

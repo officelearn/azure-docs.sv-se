@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74774745"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895079"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Självstudie: övervaka och finjustera Azure Database for PostgreSQL-enskild server
 
@@ -40,7 +40,7 @@ I [Query Store](concepts-query-store.md) finns en historik över fråge- och vä
 
 4. Ange **pg_qs.query_capture_mode** till **HÖGSTA** för att börja samla in frågeprestandadata. Ange **pgms_wait_sampling.query_capture_mode** till **ALLA** för att börja samla in väntestatistik. Spara.
    
-   ![Query Store-serverparametrar](./media/tutorial-performance-intelligence/query-store-parameters.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Query Store-serverparametrar":::
 
 5. Vänta 20 minuter för den första databatchen ska hinna sparas i databasen **azure_sys**.
 
@@ -52,7 +52,7 @@ På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azu
 
 2. På fliken **Långvariga frågor** visas de 5 främsta frågorna efter genomsnittlig varaktighet per körning, aggregerat i 15-minutersintervall. 
    
-   ![Landningssida för Query Performance Insight](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Landningssida för Query Performance Insight":::
 
    Du kan visa fler frågor genom att välja dem i den nedrullningsbara listrutan för **Antal frågor**. Diagrammets färger kan ändras för ett specifikt fråge-ID när du gör detta.
 
@@ -64,7 +64,7 @@ På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azu
 
 6. Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av vänttillfällen på servern.
    
-   ![Väntestatistik för Query Performance Insight](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Väntestatistik för Query Performance Insight":::
 
 ### <a name="permissions"></a>Behörigheter
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
@@ -75,7 +75,7 @@ Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) 
 
 1. Öppna **Prestandarekommendationer** från avdelningen **Support och felsökning** i menyraden på Azure-portalsidan för din PostgreSQL-server.
    
-   ![Landningssida för prestandarekommendationer](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Landningssida för prestandarekommendationer":::
 
 2. Välj **Analysera** och välj en databas. Detta startar analysen.
 
@@ -85,7 +85,7 @@ Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) 
 
 5. En rekommendation visar information om relevant **databas**, **tabell**, **kolumn** och **indexstorlek**.
 
-   ![Resultat av prestandarekommendationer](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Resultat av prestandarekommendationer":::
 
 6. Om du vill implementera rekommendationen kopierar du frågetexten och kör den från önskad klient.
 

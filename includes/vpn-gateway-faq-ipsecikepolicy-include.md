@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346191"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025228"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
 Anpassad IPsec/IKE-princip stöds på alla Azure SKU: er förutom Basic SKU.
@@ -31,7 +31,7 @@ Tabellen nedan innehåller de krypteringsalgoritmer och nyckellängder som stöd
 | ---              | ---                                                                           |
 | IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                             |
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
+| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
 | IPsec-kryptering | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
 | IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | PFS-grupp        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
@@ -99,6 +99,9 @@ Ja, du kan använda anpassade principen på både IPSec-anslutningar mellan loka
 
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>Behöver jag ange samma princip på båda resurserna för VNet-till-VNet-anslutningen?
 Ja. En VNet-till-VNet-tunnel består av två anslutningsresurser i Azure, en för varje riktning. Kontrollera att båda anslutningsresurserna har samma princip, annars upprättas inte anslutningen mellan de virtuella nätverken.
+
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>Vad är standard tids gräns värdet för DPD? Kan jag ange en annan DPD-timeout?
+Standardvärdet för DPD är 45 sekunder. Du kan ange ett annat timeout-värde för DPD på varje IPsec-eller VNet-till-VNet-anslutning mellan 9 sekunder och 3600 sekunder.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Fungerar en anpassad IPsec/IKE-princip på ExpressRoute-anslutningen?
 Nej. IPSec-/ princip fungerar bara på S2S VPN- och VNet-till-VNet-anslutningar via Azure VPN-gatewayer.

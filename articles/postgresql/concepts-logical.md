@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213694"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903892"
 ---
 # <a name="logical-decoding"></a>Logisk avkodning
  
@@ -52,11 +52,11 @@ Servern måste startas om efter en ändring av den här parametern. Internt ange
 
 1. Ange Azure Replication-stöd till **logiska**. Välj **Spara**.
 
-   ![Azure Database for PostgreSQL replikering – stöd för Azure-replikering](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL replikering – stöd för Azure-replikering":::
 
 2. Starta om servern för att tillämpa ändringen genom att välja **Ja**.
 
-   ![Azure Database for PostgreSQL-replikering-bekräfta omstart](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-replikering-bekräfta omstart":::
 
 
 ## <a name="start-logical-decoding"></a>Starta logisk avkodning
@@ -79,7 +79,7 @@ I exemplet nedan använder vi SQL-gränssnittet med wal2json-plugin-programmet.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Utfärda SQL-kommandon. Ett exempel:
+2. Utfärda SQL-kommandon. Exempel:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

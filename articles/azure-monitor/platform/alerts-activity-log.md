@@ -4,12 +4,12 @@ description: Skapa aktivitets logg aviseringar med hjälp av Azure Portal, en Az
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983092"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -111,7 +111,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 1. I Azure Portal väljer du **övervaka**  >  **aviseringar**. Välj **Hantera aviserings regler** i det övre vänstra hörnet i fönstret.
 
-    ![Hantera aviseringsregler](media/alerts-activity-log/manage-alert-rules.png)
+    ![Skärm bild som visar aktivitets loggen med sökrutan markerad.](media/alerts-activity-log/manage-alert-rules.png)
 
     Listan över tillgängliga regler visas.
 
@@ -119,7 +119,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
     ![Aviserings regler för Sök aktivitets logg](media/alerts-activity-log/searth-activity-log-rule-to-edit.png)
 
-    Du kan använda tillgängliga filter, _prenumeration_, _resurs grupp_, _resurs_, _signal typ_eller _status_för att hitta den aktivitets regel som du vill redigera.
+    Du kan använda tillgängliga filter, _prenumeration_, _resurs grupp_,  _resurs_, _signal typ_eller _status_för att hitta den aktivitets regel som du vill redigera.
 
    > [!NOTE]
    > 
@@ -219,7 +219,7 @@ Följande fält är de alternativ som du kan använda i Azure Resource Manager m
 9. under status: vanligt vis HTTP-statuskod för motsvarande REST-anrop, men kan även innehålla andra strängar som beskriver en under status.   Till exempel: OK (HTTP-status kod: 200), skapad (HTTP-status kod: 201), godkänd (HTTP-status kod: 202), ingen innehålls (HTTP-status kod: 204), felaktig begäran (HTTP-status kod: 400), hittades inte (HTTP-status kod: 404), konflikt (HTTP-status kod: 409), internt Server fel (HTTP-status kod: 500), tjänsten är inte tillgänglig (HTTP-status kod: 503), Gateway-timeout (HTTP-statuskod
 10. resourceType: den typ av resurs som påverkades av händelsen. Exempel: Microsoft. Resources/distributions
 
-Till exempel:
+Exempel:
 
 ```json
 "condition": {

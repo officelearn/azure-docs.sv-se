@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Portal för att felsöka Azure Stack problem med Edge-beställning | Microsoft Docs
-description: Beskriver hur du felsöker problem med Azure Stack Edge-beställning.
+title: Använd Azure Portal för att felsöka problem med Azure Stack Edge Pro-beställning | Microsoft Docs
+description: Beskriver hur du felsöker problem med Azure Stack Edge Pro-beställning.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055953"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903632"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Felsök problem med Azure Stack Edge-beställning
+# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Felsök problem med Azure Stack Edge Pro-beställning
 
-I den här artikeln beskrivs fel sökning av problem med att beställa Azure Stack Edge.
+I den här artikeln beskrivs fel sökning av problem med Azure Stack Edge Pro-beställning.
 
 I den här guiden får du lära dig att:
 
@@ -59,7 +59,7 @@ Mer information finns i [Registrera resurs leverantörer](azure-stack-edge-manag
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft. DataBoxEdge har inte registrerats för prenumeration
 
-**Fel:** I Azure Portal väljer du en prenumeration som ska användas för Azure Stack Edge eller Data Box Gateway och får följande fel meddelande:
+**Fel:** I Azure Portal väljer du en prenumeration som ska användas för Azure Stack Edge Pro eller Data Box Gateway och får följande fel meddelande:
 
 *Resurs leverantör (er): Microsoft. DataBoxEdge har inte registrerats för prenumerations &lt; prenumerations namnet &gt; och du har inte behörighet att registrera en resurs leverantör för prenumerations &lt; prenumerations namnet &gt; *.
 
@@ -75,4 +75,4 @@ Mer information finns i [Registrera resurs leverantörer](azure-stack-edge-manag
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du [felsöker problem med Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+* Lär dig mer om [fel sökning av problem med Azure Stack Edge-Pro](azure-stack-edge-troubleshoot.md).

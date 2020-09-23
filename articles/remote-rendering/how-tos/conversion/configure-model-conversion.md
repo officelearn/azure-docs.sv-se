@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067179"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967220"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurera modellkonverteringen
 
@@ -73,42 +73,48 @@ En exempel fil `box.ConversionSettings.json` kan vara:
 
 ### <a name="geometry-parameters"></a>Geometri parametrar
 
-* `scaling`– Den här parametern skalar en modell enhetligt. Skalning kan användas för att utöka eller krympa en modell, till exempel för att visa en byggnads modell i en tabell.
+* `scaling` – Den här parametern skalar en modell enhetligt. Skalning kan användas för att utöka eller krympa en modell, till exempel för att visa en byggnads modell i en tabell.
 Skalning är också viktigt när en modell definieras i andra enheter än mätare, eftersom åter givnings motorn förväntar sig mätare.
 Till exempel, om en modell definieras i centimeter, bör du återge modellen med rätt storlek genom att använda en skala på 0,01.
 Vissa käll data format (till exempel. FBX) tillhandahåller ett tips för enhets skalning, i så fall konverteringen av implicit skalar modellen till mätnings enheter. Den implicita skalningen som tillhandahålls av käll formatet kommer att tillämpas ovanpå skalnings parametern.
 Den slutgiltiga skalnings faktorn tillämpas på geometri hörnen och de lokala transformeringarna i diagrammets graf-noder. Skalningen för rot entitetens transformering ändras inte.
 
-* `recenterToOrigin`-Anger att en modell ska konverteras så att dess avgränsnings ruta centreras vid ursprunget.
+* `recenterToOrigin` -Anger att en modell ska konverteras så att dess avgränsnings ruta centreras vid ursprunget.
 Om en käll modell har förplacerats långt från ursprunget kan problem med flytt ALS precision orsaka åter givning av artefakter.
 Att centrera modellen kan hjälpa dig i den här situationen.
 
-* `opaqueMaterialDefaultSidedness`– Åter givnings motorn förutsätter att ogenomskinligt material är dubbels idiga.
+* `opaqueMaterialDefaultSidedness` – Åter givnings motorn förutsätter att ogenomskinligt material är dubbels idiga.
 om detta antagande inte är sant för en viss modell ska den här parametern anges till "SingleSided". Mer information finns i [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Åsidosättningar av material
 
-* `material-override`– Med den här parametern kan bearbetning av material [anpassas under konverteringen](override-materials.md).
+* `material-override` – Med den här parametern kan bearbetning av material [anpassas under konverteringen](override-materials.md).
 
 ### <a name="material-de-duplication"></a>Material avduplicering
 
-* `deduplicateMaterials`– Med den här parametern aktive ras eller inaktive ras automatisk avduplicering av material som delar samma egenskaper och strukturer. Avdupliceringen sker efter att material åsidosättningar har bearbetats. Den är aktive rad som standard.
+* `deduplicateMaterials` – Med den här parametern aktive ras eller inaktive ras automatisk avduplicering av material som delar samma egenskaper och strukturer. Avdupliceringen sker efter att material åsidosättningar har bearbetats. Den är aktive rad som standard.
+
+* Om även om en modell har mer än 65 535 material, kommer tjänsten försöka att slå samman material med liknande egenskaper. Som en sista utväg kommer allt material som överskrider gränsen att ersättas av ett rött fel material.
+
+![Bilden visar två kuber med 68 921 färgade trianglar.](media/mat-dedup.png?raw=true)
+
+Två kuber med 68 921 färgade trianglar. Left: innan de dupliceras med 68 921-färgmaterial. Höger: efter avduplicering med 64 000 färg material. Gränsen är 65 535 material. (Se [gränser](../../reference/limits.md).)
 
 ### <a name="color-space-parameters"></a>Parametrar för färg område
 
 Åter givnings motorn förväntar sig att färg värden ska vara i linjärt avstånd.
 Om en modell definieras med hjälp av gamma avstånd ska dessa alternativ anges till sant.
 
-* `gammaToLinearMaterial`– Konvertera material färger från gamma avstånd till linjärt utrymme
-* `gammaToLinearVertex`– Konvertera :::no-loc text="vertex"::: färger från gamma avstånd till linjärt utrymme
+* `gammaToLinearMaterial` – Konvertera material färger från gamma avstånd till linjärt utrymme
+* `gammaToLinearVertex` – Konvertera :::no-loc text="vertex"::: färger från gamma avstånd till linjärt utrymme
 
 > [!NOTE]
 > För FBX-filer är inställningarna inställda på `true` som standard. För alla andra filtyper är standardvärdet `false` .
 
 ### <a name="scene-parameters"></a>Scen parametrar
 
-* `sceneGraphMode`– Definierar hur scen diagrammet i käll filen konverteras:
-  * `dynamic`(standard): alla objekt i filen visas som [entiteter](../../concepts/entities.md) i API: et och kan omvandlas oberoende av varandra. Node-hierarkin vid körning är identisk med strukturen i käll filen.
+* `sceneGraphMode` – Definierar hur scen diagrammet i käll filen konverteras:
+  * `dynamic` (standard): alla objekt i filen visas som [entiteter](../../concepts/entities.md) i API: et och kan omvandlas oberoende av varandra. Node-hierarkin vid körning är identisk med strukturen i käll filen.
   * `static`: Alla objekt exponeras i API, men de kan inte omvandlas separat.
   * `none`: Scen diagrammet komprimeras till ett objekt.
 
@@ -123,27 +129,27 @@ Varje läge har olika körnings prestanda. I `dynamic` läget skalas prestanda k
 
 ### <a name="physics-parameters"></a>Fysik parametrar
 
-* `generateCollisionMesh`– Om du behöver stöd för [spatiala frågor](../../overview/features/spatial-queries.md) i en modell måste det här alternativet aktive ras. I värsta fall kan skapandet av ett kollisions nät dubblera konverterings tiden. Modeller med kollisions nät tar längre tid att läsa in och när `dynamic` du använder ett scen diagram, har de också högre prestanda vid körning. För optimala prestanda bör du inaktivera det här alternativet på alla modeller där du inte behöver spatiala frågor.
+* `generateCollisionMesh` – Om du behöver stöd för [spatiala frågor](../../overview/features/spatial-queries.md) i en modell måste det här alternativet aktive ras. I värsta fall kan skapandet av ett kollisions nät dubblera konverterings tiden. Modeller med kollisions nät tar längre tid att läsa in och när `dynamic` du använder ett scen diagram, har de också högre prestanda vid körning. För optimala prestanda bör du inaktivera det här alternativet på alla modeller där du inte behöver spatiala frågor.
 
 ### <a name="unlit-materials"></a>Unlit material
 
-* `unlitMaterials`-Konverteringen kommer som standard att föredra att skapa [PBR-material](../../overview/features/pbr-materials.md). Det här alternativet anger att konverteraren ska behandla allt material som [färg material](../../overview/features/color-materials.md) i stället. Om du har data som redan har en belysning, till exempel modeller som skapats via Photogrammetry, kan du med det här alternativet snabbt upprätthålla rätt konvertering för allt material, utan att behöva [åsidosätta varje material](override-materials.md) individuellt.
+* `unlitMaterials` -Konverteringen kommer som standard att föredra att skapa [PBR-material](../../overview/features/pbr-materials.md). Det här alternativet anger att konverteraren ska behandla allt material som [färg material](../../overview/features/color-materials.md) i stället. Om du har data som redan har en belysning, till exempel modeller som skapats via Photogrammetry, kan du med det här alternativet snabbt upprätthålla rätt konvertering för allt material, utan att behöva [åsidosätta varje material](override-materials.md) individuellt.
 
 ### <a name="converting-from-older-fbx-formats-with-a-phong-material-model"></a>Konvertera från äldre FBX-format, med en Phong material modell
 
-* `fbxAssumeMetallic`-Äldre versioner av FBX-formatet definierar deras material med en Phong material modell. Konverterings processen måste härleda hur dessa material mappar till åter givnings programmets [PBR-modell](../../overview/features/pbr-materials.md). Vanligt vis fungerar det bra, men en tvetydighet kan uppstå när ett material saknar strukturer, höga spegel värden och en icke-grå albedo färg. I detta fall måste konverteringen välja mellan att prioritera de höga spegel värdena, definiera ett högt reflekterande, metallisk material där albedo-färgen löses bort eller prioriterar albedo-färgen, vilket definierar något som en blank plast i färg. Konverterings processen förutsätter som standard att hög spegel värden innebär ett metalliskt material i fall där tvetydighet gäller. Den här parametern kan anges till `false` att växla till motsatt.
+* `fbxAssumeMetallic` -Äldre versioner av FBX-formatet definierar deras material med en Phong material modell. Konverterings processen måste härleda hur dessa material mappar till åter givnings programmets [PBR-modell](../../overview/features/pbr-materials.md). Vanligt vis fungerar det bra, men en tvetydighet kan uppstå när ett material saknar strukturer, höga spegel värden och en icke-grå albedo färg. I detta fall måste konverteringen välja mellan att prioritera de höga spegel värdena, definiera ett högt reflekterande, metallisk material där albedo-färgen löses bort eller prioriterar albedo-färgen, vilket definierar något som en blank plast i färg. Konverterings processen förutsätter som standard att hög spegel värden innebär ett metalliskt material i fall där tvetydighet gäller. Den här parametern kan anges till `false` att växla till motsatt.
 
 ### <a name="coordinate-system-overriding"></a>Koordinera system åsidosättning
 
-* `axis`– Om du vill åsidosätta koordinatsystemet för enhet – vektorer. Standardvärden är `["+x", "+y", "+z"]` . I teorin har FBX-formatet ett sidhuvud där dessa vektorer är definierade och konverteringen använder den informationen för att transformera scenen. GlTF-formatet definierar också ett fast koordinatsystem. I praktiken har vissa till gångar antingen felaktig information i sidhuvudet eller sparats med en annan konvention för koordinerade system. Med det här alternativet kan du åsidosätta koordinatsystemet. Exempel: `"axis" : ["+x", "+z", "-y"]` utbyte Z-axeln och y-axeln och behåll koordinatsystemet genom att invertera Y-axelns riktning.
+* `axis` – Om du vill åsidosätta koordinatsystemet för enhet – vektorer. Standardvärden är `["+x", "+y", "+z"]` . I teorin har FBX-formatet ett sidhuvud där dessa vektorer är definierade och konverteringen använder den informationen för att transformera scenen. GlTF-formatet definierar också ett fast koordinatsystem. I praktiken har vissa till gångar antingen felaktig information i sidhuvudet eller sparats med en annan konvention för koordinerade system. Med det här alternativet kan du åsidosätta koordinatsystemet. Exempel: `"axis" : ["+x", "+z", "-y"]` utbyte Z-axeln och y-axeln och behåll koordinatsystemet genom att invertera Y-axelns riktning.
 
 ### <a name="node-meta-data"></a>Node metadata-data
 
-* `metadataKeys`– Här kan du ange nycklar för de egenskaper för Node-metadata som du vill behålla i konverterings resultatet. Du kan ange exakta nycklar eller jokertecken. Jokertecken har formatet "ABC *" och matchar alla nycklar som börjar med "ABC". De värde typer för metadata som stöds är `bool` ,, `int` `float` och `string` .
+* `metadataKeys` – Här kan du ange nycklar för de egenskaper för Node-metadata som du vill behålla i konverterings resultatet. Du kan ange exakta nycklar eller jokertecken. Jokertecken har formatet "ABC *" och matchar alla nycklar som börjar med "ABC". De värde typer för metadata som stöds är `bool` ,, `int` `float` och `string` .
 
     För GLTF-filer kommer dessa data från [tillägg-objektet på noderna](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). För FBX-filer kommer dessa data att hämtas från `Properties70` data på `Model nodes` . Mer information finns i dokumentationen för 3D Asset Tool.
 
-### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formatering
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex"::: formatering
 
 Det är möjligt att justera :::no-loc text="vertex"::: formatet för ett nät till handels precision för minnes besparingar. Med ett lägre minnes utrymme kan du läsa in större modeller eller få bättre prestanda. Men beroende på dina data kan fel format kraftigt påverka åter givnings kvaliteten.
 
@@ -194,7 +200,7 @@ De här formaten är tillåtna för respektive komponenter:
 
 Minnes formaten för formaten är följande:
 
-| Format | Beskrivning | Byte per:::no-loc text="vertex"::: |
+| Format | Beskrivning | Byte per :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|full flytt ALS precision med två komponenter|8
 |16_16_FLOAT|två komponenter halv flytt ALS precision|4
@@ -208,7 +214,7 @@ Minnes formaten för formaten är följande:
 * `position`: Det är sällsynt att minskad noggrannhet räcker. **16_16_16_16_FLOAT** introducerar märkbara kvantifieringsfel-artefakter, även för små modeller.
 * `normal`, `tangent` , `binormal` : Vanligt vis ändras de här värdena tillsammans. Om det inte finns några märkbara belysnings artefakter som orsakas av normala kvantifieringsfel, finns det ingen anledning att öka deras noggrannhet. I vissa fall kan dessa komponenter ställas in på **ingen**:
   * `normal`, `tangent` och `binormal` behövs bara när minst ett material i modellen ska tändas. I ARR är det fallet när ett [PBR-material](../../overview/features/pbr-materials.md) används i modellen när som helst.
-  * `tangent`och `binormal` behövs bara när något av tänd materialet använder en normal kart struktur.
+  * `tangent` och `binormal` behövs bara när något av tänd materialet använder en normal kart struktur.
 * `texcoord0`, `texcoord1` : Textur koordinater kan använda mindre precision (**16_16_FLOAT**) när värdena ligger i `[0; 1]` intervallet och när de adresserade texturerna har en maximal storlek på 2048 x 2048 bild punkter. Om dessa gränser överskrids påverkas kvaliteten på textur mappningen.
 
 #### <a name="example"></a>Exempel
@@ -241,9 +247,9 @@ Ett enkelt sätt att testa om indelnings information bevaras under konverteringe
 
 ![Kloning i max.](./media/3dsmax-clone-object.png)
 
-* **`Copy`**: I det här läget klonas nätet, så ingen instans används ( `numMeshPartsInstanced` = 0).
-* **`Instance`**: De två objekten delar samma nät, så indelningen används ( `numMeshPartsInstanced` = 1).
-* **`Reference`**: Distinkta modifierare kan tillämpas på Geometries, så att export verktyget väljer en försiktigt metod och inte använder instans ( `numMeshPartsInstanced` = 0).
+* **`Copy`** : I det här läget klonas nätet, så ingen instans används ( `numMeshPartsInstanced` = 0).
+* **`Instance`** : De två objekten delar samma nät, så indelningen används ( `numMeshPartsInstanced` = 1).
+* **`Reference`** : Distinkta modifierare kan tillämpas på Geometries, så att export verktyget väljer en försiktigt metod och inte använder instans ( `numMeshPartsInstanced` = 0).
 
 
 ### <a name="depth-based-composition-mode"></a>Djup baserat sammanställnings läge
@@ -259,8 +265,8 @@ Som vi ser i avsnittet [metod tips för komponent format ändringar](configure-m
 Beroende på typen av scenario kan mängden textur data uppväga det minne som används för nät data. Photogrammetry-modeller är kandidater.
 Konverterings konfigurationen ger inte möjlighet att skala ned texturer automatiskt. Vid behov måste struktur skalning utföras som ett för bearbetnings steg på klient sidan. Konverterings steget väljer dock ett lämpligt [struktur komprimerings format](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
-* `BC1`för täckande färg strukturer
-* `BC7`för käll färgs strukturer med alpha Channel
+* `BC1` för täckande färg strukturer
+* `BC7` för käll färgs strukturer med alpha Channel
 
 Eftersom formatet `BC7` har dubbelt så stor minnes storlek jämfört med `BC1` , är det viktigt att se till att de angivna texturerna inte ger någon alfa kanal i onödan.
 

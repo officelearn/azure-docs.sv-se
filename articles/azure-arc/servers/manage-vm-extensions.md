@@ -1,24 +1,24 @@
 ---
-title: Hantering av VM-tillägg med Azure Arc-aktiverade servrar (förhands granskning)
-description: Azure Arc-aktiverade servrar (för hands version) kan hantera distribution av virtuella dator tillägg som tillhandahåller konfiguration och automatisering av virtuella datorer med icke-virtuella datorer i Azure.
-ms.date: 06/17/2020
+title: Hantering av VM-tillägg med Azure Arc-aktiverade servrar
+description: Azure Arc-aktiverade servrar kan hantera distribution av virtuella dator tillägg som tillhandahåller konfiguration och automatiserings uppgifter efter distributionen med icke-virtuella datorer i Azure.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018169"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887727"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Hantering av virtuella dator tillägg med Azure Arc-aktiverade servrar (förhands granskning)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Hantering av virtuella dator tillägg med Azure Arc-aktiverade servrar
 
 Tillägg för virtuella datorer (VM) är små program som ger konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Om en virtuell dator till exempel behöver programvaruinstallation, antivirusskydd eller körning av ett skript på den kan ett VM-tillägg användas.
 
-Med Azure Arc-aktiverade servrar (för hands version) kan du distribuera virtuella Azure-tillägg till virtuella Windows-och Linux-datorer som inte är Azure-datorer, vilket fören klar hanteringen av hybrid datorn lokalt, i Edge och i andra moln miljöer genom deras livs cykel.
+Med Azure Arc-aktiverade servrar kan du distribuera virtuella Azure-tillägg till virtuella Windows-och Linux-datorer som inte är Azure-datorer, vilket fören klar hanteringen av hybrid datorn lokalt, i Edge och i andra moln miljöer via deras livs cykel.
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
-Azure Arc-aktiverade servrar (för hands version) stöd för VM-tillägg ger följande viktiga fördelar:
+Stöd för VM-tillägg för Azure Arc-aktiverade servrar ger följande viktiga fördelar:
 
 * Använd [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md) för att centralt lagra konfigurationer och upprätthålla det önskade läget för Hybrid anslutna datorer som är aktiverade via DSC VM-tillägget.
 
@@ -47,7 +47,7 @@ I den här för hands versionen har vi stöd för följande VM-tillägg på Wind
 |Log Analytics-agent |Linux |Microsoft. EnterpriseCloud. Monitoring |[Log Analytics VM-tillägg för Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft-beroende agent | Linux |Microsoft.Compute | [Tillägg för virtuell dator för beroende agent för Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-VM-tillägg kan köras med Azure Resource Manager mallar, från Azure Portal eller Azure PowerShell på Hybrid servrar som hanteras av Arc-aktiverade servrar (för hands version).
+VM-tillägg kan köras med Azure Resource Manager mallar, från Azure Portal eller Azure PowerShell på Hybrid servrar som hanteras av Arc-aktiverade servrar.
 
 Mer information om paketet för Azure Connected Machine agent och information om tilläggs Agent komponenten finns i [agent översikt](agent-overview.md#agent-component-details).
 
@@ -75,13 +75,13 @@ Om du vill uppgradera datorn till den version av agenten som krävs, se [uppgrad
 
 ## <a name="enable-extensions-from-the-portal"></a>Aktivera tillägg från portalen
 
-VM-tillägg kan tillämpas på den hanterade datorn för Server (för hands version) via Azure Portal.
+VM-tillägg kan tillämpas på en server hanterad dator via Azure Portal.
 
 1. Gå till [Azure Portal](https://aka.ms/arcserver-preview)i webbläsaren.
 
-2. I portalen bläddrar du till **datorer – Azure-båge** och väljer hybrid datorn i listan.
+2. I portalen bläddrar du till **servrar – Azure Arc** och väljer hybrid datorn i listan.
 
-3. Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden. I det här exemplet ska vi distribuera Log Analytics VM-tillägget. 
+3. Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden. I det här exemplet ska vi distribuera Log Analytics VM-tillägget.
 
     ![Välj VM-tillägg för den valda datorn](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -98,7 +98,7 @@ VM-tillägg kan tillämpas på den hanterade datorn för Server (för hands vers
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-VM-tillägg kan läggas till i en Azure Resource Manager mall och köras med mallen. Med de VM-tillägg som stöds av Arc-aktiverade servrar (för hands version) kan du distribuera VM-tillägget som stöds på Linux-eller Windows-datorer med Azure PowerShell. Varje exempel nedan innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
+VM-tillägg kan läggas till i en Azure Resource Manager mall och köras med mallen. Med de VM-tillägg som stöds av Arc-aktiverade servrar kan du distribuera VM-tillägget som stöds på Linux-eller Windows-datorer med Azure PowerShell. Varje exempel nedan innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
 
 >[!NOTE]
 >Även om flera tillägg kan grupperas tillsammans och bearbetas, installeras de seriellt. När den första tilläggs installationen har slutförts görs ett försök att installera nästa tillägg.
@@ -707,6 +707,18 @@ Om du vill använda tillägget Azure Monitor beroende agent, finns följande exe
 }
 ```
 
+## <a name="uninstall-extension"></a>Avinstallera tillägg
+
+Borttagning av ett eller flera tillägg från en ARC-aktiverad server kan bara utföras från Azure Portal. Utför följande steg för att ta bort ett tillägg.
+
+1. Gå till [Azure Portal](https://portal.azure.com)i webbläsaren.
+
+2. I portalen bläddrar du till **servrar – Azure Arc** och väljer hybrid datorn i listan.
+
+3. Välj **tillägg**och välj sedan ett tillägg i listan över installerade tillägg.
+
+4. Välj **Avinstallera** och när du uppmanas att bekräfta väljer du **Ja** för att fortsätta.
+
 ## <a name="troubleshooting"></a>Felsökning
 
 Information om tillstånd för tilläggs distributioner kan hämtas från Azure Portal.
@@ -715,7 +727,7 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 1. Kontrol lera gäst agents loggen genom att titta på aktiviteten när ditt tillägg har allokerats i `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` för Windows, och för Linux under `/var/lib/GuestConfig/ext_mgr_logs` .
 
-2. Kontrol lera tilläggs loggarna för det angivna tillägget för mer information i `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` för Windows. Utökning av utdata loggas till en fil för varje tillägg som installeras på Linux under `/var/log/GuestConfig/extension_logs` .
+2. Kontrol lera tilläggs loggarna för det angivna tillägget för mer information i `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` för Windows. Utökning av utdata loggas till en fil för varje tillägg som installeras på Linux under `/var/lib/GuestConfig/extension_logs` .
 
 3. Sök efter felkoder, kända problem och fel söknings avsnitt för specifika dokumentation Ytterligare felsöknings information för varje tillägg finns i avsnittet **fel sökning och support** i Översikt över tillägget. Detta inkluderar beskrivningen av felkoder som skrivs till loggen. Tilläggs artiklarna är länkade i tilläggs [tabellen](#extensions) som tidigare fanns i den här artikeln.
 
@@ -725,4 +737,4 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 - Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-policy.md)och mycket mer.
 
-- Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+- Läs mer om [[Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).

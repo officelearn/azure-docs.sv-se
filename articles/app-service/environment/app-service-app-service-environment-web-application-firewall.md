@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961847"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973699"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
@@ -26,7 +26,7 @@ Det finns flera alternativ utöver Azure Application Gateway, till exempel [Barr
 ## <a name="setup"></a>Installation
 I det här dokumentet konfigurerar vi App Service-miljön bakom flera belastningsutjämnade instanser av Barracuda WAF så att endast trafik från WAF kan nå App Service-miljön och att det inte går att komma åt miljön från DMZ. Vi har också Azure Traffic Manager framför Barracuda WAF-instanserna för att belastningsutjämna över Azure-datacenter och -regioner. Ett översiktsdiagram över hur konfigurationen skulle se ut:
 
-![Arkitektur][Architecture] 
+![Diagram visar ett valfritt Azure-Traffic Manager ansluter till instanser av brand vägg för webbaserade program, ansluter till nätverk A C L för att bara tillåta trafik från brand väggen i en App Service-miljön som innehåller webb, en P I och mobilapp för två regioner.][Architecture] 
 
 > [!NOTE]
 > Med introduktionen av [ILB-stöd för App Service-miljön](app-service-environment-with-internal-load-balancer.md) kan du konfigurera ASE så att miljön inte kan nås från DMZ utan endast är tillgänglig för det privata nätverket. 

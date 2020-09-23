@@ -10,12 +10,12 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0d03b2708bfd4aac2565b303ddce44f50be65ef9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ee76c1692049d5b25e85b6780fbcf78f7ebfdd2f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612337"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987050"
 ---
 # <a name="object-replication-for-block-blobs"></a>Objekt replikering för block-blobar
 
@@ -68,7 +68,7 @@ Du kan också ange ett eller flera filter som en del av en replikeringsprincip f
 
 Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir målcontainern skrivskyddad. Försök att skriva till målcontainern misslyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) på en BLOB i mål behållaren för att flytta den till Arkiv nivån. Mer information om Arkiv nivån finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md#archive-access-tier)lag rings nivåer.
 
-## <a name="billing"></a>Fakturering 
+## <a name="billing"></a>Fakturering
 
 Objekt replikering medför ytterligare kostnader för Läs-och skriv transaktioner mot käll-och mål kontona, samt utgående kostnader för replikering av data från käll kontot till mål kontot och Läs kostnader för att bearbeta ändrings flödet.
 

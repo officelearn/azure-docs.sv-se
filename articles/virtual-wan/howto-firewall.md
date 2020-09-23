@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f20ed76a72eecce59a7b8795a42b033230a2f7e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753692"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983665"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Konfigurera Azure-brandväggen i en virtuell WAN-hubb
 
@@ -32,20 +32,20 @@ Om du vill skapa ett nytt virtuellt WAN-nätverk och en ny hubb använder du ste
 
 **Översikts** sidan för ditt virtuella WAN-nätverk visar en lista över virtuella hubbar och skyddade nav. Följande bild visar ett virtuellt WAN utan skyddade nav.
 
-[![Översikt](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[![Skärm bild som visar översikts sidan för ett virtuellt WAN med en lista över virtuella nav.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## <a name="convert-to-secured-hub"></a>Konvertera till skyddad hubb
 
 1. På sidan **Översikt** för ditt virtuella WAN väljer du den hubb som du vill konvertera till ett skyddat nav. På sidan Virtual Hub visas två alternativ för att distribuera Azure-brandväggen i den här hubben. Välj något av alternativen.
 
-   [![säkerhet](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [![Skärm bild som visar översikts sidan för ditt virtuella WAN-nätverk där du kan välja antingen konvertera till säker hubb eller Azure-brandvägg.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. När du har valt ett av alternativen visas sidan **konvertera till säkert nav** . Välj en hubb som ska konverteras och välj sedan **Nästa: Azure-brandväggen** längst ned på sidan.
 
    [![Välj hubb](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. När du har slutfört arbets flödet väljer du **Bekräfta**.
 
-   [![Bekräfta](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [![Skärm bild som visar fönstret konvertera till säkert hubb med bekräfta valt.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. När hubben har konverterats till en skyddad hubb kan du Visa den på **översikts** sidan för Virtual WAN.
 

@@ -3,12 +3,12 @@ title: Säkerhetskopiera Windows system State till Azure
 description: Lär dig hur du säkerhetskopierar system tillstånd för Windows Server-datorer till Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376498"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975485"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Säkerhetskopiera Windows system State till Azure
 
@@ -40,7 +40,7 @@ När du skapar ett Recovery Services-valv ska du alltid kontrollera att lagrings
 
     ![Alternativ för lagrings konfiguration](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy.md) och [lokalt redundant](../storage/common/storage-redundancy.md) i denna [översikt av lagringsredundans](../storage/common/storage-redundancy.md).
+    Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om [geo-redundanta](../storage/common/storage-redundancy.md#geo-redundant-storage), [lokalt redundanta](../storage/common/storage-redundancy.md#locally-redundant-storage) och [zon redundanta](../storage/common/storage-redundancy.md#zone-redundant-storage) lagrings alternativ i denna [Översikt över lagrings redundans](../storage/common/storage-redundancy.md).
 
 Nu när du har skapat ett valv konfigurerar du det för att säkerhetskopiera Windows system tillstånd.
 

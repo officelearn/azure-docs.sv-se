@@ -7,23 +7,22 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 2455297cd9dd77d2b5f605bf36ed46b6240b3f4d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 7a298de40264a06e18aa4b7c77abfd622be4bb75
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505418"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978327"
 ---
-Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
+[Avancerad läsare](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra Läs förståelse för nya läsare, språkutbildningar och personer med inlärnings skillnader som Dyslexia. Du kan använda avancerad läsare i dina program för att isolera text för att förbättra fokus, Visa bilder för vanliga ord, markera delar av tal, läsa den markerade texten, översätta ord och fraser i real tid och mycket mer.
 
 I den här snabb starten skapar du en iOS-app från grunden och integrerar den fördjupade läsaren. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
-
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 
@@ -31,21 +30,21 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Skapa ett nytt projekt i Xcode.
 
-![Nytt projekt](../../media/ios/xcode-create-project.png)
+![Nytt projekt – Swift](../../media/ios/xcode-create-project.png)
 
 Välj **en app för enskild vy**.
 
-![Ny app för enskild vy](../../media/ios/xcode-single-view-app.png)
+![Ny app för enkel vy – Swift](../../media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>Konfigurera autentisering
 
 I den översta menyn klickar du på **produkt > schema > Redigera schema.**...
 
-![Redigera schema](../../media/ios/quickstart-ios-edit-scheme.png)
+![Redigera schema – Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
 I **körnings** vyn klickar du på fliken **argument** .
 
-![Redigera schema](../../media/ios/quickstart-ios-env-vars.png)
+![Redigera schema miljö variabler – Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 I avsnittet **miljövariabler** lägger du till följande namn och värden, och anger de värden som angavs när du skapade din fördjupade läsare-resurs.
 
@@ -557,19 +556,19 @@ function sendContentToReader(message) {
 
 Ange Arkiv schema i Xcode genom att välja en simulator eller ett enhets mål.
 
-![Arkiv schema](../../media/ios/xcode-archive-scheme.png)
+![Arkiv schema – Swift](../../media/ios/xcode-archive-scheme.png)
 
-![Välja mål](../../media/ios/xcode-select-target.png)
+![Välj mål – Swift](../../media/ios/xcode-select-target.png)
 
 Tryck på **CTRL + R** i Xcode eller klicka på uppspelnings knappen för att köra projektet. Appen ska starta på den angivna simulatorn eller enheten.
 
 I din app bör du se:
 
-![Exempelapp](../../media/ios/sample-app-ipad.png)
+![Exempel App – Swift](../../media/ios/sample-app-ipad.png)
 
 När du klickar på knappen **fördjupad läsare** visas den fördjupade läsaren som startas med innehållet på appen.
 
-![Avancerad läsare](../../media/ios/immersive-reader-ipad.png)
+![Avancerad läsare – Swift](../../media/ios/immersive-reader-ipad.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

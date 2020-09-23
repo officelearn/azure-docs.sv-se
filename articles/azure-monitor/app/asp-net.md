@@ -3,12 +3,12 @@ title: Konfigurera webbappsanalyser för ASP.NET med Application Insights | Micr
 description: Konfigurera prestanda-, tillgänglighets-och användar beteende analys verktyg för din ASP.NET-webbplats, som finns lokalt eller i Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c07e7c8e7bd710cb591719fe8d53a3bad6ca2ee0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475540"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973789"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
@@ -16,14 +16,14 @@ Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri t
 
 Installationen kräver bara några klick i Visual Studio. Du har möjlighet att undvika kostnader genom att begränsa mängden telemetri. Med den här funktionen kan du experimentera och felsöka eller övervaka en webbplats med inte många användare. Om du sedan vill gå vidare och övervaka din produktionsplats, är det lätt att höja gränsen vid ett senare tillfälle.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 När du ska lägga till Application Insights för din ASP.NET-webbplats måste du göra följande:
 
 - Installera [Visual Studio 2019 för Windows](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webb utveckling (Avmarkera inte de valfria komponenterna)
     - Azure Development
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Steg 1: Lägg till Application Insights SDK
 
@@ -42,11 +42,11 @@ Konfigurationsskärmen för Application Insights:
 
 Välj **Kom igång**.
 
-![Skärmbild av sidan Register your app with Application Insights (Registrera din app med Application Insights)](./media/asp-net/00004-start-free.png)
+![Skärm bild som visar Application Insights sida och knappen kom igång.](./media/asp-net/00004-start-free.png)
 
 Om du vill ange resursgruppen eller den plats där dina data är lagrade klickar du på **Konfigurera inställningar**. Resursgrupper används för att styra dataåtkomst. Om du exempelvis har flera appar som ingår i samma system kan du placera deras Application Insights-data i samma resursgrupp.
 
- Välj **Registrera**.
+ Välj **Register** (Registrera).
 
 ![Skärmbild av sidan Register your app with Application Insights (Registrera din app med Application Insights)](./media/asp-net/00005-register-ed.png)
 
@@ -104,7 +104,7 @@ Du kan också fortsätta att analysera din telemetri i [Visual Studio](./visual-
 >
 >
 
-## <a name="youre-all-set"></a><a name="land"></a>Allt är klart
+## <a name="youre-all-set"></a><a name="land"></a> Allt är klart
 
 Grattis! Du har installerat Application Insights-paketet i din app och konfigurerat det för att skicka telemetri till Application Insights-tjänsten på Azure.
 

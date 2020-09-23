@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185406"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987628"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Självstudie: skapa en PowerShell Workflow-Runbook
 
@@ -109,17 +109,17 @@ Den Runbook som du har skapat är fortfarande i utkast läge. Du måste publicer
 
 6. Observera att jobb statusen visas i **jobb Sammanfattning**. Den här statusen matchar de status värden som du såg när du testade runbooken.
 
-   ![Jobbsammanfattning](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Skärm bild av fönstret Runbook-jobb som visar avsnittet jobb Sammanfattning markerat.":::
 
 7. När Runbook-statusen har slutförts klickar du på **utdata**. Sidan utdata öppnas där du kan se `Hello World` meddelandet.
 
-   ![Jobbsammanfattning](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Skärm bild av fönstret Runbook-jobb som visar knappen utdata markerat.":::
 
 8. Stäng sidan utdata.
 
 9. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör bara se `Hello World` i utdataströmmen. Observera att fönstret strömmar kan visa andra strömmar för ett Runbook-jobb, till exempel utförliga data strömmar och fel strömmar, om Runbook skriver till dem.
 
-   ![Jobbsammanfattning](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Skärm bild av fönstret Runbook-jobb som visar knappen alla loggar markerad.":::
 
 10. Stäng fönstret strömmar och fönstret jobb för att återgå till sidan MyFirstRunbook.
 

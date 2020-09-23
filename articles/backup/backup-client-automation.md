@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 47c8fc39626d3bca3355c1d1e46f1634327748a8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892379"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987095"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 
@@ -42,7 +42,7 @@ Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Ett Rec
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Ange vilken typ av lagrings redundans som ska användas. Du kan använda [Lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md) eller [geo-REDUNDANT lagring (GRS)](../storage/common/storage-redundancy.md). I följande exempel visas alternativet **-BackupStorageRedundancy** för *testVault* **som är**inställt på ett inaktivt läge.
+4. Ange vilken typ av lagrings redundans som ska användas. Du kan använda [Lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [geo-REDUNDANT lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) eller [Zone-redundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). I följande exempel visas alternativet **-BackupStorageRedundancy** för *testVault* som är inställt på den här **inställningen.**
 
    > [!TIP]
    > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det lämpligt att lagra säkerhets kopierings Recovery Services valvet i en variabel.

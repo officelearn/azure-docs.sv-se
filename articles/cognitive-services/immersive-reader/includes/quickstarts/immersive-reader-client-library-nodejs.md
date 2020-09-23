@@ -7,24 +7,23 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: bbef435bc7cf0bf146009859044bcabe3c0f55ee
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: d485e95e0f41b323d1297c669c13fb1fe5886619
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505424"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978299"
 ---
-Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
+[Avancerad läsare](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra Läs förståelse för nya läsare, språkutbildningar och personer med inlärnings skillnader som Dyslexia. Du kan använda avancerad läsare i dina program för att isolera text för att förbättra fokus, Visa bilder för vanliga ord, markera delar av tal, läsa den markerade texten, översätta ord och fraser i real tid och mycket mer.
 
-I den här snabb starten skapar du en webbapp från grunden och integrerar den fördjupade läsaren med hjälp av klient biblioteket för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
+I den här snabb starten skapar du en webbapp från grunden och integrerar avancerad läsare med klient biblioteket för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
-
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Node.js](https://nodejs.org/) och [garn](https://yarnpkg.com)
 * En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
@@ -246,13 +245,13 @@ npm start
 
 Öppna webbläsaren och gå till _http://localhost:3000_ . Du bör se följande:
 
-![Exempelapp](../../media/quickstart-nodejs/1-buildapp.png)
+![Exempel App – Node.js](../../media/quickstart-nodejs/1-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>Starta den fördjupade läsaren
 
 När du klickar på knappen "avancerad läsare" visas den fördjupade läsaren som lanserades med innehållet på sidan.
 
-![Avancerad läsare](../../media/quickstart-nodejs/2-viewimmersivereader.png)
+![Fördjupad läsare – Node.js](../../media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

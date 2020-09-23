@@ -29,6 +29,10 @@
       href: fusion.md
     - name: Utöka Azure Sentinel för arbetsytor och klientorganisationer
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: Identifiera avancerade hot med UEBA
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Importera hotinformation till Azure Sentinel
+      href: import-threat-intelligence.md
     - name: Normalisera data i tabeller
       href: normalization.md
     - name: Säkerhet
@@ -162,6 +166,8 @@
           href: connect-threat-intelligence.md
         - name: Ansluta virtuella datorer i Azure Stack
           href: connect-azure-stack.md
+    - name: Aktivera beteendeanalys för användare och entiteter
+      href: enable-entity-behavior-analytics.md
     - name: Arbeta med flera klientorganisationer (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Arbeta med incidenter på flera arbetsytor

@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460804"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979425"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Felsöka hantering av Azure AD-berättigande
 
@@ -75,7 +75,7 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 ### <a name="view-a-requests-delivery-errors"></a>Visa leverans fel för en begäran
 
-**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare, Access Package Manager eller Access Package Assignment Manager
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -103,7 +103,7 @@ Du kan bara ombearbeta en begäran som har statusen **levererad** eller **delvis
 
 - Om felet **inte** löstes under utvärderings perioden kan status för begäran vara Inlevererat eller **delvis levererat**. Sedan kan du använda knappen för att **bearbeta** igen. Du har sju dagar på sig att bearbeta begäran igen.
 
-**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare, Access Package Manager eller Access Package Assignment Manager
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -121,7 +121,7 @@ Du kan bara ombearbeta en begäran som har statusen **levererad** eller **delvis
 
 Du kan bara avbryta en väntande begäran som ännu inte har levererats eller vars leverans har misslyckats. Knappen **Avbryt** visas annars nedtonad.
 
-**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare, Access Package Manager eller Access Package Assignment Manager
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 

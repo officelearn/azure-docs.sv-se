@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure cache för Redis
 description: Visar Azure Policy inbyggda princip definitioner för Azure cache för Redis. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d4af11e186f1f8e75c5dfe9479009808f44d1ead
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 04c7ee37881f126a68cb5e6968d857d19a6391e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007850"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987796"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Azure Policy inbyggda definitioner för Azure cache för Redis
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186341"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987327"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Redigera grafiska runbooks i Azure Automation
 
@@ -61,7 +61,7 @@ Välj en aktivitet på arbets ytan för att konfigurera dess egenskaper och para
 
 En parameter uppsättning definierar de obligatoriska och valfria parametrarna som accepterar värden för en viss cmdlet. Alla cmdlets har minst en parameter uppsättning och några har flera uppsättningar. Om en cmdlet har flera parameter uppsättningar måste du välja den som ska användas innan du kan konfigurera parametrar. Du kan ändra den parameter uppsättning som används av en aktivitet genom att välja **parameter uppsättning** och välja en annan uppsättning. I det här fallet går alla parameter värden som du redan har konfigurerat förlorade.
 
-I följande exempel har cmdleten [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tre parameter uppsättningar. Exemplet använder en uppsättning som kallas **ListVirtualMachineInResourceGroupParamSet**, med en enda valfri parameter, för att returnera alla virtuella datorer i en resurs grupp. I exemplet används också **GetVirtualMachineInResourceGroupParamSet** -parametern för att ange den virtuella dator som ska returneras. Den här uppsättningen har två obligatoriska parametrar och en valfri parameter.
+I följande exempel har cmdleten [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) tre parameter uppsättningar. Exemplet använder en uppsättning som kallas **ListVirtualMachineInResourceGroupParamSet**, med en enda valfri parameter, för att returnera alla virtuella datorer i en resurs grupp. I exemplet används också **GetVirtualMachineInResourceGroupParamSet** -parametern för att ange den virtuella dator som ska returneras. Den här uppsättningen har två obligatoriska parametrar och en valfri parameter.
 
 ![Parameter uppsättning](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -91,11 +91,11 @@ Funktionen försök igen för en aktivitet gör att den kan köras flera gånger
 
 När du aktiverar återförsök för en aktivitet kan du ange en fördröjning och ett villkor. Fördröjningen är den tid (mätt i sekunder eller minuter) som Runbook väntar innan aktiviteten körs igen. Om du inte anger en fördröjning körs aktiviteten igen omedelbart efter att den har slutförts.
 
-![Fördröjning för nytt aktivitets försök](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Skärm bild av inställningarna för aktivera funktions försök.":::
 
 Villkoret för återförsök är ett PowerShell-uttryck som utvärderas efter varje tid som aktiviteten körs. Om uttrycket matchar True körs aktiviteten igen. Om uttrycket matchar falskt körs inte aktiviteten igen och runbooken flyttas vidare till nästa aktivitet.
 
-![Fördröjning för nytt aktivitets försök](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Skärm bild som visar återförsök tills det här villkoret är sant och exempel på PowerShell-uttryck som kan användas i villkoret för återförsök.":::
 
 Villkoret för återförsök kan använda en variabel med namnet `RetryData` som ger till gång till information om aktiviteternas återförsök. Den här variabeln har egenskaperna i följande tabell:
 
@@ -256,7 +256,7 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Namn | Krävs. Parameterns namn. Namnet måste vara unikt inom runbooken. Det måste börja med en bokstav och får bara innehålla bokstäver, siffror och under streck. Namnet får inte innehålla blank steg. |
+| Name | Krävs. Parameterns namn. Namnet måste vara unikt inom runbooken. Det måste börja med en bokstav och får bara innehålla bokstäver, siffror och under streck. Namnet får inte innehålla blank steg. |
 | Beskrivning |Valfritt. Beskrivning av syftet med indataparametern. |
 | Typ | Valfritt. Datatyp förväntas för parametervärdet. Azure Portal ger en lämplig kontroll för data typen för varje parameter när du uppmanas att ange indata. Parameter typer som stöds är sträng, Int32, Int64, decimal, Boolean, DateTime och Object. Om du inte väljer någon datatyp används strängen som standard.|
 | Obligatorisk | Valfritt. Inställning som anger om ett värde måste anges för parametern. Om du väljer `yes` måste du ange ett värde när Runbook startas. Om du väljer `no` krävs inget värde när runbooken startas och ett standardvärde kan användas. Det går inte att starta runbooken om du inte anger något värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
@@ -435,4 +435,4 @@ Du kan välja att återgå till den publicerade versionen av en Runbook. Den hä
 * Information om hur du kommer igång med grafiska runbooks finns i [Självstudier: skapa en grafisk Runbook](learn/automation-tutorial-runbook-graphical.md).
 * Om du vill veta mer om Runbook-typer och deras fördelar och begränsningar, se [Azure Automation Runbook-typer](automation-runbook-types.md).
 * Information om hur du autentiserar med hjälp av Automation kör som-kontot finns i [Kör som-konto](automation-security-overview.md#run-as-account).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

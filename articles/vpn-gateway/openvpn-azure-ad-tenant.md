@@ -1,18 +1,18 @@
 ---
 title: 'VPN Gateway: Azure AD-klient för P2S VPN-anslutningar: Azure AD-autentisering'
-description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
+description: Lär dig hur du konfigurerar en Azure AD-klient för P2S med öppen VPN-autentisering.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 01fe9331d4063ae45a5d30aa3546d6338d30822d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89499968"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981533"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
 
@@ -85,7 +85,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 6. Välj **acceptera** när du uppmanas till detta.
 
-    ![Acceptera](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Skärm bild som visar de meddelande behörigheter som har begärts acceptera för din organisation med information och alternativet att acceptera.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. I **företags program**i Azure AD visas **Azure VPN** i listan.
 

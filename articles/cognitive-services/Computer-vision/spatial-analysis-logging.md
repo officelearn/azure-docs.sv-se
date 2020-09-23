@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: b7ca679be0edb4177a883abfac361f9554f0d555
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d19c061ad1e5cf033d2801df64a0ae37736c418
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941664"
+ms.locfileid: "90983019"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetri och fel sökning
 
@@ -74,7 +74,7 @@ I [distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179)let
 
 "telegraf": { 
   "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/telegraf:1.0",
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
   "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
 },
 "type": "docker",
@@ -136,7 +136,7 @@ I avsnittet "miljö" lägger du till följande konfiguration:
 ```json
 "diagnostics": {  
   "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/diagnostics:1.0",
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
   "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
   }
 ```    
@@ -306,6 +306,15 @@ I följande tabell visas attributen i svaret på frågan.
 Kontrol lera hämtnings loggens rader, tider och storlekar, om dessa inställningar ser till att ersätta ***DoPost*** till `true` och som ska skicka loggarna med samma filter till mål. 
 
 Du kan exportera loggar från Azure-Blob Storage när du felsöker problem. 
+
+## <a name="common-issues"></a>Vanliga problem
+
+Om du ser följande meddelande i-modulens loggar, kan det betyda att din Azure-prenumeration måste godkännas: 
+
+"Container är inte i ett giltigt tillstånd. Prenumerations verifieringen misslyckades med status matchnings fel. API-nyckeln är inte avsedd för den aktuella behållar typen. "
+
+Mer information finns i [begära godkännande för att köra behållaren](spatial-analysis-container.md#request-approval-to-run-the-container). 
+
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Felsöka Azure Stack Edge-enheten
 

@@ -7,20 +7,20 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 1202e46f2ea12db62062ac50b8e83b51fe9e5ca0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428143"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974424"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportera IoT-data till moln mål med hjälp av data export (bakåtkompatibelt)
 
 > [!Note]
 > I den här artikeln beskrivs äldre data export funktioner i IoT Central.
 >
-> - Information om de nya funktionerna för för hands versions data export finns i [Exportera IoT-data till moln mål med hjälp av data export (för hands version)](./howto-export-data.md).
-> - Mer information om skillnaderna mellan funktionerna för för hands versions export och äldre data export finns i [jämförelse tabellen](./howto-export-data.md#comparison-of-legacy-data-export-and-preview-data-export).
+> - Information om de nya funktionerna för för hands versions data export finns i [Exportera IoT-data till moln mål med hjälp av data export](./howto-export-data.md).
+> - Mer information om skillnaderna mellan funktionerna för för hands versions export och äldre data export finns i [jämförelse tabellen](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 Den här artikeln beskriver hur du använder funktionen för data export i Azure IoT Central. Med den här funktionen kan du exportera dina data kontinuerligt till **azure Event Hubs**, **Azure Service Bus**eller **Azure Blob Storage** -instanser. Data export använder JSON-formatet och kan omfatta telemetri, enhets information och information om enhets mal len. Använd exporterade data för:
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du använder funktionen för data export i Azure
 > [!Note]
 > När du aktiverar data export får du bara data från dessa tidpunkter. För närvarande går det inte att hämta data under en tid då data exporten var avstängd. Aktivera data export tidigt om du vill behålla mer historiska data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
 
@@ -298,7 +298,7 @@ Den här ögonblicks bilden är ett exempel meddelande som visar enheter och ege
 }
 ```
 
-## <a name="device-templates"></a>Enhets mallar
+## <a name="device-templates"></a>Enhetsmallar
 
 Varje meddelande-eller ögonblicks bild post representerar en eller flera ändringar i en publicerad enhets mall sedan det senaste exporterade meddelandet. Information som skickas i varje meddelande eller post innehåller:
 

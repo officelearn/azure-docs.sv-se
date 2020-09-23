@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: d4067b23c4ff365857c37d7dfdce6dc42e129989
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 642a382f2ec5da7821c9d709bd27d592ced31c8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936613"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974034"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
@@ -34,7 +34,7 @@ När du klickar på Uppdatera kart komponenter uppdateras kartan med alla kompon
 
 Om alla komponenter är roller inom en enda Application Insights resurs krävs inte det här identifierings steget. Den första belastningen för ett sådant program kommer att ha alla dess komponenter.
 
-![Skärm bild för program karta](media/app-map/app-map-001.png)
+![Skärm bild som visar ett exempel på en program karta.](media/app-map/app-map-001.png)
 
 Ett av de viktigaste målen med den här upplevelsen är att kunna visualisera komplexa topologier med hundratals komponenter.
 

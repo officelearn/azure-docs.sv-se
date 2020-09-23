@@ -1,24 +1,24 @@
 ---
 title: Vad är Language Understanding Intelligent Service (LUIS)?
 description: Language Understanding (LUIS) – en molnbaserad API-tjänst som använder maskin inlärning till konversationer, naturligt språk för att förutsäga innebörd och extrahering av information.
-keywords: Azure, artificiell intelligens, AI, naturlig språk bearbetning, NLP, natur språks förståelse, NLU, AI-konversation, konversations-AI, AI-chattrobot, chattrobot Maker, LUIS, NLP AI, Luis AI, Azure Luis, förstå naturligt språk
+keywords: Azure, artificiell intelligens, AI, naturlig språk bearbetning, NLP, natur språks förståelse, NLU, LUIS, konversations AI, AI chattrobot, NLP AI, Azure Luis
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: ff9aa2652fe8a1e503b5e2c93ca149112770b081
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 3a8905ca1b9e7d7b4b1e4f5add000def9e91f9c6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400950"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985857"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Language Understanding Intelligent Service (LUIS) är en molnbaserad API-tjänst som använder anpassad maskininlärningsinformation på en användares naturliga konversationsspråk för att förutsäga den övergripande betydelsen och hämta relevant, detaljerad information.
+Language Understanding (LUIS) är en molnbaserad diskussions AI-tjänst som använder anpassad maskin inlärnings information till en användares konversation, naturligt språk text för att förutsäga den övergripande innebörden och hämta relevant detaljerad information.
 
-Ett klientprogram för LUIS är alla konversationsanpassade program som kommunicerar med en användare på naturligt språk för att utföra en uppgift. Exempel på klientprogram är appar för sociala medier, chattrobotar och talaktiverade skrivbordsprogram.
+Ett klientprogram för LUIS är alla konversationsanpassade program som kommunicerar med en användare på naturligt språk för att utföra en uppgift. Exempel på klient program är appar för sociala medier, AI-chattrobotar och tal aktiverade Skriv bords program.
 
 ![Konceptuell bild av 3 klient program som arbetar med Cognitive Services Language Understanding (LUIS)](./media/luis-overview/luis-entry-point.png "Konceptuell bild av 3 klient program som arbetar med Cognitive Services Language Understanding (LUIS)")
 
@@ -26,7 +26,7 @@ Ett klientprogram för LUIS är alla konversationsanpassade program som kommunic
 
 <a name="Accessing-LUIS"></a>
 
-När LUIS-appen har skickar ett klientprogram yttranden (text) till LUIS slutpunkts-[API][endpoint-apis] för bearbetning av naturligt språk och får resultat som JSON-svar. Ett vanligt klientprogram för LUIS är en chattrobot.
+När Azure LUIS-appen har publicerats skickar ett klient program yttranden (text) till LUISs slut punkts- [API][endpoint-apis] för naturlig språk bearbetning och tar emot resultatet som JSON-svar. Ett vanligt klientprogram för LUIS är en chattrobot.
 
 
 ![Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP")
@@ -44,7 +44,7 @@ LUIS-appen tillhandahåller information så att klientprogrammet kan fatta smart
 
 ## <a name="natural-language-understanding-nlu"></a>Natur språks förståelse (NLU)
 
-[Luis tillhandahåller artificiell intelligens (AI)](artificial-intelligence.md "LUIS tillhandahåller artificiell intelligens (AI)") i form av NLU, en delmängd av NLP (naturlig Language Processing).
+[Luis tillhandahåller artificiell intelligens (AI)](artificial-intelligence.md "LUIS tillhandahåller artificiell intelligens (AI)") i form av NLU, en delmängd av naturliga språk bearbetning AI.
 
 LUIS-appen innehåller en domänbaserad naturlig språk modell. Du kan starta LUIS-appen med en fördefinierad domänmodell, bygga din egen modell eller blanda delar av en fördefinierad modell med egen anpassad information.
 
@@ -52,7 +52,7 @@ LUIS-appen innehåller en domänbaserad naturlig språk modell. Du kan starta LU
 
 * **Anpassad modell** LUIS ger dig flera olika sätt att identifiera dina egna anpassade modeller, inklusive avsikter och entiteter. Entiteter innehåller enheter för maskin inlärning, speciella eller litterala entiteter och en kombination av Machine-Learning och Literal.
 
-Läs mer om [NLP](artificial-intelligence.md "NLP")och Luis NLU.
+Lär dig mer om [NLP AI](artificial-intelligence.md "NLP")och det Luis NLU.
 
 ## <a name="step-1-design-and-build-your-model"></a>Steg 1: utforma och skapa din modell
 

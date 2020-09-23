@@ -10,24 +10,34 @@
       items:
         - name: Introduktion
           href: get-started.md
+          displayName: 'get, started'
         - name: 1 Skapa en Synapse-arbetsyta
           href: get-started-create-workspace.md
+          displayName: 'get, started'
         - name: 2 Analysera med hjälp av en SQL-pool
           href: get-started-analyze-sql-pool.md
+          displayName: 'get, started'
         - name: 3 Analysera med hjälp av Spark
           href: get-started-analyze-spark.md
+          displayName: 'get, started'
         - name: 4 Analysera med SQL på begäran
           href: get-started-analyze-sql-on-demand.md
+          displayName: 'get, started'
         - name: 5 Analysera data i ett lagringskonto
           href: get-started-analyze-storage.md
+          displayName: 'get, started'
         - name: 6 Orkestrera med pipelines
           href: get-started-pipelines.md
+          displayName: 'get, started'
         - name: 7 Visualisera med Power BI
           href: get-started-visualize-power-bi.md
+          displayName: 'get, started'
         - name: 8 Övervakare
           href: get-started-monitor.md
+          displayName: 'get, started'
         - name: 9 Utforska kunskapscentret
           href: get-started-knowledge-center.md
+          displayName: 'get, started'
     - name: Översiktsblad
       href: overview-cheat-sheet.md
     - name: VANLIGA FRÅGOR OCH SVAR
@@ -48,16 +58,16 @@
       href: quickstart-power-bi.md
     - name: Skapa pooler
       items:
-        - name: Skapa Apache Spark-notebook-fil med hjälp av webbverktyg
-          href: quickstart-apache-spark-notebook.md
-        - name: Skapa Apache Spark-pool med hjälp av Azure-portalen
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Skapa Apache Spark-pool med Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
-        - name: Skapa SQL-pool med Azure Portal
-          href: quickstart-create-sql-pool-portal.md
         - name: Skapa SQL-pool med Synapse Studio
           href: quickstart-create-sql-pool-studio.md
+        - name: Skapa SQL-pool med Azure Portal
+          href: quickstart-create-sql-pool-portal.md
+        - name: Skapa en notebook-fil
+          href: quickstart-apache-spark-notebook.md
+        - name: Skapa en Spark-pool i Azure-portalen
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Skapa en Spark-pool med Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
     - name: Läs in data med SQL-pooler
       items:
         - name: COPY-instruktion

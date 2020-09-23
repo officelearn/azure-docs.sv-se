@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: cb40252460fe62deb94ce495bb41d38c326f10e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000590"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980746"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Självstudie: Distribuera och gå igenom en app-mall för digital distributions Center
 
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig att
 * Skapa ett program för digital distributions Center 
 * Gå igenom programmet 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Inga särskilda krav krävs för att distribuera den här appen
 * Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
 
@@ -35,7 +35,7 @@ Du kan skapa program med följande steg
 1. Gå till webbplatsen för Azure IoT Central Application Manager. Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **detalj handel** .
 
     > [!div class="mx-imgBorder"]
-    > ![Digital distributions Center](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > ![Skärm bild som visar hur du väljer program mal len Digital distributions Center](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
 2. Välj fliken **butik** och välj **skapa app** under appen **digital distribution Center**
 
@@ -46,10 +46,10 @@ Du kan skapa program med följande steg
    **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
 
     > [!div class="mx-imgBorder"]
-    > ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > ![Skärm bild som visar hur du skapar en app från program mal len Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![Fakturerings information för digital distribution](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![Skärm bild som visar fakturerings alternativen när du skapar programmet](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Gå igenom program instrument panelen 
 
@@ -62,31 +62,31 @@ Instrument panelen är logiskt strukturerad för att Visa enhets hanterings funk
    * Hantera alla kameror som ingår i lösningen. 
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![Skärm bild som visar instrument panelen för digital distributions Center](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## <a name="device-template"></a>Enhets mall
 
 Klicka på fliken Mallar på enheten så visas kapacitets modellen för gateway. En kapacitets modell är strukturerad runt två olika gränssnitts **kamera** och **Gateway för digital distribution**
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Skärm bild som visar enhets mal len för digital distribution gateway i programmet](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 **Kamera** – det här gränssnittet ordnar alla Camera-/regionsspecifika kommando funktioner 
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Skärm bild som visar kamera gränssnittet i enhets mal len för digital distribution Gateway](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 **Gateway för digital distribution** – det här gränssnittet representerar all telemetri från kamera, Cloud Defined Device, med dubbla egenskaper och gateway-information.
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Skärm bild som visar gränssnittet för digital distribution gateway i enhets mal len för digital distribution Gateway](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## <a name="gateway-commands"></a>Gateway-kommandon
 Det här gränssnittet ordnar alla funktioner i Gateway-kommandot
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Skärm bild som visar gränssnittet för gateway-kommandon i enhets mal len för digital distribution Gateway](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## <a name="rules"></a>Regler
 Välj fliken regler för att se två olika regler som finns i den här program mal len. Dessa regler är konfigurerade för e-postaviseringar till operatörerna för ytterligare undersökningar.
@@ -96,7 +96,7 @@ Välj fliken regler för att se två olika regler som finns i den här program m
 **Stort paket** – den här regeln utlöses om kameran identifierar enorma paket som inte kan kontrol leras för kvaliteten. 
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![Skärm bild som visar listan över regler i appen Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>Jobb
 Välj fliken jobb för att se fem olika jobb som finns som en del av den här program mal len: du kan utnyttja jobb funktionen för att utföra åtgärder i hela lösningen. Här är digitala distributions Center jobb använder enhets kommandona & dubbla funktioner för att utföra uppgifter som,
@@ -105,15 +105,17 @@ Välj fliken jobb för att se fem olika jobb som finns som en del av den här pr
    * ändra intervallet för telemetri för att hantera data uppladdning
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![Skärm bild som visar listan över jobb i appen Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len genom att gå till **administrations** > **program inställningar** och klicka på **ta bort**.
+Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len genom att gå till **administrations**  >  **program inställningar** och klicka på **ta bort**.
 
 > [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![Skärm bild som visar hur du tar bort programmet när du är klar med det](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om digital distributions Center lösnings arkitektur för [digital distributions Center](./architecture-digital-distribution-center.md)
+* Läs mer om lösnings arkitekturen för digital distributions Center 
+> [!div class="nextstepaction"]
+> [koncept för digital distributions Center](./architecture-digital-distribution-center.md)
 * Läs mer om andra [IoT Central mallar för butik](./overview-iot-central-retail.md)
 * Läs mer om IoT Central referera till [IoT Central översikt](../core/overview-iot-central.md)

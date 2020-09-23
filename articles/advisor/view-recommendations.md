@@ -3,12 +3,12 @@ title: Visa Azure Advisor rekommendationer som är viktiga för dig
 description: Visa och filtrera Azure Advisor rekommendationer för att minska bruset.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986864"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visa Azure Advisor rekommendationer som är viktiga för dig
 
@@ -34,7 +34,7 @@ Så här gör du ändringar i Azure Portal:
 
 Konfigurations inställningarna förblir aktiva tills de har ändrats. Om du vill begränsa visningen av rekommendationer för en enskild visning kan du använda List rutorna som visas längst upp i Advisor-panelen. Från panelerna översikt, hög tillgänglighet, säkerhet, prestanda, kostnad och alla rekommendationer kan du välja de prenumerationer, resurs typer och den rekommendations status som du vill se.
 
-   ![Menyn Advisor-filtrering](./media/view-recommendations/filtering.png)
+   :::image type="content" source="./media/view-recommendations/filtering.png" alt-text="Skärm bild av Azure Advisor som visar filtrerings alternativ.":::
 
 ## <a name="dismissing-and-postponing-recommendations"></a>Stänger och senarelägger rekommendationer
 
@@ -47,7 +47,7 @@ Med Azure Advisor kan du stänga eller skjuta upp rekommendationer på en enskil
 1. Välj en rekommendation i listan över rekommendationer
 1. Välj Skjut upp eller Stäng av den rekommendation som du vill skjuta upp eller stänga av
 
-     ![Menyn Advisor-filtrering](./media/view-recommendations/postpone-dismiss.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Skärm bild av fönstret Använd Managed Disks som visar kolumnen Markera och skjuta upp och Stäng åtgärder för en enda rekommendation markerad.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Skjuta upp eller Stäng av flera rekommendationer i Azure Portal
 
@@ -57,7 +57,7 @@ Med Azure Advisor kan du stänga eller skjuta upp rekommendationer på en enskil
 1. Markera kryss rutan till vänster om raden för alla resurser som du vill skjuta upp eller stänga av rekommendationen.
 1. Välj **Skjut** upp eller **Stäng** längst upp till vänster i tabellen.
 
-     ![Menyn Advisor-filtrering](./media/view-recommendations/postpone-dismiss-multiple.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Skärm bild av fönstret Använd Managed Disks som visar kolumnen Markera och skjuta upp och Stäng av åtgärder längst upp till vänster i den markerade tabellen.":::
 
 > [!NOTE]
 > Du måste ha behörighet som deltagare eller ägare för att kunna stänga eller skjuta upp en rekommendation. Läs mer om behörigheter i Azure Advisor.
@@ -67,13 +67,13 @@ Med Azure Advisor kan du stänga eller skjuta upp rekommendationer på en enskil
 
 ### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Återaktivera en senarelagd eller avstängd rekommendation
 
-Du kan aktivera en rekommendation som har uppskjutits eller stängts. Den här åtgärden kan utföras i Azure Portal eller program mässigt. På Azure Portal:
+Du kan aktivera en rekommendation som har uppskjutits eller stängts. Den här åtgärden kan utföras i Azure Portal eller program mässigt. I Azure-portalen:
 
 1. Öppna [Azure Advisor](https://aka.ms/azureadvisordashboard) i Azure Portal.
 
 1. Ändra filtret på översikts panelen till **uppskjutet**. Advisor visar sedan uppskjutna eller avstängda rekommendationer.
 
-    ![Menyn Advisor-filtrering](./media/view-recommendations/activate-postponed.png)
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Skärm bild av fönstret Azure Advisor som visar den uppskjutna nedrullningsbara menyn.":::
 
 1. Välj en kategori för att visa **uppskjutna** och **avstängda** rekommendationer.
 
@@ -81,7 +81,7 @@ Du kan aktivera en rekommendation som har uppskjutits eller stängts. Den här �
 
 1. Klicka på **Aktivera** i slutet av raden. När du har klickat på den här resursen så tas rekommendationen bort från den här tabellen. Rekommendationen visas nu på fliken **aktiv** .
  
-     ![Menyn Advisor-filtrering](./media/view-recommendations/activate-postponed-2.png)
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Skärm bild av fönstret aktivera mjuk borttagning som visar den uppskjutna &-fliken med åtgärden aktivera markerad.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

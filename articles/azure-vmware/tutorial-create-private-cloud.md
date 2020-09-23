@@ -3,12 +3,12 @@ title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösningen
 ms.topic: tutorial
 ms.date: 09/07/2020
-ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 2aa9d64dfa143e77b0edcc0c32a853645803ef67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512391"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985948"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat moln för Azure VMware-lösningar i Azure
 
@@ -22,7 +22,7 @@ I den här guiden får du lära dig att:
 > * Skapa ett privat moln för Azure VMware-lösningen
 > * Verifiera att det privata molnet har distribuerats
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Lämpliga administrativa rättigheter och behörigheter för att skapa ett privat moln.
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 Du kan skapa ett privat moln i Azure VMware-lösningen med hjälp av [Azure Portal](#azure-portal) eller med hjälp av [Azure CLI](#azure-cli).
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
 
@@ -76,14 +76,24 @@ azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## <a name="delete-a-private-cloud-azure-portal"></a>Ta bort ett privat moln (Azure Portal)
+## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Ta bort ett privat moln i Azure VMware-lösningen
 
-Om du har ett privat moln i Azure VMware-lösningen som du inte längre behöver kan du ta bort det. När du tar bort ett privat moln raderas alla kluster, tillsammans med alla komponenter.
-
-Det gör du genom att navigera till ditt privata moln i Azure Portal och välja **ta bort**. På sidan bekräftelse bekräftar du med namnet på det privata molnet och väljer **Ja**.
+Om du har ett privat moln i Azure VMware-lösningen som du inte längre behöver kan du ta bort det. Ett privat moln i Azure VMware-lösningen innehåller en isolerad nätverks domän, ett eller flera vSphere-kluster etablerade på dedikerade servermappar och ofta många virtuella datorer. När ett privat moln tas bort tas alla virtuella datorer, deras data och kluster bort. De dedikerade Bare Metal-noderna rensas säkert och returneras till den kostnads fria poolen. Den nätverks domän som etablerades för kunden tas bort.  
 
 > [!CAUTION]
-> Borttagning av det privata molnet är en åtgärd som inte kan ångras. När det privata molnet har tagits bort går det inte att återställa data eftersom de avslutar alla aktiva arbets belastningar, komponenter och förstör alla privata moln data och konfigurations inställningar, inklusive offentliga IP-adresser. 
+> Borttagning av det privata molnet är en åtgärd som inte kan ångras. När det privata molnet har tagits bort går det inte att återställa data eftersom de avslutar alla aktiva arbets belastningar och komponenter och förstör alla privata moln data och konfigurations inställningar, inklusive offentliga IP-adresser.
+
+### <a name="prerequisites"></a>Förutsättningar
+
+När ett privat moln har tagits bort finns det inget sätt att återställa de virtuella datorerna och deras data. Om data för den virtuella datorn kommer att krävas senare måste administratören först säkerhetskopiera alla data innan du tar bort det privata molnet.
+
+### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Steg för att ta bort ett privat moln i Azure VMware-lösningen
+
+1. Gå till sidan Azure VMware-lösningar i Azure Portal.
+
+2. Välj det privata moln som ska tas bort.
+ 
+3. Ange namnet på det privata molnet och välj **Ja**. Under några timmar kommer borttagnings processen att slutföras.  
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -91,7 +101,8 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett privat moln för Azure VMware-lösningen
-> * Verifierade att det privata molnet har distribuerats
+> * Verifiera att det privata molnet har distribuerats
+> * Ta bort ett privat moln i Azure VMware-lösningen
 
 Fortsätt till nästa självstudie och lär dig hur du skapar ett virtuellt nätverk för användning med ditt privata moln som en del av att konfigurera lokal hantering för dina privata moln kluster.
 

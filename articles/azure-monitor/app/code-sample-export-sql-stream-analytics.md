@@ -3,12 +3,12 @@ title: Exportera till SQL från Azure Application Insights | Microsoft Docs
 description: Exportera Application Insights data kontinuerligt till SQL med Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311236"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979452"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genom gång: exportera till SQL från Application Insights med Stream Analytics
 Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights][start] till Azure SQL Database genom att använda [kontinuerlig export][export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -133,21 +133,21 @@ I det här exemplet använder vi data från sid visningar. Om du vill se andra t
 ## <a name="create-an-azure-stream-analytics-instance"></a>Skapa en Azure Stream Analytics-instans
 Välj tjänsten Azure Stream Analytics från [Azure Portal](https://portal.azure.com/)och skapa ett nytt Stream Analytics jobb:
 
-![Stream Analytics-inställningar](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Skärm bild som visar sidan Stream Analytics-jobb med knappen Skapa markerad.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![Nytt Stream Analytics-jobb](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 När det nya jobbet skapas väljer **du gå till resurs**.
 
-![Stream Analytics-inställningar](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Skärm bild som visar meddelandet slutförd distribution och gå till resurs knappen.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Lägg till en ny inmatare
 
-![Stream Analytics-inställningar](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Skärm bild som visar sidan indata med knappen Lägg till markerad.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Ange att den ska ta med inmatad från din kontinuerliga export-BLOB:
 
-![Stream Analytics-inställningar](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Skärm bild som visar de nya indata-fönstret med list Rute alternativen för indata-alias, källa och lagrings konto valt.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Nu behöver du den primära åtkomst nyckeln från ditt lagrings konto, som du noterade tidigare. Ange detta som lagrings konto nyckel.
 
@@ -163,10 +163,10 @@ webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 I det här exemplet:
 
-* `webapplication27`är namnet på Application Insights resursen, **allt i gemener**. 
-* `1234...`är Instrumentation-nyckeln för Application Insights resursen **med streck borttagna**. 
-* `PageViews`är den typ av data som vi vill analysera. Vilka typer som är tillgängliga beror på vilket filter du angav i löpande export. Granska exporterade data för att se de andra tillgängliga typerna och se [export data modellen](./export-data-model.md).
-* `/{date}/{time}`är ett mönster skrivet bokstavligen.
+* `webapplication27` är namnet på Application Insights resursen, **allt i gemener**. 
+* `1234...` är Instrumentation-nyckeln för Application Insights resursen **med streck borttagna**. 
+* `PageViews` är den typ av data som vi vill analysera. Vilka typer som är tillgängliga beror på vilket filter du angav i löpande export. Granska exporterade data för att se de andra tillgängliga typerna och se [export data modellen](./export-data-model.md).
+* `/{date}/{time}` är ett mönster skrivet bokstavligen.
 
 Om du vill hämta namnet och iKey för din Application Insights-resurs öppnar du Essentials på sidan Översikt eller så öppnar du inställningar.
 

@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a785aebc282a871d150f0c9b4cca59d7d03558e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893471"
+ms.locfileid: "90976783"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure-lagringstjänster
 
-I den här artikeln får du lära dig hur du **ansluter till Azure Storage-tjänster via Azure Machine Learning data lager**. Data lagringen ansluter säkert till Azure Storage-tjänsten utan att dina autentiseringsuppgifter för autentisering och integritet för den ursprungliga data källan bevaras i risk zonen. De lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. Du kan använda [Azure Machine Learning python SDK](#python) eller [Azure Machine Learning Studio](#studio) för att skapa och registrera data lager.
+I den här artikeln får du lära dig hur du **ansluter till Azure Storage-tjänster via Azure Machine Learning data lager**. Data lagringen ansluter säkert till Azure Storage-tjänsten utan att dina autentiseringsuppgifter för autentisering och integritet för den ursprungliga data källan bevaras i risk zonen. De lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. Du kan använda [Azure Machine Learning python SDK](#python) eller [Azure Machine Learning Studio](how-to-connect-data-ui.md) för att skapa och registrera data lager.
 
 Om du föredrar att skapa och hantera data lager med hjälp av Azure Machine Learning VS Code-tillägget; Mer information finns i [vs Code Resource Management instruktions guide](how-to-manage-resources-vscode.md#datastores) .
 
@@ -92,7 +92,7 @@ Om ditt data lagrings konto finns i ett **virtuellt nätverk**krävs ytterligare
 
 ### <a name="access-validation"></a>Åtkomst verifiering
 
-**Som en del av processen för att skapa och registrera data lager**, validerar Azure Machine Learning automatiskt att den underliggande lagrings tjänsten finns och den användare som angav huvud konto (användar namn, tjänstens huvud namn eller SAS-token) har åtkomst till den angivna lagrings platsen.
+**Som en del av den första processen för skapande och registrering av data lagret**validerar Azure Machine Learning automatiskt att den underliggande lagrings tjänsten finns och den användare som angavs huvud namn, tjänstens huvud namn eller SAS-token har åtkomst till den angivna lagrings platsen.
 
 **När data lagret har skapats**utförs den här verifieringen bara för metoder som kräver åtkomst till den underliggande lagrings behållaren, **inte** varje gång som data lager objekt hämtas. Verifieringen sker till exempel om du vill hämta filer från ditt data lager. men om du bara vill ändra ditt standard data lager sker inte verifieringen.
 
@@ -117,7 +117,7 @@ För Azure Blob-behållare och Azure Data Lake gen 2-lagring, se till att dina a
 
 <a name="python"></a>
 
-## <a name="create-and-register-datastores-via-the-sdk"></a>Skapa och registrera data lager via SDK
+## <a name="create-and-register-datastores"></a>Skapa och registrera data lager
 
 När du registrerar en Azure Storage-lösning som ett data lager skapar och registrerar du automatiskt data lagret till en speciell arbets yta. Läs avsnittet [lagrings åtkomst & behörigheter](#storage-access-and-permissions) för vägledning om virtuella nätverks scenarier och var du hittar nödvändiga autentiseringsuppgifter för autentisering. 
 
@@ -129,7 +129,7 @@ I det här avsnittet finns exempel på hur du skapar och registrerar ett data la
 
  Information om hur du skapar data lager för andra lagrings tjänster som stöds finns i [referens dokumentationen för tillämpliga `register_azure_*` metoder](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=truemethods).
 
-Om du föredrar en låg kod upplevelse kan du läsa [skapa data lager i Azure Machine Learning Studio](#studio).
+Om du föredrar en låg kod upplevelse, se [Anslut till data med Azure Machine Learning Studio](how-to-connect-data-ui.md).
 
 > [!NOTE]
 > Data lager namnet får bara bestå av gemena bokstäver, siffror och under streck. 
@@ -199,25 +199,6 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_id=client_id, # client id of service principal
                                                              client_secret=client_secret) # the secret of service principal
 ```
-
-<a name="studio"></a>
-
-
-## <a name="create-datastores-in-the-studio"></a>Skapa data lager i Studio 
-
-Skapa ett nytt data lager med några steg med Azure Machine Learning Studio.
-
-> [!IMPORTANT]
-> Om ditt data lagrings konto finns i ett virtuellt nätverk krävs ytterligare konfigurations steg för att se till att Studio har åtkomst till dina data. Se [använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk](how-to-enable-studio-virtual-network.md) för att se till att lämpliga konfigurations steg tillämpas. 
-
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
-1. Välj **data lager** i det vänstra fönstret under **Hantera**.
-1. Välj **+ nytt data lager**.
-1. Fyll i formuläret för ett nytt data lager. Formuläret uppdateras intelligent baserat på dina val för Azures lagrings typ och autentiseringstyp. Se [avsnittet lagrings åtkomst och behörigheter](#access-validation) för att förstå var du hittar autentiseringsuppgifterna för autentisering som du behöver fylla i det här formuläret.
-
-Följande exempel visar hur formuläret ser ut när du skapar ett **Azure Blob-datalager**: 
-    
-![Formulär för ett nytt data lager](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Använda data i dina data lager

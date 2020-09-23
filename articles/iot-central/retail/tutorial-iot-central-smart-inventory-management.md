@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 430f477422e040e0e7e28fd69a1cbc18bce7d656
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000548"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980614"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Självstudie: Distribuera och gå igenom en mall för hantering av Smart inventerings program
 
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig att
 * Skapa program för smart inventerings hantering 
 * gå igenom programmet 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Inga särskilda krav krävs för att distribuera den här appen
 * Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
@@ -36,7 +36,7 @@ Du kan skapa program med följande steg
 1. Gå till webbplatsen för Azure IoT Central Application Manager. Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **detalj handel** .
 
     > [!div class="mx-imgBorder"]
-    > ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    > ![Skärm bild som visar hur du väljer mallen Smart Inventory managementapplication](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
 2. Välj fliken **butik** och välj **skapa app** under **Smart Inventory Management**
 
@@ -47,10 +47,10 @@ Du kan skapa program med följande steg
    **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
 
     > [!div class="mx-imgBorder"]
-    > ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    > ![Skärm bild som visar hur du skapar en app från managementapplication-mallen för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![Fakturerings information för smart inventerings hantering](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    > ![Skärm bild som visar fakturerings alternativen när du skapar programmet](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## <a name="walk-through-the-application"></a>Gå igenom programmet 
 
@@ -63,14 +63,14 @@ Instrument panelen delas logiskt mellan två olika hanterings åtgärder för ga
    * Visa Gateway-platsen, status & relaterad information 
 
 > [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
+> ![Skärm bild som visar den övre halvan av Smart Inventory managementdashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
 
    * Du kan enkelt spåra det totala antalet gatewayer, aktiva och okända taggar.
    * Du kan utföra enhets hanterings åtgärder som uppdaterings-firmware, inaktivera sensor, aktivera sensor, uppdatera sensor tröskel, uppdatera telemetri & uppdatera enhets tjänst kontrakt
    * Gateway-enheter kan utföra lager hantering på begäran med en fullständig eller stegvis genomsökning.
 
 > [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
+> ![Skärm bild som visar den nedre halvan av Smart Inventory-managementdashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
 
 ## <a name="device-template"></a>Enhets mall
 Klicka på fliken Mallar på enheten så visas kapacitets modellen för gateway. En kapacitets modell är strukturerad runt två olika gränssnitts- **Gateway-telemetri & egenskaper** och **Gateway-kommandon**
@@ -78,13 +78,13 @@ Klicka på fliken Mallar på enheten så visas kapacitets modellen för gateway.
 **& egenskap för gateway-telemetri** – det här gränssnittet representerar all telemetri som rör sensorer, plats, enhets information och enhets dubbla egenskaps funktioner, till exempel tröskelvärden för gateway och uppdaterings intervall.
 
 > [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
+> ![Skärm bild som visar enhets mal len för inventerings gateway i programmet](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
 
 
 **Gateway-kommandon** – det här gränssnittet organiserar alla gatewayens kommando funktioner
 
 > [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
+> ![Skärm bild som visar gränssnittet för gateway-kommandon i enhets mal len för inventering av Gateway](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
 
 ## <a name="rules"></a>Regler
 Välj fliken regler för att se två olika regler som finns i den här program mal len. Dessa regler är konfigurerade för e-postaviseringar till operatörerna för ytterligare undersökningar.
@@ -94,7 +94,7 @@ Välj fliken regler för att se två olika regler som finns i den här program m
 **Okända Taggar**: det är viktigt att spåra alla RFID-& Bell-taggar som är kopplade till en till gång. Om det finns för många okända Taggar i gatewayen är det en indikation på utmaningarna för synkronisering med tag-käll program.
 
 > [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
+> ![Skärm bild som visar listan över regler i managementapplication för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## <a name="jobs"></a>Jobb
 Välj fliken jobb för att se fem olika jobb som finns som en del av den här program mal len: du kan använda jobb funktionen om du vill utföra åtgärder i hela lösningen. Dessa lager hanterings jobb använder enhets kommandon och dubbla funktioner för att utföra uppgifter som,
@@ -103,16 +103,18 @@ Välj fliken jobb för att se fem olika jobb som finns som en del av den här pr
    * utför lager genomsökning på begäran i hela lösningen.
 
 > [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
+> ![Skärm bild som visar en lista över jobb i Smart Inventory-managementapplication](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len genom att gå till **administrations** > **program inställningar** och klicka på **ta bort**.
+Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len genom att gå till **administrations**  >  **program inställningar** och klicka på **ta bort**.
 
 > [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
+> ![Skärm bild som visar hur du tar bort programmet när du är klar med det](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om Smart Inventory Management- [koncept för smart inventering](./architecture-smart-inventory-management.md)
+* Läs mer om hantering av smarta lager 
+> [!div class="nextstepaction"]
+> [Koncept för smart inventerings hantering](./architecture-smart-inventory-management.md)
 * Läs mer om andra [IoT Central mallar för butik](./overview-iot-central-retail.md)
 * Läs mer om IoT Central referera till [IoT Central översikt](../core/overview-iot-central.md)

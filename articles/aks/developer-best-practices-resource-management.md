@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005320"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986780"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Metod tips för programutvecklare för att hantera resurser i Azure Kubernetes service (AKS)
 
@@ -22,7 +22,7 @@ I den här artikeln fokuserar vi på hur du kör ditt kluster och dina arbets be
 
 > [!div class="checklist"]
 > * Vad är resurs begär Anden och begränsningar för Pod
-> * Sätt att utveckla och distribuera program med dev Spaces och Visual Studio Code
+> * Sätt att utveckla och distribuera program med Bridge till Kubernetes och Visual Studio Code
 > * Använda `kube-advisor` verktyget för att söka efter problem med distributioner
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definiera resurs begär Anden och begränsningar för Pod
@@ -74,13 +74,13 @@ Mer information om resurs mått och tilldelningar finns i [hantera beräknings r
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Utveckla och felsöka program mot ett AKS-kluster
 
-**Vägledning för bästa praxis** – utvecklings team bör distribuera och felsöka mot ett AKS-kluster med hjälp av dev Spaces. Den här utvecklings modellen ser till att rollbaserad åtkomst kontroll (RBAC), nätverk eller lagrings behov implementeras innan appen distribueras till produktion.
+**Vägledning för bästa praxis** – utvecklings team bör distribuera och felsöka mot ett AKS-kluster med hjälp av Bridge till Kubernetes.
 
-Med Azure dev Spaces kan du utveckla, felsöka och testa program direkt mot ett AKS-kluster. Utvecklare i en grupp arbetar tillsammans för att bygga och testa under hela programmets livs cykel. Du kan fortsätta att använda befintliga verktyg som Visual Studio eller Visual Studio Code. Ett tillägg installeras för dev Spaces som ger ett alternativ för att köra och felsöka programmet i ett AKS-kluster.
+Med Bridge till Kubernetes kan du utveckla, felsöka och testa program direkt mot ett AKS-kluster. Utvecklare i en grupp arbetar tillsammans för att bygga och testa under hela programmets livs cykel. Du kan fortsätta att använda befintliga verktyg som Visual Studio eller Visual Studio Code. Ett tillägg installeras för Bridge till Kubernetes som gör att du kan utveckla direkt i ett AKS-kluster.
 
-Den här integrerade utvecklings-och test processen med dev-utrymmen minskar behovet av lokala test miljöer, till exempel [minikube][minikube]. I stället kan du utveckla och testa mot ett AKS-kluster. Klustret kan skyddas och isoleras enligt föregående avsnitt om användningen av namn områden för att logiskt isolera ett kluster. När dina appar är klara att distribueras till produktion kan du på ett säkert sätt distribuera allt eftersom din utveckling genomfördes mot ett verkligt AKS-kluster.
+Den här integrerade utvecklings-och test processen med Bridge för att Kubernetes minskar behovet av lokala test miljöer, till exempel [minikube][minikube]. I stället kan du utveckla och testa mot ett AKS-kluster. Klustret kan skyddas och isoleras enligt föregående avsnitt om användningen av namn områden för att logiskt isolera ett kluster.
 
-Azure dev Spaces är avsett att användas med program som körs på Linux-poddar och noder.
+Bridge till Kubernetes är avsett att användas med program som körs på Linux-poddar och-noder.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Använd Visual Studio Code-tillägget för Kubernetes
 
@@ -106,7 +106,7 @@ Den här tips artikeln fokuserar på hur du kör ditt kluster och dina arbets be
 
 Information om hur du implementerar några av dessa metod tips finns i följande artiklar:
 
-* [Utveckla med Dev Spaces][dev-spaces]
+* [Utveckla med Bridge till Kubernetes][btk]
 * [Sök efter problem med Kube-Advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -117,7 +117,7 @@ Information om hur du implementerar några av dessa metod tips finns i följande
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

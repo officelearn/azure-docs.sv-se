@@ -1,29 +1,29 @@
 ---
-title: Exportera data från Azure IoT Central (förhands granskning) | Microsoft Docs
+title: Exportera data från Azure IoT Central | Microsoft Docs
 description: Hur du använder den nya data exporten för att exportera dina IoT-data till Azure och anpassade moln mål.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/02/2020
+ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 0a07d7e57ced5e2cd9457dc51ebcd355306fc48e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461943"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974397"
 ---
-# <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Exportera IoT-data till moln mål med hjälp av data export (för hands version)
+# <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportera IoT-data till moln mål med hjälp av data export
 
 > [!Note]
-> I den här artikeln beskrivs funktionerna för förhands gransknings data i IoT Central.
+> I den här artikeln beskrivs data export funktionerna i IoT Central.
 >
 > - Information om äldre funktioner för data export finns i [Exportera IoT-data till moln mål med hjälp av data export (bakåtkompatibelt)](./howto-export-data-legacy.md).
-> - Mer information om skillnaderna mellan funktionerna för för hands versions export och äldre data export finns i [jämförelse tabellen](#comparison-of-legacy-data-export-and-preview-data-export) nedan.
+> - Mer information om skillnaderna mellan funktionerna för data export och äldre data export finns i [jämförelse tabellen](#comparison-of-legacy-data-export-and-data-export) nedan.
 
-Den här artikeln beskriver hur du använder den nya funktionen för förhands granskning av data export i Azure IoT Central. Använd den här funktionen för att kontinuerligt exportera filtrerade och berikade IoT-data från ditt IoT Central-program. Data exporten skickar ändringar i nära real tid till andra delar av moln lösningen för att kunna använda insikter, analyser och lagring med varma sökvägar.
+Den här artikeln beskriver hur du använder den nya data export funktionen i Azure IoT Central. Använd den här funktionen för att kontinuerligt exportera filtrerade och berikade IoT-data från ditt IoT Central-program. Data exporten skickar ändringar i nära real tid till andra delar av moln lösningen för att kunna använda insikter, analyser och lagring med varma sökvägar.
 
 Du kan till exempel:
 
@@ -35,9 +35,9 @@ Du kan till exempel:
 > [!Tip]
 > När du aktiverar data export får du bara data från dessa tidpunkter. För närvarande går det inte att hämta data under en tid då data exporten var avstängd. Aktivera data export tidigt om du vill behålla mer historiska data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda funktionerna för för hands versions export måste du ha ett [v3-program](howto-get-app-info.md)och du måste ha behörighet för [data export](howto-manage-users-roles.md) .
+Om du vill använda data export funktioner måste du ha ett [v3-program](howto-get-app-info.md)och du måste ha behörighet för [data export](howto-manage-users-roles.md) .
 
 ## <a name="set-up-export-destination"></a>Konfigurera export mål
 
@@ -63,7 +63,12 @@ Följ dessa steg om du inte har ett befintligt Event Hubs namn område att expor
     - Välj **inställningar > principer för delad åtkomst**.
     - Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
     - Kopiera antingen den primära eller sekundära anslutnings strängen. Du använder den här anslutnings strängen för att skapa ett nytt mål i IoT Central.
-
+    - Du kan också skapa en anslutnings sträng för hela Event Hubs namn området:
+        1. Gå till ditt Event Hubs namnrum i Azure Portal.
+        2. Under **Inställningar**väljer du **principer för delad åtkomst**
+        3. Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
+        4. Kopiera antingen den primära eller sekundära anslutnings strängen
+        
 ### <a name="create-a-service-bus-queue-or-topic-destination"></a>Skapa en Service Bus kö eller ett ämnes mål
 
 Följ dessa steg om du inte har ett befintligt Service Bus namn område att exportera till:
@@ -78,6 +83,11 @@ Följ dessa steg om du inte har ett befintligt Service Bus namn område att expo
     - Välj **Inställningar/principer för delad åtkomst**.
     - Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
     - Kopiera antingen den primära eller sekundära anslutnings strängen. Du använder den här anslutnings strängen för att skapa ett nytt mål i IoT Central.
+    - Du kan också skapa en anslutnings sträng för hela Service Bus namn området:
+        1. Gå till ditt Service Bus namnrum i Azure Portal.
+        2. Under **Inställningar**väljer du **principer för delad åtkomst**
+        3. Skapa en ny nyckel eller Välj en befintlig nyckel som har **send** -behörighet.
+        4. Kopiera antingen den primära eller sekundära anslutnings strängen
 
 ### <a name="create-an-azure-blob-storage-destination"></a>Skapa ett Azure Blob Storage-mål
 
@@ -109,10 +119,10 @@ Nu när du har ett mål för att exportera data till, konfigurerar du data expor
 
 1. Logga in på ditt IoT Central-program.
 
-1. I det vänstra fönstret väljer du **data export (för hands version)**.
+1. Välj **data export**i det vänstra fönstret.
 
     > [!Tip]
-    > Om du inte ser **data export (för hands version)** i den vänstra rutan har du inte behörighet att konfigurera data export i din app. Prata med en administratör för att konfigurera data export.
+    > Om du inte ser **data export** i det vänstra fönstret har du inte behörighet att konfigurera data export i din app. Prata med en administratör för att konfigurera data export.
 
 1. Välj **+ ny export**.
 
@@ -127,9 +137,10 @@ Nu när du har ett mål för att exportera data till, konfigurerar du data expor
 
 1. Du kan också lägga till filter för att minska mängden exporterade data. Det finns olika typer av filter tillgängliga för varje data export typ:
 
-    Om du vill filtrera telemetri använder du:
+    Om du vill filtrera telemetri kan du:
 
-    - **Funktions filter**: om du väljer ett telemetri-objekt i list rutan **namn** innehåller den exporterade strömmen endast telemetri som uppfyller filter villkoret. Om du väljer en enhet eller ett moln egenskaps objekt i list rutan **namn** , innehåller den exporterade strömmen bara telemetri från enheter med egenskaper som matchar filter villkoret.
+    - **Filtrera** den exporterade data strömmen så att den bara innehåller telemetri från enheter som matchar enhets namn, enhets-ID och enhets mal len filter villkor.
+    - **Filtrera** över funktioner: om du väljer ett telemetri-objekt i list rutan **namn** innehåller den exporterade strömmen endast telemetri som uppfyller filter villkoret. Om du väljer en enhet eller ett moln egenskaps objekt i list rutan **namn** , innehåller den exporterade strömmen bara telemetri från enheter med egenskaper som matchar filter villkoret.
     - **Filter för meddelande egenskap**: enheter som använder enhets-SDK: er kan skicka *meddelande egenskaper* eller *program egenskaper* för varje telemetri. Egenskaperna är en väska med nyckel/värde-par som Taggar meddelandet med anpassade identifierare. Om du vill skapa ett filter för meddelande egenskaper anger du den meddelande egenskaps nyckel som du söker efter och anger ett villkor. Endast telemetri-meddelanden med egenskaper som matchar det angivna filter villkoret exporteras. Följande sträng jämförelse operatorer stöds: Equals, är inte lika med, innehåller inte, innehåller inte, finns inte. [Läs mer om program egenskaper från IoT Hub dokument](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
     Om du vill filtrera egenskaps ändringar använder du ett **funktions filter**. Välj ett egenskaps objekt i list rutan. Den exporterade data strömmen innehåller bara ändringar av den valda egenskapen som uppfyller filter villkoret.
@@ -143,8 +154,8 @@ Nu när du har ett mål för att exportera data till, konfigurerar du data expor
 
     - **Målnamn**: visnings namnet för målet i IoT Central.
     - **Måltyp: Välj**typ av mål. Om du inte redan har konfigurerat målet läser du [Konfigurera export destination](#set-up-export-destination).
-    - För Azure Event Hubs, Azure Service Bus kö eller ämne, klistra in anslutnings strängen för resursen.
-    - För Azure Blob Storage klistrar du in anslutnings strängen för resursen och anger Skift läges känslig behållar namn.
+    - För Azure Event Hubs, Azure Service Bus kö eller ämne, klistra in anslutnings strängen för resursen och ange Skift läges känslig händelsehubben, kö eller ämnes namn om det behövs.
+    - För Azure Blob Storage klistrar du in anslutnings strängen för resursen och anger Skift läges känslig behållar namn vid behov.
     - För webhook klistrar du in återanrops-URL: en för webhook-slutpunkten.
     - Välj **Skapa**.
 
@@ -185,7 +196,7 @@ Varje exporterat meddelande innehåller en normaliserad form av det fullständig
 - `enrichments`: Eventuella berikade inställningar i exporten.
 - `messageProperties`: Ytterligare egenskaper som enheten skickade med meddelandet. Dessa egenskaper kallas ibland för *program egenskaper*. [Läs mer i IoT Hub dokument](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
-För Event Hubs och Service Bus exporterar IoT Central ett nytt meddelande snabbt när det får meddelandet från en enhet.
+För Event Hubs och Service Bus exporterar IoT Central ett nytt meddelande snabbt när det får meddelandet från en enhet. I användar egenskaperna (kallas även program egenskaper) för varje meddelande, `iotcentral-device-id` `iotcentral-application-id` tas, och `iotcentral-message-source` inkluderas automatiskt i.
 
 För Blob Storage grupperas och exporteras meddelanden en gång per minut.
 
@@ -197,7 +208,7 @@ I följande exempel visas ett exporterat telemetri-meddelande:
     "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
     "messageSource": "telemetry",
     "deviceId": "1vzb5ghlsg1",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:26:55.455Z",
     "telemetry": {
@@ -232,7 +243,7 @@ Varje meddelande eller post representerar en ändring i en enhets-eller moln ege
 - `templateId`: ID: t för den enhets mall som är kopplad till enheten.
 - `enrichments`: Eventuella berikade inställningar i exporten.
 
-För Event Hubs och Service Bus exporterar IoT Central nya meddelande data till händelsehubben eller Service Bus kö eller ämne i nära real tid.
+För Event Hubs och Service Bus exporterar IoT Central nya meddelande data till händelsehubben eller Service Bus kö eller ämne i nära real tid. I användar egenskaperna (kallas även program egenskaper) för varje meddelande, inkluderas,, `iotcentral-device-id` `iotcentral-application-id` och tas `iotcentral-message-source` automatiskt med `iotcentral-message-type` .
 
 För Blob Storage grupperas och exporteras meddelanden en gång per minut.
 
@@ -244,11 +255,11 @@ I följande exempel visas ett meddelande om att en exporterad egenskaps ändring
     "messageSource": "properties",
     "messageType": "cloudPropertyChange",
     "deviceId": "18a985g1fta",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
-        "fieldName": "MachineSerialNumber",
+        "name": "MachineSerialNumber",
         "value": "abc"
     }],
     "enrichments": {
@@ -257,15 +268,15 @@ I följande exempel visas ett meddelande om att en exporterad egenskaps ändring
 }
 ```
 
-## <a name="comparison-of-legacy-data-export-and-preview-data-export"></a>Jämförelse mellan äldre data export och för hands versions data export
+## <a name="comparison-of-legacy-data-export-and-data-export"></a>Jämförelse av äldre data export och data export
 
-I följande tabell visas skillnaderna mellan [äldre data export](howto-export-data-legacy.md) -och för hands versions funktioner:
+I följande tabell visas skillnaderna mellan [äldre data export](howto-export-data-legacy.md) och nya funktioner för data export:
 
 | Funktioner  | Äldre data export | Ny data export |
 | :------------- | :---------- | :----------- |
 | Tillgängliga data typer | Telemetri, enheter, enhetsspecifika mallar | Telemetri, egenskaps ändringar |
-| Filtrering | Inget | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
-| Berikningar | Inget | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
+| Filtrering | Ingen | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
+| Berikningar | Ingen | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
 | Mål | Azure Event Hubs, Azure Service Bus köer och ämnen, Azure Blob Storage | Samma som för äldre data export plus Webhooks|
 | Program versioner som stöds | V2, V3 | Endast v3 |
 | Viktiga begränsningar | 5 exporter per app, 1 mål per export | 10 exporter – mål anslutningar per app |

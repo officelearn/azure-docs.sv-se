@@ -4,12 +4,12 @@ description: Sök efter loggar som genereras av trace, NLog eller Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: c17f1f4eb8d2fb680f31a42009247b25c74941c9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936460"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973843"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Utforska loggarna .NET/.NET Core och python i Application Insights
 
@@ -51,19 +51,19 @@ Använd den här metoden om din projekt typ inte stöds av installations program
 4. Välj något av följande paket:
 
    - För ILogger: [Microsoft. Extensions. logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/) 
- [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+ [ ![ NuGet ILogger banderoll](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
    - För NLog: [Microsoft. ApplicationInsights. NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/) 
- [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+ [ ![ NuGet NLog banderoll](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
    - För Log4Net: [Microsoft. ApplicationInsights. Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/) 
- [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+ [ ![ NuGet Log4Net banderoll](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
    - För system. Diagnostics: [Microsoft. ApplicationInsights. TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) 
- [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+ [ ![ NuGet system. Diagnostics banderoll](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
    - [Microsoft. ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) 
- [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+ [ ![ Banderoll för NuGet-diagnostikens lyssnar källa](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
    - [Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/) 
- [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+ [ ![ NuGet ETW-insamlarens banderoll](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
    - [Microsoft. ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) 
- [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+ [ ![ Informations källa för NuGet händelse källa](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
 NuGet-paketet installerar nödvändiga sammansättningar och ändrar web.config eller app.config om detta är tillämpligt.
 
@@ -136,7 +136,7 @@ För varje källa kan du ange följande parametrar:
 ## <a name="use-the-trace-api-directly"></a>Använda trace API direkt
 Du kan anropa API: et för Application Insights trace direkt. Loggnings korten använder detta API.
 
-Ett exempel:
+Exempel:
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -145,7 +145,7 @@ telemetry.TrackTrace("Slow response - database01");
 
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.
 
-Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
+Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Exempel:
 
   ```csharp
   var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();

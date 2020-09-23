@@ -14,20 +14,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 1bd61341683148cfc6431d7ca4b1f9293e19e760
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662034"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889208"
 ---
 # <a name="what-is-azure-sentinel"></a>Vad är Azure Sentinel?
 
 Microsoft Azure Sentinel är en skalbar, molnbaserad, molnbaserad, **Siem (Security information Event Management)** och **Soar-lösning (Security Orchestration autoresponse)** . Azure Sentinel ger intelligent säkerhets analys och hot information i hela företaget, vilket ger en enda lösning för aviserings identifiering, Hot synlighet, proaktiv jakt och hot svar. 
 
-Azure Sentinel är din fåglar – ögon visning i hela företaget, vilket minskar belastningen på alltmer sofistikerade attacker, ökande volymer med aviseringar och långa upplösnings ramar.
+Azure Sentinel är din fåglar – ögon visning i hela företaget, vilket minskar belastningen på alltmer sofistikerade attacker, ökande volymer av aviseringar och tids ramar med lång upplösning.
 
 - **Samla in data i moln skala** över alla användare, enheter, program och infrastruktur, både lokalt och i flera moln. 
 
@@ -43,7 +43,7 @@ Genom att skapa ett fullständigt utbud av befintliga Azure-tjänster, har Azure
 
 ## <a name="connect-to-all-your-data"></a>Anslut till alla dina data
 
-För att kunna använda Azure Sentinel måste du först [ansluta till dina säkerhets källor](connect-data-sources.md). Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft 365 Defender (tidigare lösningar för Microsoft Threat Protection) och Microsoft 365 källor, inklusive Office 365, Azure AD, Microsoft Defender för identitet (tidigare Azure ATP) och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
+För att kunna använda Azure Sentinel måste du först [ansluta till dina säkerhets källor](connect-data-sources.md). Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft 365 Defender (tidigare lösningar för Microsoft Threat Protection) och Microsoft 365 källor, inklusive Office 365, Azure AD, Microsoft Defender för identitet (tidigare Azure ATP) och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel. 
 
 ![Datainsamlare](./media/collect-data/collect-data-page.png)
 
@@ -55,7 +55,7 @@ När du har [anslutit dina data källor](quickstart-onboard.md)   till Azure S
 
 ![Instrumentpaneler](./media/tutorial-monitor-data/access-workbooks.png)
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats-built-in.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
 

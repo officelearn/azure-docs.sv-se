@@ -1,19 +1,19 @@
 ---
-title: Använda enhets grupper i ditt Azure IoT Central-program | Microsoft Docs
-description: Som operatör lär du dig hur du använder enhets grupper för att analysera telemetri från enheter i ditt Azure IoT Central-program.
+title: Självstudie – använda enhets grupper i ditt Azure IoT Central-program | Microsoft Docs
+description: Självstudie – som en operatör lär du dig hur du använder enhets grupper för att analysera telemetri från enheter i ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3192a9f121d4380a3e681747596fc91997662bf0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80999042"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967943"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Självstudie: Använd enhets grupper för att analysera enhets telemetri
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Skapa en enhetsgrupp.
 > * Använda en enhets grupp för att analysera telemetri för enheter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du fylla i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägga till en simulerad enhet i IoT Central](./quick-create-simulated-device.md) snabb starter för att skapa **MXChip IoT DevKit** Device-mallen för att arbeta med.
 

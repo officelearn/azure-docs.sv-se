@@ -11,16 +11,16 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: e4a62b9892af661f74df5b49ff4a451fb673b4e1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7992283c1652199d665aad07c027b88e9489ddf0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325771"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889830"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på din Azure Machine Learning beräknings instans. Använd beräknings instanser om något av följande villkor är uppfyllt:
 
@@ -30,7 +30,7 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 > [!TIP]
 > Att distribuera en modell från en Jupyter Notebook på en beräknings instans till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn beräknings instansen. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta med en beräknings instans som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
@@ -44,7 +44,7 @@ En exempel-anteckningsbok som visar lokala distributioner ingår i din beräknin
 
     ![Skärm bild av den lokala tjänsten som körs på antecknings boken](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Antecknings boken visar den URL och port som tjänsten körs på. Exempelvis `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
+1. Antecknings boken visar den URL och port som tjänsten körs på. Till exempel `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
 
     ![Skärm bild av den aktiva porten för den lokala tjänsten](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
@@ -53,8 +53,8 @@ En exempel-anteckningsbok som visar lokala distributioner ingår i din beräknin
     * Beräknings instans: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
     Exempel: 
-    * VM för virtuell dator:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Beräknings instans:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
+    * VM för virtuell dator: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Beräknings instans: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Testa tjänsten
 
@@ -97,7 +97,7 @@ print("prediction:", resp.text)
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

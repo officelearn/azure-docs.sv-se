@@ -1,6 +1,6 @@
 ---
-title: Hantering av Azure Stack Edge GPU-resurs | Microsoft Docs
-description: Beskriver hur du använder Azure Portal för att hantera resurser på din Azure Stack Edge-GPU.
+title: Hantering av Azure Stack Edge Pro GPU-resurs | Microsoft Docs
+description: Beskriver hur du använder Azure Portal för att hantera resurser på din Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,22 +8,22 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6448ac002482751052310532989278e3b88b5915
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268850"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904686"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Använd Azure Portal för att hantera resurser på Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera resurser på din Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Den här artikeln beskriver hur du hanterar resurser på din Azure Stack Edge. Du kan hantera Azure Stack Edge via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att lägga till, ta bort, uppdatera resurser eller synkronisera lagrings nyckeln för lagrings kontot som är kopplat till resurserna.
+Den här artikeln beskriver hur du hanterar resurser i Azure Stack Edge Pro. Du kan hantera Azure Stack Edge Pro via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att lägga till, ta bort, uppdatera resurser eller synkronisera lagrings nyckeln för lagrings kontot som är kopplat till resurserna.
 
 ## <a name="about-shares"></a>Om resurser
 
-Om du vill överföra data till Azure måste du skapa resurser på din Azure Stack Edge. De resurser som du lägger till på Azure Stack Edge-enheten kan vara lokala resurser eller resurser som skickar data till molnet.
+Om du vill överföra data till Azure måste du skapa resurser på Azure Stack Edge Pro. De resurser som du lägger till i Azure Stack Edge Pro-enheten kan vara lokala resurser eller resurser som skickar data till molnet.
 
  - **Lokala resurser**: Använd dessa resurser när du vill att data ska bearbetas lokalt på enheten.
  - **Resurser**: Använd de här resurserna när du vill att enhets data ska skickas automatiskt till ditt lagrings konto i molnet. Alla moln funktioner, till exempel **lagrings nycklar** för **uppdatering** och synkronisering, gäller för resurserna.
@@ -74,7 +74,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
    > [!IMPORTANT]
-   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 4. Använd den lokala monterings punkten för att enkelt få åtkomst till resurserna från Edge Compute-moduler. Välj **Använd resurs med Edge Compute** så att Edge-modulen kan använda beräkningen med den lokala monterings punkten.
 
@@ -96,7 +96,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 ## <a name="mount-a-share"></a>Montera en resurs
 
-Om du har skapat en resurs innan du konfigurerade Compute på din Azure Stack Edge-enhet måste du montera resursen. Utför följande steg för att montera en resurs.
+Om du har skapat en resurs innan du konfigurerade Compute på din Azure Stack Edge Pro-enhet måste du montera resursen. Utför följande steg för att montera en resurs.
 
 
 1. I Azure Portal går du till din Azure Stack Edge-resurs och går sedan till **Gateway-> resurser**. Välj den resurs som du vill montera från listan över resurser. I kolumnen **används för beräkning** visas statusen som **inaktive rad** för den valda resursen.

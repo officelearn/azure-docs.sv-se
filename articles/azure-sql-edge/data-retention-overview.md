@@ -1,6 +1,6 @@
 ---
-title: Översikt över data bevarande princip – Azure SQL Edge (för hands version)
-description: Lär dig mer om data bevarande principen i Azure SQL Edge (för hands version)
+title: Översikt över data bevarande princip – Azure SQL Edge
+description: Lär dig mer om data bevarande principen i Azure SQL Edge
 keywords: SQL Edge, data kvarhållning
 services: sql-edge
 ms.service: sql-edge
@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 3649d4f77e5b57ab14accacd87fbaa867ba2742f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: bb059a946c03f41e5b65944eec67070f84ee6b08
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976335"
 ---
-# <a name="data-retention-policy-overview"></a>Översikt över data bevarande princip
+# <a name="data-retention-overview"></a>Översikt över datakvarhållning
 
 Insamling och lagring av data från anslutna IoT-enheter är viktigt för att driva och få drifts-och affärs insikter. Men med tanke på mängden data som kommer från dessa enheter, blir det viktigt för organisationer att noggrant planera mängden data som de vill behålla och med vilken kornig het. Även om det är önskvärt att alla data behålls är det inte alltid praktiskt. Dessutom begränsas mängden data som kan behållas av mängden lagrings utrymme som är tillgängligt på IoT-eller Edge-enheterna. 
 
-Azure SQL Edge (för hands version) CTP 2.3 lägger till en ny funktion som gör det möjligt för databas administratörer att definiera data bevarande principer på en SQL Edge-databas och dess underliggande tabeller. När data lagrings principen har definierats körs en bakgrunds system aktivitet för att rensa eventuella inaktuella (gamla) data från användar tabellerna. 
+I Azure SQL Edge Database-administratörer kan definiera data bevarande princip för en SQL Edge-databas och dess underliggande tabeller. När data lagrings principen har definierats körs en bakgrunds system aktivitet för att rensa eventuella inaktuella (gamla) data från användar tabellerna. 
 
 > [!Note]
 > Data som rensats från tabellen går inte att återskapa. Det enda möjliga sättet att återställa rensade data är att återställa databasen från en äldre säkerhets kopia.
@@ -40,6 +40,7 @@ När data kvarhållning har kon figurer ATS för en tabell körs en bakgrunds ak
 
 - Datakvarhållning, om aktive rad, inaktive ras automatiskt när databasen återställs från en fullständig säkerhets kopia eller återkopplas. 
 - Det går inte att aktivera datakvarhållning för en temporal historik tabell
+- Datakvarhållning filter colomn kan inte ändras. Om du vill ändra kolumnen inaktiverar du datakvarhållning i tabellen.  
 
 ## <a name="next-steps"></a>Efterföljande moment
 

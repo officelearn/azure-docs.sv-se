@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 9673b3260425fd9244c635beaf77d367a14cac54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84810196"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890270"
 ---
 # <a name="split-image-directory"></a>Dela bildkatalog
 
-I det här avsnittet beskrivs hur du använder modulen dela avbildnings katalog i Azure Machine Learning designer (för hands version) för att dela upp avbildningarna av en avbildnings katalog i två distinkta mängder.
+I det här avsnittet beskrivs hur du använder modulen dela avbildnings katalog i Azure Machine Learning designer för att dela upp avbildningarna av en avbildnings katalog i två distinkta mängder.
 
 Den här modulen är särskilt användbar när du behöver separera bilddata till utbildnings-och testnings uppsättningar. 
 
@@ -35,19 +35,19 @@ Den här modulen är särskilt användbar när du behöver separera bilddata til
 
 ### <a name="expected-inputs"></a>Förväntade indata
 
-| Name                  | Typ           | Beskrivning              |
+| Namn                  | Typ           | Beskrivning              |
 | --------------------- | -------------- | ------------------------ |
 | Avbildnings katalog för indata | ImageDirect | Avbildnings katalog att dela |
 
 ### <a name="module-parameters"></a>Parametrar för modul
 
-| Name                                   | Typ  | Intervall | Valfritt | Beskrivning                            | Default |
+| Namn                                   | Typ  | Intervall | Valfritt | Beskrivning                            | Standardvärde |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
-| Delar av bilder i de första utdata | Float | 0-1   | Obligatorisk | Delar av bilder i de första utdata | 0.9     |
+| Delar av bilder i de första utdata | Float | 0-1   | Obligatorisk | Delar av bilder i de första utdata | 0,9     |
 
 ### <a name="outputs"></a>Utdata
 
-| Name                    | Typ           | Beskrivning                              |
+| Namn                    | Typ           | Beskrivning                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Directory1 för utgående bild | ImageDirect | Avbildnings katalog som innehåller valda bilder |
 | Directory2 för utgående bild | ImageDirect | Avbildnings katalog som innehåller alla andra bilder |

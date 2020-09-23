@@ -1,15 +1,15 @@
 ---
 title: Information om efterlevnad för Azures säkerhets prestanda
 description: Information om det inbyggda initiativet för Azure Security benchmark-efterlevnad. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: e6b63982723eb99f7bfbe134549f13af75b0edf0
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: b635eb57b9b8b39d27382a7209850b67f210cd0a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019588"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968003"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Information om det inbyggda initiativet för Azure Security benchmark-efterlevnad
 
@@ -31,7 +31,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 1,1 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analyserar trafik mönstren för virtuella datorer som är riktade mot Internet och ger regel rekommendationer för nätverks säkerhets grupper som minskar risken för potentiella attacker |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 |[All Internet trafik ska dirigeras via din distribuerade Azure-brandvägg](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center har identifierat att vissa av dina undernät inte skyddas med en nästa generations brand vägg. Skydda dina undernät från potentiella hot genom att begränsa åtkomsten till dem med Azure-brandväggen eller en nästa generations brand vägg som stöds |AuditIfNotExists, inaktiverat |[3.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
@@ -60,7 +60,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 1,2 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Network Watcher ska vara aktiverat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher är en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks scenario nivå i, till och från Azure. Med övervakning av scenarionivå kan du diagnostisera problem på en slutpunkt-till-slutpunkt-vy på nätverks nivå. Diagnostikverktyg för nätverk och visualiserings verktyg som är tillgängliga med Network Watcher hjälpa dig att förstå, diagnostisera och få insikter om ditt nätverk i Azure. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
@@ -68,7 +68,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 1,3 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[CORS bör inte tillåta alla resurser åtkomst till din API-app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F358c20a6-3f9e-4f0e-97ff-c6ce485e2aac) |Resurs delning mellan ursprung (CORS) bör inte tillåta alla domäner att komma åt din API-app. Tillåt endast domäner som krävs för att interagera med din API-app. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RestrictCORSAccess_ApiApp_Audit.json) |
 |[CORS bör inte tillåta alla resurser att komma åt dina funktions program](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0820b7b9-23aa-4725-a1ce-ae4558f718e5) |Resurs delning mellan ursprung (CORS) bör inte tillåta alla domäner att komma åt din Function-app. Tillåt endast domäner som krävs för att interagera med din Function-app. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RestrictCORSAccess_FuntionApp_Audit.json) |
@@ -82,7 +82,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 1,4 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center analyserar trafik mönstren för virtuella datorer som är riktade mot Internet och ger regel rekommendationer för nätverks säkerhets grupper som minskar risken för potentiella attacker |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 |[All Internet trafik ska dirigeras via din distribuerade Azure-brandvägg](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center har identifierat att vissa av dina undernät inte skyddas med en nästa generations brand vägg. Skydda dina undernät från potentiella hot genom att begränsa åtkomsten till dem med Azure-brandväggen eller en nästa generations brand vägg som stöds |AuditIfNotExists, inaktiverat |[3.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
@@ -93,7 +93,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 1,5 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Network Watcher ska vara aktiverat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher är en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks scenario nivå i, till och från Azure. Med övervakning av scenarionivå kan du diagnostisera problem på en slutpunkt-till-slutpunkt-vy på nätverks nivå. Diagnostikverktyg för nätverk och visualiserings verktyg som är tillgängliga med Network Watcher hjälpa dig att förstå, diagnostisera och få insikter om ditt nätverk i Azure. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
@@ -101,15 +101,15 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 1,11 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer utan identiteter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |Den här principen lägger till en systemtilldelad hanterad identitet till virtuella datorer som finns i Azure och som stöds av gäst konfiguration men som inte har några hanterade identiteter. En systemtilldelad hanterad identitet är en förutsättning för alla gäst konfigurations tilldelningar och måste läggas till på datorer innan du använder princip definitioner för gäst konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |gör |[1.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
-|[Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer med en tilldelad identitet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |Den här principen lägger till en systemtilldelad hanterad identitet till virtuella datorer som finns i Azure och som stöds av gäst konfiguration och som har minst en tilldelad identitet, men som inte har någon tilldelad hanterad identitet. En systemtilldelad hanterad identitet är en förutsättning för alla gäst konfigurations tilldelningar och måste läggas till på datorer innan du använder princip definitioner för gäst konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |gör |[1.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
-|[Distribuera Windows gäst konfigurations tillägget för att aktivera gäst konfigurations tilldelningar på virtuella Windows-datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F385f5831-96d4-41db-9a3c-cd3af78aaae6) |Den här principen distribuerar Windows gäst konfigurations tillägg till virtuella Windows-datorer som finns i Azure och som stöds av gäst konfigurationen. Windows gäst konfigurations tillägget är ett krav för alla Windows gäst konfigurations tilldelningar och måste distribueras till datorer innan du använder en princip definition för Windows-gästens konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |deployIfNotExists |[1.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionWindows_Prerequisite.json) |
-|[Windows-datorer måste uppfylla kraven för "Administrativa mallar-Network"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F67e010c1-640d-438e-a3a5-feaccb533a98) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin "Administrativa mallar nätverk" för gäst inloggningar, samtidiga anslutningar, nätverks brygga, ICS och multicast-namnmatchning. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AdministrativeTemplatesNetwork_AINE.json) |
-|[Windows-datorer bör uppfylla kraven för säkerhets alternativ-Microsoft-nätverks server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcaf2d518-f029-4f6b-833b-d7081702f253) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin säkerhets alternativ-Microsoft-nätverks server för att inaktivera SMB v1-Server. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsMicrosoftNetworkServer_AINE.json) |
-|[Windows-datorer bör uppfylla kraven för "säkerhets alternativ – nätverks åtkomst"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ff60f98-7fa4-410a-9f7f-0b00f5afdbdd) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin säkerhets alternativ-nätverks åtkomst för att inkludera åtkomst för anonyma användare, lokala konton och fjärråtkomst till registret. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkAccess_AINE.json) |
-|[Windows-datorer bör uppfylla kraven för säkerhets alternativ-nätverks säkerhet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1221c620-d201-468c-81e7-2817e6107e84) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin säkerhets alternativ-nätverks säkerhet för att inkludera lokalt system beteende, PKU2U, LAN Manager, LDAP-klient och NTLM SSP. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkSecurity_AINE.json) |
+|[Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer utan identiteter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |Den här principen lägger till en systemtilldelad hanterad identitet till virtuella datorer som finns i Azure och som stöds av gäst konfiguration men som inte har några hanterade identiteter. En systemtilldelad hanterad identitet är en förutsättning för alla gäst konfigurations tilldelningar och måste läggas till på datorer innan du använder princip definitioner för gäst konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |gör |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
+|[Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer med en tilldelad identitet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |Den här principen lägger till en systemtilldelad hanterad identitet till virtuella datorer som finns i Azure och som stöds av gäst konfiguration och som har minst en tilldelad identitet, men som inte har någon tilldelad hanterad identitet. En systemtilldelad hanterad identitet är en förutsättning för alla gäst konfigurations tilldelningar och måste läggas till på datorer innan du använder princip definitioner för gäst konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |gör |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
+|[Distribuera Windows gäst konfigurations tillägget för att aktivera gäst konfigurations tilldelningar på virtuella Windows-datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F385f5831-96d4-41db-9a3c-cd3af78aaae6) |Den här principen distribuerar Windows gäst konfigurations tillägg till virtuella Windows-datorer som finns i Azure och som stöds av gäst konfigurationen. Windows gäst konfigurations tillägget är ett krav för alla Windows gäst konfigurations tilldelningar och måste distribueras till datorer innan du använder en princip definition för Windows-gästens konfiguration. Mer information om gäst konfiguration finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionWindows_Prerequisite.json) |
+|[Windows-datorer måste uppfylla kraven för "Administrativa mallar-Network"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F67e010c1-640d-438e-a3a5-feaccb533a98) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin "Administrativa mallar nätverk" för gäst inloggningar, samtidiga anslutningar, nätverks brygga, ICS och multicast-namnmatchning. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AdministrativeTemplatesNetwork_AINE.json) |
+|[Windows-datorer bör uppfylla kraven för säkerhets alternativ-Microsoft-nätverks server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcaf2d518-f029-4f6b-833b-d7081702f253) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin säkerhets alternativ-Microsoft-nätverks server för att inaktivera SMB v1-Server. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsMicrosoftNetworkServer_AINE.json) |
+|[Windows-datorer bör uppfylla kraven för "säkerhets alternativ – nätverks åtkomst"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ff60f98-7fa4-410a-9f7f-0b00f5afdbdd) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin säkerhets alternativ-nätverks åtkomst för att inkludera åtkomst för anonyma användare, lokala konton och fjärråtkomst till registret. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkAccess_AINE.json) |
+|[Windows-datorer bör uppfylla kraven för säkerhets alternativ-nätverks säkerhet](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1221c620-d201-468c-81e7-2817e6107e84) |Windows-datorer ska ha de angivna grupprincip inställningarna i kategorin säkerhets alternativ-nätverks säkerhet för att inkludera lokalt system beteende, PKU2U, LAN Manager, LDAP-klient och NTLM SSP. Den här principen kräver att gäst konfigurations kraven har distribuerats till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkSecurity_AINE.json) |
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
@@ -117,7 +117,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security Benchmark 2,2 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Granska Windows-datorer där Log Analytics-agenten inte är ansluten som förväntat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6265018c-d7e2-432f-a75d-094d5f6f4465) |Kräver att nödvändiga komponenter distribueras till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . Datorer är icke-kompatibla om agenten inte är installerad eller om den är installerad men COM-objektet AgentConfigManager. MgmtSvcCfg returnerar att det är registrerat på en annan arbets yta än det ID som anges i princip parametern. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsLogAnalyticsAgentConnection_AINE.json) |
 |[Automatisk etablering av Log Analytics övervaknings agenten ska vara aktive rad för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |Aktivera automatisk etablering av Log Analytics Monitoring Agent för att samla in säkerhets data |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
@@ -130,7 +130,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security Benchmark 2,3 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Granska diagnostikinställning](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |Granska diagnostikinställningar för valda resurs typer |AuditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
 |[Granskning på SQL Server måste vara aktiverat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |Granskning på din SQL Server ska vara aktive rad för att spåra databas aktiviteter i alla databaser på servern och spara dem i en Gransknings logg. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
@@ -152,7 +152,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security Benchmark 2,4 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Granska Windows-datorer där Log Analytics-agenten inte är ansluten som förväntat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6265018c-d7e2-432f-a75d-094d5f6f4465) |Kräver att nödvändiga komponenter distribueras till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . Datorer är icke-kompatibla om agenten inte är installerad eller om den är installerad men COM-objektet AgentConfigManager. MgmtSvcCfg returnerar att det är registrerat på en annan arbets yta än det ID som anges i princip parametern. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsLogAnalyticsAgentConnection_AINE.json) |
 |[Automatisk etablering av Log Analytics övervaknings agenten ska vara aktive rad för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |Aktivera automatisk etablering av Log Analytics Monitoring Agent för att samla in säkerhets data |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
@@ -163,7 +163,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security Benchmark 2,5 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[SQL-servrar bör konfigureras med granskning av antalet dagar som är större än 90 dagar.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Granska SQL-servrar som kon figurer ATS med en gransknings kvarhållningsperiod på mindre än 90 dagar. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
@@ -171,7 +171,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security Benchmark 2,7 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Avancerad data säkerhet ska vara aktiverat på SQL-hanterad instans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Granska varje SQL-hanterad instans utan avancerad data säkerhet. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
 |[Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Granska SQL-servrar utan avancerad data säkerhet |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
@@ -180,7 +180,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security Benchmark 2,8 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26a828e1-e88f-464e-bbb3-c134a282b9de) |Granska förekomsten och hälsan för en Endpoint Protection-lösning på dina virtuella datorers skalnings uppsättningar för att skydda dem mot hot och sårbarheter. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingEndpointProtection_Audit.json) |
 |[Microsoft Antimalware för Azure bör konfigureras att automatiskt uppdatera skydds-signaturer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc43e4a30-77cb-48ab-a4dd-93f175c63b57) |Den här principen granskar en virtuell Windows-dator som inte har kon figurer ATS med automatisk uppdatering av Microsoft Antimalware-signaturer för virus skydd. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_AntiMalwareAutoUpdate_AuditIfNotExists.json) |
@@ -192,7 +192,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 3,1 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Högst 3 ägare bör anges för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f11b553-d42e-4e3a-89be-32ca364cad4c) |Vi rekommenderar att du anger upp till tre prenumerations ägare för att minska risken för intrång av en komprometterad ägare. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateLessThanXOwners_Audit.json) |
 |[Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Febb62a0c-3560-49e1-89ed-27e074e9f8ad) |Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration.  Föråldrade konton är konton som har blockerats från att logga in. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveDeprecatedAccountsWithOwnerPermissions_Audit.json) |
@@ -203,7 +203,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 3,3 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Högst 3 ägare bör anges för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f11b553-d42e-4e3a-89be-32ca364cad4c) |Vi rekommenderar att du anger upp till tre prenumerations ägare för att minska risken för intrång av en komprometterad ägare. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateLessThanXOwners_Audit.json) |
 |[Granska Windows-datorer som saknar angivna medlemmar i gruppen Administratörer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F30f71ea1-ac77-4f26-9fc5-2d926bbd4ba7) |Kräver att nödvändiga komponenter distribueras till princip tilldelnings omfånget. Mer information finns på [https://aka.ms/gcpol](https://aka.ms/gcpol) . Datorer är icke-kompatibla om den lokala gruppen administratörer inte innehåller en eller flera medlemmar som anges i princip parametern. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AdministratorsGroupMembersToInclude_AINE.json) |
@@ -215,7 +215,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 3,5 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9297c21d-2ed6-4474-b48f-163f75654ce3) |Multi-Factor Authentication (MFA) måste vara aktiverat för alla prenumerations konton med Skriv behörighet för att förhindra att konton eller resurser överlappar varandra. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForWritePermissions_Audit.json) |
 |[MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa633080-8b72-40c4-a2d7-d00c03e80bed) |Multi-Factor Authentication (MFA) måste vara aktiverat för alla prenumerations konton med ägar behörigheter för att förhindra att konton eller resurser överlappar varandra. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForOwnerPermissions_Audit.json) |
@@ -225,7 +225,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 3,9 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[En Azure Active Directory administratör bör tillhandahållas för SQL-servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |Granska etablering av en Azure Active Directory administratör för SQL Server för att aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb54ed75b-3e1a-44ac-a333-05ba39b99ff0) |Granska användningen av klientautentisering endast via Azure Active Directory i Service Fabric |Granska, neka, inaktive rad |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Fabric/ServiceFabric_AuditADAuth_Audit.json) |
@@ -234,7 +234,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 3,10 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Föråldrade konton bör tas bort från din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b1cbf55-e8b6-442f-ba4c-7246b6381474) |Föråldrade konton bör tas bort från dina prenumerationer.  Föråldrade konton är konton som har blockerats från att logga in. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveDeprecatedAccounts_Audit.json) |
 |[Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Febb62a0c-3560-49e1-89ed-27e074e9f8ad) |Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration.  Föråldrade konton är konton som har blockerats från att logga in. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveDeprecatedAccountsWithOwnerPermissions_Audit.json) |
@@ -248,15 +248,15 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 4,1 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Känsliga data i dina SQL-databaser bör klassificeras](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |Azure Security Center övervakar genomsöknings resultaten för data identifiering och klassificering för dina SQL-databaser och ger rekommendationer för att klassificera känsliga data i dina databaser för bättre övervakning och säkerhet |AuditIfNotExists, inaktiverat |[1.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
+|[Känsliga data i dina SQL-databaser bör klassificeras](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |Azure Security Center övervakar genomsöknings resultaten för data identifiering och klassificering för dina SQL-databaser och ger rekommendationer för att klassificera känsliga data i dina databaser för bättre övervakning och säkerhet |AuditIfNotExists, inaktiverat |[2.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>Kryptera all känslig information i överföring
 
 **ID**: Azure Security benchmark 4,4 **ägarskap**: delad
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[API-appen bör bara vara tillgänglig via HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb7ddfbdc-1260-477d-91fd-98bd9be789a6) |Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceApiApp_AuditHTTP_Audit.json) |
 |[Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |Den här principen granskar en MySQL-server som inte tillämpar SSL-anslutning. Azure Database for MySQL stöder anslutning av Azure Database for MySQL-servern till klient program med hjälp av Secure Sockets Layer (SSL). Att framtvinga SSL-anslutningar mellan din databas server och dina klient program hjälper till att skydda mot "man i de mittersta" angrepp genom att kryptera data strömmen mellan servern och ditt program. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
@@ -276,17 +276,17 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 4,5 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Avancerad data säkerhet ska vara aktiverat på SQL-hanterad instans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Granska varje SQL-hanterad instans utan avancerad data säkerhet. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
 |[Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Granska SQL-servrar utan avancerad data säkerhet |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
-|[Känsliga data i dina SQL-databaser bör klassificeras](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |Azure Security Center övervakar genomsöknings resultaten för data identifiering och klassificering för dina SQL-databaser och ger rekommendationer för att klassificera känsliga data i dina databaser för bättre övervakning och säkerhet |AuditIfNotExists, inaktiverat |[1.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
+|[Känsliga data i dina SQL-databaser bör klassificeras](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |Azure Security Center övervakar genomsöknings resultaten för data identifiering och klassificering för dina SQL-databaser och ger rekommendationer för att klassificera känsliga data i dina databaser för bättre övervakning och säkerhet |AuditIfNotExists, inaktiverat |[2.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Använd Azure RBAC för att styra åtkomsten till resurser
 
 **ID**: Azure Security benchmark 4,6 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Granska användningen av anpassade RBAC-regler](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |Granska inbyggda roller som "ägare, Contribute", läsare "i stället för anpassade RBAC-roller som är fel känsliga. Användning av anpassade roller behandlas som ett undantag och kräver en rigorös gransknings-och hot modellering |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
 |[Rollbaserad Access Control (RBAC) ska användas på Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |Om du vill ha detaljerad filtrering för de åtgärder som användarna kan utföra använder du rollbaserad Access Control (RBAC) för att hantera behörigheter i Kubernetes-tjänstekluster och konfigurera relevanta Auktoriseringsprinciper. |Granskning, inaktive rad |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
@@ -295,7 +295,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 4,8 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Variabler för Automation-konton ska vara krypterade](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |Det är viktigt att aktivera kryptering av variabel till gångar för Automation-kontot när du lagrar känsliga data |Granska, neka, inaktive rad |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 |[Disk kryptering bör tillämpas på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Virtuella datorer utan en aktive rad disk kryptering övervakas av Azure Security Center som rekommendationer. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
@@ -309,7 +309,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 4,9 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Azure Monitor ska samla in aktivitets loggar från alla regioner](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Den här principen granskar Azure Monitor logg profil som inte exporterar aktiviteter från alla Azure-regioner som stöds, inklusive global. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 
@@ -319,7 +319,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 5,1 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[En lösning för sårbarhets bedömning ska vara aktive rad på dina virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Granskar virtuella datorer för att identifiera om de kör en lösning för sårbarhets bedömning som stöds. En kärn komponent i varje cyberhot risk-och säkerhets program är identifiering och analys av sårbarheter. Azure Security Center standard pris nivån omfattar sårbarhets skanning för dina virtuella datorer utan extra kostnad. Dessutom kan Security Center distribuera verktyget automatiskt åt dig. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 |[Sårbarhets bedömning ska vara aktiverat på SQL-hanterad instans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Granska varje SQL-hanterad instans som inte har återkommande genomsökningar aktiverade för sårbarhets bedömning. En sårbarhets bedömning kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
@@ -329,7 +329,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 5,2 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc3f317a7-a95c-4547-b7e7-11017ebdf2fe) |Granska om det finns några saknade system säkerhets uppdateringar och viktiga uppdateringar som ska installeras för att säkerställa att skalnings uppsättningar för virtuella Windows-och Linux-datorer är säkra. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingSystemUpdates_Audit.json) |
 |[Systemuppdateringar ska ha installerats på dina datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Säkerhets system uppdateringar som saknas på dina servrar kommer att övervakas av Azure Security Center som rekommendationer |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
@@ -338,7 +338,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 5,3 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Se till att Java-version är den senaste, om den används som en del av API-appen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Nyare versioner släpps med jämna mellanrum för Java antingen på grund av säkerhets brister eller för att inkludera ytterligare funktioner. Det rekommenderas att du använder den senaste python-versionen för API Apps för att dra nytta av säkerhets korrigeringar, om det finns några, och/eller nya funktioner i den senaste versionen. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
 |[Se till att Java-version är den senaste, om den används som en del av Function-appen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Nyare versioner släpps med jämna mellanrum för Java-program, antingen på grund av säkerhets brister eller för att inkludera ytterligare funktioner. Det rekommenderas att du använder den senaste Java-versionen för Function Apps för att dra nytta av säkerhets korrigeringar, om det finns några, och/eller nya funktioner i den senaste versionen. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
@@ -354,7 +354,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 5,5 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Granska sårbarheter i säkerhets konfiguration på datorer där Docker är installerat och visas som rekommendationer i Azure Security Center. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servrar som inte uppfyller den konfigurerade bas linjen kommer att övervakas med Azure Security Center som rekommendationer |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
@@ -368,7 +368,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 6,8 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Anpassningsbara program kontroller för att definiera säkra program ska aktive ras på dina datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Aktivera program kontroller för att definiera listan över kända säkra program som körs på dina datorer och varna dig när andra program körs. På så sätt kan du förstärka dina datorer mot skadlig kod. För att förenkla processen med att konfigurera och underhålla dina regler, Security Center använda Machine Learning för att analysera programmen som körs på varje dator och föreslå listan över kända säkra program. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 
@@ -376,7 +376,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 6,9 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Lagrings konton ska migreras till nya Azure Resource Manager resurser](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F37e0d2fe-28a5-43d6-a273-67d37d1f5606) |Använd nya Azure Resource Manager för dina lagrings konton för att tillhandahålla säkerhets förbättringar, till exempel: starkare åtkomst kontroll (RBAC), bättre granskning, Azure Resource Manager baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till nyckel valv för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resurs grupper för enklare säkerhets hantering |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Classic_AuditForClassicStorages_Audit.json) |
 |[Virtuella datorer ska migreras till nya Azure Resource Manager-resurser](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Använd nya Azure Resource Manager för dina virtuella datorer för att tillhandahålla säkerhets förbättringar, till exempel: starkare åtkomst kontroll (RBAC), bättre granskning, Azure Resource Manager baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till nyckel valv för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resurs grupper för enklare säkerhets hantering |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json) |
@@ -385,43 +385,27 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 6,10 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Anpassningsbara program kontroller för att definiera säkra program ska aktive ras på dina datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Aktivera program kontroller för att definiera listan över kända säkra program som körs på dina datorer och varna dig när andra program körs. På så sätt kan du förstärka dina datorer mot skadlig kod. För att förenkla processen med att konfigurera och underhålla dina regler, Security Center använda Machine Learning för att analysera programmen som körs på varje dator och föreslå listan över kända säkra program. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-### <a name="maintain-secure-azure-resource-configurations"></a>Underhåll säkra konfigurationer för Azure-resurser
-
-**ID**: Azure Security benchmark 7,3 **ägarskap**: kund
-
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
-|---|---|---|---|
-|[\[För hands version \] : Pod-säkerhetsprinciper bör definieras för Kubernetes-tjänster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3abeb944-26af-43ee-b83d-32aaf060fb94) |Definiera Pod säkerhets principer för att minska angrepps vektorn genom att ta bort onödiga program privilegier. Vi rekommenderar att du konfigurerar Pod-säkerhetsprinciper så att endast poddar får åtkomst till de resurser som de har åtkomst behörighet till. |Granskning, inaktive rad |[1.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnablePSP_KubernetesService_Audit.json) |
-
 ### <a name="maintain-secure-operating-system-configurations"></a>Underhåll säkra konfigurationer för operativ system
 
 **ID**: Azure Security benchmark 7,4 **ägarskap**: delad
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Granska sårbarheter i säkerhets konfiguration på datorer där Docker är installerat och visas som rekommendationer i Azure Security Center. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servrar som inte uppfyller den konfigurerade bas linjen kommer att övervakas med Azure Security Center som rekommendationer |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Granska OS-sårbarheterna på dina virtuella datorers skalnings uppsättningar för att skydda dem mot angrepp. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
 
-### <a name="implement-automated-configuration-monitoring-for-azure-services"></a>Implementera automatisk konfigurations övervakning för Azure-tjänster
-
-**ID**: Azure Security benchmark 7,9 **ägarskap**: kund
-
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
-|---|---|---|---|
-|[\[För hands version \] : Pod-säkerhetsprinciper bör definieras för Kubernetes-tjänster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3abeb944-26af-43ee-b83d-32aaf060fb94) |Definiera Pod säkerhets principer för att minska angrepps vektorn genom att ta bort onödiga program privilegier. Vi rekommenderar att du konfigurerar Pod-säkerhetsprinciper så att endast poddar får åtkomst till de resurser som de har åtkomst behörighet till. |Granskning, inaktive rad |[1.0.0 – för hands version](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnablePSP_KubernetesService_Audit.json) |
-
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>Implementera automatisk konfigurations övervakning för operativ system
 
 **ID**: Azure Security benchmark 7,10 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Granska sårbarheter i säkerhets konfiguration på datorer där Docker är installerat och visas som rekommendationer i Azure Security Center. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servrar som inte uppfyller den konfigurerade bas linjen kommer att övervakas med Azure Security Center som rekommendationer |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
@@ -431,7 +415,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 7,11 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Key Vault objekt ska vara återställnings bara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Den här principen granskar om det inte går att återskapa nyckel valvs objekt. Med funktionen för mjuk borttagning kan du effektivt hålla resurserna under en viss kvarhållningsperiod (90 dagar) även efter en BORTTAGNINGs åtgärd, samtidigt som du ger det utseende som objektet tas bort. När ' Rensa skydd ' är på kan ett valv eller ett objekt i Borttaget läge inte rensas förrän kvarhållningsperioden på 90 dagar har passerat. Dessa valv och objekt kan fortfarande återställas, vilket gör det möjligt för kunderna att följa bevarande principen. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
@@ -439,7 +423,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 7,12 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Hanterad identitet ska användas i din API-app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4d441f8-f9d9-4a9e-9cef-e82117cb3eef) |Använd en hanterad identitet för utökad autentisering |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_ApiApp_Audit.json) |
 |[Hanterad identitet ska användas i Funktionsapp](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0da106f2-4ca3-48e8-bc85-c638fe6aea8f) |Använd en hanterad identitet för utökad autentisering |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_FunctionApp_Audit.json) |
@@ -451,7 +435,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 8,1 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26a828e1-e88f-464e-bbb3-c134a282b9de) |Granska förekomsten och hälsan för en Endpoint Protection-lösning på dina virtuella datorers skalnings uppsättningar för att skydda dem mot hot och sårbarheter. |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingEndpointProtection_Audit.json) |
 |[Övervaka saknade Endpoint Protection i Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servrar utan en installerad Endpoint Protection Agent övervakas med Azure Security Center som rekommendationer |AuditIfNotExists, inaktiverat |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
@@ -460,7 +444,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 8,3 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Microsoft Antimalware för Azure bör konfigureras att automatiskt uppdatera skydds-signaturer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc43e4a30-77cb-48ab-a4dd-93f175c63b57) |Den här principen granskar en virtuell Windows-dator som inte har kon figurer ATS med automatisk uppdatering av Microsoft Antimalware-signaturer för virus skydd. |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_AntiMalwareAutoUpdate_AuditIfNotExists.json) |
 
@@ -470,7 +454,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 9,1 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Azure Backup ska vara aktiverat för Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F013e242c-8828-4970-87b3-ab247555486d) |Säkerställ att Azure-Virtual Machines skyddas genom att aktivera Azure Backup. Azure Backup är en säker och kostnads effektiv data skydds lösning för Azure. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachines_EnableAzureBackup_Audit.json) |
 |[Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Den här principen granskar alla Azure Database for MariaDB med Geo-redundant säkerhets kopiering inte aktive rad. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
@@ -482,7 +466,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 9,2 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Azure Backup ska vara aktiverat för Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F013e242c-8828-4970-87b3-ab247555486d) |Säkerställ att Azure-Virtual Machines skyddas genom att aktivera Azure Backup. Azure Backup är en säker och kostnads effektiv data skydds lösning för Azure. |AuditIfNotExists, inaktiverat |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachines_EnableAzureBackup_Audit.json) |
 |[Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Den här principen granskar alla Azure Database for MariaDB med Geo-redundant säkerhets kopiering inte aktive rad. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
@@ -494,7 +478,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 9,4 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Key Vault objekt ska vara återställnings bara](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Den här principen granskar om det inte går att återskapa nyckel valvs objekt. Med funktionen för mjuk borttagning kan du effektivt hålla resurserna under en viss kvarhållningsperiod (90 dagar) även efter en BORTTAGNINGs åtgärd, samtidigt som du ger det utseende som objektet tas bort. När ' Rensa skydd ' är på kan ett valv eller ett objekt i Borttaget läge inte rensas förrän kvarhållningsperioden på 90 dagar har passerat. Dessa valv och objekt kan fortfarande återställas, vilket gör det möjligt för kunderna att följa bevarande principen. |Granskning, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
@@ -504,7 +488,7 @@ Det här inbyggda initiativet distribueras som en del av [skiss exemplet för Az
 
 **ID**: Azure Security benchmark 10,4 **ägarskap**: kund
 
-|Name<br /><sub>(Azure Portal)</sub> |Description |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Du måste tillhandahålla en e-postadress till en säkerhets kontakt för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7) |Ange en e-postadress för att ta emot meddelanden när Azure Security Center identifierar komprometterade resurser |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_email.json) |
 |[Du måste tillhandahålla ett telefonnummer till en säkerhets kontakt för din prenumeration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4d66858-c922-44e3-9566-5cdb7a7be744) |Ange ett telefonnummer för att ta emot meddelanden när Azure Security Center identifierar komprometterade resurser |AuditIfNotExists, inaktiverat |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_phone_number.json) |

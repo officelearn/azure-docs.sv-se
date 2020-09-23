@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 08/04/2020
-ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ce63d86c3256646782775c84636c4d248e0a6735
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984329"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL-hanterad instans online med DMS
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 
 > [!IMPORTANT]
 > För online-migrering från SQL Server till SQL-hanterad instans med Azure Database Migration Service måste du ange fullständig säkerhets kopiering av databasen och efterföljande logg säkerhets kopior i SMB-nätverks resursen som tjänsten kan använda för att migrera dina databaser. Azure Database Migration Service initierar inga säkerhets kopior och använder istället befintliga säkerhets kopior, som du kanske redan har som en del av Disaster Recovery-planen för migreringen.
-> Se till att du vidtar [säkerhets kopior med alternativet med kontroll Summa](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Se också till att du inte lägger till flera säkerhets kopior (t. ex. fullständig och t-logg) i ett enda säkerhets kopierings medium. ta varje säkerhets kopia på en separat säkerhets kopierings fil. Slutligen kan du använda komprimerade säkerhets kopieringar för att minska sannolikheten för problem med att migrera stora säkerhets kopior.
+> Se till att du vidtar [säkerhets kopior med alternativet med kontroll Summa](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true). Se också till att du inte lägger till flera säkerhets kopior (t. ex. fullständig och t-logg) i ett enda säkerhets kopierings medium. ta varje säkerhets kopia på en separat säkerhets kopierings fil. Slutligen kan du använda komprimerade säkerhets kopieringar för att minska sannolikheten för problem med att migrera stora säkerhets kopior.
 
 > [!NOTE]
 > Om du använder Azure Database Migration Service för att utföra en online-migrering måste du skapa en instans utifrån pris nivån Premium.
@@ -245,7 +245,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
     Du kan expandera databaserna och inloggningskategorierna ytterligare för att övervaka migreringsstatusen för respektive serverobjekt.
 
-   ![Migreringsaktivitet pågår](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![Status för migrerings aktivitet](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Utföra snabbmigrering
 
@@ -264,7 +264,7 @@ När den fullständiga säkerhets kopieringen av databasen har återställts på
     ![Förbereda för att slutföra startpunkt](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > Efter start punkt kan tillgänglighet för SQL-hanterad instans med Affärskritisk tjänst nivå bara ta betydligt längre tid än Generell användning som tre sekundära repliker måste dirigeras för gruppen med hög tillgänglighet för AlwaysOn. Den här åtgärdens storlek beror på data storleken. mer information finns i [varaktighet för hanterings åtgärder](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
+    > Efter start punkt kan tillgänglighet för SQL-hanterad instans med Affärskritisk tjänst nivå bara ta betydligt längre tid än Generell användning som tre sekundära repliker måste dirigeras för gruppen med hög tillgänglighet för AlwaysOn. Den här åtgärdens storlek beror på data storleken. mer information finns i [varaktighet för hanterings åtgärder](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
 5. När status för databas migreringen är **slutförd**ansluter du dina program till den nya mål instansen av SQL-hanterad instans.
 

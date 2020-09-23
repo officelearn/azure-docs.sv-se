@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 808cf713cc34f90224cb3d5ce8a714fbafdcedbc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202935"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984259"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Säkerhets rekommendationer för Blob Storage
 
@@ -30,7 +30,7 @@ Azure Security Center analyserar regelbundet säkerhets status för dina Azure-r
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
 | Använd Azure Resource Manager distributions modell | Skapa nya lagrings konton med hjälp av Azure Resource Manager distributions modell för viktiga säkerhets förbättringar, inklusive överlägsen åtkomst kontroll (RBAC) och granskning, Resource Manager-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till Azure Key Vault för hemligheter och Azure AD-baserad autentisering och auktorisering för att få åtkomst till Azure Storage data och resurser. Migrera om möjligt Befintliga lagrings konton som använder den klassiska distributions modellen för att använda Azure Resource Manager. Mer information om Azure Resource Manager finns i [Azure Resource Manager översikt](/azure/azure-resource-manager/resource-group-overview). | - |
-| Aktivera avancerat skydd för alla dina lagrings konton | Avancerat skydd för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Säkerhets aviseringar utlöses i Azure Security Center när avvikelser i aktivitet sker och också skickas via e-post till prenumerations administratörer, med information om misstänkt aktivitet och rekommendationer för att undersöka och åtgärda hot. Mer information finns i [Avancerat skydd mot Azure Storage](../common/storage-advanced-threat-protection.md). | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
+| Aktivera Azure Defender för alla dina lagrings konton | Azure Defender för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Säkerhets aviseringar utlöses i Azure Security Center när avvikelser i aktivitet sker och också skickas via e-post till prenumerations administratörer, med information om misstänkt aktivitet och rekommendationer för att undersöka och åtgärda hot. Mer information finns i [Konfigurera Azure Defender för Azure Storage](../common/azure-defender-storage-configure.md). | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 | Aktivera mjuk borttagning för BLOB-data | Med mjuk borttagning kan du återställa BLOB-data när de har tagits bort. Mer information om mjuk borttagning finns i [mjuk borttagning för Azure Storage blobbar](storage-blob-soft-delete.md). | - |
 | Lagra affärs kritiska data i oföränderliga blobbar | Konfigurera juridiska undantag och tidsbaserade bevarande principer för att lagra BLOB-data i en mask (Skriv en gång, Läs många). Blobs lagrade immutably kan läsas, men kan inte ändras eller tas bort under lagrings intervallets varaktighet. Mer information finns i [lagra affärs kritiska BLOB-data med oföränderlig lagring](storage-blob-immutable-storage.md). | - |
 | Begränsa endast SAS-token (signatur för delad åtkomst) till HTTPS-anslutningar | Att kräva HTTPS när en klient använder en SAS-token för att få åtkomst till BLOB-data hjälper till att minimera risken för avlyssning. Mer information finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md). | - |

@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 46ffb5bfe52fe4f398594a1dfed76a6ea6c0fd81
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530802"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976261"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
 
@@ -69,14 +69,14 @@ I det här scenariot behöver vi dock tänka på vilka statiska vägar som ska k
 
 Med det här alternativet är de statiska vägar som vi behöver i standard tabellen för att skicka trafik till NVA ekrar bakom NVA VNet följande:
 
-| Description | Routningstabell | Statisk väg              |
+| Beskrivning | Routningstabell | Statisk väg              |
 | ----------- | ----------- | ------------------------- |
 | VNet 2       | Standardvärde     | 10.2.0.0/16-> eastusconn |
 | VNet 4       | Standardvärde     | 10.4.0.0/16-> weconn     |
 
 Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används. Här kommer vi att använda de kortare prefixen (/24 i stället för längre/16) för att se till att dessa vägar har prioritet över vägar som importeras från NVA-virtuella nätverk (VNet 2 och VNet 4):
 
-| Description | Anslutning | Statisk väg            |
+| Beskrivning | Anslutning | Statisk väg            |
 | ----------- | ---------- | ----------------------- |
 | VNet 5       | eastusconn | 10.2.1.0/24 – > 10.2.0.5 |
 | VNet 6       | eastusconn | 10.2.2.0/24 – > 10.2.0.5 |

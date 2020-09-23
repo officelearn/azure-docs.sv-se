@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875327"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890166"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Alternativ för data inmatning för Azure Machine Learning arbets flöden
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig om de tillgängliga alternativen för data
 Välj mellan:
 + [Azure Data Factory](#azure-data-factory) pipelines, specifikt utformade för att extrahera, läsa in och transformera data
 
-+ [Azure Machine Learning python SDK](#azure-machine-learning-python-sdk)och tillhandahålla en anpassad kod lösning för grundläggande uppgifter för data inmatning.
++ [Azure Machine Learning python SDK](#azure-machine-learning-python-sdk)och tillhandahålla en anpassad kod för data inmatnings uppgifter.
 
 + en kombination av båda
 
@@ -70,7 +70,7 @@ Konfigurera egna Python-skript | Har inte inbyggt stöd för att aktivera ändri
 Förberedelse av data som en del av alla modell utbildnings körningar|Kräver utvecklings kunskaper för att skapa ett skript för data inmatning
 Stöder skript för förberedelse av data på olika beräknings mål, inklusive [Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) |Tillhandahåller inget användar gränssnitt för att skapa inmatnings mekanismen
 
-I följande diagram består Azure Machine Learning pipelinen av två steg: data inmatning och modell träning. Steget för data inmatning omfattar uppgifter som kan utföras med python-bibliotek och python SDK, till exempel för att extrahera data från lokala/webb källor och grundläggande data transformationer, som t. ex. värde som saknas Imputation. I övnings steget används för beredda data som indata till ditt utbildnings skript för att träna din Machine Learning-modell. 
+I följande diagram består Azure Machine Learning pipelinen av två steg: data inmatning och modell träning. Steget för data inmatning omfattar uppgifter som kan utföras med python-bibliotek och python SDK, till exempel för att extrahera data från lokala/webb-källor och data transformationer, som t. ex. värde som saknas Imputation. I övnings steget används för beredda data som indata till ditt utbildnings skript för att träna din Machine Learning-modell. 
 
 ![Azure pipeline + SDK-datainmatning](media/concept-data-ingestion/data-ingest-option-two.png)
 

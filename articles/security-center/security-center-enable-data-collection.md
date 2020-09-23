@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387378"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905484"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
@@ -27,27 +27,30 @@ Den här artikeln beskriver hur du installerar en Log Analytics agent och anger 
 > - En lista över plattformar som stöds finns [i plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
 > - Om du lagrar data i Log Analytics, oavsett om du använder en ny eller befintlig arbets yta, kan ytterligare kostnader för data lagring uppstå. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Aktivera automatisk etablering av Log Analytics agent<a name="auto-provision-mma"></a>
+## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Aktivera automatisk etablering av Log Analytics agent <a name="auto-provision-mma"></a>
 
 Om du vill samla in data från datorerna bör du ha Log Analytics-agenten installerad. Installationen av agenten kan göras automatiskt (rekommenderas) eller så kan du installera agenten manuellt. Automatisk etablering är inaktive rad som standard.
 
 När automatisk etablering är aktiverat distribuerar Security Center Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas. Automatisk etablering rekommenderas, men du kan installera agenten manuellt om det behövs (se [manuell installation av Log Analytics agent](#manual-agent)).
 
 
+
 Så här aktiverar du automatisk etablering av Log Analytics agent:
-1. Från Security Center menyn i portalen väljer du **pris & inställningar**.
-2. Välj relevant prenumeration.
 
-   ![Välj en prenumeration][7]
+1. Från Security Center menyn väljer du **pris & inställningar**.
+1. Välj relevant prenumeration.
+1. På sidan **data insamling** ställer du in **Automatisk etablering** till **på**.
+1. Välj **Spara**.
 
-3. Välj **data insamling**.
-4. Under **Automatisk etablering**väljer du **på** för att aktivera automatisk etablering.
-5. Välj **Spara**. Agenten kommer att distribueras på alla virtuella datorer inom 15 minuter. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Aktivera automatisk etablering av Log Analytics agenten":::
 
 >[!TIP]
 > Om en arbets yta behöver tillhandahållas kan Agent installationen ta upp till 25 minuter.
 
-   ![Aktivera automatisk försörjning][1]
+Med agenten distribuerad till dina datorer kan Security Center tillhandahålla ytterligare rekommendationer relaterade till system uppdaterings status, OS-säkerhetskonfigurationer, Endpoint Protection, samt skapa ytterligare säkerhets aviseringar.
+
+>[!NOTE]
+> Om du ställer in automatisk etablering till **av** tas inte Log Analytics agenten bort från virtuella Azure-datorer där agenten redan har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
 
 >[!NOTE]
 > - Instruktioner för hur du etablerar en befintlig installation finns i [Automatisk etablering i händelse av en befintlig agent installation](#preexisting).
@@ -78,7 +81,7 @@ Så här väljer du en arbets yta som skapats av Security Center:
 1. Security Center aktiverar automatiskt en Security Center lösning på arbets ytan enligt den pris nivå som angetts för prenumerationen. 
 
 > [!NOTE]
-> Log Analytics pris nivå för arbets ytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center-fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerade på en arbetsyta. För den kostnadsfria nivån aktiverar Security Center lösningen *SecurityCenterFree* på standardarbetsytan. För standard-nivån aktiverar Security Center *säkerhets* lösningen på standard arbets ytan.
+> Log Analytics pris nivå för arbets ytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center-fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerade på en arbetsyta. För prenumerationer utan Azure Defender aktiverar Security Center *SecurityCenterFree* -lösningen på standard arbets ytan. För prenumerationer med Azure Defender aktiverar Security Center *säkerhets* lösningen på standard arbets ytan.
 > Att lagra data i Log Analytics kan debiteras ytterligare avgifter för data lagring. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
 Mer information om befintliga Log Analytics-konton finns i [befintliga Log Analytics-kunder](./faq-azure-monitor-logs.md).
@@ -97,7 +100,7 @@ Så här väljer du en befintlig Log Analytics arbets yta:
 
 1. Under **standard arbets ytans konfiguration**väljer du **Använd en annan arbets yta**.
 
-   ![Välj en befintlig arbets yta][2]
+   ![Använd en annan arbets yta][2]
 
 2. I den nedrullningsbara menyn väljer du en arbets yta där insamlade data ska lagras.
 
@@ -117,23 +120,28 @@ Så här väljer du en befintlig Log Analytics arbets yta:
    >
    >
 
-   - Välj **Avbryt** om du vill avbryta åtgärden.
+   - Välj **Avbryt**om du vill avbryta åtgärden.
 
-     ![Välj en befintlig arbets yta][3]
+     ![Granska alternativen för att konfigurera om övervakade virtuella datorer][3]
 
-5. Välj pris nivå för den önskade arbets ytan som du vill ange Log Analytics agenten. <br>Ange pris nivån för arbets ytan om du vill använda en befintlig arbets yta. Då installeras en Security Center-lösning på arbets ytan om det inte redan finns en sådan.
+5. Välj om arbets ytan ska ha Azure Defender aktiverat.
 
-    a.  På Security Center huvud menyn väljer du **pris & inställningar**.
+    Ange pris nivån för arbets ytan om du vill använda en befintlig arbets yta. Då installeras en Security Center-lösning på arbets ytan om det inte redan finns en sådan.
+
+    1. På Security Center huvud menyn väljer du **pris & inställningar**.
      
-    b.  Välj önskad arbets yta där du vill ansluta agenten.
-        ![Välj arbets yta ][7] c. Ange pris nivå.
-        ![Välj pris nivå][9]
+    1. Välj den arbets yta som du vill ansluta agenten till.
+
+    1. Välj **Azure Defender på** eller **Azure Defender av**.
+
    
    >[!NOTE]
    >Om arbets ytan redan har en **säkerhets** -eller **SecurityCenterFree** -lösning aktive rad anges prissättningen automatiskt. 
 
+
 ## <a name="cross-subscription-workspace-selection"></a>Val av arbets yta mellan prenumerationer
 När du väljer en arbets yta där data ska lagras är alla arbets ytorna i alla prenumerationer tillgängliga. Denna möjlighet att välja arbetsyta mellan prenumerationer gör det möjligt att samla in data från virtuella datorer som körs i olika prenumerationer och lagra dessa data på önskad arbetsyta. Det här alternativet är användbart om du använder en centraliserad arbetsyta i din organisation och vill använda den för insamling av säkerhetsdata. Mer information om hur du hanterar arbets ytor finns i [Hantera åtkomst till arbets yta](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+
 
 
 ## <a name="data-collection-tier"></a>Data insamlings nivå
@@ -150,7 +158,7 @@ När du väljer en nivå för datainsamling i Azure Security Center påverkar de
 
 
 > [!NOTE]
-> De här säkerhets händelse uppsättningarna är bara tillgängliga på Security Center standard nivån. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+> De här säkerhets händelse uppsättningarna är bara tillgängliga med Azure Defender. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
 Dessa uppsättningar har utformats för att hantera typiska scenarier. Se till att utvärdera vilken som passar dina behov innan du implementerar den.
 >
 >
@@ -188,7 +196,7 @@ Så här väljer du filtrerings princip:
 
    ![Välj filtrerings princip][5]
 
-### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Automatisk etablering i fall av en redan befintlig agent installation<a name="preexisting"></a> 
+### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Automatisk etablering i fall av en redan befintlig agent installation <a name="preexisting"></a> 
 
 Följande användnings fall anger hur automatisk etablering fungerar i fall när det redan finns en agent eller ett tillägg installerat. 
 
@@ -210,7 +218,7 @@ Security Center kommer att installera Log Analytics agent-tillägget sida vid si
     - Om du vill se vilken arbets yta som det befintliga tillägget skickar data till kör du testet för att [Verifiera anslutningen med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log Analytics arbets ytor, välja en arbets yta, välja den virtuella datorn och titta på Log Analytics agent-anslutningen. 
     - Om du har en miljö där Log Analytics-agenten är installerad på klient arbets stationer och rapporterar till en befintlig Log Analytics arbets yta, granskar du listan över [operativ system som stöds av Azure Security Center](security-center-os-coverage.md) för att kontrol lera att operativ systemet stöds. Mer information finns i [befintliga Log Analytics-kunder](./faq-azure-monitor-logs.md).
  
-### <a name="turn-off-automatic-provisioning"></a>Inaktivera automatisk etablering<a name="offprovisioning"></a>
+### <a name="turn-off-automatic-provisioning"></a>Inaktivera automatisk etablering <a name="offprovisioning"></a>
 Så här inaktiverar du automatisk etablering av Log Analytics agent:
 
 1. Från Security Center menyn i portalen väljer du **pris & inställningar**.
@@ -232,7 +240,7 @@ Om du stänger av automatisk etablering efter det tidigare har agenterna inte et
 >  Om du inaktiverar automatisk etablering tas inte Log Analytics agenten bort från virtuella Azure-datorer där agenten etablerades. Information om hur du tar bort OMS-tillägget finns i [Hur gör jag för att ta bort OMS-tillägg som installerats av Security Center](faq-data-collection-agents.md#remove-oms).
 >
     
-## <a name="manual-agent-provisioning"></a>Manuell agent etablering<a name="manual-agent"></a>
+## <a name="manual-agent-provisioning"></a>Manuell agent etablering <a name="manual-agent"></a>
  
 Det finns flera sätt att installera Log Analytics-agenten manuellt. När du installerar manuellt kontrollerar du att du inaktiverar automatisk etablering.
 
@@ -244,19 +252,16 @@ Du kan installera Log Analytics-agenten manuellt, så Security Center kan samla 
 
 1. Du kan också skapa en arbets yta.
 
-1. Ange arbets ytan där du installerar Log Analytics agenten på standard pris nivån:
+1. Aktivera Azure Defender på den arbets yta där du installerar Log Analytics agenten:
 
     1. Från Security Center menyn väljer du **pris & inställningar**.
 
     1. Ange den arbets yta som du vill installera agenten på. Kontrol lera att arbets ytan finns i samma prenumeration som du använder i Security Center och att du har Läs-/Skriv behörighet på arbets ytan.
 
-    1. Ange standard pris nivån och välj **Spara**.
-
-        ![Ange en arbets yta som standard pris nivå](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+    1. Ställ in Azure Defender på på och välj **Spara**.
 
        >[!NOTE]
        >Om arbets ytan redan har en **säkerhets** -eller **SecurityCenterFree** -lösning aktive rad anges prissättningen automatiskt. 
-   > 
 
 1. Om du vill distribuera agenterna på nya virtuella datorer med en Resource Manager-mall installerar du Log Analytics-agenten:
 
@@ -308,7 +313,6 @@ Den här artikeln visar hur data samlas in och automatisk etablering i Security 
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 [7]: ./media/security-center-enable-data-collection/select-subscription.png
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png

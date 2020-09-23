@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en OpenID Connect-provider som identit
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413926"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983879"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Konfigurera din App Service-eller Azure Functions-app för inloggning med hjälp av en OpenID Connect-Provider (för hands version)
+# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Konfigurera din App Service- eller Azure Functions-app för inloggning med en OpenID Connect-provider (förhandsversion)
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -53,7 +53,7 @@ Om du inte kan använda ett dokument för metadata för konfiguration måste du 
 Det här avsnittet beskriver hur du uppdaterar konfigurationen för att inkludera din nya IDP. En exempel konfiguration följer.
 
 1. I `identityProviders` objektet lägger du till ett `openIdConnectProviders` objekt om det inte redan finns.
-1. `openIdConnectProviders`Lägg till en nyckel för din nya Provider i objektet. Detta är ett eget namn som används för att referera till providern i resten av konfigurationen. Om du till exempel vill kräva att alla begär Anden ska autentiseras med den här providern anger du `globalValidation.unauthenticatedClientAction` till "RedirectToLoginPage" och anger `globalValidation.unauthenticatedClientAction` detta egna namn.
+1. `openIdConnectProviders`Lägg till en nyckel för din nya Provider i objektet. Detta är ett eget namn som används för att referera till providern i resten av konfigurationen. Om du till exempel vill kräva att alla begär Anden ska autentiseras med den här providern anger du `globalValidation.unauthenticatedClientAction` till "RedirectToLoginPage" och anger `redirectToProvider` detta egna namn.
 1. Tilldela ett objekt till nyckeln med ett `registration` objekt i det och eventuellt ett `login` objekt:
     
     ```json

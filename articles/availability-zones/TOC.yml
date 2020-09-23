@@ -95,6 +95,10 @@
       items:
         - name: Vad är gränszoner?
           href: ../networking/edge-zones-overview.md
+    - name: Dokumentation om Azure Orbital
+      items:
+        - name: Vad är Azure Orbital?
+          href: ../networking/azure-orbital-overview.md
 - name: Haveriberedskap
   items:
     - name: Använda Azure Site Recovery

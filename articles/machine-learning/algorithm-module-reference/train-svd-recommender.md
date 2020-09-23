@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477416"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890239"
 ---
 # <a name="train-svd-recommender"></a>Träna SVD-rekommenderare
 
-Den här artikeln beskriver hur du använder modulen för att träna SVD-rekommendation i Azure Machine Learning designer (för hands version). Använd den här modulen för att träna en rekommendations modell baserat på SVD-algoritmen (Single Value diskomposition).  
+Den här artikeln beskriver hur du använder modulen träna SVD-rekommendation i Azure Machine Learning designer. Använd den här modulen för att träna en rekommendations modell baserat på SVD-algoritmen (Single Value diskomposition).  
 
 Modulen för att träna SVD-rekommendation läser en data uppsättning av tredubbla användar objekts bedömningar. Den returnerar en utbildad SVD-rekommendation. Du kan sedan använda den tränade modellen för att förutsäga klassificeringar eller skapa rekommendationer med hjälp av funktionen [Scores i SvD-rekommenderat](score-svd-recommender.md) läge.  
 

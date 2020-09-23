@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: cc9cb06c2154202f319d57aa77700a356ffe19c1
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419579"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976218"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurations inställningar för VPN Gateway
 
@@ -27,8 +27,6 @@ Värdena i den här artikeln tillämpar VPN-gatewayer (virtuella nätverksgatewa
 * För zoner-redundanta gateways, se [om zoner-redundanta gatewayer](about-zone-redundant-vnet-gateways.md).
 
 * För virtuellt WAN-nätverk, se [om virtuellt WAN](../virtual-wan/virtual-wan-about.md).
-
-
 
 ## <a name="gateway-types"></a><a name="gwtype"></a>Gateway-typer
 
@@ -152,9 +150,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>Lokala nätverksgatewayer
 
- En lokal nätverksgateway skiljer sig från en virtuell nätverksgateway. När du skapar en VPN gateway-konfiguration representerar den lokala Nätverksgatewayen vanligt vis din lokala plats. I den klassiska distributionsmodellen kallades den lokala nätverksgatewayen för Lokal plats.
+En lokal nätverksgateway skiljer sig från en virtuell nätverksgateway. När du skapar en VPN gateway-konfiguration representerar den lokala Nätverksgatewayen vanligt vis ditt lokala nätverk och motsvarande VPN-enhet. I den klassiska distributionsmodellen kallades den lokala nätverksgatewayen för Lokal plats.
 
-Du ger den lokala Nätverksgatewayen ett namn, den offentliga IP-adressen för den lokala VPN-enheten och anger de adressprefix som finns på den lokala platsen. Azure tittar på prefix för mål adresser för nätverks trafik, kontrollerar konfigurationen som du har angett för din lokala nätverksgateway och dirigerar paket enligt detta. Du anger också lokala nätverks-gatewayer för VNet-till-VNet-konfigurationer som använder en VPN gateway-anslutning.
+Du ger den lokala Nätverksgatewayen ett namn, den offentliga IP-adressen eller det fullständigt kvalificerade domän namnet (FQDN) för den lokala VPN-enheten och anger de adressprefix som finns på den lokala platsen. Azure tittar på prefix för mål adresser för nätverks trafik, kontrollerar konfigurationen som du har angett för din lokala nätverksgateway och dirigerar paket enligt detta. Om du använder Border Gateway Protocol (BGP) på din VPN-enhet anger du BGP-peer-IP-adressen för VPN-enheten och det autonoma system numret (ASN) för ditt lokala nätverk. Du anger också lokala nätverks-gatewayer för VNet-till-VNet-konfigurationer som använder en VPN gateway-anslutning.
 
 Följande PowerShell-exempel skapar en ny lokal nätverksgateway:
 

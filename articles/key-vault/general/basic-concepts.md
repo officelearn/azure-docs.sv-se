@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379009"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983300"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault grundläggande begrepp
 
-Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett säkert sätt. En hemlighet är något som du vill begränsa åtkomst till, till exempel API-nycklar, lösenord eller certifikat. Ett valv är en logisk grupp hemligheter.
+Azure Key Vault är en moln tjänst för säker lagring och åtkomst till hemligheter. En hemlighet är något som du vill noggrant kontrol lera åtkomsten till, till exempel API-nycklar, lösen ord, certifikat eller krypterings nycklar. Key Vault-tjänsten stöder två typer av behållare: valv och hanterade HSM-pooler. Valv stöder lagring av program vara och HSM-säkerhetskopierade nycklar, hemligheter och certifikat. Hanterade HSM-pooler stöder bara HSM-backade nycklar. Fullständig information finns i [Azure Key Vault REST API översikt](about-keys-secrets-certificates.md) .
 
 Här följer andra viktiga villkor:
 
@@ -28,6 +28,12 @@ Här följer andra viktiga villkor:
 - **Valvägare**: valvägaren kan skapa ett nyckelvalv och få fullständig åtkomst till och kontroll över det. Valvägaren kan även konfigurera granskning för att logga vem som använder hemligheter och nycklar. Administratörer kan styra nyckelns livscykel. De kan distribuera en ny version av nyckeln, säkerhetskopiera den och utföra andra relaterade uppgifter.
 
 - **Valvkonsument**: valvkonsumenten kan utföra åtgärder på tillgångarna i nyckelvalvet när valvägaren ger konsumenten åtkomst. Vilka åtgärder som är tillgängliga beror på vilka behörigheter som beviljats.
+
+- **Hanterade HSM-administratörer**: användare som har tilldelats rollen administratör har fullständig kontroll över en HANTERAd HSM-pool. De kan skapa fler roll tilldelningar för att delegera kontrollerad åtkomst till andra användare.
+
+- **Hanterad HSM-kryptografisk utanordnare/användare**: inbyggda roller som vanligt vis tilldelas till användare eller tjänst huvud namn som ska utföra kryptografiska åtgärder med hjälp av nycklar i hanterad HSM. Krypterings användare kan skapa nya nycklar, men kan inte ta bort nycklar.
+
+- **Kryptering av hanterad HSM-** kryptering: inbyggd roll som vanligt vis tilldelas en tjänst identitet för tjänst konton (t. ex. lagrings konto) för kryptering av data i vila med kundhanterad nyckel.
 
 - **Resurs**: en resurs är ett hanterbart objekt som är tillgängligt via Azure. Vanliga exempel är virtuella datorer, lagrings konton, webbapp, databaser och virtuella nätverk. Det finns många fler.
 
@@ -59,7 +65,7 @@ Använd följande tabell för att bättre förstå hur Key Vault kan hjälpa utv
 | --- | --- | --- |
 | Azure-programutvecklare |"Jag vill skriva ett program för Azure som använder nycklar för signering och kryptering. Men jag vill att dessa nycklar ska vara externa från mitt program så att lösningen är lämplig för ett program som är geografiskt distribuerat. <br/><br/>Jag vill att de här nycklarna och hemligheterna ska skyddas utan att behöva skriva koden själv. Jag vill också att dessa nycklar och hemligheter ska vara lätta att använda från mina program, med optimala prestanda. " |√ Nycklar lagras i ett valv och anropas av en URI vid behov.<br/><br/> √ Nycklar skyddas av Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler.<br/><br/> √ Nycklar bearbetas i HSM-modulerna som finns i samma Azure-datacenter som programmen. Denna metod ger bättre tillförlitlighet och kortare svarstider än om nycklarna finns på en annan plats, till exempel lokalt. |
 | Utvecklare av programvara som en tjänst (SaaS) |"Jag vill inte ha ansvaret eller potentiella skyldigheter för mina kunders klient nycklar och hemligheter. <br/><br/>Jag vill att kunderna ska äga och hantera sina nycklar så att jag kan koncentrera dig på vad jag gör bäst, vilket ger de viktigaste program varu funktionerna. " |√ Kunder kan importera sina egna nycklar till Azure och hantera dem. När ett SaaS-program behöver utföra kryptografiska åtgärder med hjälp av kundernas nycklar, Key Vault utföra dessa åtgärder för programmets räkning. Programmet ser inte kundens nycklar. |
-| Säkerhetschef |"Jag vill veta att våra program följer FIPS 140-2-nivå 2-HSM: er för säker nyckel hantering. <br/><br/>Jag vill vara säker på att min organisation har kontrollen över nycklarnas livscykel och kan övervaka nyckelanvändningen. <br/><br/>Även om vi använder flera Azure-tjänster och-resurser, vill jag hantera nycklarna från en enda plats i Azure. " |√ HSM-modulerna är FIPS 140-2 Level 2-verifierade.<br/><br/>√ Key Vault är utformat så att Microsoft inte kan se eller extrahera dina nycklar.<br/><br/>√ Nyckelanvändningen loggas i nära realtid.<br/><br/>√ Valvet tillhandahåller ett enda gränssnitt, oavsett hur många valv du har i Azure, vilka regioner de stöder och vilka program använder dem. |
+| Säkerhetschef |"Jag vill veta att våra program följer FIPS 140-2-nivå 2-eller FIPS 140-2 nivå 3-HSM: er för säker nyckel hantering. <br/><br/>Jag vill vara säker på att min organisation har kontrollen över nycklarnas livscykel och kan övervaka nyckelanvändningen. <br/><br/>Även om vi använder flera Azure-tjänster och-resurser, vill jag hantera nycklarna från en enda plats i Azure. " |√ Väljer **valv** för FIPS 140-2 nivå 2-verifierade HSM: er.<br/>√ Väljer **hanterade HSM-pooler** för FIPS 140-2 nivå 3-verifierade HSM: er.<br/><br/>√ Key Vault är utformat så att Microsoft inte kan se eller extrahera dina nycklar.<br/>√ Nyckelanvändningen loggas i nära realtid.<br/><br/>√ Valvet tillhandahåller ett enda gränssnitt, oavsett hur många valv du har i Azure, vilka regioner de stöder och vilka program använder dem. |
 
 Vem som helst med en Azure-prenumeration kan skapa och använda nyckelvalv. Även om Key Vault fördelar utvecklare och säkerhets administratörer kan de implementeras och hanteras av en organisations administratör som hanterar andra Azure-tjänster. Administratören kan till exempel Logga in med en Azure-prenumeration, skapa ett valv för den organisation där nycklarna ska lagras och sedan ansvara för drift uppgifter som dessa:
 
@@ -77,7 +83,8 @@ Utvecklare kan också hantera nycklar direkt, med hjälp av API:er. Mer informat
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [skyddar ditt valv](secure-your-key-vault.md).
+- Lär dig hur du [skyddar ditt valv](secure-your-key-vault.md).
+- Lär dig hur du [skyddar dina hanterade HSM-pooler](../managed-hsm/access-control.md)
 
 <!--Image references-->
 [1]: ../media/key-vault-whatis/AzureKeyVault_overview.png

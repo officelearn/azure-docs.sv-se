@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5333dd45cee58821d89cd49c44d3c5bba4cd9115
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500410"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888472"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurera en utvecklings miljö i Azure våren Cloud
+
+**Den här artikeln gäller för:** ✔️ Java
 
 Den här artikeln beskriver hur du konfigurerar en mellanlagrings distribution med hjälp av ett blått-grönt distributions mönster i Azure våren Cloud. Blå/grön distribution är ett mönster för kontinuerlig leverans för Azure DevOps förlitar sig på att hålla en befintlig (blå) version live, medan en ny (grön) distribueras. Den här artikeln visar hur du kan använda mellanlagrings distributionen i produktion utan att ändra produktions distributionen direkt.
 
@@ -103,3 +105,7 @@ Du kan också ta bort mellanlagrings distributionen från Azure CLI genom att k�
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Snabb start: Distribuera ditt första Azure våren Cloud-program](spring-cloud-quickstart.md)

@@ -4,12 +4,12 @@ description: Utför Mass reparation med snabb korrigering i Advisor
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518070"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968596"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Snabb korrigering för Advisor
 **Snabb korrigering** möjliggör ett snabbare och enklare sätt att åtgärda på flera resurser. Den ger möjlighet till Mass reparationer av resurser och hjälper dig att optimera dina prenumerationer snabbare med reparationer i skala för dina resurser.
@@ -20,13 +20,13 @@ Funktionen är endast tillgänglig för vissa rekommendationer, via Azure Portal
 
 1. I listan över rekommendationer som har etiketten **snabb korrigering** klickar du på rekommendationen.
 
-   ![Snabb korrigering för Advisor](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{Skärm bild av Azure Advisor som visar snabb korrigerings etiketter i rekommendationerna.}":::
    
    *Priserna i bilden är endast till exempel syfte*
 
 2. På sidan rekommendations information visas en lista över resurser som du har den här rekommendationen för. Välj alla resurser som du vill åtgärda för rekommendationen.
 
-   ![Snabb korrigering för Advisor](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="Skärm bild av fönstret påverkade resurser med list objekt och knappen snabb korrigering markerat.":::
    
    *Priserna i bilden är endast till exempel syfte*
 

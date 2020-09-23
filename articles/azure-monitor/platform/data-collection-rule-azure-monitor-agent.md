@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968398"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurera data insamling för Azure Monitor agenten (för hands version)
 Data insamlings regler (DCR) definiera data som kommer till Azure Monitor och ange var de ska skickas. Den här artikeln beskriver hur du skapar en data insamlings regel för att samla in data från virtuella datorer med hjälp av Azure Monitor agenten.
@@ -26,7 +26,7 @@ Om du vill tillämpa en DCR på en virtuell dator skapar du en Association för 
 
 Överväg till exempel en miljö med en uppsättning virtuella datorer som kör ett affärs program och andra som kör SQL Server. Du kan ha en standard regel för data insamling som gäller för alla virtuella datorer och separata data insamlings regler som samlar in data specifikt för affärs programmet och för SQL Server. Associationerna för de virtuella datorerna till data insamlings reglerna ser ut ungefär som i följande diagram.
 
-![Typer](media/data-collection-rule-azure-monitor-agent/associations.png)
+![Diagrammet visar virtuella datorer som är värdar för affärs program och SQL Server kopplade till data insamlings regler med namnet Central-i t-standard och LOB-app för affärs program och Central-i-t-standard och s q l för SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
 ## <a name="create-using-the-azure-portal"></a>Skapa med Azure Portal
 Du kan använda Azure Portal för att skapa en data insamlings regel och koppla virtuella datorer i din prenumeration till den regeln. Den Azure Monitor agenten installeras automatiskt och en hanterad identitet skapas för virtuella datorer som inte redan har den installerad.

@@ -1,18 +1,18 @@
 ---
 title: Översikt över den anslutna datorns Windows-agent
-description: Den här artikeln innehåller en detaljerad översikt över tillgängliga Azure Arc-servrar (för hands version), som har stöd för övervakning av virtuella datorer som finns i hybrid miljöer.
-ms.date: 08/06/2020
+description: Den här artikeln innehåller en detaljerad översikt över Azure Arc-aktiverade Server Agent som har stöd för övervakning av virtuella datorer i hybrid miljöer.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212980"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908171"
 ---
-# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Översikt över Azure Arc-aktiverade servrar (för hands version)
+# <a name="overview-of-azure-arc-enabled-servers-agent"></a>Översikt över Azure Arc-aktiverade Server Agent
 
-Med Azure Arc-aktiverade servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure i företags nätverket eller någon annan moln leverantör. Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och olika distributions metoder.
+Azure Arc-aktiverade servrar som är anslutna till dator agenten gör att du kan hantera dina Windows-och Linux-datorer utanför Azure i företags nätverket eller någon annan moln leverantör. Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och olika distributions metoder.
 
 ## <a name="agent-component-details"></a>Information om agent komponent
 
@@ -40,22 +40,18 @@ Du kan ladda ned Azure Connected Machine agent-paketet för Windows och Linux fr
 
 Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. Mer information finns [här](manage-agent.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 Följande versioner av operativ systemet Windows och Linux stöds officiellt för den Azure-anslutna dator agenten: 
 
 - Windows Server 2012 R2 och högre (inklusive Windows Server Core)
-- Ubuntu 16,04 och 18,04 (x64)
+- Ubuntu 16,04 och 18,04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
-
->[!NOTE]
->Den här för hands versionen av den anslutna dator agenten för Windows stöder endast Windows Server som kon figurer ATS för att använda det engelska språket.
->
 
 ### <a name="required-permissions"></a>Behörigheter som krävs
 
@@ -65,7 +61,7 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 
 ### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
 
-Innan du konfigurerar dina datorer med Azure Arc-aktiverade servrar (förhands granskning) granskar du gränserna för Azure Resource Manager [prenumeration](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) och [resurs grupps gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
+Innan du konfigurerar dina datorer med Azure Arc-aktiverade servrar granskar du Azure Resource Manager [prenumerations gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) och [resurs grupps gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
 
 ### <a name="transport-layer-security-12-protocol"></a>Transport Layer Security 1,2-protokoll
 
@@ -105,7 +101,7 @@ URL: erna i föregående tabell krävs utöver informationen om tjänst Tagns IP
 
 ### <a name="register-azure-resource-providers"></a>Registrera Azure-resurs leverantörer
 
-Azure Arc-aktiverade servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
+Azure Arc-aktiverade servrar är beroende av följande Azure-resurs leverantörer i din prenumeration för att kunna använda den här tjänsten:
 
 * **Microsoft. HybridCompute**
 * **Microsoft. GuestConfiguration**
@@ -174,14 +170,14 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande miljövariabler skapas under Agent installationen.
 
-    |Namn |Standardvärde |Beskrivning |
+    |Name |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Loggas |Beskrivning |
+    |Logga |Beskrivning |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
@@ -225,7 +221,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Loggas |Beskrivning |
+    |Logga |Beskrivning |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
@@ -236,7 +232,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande miljövariabler skapas under Agent installationen. Dessa variabler anges i `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Namn |Standardvärde |Beskrivning |
+    |Name |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -248,4 +244,4 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 ## <a name="next-steps"></a>Nästa steg
 
-Börja utvärdera Azure Arc-aktiverade servrar (för hands version) genom att följa artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md).
+Börja utvärdera Azure Arc-aktiverade servrar genom att följa artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md).

@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start – skicka en fråga till API: et med hjälp av lokal företags sökning i Java-Bing'
 titleSuffix: Azure Cognitive Services
-description: 'Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning.'
+description: Använd den här snabb starten för att börja skicka begär anden i Java till Bing-API för lokal affärs sökning, som är en Azure-tjänst för inlärning.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 8780caae20b779997e32750ed7829afd7d969a02
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b35e8e11c93ad7f48dc24d8bd13fcd7dc706acb9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320246"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970380"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snabb start: skicka en fråga till API: et för lokal sökning i Bing med Java
 
@@ -24,7 +24,7 @@ Använd den här snabb starten för att lära dig hur du skickar begär anden ti
 
 Det här exempel programmet hämtar lokala svars data från API: et för en Sök fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).

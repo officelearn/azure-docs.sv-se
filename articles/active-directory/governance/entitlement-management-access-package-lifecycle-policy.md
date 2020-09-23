@@ -1,6 +1,6 @@
 ---
 title: Ändra livs cykel inställningar för ett Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
-description: Lär dig hur du ändrar livs cykel inställningar för ett Access-paket i Azure Active Directory rättighets hantering.
+description: Lär dig hur du ändrar information om beställare & livs cykel inställningar för ett Access-paket i Azure Active Directory hantering av rättigheter.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,18 +16,21 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c628c3c1f11cb973176e7a689856b64177036c9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd119238476b842a4dba1efeec86544ca263920
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798706"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980111"
 ---
 # <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Ändra livs cykel inställningar för ett Access-paket i hantering av Azure AD-rättigheter
 
 Som en Access Package Manager kan du när som helst ändra livs cykel inställningarna för ett Access-paket genom att redigera en befintlig princip. Om du ändrar utgångs datumet för en princip ändras inte förfallo datumet för begär Anden som redan har statusen väntar på godkännande eller godkänt.
 
 I den här artikeln beskrivs hur du ändrar livs cykel inställningarna för ett befintligt Access-paket.
+
+## <a name="open-requestor-information"></a>Öppna information om beställare
+För att se till att användarna har rätt åtkomst till ett Access-paket kan anpassade frågor konfigureras för att be användare som begär åtkomst till vissa åtkomst paket. Konfigurations alternativen omfattar följande svars format: lokalisering, obligatoriska/valfria och text/flera alternativ. Fråge ställare ser frågorna när de begär att paketet och god kännarna ska se svaren på frågorna för att hjälpa dem fatta sitt beslut. Använd följande steg för att konfigurera frågor i ett Access-paket:
 
 ## <a name="open-lifecycle-settings"></a>Öppna livs cykel inställningar
 

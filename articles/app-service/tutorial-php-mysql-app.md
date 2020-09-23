@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 68aaf431f7cca0366b7d77d320357d8ceb525933
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d9f08840165e7e4cf4d13e9a66cbb59489a2b3f7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084825"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974273"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Självstudie: bygga en PHP-och MySQL-app i Azure App Service
 
@@ -28,7 +28,7 @@ ms.locfileid: "88084825"
 
 ::: zone-end
 
-![PHP-app som körs i Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/complete-checkbox-published.png" alt-text="Skärm bild av ett exempel på en PHP-app med titeln uppgiftslista.":::
 
 I den här guiden får du lära dig att:
 
@@ -161,9 +161,9 @@ I det här steget skapar du en MySQL-databas i [Azure Database for MySQL](/azure
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-I Cloud Shell skapar du en server i Azure Database for MySQL med [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) kommandot.
+I Cloud Shell skapar du en server i Azure Database for MySQL med [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create) kommandot.
 
-I följande kommando ersätter du ett unikt server namn för *\<mysql-server-name>* plats hållaren, ett användar namn för *\<admin-user>* och ett lösen ord för *\<admin-password>* plats hållaren. Det här servernamnet används som en del av MySQL-slutpunkten (`https://<mysql-server-name>.mysql.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure. Mer information om hur du väljer MySQL DB SKU finns i [Skapa en Azure Database for MySQL-server](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+I följande kommando ersätter du ett unikt server namn för *\<mysql-server-name>* plats hållaren, ett användar namn för *\<admin-user>* och ett lösen ord för *\<admin-password>*  plats hållaren. Det här servernamnet används som en del av MySQL-slutpunkten (`https://<mysql-server-name>.mysql.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure. Mer information om hur du väljer MySQL DB SKU finns i [Skapa en Azure Database for MySQL-server](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -187,7 +187,7 @@ När MySQL-servern skapas visar Azure CLI information som ser ut ungefär så h�
 
 ### <a name="configure-server-firewall"></a>Konfigurera serverbrandväggen
 
-I Cloud Shell skapar du en brand Väggs regel för MySQL-servern för att tillåta klient anslutningar med hjälp av [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) kommandot. När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
+I Cloud Shell skapar du en brand Väggs regel för MySQL-servern för att tillåta klient anslutningar med hjälp av [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest&preserve-view=true#az-mysql-server-firewall-rule-create) kommandot. När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -377,7 +377,7 @@ I det här steget distribuerar du din MySQL-anslutna PHP-app till Azure App Serv
 
 ### <a name="configure-database-settings"></a>Konfigurera databasinställningarna
 
-I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
+I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set).
 
 Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarnas _ &lt; namn>_ och _ &lt; mysql-Server-Name>_.
 
@@ -408,7 +408,7 @@ Gå till det lokala terminalfönstret och använd `php artisan` för att generer
 php artisan key:generate --show
 ```
 
-I Cloud Shell anger du program nyckeln i App Service-appen med hjälp av [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot. Ersätt plats hållarna _ &lt; App-Name>_ och _ &lt; outputofphpartisankey: generate>_.
+I Cloud Shell anger du program nyckeln i App Service-appen med hjälp av [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) kommandot. Ersätt plats hållarna _ &lt; App-Name>_ och _ &lt; outputofphpartisankey: generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -498,7 +498,7 @@ remote: Running deployment command...
 
 Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgifter i listan.
 
-![PHP-app som körs i Azure App Service](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Skärm bild av Azure App-exemplet med titeln uppgiftslista visar nya aktiviteter tillagda.":::
 
 Grattis! Du kör en datadriven PHP-app i Azure App Service.
 
@@ -650,7 +650,7 @@ Om du har lagt till några uppgifter finns de kvar i databasen. Uppdateringar i 
 
 När PHP-appen körs i Azure App Service kan du skicka konsolloggarna till din terminal. På så sätt kan du få samma diagnostikmeddelanden för att felsöka programfel.
 
-Om du vill starta logg strömningen använder du [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) kommandot i Cloud Shell.
+Om du vill starta logg strömningen använder du [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az-webapp-log-tail) kommandot i Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

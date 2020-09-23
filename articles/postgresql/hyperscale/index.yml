@@ -1,0 +1,94 @@
+### YamlMime:Landing
+title: Azure Database for PostgreSQL – Hyperskala (Citus)-dokumentation
+summary: Azure Database for PostgreSQL är en fullständigt hanterad databas som en tjänst som bygger på Postgres-relationsdatabasmotorn med öppen källkod. Distributionsalternativet Hyperskala (Citus) skalar frågor över flera datorer med hjälp av horisontell partitionering och är lämpligt för program som kräver större skala och bättre prestanda.
+metadata:
+  description: Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod.
+  author: jonels-msft
+  ms.author: jonels
+  ms.date: 09/27/2020
+  ms.service: postgresql
+  ms.subservice: hyperscale-citus
+  ms.topic: landing-page
+  ms.openlocfilehash: 20e99db5f380ee24cf88987a7884292ca47f7e1e
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929025"
+landingContent:
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en servergrupp med Microsoft Azure-portalen
+      url: ../quickstart-create-hyperscale-portal.md
+  - linkListType: concept
+    links:
+    - text: Servergruppsnoder och tabeller
+      url: ../concepts-hyperscale-nodes.md
+  - linkListType: tutorial
+    links:
+    - text: Utforma en databas för flera innehavare
+      url: ../tutorial-design-database-hyperscale-multi-tenant.md
+    - text: Utforma en instrumentpanel för analys i realtid
+      url: ../tutorial-design-database-hyperscale-realtime.md
+- title: Anslut och fråga
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Förstå brandväggen
+      url: ../concepts-hyperscale-firewall-rules.md
+    - text: Konfigurera TLS
+      url: ../concepts-hyperscale-ssl-connection-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Brandväggsregler
+      url: ../howto-hyperscale-manage-firewall-using-portal.md
+    - text: Felsöka anslutningsproblem
+      url: ../howto-hyperscale-troubleshoot-common-connection-issues.md
+- title: Skala
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Noder och tabeller
+      url: ../concepts-hyperscale-nodes.md
+    - text: Välja distributionskolumner
+      url: ../concepts-hyperscale-choose-distribution-column.md
+  - linkListType: how-to-guide
+    links:
+    - text: Servergruppstorlek
+      url: ../howto-hyperscale-scaling.md
+    - text: Distribuera tabeller
+      url: ../howto-hyperscale-modify-distributed-tables.md
+    - text: Skapa aviseringar för mått
+      url: ../howto-hyperscale-alert-on-metric.md
+- title: Administrera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Säkerhetskopiering och återställning
+      url: ../concepts-hyperscale-backup.md
+    - text: Övervaka och finjustera
+      url: ../concepts-hyperscale-monitoring.md
+    - text: Hög tillgänglighet
+      url: ../concepts-hyperscale-high-availability.md
+    - text: Reserverad kapacitet
+      url: ../concepts-hyperscale-reserved-pricing.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa databasanvändare
+      url: ../howto-hyperscale-create-users.md
+    - text: Konfigurera hög tillgänglighet
+      url: ../howto-hyperscale-high-availability.md
+    - text: Komma åt databasloggar
+      url: ../howto-hyperscale-logging.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: SQL API-funktioner
+      url: ../reference-hyperscale-functions.md
+    - text: Serverparametrar
+      url: ../reference-hyperscale-parameters.md
+    - text: Systemtabeller
+      url: ../reference-hyperscale-metadata.md

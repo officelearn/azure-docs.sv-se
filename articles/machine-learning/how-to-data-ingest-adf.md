@@ -12,12 +12,12 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b756e83f1d810007e9e9ef6cf2987c3cf60b7f7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ad04566699b2eebb0cbd7a9f242de38bc75e2015
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852862"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986407"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Datainmatning med Azure Data Factory
 
@@ -35,7 +35,7 @@ Det finns flera vanliga metoder för att använda Azure Data Factory för att tr
 
 ## <a name="adf-with-azure-functions"></a>ADF med Azure Functions
 
-![ADF-funktion](media/how-to-data-ingest-adf/adf-function.png)
+![I diagrammet visas en Azure Data Factory pipeline, med Azure Function och kör M L pipeline, och en Azure Machine Learning pipeline, med träna modell, och hur de interagerar med rå data och för beredda data.](media/how-to-data-ingest-adf/adf-function.png)
 
 Med Azure Functions kan du köra små delar av kod (funktioner) utan att oroa dig för program infrastrukturen. I det här alternativet bearbetas data med anpassad python-kod inkapslad i en Azure-funktion. 
 
@@ -51,7 +51,7 @@ Funktionen anropas med [aktiviteten ADF Azure Function](https://docs.microsoft.c
 
 ## <a name="adf-with-custom-component-activity"></a>ADF med anpassad komponent aktivitet
 
-![ADF – customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![Diagrammet visar en Azure Data Factory pipeline, med en anpassad komponent och kör M L pipeline, och en Azure Machine Learning pipeline, med träna modell, och hur de interagerar med rå data och för beredda data.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 I det här alternativet bearbetas data med anpassad python-kod som är figursatt till en körbar fil. Den anropas med en [anpassad ADM-komponent-aktivitet](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). Den här metoden passar bättre för stora data än den tidigare tekniken.
 
@@ -64,7 +64,7 @@ I det här alternativet bearbetas data med anpassad python-kod som är figursatt
 
 ## <a name="adf-with-azure-databricks-python-notebook"></a>ADF med Azure Databricks python Notebook
 
-![ADF – databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![Diagrammet visar en Azure Data Factory pipeline, med Azure Databricks python och kör M L pipeline, och en Azure Machine Learning pipeline, med träna modell, och hur de interagerar med rå data och för beredda data.](media/how-to-data-ingest-adf/adf-databricks.png)
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) är en Apache Spark-baserad analys plattform i Microsoft-molnet.
 
@@ -82,7 +82,7 @@ I den här tekniken utförs Datatransformeringen av en [python-anteckningsbok](h
 
 ## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Använda data i Azure Machine Learning pipelines
 
-![AML – data uppsättning](media/how-to-data-ingest-adf/aml-dataset.png)
+![Diagrammet visar en Azure Data Factory pipeline och en Azure Machine Learning pipeline och hur de interagerar med rå data och för beredda data. Data Factory pipeline-data till den för beredda data databasen, som feedar ett data lager, som feed-datauppsättningar i arbets ytan Machine Learning.](media/how-to-data-ingest-adf/aml-dataset.png)
 
 Transformerade data från ADF-pipeline sparas i data lagring (till exempel Azure-Blob). Azure Machine Learning kan komma åt dessa data med hjälp av data [lager](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) och [data uppsättningar](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 

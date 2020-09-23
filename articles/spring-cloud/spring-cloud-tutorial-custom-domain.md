@@ -7,14 +7,17 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290335"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885684"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
+
 Domain Name Service (DNS) är en teknik för att lagra namn på nätverks-noder i ett nätverk. Den här självstudien mappar en domän, till exempel www.contoso.com, med hjälp av en CNAME-post. Den säkrar den anpassade domänen med ett certifikat och visar hur du tvingar Transport Layer Security (TLS), även kallat Secure Sockets Layer (SSL). 
 
 Certifikaten krypterar webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault. 

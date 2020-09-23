@@ -1,0 +1,143 @@
+### YamlMime:Landing
+title: Dokumentation om enskild server
+summary: Azure Database for MySQL – enskild server är en relationsdatabastjänst som drivs av MySQL Community Edition.  Det är en fullständigt hanterad databas som en tjänst som används för att hantera verksamhetskritiska arbetsbelastningar med förutsägbar prestanda och dynamisk skalbarhet. Lär dig hur du använder enskild server med våra snabbstarter, självstudier och exempel.
+metadata:
+  description: Azure Database for MySQL – enskild server är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare och som drivs av MySQL Community Edition.
+  author: mksuni
+  ms.author: sumuth
+  ms.date: 09/20/2020
+  ms.service: mysql
+  ms.topic: landing-page
+  ms.openlocfilehash: a9ddd354a97578c5b83455fc6d709d5c2d60494f
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928944"
+landingContent:
+- title: Om enskild server
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är enskild server?
+      url: ../concepts-servers.md
+  - linkListType: whats-new
+    links:
+    - text: Ta en titt på bloggen
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en server med Azure Portal
+      url: ../quickstart-create-mysql-server-database-using-azure-portal.md
+    - text: Skapa en server med Azure CLI
+      url: ../quickstart-create-mysql-server-database-using-azure-cli.md
+  - linkListType: concept
+    links:
+    - text: Förstå prisnivåer
+      url: ../concepts-pricing-tiers.md
+    - text: Förstå begränsningar
+      url: ../concepts-limits.md
+    - text: Förstå vilka MySQL-versioner som stöds
+      url: ../concepts-supported-versions.md
+    - text: Planera för hög tillgänglighet
+      url: ../concepts-high-availability.md
+  - linkListType: tutorial
+    links:
+    - text: Utforma en databas för en enskild server
+      url: ../tutorial-design-database-using-portal.md
+    - text: Distribuera WordPress på Web App for Containers med MySQL
+      url: ../../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+    - text: Skapa en PHP-webbapp (Laravel) med MySQL
+      url: ../../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+- title: Anslut och fråga
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Förstå brandväggen
+      url: ../concepts-firewall-rules.md
+    - text: Förstå SSL
+      url: ../concepts-ssl-connection-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa brandväggsregler
+      url: ../howto-manage-firewall-using-portal.md
+    - text: Konfigurera SSL-anslutning
+      url: ../howto-configure-ssl.md
+    - text: Felsöka anslutningsproblem
+      url: ../howto-troubleshoot-common-connection-issues.md
+  - linkListType: get-started
+    links:
+    - text: Ansluta med MySQL Workbench
+      url: ../connect-workbench.md
+    - text: Ansluta med PHP
+      url: ../connect-php.md
+    - text: Ansluta med Java
+      url: ../connect-java.md
+    - text: Ansluta med .NET
+      url: ../connect-csharp.md
+    - text: Ansluta med Python
+      url: ../connect-python.md
+    - text: Ansluta med Node.js
+      url: ../connect-nodejs.md
+- title: Hantera och migrera data
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Förstå serverparametrar
+      url: ../concepts-server-parameters.md
+    - text: Förstå virtuella nätverk
+      url: ../concepts-data-access-and-security-vnet.md
+    - text: Aktivera övervakning
+      url: ../concepts-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera serverparametrar
+      url: ../howto-server-parameters.md
+    - text: Migrera med Data Migration Service
+      url: ../howto-migrate-online.md
+    - text: Migrera med hjälp av dumpning och återställning
+      url: ../concepts-migrate-dump-restore.md
+    - text: Migrera med hjälp av import och export
+      url: ../concepts-migrate-import-export.md
+- title: Verksamhetskontinuitet
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Verksamhetskontinuitet
+      url: ../concepts-business-continuity.md
+    - text: Säkerhetskopiera och återställa
+      url: ../concepts-backup.md
+    - text: Dataintensiv replikering
+      url: ../concepts-data-in-replication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera dataintensiv replikering
+      url: ../howto-data-in-replication.md
+    - text: Återställa en server med hjälp av Microsoft Azure-portalen
+      url: ../howto-restore-server-portal.md
+    - text: Återställa en server med hjälp av Microsoft Azure-portalen
+      url: ../howto-restore-server-cli.md
+- title: Referens
+  linkLists:
+  - linkListType: download
+    links:
+    - text: MySQL Workbench
+      url: https://www.mysql.com/products/workbench
+    - text: MySQL .NET-anslutningsprogrammet
+      url: https://dev.mysql.com/doc/connector-net/en/
+  - linkListType: deploy
+    links:
+    - text: Azure CLI-skript för vanliga uppgifter
+      url: /azure/mysql/sample-scripts-azure-cli
+    - text: Azure Resource Manager-mallar
+      url: /azure/templates/microsoft.dbformysql/allversions
+  - linkListType: reference
+    links:
+    - text: Referens för Azure CLI-utvecklare
+      url: /cli/azure/mysql
+    - text: Referens för REST API-utvecklare
+      url: /rest/api/mysql/
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.mysql

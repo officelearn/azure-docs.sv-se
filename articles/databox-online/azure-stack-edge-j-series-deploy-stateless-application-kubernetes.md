@@ -1,6 +1,6 @@
 ---
-title: Distribuera Kubernetes-tillstånds lösa program på Azure Stack Edge GPU-enhet med kubectl | Microsoft Docs
-description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds lös program distribution med kubectl på en Microsoft Azure Stack Edge-enhet.
+title: Distribuera Kubernetes-tillstånds lösa program på Azure Stack Edge Pro GPU-enhet med kubectl | Microsoft Docs
+description: Beskriver hur du skapar och hanterar en Kubernetes program distribution med hjälp av kubectl på en Microsoft Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268867"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890732"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Distribuera ett Kubernetes tillstånds löst program via kubectl på din Azure Stack Edge GPU-enhet
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Distribuera ett program med Kubernetes tillstånd via kubectl på din Azure Stack Edge Pro GPU-enhet
 
 Den här artikeln beskriver hur du distribuerar ett tillstånds lösa program med kubectl-kommandon i ett befintligt Kubernetes-kluster. Den här artikeln vägleder dig genom processen att skapa och konfigurera poddar i ditt tillstånds lösa program.
 
@@ -23,13 +23,13 @@ Den här artikeln beskriver hur du distribuerar ett tillstånds lösa program me
 
 Innan du kan skapa ett Kubernetes-kluster och använda `kubectl` kommando rads verktyget, måste du se till att:
 
-- Du har inloggnings uppgifter till en 1-nod Azure Stack Edge-enhet.
+- Du har inloggnings uppgifter till en 1-nod Azure Stack Edge Pro-enhet.
 
-- Windows PowerShell 5,0 eller senare är installerat på ett Windows-klientsystem för att få åtkomst till Azure Stack Edge-enheten. Du kan också ha andra klienter med ett operativ system som stöds. Den här artikeln beskriver proceduren när du använder en Windows-klient. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5,0 eller senare är installerat på ett Windows-klientsystem för att få åtkomst till Azure Stack Edge Pro-enheten. Du kan också ha andra klienter med ett operativ system som stöds. Den här artikeln beskriver proceduren när du använder en Windows-klient. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- Compute är aktiverat på Azure Stack Edge-enheten. Om du vill aktivera beräkning går du till **beräknings** sidan i enhetens lokala användar gränssnitt. Välj sedan ett nätverks gränssnitt som du vill aktivera för beräkning. Välj **Aktivera**. Genom att aktivera beräknings resultatet skapas en virtuell växel på enheten i nätverks gränssnittet. Mer information finns i [Aktivera Compute Network på Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Compute är aktiverat på den Azure Stack Edge Pro-enheten. Om du vill aktivera beräkning går du till **beräknings** sidan i enhetens lokala användar gränssnitt. Välj sedan ett nätverks gränssnitt som du vill aktivera för beräkning. Välj **Aktivera**. Genom att aktivera beräknings resultatet skapas en virtuell växel på enheten i nätverks gränssnittet. Mer information finns i [Aktivera Compute Network på Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- Din Azure Stack Edge-enhet har en Kubernetes-kluster server som kör som är version v 1.9 eller senare. Mer information finns i [skapa och hantera ett Kubernetes-kluster på Microsoft Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- Din Azure Stack Edge Pro-enhet har en Kubernetes-kluster server som kör som är version v 1.9 eller senare. Mer information finns i [skapa och hantera ett Kubernetes-kluster på Microsoft Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - Du har installerat `kubectl` .
 
@@ -43,7 +43,7 @@ Innan vi börjar bör du ha:
 4. Användar konfigurationen sparades till `C:\Users\<username>\.kube` .
 5. Installerat `kubectl` .
 
-Nu kan du börja köra och hantera tillstånds lösa program distributioner på en Azure Stack Edge-enhet. Innan du börjar använda `kubectl` måste du kontrol lera att du har rätt version av `kubectl` .
+Nu kan du börja köra och hantera tillstånds lösa program distributioner på en Azure Stack Edge Pro-enhet. Innan du börjar använda `kubectl` måste du kontrol lera att du har rätt version av `kubectl` .
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Kontrol lera att du har rätt version av kubectl och konfigurerat konfigurationen
 
@@ -109,7 +109,7 @@ En pod är den grundläggande körnings enheten för ett Kubernetes-program, den
 
 Typen av tillstånds lösa program som du skapar är en nginx webb Server distribution.
 
-Alla kubectl-kommandon som du använder för att skapa och hantera tillstånds lösa program distributioner måste ange det namn område som är associerat med konfigurationen. Du skapade namn området när du anslöt till klustret på Azure Stack Edge-enheten i självstudien [skapa och hantera ett Kubernetes-kluster på Microsoft Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md) med `New-HcsKubernetesNamespace` .
+Alla kubectl-kommandon som du använder för att skapa och hantera tillstånds lösa program distributioner måste ange det namn område som är associerat med konfigurationen. Du skapade namn området när du anslöt till klustret på den Azure Stack Edge Pro-enheten i självstudien [skapa och hantera ett Kubernetes-kluster på Microsoft Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md) med `New-HcsKubernetesNamespace` .
 
 Använd för att ange namn området i ett kubectl-kommando `kubectl <command> -n <namespace-string>` .
 

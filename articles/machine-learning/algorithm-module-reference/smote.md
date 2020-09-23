@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477467"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898265"
 ---
 # <a name="smote"></a>SMOTE
 
-Den här artikeln beskriver hur du använder SMOTE-modulen i Azure Machine Learning designer (för hands version) för att öka antalet undervisade fall i en data uppsättning som används för Machine Learning. SMOTE är ett bättre sätt att öka antalet sällsynta fall än att helt enkelt duplicera befintliga fall.  
+Den här artikeln beskriver hur du använder modulen SMOTE i Azure Machine Learning designer för att öka antalet undervisade ärenden i en data uppsättning som används för maskin inlärning. SMOTE är ett bättre sätt att öka antalet sällsynta fall än att helt enkelt duplicera befintliga fall.  
 
 Du ansluter SMOTE-modulen till en data uppsättning som är *obalanserad*. Det finns många orsaker till varför en data uppsättning kan vara obalanserat. Den kategori som du är mål för kan till exempel vara sällsynt i populationen, eller så kan det vara svårt att samla in data. Normalt använder du SMOTE när *klassen* som du vill analysera är underordnad. 
   
@@ -42,7 +42,7 @@ Om du vill öka antalet fall kan du ange värdet **SMOTE procent**, genom att an
 
 ||Klass 0|Klass 1|totalt|  
 |-|-------------|-------------|-----------|  
-|Ursprunglig data uppsättning<br /><br /> (motsvarar **SMOTE procent**  =  **0**)|570<br /><br /> 76%|178<br /><br /> 24.1|748|  
+|Ursprunglig datamängd<br /><br /> (motsvarar **SMOTE procent**  =  **0**)|570<br /><br /> 76%|178<br /><br /> 24.1|748|  
 |**SMOTE procent**  =  **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
 |**SMOTE procent**  =  **200**|570<br /><br /> 52 %|534<br /><br /> 48%|1 104|  
 |**SMOTE procent**  =  **300**|570<br /><br /> 44%|712<br /><br /> 56%|1 282|  
@@ -62,7 +62,7 @@ Om du vill öka antalet fall kan du ange värdet **SMOTE procent**, genom att an
   
 4.  SMOTE-modulen identifierar automatiskt minoritets klassen i kolumnen etikett och hämtar sedan alla exempel för klassen minoritet. Alla kolumner kan inte ha NaN-värden.
   
-5.  I **SMOTE procent** anger du ett heltal som anger mål procent andelen av minoritets fall i data uppsättningen för utdata. Ett exempel:  
+5.  I **SMOTE procent** anger du ett heltal som anger mål procent andelen av minoritets fall i data uppsättningen för utdata. Exempel:  
   
     - Ange **0**. SMOTE-modulen returnerar exakt samma data uppsättning som du angav som indata. Den lägger inte till några nya minoritets fall. I den här data uppsättningen har klassens proportion inte ändrats.  
   

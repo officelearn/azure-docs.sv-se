@@ -1,6 +1,6 @@
 ---
 title: Vad är Dedikerad HSM? – Dedikerad HSM i Azure| Microsoft Docs
-description: Översikten över dedikerad HSM i Azure tillhandahåller funktioner för lagring av nycklar i Azure som uppfyller FIPS 140-2 Level 3-certifiering
+description: Lär dig hur Azure Dedicated HSM är en Azure-tjänst som tillhandahåller lagring av kryptografiska nycklar i Azure.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70881072"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970204"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Vad är Dedikerad HSM i Azure?
 
@@ -60,7 +60,7 @@ Azure dedikerad HSM är en specialiserad tjänst som uppfyller unika krav hos en
 
 ### <a name="best-fit"></a>Passar bäst
 
-Azure dedikerad HSM lämpar sig bäst för ”lift and shift”-scenarier som kräver direkt och enskild åtkomst till HSM-enheter. Exempel på rekommendationer:
+Azure dedikerad HSM lämpar sig bäst för ”lift and shift”-scenarier som kräver direkt och enskild åtkomst till HSM-enheter. Exempel:
 
 - Migrera program från en lokal plats till virtuella Azure-datorer
 - Migrera program från Amazon AWS EC2 till virtuella datorer som använder tjänsten AWS Cloud HSM Classic (Amazon erbjuder inte denna tjänst för nya kunder)

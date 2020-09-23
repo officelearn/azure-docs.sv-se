@@ -101,6 +101,8 @@
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./samples/policy-reference.md
+    - name: Terraform
+      href: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
 - name: Resurser
   items:
     - name: Frågor och svar från Microsoft – Azure Lighthouse

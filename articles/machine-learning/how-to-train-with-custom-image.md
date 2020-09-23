@@ -10,23 +10,22 @@ author: saachigopal
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2289a761d4e266c305c2868e9f234871624ae528
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d90b56366cb22e80162983c982e861de608e4e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661318"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893110"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Träna en modell med en anpassad Docker-avbildning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du använder en anpassad Docker-avbildning när du tränar modeller med Azure Machine Learning. 
 
 Exempel skripten i den här artikeln används för att klassificera PET-bilder genom att skapa ett (convolutional neurala-nätverk. 
 
-Även om Azure Machine Learning tillhandahåller en standard-Docker-basadress, kan du också använda Azure Machine Learning miljöer för att ange en bestämd bas avbildning, till exempel en uppsättning med [Azure ml](https://github.com/Azure/AzureML-Containers) -grundavbildningar eller din egen [anpassade avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image). Med anpassade bas avbildningar kan du noggrant hantera dina beroenden och upprätthålla bättre kontroll över komponent versioner när du kör utbildnings jobb. 
+Även om Azure Machine Learning tillhandahåller en standard-Docker-basadress, kan du också använda Azure Machine Learning miljöer för att ange en bestämd bas avbildning, till exempel en uppsättning med [Azure ml](https://github.com/Azure/AzureML-Containers) -grundavbildningar eller din egen [anpassade avbildning](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Med anpassade bas avbildningar kan du noggrant hantera dina beroenden och upprätthålla bättre kontroll över komponent versioner när du kör utbildnings jobb. 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 Kör den här koden i någon av följande miljöer:
 * Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
     * Slutför [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
@@ -101,11 +100,11 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### <a name="create-or-attach-existing-amlcompute"></a>Skapa eller koppla befintliga AmlCompute
-Du måste skapa ett [beräknings mål](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#compute-target) för att träna din modell. I den här självstudien skapar du AmlCompute som din utbildnings beräknings resurs.
+Du måste skapa ett [beräknings mål](concept-azure-machine-learning-architecture.md#compute-targets) för att träna din modell. I den här självstudien skapar du AmlCompute som din utbildnings beräknings resurs.
 
 Skapandet av AmlCompute tar cirka 5 minuter. Om AmlCompute med det namnet redan finns i arbets ytan hoppar den här koden över skapande processen.
 
-Precis som med andra Azure-tjänster finns det gränser för vissa resurser (t. ex. AmlCompute) som är kopplade till tjänsten Azure Machine Learning. Läs [den här artikeln](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas) om standard gränserna och hur du begär mer kvot. 
+Precis som med andra Azure-tjänster finns det gränser för vissa resurser (t. ex. AmlCompute) som är kopplade till tjänsten Azure Machine Learning. Läs [den här artikeln](how-to-manage-quotas.md) om standard gränserna och hur du begär mer kvot. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -132,7 +131,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### <a name="create-a-scriptrunconfig"></a>Skapa en ScriptRunConfig
-Den här ScriptRunConfig kommer att konfigurera jobbet för körning på önskat [beräknings mål](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets#compute-targets-for-training).
+Den här ScriptRunConfig kommer att konfigurera jobbet för körning på önskat [beräknings mål](how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -160,4 +159,4 @@ Mer information om hur du anpassar din python-miljö finns i [skapa & använda p
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du tränat en modell med en anpassad Docker-avbildning. Mer information om Azure Machine Learning finns i de här artiklarna.
 * [Spåra körnings mått](how-to-track-experiments.md) under träning
-* [Distribuera en modell](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image) med hjälp av en anpassad Docker-avbildning.
+* [Distribuera en modell](how-to-deploy-custom-docker-image.md) med hjälp av en anpassad Docker-avbildning.

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 25c58f99f56a4328527d1dd970e3ade21eb51819
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76834696"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987170"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure Portal
 
@@ -45,7 +45,7 @@ Det tar ungefär en timme att skapa en VPN-gateway med skriptet. I de återståe
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
@@ -73,12 +73,12 @@ Om du redan har en aktiv nätverksbevakare i regionen USA, östra går du vidare
 8. När testet körs visas **Körs** i kolumnen **FELSÖKNINGSSTATUS** där **Har inte startats** visas, som du ser i föregående bild. Testet kan ta flera minuter.
 9. Visa status för ett slutfört test. Följande bild visar statusresultatet för ett slutfört diagnostiktest:
 
-    ![Status](./media/diagnose-communication-problem-between-networks/status.png)
+    ![Skärm bild som visar status resultatet för ett diagnostiktest, som är skadat i det här exemplet, inklusive Sammanfattning och detaljer.](./media/diagnose-communication-problem-between-networks/status.png)
 
     Som du ser är **FELSÖKNINGSSTATUS****Ej felfri**. Du kan också se en **sammanfattning** och **information** om problemet på fliken **Status**.
 10. När du väljer fliken **Åtgärd** visar VPN-diagnostik ytterligare information. I exemplet som visas i följande bild meddelar VPN-diagnostik att du bör kontrollera hälsotillståndet för varje anslutning:
 
-    ![Åtgärd](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Skärm bild som visar fliken åtgärd, som ger dig ytterligare information.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnostisera en gatewayanslutning
 
@@ -86,7 +86,7 @@ En gateway är ansluten till andra nätverk via en gatewayanslutning. Både gate
 
 1. Utför steg 7 i [Diagnostisera en gateway](#diagnose-a-gateway) igen och välj en anslutning den här gången. I följande exempel testas en anslutning med namnet **VNet1toSite1**:
 
-    ![Anslutning](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![Skärm bild som visar hur du startar fel sökning för en vald anslutning.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     Testet körs i flera minuter.
 2. När anslutningstestet är klart returneras resultat liknande dem i följande bilder på flikarna **Status** och **Åtgärd**:

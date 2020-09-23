@@ -1,6 +1,6 @@
 ---
-title: Certifikat krav och fel sökning med Azure Stack Edge | Microsoft Docs
-description: Beskriver certifikat krav och fel sökning av certifikat fel med Azure Stack Edge-enhet.
+title: Certifikat krav och fel sökning med Azure Stack Edge Pro | Microsoft Docs
+description: Beskriver certifikat krav och fel sökning av certifikat fel med Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: b24b745a53b632ce32cda37058363bf974d400b3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268270"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891382"
 ---
 # <a name="certificate-requirements"></a>Certifikatkrav
 
-I den här artikeln beskrivs de certifikat krav som måste uppfyllas innan certifikaten kan installeras på Azure Stack Edge-enheten. Kraven är relaterade till PFX-certifikat, utfärdande utfärdare, certifikat mottagar namn och alternativt namn för certifikat mottagare och algoritmer som stöds.
+I den här artikeln beskrivs de certifikat krav som måste uppfyllas innan certifikaten kan installeras på din Azure Stack Edge Pro-enhet. Kraven är relaterade till PFX-certifikat, utfärdande utfärdare, certifikat mottagar namn och alternativt namn för certifikat mottagare och algoritmer som stöds.
 
 ## <a name="certificate-issuing-authority"></a>Certifikat utfärdare
 
@@ -64,13 +64,13 @@ Certifikat måste ha följande ämnes namn och alternativa namn för certifikat 
     
 ## <a name="pfx-certificate"></a>PFX-certifikat
 
-De PFX-certifikat som är installerade på din Azure Stack Edge-enhet uppfyller följande krav:
+De PFX-certifikat som är installerade på din Azure Stack Edge Pro-enhet uppfyller följande krav:
 
 * När du hämtar dina certifikat från SSL-utfärdaren, ser du till att du får den fullständiga signerings kedjan för certifikaten.
 
 * När du exporterar ett PFX-certifikat måste du kontrol lera att du har valt alternativet **Inkludera alla certifikat i kedjan om möjligt** .
 
-* Använd ett PFX-certifikat för slut punkt, lokalt användar gränssnitt, nod, VPN och Wi-Fi som både offentliga och privata nycklar krävs för Azure Stack Edge. Den privata nyckeln måste ha attributet lokal dator nyckel angiven.
+* Använd ett PFX-certifikat för slut punkt, lokalt användar gränssnitt, nod, VPN och Wi-Fi som både offentliga och privata nycklar krävs för Azure Stack Edge Pro. Den privata nyckeln måste ha attributet lokal dator nyckel angiven.
 
 * Certifikatets PFX-kryptering bör vara 3DES. Detta är standard krypteringen som används vid export från en Windows 10-klient eller Windows Server 2016-certifikat arkiv. Mer information om 3DES finns i [TREDUBBEL des](https://en.wikipedia.org/wiki/Triple_DES).
 
@@ -78,7 +78,7 @@ De PFX-certifikat som är installerade på din Azure Stack Edge-enhet uppfyller 
 
 * Certifikatets PFX-filer måste ha *1.3.6.1.5.5.7.3.1 (Values Server Authentication)* och *klientautentisering (1.3.6.1.5.5.7.3.2)* i fältet *förbättrad nyckel användning* .
 
-* Lösen orden till alla PFX-filer för certifikat måste vara samma vid tidpunkten för distributionen om du använder verktyget Azure Stack readiness Checker. Mer information finns i [Skapa certifikat för din Azure Stack Edge med hjälp av Azure Stack Hub readiness Checker-verktyget](azure-stack-edge-j-series-create-certificates-tool.md).
+* Lösen orden till alla PFX-filer för certifikat måste vara samma vid tidpunkten för distributionen om du använder verktyget Azure Stack readiness Checker. Mer information finns i [Skapa certifikat för din Azure Stack Edge Pro med hjälp av Azure Stack Hub readiness Checker-verktyget](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * Lösen ordet till certifikatets PFX måste vara ett komplext lösen ord. Anteckna det här lösen ordet eftersom det används som en distributions parameter.
 
@@ -86,9 +86,9 @@ Mer information finns i [Exportera PFX-certifikat med privat nyckel](azure-stack
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använda certifikat med Azure Stack Edge](azure-stack-edge-j-series-manage-certificates.md)
+[Använda certifikat med Azure Stack Edge Pro](azure-stack-edge-j-series-manage-certificates.md)
 
-[Skapa certifikat för din Azure Stack Edge med Azure Stack Hub readiness Checker-verktyget](azure-stack-edge-j-series-create-certificates-tool.md)
+[Skapa certifikat för din Azure Stack Edge Pro med Azure Stack Hub readiness Checker-verktyget](azure-stack-edge-j-series-create-certificates-tool.md)
 
 [Exportera PFX-certifikat med privat nyckel](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
 

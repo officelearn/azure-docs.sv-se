@@ -1,6 +1,6 @@
 ---
-title: Returnera din Azure Stack Edge-enhet | Microsoft Docs
-description: Lär dig hur du rensar data och returnerar Azure Stack Edge-enheten och sedan tar bort resursen som är kopplad till enheten.
+title: Returnera din Azure Stack Edge Pro-enhet | Microsoft Docs
+description: Lär dig hur du rensar data och returnerar Azure Stack Edge Pro-enheten och sedan tar bort resursen som är kopplad till enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,23 +8,23 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: aa917361ad3c967a697421e86d232e1a206c403e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923959"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903673"
 ---
-# <a name="return-your-azure-stack-edge-device"></a>Returnera din Azure Stack Edge-enhet
+# <a name="return-your-azure-stack-edge-pro-device"></a>Returnera din Azure Stack Edge Pro-enhet
 
-I den här artikeln beskrivs hur du rensar data och sedan returnerar Azure Stack Edge-enheten. När du har returnerat enheten kan du också ta bort resursen som är kopplad till enheten.
+I den här artikeln beskrivs hur du rensar data och sedan returnerar din Azure Stack Edge Pro-enhet. När du har returnerat enheten kan du också ta bort resursen som är kopplad till enheten.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 >
 > * Rensa data från data diskarna på enheten
-> * Starta enhets retur i Azure Portal
+> * Initiera enhetsreturen i Azure-portalen
 > * Packa upp enheten och Schemalägg en upphämtning
 > * Ta bort resursen i Azure Portal
 
@@ -59,7 +59,7 @@ Du kan också ansluta till PowerShell-gränssnittet på enheten och använda `Re
 
 Utför följande steg för att påbörja retur processen.
 
-1. Gå till din Azure Stack Edge/Data Box Gateway-resurs i Azure Portal. I **översikten**går du till kommando fältet i den högra rutan och väljer **RETUR enhet**. 
+1. Gå till din Azure Stack Edge Pro/Data Box Gateway-resurs i Azure Portal. I **översikten**går du till kommando fältet i den högra rutan och väljer **RETUR enhet**. 
 
     ![Returnera enhet 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -90,11 +90,11 @@ Utför följande steg för att påbörja retur processen.
 
     ![Returnera enhet 4](media/azure-stack-edge-return-device/return-device-4.png) 
 
-6. När din enhets information har hämtats kan du meddela Azure Stack Edge-Operations-teamet via ett e-postmeddelande. Du kan använda ditt e-postprogram förutsatt att e-postprogrammet är installerat och konfigurerat. Du kan också kopiera data för att skapa och skicka ett e-postmeddelande.
+6. När din enhets information har hämtats kan du meddela Azure Stack Edge Pro Operations-teamet via ett e-postmeddelande. Du kan använda ditt e-postprogram förutsatt att e-postprogrammet är installerat och konfigurerat. Du kan också kopiera data för att skapa och skicka ett e-postmeddelande.
 
     ![Returnera enhet 5](media/azure-stack-edge-return-device/return-device-5.png) 
 
-7. När Azure Stack Edge-arbetsgruppen tar emot e-postmeddelandet så skickas en etikett för omvänd försändelse. När du får den här etiketten kan du schemalägga hämtningen av enheten med operatören. 
+7. När Azure Stack Edge Pro Operations-teamet får e-postmeddelandet, skickas en etikett för omvänd försändelse. När du får den här etiketten kan du schemalägga hämtningen av enheten med operatören. 
 
 ## <a name="schedule-a-pickup"></a>Schemalägg hämtning
 
@@ -111,20 +111,20 @@ Följ stegen nedan om du vill schemalägga en upphämtning.
     2. I ditt samtal offerterar du det omvända försändelse spårnings numret som det visas på den utskrivna etiketten.
     3. Om spårnings numret inte är citerat, kräver UPS att du betalar ytterligare en kostnad under upphämtningen.
 
-    I stället för att schemalägga upphämtningen kan du också ta bort Azure Stack kanten på den närmaste List platsen.
+    I stället för att schemalägga upphämtningen kan du också ta bort Azure Stack Edge Pro på närmsta plats.
 
 ## <a name="delete-the-resource"></a>Ta bort resursen
 
 När enheten har tagits emot i Azure-datacentret, inspekteras enheten efter skada eller tecken på manipulation.
 
-- Om enheten anländer och är i en lämplig form stoppas fakturerings mätaren för den resursen. Azure Stack Edge Operations-teamet kommer att kontakta dig för att bekräfta att enheten returnerades. Du kan sedan ta bort resursen som är kopplad till enheten i Azure Portal.
+- Om enheten anländer och är i en lämplig form stoppas fakturerings mätaren för den resursen. Azure Stack Edge Pro Operations-teamet kommer att kontakta dig för att bekräfta att enheten returnerades. Du kan sedan ta bort resursen som är kopplad till enheten i Azure Portal.
 - Om enheten kommer kraftigt skadas kan böter gälla. Mer information finns i [vanliga frågor och svar om förlorade eller skadade enhets](https://azure.microsoft.com/pricing/details/databox/edge/) [-och produkt villkor](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Du kan ta bort enheten i Azure Portal:
 
 - När du har placerat beställningen och innan enheten förbereds av Microsoft.
-- När du har returnerat enheten till Microsoft, skickas den fysiska kontrollen till Azure-datacentret och Azure Stack Edge Operations-team anropar för att bekräfta att enheten returnerades.
+- När du har returnerat enheten till Microsoft, skickas den fysiska kontrollen till Azure-datacentret och Azure Stack Edge Pro Operations-team anropar för att bekräfta att enheten returnerades.
 
 Om du har aktiverat enheten mot en annan prenumeration eller plats flyttar Microsoft din beställning till den nya prenumerationen eller platsen inom en arbets dag. När ordningen har flyttats kan du ta bort den här resursen.
 
@@ -144,4 +144,4 @@ Du får ett meddelande när enheten och den tillhör ande resursen har tagits bo
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [får en ersättnings Azure Stack Edge-enhet](azure-stack-edge-replace-device.md).
+- Lär dig hur du [får en ersättnings Azure Stack Edge Pro-enhet](azure-stack-edge-replace-device.md).

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373512"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981464"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering i Azure Portal för att övervaka frågor och förbättra arbets Belastningens prestanda
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ På server nivå kan du välja att ärva konfigurationen för automatisk justeri
 
 Om du vill aktivera automatisk justering på en [Server](logical-servers.md) i Azure SQL Database, navigerar du till servern i Azure Portal och väljer sedan **Automatisk justering** i menyn.
 
-![Server](./media/automatic-tuning-enable/server.png)
+![Skärm bild som visar automatisk justering i Azure Portal, där du kan tillämpa alternativ för en server.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Observera att alternativet **DROP_INDEX** för tillfället inte är kompatibelt med program som använder partition växlings-och index tips och bör inte aktive ras i dessa fall. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer.
@@ -77,7 +77,7 @@ Om du vill aktivera automatisk justering på en **enskild databas**navigerar du 
 
 Enskilda inställningar för automatisk justering kan konfigureras separat för varje databas. Du kan konfigurera ett enskilt alternativ för automatisk justering manuellt eller ange att ett alternativ ärver inställningarna från servern.
 
-![Databas](./media/automatic-tuning-enable/database.png)
+![Skärm bild som visar automatisk justering i Azure Portal, där du kan tillämpa alternativ för en enskild databas.](./media/automatic-tuning-enable/database.png)
 
 Observera att DROP_INDEX alternativ för tillfället inte är kompatibelt med program som använder partition växlings-och index tips och inte bör aktive ras i dessa fall.
 

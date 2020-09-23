@@ -1,0 +1,55 @@
+- name: Metrics Advisor
+  href: index.yml
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är Metrics Advisor?
+      href: overview.md
+- name: Snabbstarter
+  items:
+    - name: Utforska demowebbplatsen
+      href: quickstarts/explore-demo.md
+    - name: Använda webbportalen
+      href: quickstarts/web-portal.md
+    - name: Använd REST API
+      href: quickstarts/rest-api.md
+- name: Instruktioner
+  items:
+    - name: Registrera dina data
+      href: how-tos/onboard-your-data.md
+    - name: Ansluta olika datafeed-källor
+      href: data-feeds-from-different-sources.md
+    - name: Hantera datafeeds
+      href: how-tos/manage-data-feeds.md
+    - name: Konfigurera mått och finjustera konfiguration för identifiering
+      href: how-tos/configure-metrics.md
+    - name: Konfigurera aviseringar och få meddelanden via en hook
+      href: how-tos/alerts.md
+    - name: Diagnostisera en incident
+      href: how-tos/diagnose-incident.md
+    - name: Justera avvikelseidentifiering med hjälp av feedback
+      href: how-tos/anomaly-feedback.md
+    - name: Skapa ett måttdiagram
+      href: how-tos/metrics-graph.md
+- name: Referens
+  items:
+    - name: Ordlista
+      href: glossary.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md
+    - name: Metrics Advisor API
+      href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
+    - name: Azure CLI-referens
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: PowerShell-referens
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+- name: Resurser
+  items:
+    - name: Prissättning
+      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Efterlevnad
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Kryptering
+      href: encryption.md

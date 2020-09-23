@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447840"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987592"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrera Azure Monitor loggar uppdaterings distributioner till Azure Portal
 
@@ -33,7 +33,7 @@ Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../az
 
 3. Klicka på **uppdateringshantering**i ditt Automation-konto.
 
-    ![Uppdateringshantering](media/migrate-oms-update-deployments/azure-automation.png)
+    :::image type="content" source="media/migrate-oms-update-deployments/azure-automation.png" alt-text="Skärm bild av sidan för hantering av uppdateringar.":::
 
 4. I Azure Portal väljer du **Automation-konton** under **alla tjänster**. 
 
@@ -43,7 +43,7 @@ Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../az
 
 Alla uppdaterings distributioner som skapas i OMS-portalen har en [Sparad sökning](../azure-monitor/platform/computer-groups.md) som också kallas en dator grupp, med samma namn som den uppdaterings distribution som finns. Den sparade sökningen innehåller en lista över datorer som har schemalagts i uppdaterings distributionen.
 
-![Uppdateringshantering](media/migrate-oms-update-deployments/oms-deployment.png)
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Skärm bild av sidan med uppdaterings distributioner med fälten namn och servrar markerade.":::
 
 Följ dessa steg om du vill använda den befintliga sparade sökningen:
 

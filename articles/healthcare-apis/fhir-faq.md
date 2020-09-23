@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 252abcac6e9e39930593c1b110bf6d55ffdfc33f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843529"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978615"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Vanliga frågor och svar om Azure API för FHIR
 
@@ -48,6 +48,23 @@ Från en utvecklings synpunkt distribueras alla funktioner till Microsoft FHIR-s
 
 SMARTA (utbytbara medicinska program och återanvändbar teknik) på FHIR är en uppsättning öppna specifikationer för att integrera partner program med FHIR-servrar och andra hälso-IT-system, till exempel elektroniska hälso poster och hälso informations utbyten. Genom att skapa ett SMART on FHIR-program kan du se till att ditt program kan nås och utnyttjas av en mängd olika med olika system.
 Autentisering och Azure API för FHIR. Om du vill veta mer om SMART kan du gå till [Smart hälsa](https://smarthealthit.org/).
+
+### <a name="can-i-create-a-custom-fhir-resource"></a>Kan jag skapa en anpassad FHIR-resurs?
+
+Vi tillåter inte anpassade FHIR-resurser. Om du behöver en anpassad FHIR-resurs kan du bygga en anpassad resurs ovanpå den [grundläggande resursen](http://www.hl7.org/fhir/basic.html) med tillägg. 
+
+### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>Stöds [tillägg](https://www.hl7.org/fhir/extensibility.html) i Azure API för FHIR?
+
+Du kan läsa in alla giltiga FHIR JSON-data till-servern. Om du vill lagra struktur definitionen som definierar tillägget kan du spara den som en resurs för struktur definition. För närvarande kan du inte söka efter tillägg.
+
+### <a name="what-is-the-limit-on-_count"></a>Vad är gränsen för _count?
+
+Den aktuella gränsen för antal är 100.
+
+### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>Finns det några begränsningar för grupp export funktionen?
+
+För grupp export exporterar vi bara inkluderade referenser från gruppen, inte alla egenskaperna för [grupp resursen](https://www.hl7.org/fhir/group.html).
+
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector för FHIR (för hands version)
 

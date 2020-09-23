@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visuellt innehåll, program för visuellt innehåll, dator vision
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323270"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907078"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -92,7 +92,11 @@ Du kan använda Visuellt innehåll för att [identifiera vuxna innehåll](concep
 
 ## <a name="use-containers"></a>Använda containrar
 
-[Använd visuellt innehåll behållare](computer-vision-how-to-install-containers.md) för att identifiera tryckt och handskriven text lokalt genom att installera en standardiserad Docker-behållare närmare dina data.
+Använd Visuellt innehåll Docker-behållare för att använda tjänsten lokalt. Det finns för närvarande två tillgängliga behållare:
+
+* Med [visuellt innehåll Läs container](computer-vision-how-to-install-containers.md) kan du identifiera skriven och handskriven text i bilder.
+
+* Med den [visuellt innehåll rums analysens behållare](spatial-analysis-container.md) kan du analysera real tids strömnings video för att förstå spatiala relationer mellan människor och deras rörelse genom fysiska miljöer.
 
 ## <a name="image-requirements"></a>Avbildningskrav
 

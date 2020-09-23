@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
-ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e279a7c9f6810ece482b043284f0be0719a3dafe
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965016"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908042"
 ---
 # <a name="edit-metadata-module"></a>Redigera metadata-modul
 
-I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer.
 
 Använd modulen redigera metadata för att ändra metadata som är associerade med kolumner i en data uppsättning. Data uppsättningens värde och datatyp ändras efter användningen av modulen redigera metadata.
 

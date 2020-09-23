@@ -1,14 +1,14 @@
 ---
 title: DoD effekt nivå 4 skiss exempel kontroller
 description: Kontroll mappning av DoD effekt nivå 4 skiss exempel. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923296"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978393"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Kontroll mappning av DoD effekt nivå 4 skiss exempel
 
@@ -102,11 +102,11 @@ Den här skissen innehåller princip definitioner som hjälper dig att säkerst�
 Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör centraliserad konfiguration och hantering. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
 
 - \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- Granska Log Analytics agent distribution i skalnings uppsättningar för virtuella datorer – VM-avbildningen (OS) har inte listats
 - \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
-- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Linux-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Windows-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
@@ -123,11 +123,11 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör central rapportering och analys. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
 
 - \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- Granska Log Analytics agent distribution i skalnings uppsättningar för virtuella datorer – VM-avbildningen (OS) har inte listats
 - \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
-- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Linux-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Windows-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) gransknings granskning, analys och rapportering | Funktioner för integration/genomsökning och övervakning
@@ -144,7 +144,7 @@ Den här skissen innehåller princip definitioner som granskar poster med analys
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- Granska Log Analytics agent distribution i skalnings uppsättningar för virtuella datorer – VM-avbildningen (OS) har inte listats
 
 ## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
 
@@ -152,11 +152,11 @@ Den här skissen innehåller princip definitioner som granskar och tillämpar di
 Dessa princip definitioner granskar också konfigurationen av diagnostikloggar för att ge inblick i åtgärder som utförs i Azure-resurser. Dessutom konfigureras granskning och avancerad data säkerhet på SQL-servrar.
 
 - \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- Granska Log Analytics agent distribution i skalnings uppsättningar för virtuella datorer – VM-avbildningen (OS) har inte listats
 - \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
-- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Linux-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Windows-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
@@ -336,11 +336,8 @@ Den här skissen hjälper dig att hantera fel i informations systemet genom att 
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) fel korrigering | Borttagning av tidigare versioner av program vara/inbyggd program vara
 
-Den här skissen tilldelar princip definitioner som hjälper dig att se till att programmen använder den senaste versionen av .NET Framework, HTTP, Java, PHP, python och TLS. Den här skissen tilldelar också en princip definition som garanterar att Kubernetes-tjänster uppgraderas till den icke-sårbara versionen.
+Den här skissen tilldelar princip definitioner som hjälper dig att se till att programmen använder den senaste versionen av HTTP, Java, PHP, python och TLS. Den här skissen tilldelar också en princip definition som garanterar att Kubernetes-tjänster uppgraderas till den icke-sårbara versionen.
 
-- Se till att .NET Framework-versionen är den senaste, om den används som en del av API-appen
-- Se till att .NET Framework-versionen är den senaste, om den används som en del av Funktionsapp
-- Se till att .NET Framework-versionen är den senaste, om den används som en del av webbappen
 - Se till att "HTTP-version" är den senaste, om den används för att köra API-appen
 - Se till att "HTTP-version" är den senaste, om den används för att köra Function-appen
 - Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
@@ -348,7 +345,6 @@ Den här skissen tilldelar princip definitioner som hjälper dig att se till att
 - Se till att Java-version är den senaste, om den används som en del av Function-appen
 - Se till att Java-version är den senaste, om den används som en del av webbappen
 - Se till att PHP-version är den senaste, om den används som en del av API-appen
-- Se till att PHP-version är den senaste, om den används som en del av Function-appen
 - Se till att PHP-version är den senaste, om den används som en del av webbappen
 - Se till att "python-version" är den senaste, om den används som en del av API-appen
 - Se till att "python-version" är den senaste, om den används som en del av Function-appen
@@ -356,7 +352,7 @@ Den här skissen tilldelar princip definitioner som hjälper dig att se till att
 - Den senaste TLS-versionen ska användas i din API-app
 - Den senaste TLS-versionen ska användas i Funktionsapp
 - Den senaste TLS-versionen ska användas i din webbapp
-- \[\]För hands version: Kubernetes Services bör uppgraderas till en icke-sårbar Kubernetes-version
+- Kubernetes Services bör uppgraderas till en icke-sårbar Kubernetes-version
 
 ## <a name="si-3-malicious-code-protection"></a>SI-3 skadlig kod skydd
 
@@ -378,11 +374,11 @@ Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig
 Den här skissen hjälper dig att övervaka systemet genom att granska och framtvinga loggning och data säkerhet i Azure-resurser. Mer specifikt är principerna tilldelade granskning och tillämpar distribution av Log Analytics agenten och förbättrade säkerhets inställningar för SQL-databaser, lagrings konton och nätverks resurser. Dessa funktioner kan hjälpa dig att identifiera avvikande beteende och indikatorer på attacker så att du kan vidta lämpliga åtgärder.
 
 - \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- Granska Log Analytics agent distribution i skalnings uppsättningar för virtuella datorer – VM-avbildningen (OS) har inte listats
 - \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
-- \[För hands version \] : distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Linux-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För hands version \] : distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
+- Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Windows-datorer
 - \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar

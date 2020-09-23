@@ -1,6 +1,6 @@
 ---
 title: Installera TmaxSoft OpenFrame på Azure Virtual Machines
-description: Revara värd för dina IBM z/OS stordatorer-arbetsbelastningar med hjälp av TmaxSoft OpenFrame-miljö på Azure Virtual Machines (VM).
+description: Lär dig hur du konfigurerar en miljö med öppna ramar i Azure som passar för utveckling, demonstrationer, testning eller produktions arbets belastningar.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082400"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987486"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installera TmaxSoft OpenFrame på Azure
 
@@ -430,7 +430,7 @@ Tibero tillhandahåller flera viktiga funktioner i OpenFrame-miljön på Azure:
     ps -ef | egrep tbsvr
     ```
 
-Resultat:
+Utdata:
 
 ![Tibero-utdata](media/tibero-01.png)
 
@@ -460,7 +460,7 @@ Så här installerar du ODBC:
 
      UnixODBC installeras som standard i/usr/local, så `--prefix` skickar ett värde för att ändra platsen. På samma sätt installeras konfigurationsfiler i volymen/etc som standard, så `--sysconfdir` överför värdet för önskad plats.
 
-4. Kör make:`[oframe7@ofdemo unixODBC-2.3.4]$ make`
+4. Kör make: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
 5. Kopiera den körbara filen i program katalogen efter kompilering. Exempel:
 
@@ -945,7 +945,7 @@ Prosorteringen är ett verktyg som används i batch-transaktioner för att sorte
      export PATH
      ```
 
-6. Om du vill köra bash-profilen skriver du följande i kommando tolken:`. .bash_profile`
+6. Om du vill köra bash-profilen skriver du följande i kommando tolken: `. .bash_profile`
 
 7. Skapa konfigurations filen. Exempel:
 
@@ -1342,7 +1342,7 @@ Innan du installerar JEUS installerar du Apache Ant-paketet som tillhandahåller
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
      ```
 
-7. Ändra `jeus.password=jeusadmin nodename=Tmaxsoft` till`jeus.password=tmax1234 nodename=ofdemo`
+7. Ändra `jeus.password=jeusadmin nodename=Tmaxsoft` till `jeus.password=tmax1234 nodename=ofdemo`
 
 8. Kör `ant install` kommandot för att bygga JEUS.
 9.  Uppdatera \_ profil filen. bash med JEUS-variablerna som visas:

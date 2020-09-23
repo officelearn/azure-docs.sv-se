@@ -4,12 +4,12 @@ description: Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av fu
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2828bf14b6965e87ef9547020e870333c4e839af
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210873"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987981"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Lagra ostrukturerade data i Azure Functions och Azure Cosmos DB
 
@@ -20,7 +20,7 @@ ms.locfileid: "88210873"
 
 I Azure Functions kan du använda indata- och utdatabindningar för att ansluta till data i en extern tjänst från din funktion på ett deklarativt sätt. I den här artikeln lär du dig hur du uppdaterar en befintlig funktion för att lägga till en utdatabindning som lagrar ostrukturerade data i ett Azure Cosmos DB-dokument.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -54,7 +54,7 @@ Du måste ha ett Azure Cosmos DB-konto som använder SQL API innan du skapar utd
     | **Dokumentparameternamn** | taskDocument | Namn som refererar till Cosmos DB-objektet i koden. |
     | **Databasnamn** | taskDatabase | Namnet på databasen där dokumenten ska sparas. |
     | **Samlingsnamn** | taskCollection | Databassamlingens namn. |
-    | **Om värdet är true skapas Cosmos DB-databasen och -samlingen** | Ja | Samlingen finns inte redan, så du måste skapa den. |
+    | **Om värdet är true skapas Cosmos DB-databasen och -samlingen** | Yes | Samlingen finns inte redan, så du måste skapa den. |
     | **Cosmos DB kontoanslutning** | Ny inställning | Välj **nytt**, Välj **Azure Cosmos DB konto** och **databas konto** som du skapade tidigare och välj sedan **OK**. Skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
 
 1. Välj **OK** för att skapa bindningen.
@@ -143,7 +143,7 @@ Det här kodexemplet läser frågesträngarna i HTTP-begäran och tilldelar dem 
 
 1. Välj **Kör** och kontrol lera att en 200-status returneras.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Testa funktionen." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Skärm bild som visar statusen för HTTP-svarskod 200 markerad när du har valt kör." border="true":::
 
 
 1. I Azure Portal söker du efter och väljer **Azure Cosmos DB**.

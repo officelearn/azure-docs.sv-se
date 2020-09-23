@@ -11,12 +11,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/02/2020
-ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421313"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988090"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Påskynda real tids analys i real tid med Spark-anslutaren
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ GitHub-lagrings platsen för den gamla koppling som tidigare var länkade till f
 | Microsoft JDBC-drivrutin för SQL Server  | 6,2 eller senare             |
 | Microsoft SQL Server                  | SQL Server 2008 eller senare |
 | Azure SQL Database                    | Stöds                |
-| Azure SQL Managed Instance            | Stöds                |
+| Azure SQL-hanterad instans            | Stöds                |
 
 Spark-anslutaren använder Microsoft JDBC-drivrutinen för SQL Server för att flytta data mellan Spark-arbetsnoder och databaser:
 
@@ -51,7 +51,7 @@ Data flödet är följande:
 
 Följande diagram illustrerar data flödet.
 
-   ![Arkitektur](./media/spark-connector/architecture.png)
+   ![Diagrammet visar det beskrivna flödet, med en huvud nod som ansluter direkt till databasen och ansluter till tre arbetsnoder, som ansluter till databasen.](./media/spark-connector/architecture.png)
 
 ### <a name="build-the-spark-connector"></a>Bygg Spark-anslutningen
 

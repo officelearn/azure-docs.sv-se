@@ -7,18 +7,20 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 0287bc8a11c359acce5fbf12d3a51e99a9f5420e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5ca8f2b003b7f2142da329a07f929ecf31fee627
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297152"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908259"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Bind en Azure Database for MySQL-instans till ditt Azure våren Cloud-program 
 
+**Den här artikeln gäller för:** ✔️ Java
+
 Med Azure våren Cloud kan du binda utvalda Azure-tjänster till dina program automatiskt, i stället för att behöva konfigurera ditt våren Boot-program manuellt. Den här artikeln visar hur du binder ditt program till din Azure Database for MySQL-instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En distribuerad Azure våren Cloud-instans
 * Ett Azure Database for MySQL konto

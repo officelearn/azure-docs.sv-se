@@ -3,12 +3,12 @@ title: Kubernetes-övervakning med Azure Monitor för behållare | Microsoft Doc
 description: Den här artikeln beskriver hur du kan visa och analysera prestanda för ett Kubernetes-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166645"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988127"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka prestanda för Kubernetes-kluster med Azure Monitor för behållare
 
@@ -75,10 +75,10 @@ Följande tabell innehåller en analys av beräkningen som styr hälso tillstån
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Systemets Pod**| | |
 | |Felfri |100 % |
-| |Varning |Ej tillämpligt |
+| |Varning |Saknas |
 | |Kritisk |<100% |
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
-|**Nod** | | |
+|**Node** | | |
 | |Felfri |>85% |
 | |Varning |60 – 84% |
 | |Kritisk |<60% |
@@ -93,7 +93,7 @@ I listan över kluster kan du öka detalj nivån till **kluster** sidan genom at
 - Kluster
 - Noder
 - Kontrollanter
-- Containrar
+- Containers
 
 >[!NOTE]
 >Den erfarenhet som beskrivs i resten av den här artikeln gäller också för att visa prestanda-och hälso status för Kubernetes-kluster som finns på Azure Stack eller annan miljö när de valts från vyn över flera kluster.
@@ -134,7 +134,7 @@ Du kan [dela upp](../platform/metrics-charts.md#apply-splitting-to-a-chart) ett 
 
 * Domänkontrollant
 * Kubernetes-namnrymd
-* Nod
+* Node
 * Fas
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analysera noder, styrenheter och hälso tillstånd för behållare
@@ -161,7 +161,7 @@ Azure Container Instances virtuella noder som kör Linux-OS visas efter den sist
 
 Från en utökad nod kan du öka detalj nivån från POD eller containern som körs på noden till kontrollanten för att visa prestanda data som filtrerats för kontrollanten. Välj värdet i kolumnen **kontrollant** för den angivna noden.
 
-![Exempel gå nedåt från noden till kontrollanten i vyn prestanda](./media/container-insights-analyze/drill-down-node-controller.png)
+![Skärm bild som visar detalj nivån från noden till kontrollanten i vyn prestanda](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Välj kontrollanter eller behållare högst upp på sidan för att granska status och resursutnyttjande för dessa objekt. Om du vill granska minnes användningen väljer du **minnes-RSS** eller **minnes arbets minne**i list rutan **mått** . **RSS-minnen** stöds bara för Kubernetes version 1,8 och senare. Annars visar du värden för **min &nbsp; % ** som *Nan &nbsp; % *, vilket är ett numeriskt värde som representerar ett odefinierat eller odefinierat värde.
 
@@ -191,12 +191,12 @@ Den information som visas när du visar fliken **noder** beskrivs i följande ta
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Namn | Namnet på värden. |
+| Name | Namnet på värden. |
 | Status | Kubernetes visar nodens status. |
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%  | Genomsnittlig nod i procent baserat på percentil under den valda varaktigheten. |
 | Min, AVG, 50, nittionde, 95, max | Genomsnittligt antal noders faktiska värde baserat på percentil under den valda tids perioden. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en nod. För poddar och behållare är det det genomsnittliga värdet som rapporteras av värden. |
-| Containrar | Antal behållare. |
-| Drift tid | Visar tiden sedan en nod startades eller startades om. |
+| Containers | Antal behållare. |
+| Drifttid | Visar tiden sedan en nod startades eller startades om. |
 | Domänkontrollant | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. Alla poddar finns inte i en kontrollant, så vissa kan visa **ej tillämpligt**. |
 | Trend min &nbsp; %, genomsn &nbsp; %, 50 &nbsp; %, nittionde &nbsp; %, 95 &nbsp; %, max&nbsp;% | Stapeldiagrams trend representerar den genomsnittliga percentilvärdet i procent av styrenheten. |
 
@@ -234,14 +234,14 @@ Den information som visas när du visar kontrollanter beskrivs i följande tabel
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Namn | Namnet på kontrollanten.|
+| Name | Namnet på kontrollanten.|
 | Status | Sammanslagnings statusen för behållarna när den har slutförts med status, till exempel *OK*, *avslutad*, *misslyckad*, *stoppad*eller *pausad*. Om behållaren körs men status antingen inte visas korrekt eller inte har hämtats av agenten och inte har svarat i mer än 30 minuter, är statusen *okänd*. Ytterligare information om status ikonen finns i följande tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%| Beräknat medelvärde för den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max  | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |
-| Containrar | Totalt antal behållare för styrenhets-eller pod. |
+| Containers | Totalt antal behållare för styrenhets-eller pod. |
 | Startar om | Sammanslagning av antalet omstarter från behållare. |
-| Drift tid | Representerar tiden sedan en container startades. |
-| Nod | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. |
+| Drifttid | Representerar tiden sedan en container startades. |
+| Node | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. |
 | Trend min &nbsp; %, genomsn &nbsp; %, 50 &nbsp; %, nittionde &nbsp; %, 95 &nbsp; %, max&nbsp;% | Stapeldiagrams trend representerar den genomsnittliga percentilvärdet för styrenheten. |
 
 Ikonerna i fältet status anger behållar statusen för behållarna.
@@ -271,14 +271,14 @@ Den information som visas när du visar behållare beskrivs i följande tabell.
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Namn | Namnet på kontrollanten.|
+| Name | Namnet på kontrollanten.|
 | Status | Status för behållarna, om det finns några. Ytterligare information om status ikonen finns i nästa tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;% | Sammanställning av den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för behållaren för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |
 | Pod | Behållare där Pod finns.|
-| Nod |  Noden där behållaren finns. |
+| Node |  Noden där behållaren finns. |
 | Startar om | Representerar tiden sedan en container startades. |
-| Drift tid | Visar tiden sedan en behållare startades eller startades om. |
+| Drifttid | Visar tiden sedan en behållare startades eller startades om. |
 | Trend min &nbsp; %, genomsn &nbsp; %, 50 &nbsp; %, nittionde &nbsp; %, 95 &nbsp; %, max&nbsp;% | Stapeldiagrams trend representerar den genomsnittliga percentilvärdet i procent av behållaren. |
 
 Ikonerna i fältet status anger online-status för poddar, enligt beskrivningen i följande tabell.

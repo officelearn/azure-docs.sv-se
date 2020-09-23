@@ -1,6 +1,6 @@
 ---
-title: Vad är Azure SQL Edge (för hands version)?
-description: Läs mer om Azure SQL Edge (för hands version)
+title: Vad är Azure SQL Edge?
+description: Läs mer om Azure SQL Edge
 keywords: Introduktion till SQL Edge, vad är SQL Edge, SQL Edge-översikt
 services: sql-edge
 ms.service: sql-edge
@@ -9,27 +9,31 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e34cd0907320f96f2846c1f424e678555381cccc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489535"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907120"
 ---
-# <a name="what-is-azure-sql-edge-preview"></a>Vad är Azure SQL Edge (för hands version)?
+# <a name="what-is-azure-sql-edge"></a>Vad är Azure SQL Edge?
 
-Azure SQL Edge (för hands version) är en optimerad Relations databas motor som är avsedd för IoT och IoT Edge distributioner. Det innehåller funktioner för att skapa ett högpresterande lagrings-och bearbetnings lager för IoT-program och-lösningar. Azure SQL Edge innehåller funktioner för att strömma, bearbeta och analysera Relations-och icke-relationella data, till exempel JSON, graf-och Time Series-data, vilket gör det till det rätta valet för en mängd moderna IoT-program.
+Azure SQL Edge är en optimerad Relations databas motor som är avsedd för IoT och IoT Edge distributioner. Det innehåller funktioner för att skapa ett högpresterande lagrings-och bearbetnings lager för IoT-program och-lösningar. Azure SQL Edge innehåller funktioner för att strömma, bearbeta och analysera Relations-och icke-relationella data, till exempel JSON, graf-och Time Series-data, vilket gör det till det rätta valet för en mängd moderna IoT-program.
 
-Azure SQL Edge bygger på de senaste versionerna av Microsoft SQL Database Engine (/SQL/SQL-Server/SQL-Server-Technical-Documentation? TOC =/Azure/Azure-SQL-Edge/toc.jspå), vilket ger branschledande prestanda-, säkerhets-och fråge bearbetnings funktioner. Sedan har Azure SQL Edge byggts på samma motor som [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) och [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), och det innehåller samma yta för T-SQL-programytan som gör det enklare och snabbare att utveckla program eller lösningar, och samtidigt gör program portabiliteten mellan IoT Edge enheter, data Center och molnet rakt framåt.
+Azure SQL Edge bygger på de senaste versionerna av [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation), som tillhandahåller branschledande prestanda-, säkerhets-och fråge bearbetnings funktioner. Eftersom Azure SQL Edge bygger på samma motor som [SQL Server](/sql/sql-server/sql-server-technical-documentation) och [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), innehåller den samma PROGRAMMERINGSSPRÅK för Transact-SQL (T-SQL) som gör det enklare och snabbare att utveckla program eller lösningar, och gör programportabiliteten mellan IoT Edge enheter, data Center och molnet rakt framåt.
 
-> [!NOTE]
-> Azure SQL Edge är för närvarande en för hands version och bör inte användas i produktions miljöer.
+Vad är Azure SQL Edge-video på Channel 9:
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
 
 ## <a name="deployment-models"></a>Distributions modeller
 
-Azure SQL Edge är tillgängligt på Azure Marketplace och kan distribueras som en modul för [Azure IoT Edge](../iot-edge/about-iot-edge.md). Mer information finns i [Distribuera Azure SQL Edge](deploy-portal.md).<br>
+Azure SQL Edge stöder två distributions lägen.
+
+- Ansluten distribution via Azure IoT Edge: Azure SQL Edge är tillgängligt på Azure Marketplace och kan distribueras som en modul för [Azure IoT Edge](../iot-edge/about-iot-edge.md). Mer information finns i [Distribuera Azure SQL Edge](deploy-portal.md).<br>
 
 ![Översikts diagram över SQL Edge](media/overview/overview.png)
+
+- Frånkopplad distribution: bilder i Azure SQL Edge-behållare kan hämtas från Docker Hub och distribueras antingen som en fristående Docker-behållare eller i ett Kubernetes-kluster. Mer information finns i [Distribuera Azure SQL Edge med Docker](disconnected-deployment.md) och [distribuera en Azure SQL Edge-behållare i Kubernetes](deploy-kubernetes.md).
 
 ## <a name="editions-of-sql-edge"></a>Utgåvor av SQL Edge
 
@@ -42,7 +46,7 @@ SQL Edge är tillgängligt med två olika utgåvor eller program varu planer. De
 
 ## <a name="pricing-and-availability"></a>Priser och tillgänglighet
 
-Azure SQL Edge är för närvarande en för hands version. Mer information om priser och tillgänglighet finns i [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
+Azure SQL Edge är nu allmänt tillgänglig. Mer information om priser och tillgänglighet i vissa regioner finns i [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Information om skillnaderna mellan Azure SQL Edge och SQL Server, samt skillnaderna mellan olika alternativ för Azure SQL Edge, finns i [funktioner som stöds i Azure SQL Edge](features.md).

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: ceafbe1fd1682fc5e92ab3048ed09866fb9ebbdf
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906393"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Förhindra felaktig konfiguration med tvinga/neka-rekommendationer
 
@@ -24,10 +24,9 @@ Den här funktionen kan hjälpa till att hålla arbets belastningarna säkra och
 Att framtvinga en säker konfiguration, som baseras på en viss rekommendation, erbjuds i två lägen:
 
 - Genom att använda Azure Policy **neka** kan du förhindra att resurser som inte är felfria skapas
-
 - Med alternativet **tillämpa** kan du dra nytta av Azure policys **DeployIfNotExist** -påverkan och automatiskt reparera icke-kompatibla resurser när de skapas
- 
-Detta är tillgängligt för de valda säkerhets rekommendationerna och finns överst på sidan med resurs information.
+
+Du hittar det här längst upp på sidan resursinformation för de valda säkerhets rekommendationerna (se [rekommendationer med alternativen neka/tillämpa](#recommendations-with-denyenforce-options)).
 
 ## <a name="prevent-resource-creation"></a>Förhindra att resurser skapas
 

@@ -464,27 +464,31 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Ansluta till Azure Synapse Link för Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Köra frågor mot Azure Cosmos DB-analysarkiv med Apache Spark för Azure Synapse Analytics
+            - name: Köra frågor mot Azure Cosmos DB-analysarkiv med Apache Spark
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Kopiera data från Synapse Link till en SQL-pool med hjälp av Apache Spark
               href: ./synapse-link/how-to-copy-to-sql-pool.md
+            - name: Köra frågor mot Azure Cosmos DB-analysarkiv med SQL On-demand
+              href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Synapse SQL
           items:
-            - name: Fråga efter data i lagring
+            - name: Köra frågor mot externa data
               items:
                 - name: Översikt
                   href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Efterfråga CSV-fil
+                - name: Köra frågor mot CSV-filer
                   href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Efterfråga Parquet-filer
                   href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Efterfråga kapslade Parquet-typer
-                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Efterfråga JSON-filer
                   href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Köra frågor mot Azure Cosmos DB
+                  href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Köra frågor mot kapslade typer
+                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Efterfråga mappar och flera filer
                   href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Använda filmetadata
+                - name: Köra frågor mot partitionerade filer med hjälp av filmetadata
                   href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Skapa och använda vyer
                   href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

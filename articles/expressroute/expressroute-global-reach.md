@@ -5,14 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 8c6ed19a585bc1ebae65045cd1cc4c442f113597
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: references_regions
+ms.openlocfilehash: e3f9105037c049a53f1b7b99da96dd857070fcc7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987610"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute är ett privat och flexibelt sätt att ansluta dina lokala nätverk till Microsoft Cloud. Du kan komma åt många moln tjänster från Microsoft, till exempel Azure och Microsoft 365 från ditt privata data Center eller ditt företags nätverk. Du kan till exempel ha ett avdelnings kontor i San Francisco med en ExpressRoute-krets i Silicon dal och ett annat avdelnings kontor i London med en ExpressRoute-krets i samma stad. Både avdelnings kontor har snabb anslutning till Azure-resurser i västra USA och Storbritannien, södra. Men avdelnings kontoren kan inte ansluta och skicka data direkt med varandra. Med andra ord kan 10.0.1.0/24 skicka data till 10.0.3.0/24 och 10.0.4.0/24-nätverket, men inte till 10.0.2.0/24-nätverket.
@@ -29,10 +30,27 @@ ExpressRoute Global Reach har utformats för att komplettera din tjänst leveran
 ![Diagram som visar ett användnings fall för Express Route-Global Reach.][3]
 
 ## <a name="availability"></a>Tillgänglighet 
-ExpressRoute Global Reach stöds i de flesta regioner där ExpressRoute stöds för närvarande. Du kan referera till [ExpressRoute-anslutnings leverantörer](expressroute-locations-providers.md#partners) för aktuella regioner som stöds. 
+ExpressRoute Global Reach stöds på följande platser. 
 
 > [!NOTE] 
 > Om du vill aktivera ExpressRoute Global Reach mellan [olika politiska regioner](expressroute-locations-providers.md#locations)måste dina kretsar vara **Premium SKU**.
+
+* Australien
+* Kanada
+* Frankrike
+* Tyskland
+* Folkrepubliken Kinas särskilda administrativa region Hongkong
+* Irland
+* Japan
+* Korea
+* Nederländerna
+* Nya Zeeland
+* Norge
+* Singapore
+* Sverige
+* Schweiz
+* Storbritannien
+* USA
 
 ## <a name="next-steps"></a>Nästa steg
 - Visa [Global Reach vanliga frågor och svar](expressroute-faqs.md#globalreach).

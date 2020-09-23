@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: 563c12f91e9553f802d4cf26519da0550880dfcd
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: a69aa8d8a6dc324d6fe28219316c36ac2ec816a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270537"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987696"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Arbeta med NSG-åtkomst och Azure skydds
 
@@ -42,7 +42,7 @@ Azure-skydds distribueras specifikt till ***AzureBastionSubnet***.
    * **Ingress trafik från Azure skydds Control plan:** För kontroll Plans anslutning aktiverar du port 443 inkommande från **GatewayManager** service tag. Detta gör det möjligt för kontroll planet, det vill säga att Gateway Manager kan kommunicera med Azure-skydds.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Inkommande":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Skärm bild som visar inkommande säkerhets regler för Azure skydds-anslutning.":::
 
 * **Utgående trafik:**
 
@@ -50,7 +50,7 @@ Azure-skydds distribueras specifikt till ***AzureBastionSubnet***.
    * **Utgående trafik till andra offentliga slut punkter i Azure:** Azure-skydds måste kunna ansluta till olika offentliga slut punkter i Azure (till exempel för lagring av diagnostikloggar och avläsnings loggar). Av den anledningen behöver Azure skydds utgående till 443 till **AzureCloud** service tag.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Outbound (Utgående)":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Skärm bild som visar utgående säkerhets regler för Azure skydds-anslutning.":::
 
 ### <a name="target-vm-subnet"></a>Mål för virtuellt dator under nät
 Det här är under nätet som innehåller den virtuella mål datorn som du vill ha RDP/SSH till.

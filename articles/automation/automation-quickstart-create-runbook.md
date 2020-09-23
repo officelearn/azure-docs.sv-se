@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 948ca820347c7cdcd560ade46e850f66b25bc88e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836744"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987293"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
@@ -39,7 +39,7 @@ Skapa en runbook först. Exempelrunbooken som skapas i den här snabbstarten mat
 
 1. Klicka på **Skapa**. Runbooken skapas och sidan Redigera PowerShell-runbook öppnas.
 
-    ![Skapa PowerShell-skript i runbook-redigeringsprogrammet](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png" alt-text="Skärm bild av sidan Redigera PowerShell-Runbook.":::
 
 1. Skriv in eller kopiera och klistra in följande kod i redigeringsrutan. Den skapar en valfri indataparameter som kallas `Name` med standardvärdet `World` , och matar ut en sträng som använder det här indatavärdet:
 
@@ -55,7 +55,7 @@ Skapa en runbook först. Exempelrunbooken som skapas i den här snabbstarten mat
 
 1. Klicka på **Spara** för att spara en utkast kopia av runbooken.
 
-    ![Skapa PowerShell-skript i runbook-redigeringsprogrammet](./media/automation-quickstart-create-runbook/automation-edit-runbook.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook.png" alt-text="Skärm bild av sidan Redigera PowerShell-Runbook med ett kod exempel i det högra fönstret.":::
 
 ## <a name="test-the-runbook"></a>Testa runbooken
 
@@ -65,13 +65,13 @@ När runbooken har skapats måste du testa runbooken för att kontrol lera att d
 
 1. Ange ett värde för **Namn** och klicka på **Starta**. Testjobbet startar och jobbstatus och utdata visas.
 
-    ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-test-runbook.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-test-runbook.png" alt-text="Skärm bild av test fönstret med ett exempel värde i fältet namn.":::
 
 1. Stäng test fönstret genom att klicka på **X** i det övre högra hörnet. Välj **OK** i popup-fönstret som visas.
 
 1. På sidan Redigera PowerShell-runbook klickar du på **Publicera** för att publicera runbooken som den officiella versionen av runbooken på kontot.
 
-   ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png" alt-text="Skärm bild av sidan Redigera PowerShell-Runbook med knappen publicera vald.":::
 
 ## <a name="run-the-runbook"></a>Köra runbooken
 
@@ -79,15 +79,15 @@ När runbooken har publicerats visas översiktssidan.
 
 1. På översiktssidan i runbooken klickar du på **Starta** för att öppna konfigurationssidan Starta runbook för denna runbook.
 
-   ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png" alt-text="Skärm bild av sidan starta Runbook-konfiguration.":::
 
 1. Lämna **Namn** tomt, så standardvärdet används, och klicka på **OK**. Runbook-jobbet skickas och sidan jobb visas.
 
-   ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-job-page.png" alt-text="Skärm bild av jobb sidan som visar knappen utdata vald.":::
 
 1. När jobbets status är `Running` eller `Completed` klickar du på **utdata** för att öppna fönstret utdata och Visa Runbook-utdata.
 
-   ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="Skärm bild av fönstret utdata som visar Runbook-utdata.":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

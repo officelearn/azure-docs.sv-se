@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a3f3daa56c782d84cf6ba07223f8cfea15daa8a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101632"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905850"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Ansluta en befintlig Azure App Service till Azure Database for MySQL Server
 I det här avsnittet beskrivs hur du ansluter en befintlig Azure App Service till din Azure Database for MySQL-server.
@@ -26,21 +26,21 @@ Azure Database for MySQL ger åtkomst säkerhet med hjälp av en brand vägg fö
 
 1. På bladet MySQL-server, under rubriken inställningar, klickar du på **anslutnings säkerhet** för att öppna bladet anslutnings säkerhet för Azure Database for MySQL.
 
-   ![Azure Portal på anslutnings säkerhet](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal på anslutnings säkerhet":::
 
 2. Välj **på** i **Tillåt åtkomst till Azure-tjänster**och **Spara**sedan.
-   ![Azure Portal – Tillåt åtkomst till Azure](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal – Tillåt åtkomst till Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Lösning 2 – Skapa en brand Väggs regel för att explicit tillåta utgående IP-adresser
 Du kan uttryckligen lägga till alla utgående IP-adresser för Azure App Service.
 
 1. På bladet App Service egenskaper visar du din **utgående IP-adress**.
 
-   ![Azure Portal-Visa utgående IP-adresser](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal-Visa utgående IP-adresser":::
 
 2. På bladet MySQL-anslutning lägger du till utgående IP-adresser en i taget.
 
-   ![Azure Portal – Lägg till explicita IP-adresser](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal – Lägg till explicita IP-adresser":::
 
 3. Kom ihåg att **Spara** brand Väggs reglerna.
 

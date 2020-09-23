@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84981769"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987402"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Sekretess rikt linjer för röst assistenter i Windows
 
@@ -31,7 +31,7 @@ Utvecklare som skapar röst assistenter i Windows måste ta med tydliga använda
 Windows-användare kan se och kontrol lera tillgängligheten för sina assistent program i **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
- > [![Sekretess – app-List](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "En sekretess inställnings post för Windows Voice Activation för ett assistent program")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![Skärm bild som visar alternativ för att kontrol lera tillgänglighet av Cortana. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "En sekretess inställnings post för Windows Voice Activation för ett assistent program")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 Kontakta Microsoft på winvoiceassistants@microsoft.com för att komma igång om du vill bli berättigad till att inkludera i den här listan. Som standard måste användarna uttryckligen aktivera röst aktivering för en ny assistent i **`Settings > Privacy > Voice Activation`** , vilket ett program kan protokoll länkar till med `ms-settings:privacy-voiceactivation` . Ett tillåtet program kommer att visas i listan när det har körts och använt `Windows.ApplicationModel.ConversationalAgent` API: erna. Inställningarna för röst aktivering kan ändras när programmet har fått ett mikrofon godkännande från användaren.
 

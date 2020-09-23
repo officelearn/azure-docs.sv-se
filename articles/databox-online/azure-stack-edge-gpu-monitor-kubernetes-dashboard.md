@@ -1,6 +1,6 @@
 ---
-title: Övervaka din Azure Stack Edge-enhet via Kubernetes-instrumentpanelen | Microsoft Docs
-description: Beskriver hur du kommer åt och använder Kubernetes-instrumentpanelen för att övervaka din Azure Stack Edge-enhet.
+title: Övervaka din Azure Stack Edge Pro-enhet via Kubernetes-instrumentpanelen | Microsoft Docs
+description: Beskriver hur du kommer åt och använder Kubernetes-instrumentpanelen för att övervaka din Azure Stack Edge Pro-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297872"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899193"
 ---
-# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Använd Kubernetes-instrumentpanelen för att övervaka Azure Stack Edge-GPU-enhet
+# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Använd Kubernetes-instrumentpanelen för att övervaka din Azure Stack Edge Pro GPU-enhet
 
-Den här artikeln beskriver hur du kommer åt och använder Kubernetes-instrumentpanelen för att övervaka din Azure Stack Edge-GPU-enhet. Om du vill övervaka din enhet kan du använda diagram i Azure Portal, Visa Kubernetes-instrumentpanelen eller köra `kubectl` kommandon via enhetens PowerShell-gränssnitt. 
+Den här artikeln beskriver hur du kommer åt och använder Kubernetes-instrumentpanelen för att övervaka din Azure Stack Edge Pro GPU-enhet. Om du vill övervaka din enhet kan du använda diagram i Azure Portal, Visa Kubernetes-instrumentpanelen eller köra `kubectl` kommandon via enhetens PowerShell-gränssnitt. 
 
 Den här artikeln fokuserar bara på de övervaknings aktiviteter som kan utföras på Kubernetes-instrumentpanelen.
 
@@ -35,7 +35,7 @@ I den här artikeln kan du se hur du:
 
 Kubernetes-instrumentpanelen är ett webbaserat användar gränssnitt som du kan använda för att felsöka dina program i behållare. Kubernetes-instrumentpanelen är ett UI-baserat alternativ till Kubernetes- `kubectl` kommandoraden. Mer information finns i [Kubernetes-instrumentpanelen](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-På din Azure Stack Edge-enhet kan du använda Kubernetes-instrumentpanelen i *skrivskyddat* läge för att få en översikt över de program som körs på din Azure Stack Edge-enhet, Visa status för Kubernetes kluster resurser och se eventuella fel som har inträffat på enheten.
+På din Azure Stack Edge Pro-enhet kan du använda Kubernetes-instrumentpanelen i *skrivskyddat* läge för att få en översikt över de program som körs på din Azure Stack Edge Pro-enhet, Visa status för Kubernetes kluster resurser och se eventuella fel som har inträffat på enheten.
 
 ## <a name="access-dashboard"></a>Åtkomst instrument panel
 
@@ -54,19 +54,19 @@ Kubernetes-instrumentpanelen är *skrivskyddad* och körs på den Kubernetes huv
     1. Välj ellipsen **...** Bläddra och peka på den `kubeconfig` som du laddade ned tidigare på det lokala systemet. Välj **Logga in**.
         ![Bläddra till kubeconfig-fil](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
-6. Nu kan du Visa Kubernetes-instrumentpanelen för din Azure Stack Edge-enhet i skrivskyddat läge.
+6. Nu kan du Visa Kubernetes-instrumentpanelen för din Azure Stack Edge Pro-enhet i skrivskyddat läge.
 
     ![Kubernetes instrument panels huvud sida](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-main-page-1.png)
 
 ## <a name="view-module-status"></a>Visa status för modul
 
-Compute-moduler är behållare som har en affärs logik implementerad. Du kan använda instrument panelen för att kontrol lera om en Compute-modul har distribuerats på Azure Stack Edge-enhet.
+Compute-moduler är behållare som har en affärs logik implementerad. Du kan använda instrument panelen för att kontrol lera om en Compute-modul har distribuerats på Azure Stack Edge Pro-enhet.
 
 Om du vill visa status för modulen följer du de här stegen på instrument panelen:
 
 1. Gå till **namn område**i det vänstra fönstret på instrument panelen. Filtrera efter namn området där IoT Edge moduler visas, i det här fallet **iotedge**.
 1. I den vänstra rutan går du till **arbets belastningar > distributioner**.
-1. I den högra rutan visas alla moduler som har distribuerats på enheten. I det här fallet distribuerades en GettingStartedWithGPU-modul på Azure Stack Edge. Du kan se att modulen har distribuerats.
+1. I den högra rutan visas alla moduler som har distribuerats på enheten. I det här fallet distribuerades en GettingStartedWithGPU-modul på Azure Stack Edge Pro. Du kan se att modulen har distribuerats.
 
     ![Visa modul distribution](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-module-deployment-1.png)
 
@@ -81,7 +81,7 @@ Följ dessa steg på instrument panelen för att hämta IP-adressen:
 
 1. Gå till **namn område**i det vänstra fönstret på instrument panelen. Filtrera efter det namn område där en extern tjänst distribueras, i det här fallet **iotedge**.
 1. I den vänstra rutan går du till **identifiering och belastnings utjämning > tjänster**.
-1. I den högra rutan visas alla tjänster som körs i `iotedge` namn området på Azure Stack Edge-enheten.
+1. I den högra rutan visas alla tjänster som körs i `iotedge` namn området på din Azure Stack Edge Pro-enhet.
 
     ![Hämta IP för externa tjänster](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-get-ip-external-service-1.png)
 
@@ -104,7 +104,7 @@ Följ de här stegen på instrument panelen för att Visa behållar loggarna:
 
 ## <a name="view-cpu-memory-usage"></a>Visa CPU, minnes användning
 
-Kubernetes-instrumentpanelen för Azure Stack Edge-enhet har också ett [mått Server tillägg](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) som samlar in processor-och minnes användningen för Kubernetes-resurser.
+Kubernetes-instrumentpanelen för Azure Stack Edge Pro-enhet har också ett [mått Server tillägg](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) som samlar in processor-och minnes användningen för Kubernetes-resurser.
  
 Du kan till exempel Visa CPU och minne som används för distributioner i alla namn områden. 
 

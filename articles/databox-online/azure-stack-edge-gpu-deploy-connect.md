@@ -1,5 +1,5 @@
 ---
-title: Självstudie för att ansluta till, konfigurera, aktivera Azure Stack Edge-enhet med GPU i Azure Portal | Microsoft Docs
+title: Självstudie för att ansluta till, konfigurera, aktivera Azure Stack Edge Pro-enhet med GPU i Azure Portal | Microsoft Docs
 description: Lär dig hur du kan ansluta till din Azure Stack Edge-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
 services: databox
 author: alkohli
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: ac3ba2583e0f9a42b7f139538eee04de8980b492
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532264"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900036"
 ---
-# <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Självstudie: Anslut till Azure Stack Edge med GPU
+# <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>Självstudie: Anslut till Azure Stack Edge Pro med GPU
 
-I den här självstudien beskrivs hur du kan ansluta till din Azure Stack Edge-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
+I den här självstudien beskrivs hur du kan ansluta till din Azure Stack Edge Pro-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
 
 Anslutnings processen kan ta cirka 5 minuter att slutföra.
 
@@ -32,14 +32,14 @@ I den här självstudien lär du dig:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste du kontrol lera att:
+Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
-* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Anslut till konfiguration av lokalt webb gränssnitt
 
-1. Konfigurera Ethernet-kortet på datorn för att ansluta till Azure Stack Edge-enheten med en statisk IP-adress för 192.168.100.5 och undernät 255.255.255.0.
+1. Konfigurera Ethernet-kortet på datorn för att ansluta till den Azure Stack Edge Pro-enheten med en statisk IP-adress för 192.168.100.5 och undernät 255.255.255.0.
 
 2. Anslut datorn till PORT 1 på enheten. Om du ansluter datorn till enheten direkt (utan någon växel) använder du en korskopplad kabel eller ett USB Ethernet-kort. Använd följande bild för att identifiera PORT 1 på enheten.
 
@@ -60,7 +60,7 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste
 
 5. Logga in i enhetens webbgränssnitt. Standard lösen ordet är *Password1*. 
    
-    ![Inloggnings sida för Azure Stack Edge-enhet](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Inloggnings sida för Azure Stack Edge Pro-enhet](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. Ändra enhetens administratörs lösen ord vid prompten.  
     Det nya lösen ordet måste innehålla mellan 8 och 16 tecken. Det måste innehålla tre av följande tecken: versaler, gemener, numeriska tecken och specialtecken.
@@ -77,7 +77,7 @@ I den här självstudien lärde du dig att:
 > * Ansluta till en fysisk enhet
 
 
-Information om hur du konfigurerar nätverks inställningar på din Azure Stack Edge-enhet finns i:
+Information om hur du konfigurerar nätverks inställningar på din Azure Stack Edge Pro-enhet finns i:
 
 > [!div class="nextstepaction"]
 > [Konfigurera nätverk](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)

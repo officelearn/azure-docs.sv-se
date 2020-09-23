@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 773815cd64af2a398001bac91e14cca0b204ca8e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832082"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884649"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Privat länk för Azure Database for PostgreSQL-enskild server
 
@@ -22,7 +22,7 @@ Om du vill ha en lista över PaaS Services som stöder funktionen för privat l�
 > [!NOTE]
 > Funktionen privat länk är bara tillgänglig för Azure Database for PostgreSQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
-## <a name="data-exfiltration-prevention"></a>Data exfiltrering skydd
+## <a name="data-exfiltration-prevention"></a>Dataexfiltreringsskydd
 
 Data ex filtrering i Azure Database for PostgreSQL enskild server är när en auktoriserad användare, till exempel en databas administratör, kan extrahera data från ett system och flytta det till en annan plats eller till ett annat system utanför organisationen. Användaren kan till exempel flytta data till ett lagrings konto som ägs av en tredje part.
 
@@ -68,25 +68,25 @@ När nätverks administratören skapar den privata slut punkten (PE) kan Postgre
     * Visar en lista över alla anslutningar för privata slut punkter (PECs)
     * Motsvarande privata slut punkt (PE) har skapats
 
-![Välj den privata slut punkts portalen](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-portal.png" alt-text="Välj den privata slut punkts portalen":::
 
 * Välj en enskild PEC från listan genom att markera den.
 
-![Välj den privata slut punkten som väntar på godkännande](media/concepts-data-access-and-security-private-link/select-private-link.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Välj den privata slut punkten som väntar på godkännande":::
 
 * PostgreSQL-Server administratören kan välja att godkänna eller avvisa en PEC och eventuellt lägga till ett kort text svar.
 
-![Välj meddelandet privat slut punkt](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Välj meddelandet privat slut punkt":::
 
 * Efter godkännande eller avvisande visar listan lämpligt tillstånd tillsammans med svars texten
 
-![Välj slut tillstånd för privat slut punkt](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Välj slut tillstånd för privat slut punkt":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Använd fall av privat länk för Azure Database for PostgreSQL
 
 Klienter kan ansluta till den privata slut punkten från samma VNet, peer-kopplat VNet i samma region eller via VNet-till-VNet-anslutning mellan regioner. Dessutom kan klienter ansluta lokalt med ExpressRoute, privat peering eller VPN-tunnlar. Nedan visas ett förenklat diagram som visar vanliga användnings fall.
 
-![Välj översikt över privat slut punkt](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Välj översikt över privat slut punkt":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ansluta från en virtuell Azure-dator i peer-Virtual Network (VNet)
 Konfigurera [VNet-peering](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) för att upprätta anslutning till den Azure Database for PostgreSQL-enskilda servern från en virtuell Azure-dator i ett peer-kopplat VNet.

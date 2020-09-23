@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414588"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905128"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
 
@@ -26,7 +26,7 @@ Den här artikeln hjälper dig att jämföra djup inlärningen jämfört med Mac
 
 Överväg följande definitioner för att förstå djup inlärningen jämfört med Machine Learning vs. AI:
 
-- **Djup inlärning** är en del av maskin inlärning som baseras på artificiella neurala nätverk. _Inlärnings processen_ är _djupgående_ eftersom strukturen hos artificiellt neurala-nätverk består av flera indata, utdata och dolda lager. Varje lager innehåller enheter som omvandlar indata till information som nästa lager kan använda för en viss förutsägelse aktivitet. Tack vare den här strukturen kan en dator lära sig genom sin egen data bearbetning.
+- **Djup inlärning** är en del av maskin inlärning som baseras på artificiella neurala nätverk. _Inlärnings processen_ är _djupgående_ eftersom strukturen hos artificiellt neurala-nätverk består av flera indata, utdata och dolda lager. Varje lager innehåller enheter som omvandlar indata till information som nästa lager kan använda för en viss förutsägelseuppgift. Tack vare den här strukturen kan en dator lära sig genom sin egen data bearbetning.
 
 - **Machine Learning** är en del av artificiell intelligens som använder tekniker (till exempel djup inlärning) som gör att datorer kan förbättra sina uppgifter. _Inlärnings processen_ baseras på följande steg:
 
@@ -96,7 +96,7 @@ I följande avsnitt lär du de flesta populära artificiell neurala-nätverkstop
 
 ### <a name="feedforward-neural-network"></a>Feedforward neurala-nätverk
 
-Feedforward neurala Network är den mest grundläggande typen av artificiellt neurala-nätverk. I ett feedforward nätverk flyttas informationen endast i en riktning från indatanivå till output-lagret. Feedforward neurala Networks transformerar inmatningar genom att placera det genom en serie med dolda lager. Varje lager består av en uppsättning neurons och varje lager är fullständigt anslutet till alla neurons i lagret. Det senast fullständigt anslutna lagret (utmatnings lagret) representerar de genererade förutsägelserna.
+Feedforward neurala Network är den enklaste typen av artificiellt neurala-nätverk. I ett feedforward nätverk flyttas informationen endast i en riktning från indatanivå till output-lagret. Feedforward neurala Networks transformerar inmatningar genom att placera det genom en serie med dolda lager. Varje lager består av en uppsättning neurons och varje lager är fullständigt anslutet till alla neurons i lagret. Det senast fullständigt anslutna lagret (utmatnings lagret) representerar de genererade förutsägelserna.
 
 ### <a name="recurrent-neural-network"></a>Aktuellt neurala-nätverk
 

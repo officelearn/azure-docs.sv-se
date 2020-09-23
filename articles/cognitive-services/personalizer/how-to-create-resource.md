@@ -1,15 +1,15 @@
 ---
 title: Skapa en personanpassa resurs
-description: Tjänst konfigurationen omfattar hur tjänsten behandlar förmåner, hur ofta tjänsten utforskar, hur ofta modellen omtränas och hur mycket data som lagras.
+description: I den här artikeln får du lära dig hur du skapar en personanpassa resurs i Azure Portal för varje feedback-slinga.
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ebd5496eb45ed007f47cd34761800f8b54e5a5a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7965fb1eaa3efbe1f47db4eedd88e4444b0e610b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501260"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985821"
 ---
 # <a name="create-a-personalizer-resource"></a>Skapa en personanpassa resurs
 

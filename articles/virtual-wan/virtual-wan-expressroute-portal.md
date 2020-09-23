@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77209434"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976292"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN
 
@@ -122,7 +122,7 @@ Använd den autentiseringsregel och den krets-URI du angav för att ansluta.
 
 1. På sidan ExpressRoute klickar du på **+ Lös in nyckel för autentisering**
 
-   ![löst](./media/virtual-wan-expressroute-portal/redeem.png "löst")
+   ![Skärm bild som visar ExpressRoute för en virtuell hubb med en upplösande auktoriseringskod vald.](./media/virtual-wan-expressroute-portal/redeem.png "löst")
 2. Fyll i värdena på sidan Lös in Authorization Key.
 
    ![Lös in nyckel värden](./media/virtual-wan-expressroute-portal/redeemkey2.png "Lös in nyckel värden")

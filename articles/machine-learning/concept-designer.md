@@ -1,5 +1,5 @@
 ---
-title: Bygg ML-modeller med designer (för hands version)
+title: Bygg ML-modeller med designern
 titleSuffix: Azure Machine Learning
 description: Lär dig mer om termer, begrepp och arbets flöde som utgör designern för Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883114"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning Designer (förhandsversion)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>Vad är Azure Machine Learning designer? 
+
 
 Med Azure Machine Learning Designer kan du visuellt ansluta [data uppsättningar](#datasets) och [moduler](#module) på en interaktiv arbets yta för att skapa maskin inlärnings modeller. Information om hur du kommer igång med design verktyget finns i [Självstudier: förutsäga Automobile-priset med designern](tutorial-designer-automobile-price-train-score.md)
 
@@ -118,5 +118,5 @@ Designern skapar samma [PublishedPipeline](https://docs.microsoft.com/python/api
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig grunderna för förutsägelse analys och maskin inlärning med [Självstudier: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md)
+* Lär dig grunderna i förutsägelse analys och maskin inlärning med [Självstudier: förutsäga bil pris med designern](tutorial-designer-automobile-price-train-score.md)
 * Lär dig hur du ändrar befintliga [Designer-exempel](samples-designer.md) för att anpassa dem efter dina behov.

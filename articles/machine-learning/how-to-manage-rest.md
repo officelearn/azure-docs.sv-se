@@ -10,16 +10,16 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649409"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897359"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)eller [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
 
@@ -33,7 +33,7 @@ I den här artikeln kan du se hur du:
 > * Rensa resurser med DELETE-begäranden 
 > * Använd nyckelbaserad auktorisering för att ange distribuerade modeller
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
 - En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -423,5 +423,5 @@ I arbets ytan Azure Machine Learning används Azure Container Registry (ACR) fö
 ## <a name="next-steps"></a>Nästa steg
 
 - Utforska den kompletta [azureml-REST API referensen](https://docs.microsoft.com/rest/api/azureml/).
-- Lär dig hur du använder Studio & designer för att [förutsäga det mobila priset med designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Lär dig hur du använder design verktyget för att [förutsäga det mobila priset med designern](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Utforska [Azure Machine Learning med Jupyter-anteckningsböcker](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

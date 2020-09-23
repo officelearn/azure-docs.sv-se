@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: ecef318978194ac3773c54e2d9c960781086de65
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691875"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906359"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Snabb start: skapa ett automatiskt svar på en säkerhets avisering med hjälp av en Azure Resource Manager-mall (ARM-mall)
 
@@ -73,9 +73,7 @@ Använd Azure Portal för att kontrol lera att arbets flödes automatiseringen h
 1. Öppna **Security Center**från [Azure Portal](https://portal.azure.com).
 1. Välj filter ikonen i det övre meny fältet och välj den prenumeration som du har distribuerat den nya automatiseringen av arbets flödet på.
 1. Från Security Centers sid panelen öppnar du **arbets flödes automatisering** och söker efter din nya automatisering.
-
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Alternativ text för bild." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Lista över konfigurerade automations" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > Om du har många arbets flödes automatiseringar i din prenumeration använder du alternativet **Filtrera efter namn** . 
 
@@ -86,11 +84,9 @@ När du inte längre behöver kan du ta bort arbets flödes automatiseringen med
 1. Öppna **Security Center**från [Azure Portal](https://portal.azure.com).
 1. Välj filter ikonen i det övre meny fältet och välj den prenumeration som du har distribuerat den nya automatiseringen av arbets flödet på.
 1. Från Security Centers sid panelen öppnar du **arbets flödes automatisering** och söker efter den automatisering som ska tas bort.
-
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Alternativ text för bild." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Steg för att ta bort en arbets flödes automatisering" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Markera kryss rutan för det objekt som ska tas bort.
-1. Välj Ta bort i verktygsfältet.
+1. Välj **ta bort**i verktygsfältet.
 
 
 ## <a name="next-steps"></a>Nästa steg

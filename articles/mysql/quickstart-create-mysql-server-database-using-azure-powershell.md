@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f32f6c4366aac1a39dbc1bc4af3b945e259b3280
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543545"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906130"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Snabb start: skapa en Azure Database for MySQL-server med PowerShell
 
@@ -21,7 +21,7 @@ I den här snabb starten beskrivs hur du använder PowerShell för att skapa en 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -61,12 +61,12 @@ Följande tabell innehåller en lista över parametrar och exempel värden som a
 
 |        **Inställning**         | **Exempelvärde** |                                                                                                                                                             **Beskrivning**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Namn                       | mydemoserver     | Välj ett globalt unikt namn i Azure som identifierar din Azure Database for MySQL-server. Server namnet får bara innehålla bokstäver, siffror och bindestreck (-). Alla versaler som anges konverteras automatiskt till gemener under skapande processen. Det måste innehålla mellan 3 och 63 tecken. |
+| Name                       | mydemoserver     | Välj ett globalt unikt namn i Azure som identifierar din Azure Database for MySQL-server. Server namnet får bara innehålla bokstäver, siffror och bindestreck (-). Alla versaler som anges konverteras automatiskt till gemener under skapande processen. Det måste innehålla mellan 3 och 63 tecken. |
 | ResourceGroupName          | myresourcegroup  | Ange namnet på Azure-resursgruppen.                                                                                                                                                                                                                                                                                            |
 | Sku                        | GP_Gen5_2        | Namnet på SKU:n. Följer konventions **pris – nivå för \_ beräknings skapande \_ virtuella kärnor** i korthet. Mer information om SKU-parametern finns i informationen som följer den här tabellen.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35.                                                                                                                                                                                                                                                                       |
 | GeoRedundantBackup         | Enabled          | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Det går inte att aktivera det här värdet för servrar i den grundläggande pris nivån och det kan inte ändras efter att servern har skapats. Tillåtna värden: Enabled, Disabled.                                                                                                      |
-| Location                   | westus           | Azure-regionen för-servern.                                                                                                                                                                                                                                                                                                         |
+| Position                   | westus           | Azure-regionen för-servern.                                                                                                                                                                                                                                                                                                         |
 | SslEnforcement             | Enabled          | Om SSL ska vara aktiverat eller inte för den här servern. Tillåtna värden: Enabled, Disabled.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Serverns lagringskapacitet (enheten är megabyte). Giltig StorageInMb är minst 5120 MB och ökar i steg om 1024 MB. Mer information om lagrings storleks gränser finns i [Azure Database for MySQL pris nivåer](./concepts-pricing-tiers.md).                                                                               |
 | Version                    | 5.7              | Huvudversion för MySQL.                                                                                                                                                                                                                                                                                                                 |
@@ -201,7 +201,7 @@ Fler kommandon finns i [referenshandboken för MySQL 5.7 – kapitel 4.5.1](http
 
 1. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
-   ![konfigurera ny anslutning](./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="konfigurera ny anslutning":::
 
     |    **Inställning**    |           **Föreslaget värde**           |                      **Beskrivning**                       |
     | ----------------- | --------------------------------------- | ---------------------------------------------------------- |
@@ -210,7 +210,7 @@ Fler kommandon finns i [referenshandboken för MySQL 5.7 – kapitel 4.5.1](http
     | Värdnamn          | `mydemoserver.mysql.database.azure.com` | Server namn som du antecknade tidigare                           |
     | Port              | 3306                                    | Standard porten för MySQL                                 |
     | Användarnamn          | myadmin@mydemoserver                    | Den inloggning för Server administratör som du antecknade tidigare                |
-    | lösenordsinställning          | *************                           | Använd administratörs kontots lösen ord som du konfigurerade tidigare      |
+    | Lösenord          | *************                           | Använd administratörs kontots lösen ord som du konfigurerade tidigare      |
 
 1. Om du vill testa om parametrarna är korrekt konfigurerade klickar du på knappen **Testa anslutning** .
 
@@ -237,4 +237,4 @@ Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en anslutnings sträng med PowerShell – Azure Database for MySQL](connect-powershell.md)
+> [Utforma en Azure Database for MySQL med hjälp av PowerShell](tutorial-design-database-using-powershell.md)

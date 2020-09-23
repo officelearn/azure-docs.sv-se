@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753895"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898605"
 ---
 # <a name="convert-word-to-vector-module"></a>Konvertera Word till Vector-modul
 
-Den här artikeln beskriver hur du använder modulen konvertera Word till Vector i Azure Machine Learning designer (för hands version) för att utföra dessa uppgifter:
+Den här artikeln beskriver hur du använder modulen konvertera Word till Vector i Azure Machine Learning designer för att utföra dessa uppgifter:
 
 - Använd olika Word2Vec-modeller (Word2Vec, FastText, assisterad förtränad modell) på sökkorpus för text som du har angett som indatamängd.
 - Skapa en ord lista med Word-inbäddningar.
@@ -55,7 +55,7 @@ Den här modulen kräver en data uppsättning som innehåller en kolumn med text
 
     Eftersom den här modulen skapar en vokabulär från text, är innehållet i kolumner olika, vilket leder till olika vokabulär innehåll. Därför accepterar modulen bara en mål kolumn.
 
-4. För **Word2Vec-strategin**väljer du **från assisterad för förtränad engelsk modell**, **Gensim Word2Vec**och **Gensim Fasttext**.
+4. För  **Word2Vec-strategin**väljer du **från assisterad för förtränad engelsk modell**, **Gensim Word2Vec**och **Gensim Fasttext**.
 
 5. Om **Word2Vec-strategin** är **Gensim Word2Vec** eller **Gensim Fasttext**:
 
@@ -93,7 +93,7 @@ Modulen har ett resultat:
 
 + **Vokabulär med inbäddningar**: innehåller den genererade ord listan, tillsammans med varje ord inbäddning. En dimension upptar en kolumn.
 
-I följande exempel visas hur konvertera ord till Vector-modulen fungerar. Den här modulen används med standardinställningarna för den förbearbetade Wikipedia SP 500-datauppsättningen som anges i Azure Machine Learning (för hands version).
+I följande exempel visas hur konvertera ord till Vector-modulen fungerar. Den här modulen används med standardinställningarna för den förbearbetade Wikipedia SP 500-datauppsättningen som anges i Azure Machine Learning.
 
 ### <a name="source-dataset"></a>Källdatauppsättning
 
@@ -149,4 +149,4 @@ I det här avsnittet finns tips och svar på vanliga frågor.
 
 Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 
-En lista med fel som är speciella för modulerna designer (för hands version) finns i [Machine Learning fel koder](designer-error-codes.md).
+En lista med fel som är speciella för designer-modulerna finns i [Machine Learning felkoder](designer-error-codes.md).

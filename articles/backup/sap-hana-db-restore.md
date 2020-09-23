@@ -1,14 +1,14 @@
 ---
 title: Återställa SAP HANA databaser på virtuella Azure-datorer
-description: I den här artikeln får du lära dig hur du återställer SAP HANA databaser som körs på Azure Virtual Machines.
+description: I den här artikeln får du lära dig hur du återställer SAP HANA databaser som körs på Azure Virtual Machines. Du kan också använda återställning mellan regioner för att återställa databaserna till en sekundär region.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375320"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986105"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA databaser på virtuella Azure-datorer
 
@@ -24,7 +24,7 @@ Azure Backup kan återställa SAP HANA databaser som körs på virtuella Azure-d
 
 * Återställ till en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande innan du återställer en databas:
 
@@ -249,6 +249,51 @@ Om du har valt **fullständig & differentiell** som återställnings typ gör du
 
     > [!NOTE]
     > I MDC (Multiple Database container) återställs när system databasen har återställts till en mål instansen måste en köra skriptet för för registrering igen. Det går bara att återställa efterföljande klient databas återställningar. Mer information hittar du i [fel sökning – MDC Restore](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
+
+## <a name="cross-region-restore"></a>Återställning mellan regioner
+
+Som en av återställnings alternativen kan du med återställningen mellan regioner (CRR) återställa SAP HANA-databaser som finns på virtuella Azure-datorer i en sekundär region, som är en Azure-kopplad region.
+
+Om du vill publicera till funktionen under för hands versionen läser du [avsnittet innan du börjar](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Om du vill se om CRR har Aktiver ATS följer du anvisningarna i [Konfigurera återställning av kors region](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Visa säkerhets kopierings objekt i sekundär region
+
+Om CRR har Aktiver ATS kan du Visa säkerhets kopierings objekt i den sekundära regionen.
+
+1. Från portalen går du till **Recovery Services valv**  >  **säkerhets kopierings objekt**.
+1. Välj **sekundär region** om du vill visa objekten i den sekundära regionen.
+
+>[!NOTE]
+>Endast de typer av säkerhets kopierings hantering som stöder funktionen CRR visas i listan. För närvarande tillåts endast stöd för återställning av sekundär regions data till en sekundär region.
+
+![Säkerhetskopiera objekt i sekundär region](./media/sap-hana-db-restore/backup-items-secondary-region.png)
+
+![Databaser i sekundär region](./media/sap-hana-db-restore/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Återställ i sekundär region
+
+Användar upplevelsen för sekundär regions återställning liknar den primära regionen återställa användar upplevelsen. När du konfigurerar information i fönstret Återställ konfiguration för att konfigurera återställningen uppmanas du bara att ange parametrar för sekundär region.
+
+![Var och hur du återställer](./media/sap-hana-db-restore/restore-secondary-region.png)
+
+>[!NOTE]
+>Det virtuella nätverket i den sekundära regionen måste tilldelas unikt och kan inte användas för andra virtuella datorer i den resurs gruppen.
+
+![Avisering om aktivering av återställning pågår](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>* Återställnings jobbet kan inte avbrytas när återställningen har utlösts och i data överförings fasen.
+>* De Azure-roller som krävs för att återställa i den sekundära regionen är desamma som de i den primära regionen.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Övervaka återställnings jobb för sekundär region
+
+1. Från portalen går du till **Recovery Services valv**  >  **säkerhets kopierings jobb**
+1. Välj **sekundär region** om du vill visa objekten i den sekundära regionen.
+
+    ![Säkerhets kopierings jobb filtrerade](./media/sap-hana-db-restore/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

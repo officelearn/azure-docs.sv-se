@@ -4,12 +4,12 @@ description: Ger en översikt över den Azure Backup tjänsten och hur den bidra
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017897"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968337"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Vad är Azure Backup-tjänsten?
 
@@ -24,6 +24,7 @@ Azure Backup tillhandahåller enkla, säkra och kostnadseffektiva lösningar fö
 - **Azure Files resurser**  -  [Säkerhetskopiera Azure-filresurser till ett lagrings konto](backup-afs.md)
 - **SQL Server på virtuella Azure-datorer**  -   [Säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer](backup-azure-sql-database.md)
 - **SAP HANA-databaser på virtuella Azure-datorer**  -  [Säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md)
+- **Azure Database for PostgreSQL servrar (förhands granskning)**  -   [Säkerhetskopiera Azure postgresql-databaser och behåll säkerhets kopiorna i upp till 10 år](backup-azure-database-postgresql.md)
 
 ![Översikt över Azure Backup](./media/backup-overview/azure-backup-overview.png)
 
@@ -43,8 +44,9 @@ Azure Backup ger följande viktiga fördelar:
 - **Behåll korta och långsiktiga data**: du kan använda [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) för kortsiktig och långsiktig data kvarhållning.
 - **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup kostar det inget att använda lokala lagrings enheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Så du betalar bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.
 - **Flera lagringsalternativ** – Azure Backup erbjuder två typer av replikering för att din lagring och dina data ska ha hög tillgänglighet.
-  - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy.md) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
-  - [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md) är standardalternativet och det som rekommenderas vid replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger en högre nivå av hållbarhet för dina data, även om det finns ett regionalt avbrott.
+  - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
+  - [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) är standardalternativet och det som rekommenderas vid replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger en högre nivå av hållbarhet för dina data, även om det finns ett regionalt avbrott.
+  - [Zone-redundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikerar dina data i [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), vilket garanterar data placering och återhämtning i samma region. ZRS har ingen stillestånds tid. Så dina kritiska arbets belastningar som kräver [data placering](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)och får inte ha någon avbrotts tid kan säkerhets kopie ras i ZRS.
 
 ## <a name="next-steps"></a>Nästa steg
 

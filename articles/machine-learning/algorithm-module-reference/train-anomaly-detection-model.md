@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749618"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905730"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Träna avvikelse identifiering modell modul
 
-Den här artikeln beskriver hur du använder modulen träna avvikelse identifierings modell i Azure Machine Learning designer (för hands version) för att skapa en utbildad avvikelse identifierings modell.
+Den här artikeln beskriver hur du använder modulen träna avvikelse identifierings modell i Azure Machine Learning designer för att skapa en utbildad avvikelse identifierings modell.
 
 Modulen tar som indata för en uppsättning parametrar för en avvikelse identifierings modell och en omärkt data uppsättning. Den returnerar en utbildad avvikelse identifierings modell, tillsammans med en uppsättning etiketter för tränings data.  
 
@@ -53,5 +53,5 @@ När utbildningen är klar:
 
 Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 
-Se [undantag och felkoder för designern (för hands version)](designer-error-codes.md) för en lista med fel som är speciella för designer-modulerna.
+Se [undantag och felkoder för designern](designer-error-codes.md) för en lista med fel som är speciella för designer-modulerna.
 '

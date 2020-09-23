@@ -1,7 +1,7 @@
 ---
 title: Analysera nätverks säkerhet – vyn säkerhets grupp – Azure REST API
 titleSuffix: Azure Network Watcher
-description: Den här artikeln beskriver hur du använder PowerShell för att analysera säkerheten för virtuella datorer med vyn säkerhets grupp.
+description: Den här artikeln beskriver hur du kan analysera en virtuell dators säkerhet med vyn säkerhets grupp i Azure REST API.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 466879daae65b8c7fa896b0ead417c8d5eb51e28
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 156da7504a1a5e2a704e52a783fcd3e437a59867
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084355"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986276"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analysera säkerheten för virtuella datorer med vyn säkerhets grupp med REST API
 

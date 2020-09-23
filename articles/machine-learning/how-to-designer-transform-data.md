@@ -1,7 +1,7 @@
 ---
-title: Transformera data i designern (förhands granskning)
+title: Transformera data i designern
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du omvandlar data i Azure Machine Learning designer (för hands version) för att skapa dina egna data uppsättningar.
+description: Lär dig hur du omformar data i Azure Machine Learning designer för att skapa dina egna data uppsättningar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 06ba65b9ef031b1d33477a15e01f3e0be53b5e53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457829"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897805"
 ---
-# <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformera data i Azure Machine Learning designer (förhands granskning)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="transform-data-in-azure-machine-learning-designer"></a>Transformera data i Azure Machine Learning designer
+
 
 I den här artikeln får du lära dig hur du omformar och sparar data uppsättningar i Azure Machine Learning designer så att du kan förbereda dina egna data för Machine Learning.
 
@@ -107,7 +107,7 @@ Nu när din pipeline har kon figurer ATS för att dela data måste du ange var d
 
     **Data lager**: Välj ett befintligt data lager eller välj "nytt data lager" för att skapa ett nu.
 
-    **Sökväg**:`/data/us-income`
+    **Sökväg**: `/data/us-income`
 
     **Fil format**: CSV
 
@@ -124,7 +124,7 @@ Nu när din pipeline har kon figurer ATS för att dela data måste du ange var d
 
     **Data lager**: Välj samma data lager som ovan
 
-    **Sökväg**:`/data/non-us-income`
+    **Sökväg**: `/data/non-us-income`
 
     **Fil format**: CSV
 

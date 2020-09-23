@@ -11,17 +11,17 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905603"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Den här artikeln visar hur du kör Azure Machine Learnings modellen parallellt och snabbt utvärderar stora mängder data. 
+
+Den här artikeln beskriver hur du kör din Azure Machine Learning-modell parallellt, och hur du snabbt utvärderar stora mängder data. 
 
 Inferencing över stora data mängder eller med komplicerade modeller kan vara tids krävande. Med `ParallelRunStep` klassen kan du utföra bearbetning parallellt, vilket kan leda till övergripande resultat snabbare. Även om det är ganska snabbare att köra en enda utvärdering, kan många scenarier (objekt identifiering, video bearbetning, naturligt språk bearbetning osv.) köra många utvärderingar. 
 
@@ -37,7 +37,7 @@ I den här artikeln får du lära dig följande uppgifter:
 > 1. Skicka en ny körnings härledning igen med nya indata och parametrar. 
 > 1. Granska resultaten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 

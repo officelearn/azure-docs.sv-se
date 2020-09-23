@@ -1,19 +1,19 @@
 ---
 title: 'Skapa & installera P2S VPN-klient konfigurationsfiler: certifikatautentisering'
 titleSuffix: Azure VPN Gateway
-description: Skapa och installera Windows, Linux, Linux (strongSwan) och Mac OS VPN-klientens konfigurationsfiler för P2S-certifikatautentisering.
+description: Skapa och installera Windows-, Linux-, Linux-, Linux-(strongSwan) och macOS X VPN-klientens konfigurationsfiler för P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17a9339fff27a0fbd7fa389933d21ef85e29248b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 3a7a9711f04a4b54459d57a05ae65b4eedf1d6b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420786"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986647"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -96,7 +96,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 
    **Gränssnittets** värde är "VPN" och värdet för **VPN-typ** är IKEv2. Ange ett namn för profilen i fältet **tjänst namn** och klicka sedan på **skapa** för att skapa anslutnings profilen för VPN-klienten.
 
-   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![Skärm bild som visar fönstret nätverk med alternativet att välja ett gränssnitt, välj VPN-typ och ange ett tjänst namn.](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. I den **allmänna** mappen, från **VpnSettings.xml** -filen, kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -106,14 +106,14 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 
    * För Catalina väljer du **ingen** och sedan **certifikat**. **Välj** rätt certifikat:
    
-   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+   ![Skärm bild som visar fönstret nätverk där inga inställningar har valts för autentiseringsinställningar och certifikat har valts.](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
 6. Klicka på **Välj...** för att välja det klient certifikat som du vill använda för autentisering. Det här är det certifikat som du installerade i steg 2.
 
-   ![certifikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![Skärm bild som visar fönstret nätverk med autentiseringsinställningar där du kan välja ett certifikat.](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **Välj en identitet** visar en lista över certifikat som du kan välja bland. Välj rätt certifikat och klicka sedan på **Fortsätt**.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![Skärm bild som visar dialog rutan Välj en identitet där du kan välja rätt certifikat.](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. I fältet **lokalt ID** anger du namnet på certifikatet (från steg 6). I det här exemplet är det "ikev2Client.com". Klicka sedan på knappen **tillämpa** för att spara ändringarna.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -213,4 +213,4 @@ Gå tillbaka till artikeln för att [slutföra din P2s-konfiguration](vpn-gatewa
 Information om hur du felsöker P2S-anslutningar finns i följande artiklar:
 
   * [Felsöka Azure punkt-till-plats-anslutningar](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-  * [Felsöka VPN-anslutningar från Mac OS X VPN-klienter](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+  * [Felsöka VPN-anslutningar från macOS X VPN-klienter](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)

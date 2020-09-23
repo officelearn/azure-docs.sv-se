@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171150"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898683"
 ---
 # <a name="convert-to-image-directory"></a>Konvertera till bildkatalog
 
-Den här artikeln beskriver hur du använder modulen konvertera till avbildnings katalog för att konvertera avbildnings data uppsättningen till data typen image Directory, som är ett standardiserat data format i bildrelaterade uppgifter som bild klassificering i Azure Machine Learning designer (för hands version).
+Den här artikeln beskriver hur du använder modulen konvertera till avbildnings katalog för att konvertera avbildnings data uppsättningen till data typen image Directory, som är ett standardiserat data format i bildrelaterade uppgifter som bild klassificering i Azure Machine Learning designer.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Så här använder du konvertera till avbildnings katalog  
 
@@ -58,13 +58,13 @@ Utdata från **konvertering till avbildnings katalog** är i avbildnings katalog
 
 ###  <a name="expected-inputs"></a>Förväntade indata  
 
-| Name          | Typ                  | Beskrivning   |
+| Namn          | Typ                  | Beskrivning   |
 | ------------- | --------------------- | ------------- |
 | Indata-datauppsättning | AnyDirectory, ZipFile | Indata-datauppsättning |
 
 ###  <a name="output"></a>Utdata  
 
-| Name                   | Typ           | Beskrivning            |
+| Namn                   | Typ           | Beskrivning            |
 | ---------------------- | -------------- | ---------------------- |
 | Avbildnings katalog för utdata | ImageDirect | Avbildnings katalog för utdata |
 

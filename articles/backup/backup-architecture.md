@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824040"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986497"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -35,18 +35,22 @@ Läs mer om [vad du kan säkerhetskopiera](backup-overview.md) och om vilka [sä
 
 ## <a name="where-is-data-backed-up"></a>Var säkerhets kopie ras data?
 
-Azure Backup lagrar säkerhetskopierade data i ett Recovery Services-valv. Ett valv är en online-lagrings enhet i Azure som används för att lagra data, till exempel säkerhets kopior, återställnings punkter och säkerhets kopierings principer.
+Azure Backup lagrar säkerhetskopierade data i ett valv – återställa tjänst valv och säkerhets kopierings valv. Ett valv är en online-lagrings enhet i Azure som används för att lagra data, till exempel säkerhets kopior, återställnings punkter och säkerhets kopierings principer.
 
-Recovery Services-valv har följande funktioner:
+Valv har följande funktioner:
 
 - Valven gör det enkelt att organisera dina säkerhets kopierings data samtidigt som hanterings kostnaderna minimeras.
-- I varje Azure-prenumeration kan du skapa upp till 500-valv.
 - Du kan övervaka säkerhetskopierade objekt i ett valv, inklusive virtuella datorer i Azure och lokala datorer.
 - Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Du anger hur data i valvet replikeras för redundans:
-  - **Lokalt Redundant lagring (LRS)**: för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](../storage/common/storage-redundancy.md).
-  - **Geo-redundant lagring (GRS)**: för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](../storage/common/storage-redundancy.md).
+  - **Lokalt Redundant lagring (LRS)**: för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Geo-redundant lagring (GRS)**: för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Zone-redundant lagring (ZRS)**: replikerar dina data i [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), vilket garanterar data placering och återhämtning i samma region. [Läs mer](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Som standard använder Recovery Services-valv GRS.
+
+Recovery Services-valv har följande ytterligare funktioner:
+
+- I varje Azure-prenumeration kan du skapa upp till 500-valv.
 
 ## <a name="backup-agents"></a>Säkerhetskopieringsagenter
 
@@ -61,7 +65,7 @@ Azure Backup tillhandahåller olika säkerhets kopierings agenter, beroende på 
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar och när de används:
 
-**Typ av säkerhetskopiering** | **Information** | **Användning**
+**Typ av säkerhets kopiering** | **Information** | **Användning**
 --- | --- | ---
 **Fullständig** | En fullständig säkerhets kopiering innehåller hela data källan. Tar större nätverks bandbredd än differentiella eller stegvisa säkerhets kopieringar. | Används för den första säkerhets kopieringen.
 **Differentiell** |  En differentiell säkerhets kopia lagrar block som har ändrats sedan den första fullständiga säkerhets kopieringen. Använder en mindre mängd nätverks-och lagrings utrymme och skyddar inte redundanta kopior av data som inte har ändrats.<br/><br/> Ineffektiva eftersom data block som inte har ändrats mellan senare säkerhets kopieringar överförs och lagras. | Används inte av Azure Backup.
@@ -71,7 +75,7 @@ I följande tabell förklaras de olika typerna av säkerhets kopieringar och nä
 
 I följande tabell förklaras de olika typerna av säkerhets kopieringar som används för SQL Server databaser och hur ofta de används:
 
-**Typ av säkerhetskopiering** | **Information** | **Användning**
+**Typ av säkerhets kopiering** | **Information** | **Användning**
 --- | --- | ---
 **Fullständig säkerhetskopia** | En fullständig säkerhetskopia av databas säkerhetskopierar hela databasen. Den innehåller alla data i en speciell databas eller i en uppsättning fil grupper eller filer. En fullständig säkerhets kopiering innehåller också tillräckligt med loggar för att återställa dessa data. | Du kan endast utlösa en fullständig säkerhetskopiering per dag.<br/><br/> Du kan välja att göra en fullständig säkerhets kopia på ett dags-eller vecko intervall.
 **Differentiell säkerhetskopia** | En differentiell säkerhets kopia baseras på den senaste, tidigare fullständiga säkerhets kopieringen.<br/><br/> Den fångar bara in de data som har ändrats sedan den fullständiga säkerhets kopieringen. |  Du kan endast utlösa en differentiell säkerhetskopia per dag.<br/><br/> Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopia samma dag.
@@ -95,8 +99,8 @@ I följande tabell sammanfattas de funktioner som stöds för de olika typerna a
 **Funktion** | **Direkt säkerhets kopiering av filer och mappar (med MARS-agenten)** | **VIRTUELL Azure-säkerhetskopiering** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green]
-Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green]
-Komprimera data som skickats för säkerhets kopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Ja][green]
+Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Yes][green]
+Komprimera data som skickats för säkerhets kopiering | ![Yes][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Yes][green]
 Kör stegvis säkerhets kopiering |![Ja][green] |![Ja][green] |![Ja][green]
 Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast för DPM/MABS-servrar distribuerade lokalt.
 

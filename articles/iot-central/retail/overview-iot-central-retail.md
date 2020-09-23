@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c72825f4645919468f8b59bbc4b9d9498fe11009
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719244"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979395"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
 
@@ -41,9 +41,9 @@ Fördelarna med en ansluten logistik lösning är:
 
 Följande skärm bilder visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Ansluten logistik instrument panel":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Skärm bild som visar den övre halvan av instrument panelen för anslutna logistik åtgärder":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Ansluten logistik instrument panel":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Skärm bild som visar den nedre halvan av instrument panelen för anslutna logistik åtgärder":::
 
 Mer information finns i själv studie kursen [distribuera och gå igenom en sammankopplad logistik-Programmall](./tutorial-iot-central-connected-logistics.md) .
 

@@ -1,23 +1,23 @@
 ---
-title: Ansluta till och hantera Microsoft Azure Stack Edge-enhet via Windows PowerShell-gränssnittet | Microsoft Docs
-description: Beskriver hur du ansluter till och sedan hanterar Azure Stack Edge via Windows PowerShell-gränssnittet.
+title: Ansluta till och hantera Microsoft Azure Stack Edge Pro-enhet via Windows PowerShell-gränssnittet | Microsoft Docs
+description: Beskriver hur du ansluter till och sedan hanterar Azure Stack Edge Pro via Windows PowerShell-gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b58c38dd0257a65bad6021b6152c14a37f905e0a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903513"
 ---
-# <a name="manage-an-azure-stack-edge-gpu-device-via-windows-powershell"></a>Hantera en Azure Stack Edge GPU-enhet via Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Hantera en Azure Stack Edge Pro GPU-enhet via Windows PowerShell
 
-Med Azure Stack Edge-lösning kan du bearbeta data och skicka dem via nätverket till Azure. I den här artikeln beskrivs några konfigurations-och hanterings uppgifter för din Azure Stack Edge-enhet. Du kan använda Azure Portal, det lokala webb gränssnittet eller Windows PowerShell-gränssnittet för att hantera enheten.
+Med Azure Stack Edge Pro-lösningen kan du bearbeta data och skicka dem via nätverket till Azure. I den här artikeln beskrivs några konfigurations-och hanterings uppgifter för din Azure Stack Edge Pro-enhet. Du kan använda Azure Portal, det lokala webb gränssnittet eller Windows PowerShell-gränssnittet för att hantera enheten.
 
 Den här artikeln fokuserar på hur du kan ansluta till PowerShell-gränssnittet på enheten och de uppgifter som du kan utföra med hjälp av det här gränssnittet. 
 
@@ -84,11 +84,11 @@ Om Compute-rollen har kon figurer ATS på din enhet kan du också hämta informa
 
 ## <a name="enable-multi-process-service-mps"></a>Aktivera multi-process service (MPS)
 
-En multi-process service (MPS) på NVIDIA GPU: er tillhandahåller en mekanism där GPU: er kan delas av flera jobb, där varje jobb har allokerat en viss procent andel av GPU-resurserna. Följ dessa steg om du vill aktivera MPS i Azure Stack Edge-enheten:
+En multi-process service (MPS) på NVIDIA GPU: er tillhandahåller en mekanism där GPU: er kan delas av flera jobb, där varje jobb har allokerat en viss procent andel av GPU-resurserna. MPS är en förhands gransknings funktion på din Azure Stack Edge Pro GPU-enhet. Följ dessa steg om du vill aktivera MPS på enheten:
 
 1. Innan du börjar ska du kontrol lera att: 
 
-    1. Du har konfigurerat och [aktiverat din Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-activate.md) med en Azure Stack Edge/data Box gateway-resurs i Azure.
+    1. Du har konfigurerat och [aktiverat din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-activate.md) med en Azure Stack Edge pro/data Box gateway-resurs i Azure.
     1. Du har [konfigurerat Compute på den här enheten i Azure Portal](azure-stack-edge-deploy-configure-compute.md#configure-compute).
     
 1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
@@ -187,7 +187,7 @@ users:
 ```
 -->
 
-På en Azure Stack Edge-enhet som har beräknings rollen konfigurerad kan du felsöka eller övervaka enheten med hjälp av två olika kommando uppsättningar.
+På en Azure Stack Edge Pro-enhet där beräknings rollen har kon figurer ATS kan du felsöka eller övervaka enheten med hjälp av två olika kommando uppsättningar.
 
 - Använda `iotedge` kommandon. De här kommandona är tillgängliga för grundläggande åtgärder för din enhet.
 - Använda `kubectl` kommandon. De här kommandona är tillgängliga för en omfattande uppsättning åtgärder för din enhet.
@@ -241,7 +241,7 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 ### <a name="use-kubectl-commands"></a>Använda kubectl-kommandon
 
-På en Azure Stack Edge-enhet som har beräknings rollen konfigurerad, är alla `kubectl` kommandon tillgängliga för att övervaka eller felsöka moduler. Om du vill se en lista över tillgängliga kommandon kan du köra `kubectl --help` från kommando fönstret.
+På en Azure Stack Edge Pro-enhet som har beräknings rollen konfigurerad, är alla `kubectl` kommandon tillgängliga för att övervaka eller felsöka moduler. Om du vill se en lista över tillgängliga kommandon kan du köra `kubectl --help` från kommando fönstret.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -433,4 +433,4 @@ Stäng PowerShell-fönstret om du vill avsluta PowerShell-sessionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Distribuera [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) i Azure Portal.
+- Distribuera [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) i Azure Portal.

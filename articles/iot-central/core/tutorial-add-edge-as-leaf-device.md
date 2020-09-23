@@ -1,6 +1,6 @@
 ---
-title: Lägga till en Azure IoT Edge-enhet i Azure IoT Central | Microsoft Docs
-description: Som operatör lägger du till en Azure IoT Edge enhet till ditt Azure IoT Central-program
+title: Självstudie – Lägg till en Azure IoT Edge enhet i Azure IoT Central | Microsoft Docs
+description: Självstudie – som en operatör lägger du till en Azure IoT Edge enhet till ditt Azure IoT Central-program
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: cc612d5dc21594da855799ed965effeb4b547d00
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018670"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987015"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Självstudie: Lägg till en Azure IoT Edge enhet till ditt Azure IoT Central-program
 
@@ -286,14 +286,14 @@ Om du planerar att fortsätta arbeta med den virtuella datorn IoT Edge kan du be
 * Om du vill ta bort IoT Edge VM och dess tillhör ande resurser tar du bort resurs gruppen **contoso-Edge-RG** i Azure Portal.
 * Om du vill ta bort IoT Central programmet går du till sidan **program** i avsnittet **Administration** i programmet och väljer **ta bort**.
 
+Som en lösnings utvecklare eller operatör, nu när du har lärt dig hur du arbetar med och hanterar IoT Edge enheter i IoT Central, är ett föreslaget nästa steg att:
+
+> [!div class="nextstepaction"]
+> [Använda enhets grupper för att analysera enhets telemetri](./tutorial-use-device-groups.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
 Som enhets utvecklare är det nu viktigt att du har lärt dig hur du arbetar med och hanterar IoT Edge enheter i IoT Central. ett förslag till nästa steg är att läsa:
 
 > [!div class="nextstepaction"]
 > [Utveckla IoT Edge moduler](../../iot-edge/tutorial-develop-for-linux.md)
-
-Som en lösnings utvecklare eller operatör, nu när du har lärt dig hur du arbetar med och hanterar IoT Edge enheter i IoT Central, är ett föreslaget nästa steg att:
-
-> [!div class="nextstepaction"]
-> [Använda enhets grupper för att analysera enhets telemetri](./tutorial-use-device-groups.md)

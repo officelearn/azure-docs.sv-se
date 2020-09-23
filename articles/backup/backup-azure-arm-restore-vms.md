@@ -1,15 +1,15 @@
 ---
 title: Återställa virtuella datorer med hjälp av Azure Portal
-description: Återställa en virtuell Azure-dator från en återställnings punkt med hjälp av Azure Portal
+description: Återställa en virtuell Azure-dator från en återställnings punkt med hjälp av Azure Portal, inklusive funktionen återställning av kors region.
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050428"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986544"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -138,18 +138,21 @@ Som en av [återställnings alternativen](#restore-options)kan du med återstäl
 
 Om du vill publicera till funktionen under för hands versionen läser du [avsnittet innan du börjar](./backup-create-rs-vault.md#set-cross-region-restore).
 
-Om du vill se om CRR har Aktiver ATS följer du anvisningarna i [Konfigurera återställning av kors region](backup-create-rs-vault.md#configure-cross-region-restore)
+Om du vill se om CRR har Aktiver ATS följer du anvisningarna i [Konfigurera återställning mellan regioner](backup-create-rs-vault.md#configure-cross-region-restore).
 
 ### <a name="view-backup-items-in-secondary-region"></a>Visa säkerhets kopierings objekt i sekundär region
 
 Om CRR har Aktiver ATS kan du Visa säkerhets kopierings objekt i den sekundära regionen.
 
-1. Från portalen går du till **Recovery Services**  >  **säkerhets kopierings objekt** för valvet
+1. Från portalen går du till **Recovery Services valv**  >  **säkerhets kopierings objekt**.
 1. Välj **sekundär region** om du vill visa objekten i den sekundära regionen.
 
-    ![Virtuella datorer i sekundär region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+>[!NOTE]
+>Endast de typer av säkerhets kopierings hantering som stöder funktionen CRR visas i listan. För närvarande tillåts endast stöd för återställning av sekundär regions data till en sekundär region.
 
-    ![Välj sekundär region](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Virtuella datorer i sekundär region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Välj sekundär region](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### <a name="restore-in-secondary-region"></a>Återställ i sekundär region
 

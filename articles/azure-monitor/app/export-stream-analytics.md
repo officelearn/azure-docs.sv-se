@@ -3,12 +3,12 @@ title: Exportera med hjälp av Stream Analytics från Azure Application Insights
 description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera data som du exporterar från Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324360"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979176"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för att bearbeta data som [exporter ATS från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från flera olika källor. Den kan transformera och filtrera data och sedan dirigera den till en rad olika mottagare.
@@ -97,10 +97,10 @@ Mönstret Path prefix anger var Stream Analytics hittar indatafilerna i lagringe
 
 I det här exemplet:
 
-* `webapplication27`är namnet på Application Insights resursen med **gemener**.
-* `1234...`är Instrumentation-nyckeln för Application Insightss resurs, **utan bindestreck**. 
-* `PageViews`är den typ av data som du vill analysera. Vilka typer som är tillgängliga beror på vilket filter du angav i löpande export. Granska exporterade data för att se de andra tillgängliga typerna och se [export data modellen](export-data-model.md).
-* `/{date}/{time}`är ett mönster skrivet bokstavligen.
+* `webapplication27` är namnet på Application Insights resursen med **gemener**.
+* `1234...` är Instrumentation-nyckeln för Application Insightss resurs, **utan bindestreck**. 
+* `PageViews` är den typ av data som du vill analysera. Vilka typer som är tillgängliga beror på vilket filter du angav i löpande export. Granska exporterade data för att se de andra tillgängliga typerna och se [export data modellen](export-data-model.md).
+* `/{date}/{time}` är ett mönster skrivet bokstavligen.
 
 > [!NOTE]
 > Kontrol lera lagringen för att se till att du får rätt sökväg.
@@ -196,7 +196,7 @@ Vänta tills jobbet körs.
 
 Nu kan du använda den här data uppsättningen i rapporter och instrument paneler i [Power BI](https://powerbi.microsoft.com).
 
-![I Power BI väljer du data uppsättning och fält.](./media/export-stream-analytics/210.png)
+![Skärm bild som visar ett rapport exempel som gjorts från en data uppsättning i Power BI.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Ser du inga data?
 * Kontrol lera att du [har angett datum formatet](#set-path-prefix-pattern) korrekt till åååå-mm-dd (med streck).

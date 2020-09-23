@@ -3,12 +3,12 @@ title: Analysera direktsänd video utan inspelning – Azure
 description: Ett medie diagram kan användas för att bara extrahera analyser från direktuppspelad video ström, utan att behöva registrera det på gränsen eller i molnet. Den här artikeln beskriver det här konceptet.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: d59e2e9e309f0ed6a65e001557dcd9dd8af90da2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566770"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893044"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analysera direktsänd video utan inspelning
 
@@ -40,7 +40,7 @@ I det här medie diagrammet sänker den bild Rute hastighet som används för at
 En förbättring av det här exemplet är att använda en rörelse detektor processor före noden för RAM hastighet filter processor. Detta minskar belastningen på härlednings tjänsten eftersom den endast används när det finns rörelse aktivitet i videon.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="Direktsända video analyser baserat på rörelse identifierade ramar via extern inferencing-modul":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Direktsända video analyser baserat på rörelse identifierade ramar via extern inferencing-modul":::
 
 ## <a name="next-steps"></a>Nästa steg
 

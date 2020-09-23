@@ -4,38 +4,78 @@
   expanded: true
   items:
     - name: Om Security Center
-      href: security-center-intro.md
-    - name: Plattformar som stöds
-      href: security-center-os-coverage.md
-    - name: Funktioner i Security Center
       items:
+        - name: Vad är Azure Security Center?
+          href: security-center-introduction.md
+        - name: Plattformar som stöds
+          displayName: coverage
+          href: security-center-os-coverage.md
         - name: Funktioner för virtuella datorer
           href: security-center-services.md
         - name: Funktioner för Azure PaaS-resurser
           href: features-paas.md
     - name: Vad är nytt i Security Center?
+      displayName: release notes
       href: release-notes.md
-    - name: Säkerhetsrekommendationer
-      href: recommendations-reference.md
-    - name: Säkerhetsaviseringar och händelsekedja för avsikt
-      href: alerts-reference.md
-    - name: Behörigheter
-      href: security-center-permissions.md
+    - name: Grunderna i Security Center
+      items:
+        - name: Security Centers översiktssida
+          href: overview-page.md
+        - name: Säkerhetsrekommendationer
+          href: recommendations-reference.md
+        - name: Säkerhetsaviseringar och händelsekedja för avsikt
+          href: alerts-reference.md
+        - name: Så skyddar Microsoft kundinformation
+          href: security-center-data-security.md
+        - name: Behörigheter
+          href: security-center-permissions.md
+    - name: Azure Defenders avancerade säkerhet
+      items:
+        - name: Översikt över Azure Defender
+          href: azure-defender.md
+        - name: Azure Defender för servrar
+          href: defender-for-servers-introduction.md
+        - name: Azure Defender för App Service
+          href: defender-for-app-service-introduction.md
+        - name: Azure Defender för Storage
+          href: defender-for-storage-introduction.md
+        - name: Azure Defender för SQL
+          href: defender-for-sql-introduction.md
+        - name: Azure Defender för IoT
+          href: defender-for-iot-introduction.md
+        - name: Azure Defender för Key Vault
+          displayName: KV
+          href: defender-for-key-vault-introduction.md
+        - name: Azure Defender för Kubernetes
+          displayName: 'clusters, k8s'
+          href: defender-for-kubernetes-introduction.md
+        - name: Azure Defender för containerregister
+          displayName: 'ACR, registry, images'
+          href: defender-for-container-registries-introduction.md
+        - name: Ytterligare skydd mot hot
+          href: other-threat-protections.md
+    - name: Säkerhetsfunktioner för containrar i Security Center
+      href: container-security.md
     - name: Prissättning
       href: security-center-pricing.md
 - name: Snabbstarter
   items:
-    - name: Azure-prenumerationer
+    - name: Kom igång
       href: security-center-get-started.md
-    - name: Windows-datorer
-      href: quick-onboard-windows-computer.md
-    - name: Linux-datorer
-      href: quick-onboard-linux-computer.md
-    - name: Virtuella Azure Stack-datorer
-      href: quick-onboard-azure-stack.md
+    - name: Ansluta icke-Azure-datorer
+      displayName: 'azure stack, windows, linux'
+      href: quickstart-onboard-machines.md
+    - name: Ansluta AWS- och GCP-konton
+      items:
+        - name: Ansluta AWS-konton
+          displayName: 'hybrid, multicloud, amazon'
+          href: quickstart-onboard-aws.md
+        - name: Ansluta GCP-konton
+          displayName: 'hybrid, multicloud, google'
+          href: quickstart-onboard-gcp.md
     - name: Automatisera registrering med PowerShell
       href: security-center-powershell-onboarding.md
-    - name: Konfigurera din datasamling
+    - name: Konfigurera datainsamling
       href: security-center-enable-data-collection.md
     - name: Konfigurera e-postmeddelanden
       href: security-center-provide-security-contact-details.md
@@ -53,85 +93,29 @@
       href: security-center-compliance-dashboard.md
 - name: Begrepp
   items:
-    - name: 'Säkerhetspoäng, rekommendationer och policyer'
+    - name: CSPM
       items:
+        - name: Hantera dina resurser med tillgångslager
+          href: asset-inventory.md
         - name: Säkerhetspoäng
           href: secure-score-security-controls.md
         - name: Översikt över säkerhetsrekommendationer
           href: security-center-recommendations.md
         - name: Översikt över säkerhetsprinciper
           href: tutorial-security-policy.md
+        - name: Inbyggda säkerhetsprinciper
+          displayName: 'samples, policy'
+          href: ./policy-reference.md
         - name: Använda rekommendationer för att förbättra säkerheten
           href: security-center-using-recommendations.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
-    - name: Aviseringar för skydd mot hot och säkerhet
-      items:
-        - name: Översikt över skydd mot hot i Security Center
-          href: threat-protection.md
-        - name: Översikt över säkerhetsaviseringar
-          href: security-center-alerts-overview.md
-        - name: Referenslista över aviseringar
-          href: alerts-reference.md
-        - name: Aviseringsscheman
-          href: alerts-schemas.md
-        - name: Översikt över säkerhetsincidenter
-          href: security-center-alerts-cloud-smart.md
-    - name: Datasäkerhet
-      href: security-center-data-security.md
-    - name: Just-in-time-åtkomst till virtuella datorer
-      href: just-in-time-explained.md
-    - name: Hantering av flera klienter
-      href: security-center-cross-tenant-management.md
-    - name: Containersäkerhet
-      items:
-        - name: Översikt över containersäkerhet
-          href: container-security.md
-        - name: Integration med Azure Container Registry
-          href: azure-container-registry-integration.md
-        - name: Integration med Azure Kubernetes Service
-          href: azure-kubernetes-service-integration.md
-- name: Anvisningar
-  items:
-    - name: Uppgradera till avancerad säkerhet
-      href: security-center-onboarding.md
-    - name: Konfigurera säkerhetsprinciper och efterlevnadsstandarder
-      items:
-        - name: Skapa anpassade säkerhetsprinciper
-          href: custom-security-policies.md
-        - name: Hantera principer med Azure Policy REST API
-          href: configure-security-policy-azure-policy.md
-        - name: Välja standarder för din instrumentpanel för efterlevnad
-          href: update-regulatory-compliance-packages.md
-    - name: Sök igenom dina virtuella datorer efter sårbarheter
-      items:
-        - name: Distribuera den integrerade sårbarhetsskannern till dina virtuella datorer
-          href: deploy-vulnerability-assessment-vm.md
-        - name: Distribuera en BYOL-sårbarhetslösning till dina virtuella datorer
-          href: deploy-vulnerability-assessment-byol-vm.md
-        - name: Granska och åtgärda sårbarheter i dina virtuella datorer
-          href: remediate-vulnerability-findings-vm.md
-    - name: Konfigurera aviseringar för skydd mot hot och hothantering
-      items:
-        - name: Hantera säkerhetsaviseringar
-          href: security-center-managing-and-responding-alerts.md
-        - name: Skapa och hantera regler för undertryckning av aviseringar
-          href: alerts-suppression-rules.md
-        - name: Konfigurera Advanced Threat Protection för Azure Key Vault
-          href: advanced-threat-protection-key-vault.md
-        - name: Hantera säkerhetsincidenter
-          href: security-center-incident.md
-        - name: Generera rapporter om hotinformation
-          href: security-center-threat-report.md
-        - name: Verifiera din aviseringskonfiguration (EICAR-testningsfil)
-          href: security-center-alert-validation.md
-        - name: Använd avancerad datasäkerhet för SQL på virtuella Azure-datorer
-          href: security-center-iaas-advanced-data.md
-        - name: Automatisera svar på aviseringar
-          href: workflow-automation.md
-        - name: Exportera aviseringar
-          displayName: continuous
-          href: continuous-export.md
+        - name: Hantering av flera klienter
+          href: security-center-cross-tenant-management.md
+        - name: Skydda dina Windows Admin Center-servrar
+          href: windows-admin-center-integration.md
+        - name: Integrera säkerhetslösningar och datakällor
+          href: security-center-partner-integration.md
     - name: Använda säkerhetsrekommendationer för att förbättra säkerheten
       items:
         - name: Åtgärda rekommendationer
@@ -140,51 +124,111 @@
           displayName: recommendations
           href: prevent-misconfigurations.md
         - name: Förbättra säkerheten
-          displayName: recommendations
           href: security-center-monitoring.md
         - name: Referenslista över rekommendationer
           href: recommendations-reference.md
-        - name: Skydda dina datorer och appar
-          href: security-center-virtual-machine-protection.md
         - name: Skydda nätverksresurser
           href: security-center-network-recommendations.md
-        - name: Skydda data och lagringstjänster
-          href: security-center-sql-service-recommendations.md
         - name: Skydda identitet och åtkomst
           href: security-center-identity-access.md
-        - name: Automatisera svar på rekommendationer
+        - name: Hantera säkerhetsrekommendationer
+          items:
+            - name: Automatisera svar på rekommendationer
+              href: workflow-automation.md
+            - name: Exportera rekommendationer
+              href: continuous-export.md
+            - name: Undanta en resurs från en rekommendation
+              href: exempt-resource.md
+    - name: Azure Defender-aviseringar
+      items:
+        - name: Översikt över Azure Defender-aviseringar
+          href: security-center-alerts-overview.md
+        - name: Referenslista över aviseringar
+          href: alerts-reference.md
+        - name: Aviseringsscheman
+          href: alerts-schemas.md
+        - name: Översikt över säkerhetsincidenter
+          href: security-center-alerts-cloud-smart.md
+- name: Anvisningar
+  items:
+    - name: Använda instrumentpanelen för Azure Defender
+      href: azure-defender-dashboard.md
+    - name: Konfigurera säkerhetsprinciper och efterlevnadsstandarder
+      items:
+        - name: Skapa anpassade säkerhetsprinciper
+          href: custom-security-policies.md
+        - name: Hantera principer med Azure Policy REST API
+          href: configure-security-policy-azure-policy.md
+        - name: Välja standarder för din instrumentpanel för efterlevnad
+          displayName: 'regulatory, regulation, CIS, PCI DSS, ISO, SOC, Benchmark, Azure Security Benchmark, HIPAA'
+          href: update-regulatory-compliance-packages.md
+    - name: Använda Azure Defender för servrar
+      items:
+        - name: Sårbarhetssökning för virtuella datorer
+          items:
+            - name: Sök igenom virtuella datorer med den integrerade VA-lösningen
+              displayName: 'qualys, vulnerability'
+              href: deploy-vulnerability-assessment-vm.md
+            - name: Sök igenom virtuella datorer med BYOL VA-lösningen
+              displayName: 'qualys, rapid7, vulnerability'
+              href: deploy-vulnerability-assessment-byol-vm.md
+            - name: Granska och åtgärda sårbarheter i dina virtuella datorer
+              displayName: 'qualys, rapid7, vulnerability'
+              href: remediate-vulnerability-findings-vm.md
+        - name: Skydda hanteringsportar med just-in-time-åtkomst till virtuella datorer
+          items:
+            - name: Översikt över just-in-time-åtkomst till virtuella datorer
+              displayName: 'jit, management'
+              href: just-in-time-explained.md
+            - name: Hantera just-in-time-åtkomst
+              displayName: 'jit, management'
+              href: security-center-just-in-time.md
+        - name: Hantera anpassningsbara programkontroller
+          href: security-center-adaptive-application.md
+        - name: Använda övervakning av filintegritet
+          items:
+            - name: Översikt över övervakning av filintegritet
+              href: security-center-file-integrity-monitoring.md
+            - name: Jämföra baslinjer med hjälp av filintegritetsövervakning
+              href: security-center-file-integrity-monitoring-baselines.md
+        - name: Hantera anpassad nätverkshärdning
+          href: security-center-adaptive-network-hardening.md
+        - name: Integrera Microsoft Defender ATP
+          href: security-center-wdatp.md
+        - name: Härda Docker-värdarna
+          displayName: containers
+          href: harden-docker-hosts.md
+    - name: Använda Azure Defender för SQL
+      items:
+        - name: Konfigurera Azure Defender för SQL på virtuella Azure-datorer
+          href: defender-for-sql-usage.md
+        - name: Anpassa informationsskyddsprincipen
+          href: security-center-info-protection-policy.md
+    - name: Använda Azure Defender för containerregister
+      displayName: 'ACR, registry, images'
+      href: defender-for-container-registries-usage.md
+    - name: Hantera Azure Defender-aviseringar
+      items:
+        - name: Hantera säkerhetsaviseringar
+          href: security-center-managing-and-responding-alerts.md
+        - name: Skapa och hantera regler för undertryckning av aviseringar
+          href: alerts-suppression-rules.md
+        - name: Svara på Azure Defender för Key Vault-aviseringar
+          href: defender-for-key-vault-usage.md
+        - name: Hantera säkerhetsincidenter
+          href: security-center-incident.md
+        - name: Generera rapporter om hotinformation
+          href: security-center-threat-report.md
+        - name: Verifiera din aviseringskonfiguration (EICAR-testningsfil)
+          href: security-center-alert-validation.md
+        - name: Automatisera svar på aviseringar
           href: workflow-automation.md
-        - name: Exportera rekommendationer
+        - name: Exportera aviseringar
           displayName: continuous
           href: continuous-export.md
-    - name: Hantera dina resurser med tillgångslager
-      href: asset-inventory.md
-    - name: Integrera med andra verktyg och tjänster
-      items:
-        - name: Skydda dina Windows Admin Center-servrar
-          href: windows-admin-center-integration.md
-        - name: 'Skydda dina Azure App Service-webbappar och API:er'
-          href: security-center-app-services.md
-        - name: Integrera med Microsoft Defender ATP
-          href: security-center-wdatp.md
-        - name: Integrera säkerhetslösningar och datakällor
-          href: security-center-partner-integration.md
-    - name: Tillämpa molnskydd
-      items:
-        - name: Hantera just-in-time-åtkomst
-          href: security-center-just-in-time.md
-        - name: Anpassningsbara programkontroller
-          href: security-center-adaptive-application.md
-        - name: Övervakning av filintegritet
-          href: security-center-file-integrity-monitoring.md
-        - name: Jämföra baslinjer med hjälp av filintegritetsövervakning
-          href: security-center-file-integrity-monitoring-baselines.md
-        - name: Anpassningsbar nätverkshärdning
-          href: security-center-adaptive-network-hardening.md
-    - name: Övervaka dina containrar
-      href: monitor-container-security.md
-    - name: Anpassa informationsskyddsprincipen
-      href: security-center-info-protection-policy.md
+    - name: Skydda dina Kubernetes-arbetsbelastningar
+      displayName: 'k8s, containers'
+      href: kubernetes-workload-protections.md
     - name: Hantera användardata för undersökning
       href: security-center-investigation-user-data.md
     - name: Skaffa klientorganisationstäckande synlighet
@@ -215,16 +259,13 @@
       href: security-center-features-retirement-july2019.md
     - name: Utvärdering av slutpunktsskydd och rekommendationer
       href: security-center-endpoint-protection.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?term=securityS
     - name: Hantera användardata
       href: security-center-privacy.md
-    - name: Dokumentation om Azure Security Center for IoT
+    - name: Dokumentation om Azure Defender för IoT
       href: 'https://docs.microsoft.com/azure/asc-for-iot/'
     - name: Dokumentation om Azure-säkerhet
       href: /azure/security/
@@ -232,12 +273,12 @@
       href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: Beredskapsöversikt
       href: security-center-readiness-roadmap.md
-    - name: 'Blogg om säkerhet, sekretess och efterlevnad i Azure'
-      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
+    - name: Bloggar från den tekniska communityn för Azure Security Center
+      href: 'https://techcommunity.microsoft.com/t5/azure-security-center/bg-p/AzureSecurityCenterBlog'
     - name: Azure Security Center på Stack Overflow
       href: 'https://stackoverflow.com/search?q=azure-security-center'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
+    - name: YouTube-videor om ASCinTheField
+      href: 'https://www.youtube.com/results?search_query=%23ASCInTheField'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
     - name: Regional tillgänglighet

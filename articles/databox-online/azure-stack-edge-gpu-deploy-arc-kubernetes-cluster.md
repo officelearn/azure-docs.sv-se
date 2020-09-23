@@ -1,6 +1,6 @@
 ---
-title: Aktivera Azure Arc på Kubernetes på Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge GPU-enhet.
+title: Aktivera Azure Arc på Kubernetes på Azure Stack Edge Pro GPU-enhet | Microsoft Docs
+description: Beskriver hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,27 +8,27 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 3405f28d5f306e8370bae72eb5f3f3c406235c3d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322032"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903197"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Aktivera Azure Arc på Kubernetes-kluster på din Azure Stack Edge GPU-enhet
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Aktivera Azure Arc på Kubernetes-kluster på din Azure Stack Edge Pro GPU-enhet
 
-Den här artikeln visar hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge-enhet. 
+Den här artikeln visar hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge Pro-enhet. 
 
-Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan aktivera Azure Arc på Kubernetes-kluster måste du kontrol lera att du har slutfört följande krav på din Azure Stack Edge-enhet och klienten som du ska använda för att få åtkomst till enheten:
+Innan du kan aktivera Azure Arc på Kubernetes-kluster måste du kontrol lera att du har slutfört följande krav för din Azure Stack Edge Pro-enhet och klienten som du ska använda för att få åtkomst till enheten:
 
 ### <a name="for-device"></a>För enheten
 
-1. Du har inloggnings uppgifter till en 1-nod Azure Stack Edge-enhet.
+1. Du har inloggnings uppgifter till en 1-nod Azure Stack Edge Pro-enhet.
     1. Enheten är aktive rad. Se [Aktivera enheten](azure-stack-edge-gpu-deploy-activate.md).
     1. Enheten har den beräknings roll som kon figurer ATS via Azure Portal och har ett Kubernetes-kluster. Se [Konfigurera Compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
@@ -37,19 +37,19 @@ Innan du kan aktivera Azure Arc på Kubernetes-kluster måste du kontrol lera at
 
 ### <a name="for-client-accessing-the-device"></a>För klient åtkomst till enheten
 
-1. Du har ett Windows-klientcertifikat som ska användas för att få åtkomst till Azure Stack Edge-enheten.
+1. Du har ett Windows-klientsystem som ska användas för att få åtkomst till Azure Stack Edge Pro-enheten.
   
     - Klienten kör Windows PowerShell 5,0 eller senare. Om du vill hämta den senaste versionen av Windows PowerShell går du till [Installera Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Den här artikeln beskriver proceduren när du använder en Windows-klient. 
     
-1. Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
+1. Du har slutfört proceduren som beskrivs i [komma åt Kubernetes-klustret på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Du har:
     
     - Installerad `kubectl` på klienten  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge-enhet. 
+    - Kontrol lera att `kubectl` klient versionen inte är mer än en version från den Kubernetes huvud version som körs på din Azure Stack Edge Pro-enhet. 
       - Används `kubectl version` för att kontrol lera vilken version av kubectl som körs på klienten. Anteckna den fullständiga versionen.
-      - I det lokala användar gränssnittet för din Azure Stack Edge-enhet går du till **program uppdatering** och noterar Kubernetes-serverns versions nummer. 
+      - I det lokala användar gränssnittet för din Azure Stack Edge Pro-enhet går du till **program uppdatering** och noterar Kubernetes-serverns versions nummer. 
     
         ![Verifiera Kubernetes-serverns versions nummer](media/azure-stack-edge-gpu-connect-powershell-interface/verify-kubernetes-version-1.png)      
       
@@ -142,7 +142,7 @@ Följ dessa steg för att konfigurera Kubernetes-klustret för hantering av Azur
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Om du vill distribuera Azure Arc på Azure Stack Edge-enhet kontrollerar du att du använder en [region som stöds för Azure-bågen](../azure-arc/kubernetes/overview.md#supported-regions). Azure-bågen är för närvarande en för hands version. Du kan också ta reda på det exakta namnet på regionen för att skicka in cmdleten med hjälp av `az account list-locations` kommandot.
+    Om du vill distribuera Azure Arc på Azure Stack Edge Pro-enhet kontrollerar du att du använder en [region som stöds för Azure-bågen](../azure-arc/kubernetes/overview.md#supported-regions). Azure-bågen är för närvarande en för hands version. Du kan också ta reda på det exakta namnet på regionen för att skicka in cmdleten med hjälp av `az account list-locations` kommandot.
     
     Här är ett exempel:
    
@@ -224,4 +224,4 @@ Följ dessa steg om du vill ta bort hanteringen av Azure-bågen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kör en Azure Arc-distribution finns i [distribuera ett tillstånds löst php-program för php med Redis via GitOps på en Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+Information om hur du kör en Azure Arc-distribution finns i [distribuera ett tillstånds löst php-program för php med Redis via GitOps på en Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

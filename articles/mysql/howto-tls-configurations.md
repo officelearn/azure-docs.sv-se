@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 46eaa6a3b97967da9c4743d0cf1f6edc8f90b1ce
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d94e589a19b29e68883c0217b62b883f9d026789
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119792"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902734"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Konfigurera TLS-inställningar i Azure Database for MySQL att använda Azure Portal
 
@@ -35,13 +35,13 @@ Följ de här stegen om du vill ange lägsta TLS-server version:
 
 1. I **lägsta TLS-version**väljer du **1,2** för att neka anslutningar med en TLS-version som är mindre än TLS 1,2 för MySQL-servern.
 
-    ![Azure Database for MySQL TLS-konfiguration](./media/howto-tls-configurations/setting-tls-value.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Azure Database for MySQL TLS-konfiguration":::
 
 1. Klicka på **Spara** för att spara ändringarna.
 
 1. Ett meddelande bekräftar att anslutnings säkerhets inställningen har Aktiver ATS.
 
-    ![Azure Database for MySQL TLS-konfiguration lyckades](./media/howto-tls-configurations/setting-tls-value-success.png)
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Azure Database for MySQL TLS-konfiguration lyckades":::
 
 ## <a name="next-steps"></a>Nästa steg
 

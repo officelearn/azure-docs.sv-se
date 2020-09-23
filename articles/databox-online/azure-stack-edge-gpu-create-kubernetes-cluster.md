@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera ett Kubernetes-kluster på Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du skapar och hanterar ett Kubernetes-kluster på Azure Stack Edge-GPU-enhet via Windows PowerShell-gränssnittet.
+title: Skapa och hantera ett Kubernetes-kluster på Azure Stack Edge Pro GPU-enhet | Microsoft Docs
+description: Beskriver hur du skapar och hanterar ett Kubernetes-kluster på Azure Stack Edge Pro GPU-enhet via Windows PowerShell-gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 95663553bc68d34eebd90be0d4032ee53900479b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267966"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903206"
 ---
-# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Ansluta till och hantera ett Kubernetes-kluster via kubectl på din Azure Stack Edge GPU-enhet
+# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Ansluta till och hantera ett Kubernetes-kluster via kubectl på din Azure Stack Edge Pro GPU-enhet
 
-På din Azure Stack Edge-enhet skapas ett Kubernetes-kluster när du konfigurerar Compute-rollen. När Kubernetes-klustret har skapats kan du ansluta till och hantera klustret lokalt från en klient dator via ett inbyggt verktyg, till exempel *kubectl*.
+På din Azure Stack Edge Pro-enhet skapas ett Kubernetes-kluster när du konfigurerar Compute-rollen. När Kubernetes-klustret har skapats kan du ansluta till och hantera klustret lokalt från en klient dator via ett inbyggt verktyg, till exempel *kubectl*.
 
-Den här artikeln beskriver hur du ansluter till ett Kubernetes-kluster på din Azure Stack Edge-enhet och sedan hanterar den med *kubectl*. 
+Den här artikeln beskriver hur du ansluter till ett Kubernetes-kluster på din Azure Stack Edge Pro-enhet och sedan hanterar den med *kubectl*. 
 
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har åtkomst till en Azure Stack Edge-enhet.
+1. Du har åtkomst till en Azure Stack Edge Pro-enhet.
 
-2. Du har aktiverat Azure Stack Edge-enheten enligt beskrivningen i [aktivera Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+2. Du har aktiverat din Azure Stack Edge Pro-enhet enligt beskrivningen i [aktivera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-3. Du har aktiverat Compute-rollen på enheten. Ett Kubernetes-kluster skapades också på enheten när du konfigurerade beräkningen på enheten enligt anvisningarna i [Konfigurera Compute på din Azure Stack Edge-enhet](azure-stack-edge-gpu-deploy-configure-compute.md).
+3. Du har aktiverat Compute-rollen på enheten. Ett Kubernetes-kluster skapades också på enheten när du konfigurerade beräkningen på enheten enligt anvisningarna i [Konfigurera Compute på din Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 4. Du har åtkomst till ett Windows-klientsystem som kör PowerShell 5,0 eller senare för att få åtkomst till enheten. Du kan också ha andra klienter med ett [operativ system som stöds](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . 
 
@@ -48,7 +48,7 @@ När Kubernetes-klustret har skapats kan du komma åt det här klustret för att
 
 När Kubernetes-klustret har skapats kan du använda kommandot *kubectl* via cmdline för att få åtkomst till klustret. 
 
-I den här metoden skapar du ett namn område och en användare. Sedan kopplar du användaren till namn området. Du måste också hämta en *konfigurations* fil som gör att du kan använda en Kubernetes-klient för att kommunicera direkt med Kubernetes-klustret som du skapade utan att behöva ansluta till PowerShell-gränssnittet för Azure Stack Edge-enheten.
+I den här metoden skapar du ett namn område och en användare. Sedan kopplar du användaren till namn området. Du måste också hämta en *konfigurations* fil som gör att du kan använda en Kubernetes-klient för att kommunicera direkt med Kubernetes-klustret som du skapade utan att behöva ansluta till PowerShell-gränssnittet för din Azure Stack Edge Pro-enhet.
 
 1. Skapa ett namnområde. Ange:
 
@@ -66,7 +66,7 @@ I den här metoden skapar du ett namn område och en användare. Sedan kopplar d
     `New-HcsKubernetesUser -UserName <string>`
 
     > [!NOTE]
-    > Du kan inte använda *aseuser* som användar namn eftersom det är reserverat för en standard användare som är associerad med IoT-namnrymden för Azure Stack Edge.
+    > Du kan inte använda *aseuser* som användar namn eftersom det är reserverat för en standard användare som är associerad med IoT-namnrymden för Azure Stack Edge Pro.
 
     Här är ett exempel på utdata från konfigurations filen:
    
@@ -113,7 +113,7 @@ I den här metoden skapar du ett namn område och en användare. Sedan kopplar d
 
     `[10.100.10.10]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace "myasetest1" -UserName "aseuser1"`
 
-    När du har konfigurations filen behöver du inte fysisk åtkomst till klustret. Om klienten kan pinga Azure Stack Edge-enhetens IP-adress, bör du kunna dirigera klustret med hjälp av *kubectl* -kommandon.
+    När du har konfigurations filen behöver du inte fysisk åtkomst till klustret. Om klienten kan pinga Azure Stack Edge Pro-enhetens IP-adress, bör du kunna dirigera klustret med *kubectl* -kommandon.
 
 6. Starta en ny PowerShell-session på klienten. Du behöver inte vara ansluten till enhets gränssnittet. Nu kan du installera `kubectl` på klienten med följande kommando:
 
@@ -125,7 +125,7 @@ I den här metoden skapar du ett namn område och en användare. Sedan kopplar d
     Om till exempel Kubernetes-huvudnoden körde v 1.15.2, installerar du v 1.15.2 på klienten.
 
     > [!IMPORTANT]
-    > Ladda ned en klient som inte har fler än en del version från huvud servern. Klient versionen men kan leda till att huvud servern får en lägre version. Till exempel bör en v 1.3-huvud fungera med v 1.1-, v 1.2-och v 1.3-noder och bör fungera med v 1.2-, v 1.3-och v 1.4-klienter. Mer information om Kubernetes-klientens version finns i [support policy för Kubernetes version och versions förvrängning](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Mer information om Kubernetes Server-versionen på Azure Stack Edge finns i Hämta Kubernetes Server version.<!-- insert link-->
+    > Ladda ned en klient som inte har fler än en del version från huvud servern. Klient versionen men kan leda till att huvud servern får en lägre version. Till exempel bör en v 1.3-huvud fungera med v 1.1-, v 1.2-och v 1.3-noder och bör fungera med v 1.2-, v 1.3-och v 1.4-klienter. Mer information om Kubernetes-klientens version finns i [support policy för Kubernetes version och versions förvrängning](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Mer information om Kubernetes Server-versionen på Azure Stack Edge Pro finns i Hämta Kubernetes Server version.<!-- insert link-->
     > Ibland `kubectl` är det förinstallerat i systemet om du kör Docker för Windows eller andra verktyg. Det är viktigt att ladda ned den aktuella versionen av `kubectl` som anges i det här avsnittet för att arbeta med det här Kubernetes-klustret. 
 
     Det tar flera minuter att installera installationen.
@@ -172,4 +172,4 @@ Detaljerade anvisningar finns i [ta bort beräknings konfiguration](azure-stack-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distribuera ett tillstånds lösa program på din Azure Stack Edge](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Distribuera ett tillstånds lösa program på Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

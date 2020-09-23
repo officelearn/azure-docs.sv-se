@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037264"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903717"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense i Azure Stream Analytics verktyg för Visual Studio Code
 
@@ -37,7 +37,7 @@ I Stream Analytics Tools för VS Code-IntelliSense finns olika typer av slut fö
 |Slutförande     |  Typ       |
 | ----- | ------- |
 | Nyckelord | `keyword`
-| Functions | `build-in function`, `user defined function`  |
+| Funktioner | `build-in function`, `user defined function`  |
 | Data uppsättnings namn| `input`, `output`, `intermediate result set`|
 | Kolumn namn för data uppsättning|`input`, `intermediate result set`|
 
@@ -71,6 +71,6 @@ Det här problemet orsakas av att inmatnings konfigurationen som tillhandahålle
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabb start: skapa ett Azure Stream Analytics jobb i Visual Studio Code](quick-create-vs-code.md)
+* [Snabb start: skapa ett Azure Stream Analytics jobb i Visual Studio Code](quick-create-visual-studio-code.md)
 * [Testa Stream Analytics frågor lokalt med exempel data med Visual Studio Code](visual-studio-code-local-run.md)
 * [Testa Stream Analytics frågor lokalt mot Real tids indata med hjälp av Visual Studio Code](visual-studio-code-local-run-live-input.md)

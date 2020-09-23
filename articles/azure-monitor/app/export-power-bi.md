@@ -3,12 +3,12 @@ title: Exportera till Power BI från Azure Application Insights | Microsoft Docs
 description: Analys frågor kan visas i Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324377"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979167"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Flödes Power BI från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning affärs verktyg som hjälper dig att analysera data och dela insikter. Det finns omfattande instrument paneler på alla enheter. Du kan kombinera data från många källor, inklusive analys frågor från [Azure Application insikter](./app-insights-overview.md).
@@ -67,11 +67,11 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    Klistra in det exporterade språk skriptet för M i Avancerad redigerare. 
 
-   ![Skärm bild av Power BI Desktop, med Avancerad redigerare markerat](./media/export-power-bi/advancedquery.png)
+   ![Skärm bild som visar Power BI Desktop, med Avancerad redigerare markerat](./media/export-power-bi/advancedquery.png)
 
 4. Välj objekt från frågan och välj en tratt-visualisering.
 
-   ![Skärm bild av Power BI Desktop visualiserings alternativ](./media/export-power-bi/selectsequence.png)
+   ![Skärm bild som visar visualiserings alternativ för Power BI Desktop tratt](./media/export-power-bi/selectsequence.png)
 
 5. Ändra rubriken så att den blir meningsfull och publicera rapporten till din Power BI moln arbets yta. 
 
@@ -86,7 +86,7 @@ Detta kan inträffa om uppdateringstoken inte har uppdaterats. Prova de här ste
 
 1. Logga in på Azure Portal och kontrol lera att du har åtkomst till resursen.
 2. Försök att uppdatera autentiseringsuppgifterna för instrument panelen.
-3. Försök att rensa cacheminnet från PowerBI Desktop.
+3. Försök rensa cacheminnet från Power BI Desktop.
 
 
    Om du har åtkomst och uppdaterar autentiseringsuppgifterna inte fungerar öppnar du ett support ärende.
@@ -121,14 +121,14 @@ Den här metoden skapar en komplett instrument panel för telemetri åt dig. Den
 1. Logga in i [Power BI](https://app.powerbi.com/).
 2. Öppna **Hämta data** ![ skärm bild av GetData-ikonen i det nedre vänstra hörnet ](./media/export-power-bi/001.png) , **tjänster**.
 
-    ![Skärm dum par av hämta från Application Insights data Källa](./media/export-power-bi/002.png)
+    ![Skärm dum par visar knappen Hämta i fönstret tjänster.](./media/export-power-bi/002.png)
 
 3. Välj **Hämta nu** under Application Insights.
 
    ![Skärm dum par av hämta från Application Insights data Källa](./media/export-power-bi/003.png)
 4. Ange information om din Application Insights-resurs och logga sedan **in**.
 
-    ![Skärm bild av hämta från Application Insights data Källa](./media/export-power-bi/005.png)
+    ![Skärm bild som visar Anslut till Application Insights-fönstret.](./media/export-power-bi/005.png)
 
      Den här informationen finns i fönstret Application Insights översikt:
 

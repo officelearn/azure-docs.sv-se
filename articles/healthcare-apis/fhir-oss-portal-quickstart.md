@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843495"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978583"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Snabb start: Distribuera FHIR-server med öppen källkod med Azure Portal
 
@@ -25,17 +25,17 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Gå till [distributions sidan för GitHub](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) och leta upp knapparna distribuera till Azure:
 
-![Sidan distribution av öppen källkod](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Sidan distribution av öppen källkod](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Klicka på knappen distribution och Azure Portal öppnas.
 
 ## <a name="fill-in-deployment-parameters"></a>Fyll i distributions parametrar
 
-Välj att skapa en ny resurs grupp och ge den ett namn. Endast annan obligatorisk parameter är ett namn för tjänsten.
+Välj att skapa en ny resurs grupp och ge den ett namn. Endast andra obligatoriska parametrar är ett namn för tjänsten och lösen ordet för SQL-administratören.
 
-![Anpassade distributions parametrar](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Observera att distributionen kommer att hämta käll koden direkt från databasen med öppen källkod på GitHub. Om du har förgrenat lagrings platsen kan du peka på din egen för och en viss gren.
+>[!div class="mx-imgBorder"]
+>![Anpassade distributions parametrar](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 När du har fyllt i informationen kan du starta distributionen.
 

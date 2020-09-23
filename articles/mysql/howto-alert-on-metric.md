@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c20177b3dceca3b32cf8f2e2f8f60fa4227e2082
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b7054b520d31c6c5363c8784bb9a4839e9249c88
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902874"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Använd Azure Portal för att konfigurera aviseringar för mått för Azure Database for MySQL 
 
@@ -25,7 +25,7 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 * Anropa en webbhook
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
@@ -34,25 +34,25 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 2. Under avsnittet **övervakning** på sid panelen väljer du **aviseringar** som visas:
 
-   ![Välj aviserings regler](./media/howto-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Välj aviserings regler":::
 
 3. Välj **Lägg till mått avisering** (+ ikon).
 
 4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i nödvändig information:
 
-   ![Lägg till mått aviserings formulär](./media/howto-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Lägg till mått aviserings formulär":::
 
 5. I avsnittet **villkor** väljer du **Lägg till villkor**.
 
 6. Välj ett mått i listan över signaler att bli aviserad om. I det här exemplet väljer du "lagrings procent".
    
-   ![Välj mått](./media/howto-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Välj mått":::
 
 7. Konfigurera aviserings logiken inklusive **villkoret** (t. ex. "Större än"), **tröskel** (t. ex. 85 procent), **tids agg regering** **, tids mängd som mått** regeln måste vara nöjd innan aviserings utlösare (t. ex. "Under de senaste 30 minuterna") och **frekvens**.
    
    Välj **klar** när du är klar.
 
-   ![Välj mått](./media/howto-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Välj mått":::
 
 8. I avsnittet **Åtgärds grupper** väljer du **Skapa nytt** för att skapa en ny grupp för att ta emot meddelanden på aviseringen.
 
@@ -66,11 +66,11 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
     Välj **OK** när du är klar.
 
-    ![Åtgärdsgrupp](./media/howto-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Åtgärdsgrupp":::
 
 11. Ange ett namn, en beskrivning och en allvarlighets grad för varnings regeln.
 
-    ![Åtgärdsgrupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Åtgärdsgrupp"::: 
 
 12. Välj **skapa aviserings regel** för att skapa aviseringen.
 

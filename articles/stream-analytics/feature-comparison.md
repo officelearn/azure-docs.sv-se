@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133506"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885569"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Jämförelse av Azure Stream Analyticss funktion
 
-Med Azure Stream Analytics kan du skapa strömmande lösningar i molnet och på IoT Edge med hjälp av [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)och [Visual Studio Code](quick-create-vs-code.md). Tabellerna i den här artikeln visar vilka funktioner som stöds av varje plattform för båda jobb typerna.
+Med Azure Stream Analytics kan du skapa strömmande lösningar i molnet och på IoT Edge med hjälp av [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)och [Visual Studio Code](quick-create-visual-studio-code.md). Tabellerna i den här artikeln visar vilka funktioner som stöds av varje plattform för båda jobb typerna.
 
 > [!NOTE]
 > Visual Studio-och Visual Studio Code-verktyg stöder inte jobb i regionerna Kina, östra, Kina, norra, Tyskland, centrala och Tyskland nordöstra.
@@ -45,7 +45,7 @@ Med Azure Stream Analytics kan du skapa strömmande lösningar i molnet och på 
 |JavaScript UDF och UDA     |Ja         |Ja         |Endast Windows         |
 |Machine Learning Service     |Ja        |Ja         |Nej         |
 |Machine Learning Studio     |Ja, men det går inte att testa frågan        |Ja |Nej         |
-|Efterlevnadsnivå     |1.0</br>1.1</br>1,2 (standard)         |1.0</br>1.1</br>1,2 (standard)           |1.0</br>1.1</br>1,2 (standard)           |
+|Efterlevnadsnivå     |1,0</br>1,1</br>1,2 (standard)         |1,0</br>1,1</br>1,2 (standard)           |1,0</br>1,1</br>1,2 (standard)           |
 |Inbyggda ML-baserade avvikelse identifierings funktioner     |Ja         |Ja         |Ja         |
 |Inbyggda GeoSpatiala funktioner     |Ja         |Ja         |Ja         |
 
@@ -63,8 +63,8 @@ Med Azure Stream Analytics kan du skapa strömmande lösningar i molnet och på 
 |UDF för C#     |Nej         |Ja         |Nej         |
 |Skicka jobb     |Ja         |Ja         |Nej         |
 |Visa lista över jobb och Visa jobb enheter     |Ja         |Ja         |Nej         |
-|Visa jobb mått och diagram     |Ja         |Delvis         |Nej         |
-|Visa jobb körnings fel     |Ja         |Delvis         |Nej         |
+|Visa jobb mått och diagram     |Yes         |Delvis         |No         |
+|Visa jobb körnings fel     |Yes         |Delvis         |No         |
 |CI/CD-stöd     |Nej         |Nej         |Nej         |
 
 

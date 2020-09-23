@@ -1,6 +1,6 @@
 ---
 title: inkludera fil
-description: ta med fil
+description: inkludera fil
 services: active-directory
 author: daveba
 ms.service: active-directory
@@ -9,14 +9,17 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187752"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971026"
 ---
-| Kategori | Gräns |
-| --- | --- |
-| Användare som tilldelats hanterade identiteter | <ul><li>När du skapar användarspecifika hanterade identiteter stöds endast alfanumeriska tecken (0-9, a-z och A-Z) och bindestreck (-). För att tilldelningen till en virtuell dator eller skalnings uppsättning för virtuella datorer ska fungera korrekt är namnet begränsat till 24 tecken.</li><li>Om du använder tillägget hanterad identitet för virtuell dator är den tillåtna gränsen 32 användare tilldelade hanterade identiteter. Utan tillägget hanterad identitet för virtuella datorer är den gräns som stöds 512 användare tilldelade identiteter.</li>|
+- Varje hanterad identitet räknas mot objekt kvot gränsen i en Azure AD-klient enligt beskrivningen i [Azure AD-tjänstens gränser och begränsningar](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
+-   Den hastighet med vilken hanterade identiteter kan skapas har följande gränser:
 
+    1. Per Azure AD-klient per Azure-region: 200 skapa åtgärder per 20 sekunder.
+    2. Per Azure-prenumeration per Azure-region: 40 skapa åtgärder per 20 sekunder.
+
+- När du skapar användarspecifika hanterade identiteter stöds endast alfanumeriska tecken (0-9, a-z och A-Z) och bindestreck (-). För att tilldelningen till en virtuell dator eller skalnings uppsättning för virtuella datorer ska fungera korrekt är namnet begränsat till 24 tecken.

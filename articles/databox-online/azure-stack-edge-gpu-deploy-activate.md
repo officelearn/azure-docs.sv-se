@@ -1,24 +1,24 @@
 ---
-title: Självstudie för att aktivera Azure Stack Edge-enhet med GPU i Azure Portal | Microsoft Docs
-description: Självstudie för att distribuera Azure Stack Edge GPU instruerar dig att aktivera den fysiska enheten.
+title: Självstudie för att aktivera Azure Stack Edge Pro-enhet med GPU i Azure Portal | Microsoft Docs
+description: Självstudie för att distribuera Azure Stack Edge Pro GPU instruerar dig att aktivera den fysiska enheten.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 88be4d9753e48f70dae5666e800a54209ed6ba3f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 15680a4f8228af95e6643478c9262653171912ca
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267946"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903468"
 ---
-# <a name="tutorial-activate-azure-stack-edge-with-gpu"></a>Självstudie: Aktivera Azure Stack Edge med GPU
+# <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Självstudie: Aktivera Azure Stack Edge Pro med GPU
 
-I den här självstudien beskrivs hur du kan aktivera din Azure Stack Edge-enhet med en inbyggd GPU med hjälp av det lokala webb gränssnittet.
+I den här självstudien beskrivs hur du kan aktivera din Azure Stack Edge Pro-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
 
 Aktiverings processen kan ta cirka 5 minuter att slutföra.
 
@@ -30,15 +30,15 @@ I den här självstudien lärde du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste du kontrol lera att:
+Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
 * För den fysiska enheten: 
     
-    - Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+    - Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
     - Du har konfigurerat nätverks-och beräknings nätverks inställningarna enligt beskrivningen i [Konfigurera nätverk, beräknings nätverk, webbproxy](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
     - Du har laddat upp dina egna eller genererat enhets certifikat på enheten om du har ändrat enhets namnet eller DNS-domänen via **enhets** sidan. Om du inte har gjort det här steget visas ett fel meddelande när enheten aktive ras och aktiveringen blockeras. Mer information finns i [Konfigurera certifikat](azure-stack-edge-gpu-deploy-configure-certificates.md).
     
-* Du har aktiverings nyckeln från Azure Stack Edge-tjänsten som du skapade för att hantera Azure Stack Edge-enheten. Mer information finns i [förbereda för att distribuera Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md).
+* Du har aktiverings nyckeln från Azure Stack Edge-tjänsten som du skapade för att hantera Azure Stack Edge Pro-enheten. Mer information finns i [förbereda för att distribuera Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md).
 
 
 ## <a name="activate-the-device"></a>Aktivera enheten
@@ -48,7 +48,7 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste
 
     ![Sidan Cloud information för det lokala webb gränssnittet](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
     
-3. I fönstret **Aktivera** anger du **aktiverings nyckeln** som du fick i [hämta aktiverings nyckeln för Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
+3. I fönstret **Aktivera** anger du **aktiverings nyckeln** som du fick i [hämta aktiverings nyckeln för Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
 4. Välj **Använd**.
 
@@ -59,23 +59,25 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste
     
     ![Sidan Cloud information för det lokala webb gränssnittet](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
-    Välj **Hämta nyckel fil** och spara *keys.jspå* filen på en säker plats utanför enheten. **Den här nyckel filen innehåller återställnings nycklarna för operativ system disken och data diskarna på enheten**. Här följer innehållet i *keys.jspå* filen:
+    Välj **Hämta och fortsätt** och spara filen *device-serial-no.jspå* en säker plats utanför enheten. **Den här nyckel filen innehåller återställnings nycklarna för operativ system disken och data diskarna på enheten**. Dessa nycklar kan behövas för att under lätta en framtida system återställning.
+
+    Här följer innehållet i *JSON* -filen:
 
         
     ```json
     {
-      "Id": "1ab3fe39-26e6-4984-bb22-2e02d3fb147e",
+      "Id": "<Device ID>",
       "DataVolumeBitLockerExternalKeys": {
-        "hcsinternal": "C086yg1DrPo0DuZB/a7hUh+kBWj804coJfBA9LDzZqw=",
-        "hcsdata": "8ohX9bG3YSZl9DZmZLkYl//L9dXi1XiQrqza+iSd64Q="
+        "hcsinternal": "<BitLocker key for data disk>",
+        "hcsdata": "<BitLocker key for data disk>"
       },
-      "SystemVolumeBitLockerRecoveryKey": "105347-156739-594473-151107-005082-252604-471955-439395",
-      "ServiceEncryptionKey": "oEwxNJeULzGRFt6DsLgcLw=="
+      "SystemVolumeBitLockerRecoveryKey": "<BitLocker key for system volume>",
+      "ServiceEncryptionKey": "<Azure service encryption key>"
     }
     ```
         
  
-    I följande tabell förklaras de olika nycklarna här:
+    I följande tabell förklaras de olika nycklarna:
     
     |Fält  |Beskrivning  |
     |---------|---------|
@@ -99,7 +101,7 @@ I den här självstudien lärde du dig att:
 > * Förutsättningar
 > * Aktivera den fysiska enheten
 
-Information om hur du överför data med Azure Stack Edge-enhet finns i:
+Information om hur du överför data med din Azure Stack Edge Pro-enhet finns i:
 
 > [!div class="nextstepaction"]
-> [Överföra data med Azure Stack Edge](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Överföra data med Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-add-shares.md)

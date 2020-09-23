@@ -47,12 +47,12 @@
       items:
         - name: Problem med agentanslutning
           href: troubleshoot-agent-onboard.md
-    - name: Referens
-      items:
-        - name: Regionstillgänglighet och datahemvist
-          href: data-residency.md
-        - name: REST
-          href: /rest/api/hybridcompute
-        - name: Inbyggda Azure Policy-program
-          displayName: 'samples, policies, definitions'
-          href: policy-reference.md
+- name: Referens
+  items:
+    - name: Dataplacering
+      href: data-residency.md
+    - name: REST
+      href: /rest/api/hybridcompute
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

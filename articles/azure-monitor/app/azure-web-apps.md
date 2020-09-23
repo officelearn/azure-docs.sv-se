@@ -4,12 +4,12 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933808"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979432"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -55,7 +55,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 2. När du har angett vilken resurs som ska användas kan du välja hur du vill att Application Insights ska samla in data per plattform för ditt program. ASP.NET app Monitoring är aktiverat som standard med två olika nivåer av samlingen.
 
-    ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new.png)
+    ![Skärm bild som visar sidan Application Insights webbplats tillägg där skapa ny resurs har valts.](./media/azure-web-apps/choose-options-new.png)
  
  Nedan visas en sammanfattning av data som samlas in för varje väg:
         
@@ -65,7 +65,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 | Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
 | Samlar in undantag som hanteras av värdprocessen | Ja |Ja |
 | Förbättrar precisionen för APM-mått under belastning när sampling används | Ja |Ja |
-| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Ja |
+| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Yes |
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan kontrol lera via applicationinsights.config-filen kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
@@ -355,7 +355,7 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 1. Kontrol lera att programmet övervakas via `ApplicationInsightsAgent` .
     * Kontrol lera att `ApplicationInsightsAgent_EXTENSION_VERSION` appens inställning har värdet "~ 2".
 2. Kontrol lera att programmet uppfyller de krav som ska övervakas.
-    * Bläddra till `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Gå till `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Skärm bild av https://yoursitename.scm.azurewebsites/applicationinsights resultat Sidan](./media/azure-web-apps/app-insights-sdk-status.png)
 

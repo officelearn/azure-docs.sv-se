@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456258"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907928"
 ---
 # <a name="feature-hashing-module-reference"></a>Modulreferens för funktion för hashing
 
-I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer.
 
 Använd modulen funktion-hash för att transformera en strömmande engelsk text till en uppsättning med heltals funktioner. Du kan sedan skicka den här hash-funktionen till en Machine Learning-algoritm för att träna en text analys modell.
 
@@ -39,7 +39,7 @@ Ta till exempel en uppsättning enkla meningar som dessa, följt av en sentiment
 
 Internt skapar modulen för funktions-hash en ord lista med n-gram. Listan över för den här data uppsättningen skulle till exempel vara ungefär så här:
 
-|Term (bigram)|Frekvens|
+|Term (bigram)|Frequency|
 |------------|---------------|
 |Den här boken|3|
 |Jag gillat|1|
@@ -48,7 +48,7 @@ Internt skapar modulen för funktions-hash en ord lista med n-gram. Listan över
 
 Du kan kontrol lera storleken på n-gram med hjälp av egenskapen **n-g** . Om du väljer unigrams beräknas även. Ord listan innehåller även enkla termer som dessa:
 
-|Term (unigrams)|Frekvens|
+|Term (unigrams)|Frequency|
 |------------|---------------|
 |bok|3|
 |I|3|

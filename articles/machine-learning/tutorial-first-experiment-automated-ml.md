@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047813"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896458"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här självstudien får du lära dig hur du skapar en grundläggande klassificerings modell utan att skriva en enda rad kod med hjälp av automatisk maskin inlärning i Azure Machine Learning Studio. Den här klassificerings modellen förutsäger om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
 
->[!IMPORTANT]
-> Den automatiserade maskin inlärnings upplevelsen i Azure Machine Learning Studio är i för hands version. Vissa funktioner kanske inte stöds eller har begränsade funktioner.
+I den här självstudien får du lära dig hur du skapar en enkel klassificerings modell utan att skriva en enda rad kod med hjälp av automatisk maskin inlärning i Azure Machine Learning Studio. Den här klassificerings modellen förutsäger om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
 
 Med automatisk maskin inlärning kan du automatisera tids krävande uppgifter. Automatisk maskin inlärning itererar snabbt över många kombinationer av algoritmer och egenskaper för att hjälpa dig att hitta den bästa modellen utifrån ett lyckat mått på hur du väljer.
 
@@ -47,9 +44,9 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i tjänsten. 
 
-Skapa en **Enterprise Edition** -arbetsyta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
+Skapa en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Anteckna din **arbets yta** och din **prenumeration**. Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
@@ -76,7 +73,7 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
 
 Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta i form av en Azure Machine Learning data uppsättning. På så sätt kan du se till att dina data formateras korrekt för experimentet.
 
-1. Skapa en ny data uppsättning genom att välja **från lokala filer** från List rutan **+ skapa data uppsättning** . 
+1. Skapa en ny data uppsättning genom att välja **från lokala filer** från List rutan  **+ skapa data uppsättning** . 
 
     1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Det automatiserade ML-gränssnittet stöder för närvarande endast TabularDatasets, så data uppsättnings typen ska vara standard i *tabell*.
 
@@ -114,16 +111,16 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
     
     1. Välj din data uppsättning när den visas i listan.
     
-    1. Granska **data förhands granskningen** för att se till att du inte har inkluderat **day_of_week** Välj **OK**.
+    1. Granska **data förhands granskningen**  för att se till att du inte har inkluderat **day_of_week** Välj **OK**.
 
-    1. Välj **Nästa**.
+    1. Välj  **Nästa**.
 
 ## <a name="configure-experiment-run"></a>Konfigurera experiment körning
 
 När du har läst in och konfigurerat dina data kan du konfigurera experimentet. Den här installationen innehåller experiment design uppgifter, till exempel, hur du väljer storlek på din beräknings miljö och hur du anger vilken kolumn som du vill förutsäga. 
 
 1. Fyll i formuläret **Konfigurera körning** enligt följande:
-    1. Ange följande experiment namn:`my-1st-automl-experiment`
+    1. Ange följande experiment namn: `my-1st-automl-experiment`
 
     1. Välj **y** som mål kolumn, vad du vill förutsäga. Den här kolumnen visar om klienten prenumererar på en term insättning eller inte.
     
@@ -131,7 +128,7 @@ När du har läst in och konfigurerat dina data kan du konfigurera experimentet.
 
         Fält | Beskrivning | Värde för självstudier
         ----|---|---
-        Compute-namn |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
+        Namn på beräkning |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
         Typ av virtuell &nbsp; dator &nbsp;| Välj typ av virtuell dator för din beräkning.|PROCESSOR (Central bearbetnings enhet)
         &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
         Min/högsta antal noder| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
@@ -162,7 +159,7 @@ När du har läst in och konfigurerat dina data kan du konfigurera experimentet.
         
         Välj **Spara**.
 
-1. Klicka på **Slutför** om du vill köra experimentet. Skärmen **körnings information** öppnas med **körnings status** överst när experiment förberedelsen börjar.
+1. Klicka på **Slutför** om du vill köra experimentet. Skärmen **körnings information**  öppnas med **körnings status** överst när experiment förberedelsen börjar.
 
 >[!IMPORTANT]
 > Förberedelserna tar **10-15 minuter** för att förbereda experiment körningen.
@@ -203,7 +200,7 @@ Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar u
     ----|----
     Distributions namn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning
-    Compute-typ | Välj Azure Compute Instance (ACI)
+    Typ av beräkning | Välj Azure Compute Instance (ACI)
     Aktivera autentisering| Inaktivera. 
     Använd anpassade distributioner| Inaktivera. Tillåter att standard driv rutins filen (bedömnings skriptet) och miljö filen skapas automatiskt. 
     

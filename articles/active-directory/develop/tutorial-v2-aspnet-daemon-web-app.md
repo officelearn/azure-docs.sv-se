@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83641106"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982860"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudie: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
 
@@ -41,7 +41,7 @@ Appen skapas som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect-mell
 
 Eftersom appen är en app för flera klienter för Microsoft Business-kunder måste den ge kunderna möjlighet att "registrera sig" eller "ansluta" programmet till företagets data. Under anslutnings flödet beviljar en företags administratör först *program behörigheter* direkt till appen så att den kan komma åt företagets data på ett icke-interaktivt sätt, utan förekomst av en inloggad användare. Majoriteten av logiken i det här exemplet visar hur du uppnår anslutnings flödet med hjälp av identitets Plattformens slut punkt för [Administratörs medgivande](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) .
 
-![Topologi](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![Diagrammet visar UserSync-appen med tre lokala objekt som ansluter till Azure, med start punkts-auth som hämtar en token interaktivt för att ansluta till Azure A D, AccountController får administratörs medgivande för att ansluta till Azure A D och SyncController läsa användare för att ansluta till Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Mer information om de begrepp som används i det här exemplet finns i [protokoll dokumentationen för klientens autentiseringsuppgifter för identitets Plattformens slut punkt](v2-oauth2-client-creds-grant-flow.md).
 
@@ -113,17 +113,17 @@ Om du inte vill använda Automation följer du stegen i följande avsnitt.
      Om det finns fler än två omdirigerings-URI: er måste du lägga till dem från fliken **autentisering** senare, när appen har skapats.
 1. Välj **Registrera** för att skapa programmet.
 1. På sidan **Översikt** för appen letar du reda på **programmets (klient) ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för projektet.
-1. I listan över sidor för appen väljer du **Autentisering**. Då gäller:
+1. I listan över sidor för appen väljer du **Autentisering**. Efter det:
    - I avsnittet **Avancerade inställningar** anger du **utloggnings-URL** till **https://localhost:44316/Account/EndSession** .
    - I avsnittet **Avancerade inställningar**för  >  **implicit beviljande** väljer du **åtkomsttoken** och **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren och anropa ett API.
 1. Välj **Spara**.
-1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet**i avsnittet **klient hemligheter** . Då gäller:
+1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet**i avsnittet **klient hemligheter** . Efter det:
 
    1. Ange en nyckel Beskrivning (till exempel **app Secret**),
    1. Välj en nyckel varaktighet på **minst ett år**, **i två år**eller **upphör aldrig att gälla**.
    1. Välj knappen **Lägg till**.
    1. När nyckelvärdet visas kopierar du och sparar det på en säker plats. Du behöver den här nyckeln senare för att konfigurera projektet i Visual Studio. Den visas inte igen eller kan hämtas på annat sätt.
-1. I listan över sidor för appen väljer du API- **behörigheter**. Då gäller:
+1. I listan över sidor för appen väljer du API- **behörigheter**. Efter det:
    1. Välj knappen **Lägg till en behörighet**.
    1. Se till att fliken **Microsoft API: er** är markerad.
    1. I avsnittet **vanliga API: er för Microsoft** väljer du **Microsoft Graph**.

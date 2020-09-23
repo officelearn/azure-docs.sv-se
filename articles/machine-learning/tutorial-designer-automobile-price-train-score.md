@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: förutsäga bil priser med designern (för hands version)'
+title: 'Självstudie: förutsäga bil priser med designern'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar, poängs ätter och distribuerar en maskin inlärnings modell med hjälp av ett dra-och-släpp-gränssnitt. Den här självstudien är en del av en serie i två delar om förutsägelse av bil priser med hjälp av linjär regression.
 author: peterclu
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 9d25d9e13cc7f3dba0f4254cda6e1119ff9e2e68
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659797"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896696"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Självstudie: förutsäga Automobile-priset med designern
+
 
 I den här självstudien får du lära dig hur du använder Azure Machine Learning designer för att träna och distribuera en maskin inlärnings modell som förutsäger priset på en bil. Designern är ett dra-och-släpp-verktyg som gör att du kan skapa maskin inlärnings modeller utan en enda rad kod.
 
@@ -49,10 +49,6 @@ Om du vill skapa en Azure Machine Learning pipeline behöver du en Azure Machine
 ### <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
 För att kunna använda designern behöver du först en Azure Machine Learning-arbetsyta. Arbets ytan är den översta resursen för Azure Machine Learning, den innehåller en central plats där du kan arbeta med alla artefakter som du skapar i Azure Machine Learning.
-
-Om du har en Azure Machine Learning-arbetsyta med en Enterprise-utgåva går du [vidare till nästa avsnitt](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 

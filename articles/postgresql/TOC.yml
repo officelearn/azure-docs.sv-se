@@ -8,90 +8,110 @@
       items:
         - name: SSL-rotcertifikatet upphör att gälla
           href: concepts-certificate-rotation.md
-- name: Snabbstarter
+- name: Delad dokumentation
+  items:
+    - name: Migrering
+      items:
+        - name: Migrera data med pg_dump och pg_restore
+          href: howto-migrate-using-dump-and-restore.md
+          displayName: 'pg_dump, pg_restore'
+        - name: Migrera data med pg_dump och psql
+          href: howto-migrate-using-export-and-import.md
+          displayName: 'import , export'
+        - name: Minimal stilleståndstid vid migrering med Azure Database Migration Service
+          href: howto-migrate-online.md
+          displayName: 'dms, data migration service'
+- name: Enskild server
   expanded: true
   items:
-    - name: Enskild server
+    - name: Dokumentation om enskild server
+      href: single-server/index.yml
+    - name: Översikt
+      href: overview-single-server.md
+    - name: Snabbstarter
+      expanded: true
       items:
-        - name: Skapa DB – Portal
-          href: quickstart-create-server-database-portal.md
-        - name: Skapa DB – Azure CLI
-          href: quickstart-create-server-database-azure-cli.md
-        - name: Skapa DB – Azure CLI up-kommando
-          href: quickstart-create-server-up-azure-cli.md
-        - name: Skapa DB – Azure PowerShell
-          href: quickstart-create-postgresql-server-database-using-azure-powershell.md
-        - name: Skapa DB – ARM-mall
-          href: quickstart-create-postgresql-server-database-using-arm-template.md
-          displayName: deploy azure resource manager template
+        - name: Skapa en server
+          items:
+            - name: Azure Portal
+              href: quickstart-create-server-database-portal.md
+              displayName: 'create single server,portal'
+            - name: Azure CLI
+              href: quickstart-create-server-database-azure-cli.md
+              displayName: create single server in CLI
+            - name: Azure CLI up-kommando
+              href: quickstart-create-server-up-azure-cli.md
+              displayName: create single server up command
+            - name: Azure PowerShell
+              href: quickstart-create-postgresql-server-database-using-azure-powershell.md
+            - name: ARM-mall
+              href: quickstart-create-postgresql-server-database-using-arm-template.md
+              displayName: deploy azure resource manager template
         - name: Ansluta och fråga
           items:
             - name: Python
               href: connect-python.md
+              displayName: 'python, django , connect'
             - name: Node.js
               href: connect-nodejs.md
+              displayName: 'nodejs, express, connect'
             - name: Java
               href: connect-java.md
+              displayName: 'java , connect'
             - name: Java med Spring Data JDBC
               href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'spring java, jdbc, connect'
             - name: Java med Spring Data JPA
               href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'java jpa, spring data'
             - name: Java med Spring Data R2DBC
               href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'java, r2dbc, spring data'
             - name: Ruby
               href: connect-ruby.md
+              displayName: connect with ruby
             - name: PHP
               href: connect-php.md
+              displayName: connect with php
             - name: .NET
               href: connect-csharp.md
+              displayName: connect with .net
             - name: Go
               href: connect-go.md
-    - name: Hyperskala (Citus)
+              displayName: connect with go
+    - name: Självstudier
       items:
-        - name: Skapa en servergrupp – portalen
-          href: quickstart-create-hyperscale-portal.md
-- name: Självstudier
-  items:
-    - name: Enskild server
-      items:
-        - name: 1 – Utforma en databas
+        - name: Utforma en databas
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: tutorial-design-database-using-azure-portal.md
+              displayName: design database
             - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
-        - name: '2 – Utforma webbapp: Python'
+        - name: Skapa och distribuera en Python-webbapp (Django)
           href: ../app-service/tutorial-python-postgresql-app.md
+          displayName: 'python, django, connect'
           maintainContext: true
-        - name: 3 – Övervaka och finjustera
+        - name: Övervaka och finjustera
           href: tutorial-monitor-and-tune.md
-    - name: Hyperskala (Citus)
+          displayName: 'monitor, alerts, configure'
+    - name: Exempel
       items:
-        - name: Utforma en databas för flera innehavare
-          href: tutorial-design-database-hyperscale-multi-tenant.md
-        - name: Utforma en instrumentpanel i realtid
-          href: tutorial-design-database-hyperscale-realtime.md
-- name: Exempel
-  items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-- name: Begrepp
-  items:
-    - name: Enskild server
+        - name: Azure CLI
+          href: sample-scripts-azure-cli.md
+        - name: Inbyggda Azure Policy-program
+          href: policy-samples.md
+    - name: Begrepp
       items:
-        - name: Databaser och servrar
-          items:
-            - name: Servrar
-              href: concepts-servers.md
-            - name: Versioner som stöds
-              href: concepts-supported-versions.md
-            - name: PostgreSQL-tillägg
-              href: concepts-extensions.md
-            - name: Hög tillgänglighet
-              href: concepts-high-availability.md
-        - name: Resurser
+        - name: Servrar
+          href: concepts-servers.md
+        - name: Versioner som stöds
+          href: concepts-supported-versions.md
+        - name: PostgreSQL-tillägg
+          href: concepts-extensions.md
+        - name: Förstå prisnivåer
           items:
             - name: Prisnivåer
               href: concepts-pricing-tiers.md
@@ -99,270 +119,485 @@
               href: concept-reserved-pricing.md
             - name: Begränsningar
               href: concepts-limits.md
-        - name: Dataåtkomst och säkerhet
+        - name: Säkerhet
           items:
             - name: Säkerhetsöversikt
               href: concepts-security.md
+              displayName: 'security, overview'
             - name: Konfigurera SSL
               href: concepts-ssl-connection-security.md
+              displayName: 'security,ssl'
             - name: Anslutningsarkitektur
               href: concepts-connectivity-architecture.md
-            - name: Brandväggsregler
-              href: concepts-firewall-rules.md
-            - name: Virtuellt nätverk
-              href: concepts-data-access-and-security-vnet.md
+              displayName: 'security, architecture'
             - name: Advanced Threat Protection
               href: concepts-data-access-and-security-threat-protection.md
+              displayName: 'security, advanced threat protection'
             - name: Azure AD-autentisering
               href: concepts-aad-authentication.md
-            - name: Private Link
-              href: concepts-data-access-and-security-private-link.md
+              displayName: 'security, aad, active directory'
             - name: Datakryptering
               href: concepts-data-encryption-postgresql.md
+              displayName: 'security, data encryption'
             - name: Dubbel infrastrukturkryptering
               href: concepts-infrastructure-double-encryption.md
-            - name: Säkerhetskontroller av Azure Policy
-              displayName: 'regulatory, compliance, standards, domains'
-              href: ./security-controls-policy.md
-            - name: Säkerhetsbaslinje för Azure Security Benchmark
+              displayName: 'security, infrastructure encryption'
+            - name: Säkerhetsbaslinje
               href: security-baseline.md
+        - name: Nätverk
+          items:
+            - name: Brandväggsregler
+              href: concepts-firewall-rules.md
+              displayName: 'firewall rules, security, connect'
+            - name: Virtuellt nätverk
+              href: concepts-data-access-and-security-vnet.md
+              displayName: 'security, service endpoint'
+            - name: Private Link
+              href: concepts-data-access-and-security-private-link.md
+              displayName: 'security, private link, private endpoint'
         - name: Verksamhetskontinuitet
           items:
             - name: Introduktion till affärskontinuitet
               displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
               href: concepts-business-continuity.md
+            - name: Hög tillgänglighet
+              href: concepts-high-availability.md
             - name: Säkerhetskopiering och återställning
               href: concepts-backup.md
+              displayName: 'backup ,restore, georestore, geo-restore, outage'
         - name: Övervaka och finjustera
           items:
             - name: Övervaka och finjustera
               href: concepts-monitoring.md
+              displayName: 'monitor, tune, alerts'
             - name: Loggar
               href: concepts-server-logs.md
+              displayName: 'monitor, server logs'
             - name: Granskningsloggar
               href: concepts-audit.md
+              displayName: 'audit logs, monitor'
             - name: Query Store
               items:
                 - name: Query Store
                   href: concepts-query-store.md
-                - name: Query Store-användningsscenarier
+                  displayName: 'performance, optimize, query store'
+                - name: Användningsscenarier för Query Store
                   href: concepts-query-store-scenarios.md
+                  displayName: 'query store, performance, optimize'
                 - name: Metodtips för Query Store
                   href: concepts-query-store-best-practices.md
-            - name: Query Performance Insight
+            - name: Information om frågeprestanda
               href: concepts-query-performance-insight.md
+              displayName: 'query store, performance, optimize, insights'
             - name: Prestandarekommendationer
               href: concepts-performance-recommendations.md
-        - name: Utveckling
+              displayName: 'query store, performance, optimize, recommendations'
+        - name: Apputveckling
           items:
             - name: Anslutningsbibliotek
               href: concepts-connection-libraries.md
+              displayName: 'libraries, drivers'
             - name: Anslutningsåterhämtning
               href: concepts-connectivity.md
-            - name: Utveckla med Azure Kubernetes Service (AKS)
-              href: concepts-aks.md
-            - name: Java
-              items:
-                - name: Använda Java och JDBC
-                  href: connect-java.md
-                - name: Konfigurera Spring Data JDBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-                - name: Konfigurera Spring Data JPA
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-                - name: Konfigurera Spring Data R2DBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
+              displayName: 'transient errors, connection issues, connectivity issues, pooling'
         - name: Replikering
           items:
             - name: Skrivskyddade repliker
               href: concepts-read-replicas.md
+              displayName: 'replication, read replica'
             - name: Logisk avkodning
               href: concepts-logical.md
-    - name: Hyperskala (Citus)
+              displayName: logical decoding
+    - name: Anvisningar
       items:
-        - name: Distribuerad data
-          items:
-            - name: Noder och tabeller
-              href: concepts-hyperscale-nodes.md
-            - name: Fastställa programtyp
-              href: concepts-hyperscale-app-type.md
-            - name: Välja en distributionskolumn
-              href: concepts-hyperscale-choose-distribution-column.md
-            - name: Tabellsamlokalisering
-              href: concepts-hyperscale-colocation.md
-        - name: Dataåtkomst och säkerhet
-          items:
-            - name: Brandväggsregler
-              href: concepts-hyperscale-firewall-rules.md
-            - name: Konfigurera SSL
-              href: concepts-hyperscale-ssl-connection-security.md
-            - name: Säkerhetsbaslinje för Azure Security Benchmark
-              href: postgresql-hyperscale-security-baseline.md
-        - name: Verksamhetskontinuitet
-          items:
-            - name: Säkerhetskopiering och återställning
-              href: concepts-hyperscale-backup.md
-        - name: Övervaka och finjustera
-          items:
-            - name: Övervaka och finjustera
-              href: concepts-hyperscale-monitoring.md
-        - name: PostgreSQL-tillägg
-          href: concepts-hyperscale-extensions.md
-        - name: Hög tillgänglighet
-          href: concepts-hyperscale-high-availability.md
-        - name: Resurser
-          items:
-            - name: Konfigurationsalternativ
-              href: concepts-hyperscale-configuration-options.md
-            - name: Förskottsbetalning för reserverad kapacitet
-              href: concepts-hyperscale-reserved-pricing.md
-- name: Anvisningar
-  items:
-    - name: Enskild server
-      items:
-        - name: Hantera en server
+        - name: Hantera och skala
           items:
             - name: Azure Portal
               href: howto-create-manage-server-portal.md
-        - name: Autentisering
+              displayName: 'scale server, reset password'
+            - name: Azure CLI
+              href: how-to-manage-server-cli.md
+              displayName: 'scale server, reset password'
+        - name: Starta om servern
+          items:
+            - name: Azure Portal
+              href: howto-restart-server-portal.md
+            - name: Azure CLI
+              href: howto-restart-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restart-server-powershell.md
+        - name: Brandväggsregler
+          items:
+            - name: Azure Portal
+              href: howto-manage-firewall-using-portal.md
+              displayName: 'firewall, portal, rules'
+            - name: Azure CLI
+              href: howto-manage-firewall-using-cli.md
+              displayName: 'firewall, rules, cli'
+        - name: Anslut och fråga guide
+          href: how-to-connect-query-guide.md
+          displayName: application development
+        - name: Återställa en server
+          items:
+            - name: Azure Portal
+              href: howto-restore-server-portal.md
+              displayName: 'restore, georestore, geo-restore, outage'
+            - name: Azure CLI
+              href: howto-restore-server-cli.md
+              displayName: 'restore, georestore, geo-restore, outage'
+            - name: Azure PowerShell
+              href: howto-restore-server-powershell.md
+              displayName: 'restore, georestore, geo-restore, outage'
+        - name: Aktivera autentisering
           items:
             - name: Skapa användare
               href: howto-create-users.md
+              displayName: 'non-admin user, application development'
             - name: Konfigurera Azure AD-integrering
               href: howto-configure-sign-in-aad-authentication.md
+              displayName: 'application development, aad, active directory'
             - name: Anslut med hanterad identitet
               href: howto-connect-with-managed-identity.md
         - name: Optimera
           items:
             - name: Massinfogning
               href: howto-optimize-bulk-inserts.md
+              displayName: 'bulk inserts, optimzie'
             - name: Autovacuum
               href: howto-optimize-autovacuum.md
+              displayName: 'optimize, autovacuum'
             - name: Samling med frågestatistik
               href: howto-optimize-query-stats-collection.md
+              displayName: 'query optimize, performance'
             - name: Strategi för popup-tabell
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-        - name: Hantera brandväggen
-          items:
-            - name: Azure-portalen
-              href: howto-manage-firewall-using-portal.md
-            - name: Azure CLI
-              href: howto-manage-firewall-using-cli.md
-        - name: Återställ en server
-          items:
-            - name: Azure-portalen
-              href: howto-restore-server-portal.md
-            - name: Azure CLI
-              href: howto-restore-server-cli.md
-            - name: Azure PowerShell
-              href: howto-restore-server-powershell.md
-        - name: Migrera en databas
-          items:
-            - name: Dumpa och återställa
-              href: howto-migrate-using-dump-and-restore.md
-            - name: Importera och exportera
-              href: howto-migrate-using-export-and-import.md
-            - name: Minimal stilleståndstid vid migrering
-              href: howto-migrate-online.md
-        - name: Anslut program
-          items:
-            - name: Konfigurera TLS
-              href: howto-tls-configurations.md
-            - name: Azure PowerShell
-              href: howto-connection-string-powershell.md
+              displayName: 'query optimize, performance'
+        - name: Konfigurera TLS
+          href: howto-tls-configurations.md
+          displayName: 'application development, TLS'
+        - name: Anslutningssträngar
+          href: howto-connection-string-powershell.md
+          displayName: 'application development, TLS'
         - name: Konfigurera serverparametrar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
+              displayName: 'application development, server parameters'
             - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
+              displayName: 'application development, server parameters'
             - name: Azure PowerShell
               href: howto-configure-server-parameters-using-powershell.md
+              displayName: 'application development, server parameters'
         - name: Lagring som växer automatiskt
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
+              displayName: 'business continuity, scale , storage'
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
+              displayName: 'business continuity, scale , storage'
             - name: Azure PowerShell
               href: howto-auto-grow-storage-powershell.md
+              displayName: 'business continuity, scale , storage'
         - name: Åtkomstloggar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
+              displayName: 'access logs, monitor'
             - name: Azure CLI
               href: howto-configure-server-logs-using-cli.md
+              displayName: 'access logs, monitor'
         - name: Övervaka
           items:
             - name: Skapa aviseringar för mått
               href: howto-alert-on-metric.md
+              displayName: 'alerts, metrics, monitor'
         - name: Felsöka
           items:
             - name: Felsöka anslutningsfel
               href: howto-troubleshoot-common-connection-issues.md
+              displayName: 'debug, connection, issues, firewall, ssl, port'
             - name: Felsöka datakryptering
               href: howto-data-encryption-troubleshoot.md
+              displayName: 'debug, security, encryption'
         - name: Advanced Threat Protection
           items:
             - name: Azure Portal
               href: howto-database-threat-protection-portal.md
-        - name: Virtual Network
+              displayName: 'advanced thread, security'
+        - name: Virtuellt nätverk
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-manage-vnet-using-portal.md
+              displayName: 'service endpoint, vnet, virtual network'
             - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
+              displayName: 'service endpoint, vnet, virtual network'
         - name: Private Link
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-configure-privatelink-portal.md
+              displayName: 'private endpoint, private link'
             - name: Azure CLI
               href: howto-configure-privatelink-cli.md
+              displayName: 'private endpoint, private link'
         - name: Datakryptering
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-data-encryption-portal.md
+              displayName: 'encryption, security'
             - name: Azure CLI
               href: howto-data-encryption-cli.md
+              displayName: 'encryption, security'
             - name: Validering av datakryptering
               href: howto-data-encryption-validation.md
+              displayName: 'encryption, security'
         - name: Dubbel infrastrukturkryptering
           items:
-            - name: Konfigurera dubbel infrastrukturkryptering
+            - name: Konfigurera dubbel kryptering
               href: howto-double-encryption.md
-        - name: Starta om servern
-          items:
-            - name: Azure-portalen
-              href: howto-restart-server-portal.md
-            - name: Azure CLI
-              href: howto-restart-server-cli.md
-            - name: Azure PowerShell
-              href: howto-restart-server-powershell.md
+              displayName: 'encryption, security'
         - name: Neka åtkomst till offentligt nätverk
           items:
             - name: Azure Portal
               href: howto-deny-public-network-access.md
+              displayName: 'deny, public access, security'
         - name: Replikering
           items:
-            - name: Hantera skrivskyddade repliker på Azure-portalen
+            - name: Azure Portal
               href: howto-read-replicas-portal.md
-            - name: 'Hantera skrivskyddade repliker i Azure CLI, REST-API'
+              displayName: replica
+            - name: 'Azure CLI, REST API'
               href: howto-read-replicas-cli.md
-            - name: Hantera skrivskyddade repliker med Azure PowerShell
+              displayName: read replica
+            - name: Azure PowerShell
               href: howto-read-replicas-powershell.md
+              displayName: read replica
         - name: Flytta mellan regioner
           items:
             - name: Azure Portal
               href: howto-move-regions-portal.md
-    - name: Hyperskala (Citus)
+- name: Flexibel server (förhandsversion)
+  expanded: true
+  items:
+    - name: Dokumentation om flexibel server
+      href: flexible-server/index.yml
+    - name: Översikt
+      href: flexible-server/overview.md
+    - name: Snabbstarter
+      expanded: true
       items:
-        - name: Skapa användare
-          href: howto-hyperscale-create-users.md
-        - name: Servergruppstorlek
+        - name: Skapa server och databas
+          items:
+            - name: Azure Portal
+              href: flexible-server/quickstart-create-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/quickstart-create-server-cli.md
+            - name: ARM-mall
+              href: flexible-server/quickstart-create-server-arm-template.md
+        - name: Anslut och fråga
+          items:
+            - name: Python
+              href: flexible-server/connect-python.md
+    - name: Självstudier
+      items:
+        - name: Skapa en webbapp i ett virtuellt nätverk
+          href: flexible-server/tutorial-webapp-server-vnet.md
+        - name: Distribuera en Django-app
+          href: flexible-server/tutorial-django-app-service-postgres.md
+    - name: Begrepp
+      items:
+        - name: Servrar
+          href: flexible-server/concepts-servers.md
+        - name: Versioner som stöds
+          href: flexible-server/concepts-supported-versions.md
+        - name: Beräkning och lagring
+          href: flexible-server/concepts-compute-storage.md
+        - name: Nätverk
+          href: flexible-server/concepts-networking.md
+          displayName: 'virtual networks, vnet, IP address, public access'
+        - name: Gränser
+          href: flexible-server/concepts-limits.md
+        - name: Tillägg
+          href: flexible-server/concepts-extensions.md
+        - name: Schemalagt underhåll
+          href: flexible-server/concepts-maintenance.md
+        - name: Verksamhetskontinuitet
+          items:
+            - name: Översikt över affärskontinuitet
+              href: flexible-server/concepts-business-continuity.md
+            - name: Säkerhetskopiering och återställning
+              href: flexible-server/concepts-backup-restore.md
+            - name: Hög tillgänglighet
+              href: flexible-server/concepts-high-availability.md
+        - name: Övervaka och finjustera
+          items:
+            - name: Övervaka och finjustera översikt
+              href: flexible-server/concepts-monitoring.md
+              displayName: 'monitor, metrics'
+            - name: Loggar
+              href: flexible-server/concepts-logging.md
+              displayName: 'monitor, server logs'
+            - name: Granskningsloggar
+              href: flexible-server/concepts-audit.md
+        - name: Replikering
+          href: flexible-server/concepts-logical.md
+          displayName: logical decoding
+    - name: Anvisningar
+      items:
+        - name: Hantera en server
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-manage-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-manage-server-cli.md
+        - name: Schemalagt underhåll
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: Nätverk
+          items:
+            - name: Privat åtkomst (VNet-integrering)
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: Offentlig åtkomst (tillåtna IP-adresser)
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-firewall-cli.md
+            - name: TLS/SSL
+              items:
+                - name: Ansluta med TLS/SSL
+                  href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Konfigurera serverparametrar
+          items:
+            - name: Azure Portal
+              href: flexible-server/howto-configure-server-parameters-using-portal.md
+              displayName: 'application development, server parameters'
+            - name: Azure CLI
+              href: flexible-server/howto-configure-server-parameters-using-cli.md
+              displayName: 'application development, server parameters'
+        - name: Skala en server
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-scale-compute-storage-portal.md
+        - name: Starta om en server
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: Återställ en server
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-restore-server-portal.md
+        - name: Stoppa/starta en server
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-stop-start-server-portal.md
+        - name: Hantera hög tillgänglighet
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-manage-high-availability-portal.md
+        - name: Övervaka
+          items:
+            - name: Skapa aviseringar för mått
+              href: flexible-server/howto-alert-on-metrics.md
+            - name: Konfigurera och få åtkomst till loggar
+              href: flexible-server/howto-configure-and-access-logs.md
+- name: Hyperskala (Citus)
+  items:
+    - name: Dokumentation om Hyperskala (Citus)
+      href: hyperscale/index.yml
+    - name: Översikt
+      items:
+        - name: Vad är Hyperskala (Citus)?
+          href: hyperscale-overview.md
+    - name: Snabbstart
+      items:
+        - name: Skapa en servergrupp
+          items:
+            - name: Azure Portal
+              href: quickstart-create-hyperscale-portal.md
+              displayName: 'portal, create hyperscale'
+    - name: Självstudier
+      items:
+        - name: Utforma en databas för flera innehavare
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+          displayName: 'hyperscale, tutorial, multi-tenant'
+        - name: Utforma en instrumentpanel i realtid
+          href: tutorial-design-database-hyperscale-realtime.md
+          displayName: 'hyperscale, tutorial, real-time'
+    - name: Exempel
+      items:
+        - name: Azure CLI
+          href: sample-scripts-azure-cli.md
+          displayName: 'samples, azure cli'
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: ./policy-samples.md
+    - name: Begrepp
+      items:
+        - name: Distribuerad data
+          items:
+            - name: Noder och tabeller
+              href: concepts-hyperscale-nodes.md
+              displayName: 'nodes, tables'
+            - name: Fastställa programtyp
+              href: concepts-hyperscale-app-type.md
+            - name: Välja en distributionskolumn
+              href: concepts-hyperscale-choose-distribution-column.md
+            - name: Tabellsamlokalisering
+              href: concepts-hyperscale-colocation.md
+            - name: Konfigurationsalternativ
+              href: concepts-hyperscale-configuration-options.md
+            - name: Förskottsbetalning för reserverad kapacitet
+              href: concepts-hyperscale-reserved-pricing.md
+        - name: Säkerhet
+          items:
+            - name: Brandväggsregler
+              href: concepts-hyperscale-firewall-rules.md
+              displayName: 'firewall, rules, hyperscale'
+            - name: Konfigurera SSL
+              href: concepts-hyperscale-ssl-connection-security.md
+              displayName: 'hyperscale, ssl'
+            - name: Säkerhetsbaslinje
+              href: postgresql-hyperscale-security-baseline.md
+        - name: Verksamhetskontinuitet
+          items:
+            - name: Säkerhetskopiering och återställning
+              href: concepts-hyperscale-backup.md
+              displayName: 'backup, restore, outage, hyperscale'
+            - name: Hög tillgänglighet
+              href: concepts-hyperscale-high-availability.md
+        - name: Övervaka och finjustera
+          items:
+            - name: Övervaka och finjustera
+              href: concepts-hyperscale-monitoring.md
+        - name: PostgreSQL-tillägg
+          href: concepts-hyperscale-extensions.md
+    - name: API-referens
+      items:
+        - name: SQL API-funktioner
+          href: reference-hyperscale-functions.md
+        - name: Serverparametrar
+          href: reference-hyperscale-parameters.md
+        - name: Systemtabeller
+          href: reference-hyperscale-metadata.md
+    - name: Anvisningar
+      items:
+        - name: Skala en servergrupp
           href: howto-hyperscale-scaling.md
-        - name: Hantera brandväggen
+        - name: Brandväggsregler
           items:
             - name: Azure Portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+              displayName: 'firewall rule, hyperscale'
+        - name: Skapa användare
+          href: howto-hyperscale-create-users.md
         - name: Distribuerad data
           items:
             - name: Distribuera och ändra tabeller
@@ -373,33 +608,23 @@
           items:
             - name: Skapa aviseringar för mått
               href: howto-hyperscale-alert-on-metric.md
+              dispalyName: alerts on hyperscale
             - name: Komma åt databasloggar
               href: howto-hyperscale-logging.md
+              displayName: 'log, hyperscale'
         - name: Felsöka
           items:
             - name: Felsöka anslutningsfel
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
+              displayName: 'connection errors, hyperscale'
 - name: Referens
   items:
-    - name: Enskild server
-      items:
-        - name: Azure CLI
-          href: /cli/azure/postgres
-        - name: REST-API
-          href: /rest/api/postgresql
-        - name: Resource Manager-mall
-          href: /azure/templates/microsoft.dbforpostgresql/allversions
-    - name: Hyperskala (Citus)
-      items:
-        - name: SQL API-funktioner
-          href: reference-hyperscale-functions.md
-        - name: Serverparametrar
-          href: reference-hyperscale-parameters.md
-        - name: Systemtabeller
-          href: reference-hyperscale-metadata.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
+    - name: Azure CLI
+      href: /cli/azure/postgres
+    - name: REST-API
+      href: /rest/api/postgresql
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.dbforpostgresql/allversions
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

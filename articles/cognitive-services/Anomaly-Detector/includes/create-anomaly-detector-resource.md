@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8dbe36693e551bd03022f4a00044b75b912c834a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025274"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
 
@@ -21,22 +21,21 @@ ms.locfileid: "80875149"
 1. Klicka på [skapa **avvikelse detektor** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resurs
 1. Ange alla nödvändiga inställningar:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |--|--|
     |Namn|Önskat namn (2-64 tecken)|
     |Prenumeration|Välj lämplig prenumeration|
-    |Plats|Välj valfri närliggande och tillgänglig plats|
-    |Prisnivå|`F0`– den minimala pris nivån|
+    |Position|Välj valfri närliggande och tillgänglig plats|
+    |Prisnivå|`F0` – den minimala pris nivån|
     |Resursgrupp|Välj en tillgänglig resurs grupp|
-    |Kryss rutan Bekräfta för hands version (krävs)|Om du har läst meddelandet för **förhands granskning**|
 
 1. Klicka på **skapa** och vänta tills resursen har skapats. När den har skapats går du till resurs Sidan
-1. Samla in `endpoint` konfigurerade och en API-nyckel:
+1. Samla in konfigurerade `endpoint` och en API-nyckel:
 
-    |Fliken resurs i portalen|Inställning|Värde|
+    |Fliken resurs i portalen|Inställningen|Värde|
     |--|--|--|
-    |**Översikt**|Slutpunkt|Kopiera slut punkten. Det ser ut ungefär så här`https://westus2.api.cognitive.microsoft.com/`|
-    |**Nycklar**|API-nyckel|Kopia 1 av de två nycklarna. Det är en sträng med 32 alfanumeriska tecken utan blank steg eller bindestreck `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Översikt**|Slutpunkt|Kopiera slut punkten. Det ser ut ungefär så här `https://westus2.api.cognitive.microsoft.com/`|
+    |**Nycklar**|API-nyckel|Kopia 1 av de två nycklarna. Det är en sträng med 32 alfanumeriska tecken utan blank steg eller bindestreck `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
 
 
 

@@ -4,12 +4,12 @@ description: Lär dig att göra en lokal WCF-tjänst tillgänglig för en webbap
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: d6299899ee45bbad8b5e5fdbca01805604794d62
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922556"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983889"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay
 
@@ -344,7 +344,7 @@ Kör programmet för att kontrollera att det fungerar.
 
 Programmet bör visas och körs i en webbläsare.
 
-![Webbprogram][21]
+![Skärm bild som visar ett exempel på ett program som körs i en webbläsare med den URL som är markerad.][21]
 
 ## <a name="put-the-pieces-together"></a>Knyta ihop säcken
 

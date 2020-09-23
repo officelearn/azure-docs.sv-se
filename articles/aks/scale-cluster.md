@@ -2,16 +2,14 @@
 title: Skala ut ett AKS-kluster (Azure Kubernetes Service)
 description: Lär dig hur du skalar antalet noder i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
-author: iainfoulds
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 55d7a00a0a8c0b655f06810f8bcea7126bb9167f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: d5686a74ffe138af51d2319c839a3a5c5887f992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79368425"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902936"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Skala ut nodantalet i ett Azure Kubernetes Service-kluster
 
@@ -41,7 +39,7 @@ Följande exempel på utdata visar att *namnet* är *nodepool1*:
 ]
 ```
 
-Använd kommandot [AZ AKS Scale][az-aks-scale] för att skala klusternoderna. I följande exempel skalas ett kluster med namnet *myAKSCluster* till en enda nod. Ange ditt eget *--nodepool-namn* från föregående kommando, t. ex. *nodepool1*:
+Använd kommandot [AZ AKS Scale][az-aks-scale] för att skala klusternoderna. I följande exempel skalas ett kluster med namnet *myAKSCluster* till en enda nod. Ange din egen `--nodepool-name` från föregående kommando, till exempel *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
@@ -69,6 +67,20 @@ Följande exempel på utdata visar att klustret har skalats till en nod, som du 
 }
 ```
 
+
+## <a name="scale-user-node-pools-to-0"></a>Skala `User` nodkonfigurationer till 0
+
+Till skillnad från `System` Node-pooler som alltid kräver noder, kan `User` du skala till 0 med noder. Om du vill veta mer om skillnaderna mellan poolerna för system-och användar-noder, se [pooler för system-och användar-noder](use-system-pools.md).
+
+Om du vill skala en adresspool till 0 kan du använda [AZ AKS nodepool Scale][az-aks-nodepool-scale] i alternativ till `az aks scale` kommandot ovan och ange 0 som antal noder.
+
+
+```azurecli-interactive
+az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+```
+
+Du kan också Autoskala `User` nodkonfigurationer till 0 noder genom att ställa in `--min-count` parametern för [klustrets autoskalning](cluster-autoscaler.md) till 0.
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du manuellt skalat ett AKS-kluster för att öka eller minska antalet noder. Du kan också använda automatisk skalning av [klustret][cluster-autoscaler] för att automatiskt skala klustret.
@@ -81,3 +93,4 @@ I den här artikeln har du manuellt skalat ett AKS-kluster för att öka eller m
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [cluster-autoscaler]: cluster-autoscaler.md
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale&preserve-view=true

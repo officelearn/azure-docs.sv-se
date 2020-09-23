@@ -1,14 +1,14 @@
 ---
 title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648352"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895421"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -30,11 +30,13 @@ Resultatet av en slutförd utvärderings cykel är tillgängligt i `Microsoft.Po
 
 Utvärderingar av tilldelade principer och initiativ sker som resultatet av olika händelser:
 
-- En princip eller ett initiativ har nyligen tilldelats ett omfång. Det tar cirka 30 minuter för tilldelningen att tillämpas på det definierade omfånget. När den har tillämpats börjar utvärderings cykeln för resurser inom det omfånget mot den nyligen tilldelade principen eller initiativet, och beroende på vilka effekter som används av principen eller initiativet markeras resurserna som kompatibla eller icke-kompatibla. En stor princip eller ett initiativ som utvärderas mot en stor omfattning av resurser kan ta tid. Därför finns det ingen fördefinierad förväntad utvärdering av när utvärderings cykeln har slutförts. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
+- En princip eller ett initiativ har nyligen tilldelats ett omfång. Det tar cirka 30 minuter för tilldelningen att tillämpas på det definierade omfånget. När den har tillämpats börjar utvärderings cykeln för resurser inom det omfånget mot den nyligen tilldelade principen eller initiativet, och beroende på vilka effekter som används av principen eller initiativet markeras resurserna som kompatibla, icke-kompatibla eller undantagna. En stor princip eller ett initiativ som utvärderas mot en stor omfattning av resurser kan ta tid. Därför finns det ingen fördefinierad förväntad utvärdering av när utvärderings cykeln har slutförts. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
 
 - En princip eller ett initiativ som redan har tilldelats ett omfång uppdateras. Utvärderings cykeln och tids inställningen för det här scenariot är desamma som för en ny tilldelning i ett omfång.
 
 - En resurs distribueras till eller uppdateras inom ett omfång med en tilldelning via Azure Resource Manager, REST API eller en SDK som stöds. I det här scenariot blir Effect-händelsen (Lägg till, granska, neka, distribuera) och kompatibel status information för den enskilda resursen tillgänglig i portalen och SDK: er som är cirka 15 minuter senare. Den här händelsen orsakar ingen utvärdering av andra resurser.
+
+- Ett [princip undantag](../concepts/exemption-structure.md) skapas, uppdateras eller tas bort. I det här scenariot utvärderas motsvarande tilldelning för den definierade undantags omfattningen.
 
 - Utvärderings cykel för standard kompatibilitet. En gång var 24: e timme utvärderas tilldelningarna automatiskt. En stor princip eller initiativ för många resurser kan ta tid, så det finns ingen fördefinierad förväntad utvärdering av när utvärderings cykeln har slutförts. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
 
@@ -127,8 +129,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Hur efterlevnad fungerar
 
-I en tilldelning är en resurs **icke-kompatibel** om den inte följer policy-eller initiativ regler.
-Följande tabell visar hur olika princip effekter fungerar med villkors utvärderingen för det resulterande kompatibilitetstillstånd:
+I en tilldelning är en resurs **icke-kompatibel** om den inte följer princip-eller initiativ reglerna och inte är _undantagen_. Följande tabell visar hur olika princip effekter fungerar med villkors utvärderingen för det resulterande kompatibilitetstillstånd:
 
 | Resurs tillstånd | Effekt | Princip utvärdering | Kompatibilitetstillstånd |
 | --- | --- | --- | --- |
@@ -137,8 +138,7 @@ Följande tabell visar hur olika princip effekter fungerar med villkors utvärde
 | Ny | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
 | Ny | Audit, AuditIfNotExist\* | Falskt | Kompatibel |
 
-\* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
-Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
+\* Effekterna ändra, Lägg till, DeployIfNotExist och AuditIfNotExist kräver att IF-instruktionen är TRUE. Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
 
 Anta till exempel att du har en resurs grupp – ContsoRG med vissa lagrings konton (markerade i rött) som exponeras för offentliga nätverk.
 
@@ -146,22 +146,23 @@ Anta till exempel att du har en resurs grupp – ContsoRG med vissa lagrings kon
    Diagram över bilder för fem lagrings konton i resurs gruppen contoso R G.  Lagrings konton en och tre är blå, medan lagrings konton två, fyra och fem är röda.
 :::image-end:::
 
-I det här exemplet måste du vara försiktig säkerhets risker. Nu när du har skapat en princip tilldelning utvärderas den för alla lagrings konton i resurs gruppen conto sorg. Den granskar de tre icke-kompatibla lagrings kontona, vilket innebär att deras tillstånd ändras till **icke-kompatibel.**
+I det här exemplet måste du vara försiktig säkerhets risker. Nu när du har skapat en princip tilldelning utvärderas den för alla inkluderade och icke-undantagna lagrings konton i resurs gruppen conto sorg. Den granskar de tre icke-kompatibla lagrings kontona, vilket innebär att deras tillstånd ändras till **icke-kompatibel.**
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram över kompatibilitet för lagrings konto i resurs gruppen contoso R G." border="false":::
    Diagram över bilder för fem lagrings konton i resurs gruppen contoso R G. Lagrings konton en och tre har nu gröna bockar under dem, medan lagrings konton två, fyra och fem nu har röda varnings tecken under dem.
 :::image-end:::
 
-Utöver **kompatibla** och **icke-kompatibla**har principer och resurser tre andra tillstånd:
+Utöver **kompatibla** och **icke-kompatibla**har principer och resurser fyra andra tillstånd:
 
-- **Konflikt**: det finns två eller fler principer med motstridiga regler. Två principer lägger till exempel till samma tagg med olika värden.
+- **Undantag**: resursen omfattas av en tilldelning, men har ett [definierat undantag](../concepts/exemption-structure.md).
+- **Konflikt**: det finns två eller flera princip definitioner med motstridiga regler. Två definitioner lägger till exempel till samma tagg med olika värden.
 - **Inte startat**: utvärderings cykeln har inte startat för principen eller resursen.
 - **Inte registrerad**: den Azure policy Resource providern har inte registrerats eller så har det inloggade kontot inte behörighet att läsa efterlevnadsprinciper.
 
-Azure Policy använder fälten **typ** och **namn** i definitionen för att avgöra om en resurs är en matchning. När resursen matchar, betraktas den som tillämplig och har statusen antingen **kompatibel** eller **icke-kompatibel**. Om antingen **typ** eller **namn** är den enda egenskapen i definitionen anses alla resurser vara tillämpliga och utvärderas.
+Azure Policy använder fälten **typ** och **namn** i definitionen för att avgöra om en resurs är en matchning. När resursen matchar, betraktas den som tillämplig och har statusen antingen **kompatibel**, **icke-kompatibel**eller **undantagen**. Om antingen **typ** eller **namn** är den enda egenskapen i definitionen, anses alla inkluderade och icke-undantagna resurser vara tillämpliga och utvärderas.
 
-Procent andelen kompatibilitet bestäms genom att dela upp **kompatibla** resurser av de _totala resurserna_.
-_Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompatibla**och **motstridiga** resurserna. De övergripande kompatibilitets numren är summan av distinkta resurser som är **kompatibla** med summan av alla distinkta resurser. I bilden nedan finns det 20 distinkta resurser som är tillämpliga och endast en är **icke-kompatibel**. Den övergripande resursens kompatibilitet är 95% (19 av 20).
+Procent andelen för efterlevnad bestäms genom att de **Exempt** resurser som **uppfyller** resurserna divideras med de _totala resurserna_. _Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompatibla**, **undantagna**och **motstridiga** resurserna. De övergripande kompatibilitets numren är summan av distinkta resurser som är **kompatibla** eller **undantagna** dividerade med summan av alla distinkta resurser. I bilden nedan finns det 20 distinkta resurser som är tillämpliga och endast en är **icke-kompatibel**.
+Den övergripande resursens kompatibilitet är 95% (19 av 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Skärm bild av information om efterlevnadsprincip från sidan efterlevnad." border="false":::
 

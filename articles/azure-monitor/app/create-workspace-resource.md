@@ -4,15 +4,15 @@ description: Lär dig mer om de steg som krävs för att aktivera de nya Azure M
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783849"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894541"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>Arbets yta-baserade Application Insights resurser (förhands granskning)
+# <a name="workspace-based-application-insights-resources"></a>Arbets yta-baserade Application Insights resurser
 
 Arbets ytans resurser stöder fullständig integrering mellan Application Insights och Log Analytics. Nu kan du välja att skicka din Application Insights telemetri till en gemensam Log Analytics arbets yta, vilket ger dig fullständig åtkomst till alla funktioner i Log Analytics samtidigt som du behåller program-, infrastruktur-och plattforms loggar på en enda konsol IDE rad plats.
 
@@ -21,7 +21,19 @@ Detta möjliggör även för vanliga rollbaserade Access Control (RBAC) i dina r
 > [!NOTE]
 > Data inmatning och kvarhållning för arbets ytans baserade Application Insights resurser faktureras via arbets ytan Log Analytics där data finns. [Läs mer]( ./pricing.md#workspace-based-application-insights) om fakturering för arbets ytans baserade Application Insights-resurser.
 
-Om du vill testa den nya upplevelsen loggar du in på [Azure Portal](https://portal.azure.com)och skapar en Application Insights resurs:
+## <a name="new-capabilities"></a>Nya funktioner
+
+Med arbets ytans baserade Application Insights kan du dra nytta av de senaste funktionerna i Azure Monitor och Log Analytics inklusive:
+
+* [Kundhanterade nycklar (CMK)](../platform/customer-managed-keys.md) tillhandahåller kryptering i vila för dina data med krypterings nycklar som bara du har åtkomst till.
+* Med [Azures privata länk](../platform/private-link-security.md) kan du på ett säkert sätt länka Azure PaaS-tjänster till ditt virtuella nätverk med hjälp av privata slut punkter.
+* [Ta med din egen lagring (BYOS) för profiler och Snapshot debugger](./profiler-bring-your-own-storage.md) ger dig fullständig kontroll över principen för kryptering vid vila, livs längds hanterings principen och nätverks åtkomst för alla data som är kopplade till Application Insights Profiler och Snapshot debugger. 
+* Med [kapacitet reservations nivåer](../platform/manage-cost-storage.md#pricing-model) kan du spara så mycket som 25% jämfört med priset betala per användning. 
+* Snabbare data inmatning via Log Analytics strömning.
+
+## <a name="create-workspace-based-resource"></a>Skapa arbets yta-baserad resurs
+
+Logga in på [Azure Portal](https://portal.azure.com)och skapa en Application Insights resurs:
 
 ![Arbets yta-baserad Application Insights resurs](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -36,7 +48,7 @@ När din resurs har skapats visas motsvarande information om arbets ytan i **öv
 Om du klickar på den blå länk texten tas du till den associerade Log Analytics arbets ytan där du kan dra nytta av den nya frågan i enhetlig arbets yta.
 
 > [!NOTE]
-> Vi ger fortfarande fullständig bakåtkompatibilitet för dina Application Insights klassiska resurs frågor, arbets böcker och loggbaserade aviseringar inom Application Insightss upplevelsen. Om du vill fråga/Visa mot den [nya arbetsytebaserade tabell strukturen/schemat](apm-tables.md) måste du först gå till din Log Analytics-arbetsyta. Under förhands granskningen får du till gång till den klassiska Application Insights fråge upplevelsen genom att välja **loggar** från Application Insights fönstret.
+> Vi ger fortfarande fullständig bakåtkompatibilitet för dina Application Insights klassiska resurs frågor, arbets böcker och loggbaserade aviseringar inom Application Insightss upplevelsen. Om du vill fråga/Visa mot den [nya arbetsytebaserade tabell strukturen/schemat](apm-tables.md) måste du först gå till din Log Analytics-arbetsyta. Genom att välja **loggar (analys)** i Application Insightss fönstret får du till gång till den klassiska Application Insights fråge upplevelsen.
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
@@ -185,14 +197,6 @@ Fullständig Azure CLI-dokumentation för det här kommandot finns i [Azure CLI-
 
 ```
 
-## <a name="new-capabilities"></a>Nya funktioner
-
-Med arbets ytans baserade Application Insights kan du dra nytta av alla de senaste funktionerna i Azure Monitor inklusive:
-
-* [Kundhanterade nycklar (CMK)](../platform/customer-managed-keys.md) tillhandahåller kryptering i vila för dina data med krypterings nycklar som bara du har åtkomst till.
-* Med [Azures privata länk](../platform/private-link-security.md) kan du på ett säkert sätt länka Azure PaaS-tjänster till ditt virtuella nätverk med hjälp av privata slut punkter.
-* [Ta med din egen lagring (BYOS) för profiler och Snapshot debugger](./profiler-bring-your-own-storage.md) ger dig fullständig kontroll över principen för kryptering vid vila, livs längds hanterings principen och nätverks åtkomst för alla data som är kopplade till Application Insights Profiler och Snapshot debugger. 
-
 ## <a name="modifying-the-associated-workspace"></a>Ändra den associerade arbets ytan
 
 När en arbets yta-baserad Application Insights resurs har skapats kan du ändra den associerade Log Analytics-arbetsytan.
@@ -207,8 +211,3 @@ I fönstret Application Insights resurs väljer du **Egenskaper**  >  **ändra a
 
 * [Utforska mått](../platform/metrics-charts.md)
 * [Skriv analysfrågor](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

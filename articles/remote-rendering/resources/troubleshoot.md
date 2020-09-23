@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014599"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982971"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -156,7 +156,8 @@ Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komp
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Schack rutigt mönster återges efter inläsning av modell
 
-Om den renderade bilden ser ut så här: ![ schack rutor, ](../reference/media/checkerboard.png) träffar åter givnings funktionen [polygonens gränser för standard konfigurations storleken](../reference/vm-sizes.md). Du kan undvika detta genom att antingen växla till **Premium** -konfigurations storlek eller minska antalet synliga polygoner.
+Om den renderade bilden ser ut så här: ![ skärm bilden visar ett rutnät med svarta och vita fyr kanter med en verktyg-meny.](../reference/media/checkerboard.png)
+sedan träffar åter givningen [polygonens gränser för standard konfigurations storleken](../reference/vm-sizes.md). Du kan undvika detta genom att antingen växla till **Premium** -konfigurations storlek eller minska antalet synliga polygoner.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Den renderade bilden i Unity är upp-ned
 
@@ -216,7 +217,7 @@ Om ovanstående steg har använts och den återstående z-kampen är oacceptabel
 
 ARR har en funktion för att avgöra om en yta kan z-bekämpa: [schack rutigt markering](../overview/features/z-fighting-mitigation.md). Du kan också bestämma visuellt vad som orsakar z-bekämpning. Följande första animering visar ett exempel på djup precisions förlust på avståndet, och den andra visar ett exempel på en nästan disponerad yta:
 
-![djup-precision-z-bekämpning](./media/depth-precision-z-fighting.gif)  ![samplanering – z-bekämpning](./media/coplanar-z-fighting.gif)
+![Animering visar ett exempel på djup precisions förlust i avståndet.](./media/depth-precision-z-fighting.gif)  ![Animeringen visar ett exempel på nästan disponerade ytor.](./media/coplanar-z-fighting.gif)
 
 Jämför dessa exempel med din z-skydd och ta reda på orsaken eller om du vill kan du följa det här steg för steg-arbets flödet:
 

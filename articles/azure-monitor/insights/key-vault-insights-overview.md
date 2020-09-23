@@ -1,23 +1,23 @@
 ---
-title: Övervaka Key Vault med Azure Monitor för Key Vault (förhands granskning) | Microsoft Docs
+title: Övervaka Key Vault med Azure Monitor för Key Vault | Microsoft Docs
 description: I den här artikeln beskrivs Azure Monitor för nyckel valv.
 services: azure-monitor
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.date: 09/10/2020
+ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069806"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894503"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault (för hands version)
-Azure Monitor för Key Vault (för hands version) tillhandahåller omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
-Den här artikeln hjälper dig att förstå hur du kan publicera och anpassa användningen av Azure Monitor för Key Vault (för hands version).
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault
+Azure Monitor för Key Vault ger omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
+Den här artikeln hjälper dig att förstå hur du kan publicera och anpassa användningen av Azure Monitor för Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Introduktion till Azure Monitor för Key Vault (för hands version)
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introduktion till Azure Monitor för Key Vault
 
 Innan du hoppar till erfarenheten bör du förstå hur den visar och visualiserar information.
 -    **I skalnings perspektiv** visas en ögonblicks bild av prestanda baserat på begär Anden, uppdelning av misslyckade åtgärder och en översikt över driften och svars tiden.
@@ -49,7 +49,7 @@ Utför följande steg för att visa användning och åtgärder för nyckel valv 
 
 1. Logga in på [Azure Portal](https://portal.azure.com/)
 
-2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **nyckel valv (för hands version)** under avsnittet insikter.
+2. Välj **övervaka** i den vänstra rutan i Azure Portal och välj **nyckel valv**under avsnittet insikter.
 
 ![Skärm bild av översikts upplevelse med flera grafer](./media/key-vaults-insights-overview/overview.png)
 
@@ -83,7 +83,7 @@ Få åtkomst till Azure Monitor för Key Vault direkt från ett nyckel valv:
 
 1. I Azure Portal väljer du nyckel valv.
 
-2. Välj ett nyckel valv i listan. I avsnittet övervakning väljer du insikter (för hands version).
+2. Välj ett nyckel valv i listan. I avsnittet övervakning väljer du insikter.
 
 Dessa vyer är också tillgängliga genom att välja resurs namnet för ett nyckel valv från arbets boken Azure Monitors nivå.
 
@@ -140,7 +140,7 @@ Anpassningar sparas i en anpassad arbets bok för att förhindra att standard ko
 
 Du kan konfigurera översikten över flera prenumerationer och nyckel valv, så att arbets böcker kan omfattas av en viss prenumeration eller nyckel valv på varje körning, genom att utföra följande steg:
 
-1. Välj **övervakare** från portalen och välj sedan **nyckel valv (förhands granskning)** i det vänstra fönstret.
+1. Välj **övervakare** från portalen och välj sedan **nyckel valv** i det vänstra fönstret.
 2. I **översikts** arbets boken väljer du **Redigera**i kommando fältet.
 3. Välj i list rutan **prenumerationer** en eller flera prenumerationer som du vill att Yo ska använda som standard. Kom ihåg att arbets boken har stöd för att välja upp till totalt 10 prenumerationer.
 4. Välj från List rutan **nyckel valv** ett eller flera konton som du vill att den ska använda som standard. Kom ihåg att arbets boken har stöd för att välja upp till totalt 200 lagrings konton.
@@ -150,11 +150,11 @@ Du kan konfigurera översikten över flera prenumerationer och nyckel valv, så 
 
 Allmän fel söknings vägledning finns i artikeln om dedikerad informations [fel sökning](troubleshoot-workbooks.md)för arbets böcker.
 
-I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för Key Vault (för hands version). Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
+I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för Key Vault. Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Lösa prestanda problem eller fel
 
-Information om hur du felsöker viktiga valv relaterade problem som du identifierar med Azure Monitor för Key Vault (för hands version) finns i [Azure Key Vault-dokumentationen](../../key-vault/index.yml).
+Information om hur du felsöker viktiga valv relaterade problem som du identifierar med Azure Monitor för Key Vault finns i [Azure Key Vault-dokumentationen](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Varför kan jag bara se 200-nyckel valv
 

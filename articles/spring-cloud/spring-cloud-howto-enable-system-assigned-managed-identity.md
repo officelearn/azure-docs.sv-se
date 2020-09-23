@@ -7,19 +7,22 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299653"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888578"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application
+
+**Den här artikeln gäller för:** ✔️ Java ✔️ C #
+
 Hanterade identiteter för Azure-resurser ger en automatiskt hanterad identitet i Azure Active Directory till en Azure-resurs, till exempel ditt Azure våren Cloud-program. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod.
 
 Den här artikeln visar hur du aktiverar och inaktiverar systemtilldelade hanterade identiteter för en Azure våren Cloud-App med hjälp av Azure Portal och CLI (tillgängligt från version 0.2.4).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 Du behöver en distribuerad Azure våren-moln instans. Följ [snabb starten för att distribuera med hjälp av Azure CLI](spring-cloud-quickstart.md).
 
@@ -81,7 +84,8 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använda hanterade identiteter med Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+
 * [Åtkomst Azure Key Vault med hanterade identiteter i våren Boot starter](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Lär dig mer om hanterade identiteter för Azure-resurser](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Använda hanterade identiteter med Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 

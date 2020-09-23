@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181705"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975507"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -59,7 +59,7 @@ Om du inte vill köra bas servern i Azure kan du köra servern på en virtuell H
 | Windows Server 2019 |64-bitars |Standard, Datacenter, Essentials |
 | Windows Server 2016 och senaste SPs |64-bitars |Standard, Datacenter, Essentials  |
 
-Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer om hur [DPM och deduplicering](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) fungerar tillsammans när de distribueras i virtuella Hyper-V-datorer.
+Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer om hur [DPM och deduplicering](/system-center/dpm/deduplicate-dpm-storage) fungerar tillsammans när de distribueras i virtuella Hyper-V-datorer.
 
 > [!NOTE]
 > Azure Backup Server är utformad för att köras på en dedikerad server med ett enda syfte. Du kan inte installera Azure Backup Server på:
@@ -80,7 +80,7 @@ Oavsett om du skickar säkerhets kopierings data till Azure eller om du behålle
 
 ### <a name="set-storage-replication"></a>Konfigurera lagringsreplikering
 
-Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Som standard använder Recovery Services-valv Geo-redundant lagring. Om valvet är ditt primära valv lämnar du lagrings alternativet inställt på Geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [Geo-redundant](../storage/common/storage-redundancy.md) och [lokalt redundant](../storage/common/storage-redundancy.md) lagring i [Översikt över Azure Storage replikering](../storage/common/storage-redundancy.md).
+Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Som standard använder Recovery Services-valv Geo-redundant lagring. Om valvet är ditt primära valv lämnar du lagrings alternativet inställt på Geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om [geo-redundanta](../storage/common/storage-redundancy.md#geo-redundant-storage), [lokalt redundanta](../storage/common/storage-redundancy.md#locally-redundant-storage) och [zon redundanta](../storage/common/storage-redundancy.md#zone-redundant-storage) lagrings alternativ i [Översikt över Azure Storage replikering](../storage/common/storage-redundancy.md).
 
 Så här redigerar du inställningen för lagringsreplikering:
 
@@ -89,7 +89,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 3. Välj typ av lagrings replikering och välj **Spara**.
 
-     ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Ange lagringskonfigurationen för det nya valvet](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
 ## <a name="software-package"></a>Program varu paket
 
@@ -199,7 +199,7 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     ![Ange plats för installation av filer](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    Arbets platsen är ett krav för säkerhets kopiering till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i [förbereda data lagring](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    Arbets platsen är ett krav för säkerhets kopiering till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras när installationen är klar. Mer information om lagringspooler finns i [förbereda data lagring](/system-center/dpm/plan-long-and-short-term-data-storage).
 5. Ange ett starkt lösen ord för begränsade lokala användar konton och välj **Nästa**.
 
     ![Ange ett starkt lösen ord](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -362,7 +362,7 @@ Du kan också läsa [Azure Backup relaterade vanliga frågor och svar](backup-az
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan få detaljerad information här om hur [du förbereder din miljö för DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Den innehåller också information om vilka konfigurationer som stöds där Azure Backup Server kan distribueras och användas. Du kan använda en serie med [PowerShell-cmdletar](/powershell/module/dataprotectionmanager/) för att utföra olika åtgärder.
+Du kan få detaljerad information här om hur [du förbereder din miljö för DPM](/system-center/dpm/prepare-environment-for-dpm). Den innehåller också information om vilka konfigurationer som stöds där Azure Backup Server kan distribueras och användas. Du kan använda en serie med [PowerShell-cmdletar](/powershell/module/dataprotectionmanager/) för att utföra olika åtgärder.
 
 Du kan använda de här artiklarna för att få en djupare förståelse för arbets belastnings skyddet med hjälp av Microsoft Azure Backup Server.
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4e54f5254d38bca9c8ff30d5b7cefbe3fde69576
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923483"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904368"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Självstudie: överföra data med Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Gör så här om du vill skapa en resurs:
 
     3. Ange ett lagrings konto där resursen kommer att finnas. En container skapas på lagringskontot med det nyligen skapade resursnamnet om det inte redan finns en. Om containern redan finns används den befintliga containern.
        > [!IMPORTANT]
-       > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+       > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge Pro-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. Välj **lagringstjänst** – blockblob, sidblob eller filer. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I det här fallet vill vi till exempel att data ska lagras som blob-block i Azure, därför väljer vi Blockblob. Om du väljer Sidblob måste du kontrollera att dina data är justerade för 512 byte. Till exempel är en VHDX alltid justerad för 512 byte.
    
@@ -115,13 +115,13 @@ På din Windows Server-klient som är ansluten till din Data Box Gateway anslute
 
 ### <a name="connect-to-an-nfs-share"></a>Ansluta till en NFS-resurs
 
-Gör följande på Linux-klienten som är ansluten till din Azure Stack Edge-enhet:
+Gör följande på Linux-klienten som är ansluten till din Azure Stack Edge Pro-enhet:
 
 1. Kontrollera att klienten har NFSv4-klienten installerad. Om du vill installera NFS-klienten använder du följande kommando:
 
    `sudo apt-get install nfs-common`
 
-    Mer information finns i [det här avsnittet om att installera NFSv4-klienten](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
+    Mer information finns i [Installera NFSv4-klienten](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
 
 2. När NFS-klienten har installerats använder du följande kommando för att montera NFS-resursen som du har skapat på Data Box Gateway-enheten:
 

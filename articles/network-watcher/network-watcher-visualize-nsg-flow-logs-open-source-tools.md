@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807670"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986248"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera NSG-flödesloggar från Azure Network Watcher med hjälp av verktyg med öppen källkod
 
@@ -29,7 +29,7 @@ Dessa flödes loggar kan vara svåra att manuellt parsa och få insikter från. 
 
 I den här artikeln skapar vi en lösning som gör att du kan visualisera flödes loggar för nätverks säkerhets grupper med hjälp av den elastiska stacken.  Ett plugin-program för Logstash hämtar flödes loggarna direkt från den lagrings-blob som har kon figurer ATS för flödes loggar. Sedan kommer flödes loggarna att indexeras och användas för att skapa en Kibana-instrumentpanel för att visualisera informationen med hjälp av den elastiska stacken.
 
-![scenario][scenario]
+![Diagrammet visar ett scenario som gör att du kan visualisera flödes loggar för nätverks säkerhets grupper med hjälp av den elastiska stacken.][scenario]
 
 ## <a name="steps"></a>Steg
 
@@ -193,7 +193,7 @@ Mer information om det här plugin-programmet finns i [dokumentationen](https://
    ./bin/kibana
    ```
 
-3. Om du vill visa Kibana-webbgränssnittet navigerar du till`http://localhost:5601`
+3. Om du vill visa Kibana-webbgränssnittet navigerar du till `http://localhost:5601`
 4. I det här scenariot är index mönstret som används för flödes loggarna "NSG-Flow-logs". Du kan ändra index mönstret i avsnittet "utdata" i filen logstash. conf.
 5. Om du vill visa Kibana-instrumentpanelen på distans skapar du en inkommande NSG-regel som tillåter åtkomst till **port 5601**.
 
@@ -215,27 +215,27 @@ Instrument panelen exempel innehåller flera visualiseringar av flödes loggarna
 
 1. Flöden efter beslut/riktning över tid – serie diagram som visar antalet flöden under tids perioden. Du kan redigera tidsenhet och omfång för båda dessa visualiseringar. Flöden efter beslut visar en andel tillåtna eller nekade beslut, medan flöden efter riktning visar förhållandet mellan inkommande och utgående trafik. Med dessa visuella objekt kan du undersöka trafik trender över tid och leta efter eventuella toppar eller ovanliga mönster.
 
-   ![bild 2][2]
+   ![Skärm bild som visar ett exempel på en instrument panel med flöden efter beslut och riktning över tid.][2]
 
 2. Flöden efter mål-/käll port – cirkel diagram som visar nedbrytningen av flöden till respektive port. I den här vyn kan du se dina vanligaste portar. Om du klickar på en enskild port i cirkel diagrammet filtreras resten av instrument panelen ned till flöden av den porten.
 
-   ![figure3][3]
+   ![Skärm bild som visar ett exempel på en instrument panel med flöden efter mål-och käll port.][3]
 
 3. Antal flöden och tidigaste logg tid – mått som visar dig antalet registrerade flöden och datum för den tidigaste loggen.
 
-   ![figure4][4]
+   ![Skärm bild som visar ett exempel på en instrument panel med antalet flöden och den tidigaste logg tiden.][4]
 
 4. Flöden efter NSG och regel – ett stapeldiagram som visar distributionen av flöden inom varje NSG, samt distribution av regler inom varje NSG. Härifrån kan du se vilka NSG och regler som genererade den mest trafik.
 
-   ![figure5][5]
+   ![Skärm bild som visar ett exempel på en instrument panel med flöden efter N S G och regel.][5]
 
 5. De 10 främsta käll-och mål-IP-stapeldiagram som visar de 10 främsta käll-och mål-IP-adresserna. Du kan justera dessa diagram om du vill visa fler eller färre översta IP-adresser. Härifrån kan du se de vanligaste IP-adresserna samt det trafikbeslut (Tillåt eller neka) som görs för varje IP-adress.
 
-   ![figure6][6]
+   ![Skärm bild som visar ett exempel på en instrument panel med flöden per topp 10 källa och mål I P-adresser.][6]
 
 6. Flow-tupler – i den här tabellen visas den information som finns i varje flödes tupel, samt dess motsvarande redigera och regel.
 
-   ![figure7][7]
+   ![Skärm bild som visar Flow-tupler i en tabell.][7]
 
 Med hjälp av frågefönstret överst i instrument panelen kan du filtrera instrument panelen baserat på vilken parameter som helst i flödena, till exempel prenumerations-ID, resurs grupper, regel eller någon annan variabel av intresse. Mer information om Kibana-frågor och filter finns i den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 

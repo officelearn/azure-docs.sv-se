@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a54cf2ed228a166ea3d87c14515f41d5b0e7aed9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090235"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887651"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server instans migrering till Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -198,7 +198,7 @@ När du är på en helt hanterad plattform och har verifierat att arbets belastn
 
 Du behöver till exempel inte skapa säkerhets kopior på en hanterad instans – tjänsten utför säkerhets kopieringar automatiskt. Du behöver inte längre bekymra dig om schemaläggning, säkerhets kopiering och hantering av säkerhets kopior. SQL-hanterad instans ger dig möjlighet att återställa till vilken tidpunkt som helst inom denna kvarhållningsperiod med hjälp av [återställning av tidpunkt (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Dessutom behöver du inte bekymra dig om att konfigurera hög tillgänglighet eftersom [hög tillgänglighet](../database/high-availability-sla.md) är inbyggt.
 
-För att förstärka säkerheten bör du överväga att använda [Azure Active Directory autentisering](../database/security-overview.md), [granskning](auditing-configure.md), [hot identifiering](../database/advanced-data-security.md), [säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)och [dynamisk data maskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+För att förstärka säkerheten bör du överväga att använda [Azure Active Directory autentisering](../database/security-overview.md), [granskning](auditing-configure.md), [hot identifiering](../database/azure-defender-for-sql.md), [säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)och [dynamisk data maskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 
 Förutom avancerade hanterings-och säkerhetsfunktioner innehåller en hanterad instans en uppsättning avancerade verktyg som kan hjälpa dig att [övervaka och finjustera din arbets belastning](../database/monitor-tune-overview.md). Med [Azure SQL-analys](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) kan du övervaka en stor uppsättning hanterade instanser och centralisera övervakningen av ett stort antal instanser och databaser. [Automatisk justering](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) i hanterade instanser övervakar kontinuerligt prestanda i SQL Plans körnings statistik och korrigerar automatiskt identifierade prestanda problem.
 

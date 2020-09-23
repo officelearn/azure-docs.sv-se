@@ -5,18 +5,18 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6c16aad9bb04ffb4cb4df52799d63f7ec2e19725
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982022"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
 I Azure Functions kan du använda indata- och utdatabindningar för att skapa data från externa tjänster som är tillgängliga för din kod. I den här snabbstarten använder du en utdatabindning för att skapa ett meddelande i en kö när en funktion utlöses av en HTTP-begäran. Du använder Azure Storage-behållare för att visa de Kömeddelanden som din funktion skapar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -111,7 +111,7 @@ En ny kö med namnet **outqueue** skapas i ditt lagringskonto av funktionskörni
 
 1. Under **program inställningar**väljer du **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Leta upp lagrings kontot som är anslutet till AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Skärm bild som visar konfigurations sidan med AzureWebJobsStorage valt." border="true":::
 
 1. Leta upp och anteckna konto namnet.
 

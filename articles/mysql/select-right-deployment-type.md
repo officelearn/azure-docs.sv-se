@@ -1,17 +1,17 @@
 ---
 title: Välja rätt distributions typ – Azure Database for MySQL
 description: I den här artikeln beskrivs vilka faktorer du bör tänka på innan du distribuerar Azure Database for MySQL som antingen infrastruktur som en tjänst (IaaS) eller Platform as a Service (PaaS).
-author: kummanish
-ms.author: manishku
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 827c1954456ee7943c48525919ed411836f610aa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/26/2020
+ms.openlocfilehash: a1b66528bee63fb123271e4277e122603ced2e75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114031"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906504"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Välj rätt MySQL Server-alternativ i Azure
 
@@ -21,45 +21,66 @@ När du fattar ditt beslut bör du tänka på följande två alternativ:
 
 - **Azure Database for MySQL**. Det här alternativet är en fullständigt hanterad MySQL-databasmotor baserat på den stabila versionen av MySQL Community Edition. Den här Relations databas som en tjänst (DBaaS), som finns på Azure-molnets plattform, hamnar i bransch kategorin för PaaS.
 
-  Med en hanterad instans av MySQL på Azure kan du använda inbyggda funktioner som annars kräver omfattande konfiguration när MySQL-servern är antingen lokalt eller i en virtuell Azure-dator.
+  Med en hanterad instans av MySQL på Azure kan du använda inbyggda funktioner som automatiserad uppdatering, hög tillgänglighet, automatisk säkerhets kopiering, elastisk skalning, säkerhet för företags klass, efterlevnad och styrning, övervakning och avisering som annars kräver omfattande konfiguration när MySQL-servern är antingen lokalt eller i en virtuell Azure-dator. När du använder MySQL som en tjänst betalar du per användning med alternativ för att skala upp eller ut för bättre kontroll utan avbrott. 
+  
+  [Azure Database for MySQL](overview.md)som drivs av MySQL Community Edition finns tillgänglig i två distributions lägen:
+    - En [enda server](single-server-overview.md) är en fullständigt hanterad databas tjänst med minimala krav på anpassningar av databasen. Plattformen för enskild server är utformad för att hantera de flesta av funktionerna för databas hantering, till exempel korrigering, säkerhets kopiering, hög tillgänglighet, säkerhet med minimal användar konfiguration och kontroll. Arkitekturen är optimerad för att ge 99,99% tillgänglighet för enskild tillgänglighets zon. Enkla servrar lämpar sig bäst för inbyggda Cloud-program som är utformade för att hantera automatiserad uppdatering utan att det krävs någon detaljerad kontroll över uppdaterings schemats och anpassade MySQL-konfigurationsinställningar. 
+    
+    - [Flexibel Server (förhands granskning)](flexible-server/overview.md) är en fullständigt hanterad databas tjänst som är utformad för att ge mer detaljerad kontroll och flexibilitet för funktioner i databas hantering och konfigurations inställningar. I allmänhet tillhandahåller tjänsten mer flexibilitet och anpassningar av Server konfigurationen jämfört med distributionen av en enskild server utifrån användar kraven. Den flexibla Server arkitekturen gör det möjligt för användare att välja hög tillgänglighet i en enda tillgänglighets zon och över flera tillgänglighets zoner. Flexibla servrar ger också bättre kostnads optimerings kontroller med möjligheten att starta/stoppa din server och de enheter som går att använda och som är idealiska för arbets belastningar som inte behöver fullständig beräknings kapacitet kontinuerligt. 
+    Flexibla servrar passar bäst för:
+     
+      - Program utveckling kräver bättre kontroll och anpassningar av MySQL-motorn.
+      - Zon redundant hög tillgänglighet
+      - Hanterade underhålls fönster
 
-  När du använder MySQL som en tjänst betalar du per användning med alternativ för att skala upp eller ut för bättre kontroll utan avbrott. Till skillnad från fristående MySQL-server har Azure Database for MySQL ytterligare funktioner som inbyggd hög tillgänglighet, intelligens och hantering.
+- **MySQL på virtuella Azure-datorer**. Det här alternativet är inställt på IaaS för bransch kategorin. Med den här tjänsten kan du köra MySQL server i en hanterad virtuell dator på Azures moln plattform. Alla nya versioner och utgåvor av MySQL kan installeras på den virtuella datorn.
 
-- **MySQL på virtuella Azure-datorer**. Det här alternativet är inställt på IaaS för bransch kategorin. Med den här tjänsten kan du köra MySQL server i en helt hanterad virtuell dator på Azures moln plattform. Alla nya versioner och utgåvor av MySQL kan installeras på en virtuell IaaS-dator.
-
-  I den viktigaste skillnaden från Azure Database for MySQL ger MySQL på virtuella Azure-datorer kontroll över databas motorn. Den här kontrollen kommer dock att ansvara för att hantera de virtuella datorerna och många databas administrations uppgifter (DBA). Dessa uppgifter omfattar att underhålla och korrigera databas servrar, databas återställning och design med hög tillgänglighet.
+## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Jämför distributions alternativen för MySQL i Azure
 
 De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 
-| Attribut          | Azure Database for MySQL | MySQL på virtuella Azure-datorer    |
-|:-------------------|:-----------------------------|:--------------------|
-| Service nivå avtal (SLA)                | Erbjuder SLA med 99,99% tillgänglighet| Upp till 99,95% tillgänglighet med två eller fler instanser i samma tillgänglighets uppsättning.<br/><br/>99,9% tillgänglighet med en enskild instans av en virtuell dator med Premium Storage.<br/><br/>99,99% med Tillgänglighetszoner med flera instanser i flera tillgänglighets uppsättningar.<br/><br/>Se [Virtual Machines service avtal](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
-| Uppdatering av operativ system        | Automatiskt  | Hanteras av kunder |
-| MySQL-korrigering     | Automatiskt  | Hanteras av kunder |
-| Hög tillgänglighet | Modellen med hög tillgänglighet (HA) baseras på inbyggda funktioner för redundansväxling för när ett avbrott på nod-nivå sker. I sådana fall skapar tjänsten automatiskt en ny instans och kopplar lagring till den här instansen. | Kunders arkitekt, implementera, testa och underhålla hög tillgänglighet. Funktioner kan vara klustring, replikering osv.|
-| Zon redundans | Stöds inte för närvarande | Virtuella Azure-datorer kan konfigureras för att köras i olika tillgänglighets zoner. För en lokal lösning måste kunderna skapa, hantera och underhålla ett eget sekundärt Data Center.|
-| Hybrid scenarier | Med [datareplikering](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)kan du synkronisera data från en extern MySQL-server till tjänsten Azure Database for MySQL. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) kan du replikera data från en Azure Database for MySQL huvud server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.| Hanteras av kunder
-| Säkerhets kopiering och återställning | Skapar automatiskt [Server säkerhets kopior](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) och lagrar dem i användar konfigurations lagring som antingen är lokalt redundant eller Geo-redundant. Tjänsten tar full, differentiell och transaktions logg säkerhets kopior | Hanteras av kunder |
-| Övervaka databas åtgärder | Ger kunderna möjlighet att [ställa in aviseringar](https://docs.microsoft.com/azure/mysql/concepts-monitoring) för databas åtgärden och vidta åtgärder för att nå tröskelvärden. | Hanteras av kunder |
-| Advanced Threat Protection | Tillhandahåller [Avancerat skydd](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). Det här skyddet identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. | Kunderna måste bygga det här skyddet för sig själva.
-| Haveriberedskap | Lagrar automatiserade säkerhets kopieringar i användar konfiguration [lokalt redundant eller Geo-redundant lagring](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal). Säkerhets kopieringar kan också återställa en server till en tidpunkt. Kvarhållningsperioden är var som helst från 7 till 35 dagar. Återställningen utförs med hjälp av Azure Portal. | Fullständigt hanterad av kunder. Ansvaret omfattar men är inte begränsat till schemaläggning, testning, arkivering, lagring och kvarhållning. Ett annat alternativ är att använda ett Azure Recovery Services-valv för att säkerhetskopiera virtuella Azure-datorer och databaser på virtuella datorer. Det här alternativet är i för hands version. |
-| Prestandarekommendationer | Ger kunderna [prestanda rekommendationer](https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) baserat på systemgenererade användnings loggar. Rekommendationerna hjälper till att optimera arbets belastningar. | Hanteras av kunder |
+
+| Attribut          | Azure Database for MySQL<br/>Enskild server |Azure Database for MySQL<br/>Flexibel Server  |MySQL på virtuella Azure-datorer                      |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
+| MySQL-versions stöd | 5,6, 5,7 & 8,0| 5.7 | Vilken version som helst|
+| Beräknings skalning | Stöds (skalning från och till Basic-nivån stöds inte)| Stöds | Stöds|
+| Lagrings storlek | 5 GiB till 16 TiB| 5 GiB till 16 TiB | 32 GiB till 32 767 GiB|
+| Skalning av onlinelagring | Stöds| Stöds| Stöds inte|
+| Automatisk skalning av lagring | Stöds| Stöds inte i för hands versionen| Stöds inte|
+| Nätverks anslutning | -Offentliga slut punkter med Server brand väggen.<br/> – Privat åtkomst med stöd för privata länkar.|-Offentliga slut punkter med Server brand väggen.<br/> – Privat åtkomst med Virtual Network-integrering.| -Offentliga slut punkter med Server brand väggen.<br/> – Privat åtkomst med stöd för privata länkar.|
+| Service nivå avtal (SLA) | service nivå avtal på 99,99% tillgänglighet |Inget service avtal för för hands version| 99,99% med Tillgänglighetszoner|
+| Uppdatering av operativ system| Automatiskt  | Automatisk med kontroll för anpassat underhålls fönster | Hanteras av slutanvändare |
+| MySQL-korrigering     | Automatiskt  | Automatisk med kontroll för anpassat underhålls fönster | Hanteras av slutanvändare |
+| Hög tillgänglighet | Inbyggt HA i en zon för enskild tillgänglighet| Inbyggda HA i och över tillgänglighets zoner | Anpassad hanterad med klustring, replikering osv|
+| Zonredundans | Stöds inte | Stöds | Stöds|
+| Hybrid scenarier | Stöds med [datareplikering](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)| Inte tillgänglig i för hands version | Hanteras av slutanvändare |
+| Skrivskyddade repliker | Stöds| Stöds | Hanteras av slutanvändare |
+| Backup | Automatiserad med 7-35 dagars kvarhållning | Automatiserad med 1-35 dagars kvarhållning | Hanteras av slutanvändare |
+| Övervaka databas åtgärder | Stöds | Stöds | Hanteras av slutanvändare |
+| Haveriberedskap | Stöds med Geo-redundant lagring av säkerhets kopior och Läs repliker i flera regioner | Stöds inte i för hands versionen| Anpassad hantering med teknik för replikering |
+| Information om frågeprestanda | Stöds | Inte tillgänglig i för hands version| Hanteras av slutanvändare |
+| Prissättning för reserverad instans | Stöds | Inte tillgänglig i för hands version | Stöds |
+| Azure AD-autentisering | Stöds | Inte tillgänglig i för hands version | Stöds inte|
+| Data kryptering i vila | Stöds med Kundhanterade nycklar | Stöds med tjänst hanterade nycklar | Stöds inte|
+| SSL/TLS | Aktive rad som standard med stöd för TLS v 1.2, 1,1 och 1,0 | Framtvingad med TLS v 1.2 | Stöds med TLS v 1.2, 1,1 och 1,0 | 
+| Flottans hantering | Stöds med Azure CLI, PowerShell, REST och Azure Resource Manager | Stöds med Azure CLI, PowerShell, REST och Azure Resource Manager  | Stöds för virtuella datorer med Azure CLI, PowerShell, REST och Azure Resource Manager |
+
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Affärs motivation för att välja PaaS eller IaaS
 
 Det finns flera faktorer som kan påverka ditt beslut att välja PaaS eller IaaS för att vara värd för MySQL-databaserna.
 
-### <a name="cost"></a>Kostnad
+### <a name="cost"></a>Cost
 
-Begränsad finansiering är ofta den främsta överväganden som avgör den bästa lösningen för dina databaser. Detta gäller oavsett om du är en start med lite kontant eller ett team i ett etablerat företag som arbetar under tätt budget begränsningar. I det här avsnittet beskrivs grundläggande om fakturering och licensiering i Azure eftersom de gäller för Azure Database for MySQL och MySQL på virtuella Azure-datorer.
+Kostnads minskning är ofta den främsta överväganden som avgör den bästa lösningen för dina databaser. Detta gäller oavsett om du är en start med lite kontant eller ett team i ett etablerat företag som arbetar under tätt budget begränsningar. I det här avsnittet beskrivs grundläggande om fakturering och licensiering i Azure eftersom de gäller för Azure Database for MySQL och MySQL på virtuella Azure-datorer.
 
 #### <a name="billing"></a>Fakturering
 
-Azure Database for MySQL är för närvarande tillgängligt som en tjänst på flera nivåer med olika priser för resurser. Alla resurser debiteras per timme med ett fast pris. Den senaste informationen om de tjänst nivåer, beräknings storlekar och lagrings belopp som stöds för närvarande finns i [vCore-baserad inköps modell](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers). Du kan justera tjänst nivåerna dynamiskt och beräknings storlekarna så att de överensstämmer med programmets varierande data flödes behov. Du debiteras för utgående Internet trafik med regelbundna [data överförings kostnader](https://azure.microsoft.com/pricing/details/data-transfers/).
+Azure Database for MySQL är för närvarande tillgängligt som en tjänst på flera nivåer med olika priser för resurser. Alla resurser debiteras per timme med ett fast pris. Den senaste informationen om de tjänst nivåer, beräknings storlekar och lagrings belopp som stöds för närvarande finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mysql/). Du kan justera tjänst nivåerna dynamiskt och beräknings storlekarna så att de överensstämmer med programmets varierande data flödes behov. Du debiteras för utgående Internet trafik med regelbundna [data överförings kostnader](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-Med Azure Database for MySQL konfigurerar Microsoft automatiskt, patchar och uppgraderar databas program varan. Dessa automatiserade åtgärder minskar dina administrations kostnader. Azure Database for MySQL har också [inbyggda funktioner för säkerhets kopiering](https://docs.microsoft.com/azure/mysql/concepts-backup) . Dessa funktioner hjälper dig att uppnå avsevärda kostnads besparingar, särskilt när du har ett stort antal databaser. Däremot kan du med MySQL på virtuella Azure-datorer välja och köra en MySQL-version. Oavsett vilken MySQL-version du använder betalar du för den etablerade virtuella datorn och kostnaderna för den speciella MySQL-licens typen som används.
+Med Azure Database for MySQL konfigurerar Microsoft automatiskt, patchar och uppgraderar databas program varan. Dessa automatiserade åtgärder minskar dina administrations kostnader. Azure Database for MySQL har också funktioner för [Automatisk säkerhets kopiering](https://docs.microsoft.com/azure/mysql/concepts-backup) . Dessa funktioner hjälper dig att uppnå avsevärda kostnads besparingar, särskilt när du har ett stort antal databaser. Däremot kan du med MySQL på virtuella Azure-datorer välja och köra en MySQL-version. Oavsett vilken MySQL-version du använder betalar du för den etablerade virtuella datorn, lagrings kostnaden som är kopplad till data, säkerhets kopiering, övervakning av data och logg lagring och kostnaderna för den speciella MySQL-licens typen som används (om det finns någon).
 
-Azure Database for MySQL ger en inbyggd hög tillgänglighet för alla typer av avbrott på nodnivå samtidigt som service avtalet för service avtalet för service avtal fortfarande 99,99 upprätthålls. För databas hög tillgänglighet i virtuella datorer bör dock kunderna använda alternativen för hög tillgänglighet som [MySQL-replikering](https://dev.mysql.com/doc/refman/8.0/en/replication.html) som är tillgängliga i en MySQL-databas. Att använda ett alternativ för hög tillgänglighet som stöds ger inte ytterligare ett service avtal. Men det gör att du kan uppnå mer än 99,99% tillgänglighet till databaser med extra kostnad och administrativa kostnader.
+Azure Database for MySQL ger en inbyggd hög tillgänglighet för alla typer av avbrott på nodnivå samtidigt som service avtalet för service avtalet för service avtal fortfarande 99,99 upprätthålls. För databas hög tillgänglighet i virtuella datorer använder du dock alternativen för hög tillgänglighet som [MySQL-replikering](https://dev.mysql.com/doc/refman/8.0/en/replication.html) som är tillgängliga i en MySQL-databas. Att använda ett alternativ för hög tillgänglighet som stöds ger inte ytterligare ett service avtal. Men det gör att du kan uppnå mer än 99,99% tillgänglighet till databaser med extra kostnad och administrativa kostnader.
 
 Mer information om priser finns i följande artiklar:
 * [Azure Database for MySQL priser](https://azure.microsoft.com/pricing/details/mysql/)
@@ -68,13 +89,21 @@ Mer information om priser finns i följande artiklar:
 
 ### <a name="administration"></a>Administration
 
-För många företag är beslutet att gå över till en moln tjänst lika mycket om att avlasta komplexiteten för administration eftersom det kostar mer. Med IaaS och PaaS, Microsoft:
+För många företag är beslutet att gå över till en moln tjänst lika mycket om att avlasta komplexiteten för administration eftersom det kostar mer. 
+
+Med IaaS, Microsoft:
 
 - Administrerar den underliggande infrastrukturen.
-- Replikerar automatiskt alla data för att tillhandahålla haveri beredskap.
-- Konfigurerar och uppgraderar databasens program vara.
-- Hanterar belastnings utjämning.
-- Fungerar transparent om det uppstår ett Server haveri.
+- Tillhandahåller automatiserad uppdatering för underliggande maskin vara och operativ system.
+  
+Med PaaS, Microsoft:
+
+- Administrerar den underliggande infrastrukturen.
+- Tillhandahåller automatiserad uppdatering för underliggande maskin vara, operativ system och databas motor.
+- Hanterar databasens hög tillgänglighet.
+- Säkerhetskopierar automatiskt och replikerar alla data för att tillhandahålla haveri beredskap.
+- Krypterar data i vila och i rörelse som standard.
+- Övervakar servern och tillhandahåller funktioner för frågor om prestanda insikter och prestanda rekommendationer
 
 I följande lista beskrivs administrativa överväganden för varje alternativ:
 
@@ -89,15 +118,15 @@ I följande lista beskrivs administrativa överväganden för varje alternativ:
 
   Dessutom kräver en minimal konfiguration eller administration att konfigurera hög tillgänglighet till ett annat data Center.
 
-* Med MySQL på virtuella Azure-datorer har du fullständig kontroll över operativ systemet och konfiguration av MySQL-serverinstansen. Med en virtuell dator bestämmer du när du vill uppdatera eller uppgradera operativ systemet och databas program varan. Du bestämmer också när du ska installera ytterligare program vara, till exempel ett antivirus program. Vissa automatiserade funktioner är till för att avsevärt förenkla korrigering, säkerhets kopiering och hög tillgänglighet. Du kan kontrol lera storleken på den virtuella datorn, antalet diskar och deras lagrings konfiguration. Mer information finns i [virtuella datorer och moln tjänst storlekar för Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Med MySQL på virtuella Azure-datorer har du fullständig kontroll över operativ systemet och konfiguration av MySQL-serverinstansen. Med en virtuell dator bestämmer du när du vill uppdatera eller uppgradera operativ systemet och databas programmet och vilka korrigeringar som ska tillämpas. Du bestämmer också när du ska installera ytterligare program vara, till exempel ett antivirus program. Vissa automatiserade funktioner är till för att avsevärt förenkla korrigering, säkerhets kopiering och hög tillgänglighet. Du kan kontrol lera storleken på den virtuella datorn, antalet diskar och deras lagrings konfiguration. Mer information finns i [virtuella datorer och moln tjänst storlekar för Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
 ### <a name="time-to-move-to-azure"></a>Tid att flytta till Azure
 
 * Azure Database for MySQL är rätt lösning för molnbaserade program när produktiviteten för utvecklare och snabb tid till marknaden för nya lösningar är viktiga. Med programmerings funktioner som fungerar som DBA är tjänsten lämplig för moln arkitekter och utvecklare, eftersom det minskar behovet av att hantera det underliggande operativ systemet och databasen.
 
-* När du vill undvika tid och pengar på att förvärva ny lokal maskin vara är MySQL på virtuella Azure-datorer rätt lösning för program som kräver en MySQL-databas eller åtkomst till MySQL-funktioner i Windows eller Linux. Den här lösningen är också lämplig för att migrera befintliga lokala program och databaser till Azure intakt, i de fall där Azure Database for MySQL är en dålig anpassning.
+* När du vill undvika tid och pengar på att förvärva ny lokal maskin vara är MySQL på virtuella Azure-datorer rätt lösning för program som kräver en detaljerad kontroll och anpassning av MySQL-motorn som inte stöds av tjänsten eller kräver åtkomst till det underliggande operativ systemet. Den här lösningen är också lämplig för att migrera befintliga lokala program och databaser till Azure intakt, i de fall där Azure Database for MySQL är en dålig anpassning.
 
-  Eftersom du inte behöver ändra presentations-, program-och data lager, sparar du tid och budget för att bygga om din befintliga lösning. I stället kan du fokusera på att migrera alla dina lösningar till Azure och åtgärda vissa prestanda optimeringar som Azure-plattformen kan kräva.
+Eftersom du inte behöver ändra presentations-, program-och data lager, sparar du tid och budget för att bygga om din befintliga lösning. I stället kan du fokusera på att migrera alla dina lösningar till Azure och åtgärda vissa prestanda optimeringar som Azure-plattformen kan kräva.
 
 ## <a name="next-steps"></a>Nästa steg
 

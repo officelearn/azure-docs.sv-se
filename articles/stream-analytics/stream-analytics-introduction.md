@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 07/6/2020
-ms.openlocfilehash: d62fd0a23a5f5553f27c7a399eb17d06d427a6f3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6c878aa0e4a9d5caa22f7cd94c438f22a81d2ab
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108795"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881872"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Vad är Azure Stream Analytics?
 
@@ -57,7 +57,7 @@ Hela listan med Stream Analytics utdata finns i [förstå utdata från Azure Str
 
 ## <a name="programmer-productivity"></a>Programmerare produktivitet
 
-Azure Stream Analytics använder ett enkelt SQL-baserat frågespråk som har förbättrats med kraftfulla temporala begränsningar för att analysera data i rörelse. Om du vill definiera jobbtransformationer använder du ett enkelt, deklarativt [Stream Analytics-frågespråk](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) som gör att du kan skapa komplexa temporala frågor och analyser med hjälp av enkla SQL-konstruktioner. Eftersom Stream Analytics frågespråket stämmer överens med SQL-språket räcker det med SQL för att börja skapa jobb. Du kan också skapa jobb med hjälp av utvecklarverktyg som Azure PowerShell, [Stream Analytics Visual Studio-verktyg](stream-analytics-tools-for-visual-studio-install.md), [Stream Analytics Visual Studio Code-tillägg](quick-create-vs-code.md)eller Azure Resource Manager mallar. Med hjälp av utvecklarverktyg kan du utveckla transformationsfrågor offline och använda [CI/CD-pipelinen](stream-analytics-tools-for-visual-studio-cicd.md) för att skicka jobb till Azure.
+Azure Stream Analytics använder ett enkelt SQL-baserat frågespråk som har förbättrats med kraftfulla temporala begränsningar för att analysera data i rörelse. Om du vill definiera jobbtransformationer använder du ett enkelt, deklarativt [Stream Analytics-frågespråk](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) som gör att du kan skapa komplexa temporala frågor och analyser med hjälp av enkla SQL-konstruktioner. Eftersom Stream Analytics frågespråket stämmer överens med SQL-språket räcker det med SQL för att börja skapa jobb. Du kan också skapa jobb med hjälp av utvecklarverktyg som Azure PowerShell, [Stream Analytics Visual Studio-verktyg](stream-analytics-tools-for-visual-studio-install.md), [Stream Analytics Visual Studio Code-tillägg](quick-create-visual-studio-code.md)eller Azure Resource Manager mallar. Med hjälp av utvecklarverktyg kan du utveckla transformationsfrågor offline och använda [CI/CD-pipelinen](stream-analytics-tools-for-visual-studio-cicd.md) för att skicka jobb till Azure.
 
 Stream Analytics frågespråk erbjuder en mängd olika funktioner för analys och bearbetning av strömmande data. Det här frågespråket stöder enkel data manipulation, agg regerings-och analys funktioner, [geospatiala funktioner](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [mönster matchning](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) och [avvikelse identifiering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection). Du kan redigera frågor i portalen och testa dem med hjälp av exempel data som extraheras från en Live-dataström.
 
@@ -106,4 +106,4 @@ Nu har du en överblick av Azure Stream Analytics. Härnäst kan du gå på djup
 * [Skapa ett Stream Analytics-jobb med hjälp av Azure Portal](stream-analytics-quick-create-portal.md).
 * [Skapa ett Stream Analytics jobb med Azure PowerShell](stream-analytics-quick-create-powershell.md).
 * [Skapa ett Stream Analytics-jobb med hjälp av Visual Studio](stream-analytics-quick-create-vs.md).
-* [Skapa ett Stream Analytics jobb genom att använda Visual Studio Code](quick-create-vs-code.md).
+* [Skapa ett Stream Analytics jobb genom att använda Visual Studio Code](quick-create-visual-studio-code.md).

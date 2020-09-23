@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
-ms.openlocfilehash: c0d0e9f0994f7d4d75a67911a5191d6e4ffecaa8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d34be152a0d104e688abd6e53c97353b69012670
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80382808"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906550"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Självstudie: Utforma en Azure Database for MySQL-databas med Azure Portal
 
@@ -43,11 +43,11 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
 
 2. Välj **databaser**  >  **Azure Database for MySQL**. Om du inte hittar MySQL server under kategorin **databaser** klickar du på **Visa alla** för att visa alla tillgängliga databas tjänster. Du kan också skriva **Azure Database for MySQL** i sökrutan för att snabbt hitta tjänsten.
    
-   ![Navigera till MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png" alt-text="Navigera till MySQL":::
 
 3. Klicka på **Azure Database for MySQL** panel. Fyll i formuläret för Azure Database for MySQL.
    
-   ![Skapa formulär](./media/tutorial-design-database-using-portal/2-create-form.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="Skapa formulär":::
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     ---|---|---
@@ -57,12 +57,12 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
     Inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Administratörens inloggnings namn får inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
     Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
-    Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
-    Plats | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+    Bekräfta lösenordet | *Ditt val*| Bekräfta administratörslösenordet.
+    Position | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Den senaste versionen*| Välj den senaste versionen (om du inte har särskilda behov som gör att du måste ha en annan version).
     Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **pris nivå**. Välj sedan fliken **generell användning** . *gen 5*, *2 virtuella kärnor*, *5 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna dessa skjutreglage som de är. Om du vill aktivera server säkerhets kopieringar i Geo-redundant lagring väljer du **geografiskt redundant** från **alternativen för redundans för säkerhets kopiering**. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
-   ![Prisnivå](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Prisnivå":::
 
    > [!TIP]
    > När den **automatiska tillväxten** är aktive rad ökar lagringen när du närmar dig den tilldelade gränsen, utan att påverka arbets belastningen.
@@ -75,7 +75,7 @@ Azure Database for MySQL-databaser skyddas av en brandvägg. Som standard avvisa
 
 1. Klicka på server du skapade och sedan på **Anslutningssäkerhet**.
 
-   ![Anslutningssäkerhet](./media/tutorial-design-database-using-portal/1-Connection-security.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="Anslutningssäkerhet":::
 2. Välj **Lägg till min IP** eller konfigurera brandväggsregler här. Kom ihåg att klicka på **Spara** när du har skapat reglerna.
 Nu kan du ansluta till servern med kommandoradsverktyget mysql eller gränssnittsverktyget MySQL Workbench.
 
@@ -89,7 +89,7 @@ Hämta det fullständiga **servernamnet** och **inloggningsnamnet för serveradm
 1. I [Azure Portal](https://portal.azure.com/) klickar du på **Alla resurser** i menyn till vänster, skriver namnet och letar sedan rätt på din Azure Database for MySQL-server. Välj servernamnet så visas informationen.
 
 2. Skriv ned **Servernamn** och **Inloggningsnamn för serveradministratör** på sidan **Översikt**. Du kan klicka på kopieringsknappen bredvid respektive fält för att kopiera till Urklipp.
-   ![4-2 Serveregenskaper](./media/tutorial-design-database-using-portal/2-server-properties.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 Serveregenskaper":::
 
 I det här exemplet är Server namnet *mydemoserver.mysql.Database.Azure.com*och inloggningen för Server administratören är *Administratörs \@ mydemoserver*.
 
@@ -168,11 +168,11 @@ Anta att du av misstag har tagit bort en viktig databastabell och inte enkelt ka
 
 1. Leta rätt på din Azure Database for MySQL-databas i Azure-portalen. På sidan **Översikt** klickar du på **Återställ** i verktygsfältet. Sidan Återställ öppnas.
 
-   ![10-1 Återställ en databas](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 Återställ en databas":::
 
 2. Fyll i formuläret **Återställ** med den information som krävs.
 
-   ![10-2 Återställningsformulär](./media/tutorial-design-database-using-portal/2-restore-form.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 Återställningsformulär":::
 
    - **Återställningspunkt**: Välj en tidpunkt du vill återställa till, inom den tidsperiod som visas. Var noga med att konvertera din lokala tidszon till UTC.
    - **Återställ till ny server**: Ange ett nytt servernamn som du vill återställa till.

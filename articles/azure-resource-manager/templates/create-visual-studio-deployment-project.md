@@ -3,12 +3,12 @@ title: Skapa & distribuera resurs grupps projekt i Visual Studio
 description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt och distribuera resurserna till Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76152739"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985249"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
@@ -23,7 +23,7 @@ I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för 
 1. I Visual Studio väljer du **Arkiv** > **nytt** > **projekt**.
 1. Välj projekt mal len för **Azure-resurs gruppen** och klicka **sedan på nästa**.
 
-    ![Skapa projekt](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Skärm bild som visar fönstret Skapa ett nytt projekt med Azure resurs grupp och knappen nästa markerat.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Ge ditt projekt ett namn. De andra standardinställningarna är förmodligen fina, men de kan granskas för att göra de fungerar i din miljö. Välj **Skapa** när du är klar.
 
@@ -65,7 +65,7 @@ Du kan anpassa ett distributions projekt genom att ändra Resource Manager-malle
 
 1. Du kan lägga till en resurs genom att antingen välja knappen **Lägg till resurs** längst upp i fönstret JSON-disposition eller genom att högerklicka på **resurser** och välja **Lägg till ny resurs**.
 
-   ![Lägg till resurs](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![Skärm bild som visar fönstret JSON-disposition med alternativet Lägg till ny resurs markerat.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Välj **lagrings konto** och ge det ett namn. Ange ett namn som innehåller fler än 11 tecken och endast siffror och små bokstäver.
 
@@ -189,7 +189,7 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen faktisk
 
 1. Nu måste du kontrollera att ditt resursgrupp-projekt är medvetet om det nya projektet. Gå tillbaka till resurs grupps projektet (ExampleAppDeploy). Högerklicka på **Referenser** och välj **Lägg till referens**.
 
-    ![Lägga till en referens](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![Skärm bild som visar ExampleAppDeploy-menyn med alternativet Lägg till referens markerat.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Välj det webbapp-projekt som du har skapat.
 
@@ -364,7 +364,7 @@ Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-
 
 1. När distributionen är färdig kan du Visa instrument panelen i portalen. Välj **instrument panel** och välj den som du distribuerade.
 
-   ![Anpassad instrumentpanel](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![Skärm bild som visar sidan instrument panel med ett exempel på en anpassad instrument panel har marker ATS.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. Den anpassade instrument panelen visas.
 

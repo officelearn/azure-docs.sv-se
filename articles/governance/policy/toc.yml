@@ -86,12 +86,18 @@
     - name: Förstå effekter
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Omfång
+      displayName: 'location, notScope, exemption, waiver, save'
+      href: ./concepts/scope.md
     - name: Initiativstruktur
       displayName: 'parameters, groups, domains, policies'
       href: ./concepts/initiative-definition-structure.md
     - name: Tilldelningsstruktur
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Undantagsstruktur
+      displayName: 'waiver, mitigated, compliance'
+      href: ./concepts/exemption-structure.md
     - name: Utvärdera effekten av en ny princip
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md

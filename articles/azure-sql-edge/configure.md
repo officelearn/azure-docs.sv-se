@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure SQL Edge (för hands version)
-description: Läs mer om hur du konfigurerar Azure SQL Edge (för hands version).
+title: Konfigurera Azure SQL Edge
+description: Läs mer om hur du konfigurerar Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -8,15 +8,15 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: 722d33e76b6009a44811dfcb8a3238b042ec6918
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816889"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888381"
 ---
-# <a name="configure-azure-sql-edge-preview"></a>Konfigurera Azure SQL Edge (för hands version)
+# <a name="configure-azure-sql-edge"></a>Konfigurera Azure SQL Edge
 
 Azure SQL Edge stöder konfiguration via något av följande två alternativ:
 
@@ -30,6 +30,15 @@ Azure SQL Edge stöder konfiguration via något av följande två alternativ:
 
 Azure SQL Edge visar flera olika miljövariabler som kan användas för att konfigurera SQL Edge-behållaren. Dessa miljövariabler är en delmängd av de som är tillgängliga för SQL Server på Linux. Mer information om SQL Server på Linux miljövariabler finns i [miljövariabler](/sql/linux/sql-server-linux-configure-environment-variables/).
 
+Följande nya miljövariabler har lagts till i Azure SQL Edge. 
+
+| Miljövariabel | Beskrivning | Värden |     
+|-----|-----| ---------- |   
+| **MSSQL_TELEMETRY_ENABLED** | Aktivera eller inaktivera data insamling för användning och diagnostik. | TRUE eller FALSE |  
+| **MSSQL_TELEMETRY_DIR** | Anger mål katalogen för gransknings filerna för användnings-och diagnostik-data insamling. | Mapplats i SQL Edge-behållare. Den här mappen kan mappas till en värd volym med hjälp av antingen monterings punkter eller data volymer. | 
+| **MSSQL_PACKAGE** | Anger platsen för det DACPAC-eller BACPAC-paket som ska distribueras. | Mapp, fil eller SAS-URL som innehåller DACPAC-eller BACPAC-paket. Mer information finns [i distribuera SQL Database DACPAC-och BACPAC-paket i SQL Edge](deploy-dacpac.md). |
+
+
 Följande SQL Server på Linux Environment-variabel stöds inte för Azure SQL Edge. Om det är definierat ignoreras den här miljövariabeln vid initiering av behållare.
 
 | Miljövariabel | Beskrivning |
@@ -38,9 +47,6 @@ Följande SQL Server på Linux Environment-variabel stöds inte för Azure SQL E
 
 > [!IMPORTANT]
 > **MSSQL_PID** -miljövariabeln för SQL Edge accepterar bara **Premium** och **Developer** som giltiga värden. Azure SQL Edge stöder inte initiering med en produkt nyckel.
-
-> [!NOTE]
-> Hämta [licens villkoren för program vara från Microsoft](https://go.microsoft.com/fwlink/?linkid=2128283) för Azure SQL Edge.
 
 ### <a name="specify-the-environment-variables"></a>Ange miljövariabler
 
@@ -53,6 +59,9 @@ Lägg till värden i **miljövariabler**.
 Lägg till värden i **behållar skapande alternativ**.
 
 ![Ange med hjälp av alternativet för att skapa behållare](media/configure/set-environment-variables-using-create-options.png)
+
+> [!NOTE]
+> I det frånkopplade distributions läget kan miljövariabler anges med `-e` `--env` alternativet eller eller `--env-file` för `docker run` kommandot.
 
 ## <a name="configure-by-using-an-mssqlconf-file"></a>Konfigurera med hjälp av en MSSQL. conf-fil
 
@@ -70,6 +79,13 @@ Azure SQL Edge innehåller inte det [konfigurations verktyg för MSSQL-conf](/sq
       }
     }
 ```
+
+Följande nya MSSQL. conf-alternativ har lagts till för Azure SQL Edge. 
+
+|Alternativ|Beskrivning|
+|:---|:---|
+|**customerfeedback** | Välj om SQL Server skicka feedback till Microsoft. Mer information finns i [inaktivera insamling av användnings data och diagnostikdata](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection)|      
+|**userrequestedlocalauditdirectory** | Anger mål katalogen för gransknings filerna för användnings-och diagnostik-data insamling. Mer information finns i [lokal granskning av användning och insamling av diagnostikdata](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) |        
 
 Följande MSSQL. conf-alternativ gäller inte för SQL Edge:
 
@@ -116,7 +132,7 @@ traceflag2 = 1204
 
 ## <a name="run-azure-sql-edge-as-non-root-user"></a>Kör Azure SQL Edge som icke-rot användare
 
-Från och med Azure SQL Edge CTP 2.2 kan SQL Edge-behållare köras med en icke-rot användare/grupp. När den distribueras via Azure Marketplace, om inte en annan användare/grupp anges, startar SQL Edge-behållare som MSSQL-användare (inte rot). Om du vill ange en annan icke-rot användare under distributionen lägger du till `*"User": "<name|uid>[:<group|gid>]"*` nyckel/värde-paret under behållare skapa alternativ. I exemplet nedan är SQL Edge konfigurerat att starta som användare `*IoTAdmin*` .
+Som standard körs Azure SQL Edge-behållare med en icke-rot användare/grupp. När den distribueras via Azure Marketplace (eller använder Docker-körning), om inte en annan användare/grupp anges, startar SQL Edge-behållare som MSSQL-användare (inte rot). Om du vill ange en annan icke-rot användare under distributionen lägger du till `*"User": "<name|uid>[:<group|gid>]"*` nyckel/värde-paret under behållare skapa alternativ. I exemplet nedan är SQL Edge konfigurerat att starta som användare `*IoTAdmin*` .
 
 ```json
 {
@@ -140,7 +156,7 @@ chown -R 10001:0 <database file dir>
 
 ### <a name="upgrading-from-earlier-ctp-releases"></a>Uppgradera från tidigare CTP-versioner
 
-Tidigare CTP-versioner av Azure SQL Edge har kon figurer ATS för att köras som rot användare. Följande alternativ är tillgängliga när du uppgraderar från tidigare CTP: s
+Tidigare CTPs av Azure SQL Edge har kon figurer ATS för att köras som rot användare. Följande alternativ är tillgängliga när du uppgraderar från tidigare CTPs.
 
 - Fortsätt att använda rot användaren – om du vill fortsätta använda rot användaren lägger du till `*"User": "0:0"*` nyckel/värde-paret under behållare skapa alternativ.
 - Använd standard-MSSQL-användaren för att använda standard-MSSQL-användaren, Följ stegen nedan
@@ -169,11 +185,11 @@ Dina ändringar i Azure SQL Edge-konfigurationen och databasfiler sparas i behå
 Det första alternativet är att montera en katalog på värden som en data volym i din behållare. Det gör du genom att använda `docker run` kommandot med `-v <host directory>:/var/opt/mssql` flaggan. Detta gör att data kan återställas mellan behållar körningar.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 Med den här metoden kan du också dela och Visa filer på värden utanför Docker.
@@ -189,11 +205,11 @@ Med den här metoden kan du också dela och Visa filer på värden utanför Dock
 Det andra alternativet är att använda en data volym behållare. Du kan skapa en data volym behållare genom att ange ett volym namn i stället för en värd katalog med `-v` parametern. I följande exempel skapas en delad data volym med namnet **sqlvolume**.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 > [!NOTE]

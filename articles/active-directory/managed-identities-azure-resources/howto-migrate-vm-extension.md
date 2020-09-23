@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84a262cae17a4e26724ab06da397e699e09468db
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260194"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969201"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Så här slutar du använda tillägget för hanterade identiteter för virtuella datorer och börjar använda Azure-Instance Metadata Service
 
@@ -37,8 +37,8 @@ På grund av flera begränsningar som beskrivs i nästa avsnitt, har Managed Ide
 
 När du konfigurerar en virtuell dator eller skalnings uppsättning för virtuell dator som har en hanterad identitet kan du välja att etablera hanterade identiteter för VM-tillägget för Azure-resurser med hjälp av `-Type` parametern på cmdleten [set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux` , beroende på typen av virtuell dator och ge den namnet med hjälp av `-Name` parametern. `-Settings`Parametern anger den port som används av OAuth-token för hämtning av token:
 
-```powershell
-   $settings = @{ "port" = 50342 }
+```azurepowershell-interactive
+$settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
@@ -68,7 +68,7 @@ Du kan också använda mallen för Azure Resource Manager distribution för att 
     
 Om du arbetar med skalnings uppsättningar för virtuella datorer kan du även etablera hanterade identiteter för Azure-resursers skalnings uppsättnings tillägg för virtuella datorer med cmdleten [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux` , beroende på typ av skalnings uppsättning för virtuell dator och ge den namnet med hjälp av `-Name` parametern. `-Settings`Parametern anger den port som används av OAuth-token för hämtning av token:
 
-   ```powershell
+   ```azurepowershell-interactive
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
@@ -106,7 +106,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
 ```
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
 ```
 
@@ -162,7 +162,7 @@ Content-Type: application/json
 
 Om tillägget stoppas i Windows och vissa versioner av Linux kan följande cmdlet användas för att starta om den manuellt:
 
-```powershell
+```azurepowershell-interactive
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 

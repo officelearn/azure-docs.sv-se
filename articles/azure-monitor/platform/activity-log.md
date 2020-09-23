@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983210"
 ---
 # <a name="azure-activity-log"></a>Azure aktivitets logg
 Aktivitets loggen är en [plattforms logg](platform-logs-overview.md) i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Om du vill ha ytterligare funktioner bör du skapa en diagnostisk inställning för att skicka aktivitets loggen till [Azure Monitor loggar](data-platform-logs.md), till Azure Event Hubs att vidarebefordra utanför Azure eller till Azure Storage för arkivering. Den här artikeln innehåller information om hur du visar aktivitets loggen och skickar den till olika destinationer.
@@ -156,7 +156,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minut värdet (m = 00) är alltid 00, eftersom resurs logg händelser delas upp i enskilda blobbar per timme.
 
-Varje händelse lagras i PT1H.jsi filen med följande format som använder ett gemensamt schema på högsta nivå, men som i övrigt är unikt för varje kategori enligt beskrivningen i [aktivitets loggens schema](activity-log-schema.md).
+Varje händelse lagras i PT1H.jsi filen med följande format som använder ett gemensamt schema på högsta nivå, men som i övrigt är unikt för varje kategori enligt beskrivningen i  [aktivitets loggens schema](activity-log-schema.md).
 
 ``` JSON
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
@@ -201,12 +201,12 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
 
     | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
-    | Name |Ja |Namn på din logg profil. |
-    | StorageAccountId |Nej |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
-    | serviceBusRuleId |Nej |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | Name |Yes |Namn på din logg profil. |
+    | StorageAccountId |No |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
+    | serviceBusRuleId |No |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Plats |Ja |Kommaavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. |
-    | RetentionInDays |Ja |Antal dagar som händelser ska behållas i lagrings kontot, mellan 1 och 365. Värdet noll lagrar loggarna oändligt. |
-    | Kategori |Nej |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
+    | RetentionInDays |Yes |Antal dagar som händelser ska behållas i lagrings kontot, mellan 1 och 365. Värdet noll lagrar loggarna oändligt. |
+    | Kategori |No |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
 
 ### <a name="example-script"></a>Exempelskript
 Följande är ett exempel på PowerShell-skript för att skapa en logg profil som skriver aktivitets loggen till både ett lagrings konto och en Event Hub.
@@ -244,12 +244,12 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
 
     | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
-    | name |Ja |Namn på din logg profil. |
-    | lagrings konto-ID |Ja |Resurs-ID för det lagrings konto som aktivitets loggar ska sparas i. |
-    | platser |Ja |Blankstegsavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name` . |
-    | antalet |Ja |Antal dagar som händelser ska behållas, mellan 1 och 365. Om värdet är noll lagras loggarna oändligt (för alltid).  Om värdet är noll ska parametern Enabled vara inställd på falskt. |
-    |enabled | Ja |Sant eller falskt.  Används för att aktivera eller inaktivera bevarande principen.  Om värdet är true måste parametern Days vara ett värde som är större än 0.
-    | kategorier |Ja |Blankstegsavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är Write, Delete och action. |
+    | namn |Yes |Namn på din logg profil. |
+    | lagrings konto-ID |Yes |Resurs-ID för det lagrings konto som aktivitets loggar ska sparas i. |
+    | platser |Yes |Blankstegsavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name` . |
+    | antalet |Yes |Antal dagar som händelser ska behållas, mellan 1 och 365. Om värdet är noll lagras loggarna oändligt (för alltid).  Om värdet är noll ska parametern Enabled vara inställd på falskt. |
+    |enabled | Yes |Sant eller falskt.  Används för att aktivera eller inaktivera bevarande principen.  Om värdet är true måste parametern Days vara ett värde som är större än 0.
+    | kategorier |Yes |Blankstegsavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är Write, Delete och action. |
 
 
 ### <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
@@ -259,7 +259,7 @@ Den äldre metoden för att skicka aktivitets loggen till en Log Analytics arbet
 1. I avsnittet **data källor för arbets yta** på menyn för arbets ytan väljer du **Azure aktivitets logg**.
 1. Klicka på den prenumeration som du vill ansluta.
 
-    ![Arbetsytor](media/activity-log-collect/workspaces.png)
+    ![Skärm bild som visar Log Analytics arbets yta med en Azure aktivitets logg vald.](media/activity-log-collect/workspaces.png)
 
 1. Klicka på **Anslut** för att ansluta aktivitets loggen i prenumerationen till den valda arbets ytan. Om prenumerationen redan är ansluten till en annan arbets yta, klickar du på **Koppla från** först för att koppla bort den.
 

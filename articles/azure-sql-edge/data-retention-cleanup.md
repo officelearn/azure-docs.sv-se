@@ -1,6 +1,6 @@
 ---
-title: Hantera historiska data med bevarande princip – Azure SQL Edge (för hands version)
-description: Lär dig hur du hanterar historiska data med bevarande principer i Azure SQL Edge (för hands version)
+title: Hantera historiska data med bevarande princip – Azure SQL Edge
+description: Lär dig hur du hanterar historiska data med bevarande principer i Azure SQL Edge
 keywords: SQL Edge, data kvarhållning
 services: sql-edge
 ms.service: sql-edge
@@ -9,22 +9,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9acec467819f159623176edf2f3f763a55019eb4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550760"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888140"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Hantera historiska data med bevarande princip
 
 Datakvarhållning kan aktive ras på databasen och någon av de underliggande tabellerna individuellt, så att användarna kan skapa flexibla ålders principer för sina tabeller och databaser. Det är enkelt att använda datakvarhållning: det kräver bara att en parameter anges vid skapande av tabell eller som en del av en Alter Table-åtgärd. 
 
-När data bevarande principen är användardefinierade för en databas och den underliggande tabellen, körs en tidsinställd bakgrunds tids period för att ta bort eventuella inaktuella poster från tabellen som är aktive rad för datakvarhållning. Identifiering av matchande rader och borttagning av dem från tabellen sker transparent i bakgrunds aktiviteten som schemaläggs och körs av systemet. Ålders villkor för tabell rader kontrol leras baserat på kolumnen som används som `filter_column` i tabell definitionen. Om kvarhållningsperioden exempelvis är inställt på en vecka, uppfyller tabell rader som är berättigade till rensning följande villkor: 
+När data bevarande principen är användardefinierade för en databas och den underliggande tabellen, körs en tidsinställd bakgrunds tids period för att ta bort eventuella inaktuella poster från tabellen som är aktive rad för datakvarhållning. Identifiering av matchande rader och borttagning av dem från tabellen sker transparent i bakgrunds aktiviteten som schemaläggs och körs av systemet. Ålders villkor för tabell rader kontrol leras baserat på kolumnen som används som `filter_column` i tabell definitionen. Om kvarhållningsperioden exempelvis är inställt på en vecka, uppfyller tabell rader som är berättigade till rensning något av följande villkor: 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- Om filter kolumnen använder data typen DATETIMEOFFSET, är villkoret `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- Annars är villkoret `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## <a name="data-retention-cleanup-phases"></a>Rensnings faser för data kvarhållning
 
@@ -37,7 +36,7 @@ Rensnings åtgärden för datakvarhållning består av två faser.
 
 ## <a name="manual-cleanup"></a>Manuell rensning
 
-Beroende på inställningarna för datakvarhållning i en tabell och typen av arbets belastning på databasen, är det möjligt att den automatiska rensnings tråden inte tar bort alla inaktuella rader under körningen. Den `sys.sp_cleanup_data_retention` lagrade proceduren har introducerats i Azure SQL Edge (för hands version) för att hjälpa till med detta och tillåta användare att manuellt ta bort inaktuella rader. 
+Beroende på inställningarna för datakvarhållning i en tabell och typen av arbets belastning på databasen, är det möjligt att den automatiska rensnings tråden inte tar bort alla inaktuella rader under körningen. Den `sys.sp_cleanup_data_retention` lagrade proceduren har introducerats i Azure SQL Edge för att hjälpa till med detta och tillåta användare att manuellt ta bort inaktuella rader. 
 
 Den här lagrade proceduren tar tre parametrar. 
     - Schema namn – namnet på det ägande schemat för tabellen. Detta är en obligatorisk parameter. 
@@ -67,7 +66,7 @@ Med utmärkt data komprimering och effektiv kvarhållning av rensning görs ett 
 
 ## <a name="monitoring-data-retention-cleanup"></a>Övervaka rensning av datakvarhållning
 
-Rensnings åtgärder för data lagrings principer kan övervakas med utökade händelser (XEvents) i Azure SQL Edge (för hands version). Mer information om utökade händelser finns i [Översikt över XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+Rensnings åtgärder för data lagrings principer kan övervakas med utökade händelser (XEvents) i Azure SQL Edge. Mer information om utökade händelser finns i [Översikt över XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
 
 Följande sex utökade händelser hjälper till att spåra status för rensnings åtgärderna. 
 
@@ -78,7 +77,9 @@ Följande sex utökade händelser hjälper till att spåra status för rensnings
 | data_retention_task_exception  | Inträffar när bakgrunds aktiviteten för rensning av tabeller med bevarande princip inte går utanför den rensnings process som är speciell för tabellen. |
 | data_retention_cleanup_started  | Inträffar när rensnings processen för tabell med data lagrings princip startar. |
 | data_retention_cleanup_exception  | Det går inte att rensa processen för tabell med bevarande princip. |
-| data_retention_cleanup_completed  | Inträffar när rensnings processen för tabellen med data lagrings principen upphör. |
+| data_retention_cleanup_completed  | Inträffar när rensnings processen för tabellen med data lagrings principen upphör. |  
+
+Dessutom har en ny typ `RING_BUFFER_DATA_RETENTION_CLEANUP` av ringbufferten som heter lagts till i sys. dm_os_ring_buffers vyn dynamisk hantering. Den här vyn kan användas för att övervaka rensnings åtgärder för data kvarhållning. 
 
 
 ## <a name="next-steps"></a>Efterföljande moment

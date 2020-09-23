@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768392"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906526"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -22,7 +22,7 @@ Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta 
 ## <a name="permissions"></a>Behörigheter
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att Query Performance Insight ska fungera måste data finnas i [frågearkivet](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Visa prestanda insikter
@@ -30,7 +30,7 @@ På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azu
 
 På Portal-sidan på Azure Database for PostgreSQL-servern väljer du **fråga prestanda insikter** under avsnittet **intelligent prestanda** i meny raden.
 
-![Query Performance Insight tids krävande frågor](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight tids krävande frågor":::
 
 På fliken **tids krävande frågor** visas de fem främsta frågorna med genomsnittlig varaktighet per körning, sammanställt i 15-minuters intervall. Du kan visa fler frågor genom att välja dem i den nedrullningsbara listrutan för **Antal frågor**. Diagrammets färger kan ändras för ett specifikt fråge-ID när du gör detta.
 
@@ -40,9 +40,9 @@ Tabellen nedanför diagrammet innehåller mer information om tids krävande frå
 
 Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av vänttillfällen på servern.
 
-![Query Performance Insight väntar på statistik](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight väntar på statistik":::
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 * Query Performance Insight är inte tillgängligt för [läsning av repliker](concepts-read-replicas.md).
 
 ## <a name="next-steps"></a>Nästa steg

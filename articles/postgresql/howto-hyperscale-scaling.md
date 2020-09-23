@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5b1a5da688b162c85d2be8580e29dc6ee9db6d40
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029825"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906471"
 ---
 # <a name="server-group-size"></a>Servergruppstorlek
 
@@ -42,7 +42,7 @@ Azure Database for PostgreSQL-Scale (citus) tillhandahåller självbetjänings s
 
 Om du vill lägga till noder går du till fliken **Compute + Storage** i Server gruppen för citus-servern.  Om du drar skjutreglaget för **antal arbets noder** ändras värdet.
 
-![Resurs skjutreglage](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resurs skjutreglage":::
 
 Klicka på knappen **Spara** om du vill att det ändrade värdet ska börja gälla.
 

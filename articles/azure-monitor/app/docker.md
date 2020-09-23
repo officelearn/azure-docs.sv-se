@@ -3,12 +3,12 @@ title: Övervaka Docker-program i Azure Application Insights | Microsoft Docs
 description: Docker perf-räknare, händelser och undantag kan visas på Application Insights, tillsammans med telemetri från appar i behållare.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 272b4e8af7b1ed3d01d8af0979b56954585f795d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324428"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977575"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Övervaka Docker-program i Application Insights (inaktuell)
 
@@ -71,12 +71,12 @@ Klicka på den Docker panelen.
 Du kommer snart att se data som kommer från Docker-appen, särskilt om du har andra behållare som körs på Docker-motorn.
 
 ### <a name="docker-container-events"></a>Docker-behållar händelser
-![exempel](./media/docker/13.png)
+![Skärm bild som visar val av sökning, ett fönster med diagnostiska Sök resultat med en pil som pekar på en anpassad händelse till ett fönster med anpassade data.](./media/docker/13.png)
 
 Om du vill undersöka enskilda händelser klickar du på [Sök](./diagnostic-search.md). Sök och filtrera efter de händelser som du vill ha. Klicka på en händelse om du vill ha mer information.
 
 ### <a name="exceptions-by-container-name"></a>Undantag per behållar namn
-![exempel](./media/docker/14.png)
+![Skärm bild som visar Metrics Explorer sidan med ett diagram markerat och fönstret diagram information öppnas på höger sida.](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>Docker-kontext har lagts till i app-telemetri
 Telemetri för begäran som skickas från det program som är instrumenterat med AI SDK, är omfattande med Docker context-information.

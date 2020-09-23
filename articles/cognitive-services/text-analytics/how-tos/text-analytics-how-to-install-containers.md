@@ -11,19 +11,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545666"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906045"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys-containrar
 
 > [!NOTE]
 > * Behållaren för Attitydanalys v3 är nu allmänt tillgänglig. Containrarna för extrahering av nyckelfraser och språkidentifiering är tillgängliga som obegränsad offentlig förhandsversion.
 > * Enhets länkning och NER är för närvarande inte tillgängliga som en behållare.
-> * För närvarande debiteras du inte för användning av containrar för Textanalys för hälso- och sjukvården.
+> * För att komma åt Textanalys för hälso container krävs ett [formulär för begäran](https://aka.ms/cognitivegate). För närvarande debiteras du inte för dess användning.
+> * Platserna för behållar avbildningar kan ha ändrats nyligen. Läs den här artikeln om du vill se den uppdaterade platsen för den här behållaren.
 
 Med containrar kan du köra API:er för textanalys i din egen miljö och de är bra för dina specifika säkerhets- och datastyrningskrav. Textanalys behållare tillhandahåller avancerad naturlig språk bearbetning över rå text och innehåller tre huvud funktioner: sentiment analys, extrahering av nyckel fraser och språk identifiering. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738064"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975072"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions
 
@@ -30,12 +30,12 @@ Resurser som distribueras i Azure kör 24/7. Du och din personal kan inte aktivt
 
 Genom att använda Network Watcher, aviseringar och funktioner i Azure-eko systemet kan du proaktivt reagera på data och verktyg för att lösa problem i nätverket.
 
-![Scenario][scenario]
+![Diagrammet visar Network Watcher tillägget på en virtuell dator som flödar till ett T C P-segment som skickats > 100-fel, som flödar till Azure Functions, som flödar till Network Watcher som flödar tillbaka till Network Watcher-tillägget.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Azure PowerShell](/powershell/azure/install-Az-ps).
 * En befintlig instans av Network Watcher. Om du inte redan har en, [skapar du en instans av Network Watcher](network-watcher-create.md).
@@ -74,24 +74,24 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 2. Ange följande värden på bladet **Funktionsapp** och välj sedan **OK** för att skapa appen:
 
-    |**Inställning** | **Värde** | **Detaljer** |
+    |**Inställning** | **Värde** | **Information** |
     |---|---|---|
-    |**App-namn**|PacketCaptureExample|Namnet på Function-appen.|
+    |**Appens namn**|PacketCaptureExample|Namnet på Function-appen.|
     |**Prenumeration**|[Din prenumeration] Den prenumeration som du vill skapa Function-appen för.||
     |**Resursgrupp**|PacketCaptureRG|Resurs gruppen som innehåller Function-appen.|
     |**Värdplan**|Förbrukningsplan| Typ av plan som din Function-app använder. Alternativen är förbruknings-eller Azure App Services planer. |
-    |**Position**|USA, centrala| Den region där du vill skapa Function-appen.|
-    |**Lagringskonto**|automatiskt skapade texter| Det lagrings konto som Azure Functions behöver för allmän lagring.|
+    |**Plats**|Central US| Den region där du vill skapa Function-appen.|
+    |**Lagrings konto**|automatiskt skapade texter| Det lagrings konto som Azure Functions behöver för allmän lagring.|
 
 3. På bladet **PacketCaptureExample Function-appar** väljer **du**  >  **anpassad funktion**  > **+** .
 
 4. Välj **HttpTrigger-PowerShell**och ange sedan återstående information. Slutligen, för att skapa funktionen, väljer du **skapa**.
 
-    |**Inställning** | **Värde** | **Detaljer** |
+    |**Inställning** | **Värde** | **Information** |
     |---|---|---|
     |**Scenario**|Experimentell|Typ av scenario|
     |**Namnge din funktion**|AlertPacketCapturePowerShell|Namnet på funktionen|
-    |**Auktorisationsnivå**|Funktion|Behörighets nivå för funktionen|
+    |**Auktoriseringsnivå**|Funktion|Behörighets nivå för funktionen|
 
 ![Functions-exempel][functions1]
 
@@ -142,7 +142,7 @@ Om du vill använda Network Watcher PowerShell-cmdlets laddar du upp den senaste
 
 7. Upprepa de här stegen för **AZ. Accounts** och **AZ. Resources**.
 
-    ![Överföra filer][functions6]
+    ![Ladda upp filer][functions6]
 
 1. När du är klar ska varje mapp ha PowerShell-modulens filer från den lokala datorn.
 
@@ -342,13 +342,13 @@ Aviseringar kan konfigureras för att meddela individer när ett speciellt mått
 
 Gå till en befintlig virtuell dator och Lägg sedan till en varnings regel. Mer detaljerad dokumentation om hur du konfigurerar aviseringar finns i [skapa aviseringar i Azure Monitor för Azure-tjänster – Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Ange följande värden på bladet **aviserings regel** och välj sedan **OK**.
 
-  |**Inställning** | **Värde** | **Detaljer** |
+  |**Inställning** | **Värde** | **Information** |
   |---|---|---|
   |**Namn**|TCP_Segments_Sent_Exceeded|Aviserings regelns namn.|
   |**Beskrivning**|TCP skickade segment överskred tröskeln|Beskrivning av varnings regeln.|
   |**Mått**|TCP skickade segment| Måttet som ska användas för att utlösa aviseringen. |
-  |**Villkor**|Större än| Villkoret som ska användas när måttet utvärderas.|
-  |**Fastställd**|100| Värdet för måttet som utlöser aviseringen. Värdet måste anges till ett giltigt värde för din miljö.|
+  |**Condition**|Större än| Villkoret som ska användas när måttet utvärderas.|
+  |**Tröskelvärde**|100| Värdet för måttet som utlöser aviseringen. Värdet måste anges till ett giltigt värde för din miljö.|
   |**Gått**|Under de senaste fem minuterna| Anger den period i vilken du vill söka efter tröskelvärdet för måttet.|
   |**Webhook**|[webhook-URL från Function app]| Webhook-URL: en från Function-appen som skapades i föregående steg.|
 

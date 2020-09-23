@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518783"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906778"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Vägar i för hands versionen av Azure statisk Web Apps
 
@@ -32,7 +32,7 @@ Mer information finns i [exempel cirkulations filen](#example-route-file) .
 
 _routes.js_ filen måste finnas i roten i appens version av programartefakt. Om din webbapp innehåller ett build-steg som kopierar skapade filer från en speciell mapp till din version av en artefakt, måste _routes.js_ filen finnas i den specifika mappen.
 
-I följande tabell visas en lista över lämpliga platser för att lägga _routes.jspå_ en fil för ett antal frontend-ramverk och bibliotek i front-end.
+I följande tabell visas en lista över lämpliga platser för att lägga _routes.jspå_ en fil för ett antal klient dels ramverk och bibliotek.
 
 |Ramverk/bibliotek | Position  |
 |---------|----------|
@@ -40,6 +40,9 @@ I följande tabell visas en lista över lämpliga platser för att lägga _route
 | React   | _public_  |
 | Svelte  | _public_   |
 | Vue     | _public_ |
+| Blazor  | _wwwroot_ |
+
+Tabellen ovan är bara representativ för några ramverk och bibliotek som är kompatibla med Azures statiska Web Apps. Mer information hittar du i [Konfigurera front-end-ramverk och-bibliotek](./front-end-frameworks.md) .
 
 ## <a name="defining-routes"></a>Definiera vägar
 
@@ -47,10 +50,10 @@ Vägar definieras i _routes.jspå_ filen som en matris med väg regler i `routes
 
 | Regel egenskap  | Obligatorisk | Standardvärde | Kommentar                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Ja      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
-| `serve`        | Nej       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve`värdena måste peka på faktiska filer.  |
-| `allowedRoles` | Nej       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
-| `statusCode`   | Nej       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
+| `route`        | Yes      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
+| `serve`        | No       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve` värdena måste peka på faktiska filer.  |
+| `allowedRoles` | No       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
+| `statusCode`   | No       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
 
 ## <a name="securing-routes-with-roles"></a>Skydda vägar med roller
 
@@ -106,7 +109,7 @@ Du kan också skydda vägar med jokertecken. I följande exempel kräver alla fi
 
 ## <a name="fallback-routes"></a>Reserv vägar
 
-CSS-ramverk eller bibliotek i front-end är ofta beroende av routning på klient sidan för navigering på webb program. Dessa regler för routning av klient sidan uppdaterar webbläsarens fönster plats utan att göra förfrågningar tillbaka till servern. Om du uppdaterar sidan, eller navigerar direkt till platser som genereras av klient sidans routningsregler, krävs en återställnings väg på Server sidan för att kunna hantera rätt HTML-sida.
+Program med en enda sida, oavsett om de använder front-end JavaScript-ramverk eller bibliotek eller WebAssembly-plattformar som till exempel blixt, är det ofta förlitande på klient sidans routning för navigering på webbappar. Dessa regler för routning av klient sidan uppdaterar webbläsarens fönster plats utan att göra förfrågningar tillbaka till servern. Om du uppdaterar sidan, eller navigerar direkt till platser som genereras av klient sidans routningsregler, krävs en återställnings väg på Server sidan för att kunna hantera rätt HTML-sida.
 
 En vanlig återställnings väg visas i följande exempel:
 
@@ -187,6 +190,9 @@ Följande överväganden är viktiga när du arbetar med MIME-typer:
 - Nycklar får inte vara null eller tomma eller innehålla mer än 50 tecken
 - Värden får inte vara null eller tomma eller mer än 1000 tecken
 
+> [!NOTE]
+> Statiska Web Apps förstår program vara och de förväntade MIME-typerna för WASM-och DLL-filer, du behöver inte lägga till mappningar för dem.
+
 ## <a name="default-headers"></a>Standard rubriker
 
 `defaultHeaders`Objektet, som visas på samma nivå som `routes` matrisen, gör att du kan lägga till, ändra eller ta bort [svarshuvuden](https://developer.mozilla.org/docs/Web/HTTP/Headers).
@@ -212,7 +218,7 @@ Följande överväganden är viktiga när du arbetar med huvuden:
 - Null eller tomma värden tar bort en rubrik från bearbetningen.
 - Nycklar eller värden får inte överstiga 8 000 tecken.
 - Definierade sidhuvuden hanteras med alla begär Anden.
-- Sidhuvuden som definieras iroutes.jstillämpas endast _på_ statiskt innehåll. Du kan anpassa svars rubriker för en API-slutpunkt i funktionens kod.
+- Sidhuvuden som definieras iroutes.jstillämpas endast _ på_ statiskt innehåll. Du kan anpassa svars rubriker för en API-slutpunkt i funktionens kod.
 
 ## <a name="example-route-file"></a>Exempel på cirkulations fil
 

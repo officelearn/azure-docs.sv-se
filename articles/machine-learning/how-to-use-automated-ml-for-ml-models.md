@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904935"
+ms.locfileid: "90985580"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 
@@ -86,7 +86,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
             
         Välj **Nästa.**
 
-    1. Formuläret **bekräfta information** är en sammanfattning av den information som tidigare har fyllts i i **grundläggande information** och **Inställningar och för hands** formulär. Du kan också välja att skapa en data profil för din data uppsättning med en profilerings aktive rad beräkning. Läs mer om [data profilering](#profile).
+    1. Formuläret **bekräfta information** är en sammanfattning av den information som tidigare har fyllts i i **grundläggande information** och **Inställningar och för hands** formulär. Du kan också välja att skapa en data profil för din data uppsättning med en profilerings aktive rad beräkning. Läs mer om [data profilering](how-to-connect-data-ui.md#profile).
 
         Välj **Nästa**.
 1. Välj den nyligen skapade data uppsättningen när den visas. Du kan också visa en förhands granskning av data uppsättningen och exempel statistiken. 
@@ -111,7 +111,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     Välj **Skapa**. Det kan ta några minuter att skapa en ny beräkning.
 
     >[!NOTE]
-    > Ditt beräknings namn anger om den beräkning som du väljer/skapar profilering är *aktive rad*. (Mer information finns i avsnittet om avsnitts [data profilering](#profile) ).
+    > Ditt beräknings namn anger om den beräkning som du väljer/skapar profilering är *aktive rad*. (Mer information finns i avsnittet om avsnitts [data profilering](how-to-connect-data-ui.md#profile) ).
 
     Välj **Nästa**.
 
@@ -144,32 +144,6 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 1. Valfritt Visa funktionalisering-inställningar: om du väljer att aktivera **Automatisk funktionalisering** i formuläret för **ytterligare konfigurations inställningar** tillämpas standard funktionalisering-teknikerna. I **Visa funktionalisering-inställningar** kan du ändra dessa standardvärden och anpassa dem efter behov. Lär dig hur du [anpassar featurizations](#customize-featurization). 
 
     ![Aktivitets typ formulär för Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## <a name="data-profiling--summary-stats"></a>Data profilering & sammanfattnings statistik
-
-Du kan få en mängd olika sammanfattnings statistik över din data uppsättning för att kontrol lera om din data uppsättning är ML-redo. För icke-numeriska kolumner innehåller de bara grundläggande statistik som min, max och antal fel. För numeriska kolumner kan du också granska deras statistiska moment och uppskatta quantiles. Mer specifikt innehåller vår data profil:
-
->[!NOTE]
-> Tomma poster visas för funktioner med irrelevanta typer.
-
-Statistik|Beskrivning
-------|------
-Funktion| Namn på den kolumn som sammanfattas.
-Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
-Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så den här visualiseringen är användbar för att identifiera udda eller saknade värden.
-Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
-Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (t. ex. booleska värden).
-Max| Max värde för kolumnen. 
-Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
-Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
-Kvantiler| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
-Medelvärde| Aritmetiskt medelvärde eller genomsnitt för kolumnen.
-Standardavvikelse| Mått på mängden spridning eller variation för den här kolumnens data.
-Varians| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
-Snedhet| Mått på hur olika data från den här kolumnen kommer från en normal distribution.
-Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
 
 ## <a name="customize-featurization"></a>Anpassa funktionalisering
 

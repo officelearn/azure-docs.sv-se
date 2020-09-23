@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749727"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983631"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure Virtual WAN-loggar och-mått
 
@@ -62,7 +62,7 @@ Följande steg hjälper dig att hitta och visa mått:
 
 3. Välj **Mått**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="mått":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
 
 4. På sidan **mått** kan du Visa de mått som du är intresse rad av.
 
@@ -117,7 +117,7 @@ Ersätt värdena nedan efter **= =**, efter behov.
 * "TunnelDiagnosticLog"
 * "RouteDiagnosticLog"
 
-## <a name="activity-logs"></a><a name="activity-logs"></a>Aktivitetsloggar
+## <a name="activity-logs"></a><a name="activity-logs"></a>Aktivitets loggar
 
 **Aktivitets logg** poster samlas in som standard och kan visas i Azure Portal. Du kan använda Azure aktivitets loggar (tidigare kallade *drift loggar* och *gransknings loggar*) för att visa alla åtgärder som skickats till din Azure-prenumeration.
 

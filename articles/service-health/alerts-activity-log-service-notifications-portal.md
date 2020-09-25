@@ -1,14 +1,14 @@
 ---
 title: Ta emot aktivitets logg aviseringar på Azure Service Notifications med hjälp av Azure Portal
-description: Få ett meddelande via SMS, e-post eller webhook när Azure-tjänsten sker.
+description: Lär dig hur du använder Azure Portal för att ställa in aktivitets logg aviseringar för meddelanden om tjänstens hälso tillstånd med hjälp av Azure Portal.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499304"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289794"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Skapa aktivitets logg aviseringar för tjänst meddelanden med hjälp av Azure Portal
 ## <a name="overview"></a>Översikt

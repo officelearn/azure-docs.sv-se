@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, webbapp, Linux, Windows, Docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: fdc15ecd79a6672d2a46b4da284533965977d753
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312064"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrera anpassad program vara till Azure App Service med en anpassad behållare
 
@@ -72,7 +72,7 @@ Nu har projektet konfigurerats för att köra i en Windows-container. En _Docker
 
 Från Solution Explorer öppnar du **Dockerfile**.
 
-Du måste använda en [överordnad avbildning som stöds](quickstart-custom-container.md#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod:
+Du måste använda en [överordnad avbildning som stöds](configure-custom-container.md#supported-parent-images). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod:
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -618,6 +618,8 @@ De resurser som du skapade i den här artikeln kan medföra kontinuerliga kostna
 az group delete --name AppSvc-DockerTutorial-rg
 ```
 
+::: zone-end
+
 ## <a name="next-steps"></a>Nästa steg
 
 Vad du lärt dig:
@@ -625,9 +627,13 @@ Vad du lärt dig:
 > [!div class="checklist"]
 > * Distribuera en anpassad avbildning till ett privat behållar register
 > * Distribuera och den anpassade avbildningen i App Service
+::: zone pivot="container-linux"
 > * Uppdatera och distribuera om avbildningen
+::: zone-end
 > * Få åtkomst till diagnostikloggar
+::: zone pivot="container-linux"
 > * Anslut till containern med SSH
+::: zone-end
 
 I nästa självstudie får du lära dig hur du mappar ett anpassat DNS-namn till din app.
 
@@ -639,7 +645,7 @@ Eller kolla ut andra resurser:
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad container](configure-custom-container.md)
 
+::: zone pivot="container-linux"
 > [!div class="nextstepaction"]
 > [Självstudie: WordPress-app med flera behållare](tutorial-multi-container-app.md)
-
 ::: zone-end

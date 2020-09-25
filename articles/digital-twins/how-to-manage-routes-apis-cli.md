@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2cde352738c1aa545c77cbcf5d974030cd75b1e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326532"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)
 
@@ -24,10 +24,10 @@ Slut punkter och vägar kan hanteras med EventRoutes- [API: er](how-to-use-apis-
 
 De kan också hanteras via [Azure Portal](https://portal.azure.com). En version av den här artikeln som använder portalen i stället finns i [*så här gör du: hantera slut punkter och vägar (portal)*](how-to-manage-routes-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du behöver ett **Azure-konto** (du kan ställa in ett kostnads fritt [här](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* Du behöver en **Azure Digitals-instans** i din Azure-prenumeration. Om du inte redan har en instans kan du skapa en med hjälp av anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md). Ha följande värden från installations programmet som är praktiskt att använda senare i den här artikeln:
+* Du behöver en **Azure Digitals-instans** i din Azure-prenumeration. Om du inte redan har en instans kan du skapa en med hjälp av anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Ha följande värden från installations programmet som är praktiskt att använda senare i den här artikeln:
     - Instansnamn
     - Resursgrupp
     
@@ -44,7 +44,7 @@ Om du vill länka en slut punkt till Azure Digitals-band måste Event Grid-ämne
 
 ### <a name="create-an-event-grid-endpoint"></a>Skapa en Event Grid-slutpunkt
 
-I följande exempel visas hur du skapar en slut punkt för Event Grid-typ med hjälp av Azure CLI. Du kan använda [Azure Cloud Shell](https://shell.azure.com)eller [Installera CLI lokalt](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+I följande exempel visas hur du skapar en slut punkt för Event Grid-typ med hjälp av Azure CLI. Du kan använda [Azure Cloud Shell](https://shell.azure.com)eller [Installera CLI lokalt](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 Börja med att skapa ett event Grid-ämne. Du kan använda följande kommando eller Visa stegen mer detaljerat genom [att gå till avsnittet *skapa ett anpassat ämne* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) i snabb starten för Event Grid *anpassade händelser* .
 

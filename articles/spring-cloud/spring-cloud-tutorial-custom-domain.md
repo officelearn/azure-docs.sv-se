@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326158"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
 
@@ -58,12 +58,12 @@ Du kan också använda Azure CLI för att ge Azure våren Cloud åtkomst till ny
 
 Hämta objekt-ID: t via följande kommando.
 ```
-az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+az ad sp show --id <service principal id> --query objectId
 ```
 
 Ge Azure våren Cloud Läs åtkomst till Key Vault, Ersätt objekt-ID: t i följande kommando.
 ```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
 ``` 
 
 Importera certifikat till Azure våren-molnet:
@@ -93,7 +93,7 @@ När du har importerat certifikatet ser du det i listan över **certifikat för 
 Du kan också använda Azure CLI för att visa en lista över certifikat:
 
 ```
-az spring-cloud certificate list
+az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
 
 > [!IMPORTANT] 
@@ -128,7 +128,7 @@ Gå till program sidan.
 
 Du kan också använda Azure CLI för att lägga till en anpassad domän:
 ```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 En app kan ha flera domäner, men en domän kan bara mappas till en enda app. När du har mappat din anpassade domän till appen visas den i den anpassade domän tabellen.
@@ -137,7 +137,7 @@ En app kan ha flera domäner, men en domän kan bara mappas till en enda app. N�
 
 Du kan också använda Azure CLI för att visa en lista över anpassade domäner:
 ```
-az spring-cloud app custom-domain list --app <app name> 
+az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 > [!NOTE]
@@ -168,7 +168,7 @@ På din app-sida väljer du **anpassad domän**i det vänstra navigerings fälte
 
 Du kan också använda Azure CLI för att genomdriva HTTPS:
 ```
-az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 När åtgärden har slutförts navigerar du till någon av HTTPS-URL: erna som pekar på din app. Observera att HTTP-URL: er inte fungerar.

@@ -10,18 +10,18 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 42a1110b089d5edf9793bf2bb2c699a717a4b1a4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289386"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Anslutnings strängar för Synapse SQL (för hands version)
 
 Du kan ansluta till Synapse SQL (för hands version) med flera olika program protokoll som, [ADO.net](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Nedan visas några exempel på anslutnings strängar för varje protokoll. 
 
-Du kan också använda Azure Portal för att bygga anslutnings strängen.  Om du vill bygga anslutnings strängen med hjälp av Azure Portal navigerar du till bladet databas under *Essentials* och klickar på *Visa databas anslutnings strängar*.
+Du kan också använda Azure Portal för att bygga anslutnings strängen.  Om du vill bygga anslutnings strängen med hjälp av Azure Portal navigerar du till bladet databas under *Essentials* . Välj *Visa databas anslutnings strängar*.
 
 ## <a name="sample-adonet-connection-string"></a>Exempel på ADO.NET-anslutningssträng
 

@@ -8,13 +8,13 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 5190ff2575f80a7c1c8c4fc9b386441497de23fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 3a374dae89ddf22d33bc44cafd9db3b4b6a9e6fb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336828"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrol lera åtkomst till Azure IoT Hub Device Provisioning Service
 
@@ -178,7 +178,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till din IoT Device Provisioning-tjänst.
 
-| Behörighet | Anteckningar |
+| Behörighet | Kommentarer |
 | --- | --- |
 | **ServiceConfig** |Beviljar åtkomst för att ändra tjänst konfigurationerna. <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **EnrollmentRead** |Ger Läs behörighet till enhets registreringar och registrerings grupper. <br/>Den här behörigheten används av Server dels moln tjänster. |

@@ -5,17 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 3c176f103371bfb1b35231f222b2045f1f4a3ef9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89494288"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327054"
 ---
-## <a name="prerequisites"></a>Krav
-
-Den enda förutsättningen är en Azure tal-prenumeration. Se [guiden](../get-started.md#new-resource) för att skapa en ny prenumeration om du inte redan har en.
-
 ## <a name="download-and-install"></a>Hämta och installera
 
 #### <a name="windows-install"></a>[Windows-installation](#tab/windowsinstall)

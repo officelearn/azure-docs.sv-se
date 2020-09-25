@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: da0c00f0b4a8f2c49996fbcb9b34ee4a1ab65273
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6648a20e03facad4b791cacba8513f9f1aa7d2f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291919"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure SQL Database
 
@@ -40,7 +40,7 @@ Om din käll databas består av en eller flera temporala tabeller, Miss lyckas m
 
 **Lösning**
 
-Följ stegen nedan.
+Följ dessa steg.
 
 1. Hitta de temporala tabellerna i ditt käll schema med hjälp av frågan nedan.
 
@@ -66,7 +66,7 @@ Du kan se ett SQL-undantag som föreslår att "ntext är inkompatibelt med hiera
 
 **Lösning**
 
-Följ stegen nedan.
+Följ dessa steg.
 
 1. Hitta de användar tabeller som innehåller kolumner med data typen hierarchyid med hjälp av frågan nedan.
 
@@ -82,7 +82,7 @@ Följ stegen nedan.
 
 **Lösning**
 
-Följ stegen nedan.
+Följ dessa steg.
 
 1. Hitta de utlösare som för närvarande är aktiva i käll databasen med hjälp av frågan nedan:
 

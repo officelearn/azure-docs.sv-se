@@ -2,19 +2,19 @@
 title: Självstudie utveckla Node.js modul för Linux – Azure IoT Edge | Microsoft Docs
 description: Den här självstudien visar hur du skapar en IoT Edge-modul med Node.js-kod och distribuerar den till en gränsenhet
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, devx-track-python, devx-track-javascript
-ms.openlocfilehash: b1a24c4e97ba73dc5097e7b3c09c0c1c5a8771ac
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: mvc, devx-track-python, devx-track-js
+ms.openlocfilehash: fd7e5c74876f9c7457d4ef29827527191f6558d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875429"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336811"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla och distribuera en Node.js IoT Edge modul för Linux-enheter
 
@@ -39,7 +39,7 @@ Den här självstudien visar hur du utvecklar en modul i **Node.js** att använd
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera Node.js moduler:
 
-| Node.js | Visual Studio-koden | Visual Studio 2017/2019 |
+| Node.js | Visuell Studio-kod | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Node.js moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Node.js moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |  |

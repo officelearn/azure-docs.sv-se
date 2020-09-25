@@ -1,6 +1,6 @@
 ---
 title: Virtuella Azure-datorer med hög tillgänglighet för SAP NW på RHEL multi-SID-guide | Microsoft Docs
-description: Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
+description: Upprätta hög tillgänglighet för SAP NW på Azure Virtual Machines (VM) RHEL multi-SID.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 892c45db835457d5f0127d7377d722fc7f0df518
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 612bd019dc7a4bdf481fde4511084245fabd1620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319970"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP-program med flera SID-guide
 
@@ -56,7 +56,7 @@ I exempel konfigurationerna är installations kommandon osv. tre SAP NetWeaver 7
 * **NW2**: ASCS instance Number **10** och Virtual hostname **msnw2ascs**; ERS-instans nummer **12** och virtuellt värd namn **msnw2ers**.  
 * **NW3**: ASCS instance Number **20** och Virtual hostname **msnw3ascs**; ERS-instans nummer **22** och virtuellt värd namn **msnw3ers**.  
 
-Artikeln behandlar inte databas skiktet och distributionen av SAP NFS-resurser. I exemplen i den här artikeln använder vi [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) Volume **sapMSID** för NFS-resurser, förutsatt att volymen redan har distribuerats. Vi antar också att Azure NetApp Files volym distribueras med NFSv3-protokollet och att följande fil Sök vägar finns för kluster resurserna för ASCS-och ERS-instanserna för SAP Systems NW1, NW2 och NW3:  
+Artikeln behandlar inte databas skiktet och distributionen av SAP NFS-resurser. I exemplen i den här artikeln använder vi [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)  Volume **sapMSID** för NFS-resurser, förutsatt att volymen redan har distribuerats. Vi antar också att Azure NetApp Files volym distribueras med NFSv3-protokollet och att följande fil Sök vägar finns för kluster resurserna för ASCS-och ERS-instanserna för SAP Systems NW1, NW2 och NW3:  
 
 * volym sapMSID (nfs://10.42.0.4/sapmnt<b>NW1</b>)
 * volym sapMSID (nfs://10.42.0.4/usrsap<b>NW1</b>ASCs)

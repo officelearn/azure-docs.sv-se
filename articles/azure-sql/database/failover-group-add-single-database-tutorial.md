@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 23b78acb226b0d4de637dc653e6edb3bb4177219
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263597"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Självstudie: lägga till en Azure SQL Database i en grupp för automatisk redundans
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -80,7 +80,7 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Az
    - **Namn på redundans grupp**: Ange ett unikt namn på redundans grupp, till exempel `failovergrouptutorial` .
    - **Sekundär server**: Välj alternativet för att *Konfigurera nödvändiga inställningar* och välj sedan att **skapa en ny server**. Alternativt kan du välja en redan befintlig server som den sekundära servern. När du har angett följande värden väljer du **Välj**.
       - **Server namn**: Ange ett unikt namn på den sekundära servern, till exempel `mysqlsecondary` .
-      - **Inloggning för Server administratör**: typ`azureuser`
+      - **Inloggning för Server administratör**: typ `azureuser`
       - **Lösen ord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
       - **Plats**: Välj en plats i list rutan, till exempel `East US` . Den här platsen kan inte vara samma plats som din primära server.
 
@@ -336,7 +336,7 @@ Rensa resurser genom att ta bort resurs gruppen.
 Ta bort resurs gruppen med hjälp av Azure Portal.
 
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
-1. Välj **ta bort resurs grupp** för att ta bort alla resurser i gruppen, samt själva resurs gruppen.
+1. Välj  **ta bort resurs grupp** för att ta bort alla resurser i gruppen, samt själva resurs gruppen.
 1. Skriv namnet på resurs gruppen, `myResourceGroup` i text rutan och välj sedan **ta bort** för att ta bort resurs gruppen.  
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320633"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importera HSM-skyddade nycklar till hanterad HSM (BYOK)
 
- Azure Key Vault Managed HSM stöder import av nycklar som genererats i din lokala maskin varu säkerhetsmodul (HSM). nycklarna lämnar aldrig HSM-skyddets gränser. Det här scenariot kallas ofta för att *ta med din egen nyckel* (BYOK). Hanterad HSM använder hjälp programmet nCipher nshield maskinvarusäkerhetsmodul-serien HSM: er (FIPS 140-2 Level 3 verifierad) för att skydda dina nycklar.
+ Azure Key Vault Managed HSM stöder import av nycklar som genererats i din lokala maskin varu säkerhetsmodul (HSM). nycklarna lämnar aldrig HSM-skyddets gränser. Det här scenariot kallas ofta för att *ta med din egen nyckel* (BYOK). Hanterad HSM använder Marvell LiquidSecurity HSM-korten (FIPS 140-2 nivå 3 verifierade) för att skydda dina nycklar.
 
 Använd informationen i den här artikeln när du planerar för, genererar och överför dina egna HSM-skyddade nycklar som ska användas med hanterad HSM.
 
@@ -70,9 +70,9 @@ Mer information om inloggningsalternativen via CLI finns i [Logga in med Azure C
 
 ## <a name="supported-key-types"></a>Nyckeltyper som stöds
 
-|Nyckelnamn|Nyckeltyp|Nyckel storlek|Ursprung|Beskrivning|
+|Nyckelnamn|Nyckeltyp|Nyckel storlek|Ursprung|Description|
 |---|---|---|---|---|
-|Nyckel utbytes nyckel (KEK)|RSA| 2 048-bitars<br />3 072-bitars<br />4 096-bitars|Hanterad HSM|Ett HSM-backat RSA-nyckelpar genererat i hanterad HSM|
+|Nyckel utbytes nyckel (KEK)|RSA| 2 048-bitars<br />3 072-bitars<br />4 096-bitars|Managed HSM|Ett HSM-backat RSA-nyckelpar genererat i hanterad HSM|
 |Mål nyckel|RSA|2 048-bitars<br />3 072-bitars<br />4 096-bitars|Vendor HSM|Nyckeln som ska överföras till hanterad HSM|
 
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>Generera och överför din nyckel till hanterad HSM

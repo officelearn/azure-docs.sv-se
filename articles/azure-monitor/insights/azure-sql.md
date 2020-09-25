@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319596"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database att använda Azure SQL-analys (förhands granskning)
 
@@ -31,26 +31,26 @@ En praktisk översikt över hur du använder Azure SQL-analys lösning och för 
 
 Azure SQL-analys är en övervaknings lösning för endast moln som stöder strömning av diagnostisk telemetri för alla dina Azure SQL-databaser. Eftersom Azure SQL-analys inte använder agenter för att ansluta till Azure Monitor, stöder den inte övervakning av SQL Server som finns lokalt eller i virtuella datorer.
 
-| Ansluten källa | Stöds | Beskrivning |
+| Ansluten källa | Stöds | Description |
 | --- | --- | --- |
 | [Diagnostikinställningar](../platform/diagnostic-settings.md) | **Ja** | Azure Metric-och loggdata skickas till Azure Monitor loggar direkt av Azure. |
-| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nej | Azure Monitor läser inte data från ett lagrings konto. |
-| [Windows-agenter](../platform/agent-windows.md) | Nej | Direkta Windows-agenter används inte av Azure SQL-analys. |
-| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av Azure SQL-analys. |
-| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Nej | En direkt anslutning från Operations Manager agent till Azure Monitor används inte av Azure SQL-analys. |
+| [Azure Storage-konto](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor läser inte data från ett lagrings konto. |
+| [Windows-agenter](../platform/agent-windows.md) | No | Direkta Windows-agenter används inte av Azure SQL-analys. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | No | Direct Linux-agenter används inte av Azure SQL-analys. |
+| [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | No | En direkt anslutning från Operations Manager agent till Azure Monitor används inte av Azure SQL-analys. |
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL-analys alternativ
 
 I tabellen nedan visas vilka alternativ som stöds för två versioner av Azure SQL-analys instrument panelen, en för Azure SQL Database och den andra för Azure SQL-hanterade instans databaser.
 
-| Azure SQL-analys alternativ | Beskrivning | SQL Database support | Stöd för SQL-hanterad instans |
+| Azure SQL-analys alternativ | Description | SQL Database support | Stöd för SQL Managed Instance |
 | --- | ------- | ----- | ----- |
 | Resurs efter typ | Perspektiv som räknar alla övervakade resurser. | Ja | Ja |
 | Insikter | Tillhandahåller hierarkisk visning av Intelligent Insights i prestanda. | Ja | Ja |
 | Fel | Tillhandahåller hierarkisk visning av SQL-fel som har inträffat i databaserna. | Ja | Ja |
-| Timeouter | Tillhandahåller hierarkisk visning av SQL-tidsgräns som har inträffat i databaserna. | Ja | Nej |
-| Blockning | Tillhandahåller hierarkisk visning av SQL-block som har inträffat i databaserna. | Ja | Nej |
-| Databasen väntar | Ger hierarkisk visning av SQL wait-statistik på databas nivå. Innehåller sammanfattningar av den totala vänte tiden och vänte tiden per wait-typ. |Ja | Nej |
+| Timeouter | Tillhandahåller hierarkisk visning av SQL-tidsgräns som har inträffat i databaserna. | Ja | Inga |
+| Blockning | Tillhandahåller hierarkisk visning av SQL-block som har inträffat i databaserna. | Ja | Inga |
+| Databasen väntar | Ger hierarkisk visning av SQL wait-statistik på databas nivå. Innehåller sammanfattningar av den totala vänte tiden och vänte tiden per wait-typ. |Ja | Inga |
 | Frågans varaktighet | Tillhandahåller hierarkisk visning av statistik för frågekörning, till exempel fråge varaktighet, CPU-användning, data-i/o-användning, logg-i/o-användning. | Ja | Ja |
 | Fråga väntar | Tillhandahåller hierarkisk visning i frågan vänta i statistiken efter kategorin vänta. | Ja | Ja |
 
@@ -230,6 +230,9 @@ AzureMetrics
 > - Utdata är en lista över databas resurser som är ovanför storage_threshold inom den time_range som definierats.
 
 #### <a name="alert-on-intelligent-insights"></a>Avisering om intelligenta insikter
+
+> [!IMPORTANT]
+> Om en databas fungerar bra och ingen Intelligent Insights har skapats, kommer den här frågan att Miss lyckas med ett fel meddelande: det gick inte att lösa det skalära uttrycket med namnet rootCauseAnalysis_s. Det här beteendet förväntas för alla fall där det inte finns några intelligenta insikter för databasen.
 
 ```
 let alert_run_interval = 1h;

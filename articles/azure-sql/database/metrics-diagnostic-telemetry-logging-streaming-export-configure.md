@@ -9,14 +9,14 @@ ms.devlang: sqldbrb=2
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2c8c31219f014935c14371cf4dd30b61ba35819b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319511"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurera direkt uppspelnings export av Azure SQL Database-och SQL-hanterad instans Diagnostic-telemetri
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,16 +37,16 @@ Förutom att strömma exporten av Intelligent Insights loggen kan du också expo
 
 | Diagnostic-telemetri för databaser | Azure SQL Database support | Support för Azure SQL-hanterad instans |
 | :------------------- | ----- | ----- |
-| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Nej |
-| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Nej |
+| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Inga |
+| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Inga |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): innehåller information om frågans körnings statistik, till exempel processor användning och statistik över fråge varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): innehåller information om frågan vänta i statistik (vad dina frågor väntar på), t. ex. CPU, logg och låsning. | Ja | Ja |
 | [Fel](#errors-dataset): innehåller information om SQL-fel på en databas. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Nej |
-| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Nej |
-| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Nej |
-| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Nej |
-| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Nej |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Inga |
+| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Inga |
+| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Inga |
+| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Inga |
+| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Inga |
 | [SQLInsights](#intelligent-insights-dataset): innehåller intelligent Insights till prestanda för en databas. Läs mer i [intelligent Insights](intelligent-insights-overview.md). | Ja | Ja |
 
 > [!NOTE]

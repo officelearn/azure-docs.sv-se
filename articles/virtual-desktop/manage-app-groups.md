@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: beac9f64b12a07d2fc900099ee1f107e4981f17e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461434"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320225"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Självstudie: hantera program grupper med Azure Portal
 
@@ -32,7 +32,8 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
 
 1.  Logga in på [Azure-portalen](https://portal.azure.com/).
    
-   >! Lägg Om du loggar in på US Gov portal går du till [https://portal.azure.us/](https://portal.azure.us/) i stället.
+    >[!NOTE]
+    > Om du loggar in på US Gov portal går du till [https://portal.azure.us/](https://portal.azure.us/) i stället.
 
 2.  Sök efter och välj **virtuellt skriv bord i Windows**.
 

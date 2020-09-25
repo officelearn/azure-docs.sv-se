@@ -2,13 +2,13 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: cd1d0a05fc1039d8e99b0af6fc8019face4516bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284796"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -62,7 +62,7 @@ Andra typer som stöds är:
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### <a name="schema"></a>Schema
+## <a name="schema"></a>Schema
 
 Schemat som används för distributioner på prenumerations nivå skiljer sig från schemat för distributioner av resurs grupper.
 
@@ -77,6 +77,20 @@ Schemat för en parameter fil är detsamma för alla distributions omfång. För
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Distributions omfång
+
+När du distribuerar till en prenumeration kan du rikta en prenumeration och eventuella resurs grupper i prenumerationen. Du kan inte distribuera till en annan prenumeration än mål prenumerationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+De resurser som definieras i avsnittet resurser i mallen tillämpas på prenumerationen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Om du vill rikta en resurs grupp i prenumerationen lägger du till en kapslad distribution och inkluderar `resourceGroup` egenskapen. I följande exempel riktar den kapslade distributionen till en resurs grupp med namnet `rg2` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+I den här artikeln hittar du mallar som visar hur du distribuerar resurser till olika omfång. En mall som skapar en resurs grupp och distribuerar ett lagrings konto till den finns i [skapa resurs grupper och resurser](#create-resource-group-and-resources). För en mall som skapar en resurs grupp, använder ett lås på den och tilldelar en roll för resurs gruppen, se [åtkomst kontroll](#access-control).
 
 ## <a name="deployment-commands"></a>Distributions kommandon
 
@@ -112,49 +126,6 @@ För distributioner på prenumerations nivå måste du ange en plats för distri
 Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
-
-## <a name="deployment-scopes"></a>Distributions omfång
-
-När du distribuerar till en prenumeration kan du rikta en prenumeration och eventuella resurs grupper i prenumerationen. Du kan inte distribuera till en annan prenumeration än mål prenumerationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
-
-De resurser som definieras i avsnittet resurser i mallen tillämpas på prenumerationen.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Om du vill rikta en resurs grupp i prenumerationen lägger du till en kapslad distribution och inkluderar `resourceGroup` egenskapen. I följande exempel riktar den kapslade distributionen till en resurs grupp med namnet `rg2` .
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resource-group-resources
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-I den här artikeln hittar du mallar som visar hur du distribuerar resurser till olika omfång. En mall som skapar en resurs grupp och distribuerar ett lagrings konto till den finns i [skapa resurs grupper och resurser](#create-resource-group-and-resources). För en mall som skapar en resurs grupp, använder ett lås på den och tilldelar en roll för resurs gruppen, se [åtkomst kontroll](#access-control).
 
 ## <a name="use-template-functions"></a>Använda mall funktioner
 

@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319868"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till den senaste
 I det här avsnittet beskrivs de olika metoder som du kan använda för att uppgradera din Azure Active Directory (Azure AD) Connect-installationen till den senaste versionen. Vi rekommenderar att du håller dig uppdaterad med utgåvorna av Azure AD Connect. Du använder också stegen i avsnittet flytta [migrering](#swing-migration) när du gör en betydande konfigurations ändring.
@@ -106,7 +106,7 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar ska äg
 
 1. Under uppgraderingen **avmarkerar** du alternativet **starta synkroniseringsprocessen när konfigurationen är klar**. Detta inaktiverar synkroniseringsschemat och förhindrar att synkroniseringen sker automatiskt innan åsidosättningarna tas bort.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![Skärm bild som visar att alternativet starta synkroniseringen När konfigurationen är klart måste avmarkeras.](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
 2. När uppgraderingen är klar kör du följande cmdlet för att ta reda på vilka åsidosättningar som har lagts till: `Get-ADSyncSchedulerConnectorOverride | fl`
 

@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319987"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Microsoft 365 arbets belastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
@@ -113,7 +113,7 @@ Gör så här om du vill ange ett domän filter:
    ![Kopplings egenskaper](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Klicka på **Konfigurera katalogpartitioner**.
 5. I listan **Välj katalogpartitioner** väljer du och avmarkerar domäner efter behov. Kontrol lera att bara de partitioner som du vill synkronisera är markerade.  
-   ![Partitioner](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Skärm bild som visar katalogpartitioner i fönstret "egenskaper".](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Om du har ändrat din lokala Active Directory-infrastruktur och lagt till eller tagit bort domäner från skogen, klickar du på knappen **Uppdatera** för att hämta en uppdaterad lista. När du uppdaterar uppmanas du att ange autentiseringsuppgifter. Ange autentiseringsuppgifter med Läs behörighet till Windows Server Active Directory. Det behöver inte vara den användare som är förifylld i dialog rutan.  
    ![Uppdatering krävs](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. När du är klar stänger du dialog rutan **Egenskaper** genom att klicka på **OK**. Om du har tagit bort domäner från skogen, visas ett popup-meddelande om att en domän har tagits bort och att konfigurationen kommer att rensas.

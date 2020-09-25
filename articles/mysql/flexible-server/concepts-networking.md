@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 550f3367fe2e5283aff788b36203e988361590ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/23/2020
+ms.openlocfilehash: 4eb9ffceada245f7a7f4b2631a79330fb497a452
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937117"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331734"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Anslutnings-och nätverks koncept för Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -62,6 +62,8 @@ Här följer några begrepp som du bör känna till när du använder virtuella 
 
    Din MySQL-flexibla Server måste finnas i ett undernät som är **delegerat** för enbart MySQL-flexibel Server användning. Delegeringen innebär att endast flexibla Azure Database for MySQL-servrar kan använda det här undernätet. Inga andra Azure-resurstyper kan finnas i det delegerade undernätet. Du delegerar ett undernät genom att tilldela dess delegations egenskap som Microsoft. DBforMySQL/flexibleServers.
 
+* **Nätverks säkerhets grupper (NSG)** Säkerhets regler i nätverks säkerhets grupper gör att du kan filtrera den typ av nätverks trafik som kan flöda in i och ut ur virtuella nätverks under nät och nätverks gränssnitt. Mer information hittar du i [Översikt över nätverks säkerhets gruppen](../../virtual-network/network-security-groups-overview.md) .
+
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scenarier med virtuella nätverk som inte stöds
 * Offentlig slut punkt (eller offentlig IP eller DNS) – en flexibel server som distribueras till ett virtuellt nätverk kan inte ha en offentlig slut punkt
@@ -108,11 +110,9 @@ Tänk på följande när åtkomst till Microsoft Azure databasen för MySQL Serv
 ## <a name="hostname"></a>Värdnamn
 Oavsett vilket nätverks alternativ du väljer rekommenderar vi att du alltid använder ett fullständigt kvalificerat domän namn (FQDN) som värdnamn när du ansluter till din flexibla Server. Serverns IP-adress är inte garanterad för att vara statisk. Genom att använda FQDN kan du undvika att göra ändringar i anslutnings strängen. 
 
-Ett scenario där IP-adressen ändras är om du använder zoner som är redundanta och redundansväxlingen sker mellan primär och sekundär. Med FQDN menas att du sömlöst återförsöks anslutningar med samma anslutnings sträng.
-
 Exempel
 * Rekommenderas `hostname = servername.mysql.database.azure.com`
-* Undvik att använda `hostname = 10.0.0.4` (privat adress) eller `hostname = 40.2.45.67` (offentlig IP)
+* Undvik, om möjligt, att använda `hostname = 10.0.0.4` (en privat adress) eller `hostname = 40.2.45.67` (en offentlig IP-adress)
 
 
 

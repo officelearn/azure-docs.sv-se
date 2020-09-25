@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 3798396c72bc01bc20f1b4ee3ee66961fe33bff5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7701fe91d0e3f78f9596687bf945ba4b11c2d199
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331700"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Hantera en Azure Database for MySQL-flexibel Server (för hands version) med Azure CLI
 
@@ -40,7 +40,7 @@ az account set --subscription <subscription id>
 
 ## <a name="scale-compute-and-storage"></a>Skala beräkning och lagring
 
-Du kan skala upp beräknings nivån, virtuella kärnor och lagringen på ett enkelt sätt med hjälp av följande kommando. Du kan se alla Server åtgärder som du kan utföra med [AZ MySQL-server för flexibel Server](/cli/azure/mysql/server) .
+Du kan skala upp beräknings nivån, virtuella kärnor och lagringen på ett enkelt sätt med hjälp av följande kommando. Du kan se alla Server åtgärder som du kan utföra [AZ MySQL-uppdateringen för flexibel Server](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
@@ -62,12 +62,12 @@ storage-size | 6144 | Serverns lagringskapacitet (enheten är megabyte). Lägsta
 ## <a name="manage-mysql-databases-on-a-server"></a>Hantera MySQL-databaser på en server.
 Du kan använda något av dessa kommandon för att skapa, ta bort, Visa och Visa databas egenskaper för en databas på servern
 
-| Cmdlet | Användning| Beskrivning |
+| Cmdlet | Användning| Description |
 | --- | ---| --- |
-|[AZ MySQL-databas skapa flexibelt-Server DB](/cli/azure/sql/db#az-mysql-flexible-server-db-create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Skapar en databas|
-|[AZ MySQL-databas ta bort flexibelt Server DB](/cli/azure/sql/db#az-mysql-flexible-server-db-delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Ta bort databasen från servern. Det här kommandot tar inte bort servern. |
-|[AZ MySQL-lista med flexibla Server databaser](/cli/azure/sql/db#az-mysql-flexible-server-db-list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|visar en lista över alla databaser på servern|
-|[AZ MySQL-flexibelt-Server DB show](/cli/azure/sql/db#az-mysql-flexible-server-db-show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Visar mer information om databasen|
+|[AZ MySQL-databas skapa flexibelt-Server DB](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Skapar en databas|
+|[AZ MySQL-databas ta bort flexibelt Server DB](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Ta bort databasen från servern. Det här kommandot tar inte bort servern. |
+|[AZ MySQL-lista med flexibla Server databaser](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|visar en lista över alla databaser på servern|
+|[AZ MySQL-flexibelt-Server DB show](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Visar mer information om databasen|
 
 ## <a name="update-admin-password"></a>Uppdatera administratörs lösen ord
 Du kan ändra administratörs rollens lösen ord med det här kommandot
@@ -80,7 +80,7 @@ az mysql flexible-server update --resource-group myresourcegroup --name mydemose
 > Lösen ordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
 
 ## <a name="delete-a-server"></a>Ta bort en server
-Om du bara vill ta bort den MySQL-flexibla servern kan du köra kommandot [AZ MySQL Flexible Server Delete](/cli/azure/mysql/server#az-mysql-flexible-server-delete) .
+Om du bara vill ta bort den MySQL-flexibla servern kan du köra kommandot [AZ MySQL Flexible Server Delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete) .
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver

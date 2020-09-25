@@ -3,12 +3,12 @@ title: Hantera principer för automatisk avstängning i Azure DevTest Labs | Mic
 description: Lär dig hur du ställer in en princip för automatisk avstängning för ett labb så att virtuella datorer automatiskt stängs av när de inte används.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320718"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Konfigurera automatisk avstängning för labb-och beräknings virtuella datorer i Azure DevTest Labs
 
@@ -162,7 +162,7 @@ Kom igång genom att skapa en Logic app i din Azure-prenumeration med hjälp av 
     }
     ```
     
-    ![Begär ande text JSON-schema](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Skärm bild som visar JSON-schemat för begär ande texten.](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Välj **+ nytt steg** i designern och följ de här stegen:
     1. Sök efter **Office 365 Outlook – skicka ett e-postmeddelande**. 
     2. Välj **Skicka ett e-postmeddelande** från **åtgärder**. 

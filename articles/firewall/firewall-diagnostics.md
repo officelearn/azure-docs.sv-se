@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
-ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320650"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Övervaka Azure Firewall-loggar och mått
 
@@ -24,7 +24,7 @@ Du kan komma åt vissa av de här loggarna via portalen. Loggar kan skickas till
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du läsa [Azure Firewall-loggar och-mått](logs-and-metrics.md) för en översikt över de diagnostikloggar och mät värden som är tillgängliga för Azure-brandväggen.
 
@@ -35,14 +35,17 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
 1. Öppna brand Väggs resurs gruppen i Azure Portal och välj brand väggen.
 2. Under **Övervakning** väljer du **Diagnostikinställningar**.
 
-   Azure Firewall har två loggar som är specifika för tjänsten:
+   Det finns fyra tjänstspecifika loggar för Azure-brand väggen:
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. Välj **Lägg till diagnostisk inställning**. På sidan **Diagnostikinställningar** kan du göra inställningar för diagnostikloggarna.
 5. I det här exemplet lagras loggarna av Azure Monitor-loggar, så använd **Firewall log analytics** som namn.
-6. Under **logg**väljer du **AzureFirewallApplicationRule** och **AzureFirewallNetworkRule** för att samla in loggar för program-och nätverks regler.
+6. Under **logg**väljer du **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**och **AzureFirewallDnsProxy** för att samla in loggarna.
 7. Konfigurera din arbets yta genom att välja **Skicka till Log Analytics** .
 8. Välj din prenumeration.
 9. Välj **Spara**.

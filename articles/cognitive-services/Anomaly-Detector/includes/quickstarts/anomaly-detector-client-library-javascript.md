@@ -6,17 +6,17 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4a4b6d02845c9767b7ab668dd172da38150fc89e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: devx-track-js
+ms.openlocfilehash: 0aecf99c248d745288716c8638066ddec92e1a39
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91025038"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319281"
 ---
-Kom igång med klient biblioteket för avvikelse detektor för Java Script. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
+Kom igång med klient biblioteket för avvikelse detektor för Java Script. Följ de här stegen för att installera paket starten med hjälp av algoritmerna som tillhandahålls av tjänsten. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
 Använd klient biblioteket för avvikelse detektor för Java Script för att:
 

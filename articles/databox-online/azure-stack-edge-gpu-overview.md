@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/07/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: c17cd17dfc3462d5a55753e6a4a364c14f9e2b62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320752"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Vad är Azure Stack Edge Pro med GPU?
 
@@ -44,11 +44,10 @@ Azure Stack Edge Pro har följande funktioner:
 |---------|---------|
 |Accelererad AI-inferencing| Aktive ras av den inbyggda GPU: n (en eller två beroende på modellen).|
 |Edge-bearbetning      |Stöder VM-och container arbets belastningar för att tillåta analys, bearbetning och filtrering av data. |
-|Höga prestanda | Beräkning och data överföringar med höga prestanda.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
 |Molnbaserad hantering     |Enhet och tjänst hanteras via Azure Portal.  |
 |Offlineuppladdning     | Frånkopplat läge stöder scenarier med offlineuppladdning.|
-|Lagrings protokoll som stöds     | Stöd för standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [Azure Stack Edge Pro system-krav](azure-stack-edge-system-requirements.md).|
+|Fil överförings protokoll som stöds      | Stöd för standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [Azure Stack Edge Pro system-krav](azure-stack-edge-system-requirements.md).|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
 |Kryptering    | BitLocker-stöd för lokal kryptering av data och skydda dataöverföring till molnet via *https*.|
 |Bandbredds begränsning| Begränsa bandbredds användningen under hög belastnings tider.|
@@ -73,6 +72,8 @@ Azure Stack Edge Pro-lösningen består av Azure Stack Edge-resurs, Azure Stack 
 Azure Stack fysisk enhet i Edge Pro, Azure-resursen och mål lagrings kontot som du överför data till, behöver inte allt vara i samma region.
 
 - **Resurs tillgänglighet** – för den här för hands versionen finns resursen tillgänglig i USA, västra EU och Asien, sydöstra regioner.
+
+- **Enhets tillgänglighet** – för en lista över alla länder där Azure Stack Edge Pro-enheten är tillgänglig går du till avsnittet **tillgänglighet** på fliken **Azure Stack Edge Pro** för [Azure Stack Edge Pro-prissättning](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagrings konton lagrar Azure Stack Edge Pro-data bör ligga nära den plats där enheten befinner sig för optimala prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda.
 

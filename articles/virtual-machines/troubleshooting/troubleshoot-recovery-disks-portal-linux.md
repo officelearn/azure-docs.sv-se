@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: be124e7677774cbe6b4a0a2730c662f25b619ee0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9907be0e7cd14876964b820d9b267f279fc50d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331462"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Linux-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
 Om din virtuella Linux-dator (VM) påträffar ett start-eller diskfel kan du behöva utföra fel söknings stegen på den virtuella hård disken. Ett vanligt exempel är en ogiltig post i `/etc/fstab` som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure Portal för att ansluta den virtuella hård disken till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
@@ -28,7 +28,7 @@ Så här ser felsökningsprocessen ut:
 1. Stoppa den virtuella datorn som påverkas.
 1. Ta en ögonblicks bild för den virtuella datorns OS-disk.
 1. Skapa en virtuell hård disk från ögonblicks bilden.
-1. Anslut och montera den virtuella hård disken till en annan virtuell Windows-dator i fel söknings syfte.
+1. Anslut och montera den virtuella hård disken till en annan virtuell Linux-dator i fel söknings syfte.
 1. Anslut till den virtuella felsökningsdatorn. Redigera filer eller kör eventuella verktyg för att åtgärda problem på den ursprungliga virtuella hård disken.
 1. Demontera och koppla från den virtuella hårddisken från den virtuella felsökningsdatorn.
 1. Byt OS-disk för den virtuella datorn.

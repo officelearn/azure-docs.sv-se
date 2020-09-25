@@ -3,12 +3,12 @@ title: 'Självstudie: integrera med virtuella energi agenter – QnA Maker'
 description: I den här självstudien får du bättre kvalitet på din kunskaps bas med aktiv inlärning. Granska, acceptera eller avvisa eller Lägg till utan att ta bort eller ändra befintliga frågor.
 ms.topic: tutorial
 ms.date: 06/08/2020
-ms.openlocfilehash: f1d51f6ad8892252161238eb71fbb02f463463fd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6d00833a1331ebca9b070d90f32ee30c56bd5f96
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84635395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319222"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Självstudie: Lägg till din kunskaps bas för virtuella energi agenter
 Skapa och utöka en [Power Virtual agents](https://powervirtualagents.microsoft.com/) -robot för att ge svar från din kunskaps bas.
@@ -152,7 +152,7 @@ Följande procedur skapar ett energi spar flöde som:
 1. Välj rutan skapa **svars** åtgärd och fyll i QNA Maker inställningar från ett tidigare avsnitt med rubriken [skapa och publicera en kunskaps bas](#create-and-publish-a-knowledge-base). Din **tjänst värd** i följande avbildning refererar till din kunskaps bas värds **värd** och har formatet `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker` .
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="En del skärm bild av QnA Maker Template-flöde med knappen Fortsätt markerad.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="En del skärm bild av QnA Maker Template-flöde med generera svar (förhands granskning) markerat.":::
 
 1. Spara flödet genom att klicka på **Spara**.
 
@@ -199,10 +199,10 @@ För att agenten ska kunna hitta och ansluta till flödet måste flödet inklude
 
 1. I verktygsfältet kontext väljer du **Spara**för att spara arbets ytans redigerings information för ämnet.
 
-Här är det sista agent arbets ytan.
+Så här ser den sista agent arbets ytan ut.
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av den slutliga agent arbets ytan](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
+> ![Skärm bild som visar den sista agent arbets ytan med utlösare, åtgärd och sedan meddelande avsnitt.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
 
 ## <a name="test-the-agent"></a>Testa agenten
 
@@ -214,9 +214,9 @@ Här är det sista agent arbets ytan.
     |--|--|--|
     |1|Hello|Starta konversation|
     |2|Store-timmar|Exempel ämne. Detta är konfigurerat för dig utan ytterligare arbete på din sida.|
-    |3|Ja|Som svar på `Did that answer your question?`|
+    |3|Yes|Som svar på `Did that answer your question?`|
     |4|Utmärkt|Som svar på `Please rate your experience.`|
-    |5|Ja|Som svar på `Can I help with anything else?`|
+    |5|Yes|Som svar på `Can I help with anything else?`|
     |6|Hur kan jag förbättra data flödes prestandan för fråga förutsägelser?|Den här frågan utlöser återställnings åtgärden, som skickar texten till din kunskaps bas för att svara. Sedan visas svaret. de gröna bock markeringarna för de enskilda åtgärderna indikerar att det är klart för varje åtgärd.|
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Skärm bild av Chat-roboten med arbets ytan som visar grön bock markering för lyckade åtgärder.":::

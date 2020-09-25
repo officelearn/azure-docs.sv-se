@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331819"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Självstudie: Konfigurera fysiskt baserat åter givnings material i 3ds Max
 
@@ -22,6 +22,10 @@ I den här självstudien får du lära dig att:
 > * Tilldela material med avancerad belysning till objekt i en scen.
 > * Hantera instanser av objekt och material.
 > * Exportera en scen till FBX-format och välj viktiga alternativ.
+
+> [!Note]
+> Proceduren som beskrivs i den här självstudien fungerar i 3ds Max 2019 och 3ds Max 2020.
+> En ändring i hur 3ds Max 2021 exporterar ojämnheter innebär att normala kartor inte hittas av konverterings tjänsten om den versionen används.
 
 Att skapa ett [PBR-material (fysiskt baserat åter givning)](../../overview/features/pbr-materials.md) i 3ds Max är en enkel uppgift. Det liknar på många sätt att installera PBR i andra appar för innehålls skapande som Maya. Den här självstudien är en guide till grundläggande PBR Shader-installation och FBX export för Azure-fjärrrendering-projekt.
 

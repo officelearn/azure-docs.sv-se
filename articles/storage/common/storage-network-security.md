@@ -9,14 +9,14 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 474b3c4261b412c0c875f7a05802095c9e0c2cd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320378"
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera brandväggar och virtuella nätverk i Azure Storage
 
 Azure Storage tillhandahåller en säkerhetsmodell i flera lager. Med den här modellen kan du skydda och kontrollera den nivå av åtkomst till dina lagringskonton som behövs för dina appar och företagsmiljöer, beroende på vilken typ och delmängd av nätverk som används. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt ett lagrings konto. Du kan begränsa åtkomsten till ditt lagrings konto till begär Anden som kommer från angivna IP-adresser, IP-intervall eller från en lista över undernät i ett Azure-Virtual Network (VNet).
 
@@ -256,7 +256,7 @@ IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. I
 
 Endast IPV4-adresser stöds för konfiguration av lagrings brand Väggs regler.
 
-Varje lagrings konto har stöd för upp till 100 IP-nätverksanslutningar.
+Varje lagrings konto har stöd för upp till 200 IP-nätverksanslutningar.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Konfigurera åtkomst från lokala nätverk
 

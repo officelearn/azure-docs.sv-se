@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 17ce5314f58a92158ff4fd187ad0ca46bb14a275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375235"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320174"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3-serien (för hands version) 
 
-De virtuella datorerna i NCasT4_v3 serien drivs av [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU-och AMD EPYC 7V12-processorer (Rom). De virtuella datorerna har upp till 4 NVIDIA T4-GPU: er med 16 GB minne vardera, upp till 64 non-multitråded AMD EPYC 7V12 (Roma) processor kärnor och 440 GiB av system minnet. De här virtuella datorerna är idealiska för att köra ML-och AI-arbetsbelastningar som använder CUDA, TensorFlow, Pytorch, caffe och andra ramverk eller grafik arbets belastningar med NVIDIA GRID-teknik. NCasT4_v3-serien är idealisk för att köra en härlednings arbets belastning.
+De virtuella datorerna i NCasT4_v3 serien drivs av [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU-och AMD EPYC 7V12-processorer (Rom). De virtuella datorerna har upp till 4 NVIDIA T4-GPU: er med 16 GB minne vardera, upp till 64 non-multitråded AMD EPYC 7V12 (Roma) processor kärnor och 440 GiB av system minnet. De här virtuella datorerna är idealiska för att distribuera AI-tjänster, till exempel real tids inferencing av användare som genererar förfrågningar, eller för interaktiva arbets belastningar för grafik och visualiseringar med hjälp av NVIDIA: s driv rutin och virtuell GPU-teknik. Standard arbets belastningar för GPU-beräkning som baseras på CUDA, TensorRT, caffe, ONNX och andra ramverk, eller GPU-accelererade grafiska program baserade OpenGL och DirectX kan distribueras ekonomiskt, med nära till användare, i NCasT4_v3 serien.
 
 Du kan [skicka en begäran](https://aka.ms/NCT4v3Preview) som ska ingå i förhands gransknings programmet.
 

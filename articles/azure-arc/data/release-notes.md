@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5908083be4e6ed389b606754ffef41a4a371c3e3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319740"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Viktig information – Azure Arc-aktiverade data tjänster (för hands version)
 
@@ -28,6 +28,14 @@ Azure Arc-aktiverade data tjänster har publicerats för offentlig för hands ve
 - PostgreSQL-storskalig
 
 Mer information finns i [Vad är Azure Arc-aktiverade data tjänster?](overview.md)
+
+### <a name="known-issues"></a>Kända problem
+
+Följande problem gäller den här versionen:
+
+* **Tar bort postgresql-server grupp**: om du har ändrat konfigurationen för Server gruppen eller instansen väntar du tills redigerings åtgärden har slutförts innan du tar bort en postgresql-server grupp för storskalig skalning.
+
+* ** `azdata notebook run` kan Miss lyckas**: om du vill lösa det här problemet kan du köra `azdata notebook run` i en virtuell python-miljö. Det här problemet uppstår också vid ett misslyckat försök att skapa en SQL-hanterad instans eller en PostgreSQL Server grupp med hjälp av guiden Azure Data Studio distribution. I så fall kan du öppna antecknings boken och klicka på knappen **Kör alla** överst i antecknings boken.
 
 ## <a name="next-steps"></a>Nästa steg
 

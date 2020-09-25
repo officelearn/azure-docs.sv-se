@@ -23,7 +23,7 @@
       href: cognitive-services-apis-create-account-client-library.md
     - name: Skapa en ny resurs med en ARM-mall
       displayName: Resource Manager
-      href: resource-manager-template.md
+      href: create-account-resource-manager-template.md
     - name: Diagnostikloggning
       href: diagnostic-logging.md
 - name: Säkerhet

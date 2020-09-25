@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331649"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL-innehåll med hjälp av Azure Kognitiv sökning-indexeraren
 
@@ -74,7 +74,9 @@ Beroende på flera faktorer som är relaterade till dina data kan användningen 
     }
    ```
 
-   Du kan hämta anslutnings strängen från [Azure Portal](https://portal.azure.com). Använd `ADO.NET connection string` alternativet.
+   Anslutnings strängen kan följa något av följande format:
+    1. Du kan hämta anslutnings strängen från [Azure Portal](https://portal.azure.com). Använd `ADO.NET connection string` alternativet.
+    1. En anslutnings sträng för hanterad identitet som inte innehåller någon konto nyckel med följande format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;` . Om du vill använda den här anslutnings strängen följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Azure SQL Database med hjälp av en hanterad identitet](search-howto-managed-identities-sql.md).
 
 2. Skapa ett Azure Kognitiv sökning-index om du inte redan har en. Du kan skapa ett index med hjälp av [portalen](https://portal.azure.com) eller [skapa index-API](/rest/api/searchservice/Create-Index). Se till att schemat för mål indexet är kompatibelt med schemat för käll tabellen – se [mappning mellan SQL-och Azure-funktionen Sök data typer](#TypeMapping).
 
@@ -314,7 +316,7 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mappning mellan SQL-och Azure Kognitiv sökning data typer
-| SQL-datatyp | Tillåtna fält typer för mål index | Anteckningar |
+| SQL-datatyp | Tillåtna fält typer för mål index | Kommentarer |
 | --- | --- | --- |
 | bit |EDM. Boolean, EDM. String | |
 | int, smallint, tinyint |EDM. Int32, EDM. Int64, EDM. String | |
@@ -325,8 +327,8 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 | smalldatetime, DateTime, datetime2, date, DateTimeOffset |EDM. DateTimeOffset, EDM. String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Endast geografi instanser av typ punkt med SRID 4326 (vilket är standard) stöds |
-| rowversion |Ej tillämpligt |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
-| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |Ej tillämpligt |Stöds inte |
+| rowversion |Saknas |Rad versions kolumner kan inte lagras i Sök indexet, men de kan användas för ändrings spårning |
+| tid, TimeSpan, Binary, varbinary, bild, XML, geometri, CLR-typer |Saknas |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurations inställningar
 SQL-indexeraren visar flera konfigurations inställningar:
@@ -346,7 +348,7 @@ De här inställningarna används i `parameters.configuration` objektet i index 
     }
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **F: kan jag använda Azure SQL-indexeraren med SQL-databaser som körs på virtuella IaaS-datorer i Azure?**
 

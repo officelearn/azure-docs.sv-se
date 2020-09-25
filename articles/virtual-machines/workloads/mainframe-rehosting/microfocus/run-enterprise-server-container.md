@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 3c4afc6c0adb8d499e38abf3d709a951774dda4e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974058"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320004"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Kör Micro Focus Enterprise Server 5,0 i en Docker-behållare på Azure
 
@@ -121,9 +121,9 @@ Den virtuella datorn körs i det här läget via RDP. Du är inloggad och redo f
 
 1.  Starta Enterprise Server 5,0 och acctdemo-programmet genom att skriva följande i kommando tolken:
 
-    ~~~
+    ```
     **docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win\_5.0\_x64
-    ~~~
+    ```
 
 1.  Installera en 3270-termin Ale mula Tor till exempel [x3270](http://x3270.bgp.nu/) och Använd den för att ansluta via port 9040 till den avbildning som körs.
 
@@ -133,15 +133,15 @@ Den virtuella datorn körs i det här läget via RDP. Du är inloggad och redo f
 
     2.  Om du vill hämta IP-adressen för acctdemo-behållaren använder du behållar-ID: t från föregående steg enligt följande:
 
-    ~~~
+    ```
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
     Exempel:
 
-    ~~~
+    ```
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
 4. Anteckna IP-adressen för acctdemo-avbildningen. Till exempel är adressen i följande utdata 172.19.202.52.
 

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 98f4c30d03763e070b1bdc32a5e6e099556916ab
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52a9932db4fc261b8f3d740a316af3e852559a32
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320497"
 ---
 # <a name="tutorial-run-hello-world-python-script-part-2-of-4"></a>Självstudie: kör "Hello World" Python-skript (del 2 av 4)
 
@@ -124,7 +124,7 @@ Här är en beskrivning av hur kontroll skriptet fungerar:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Skickar ditt skript. Den här sändningen kallas för en [körning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).  En körning kapslar in en enskild körning av koden. Använd en körning för att övervaka skript förloppet, avbilda utdata, analysera resultaten, visualisera mått med mera.
+       Skickar ditt skript. Den här sändningen kallas för en [körning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  En körning kapslar in en enskild körning av koden. Använd en körning för att övervaka skript förloppet, avbilda utdata, analysera resultaten, visualisera mått med mera.
    :::column-end:::
 :::row-end:::
 :::row:::

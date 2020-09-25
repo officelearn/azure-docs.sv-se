@@ -3,12 +3,12 @@ title: Skapa prestanda varningar för Azure Monitor för behållare | Microsoft 
 description: Den här artikeln beskriver hur du skapar anpassade aviseringar baserat på logg frågor för minnes-och processor användning från Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1041b8bfe299a0daac633e478c906c746759d50f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75730933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319545"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Konfigurera aviseringar om prestandaproblem i Azure Monitor för containrar
 
@@ -277,7 +277,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Skapa en varningsregel
 
-Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att använda en av logg Sök reglerna som angavs tidigare. Information om hur du skapar med en ARM-mall finns i [exempel på att skapa en övning med Azure-resurs mal len](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Följ dessa steg om du vill skapa en logg avisering i Azure Monitor genom att använda en av logg Sök reglerna som angavs tidigare. Information om hur du skapar med en ARM-mall finns i exempel på hur du skapar [logg aviseringar med hjälp av Azure Resource Template](../platform/alerts-log-create-templates.md)
 
 >[!NOTE]
 >Följande procedur för att skapa en aviserings regel för användning av container resurser kräver att du växlar till en ny logg aviserings-API enligt beskrivningen i [switch API-inställningar för logg aviseringar](../platform/alerts-log-api-switch.md).

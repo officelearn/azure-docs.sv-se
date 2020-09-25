@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030835"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263784"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Översikt över Azure Monitor Agent (för hands version)
 Azure Monitor agenten (AMA) samlar in övervaknings data från gäst operativ systemet på virtuella datorer och levererar det till Azure Monitor. Den här artikeln innehåller en översikt över Azure Monitor Agent, inklusive hur du installerar den och hur du konfigurerar data insamling.
@@ -38,6 +38,14 @@ Metoderna för att definiera data insamling för befintliga agenter skiljer sig 
 - Diagnostiskt tillägg har en konfiguration för varje virtuell dator. Detta är enkelt att definiera oberoende definitioner för olika virtuella datorer men svårt att hantera centralt. Den kan bara skicka data till Azure Monitor mått, Azure Event Hubs eller Azure Storage. För Linux-agenter krävs det att du måste skicka data till Azure Monitor mått med öppen källkod.
 
 Azure Monitor Agent använder sig av [data insamlings regler (DCR)](data-collection-rule-overview.md) för att konfigurera data som ska samlas in från varje agent. Data insamlings regler möjliggör hantering av samlings inställningar i skala samtidigt som unika, begränsade konfigurationer för del mängder av datorer aktive ras. De är oberoende av arbets ytan och oberoende av den virtuella datorn, vilket gör att de kan definieras en gång och återanvändas på olika datorer och miljöer. Se [Konfigurera data insamling för Azure Monitor agenten (för hands version)](data-collection-rule-azure-monitor-agent.md).
+
+## <a name="should-i-switch-to-azure-monitor-agent"></a>Bör jag byta till Azure Monitor-agenten?
+Azure Monitor Agent samexisterar med de [allmänt tillgängliga agenterna för Azure Monitor](agents-overview.md), men du kan överväga att överföra dina virtuella datorer från aktuella agenter under den Azure Monitor agentens offentliga för hands versions period. Tänk på följande faktorer när du gör den här beräkningen.
+
+- **Miljö krav.** Azure Monitor Agent har en begränsad uppsättning operativ system, miljöer och nätverks krav som stöds än de aktuella agenterna. Framtida miljö support, till exempel nya operativ system versioner och olika typer av nätverks krav, finns förmodligen bara i Azure Monitor-agenten. Du bör kontrol lera om din miljö stöds av Azure Monitor-agenten. Annars måste du hålla den aktuella agenten. Om Azure Monitor Agent stöder din aktuella miljö bör du överväga att gå över till den.
+- **Offentlig för hands versions risk tolerans.** Även om Azure Monitor-agenten har testats grundligt för de scenarier som stöds för närvarande, är agenten fortfarande i offentlig för hands version. Förbättringar av versions uppdateringar och funktioner sker ofta och kan leda till buggar. Du bör bedöma risken för en bugg i agenten på dina virtuella datorer som kan stoppa data insamlingen. Om ett mellanrum i data insamlingen inte kommer att ha en betydande inverkan på dina tjänster kan du fortsätta med Azure Monitor agenten. Om du har låg tolerans för eventuell instabilitet bör du vara kvar med de allmänt tillgängliga agenterna tills Azure Monitor Agent når denna status.
+- **Aktuella och nya funktions krav.** Azure Monitor agenten innehåller flera nya funktioner, till exempel filtrering, omfattning och flera värdar, men inte vid paritet än med de aktuella agenterna för andra funktioner, till exempel anpassad logg insamling och integrering med lösningar. De flesta nya funktioner i Azure Monitor görs bara tillgängliga med Azure Monitor Agent, så över tiden är fler funktioner bara tillgängliga i den nya agenten. Du bör fundera över om Azure Monitor Agent har de funktioner som du behöver och om det finns några funktioner som du kan utföra tillfälligt utan att hämta andra viktiga funktioner i den nya agenten. Om Azure Monitor Agent har alla kärn funktioner som du behöver kan du överväga att gå över till den. Om det finns viktiga funktioner som du behöver kan du fortsätta med den aktuella agenten tills Azure Monitor Agent når paritet.
+- **Tolerans för omarbete.** Om du konfigurerar en ny miljö med resurser som distributions skript och onboarding-mallar bör du fundera över om du kommer att kunna återanvända dem när Azure Monitor Agent blir allmänt tillgänglig. Om ansträngningen för den här återworken är minimal, stannar du med de aktuella agenterna för tillfället. Om det kommer att ta en stor del av arbetet bör du överväga att konfigurera din nya miljö med den nya agenten. Azure Monitor Agent förväntas bli allmänt tillgänglig och ett utfasnings datum som publicerats för Log Analytics agenterna i 2021. De aktuella agenterna kommer att stödjas i flera år när utfasningen börjar.
 
 
 
@@ -68,7 +76,7 @@ I följande tabell visas de typer av data som du kan samla in med Azure Monitor-
 
 Azure Monitor Agent skickar data till Azure Monitor mått eller en Log Analytics arbets yta som stöder Azure Monitor loggar.
 
-| Datakälla | Mål | Beskrivning |
+| Datakälla | Mål | Description |
 |:---|:---|:---|
 | Prestanda        | Azure Monitor mått<br>Log Analytics-arbetsyta | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
 | Händelse loggar i Windows | Log Analytics-arbetsyta | Information som skickas till händelse loggnings systemet i Windows. |
@@ -76,24 +84,8 @@ Azure Monitor Agent skickar data till Azure Monitor mått eller en Log Analytics
 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
-Följande operativ system stöds för närvarande av Azure Monitor agenten.
+Se [operativ system som stöds](agents-overview.md#supported-operating-systems) för en lista över Windows-och Linux-operativsystem som för närvarande stöds av den Log Analytics agenten.
 
-### <a name="windows"></a>Windows 
-  - Windows Server 2019
-  - Windows Server 2016
-  - Windows Server 2012
-  - Windows Server 2012 R2
-
-### <a name="linux"></a>Linux
-  - CentOS 6<sup>1</sup>, 7
-  - Debian 9, 10
-  - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7
-  - SLES 11, 12, 15
-  - Ubuntu 14,04 LTS, 16,04 LTS, 18,04 LTS
-
-> [!IMPORTANT]
-> <sup>1</sup> För att dessa distributioner ska kunna skicka syslog-data måste du starta om rsyslog-tjänsten en gången efter att agenten har installerats.
 
 
 ## <a name="security"></a>Säkerhet

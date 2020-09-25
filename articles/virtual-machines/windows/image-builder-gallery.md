@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 07b9e3e7529aa867a4baf51ffe5c4bbf23599d32
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 96603d27f53161c72c9e81bb7b84fdc6ab5d1ca2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320072"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>För hands version: skapa en Windows-avbildning och distribuera den till ett delat avbildnings Galleri 
 
@@ -22,7 +22,7 @@ Vi kommer att använda en. JSON-mall för att konfigurera avbildningen. JSON-fil
 
 För att distribuera avbildningen till ett delat bild galleri använder mallen [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) som värde för `distribute` avsnittet i mallen.
 
-Azure Image Builder kör automatiskt Sysprep för att generalisera avbildningen, det här är ett allmänt Sysprep-kommando som du kan [åsidosätta](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) om det behövs. 
+Azure Image Builder kör automatiskt Sysprep för att generalisera avbildningen, det här är ett allmänt Sysprep-kommando som du kan [åsidosätta](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) om det behövs. 
 
 Tänk på hur många gånger du lager anpassningar. Du kan köra Sysprep-kommandot upp till 8 gånger på en enda Windows-avbildning. När du har kört Sysprep 8 gånger måste du återskapa Windows-avbildningen. Mer information finns i [gränser för hur många gånger du kan köra Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 

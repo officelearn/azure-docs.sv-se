@@ -1,20 +1,20 @@
 ---
-title: 'Självstudie: Migrera webb tjänster från Google Maps | Microsoft Azure Maps'
-description: Så här migrerar du webb tjänster från Google Maps till Microsoft Azure Maps.
+title: Migrera webb tjänster från Google Maps | Microsoft Azure Maps
+description: Så här migrerar du webb tjänster från Google Maps till Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8cc16e611002748dad2716a1c8dc914f297da9f1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 57d71d517cb953a2a2c84b7e003fd08541416539
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319579"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrera webb tjänsten från Google Maps
 
@@ -94,7 +94,7 @@ Den här tabellen kors referenser till Google Maps API-parametrar med jämförba
 | `key`                       | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
 | `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *EJ TILLÄMPLIGT*     |
+| `location_type`             | *Saknas*     |
 | `result_type`               | `entityType`    |
 
 Granska [metod tips för sökning](how-to-use-best-practices-for-search.md).
@@ -138,9 +138,9 @@ Tabellen kors refererar till Google Maps API-parametrar med de jämförbara Azur
 
 | Google Maps API-parameter | Jämförbar Azure Maps API-parameter |
 |---------------------------|-------------------------------------|
-| `fields`                  | *EJ TILLÄMPLIGT*                               |
+| `fields`                  | *Saknas*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *EJ TILLÄMPLIGT*                               |
+| `inputtype`               | *Saknas*                               |
 | `key`                     | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
 | `language`                | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `locationbias`            | `lat`, `lon` och `radius`<br/>`topLeft` och `btmRight`<br/>`countrySet`  |
@@ -157,13 +157,13 @@ I tabellen visas Google Maps API-parametrar med de jämförbara Azure Maps API-p
 | `keyword`                   | `categorySet` och `brandSet`        |
 | `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `location`                  | `lat` och `lon`                     |
-| `maxprice`                  | *EJ TILLÄMPLIGT*                               |
-| `minprice`                  | *EJ TILLÄMPLIGT*                               |
+| `maxprice`                  | *Saknas*                               |
+| `minprice`                  | *Saknas*                               |
 | `name`                      | `categorySet` och `brandSet`        |
-| `opennow`                   | *EJ TILLÄMPLIGT*                               |
+| `opennow`                   | *Saknas*                               |
 | `pagetoken`                 | `ofs` och `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *EJ TILLÄMPLIGT*                               |
+| `rankby`                    | *Saknas*                               |
 | `type`                      | `categorySet –` Se dokumentation om [Sök kategorier som stöds](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Beräkna vägar och vägbeskrivningar
@@ -243,10 +243,10 @@ Tabellen kors refererar till Google Maps API-parametrar med de jämförbara API-
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | *Ej tillämpligt* – det här är en funktion för att koda en funktion. Använd `countrySet` parametern när du använder API: et för Azure Maps-kodning.  |
-| `scale`                     | *EJ TILLÄMPLIGT*                              |
+| `scale`                     | *Saknas*                              |
 | `size`                      | `width` och `height` – kan vara upp till 8192x8192 i storlek. |
-| `style`                     | *EJ TILLÄMPLIGT*                              |
-| `visible`                   | *EJ TILLÄMPLIGT*                              |
+| `style`                     | *Saknas*                              |
+| `visible`                   | *Saknas*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -293,9 +293,8 @@ Vi kan till exempel lägga till en röd, medels Tor markör till kartan vid long
 &markers=color:red|size:mid|45,-110
 ```
 
-<center>
 
-![Google Maps-markör](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
+![Google Maps-markör](media/migrate-google-maps-web-services/google-maps-marker.png)
 
 **Efter: Azure Maps**
 
@@ -335,9 +334,8 @@ Nu ska vi lägga till en röd ( `FF0000` ) standard ikon med etiketten "utrymmes
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-<center>
 
-![Azure Maps markör](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
+![Azure Maps markör](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Lägg till tre PIN-koder med etikett värden "1", "2" och "3":
 
@@ -345,9 +343,9 @@ Lägg till tre PIN-koder med etikett värden "1", "2" och "3":
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-<center>
 
-![Azure Maps flera markörer](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+
+![Azure Maps flera markörer](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
 ### <a name="path-url-parameter-format-comparison"></a>Sök vägs-URL parameter format jämförelse
 
@@ -376,9 +374,7 @@ Lägg till en röd linje opacitet och pixel tjock lek på kartan mellan koordina
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-<center>
-
-![Google Maps-sammansatt linje](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
+![Google Maps-sammansatt linje](media/migrate-google-maps-web-services/google-maps-polyline.png)
 
 **Efter: Azure Maps**
 
@@ -405,9 +401,7 @@ Lägg till en röd linje opacitet och pixel tjock lek mellan koordinaterna i URL
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-<center>
-
-![Azure Maps polylinje](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
+![Azure Maps polylinje](media/migrate-google-maps-web-services/azure-maps-polyline.png)
 
 ## <a name="calculate-a-distance-matrix"></a>Beräkna en avstånds mat ris
 
@@ -482,22 +476,5 @@ Här följer ytterligare dokumentation och resurser för Azure Maps REST-tjänst
 - [Söka efter en adress](how-to-search-for-address.md)
 - [Metod tips för routning](how-to-use-best-practices-for-routing.md)
 - [Dokumentation om Azure Maps REST service API-referens](https://docs.microsoft.com/rest/api/maps/)
-
-## <a name="next-steps"></a>Nästa steg
-
-Läs mer om Azure Maps REST-tjänsterna.
-
-> [!div class="nextstepaction"]
-> [Metod tips för att använda Sök tjänsten](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Metod tips för att använda routningstjänsten](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Så här använder du modulen tjänster (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Dokumentation om Azure Maps REST service API-referens](https://docs.microsoft.com/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Så här använder du modulen tjänster (Web SDK)](how-to-use-best-practices-for-routing.md)

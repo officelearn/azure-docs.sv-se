@@ -3,13 +3,13 @@ title: Distributions historik
 description: Beskriver hur du visar Azure Resource Manager distributions åtgärder med portalen, PowerShell, Azure CLI och REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117840"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284627"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visa distributions historik med Azure Resource Manager
 
@@ -21,7 +21,7 @@ Information om hur du löser specifika distributions fel finns i [lösa vanliga 
 
 ## <a name="get-deployments-and-correlation-id"></a>Hämta distributioner och korrelations-ID
 
-Du kan visa information om en distribution via Azure Portal, PowerShell, Azure CLI eller REST API. Varje distribution har ett korrelations-ID som används för att spåra relaterade händelser. Det kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
+Du kan visa information om en distribution via Azure Portal, PowerShell, Azure CLI eller REST API. Varje distribution har ett korrelations-ID som används för att spåra relaterade händelser. Om du [skapar en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md)kan support be dig om korrelations-ID: t. Support använder korrelations-ID: t för att identifiera åtgärder för den misslyckade distributionen.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Använd följande för att hämta korrelations-ID:
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill visa en lista över distributionen av en resurs grupp använder du [AZ distributions grupp lista](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+Om du vill visa en lista över distributionen av en resurs grupp använder du [AZ distributions grupp lista](/cli/azure/group/deployment#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Om du vill hämta en enskild distribution använder du [distributions gruppen AZ](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+Om du vill hämta en enskild distribution använder du [distributions gruppen AZ](/cli/azure/group/deployment#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -81,7 +81,7 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Om du vill visa en lista över distributioner för en resurs grupp använder du följande åtgärd. För det senaste API-versions numret som ska användas i begäran, se [distributioner – lista efter resurs grupp](/rest/api/resources/deployments/listbyresourcegroup).
+Om du vill visa en lista över distributioner för en resurs grupp använder du följande åtgärd. För det senaste API-versions numret som ska användas i begäran, se  [distributioner – lista efter resurs grupp](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}

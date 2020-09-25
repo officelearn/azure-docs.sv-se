@@ -1,17 +1,17 @@
 ---
 title: Hantera app-grupper för Windows Virtual Desktop (klassisk) – Azure
-description: Beskriver hur du konfigurerar Windows Virtual Desktop (klassiska) klienter i Azure Active Directory.
+description: Lär dig hur du konfigurerar Windows Virtual Desktop (klassiska) klienter i Azure Active Directory (AD).
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7ad8afc3d842a134ba09281005e35cf8cb04818a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e2a1f38918b2ea6af8a334b6648a463753f5c7b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295217"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Självstudie: hantera program grupper för Windows Virtual Desktop (klassisk)
 
@@ -52,7 +52,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
 
-4. Kör följande cmdlet för att installera programmet baserat på `AppAlias` . `AppAlias`blir synlig när du kör utdata från steg 3.
+4. Kör följande cmdlet för att installera programmet baserat på `AppAlias` . `AppAlias` blir synlig när du kör utdata från steg 3.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>

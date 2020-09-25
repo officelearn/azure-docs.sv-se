@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 643e49bdba76051c873ed549d5f6c21487f34056
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319613"
 ---
 # <a name="migrate-from-bing-maps-to-azure-maps"></a>Migrera från Bing Maps till Azure Maps
 
@@ -36,7 +36,7 @@ I följande tabell finns en lista över Bing Maps-funktioner på hög nivå och 
 | UWP SDK                               | Planerad            |
 | WPF SDK                               | Planerad            |
 | API: er för REST service                     | ✓                  |
-| Automatiska förslag i                           | ✓                  |
+| Automatiska förslag                           | ✓                  |
 | Vägvisningar (inklusive Truck)          | ✓                  |
 | Avstånds mat ris                       | ✓                  |
 | Utökade privilegier                            | Planerad            |
@@ -52,7 +52,7 @@ I följande tabell finns en lista över Bing Maps-funktioner på hög nivå och 
 | Avstånds Data Services (SDS)           | Delvis            |
 | Tidszon                             | ✓                  |
 | Trafik incidenter                     | ✓                  |
-| Konfigurations drivna kartor             | E.t.                |
+| Konfigurations drivna kartor             | Saknas                |
 
 Bing Maps innehåller grundläggande nyckelbaserad autentisering. Azure Maps tillhandahåller både grundläggande nyckelbaserad autentisering och mycket säker Azure Active Directory autentisering.
 
@@ -81,6 +81,15 @@ Följande är en uppgraderings plan med höga nivåer.
 4.  Migrera din program kod.
 5.  Testa det migrerade programmet.
 6.  Distribuera det migrerade programmet till produktion.
+
+## <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
+
+Följ dessa steg om du vill skapa ett Azure Maps konto och få åtkomst till Azure Maps-plattformen:
+
+1. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+2. Logga in på [Azure-portalen](https://portal.azure.com/).
+3. Skapa ett [Azure Maps-konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Hämta din Azure Maps prenumerations nyckel](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) eller konfigurera Azure Active Directory autentisering för förbättrad säkerhet.
 
 ## <a name="azure-maps-technical-resources"></a>Azure Maps tekniska resurser
 

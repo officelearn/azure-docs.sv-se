@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och C #'
 titleSuffix: Azure Cognitive Services
-description: 'Lär dig hur du använder API: t för avvikelse detektor för att identifiera avvikelser i din data serie antingen som en batch eller vid strömmande data.'
+description: 'Lär dig hur du använder API: erna för avvikelse detektor i två identifierings lägen för att identifiera avvikelser i dina tids serie data.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5a3757a33beebb6e688dbea13259723da9280cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c19f901f4419cca59a3b4e070191c8bb89ce7c34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319205"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och C #
 

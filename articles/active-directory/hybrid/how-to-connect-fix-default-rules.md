@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320055"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Korrigera ändrade standard regler i Azure AD Connect
 
@@ -73,7 +73,7 @@ Om tilläggen inte fungerar för dig kan du försöka lägga till två nya regle
 #### <a name="add-an-inbound-sync-rule"></a>Lägg till en regel för inkommande synkronisering
 En regel för inkommande synkronisering innebär att källan för attributet är ett anslutnings utrymme och att målet är metaversum. Om du till exempel vill ha ett nytt attributarkiv från lokala Active Directory till Azure Active Directory skapar du en ny regel för inkommande synkronisering. Starta **Redigeraren för regler för synkronisering**, Välj **inkommande** som riktning och välj **Lägg till ny regel**. 
 
- ![Redigerare för regler för synkronisering](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Skärm bild som visar "redigeraren för regler för synkronisering" med "inkommande" och "Lägg till ny regel" vald.](media/how-to-connect-fix-default-rules/default3a.png)
 
 Namnge regeln genom att följa din egen namngivnings konvention. Här använder vi **Anpassad i från AD-användare**. Det innebär att regeln är en anpassad regel och är en regel för inkommande trafik från Active Directory kopplings utrymme till metaversum.   
 
@@ -176,7 +176,7 @@ Välj för **hands version...**
 
 I förhands gransknings fönstret väljer du **generera förhands granskning** och **Importera attributarkiv** i det vänstra fönstret.
 
-![Förhandsgranskning](media/how-to-connect-fix-default-rules/default14.png)
+![Skärm bild som visar "för hands version"-fönstret med "Importera attributvärde" och "generera förhands granskning" markerat.](media/how-to-connect-fix-default-rules/default14.png)
  
 Lägg märke till att den nyligen tillagda regeln körs på objektet och har ange `cloudFiltered` attributet till sant.
 

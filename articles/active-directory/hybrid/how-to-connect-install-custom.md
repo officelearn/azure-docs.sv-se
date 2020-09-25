@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662358"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295353"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -37,7 +37,7 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 
 ![Nödvändiga komponenter](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
-| Valfri konfiguration | Beskrivning |
+| Valfri konfiguration | Description |
 | --- | --- |
 | Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern.  Ange sedan namnet på den Azure AD Connect databasen.  SQL-privilegierna avgör om en ny databas ska skapas eller om SQL-administratören måste skapa databasen i förväg.  Om du har SQL SA-behörigheter ser du [hur du installerar med hjälp av en befintlig databas](how-to-connect-install-existing-database.md).  Om du har delegerats behörigheter (DBO) se [installera Azure AD Connect med SQL-delegerad administratörs behörighet](how-to-connect-install-sql-delegation.md). |
 | Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect konton och behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md).|
@@ -46,9 +46,9 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 ### <a name="user-sign-in"></a>Användarinloggning
 När du har installerat de nödvändiga komponenterna uppmanas du att välja användaruppgifter för enkel inloggning. Följande tabell innehåller en kort beskrivning av de tillgängliga alternativen. En fullständig beskrivning av inloggningsmetoderna finns i [Användarinloggning](plan-connect-user-signin.md).
 
-![Användarinloggning](./media/how-to-connect-install-custom/usersignin4.png)
+![Skärm bild som visar sidan "användar inloggning" med "Password hash-synkronisering" vald.](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Alternativ för enkel inloggning | Beskrivning |
+| Alternativ för enkel inloggning | Description |
 | --- | --- |
 | Hash-synkronisering av lösenord |Användare kan logga in på Microsofts moln tjänster, till exempel Microsoft 365, med samma lösen ord som de använder i sitt lokala nätverk. Användarnas lösenord synkroniseras med Azure AD som lösenordshasher och autentiseringen sker i molnet. Mer information finns i [Hash-synkronisering av lösenord](how-to-connect-password-hash-synchronization.md). |
 |Direktautentisering|Användare kan logga in på Microsofts moln tjänster, till exempel Microsoft 365, med samma lösen ord som de använder i sitt lokala nätverk.  Användarnas lösenord skickas till den lokala Active Directory-domänkontrollanten för verifiering.
@@ -75,7 +75,7 @@ Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutni
 ### <a name="connect-your-directories"></a>Anslut dina kataloger
 För att kunna ansluta till Azure Directory-domäntjänsten behöver Azure AD Connect skogsnamnet och autentiseringsuppgifterna för ett konto med tillräcklig behörighet.
 
-![Anslut katalog](./media/how-to-connect-install-custom/connectdir01.png)
+![Skärm bild som visar sidan "Anslut dina kataloger".](./media/how-to-connect-install-custom/connectdir01.png)
 
 När du har angett det första skogsnamnet och klickat på  **Lägg till katalog** visas en popup-dialogruta som uppmanar dig med följande alternativ:
 
@@ -127,7 +127,7 @@ Med funktionen Matchande mellan skogar kan du definiera hur användare från AD 
 
 ![Unik](./media/how-to-connect-install-custom/unique2.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 | --- | --- |
 | [Dina användare representeras endast en gång över alla skogar](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Alla användare skapas som enskilda objekt i Azure AD. Objekten är inte anslutna i metaversum. |
 | [E-postattribut](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Det här alternativet kopplar ihop användare och kontakter om e-postattributet har samma värde i olika skogar. Använd det här alternativet om dina kontakter har skapats med hjälp av GALSync. Om du väljer det här alternativet synkroniseras inte användarobjekt vars e-postattribut inte har fyllts i till Azure AD. |
@@ -138,7 +138,7 @@ Med funktionen Matchande mellan skogar kan du definiera hur användare från AD 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Välj hur användare ska identifieras med Azure AD – källfästpunkt
 Attributet sourceAnchor är ett attribut som inte kan ändras under ett användarobjekts livslängd. Det är den primära nyckeln som länkar den lokala användaren med användaren i Azure AD.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 | --- | --- |
 | Låt Azure hantera källfästpunkten | Välj det här alternativet om du vill att Azure AD ska hämta attributet. Om du väljer det här alternativet använder Azure AD Connect attributet sourceAnchor-attributvalslogiken som beskrivs i avsnittet [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Designbegrepp - Använda ms-DS-ConsistencyGuid som sourceAnchor). Guiden informerar dig vilket attribut som har valts som källfästpunktsattribut när den anpassade installationen har slutförts. |
 | Ett specifikt attribut | Välj det här alternativet om du vill ange ett befintligt AD-attribut som sourceAnchor-attribut. |
@@ -174,7 +174,7 @@ På den här sidan kan du välja de valfria funktionerna för dina specifika sce
 
 
 
-| Valfria funktioner | Beskrivning |
+| Valfria funktioner | Description |
 | --- | --- |
 | Exchange-hybridinstallation |Funktionen Exchange hybrid distribution möjliggör samtidig användning av Exchange-postlådor både lokalt och i Microsoft 365. Azure AD Connect synkroniserar en specifik uppsättning [attribut](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) från Azure AD tillbaka till din lokala katalog. |
 | Gemensamma mappar för Exchange-e-post | Med funktionen Gemensamma mappar för Exchange-e-post kan du synkronisera e-postaktiverade objekt från gemensamma mappar på din lokala Active Directory till Azure AD. |
@@ -300,7 +300,7 @@ Om du har valt Grupphanterat tjänstkonto och funktionen aldrig har använts i A
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Välj den Azure AD-domän som du vill federera
 Den här konfigurationen används för att konfigurera federationsrelationen mellan AD FS och Azure AD. Den konfigurerar AD FS för att utfärda säkerhetstoken till Azure AD och konfigurerar Azure AD att lita på token från den här specifika instansen av AD FS. På den här sidan kan du bara konfigurera en enda domän i den inledande installationen. Du kan konfigurera flera domäner senare genom att köra Azure AD Connect igen.
 
-![Azure AD-domän](./media/how-to-connect-install-custom/adfs6.png)
+![Skärm bild som visar sidan "Azure AD-domän".](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Verifiera Azure AD-domänen som valts för federation
 När du väljer domänen som ska vara federerad får du nödvändig information av Azure AD Connect för att verifiera en overifierade domän. Information om hur du använder den här informationen finns i [Lägga till och verifiera domänen](../fundamentals/add-custom-domain.md).
@@ -320,7 +320,7 @@ Du kan enkelt konfigurera PingFederate med Azure AD Connect med bara några klic
 ### <a name="verify-the-domain"></a>Verifiera domänen
 När du har valt Federation med PingFederate, blir du ombedd att verifiera den domän du vill federera.  Välj domän i listrutan.
 
-![Verifiera domän](./media/how-to-connect-install-custom/ping1.png)
+![Skärm bild som visar "Azure AD-domän" med exempel domänen "contoso.com" vald.](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>Exportera PingFederate-inställningar
 
@@ -394,7 +394,7 @@ Följande avsnitt innehåller hjälp och felsökningsinformation som du kan anv�
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>”ADSync-databasen innehåller redan data och kan inte skrivas över”
 När du har anpassat installations Azure AD Connect och väljer alternativet **Använd en befintlig SQL Server** på sidan **installera nödvändiga komponenter** kan du stöta på ett fel som anger att **ADSync-databasen redan innehåller data och inte kan skrivas över. Ta bort den befintliga databasen och försök igen.**
 
-![Fel](./media/how-to-connect-install-custom/error1.png)
+![Skärm bild som visar sidan "installera nödvändiga komponenter".](./media/how-to-connect-install-custom/error1.png)
 
 Det här felet beror på att det redan finns en befintlig databas med namnet **ADSync** på SQL-instansen av SQL-servern, som du angav i textrutorna ovan.
 

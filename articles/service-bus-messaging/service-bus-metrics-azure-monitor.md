@@ -3,12 +3,12 @@ title: Azure Service Bus mått i Azure Monitor | Microsoft Docs
 description: Den här artikeln förklarar hur du använder Azure Monitor för att övervaka Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065020"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320446"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
 
@@ -54,7 +54,7 @@ Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het defin
 
 Räknar antalet data-och hanterings åtgärder som begärs.
 
-| Måttnamn | Beskrivning |
+| Måttnamn | Description |
 | ------------------- | ----------------- |
 | Inkommande förfrågningar| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Slutförda förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
@@ -72,7 +72,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 ## <a name="message-metrics"></a>Meddelande mått
 
-| Måttnamn | Beskrivning |
+| Måttnamn | Description |
 | ------------------- | ----------------- |
 |Inkommande meddelanden|Antalet händelser eller meddelanden som skickats till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Utgående meddelanden|Antalet händelser eller meddelanden som har tagits emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
@@ -91,7 +91,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 ## <a name="connection-metrics"></a>Anslutnings mått
 
-| Måttnamn | Beskrivning |
+| Måttnamn | Description |
 | ------------------- | ----------------- |
 |Aktiva anslutningar|Antalet aktiva anslutningar i ett namn område samt på en entitet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Öppna anslutningar |Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
@@ -106,7 +106,7 @@ Följande två typer av fel klassificeras som användar fel:
 > 
 > Det andra måttet du kan övervaka är: **begränsade begär Anden**. Det får inte vara ett problem, så länge namn området ligger inom gränserna för minne, CPU och Brokered Connections. Mer information finns i [begränsning i Azure Service Bus Premium-nivån](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
-| Måttnamn | Beskrivning |
+| Måttnamn | Description |
 | ------------------- | ----------------- |
 |CPU-användning per namnrymd|Procent andel CPU-användning för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: entitetsnamn|
 |Minnes storleks användning per namnrymd|Den procentuella minnes användningen för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: entitetsnamn|
@@ -115,7 +115,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges måtten på namn områdes nivå. 
 
-|Dimensions namn|Beskrivning|
+|Dimensions namn|Description|
 | ------------------- | ----------------- |
 |Entitetsnamn| Service Bus stöder meddelande enheter under namn området.|
 
@@ -147,7 +147,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     2. Ange en **Beskrivning** av aviseringen.
     3. Välj **allvarlighets grad** för aviseringen. 
 
-        ![Aviseringsinformation](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Skärm bild av sidan Skapa regel. Definiera aviserings information har expanderats och fälten för aviserings regelns namn, beskrivning och allvarlighets grad är markerade.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. På sidan **Skapa regel** expanderar du **definiera åtgärds grupp**, väljer **ny åtgärds grupp**och utför följande åtgärder på **sidan Lägg till åtgärds grupp**. 
     1. Ange ett namn på åtgärds gruppen.
     2. Ange ett kort namn för åtgärds gruppen. 
@@ -161,7 +161,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
         2. Ange **e-postadressen**. 
         3. Välj **OK**.
 
-            ![Aviseringsinformation](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Skärm bild av sidan Lägg till åtgärds grupp. En åtgärd med namnet "skicka e-post" med åtgärds typ e-post/SMS/push/röst läggs till i gruppen.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. På sidan **Lägg till åtgärds grupp** väljer du **OK**. 
 1. På sidan **Skapa regel** väljer du **skapa aviserings regel**. 
 

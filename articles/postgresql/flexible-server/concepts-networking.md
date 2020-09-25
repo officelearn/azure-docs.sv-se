@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 963c9c06409eca2b2f836388b94f8b80484a671a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: e4d3a594011cb57ce6dfd951215d0ae7471ae7c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90936984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331683"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Nätverks översikt – Azure Database for PostgreSQL – flexibel Server
 
@@ -62,7 +62,7 @@ Här följer några begrepp som du bör känna till när du använder virtuella 
 
    Din PostgreSQL-flexibla Server måste finnas i ett undernät som endast är **delegerat** för postgresql-flexibel Server användning. Den här delegeringen innebär att endast Azure Database for PostgreSQL flexibla servrar kan använda det under nätet. Inga andra Azure-resurstyper kan finnas i det delegerade undernätet. Du delegerar ett undernät genom att tilldela dess delegations egenskap som Microsoft. DBforPostgreSQL/flexibleServers.
 
-Lär dig hur du skapar en flexibel server med privat åtkomst (VNet-integrering) i [Azure Portal](how-to-manage-virtual-network-portal.md) eller [Azure CLI](how-to-manage-virtual-network-cli.md).
+* **Nätverks säkerhets grupper (NSG)** Säkerhets regler i nätverks säkerhets grupper gör att du kan filtrera den typ av nätverks trafik som kan flöda in i och ut ur virtuella nätverks under nät och nätverks gränssnitt. Mer information hittar du i [Översikt över nätverks säkerhets gruppen](../../virtual-network/network-security-groups-overview.md) .
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scenarier med virtuella nätverk som inte stöds
@@ -71,6 +71,7 @@ Lär dig hur du skapar en flexibel server med privat åtkomst (VNet-integrering)
 * Det går inte att öka under näts storleken (adress utrymmen) när resurserna finns i under nätet
 * Peering-virtuella nätverk över regioner stöds inte
 
+Lär dig hur du skapar en flexibel server med privat åtkomst (VNet-integrering) i [Azure Portal](how-to-manage-virtual-network-portal.md) eller [Azure CLI](how-to-manage-virtual-network-cli.md).
 
 ## <a name="public-access-allowed-ip-addresses"></a>Offentlig åtkomst (tillåtna IP-adresser)
 Egenskaperna för den offentliga åtkomst metoden är:
@@ -107,12 +108,9 @@ Tänk på följande när du förväntar dig åtkomst till Microsoft Azure databa
 ## <a name="hostname"></a>Värdnamn
 Oavsett vilket nätverks alternativ du väljer rekommenderar vi att du alltid använder ett fullständigt kvalificerat domän namn (FQDN) som värdnamn när du ansluter till din flexibla Server. Serverns IP-adress är inte garanterad för att vara statisk. Genom att använda FQDN kan du undvika att göra ändringar i anslutnings strängen. 
 
-Ett scenario där IP-adressen ändras är om du använder zoner som är redundanta och redundansväxlingen sker mellan primär och sekundär. Med FQDN menas att du sömlöst återförsöks anslutningar med samma anslutnings sträng.
-
 Exempel
 * Rekommenderas `hostname = servername.postgres.database.azure.com`
-* Undvik att använda `hostname = 10.0.0.4` (privat adress) eller `hostname = 40.2.45.67` (offentlig adress)
-
+* Undvik, om möjligt, att använda `hostname = 10.0.0.4` (en privat adress) eller `hostname = 40.2.45.67` (en offentlig adress)
 
 
 ## <a name="tls-and-ssl"></a>TLS och SSL

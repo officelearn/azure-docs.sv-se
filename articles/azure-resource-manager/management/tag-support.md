@@ -2,13 +2,13 @@
 title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: ea46e263d934c327cf6dfa343a5e0b5a170f545e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.date: 09/21/2020
+ms.openlocfilehash: dd991167e703ad9faa7803bcecbbb6dc7eff94e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284966"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](tag-resources.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../../cost-management-billing/costs/group-filter.md) och Azure- [faktura och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -21,6 +21,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. addons](#microsoftaddons)
 > - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft. Advisor](#microsoftadvisor)
+> - [Microsoft. AgFoodPlatform](#microsoftagfoodplatform)
 > - [Microsoft. AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft. AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft. API Management](#microsoftapimanagement)
@@ -64,6 +65,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
+> - [Microsoft. D365CustomerInsights](#microsoftd365customerinsights)
 > - [Microsoft. data-](#microsoftdatabox)
 > - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft. Databricks](#microsoftdatabricks)
@@ -154,6 +156,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft. Resources](#microsoftresources)
 > - [Microsoft. SaaS](#microsoftsaas)
+> - [Microsoft. ScVmm](#microsoftscvmm)
 > - [Microsoft. search](#microsoftsearch)
 > - [Microsoft. Security](#microsoftsecurity)
 > - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
@@ -233,6 +236,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | metadata | Inga | Inga |
 > | rekommendationer | Inga | Inga |
 > | utelämningar | Inga | Inga |
+
+## <a name="microsoftagfoodplatform"></a>Microsoft. AgFoodPlatform
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | farmBeats | Ja | Ja |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -401,6 +411,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | Inga | Inga |
 > | edgeSubscriptions | Ja | Ja |
+> | linkedSubscriptions | Ja | Ja |
 > | registreringar | Ja | Ja |
 > | registreringar/customerSubscriptions | Inga | Inga |
 > | registreringar/produkter | Inga | Inga |
@@ -456,6 +467,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/billingProfiles/pris dokument | Inga | Inga |
 > | billingAccounts / billingProfiles / pricesheetDownloadOperations | Inga | Inga |
 > | billingAccounts/billingProfiles/Products | Inga | Inga |
+> | billingAccounts/billingProfiles/reservationer | Inga | Inga |
 > | billingAccounts/billingProfiles/transaktioner | Inga | Inga |
 > | billingAccounts / billingProfiles / validateDetachPaymentMethodEligibility | Inga | Inga |
 > | billingAccounts / billingRoleAssignments | Inga | Inga |
@@ -499,6 +511,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts / patchOperations | Inga | Inga |
 > | billingAccounts / paymentMethods | Inga | Inga |
 > | billingAccounts/produkter | Inga | Inga |
+> | billingAccounts/reservationer | Inga | Inga |
 > | billingAccounts/transaktioner | Inga | Inga |
 > | billingPeriods | Inga | Inga |
 > | billingPermissions | Inga | Inga |
@@ -580,6 +593,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Redis/privateEndpointConnections | Inga | Inga |
 > | Redis/privateLinkResources | Inga | Inga |
 > | redisEnterprise | Ja | Ja |
+> | RedisEnterprise / privateEndpointConnectionProxies | Inga | Inga |
+> | RedisEnterprise/privateEndpointConnectionProxies/validate | Inga | Inga |
+> | RedisEnterprise / privateEndpointConnections | Inga | Inga |
+> | RedisEnterprise / privateLinkResources | Inga | Inga |
 
 ## <a name="microsoftcapacity"></a>Microsoft. Capacity
 
@@ -594,6 +611,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | kataloger | Inga | Inga |
 > | commercialReservationOrders | Inga | Inga |
 > | utväxla | Inga | Inga |
+> | ownReservations | Inga | Inga |
 > | placePurchaseOrder | Inga | Inga |
 > | reservationOrders | Inga | Inga |
 > | reservationOrders / calculateRefund | Inga | Inga |
@@ -747,6 +765,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Ja | Ja |
 > | cloudServices | Ja | Ja |
+> | cloudServices/networkInterfaces | Inga | Inga |
+> | cloudServices/publicIPAddresses | Inga | Inga |
+> | cloudServices / roleInstances | Inga | Inga |
+> | cloudServices/roleInstances/networkInterfaces | Inga | Inga |
+> | cloudServices/roller | Inga | Inga |
 > | diskAccesses | Ja | Ja |
 > | diskEncryptionSets | Ja | Ja |
 > | disk | Ja | Ja |
@@ -774,7 +797,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | virtualMachineScaleSets | Ja | Ja |
 > | virtualMachineScaleSets/tillägg | Inga | Inga |
 > | virtualMachineScaleSets/networkInterfaces | Inga | Inga |
-> | virtualMachineScaleSets/publicIPAddresses | Inga | Inga |
+> | virtualMachineScaleSets/publicIPAddresses | Ja | Inga |
 > | virtualMachineScaleSets/virtualMachines | Inga | Inga |
 > | virtualMachineScaleSets/virtualMachines/networkInterfaces | Inga | Inga |
 
@@ -922,6 +945,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | typer | Inga | Inga |
 > | resourceProviders | Ja | Ja |
 
+## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | pipe | Ja | Ja |
+
 ## <a name="microsoftdatabox"></a>Microsoft. data-
 
 > [!div class="mx-tableFixed"]
@@ -966,7 +996,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | fabriker/integrationRuntimes | Inga | Inga |
 
 > [!NOTE]
-> Om du har Azure-SSIS integrerings körningar i din data fabrik kommer deras löpande kostnad att märkas med Data Factory-taggar.  Körningen av Azure-SSIS integration runtime måste stoppas och startas om för att nya data Factory-Taggar ska tillämpas på deras löpande kostnad.
+> Om du har Azure-SSIS integrerings körningar i din data fabrik kommer deras löpande kostnad att märkas med Data Factory-taggar. Körningen av Azure-SSIS integration runtime måste stoppas och startas om för att nya data Factory-Taggar ska tillämpas på deras löpande kostnad.
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
 
@@ -1033,6 +1063,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/privateLinkResources | Inga | Inga |
 > | servrar/queryTexts | Inga | Inga |
 > | servrar/recoverableServers | Inga | Inga |
+> | servrar/start | Inga | Inga |
+> | servrar/stoppa | Inga | Inga |
 > | servrar/topQueryStatistics | Inga | Inga |
 > | servrar/virtualNetworkRules | Inga | Inga |
 > | servrar/waitStatistics | Inga | Inga |
@@ -1042,6 +1074,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
+> | flexibleServers | Ja | Ja |
 > | brygghuvudservrar | Ja | Ja |
 > | servrar/rådgivare | Inga | Inga |
 > | servrar/nycklar | Inga | Inga |
@@ -1050,7 +1083,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/privateLinkResources | Inga | Inga |
 > | servrar/queryTexts | Inga | Inga |
 > | servrar/recoverableServers | Inga | Inga |
+> | servrar/start | Inga | Inga |
+> | servrar/stoppa | Inga | Inga |
 > | servrar/topQueryStatistics | Inga | Inga |
+> | servrar/uppgradering | Inga | Inga |
 > | servrar/virtualNetworkRules | Inga | Inga |
 > | servrar/waitStatistics | Inga | Inga |
 
@@ -1225,6 +1261,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | namnrymder/eventhubs/authorizationrules | Inga | Inga |
 > | namnrymder/eventhubs/consumergroups | Inga | Inga |
 > | namnrymder/networkrulesets | Inga | Inga |
+> | namnrymder/privateEndpointConnections | Inga | Inga |
 
 ## <a name="microsoftexperimentation"></a>Microsoft. experimentering
 
@@ -1321,8 +1358,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | tjänster/iomtconnectors/anslutningar | Inga | Inga |
 > | tjänster/iomtconnectors/mappningar | Inga | Inga |
 > | tjänster/privateEndpointConnectionProxies | Inga | Inga |
-> | tjänster/privateEndpointConnections | Ja | Ja |
-> | tjänster/privateLinkResources | Ja | Ja |
+> | tjänster/privateEndpointConnections | Inga | Inga |
+> | tjänster/privateLinkResources | Inga | Inga |
 
 ## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
 
@@ -1330,7 +1367,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | faxar | Ja | Ja |
+> | datorer/assessPatches | Inga | Inga |
 > | datorer/tillägg | Ja | Ja |
+> | datorer/installPatches | Inga | Inga |
 
 ## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
@@ -1428,6 +1467,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | valv | Ja | Ja |
 > | valv/accessPolicies | Inga | Inga |
 > | valv/eventGridFilters | Inga | Inga |
+> | valv/nycklar | Inga | Inga |
+> | valv/nycklar/versioner | Inga | Inga |
 > | valv/hemligheter | Inga | Inga |
 
 ## <a name="microsoftkubernetes"></a>Microsoft. Kubernetes
@@ -1466,7 +1507,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | Ja | Ja |
+> | labaccounts | Ja | Inga |
 > | användare | Inga | Inga |
 
 ## <a name="microsoftlogic"></a>Microsoft. Logic
@@ -1496,6 +1537,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | arbetsytor | Ja | Ja |
+> | arbets ytor/codeJobs | Inga | Inga |
 > | arbets ytor/beräkningar | Inga | Inga |
 > | arbets ytor/eventGridFilters | Inga | Inga |
 > | arbets ytor/inferenceEndpoints | Ja | Ja |
@@ -1700,11 +1742,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressRoutePorts | Ja | Ja |
 > | expressRouteServiceProviders | Inga | Inga |
 > | firewallPolicies | Ja | Ja |
-> | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Inga |
-> | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
+> | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Yes |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | No |
+> | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Yes |
 > | getDnsResourceReference | Inga | Inga |
 > | internalNotify | Inga | Inga |
+> | ipGroups | Ja | Ja |
 > | Belastningsutjämnare | Ja | Ja |
 > | localNetworkGateways | Ja | Ja |
 > | natGateways | Ja | Ja |
@@ -1874,6 +1917,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
+> | deletedAccounts | Inga | Inga |
 
 ## <a name="microsoftproviderhub"></a>Microsoft. ProviderHub
 
@@ -1973,6 +2017,17 @@ Hoppa till ett namn område för en resurs leverantör:
 > | program | Ja | Ja |
 > | saasresources | Inga | Inga |
 
+## <a name="microsoftscvmm"></a>Microsoft. ScVmm
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | moln | Ja | Ja |
+> | VirtualMachines | Ja | Ja |
+> | VirtualMachineTemplates | Ja | Ja |
+> | VirtualNetworks | Ja | Ja |
+> | vmmservers | Ja | Ja |
+
 ## <a name="microsoftsearch"></a>Microsoft. search
 
 > [!div class="mx-tableFixed"]
@@ -2004,6 +2059,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | discoveredSecuritySolutions | Inga | Inga |
 > | externalSecuritySolutions | Inga | Inga |
 > | InformationProtectionPolicies | Inga | Inga |
+> | iotDefenderSettings | Inga | Inga |
 > | iotSecuritySolutions | Ja | Ja |
 > | iotSecuritySolutions / analyticsModels | Inga | Inga |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | Inga | Inga |
@@ -2012,6 +2068,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | iotSecuritySolutions / iotAlertTypes | Inga | Inga |
 > | iotSecuritySolutions / iotRecommendations | Inga | Inga |
 > | iotSecuritySolutions / iotRecommendationTypes | Inga | Inga |
+> | iotSensors | Inga | Inga |
 > | jitNetworkAccessPolicies | Inga | Inga |
 > | jitPolicies | Inga | Inga |
 > | policies | Inga | Inga |
@@ -2030,6 +2087,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | securityStatusesSummaries | Inga | Inga |
 > | serverVulnerabilityAssessments | Inga | Inga |
 > | inställningar | Inga | Inga |
+> | sqlVulnerabilityAssessments | Inga | Inga |
 > | underbedömningar | Inga | Inga |
 > | uppgifter | Inga | Inga |
 > | topologier | Inga | Inga |
@@ -2081,6 +2139,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | namnrymder/disasterrecoveryconfigs | Inga | Inga |
 > | namnrymder/eventgridfilters | Inga | Inga |
 > | namnrymder/networkrulesets | Inga | Inga |
+> | namnrymder/privateEndpointConnections | Inga | Inga |
 > | namnrymder/köer | Inga | Inga |
 > | namnrymder/köer/authorizationrules | Inga | Inga |
 > | namn områden/ämnen | Inga | Inga |
@@ -2161,7 +2220,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Ja | Ja |
-> | managedInstances/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
+> | managedInstances/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Yes |
 > | managedInstances/databaser/backupShortTermRetentionPolicies | Inga | Inga |
 > | managedInstances/databaser/scheman/tabeller/kolumner/sensitivityLabels | Inga | Inga |
 > | managedInstances/databaser/vulnerabilityAssessments | Inga | Inga |
@@ -2173,7 +2232,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | brygghuvudservrar | Ja | Ja |
 > | servrar/administratörer | Inga | Inga |
 > | servrar/communicationLinks | Inga | Inga |
-> | servrar/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Ja |
+> | servrar/databaser | Ja (se [Anmärkning nedan](#sqlnote)) | Yes |
 > | servrar/encryptionProtector | Inga | Inga |
 > | servrar/firewallRules | Inga | Inga |
 > | servrar/nycklar | Inga | Inga |
@@ -2201,6 +2260,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
+> | deletedAccounts | Inga | Inga |
 > | storageAccounts | Ja | Ja |
 > | storageAccounts/blobServices | Inga | Inga |
 > | storageAccounts/fileServices | Inga | Inga |
@@ -2275,7 +2335,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | kluster | Ja | Ja |
-> | streamingjobs | Ja (se anmärkning nedan) | Ja |
+> | streamingjobs | Ja (se anmärkning nedan) | Yes |
 
 > [!NOTE]
 > Du kan inte lägga till en tagg när streamingjobs körs. Stoppa resursen för att lägga till en tagg.

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dfd21a38c46238dbd9d58d3eae5b3f9414d3c5fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284507"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering i Azure Portal för att övervaka frågor och förbättra arbets Belastningens prestanda
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Automatisk justering kan aktive ras på servern eller på databas nivå genom:
 
 - [Azure Portal](automatic-tuning-enable.md#azure-portal)
 - [REST API](automatic-tuning-enable.md#rest-api) -anrop
-- [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) -kommandon
+- [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) -kommandon
 
 > [!NOTE]
 > För Azure SQL-hanterad instans kan alternativet FORCE_LAST_GOOD_PLAN bara konfigureras via [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . Alternativen Azure Portal baserad konfiguration och automatiska index justeringar som beskrivs i den här artikeln gäller inte för Azure SQL-hanterad instans.
@@ -109,7 +109,7 @@ Om du ställer in alternativet för enskild justering till på åsidosätts alla
 > När det gäller [aktiv geo-replikering](auto-failover-group-overview.md)behöver automatisk justering bara konfigureras på den primära databasen. Automatiskt tillämpade justerings åtgärder, till exempel för att skapa index som skapa eller ta bort, replikeras automatiskt till den skrivskyddade sekundära. Om du försöker aktivera automatisk justering via T-SQL på den skrivskyddade sekundära sekundären, resulterar det i ett haveri att en annan inställnings konfiguration på den skrivskyddade sekundären inte stöds.
 >
 
-För att få mer om verifieringen T-SQL-alternativ för att konfigurera automatisk justering, se [Alter Database set Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+För att få mer om verifieringen T-SQL-alternativ för att konfigurera automatisk justering, se [Alter Database set Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## <a name="disabled-by-the-system"></a>Inaktiverat av systemet
 

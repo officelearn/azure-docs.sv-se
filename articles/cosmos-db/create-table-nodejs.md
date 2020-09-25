@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2243ff73f72666013fa4d01cbc6b1cabe02c8c41
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 42871d4219424e3e46d6b2dccc5899b02dccc57e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418669"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319001"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Node.js och Azure Cosmos DB
 
@@ -76,7 +76,7 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera anslutnings sträng](#update-your-connection-string) avsnittet i det här dokumentet.
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera anslutnings sträng](#update-your-connection-string) avsnittet i det här dokumentet.
 
 * Följande kod visar hur du skapar en tabell i Azure Storage:
 

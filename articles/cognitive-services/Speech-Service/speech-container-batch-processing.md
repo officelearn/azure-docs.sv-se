@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4d0800ff8a35c5c91b067a85dfcc089f2e343d1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86091014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319086"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Batch bearbetnings paket för tal behållare
 
@@ -23,9 +23,9 @@ Använd batch bearbetnings paketet för att komplettera och skala ut arbets bela
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="Ett diagram som visar ett exempel på ett arbets flöde för batch-kit-behållare.":::
 
-Batch kit-behållaren är tillgänglig kostnads fritt på [GitHub](https://github.com/microsoft/batch-processing-kit) och [Docker Hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). Du [debiteras](speech-container-howto.md#billing) bara för de tal behållare du använder.
+Batch kit-behållaren är tillgänglig kostnads fritt på [GitHub](https://github.com/microsoft/batch-processing-kit) och   [Docker Hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). Du [debiteras](speech-container-howto.md#billing) bara för de tal behållare du använder.
 
-| Funktion  | Description  |
+| Funktion  | Beskrivning  |
 |---------|---------|
 | Batch-ljudfil för fil distribution     | Skicka automatiskt ett stort antal filer till en lokal eller molnbaserad slut punkt för tal behållare. Filer kan finnas på alla POSIX-kompatibla volymer, inklusive nätverks fil system.       |
 | Integrering av tal-SDK | Skicka vanliga flaggor till tal-SDK: n, inklusive: n-bästa Hypotheses, diarization, språk, maskering av svordomar.  |
@@ -35,7 +35,7 @@ Batch kit-behållaren är tillgänglig kostnads fritt på [GitHub](https://githu
 | Snabb växling av slut punkt | Lägg till, ta bort eller ändra slut punkter för tal behållare under körning utan att avbryta batch-förloppet. Uppdateringarna är omedelbara. |
 | Loggning i real tid | Real tids loggning av försök till förfrågningar, tidsstämpel och orsaker, med loggfiler för tal-SDK för varje ljudfil. |
 
-## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med `docker pull`
 
 Använd [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) -kommandot för att hämta den senaste batch kit-behållaren.
 
@@ -76,6 +76,8 @@ Batch-klienten kan dynamiskt identifiera om en slut punkt blir otillgänglig (ti
 > * I det här exemplet används samma katalog ( `/my_nfs` ) för konfigurations filen och katalogerna indata, utdata och loggar. Du kan använda värdbaserade eller NFS-monterade kataloger för dessa mappar.
 > * Om du kör-klienten med `–h` visas tillgängliga kommando rads parametrar och deras standardvärden. 
 
+
+#### <a name="linux"></a>[Linux](#tab/linux)
 Använd Docker- `run` kommandot för att starta behållaren. Detta kommer att starta ett interaktivt gränssnitt i behållaren.
 
 ```Docker
@@ -94,6 +96,18 @@ Så här kör du batch-klienten och behållaren i ett enda kommando:
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
+#### <a name="windows"></a>[Windows](#tab/windows)
+
+Så här kör du batch-klienten och behållaren i ett enda kommando:
+
+```Docker
+docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
+
+```
+
+---
+
+
 Klienten börjar köras. Om en ljudfil redan har tilldelats i en tidigare körning hoppar klienten automatiskt över filen. Filer skickas med ett automatiskt återförsök om tillfälliga fel inträffar, och du kan skilja mellan vilka fel som du vill att klienten ska försöka igen. Vid ett avskrifts fel kommer klienten att fortsätta avskriften och kan försöka igen utan att förlora förloppet.  
 
 ## <a name="run-modes"></a>Körnings lägen 
@@ -102,7 +116,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 #### <a name="oneshot"></a>[Oneshot](#tab/oneshot)
 
-`ONESHOT`läget beskrivar en enda batch med ljudfiler (från en inmatnings katalog och valfri fil lista) till en mapp för utdata.
+`ONESHOT` läget beskrivar en enda batch med ljudfiler (från en inmatnings katalog och valfri fil lista) till en mapp för utdata.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i OneShot-läge.":::
 
@@ -117,7 +131,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 > [!TIP]
 > Om flera filer läggs till i indatafilen samtidigt kan du förbättra prestandan genom att i stället lägga till dem med jämna mellanrum.
 
-`DAEMON`läget beskrivar befintliga filer i en specifik mapp och beskrivar kontinuerligt nya ljudfiler när de läggs till.          
+`DAEMON` läget beskrivar befintliga filer i en specifik mapp och beskrivar kontinuerligt nya ljudfiler när de läggs till.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i daemon-läge.":::
 
@@ -130,14 +144,14 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 #### <a name="rest"></a>[REST](#tab/rest)
 
-`REST`mode är ett API-serverinställningar som tillhandahåller en grundläggande uppsättning HTTP-slutpunkter för att skicka ljud filens batch, status kontroll och lång avsökning. Aktiverar även programmatisk användning med hjälp av en python-moduls tillägg eller importera som en undermodul.
+`REST` mode är ett API-serverinställningar som tillhandahåller en grundläggande uppsättning HTTP-slutpunkter för att skicka ljud filens batch, status kontroll och lång avsökning. Aktiverar även programmatisk användning med hjälp av en python-moduls tillägg eller importera som en undermodul.
 
 :::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i daemon-läge.":::
 
 1. Definiera de tal behållare slut punkter som batch-klienten ska använda i `config.yaml` filen. 
 2. Skicka en begäran om HTTP-begäran till en av API-serverns slut punkter. 
         
-    |Slutpunkt  |Description  |
+    |Slutpunkt  |Beskrivning  |
     |---------|---------|
     |`/submit`     | Slut punkt för att skapa nya batch-begäranden.        |
     |`/status`     | Slut punkt för att kontrol lera status för en batch-begäran. Anslutningen fortsätter att vara öppen tills batchen har slutförts.       |

@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 67529ce3546046eaba75bd3beacd7bb9b96445fe
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a2e99440a7c8f33eee9d3c9fe2276ac3868ff4b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941632"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331768"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-mysql--flexible-server"></a>Schemalagt underhåll i Azure Database for MySQL – flexibel server
 
@@ -46,5 +46,5 @@ I sällsynta fall kan underhålls händelser avbrytas av systemet eller kan Miss
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [ändrar underhålls schema](how-to-maintenance-portal.md)
-* Lär dig hur du [får aviseringar om kommande underhåll](/azure/service-health/service-notifications.md) med Azure Service Health
-* Lär dig hur du [ställer in aviseringar om kommande schemalagda underhålls händelser](/azure/service-health/resource-health-alert-monitor-guide.md)
+* Lär dig hur du [får aviseringar om kommande underhåll](../../service-health/service-notifications.md) med Azure Service Health
+* Lär dig hur du [ställer in aviseringar om kommande schemalagda underhålls händelser](../../service-health/resource-health-alert-monitor-guide.md)

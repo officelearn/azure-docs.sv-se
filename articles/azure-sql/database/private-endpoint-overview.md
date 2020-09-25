@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442606"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319477"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure privat länk för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **priva
 
 > [!IMPORTANT]
 > Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics. Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.
-
-## <a name="data-exfiltration-prevention"></a>Dataexfiltreringsskydd
-
-Data exfiltrering i Azure SQL Database är när en behörig användare, till exempel en databas administratör, kan extrahera data från ett system och flytta den till en annan plats eller ett system utanför organisationen. Användaren kan till exempel flytta data till ett lagrings konto som ägs av en tredje part.
-
-Tänk dig ett scenario med en användare som kör SQL Server Management Studio (SSMS) i en virtuell Azure-dator som ansluter till en databas i SQL Database. Den här databasen är i data centret västra USA. Exemplet nedan visar hur du begränsar åtkomsten med offentliga slut punkter på SQL Database med hjälp av nätverks åtkomst kontroller.
-
-1. Inaktivera all Azure Service-trafik för att SQL Database via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster **stängs**av. Se till att inga IP-adresser är tillåtna i brand Väggs reglerna för Server och databas nivå. Mer information finns i [Azure SQL Database och Azure Synapse Analytics Network Access Controls](network-access-controls-overview.md).
-1. Tillåt endast trafik till databasen i SQL Database att använda den virtuella datorns privata IP-adress. Mer information finns i artiklarna om [tjänstens slut punkt](vnet-service-endpoint-rule-overview.md) och [brand Väggs regler för virtuella nätverk](firewall-configure.md).
-1. På den virtuella Azure-datorn begränsar du omfattningen av utgående anslutning genom att använda [nätverks säkerhets grupper (NSG: er)](../../virtual-network/manage-network-security-group.md) och service märken enligt följande
-    - Ange en NSG-regel för att tillåta trafik för service tag = SQL. Västra USA – endast tillåta anslutning till SQL Database i västra USA
-    - Ange en NSG-regel (med en **högre prioritet**) om du vill neka trafik för service tag = SQL-neka anslutningar till SQL Database i alla regioner
-
-I slutet av den här installationen kan den virtuella Azure-datorn bara ansluta till en databas i SQL Database i regionen USA, västra. Anslutningen är dock inte begränsad till en enda databas i SQL Database. Den virtuella datorn kan fortfarande ansluta till en databas i regionen USA, västra, inklusive de databaser som inte ingår i prenumerationen. Vi har minskat omfattningen av data exfiltrering i scenariot ovan till en speciell region, men vi har inte eliminerat det helt.
-
-Med privat länk kan kunder nu konfigurera nätverks åtkomst kontroller som NSG: er för att begränsa åtkomsten till den privata slut punkten. Enskilda Azure PaaS-resurser mappas sedan till specifika privata slut punkter. En skadlig Insider kan bara komma åt den mappade PaaS-resursen (till exempel en databas i SQL Database) och ingen annan resurs. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>Lokal anslutning via privat peering
-
-När kunderna ansluter till den offentliga slut punkten från lokala datorer måste deras IP-adress läggas till i den IP-baserade brand väggen med hjälp av en [brand Väggs regel på server nivå](firewall-create-server-level-portal-quickstart.md). Även om den här modellen fungerar bra för att tillåta åtkomst till enskilda datorer för utveckling eller testning av arbets belastningar, är det svårt att hantera i en produktions miljö.
-
-Med privat länk kan kunder aktivera åtkomst till lokala slut punkter via [ExpressRoute](../../expressroute/expressroute-introduction.md), privat peering eller VPN-tunnlar. Kunder kan sedan inaktivera all åtkomst via den offentliga slut punkten och inte använda den IP-baserade brand väggen för att tillåta alla IP-adresser.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Så här konfigurerar du en privat länk för Azure SQL Database 
 
@@ -71,6 +49,12 @@ När nätverks administratören skapar den privata slut punkten (PE) kan SQL-adm
 
 1. Efter godkännande eller avvisande visar listan lämpligt tillstånd tillsammans med svars texten.
 ![Skärm bild av alla PECs efter godkännande][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>Lokal anslutning via privat peering
+
+När kunderna ansluter till den offentliga slut punkten från lokala datorer måste deras IP-adress läggas till i den IP-baserade brand väggen med hjälp av en [brand Väggs regel på server nivå](firewall-create-server-level-portal-quickstart.md). Även om den här modellen fungerar bra för att tillåta åtkomst till enskilda datorer för utveckling eller testning av arbets belastningar, är det svårt att hantera i en produktions miljö.
+
+Med privat länk kan kunder aktivera åtkomst till lokala slut punkter via [ExpressRoute](../../expressroute/expressroute-introduction.md), privat peering eller VPN-tunnlar. Kunder kan sedan inaktivera all åtkomst via den offentliga slut punkten och inte använda den IP-baserade brand väggen för att tillåta alla IP-adresser.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Använd fall av privat länk för Azure SQL Database 
 
@@ -154,6 +138,22 @@ Följ anvisningarna här för att använda [SSMS för att ansluta till den SQL D
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>Dataexfiltreringsskydd
+
+Data exfiltrering i Azure SQL Database är när en behörig användare, till exempel en databas administratör, kan extrahera data från ett system och flytta den till en annan plats eller ett system utanför organisationen. Användaren kan till exempel flytta data till ett lagrings konto som ägs av en tredje part.
+
+Tänk dig ett scenario med en användare som kör SQL Server Management Studio (SSMS) i en virtuell Azure-dator som ansluter till en databas i SQL Database. Den här databasen är i data centret västra USA. Exemplet nedan visar hur du begränsar åtkomsten med offentliga slut punkter på SQL Database med hjälp av nätverks åtkomst kontroller.
+
+1. Inaktivera all Azure Service-trafik för att SQL Database via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster **stängs**av. Se till att inga IP-adresser är tillåtna i brand Väggs reglerna för Server och databas nivå. Mer information finns i [Azure SQL Database och Azure Synapse Analytics Network Access Controls](network-access-controls-overview.md).
+1. Tillåt endast trafik till databasen i SQL Database att använda den virtuella datorns privata IP-adress. Mer information finns i artiklarna om [tjänstens slut punkt](vnet-service-endpoint-rule-overview.md) och [brand Väggs regler för virtuella nätverk](firewall-configure.md).
+1. På den virtuella Azure-datorn begränsar du omfattningen av utgående anslutning genom att använda [nätverks säkerhets grupper (NSG: er)](../../virtual-network/manage-network-security-group.md) och service märken enligt följande
+    - Ange en NSG-regel för att tillåta trafik för service tag = SQL. Västra USA – endast tillåta anslutning till SQL Database i västra USA
+    - Ange en NSG-regel (med en **högre prioritet**) om du vill neka trafik för service tag = SQL-neka anslutningar till SQL Database i alla regioner
+
+I slutet av den här installationen kan den virtuella Azure-datorn bara ansluta till en databas i SQL Database i regionen USA, västra. Anslutningen är dock inte begränsad till en enda databas i SQL Database. Den virtuella datorn kan fortfarande ansluta till en databas i regionen USA, västra, inklusive de databaser som inte ingår i prenumerationen. Vi har minskat omfattningen av data exfiltrering i scenariot ovan till en speciell region, men vi har inte eliminerat det helt.
+
+Med privat länk kan kunder nu konfigurera nätverks åtkomst kontroller som NSG: er för att begränsa åtkomsten till den privata slut punkten. Enskilda Azure PaaS-resurser mappas sedan till specifika privata slut punkter. En skadlig Insider kan bara komma åt den mappade PaaS-resursen (till exempel en databas i SQL Database) och ingen annan resurs. 
 
 ## <a name="limitations"></a>Begränsningar 
 Anslutningar till privat slut punkt stöder bara **proxy** som [anslutnings princip](connectivity-architecture.md#connection-policy)

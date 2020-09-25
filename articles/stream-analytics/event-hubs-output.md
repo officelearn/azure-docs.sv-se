@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 50d2d974815e0921d99154bce67f604b7314970d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892033"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295298"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Event Hubs utdata från Azure Stream Analytics
 
@@ -22,7 +22,7 @@ ms.locfileid: "90892033"
 
 Följande tabell innehåller de parametrar som krävs för att konfigurera data strömmar från Event Hub som utdata.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera frågeresultatet till den här händelsehubben. |
 | Namnområde för händelsehubb | En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du även ett namn område för Event Hub. |
@@ -46,7 +46,23 @@ Den maximala meddelande storleken är 256 KB eller 1 MB per meddelande. Mer info
 
 ## <a name="custom-metadata-properties-for-output"></a>Anpassade egenskaper för metadata för utdata
 
-Du kan koppla frågeegenskaper som användar egenskaper till dina utgående meddelanden. De här kolumnerna hamnar inte i nytto lasten. Egenskaperna finns i form av en ord lista i utmatnings meddelandet. *Key* är kolumnens namn och *värde* är kolumnens värde i ord listan för egenskaper. Alla Stream Analytics data typer stöds förutom post och matris.  
+Du kan koppla frågeegenskaper som användar egenskaper till dina utgående meddelanden. De här kolumnerna hamnar inte i nytto lasten. Egenskaperna finns i form av en ord lista i utmatnings meddelandet. *Key* är kolumnens namn och *värde* är kolumnens värde i ord listan för egenskaper. Alla Stream Analytics data typer stöds förutom post och matris.
+
+I följande exempel `DeviceId` läggs fälten och till i `DeviceStatus` metadata.
+
+1. Använd följande fråga:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Konfigurera `DeviceId,DeviceStatus` som egenskaps kolumner i utdata.
+
+   :::image type="content" source="media/event-hubs-output/property-columns.png" alt-text="Egenskaps kolumner":::
+
+Följande bild visar förväntade egenskaper för utmatnings meddelande som inspekterats i EventHub med hjälp av [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Anpassade egenskaper för händelse":::
 
 ## <a name="next-steps"></a>Nästa steg
 

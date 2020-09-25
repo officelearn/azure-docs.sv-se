@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319936"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Ändra lösen ordet för ADSync-tjänstkontot
 Om du ändrar lösen ordet för ADSync-tjänstkontot kan inte synkroniseringstjänsten starta korrekt förrän du har övergivit krypterings nyckeln och initierat om lösen ordet för ADSync-tjänstkontot. 
@@ -52,7 +52,7 @@ För att säkerställa att du inte får de här felen följer du procedurerna i 
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Avbryta krypterings nyckeln för ADSync-tjänstekontot
 >[!IMPORTANT]
->Följande procedurer gäller endast för Azure AD Connect build 1.1.443.0 eller äldre. Detta kan inte användas för nyare versioner av Azure AD Connect.
+>Följande procedurer gäller endast för Azure AD Connect build 1.1.443.0 eller äldre. Detta kan inte användas för nyare versioner av Azure AD Connect, eftersom att överge krypterings nyckeln hanteras av Azure AD Connect när du ändrar lösen ordet för AD Sync-tjänstkontot så att följande steg inte behövs i de nyare versionerna.   
 
 Använd följande procedurer för att överge krypterings nyckeln.
 
@@ -88,7 +88,7 @@ Först kan du stoppa tjänsten i Windows Service Control Manager.  Kontrol lera 
 
 4. Kör kommandot: `./miiskmu.exe /a`
 
-![Verktyget Azure AD Connect Sync Encryption Key](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![Skärm bild som visar PowerShell när du har kört kommandot.](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
 #### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Ange lösen ordet för AD DS Connector-kontot
 Eftersom befintliga lösen ord som lagras i databasen inte längre kan dekrypteras måste du ange synkroniseringstjänsten med lösen ordet för AD DS-anslutningsprogrammet. Synkroniseringstjänsten krypterar lösen ord med den nya krypterings nyckeln:
@@ -101,7 +101,7 @@ Eftersom befintliga lösen ord som lagras i databasen inte längre kan dekrypter
 5. I popup-dialogrutan väljer **du Anslut till Active Directory skog**:
 6. Ange lösen ordet för AD DS-kontot i text rutan **lösen ord** . Om du inte känner till lösen ordet måste du ange det som ett känt värde innan du utför det här steget.
 7. Klicka på **OK** för att spara det nya lösen ordet och stänga popup-dialogrutan.
-![Verktyget Azure AD Connect Sync Encryption Key](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+![Skärm bild som visar sidan "Anslut till Active Directory skog" i fönstret "egenskaper".](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Initiera lösen ordet för ADSync-tjänstkontot
 Du kan inte ange lösen ordet för Azure AD-tjänstkontot direkt till synkroniseringstjänsten. I stället måste du använda cmdlet **Add-ADSyncAADServiceAccount** för att initiera om Azure AD-tjänstkontot. -Cmdleten återställer konto lösen ordet och gör det tillgängligt för synkroniseringstjänsten:

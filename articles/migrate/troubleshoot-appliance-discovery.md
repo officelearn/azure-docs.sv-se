@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331785"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -234,6 +234,7 @@ Vanliga fel för identifiering av appar sammanfattas i tabellen.
 9033: det går inte att identifiera eftersom VM-användarnamnet innehåller ogiltiga tecken.     |   Ogiltiga tecken upptäcktes i användar namnet.   |   Ange autentiseringsuppgifter för den virtuella datorn igen och se till att det inte finns några ogiltiga tecken.
 9034: det angivna användar namnet är inte i UPN-format.    |   Användar namnet är inte i UPN-format.  |   Se till att användar namnet är i UPN-format (User Principal Name).
 9035: det går inte att identifiera eftersom PowerShell-språkläget inte har angetts till fullständigt språk.  |   Språk läge för PowerShell i den virtuella gäst datorn har inte ställts in på fullt språk.   |   Se till att PowerShell-språkläget är inställt på "fullständigt språk".
+9037: data insamling pausas tillfälligt eftersom den virtuella datorns svars tid är för hög.    |   Den identifierade virtuella datorn tar för lång tid att svara     |   Ingen åtgärd krävs. Ett nytt försök kommer att göras inom 24 timmar för program identifiering och 3 timmar för beroende analys (utan agent).
 10000: operativ system typen stöds inte.   |   Operativ system som körs på servern är varken Windows eller Linux.    |   Operativ system typer som stöds är endast Windows och Linux.
 10001: det gick inte att hitta skript för Server identifiering på enheten.    |   Identifiering fungerar inte som förväntat.   |   Kontakta Microsoft Support för att få en lösning.
 10002: identifierings uppgiften har inte slutförts i tid.     |   Identifierings agenten fungerar inte som förväntat.     |   Problemet bör lösas automatiskt om 24 timmar. Kontakta Microsoft Support om problemet kvarstår.

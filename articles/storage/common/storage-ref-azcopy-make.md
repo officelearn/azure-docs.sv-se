@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16d7965b8d42a6fdd6ebd68307b01b322cfa7cc6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ad64d56899a9a54f4c8aede78ba6b4f2b77b8249
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331547"
 ---
 # <a name="azcopy-make"></a>azcopy skapa
 
@@ -45,7 +45,7 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 |Alternativ|Beskrivning|
 |--|--|
 |-h,--hjälp|Visa hjälp innehåll för kommandot gör. |
-|– kvot-GB UInt32|Anger den maximala storleken på resursen i gigabyte (GiB), noll innebär att du accepterar standard kvoten för fil tjänsten.|
+|– kvot-GB UInt32|Anger den maximala storleken på resursen i gigabyte (GB), noll innebär att du accepterar standard kvoten för fil tjänsten.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
@@ -57,4 +57,4 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

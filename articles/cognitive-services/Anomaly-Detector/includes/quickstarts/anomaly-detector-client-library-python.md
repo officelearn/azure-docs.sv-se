@@ -6,16 +6,16 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: 98f68af11cf21cb795e7741585e55c195c066995
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ec13ee65595ccb0bdca1656522a7cd5f21b49a10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91024951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319286"
 ---
-Kom igång med klient biblioteket för avvikelse detektor för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
+Kom igång med klient biblioteket för avvikelse detektor för python. Följ de här stegen för att installera paket starten med hjälp av algoritmerna som tillhandahålls av tjänsten. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
 Använd klient biblioteket för avvikelse detektor för python för att:
 

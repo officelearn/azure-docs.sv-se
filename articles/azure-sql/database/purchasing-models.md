@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a11894eb94b73d8d31ca7135be2ba9c05eca5e04
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075912"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319460"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Välj mellan vCore-och DTU-inköps modeller – Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,10 +34,10 @@ Det finns två inköps modeller:
 
 I följande tabell och diagram jämförs och kontrasterar vCore-baserade och DTU-baserade inköps modeller:
 
-|**Inköps modell**|**Beskrivning**|**Bäst för**|
+|**Köpmodell**|**Beskrivning**|**Bäst för**|
 |---|---|---|
-|DTU-baserad|Den här modellen är baserad på ett samlat mått för beräknings-, lagrings-och I/O-resurser. Beräknings storlekarna uttrycks i DTU: er för enskilda databaser och i elastiska databas transaktions enheter (eDTU: er) för elastiska pooler. Mer information om DTU: er och eDTU: er finns i [Vad är DTU: er och eDTU: er?](purchasing-models.md#dtu-based-purchasing-model).|Kunder som vill ha enkla, förkonfigurerade resurs alternativ|
-|vCore-baserad|Med den här modellen kan du oberoende välja beräknings-och lagrings resurser. Med den vCore-baserade inköps modellen kan du också använda [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) för SQL Server för att spara kostnader.|Kunder som har värde flexibilitet, kontroll och transparens|
+|DTU-baserad|Den här modellen är baserad på ett samlat mått för beräknings-, lagrings-och I/O-resurser. Beräkningsstorlekarna anges i DTU:er för enstaka databaser och i elastiska databastransaktioner (eDTU:er) för elastiska pooler. Du kan läsa mer om DTU:er och eDTU:er i [Vad är DTU:er och eDTU:er?](purchasing-models.md#dtu-based-purchasing-model).|Kunder som vill ha enkla, förkonfigurerade resurs alternativ|
+|vCore-baserad|Med den här modellen kan du oberoende välja beräknings-och lagrings resurser. Med den vCore-baserade inköpsmodellen kan du också spara in på kostnaderna med [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/) för SQL Server.|Kunder som har värde flexibilitet, kontroll och transparens|
 ||||  
 
 ![Jämförelse av pris modell](./media/purchasing-models/pricing-model.png)
@@ -76,8 +76,8 @@ I den vCore-baserade inköps modellen kan du välja mellan [generell användning
 
 Med den vCore-baserade inköps modellen kan du välja beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset. I den vCore-baserade inköps modellen betalar du för:
 
-- Beräknings resurser (tjänst nivå + antal virtuella kärnor och mängden minne och maskin varans generation).
-- Typ av och mängd data och logg lagring.
+- Beräkningsresurser (tjänstnivå + antal virtuella kärnor samt mängden minne + maskinvarans generation).
+- Typ av och mängd vid data- och logglagring.
 - Lagring av säkerhets kopior (RA-GRS).
 
 > [!IMPORTANT]
@@ -104,7 +104,7 @@ De resurser som används av arbets belastningen påverkar inte resurserna som ä
 
 ![Avgränsnings ruta](./media/purchasing-models/bounding-box.png)
 
-DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för databaser med olika beräknings storlekar och tjänst nivåer. Ett exempel:
+DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för databaser med olika beräknings storlekar och tjänst nivåer. Exempel:
 
 - Att dubblera DTU: er genom att öka beräknings storleken för en databas, motsvarar att dubblera den uppsättning av resurser som är tillgängliga för den databasen.
 - En Premium Service Tier p11-databas med 1750 DTU: er ger 350 gånger mer DTU-beräknings kraft än en grundläggande tjänst nivå databas med 5 DTU: er.  

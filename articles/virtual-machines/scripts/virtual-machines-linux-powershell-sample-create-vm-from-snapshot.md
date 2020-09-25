@@ -1,6 +1,6 @@
 ---
 title: Skapa VM från ögonblicks bild (Linux) – PowerShell-exempel
-description: Azure PowerShell-skriptexempel – Skapa en virtuell dator från en ögonblicksbild
+description: Azure PowerShell skript exempel – skapa en virtuell dator från en ögonblicks bild med ett Linux-exempel.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ramankumarlive
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 42c9903b783df4b3392b6aab3a69bbb66da90a75
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e39c703452b5bb6855062c1c3efbde29d2becd1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320157"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-linux"></a>Skapa en virtuell dator från en ögonblicks bild med PowerShell (Linux)
 
@@ -46,7 +46,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 Det här skriptet använder följande kommandon för att hämta egenskaper för en ögonblicksbild, för att skapa en hanterad disk från en ögonblicksbild och för att skapa en virtuell dator. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Hämtar en ögonblicksbild med namnet på ögonblicksbilden. |
 | [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Skapar en diskkonfiguration. Den här konfigurationen används vid diskgenereringen. |

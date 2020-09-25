@@ -14,30 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 51e6c74a8b80b94ca552645cfbb76bd4e162a62b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cd84a4b50ba32ee3f562ace9b2583cf5e561be84
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650068"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320395"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av vanligt händelse format
 
 
 När du ansluter en extern lösning som skickar CEF-meddelanden, finns det tre steg för att ansluta till Azure Sentinel:
 
-STEG 1: [Anslut CEF genom att distribuera agent](connect-cef-agent.md) steg 2: [utföra lösnings åtgärder](connect-cef-solution-config.md) steg 3: [kontrol lera anslutningen](connect-cef-verify.md)
+STEG 1: [Anslut CEF genom att distribuera en syslog/CEF forwarder](connect-cef-agent.md) steg 2: [utföra lösnings bara](connect-cef-solution-config.md) steg 3: [kontrol lera anslutningen](connect-cef-verify.md)
 
-Den här artikeln beskriver hur anslutningen fungerar, innehåller krav och ger dig stegen för att distribuera agenten på säkerhetslösningar som skickar common Event format-meddelanden (CEF) ovanpå syslog. 
+Den här artikeln beskriver hur anslutningen fungerar, innehåller krav och innehåller anvisningar för hur du distribuerar agenten på säkerhetslösningar som skickar common Event format-meddelanden (CEF) ovanpå syslog. 
 
 > [!NOTE] 
 > Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-För att kunna ansluta till den här anslutningen måste du distribuera en agent på en särskild Linux-dator (VM eller lokalt) för att stödja kommunikationen mellan-enheten och Azure Sentinel. Följande diagram beskriver installationen i händelse av en virtuell Linux-dator i Azure.
+För att du ska kunna ansluta till den här anslutningen måste du distribuera en syslog-vidarebefordrare som stöder kommunikationen mellan-enheten och Azure Sentinel.  -Servern består av en särskild Linux-dator (VM eller lokal) med Log Analytics agent för Linux installerat. 
+
+Följande diagram beskriver installationen i händelse av en virtuell Linux-dator i Azure:
 
  ![CEF i Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Detta kan också finnas om du använder en virtuell dator i ett annat moln eller på en lokal dator. 
+Detta kan också finnas om du använder en virtuell dator i ett annat moln eller på en lokal dator: 
 
  ![CEF lokalt](./media/connect-cef/cef-syslog-onprem.png)
 
@@ -46,10 +48,10 @@ Detta kan också finnas om du använder en virtuell dator i ett annat moln eller
 
 Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. Du kan använda följande instruktioner för att förbättra datorns säkerhets konfiguration:  [säker virtuell dator i Azure](../virtual-machines/security-policy.md), [metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md).
 
-Om du vill använda TLS-kommunikation mellan säkerhetslösningen och syslog-datorn måste du konfigurera syslog-daemonen (rsyslog eller syslog-ng) för att kommunicera i TLS: [kryptera syslog-trafik med TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [kryptera logg meddelanden med TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+Om du vill använda TLS-kommunikation mellan syslog-källan och syslog-vidarebefordraren måste du konfigurera syslog-daemonen (rsyslog eller syslog-ng) för att kommunicera i TLS: [kryptera syslog-trafik med TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [kryptera logg meddelanden med TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Kontrol lera att Linux-datorn som du använder som proxy kör något av följande operativ system:
 
 - 64-bitars

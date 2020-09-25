@@ -1,25 +1,19 @@
 ---
 title: Integrera Azure Relay med Azure Private Link service
 description: Lär dig hur du integrerar Azure Relay med Azure Private Link service
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719435"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263879"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrera Azure Relay med en privat Azure-länk (förhands granskning)
 Azure **Private Link service** ger dig åtkomst till Azure-tjänster (till exempel Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage och Azure Cosmos dB) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket. Mer information finns i [Vad är Azure Private Link (för hands version)?](../private-link/private-link-overview.md)
 
 En **privat slut punkt** är ett nätverks gränssnitt som gör att dina arbets belastningar som körs i ett virtuellt nätverk kan ansluta privat och säkert till en tjänst som har en **privat länk resurs** (till exempel ett relä namn område). Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute, VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsoft stamnätet-nätverket som eliminerar exponering från det offentliga Internet. Du kan ange en nivå av granularitet i åtkomst kontroll genom att tillåta anslutningar till vissa Azure Relay namn områden. 
-
-
-> [!IMPORTANT]
-> Den här funktionen är för närvarande en för **hands version**. 
->
-> Vi stöder för närvarande privata länk anslutningar på avsändar klienter. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägg till en privat slut punkt med Azure Portal
@@ -158,16 +152,16 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om resursen 
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
 |--|--|--|
-| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från Azure Relay namn områdes ägare. |
+| Inget | Väntar | Anslutningen skapas manuellt och väntar på godkännande från Azure Relay namn områdes ägare. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av Azure Relay namn områdes ägare. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av Azure Relay namn områdets ägare, den privata slut punkten blir informativ och bör tas bort för rensning. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 1. I Sök fältet skriver du i **relä**.
 1. Välj det **namn område** som du vill hantera.
 1. Välj fliken **nätverk** .
@@ -244,7 +238,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 - Maximalt antal Azure Relay namn rymder med privata slut punkter per prenumeration: 64.
 - Regler för nätverks säkerhets grupper (NSG) och användardefinierade vägar gäller inte för privat slut punkt. Mer information finns i [Azure Private Link service: begränsningar](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Lär dig mer om [Azure Private Link (för hands version)](../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Relay](relay-what-is-it.md)

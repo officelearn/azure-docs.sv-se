@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 155786de61206b4e21a4f074dfc3781b0fde1273
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319749"
 ---
 # <a name="migrate-a-web-app-from-bing-maps"></a>Migrera en webbapp från Bing Maps
 
@@ -53,7 +53,7 @@ I följande tabell visas viktiga API-funktioner i Bing Maps V8 JavaScript SDK oc
 | Netencoder-tjänst         | ✓                                                                                      |
 | Vägbeskrivnings tjänst       | ✓                                                                                      |
 | Distans mat ris tjänst  | ✓                                                                                      |
-| Spatial data tjänst     | E.t.                                                                                    |
+| Spatial data tjänst     | Saknas                                                                                    |
 | Satellit-/flyg bilder | ✓                                                                                      |
 | Fåglars ögon bilder         | Planerad                                                                                |
 | Streetside bilder       | Planerad                                                                                |
@@ -932,7 +932,7 @@ I Azure Maps läggs data till och hanteras av en data källa. Lager ansluter til
 
 När klustring är aktiverat skickar data källan klustrade och data punkter som inte är klustrade till lager för åter givning. Data källan kan klustra hundratals tusen data punkter. En klustrad data punkt har följande egenskaper:
 
-| Egenskapsnamn               | Typ    | Beskrivning                                    |
+| Egenskapsnamn               | Typ    | Description                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Anger om funktionen representerar ett kluster.     |
 | `cluster_id`                | sträng  | Ett unikt ID för klustret som kan användas med `DataSource` klasserna `getClusterExpansionZoom` , `getClusterChildren` och `getClusterLeaves` . |
@@ -941,7 +941,7 @@ När klustring är aktiverat skickar data källan klustrade och data punkter som
 
 `DataSource`Klassen har följande hjälp funktion för att få åtkomst till ytterligare information om ett kluster med hjälp av `cluster_id` .
 
-| Funktion       | Returtyp        | Beskrivning     |
+| Funktion       | Returtyp        | Description     |
 |----------------|--------------------|-----------------|
 | `getClusterChildren(clusterId: number)`                              | `Promise<Feature<Geometry, any> | Shape>` | Hämtar underordnade för det aktuella klustret på nästa zoomnings nivå. Dessa underordnade kan vara en kombination av former och del kluster. Under klustren är funktioner med egenskaper som matchar kluster egenskaper. |
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Beräknar en zoomnings nivå som klustret börjar att utöka eller dela upp.    |

@@ -1,6 +1,6 @@
 ---
 title: Vanliga fel vid migrering från klassiskt läge till Azure Resource Manager-läge
-description: Den här artikeln innehåller de vanligaste felen och begränsningarna under migreringen av IaaS-resurser från Azure Service Management till Azure Resource Manager stacken.
+description: Lär dig mer om de vanligaste felen och begränsningarna vid migrering av IaaS-resurser från Azure Service Management till Azure Resource Manager stack.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 00ecb64bceafbacafc007754e8bcc0aa94c8b984
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b052951b0d601681239701711a6636156ad4ebf1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320038"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Vanliga fel vid migrering från klassiskt läge till Azure Resource Manager-läge
 

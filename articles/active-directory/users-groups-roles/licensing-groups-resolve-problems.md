@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d7703af48ba33edea81ca45516191266a79fa4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7006ecd760a886fdebe50becb2ab366ff79cf057
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319817"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -87,7 +87,7 @@ För att lösa det här problemet måste du kontrol lera att den nödvändiga pl
 
 ## <a name="usage-location-isnt-allowed"></a>Användnings platsen är inte tillåten
 
-**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under avsnittet **användar**  >  **profil**  >  **Inställningar** i Azure Portal.
+**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under redigera **användar**  >  **profil**  >  **Edit** avsnittet i Azure Portal.
 
 När Azure AD försöker tilldela en grupp licens till en användare vars användnings plats inte stöds, Miss lyckas den och registrerar ett fel för användaren.
 

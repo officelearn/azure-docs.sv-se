@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c2589b47c1619dd528ab843dcf4befd0da227d16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331496"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -304,7 +304,7 @@ Nej. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Manag
 
 **Kan jag migrera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Ja
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks och Kryptering för lagringstjänst
 
@@ -342,7 +342,7 @@ Ja. Alla hanterade ögonblicks bilder och avbildningar krypteras automatiskt.
 
 **Kan jag konvertera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Ja
+Yes
 
 **Kommer en exporterad virtuell hård disk från en hanterad disk eller en ögonblicks bild också att krypteras?**
 
@@ -491,6 +491,6 @@ Nej.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 
-Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar. Du kan skicka en fråga i slutet av den här artikeln i kommentarerna. Om du vill delta i Azure Storage-teamet och andra community-medlemmar om den här artikeln använder du [sidan MSDN Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar. Du kan skicka en fråga i slutet av den här artikeln i kommentarerna. Om du vill delta i Azure Storage-teamet och andra community-medlemmar om den här artikeln använder du [sidan Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Om du vill begära funktioner skickar du dina förfrågningar och idéer till [Azure Storage feedback-forumet](https://feedback.azure.com/forums/217298-storage).

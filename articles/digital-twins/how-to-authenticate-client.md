@@ -7,17 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.custom: devx-track-js
+ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331870"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
-När du [har konfigurerat en Azure Digital-instans och-autentisering](how-to-set-up-instance-scripted.md)kan du skapa ett klient program som du använder för att interagera med instansen. När du har konfigurerat ett start klient projekt visar den här artikeln hur du **skriver kod i klient programmet för att autentisera den** mot Azure Digitals-instansen.
+När du [har konfigurerat en Azure Digital-instans och-autentisering](how-to-set-up-instance-portal.md)kan du skapa ett klient program som du använder för att interagera med instansen. När du har konfigurerat ett start klient projekt visar den här artikeln hur du **skriver kod i klient programmet för att autentisera den** mot Azure Digitals-instansen.
 
 Det finns två sätt att exempel kod i den här artikeln. Du kan använda den som passar dig bäst, beroende på vilket språk du väljer:
 * I det första avsnittet i exempel koden används Azure Digitals .NET-SDK (C#). SDK är en del av Azure SDK för .NET och finns här: [*Azure IoT Digital-klient bibliotek för .net*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
@@ -25,9 +25,9 @@ Det finns två sätt att exempel kod i den här artikeln. Du kan använda den so
 
 Du kan också läsa mer om API: er och SDK: er för Azure Digitals i [*anvisningar: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md). På så sätt ser du till att du har en Azure Digitals-instans, att användaren har åtkomst behörighet och att du har konfigurerat behörigheter för klient program. När du har konfigurerat den här konfigurationen är du redo att skriva kod för klient program.
+Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). På så sätt ser du till att du har en Azure Digitals-instans, att användaren har åtkomst behörighet och att du har konfigurerat behörigheter för klient program. När du har konfigurerat den här konfigurationen är du redo att skriva kod för klient program.
 
 Om du vill fortsätta måste du ha ett klient-app-projekt där du skriver koden. Om du inte redan har skapat ett klient-app-projekt skapar du ett Basic-projekt på det språk som du väljer att använda med den här självstudien.
 
@@ -45,13 +45,13 @@ Du behöver också följande using-instruktioner:
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
-Om du vill autentisera med .NET SDK använder du en av de metoder för autentisering som har definierats i [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket. Här är två som används ofta (även tillsammans i samma program):
+Om du vill autentisera med .NET SDK använder du en av de metoder för autentisering som har definierats i [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) -biblioteket. Här är två som används ofta (även tillsammans i samma program):
 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) är avsett för interaktiva program och kan användas för att skapa en autentiserad SDK-klient
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) fungerar bra i de fall där du behöver hanterade identiteter (MSI) och är en bra kandidat för att arbeta med Azure Functions
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) är avsett för interaktiva program och kan användas för att skapa en autentiserad SDK-klient
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) fungerar bra i de fall där du behöver hanterade identiteter (MSI) och är en bra kandidat för att arbeta med Azure Functions
 
 ### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential-metod
-[InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) -metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering.
+[InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) -metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering.
 
 Om du vill använda de interaktiva webb läsar autentiseringsuppgifterna för att skapa en autentiserad SDK-klient lägger du till följande kod:
 
@@ -81,7 +81,7 @@ try
 > Även om du kan placera klient-ID, klient-ID och instans-URL direkt i koden som visas ovan, är det en bra idé att låta koden hämta dessa värden från en konfigurations fil eller en miljö variabel i stället.
 
 ### <a name="managedidentitycredential-method"></a>ManagedIdentityCredential-metod
- Metoden [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), till exempel när du arbetar med Azure Functions.
+ Metoden [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), till exempel när du arbetar med Azure Functions.
 I en Azure-funktion kan du använda autentiseringsuppgifterna för hanterad identitet som detta:
 
 ```csharp
@@ -104,7 +104,7 @@ Om du inte använder .NET kan du välja att skapa ett SDK-bibliotek på ett valf
 
 I det här avsnittet beskrivs hur du autentiserar i så fall.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Först bör du slutföra stegen för att skapa en anpassad SDK med AutoRest med hjälp av stegen i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 

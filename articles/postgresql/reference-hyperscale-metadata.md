@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: c11fd7a9cb6fdd3eb976d0b9e6a91fdc69bf9fba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320463"
 ---
 # <a name="system-tables-and-views"></a>System tabeller och vyer
 
@@ -27,7 +27,7 @@ Du kan visa och fråga tabellerna med hjälp av SQL efter att du loggat in på k
 
 > [!NOTE]
 >
-> De storskaliga Server grupperna som kör äldre versioner av citus-motorn kanske inte erbjuder alla tabeller som anges nedan.
+> Citus-Server grupper som kör äldre versioner av citus-motorn kanske inte erbjuder alla tabeller som anges nedan.
 
 ### <a name="partition-table"></a>Partitionstabell
 
@@ -524,5 +524,5 @@ I det här exemplet har frågorna som kommer från koordinatorn, men vyn kan ock
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur vissa [storskaliga funktioner](reference-hyperscale-functions.md) ändrar system tabeller
+* Lär dig hur vissa [storskaliga (citus)-funktioner](reference-hyperscale-functions.md) ändrar system tabeller
 * Granska begreppen för [noder och tabeller](concepts-hyperscale-nodes.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ce0e03407349505d54aeb22b164fa8593446967d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319800"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Application Gateway infrastruktur konfiguration
 
@@ -20,10 +20,10 @@ Infrastrukturen för programgatewayen innehåller det virtuella nätverket, unde
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>Virtuellt nätverk och dedikerat undernät
 
-En Application Gateway är en dedikerad distribution i det virtuella nätverket. I det virtuella nätverket krävs ett dedikerat undernät för Application Gateway. Du kan ha flera instanser av en specifik Programgateway-distribution i ett undernät. Du kan också distribuera andra programgatewayer i under nätet. Men du kan inte distribuera någon annan resurs i Application Gateway-undernätet.
+En Application Gateway är en dedikerad distribution i det virtuella nätverket. I det virtuella nätverket krävs ett dedikerat undernät för Application Gateway. Du kan ha flera instanser av en specifik Programgateway-distribution i ett undernät. Du kan också distribuera andra programgatewayer i under nätet. Men du kan inte distribuera någon annan resurs i Application Gateway-undernätet. Du kan inte mixa Standard_v2 och standard Azure Application Gateway i samma undernät.
 
 > [!NOTE]
-> Du kan inte mixa Standard_v2 och standard Azure Application Gateway i samma undernät.
+> [Slut punkts principer för virtuella nätverk](../virtual-network/virtual-network-service-endpoint-policies-overview.md) stöds för närvarande inte i ett Application Gateway-undernät.
 
 ### <a name="size-of-the-subnet"></a>Storlek på under nätet
 

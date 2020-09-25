@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/02/2020
-ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 36010ff0206ddf9dae08391eb6e4c3dd7762cc10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319341"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Påskynda real tids analys i real tid med Spark-anslutaren
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ GitHub-lagrings platsen för den gamla koppling som tidigare var länkade till f
 | Microsoft JDBC-drivrutin för SQL Server  | 6,2 eller senare             |
 | Microsoft SQL Server                  | SQL Server 2008 eller senare |
 | Azure SQL Database                    | Stöds                |
-| Azure SQL-hanterad instans            | Stöds                |
+| Hanterad Azure SQL-instans            | Stöds                |
 
 Spark-anslutaren använder Microsoft JDBC-drivrutinen för SQL Server för att flytta data mellan Spark-arbetsnoder och databaser:
 

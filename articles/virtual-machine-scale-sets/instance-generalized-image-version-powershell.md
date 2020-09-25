@@ -1,6 +1,6 @@
 ---
 title: Skapa en skalnings uppsättning från en generaliserad avbildning med Azure PowerShell
-description: Skapa en skalnings uppsättning med en generaliserad avbildning i ett delat avbildnings Galleri.
+description: Skapa en skalnings uppsättning med en generaliserad avbildning i ett delat avbildnings galleri med hjälp av PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331530"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Skapa en skalnings uppsättning från en generaliserad avbildning
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Skapa en skalnings uppsättning från en generaliserad avbildning med hjälp av PowerShell 
 
 Skapa en virtuell dator från en generaliserad avbildnings version som lagras i ett [delat avbildnings Galleri](shared-image-galleries.md). Om du vill skapa en skalnings uppsättning med hjälp av en specialiserad avbildning, se [skapa skalnings uppsättnings instanser från en specialiserad avbildning](instance-specialized-image-version-powershell.md).
 
@@ -181,4 +181,4 @@ Du kan också skapa en delad resurs för avbildnings galleriet med hjälp av mal
 - [Skapa en avbildningsdefinition i ett Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Skapa en avbildningsversion i ett Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Mer information om delade avbildnings gallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).
+Mer information om delade avbildnings gallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](../virtual-machines/troubleshooting-shared-images.md).

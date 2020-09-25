@@ -1,6 +1,6 @@
 ---
 title: Filtrera VM-nätverkstrafik – Azure PowerShell skript exempel
-description: Azure PowerShell-skriptexempel – Filtrera inkommande och utgående VM-nätverkstrafik.
+description: Filtrera inkommande och utgående VM-nätverkstrafik, Azure PowerShell skript exempel.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b04ad7d9252bd97d3fa1a236a4150ffac3d8af65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: dbbc0fa160affec81d36a4da127c4fb864913fd5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306777"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Filtrera inkommande och utgående VM-nätverkstrafik – skriptexempel
 
@@ -49,7 +49,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar ett konfigurationsobjekt för undernät. |

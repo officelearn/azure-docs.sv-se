@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
-ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331666"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox för Microsoft Azure
 
@@ -32,22 +32,23 @@ Följande tjänster är nu i för hands version för Customer Lockbox:
 
 - API Management
 - Azure App Service
-- Azure Database for MySQL
-- Azure Databricks
-- Azure Synapse Analytics
 - Cognitive Services
 - Container Registry
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Data Box
+- Azure-datautforskaren
 - Azure Data Factory
 - Azure Database for PostgreSQL
-- Azure Kubernetes Service
-- Azure Data Box
+- Azure Functions
 - HDInsight
-- Functions
+- Azure Kubernetes Service
+- Azure Monitor
 - Azure Storage
 - Azure SQL-databas
-- Azure-datautforskaren
-- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar)
 - Azure-prenumerations överföringar
+- Azure Synapse Analytics
+- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar)
 
 Om du vill aktivera Customer Lockbox för dessa förhands gransknings erbjudanden för din organisation kan du registrera dig för [Customer lockbox för offentlig för hands version av Azure](https://aka.ms/customerlockbox/insiderprogram)
 

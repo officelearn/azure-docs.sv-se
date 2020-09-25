@@ -1,6 +1,6 @@
 ---
 title: Optimera Spark-jobb för prestanda
-description: Den här artikeln innehåller en introduktion till Apache Spark i Azure Synapse Analytics och de olika begreppen.
+description: Den här artikeln innehåller en introduktion till Apache Spark i Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089268"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249475"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimera Apache Spark jobb (för hands version) i Azure Synapse Analytics
 
-Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnesbelastning på grund av felaktiga konfigurationer (särskilt utförare i fel storlek), långvariga åtgärder och uppgifter som resulterar i kartesiska operationer. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
+Lär dig hur du optimerar en [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnesbelastning på grund av felaktiga konfigurationer (särskilt utförare i fel storlek), långvariga åtgärder och uppgifter som resulterar i kartesiska operationer. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
 
 I följande avsnitt beskrivs vanliga Spark-jobb optimeringar och rekommendationer.
 
@@ -52,7 +52,7 @@ Tidigare Spark-versioner använder RDD till abstrakta data, Spark 1,3 och 1,6 in
 
 Spark stöder många format, till exempel CSV, JSON, XML, Parquet, Orc och Avro. Spark kan utökas för att ge stöd för många fler format med externa data källor – mer information finns i [Apache Spark-paket](https://spark-packages.org).
 
-Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vilket är standard i Spark 2. x. Parquet lagrar data i kolumn format och optimeras mycket i Spark. Även om *överfästnings komprimering* kan resultera i större filer än gzip-komprimering. På grund av den fildelnings bara typen av filerna kommer de att dekomprimeras snabbare]
+Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vilket är standard i Spark 2. x. Parquet lagrar data i kolumn format och optimeras mycket i Spark. Även om *överfästnings komprimering* kan resultera i större filer än att säga gzip-komprimering. På grund av den fildelnings bara typen av filerna dekomprimeras de snabbare]
 
 ## <a name="use-the-cache"></a>Använd cachen
 

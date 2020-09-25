@@ -4,18 +4,18 @@ description: Lär dig mer om att fråga och komma åt kapslade JSON-egenskaper o
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699119"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270864"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Arbeta med JSON i Azure Cosmos DB
 
-I Azure Cosmos DB SQL-API: n (Core) lagras objekten som JSON. Typ systemet och uttryck är begränsade till att bara hantera JSON-typer. Mer information finns i JSON- [specifikationen](https://www.json.org/).
+I SQL-API:et i Azure Cosmos DB lagras objekt som JSON. Typsystem och uttryck är begränsade till att endast hantera JSON-typer. Mer information finns i JSON- [specifikationen](https://www.json.org/).
 
 Vi kommer att sammanfatta några viktiga aspekter av att arbeta med JSON:
 
@@ -138,6 +138,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## <a name="difference-between-null-and-undefined"></a>Skillnad mellan null och odefinierad
+
+Om en egenskap inte har definierats i ett objekt är dess värde `undefined` . En egenskap med värdet `null` måste anges explicit och tilldelas ett `null` värde.
+
+Anta till exempel följande exempel objekt:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+I det här exemplet har egenskapen `isRegistered` värdet `undefined` eftersom den utelämnas från objektet. Egenskapen `creationDate` har ett `null` värde.
+
+Azure Cosmos DB stöder två användbara typ kontroll system funktioner för `null` och `undefined` Egenskaper:
+
+* [IS_NULL](sql-query-is-null.md) – kontrollerar om ett egenskaps värde är `null`
+* [IS_DEFINED](sql-query-is-defined.md) – kontrollerar om ett egenskaps värde har definierats
+
+Du kan lära dig om [operatörer som stöds](sql-query-operators.md) och deras beteenden för `null` och `undefined` värden.
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Reserverade nyckelord och specialtecken i JSON
 

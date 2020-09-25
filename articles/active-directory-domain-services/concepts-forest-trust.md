@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480653"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258787"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Så här fungerar förtroende relationer för resurs skogar i Azure Active Directory Domain Services
 
@@ -99,12 +99,12 @@ Till exempel skapas ett enkelriktat skogs förtroende mellan *skog 1* (den betro
 Innan du kan skapa ett skogs förtroende måste du kontrol lera att du har rätt Domain Name System (DNS)-infrastruktur på plats. Skogs förtroenden kan bara skapas när någon av följande DNS-konfigurationer är tillgänglig:
 
 * En enda DNS-rotserver är rot-DNS-servern för båda skogs-DNS-namnområden – rot zonen innehåller delegeringar för var och en av DNS-namnområdena och rot tipsen för alla DNS-servrar inkluderar rot-DNS-servern.
-* Där det inte finns någon delad rot-DNS-server och rot-DNS-servrarna för varje skogs DNS-namnrymd använder DNS-vidarebefordrare för varje DNS-namnområde för att dirigera frågor om namn i det andra namn området.
+* Om det inte finns någon delad rot-DNS-server och rot-DNS-servrarna i varje skogs DNS-namnrymd använder DNS-vidarebefordrare för varje DNS-namnrymd för att dirigera frågor om namn i det andra namn området.
 
     > [!IMPORTANT]
     > Azure AD Domain Services resurs skogen måste använda den här DNS-konfigurationen. Värdbaserade DNS-namnrymder än DNS-namnrymden för resurs skogen är inte en funktion i Azure AD Domain Services. Villkorliga vidarebefordrare är rätt konfiguration.
 
-* Där det inte finns någon delad DNS-rotserver, och rot-DNS-servrarna för varje skogs DNS-namnrymd använder DNS-sekundära zoner konfigureras i varje DNS-namnområde för att dirigera frågor om namn i det andra namn området.
+* När det inte finns någon delad rot-DNS-server och rot-DNS-servrarna i varje skogs DNS-namnrymd använder DNS-sekundära zoner i varje DNS-namnrymd för att dirigera frågor om namn i det andra namn området.
 
 Om du vill skapa ett skogs förtroende måste du vara medlem i gruppen domän administratörer (i skogs rots domänen) eller gruppen företags administratörer i Active Directory. Varje förtroende tilldelas ett lösen ord som administratörerna i båda skogarna måste känna till. Medlemmar i företags administratörer i båda skogarna kan skapa förtroenden i båda skogarna samtidigt, och i det här scenariot genereras ett lösen ord som är kryptografiskt slumpmässigt automatiskt och skrivs för båda skogarna.
 

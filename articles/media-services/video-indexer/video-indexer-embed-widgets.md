@@ -10,13 +10,13 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/10/2020
 ms.author: juliako
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js
+ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011811"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268629"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in Video Indexer widgetar i dina appar
 
@@ -30,7 +30,7 @@ Från och med version 2 innehåller widgeten bas-URL den region där det angivna
 
 En insiktswidget innehåller alla visuella insikter som extraherades från videoindexeringsprocessen. Widgeten kognitiv Insights stöder följande valfria URL-parametrar:
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`widgets` | Strängar avgränsade med kommatecken | Gör att du kan styra de insikter som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` återger endast användare och nyckelord UI insikter.<br/>Tillgängliga alternativ: People, animatedCharacters, keywords, Labels, sentiment, känslor, topics, nyckel rutor, avskrift, OCR, talare, scener och namedEntities.|
 |`controls`|Strängar avgränsade med kommatecken|Gör att du kan styra de kontroller som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` återger bara sökalternativet och knappen Hämta.<br/>Tillgängliga alternativ: Sök, ladda ned, för inställningar, språk.|
@@ -43,7 +43,7 @@ En insiktswidget innehåller alla visuella insikter som extraherades från video
 
 Du kan använda Player-widgeten för att strömma video med hjälp av anpassningsbar bit hastighet. Widgeten Player stöder följande valfria URL-parametrar.
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`t` | Sekunder från start | Gör att spelaren startar uppspelningen från den angivna tids punkten.<br/> Exempel: `t=60`. |
 |`captions` | En språkkod | Hämtar texten på det angivna språket när widget inläsningen ska vara tillgänglig på menyn under **texter** .<br/> Exempel: `captions=en-US`. |
@@ -57,7 +57,7 @@ Du kan använda Player-widgeten för att strömma video med hjälp av anpassning
 
 Du kan använda Editor-widgeten för att skapa nya projekt och hantera video insikter. Editor-widgeten stöder följande valfria URL-parametrar.
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`accessToken`<sup>*</sup> | Sträng | Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Editor kräver `accessToken` parametern. |
 |`language` | En språkkod | Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`. |
@@ -291,7 +291,7 @@ Som standard startar spelaren uppspelning av videon. Du kan välja att inte skic
 
 Se de [kod exempel](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) lagrings platsen som innehåller exempel för video INDEXER-API och widgetar:
 
-| Fil/mapp                       | Beskrivning                                |
+| Fil/mapp                       | Description                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | Läs in video Indexer-video i en anpassad Azure Media Player.                        |
 | `azure-media-player-vi-insights`  | Bädda in VI insikter med en anpassad Azure Media Player.                             |

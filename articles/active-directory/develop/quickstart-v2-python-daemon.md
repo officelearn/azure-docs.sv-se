@@ -1,6 +1,7 @@
 ---
-title: Microsoft Identity Platform python daemon | Azure
-description: Lär dig hur en python-process kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform-slutpunkten med appens egen identitet
+title: 'Snabb start: anropa Microsoft Graph från en python-daemon | Azure'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten får du lära dig hur en python-process kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform-slutpunkten med appens egen identitet
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257749"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph API från en python-konsol app med appens identitet
 
@@ -189,7 +190,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Där: |Beskrivning |
+> | Där: |Description |
 > |---------|---------|
 > | `config["secret"]` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `config["client_id"]` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
@@ -210,7 +211,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Där:| Beskrivning |
+> |Där:| Description |
 > |---------|---------|
 > | `config["scope"]` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API: er `{Application ID URI}` definieras under **exponera ett API** -avsnitt i Azure-portalens program registrering (för hands version). |
 
@@ -224,18 +225,3 @@ Mer information om daemon-program finns på sidan om scenario landning
 
 > [!div class="nextstepaction"]
 > [Daemon-program som anropar webb-API: er](scenario-daemon-overview.md)
-
-Själv studie kurs om program för daemon finns i:
-
-> [!div class="nextstepaction"]
-> [Självstudie för daemon python-konsolen](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Lär dig mer om behörigheter och medgivande:
-
-> [!div class="nextstepaction"]
-> [Behörigheter och tillstånd](v2-permissions-and-consent.md)
-
-Mer information om autentiseringsflödet för det här scenariot finns i Oauth 2.0-flödet för klientautentiseringsuppgifter:
-
-> [!div class="nextstepaction"]
-> [Oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)

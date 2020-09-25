@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7b63ef36d7df43168ed132a740bab026e6e00f3f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e2f1eb50f6d878eecb4b5c448e683a3024e8c396
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897229"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250852"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
 
@@ -166,7 +166,7 @@ Den modell som du precis har registrerat kan distribueras exakt på samma sätt 
 
 ### <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
 
-I stället för den traditionella distributions vägen kan du också använda funktionen utan kod distribution (för hands version) för scikit-information. Distribution med ingen kod modell stöds för alla inbyggda scikit – lär dig modell typer. Genom att registrera din modell enligt vad som visas ovan med `model_framework` `model_framework_version` parametrarna,, och `resource_configuration` kan du bara använda den [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) statiska funktionen för att distribuera modellen.
+I stället för den traditionella distributions vägen kan du också använda funktionen utan kod distribution (för hands version) för scikit-information. Distribution med ingen kod modell stöds för alla inbyggda scikit – lär dig modell typer. Genom att registrera din modell enligt vad som visas ovan med `model_framework` `model_framework_version` parametrarna,, och `resource_configuration` kan du bara använda den [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) statiska funktionen för att distribuera modellen.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

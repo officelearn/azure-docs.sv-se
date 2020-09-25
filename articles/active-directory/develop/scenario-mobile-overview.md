@@ -13,31 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257545"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: mobil program som anropar webb-API: er
 
 Lär dig hur du skapar en mobilapp som anropar webb-API: er.
 
-## <a name="prerequisites"></a>Krav
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Komma igång
 
-Skapa ditt första mobil program och prova en snabb start.
+Om du inte redan har gjort det kan du skapa ditt första program genom att slutföra en snabb start:
 
-> [!div class="nextstepaction"]
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en Android-app](./quickstart-v2-android.md)
->
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en iOS-app](./quickstart-v2-ios.md)
->
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en Xamarin iOS-och Android-app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Snabb start: Hämta en token och anropa Microsoft Graph API från en Android-app](./quickstart-v2-android.md)
+- [Snabb start: Hämta en token och anropa Microsoft Graph API från en iOS-app](./quickstart-v2-ios.md)
+- [Snabb start: Hämta en token och anropa Microsoft Graph API från en Xamarin iOS-och Android-app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
 ## <a name="overview"></a>Översikt
 
@@ -59,6 +52,10 @@ Tänk på följande när du skapar en mobilapp på Microsoft Identity Platform:
 - Beroende på plattform kan vissa användar åtgärder krävas första gången användaren loggar in. IOS kräver till exempel appar för att Visa användar interaktion när de använder SSO för första gången via Microsoft Authenticator (och Intune-företagsportal på Android).
 - På iOS och Android kan MSAL använda en extern webbläsare för att logga in användare. Den externa webbläsaren kan visas ovanpå din app.
 - Använd aldrig en hemlighet i ett mobil program. I dessa program är hemligheter tillgängliga för alla användare.
+
+## <a name="recommended-reading"></a>Rekommenderad läsning
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

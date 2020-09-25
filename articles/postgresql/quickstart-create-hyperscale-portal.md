@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268460"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Snabb start: skapa en citus-servergrupp (för skalning) i Azure Portal
 
@@ -25,7 +25,7 @@ Azure Database för PostgreSQL är en hanterad tjänst som du använder för att
 
 När du har anslutit till noden för den storskaliga koordinatorn med psql kan du utföra några grundläggande uppgifter.
 
-Det finns tre typer av tabeller i storskaliga servrar:
+I citus-servrar finns det tre typer av tabeller:
 
 - Distribuerade eller shardade tabeller (Sprid ut för att hjälpa till med skalning för prestanda och parallellisering)
 - Referens tabeller (flera kopior finns kvar)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Härnäst ska vi ta dessa postgres-tabeller på koordinator-noden och meddela att de kan Shard dem över arbets tagarna. För att göra det kör vi en fråga för varje tabell som anger nyckeln för att Shard den. I det aktuella exemplet ska vi Shard både händelse-och användar tabellen på `user_id` :
+Härnäst ska vi ta dessa postgres-tabeller på koordinator-noden och meddela storskalighet (citus) för att Shard dem över arbets tagarna. För att göra det kör vi en fråga för varje tabell som anger nyckeln för att Shard den. I det aktuella exemplet ska vi Shard både händelse-och användar tabellen på `user_id` :
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 Hittills har frågorna involverade GitHub \_ -händelserna exklusivt, men vi kan kombinera den här informationen med GitHub- \_ användare. Eftersom vi shardade både användare och händelser på samma identifierare ( `user_id` ), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](concepts-hyperscale-colocation.md) på samma databasnoder och kan enkelt anslutas.
 
-Om vi ansluter till `user_id` kan skalningen av anslutningen gå över till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
+Om vi ansluter till `user_id` , kan citus (storskalig) pusha kopplings körningen till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
 
 ```sql
 SELECT gu.login, count(*)

@@ -1,6 +1,6 @@
 ---
 title: Diagnostikverktyg för fel sökning av StorSimple 8000-enhet | Microsoft Docs
-description: Beskriver enhets lägena i StorSimple och förklarar hur du använder Windows PowerShell för StorSimple för att ändra enhets läget.
+description: Den här artikeln innehåller en översikt över verktyget diagnostik och beskriver hur verktyget kan användas med en StorSimple-enhet.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300453"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd verktyget StorSimple Diagnostics för att felsöka enhets problem i 8000-serien
 
@@ -414,7 +414,7 @@ Controller0>
 
 Här är en tabell som beskriver de olika Windows PowerShell-parametrarna i system information Map till. 
 
-| PowerShell-parameter    | Beskrivning  |
+| PowerShell-parameter    | Description  |
 |-------------------------|------------------|
 | Instance ID             | Varje styrenhet har en unik identifierare eller ett GUID som är associerat med den.|
 | Name                    | Det egna namnet på enheten enligt konfigurationen i Azure Portal under enhets distributionen. Det egna standard namnet är enhetens serie nummer. |

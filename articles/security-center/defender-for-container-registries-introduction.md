@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 742d230d6ed1535bada9c35219d2ddf68fd64ae1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6254b78ad19e7034f78f7891d57a3474fee0c602
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977160"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301932"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduktion till Azure Defender för behållar register
 
@@ -64,14 +64,11 @@ Avbildningen hämtas från registret. Den körs sedan i en isolerad sandbox med 
 
 Security Center filtrerar och klassificerar resultat från skannern. När en bild är felfri, Security Center Markera den som sådan. Security Center skapar endast säkerhets rekommendationer för avbildningar som har problem att lösa. Genom att meddela om det uppstår problem kan Security Center minska risken för oönskade informations aviseringar.
 
-### <a name="how-often-does-security-center-scan-my-images"></a>Hur ofta Security Center Skanna mina bilder?
-Avbildnings genomsökningar utlöses vid varje push-överföring eller import, och om avbildningen har tagits emot under de senaste 30 dagarna. 
-
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Kan jag få Sök resultatet via REST API?
 Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/subassessments/list/). Du kan också använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Vilka register typer genomsöks? Vilka typer faktureras?
-I avsnittet tillgänglighet visas de typer av behållar register som stöds av Azure Defender för behållar register. 
+En lista över de typer av behållar register som stöds av Azure Defender för behållar register finns i [tillgänglighet](defender-for-container-registries-usage.md#availability).
 
 Om du ansluter register som inte stöds till din Azure-prenumeration genomsöks de inte och du debiteras inte för dem.
 

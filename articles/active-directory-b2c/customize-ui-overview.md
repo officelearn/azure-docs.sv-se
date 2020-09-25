@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259551"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Om du använder [användar flöden](user-flow-overview.md)kan du ändra utseende
 Du kan använda [Azure Portal](tutorial-customize-ui.md) för att konfigurera anpassningen av gränssnittet för användar flöden.
 
 > [!TIP]
-> Om du bara vill ändra banderollens banderoll, bakgrunds bild och bakgrunds färg för dina användar flödes sidor, kan du testa funktionen för för [hands versionen av företaget (förhands granskning)](#company-branding-preview) längre fram i den här artikeln.
+> Om du bara vill ändra banderollens banderoll, bakgrunds bild och bakgrunds färg för dina användar flödes sidor, kan du prova [företags anpassnings](#company-branding) funktionen som beskrivs längre fram i den här artikeln.
 
 ### <a name="custom-policies"></a>Anpassade principer
 
@@ -155,16 +155,14 @@ I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<d
 | Registrera lokalt konto | Innehåller ett formulär för registrering av lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, till exempel text inmatnings ruta, rutan lösen ords post, alternativ knapp, list rutor med flera val och kryss rutor med flera val. |
 | Registrering av socialt konto | Kan visas när du registrerar dig med ett befintligt konto från en social identitetsprovider som Facebook eller Google. Den används när ytterligare information måste samlas in från kunden med hjälp av ett registrerings formulär. |
 | Enhetlig registrering eller inloggning | Hanterar både registrering och inloggning av kunder som kan använda sociala identitets leverantörer som Facebook, Google eller lokala konton. |
-| Multi-Factor Authentication | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
+| Multifaktorautentisering | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
 | Fel | Tillhandahåller fel information till kunden. |
 
-## <a name="company-branding-preview"></a>Företags anpassning (för hands version)
+## <a name="company-branding"></a>Företagsanpassning
 
 Du kan anpassa dina användar flödes sidor med en banderoll, bakgrunds bild och bakgrunds färg genom att använda Azure Active Directory [företags anpassning](../active-directory/fundamentals/customize-branding.md).
 
 Om du vill anpassa dina användar flödes sidor konfigurerar du först företags anpassning i Azure Active Directory. Därefter aktiverar du den i sidlayouten för dina användar flöden i Azure AD B2C.
-
-[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### <a name="configure-company-branding"></a>Konfigurera varumärkesexponering
 

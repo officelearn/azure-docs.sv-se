@@ -1,14 +1,14 @@
 ---
 title: Översikt över den anslutna datorns Windows-agent
 description: Den här artikeln innehåller en detaljerad översikt över Azure Arc-aktiverade Server Agent som har stöd för övervakning av virtuella datorer i hybrid miljöer.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255051"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Översikt över Azure Arc-aktiverade Server Agent
 
@@ -85,7 +85,7 @@ Service märken:
 
 Er
 
-| Agentresurs | Beskrivning |
+| Agentresurs | Description |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
@@ -131,6 +131,9 @@ Du kan också registrera resurs leverantörerna i Azure Portal genom att följa 
 
 Att ansluta datorer i din hybrid miljö direkt med Azure kan utföras med hjälp av olika metoder beroende på dina behov. I följande tabell beskrivs varje metod för att avgöra vilken som fungerar bäst för din organisation.
 
+> [!IMPORTANT]
+> Den anslutna dator agenten kan inte installeras på en virtuell Azure Windows-dator. Om du försöker igen identifierar installationen detta och återställer.
+
 | Metod | Beskrivning |
 |--------|-------------|
 | Interaktivt | Installera agenten manuellt på ett enda eller litet antal datorer enligt stegen i [ansluta datorer från Azure Portal](onboard-portal.md).<br> Från Azure Portal kan du generera ett skript och köra det på datorn för att automatisera installations-och konfigurations stegen för agenten.|
@@ -151,7 +154,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande installationsfiler skapas under installationen.
 
-    |Mapp |Beskrivning |
+    |Mapp |Description |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |Standard installations Sök väg som innehåller agentens stödfiler.|
     |%ProgramData%\AzureConnectedMachineAgent |Innehåller konfigurationsfilerna för agenten.|
@@ -163,7 +166,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande Windows-tjänster skapas på mål datorn under installationen av agenten.
 
-    |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
+    |Tjänstnamn |Visningsnamn |Processnamn |Description |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid-Instance Metadata Service |himds.exe |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
     |DscService |Gäst konfigurations tjänst |dsc_service.exe |Kodbasen för önskad tillstånds konfiguration (DSC v2) som används i Azure för att implementera principer för gäst.|
@@ -177,7 +180,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Logga |Beskrivning |
+    |Logga |Description |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
@@ -202,7 +205,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande installationsfiler skapas under installationen.
 
-    |Mapp |Beskrivning |
+    |Mapp |Description |
     |-------|------------|
     |/var/opt/azcmagent/ |Standard installations Sök väg som innehåller agentens stödfiler.|
     |/opt/azcmagent/ |
@@ -214,21 +217,21 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande daemonar skapas på mål datorn under installationen av agenten.
 
-    |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
+    |Tjänstnamn |Visningsnamn |Processnamn |Description |
     |-------------|-------------|-------------|------------|
     |himdsd. service |Azure Hybrid-Instance Metadata Service |/opt/azcmagent/bin/himds |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
     |dscd. service |Gäst konfigurations tjänst |/opt/DSC/dsc_linux_service |Det här är den Desired State Configuration (DSC v2) kodbasen som används i Azure för att implementera principer för gäst.|
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Logga |Beskrivning |
+    |Logga |Description |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
     |/opt/logs/dsc.log |Registrerar information om DSC-tjänstens aktivitet,<br> särskilt anslutningen mellan himds-tjänsten och Azure Policy.|
     |/opt/logs/dsc.telemetry.txt |Registrerar Detaljer om telemetri för DSC-tjänster och utförlig loggning.|
     |/var/lib/GuestConfig/ext_mgr_logs |Registrerar information om tilläggs Agent komponenten.|
-    |/var/log/GuestConfig/extension_logs|Registrerar information från det installerade tillägget.|
+    |/var/lib/GuestConfig/extension_logs|Registrerar information från det installerade tillägget.|
 
 * Följande miljövariabler skapas under Agent installationen. Dessa variabler anges i `/lib/systemd/system.conf.d/azcmagent.conf` .
 
@@ -244,4 +247,6 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 ## <a name="next-steps"></a>Nästa steg
 
-Börja utvärdera Azure Arc-aktiverade servrar genom att följa artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md).
+* Börja utvärdera Azure Arc-aktiverade servrar genom att följa artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md).
+
+* Felsöknings information finns i [fel söknings guide för anslutna datorer](troubleshoot-agent-onboard.md).

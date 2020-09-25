@@ -3,12 +3,12 @@ title: Hantera labb konton i Azure Lab Services | Microsoft Docs
 description: Lär dig hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto i en Azure-prenumeration.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 13b477504833b8d72845735304563eef334c49ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251668"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Skapa och hantera labbkonton
 I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto.
@@ -41,9 +41,9 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
         > Egenskapen för **adress intervall** gäller endast om ett **virtuellt dator nätverk** är aktiverat för labbet.
 
         ![Skapa labb konto – > Advanced](./media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
-6. Välj **Nästa: Taggar** längst ned på sidan för att växla till fliken **taggar** . Lägg till alla Taggar som du vill koppla till labb kontot. Taggar är namn/värde-par som låter dig kategorisera resurser och Visa konsol IDE rad fakturering genom att tillämpa samma tagg på flera resurser och resurs grupper. Mer information finns i [använda taggar för att ordna dina Azure-resurser](../azure-resource-manager/management/tag-resources.md).
+6. Välj **Nästa: Taggar** längst ned på sidan för att växla till fliken **taggar** . Lägg till de taggar som du vill koppla till labb kontot. Taggar är namn/värde-par som låter dig kategorisera resurser och Visa konsol IDE rad fakturering genom att tillämpa samma tagg på flera resurser och resurs grupper. Mer information finns i [använda taggar för att ordna dina Azure-resurser](../azure-resource-manager/management/tag-resources.md).
 
-    ![Skapa labb konto – > Taggar](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
+    ![Skärm bild som visar sidan "Skapa labb konto" med fliken Taggar markerat.](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
 7. Välj **Granska + skapa** längst ned på den här sidan för att växla till fliken **Granska + skapa** . 
 4. Granska sammanfattnings informationen på den här sidan och välj **skapa**. 
 

@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f550cb4e9069055da6569492b35fc7fe75d70980
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594058"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258067"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Att tänka på när du använder Xamarin iOS med MSAL.NET
 
@@ -81,7 +81,7 @@ Mer information finns i dokumentationen om [iOS-rättigheter](https://developer.
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Aktivera delning av token cache i iOS-program
 
-Från och med MSAL 2. x kan du ange en åtkomst grupp för nyckel ringar för att bevara token-cachen över flera program. Med den här inställningen kan du dela token-cachen mellan flera program som har samma åtkomst grupp för nyckel ringar. Du kan dela token-kontanter bland [ADAL.net](https://aka.ms/adal-net) -program, MSAL.net Xamarin. iOS-program och inbyggda iOS-program som har utvecklats i [ADAL. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) eller [MSAL. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+Från och med MSAL 2. x kan du ange en åtkomst grupp för nyckel ringar för att bevara token-cachen över flera program. Med den här inställningen kan du dela token-cachen mellan flera program som har samma åtkomst grupp för nyckel ringar. Du kan dela token-cachen bland [ADAL.net](https://aka.ms/adal-net) -program, MSAL.net Xamarin. iOS-program och inbyggda iOS-program som har utvecklats i [ADAL. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) eller [MSAL. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
 Genom att dela token cache kan du tillåta enkel inloggning (SSO) bland alla program som använder samma nyckel rings åtkomst grupp.
 
@@ -151,7 +151,7 @@ Om du har frågor eller vill rapportera ett problem som du har hittat i MSAL.NET
 
 Information om egenskaper för Xamarin iOS finns i stycket om [iOS-/regionsspecifika överväganden](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) i följande exempel: s Readme.MD-fil:
 
-Exempel | Plattform | Beskrivning
+Exempel | Plattform | Description
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universell Windows-plattform (UWP) | En enkel Xamarin Forms-app som visar hur du använder MSAL för att autentisera Microsoft-personliga konton och Azure AD via Azure AD 2,0-slutpunkten. Appen visar också hur du använder den resulterande token för att få åtkomst till Microsoft Graph.
 

@@ -1,6 +1,6 @@
 ---
 title: SSO-sessioner i Azure Active Directory B2C | Microsoft Docs
-description: Konfigurera sessionens beteende i Azure Active Directory B2C.
+description: En översikt över hur du konfigurerar sessionens beteende i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258973"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C session
 

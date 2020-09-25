@@ -3,17 +3,17 @@ title: Azure Defender för Key Vault – fördelar och funktioner
 description: Lär dig mer om fördelarna och funktionerna i Azure Defender för Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 06818e443568918e2ee87bbfbec81836ea85648b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 78a522922f8580003e2d2ff588cbf10dbf5fff9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301779"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introduktion till Azure Defender för Key Vault
 
@@ -42,6 +42,11 @@ När du får en avisering från Azure Defender för Key Vault rekommenderar vi a
 Aviseringarna visas i Key Vault **säkerhets** sida, på Azure Defender-instrumentpanelen och på aviserings sidan för Security Center.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Azure Key Vault s säkerhets sida":::
+
+
+> [!TIP]
+> Du kan simulera Azure Defender för Key Vault aviseringar genom att följa instruktionerna i [verifiera Azure Key Vault hot identifiering i Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

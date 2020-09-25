@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83771867"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257562"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Skriv bords program som anropar webb-API: er
 
 Lär dig allt du behöver för att bygga en Skriv bords app som anropar webb-API: er.
 
-## <a name="prerequisites"></a>Krav
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="get-started"></a>Kom igång
 
-Om du inte redan har gjort det kan du skapa ditt första program genom att följa snabb starten för .NET Desktop, Universell Windows-plattform (UWP) snabb start eller den inbyggda macOS-appen snabb start:
+Om du inte redan har gjort det kan du skapa ditt första program genom att slutföra en snabb start:
 
-> [!div class="nextstepaction"]
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en UWP-app](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en macOS-inbyggd app](./quickstart-v2-ios.md)
+- [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp](./quickstart-v2-windows-desktop.md)
+- [Snabb start: Hämta en token och anropa Microsoft Graph API från en UWP-app](./quickstart-v2-uwp.md)
+- [Snabb start: Hämta en token och anropa Microsoft Graph API från en macOS-inbyggd app](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Översikt
 
-Du skriver ett Skriv bords program och vill logga in användare i ditt program och anropa webb-API: er, till exempel Microsoft Graph, andra Microsoft API: er eller ditt eget webb-API. Det finns flera möjligheter:
+Du skriver ett Skriv bords program och vill logga in användare i ditt program och anropa webb-API: er, till exempel Microsoft Graph, andra Microsoft API: er eller ditt eget webb-API. I det syftet har du flera alternativ:
 
 - Du kan använda den interaktiva hämtningen av token:
 
@@ -64,6 +54,10 @@ Du skriver ett Skriv bords program och vill logga in användare i ditt program o
 ## <a name="specifics"></a>Information
 
 Skriv bords program har ett antal enskilda. De är huvudsakligen beroende av om programmet använder interaktiv autentisering eller inte.
+
+## <a name="recommended-reading"></a>Rekommenderad läsning
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

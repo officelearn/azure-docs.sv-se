@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078714"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269751"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
@@ -40,7 +40,7 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
 
 1. Ange information om den Logic-app som du vill skapa, till exempel:
 
-   ![Välj integrerings tjänst miljö](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Skärm bild som visar fönstret "Logic app" "skapa" med exempel information angiven.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
@@ -121,7 +121,7 @@ Om du vill använda anpassade anslutningar i ISE skapar du de anpassade anslutni
 
 1. I listan **plats** i avsnittet **integrerings tjänst miljöer** väljer du samma ISE som din Logi Kap par använder och väljer **skapa**, till exempel:
 
-   ![Välj integrerings tjänst miljö](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Skärm bild som visar fönstret "skapa Logic Apps anpassad koppling" med exempel information valt.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Välj din nya anpassade anslutning och välj sedan **Redigera**, till exempel:
 

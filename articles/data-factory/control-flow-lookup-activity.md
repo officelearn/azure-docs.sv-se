@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.date: 09/23/2020
+ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270448"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sök aktivitet i Azure Data Factory
 
@@ -31,7 +31,7 @@ Lookup-aktiviteten läser och returnerar innehållet i en konfigurations fil ell
 
 Följande data källor stöds för lookup-aktivitet. 
 
-Sök aktiviteten kan returnera upp till 5000 rader. om resultat uppsättningen innehåller fler poster returneras de första 5000 raderna. Utdata för uppslags aktivitet har stöd för upp till 2 MB i storlek och aktiviteten Miss Miss kan uppstå om storleken överskrider gränsen. För närvarande är den längsta varaktigheten för uppslags aktivitet före timeout en timme.
+Sök aktiviteten kan returnera upp till 5000 rader. om resultat uppsättningen innehåller fler poster returneras de första 5000 raderna. Utdata för uppslags aktivitet har stöd för upp till ungefär 4 MB och det går inte att utföra aktiviteten om storleken överskrider gränsen. För närvarande är den längsta varaktigheten för uppslags aktivitet före timeout en timme.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -58,8 +58,8 @@ Sök aktiviteten kan returnera upp till 5000 rader. om resultat uppsättningen i
 
 Name | Beskrivning | Typ | Obligatoriskt?
 ---- | ----------- | ---- | --------
-data uppsättning | Tillhandahåller data uppsättnings referensen för sökningen. Hämta information från avsnittet **Egenskaper för data mängd** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja
-källa | Innehåller data uppsättnings bara käll egenskaper, samma som för kopierings aktivitets källan. Hämta information från avsnittet **Kopiera aktivitets egenskaper** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Ja
+data uppsättning | Tillhandahåller data uppsättnings referensen för sökningen. Hämta information från avsnittet **Egenskaper för data mängd** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Yes
+källa | Innehåller data uppsättnings bara käll egenskaper, samma som för kopierings aktivitets källan. Hämta information från avsnittet **Kopiera aktivitets egenskaper** i varje motsvarande kopplings artikel. | Nyckel/värde-par | Yes
 firstRowOnly | Anger om bara den första raden eller alla rader ska returneras. | Boolesk | Nej. Standardvärdet är `true`.
 
 > [!NOTE]

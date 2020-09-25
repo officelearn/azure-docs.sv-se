@@ -4,12 +4,12 @@ description: Överföra samlingar med avbildningar eller andra artefakter från 
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ed848380457862fee506bf5111789e5d44545bdd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009162"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253419"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Överföra artefakter till ett annat register
 
@@ -162,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Till exempel:
+I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -208,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Till exempel:
+Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -250,7 +250,7 @@ Det kan ta flera minuter innan artefakter exporteras. När distributionen har sl
 
 ```azurecli
 az storage blob list \
-  --account-name $SA_SOURCE
+  --account-name $SOURCE_SA
   --container transfer
   --output table
 ```

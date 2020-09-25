@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259228"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Onfido med Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![skärm bild för onfido-Architecture-diagram](media/partner-onfido/onfido-architecture-diagram.png)
 
-|Steg | Beskrivning |
+|Steg | Description |
 |:-----| :-----------|
 | 1. | Användaren kommer till inloggnings sidan. Användaren registrerar sig för att skapa ett nytt konto och ange information på sidan. Azure AD B2C samlar in användarattribut. Onfido-klient som finns i Azure AD B2C söker preliminärt efter användar informationen.
 | 2. | Azure AD B2C anropar API: t för mellanlager och passerar användar-attributen.
@@ -94,7 +94,7 @@ Program inställningar kan konfigureras i [App Service i Azure](https://docs.mic
 
 1. Konfigurera en [Blob Storage-behållare i ditt lagrings konto](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-2. Lagra UI-filerna från mappen UI till BLOB-behållaren.
+2. Lagra UI-filerna från [mappen UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) till BLOB-behållaren.
 
 3. Tillåt CORS-åtkomst till lagrings behållare som du skapade genom att följa dessa anvisningar:
 
@@ -124,7 +124,7 @@ Program inställningar kan konfigureras i [App Service i Azure](https://docs.mic
 
 #### <a name="replace-the-configuration-values"></a>Ersätt konfigurations värden
 
-I de angivna anpassade principerna söker du efter följande plats hållare och ersätter med motsvarande värden från din instans.
+I de angivna [anpassade principerna](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)söker du efter följande plats hållare och ersätter med motsvarande värden från din instans.
 
 | Platshållare | Ersätt med värde | Exempel  |
 |:---------------|:----------------|:-------------------|
@@ -138,7 +138,7 @@ I de angivna anpassade principerna söker du efter följande plats hållare och 
 |{your_ui_file_base_url}| URL till den plats där dina UI **ocean_blue**-, **Dist**-och **assets** -mappar finns | https://yourstorage.blob.core.windows.net/UI/|
 | {your_app_service_URL}                                 | URL för den app service som du har konfigurerat                                             | `https://yourapp.azurewebsites.net`          |
 
-* App Insights kan finnas i en annan klient. Det här steget är valfritt. Ta bort motsvarande TechnicalProfiles och OrchestrationSteps om det inte behövs.
+* App Insights kan finnas i en annan klient. Det här är valfritt. Ta bort motsvarande TechnicalProfiles och OrchestrationSteps om det inte behövs.
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Del 4 – konfigurera principen för Azure AD B2C
 

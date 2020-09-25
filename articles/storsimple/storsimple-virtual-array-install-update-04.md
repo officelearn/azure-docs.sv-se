@@ -1,6 +1,6 @@
 ---
 title: Installera uppdateringar på virtuell StorSimple-matris | Microsoft Docs
-description: Beskriver hur du använder StorSimple-webbgränssnittet för virtuella matriser för att tillämpa uppdateringar med hjälp av metoden Azure Portal och snabb korrigeringar
+description: Beskriver hur du använder StorSimple-webbgränssnittet för virtuella matriser för att tillämpa uppdatering 0,4 med hjälp av metoden Azure Portal och snabb korrigering.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: f68abf6315c1ca344f90dec55bf8cdc813e58823
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 529b93e7754df7aa0a981f4389108b8f53b4be2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300572"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installera Uppdatering 0,4 på din virtuella StorSimple-matris
 
@@ -27,7 +27,7 @@ ms.locfileid: "85513684"
 
 I den här artikeln beskrivs de steg som krävs för att installera uppdatering 0,4 på din virtuella StorSimple-matris via det lokala webb gränssnittet och via Azure Portal. Du måste tillämpa program uppdateringar eller hotfixar för att hålla din StorSimple virtuella matris uppdaterad. 
 
-Kom ihåg att om du installerar en uppdatering eller snabb korrigering startas enheten om. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp. 
+Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp. 
 
 Innan du installerar en uppdatering rekommenderar vi att du tar volymerna eller resurserna offline på värden först och sedan enheten. Detta minskar risken för skadade data.
 
@@ -78,7 +78,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Använd**.
+2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Applicera**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update2m.png)
 

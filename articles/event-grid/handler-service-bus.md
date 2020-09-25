@@ -3,12 +3,12 @@ title: Service Bus köer och ämnen som händelse hanterare för Azure Event Gri
 description: Beskriver hur du kan använda Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440804"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270176"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser och **Azure Service Bus** är en av dem. 
@@ -51,9 +51,9 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>Meddelande egenskaper
-Om du använder ett **Service Bus ämne eller en kö** som händelse hanterare för händelser från Event Grid anger du följande meddelandehuvuden: 
+Om du använder ett **Service Bus ämne eller en kö** som händelse hanterare för händelser från Event Grid, så är dessa de egenskaper som du får i meddelande huvudena: 
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | ------------- | ----------- | 
 | AEG-prenumeration-namn | Namn på händelse prenumerationen. |
 | AEG – antal | <p>Antal försök som har gjorts för händelsen.</p> <p>Exempel: "1"</p> |
@@ -156,6 +156,9 @@ Det interna system-ID: t för meddelandet kommer att behållas genom omleverans 
     }
 }
 ```
+
+> [!NOTE]
+> Det finns inte stöd för att leverera händelser till en Azure Service Bus-kö eller ett ämne i **en annan klient** . 
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över händelse hanterare som stöds finns i artikeln [händelse hanterare](event-handlers.md) . 

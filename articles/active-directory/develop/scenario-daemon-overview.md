@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c01724340df7e0efffe9847b49e1fe9d444ee01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257630"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: daemon-program som anropar webb-API: er
 
 Lär dig allt du behöver för att bygga ett daemon-program som anropar webb-API: er.
-
-## <a name="prerequisites"></a>Krav
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -58,6 +54,10 @@ För utvecklare har slut punkt till slut punkt i det här scenariot följande as
 - Svars-URI behövs inte under [program registreringen](./scenario-daemon-app-registration.md). Du måste dela hemligheter eller certifikat eller signerade intyg med Azure AD. Du måste också begära program behörigheter och bevilja administratörs medgivande för att kunna använda dessa program behörigheter.
 - [Program konfigurationen](./scenario-daemon-app-configuration.md) måste ange klientautentiseringsuppgifterna som delas med Azure AD under program registreringen.
 - Det [omfång](scenario-daemon-acquire-token.md#scopes-to-request) som används för att hämta en token med ett flöde för klientautentiseringsuppgifter måste vara ett statiskt omfång.
+
+## <a name="recommended-reading"></a>Rekommenderad läsning
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75666881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269105"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Hantera innehålls typer i Azure Logic Apps
 
@@ -59,9 +59,9 @@ Logic Apps ger dig möjlighet att generera användarvänliga token som represent
   
   1. I utlösaren för begäran väljer **du Använd exempel nytto last för att generera schemat**.  
   
-  2. Under **Ange eller klistra in en exempel-JSON-nyttolast**, anger du ett exempel på en nytto last och väljer sedan **färdig**. Ett exempel: 
+  2. Under **Ange eller klistra in en exempel-JSON-nyttolast**, anger du ett exempel på en nytto last och väljer sedan **färdig**. Exempel: 
 
-     ![Tillhandahåll exempel-JSON-nyttolast](./media/logic-apps-content-type/request-trigger.png)
+     ![Skärm bild som visar fönstret när en HTTP-begäran tas emot med en exempel-JSON-nyttolast.](./media/logic-apps-content-type/request-trigger.png)
 
      Det genererade schemat visas nu i utlösaren.
 
@@ -136,13 +136,13 @@ För att bevara vissa data typer, Logic Apps konverterar innehåll till en binä
 
 I den här listan beskrivs hur Logic Apps konverterar innehåll när du använder dessa [funktioner](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Skickar data till`application/json`
-* `xml()`: Skickar data till`application/xml`
-* `binary()`: Skickar data till`application/octet-stream`
-* `string()`: Skickar data till`text/plain`
+* `json()`: Skickar data till `application/json`
+* `xml()`: Skickar data till `application/xml`
+* `binary()`: Skickar data till `application/octet-stream`
+* `string()`: Skickar data till `text/plain`
 * `base64()`: Konverterar innehåll till en Base64-kodad sträng
-* `base64toString()`: Konverterar en Base64-kodad sträng till`text/plain`
-* `base64toBinary()`: Konverterar en Base64-kodad sträng till`application/octet-stream`
+* `base64toString()`: Konverterar en Base64-kodad sträng till `text/plain`
+* `base64toBinary()`: Konverterar en Base64-kodad sträng till `application/octet-stream`
 * `dataUri()`: Konverterar en sträng till en data-URI
 * `dataUriToBinary()`: Konverterar en data-URI till en binär sträng
 * `dataUriToString()`: Konverterar en data-URI till en sträng

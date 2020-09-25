@@ -4,12 +4,12 @@ description: En översikt över varför det är viktigt att skapa moln program m
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300776"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Varför ska man använda en mikrotjänst metod för att skapa program
 
@@ -138,6 +138,9 @@ Besök Azure Architecture Center för att få hjälp med att [utforma och skapa 
 Azure Service Fabric när Microsoft övergår från att leverera inramade produkter, som vanligt vis monolitisk, för att leverera tjänster. Upplevelsen av att skapa och driva stora tjänster, t. ex. Azure SQL Database och Azure Cosmos DB, formad Service Fabric. Plattformen utvecklades över tid då fler tjänster antog den. Service Fabric kördes inte bara i Azure utan även i fristående distributioner av Windows Server.
 
 ***Syftet med Service Fabric är att lösa de hårda problemen med att skapa och köra en tjänst och att använda infrastruktur resurser på ett effektivt sätt, så att team kan lösa affärs problem med hjälp av en metod för mikrotjänster.***
+
+Denna korta video presenterar Service Fabric och mikrotjänster:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric hjälper dig att bygga program som använder en mikrotjänster-metod genom att tillhandahålla:
 

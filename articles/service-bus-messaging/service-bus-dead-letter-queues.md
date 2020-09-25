@@ -4,12 +4,12 @@ description: Beskriver köer för obeställbara meddelanden i Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301031"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus köer för obeställbara meddelanden
 
@@ -62,7 +62,7 @@ Förfallna meddelanden rensas och flyttas bara till DLQ när det finns minst en 
 
 ## <a name="errors-while-processing-subscription-rules"></a>Fel vid bearbetning av prenumerations regler
 
-När egenskapen [SubscriptionDescription. EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har Aktiver ATS för en prenumeration, registreras eventuella fel som inträffar när en prenumerations SQL filter-regel körs i DLQ tillsammans med det felaktiga meddelandet.
+När egenskapen [SubscriptionDescription. EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har Aktiver ATS för en prenumeration, registreras eventuella fel som inträffar när en prenumerations SQL filter-regel körs i DLQ tillsammans med det felaktiga meddelandet. Använd inte det här alternativet i en produktions miljö där inte alla meddelande typer har prenumeranter.
 
 ## <a name="application-level-dead-lettering"></a>Obeställbara meddelanden på program nivå
 

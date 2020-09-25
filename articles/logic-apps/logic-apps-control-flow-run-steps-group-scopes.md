@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269292"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på grupp status med hjälp av omfång i Azure Logic Apps
 
@@ -21,7 +21,7 @@ Om du vill kontrol lera en omfattnings status kan du använda samma kriterier so
 
 Här är till exempel en övergripande Logic-app som använder en omfattning för att köra vissa åtgärder och ett villkor för att kontrol lera Omfattningens status. Om några åtgärder i omfånget Miss lyckas eller avslutas, markeras omfånget som "misslyckades" eller "avbrutet", och Logic-appen skickar ett meddelande om att det inte gick att skicka ett meddelande om att det inte går att skicka Om alla åtgärder som omfattas är slutförda, skickar Logic-appen ett meddelande med omfattningen "scope lyckades".
 
-![Ställ in utlösare för "schema upprepning"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Diagrammet visar Logic app-omfångets flöde med exempel på "omfånget misslyckades" och "omfattning lyckades".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -77,12 +77,12 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
       | ------- | ----- | ----------- |
       | **Waypoint 1** (Platsmarkör 1) | <*har*> | Ange din flödes ursprung. | 
       | **Waypoint 2** (Platsmarkör 2) | <*ändamål*> | Ange vägens mål. | 
-      | **Undvik** | Inga | Ange objekt som ska undvikas på vägen, till exempel vägar, väg tullar och så vidare. För möjliga värden, se [Beräkna en väg](/bingmaps/rest-services/routes/calculate-a-route). | 
+      | **Undvik** | Inget | Ange objekt som ska undvikas på vägen, till exempel vägar, väg tullar och så vidare. För möjliga värden, se [Beräkna en väg](/bingmaps/rest-services/routes/calculate-a-route). | 
       | **Optimera** | timeWithTraffic | Välj en parameter för att optimera vägen, till exempel avstånd, tid med aktuell trafik information och så vidare. I det här exemplet används detta värde: "timeWithTraffic" | 
       | **Avståndsenhet** | <*dina inställningar*> | Ange avstånds enheten för att beräkna din väg. I det här exemplet används detta värde: "mil" | 
       | **Travel mode** (Färdsätt) | Driving (Bil) | Ange rese läge för vägen. I det här exemplet används det här värdet "driver" | 
-      | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inga | Gäller endast för överförings läge. | 
-      | **Typ av överförings datum** | Inga | Gäller endast för överförings läge. | 
+      | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inget | Gäller endast för överförings läge. | 
+      | **Typ av överförings datum** | Inget | Gäller endast för överförings läge. | 
       ||||  
 
 1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella res tiden med trafik överskrider den angivna tiden. 
@@ -143,7 +143,7 @@ Du kan spara din Logi Kap par när som helst, så spara arbetet ofta.
    1. När du är klar väljer du **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. När uttrycket har lösts lägger du till den här texten med ett inledande blank steg:``` minutes```
+   1. När uttrycket har lösts lägger du till den här texten med ett inledande blank steg: ``` minutes```
   
        Ditt **Body** -fält ser nu ut så här:
 
@@ -192,7 +192,7 @@ Lägg sedan till ett omfång så att du kan gruppera vissa åtgärder och utvär
    
       `result('Scope')[0]['status']`
 
-      ![Lägg till uttryck som kontrollerar Omfattningens status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Skärm bild som visar fönstret Lägg till uttryck med ett resultat uttryck markerat.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Välj **är lika** med som operator för båda raderna. 
    

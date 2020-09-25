@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255268"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera en app med ett virtuellt Azure-nätverk
 
@@ -54,6 +54,10 @@ Appar i App Service finns i arbets roller. De grundläggande och högre pris pla
 
 När regional VNet-integrering är aktive rad gör din app utgående samtal till Internet via samma kanaler som normalt. De utgående adresser som listas i app Properties-portalen är de adresser som fortfarande används av din app. Vilka ändringar som gjorts i din app är anropen till tjänstens slut punkts säkra tjänster, eller så kan RFC 1918-adresser ingå i ditt VNet. Om WEBSITE_VNET_ROUTE_ALL är inställt på 1, kan all utgående trafik skickas till ditt VNet.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` stöds för närvarande inte i Windows-behållare.
+> 
+
 Funktionen stöder endast ett virtuellt gränssnitt per arbetare. Ett virtuellt gränssnitt per arbetare innebär en regional VNet-integration per App Service plan. Alla appar i samma App Service plan kan använda samma VNet-integrering. Om du behöver en app för att ansluta till ytterligare ett VNet måste du skapa en annan App Service plan. Det virtuella gränssnittet som används är inte en resurs som kunder har direkt åtkomst till.
 
 På grund av hur den här tekniken fungerar visas inte trafiken som används med VNet-integrering i Azure Network Watcher-eller NSG Flow-loggar.
@@ -72,7 +76,8 @@ Gateway-nödvändig VNet-integrering stöder anslutning till ett VNet i en annan
 Du kan inte använda Gateway-nödvändig VNet-integrering:
 
 * Med ett virtuellt nätverk som är anslutet till Azure ExpressRoute.
-* Från en Linux-app
+* Från en Linux-app.
+* Från en [Windows-behållare](quickstart-custom-container.md).
 * För att få åtkomst till tjänstens slut punkts säkra resurser.
 * Med en gateway för samexistens som stöder både ExpressRoute-och punkt-till-plats-eller plats-till-plats-VPN.
 

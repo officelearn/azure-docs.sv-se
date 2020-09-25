@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e853255f0fc1bc95a4a7fb1658fc41d4fe705c41
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 75693c57a8d120aad53a15d03ae4054bac8262af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420064"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269309"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure-funktioner från Azure Logic Apps
 
@@ -128,7 +128,7 @@ Innan du kan skapa en Azure-funktion måste du dock redan ha en Azure Function-a
 
    1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts. När du är färdig väljer du **Skapa**.
 
-   Ett exempel:
+   Exempel:
 
    ![Definiera din funktion](./media/logic-apps-azure-functions/add-code-function-definition.png)
 

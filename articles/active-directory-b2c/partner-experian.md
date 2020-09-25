@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259381"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Experian: med Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![skärm bild för Experian:-Architecture-diagram](media/partner-experian/experian-architecture-diagram.png)
 
-|Steg | Beskrivning |
+|Steg | Description |
 |:-----| :-----------|
 | 1. | Användaren kommer till inloggnings sidan. Användaren väljer att registrera sig för att skapa ett nytt konto och ange information på sidan. Azure AD B2C samlar in användarattribut.
 | 2. | Azure AD B2C anropar API: t för mellanlager och passerar användar-attributen.
@@ -77,7 +77,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ### <a name="part-1---deploy-the-api"></a>Del 1 – distribuera API: et
 
-Distribuera den tillhandahållna API-koden till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuera den tillhandahållna [API-koden](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) till en Azure-tjänst. Du kan publicera koden från Visual Studio genom att följa dessa [anvisningar](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Du behöver URL: en för den distribuerade tjänsten för att konfigurera Azure AD med nödvändiga inställningar.
@@ -117,7 +117,7 @@ Referera till det här [dokumentet](https://docs.microsoft.com/azure/active-dire
 
 ### <a name="part-5---replace-the-configuration-values"></a>Del 5 – Ersätt konfigurations värdena
 
-I de angivna anpassade principerna söker du efter följande plats hållare och ersätter med motsvarande värden från din instans
+I de angivna [anpassade principerna](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)söker du efter följande plats hållare och ersätter med motsvarande värden från din instans
 
 |                      Platshållare                       |                                   Ersätt med värde                                 |                   Exempel                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

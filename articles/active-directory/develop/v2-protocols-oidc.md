@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256593"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity Platform och OpenID Connect-protokoll
 
@@ -37,9 +37,9 @@ Det mest grundläggande inloggnings flödet har stegen som visas i nästa diagra
 
 OpenID Connect beskriver ett metadataobjekt [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) som innehåller merparten av den information som krävs för att en app ska kunna logga in. Detta omfattar information som webb adresserna som ska användas och platsen för tjänstens offentliga signerings nycklar. Du kan hitta det här dokumentet genom att lägga till sökvägen för identifierings dokumentet till auktoritets-URL: en:
 
-Sökväg till identifierings dokument:`/.well-known/openid-configuration`
+Sökväg till identifierings dokument: `/.well-known/openid-configuration`
 
-Tullmyndighet`https://login.microsoftonline.com/{tenant}/v2.0`
+Tullmyndighet `https://login.microsoftonline.com/{tenant}/v2.0`
 
 `{tenant}`Kan göra något av fyra värden:
 
@@ -101,7 +101,7 @@ När din webbapp behöver autentisera användaren kan den dirigera användaren t
 > [!IMPORTANT]
 > För att kunna begära en ID-token från/Authorization-slutpunkten måste appens registrering på [registrerings portalen](https://portal.azure.com) ha implicit beviljande av id_tokens aktiverat på fliken autentisering (som anger `oauth2AllowIdTokenImplicitFlow` flaggan i [applikations manifestet](reference-app-manifest.md) till `true` ). Om den inte är aktive rad `unsupported_response` returneras ett fel: "det tillhandahållna värdet för indataparametern response_type tillåts inte för den här klienten. Förväntat värde är ' Code '
 
-Ett exempel:
+Exempel:
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -116,9 +116,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Condition (Väderförhållanden) | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Obligatorisk | Du kan använda `{tenant}` värdet i sökvägen till begäran för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common` , `organizations` , `consumers` och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
+| `tenant` | Krävs | Du kan använda `{tenant}` värdet i sökvägen till begäran för att kontrol lera vem som kan logga in på programmet. De tillåtna värdena är `common` , `organizations` , `consumers` och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | Obligatorisk | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
 | `response_type` | Obligatorisk | Måste inkludera `id_token` för OpenID Connect-inloggning. Det kan också innehålla andra `response_type` värden, till exempel `code` . |
 | `redirect_uri` | Rekommenderas | Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen, förutom att den måste vara URL-kodad. Om detta inte finns väljer slut punkten en registrerad redirect_uri slumpmässigt för att skicka tillbaka användaren till. |
@@ -172,7 +172,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 I följande tabell beskrivs felkoder som kan returneras i `error` parametern för fel svaret:
 
-| Felkod | Beskrivning | Klient åtgärd |
+| Felkod | Description | Klient åtgärd |
 | --- | --- | --- |
 | `invalid_request` | Protokoll fel, till exempel en obligatorisk parameter som saknas. |Åtgärda och skicka begäran på nytt. Detta är ett utvecklings fel som vanligt vis fångas under den första testningen. |
 | `unauthorized_client` | Klient programmet kan inte begära en auktoriseringskod. |Detta inträffar vanligt vis när klient programmet inte är registrerat i Azure AD eller inte har lagts till i användarens Azure AD-klient. Programmet kan begära att användaren får instruktioner för att installera programmet och lägga till det i Azure AD. |
@@ -249,7 +249,7 @@ Svars parametrar innebär samma sak oavsett vilket flöde som används för att 
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `token` | Den token som ska användas för att anropa UserInfo-slutpunkten.|
+| `access_token` | Den token som ska användas för att anropa UserInfo-slutpunkten.|
 | `token_type` | Alltid "Bearer" |
 | `expires_in`| Hur länge tills åtkomsttoken upphör att gälla, i sekunder. |
 | `scope` | De behörigheter som beviljats för åtkomsttoken.  Observera att eftersom UserInfo-slutpunkten finns i MS Graph, kan det finnas ytterligare diagram omfattningar som listas här (t. ex. user. Read) om de tidigare har beviljats till appen.  Det beror på att en token för en specifik resurs alltid innehåller alla behörigheter som för närvarande beviljas till klienten.  |
@@ -292,7 +292,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Condition (Väderförhållanden) | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Rekommenderas | URL: en som användaren omdirigeras till efter att den har loggat ut. Om parametern inte ingår visas ett allmänt meddelande som genereras av Microsoft Identity Platform-slutpunkten. URL: en måste matcha en av de omdirigerings-URI: er som registrerats för ditt program i registrerings portalen för appen. |
 

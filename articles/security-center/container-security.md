@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: cbea99b08ed0cbcc1125d15c78119a509b6dcc48
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3edd7ddf79f8400462b52f964b7677840a7e86df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301966"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -58,7 +58,7 @@ Security Center filtrerar och klassificerar resultat från skannern. När en bil
 
 Azure Security Center identifierar ohanterade behållare som finns på virtuella IaaS Linux-datorer eller andra Linux-datorer som kör Docker-behållare. Security Center kontinuerligt bedömer konfigurationen av dessa behållare. Den jämför sedan dem med [Center for Internet Security (CIS) Docker-benchmark](https://www.cisecurity.org/benchmark/docker/).
 
-Security Center innehåller hela ruleset av CIS Docker-benchmark och varnar dig om dina behållare inte uppfyller någon av kontrollerna. När det hittar felkonfigurationer genererar Security Center säkerhets rekommendationer. Använd **sidan rekommendationer** för att se rekommendationer och åtgärda problem. Du kan också se rekommendationerna på fliken **behållare** som visar alla virtuella datorer som distribueras med Docker. Benchmark-kontroller för CIS körs inte på AKS-hanterade instanser eller Databricks-hanterade virtuella datorer.
+Security Center innehåller hela ruleset av CIS Docker-benchmark och varnar dig om dina behållare inte uppfyller någon av kontrollerna. När det hittar felkonfigurationer genererar Security Center säkerhets rekommendationer. Använd Security Center **rekommendationer** för att se rekommendationer och åtgärda problem. Benchmark-kontroller för CIS körs inte på AKS-hanterade instanser eller Databricks-hanterade virtuella datorer.
 
 Mer information om relevanta Security Center rekommendationer som kan visas för den här funktionen finns i [avsnittet container](recommendations-reference.md#recs-containers) i referens tabellen för rekommendationer.
 

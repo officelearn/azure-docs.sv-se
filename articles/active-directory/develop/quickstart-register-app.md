@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: d52673f1c66c8e053639b24bb31a3159a75736b9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029060"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258140"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabb start: registrera ett program med Microsoft Identity Platform
 
@@ -25,7 +25,7 @@ I den här snabb starten registrerar du en app i Azure Portal så att Microsoft 
 
 Varje program som du vill att Microsoft Identity Platform ska utföra för att utföra identitets-och åtkomst hantering (IAM) måste registreras. Oavsett om det är ett klient program, t. ex. en webb-eller mobilapp, eller om det är ett webb-API som säkerhetskopierar en klient app, upprättar en förtroende relation mellan ditt program och identitets leverantören, Microsoft Identity Platform.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration – [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Slut för ande av [snabb start: Konfigurera en klient](quickstart-create-new-tenant.md)
@@ -43,7 +43,7 @@ Följ de här stegen för att skapa appens registrering:
 1. Ange ett **namn** för ditt program. Användare av appen kan se det här namnet och du kan ändra det senare.
 1. Ange vem som kan använda programmet, ibland kallat *inloggnings mål gruppen*.
 
-    | Kontotyper som stöds | Beskrivning |
+    | Kontotyper som stöds | Description |
     |-------------------------|-------------|
     | **Endast konton i den här organisationskatalogen** | Välj det här alternativet om du vill skapa ett program för användning endast av användare (eller gäster) i *din* klient organisation.<br><br>Detta är ett program med en **enda klient organisation** i Microsoft Identity Platform, som ofta kallas LOB-program ( *line-of-Business* ). |
     | **Konton i valfri organisationskatalog** | Välj det här alternativet om du vill att användare i *en* Azure AD-klient ska kunna använda ditt program. Det här alternativet är lämpligt om du till exempel skapar ett SaaS-program (program vara som en tjänst) som du vill ge till flera organisationer.<br><br>Detta kallas för ett program **med flera klienter** i Microsoft Identity Platform. |

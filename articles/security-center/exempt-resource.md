@@ -3,16 +3,16 @@ title: Undanta en resurs från Azure Security Center säkerhets rekommendationer
 description: Lär dig hur du undantar en resurs från säkerhets rekommendationer och säkra Poäng
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b4d043812800bec1070624382755aeb355ea595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301541"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Undanta en resurs från rekommendationer och säkra Poäng
 
@@ -62,7 +62,7 @@ Resursen visas som ej tillämplig och orsaken visas som "undantagen" med den jus
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Ändra ett undantag":::
 
-    Orsaken till varje undantag ingår i tabellen. 
+    Orsaken till varje undantag ingår i tabellen (1).
 
     Om du vill ändra eller ta bort ett undantag väljer du ellips-menyn ("...") som visas (2).
 

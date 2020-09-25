@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301209"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Så här integrerar du RabbitMQ med Azure Service Bus
 
@@ -112,7 +112,7 @@ I hanterings gränssnittet för RabbitMQ kan vi gå till `Queues` , välja `azur
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publicera första meddelandet":::
 
-Gå tillbaka till Azure och kontrol lera din kö. Klicka på `Service Bus Explorer` i den vänstra panelen. Om alla går bra kan du se din kö nu har ett meddelande. Yay, bevarar!
+Gå tillbaka till Azure och kontrol lera din kö. Klicka på `Service Bus Explorer` i den vänstra panelen och klicka sedan på knappen _Granska_ . Om alla går bra kan du se din kö nu har ett meddelande. Yay, bevarar!
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Azure Service Bus kö":::
 
@@ -136,3 +136,8 @@ Grattis! Du har uppnått ett parti! Du har hanterat för att hämta dina meddela
 Genom att följa föregående steg, integrerade delar av organisationen som var utanför Azure. Shovel-plugin-programmet har gett dig möjlighet att leverera meddelanden från RabbitMQ till Azure Service Bus. Detta har enorma fördelar eftersom du nu kan låta betrodda tredje parter ansluta sina appar till Azure-distributionen.
 
 I slutet är meddelande tjänsten om aktivering av anslutningar och med den här tekniken öppnade vi bara en ny.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om [Azure Service Bus](./service-bus-messaging-overview.md)
+- Läs mer om [stöd för AMQP 1,0 i Service Bus](./service-bus-amqp-overview.md)

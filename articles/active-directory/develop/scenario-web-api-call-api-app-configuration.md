@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e9faea3462ae953e474b5053b651808b03f07c23
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c1c882694f6ae3d8a3b217ed5e7e3d6050189135
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855458"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257203"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Ett webb-API som anropar webb-API: er kod konfiguration
 
@@ -27,9 +27,18 @@ Den kod som du använder för att konfigurera ditt webb-API så att det anropar 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
+## <a name="microsoftidentityweb"></a>Microsoft. Identity. Web
+
+Microsoft rekommenderar att du använder [Microsoft. Identity. Web NuGet-](https://www.nuget.org/packages/Microsoft.Identity.Web) paketet när du utvecklar ett ASP.net Core skyddat API som anropar underordnade webb-API: er. Se det [skyddade webb-API: kod konfiguration | Microsoft. Identity. Web](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) för en snabb presentation av biblioteket i kontexten för ett webb-API.
+
 ## <a name="client-secrets-or-client-certificates"></a>Klient hemligheter eller klient certifikat
 
-Eftersom ditt webb-API nu anropar ett underordnat webb-API måste du ange en klient hemlighet eller ett klient certifikat i *appsettings.js* filen.
+Eftersom ditt webb-API nu anropar ett underordnat webb-API måste du ange en klient hemlighet eller ett klient certifikat i *appsettings.js* filen. Du kan också lägga till ett avsnitt som anger:
+
+- URL: en för det underordnade webb-API: et
+- De omfattningar som krävs för att anropa API: et
+
+I följande exempel `GraphBeta` anger avsnittet de här inställningarna.
 
 ```JSON
 {
@@ -37,12 +46,16 @@ Eftersom ditt webb-API nu anropar ett underordnat webb-API måste du ange en kli
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
    "ClientCertificates": [
   ]
- }
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
@@ -54,7 +67,7 @@ I stället för en klient hemlighet kan du ange ett klient certifikat. Följande
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientCertificates": [
       {
@@ -62,8 +75,12 @@ I stället för en klient hemlighet kan du ange ett klient certifikat. Följande
         "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
         "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
       }
-  ]
- }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
 }
 ```
 
@@ -71,28 +88,88 @@ Microsoft. Identity. Web tillhandahåller flera olika sätt att beskriva certifi
 
 ## <a name="startupcs"></a>Startup.cs
 
-Med hjälp av Microsoft. identitet. Web, om du vill att ditt webb-API ska anropa underordnade webb-API: er, lägger du till `.EnableTokenAcquisitionToCallDownstreamApi()` raden efter `.AddMicrosoftIdentityWebApi(Configuration)` och väljer sedan en implementation av tokenbaserad cache, till exempel `.AddInMemoryTokenCaches()` i *startup.cs*:
+Ditt webb-API måste hämta en token för det underordnade API: et. Du anger det genom att lägga till `.EnableTokenAcquisitionToCallDownstreamApi()` raden efter `.AddMicrosoftIdentityWebApi(Configuration)` . Den här raden visar `ITokenAcquisition` tjänsten som du kan använda i åtgärder för styrenhet/sidor. Men som du ser i de följande två punkterna kan du göra ännu enklare. Du måste också välja en implementation av tokenbaserad cache, till exempel `.AddInMemoryTokenCaches()` i *startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
 
 public class Startup
 {
-  ...
+  // ...
   public void ConfigureServices(IServiceCollection services)
   {
-   // ...
-    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
-                .EnableTokenAcquisitionToCallDownstreamApi()
-                .AddInMemoryTokenCaches();
   // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+            .EnableTokenAcquisitionToCallDownstreamApi()
+            .AddInMemoryTokenCaches();
+   // ...
   }
   // ...
 }
 ```
 
-Precis som med Web Apps kan du välja olika implementationer för cachelagring av token. Mer information finns i [Microsoft Identity Web wiki-cachelagring för token](https://aka.ms/ms-id-web/token-cache-serialization) i GitHub.
+Om du inte vill hämta token själv ger *Microsoft. Identity. Web* två mekanismer för att anropa ett underordnat webb-API från ett annat API. Vilket alternativ du väljer beror på om du vill anropa Microsoft Graph eller något annat API.
+
+### <a name="option-1-call-microsoft-graph"></a>Alternativ 1: anropa Microsoft Graph
+
+Om du vill anropa Microsoft Graph kan du direkt använda `GraphServiceClient` (som exponeras av Microsoft Graph SDK) i dina API-åtgärder med hjälp av Microsoft. Identity. Web. För att exponera Microsoft Graph:
+
+1. Lägg till [Microsoft. Identity. Web. MicrosoftGraph NuGet-](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) paketet i projektet.
+1. Lägg till `.AddMicrosoftGraph()` efter `.EnableTokenAcquisitionToCallDownstreamApi()` i *startup.cs* -filen. `.AddMicrosoftGraph()` har flera åsidosättningar. Med den åsidosättning som tar ett konfigurations avsnitt som en parameter blir koden:
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  // ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+  // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+            .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
+   // ...
+  }
+  // ...
+}
+```
+
+### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>Alternativ 2: anropa ett underordnat webb-API förutom Microsoft Graph
+
+För att anropa ett underordnat API förutom Microsoft Graph tillhandahåller *Microsoft. Identity. Web* `.AddDownstreamWebApi()` , som begär token och anropar det underordnade webb-API: et.
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  // ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+  // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+            .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
+   // ...
+  }
+  // ...
+}
+```
+
+Precis som med Web Apps kan du välja olika implementationer för cachelagring av token. Mer information finns i [Microsoft Identity Web-token cache-serialisering](https://aka.ms/ms-id-web/token-cache-serialization) på GitHub.
+
+Följande bild visar de olika möjligheterna för *Microsoft. Identity. Web* och deras inverkan på *startup.cs* -filen:
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="När du skapar ett webb-API kan du välja att anropa ett underordnat API och token cache-implementeringar.":::
+
+> [!NOTE]
+> För att fullständigt förstå kod exemplen måste du vara bekant med [ASP.net Core fundament ALS](/aspnet/core/fundamentals), särskilt med [beroende inmatning](/aspnet/core/fundamentals/dependency-injection) och [alternativ](/aspnet/core/fundamentals/configuration/options).
 
 # <a name="java"></a>[Java](#tab/java)
 

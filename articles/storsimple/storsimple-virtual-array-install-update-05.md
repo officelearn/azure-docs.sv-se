@@ -1,6 +1,6 @@
 ---
 title: Installera Uppdatering 0,5 på StorSimple virtuell matris | Microsoft Docs
-description: Beskriver hur du använder StorSimple-webbgränssnittet för virtuella matriser för att tillämpa uppdateringar med hjälp av metoden Azure Portal och snabb korrigeringar
+description: Beskriver hur du använder StorSimple-webbgränssnittet för virtuella matriser för att tillämpa uppdatering 0,5 med hjälp av metoden Azure Portal och snabb korrigering.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 9b95593dd7ce7e10300ecef9b3636073a3096a7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa5524525aa76279cdcceaf0f5fd2a74753786ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513662"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300607"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installera Uppdatering 0,5 på din virtuella StorSimple-matris
 
@@ -34,7 +34,7 @@ Innan du installerar en uppdatering rekommenderar vi att du tar volymerna eller 
 >
 > - Om du kör uppdatering 0,2 eller senare, rekommenderar vi att du installerar uppdateringarna via Azure Portal. Om du kör uppdatering 0,1 eller GA-program versioner måste du använda snabb korrigerings metoden via det lokala webb gränssnittet för att installera uppdatering 0,5.
 >
-> - Kom ihåg att om du installerar en uppdatering eller snabb korrigering startas enheten om. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp.
+> - Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
@@ -94,7 +94,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Använd**.
+2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Applicera**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update2m.png)
 

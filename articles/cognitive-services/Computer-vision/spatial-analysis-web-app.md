@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 440f901f06e431c371b7445f4a04499c475c9aa1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5ffa5398143bff4e24d81a28a541e16c44700c99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254031"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Så här distribuerar du en användare som räknar webb program
 
@@ -182,7 +182,7 @@ När du har angett ovanstående parametrar klickar du på **Granska + skapa** oc
 Vänta tills installationen är klar och navigera till din resurs i Azure Portal. Gå till **konfigurations** avsnittet och Lägg till följande två **program inställningar**.
 
 * `EventHubConsumerGroup` – Namnet på konsument gruppen från Azure IoT Hub kan du skapa en ny konsument grupp i IoT Hub eller använda standard gruppen. 
-* `IotHubConnectionString` – Anslutnings strängen till Azure IoT Hub kan hämtas från avsnittet nycklar i Azure IoT Hub-resursens ![ konfigurations parametrar](./media/spatial-analysis/solution-app-config-page.png)
+* `IotHubConnectionString` – Anslutnings strängen till Azure-IoT Hub kan hämtas från avsnittet nycklar i Azure IoT Hub resurs ![ Konfigurera parametrar](./media/spatial-analysis/solution-app-config-page.png)
 
 När de här två inställningarna har lagts till klickar du på **Spara**. Klicka sedan på **autentisering/auktorisering** i den vänstra navigerings menyn och uppdatera den med önskad autentiseringsnivå. Vi rekommenderar Azure Active Director (Azure AD) Express. 
 

@@ -1,14 +1,16 @@
 ---
 title: Aktiva och inaktiva händelser – Personanpassare
 description: I den här artikeln beskrivs användningen av aktiva och inaktiva händelser i tjänsten personanpassa.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: a8f27542208965e2b820b9fc45cfcc5353a7f193
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d1044d02ceba1f3d0996b1fe1c8a9a44b31049b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253657"
 ---
 # <a name="active-and-inactive-events"></a>Aktiva och inaktiva händelser
 
@@ -37,7 +39,7 @@ Om programmet använder informationen från rang anropet senare i din affärs lo
 
 ## <a name="inactive-events"></a>Inaktiva händelser
 
-Om du vill inaktivera utbildning för en händelse anropar du `learningEnabled = False`rang med hjälp av.
+Om du vill inaktivera utbildning för en händelse anropar du rang med hjälp av `learningEnabled = False` .
 
 Vid inaktivitet aktive ras inlärningen implicit om du skickar en belöning för eventId eller anropar `activate` API: et för eventId.
 

@@ -3,28 +3,30 @@ title: Kluster konfiguration i Azure Kubernetes Services (AKS)
 description: Lär dig hur du konfigurerar ett kluster i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255306"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
 Som en del av att skapa ett AKS-kluster kan du behöva anpassa kluster konfigurationen så att den passar dina behov. I den här artikeln beskrivs några alternativ för att anpassa ditt AKS-kluster.
 
-## <a name="os-configuration-preview"></a>OS-konfiguration (för hands version)
+## <a name="os-configuration"></a>OS-konfiguration
 
-AKS stöder nu Ubuntu 18,04 som Node Opera ting system (OS) i för hands versionen. Under för hands versions perioden är både Ubuntu 16,04 och Ubuntu 18,04 tillgängliga.
+AKS stöder nu Ubuntu 18,04 som operativ system (OS) i allmän tillgänglighet för kluster i Kubernetes-versioner som är högre än 1.18.8. För versioner nedan 1.18. x är AKS Ubuntu 16,04 fortfarande standard avbildningen. Från Kubernetes v 1.18. x och senare är standard basen AKS Ubuntu 18,04.
 
 > [!IMPORTANT]
-> Resurspooler som skapats på Kubernetes v-1.18 eller högre standardvärden till en obligatorisk `AKS Ubuntu 18.04` Node-avbildning. Nodkonfigurationer på en Kubernetes-version som stöds är mindre än 1,18 ta emot `AKS Ubuntu 16.04` som Node-avbildningen, men kommer att uppdateras till `AKS Ubuntu 18.04` en gång som Kubernetes-versionen för Node-poolen uppdateras till v 1.18 eller senare.
+> Resurspooler som skapats på Kubernetes v-1.18 eller större standardvärden till `AKS Ubuntu 18.04` Node-avbildningen. Nodkonfigurationer på en Kubernetes-version som stöds är mindre än 1,18 ta emot `AKS Ubuntu 16.04` som Node-avbildningen, men kommer att uppdateras till `AKS Ubuntu 18.04` en gång som Kubernetes-versionen för Node-poolen uppdateras till v 1.18 eller senare.
 > 
 > Vi rekommenderar starkt att du testar dina arbets belastningar på AKS Ubuntu 18,04-nodkonfigurationer innan du använder kluster på 1,18 eller senare. Läs om hur du [testar Ubuntu 18,04-nodkonfigurationer](#use-aks-ubuntu-1804-existing-clusters-preview).
+
+I följande avsnitt förklaras hur du använder och testar AKS Ubuntu 18,04 på kluster som ännu inte använder en Kubernetes version 1.18. x eller högre, eller som skapades innan den här funktionen blev allmänt tillgänglig, med hjälp av för hands versionen av OS-konfigurationen.
 
 Du måste ha följande resurser installerade:
 
@@ -44,13 +46,13 @@ Registrera `UseCustomizedUbuntuPreview` funktionen:
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) kommando:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -122,14 +124,14 @@ az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.Cont
 
 ```
 
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) kommando:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -179,7 +181,7 @@ Azure stöder [virtuella datorer i generation 2 (Gen2)](../virtual-machines/wind
 Virtuella datorer i generation 2 använder den nya UEFI-baserade start arkitekturen i stället för den BIOS-baserade arkitekturen som används av virtuella datorer i generation 1.
 Endast vissa SKU: er och storlekar har stöd för virtuella Gen2-datorer. Kontrol lera [listan över storlekar som stöds](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)för att se om din SKU stöder eller kräver Gen2.
 
-Alla VM-avbildningar stöder inte heller Gen2, på AKS Gen2-VM: ar kommer att använda den nya [AKS Ubuntu 18,04-avbildningen](#os-configuration-preview). Den här avbildningen stöder alla Gen2 SKU: er och storlekar.
+Alla VM-avbildningar stöder inte heller Gen2, på AKS Gen2-VM: ar kommer att använda den nya [AKS Ubuntu 18,04-avbildningen](#os-configuration). Den här avbildningen stöder alla Gen2 SKU: er och storlekar.
 
 Om du vill använda Gen2-datorer under för hands versionen behöver du:
 - `aks-preview`CLI-tillägget installerat.
@@ -191,13 +193,13 @@ Registrera `Gen2VMPreview` funktionen:
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
 
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
 ```
 
-När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) kommando:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -248,17 +250,19 @@ Registrera `EnableEphemeralOSDiskPreview` funktionen:
 az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
 ```
 
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
 ```
 
-När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) kommando:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
+
+Det tillfälliga operativ systemet kräver minst versions 0.4.63 av CLI-tillägget AKS-Preview.
 
 För att installera AKS-Preview CLI-tillägget använder du följande Azure CLI-kommandon:
 
@@ -274,25 +278,25 @@ az extension update --name aks-preview
 
 ### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Använd tillfälliga operativ system på nya kluster (förhands granskning)
 
-Konfigurera klustret så att det använder tillfälliga OS-diskar när klustret skapas. Använd `--aks-custom-headers` flaggan för att ange ett tillfälligt operativ system som OS-disktyp för det nya klustret.
+Konfigurera klustret så att det använder tillfälliga OS-diskar när klustret skapas. Använd `--node-osdisk-type` flaggan för att ange ett tillfälligt operativ system som OS-disktyp för det nya klustret.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Om du vill skapa ett vanligt kluster med nätverks anslutna OS-diskar kan du göra det genom att utesluta den anpassade `--aks-custom-headers` taggen. Du kan också välja att lägga till fler tillfälliga OS-nodkonfigurationer enligt nedan.
+Om du vill skapa ett vanligt kluster med nätverks anslutna OS-diskar kan du göra det genom att utesluta den anpassade `--node-osdisk-type` taggen eller ange `--node-osdisk-type=Managed` . Du kan också välja att lägga till fler tillfälliga OS-nodkonfigurationer enligt nedan.
 
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Använd tillfälliga operativ system på befintliga kluster (förhands granskning)
-Konfigurera en ny Node-pool så att den använder tillfälliga OS-diskar. Använd `--aks-custom-headers` flaggan för att ange som OS-disktyp som typ av operativ system disk för den noden.
+Konfigurera en ny Node-pool så att den använder tillfälliga OS-diskar. Använd `--node-osdisk-type` flaggan för att ange som OS-disktyp som typ av operativ system disk för den noden.
 
 ```azurecli
-az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
 > Med ett tillfälligt operativ system kan du distribuera VM-och instans avbildningar upp till storleken på VM-cachen. I AKS-fallet använder standardnodens operativ system disk konfiguration 100GiB, vilket innebär att du behöver en VM-storlek som har ett cacheminne som är större än 100 GiB. Standard Standard_DS2_v2 har cache-storleken 86 GiB, vilket inte är tillräckligt stort. Standard_DS3_v2 har cache-storleken 172 GiB, vilket är tillräckligt stort. Du kan också minska standard storleken på OS-disken med hjälp av `--node-osdisk-size` . Den minsta storleken för AKS-avbildningar är 30GiB. 
 
-Om du vill skapa resurspooler med nätverksanslutna OS-diskar kan du göra det genom att utesluta den anpassade `--aks-custom-headers` taggen.
+Om du vill skapa resurspooler med nätverksanslutna OS-diskar kan du göra det genom att utesluta den anpassade `--node-osdisk-type` taggen.
 
 ## <a name="custom-resource-group-name"></a>Namn på anpassad resurs grupp
 

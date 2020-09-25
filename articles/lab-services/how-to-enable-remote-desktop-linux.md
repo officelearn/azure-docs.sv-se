@@ -3,12 +3,12 @@ title: Aktivera grafiskt fjärr skrivbord för Linux i Azure Lab Services | Micr
 description: Lär dig hur du aktiverar fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445771"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251617"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Aktivera grafiskt fjärr skrivbord för virtuella Linux-datorer i Azure Lab Services
 Den här artikeln visar hur du utför följande uppgifter:
@@ -46,7 +46,7 @@ Det här steget behövs bara för att ansluta via RDP.  Om du i stället planera
 
 1.  Under labb skapandet har instruktören möjlighet att **aktivera anslutning till fjärrskrivbord**.  Instruktören måste **Aktivera** det här alternativet för att öppna porten på den virtuella Linux-datorn som behövs för en RDP-fjärrskrivbordssession.  Annars, om det här alternativet lämnas **inaktiverat**, öppnas bara porten för SSH.
   
-    ![Aktivera anslutning till fjärr skrivbord för en Linux-avbildning](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Skärm bild som visar fönstret "nytt labb" med alternativet "Aktivera Anslutning till fjärrskrivbord".](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. I rutan **aktivera anslutning till fjärrskrivbord** meddelande väljer du **Fortsätt med fjärr skrivbord**. 
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269768"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blockera anslutningar som skapats av anslutningar i Azure Logic Apps
 
@@ -121,15 +121,15 @@ Följ dessa steg om du vill blockera skapandet av en anslutning helt i en Logic 
 
 1. Under **princip definition**anger du informationen för princip definitionen, baserat på de egenskaper som beskrivs i exemplet:
 
-   ![Egenskaper för princip definition](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Skärm bild som visar egenskaperna för "princip definition".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Definitions plats** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
-   | **Namn** | Ja | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
-   | **Beskrivning** | Nej | <*princip-definition-namn*> | En beskrivning av princip definitionen |
-   | **Kategori** | Ja | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
-   | **Principframtvingande** | Ja | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
+   | **Definitions plats** | Yes | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
+   | **Namn** | Yes | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
+   | **Beskrivning** | No | <*princip-definition-namn*> | En beskrivning av princip definitionen |
+   | **Kategori** | Yes | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
+   | **Principframtvingande** | Yes | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
    ||||
 
 1. Under **princip regel**fylls JSON-redigerings rutan i förväg med en princip definitions mall. Ersätt den här mallen med din [princip definition](../governance/policy/concepts/definition-structure.md) baserat på de egenskaper som beskrivs i tabellen nedan och genom att följa den här syntaxen:
@@ -155,7 +155,7 @@ Följ dessa steg om du vill blockera skapandet av en anslutning helt i en Logic 
    | `mode` | `All` | Det läge som avgör de resurs typer som principen utvärderar. <p><p>Det här scenariot anges `mode` till `All` , som tillämpar principen på Azures resurs grupper, prenumerationer och alla resurs typer. <p><p>Mer information finns i [princip definition struktur-läge](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Villkoret som avgör när princip regeln ska genomdrivas <p><p>I det här scenariot `{condition-to-evaluate}` avgör om `api.id` värdet i `Microsoft.Web/connections/api.id` matchar på `*managedApis/{connector-name}` , vilket anger ett jokertecken (*). <p><p>Mer information finns i [princip definitions struktur – princip regel](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `field` | `Microsoft.Web/connections/api.id` | `field`Värdet som ska jämföras mot villkoret <p><p>I det här scenariot `field` använder [*aliaset alias*](../governance/policy/concepts/definition-structure.md#aliases), `Microsoft.Web/connections/api.id` för att komma åt värdet i egenskapen koppling `api.id` . |
-   | `like` | `*managedApis/{connector-name}` | Den logiska operator och det värde som ska användas för att jämföra `field` värdet <p><p>I det här scenariot ser `like` operatorn och jokertecknet (*) till att regeln fungerar oavsett region och strängen, `*managedApis/{connector-name}` är det värde som ska matchas där `{connector-name}` är ID: t för den koppling som du vill blockera. <p><p>Anta till exempel att du vill blockera skapande av anslutningar till plattformar eller databaser för sociala medier: <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>– SQL Server eller Azure SQL:`sql` <p><p>Du hittar dessa kopplings-ID: n i [hitta referens-ID för Connector](#connector-reference-ID) tidigare i det här avsnittet. |
+   | `like` | `*managedApis/{connector-name}` | Den logiska operator och det värde som ska användas för att jämföra `field` värdet <p><p>I det här scenariot ser `like` operatorn och jokertecknet (*) till att regeln fungerar oavsett region och strängen, `*managedApis/{connector-name}` är det värde som ska matchas där `{connector-name}` är ID: t för den koppling som du vill blockera. <p><p>Anta till exempel att du vill blockera skapande av anslutningar till plattformar eller databaser för sociala medier: <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>– SQL Server eller Azure SQL: `sql` <p><p>Du hittar dessa kopplings-ID: n i [hitta referens-ID för Connector](#connector-reference-ID) tidigare i det här avsnittet. |
    | `then` | `{effect-to-apply}` | Den påverkan som ska gälla när `if` villkoret uppfylls <p><p>I det här scenariot `{effect-to-apply}` är att blockera och neka en begäran eller åtgärd som inte följer principen. <p><p>Mer information finns i [princip definitions struktur – princip regel](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | `effect`Är att blockera begäran, som är att skapa den angivna anslutningen <p><p>Mer information finns i [förstå Azure policys effekter-neka](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -180,7 +180,7 @@ Följ dessa steg om du vill blockera skapandet av en anslutning helt i en Logic 
 
    Så här visas rutan **princip regel** :
 
-   ![Regel för princip definition](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Skärm bild som visar rutan "princip regel" med ett exempel på en princip regel.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    För flera kopplingar kan du lägga till fler villkor, till exempel:
 
@@ -246,11 +246,11 @@ När du skapar en anslutning i en Logic app, finns anslutningen som separat Azur
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Definitions plats** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
-   | **Namn** | Ja | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
-   | **Beskrivning** | Nej | <*princip-definition-namn*> | En beskrivning av princip definitionen |
-   | **Kategori** | Ja | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
-   | **Principframtvingande** | Ja | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
+   | **Definitions plats** | Yes | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
+   | **Namn** | Yes | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
+   | **Beskrivning** | No | <*princip-definition-namn*> | En beskrivning av princip definitionen |
+   | **Kategori** | Yes | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
+   | **Principframtvingande** | Yes | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
    ||||
 
 1. Under **princip regel**fylls JSON-redigerings rutan i förväg med en princip definitions mall. Ersätt den här mallen med din [princip definition](../governance/policy/concepts/definition-structure.md) baserat på de egenskaper som beskrivs i tabellen nedan och genom att följa den här syntaxen:
@@ -276,7 +276,7 @@ När du skapar en anslutning i en Logic app, finns anslutningen som separat Azur
    | `mode` | `All` | Det läge som avgör de resurs typer som principen utvärderar. <p><p>Det här scenariot anges `mode` till `All` , som tillämpar principen på Azures resurs grupper, prenumerationer och alla resurs typer. <p><p>Mer information finns i [princip definition struktur-läge](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Villkoret som avgör när princip regeln ska genomdrivas <p><p>I det här scenariot `{condition-to-evaluate}` avgör om strängen utdata från `[string(field('Microsoft.Logic/workflows/parameters'))]` , innehåller strängen, `{connector-name}` . <p><p>Mer information finns i [princip definitions struktur – princip regel](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `value` | `[string(field('Microsoft.Logic/workflows/parameters'))]` | Värdet som ska jämföras mot villkoret <p><p>I det här scenariot `value` är strängen utdata från `[string(field('Microsoft.Logic/workflows/parameters'))]` , som konverterar `$connectors` objektet i `Microsoft.Logic/workflows/parameters` objektet till en sträng. |
-   | `contains` | `{connector-name}` | Den logiska operatorn och det värde som ska användas för att jämföra med `value` egenskapen <p><p>I det här scenariot kontrollerar `contains` operatorn att regeln fungerar oavsett var den `{connector-name}` visas, där strängen, `{connector-name}` är ID: t för den koppling som du vill begränsa eller blockera. <p><p>Anta till exempel att du vill blockera användning av anslutningar till sociala medie plattformar eller databaser: <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>– SQL Server eller Azure SQL:`sql` <p><p>Du hittar dessa kopplings-ID: n i [hitta referens-ID för Connector](#connector-reference-ID) tidigare i det här avsnittet. |
+   | `contains` | `{connector-name}` | Den logiska operatorn och det värde som ska användas för att jämföra med `value` egenskapen <p><p>I det här scenariot kontrollerar `contains` operatorn att regeln fungerar oavsett var den `{connector-name}` visas, där strängen, `{connector-name}` är ID: t för den koppling som du vill begränsa eller blockera. <p><p>Anta till exempel att du vill blockera användning av anslutningar till sociala medie plattformar eller databaser: <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>– SQL Server eller Azure SQL: `sql` <p><p>Du hittar dessa kopplings-ID: n i [hitta referens-ID för Connector](#connector-reference-ID) tidigare i det här avsnittet. |
    | `then` | `{effect-to-apply}` | Den påverkan som ska gälla när `if` villkoret uppfylls <p><p>I det här scenariot `{effect-to-apply}` är att blockera och redundansväxla en begäran eller åtgärd som inte följer principen. <p><p>Mer information finns i [princip definitions struktur – princip regel](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | `effect`Är att `deny` eller blockera begäran om att spara en Logic app som använder den angivna anslutningen <p><p>Mer information finns i [förstå Azure policys effekter-neka](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -331,14 +331,14 @@ Därefter måste du tilldela den princip definition där du vill genomdriva prin
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Omfång** | Ja | De resurser där du vill genomdriva princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **omfång** . <br>2. Välj Azure-prenumerationen i listan **prenumeration** . <br>3. du kan också välja resurs gruppen från listan **resurs grupp** . <br>4. När du är klar väljer du **Välj**. |
-   | **Undantag** | Nej | Alla Azure-resurser som ska undantas från princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **undantag** . <br>2. Välj resurs > **Lägg till i det valda omfånget**i **resurs** listan. <br>3. När du är klar väljer du **Spara**. |
-   | **Principdefinition** | Ja | Namnet på den princip definition som du vill tilldela och tillämpa. Det här exemplet fortsätter med exempel Instagram-principen "blockera Instagram-anslutningar". <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **princip definition** . <br>2 **. Sök efter** och välj princip definitionen med hjälp av **typ** filtret eller sökrutan. <br>3. Välj **Välj**när du är klar. |
-   | **Namn på tilldelning** | Ja | Namnet som ska användas för princip tilldelningen, om det skiljer sig från princip definitionen |
-   | **Tilldelnings-ID** | Ja | Automatiskt genererat ID för princip tilldelningen |
-   | **Beskrivning** | Nej | En beskrivning av princip tilldelningen |
-   | **Principframtvingande** | Ja | Inställningen som aktiverar eller inaktiverar princip tilldelningen |
-   | **Tilldelad av** | Nej | Namnet på den person som skapade och tillämpade princip tilldelningen |
+   | **Omfång** | Yes | De resurser där du vill genomdriva princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **omfång** . <br>2. Välj Azure-prenumerationen i listan **prenumeration** . <br>3. du kan också välja resurs gruppen från listan **resurs grupp** . <br>4. När du är klar väljer du **Välj**. |
+   | **Undantag** | No | Alla Azure-resurser som ska undantas från princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **undantag** . <br>2. Välj resurs > **Lägg till i det valda omfånget**i **resurs** listan. <br>3. När du är klar väljer du **Spara**. |
+   | **Principdefinition** | Yes | Namnet på den princip definition som du vill tilldela och tillämpa. Det här exemplet fortsätter med exempel Instagram-principen "blockera Instagram-anslutningar". <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **princip definition** . <br>2 **. Sök efter** och välj princip definitionen med hjälp av **typ** filtret eller sökrutan. <br>3. Välj **Välj**när du är klar. |
+   | **Namn på tilldelning** | Yes | Namnet som ska användas för princip tilldelningen, om det skiljer sig från princip definitionen |
+   | **Tilldelnings-ID** | Yes | Automatiskt genererat ID för princip tilldelningen |
+   | **Beskrivning** | No | En beskrivning av princip tilldelningen |
+   | **Principframtvingande** | Yes | Inställningen som aktiverar eller inaktiverar princip tilldelningen |
+   | **Tilldelad av** | No | Namnet på den person som skapade och tillämpade princip tilldelningen |
    ||||
 
    Om du till exempel vill tilldela principen till en Azure-resurs grupp med hjälp av Instagram-exemplet:
@@ -363,7 +363,7 @@ Om du vill testa principen börjar du skapa en anslutning med hjälp av den nu b
 
 Meddelandet innehåller följande information:
 
-| Beskrivning | Innehåll |
+| Description | Innehåll |
 |-------------|---------|
 | Orsak till det här problemet | `"Resource 'instagram' was disallowed by policy."` |
 | Namn på tilldelning | `"Block Instagram connections"` |

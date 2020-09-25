@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256764"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -117,6 +117,9 @@ Enhets installerade appar, till exempel mobilappar och skrivbordsappar, behöver
 I det här flödet tar appen emot en auktoriseringskod från slut punkten för Microsoft Identity Platform när användaren loggar in. Auktoriseringskod representerar appens behörighet att anropa backend-tjänster åt den användare som är inloggad. Appen kan utbyta auktoriseringskod i bakgrunden för en OAuth 2,0-åtkomsttoken och en uppdateringstoken. Appen kan använda åtkomsttoken för att autentisera till webb-API: er i HTTP-begäranden och använda uppdateringstoken för att hämta nya åtkomsttoken när äldre åtkomsttoken upphör att gälla.
 
 ![Visar det inbyggda flödet för app-autentisering](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> Om programmet använder standard-webbvisningen, kontrol lera informationen om "bekräfta mina inloggnings funktioner" och felkoden AADSTS50199 i [Azure AD-autentisering och auktorisering fel koder](reference-aadsts-error-codes.md).
 
 ## <a name="daemons-and-server-side-apps"></a>Daemon och appar på Server Sidan
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 93c796fd16dde8c238265d16a96b9cfa4a254ea9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269734"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Hantera Azure-resurser och övervaka kostnader genom att skapa automatiserings uppgifter (för hands version)
 
@@ -30,6 +30,7 @@ Här är tillgängliga uppgiftsmallar i den här för hands versionen:
 | Alla Azure-resurser | **Skicka månatlig kostnad för resurs** |
 | Virtuella Azure-datorer | Dessutom: <p>- **Stäng av virtuell dator** <br>- **Starta virtuell dator** |
 | Azure Storage-konton | Dessutom: <p>- **Ta bort gamla blobbar** |
+| Azure Cosmos DB | Dessutom <p>- **Skicka frågeresultat via e-post** |
 |||
 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -40,11 +41,13 @@ Den här artikeln visar hur du utför följande uppgifter:
 
 * [Redigera uppgiften](#edit-task) så att du kan uppdatera uppgiften, eller anpassa aktivitetens underliggande arbets flöde i Logic Apps designer.
 
+<a name="differences"></a>
+
 ## <a name="how-do-automation-tasks-differ-from-azure-automation"></a>Hur skiljer sig automatiserings uppgifterna från Azure Automation?
 
-För närvarande kan du bara skapa en automatiserings uppgift på resurs nivå, visa aktivitetens körnings historik och redigera aktivitetens underliggande Logic app-arbetsflöde, som drivs av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) tjänsten.
+För närvarande kan du bara skapa en automatiserings uppgift på resurs nivå, visa aktivitetens körnings historik och redigera aktivitetens underliggande Logic app-arbetsflöde, som drivs av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) tjänsten. Automatiserings aktiviteter är mer grundläggande och lätta än [Azure Automation](../automation/automation-intro.md).
 
-[Azure Automation](../automation/automation-intro.md) är en molnbaserad automatiserings-och konfigurations tjänst som stöder konsekvent hantering i dina Azure-och icke-Azure-miljöer. Tjänsten omfattar [process automatisering för att dirigera processer](../automation/automation-intro.md#process-automation) med hjälp av [Runbooks](../automation/automation-runbook-execution.md), konfigurations hantering med [ändrings spårning och inventering](../automation/change-tracking.md), uppdaterings hantering, delade funktioner och heterogena funktioner. Automation ger dig fullständig kontroll under distribution, drift och inaktive ring av arbets belastningar och resurser.
+I jämförelse är Azure Automation en molnbaserad automatiserings-och konfigurations tjänst som stöder konsekvent hantering i dina Azure-och icke-Azure-miljöer. Tjänsten omfattar [process automatisering för att dirigera processer](../automation/automation-intro.md#process-automation) med hjälp av [Runbooks](../automation/automation-runbook-execution.md), konfigurations hantering med [ändrings spårning och inventering](../automation/change-tracking.md), uppdaterings hantering, delade funktioner och heterogena funktioner. Automation ger dig fullständig kontroll under distribution, drift och inaktive ring av arbets belastningar och resurser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

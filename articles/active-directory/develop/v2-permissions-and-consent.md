@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256610"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i slutpunkten för Microsoft Identity Platform
 
@@ -48,15 +48,15 @@ I OAuth 2,0 kallas dessa typer av behörigheter för *omfattningar*. De kallas o
 * Skriv till en användares kalender genom att använda `Calendars.ReadWrite`
 * Skicka e-post som en användare med hjälp av `Mail.Send`
 
-En app begär oftast dessa behörigheter genom att ange omfattningarna i begär anden till Microsoft Identity Platform permission-slutpunkten. Vissa behörigheter för hög behörighet kan dock endast beviljas genom administratörs medgivande och begärs/beviljas med hjälp av [Administratörs medgivande slut punkten](v2-permissions-and-consent.md#admin-restricted-permissions). Läs vidare om du vill veta mer.
+En app begär oftast dessa behörigheter genom att ange omfattningarna i begär anden till Microsoft Identity Platform permission-slutpunkten. Vissa behörigheter för hög behörighet kan dock endast beviljas genom administratörs medgivande och begärs/beviljas med hjälp av [Administratörs medgivande slut punkten](#admin-restricted-permissions). Läs vidare om du vill veta mer.
 
 ## <a name="permission-types"></a>Behörighets typer
 
 Microsoft Identity Platform stöder två typer av behörigheter: **delegerade behörigheter** och **program behörigheter**.
 
-* **Delegerade behörigheter** används av appar där en inloggad användare finns. För dessa appar skickas användaren eller administratören till de behörigheter som appen begär, och appen är delegerad behörighet att fungera som den inloggade användaren när den gör anrop till mål resursen. Vissa delegerade behörigheter kan skickas till av icke-administratörer, men vissa högre privilegier kräver [Administratörs medgivande](v2-permissions-and-consent.md#admin-restricted-permissions). Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegerade behörigheter** används av appar där en inloggad användare finns. För dessa appar skickas användaren eller administratören till de behörigheter som appen begär, och appen är delegerad behörighet att fungera som den inloggade användaren när den gör anrop till mål resursen. Vissa delegerade behörigheter kan skickas till av icke-administratörer, men vissa högre privilegier kräver [Administratörs medgivande](#admin-restricted-permissions). Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* **Program behörigheter** används av appar som körs utan att en inloggad användare finns. till exempel appar som körs som bakgrunds tjänster eller daemon.  Program behörigheter kan bara godkännas [av en administratör](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **Program behörigheter** används av appar som körs utan att en inloggad användare finns. till exempel appar som körs som bakgrunds tjänster eller daemon.  Program behörigheter kan bara godkännas [av en administratör](#requesting-consent-for-an-entire-tenant).
 
 _Gällande behörigheter_ är de behörigheter som appen kommer att ha när de gör förfrågningar till mål resursen. Det är viktigt att förstå skillnaden mellan de delegerade och program behörigheter som din app beviljas och dess gällande behörigheter när du gör anrop till mål resursen.
 
@@ -302,6 +302,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 Detta skapar en godkännande skärm för alla registrerade behörigheter (om det är tillämpligt baserat på ovanstående beskrivningar av medgivande och `/.default` ), returnerar en id_token i stället för en åtkomsttoken.  Det här beteendet finns för vissa äldre klienter som flyttas från ADAL till MSAL och **ska inte** användas av nya klienter som är riktade till Microsoft Identity Platform-slutpunkten.
 
+### <a name="client-credentials-grant-flow-and-default"></a>Tilldelnings flöde och/.default för klientautentiseringsuppgifter
+
+En annan användning av `./default` är när du begär program behörigheter (eller *roller*) i ett icke-interaktivt program som en daemon-app som använder den begär ande typen av [klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) för att anropa ett webb-API.
+
+Information om hur du skapar program behörigheter (roller) för ett webb-API finns i [så här gör du: Lägg till app-roller i ditt program](howto-add-app-roles-in-azure-ad-apps.md).
+
+Begär Anden om klientautentiseringsuppgifter i klient programmet **måste** innehålla `scope={resource}/.default` , där `{resource}` är webb-API: et som din app avser att anropa. Det finns **inte** stöd för att utfärda en begäran om klientautentiseringsuppgifter med enskilda program behörigheter (roller). Alla program behörigheter (roller) som har beviljats för webb-API: et kommer att ingå i den returnerade åtkomsttoken.
+
+Om du vill bevilja åtkomst till de program behörigheter som du definierar, inklusive beviljande av administratörs medgivande för programmet, se [snabb start: Konfigurera ett klient program för att få åtkomst till ett webb-API](quickstart-configure-app-access-web-apis.md).
+
 ### <a name="trailing-slash-and-default"></a>Avslutande snedstreck och/.default
 
 Vissa resurs-URI: er har ett avslutande snedstreck ( `https://contoso.com/` till skillnad från `https://contoso.com` ), vilket kan orsaka problem med verifieringen av token.  Detta kan ske främst när du begär en token för Azure Resource Management ( `https://management.azure.com/` ), som har ett avslutande snedstreck i resurs-URI: n och som kräver att den finns när token begärs.  När du begär en token för `https://management.azure.com/` och använder `/.default` måste du därför begära `https://management.azure.com//.default` det dubbla snedstrecket!
@@ -311,3 +321,8 @@ I allmänhet – om du har verifierat att token har utfärdats och token avvisas
 ## <a name="troubleshooting-permissions-and-consent"></a>Felsöka behörigheter och medgivande
 
 Om du eller ditt programs användare ser oväntade fel under medgivande processen, se den här artikeln för fel söknings steg: [oväntat fel vid godkännande av ett program](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+* [ID-token | Microsoft Identity Platform](id-tokens.md)
+* [Åtkomsttoken | Microsoft Identity Platform](access-tokens.md)

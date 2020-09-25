@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395442"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252637"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
@@ -42,8 +42,8 @@ När ett mått har valts tillämpas standard agg regeringen. Du kan också anvä
 |GlobalReachBitsOutPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global Reach|
 |AdminState|Fysisk anslutning|Länk|ExpressRoute Direct|
 |LineProtocol|Fysisk anslutning|Länk|ExpressRoute Direct|
-|RxLightLevel|Fysisk anslutning|<ui><li>Länk</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Fysisk anslutning|<ui><li>Länk</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|RxLightLevel|Fysisk anslutning|<ui><li>Operationsföljdslänkkod</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Fysisk anslutning|<ui><li>Operationsföljdslänkkod</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >Användning av *GlobalGlobalReachBitsInPerSecond* och *GlobalGlobalReachBitsOutPerSecond* visas bara om minst en global Reach anslutning har upprättats.
 >
@@ -154,6 +154,19 @@ Du kan visa paket per sekund som passerar gatewayen.
 I **aviserings villkoren**kan du välja **aktivitets logg** för signal typen och välja signalen.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="aktivitets loggar":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Ytterligare mått i Log Analytics
+
+Du kan också Visa ExpressRoute-mått genom att gå till ExpressRoute-krets-resursen och välja fliken *loggar* . För alla mät värden som du frågar innehåller utdata de kolumner som visas nedan.
+
+|**Kolumn**|**Typ**|**Beskrivning**|
+| --- | --- | --- |
+|TimeGrain|sträng|PT1M (metriska värden skickas varje minut)|
+|Antal|real|Vanligt vis lika med 2 (varje MSEE: N pushar ett enda mått värde varje minut)|
+|Minimum|real|Det minsta värdet av de två mät värdena som pushas av de två msee|
+|Maximal|real|Högsta för de två metriska värdena som pushas av de två msee|
+|Medel|real|Lika med (minst + max)/2|
+|Totalt|real|Summan av de två mått värdena från båda msee (det huvudsakliga värdet som ska fokuseras på för det mått som har frågats)|
   
 ## <a name="next-steps"></a>Nästa steg
 

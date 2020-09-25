@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253199"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -60,7 +60,7 @@ Det påverkar inte prestandan hos dina transaktions arbets belastningar på grun
 
 ### <a name="auto-sync"></a>Automatisk synkronisering
 
-Automatisk synkronisering syftar på den fullständigt hanterade funktionen i Azure Cosmos DB där infogningar, uppdateringar och borttagningar av drifts data automatiskt synkroniseras från transaktions lagring till analytisk lagring i nära real tid inom 5 minuter.
+Automatisk synkronisering syftar på den fullständigt hanterade funktionen i Azure Cosmos DB där infogningar, uppdateringar och borttagningar av drifts data automatiskt synkroniseras från transaktions lagring till analytisk lagring i nära real tid. Svars tiden för automatisk synkronisering är vanligt vis inom 2 minuter. I händelse av en delad data flödes databas med ett stort antal behållare kan svars tiden för automatisk synkronisering av enskilda behållare vara högre och ta upp till 5 minuter. Vi vill veta mer om hur svars tiden passar dina scenarier. För det kan du kontakta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com).
 
 Funktionen för automatisk synkronisering tillsammans med analytiskt lager ger följande viktiga fördelar:
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-Egenskapen lövnod `streetName` i det kapslade objektet visas `address` i analys lagrings schema som en kolumn `address.object.streetName.int32` . Data typen läggs till som suffix till kolumnen. På så sätt, om ett annat dokument läggs till i transaktions lagret där värdet för egenskapen lövnod `streetNo` är "123" (Observera att det är en sträng), utvecklas schemat för analys lagret automatiskt utan att ändra typen av en tidigare skriven kolumn. En ny kolumn som läggs till i analys arkivet, så som `address.object.streetName.string` värdet "123" lagras.
+Egenskapen lövnod `streetNo` i det kapslade objektet visas `address` i analys lagrings schema som en kolumn `address.object.streetNo.int32` . Data typen läggs till som suffix till kolumnen. På så sätt, om ett annat dokument läggs till i transaktions lagret där värdet för egenskapen lövnod `streetNo` är "123" (Observera att det är en sträng), utvecklas schemat för analys lagret automatiskt utan att ändra typen av en tidigare skriven kolumn. En ny kolumn som läggs till i analys arkivet, så som `address.object.streetNo.string` värdet "123" lagras.
 
 **Data typen för mappning av suffix**
 

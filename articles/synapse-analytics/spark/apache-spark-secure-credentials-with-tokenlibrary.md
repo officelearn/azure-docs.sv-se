@@ -9,15 +9,19 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 21b571c859ec8ecc66c1c9a222e0648dc7f28f4f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422352"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249424"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Skydda dina autentiseringsuppgifter genom länkade tjänster med TokenLibrary
-Att komma åt data från externa källor är ett vanligt mönster. Om inte den externa data källan tillåter anonym åtkomst måste du skydda anslutningen med en autentiseringsuppgift, hemlig eller anslutnings sträng.  Azure Synapse Analytics tillhandahåller länkade tjänster för att förenkla integrerings processen genom att lagra anslutnings informationen i en länkad tjänst eller Azure Key Vault. När du har skapat en länkad tjänst kan Apache Spark referera till den länkade tjänsten för att tillämpa anslutnings informationen i din kod. Mer information finns i [länkade tjänster](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Att komma åt data från externa källor är ett vanligt mönster. Om inte den externa data källan tillåter anonym åtkomst måste du skydda anslutningen med en autentiseringsuppgift, hemlig eller anslutnings sträng.  
+
+Azure Synapse Analytics tillhandahåller länkade tjänster för att förenkla integrerings processen genom att lagra anslutnings informationen i en länkad tjänst eller Azure Key Vault. När du har skapat en länkad tjänst kan Apache Spark referera till den länkade tjänsten för att tillämpa anslutnings informationen i din kod. 
+
+Mer information finns i [länkade tjänster](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 > [!NOTE]
 > Att komma åt filer från Azure Data Lake Storage i din arbets yta använder AAD-genomströmning för autentisering. därför behöver du inte använda TokenLibrary. 
 
@@ -26,7 +30,7 @@ Att komma åt data från externa källor är ett vanligt mönster. Om inte den e
 * Länkad tjänst – du måste skapa en länkad tjänst till den externa data källan och referera till den länkade tjänsten från token-biblioteket. Läs mer om [länkade tjänster](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
-## <a name="connecting-to-adls-gen2-outside-of-synapse-workspace"></a>Ansluta till ADLS Gen2 utanför Synapse-arbetsytan
+## <a name="connect-to-adls-gen2-outside-of-synapse-workspace"></a>Anslut till ADLS Gen2 utanför Synapse-arbetsytan
 
 Synapse tillhandahåller en integrerad länkad tjänst upplevelse för Azure Data Lake Storage Gen2.
 
@@ -52,7 +56,7 @@ df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTO
 
 df.show()
 ```
-## <a name="using-the-token-library"></a>Använda token-biblioteket
+## <a name="use-the-token-library"></a>Använda token-biblioteket
 
 Om du vill ansluta till andra länkade tjänster kan du göra ett direkt anrop till TokenLibrary.
 

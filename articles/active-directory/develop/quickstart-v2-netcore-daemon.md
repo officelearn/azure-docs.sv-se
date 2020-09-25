@@ -1,7 +1,7 @@
 ---
-title: Hämta token & anropa Microsoft Graph med konsol program identitet | Azure
+title: 'Snabb start: Hämta token & anropa Microsoft Graph i en konsol app | Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du hämtar en token och anropar en skyddad Microsoft Graph-API med den från en .NET Core-app
+description: I den här snabb starten får du lära dig hur ett .NET Core-exempelprogram kan använda flödet för klientautentiseringsuppgifter för att hämta en token och anropa Microsoft Graph.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e33b912ab65a3565e42c294388949a5c55b4ee8a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257834"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet
 
@@ -170,12 +170,7 @@ MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Ide
 
  Du kan installera MSAL.NET genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 
-```powershell
-Install-Package Microsoft.Identity.Client
-```
-
-Om du inte använder Visual Studio kan du köra följande kommando för att lägga till MSAL i projektet:
-
+```powershell twhitney
 ```console
 dotnet add package Microsoft.Identity.Client
 ```
@@ -198,13 +193,13 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Där: | Beskrivning |
+> | Där: | Description |
 > |---------|---------|
 > | `config.ClientSecret` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `config.ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
 > | `config.Authority`    | (Valfritt) STS-slutpunkten för autentisering av användaren. Vanligtvis `https://login.microsoftonline.com/{tenant}` för offentligt moln, där {klient} är namnet på klientorganisationen eller klient-ID:t.|
 
-Mer information finns i [referensdokumentationen för `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+Mer information finns i [referensdokumentationen för `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication)
 
 ### <a name="requesting-tokens"></a>Begära token
 
@@ -215,32 +210,17 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Där:| Beskrivning |
+> |Där:| Description |
 > |---------|---------|
 > | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API: er `{Application ID URI}` definieras under **exponera ett API** -avsnitt i Azure-portalens program registrering (för hands version). |
 
-Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
+Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om daemon-program finns på sidan om scenario landning
+Mer information om daemon-program finns i Scenario översikt:
 
 > [!div class="nextstepaction"]
 > [Daemon-program som anropar webb-API: er](scenario-daemon-overview.md)
-
-Själv studie kurs om program för daemon finns i:
-
-> [!div class="nextstepaction"]
-> [Självstudie för daemon .NET Core-konsol](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
-
-Lär dig mer om behörigheter och medgivande:
-
-> [!div class="nextstepaction"]
-> [Behörigheter och tillstånd](v2-permissions-and-consent.md)
-
-Mer information om autentiseringsflödet för det här scenariot finns i Oauth 2.0-flödet för klientautentiseringsuppgifter:
-
-> [!div class="nextstepaction"]
-> [Oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)

@@ -3,12 +3,12 @@ title: Vidarebefordra hybrid anslutning som en händelse hanterare för Azure Ev
 description: Beskriver hur du kan använda Azure Relay hybrid anslutningar som händelse hanterare för Azure Event Grid händelser.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 38233a2e103600f07837ce9a1ad8d63fe7e4fb99
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3807e2d125d652b8f5ed7c9dec1b972d69f699f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270210"
 ---
 # <a name="relay-hybrid-connection-as-an-event-handler-for-azure-event-grid-events"></a>Vidarebefordra hybrid anslutning som en händelse hanterare för Azure Event Grid händelser
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser och **Azure Relay** är en av dem. 
@@ -18,7 +18,7 @@ Använd Azure **Relay-hybridanslutningar** för att skicka händelser till progr
 ## <a name="tutorials"></a>Självstudier
 I följande självstudie finns ett exempel på hur du använder en Azure Relay hybrid anslutning som händelse hanterare. 
 
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Självstudie: skicka händelser till hybrid anslutning](custom-event-to-hybrid-connection.md) | Skickar en anpassad händelse till en befintlig hybrid anslutning för bearbetning av ett lyssnar program. |
 
@@ -40,6 +40,9 @@ I följande självstudie finns ett exempel på hur du använder en Azure Relay h
     }
 }
 ```
+
+> [!NOTE]
+> Det finns inte stöd för att leverera händelser till en Azure Relay hybrid anslutning i **en annan klient** . 
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över händelse hanterare som stöds finns i artikeln [händelse hanterare](event-handlers.md) . 

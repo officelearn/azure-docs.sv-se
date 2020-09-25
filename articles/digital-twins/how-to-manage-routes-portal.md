@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987315"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252841"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (portal)
 
@@ -27,7 +27,7 @@ Du kan också hantera slut punkter och vägar med [EventRoutes-API: er](how-to-u
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Du behöver ett **Azure-konto** (du kan ställa in ett kostnads fritt [här](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* Du behöver en **Azure Digitals-instans** i din Azure-prenumeration. Om du inte redan har en instans kan du skapa en med hjälp av anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md). Ha följande värden från installations programmet som är praktiskt att använda senare i den här artikeln:
+* Du behöver en **Azure Digitals-instans** i din Azure-prenumeration. Om du inte redan har en instans kan du skapa en med hjälp av anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Ha följande värden från installations programmet som är praktiskt att använda senare i den här artikeln:
     - Instansnamn
     - Resursgrupp
 
@@ -58,7 +58,7 @@ När du har skapat ämnet kan du länka det till Azure Digitals-sidor från sida
 
 Från menyn instans väljer du _slut punkter_. Välj sedan *+ skapa en slut punkt*från sidan *slut punkter* som följer. 
 
-På sidan *skapa en slut punkt* som öppnas, kan du skapa en slut punkt av typen _Event Grid_ genom att välja motsvarande alternativ knapp. Slutför den andra informationen: Ange ett namn för din slut punkt i fältet _namn_ , välj din _prenumeration_ i list rutan och välj det _Event Grid avsnittet_ som skapats i den tredje List rutan.
+På sidan *skapa en slut punkt* som öppnas, kan du skapa en slut punkt av typen _Event Grid_ genom att välja motsvarande alternativ knapp. Slutför den andra informationen: Ange ett namn för din slut punkt i fältet _namn_ , välj din _prenumeration_ i list rutan och välj det  _Event Grid avsnittet_ som skapats i den tredje List rutan.
 
 Skapa sedan slut punkten genom att trycka på _Spara_.
 
@@ -133,8 +133,8 @@ En händelse flödes definition innehåller följande element:
 * Det väg namn som du vill använda
 * Namnet på den slut punkt som du vill använda
 * Ett filter som definierar vilka händelser som skickas till slut punkten
-    - Om du vill inaktivera vägen så att inga händelser skickas, använder du ett filter värde för`false`
-    - Om du vill aktivera en väg som inte har någon speciell filtrering använder du ett filter värde för`true`
+    - Om du vill inaktivera vägen så att inga händelser skickas, använder du ett filter värde för `false`
+    - Om du vill aktivera en väg som inte har någon speciell filtrering använder du ett filter värde för `true`
     - Mer information om någon annan typ av filter finns i avsnittet [*Filtrera händelser*](#filter-events) nedan.
 
 En enda väg kan tillåta att flera meddelanden och händelse typer väljs.

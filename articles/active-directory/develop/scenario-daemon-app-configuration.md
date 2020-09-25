@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad5c2ad76f9ab98a6ad284a0bb50f3a611dc9a00
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257681"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
@@ -26,7 +26,7 @@ Lär dig hur du konfigurerar koden för daemon-programmet som anropar webb-API: 
 
 Dessa Microsoft-bibliotek stöder daemon-appar:
 
-  MSAL-bibliotek | Beskrivning
+  MSAL-bibliotek | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework-och .NET Core-plattformarna stöds för att skapa daemon-program. (UWP, Xamarin. iOS och Xamarin. Android stöds inte eftersom dessa plattformar används för att bygga offentliga klient program.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Stöd för daemon-program i python.
@@ -51,16 +51,13 @@ I MSAL-bibliotek skickas klientens autentiseringsuppgifter (hemlighet eller cert
 
 Konfigurations filen definierar:
 
-- Utfärdaren eller moln instansen och klient-ID: t.
+- Moln instansen och klient-ID: t tillsammans utgör *utfärdaren*.
 - Det klient-ID som du fick från program registreringen.
 - Antingen en klient hemlighet eller ett certifikat.
 
-> [!NOTE]
-> .Net-kodfragmenten i resten av artikel referensen [config](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) från exemplet [Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings.jspå](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) från daemon-exemplet för [.net Core Console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+Här är ett exempel på hur du definierar konfigurationen i en [*appsettings.jsi*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) filen. Det här exemplet hämtas från kod exemplet för [.net Core Console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) på GitHub.
 
 ```json
 {
@@ -124,9 +121,9 @@ Referera till MSAL-paketet i program koden.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Lägg till [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet-paketet i ditt program.
+Lägg till [Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet-paketet i programmet och Lägg sedan till ett `using` direktiv i din kod för att referera till det.
+
 I MSAL.NET representeras det konfidentiella klient programmet av `IConfidentialClientApplication` gränssnittet.
-Använd namn området MSAL.NET i käll koden.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+`Authority`Är en sammanfogning av moln instansen och klient-ID: t, till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com` eller `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd` . I *appsettings.jspå* filen som visas i avsnittet [konfigurations fil](#configuration-file) representeras de av respektive `Instance` `Tenant` värden.
+
+I kod exemplet togs föregående kodfragment från, `Authority` är en egenskap i  [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) -klassen och definieras som sådant:
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)

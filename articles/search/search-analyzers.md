@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9db8a50e670e3c6af7adce0a8efcf3ce569ac89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1206d9e4d6eec7b2bf029310360f563849d61d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268308"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analys verktyg för text bearbetning i Azure Kognitiv sökning
 
@@ -147,7 +147,7 @@ Genom det här exemplet:
 * I det här fallet är den anpassade analysen "my_analyzer", som i sin tur använder en anpassad standard-tokenizer "my_standard_tokenizer" och två token-filter: gement och anpassat asciifolding filter "my_asciifolding".
 * Den definierar också två anpassade tecken filter "map_dash" och "remove_whitespace". Den första ersätter alla streck med under streck medan den andra tar bort alla blank steg. Blank stegen måste vara UTF-8-kodade i mappnings reglerna. Char-filtren tillämpas före tokenisering och kommer att påverka de resulterande token (standard tokenizer pauser på streck och blank steg, men inte på under streck).
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -206,7 +206,7 @@ Genom det här exemplet:
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -216,7 +216,7 @@ Standard Analyzer är standard. Anta att du vill ersätta standardvärdet med en
 
 Elementet "Analyzer" åsidosätter standard analys baserat på fält-för-fält. Det finns ingen global åsidosättning. I det här exemplet `text1` använder Pattern Analyzer och `text2` , som inte anger någon analys, standardvärdet.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -239,7 +239,7 @@ Elementet "Analyzer" åsidosätter standard analys baserat på fält-för-fält.
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -248,7 +248,7 @@ Elementet "Analyzer" åsidosätter standard analys baserat på fält-för-fält.
 API: erna inkluderar ytterligare index-attribut för att ange olika analyser för indexering och sökning. Attributen **searchAnalyzer** och **indexAnalyzer** måste anges som ett par, vilket ersätter attributet Single **Analyzer** .
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -267,7 +267,7 @@ API: erna inkluderar ytterligare index-attribut för att ange olika analyser fö
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -275,7 +275,7 @@ API: erna inkluderar ytterligare index-attribut för att ange olika analyser fö
 
 Fält som innehåller strängar på olika språk kan använda en språk analys, medan andra fält behåller standardvärdet (eller använder någon annan fördefinierad eller anpassad analys). Om du använder en språk analys måste det användas för både indexerings-och Sök åtgärder. Fält som använder en språk analys kan inte ha olika analys verktyg för indexering och sökning.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -300,7 +300,7 @@ Fält som innehåller strängar på olika språk kan använda en språk analys, 
         }
      ],
   }
-~~~~
+```
 
 ## <a name="c-examples"></a>C#-exempel
 

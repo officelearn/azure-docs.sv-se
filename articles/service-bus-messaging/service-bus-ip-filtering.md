@@ -3,12 +3,12 @@ title: Konfigurera IP brand Väggs regler för Azure Service Bus
 description: Hur du använder brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 699ece2e78ff0605ff4076b09c023d14e289b1f7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ba6b1902213af8d968b220a387e419e56e8aa67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064646"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300963"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Tillåt åtkomst till Azure Service Bus namnrymd från vissa IP-adresser eller intervall
 Som standard är Service Bus-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -51,7 +51,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandv�
     
     Om du väljer alternativet **alla nätverk** accepterar Service Bus namn området anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
-    ![Brand vägg – alternativet alla nätverk är valt](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+    ![Skärm bild av sidan Azure Portal nätverk. Alternativet för att tillåta åtkomst från alla nätverk väljs på fliken brand väggar och virtuella nätverk.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 1. Om du bara vill tillåta åtkomst från angiven IP-adress väljer du alternativet **valda nätverk** om det inte redan är valt. I avsnittet **brand vägg** följer du dessa steg:
     1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
     2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
@@ -60,7 +60,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandv�
         > [!WARNING]
         > Om du väljer alternativet **valda nätverk** och inte anger en IP-adress eller ett adress intervall tillåter tjänsten trafik från alla nätverk. 
 
-        ![Brand vägg – alternativet alla nätverk är valt](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        ![Skärm bild av sidan Azure Portal nätverk. Alternativet att tillåta åtkomst från valda nätverk är markerat och brand Väggs avsnittet är markerat.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas på Portal meddelandena.
 
     > [!NOTE]
@@ -84,7 +84,7 @@ Mallparametrar:
 > ```json
 > "defaultAction": "Allow"
 > ```
-> till
+> på
 > ```json
 > "defaultAction": "Deny"
 > ```

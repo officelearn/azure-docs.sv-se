@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978615"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269717"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Vanliga frågor och svar om Azure API för FHIR
 
@@ -65,6 +65,23 @@ Den aktuella gränsen för antal är 100.
 
 För grupp export exporterar vi bara inkluderade referenser från gruppen, inte alla egenskaperna för [grupp resursen](https://www.hl7.org/fhir/group.html).
 
+### <a name="can-i-post-a-bundle-to-the-azure-api-for-fhir"></a>Kan jag publicera ett paket till Azure-API: et för FHIR?
+
+Vi stöder för närvarande publicering av [batch-paket](https://www.hl7.org/fhir/valueset-bundle-type.html) , men stöder inte bokning av transaktions paket i Azure-API: et för FHIR. Du kan använda FHIR-servern med öppen källkod som backas upp av SQL för att publicera transaktions paket.
+
+### <a name="how-can-i-get-all-resources-for-a-single-patient-in-the-azure-api-for-fhir"></a>Hur kan jag hämta alla resurser för en enda patient i Azure-API: et för FHIR?
+
+Vi stöder [Utrymmes sökning](https://www.hl7.org/fhir/compartmentdefinition.html) i Azure API för FHIR. På så sätt kan du hämta alla resurser som är relaterade till en speciell patient. Observera att det nu finns alla resurser som är relaterade till patienten, men inte själva patienten, så du behöver även söka för att få patienten om du behöver patient resursen i resultatet.
+
+Några exempel på detta är nedan:
+
+* Hämta patient/<id>/*
+* Hämta patient- <id> /observation
+* Hämta patient- <id> /observation? Code = 8302-2
+
+### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Var kan jag se några exempel på hur man använder Azure API för FHIR i ett arbets flöde?
+
+Vi har en samling referens arkitekturer som är tillgängliga på [sidan för hälso arkitekturs GitHub](https://github.com/microsoft/health-architectures).
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector för FHIR (för hands version)
 

@@ -1,6 +1,6 @@
 ---
 title: Vad är registrerade Azure AD-enheter?
-description: Lär dig hur enhets identitets hantering kan hjälpa dig att hantera enheter som har åtkomst till resurser i din miljö.
+description: Lär dig hur Azure AD-registrerade enheter ger användarna stöd för BYOD (ta med din egen enhet) eller mobila enhets scenarier.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256446"
 ---
 # <a name="azure-ad-registered-devices"></a>Azure AD-registrerade enheter
 
 Målet med registrerade Azure AD-enheter är att ge användarna stöd för scenarierna ta med din egen enhet (BYOD) eller mobila enheter. I dessa scenarier kan en användare komma åt din organisations Azure Active Directory kontrollerade resurser med en personlig enhet.
 
-| Azure AD har registrerats | Beskrivning |
+| Azure AD har registrerats | Description |
 | --- | --- |
 | **Definition** | Registrerad på Azure AD utan att organisationens konto krävs för att logga in på enheten |
 | **Primär mål grupp** | Gäller för alla användare med följande kriterier: |
@@ -34,7 +34,7 @@ Målet med registrerade Azure AD-enheter är att ge användarna stöd för scena
 |   | iOS/Android – Företagsportal-eller Microsoft Authenticator-app |
 |   | MacOS – Företagsportal |
 | **Alternativ för enhets inloggning** | Lokala autentiseringsuppgifter för slutanvändare |
-|   | lösenordsinställning |
+|   | Lösenord |
 |   | Windows Hello |
 |   | PIN-KOD |
 |   | Biometrik eller mönster för andra enheter |
@@ -61,5 +61,5 @@ En annan användare vill ha åtkomst till organisationens e-post på sin personl
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera enhets identiteter med hjälp av Azure Portal](device-management-azure-portal.md)
+- [Hantera enhetsidentiteter med hjälp av Azure-portalen](device-management-azure-portal.md)
 - [Hantera inaktuella enheter i Azure AD](manage-stale-devices.md)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937189"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301376"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Skydda dina Kubernetes-arbetsbelastningar
 
@@ -95,11 +95,15 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
     1. Välj **Spara**.
 
 
-1. Om du vill genomdriva någon av rekommendationerna ställer du in **neka** på Security Center fliken säkerhets princip **parametrar** :
+1. För att genomdriva någon av rekommendationerna 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Neka alternativ för Azure Policy parameter":::
+    1. Öppna sidan rekommendations information och välj **neka**:
 
-    Detta kommer att neka all icke-kompatibel begäran till dina AKS-kluster
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Neka alternativ för Azure Policy parameter":::
+
+        Då öppnas fönstret där du anger omfånget. 
+
+    1. När du har angett omfånget väljer du **ändra till neka**.
 
 1. Så här ser du vilka rekommendationer som gäller för dina kluster:
 

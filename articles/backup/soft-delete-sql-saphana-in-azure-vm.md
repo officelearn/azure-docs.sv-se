@@ -3,59 +3,18 @@ title: Mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbet
 description: Lär dig hur mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbetsbelastningar gör säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254303"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbetsbelastningar
 
 Azure Backup tillhandahåller nu mjuk borttagning för SQL Server i virtuella Azure-datorer och SAP HANA i Azure VM-arbetsbelastningar. Detta är utöver det tidigare stödda [scenariot för mjuk borttagning av virtuella Azure-datorer](soft-delete-virtual-machines.md).
 
 [Mjuk borttagning](backup-azure-security-feature-cloud.md) är en säkerhetsfunktion som hjälper dig att skydda säkerhets kopierings data även efter borttagning. Med mjuk borttagning, även om en obehörig aktör tar bort säkerhets kopian av en databas (eller om säkerhets kopierings data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar. Detta gör det möjligt att återställa säkerhets kopierings objekt utan data förlust. Den ytterligare kvarhållning av 14 dagar av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden.
-
->[!NOTE]
->När för hands versionen har Aktiver ATS för en prenumeration är det inte möjligt att inaktivera mjuk borttagning enbart för SQL Server eller SAP HANA databaser samtidigt som den är aktive rad för virtuella datorer i samma valv. Du kan skapa separata valv för detaljerad kontroll.
-
-## <a name="steps-to-enroll-in-preview"></a>Steg för att registrera dig för för hands version
-
-1. Logga in på ditt Azure-konto.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Välj den prenumeration som du vill registrera i förhands granskningen:
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. Registrera den här prenumerationen i förhands gransknings programmet:
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. Vänta i 30 minuter tills prenumerationen har registrerats i förhands granskningen.
-
-5. Kontrol lera statusen genom att köra följande cmdlets:
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. När prenumerationen visas som registrerad kör du följande kommando:
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->När ett nytt valv/valv skapas under den aktiverade prenumerationen för mjuk borttagning måste följande kommando köras igen för att aktivera funktionen för de nyligen skapade valvena.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Mjuk borttagning för SQL Server i virtuell Azure-dator med Azure Portal
 

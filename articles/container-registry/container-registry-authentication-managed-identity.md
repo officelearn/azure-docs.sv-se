@@ -3,12 +3,12 @@ title: Autentisera med hanterad identitet
 description: Ge till gång till avbildningar i ditt privata behållar register med hjälp av en användar tilldelad eller systemtilldelad hanterad Azure-identitet.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e5fd8ead989838c0ba74b42a9766bc63936379fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a144f0e865cfc9bf857752eed65dbe5cda88bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253470"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Använd en Azure-hanterad identitet för att autentisera till ett Azure Container Registry 
 
@@ -89,7 +89,7 @@ Efter installationen kör du följande kommando för att kontrol lera att Docker
 sudo docker run -it hello-world
 ```
 
-Resultat:
+Utdata:
 
 ```
 Hello from Docker!
@@ -230,6 +230,8 @@ Du bör se ett `Login succeeded` meddelande. Du kan sedan köra `docker` kommand
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> Systemtilldelade hanterade tjänst identiteter kan användas för att interagera med ACR: er och App Service kan använda systemtilldelade hanterade tjänst identiteter. Men du kan inte kombinera dessa, eftersom App Service inte kan använda MSI för att kommunicera med en ACR. Det enda sättet är att aktivera admin på ACR och använda admin användar namn/lösen ord.
 
 ## <a name="next-steps"></a>Nästa steg
 

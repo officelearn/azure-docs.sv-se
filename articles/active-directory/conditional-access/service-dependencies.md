@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 09/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258616"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Vad är tjänst beroenden i Azure Active Directory villkorlig åtkomst? 
 
@@ -25,7 +25,7 @@ Med principer för villkorlig åtkomst kan du ange åtkomst krav för webbplatse
 När du ansluter till en webbplats eller tjänst direkt är effekten av en relaterad princip vanligt vis lätt att utvärdera. Om du till exempel har en princip som kräver Multi-Factor Authentication (MFA) för SharePoint Online har kon figurer ATS, tillämpas MFA för varje inloggning till SharePoint-webbportalen. Det är dock inte alltid rakt framåt för att bedöma effekten av en princip eftersom det finns molnappar med beroenden till andra molnappar. Microsoft Teams kan till exempel ge åtkomst till resurser i SharePoint Online. När du har åtkomst till Microsoft Teams i vårt nuvarande scenario, omfattas du också av SharePoint MFA-principen. 
 
 > [!TIP]
-> Med hjälp av [office 365-appen (för hands version)](concept-conditional-access-cloud-apps.md#office-365-preview) är alla Office-appar riktade till att undvika problem med tjänst beroenden i Office-stacken.
+> Att använda [office 365](concept-conditional-access-cloud-apps.md#office-365) -appen är riktad mot alla Office-appar för att undvika problem med tjänst beroenden i Office-stacken.
 
 ## <a name="policy-enforcement"></a>Policyframtvingande 
 
@@ -40,7 +40,7 @@ Diagrammet nedan illustrerar MS Teams tjänst beroenden. Fyllda pilar visar tidi
 
 Som bästa praxis bör du ställa in gemensamma principer för relaterade appar och tjänster närhelst det är möjligt. Med en konsekvent säkerhets position får du den bästa användar upplevelsen. Om du till exempel anger en gemensam princip för Exchange Online, SharePoint Online, Microsoft Teams och Skype för företag, minskas avsevärt oväntade frågor som kan uppstå från olika principer som tillämpas på underordnade tjänster. 
 
-Ett bra sätt att göra detta med program i Office-stacken är att använda [office 365 (för hands versionen)](concept-conditional-access-cloud-apps.md#office-365-preview) i stället för att rikta in enskilda program.
+Ett bra sätt att göra detta med program i Office-stacken är att använda [Office 365-appen](concept-conditional-access-cloud-apps.md#office-365) i stället för att rikta in enskilda program.
 
 I tabellen nedan visas ytterligare tjänst beroenden där klient programmen måste uppfylla  
 

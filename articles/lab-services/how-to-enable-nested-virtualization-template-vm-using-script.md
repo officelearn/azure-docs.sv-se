@@ -1,14 +1,14 @@
 ---
 title: Aktivera kapslad virtualisering på en virtuell mall i Azure Lab Services (skript) | Microsoft Docs
-description: Lär dig hur du skapar en mall för virtuella datorer med flera virtuella datorer i.  Med andra ord aktiverar du kapslad virtualisering på en virtuell mall i Azure Lab Services.
+description: Lär dig hur du skapar en mall för virtuella datorer med flera virtuella datorer i med hjälp av ett skript.  Med andra ord aktiverar du kapslad virtualisering på en virtuell mall i Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a45257dffffc98c3f650c5b1753158edd9bfbede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251503"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Aktivera kapslad virtualisering på en virtuell mall i Azure Lab Services att använda ett skript
 
@@ -29,7 +29,7 @@ Stegen i den här artikeln fokuserar på att konfigurera kapslad virtualisering 
 
         ![Betrodda platser](./media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
 1. Hämta git-databasfilerna som beskrivs i följande steg.
-    1. Gå till [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
+    1. Gå till  [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
     1. Klicka på knappen **klona eller hämta** .
     1. Klicka på **Hämta zip**.
     1. Extrahera ZIP-filen

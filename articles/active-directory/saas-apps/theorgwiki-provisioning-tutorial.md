@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255922"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Självstudie: Konfigurera TheOrgWiki för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i TheOrgWiki och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till TheOrgWiki.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -55,23 +55,23 @@ Innan du konfigurerar TheOrgWiki för automatisk användar etablering med Azure 
 
 1. Logga in på din [TheOrgWiki-administratörs konsol](https://www.theorgwiki.com/login/). Klicka på **Administratörs konsolen**.
 
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/login.png)
+    ![Skärm bild av org wiki med användar avatar och administrations konsolen som heter ut.](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. I administratörs konsolen klickar du på **fliken Inställningar**. 
 
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![Skärm bild av administrations konsolen för org wiki med fliken Inställningar som kallas för.](media/theorgwiki-provisioning-tutorial/settings.png)
     
 3. Gå till **tjänst konton**.
 
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![Skärm bild av sidan tjänst konton i administrations konsolen för org wiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
 4. Klicka på **+ tjänst konto**. Välj **token-baserad**under **typ av tjänst konto**. Klicka på **Spara**.
 
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![Skärm bild av dialog rutan nytt tjänst konto med tjänst konto typ, token-baserade och sparade alternativ som har anropats.](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5.  Kopiera de **aktiva tokens**. Det här värdet anges i fältet Hemlig token på fliken etablering i ditt TheOrgWiki-program i Azure Portal.
      
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/token.png)
+    ![Skärm bild av dialog rutan hantera token för S C I/månads etablering.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>Lägg till TheOrgWiki från galleriet
 
@@ -95,15 +95,15 @@ Om du vill konfigurera TheOrgWiki för automatisk användar etablering med Azure
 
 5. Välj knappen **Registrera dig för TheOrgWiki** som kommer att omdirigera dig till inloggnings sidan för TheOrgWiki. 
 
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![Skärm bild av inloggnings sidan för org wiki med URL: en som kallas](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  I det övre högra hörnet väljer du **Logga in**.
 
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![Skärm bild av det övre högra hörnet på inloggnings sidan med alternativet Logga in som kallas för.](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. Som TheOrgWiki är en OpenIDConnect-app väljer du att logga in på OrgWiki med ditt Microsoft Work-konto.
 
-    ![TheOrgWiki Lägg till SCIM](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Skärm bild av sidan för org wiki-inloggning med alternativet Logga in med Microsoft som kallas för.](media/theorgwiki-provisioning-tutorial/image03.png)
     
 8. Efter en lyckad autentisering läggs programmet automatiskt till i din klient organisation och du omdirigeras till ditt TheOrgWiki-konto.
 
@@ -116,7 +116,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Konfigurera automatisk användar etablering för TheOrgWiki i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -124,13 +124,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![OrgWiki-länken i program listan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
 5. Under avsnittet **admin credentials** , inmatat `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` i **klient-URL**. 
 
@@ -145,7 +145,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 7. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-postmeddelande](common/provisioning-notification-email.png)
+    ![E-postavisering](common/provisioning-notification-email.png)
 
 8. Klicka på **Spara**.
 
@@ -157,19 +157,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![TheOrgWiki-användarattribut](media/theorgwiki-provisioning-tutorial/userattribute.png).
 
-11. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Om du vill aktivera Azure AD Provisioning-tjänsten för TheOrgWiki ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
 13. Definiera de användare och/eller grupper som du vill etablera till OrgWiki genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 14. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [hur lång tid det tar att etablera användare](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
@@ -178,7 +178,7 @@ Du kan använda avsnittet **aktuell status** för att övervaka förloppet och f
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

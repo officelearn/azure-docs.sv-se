@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-javascript
-ms.openlocfilehash: 149ed7aa281e50673c86c0bd7339f304aa63914a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
+ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552687"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257698"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OpenID Anslut till en Node.js webbapp
 
@@ -26,7 +26,7 @@ I den här snabb starten får du lära dig hur du konfigurerar OpenID Connect-au
 
 Om du vill köra det här exemplet behöver du:
 
-* Installera Node.js frånhttp://nodejs.org/
+* Installera Node.js från http://nodejs.org/
 
 * Antingen ett [Microsoft-konto](https://www.outlook.com) -eller [Microsoft 365 Developer-program](/office/developer-program/office-365-developer-program)
 
@@ -51,7 +51,7 @@ Om du vill köra det här exemplet behöver du:
 1. På sidan **Översikt** för appen letar du reda på **programmets (klient) ID-** värde och registrerar det för senare. Du behöver det här värdet för att konfigurera programmet senare i det här projektet.
 
 1. I listan över sidor för appen väljer du **Autentisering**.
-    - I avsnittet **omdirigerings-URI: er** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI:`http://localhost:3000/auth/openid/return`
+    - I avsnittet **omdirigerings-URI: er** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI: `http://localhost:3000/auth/openid/return`
     - I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:3000`.
     - I avsnittet **Avancerade inställningar > implicita bidrag** kontrollerar du **ID-token** som det här exemplet kräver att det [implicita tilldelnings flödet](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) är aktiverat för att logga in användaren.
 

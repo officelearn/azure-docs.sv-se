@@ -3,16 +3,16 @@ title: Använda Azure Defender för behållar register
 description: Läs om hur du använder Azure Defender för behållar register för att skanna bilder i dina register
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 18fa1b14bb20bbb2805eee2ec663d1316f787950
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 04a7b7f40e1591a919668e940a883dde9a6f4689
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941993"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302017"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Använd Azure Defender för behållar register för att söka igenom dina avbildningar efter sårbarheter
 

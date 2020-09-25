@@ -1,11 +1,11 @@
 - name: Azure
-  tocHref: /DocsLegal/
+  tocHref: /legal/
   topicHref: /azure/index
   items:
     - name: Visuellt innehåll
-      tocHref: /DocsLegal/computer-vision
+      tocHref: /legal/computer-vision
       topicHref: /azure/cognitive-services/Computer-vision/index
       items:
         - name: Rumslig analys för visuellt innehåll
-          tocHref: /DocsLegal/cognitive-services/computer-vision/
+          tocHref: /legal/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/Computer-vision/index

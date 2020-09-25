@@ -1,6 +1,6 @@
 ---
-title: Ändra Microsoft identifiera plattforms program konton | Azure
-description: Konfigurera en app registrerad på Microsoft Identity Platform för att ändra vilka, eller vilka konton, som har åtkomst till appen.
+title: 'Snabb start: ändra Microsoft identifiera plattforms program konton | Azure'
+description: I den här snabb starten konfigurerar du ett program som är registrerat med Microsoft Identity Platform för att ändra vem eller vilka konton som har åtkomst till programmet.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826867"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258021"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabb start: ändra de konton som stöds av ett program
 
@@ -27,11 +27,7 @@ I den här snabbstarten lär du hur du ändrar appens konfiguration för att än
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar kontrollerar du att följande krav är uppfyllda:
-
-* Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
-* Ha en klientorganisation som har appar som är registrerade till den.
-  * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
+* Slut för ande av [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md)
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
 
@@ -78,13 +74,5 @@ Som standard är implicit OAuth 2.0-beviljande inaktiverat för program. Du kan 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om dessa andra relaterade snabbstarter för apphantering:
-
-* [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
-* [Konfigurera ett klientprogram för att komma åt webb-API:er](quickstart-configure-app-access-web-apis.md)
-* [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
-* [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)
-
-Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).
-
-Mer information om de varumärkesriktlinjer som du bör använda när du utvecklar program med Azure Active Directory finns i [Varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md)

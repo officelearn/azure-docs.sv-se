@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166203"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258293"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initiera klient program med MSAL.NET
 I den här artikeln beskrivs hur du initierar offentlig klient och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).  Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
@@ -98,7 +98,7 @@ De modifierare som du kan ställa in på en offentlig klient eller en konfidenti
 
 |Modifieraren | Description|
 |--------- | --------- |
-|`.WithAuthority()`7 åsidosättningar | Ställer in program standard auktoritet till en Azure AD-auktoritet, med möjligheten att välja Azure-moln, mål grupp, klient organisation (klient-ID eller domän namn) eller tillhandahålla direkt auktoritets-URI: n.|
+|`.WithAuthority()` 7 åsidosättningar | Ställer in program standard auktoritet till en Azure AD-auktoritet, med möjligheten att välja Azure-moln, mål grupp, klient organisation (klient-ID eller domän namn) eller tillhandahålla direkt auktoritets-URI: n.|
 |`.WithAdfsAuthority(string)` | Anger att program standard utfärdaren ska vara en ADFS-auktoritet.|
 |`.WithB2CAuthority(string)` | Anger att programmets standard auktoritet ska vara en Azure AD B2C utfärdare.|
 |`.WithClientId(string)` | Åsidosätter klient-ID: t.|
@@ -137,7 +137,7 @@ Vi antar att ditt program är ett affärs program som endast gäller för din or
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzurePublic, tenantId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, tenantId)
         .Build();
 ```
 
@@ -146,7 +146,7 @@ Var den blir intressant är att programmering för nationella moln nu har fören
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 

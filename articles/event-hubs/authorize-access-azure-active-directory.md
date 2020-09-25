@@ -3,12 +3,12 @@ title: Ge åtkomst med Azure Active Directory
 description: Den här artikeln innehåller information om hur du auktoriserar åtkomst till Event Hubs resurser med Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d26838831964b66beea4ed1e3c6e9873cfce247e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270040"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory
 Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare eller ett huvud namn för en program tjänst. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -33,9 +33,13 @@ När en Azure-roll tilldelas till ett säkerhets objekt för Azure AD ger Azure 
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Inbyggda Azure-roller för Azure Event Hubs
 Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtkomst till Event Hubs data med hjälp av Azure AD och OAuth:
 
-- [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser.
-- [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Använd den här rollen för att ge åtkomst till Event Hubs resurser.
-- [Azure Event Hubs-datamottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Använd den här rollen för att ge den förbrukar/får åtkomst till Event Hubs resurser.
+| Roll | Beskrivning | 
+| ---- | ----------- | 
+[Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser. |
+| [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Använd den här rollen för att ge åtkomst till Event Hubs-resurser. |
+| [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Använd den här rollen för att ge den förbrukar/får åtkomst till Event Hubs resurser. |
+| Schema register läsare (för hands version) | Läs och Visa lista över schema register grupper och scheman. |
+| Schema register deltagare (för hands version) | Läsa, skriva och ta bort schema register grupper och scheman. |
 
 ## <a name="resource-scope"></a>Resursomfång 
 Innan du tilldelar en Azure-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.

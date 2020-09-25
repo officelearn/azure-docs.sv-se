@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb62d3b7ebe3ba6f4551602c7867575e74dca70
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258650"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -109,7 +109,7 @@ Organisationer måste utföra följande steg för att kräva att en registrerad 
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
    1. Välj **Klar**.
-1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 (för hands version)**.
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
    1. Ta med **Android** och **iOS**.

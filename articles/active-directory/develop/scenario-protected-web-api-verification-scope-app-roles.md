@@ -1,7 +1,7 @@
 ---
 title: Verifiera omfattningar och app-roller skyddad webb-API | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du skapar ett skyddat webb-API och konfigurerar programmets kod.
+description: 'Kontrol lera att API: t endast anropas av program för användare som har rätt omfattningar och av daemon-appar som har rätt program roller.'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3cf8bfd2810e9c26a6f65c50c1a22baeec892af
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 1e5c8b788f1abbfbd46c4dfe6c7bb9d87adcee86
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257274"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>Skyddat webb-API: kontrol lera omfattningar och app-roller
 

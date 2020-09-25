@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41dc4e97e847e9e7d9863631cdb20b72d3f35d9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269377"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Hantera din Integration Service Environment (ISE) i Azure Logic Apps
 
@@ -122,7 +122,7 @@ Premium ISE-bas enheten har fast kapacitet, så om du behöver mer data flöde k
    * [**Manuell skalning**](#manual-scale): skala baserat på antalet bearbetnings enheter som du vill använda.
    * [**Anpassad autoskalning**](#custom-autoscale): skala baserat på prestanda mått genom att välja bland olika kriterier och ange tröskelvärdena för att uppfylla villkoren.
 
-   ![Välj den skalnings typ som du vill använda](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   ![Skärm bild som visar sidan "skala ut" med "manuell skalning" vald.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 

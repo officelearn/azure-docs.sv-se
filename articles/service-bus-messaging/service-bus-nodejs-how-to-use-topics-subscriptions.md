@@ -6,13 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 08/09/2020
 ms.author: spelluru
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8a86a1bd9a312f3b1c6d94914d426422687b25a6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 219132fc8a0e618cdf2561947ae3904a9e2cb310
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300759"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node.js och Azure-SB-paketet
 I den här självstudien får du lära dig hur du skapar Node.js program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus prenumeration med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder Node.js [Azure-modulen](https://www.npmjs.com/package/azure) som använder `azure-sb` paketet internt.

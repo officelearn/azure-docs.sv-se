@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
-ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80289607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254813"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Så här skapar du aviseringar från Azure Monitor for VMs
 [Aviseringar i Azure Monitor](../platform/alerts-overview.md) proaktivt meddela dig om intressanta data och mönster i dina övervaknings data. Azure Monitor for VMs innehåller inte förkonfigurerade aviserings regler, men du kan skapa egna baserat på de data som samlas in. Den här artikeln innehåller vägledning om hur du skapar aviserings regler, inklusive en uppsättning exempel frågor.
@@ -22,8 +22,8 @@ Azure Monitor har [olika typer av varnings regler](../platform/alerts-overview.m
 
 Det finns två typer av logg aviseringar i Azure Monitor:
 
-- [Antal resultat varningar](../platform/alerts-unified-log.md#number-of-results-alert-rules) skapar en enskild avisering när en fråga returnerar minst ett angivet antal poster. Dessa är idealiska för icke-numeriska data, t. ex. Windows-och Syslog-händelser som samlas in av [Log Analytics-agenten](../platform/log-analytics-agent.md) eller för att analysera prestanda trender på flera datorer.
-- [Mått mätnings aviseringar](../platform/alerts-unified-log.md#metric-measurement-alert-rules) skapar en separat avisering för varje post i en fråga som har ett värde som överskrider ett tröskelvärde som definierats i aviserings regeln. Dessa varnings regler är idealiska för prestanda data som samlas in av Azure Monitor for VMs eftersom de kan skapa enskilda aviseringar för varje dator.
+- [Antal resultat varningar](../platform/alerts-unified-log.md#count-of-the-results-table-rows) skapar en enskild avisering när en fråga returnerar minst ett angivet antal poster. Dessa är idealiska för icke-numeriska data, t. ex. Windows-och Syslog-händelser som samlas in av [Log Analytics-agenten](../platform/log-analytics-agent.md) eller för att analysera prestanda trender på flera datorer.
+- [Mått mätnings aviseringar](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) skapar en separat avisering för varje post i en fråga som har ett värde som överskrider ett tröskelvärde som definierats i aviserings regeln. Dessa varnings regler är idealiska för prestanda data som samlas in av Azure Monitor for VMs eftersom de kan skapa enskilda aviseringar för varje dator.
 
 
 ## <a name="alert-rule-walkthrough"></a>Genom gång av varnings regel

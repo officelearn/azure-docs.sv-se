@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269054"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar
 
@@ -34,12 +34,14 @@ Mer information om Resource Manager-mallar finns i följande avsnitt:
 * [Metodtips för Azure Resource Manager-mall](../azure-resource-manager/templates/template-best-practices.md)
 * [Utveckla Azure Resource Manager-mallar för molnkonsekvens](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
+Information om mall resurs information som är unik för logi Kap par, integrations konton, integrations konto artefakter och integrerings tjänst miljöer finns i [resurs typer för Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+
 Exempel på exempel på Logic app-mallar finns i följande exempel:
 
 * [Fullständig mall](#full-example-template) som används för det här ämnets exempel
 * [Exempel på snabb starts Logic app Template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) i GitHub
 
-Information om mall resurs information som är unik för logi Kap par, integrations konton och integrations konto artefakter finns i [resurs typer för Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+För Logic Apps REST API börjar du med [Azure Logic Apps REST API översikt](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -280,7 +282,7 @@ Allmän information om mallens resurser och deras attribut finns i följande avs
 
 ### <a name="logic-app-resource-definition"></a>Resurs definition för Logic app
 
-Din Logi Kap par resurs definition börjar med `properties` objektet, som innehåller den här informationen:
+Din Logic Apps [resurs definition i en mall](/azure/templates/microsoft.logic/workflows) börjar med `properties` objektet som innehåller den här informationen:
 
 * Din Logic Apps tillstånd vid distribution
 * ID för alla integrations konton som används av din Logic app
@@ -328,13 +330,37 @@ Här följer de attribut som är speciella för din resurs definition för Logic
 | Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
 | `state` | Ja | Sträng | Din Logi Kap par status vid distribution där innebär att din Logi Kap par `Enabled` är Live och `Disabled` innebär att din Logic app är inaktiv. Om du till exempel inte är redo för din Logi Kap par, men vill distribuera ett utkast till en version, kan du använda `Disabled` alternativet. |
-| `integrationAccount` | Inga | Objekt | Om din Logic app använder ett integrations konto, som lagrar artefakter för Business-to-Business (B2B)-scenarier, inkluderar det här objektet `id` attributet, som anger ID: t för integrations kontot. |
-| `definition` | Ja | Objekt | Din Logic Apps-underliggande arbets flödes definition, som är samma objekt som visas i kodvyn och beskrivs fullständigt i avsnittet [schema referens för språk för arbets flödes definition](../logic-apps/logic-apps-workflow-definition-language.md) . I den här arbets flödes definitionen `parameters` deklarerar objektet parametrar för de värden som ska användas vid Logic app Runtime. Mer information finns i [arbets flödes definitioner och parametrar](#workflow-definition-parameters). <p><p>Om du vill visa attributen i din Logic Apps arbets flödes definition växlar du från "designvyn" till "kodvyn" i Azure Portal eller Visual Studio, eller genom att använda ett verktyg som [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | Inga | Objekt | [Parameter värden för arbets flödes definition](#workflow-definition-parameters) som ska användas vid Logic app Runtime. Parameter definitionerna för dessa värden visas i [arbets flödes definitionens](#workflow-definition-parameters)Parameters-objekt. Om din Logic app använder [hanterade anslutningar](../connectors/apis-list.md) för att komma åt andra tjänster och system, innehåller det här objektet dessutom ett `$connections` objekt som anger de anslutnings värden som ska användas vid körning. |
-| `accessControl` | Inga | Objekt | För att ange säkerhetsattribut för din Logi Kap par, till exempel att begränsa IP-åtkomsten till begär ande utlösare eller köra tidigare indata och utdata. Mer information finns i [säker åtkomst till Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
+| `integrationAccount` | No | Objekt | Om din Logic app använder ett integrations konto, som lagrar artefakter för Business-to-Business (B2B)-scenarier, inkluderar det här objektet `id` attributet, som anger ID: t för integrations kontot. |
+| `definition` | Yes | Objekt | Din Logic Apps-underliggande arbets flödes definition, som är samma objekt som visas i kodvyn och beskrivs fullständigt i avsnittet [schema referens för språk för arbets flödes definition](../logic-apps/logic-apps-workflow-definition-language.md) . I den här arbets flödes definitionen `parameters` deklarerar objektet parametrar för de värden som ska användas vid Logic app Runtime. Mer information finns i [arbets flödes definitioner och parametrar](#workflow-definition-parameters). <p><p>Om du vill visa attributen i din Logic Apps arbets flödes definition växlar du från "designvyn" till "kodvyn" i Azure Portal eller Visual Studio, eller genom att använda ett verktyg som [Azure Resource Explorer](https://resources.azure.com). |
+| `parameters` | No | Objekt | [Parameter värden för arbets flödes definition](#workflow-definition-parameters) som ska användas vid Logic app Runtime. Parameter definitionerna för dessa värden visas i [arbets flödes definitionens](#workflow-definition-parameters)Parameters-objekt. Om din Logic app använder [hanterade anslutningar](../connectors/apis-list.md) för att komma åt andra tjänster och system, innehåller det här objektet dessutom ett `$connections` objekt som anger de anslutnings värden som ska användas vid körning. |
+| `accessControl` | No | Objekt | För att ange säkerhetsattribut för din Logi Kap par, till exempel att begränsa IP-åtkomsten till begär ande utlösare eller köra tidigare indata och utdata. Mer information finns i [säker åtkomst till Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Information om mall resurs information som är unik för logi Kap par, integrations konton och integrations konto artefakter finns i [resurs typer för Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+Mer information om resurs definitioner för dessa Logic Apps-objekt finns i [Microsoft. Logic-resurs typer](/azure/templates/microsoft.logic/allversions):
+
+* [Resurs definition för arbets flöde](/azure/templates/microsoft.logic/workflows)
+* [Resurs definition för integrerings tjänst miljö](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Resurs definition för hanterad API för integrerings tjänst miljö](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Resurs definition för integrations konto](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Artefakter för integrations konto:
+
+  * [Avtals resurs definition](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Sammansättnings resurs definition](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Resurs definition för batch-konfiguration](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Certifikat resurs definition](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Mappa resurs definition](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Partner resurs definition](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Resurs definition för schema](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Resurs definition för session](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 

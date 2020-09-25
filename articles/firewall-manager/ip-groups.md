@@ -1,18 +1,18 @@
 ---
 title: IP-grupper i Azure brand Väggs princip
-description: Med IP-grupper kan du gruppera och hantera IP-adresser för Azure brand Väggs regler.
+description: Med IP-grupper kan du gruppera och hantera IP-adresser för Azure brand Väggs princip regler.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 5b3b3fb5e5440fea888654027f4fbf1a68b34141
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252433"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>IP-grupper i Azure brand Väggs princip
 

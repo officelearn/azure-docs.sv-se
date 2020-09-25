@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 82462af3f1fc939cb30730360f75303cb1be9432
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cf90065ad40ca46068700473ad71b598619764ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301473"
 ---
 # <a name="billing-questions"></a>Frågor om fakturering
 
@@ -27,7 +27,7 @@ Security Center erbjuds med och utan Azure Defender:
 
 - **Utan Azure Defender**ger Security Center insyn i säkerhets läget för dina Azure-resurser, grundläggande säkerhets principer, säkerhets rekommendationer och integrering med säkerhets produkter och-tjänster från partner.
 
-- **Azure Defender** lägger till hot skydds funktioner som innehåller säkerhets aviseringar, Hot information, beteende analys, avvikelse identifiering och hot rapporterings rapporter. Du kan starta en kostnads fri 30-dagars utvärderings version av Azure Defender. Om du vill uppgradera väljer du [pris nivå](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhets principen. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
+- **Azure Defender** lägger till hot skydds funktioner som innehåller säkerhets aviseringar, Hot information, beteende analys, avvikelse identifiering och hot rapporterings rapporter. Du kan starta en kostnads fri 30-dagars utvärderings version av Azure Defender. [Lär dig mer om att uppgradera](security-center-pricing.md).
 
 ## <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Hur kan jag spåra vem i organisationen aktiverade Azure Defender-ändringar i Azure Security Center
 Azure-prenumerationer kan ha flera administratörer som har behörighet att ändra pris inställningarna. Om du vill ta reda på vilken användare som utförde en ändring använder du Azure-aktivitets loggen. 

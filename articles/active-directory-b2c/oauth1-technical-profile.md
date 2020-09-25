@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259449"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth1 teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -70,11 +70,11 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_id | Ja | Program identifieraren för identitets leverantören. |
+| client_id | Yes | Program identifieraren för identitets leverantören. |
 | ProviderName | No | Namnet på identitets leverantören. |
-| request_token_endpoint | Ja | URL: en för token för begäran som enligt RFC 5849. |
-| authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 5849. |
-| access_token_endpoint | Ja | URL: en för token-slutpunkten enligt RFC 5849. |
+| request_token_endpoint | Yes | URL: en för token för begäran som enligt RFC 5849. |
+| authorization_endpoint | Yes | URL: en för Authorization-slutpunkten enligt RFC 5849. |
+| access_token_endpoint | Yes | URL: en för token-slutpunkten enligt RFC 5849. |
 | ClaimsEndpoint | No | URL till användar informations slut punkten. |
 | ClaimsResponseFormat | No | Format för anspråk svar.|
 
@@ -84,27 +84,12 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| client_secret | Ja | Klient hemligheten för Identity Provider-programmet.   |
+| client_secret | Yes | Klient hemligheten för Identity Provider-programmet.   |
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI
 
-När du konfigurerar omdirigerings-URL: en för din identitetsprovider anger du `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp` . Se till att ersätta **klient organisationen** med klient namnet (till exempel contosob2c.onmicrosoft.com) och **policyId** med identifieraren för principen (till exempel b2c_1a_policy). Omdirigerings-URI: n måste vara i gemener. Lägg till en omdirigerings-URL för alla principer som använder identitets leverantörs inloggningen.
-
-Om du använder **b2clogin.com** -domänen i stället för **login.microsoftonline.com** ska du se till att använda b2clogin.com i stället för login.microsoftonline.com.
+När du konfigurerar en omdirigerings-URI för din identitetsprovider anger du `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp` . Se till att ersätta `{tenant-name}` med klient organisationens namn (till exempel contosob2c) och `{policy-id}` med identifieraren för din princip (till exempel b2c_1a_policy). Omdirigerings-URI: n måste vara i gemener. Lägg till en omdirigerings-URL för alla principer som använder identitets leverantörs inloggningen.
 
 Exempel:
 
 - [Lägg till Twitter som en OAuth1 identitets leverantör genom att använda anpassade principer](identity-provider-twitter-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

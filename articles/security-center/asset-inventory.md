@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302051"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Utforska och hantera dina resurser med till gångs inventering och hanterings verktyg
 
@@ -54,7 +54,7 @@ Inventerings sidan innehåller följande verktyg:
 - **Sammanfattningar** – innan du definierar några filter visas en framträdande remsa med värden överst i vyn inventering:
 
     - **Totalt antal resurser**: det totala antalet resurser som är anslutna till Security Center.
-    - **Felaktiga resurser**: resurser med aktiva säkerhets rekommendationer. [Läs mer om säkerhets rekommendationer](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **Felaktiga resurser**: resurser med aktiva säkerhets rekommendationer. [Läs mer om säkerhets rekommendationer](security-center-recommendations.md).
     - **Oövervakade resurser**: resurser med agent övervaknings problem – de har Log Analytics agenten distribueras, men agenten skickar inte data eller har andra hälso problem.
 
 - **Filter** – flera filter överst på sidan ger ett sätt att snabbt förfina listan över resurser enligt den fråga som du försöker besvara. Om du till exempel vill svara på frågan *vilka av mina datorer med taggen "produktion" saknas Log Analytics agenten?* du kan kombinera **agent övervaknings** filtret med **tagg** filtret som du ser i följande klipp:

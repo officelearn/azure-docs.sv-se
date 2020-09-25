@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268731"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 
@@ -36,7 +36,7 @@ Erbjudanden som når **Azure IP Co-Sälj motiverade-** status ger följande ytte
 * Service avgiften för Marketplace minskas från 20 till 10%. Rabatten gäller för ditt IaaS-eller SaaS-erbjudande som säljs via den kommersiella marknads platsen. Mer information finns i [minskad service avgift](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) .
 * Leverantörer av moln lösnings leverantörer (CSP) får 10% incitament att sälja ditt IaaS-eller SaaS-erbjudande. Läs mer om CSP-programmet i [Cloud Solution Provider-programmet](cloud-solution-providers.md).
 * Försäljning av ditt erbjudande via handels Marketplace bidrar till kundernas Azure-förbruknings åtaganden. Berättigade kunder ser erbjudandet som har marker ATS som **"Azure-förmåns berättigande"** i Azure Portal. Mer information finns i avsnittet om [förmån för Azure konsumtions åtagande](azure-consumption-commitment-benefit.md) .
-* Ditt erbjudande får ett **"prioriterade lösningar"** -märke i butiker. Märket ger en bättre kvalitet, prestanda och möjlighet att hantera kundernas behov i ett visst bransch lodrätt eller lösnings utrymme. Lär dig mer [om önskade lösningar i Microsoft AppSource och Azure Marketplace](preferred-solutions.md).
+* Erbjudanden som ger **Azure IP Co-Sälj-motiverade** eller **Business Applications Co-försäljning motiverade** -status kommer att få märket **"prioriterade lösningar"** i butiker. Aktivitets ikonen främjar ett erbjudandes kvalitet, prestanda och möjlighet att adressera kund behov i ett visst bransch lodrätt eller lösnings utrymme. Lär dig mer [om önskade lösningar i Microsoft AppSource och Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Publicerings steg och krav för samtidig försäljning
 

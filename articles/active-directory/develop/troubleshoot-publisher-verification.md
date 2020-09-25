@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256899"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Felsöka verifiering av utgivare
 Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller om du får oväntade beteenden: 
@@ -75,7 +75,7 @@ Här följer några exempel på några användbara förfrågningar:
 
 ### <a name="set-verified-publisher"></a>Ange verifierad utgivare 
 
-Förfrågan
+Begäran
 
 ```
 POST /applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec/setVerifiedPublisher 
@@ -150,31 +150,45 @@ Följande är en lista med de möjliga fel koder som du kan få, antingen när d
 
 ### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
 
-Det MPN-ID som du angav ( <MPNID> ) finns inte eller så har du inte åtkomst till det. Ange ett giltigt MPN-ID och försök igen. 
+Det MPN-ID som du angav ( <MPNID> ) finns inte eller så har du inte åtkomst till det. Ange ett giltigt MPN-ID och försök igen.
+    
+Det som oftast orsakas av att den inloggade användaren inte är medlem i den korrekta rollen för MPN-kontot i Partner Center, se [krav](publisher-verification-overview.md#requirements) för en lista över giltiga roller och se [vanliga problem](#common-issues) för mer information. Kan också orsakas av klienten som appen är registrerad i och som inte läggs till i MPN-kontot eller ett ogiltigt MPN-ID.
 
 ### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
 
-Det MPN-ID som du angav ( <MPNID> ) är inte giltigt. Ange ett giltigt MPN-ID och försök igen. 
+Det MPN-ID som du angav ( <MPNID> ) är inte giltigt. Ange ett giltigt MPN-ID och försök igen.
+    
+Det vanligaste inträffar när ett MPN-ID anges som motsvarar ett partner plats konto (PLA). Endast partner globala konton stöds. Mer information finns i [konto strukturen för partner Center](/partner-center/account-structure) .
 
 ### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
 
-Det MPN-ID som du angav ( <MPNID> ) är inte giltigt. Ange ett giltigt MPN-ID och försök igen. 
+Det MPN-ID som du angav ( <MPNID> ) är inte giltigt. Ange ett giltigt MPN-ID och försök igen.
+    
+Det beror oftast på att fel MPN-ID har angetts.
 
 ### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
 
 MPN-ID ( <MPNID> ) som du angav har inte slutfört först konsumentsajter-processen. Slutför den här processen i Partner Center och försök igen. 
+    
+Vanligt vis orsakade av när MPN-kontot inte har slutfört [verifierings](/partner-center/verification-responses) processen.
 
 ### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
 
 Det MPN-ID som du angav ( <MPNID> ) är inte giltigt. Ange ett giltigt MPN-ID och försök igen. 
+   
+Det beror oftast på att fel MPN-ID har angetts.
 
 ### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
 
-Det MPN-ID som du angav ( <MPNID> ) är inte giltigt. Ange ett giltigt MPN-ID och försök igen. 
+Det MPN-ID som du angav ( <MPNID> ) är inte giltigt. Ange ett giltigt MPN-ID och försök igen.
+    
+Det beror oftast på att fel MPN-ID har angetts.
 
 ### <a name="applicationnotfound"></a>ApplicationNotFound  
 
-Det går inte att hitta mål programmet ( <AppId> ). Ange ett giltigt program-ID och försök igen. 
+Det går inte att hitta mål programmet ( <AppId> ). Ange ett giltigt program-ID och försök igen.
+    
+Vanligt vis orsakade att verifiering utförs via Graph API och ID: t för det angivna programmet är felaktigt. Obs!-ID: t för programmet måste anges, inte AppId/ClientId.
 
 ### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
 
@@ -188,13 +202,19 @@ Den här funktionen stöds inte i en verifierad e-postklient.
 
 Mål programmet ( \<AppId\> ) måste ha en utgivares domän uppsättning. Ange en utgivar domän och försök igen.
 
+Inträffar när en [publicerings domän](howto-configure-publisher-domain.md) inte har kon figurer ATS i appen.
+
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 
 Mål programmets utgivare domän ( <publisherDomain> ) matchar inte domänen som används för att utföra e-postverifiering i Partner Center ( <pcDomain> ). Se till att domänerna matchar och försök igen. 
+    
+Inträffar när varken appens [utgivare domän](howto-configure-publisher-domain.md) eller någon av de [anpassade domänerna](../fundamentals/add-custom-domain.md) som läggs till i Azure AD-klienten matchar den domän som används för att utföra e-postverifiering i Partner Center.
 
 ### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
 
 Du har inte behörighet att ange egenskapen verifierad utgivare för programmet ( <AppId> ) 
+  
+Det som vanligt vis orsakas av att den inloggade användaren inte är medlem i den rätta rollen för MPN-kontot i Azure AD, se [krav](publisher-verification-overview.md#requirements) för en lista över giltiga roller och se [vanliga problem](#common-issues) för mer information.
 
 ### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
 
@@ -202,7 +222,11 @@ MPN-ID: t angavs inte i begär ande texten eller så var innehålls typen för b
 
 ### <a name="msanotsupported"></a>MSANotSupported  
 
-Den här funktionen stöds inte för Microsoft-konsument konton. Endast program som är registrerade i Azure AD av en Azure AD-användare stöds. 
+Den här funktionen stöds inte för Microsoft-konsument konton. Endast program som är registrerade i Azure AD av en Azure AD-användare stöds.
+
+### <a name="interactionrequired"></a>InteractionRequired
+
+Inträffar när Multi-Factor Authentication inte har utförts innan du försöker lägga till en verifierad utgivare i appen. Se [vanliga problem](#common-issues) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -216,4 +240,4 @@ Om du har granskat all föregående information och fortfarande får ett fel fr�
 - TenantId där appen har registrerats
 - MPN-ID
 - REST-begäran görs 
-- Felkod och meddelande som returneras 
+- Felkod och meddelande som returneras

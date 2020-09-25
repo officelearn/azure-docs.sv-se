@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261880"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Använd funktioner på instrument panelen för ansluten fabriks lösnings Accelerator
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Genom att [distribuera en molnbaserad lösning för att hantera min snabb start för industriella IoT-enheter](quickstart-connected-factory-deploy.md) visade du hur du navigerar på instrument panelen och svarar på larm. I den här instruktions guiden visas några ytterligare instrument panels funktioner som du kan använda för att övervaka och hantera dina industriella IoT-enheter.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Tabell-API för Node.js
-description: Lär dig allt om Azure Cosmos DB Tabell-API, inklusive versions datum, indragnings datum och ändringar som gjorts mellan respektive version.
+description: Lär dig allt om Azure Cosmos DB Tabell-API för Node.js inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bcc0559e5b4d3fafe1f83a1850cdda2d9d1fdfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261795"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB Tabell-API för Node.js: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "84167986"
 |   |   |
 |---|---|
 |**SDK-hämtning**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API-dokumentation**|[Dokumentation omNode.js API-referens](https://azure.github.io/azure-storage-node/)|
+|**API-dokumentation**|[ Dokumentation omNode.js API-referens](https://azure.github.io/azure-storage-node/)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella S
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 november 2017 |--- |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

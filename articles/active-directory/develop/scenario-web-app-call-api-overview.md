@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058407"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257137"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenario: en webbapp som anropar webb-API: er
 
@@ -24,12 +24,7 @@ Lär dig hur du skapar en webbapp som loggar användare i Microsoft Identity Pla
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-Det här scenariot förutsätter att du redan har gått igenom följande scenario:
-
-> [!div class="nextstepaction"]
-> [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md)
+Det här scenariot förutsätter att du redan har slutfört [scenariot: webbapp som loggar in användare](scenario-web-app-sign-user-overview.md).
 
 ## <a name="overview"></a>Översikt
 
@@ -51,6 +46,10 @@ Utvecklingen av det här scenariot omfattar följande uppgifter:
 
 - Under [program registrering](scenario-web-app-call-api-app-registration.md)måste du ange en svars-URI, en hemlighet eller ett certifikat som ska delas med Azure AD. Om du distribuerar din app till flera platser ger du en svars-URI för varje plats.
 - [Program konfigurationen](scenario-web-app-call-api-app-configuration.md) måste ange de klientautentiseringsuppgifter som delats med Azure AD under program registreringen.
+
+## <a name="recommended-reading"></a>Rekommenderad läsning
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

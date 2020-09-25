@@ -1,18 +1,18 @@
 ---
 title: Benchmarking av ditt program på Azure-disklagring
-description: Lär dig mer om processen för att mäta ditt program på Azure.
+description: Granska dessa exempel på benchmarking av en standard virtuell DS14 VM som tillhandahålls med Azure Premium Storage-diskar.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 293164413c4c8ecec0295152cb6db3d73718e00d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: cc17ce49517a7af22dcc357fa5f050d28a8ed551
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690790"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279696"
 ---
 # <a name="benchmark-your-application-on-azure-disk-storage"></a>Benchmarka ditt program på Azure-disklagring
 

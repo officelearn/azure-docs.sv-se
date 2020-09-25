@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Tabell-API för Java
-description: Lär dig allt om Azure Cosmos DB Tabell-API, inklusive versions datum, indragnings datum och ändringar som gjorts mellan respektive version.
+description: Lär dig allt om Azure Cosmos DB Tabell-API för Java, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
@@ -9,12 +9,12 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: fc78688a413bf182d2a0489189a3ad9348ac4d21
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 40722053d28a0479e3f9ebaadd0fd04478a4f1aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261897"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB Tabell-API för java: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella S
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 november 2017 |--- |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

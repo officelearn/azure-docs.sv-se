@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820100"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261608"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Vad är anslutet IoT Solution Accelerator för fabriks anslutning?
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Connected Factory är en implementering av Microsoft Azures referens arkitektur för industriella IoT som är paketerad som en lösning med öppen källkod. Du kan använda den som utgångs punkt för en kommersiell produkt. Du kan distribuera en fördefinierad version av den anslutna fabriks lösningen till din Azure-prenumeration från [Azure IoT Solution-acceleratorer](https://www.azureiotsolutions.com/#solutions/types/CF).
 

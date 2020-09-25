@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 44fbbbdb1c36f74a4131d4e5a82de6ef058381f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 547712d16cb6a7504d1a875b6155a587746d86bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279203"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Skapa en virtuell dator med hjälp av en specialiserad avbildning 
 
@@ -133,4 +133,4 @@ Du kan också skapa en delad resurs för avbildnings galleriet med hjälp av mal
 - [Skapa en avbildningsversion i ett Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Skapa en virtuell dator från avbildningsversion](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Mer information om delade avbildnings gallerier finns i [översikten](./windows/shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](./windows/troubleshooting-shared-images.md).
+Mer information om delade avbildnings gallerier finns i [översikten](./windows/shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).

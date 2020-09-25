@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279441"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 
@@ -37,7 +37,7 @@ Azure Linux-agenten är redan förinstallerad på Azure Marketplace-avbildningar
 | CentOS av falsk Wave-programvara |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [Lis-hämtning](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: i kernel |Paket: i [lagrings platsen](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> Kärnan är [slut på livs längd](https://coreos.com/os/eol/) den 26 maj 2020. |Inte längre tillgänglig | | |
 | Debian av credativ |8.x, 9.x |I kernel |Paket: i lagrings platsen under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar container Linux av Kinvolk| Stable, Edge| | |
+|Flatcar container Linux av Kinvolk| Stabil, beta| I kernel | WA – Linux-agenten har redan installerats i/usr/share/OEM/bin/waagent |
 | Oracle Linux av Oracle |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux av Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise med SUSE |SLES/SLES för SAP 11. x, 12. x, 15. x <br/> [Bild livs cykel för SUSE offentlig moln bild](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |I kernel |Paketfilerna<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen<br>för 12 som ingår i modulen "offentligt moln" under "python-Azure-agent"<br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |

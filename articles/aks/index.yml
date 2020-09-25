@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 07/21/2020
-  ms.openlocfilehash: 35138e4e5569ddfa46cb60c742e7ae0b3868c8cd
-  ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+  ms.openlocfilehash: 98d96c36e8ec801c2a8a5a87d0075f2d9b57bd98
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/04/2020
-  ms.locfileid: "87563338"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90984960"
 landingContent:
 - title: Om Azure Kubernetes Service (AKS)
   linkLists:
@@ -50,14 +50,14 @@ landingContent:
       url: kubernetes-walkthrough-portal.md
     - text: Resource Manager-mall
       url: kubernetes-walkthrough-rm-template.md
-- title: Utveckla och felsöka program med Local Process med Kubernetes
+- title: Utveckla och felsök program med Bridge to Kubernetes
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Använda lokal process med Kubernetes med Visual Studio Code (förhandsversion)
-      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-    - text: Använda lokal process med Kubernetes med Visual Studio (förhandsversion)
-      url: /visualstudio/containers/local-process-kubernetes
+    - text: Använda Bridge to Kubernetes med Visual Studio Code
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: Använda Bridge to Kubernetes med Visual Studio
+      url: /visualstudio/containers/bridge-to-kubernetes
 - title: Distribuera, hantera och uppdatera program
   linkLists:
   - linkListType: tutorial

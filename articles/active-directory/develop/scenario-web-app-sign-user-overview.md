@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52e33177b5fc6c68f615b8eb7738e66b18a1763a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118714"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257084"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: webb program som loggar in användare
 
 Lär dig allt du behöver för att bygga en webbapp som använder Microsoft Identity Platform för att logga in användare.
-
-## <a name="prerequisites"></a>Förutsättningar
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -60,7 +56,7 @@ Om du utvecklar med python kan du prova följande snabb start:
 
 ## <a name="overview"></a>Översikt
 
-Du lägger till autentisering till din webbapp så att den kan logga in användare. Genom att lägga till autentisering kan din webbapp komma åt begränsad profil information för att anpassa användar upplevelsen. 
+Du lägger till autentisering till din webbapp så att den kan logga in användare. Genom att lägga till autentisering kan din webbapp komma åt begränsad profil information för att anpassa användar upplevelsen.
 
 Web Apps autentiserar en användare i en webbläsare. I det här scenariot dirigerar webbappen användarens webbläsare för att logga in till Azure Active Directory (Azure AD). Azure AD returnerar ett inloggnings svar via användarens webbläsare, som innehåller anspråk om användaren i en säkerhetstoken. Inloggnings användare drar nytta av [Open ID Connect](./v2-protocols-oidc.md) standard-protokollet, vilket är förenklat genom användning av mellanprogram [bibliotek](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps).
 
@@ -69,13 +65,17 @@ Web Apps autentiserar en användare i en webbläsare. I det här scenariot dirig
 Som en andra fas kan du aktivera ditt program så att det anropar webb-API: er åt den inloggade användaren. Nästa fas är ett annat scenario, som du hittar i [webb program som anropar webb-API: er](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Att lägga till inloggning i en webbapp är att skydda webbappen och verifiera en användartoken, vilket är vad **mellan** -program varu bibliotek gör. I fallet med .NET kräver det här scenariot ännu inte Microsoft Authentication Library (MSAL), som handlar om att förvärva en token för att anropa skyddade API: er. Autentiseringsscheman kommer att införas i uppföljnings scenariot när webbappen behöver anropa webb-API: er.
+> Att lägga till inloggning i en webbapp är att skydda webbappen och verifiera en användartoken, vilket är vad  **mellan** -program varu bibliotek gör. I fallet med .NET kräver det här scenariot ännu inte Microsoft Authentication Library (MSAL), som handlar om att förvärva en token för att anropa skyddade API: er. Autentiseringsscheman kommer att införas i uppföljnings scenariot när webbappen behöver anropa webb-API: er.
 
 ## <a name="specifics"></a>Information
 
 - Under program registreringen måste du ange en eller flera (om du distribuerar appen till flera platser) svars-URI: er. I vissa fall (ASP.NET och ASP.NET Core) måste du aktivera ID-token. Slutligen vill du skapa en utloggnings-URI så att ditt program reagerar på användare som loggar ut.
 - I koden för ditt program måste du ange den myndighet som webbappen delegerar inloggning för. Du kanske vill anpassa verifiering av token (särskilt i partner scenarier).
 - Webb program stöder alla typer av konton. Mer information finns i [konto typer som stöds](v2-supported-account-types.md).
+
+## <a name="recommended-reading"></a>Rekommenderad läsning
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

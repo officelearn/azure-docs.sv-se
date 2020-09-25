@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 2c5340b37d6b277c156189b1b99cb3143a5c3b15
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9516a32e89b9ad671cf705c8f520c73e28801c19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320599"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckel valv
 
@@ -33,9 +33,9 @@ Båda planerna använder Azure Active Directory (Azure AD) för autentisering. F
 
 När du skapar ett nyckel valv i en Azure-prenumeration associeras det automatiskt med Azure AD-klienten för prenumerationen. Alla anropare i båda planerna måste registreras i den här klienten och autentiseras för åtkomst till nyckel valvet. I båda fallen kan program komma åt Key Vault på två sätt:
 
-- **Endast program**: programmet representerar en tjänst eller ett bakgrunds jobb. Den här identiteten är det vanligaste scenariot för program som behöver komma åt certifikat, nycklar eller hemligheter från nyckel valvet med jämna mellanrum. För att det här scenariot ska fungera `objectId` måste programmet anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
-- **Endast användare**: användaren får åtkomst till nyckel valvet från alla program som är registrerade i klienten. Exempel på den här typen av åtkomst är Azure PowerShell och Azure Portal. För att det här scenariot ska fungera `objectId` måste användarens användare anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
-- **Program-Plus-användare** (kallas ibland _sammansatt identitet_): användaren krävs åtkomst till nyckel valvet från ett särskilt program _och_ programmet måste använda OBO-flödet för att personifiera användaren. För att det här scenariot ska `applicationId` fungera `objectId` måste både och anges i åtkomst principen. `applicationId`Identifierar det program som krävs och `objectId` identifierar användaren. Det här alternativet är för närvarande inte tillgängligt för data planet Azure RBAC (för hands version)
+- **Endast program**: programmet representerar en tjänst eller ett bakgrunds jobb. Den här identiteten är det vanligaste scenariot för program som regelbundet behöver komma åt certifikat, nycklar eller hemligheter från nyckel valvet. För att det här scenariot ska fungera `objectId` måste programmet anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
+- **Endast användare**: användaren får åtkomst till nyckel valvet från alla program som är registrerade i klienten. Exempel på den här typen av åtkomst är Azure PowerShell och Azure Portal. För att det här scenariot ska fungera `objectId` måste användaren anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
+- **Program-Plus-användare** (kallas ibland _sammansatt identitet_): användaren krävs åtkomst till nyckel valvet från ett särskilt program _och_ programmet måste använda OBO-flödet för att personifiera användaren. För att det här scenariot ska `applicationId` fungera `objectId` måste både och anges i åtkomst principen. `applicationId`Identifierar det program som krävs och `objectId` identifierar användaren. Det här alternativet är för närvarande inte tillgängligt för data planet Azure RBAC (för hands version).
 
 I alla typer av åtkomst autentiserar programmet med Azure AD. Programmet använder en [autentiseringsmetod som stöds](../../active-directory/develop/authentication-scenarios.md) baserat på program typen. Programmet hämtar en token för en resurs i planet för att ge åtkomst. Resursen är en slut punkt i hanterings-eller data planet, baserat på Azure-miljön. Programmet använder token och skickar en REST API begäran till Key Vault. Läs mer i [hela autentiserings flödet](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 

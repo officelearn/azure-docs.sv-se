@@ -4,19 +4,16 @@ description: I den här artikeln lär du dig mer om säkerhets kopiering och åt
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271383"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektiv säkerhets kopiering och återställning av diskar för virtuella Azure-datorer
 
 Azure Backup stöder säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Nu kan du använda säkerhets kopierings-och återställnings funktionen selektiva diskar för att säkerhetskopiera en delmängd av data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller bara de diskar som ingår i säkerhets kopierings åtgärden. Detta gör att du kan ha en delmängd av diskarna som återställs från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller både för återställning från ögonblicks bilder och valvet.
-
->[!NOTE]
->Säkerhets kopiering och återställning av selektiva diskar för virtuella Azure-datorer finns i offentlig för hands version i alla regioner.
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -62,7 +59,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 Om den virtuella datorn inte finns i samma resurs grupp som valvet refererar **ResourceGroup** till resurs gruppen där valvet skapades. I stället för namnet på den virtuella datorn anger du det VM-ID: t som anges nedan.
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
 ### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Ändra skydd för redan säkerhetskopierade virtuella datorer med Azure CLI
@@ -86,7 +83,7 @@ az backup protection update-for-vm --resource-group {resourcegroup} --vault-name
 ### <a name="restore-disks-with-azure-cli"></a>Återställa diskar med Azure CLI
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### <a name="restore-only-os-disk-with-azure-cli"></a>Återställa endast OS-diskar med Azure CLI
@@ -289,11 +286,32 @@ Säkerhets kopierings funktionen selektiva diskar stöds inte för klassiska vir
 
 Återställnings alternativen för att **skapa en ny virtuell dator** och **ersätta befintliga** stöds inte för den virtuella dator där funktionen selektiva diskar säkerhets kopiering är aktive rad.
 
+Azure VM Backup stöder för närvarande inte virtuella datorer med extremt diskar eller delade diskar kopplade till dem. Selektiv disk säkerhets kopiering kan inte användas i sådana fall, vilket utesluter disken och säkerhets kopian av den virtuella datorn.
+
 ## <a name="billing"></a>Fakturering
 
 Säkerhets kopiering av virtuella Azure-datorer följer den befintliga pris sättnings modellen, som beskrivs i detalj [här](https://azure.microsoft.com/pricing/details/backup/).
 
-**Skyddad instans (PI) kostnad** beräknas enbart för operativ system disken om du väljer att säkerhetskopiera med alternativet **endast operativ system disk** .  Om du konfigurerar säkerhets kopiering och väljer minst en datadisk kommer PI-kostnaden att beräknas för alla diskar som är anslutna till den virtuella datorn. **Lagrings kostnaden för säkerhets kopiering** beräknas utifrån enbart de diskar som ingår och så att du kan spara pengar på lagrings kostnaderna. **Ögonblicks bildens kostnad** beräknas alltid för alla diskar i den virtuella datorn (både inkluderade och exkluderade diskar).  
+**Skyddad instans (PI) kostnad** beräknas enbart för operativ system disken om du väljer att säkerhetskopiera med alternativet **endast operativ system disk** .  Om du konfigurerar säkerhets kopiering och väljer minst en datadisk kommer PI-kostnaden att beräknas för alla diskar som är anslutna till den virtuella datorn. **Lagrings kostnaden för säkerhets kopiering** beräknas utifrån enbart de diskar som ingår och så att du kan spara pengar på lagrings kostnaderna. **Ögonblicks bildens kostnad** beräknas alltid för alla diskar i den virtuella datorn (både inkluderade och exkluderade diskar).
+
+Om du har valt funktionen för återställning av kors region (CRR) gäller [CRR-priset](https://azure.microsoft.com/pricing/details/backup/) på lagrings kostnaden för säkerhets kopieringen när disken har exkluderats.
+
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+### <a name="how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux"></a>Hur beräknas en skyddad instans (PI) endast för säkerhets kopiering av OS-diskar i Windows och Linux?
+
+PI-kostnaden beräknas baserat på den faktiska (använda) storleken på den virtuella datorn.
+
+- För Windows: använt utrymmes beräkning baseras på den enhet där operativ systemet lagras (vanligt vis C:).
+- För Linux: använt utrymmes beräkning baseras på den enhet där rot fil systemet (/) är monterat.
+
+### <a name="i-have-configured-only-os-disk-backup-why-is-the-snapshot-happening-for-all-the-disks"></a>Jag har bara konfigurerat säkerhets kopiering av operativ system diskar, varför sker ögonblicks bilden för alla diskar?
+
+Med funktionerna selektiv säkerhets kopiering av disk kan du spara pengar på säkerhets kopierings valv lagrings kostnader genom att skärp de inkluderade diskarna som ingår i säkerhets kopieringen. Ögonblicks bilden tas dock för alla diskar som är anslutna till den virtuella datorn. Ögonblicks bildens kostnad beräknas alltid för alla diskar i den virtuella datorn (både inkluderade och exkluderade diskar). Mer information finns i [fakturering](#billing).
+
+### <a name="i-cant-configure-backup-for-the-azure-virtual-machine-by-excluding-ultra-disk-or-shared-disks-attached-to-the-vm"></a>Jag kan inte konfigurera säkerhets kopiering för den virtuella Azure-datorn genom att utesluta Ultra disk eller delade diskar som är kopplade till den virtuella datorn
+
+Funktionen selektiv disk säkerhets kopiering är en funktion som finns ovanpå säkerhets kopierings lösningen för virtuella Azure-datorer. Azure VM Backup stöder för närvarande inte virtuella datorer med en mycket disk eller delad disk ansluten till dem.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,15 +5,15 @@ description: Den här artikeln innehåller en översikt över brand vägg för w
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227006"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267031"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Vad är Azure Web Application-brandvägg på Azure Application Gateway?
 
@@ -75,9 +75,21 @@ I det här avsnittet beskrivs de grundläggande fördelar som WAF i Application 
 - Geo-filter-trafik för att tillåta eller blockera vissa länder/regioner från att få åtkomst till dina program. (förhandsversion)
 - Skydda dina program från robotar med ruleset för bot. (förhandsversion)
 
-## <a name="waf-policy"></a>WAF-princip
+## <a name="waf-policy-and-rules"></a>WAF princip och regler
 
-Om du vill aktivera en brand vägg för webbaserade program på en Application Gateway måste du skapa en WAF-princip. Den här principen är den plats där alla hanterade regler, anpassade regler, undantag och andra anpassningar, till exempel fil överförings gränsen finns. 
+Om du vill aktivera en brand vägg för webbaserade program på Application Gateway måste du skapa en WAF-princip. Den här principen är den plats där alla hanterade regler, anpassade regler, undantag och andra anpassningar, till exempel fil överförings gränsen finns.
+
+Du kan konfigurera en WAF-princip och associera principen till en eller flera programgatewayer för skydd. En WAF-princip består av två typer av säkerhets regler:
+
+- Anpassade regler som du skapar
+
+- Hanterade regel uppsättningar som är en samling med Azure-hanterad förkonfigurerad uppsättning regler
+
+När båda finns bearbetas anpassade regler innan reglerna bearbetas i en hanterad regel uppsättning. En regel består av ett matchnings villkor, en prioritet och en åtgärd. De åtgärds typer som stöds är: Tillåt, blockera och logga. Du kan skapa en helt anpassad princip som uppfyller dina specifika krav för program skydd genom att kombinera de hanterade och anpassade reglerna.
+
+Regler i en princip bearbetas i en prioritetsordning. Prioritet är ett unikt heltal som definierar ordningen på regler som ska bearbetas. Mindre heltal anger en högre prioritet och dessa regler utvärderas innan regler med ett högre heltals värde. När en regel har matchats tillämpas motsvarande åtgärd som definierats i regeln för begäran. När en sådan matchning bearbetas bearbetas inte regler med lägre prioritet ytterligare.
+
+Ett webb program som levereras av Application Gateway kan ha en WAF-princip kopplad till den på global nivå, på en nivå per webbplats eller per URI-nivå.
 
 ### <a name="core-rule-sets"></a>Core Rule Sets
 
@@ -159,6 +171,11 @@ Med den inbyggda arbets boken för Azure WAF Firewall-händelser kan du få en �
 
 
 ![Arbets bok för Azure WAF Firewall-händelser](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Azure Monitor arbets bok för WAF
+
+Den här arbets boken möjliggör anpassad visualisering av säkerhets relevanta WAF-händelser över flera filter bara paneler. Det fungerar med alla WAF-typer, inklusive Application Gateway, front dörren och CDN, och kan filtreras baserat på WAF-typ eller en speciell WAF-instans. Importera via ARM-mallen eller Galleri mal len. Information om hur du distribuerar den här arbets boken finns i [WAF-arbetsbok](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Loggning
 

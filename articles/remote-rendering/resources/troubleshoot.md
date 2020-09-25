@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982971"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322197"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -23,11 +23,7 @@ Ibland visas inte det fjärranslutna åter givnings kontot under [länkningen av
 
 ## <a name="client-cant-connect-to-server"></a>Klienten kan inte ansluta till servern
 
-Se till att brand väggarna (på enheten, i routrarna osv.) inte blockerar följande portar:
-
-* **50051 (TCP)** – krävs för inledande anslutning (http-handskakning)
-* **8266 (TCP + UDP)** – krävs för data överföring
-* **5000 (TCP)**, **5433 (tcp)**, **8443 (TCP)** – krävs för [ArrInspector](tools/arr-inspector.md)
+Se till att brand väggarna (på enheten, i routrarna osv.) inte blockerar de portar som anges i [system kraven](../overview/system-requirements.md#network-ports).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Fel ' `Disconnected: VideoFormatNotAvailable` '
 
@@ -152,7 +148,7 @@ Det kan finnas två problem med den här avgränsnings rutan som leder till osyn
 
 Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komposition med videon och för att göra omprojektionen. Öppna menyn för att kontrol lera att dessa hookar finns *:::no-loc text="Window > Analysis > Frame debugger":::* . Aktivera det och se till att det finns två poster för `HolographicRemotingCallbackPass` i pipelinen:
 
-![Unity Frame debugger](./media/troubleshoot-unity-pipeline.png)
+![Pipeline för Unit Render](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Schack rutigt mönster återges efter inläsning av modell
 
@@ -184,6 +180,12 @@ Vi har sett spurious-felen vid försök att kompilera Unity-exempel (snabb start
 ### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Arm64 build for Unition Projects Miss Miss Missing eftersom AudioPluginMsHRTF.dll saknas
 
 `AudioPluginMsHRTF.dll`For-Arm64 lades till i *Windows Mixed Reality* -paketet *(com. Unit. XR. windowsmr. Metro)* i version 3.0.1. Se till att du har version 3.0.1 eller senare installerad via paket hanteraren för Union. Från meny raden i Unity går du till *Window > Package Manager* och letar efter *Windows Mixed Reality* -paketet.
+
+## <a name="native-c-based-application-does-not-compile"></a>Ursprungligt C++-baserat program kompileras inte
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Det gick inte att hitta biblioteket för UWP program eller DLL
+
+I C++ NuGet-paketet finns fil `microsoft.azure.remoterendering.Cpp.targets` filen som definierar vilken av den binära smak som ska användas. För att identifiera `UWP` villkoren i fil kontrollen för `ApplicationType == 'Windows Store'` . Det måste vara säkerställt att den här typen anges i projektet. Det bör vara fallet när du skapar ett UWP-program eller en dll via Visual Studio projekt guide.
 
 ## <a name="unstable-holograms"></a>Instabila hologram
 

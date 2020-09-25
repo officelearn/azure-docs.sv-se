@@ -1,14 +1,16 @@
 ---
 title: 'Snabb start: Distribuera en app med LUIS-portalen'
 description: Den här snabb starten visar hur du distribuerar en app genom att skapa en förutsägelse slut punkts resurs, tilldela resursen, utbildningen och publicera appen.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 6126c6e37ad43ed6456b224d043dc6695fa2d00e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298426"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
 
@@ -16,7 +18,7 @@ När din LUIS-app är redo att returnera uttryck förutsägelser till ett klient
 
 I den här snabb starten lär du dig att distribuera ett program. Du skapar en förutsägelse slut punkt resurs, tilldelar resursen till appen, tränar appen och publicerar appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skaffa en [Azure-prenumeration](https://azure.microsoft.com/free).
 * Slutför den [föregående Portal snabb](get-started-portal-build-app.md) starten eller [Ladda ned och importera appen](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json).

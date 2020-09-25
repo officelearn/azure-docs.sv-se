@@ -1,23 +1,23 @@
 ---
 title: Konfigurera skalnings uppsättning för virtuell dator med en befintlig Azure Load Balancer-Azure Portal
-description: Lär dig hur du konfigurerar en skalnings uppsättning för en virtuell dator med en befintlig Azure Load Balancer.
+description: Lär dig hur du konfigurerar en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer med hjälp av Azure Portal.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333893"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Konfigurera en skalnings uppsättning för en virtuell dator med en befintlig Azure Load Balancer med hjälp av Azure Portal
 
 I den här artikeln får du lära dig hur du konfigurerar en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration.
 - En befintlig SKU för standard-SKU i prenumerationen där den virtuella datorns skalnings uppsättning ska distribueras.
@@ -42,24 +42,24 @@ I det här avsnittet ska du skapa en skalnings uppsättning för virtuella dator
 
 3. I **skapa en skalnings uppsättning för virtuell dator**anger eller väljer du den här informationen på fliken **grundläggande** :
 
-    | Inställningen                        | Värde                                                                                                 |
+    | Inställning                        | Värde                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
-    | **Projekt information**            |                                                                                                       |
+    | **Projektinformation**            |                                                                                                       |
     | Prenumeration                   | Välj din Azure-prenumeration                                                                        |
     | Resursgrupp                 | Välj Skapa ny, ange **myResourceGroup**, välj OK eller Välj en befintlig resurs grupp. |
     | **Information om skalnings uppsättning**          |                                                                                                       |
     | Namn på VM-skalningsuppsättning | Ange **myVMSS**                                                                                      |
     | Region                         | Välj **USA, östra 2**                                                                                    |
     | Tillgänglighetszon              | Välj **ingen**                                                                                       |
-    | **Instans information**           |                                                                                                       |
+    | **Instansinformation**           |                                                                                                       |
     | Bild                          | Välj **Ubuntu Server 18,04 LTS**                                                                    |
-    | Azure-tjänstinstans            | Välj **Nej**                                                                                         |
+    | Azure Spot-instans            | Välj **Nej**                                                                                         |
     | Storlek                           | Lämna kvar som standard                                                                                      |
     | **Administratörs konto**      |                                                                                                       |
     | Autentiseringstyp            | Välj **lösen ord**                                                                                   |
     | Användarnamn                       | Ange ditt administratörs användar namn        |
-    | lösenordsinställning                       | Ange ditt administratörs lösen ord    |
-    | Bekräfta lösenord               | Ange administratörs lösen ordet igen |
+    | Lösenord                       | Ange ditt administratörs lösen ord    |
+    | Bekräfta lösenordet               | Ange administratörs lösen ordet igen |
 
 
     :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Skapa skal uppsättning för virtuell dator." border="true":::
@@ -68,7 +68,7 @@ I det här avsnittet ska du skapa en skalnings uppsättning för virtuella dator
 
 5. Ange eller Välj den här informationen på fliken **nätverk** :
 
-     Inställningen                           | Värde                                                    |
+     Inställning                           | Värde                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Virtual Network konfiguration** |                                                          |
     | Virtuellt nätverk                   | Välj **myVNet** eller ditt befintliga virtuella nätverk.      |

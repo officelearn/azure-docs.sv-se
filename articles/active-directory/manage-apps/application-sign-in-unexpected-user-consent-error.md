@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321954"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ett oväntat fel inträffade vid godkännande av ett program
 
@@ -77,6 +77,14 @@ Felen inträffar när programmet som en användare försöker godkänna för att
     -   Bevilja program behörigheter via Azure Portal
 
     -   Lägga till programmet från Azure AD-programgalleriet
+
+## <a name="risky-app-error-and-warning"></a>Riskfylldt program fel och varning
+* Den här appen kan vara riskfylld. Om du litar på den här appen ber du administratören att ge dig åtkomst.
+* Den här appen kan vara riskfylld. Fortsätt bara om du litar på den här appen.
+
+Båda dessa meddelanden visas när Microsoft har fastställt att medgivande förfrågan kan vara riskfylld. Bland ett antal andra faktorer kan detta inträffa om en [verifierad utgivare](../develop/publisher-verification-overview.md) inte har lagts till i appens registrering. Det första meddelandet visas för slutanvändare när [arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) är inaktiverat. Det andra meddelandet visas för slutanvändare när arbets flödet för administratörs medgivande är aktiverat och administratörer. 
+
+Slutanvändare kommer inte att kunna bevilja medgivande till appar som har identifierats som riskfyllda. Administratörer kan, men bör utvärdera appen mycket noggrant och fortsätta med försiktighet. Om appen verkar misstänkt vid ytterligare granskning kan den rapporteras till Microsoft från medgivande skärmen. 
 
 ## <a name="next-steps"></a>Nästa steg 
 

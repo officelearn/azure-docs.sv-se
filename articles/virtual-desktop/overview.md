@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322061"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop?
 
@@ -100,6 +100,8 @@ För bästa prestanda bör du kontrol lera att nätverket uppfyller följande kr
 * Svars tid för tur och retur från klientens nätverk till den Azure-region där värdbaserade pooler har distribuerats måste vara mindre än 150 ms. Använd [Föruppskattnings](https://azure.microsoft.com/services/virtual-desktop/assessment) funktionen för att visa din anslutnings hälsa och den rekommenderade Azure-regionen.
 * Nätverks trafiken kan flöda utanför lands-/region gränser när virtuella datorer som är värdar för Station ära datorer och appar ansluter till hanterings tjänsten.
 * För att optimera för nätverks prestanda rekommenderar vi att de virtuella datorerna i samordnad i samma Azure-region som hanterings tjänsten.
+
+Du kan se en typisk arkitektur inställning av Windows Virtual Desktop för företaget i vår [arkitektur enhetsplattformar](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## <a name="supported-remote-desktop-clients"></a>Fjärr skrivbords klienter som stöds
 

@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 900471675c0e77cc5d82641fead3f019a0fa90c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d81836b47acb19f624075480aafef74c9c0934c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306131"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect synkronisering: kör installations guiden en gång till
 Första gången du kör installations guiden för Azure AD Connect får du stegvisa anvisningar om hur du konfigurerar installationen. Om du kör installations guiden igen får du alternativ för underhåll.
@@ -79,7 +79,7 @@ När du väljer det här alternativet visas alla kataloger i konfigurationen. Du
 Med det här alternativet kan du aktivera och inaktivera mellanlagrings läge på servern. Mer information om mellanlagrings läge och hur det kan användas finns i [åtgärder](how-to-connect-sync-staging-server.md).
 
 Alternativet visar om mellanlagring för närvarande är aktiverat eller inaktiverat:  
-![Alternativ som också visar det aktuella läget för mellanlagrings läge](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![Skärm bild som visar mellanlagrings läge inaktiverat.](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Om du vill ändra tillstånd väljer du det här alternativet och markerar eller avmarkerar kryss rutan.  
 ![Alternativ som också visar det aktuella läget för mellanlagrings läge](./media/how-to-connect-installation-wizard/stagingmodeenable.png)

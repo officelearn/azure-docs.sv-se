@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587352"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335389"
 ---
 # <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
 
@@ -42,6 +42,10 @@ Du kan skapa konfigurations värden för appar som refererar hemligheter som lag
 ## <a name="does-app-configuration-encrypt-my-data"></a>Krypterar app-konfigurationen mina data?
 
 Ja. App-konfigurationen krypterar alla nyckel värden som den innehåller och krypterar nätverkskommunikationen. Nyckel namn och etiketter används som index för att hämta konfigurations data och är inte krypterade.
+
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>Var finns data som lagras i appens konfiguration? 
+
+Kund information som lagras i appens konfiguration finns i den region där kundens app Configuration Store skapades. App-konfigurationen kan replikera data till [kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) för data återhämtning, men inte replikera eller flytta kunddata utanför deras geografiska område som definieras av [data placering i Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Kunder och slutanvändare kan flytta, kopiera eller komma åt kund information från alla platser globalt.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Hur skiljer sig app-konfigurationen från Azure App Service inställningar?
 

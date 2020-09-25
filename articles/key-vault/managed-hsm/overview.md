@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320565"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Vad är Azure Key Vault hanterad HSM (för hands version)?
 
@@ -33,7 +33,7 @@ Azure Key Vault hanterad HSM är en fullständigt hanterad moln tjänst med hög
 
 - **Centraliserad nyckel hantering**: hantera viktiga, höga nycklar i hela organisationen på ett och samma ställe. Med detaljerad behörighet per nyckel kontrollerar du åtkomsten till varje nyckel i principen "minst privilegie rad åtkomst".
 - **Isolerad åtkomst kontroll**: HANTERAd HSM-åtkomst kontroll modell gör att dedicerade HSM-kluster administratörer har fullständig kontroll över HSM: er som även hanterings gruppen, prenumerationen eller resurs gruppen administratörer inte kan åsidosätta.
-- **Fips 140-2 nivå 3-verifierade HSM: er**: skydda dina data och uppfyller kraven för efterlevnad med FIPS ((Federal Information Protection standard)) 140-2 nivå 3, verifierade HSM: er. Hanterade HSM: er använder Marvell LiquidSecurity-serien HSM: er.
+- **Fips 140-2 nivå 3-verifierade HSM: er**: skydda dina data och uppfyller kraven för efterlevnad med FIPS ((Federal Information Protection standard)) 140-2 nivå 3, verifierade HSM: er. Hanterade HSM: er använder Marvell LiquidSecurity HSM-kort.
 - **Övervaka och granska**: fullständigt integrerat med Azure Monitor. Hämta fullständiga loggar för all aktivitet via Azure Monitor. Använd Azure Log Analytics för analys och aviseringar.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrerat med Azure och Microsoft PaaS/SaaS-tjänster 

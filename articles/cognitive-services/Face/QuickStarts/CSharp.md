@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fe6def8a935fcc6f093c4489409a3bcde829ac10
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8c1e47db4f5f5bb64c31d16c26f6c3860b5bcb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323065"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och C#
 
@@ -75,7 +75,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Ta emot indata
 
-Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden skriver en prompt till-konsolen som ber användaren ange en bild-URL. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
+Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden skriver en prompt till-konsolen som ber användaren att ange sin lokala avbildnings fil Sök väg. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
 
 ```csharp
         static void Main(string[] args)
@@ -159,7 +159,7 @@ Du definierar hjälpmetoden i följande steg.
 
 ### <a name="process-the-input-image-data"></a>Bearbeta inmatade bilddata
 
-Lägg till följande metod i klassen **Program**. Den här metoden konverterar bilden på den angivna URL: en till en byte mat ris.
+Lägg till följande metod i klassen **Program**. Den här metoden konverterar avbildningen på den angivna fil Sök vägen till en byte mat ris.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.

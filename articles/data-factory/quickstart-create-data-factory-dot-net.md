@@ -1,6 +1,6 @@
 ---
 title: Skapa Azure Data Factory med .NET SDK
-description: Skapa en Azure-datafabrik för att kopiera data från en plats i Azure Blob Storage till en annan plats.
+description: Skapa en Azure-datafabrik och pipeline med .NET SDK för att kopiera data från en plats i Azure Blob Storage till en annan plats.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322894"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabbstart: Skapa en datafabrik och pipeline med .NET SDK
 
@@ -49,7 +49,7 @@ Från avsnitten i *How to: Använd portalen för att skapa ett Azure AD-program 
 
 1. Skapa ett program i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)som representerar det .NET-program som du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).
 2. I [Hämta värden för att logga in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), hämtar du **program-ID** och **klient-ID**och noterar de här värdena som du använder senare i den här självstudien. 
-3. I [certifikat och hemligheter](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in), Hämta **autentiseringsnyckel**och anteckna det här värdet som du använder senare i den här självstudien.
+3. I [certifikat och hemligheter](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), Hämta **autentiseringsnyckel**och anteckna det här värdet som du använder senare i den här självstudien.
 4. I [tilldela programmet till en roll](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)tilldelar du programmet rollen **deltagare** på prenumerations nivå så att programmet kan skapa data fabriker i prenumerationen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt

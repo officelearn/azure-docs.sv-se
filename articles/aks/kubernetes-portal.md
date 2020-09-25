@@ -4,14 +4,14 @@ description: Lär dig hur du interagerar med Kubernetes-resurser för att hanter
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661358"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335610"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
 
@@ -75,11 +75,25 @@ Det här avsnittet behandlar vanliga problem och fel söknings steg.
 
 För att få åtkomst till Kubernetes-resurserna måste du ha åtkomst till AKS-klustret, Kubernetes-API: et och Kubernetes-objekten. Se till att du är antingen en kluster administratör eller en användare med rätt behörighet för att komma åt AKS-klustret. Mer information om kluster säkerhet finns i [åtkomst-och identitets alternativ för AKS][concepts-identity].
 
+>[!NOTE]
+> Resurs visningen Kubernetes i Azure-portalen stöds endast av [hanterade AAD-aktiverade kluster](managed-aad.md) eller icke-AAD-aktiverade kluster. Om du använder ett hanterat AAD-aktiverat kluster måste AAD-användaren eller identiteten ha respektive roller/roll bindningar för att få åtkomst till Kubernetes-API: et, förutom behörigheten att hämta [användaren `kubeconfig` ](control-kubeconfig-access.md).
+
 ### <a name="enable-resource-view"></a>Aktivera resursvy
 
 För befintliga kluster kan du behöva aktivera resurs visningen Kubernetes. Om du vill aktivera resursvyn följer du anvisningarna i portalen för klustret.
 
 :::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal-meddelande om du vill aktivera resursvyn för Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+
+> [!TIP]
+> AKS-funktionen för [**tillåtna IP-intervall för API-servrar**](api-server-authorized-ip-ranges.md) kan läggas till för att begränsa åtkomsten till API-servern till endast brand väggens offentliga slut punkt. Ett annat alternativ för sådana kluster är att uppdatera för `--api-server-authorized-ip-ranges` att inkludera åtkomst för en lokal klient dator eller ett IP-adressintervall (från vilken Portal bläddras). För att tillåta den här åtkomsten behöver du datorns offentliga IPv4-adress. Du kan hitta den här adressen med kommandot nedan eller genom att söka efter "Vad är min IP-adress" i en webbläsare.
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

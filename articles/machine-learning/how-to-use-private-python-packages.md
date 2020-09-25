@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 0f6f5d0ca757b10a16b31864124f1bcf1190674a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1afa9173c2ca3704bf4408c271e3cf950ef79077
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302224"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Använd privata python-paket med Azure Machine Learning
 
@@ -36,7 +36,7 @@ Privata paket används via [miljö](https://docs.microsoft.com/python/api/azurem
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Använd ett litet antal paket för utveckling och testning
 
-För ett litet antal privata paket för en enskild arbets yta använder du den statiska [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) metoden. Med den här metoden kan du snabbt lägga till ett privat paket i arbets ytan, och det passar utmärkt för utvecklings-och testnings ändamål.
+För ett litet antal privata paket för en enskild arbets yta använder du den statiska [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) metoden. Med den här metoden kan du snabbt lägga till ett privat paket i arbets ytan, och det passar utmärkt för utvecklings-och testnings ändamål.
 
 Peka fil Sök vägs argumentet till en lokal Wheel-fil och kör ```add_private_pip_wheel``` kommandot. Kommandot returnerar en URL som används för att spåra platsen för paketet i din arbets yta. Avbilda lagrings-URL: en och skicka den till `add_pip_package()` metoden.
 
@@ -52,13 +52,13 @@ Internt ersätter Azure Machine Learning-tjänsten URL: en med säker SAS-URL, s
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Använd en lagrings plats för paket från Azure DevOps-feed
 
-Om du aktivt utvecklar python-paket för ditt Machine Learning-program kan du vara värd för dem i en Azure DevOps-lagringsplats som artefakter och publicera dem som en feed. Med den här metoden kan du integrera DevOps-arbetsflödet för att skapa paket med din Azure Machine Learning-arbetsyta. Läs [komma igång med python-paket i Azure-artefakter](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops) för att lära dig hur du konfigurerar python-flöden med Azure DevOps
+Om du aktivt utvecklar python-paket för ditt Machine Learning-program kan du vara värd för dem i en Azure DevOps-lagringsplats som artefakter och publicera dem som en feed. Med den här metoden kan du integrera DevOps-arbetsflödet för att skapa paket med din Azure Machine Learning-arbetsyta. Läs [komma igång med python-paket i Azure-artefakter](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops&preserve-view=true) för att lära dig hur du konfigurerar python-flöden med Azure DevOps
 
 Den här metoden använder personlig åtkomsttoken för att autentisera mot lagrings platsen. Samma metod gäller för andra databaser med token-baserad autentisering, till exempel privata GitHub-databaser. 
 
- 1. [Skapa en personlig åtkomsttoken (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) för din Azure DevOps-instans. Ange omfånget för token som ska __paketera > läsa__. 
+ 1. [Skapa en personlig åtkomsttoken (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) för din Azure DevOps-instans. Ange omfånget för token som ska __paketera > läsa__. 
 
- 2. Lägg till URL-och PAT för Azure-DevOps som arbets ytans egenskaper med hjälp av metoden [arbetsyte. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
+ 2. Lägg till URL-och PAT för Azure-DevOps som arbets ytans egenskaper med hjälp av metoden [arbetsyte. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace

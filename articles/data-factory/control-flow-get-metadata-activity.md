@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297614"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 
@@ -35,7 +35,7 @@ Följande funktioner är tillgängliga i kontroll flödet:
 
 ## <a name="capabilities"></a>Funktioner
 
-Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar metadatainformation som utdata. För närvarande stöds följande anslutningar och motsvarande hämtnings bara metadata. Den maximala storleken för returnerade metadata är 2 MB.
+Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar metadatainformation som utdata. För närvarande stöds följande anslutningar och motsvarande hämtnings bara metadata. Den maximala storleken för returnerade metadata är cirka 4 MB.
 
 >[!NOTE]
 >Om du kör aktiviteten hämta metadata i en integration runtime med egen värd, stöds de senaste funktionerna på version 3,6 eller senare.
@@ -76,7 +76,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält för att hämta motsvarande information:
 
-| Typ av metadata | Beskrivning |
+| Typ av metadata | Description |
 |:--- |:--- |
 | itemName | Filens eller mappens namn. |
 | itemType | Typ av fil eller mapp. Returnerat värde är `File` eller `Folder` . |
@@ -87,7 +87,7 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 | contentMD5 | MD5 av filen. Gäller endast för filer. |
 | hierarkistruktur | Data strukturen för filen eller Relations databas tabellen. Returnerat värde är en lista med kolumn namn och kolumn typer. |
 | Antal | Antalet kolumner i filen eller Relations tabellen. |
-| finns| Om en fil, mapp eller tabell finns. Observera att om anges `exists` i fält listan Hämta metadata, kommer aktiviteten inte att kunna köras även om filen, mappen eller tabellen inte finns. I stället `exists: false` returneras i utdata. |
+| finns| Om en fil, mapp eller tabell finns. Om `exists` anges i fält listan Hämta metadata, kommer aktiviteten inte att kunna köras även om filen, mappen eller tabellen inte finns. I stället `exists: false` returneras i utdata. |
 
 >[!TIP]
 >När du vill kontrol lera att det finns en fil, mapp eller tabell, anger `exists` du i fält listan Hämta metadata-aktivitet. Sedan kan du kontrol lera `exists: true/false` resultatet i aktivitetens utdata. Om `exists` inte anges i fält listan, kommer get metadata-aktiviteten inte att fungera om objektet inte hittas.
@@ -168,10 +168,10 @@ För närvarande kan aktiviteten hämta metadata returnera följande typer av me
 
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-Fält lista | De typer av metadatainformation som krävs. Mer information om metadata som stöds finns i avsnittet [metadata-alternativ](#metadata-options) i den här artikeln. | Ja 
-data uppsättning | Referens data uppsättningen vars metadata ska hämtas av aktiviteten hämta metadata. I avsnittet [funktioner](#capabilities) finns information om anslutnings program som stöds. Information om syntax för data uppsättning finns i specifika anslutnings avsnitt. | Ja
-formatSettings | Använd när du använder data uppsättning för format typ. | Inga
-storeSettings | Använd när du använder data uppsättning för format typ. | Inga
+Fält lista | De typer av metadatainformation som krävs. Mer information om metadata som stöds finns i avsnittet [metadata-alternativ](#metadata-options) i den här artikeln. | Yes 
+data uppsättning | Referens data uppsättningen vars metadata ska hämtas av aktiviteten hämta metadata. I avsnittet [funktioner](#capabilities) finns information om anslutnings program som stöds. Information om syntax för data uppsättning finns i specifika anslutnings avsnitt. | Yes
+formatSettings | Använd när du använder data uppsättning för format typ. | No
+storeSettings | Använd när du använder data uppsättning för format typ. | No
 
 ## <a name="sample-output"></a>Exempelutdata
 

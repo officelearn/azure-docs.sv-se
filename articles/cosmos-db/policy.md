@@ -1,17 +1,17 @@
 ---
 title: Använd Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser
 description: Lär dig hur du använder Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320905"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Använd Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser
 
@@ -19,7 +19,10 @@ ms.locfileid: "84431969"
 
 Azure Policy innehåller inbyggda princip definitioner. Du kan skapa anpassade princip definitioner för scenarier som inte omfattas av de inbyggda princip definitionerna. Mer information finns i [Azure policy-dokumentationen](../governance/policy/overview.md) .
 
-## <a name="assign-a-built-in-policy-definition"></a>Tilldela en inbyggd princip definition
+> [!IMPORTANT]
+> Azure Policy tillämpas på resurs leverantörs nivå för Azure-tjänster. Cosmos DB SDK: er kan utföra de flesta hanterings åtgärder på databas-, behållare-och data flödes resurser som kringgår Cosmos DBs resurs leverantör, och därmed ignorerar principer som skapats med Azure Policy. För att säkerställa verk ställandet av principer se, [förhindra ändringar från Azure Cosmos DB SDK](role-based-access-control.md#prevent-sdk-changes) : er
+
+## <a name="assign-a-built-in-policy-definition"></a>Tilldela en inbyggd principdefinition
 
 Princip definitioner beskriver kraven på resursanvändningen och vilken påverkan som ska vidtas om ett villkor är uppfyllt. Princip _tilldelningar_ skapas från princip _definitioner_. Du kan använda inbyggda eller anpassade princip definitioner för dina Azure Cosmos DB-resurser. Princip tilldelningar är begränsade till en hanterings grupp för Azure, en Azure-prenumeration eller en resurs grupp och de tillämpas på resurserna i det valda omfånget. Alternativt kan du undanta vissa resurser från omfånget.
 

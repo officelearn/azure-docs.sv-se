@@ -10,23 +10,23 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266317"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Självstudie: grundläggande Active Directory miljö
 
 Den här självstudien vägleder dig genom att skapa en grundläggande Active Directorys miljö. 
 
-![Skapa](media/tutorial-single-forest/diagram1.png)
+![Diagram som visar en grundläggande Azure A D-miljö.](media/tutorial-single-forest/diagram1.png)
 
 Du kan använda den miljö som du skapar i självstudien för att testa olika aspekter av hybrid identitets scenarier och är ett krav för några av de här självstudierna.  Om du redan har en befintlig Active Directory miljö kan du använda den som en ersättning.  Den här informationen tillhandahålls för personer som mitt börjar från ingenting.
 
 Den här självstudien består av
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Ett [externt nätverkskort](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.
@@ -200,7 +200,7 @@ Nu måste du skapa en Azure AD-klient så att du kan synkronisera våra använda
 2. Välj **plus-ikonen (+)** och sök efter **Azure Active Directory**.
 3. Välj **Azure Active Directory** i sökresultatet.
 4. Välj **Skapa**.</br>
-![Skapa](media/tutorial-single-forest/create1.png)</br>
+![Skärm bild som visar Azure Active Directory sidan i Azure Portal.](media/tutorial-single-forest/create1.png)</br>
 5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **Skapa**. Detta skapar din katalog.
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
@@ -208,7 +208,7 @@ Nu måste du skapa en Azure AD-klient så att du kan synkronisera våra använda
 Nu när du har en Azure AD-klient kommer du att skapa ett globalt administratörs konto.  Skapa kontot för den globala administratören genom att göra följande.
 
 1.  Under **Hantera** väljer du **Användare**.</br>
-![Skapa](media/tutorial-single-forest/administrator1.png)</br>
+![Skärm bild som visar menyn "Översikt" där "användare" har valts.](media/tutorial-single-forest/administrator1.png)</br>
 2.  Välj **Alla användare** och sedan **+ Ny användare**.
 3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klientorganisationen. Du bör även ändra **katalogrollen** till **Global administratör.** Du kan dessutom visa det tillfälliga lösenordet. När du är klar väljer du **Skapa**.</br>
 ![Skapa](media/tutorial-single-forest/administrator2.png)</br>

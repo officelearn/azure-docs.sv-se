@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fe11b20ff8e96bc4b0d997c49201aafdd2e2cac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477161"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320531"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra data vetenskaps uppgifter: utforskning, modellering och distribution
 
@@ -98,7 +98,7 @@ Det finns olika metoder och plattformar för att ställa in modeller i produktio
 Fler exempel finns i genom gångar som demonstrerar alla steg i processen för **olika scenarier**. De visas och länkas med miniatyr beskrivningar i [exempel](walkthroughs.md) artikeln. De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program.
 
 > [!NOTE]
-> Information om distribution med hjälp av Azure Machine Learning Studio finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
+> Information om distribution med hjälp av Azure Machine Learning Studio finns i [distribuera en Azure Machine Learning-webbtjänst](../classic/deploy-a-machine-learning-web-service.md).
 >
 >
 
@@ -111,5 +111,3 @@ När flera modeller är i produktion kan det vara praktiskt att utföra [ett/B-t
 [Spåra förloppet för data vetenskaps projekt](track-progress.md) visar hur en data expert kan spåra förloppet för ett data vetenskaps projekt.
 
 [Modell åtgärden och CI/CD](ci-cd-flask.md) visar hur CI/CD kan utföras med utvecklade modeller.
-
-

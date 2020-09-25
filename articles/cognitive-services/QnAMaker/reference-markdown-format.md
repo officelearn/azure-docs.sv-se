@@ -3,12 +3,12 @@ title: Markdown-format – QnA Maker
 description: Nedan visas en lista med markdown-format som du kan använda i QnA Maker svars text.
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: 38532783c38263b3f1364e30125414958eab1394
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d5bf8342b3e595ed4b381ec5104a0c82f0d7ecc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321041"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Markdown-format som stöds i QnA Maker svars text
 
@@ -38,7 +38,7 @@ En ny rad mellan 2 meningar.|`\n\n`|`How can I create a bot with \n\n QnA Maker?
 |Fet och kursiv stil|`***text***`|`How can I create a ***QnA Maker*** bot?`|![format för fet och kursiv stil](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |Fet URL för länk|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format för fet URL](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |URL för kursiv stil för länk|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![format för kursiv stil-URL](./media/qnamaker-concepts-datasources/format-url-italics.png)|
-|Escape-markdown symboler|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![format för kursiv stil-URL](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Escape-markdown symboler|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![Format för Escape-markdown symboler.](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Ordnad lista|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>I föregående exempel används automatisk numrering som är inbyggd i markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>I föregående exempel används explicit numrering.|![format för ordnad lista](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Osorterad lista|`\n * item1 \n * item2`<br>eller<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![format för osorterad lista](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |Kapslade listor|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Du kan kapsla in sorterade och osorterade listor tillsammans. Fliken, `\t` anger indrags nivån för det underordnade elementet.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format för kapslad osorterad lista](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format för kapslad ordnad lista](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
@@ -49,8 +49,8 @@ Om du vill lägga till innehåll med hjälp av Update/replace-API: er för kunsk
 
 | Bevara HTML  | Representation i API-begäran  | Representation i KB |
 |-----------|---------|-------------------------|
-| Ja | \&lt; br \& gt; | &lt;br&gt; |
-| Ja | \&lt; H3 \& gt; rubrik \& lt;/H3 \& gt; | &lt;H3- &gt; rubrik &lt; /H3&gt; |
+| Yes | \&lt; br \& gt; | &lt;br&gt; |
+| Yes | \&lt; H3 \& gt; rubrik \& lt;/H3 \& gt; | &lt;H3- &gt; rubrik &lt; /H3&gt; |
 
 Dessutom konverteras CR LF (\r\n) till \n i KB. LF (\n) behålls i befintligt skick. Om du vill undanta en escape-sekvens som a \t eller \n kan du använda omvänt snedstreck, till exempel: " \\ \\ r \\ \\ n" och " \\ \\ t"
 

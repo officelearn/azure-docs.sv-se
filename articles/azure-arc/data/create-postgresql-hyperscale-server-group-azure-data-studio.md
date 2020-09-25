@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: af0cdb814433b739b15d79bec9cb399cf0a2fef7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941857"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273015"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Skapa en Azure Arc-aktiverad PostgreSQL-skalning med Azure Data Studio
 
@@ -42,6 +42,19 @@ Password:
 Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
+
+## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>Preliminärt och tillfälligt steg för OpenShift-användare
+
+Implementera det här steget innan du går vidare till nästa steg. Om du vill distribuera PostgreSQL-storskalig Server grupp till Red Hat OpenShift i ett annat projekt än standardvärdet, måste du köra följande kommandon mot klustret för att uppdatera säkerhets begränsningarna. Det här kommandot ger de behörigheter som krävs för de tjänst konton som ska köra din PostgreSQL-Server grupp för storskalig skalning. SCC- **_SCC_** (Security context constraint) är den som du lade till när du distribuerade data styrenheten för Azure-bågen.
+
+```console
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+```
+
+_**Server-Group-name** är namnet på den server grupp som du ska distribuera under nästa steg._
+   
+Mer information om SCCs i OpenShift finns i [OpenShift-dokumentationen](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
+Nu kan du implementera nästa steg.
 
 ## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skapa en Azure Arc-aktiverad PostgreSQL-Server grupp
 
@@ -80,6 +93,5 @@ På några minuter bör du skapa en fullständig installation.
 
 - [Skala ut din Azure Database for PostgreSQL skalnings Server grupp](scale-out-postgresql-hyperscale-server-group.md)
 - [Lagrings konfiguration och Kubernetes lagrings koncept](storage-configuration.md)
-- [Expandera beständiga volym anspråk](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Resurs modell för Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 

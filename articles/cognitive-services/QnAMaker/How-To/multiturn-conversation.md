@@ -3,12 +3,12 @@ title: Flera-turn-konversationer – QnA Maker
 description: Använd prompter och kontext för att hantera flera sätt, så kallade flera varv, för din robot från en fråga till en annan. Med flera varv kan du få en snabb konversation där föregående frågas sammanhang påverkar nästa fråga och svar.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229354"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322843"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
@@ -52,7 +52,7 @@ När du väljer det här alternativet extraherar QnA Maker hierarkin som finns i
 
 Flera-turn-strukturen kan bara härledas från URL: er, PDF-filer eller DOCX-filer. Ett exempel på en struktur finns i en bild av en [manuell PDF-fil för Microsoft Surface-användare](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![! [Exempel på en struktur i en Användar handbok] (.. /Media/Conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Skärm bild som visar ett exempel på strukturen i en Användar handbok." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>Skapa ett eget dokument med flera vändare
 
@@ -92,7 +92,7 @@ Välj **visnings alternativ**och välj sedan **Visa kontext**. I listan visas fr
 
 Kontexten för flera turn visas i den första kolumnen.
 
-![! [Kolumnen "kontext (förhands granskning)"] (.. /Media/Conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Skärm bild som visar avsnittet om kontext markerat." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 I föregående bild anger **#1** fet text i kolumnen som visar den aktuella frågan. Den överordnade frågan är det översta objektet på raden. Alla frågor nedan är de länkade frågorna och svars paren. Dessa objekt är valbara, så att du kan gå direkt till andra kontext objekt.
 
@@ -167,7 +167,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 
     Den överordnade frågan visar en ny fråga som ett alternativ.
 
-    ![! [Kontext kolumnen för båda frågorna indikerar en uppföljnings relation] (.. /Media/Conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Skärm bild som visar kolumnen kontext, för båda frågorna, indikerar en uppföljnings relation." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. När du har lagt till uppföljnings anvisningarna väljer du **Spara och träna** i det övre navigerings fältet.
 

@@ -1,5 +1,5 @@
 ---
-title: Grupp som anropar hjälte-exempel
+title: Exempel på gruppsamtal
 titleSuffix: An Azure Communication Services sample overview
 description: Översikt över att anropa hjälte-exemplet med Azure Communication Services så att utvecklare kan lära sig mer om det interna arbetet i exemplet.
 author: ddematheu
@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: caee5686695594604f49dcbade54342a9134abc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9bd203586d6a9da974604099d361d2908a39e1d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298003"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Kom igång med en grupp som anropar ett hjälte exempel
 
@@ -30,7 +30,7 @@ Azure Communication Services- **gruppen som anropar ett hjältes exempel** visar
 I den här snabb starten ska vi lära dig hur exemplet fungerar innan vi kör exemplet på den lokala datorn. Vi distribuerar sedan exemplet till Azure med dina egna Azure Communication Services-resurser.
 
 > [!IMPORTANT]
-> [Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 ## <a name="overview"></a>Översikt
 
@@ -54,7 +54,7 @@ Komponenter för den huvudsakliga uppringnings skärmen:
 - **Rubrik**: det är här som de primära samtals kontrollerna finns för att växla mellan inställningar och deltagar fält, förvandla video och mixa på/av, dela skärmen och lämna samtalet.
 - **Sido fältet**: här visas deltagare och inställnings information när de växlas med hjälp av kontrollerna i sidhuvudet. Komponenten kan hämtas med hjälp av X i det övre högra hörnet. Deltagarnas sido fält visar en lista över deltagare och en länk som bjuder in fler användare att chatta. I sid List rutan inställningar kan du konfigurera inställningar för mikrofon och kamera.
 
-Nedan finns mer information om förutsättningar, steg för att konfigurera exemplet och stegvisa självstudier som hjälper dig att bekanta dig med de olika komponenterna.
+Nedan hittar du mer information om förutsättningar och steg för att konfigurera exemplet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -72,23 +72,17 @@ När vi vill distribuera lokalt behöver vi starta båda programmen. När Server
 
 Du kan testa exemplet lokalt genom att öppna flera webbläsare med URL: en för ditt anrop för att simulera ett samtal med flera användare.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Innan du kör exemplet för första gången
+## <a name="before-running-the-sample-for-the-first-time"></a>Innan du kör exemplet för första gången
 
 1. Öppna en instans av PowerShell, Windows Terminal, kommando tolken eller motsvarande och navigera till den katalog som du vill klona exemplet till.
-2. `git clone`
-3. Gå till **anropa/ClientApp-mappen** och kör `npm run setup`
-   1. Om du ser felet 1 tittar du ovan i utdata för en URL där du måste gå till för att auktorisera klienten. (URL ser ut så här: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...` ) När du besöker webb adressen i en webbläsare, kopierar du kommandot från webbläsarfönstret och kör det.
-   2. Kör kommandot `npm run setup-vsts-auth` igen när du är klar med föregående steg.
-4. Hämta `Connection String` från Azure Portal. Mer information om anslutnings strängar finns i [skapa en Azure-kommunikations resurser](../quickstarts/create-communication-resource.md)
-5. När du har upprättat anslutnings strängen lägger du till anslutnings strängen i filen **anropa/appsetting.jspå** filen som finns i mappen service .net. Mata in anslutnings strängen i variabeln: `ResourceConnectionString` .
+2. `git clone https://github.com/Azure/Communication.git`
+3. Hämta `Connection String` från Azure Portal. Mer information om anslutnings strängar finns i [skapa en Azure-kommunikations resurser](../quickstarts/create-communication-resource.md)
+4. När du `Connection String` har lagt till lägger du till anslutnings strängen i filen **anropa/appsetting.jspå** filen som finns i mappen service .net. Mata in anslutnings strängen i variabeln: `ResourceConnectionString` .
 
 ### <a name="local-run"></a>Lokal körning
 
-1. Gå till anrops-mapp
-2. Öppna `Calling.csproj` lösningen i Visual Studio
-2. Kör `Calling` projektet *
-
-* Webbläsaren öppnas vid `localhost:5000` (där noden distribuerar klient programmet). Appen stöds inte i Internet Explorer.
+1. Gå till anropa mapp och öppna `Calling.csproj` lösning i Visual Studio
+2. Kör `Calling` projekt. Webbläsaren öppnas på localhost: 5001
 
 #### <a name="troubleshooting"></a>Felsökning
 
@@ -108,6 +102,9 @@ Om du vill rensa och ta bort en kommunikations tjänst prenumeration kan du ta b
 
 ## <a name="next-steps"></a>Nästa steg
 
+>[!div class="nextstepaction"] 
+>[Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+
 Mer information finns i följande artiklar:
 
 - Bekanta dig med [att använda det anropande klient biblioteket](../quickstarts/voice-video-calling/calling-client-samples.md)
@@ -116,7 +113,7 @@ Mer information finns i följande artiklar:
 
 ## <a name="additional-reading"></a>Mer att läsa
 
-- [Azure-kommunikation för hands version](https://github.com/Azure/communication-preview) – mer information om hur du anropar webb-SDK
+- [Azure Communication-GitHub](https://github.com/Azure/communication) – Hitta fler exempel och information på den officiella GitHub-Sidan
 - [Redux](https://redux.js.org/) – tillstånds hantering på klient Sidan
 - [FluentUI](https://developer.microsoft.com/fluentui#/) – Microsoft Powered UI-bibliotek
 - [Reagera](https://reactjs.org/) – bibliotek för att skapa användar gränssnitt

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334267"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -69,15 +69,22 @@ Slut punkts-API: erna som är tillgängliga i kontroll planet är:
 
 ## <a name="create-an-event-route"></a>Skapa en händelse väg
  
-Händelse vägar skapas i ett klient program med följande [.net (C#) SDK-](how-to-use-apis-sdks.md) anrop: 
+Händelse vägar skapas i ett klient program. Ett sätt att göra detta är med `CreateEventRoute` [.net (C#) SDK-](how-to-use-apis-sdks.md) anropet: 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* `endpoint-name`Identifierar en slut punkt, till exempel en händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
+1. Först skapas ett- `EventRoute` objekt och konstruktorn tar namnet på en slut punkt. I det här `endpointName` fältet identifieras en slut punkt som händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
 
-Händelse vägen som skickas till `EventRoutes.Add` tar också en [ **filter** parameter](./how-to-manage-routes-apis-cli.md#filter-events)som kan användas för att begränsa vilka typer av händelser som följer den här vägen.
+2. Objektet för händelse vägen har också ett [**filter**](./how-to-manage-routes-apis-cli.md#filter-events) fält som kan användas för att begränsa vilka typer av händelser som följer den här vägen. Ett filter för `true` aktiverar vägen utan ytterligare filtrering (ett filter av `false` inaktiverar vägen). 
+
+3. Objektet för händelse vägen skickas sedan till `CreateEventRoute` , tillsammans med ett namn för vägen.
+
+> [!TIP]
+> Alla SDK-funktioner ingår i synkrona och asynkrona versioner.
 
 Vägar kan också skapas med hjälp av [Azure Digitals flätade CLI](how-to-use-cli.md).
 

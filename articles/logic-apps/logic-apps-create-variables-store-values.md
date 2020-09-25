@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333910"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Lagra och hantera värden med variabler i Azure Logic Apps
 
@@ -29,7 +29,7 @@ Variabler finns och är globala endast i den Logic App-instans som skapar dem. D
 > [!IMPORTANT]
 > Som standard körs cykler i en "for each"-loop parallellt. När du använder variabler i loopar kan du köra loopen [sekventiellt](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) så att variabler returnerar förutsägbara resultat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -55,7 +55,7 @@ Du kan skapa en variabel och deklarera dess datatyp och initialt värde – alla
 
    * Välj **nytt steg**för att lägga till en åtgärd under det sista steget.
 
-     ![Lägg till åtgärd](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Skärm bild som visar åtgärden "nytt steg" som valts på sidan "Logic App Designer".](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * Om du vill lägga till en åtgärd mellan stegen flyttar du musen över den anslutande pilen så att plus tecknet ( **+** ) visas. Välj plus tecknet och välj sedan **Lägg till en åtgärd**.
 
@@ -67,12 +67,12 @@ Du kan skapa en variabel och deklarera dess datatyp och initialt värde – alla
 
    | Egenskap | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ökas |
-   | **Typ** | Ja | <*variabel typ*> | Data typen för variabeln |
+   | **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ökas |
+   | **Typ** | Yes | <*variabel typ*> | Data typen för variabeln |
    | **Värde** | No | <*Start värde*> | Det inledande värdet för variabeln <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet startvärdet för din variabel. |
    |||||
 
-   Ett exempel:
+   Exempel:
 
    ![Initiera variabel](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -207,11 +207,11 @@ Om du vill öka eller *öka* en variabel med ett konstant värde lägger du till
 
    | Egenskap | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ökas |
+   | **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ökas |
    | **Värde** | No | <*öka värde*> | Det värde som används för att öka variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid känner till det exakta värdet för att öka variabeln. |
    ||||
 
-   Ett exempel:
+   Exempel:
 
    ![Exempel på värde för ökning](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -282,7 +282,7 @@ Variabler används ofta för att räkna antalet gånger som en slinga körs. Det
 
    ![Lägg till en åtgärd som skickar resultat](./media/logic-apps-create-variables-store-values/send-email-results.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 ### <a name="test-your-logic-app"></a>Testa din Logic app
 
@@ -328,7 +328,7 @@ Här följer egenskaperna för åtgärden **minska variabeln** :
 
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska minskas | 
+| **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska minskas | 
 | **Värde** | No | <*öka värde*> | Värdet för decrementing variabeln. Standardvärdet är ett. <p><p>**Tips**: du kan även ange det här värdet som bästa praxis så att du alltid vet det exakta värdet för decrementing av din variabel. |
 ||||| 
 
@@ -361,8 +361,8 @@ Här följer egenskaperna för åtgärden **ange variabel** :
 
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ändras |
-| **Värde** | Ja | <*nytt – värde*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
+| **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ändras |
+| **Värde** | Yes | <*nytt – värde*> | Värdet som du vill tilldela variabeln. Båda måste ha samma datatyp. |
 ||||| 
 
 > [!NOTE]
@@ -419,11 +419,11 @@ Här följer egenskaperna för åtgärderna **APPEND to...** :
 
 | Egenskap | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| **Namn** | Ja | <*variabel namn*> | Namnet på variabeln som ska ändras |
-| **Värde** | Ja | <*tilläggs värde*> | Värdet som du vill lägga till, vilket kan ha vilken typ som helst |
+| **Namn** | Yes | <*variabel namn*> | Namnet på variabeln som ska ändras |
+| **Värde** | Yes | <*tilläggs värde*> | Värdet som du vill lägga till, vilket kan ha vilken typ som helst |
 |||||
 
-Om du växlar från designern till kodvyn visas här hur åtgärden **Lägg till mat ris variabel** visas i din Logic app-definition, som är i JSON-format. Det här exemplet skapar en mat ris variabel och lägger till ett annat värde som det sista objektet i matrisen. Resultatet är en uppdaterad variabel som innehåller den här matrisen:`[1,2,3,"red"]`
+Om du växlar från designern till kodvyn visas här hur åtgärden **Lägg till mat ris variabel** visas i din Logic app-definition, som är i JSON-format. Det här exemplet skapar en mat ris variabel och lägger till ett annat värde som det sista objektet i matrisen. Resultatet är en uppdaterad variabel som innehåller den här matrisen: `[1,2,3,"red"]`
 
 ```json
 "actions": {

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334301"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>XML-format i Azure Data Factory
 
@@ -85,7 +85,9 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 | ------------- | ------------------------------------------------------------ | -------- |
 | typ          | Typen för formatSettings måste anges till **XmlReadSettings**. | Yes      |
 | validationMode | Anger om XML-schemat ska verifieras.<br>Tillåtna värden är **ingen** (standard, ingen validering), **XSD** (validate med XSD), **DTD** (validate using DTD). | No |
+| namn områden | Om namn området ska aktive ras när XML-filerna parsas. Tillåtna värden är: **Sant** (standard), **falskt**. | No |
 | namespacePrefixes | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No |
+| detectDataType | Anger om heltal, dubbla och booleska data typer ska identifieras. Tillåtna värden är: **Sant** (standard), **falskt**.| No |
 | compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | No       |
 | preserveZipFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `ZipDeflateReadSettings` *)  | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)**, Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false**skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | No |
 | preserveCompressionFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `TarGZipReadSettings` *) | Gäller när indata-dataset konfigureras med **TarGzip** -komprimering. Anger om du vill bevara det komprimerade fil namnet för källan som mappstruktur under kopieringen.<br>– När värdet är **true (standard)**, Data Factory skriver expanderade filer till `<path specified in dataset>/<folder named as source compressed file>/` . <br>– Om det är inställt på **false**Data Factory skriver expanderade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika källfiler för att undvika racing eller oväntat beteende. | No |
@@ -109,6 +111,7 @@ I tabellen nedan visas de egenskaper som stöds av en XML-källa. Du kan rediger
 | Validerings läge | Anger om XML-schemat ska verifieras. | No | `None` (standard, ingen verifiering)<br>`xsd` (validera med XSD)<br>`dtd` (verifiera med hjälp av DTD). | validationMode |
 | Namnrymder | Om namn området ska aktive ras när XML-filerna parsas. | No | `true` (standard) eller `false` | namn områden |
 | Par av namnområdesprefix | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No | Matris med mönster`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Skript exempel för XML-källa
 

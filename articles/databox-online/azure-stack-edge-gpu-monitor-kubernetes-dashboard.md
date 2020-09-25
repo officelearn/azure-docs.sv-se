@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/29/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320837"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Använd Kubernetes-instrumentpanelen för att övervaka din Azure Stack Edge Pro GPU-enhet
 
@@ -114,9 +114,9 @@ Du kan också filtrera efter en speciell namnrymd. I följande exempel kan du ba
 
 ![Visa CPU-och minnes användning för Azure Arc-distributioner](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
 
-Kubernetes Metrics-servern tillhandahåller pipelines för automatisk skalning som liknar den [vågräta Pod autoskalning](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+Kubernetes Metrics-servern tillhandahåller pipelines för automatisk skalning, till exempel [horisontell Pod autoskalning](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du felsöker Kubernetes problem <!--insert link-->.
+Lär dig hur du [felsöker enhets problem](azure-stack-edge-gpu-troubleshoot.md).

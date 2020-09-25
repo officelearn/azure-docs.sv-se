@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321415"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Till skillnad från etablerade data bearbetnings databaser frigörs minne från 
 
 I både server lösa och etablerade beräknings databaser kan cacheposter avlägsnas om allt tillgängligt minne används.
 
-Observera att användningen av aktiva cacheminnen kan vara hög beroende på användnings mönstret och förhindra minnes regenerering när processor användningen är låg.  Det kan också finnas ytterligare fördröjning efter att en användar aktivitet stoppas innan återtagning av minne sker på grund av regelbundna bakgrunds processer som svarar på tidigare användar aktiviteter.  Ta bort åtgärder genererar till exempel Ghost-poster som marker ATS för borttagning, men tas inte bort fysiskt förrän rensnings processen körs, vilket kan innebära att läsning av data sidor cachelagras.
+Observera att användningen av aktiva cacheminnen kan vara hög beroende på användnings mönstret och förhindra minnes regenerering när processor användningen är låg.  Det kan också finnas ytterligare fördröjning efter att en användar aktivitet stoppas innan återtagning av minne sker på grund av regelbundna bakgrunds processer som svarar på tidigare användar aktiviteter.  Ta bort åtgärder och QDs servernamn rensnings uppgifter genererar Ghost-poster som marker ATS för borttagning, men tas inte bort fysiskt förrän rensningen av Ghost-processen körs, vilket kan innebära att data sidor läses till cache.
 
 #### <a name="cache-hydration"></a>Cachelagra hydrering
 
@@ -148,7 +148,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 
 Om en server lös databas har pausats kommer den första inloggningen att återuppta databasen och returnera ett fel som anger att databasen inte är tillgänglig med felkoden 40613. När databasen har återupptagits måste inloggningen göras om för att upprätta anslutningen. Databas klienter med logik för anslutnings försök ska inte behöva ändras.
 

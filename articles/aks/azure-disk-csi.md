@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: edb38b0884629ebddb646df9d12d8b2e8d07b403
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: dfbef8da1349c2b86595f520e173aee9d455e3a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299586"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Använd driv rutinerna för Azure disk container Storage-gränssnittet (CSI) i Azure Kubernetes service (AKS) (för hands version)
 Driv rutinen för Azure disk container Storage-gränssnittet (CSI) är en [CSI Specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-kompatibel driv rutin som används av Azure Kubernetes service (AKS) för att hantera livs cykeln för Azure-diskar.
@@ -273,13 +273,14 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
 
-<!--- ## Shared disk
+## <a name="shared-disk"></a>Delad disk
 
-[Azure shared disks](../virtual-machines/windows/disks-shared.md) is an Azure managed disks feature that enables attaching an Azure disk to agent nodes simultaneously. Attaching a managed disk to multiple agent nodes allows you, for example, to deploy new or migrate existing clustered applications to Azure.
+[Azure delade diskar](../virtual-machines/windows/disks-shared.md) är en funktion för Azure Managed disks som gör att du kan koppla en Azure-disk till agent-noder samtidigt. Genom att ansluta en hanterad disk till flera agent-noder kan du till exempel distribuera nya eller migrera befintliga klustrade program till Azure.
 
-> [!IMPORTANT] Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts, and fencing on the shared disk, which is exposed as a raw block device.
+> [!IMPORTANT] 
+> För närvarande stöds endast RAW block Device ( `volumeMode: Block` ) av Azure disk CSI-drivrutinen. Program bör hantera samordning och kontroll av skrivningar, läsningar, lås, cacheminnen, monteringar och staket på den delade disken, som visas som en RAW block-enhet.
 
-Let's create a file called `shared-disk.yaml` by copying the following command that contains the shared disk storage class and PVC:
+Nu ska vi skapa en fil `shared-disk.yaml` med namnet genom att kopiera följande kommando som innehåller den delade disk lagrings klassen och PVC:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -307,7 +308,7 @@ spec:
   storageClassName: managed-csi-shared
 ```
 
-Create the storage class with the [kubectl apply][kubectl-apply] command, and specify your `shared-disk.yaml` file:
+Skapa lagrings klassen med kommandot [kubectl Apply][kubectl-apply] och ange din `shared-disk.yaml` fil:
 
 ```console
 $ kubectl apply -f shared-disk.yaml
@@ -316,7 +317,7 @@ storageclass.storage.k8s.io/managed-csi-shared created
 persistentvolumeclaim/pvc-azuredisk-shared created
 ``` 
 
-Now let's create a file called `deployment-shared.yml` by copying the following command:
+Nu ska vi skapa en fil `deployment-shared.yml` med namnet genom att kopiera följande kommando:
 
 ```yaml
 apiVersion: apps/v1
@@ -348,7 +349,7 @@ spec:
             claimName: pvc-azuredisk-shared
 ```
 
-Create the deployment with the [kubectl apply][kubectl-apply] command, and specify your `deployment-shared.yml` file:
+Skapa distributionen med kommandot [kubectl Apply][kubectl-apply] och ange din `deployment-shared.yml` fil:
 
 ```console
 $ kubectl apply -f deployment-shared.yml
@@ -356,7 +357,7 @@ $ kubectl apply -f deployment-shared.yml
 deployment/deployment-azuredisk created
 ```
 
-Finally, let's check the block device inside the pod:
+Till sist kontrollerar vi att enheten är blockerad i pod:
 
 ```console
 # kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp bash
@@ -365,7 +366,6 @@ root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=102
 100+0 records out
 104857600 bytes (105 MB, 100 MiB) copied, 0.0502999 s, 2.1 GB/s
 ```
--->
 
 ## <a name="windows-containers"></a>Windows-containrar
 

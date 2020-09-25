@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295034"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
@@ -125,7 +125,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 1. Öppna Redigeraren Grupprinciphantering-verktyget.
 2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
 3. Bläddra till **användar konfigurations**  >  **princip**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel**på  >  **säkerhets sidan**. Välj sedan **plats till zon tilldelnings lista**.
-    ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Skärm bild som visar "säkerhets sidan" med "plats till zon tilldelnings lista" vald.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Aktivera principen och ange sedan följande värden i dialog rutan:
    - **Värde namn**: Azure AD-URL: en där Kerberos-biljetterna vidarebefordras.
    - **Värde** (data): **1** anger zonen Intranät.
@@ -142,15 +142,15 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
 5. Välj **OK** och sedan **OK** igen.
 
-    ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Skärm bild som visar fönstret "Visa innehåll" med en zon tilldelning markerad.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Bläddra till princip för **användar konfiguration**  >  **Policy**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Internet Explorer Internet Explorer**  >  **Internet Control Panel**  >  **säkerhets sida**  >  **intranät zon**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
 
-    ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Skärm bild som visar sidan "intranät zon" med "Tillåt uppdateringar till statusfält via skript" markerat.](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Aktivera princip inställningen och välj sedan **OK**.
 
-    ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Skärm bild som visar fönstret Tillåt uppdateringar av statusfältet via skript och inställningen aktive rad.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Alternativet "inställningar för grup princip" – detaljerade steg
 
@@ -158,7 +158,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
 3. Bläddra till **användar konfigurations**  >  **Inställningar**  >  **Windows-inställningar**  >  **register**  >  **nytt**  >  **register objekt**.
 
-    ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Skärm bild som visar "registret" markerat och "register objekt" valt.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Ange följande värden i lämpliga fält och klicka på **OK**.
    - **Nyckel Sök väg**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon***
@@ -166,7 +166,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
    - **Värdetyp**: ***REG_DWORD***
    - **Värde data**: ***00000001***
  
-     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Skärm bild som visar fönstret "nya register egenskaper".](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso17.png)
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 96b91c08e0bf9a176af2ed844cd63a2cfa1e233d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9765f685f2fccc9332a2f07d907aac415aa2c57f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333927"
 ---
 # <a name="azure-load-balancer-concepts"></a>Azure Load Balancer begrepp
 
@@ -83,9 +83,9 @@ På en plattforms nivå körs Azure Load Balancer alltid i en hög DSR-flödes t
 Utan flytande IP exponerar Azure ett traditionellt mappnings schema för IP-adresser för belastnings utjämning för enkel användning (VM-instansernas IP). Att aktivera flytande IP ändrar IP-adress mappningen till belastningsutjämnaren för klient delen för att möjliggöra ytterligare flexibilitet. Läs mer [här](load-balancer-multivip-overview.md).
 
 
-## <a name="limitations"></a><a name = "limitations"></a>Begränsningar
+## <a name="limitations"></a><a name = "limitations"></a>Hos
 
-- Flytande IP stöds för närvarande inte på sekundära IP-konfigurationer för interna belastnings Utjämnings scenarier.
+- Flytande IP stöds för närvarande inte på sekundära IP-konfigurationer för interna belastnings Utjämnings scenarier eller scenarier för offentliga belastnings utjämning.
 
 - En belastnings Utjämnings regel kan inte omfatta två virtuella nätverk.  Frontend-enheter och deras server dels instanser måste finnas i samma virtuella nätverk.  
 

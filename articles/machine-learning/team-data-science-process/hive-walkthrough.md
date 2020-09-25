@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336521"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team data science-processen i praktiken: Använd Azure HDInsight Hadoop kluster
 I den här genom gången använder vi [team data science-processen (TDSP)](overview.md) i ett scenario från slut punkt till slut punkt. Vi använder ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och tillhandahålla data från den allmänt tillgängliga [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen och för att få fram exempel på data. För att hantera binära och Regressions aktiviteter med multiklasser, bygger vi modeller av data med Azure Machine Learning. 
@@ -89,7 +89,7 @@ Du kan konfigurera en Azure-miljö för avancerad analys som använder ett HDIns
    
    * Kom ihåg att länka lagrings kontot som skapades i steg 1 med ditt HDInsight-kluster när du skapar det. Det här lagrings kontot har åtkomst till data som bearbetas i klustret.
    * När du har skapat klustret aktiverar du fjärråtkomst till Head-noden i klustret. Bläddra till fliken **konfiguration** och välj **Aktivera fjärran sluten**. Det här steget anger de användarautentiseringsuppgifter som används för fjärrinloggning.
-3. [Skapa en Azure Machine Learning arbets yta](../studio/create-workspace.md): du använder den här arbets ytan för att skapa maskin inlärnings modeller. Den här uppgiften åtgärdas när du har slutfört en första data utforskning och-sampling, med hjälp av HDInsight-klustret.
+3. [Skapa en Azure Machine Learning arbets yta](../classic/create-workspace.md): du använder den här arbets ytan för att skapa maskin inlärnings modeller. Den här uppgiften åtgärdas när du har slutfört en första data utforskning och-sampling, med hjälp av HDInsight-klustret.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Hämta data från en offentlig källa
 > [!NOTE]
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Frågeresultatet skrivs till nio Azure-blobbar (**queryoutputdir/000000 \_ 0** till **queryoutputdir/000008 \_ 0**) under standard behållaren för Hadoop-klustret.
+Frågeresultatet skrivs till nio Azure-blobbar (**queryoutputdir/000000 \_ 0** till  **queryoutputdir/000008 \_ 0**) under standard behållaren för Hadoop-klustret.
 
 Om du vill se storleken på de enskilda Blobbarna kör du följande kommando från Hive-katalogens kommando tolk:
 
@@ -654,7 +654,7 @@ hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 ```
 
 > [!WARNING]
-> `copyToLocal`kan vara mycket långsamt för stora filer och rekommenderas inte för användning med dem.  
+> `copyToLocal` kan vara mycket långsamt för stora filer och rekommenderas inte för användning med dem.  
 > 
 > 
 
@@ -894,7 +894,7 @@ Nu kan du fortsätta med modell skapande och modell distribution i [Machine Lear
 
   b. För det här experimentet använder vi en Förväxlings mat ris för att titta på de förutsägelser som visas här:
 
-  ![Förvirring mat ris](./media/hive-walkthrough/cxFmErM.png)
+  ![Förvirringsmatris](./media/hive-walkthrough/cxFmErM.png)
 
   Även om klassen visar att de vanligaste klasserna är effektiva, gör modellen inte något lämpligt jobb av "inlärning" i rarer-klasserna.
 
@@ -915,7 +915,7 @@ Nu kan du fortsätta med modell skapande och modell distribution i [Machine Lear
   Här är koefficienten för bestämningen 0,709, vilket innebär att cirka 71 procent av avvikelsen förklaras av modellens koefficienter.
 
 > [!IMPORTANT]
-> Mer information om Machine Learning och hur du kommer åt och använder den finns i [Machine Learning](../studio/what-is-machine-learning.md). Dessutom täcker [Azure AI Gallery](https://gallery.cortanaintelligence.com/) en omfattning av experiment och ger en grundlig introduktion till de olika funktionerna i Machine Learning.
+> Mer information om Machine Learning och hur du kommer åt och använder den finns i [Machine Learning](../classic/index.yml). Dessutom täcker [Azure AI Gallery](https://gallery.cortanaintelligence.com/) en omfattning av experiment och ger en grundlig introduktion till de olika funktionerna i Machine Learning.
 > 
 > 
 
@@ -923,9 +923,9 @@ Nu kan du fortsätta med modell skapande och modell distribution i [Machine Lear
 Den här exempel genom gången och dess tillhör ande skript delas av Microsoft under MIT-licensen. Mer information finns i **LICENSE.txt** -filen i katalogen i exempel koden på GitHub.
 
 ## <a name="references"></a>Referenser
-• [Andrés MONROY NYC taxi TRIPs Download Page](https://www.andresmh.com/nyctaxitrips/)  
-• [Folier av NYCs taxi uppgifter från Christer Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC taxi och limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Andrés MONROY NYC taxi TRIPs Download Page](https://www.andresmh.com/nyctaxitrips/)  
+•    [Folier av NYCs taxi uppgifter från Christer Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [NYC taxi och limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png
@@ -937,6 +937,3 @@ Den här exempel genom gången och dess tillhör ande skript delas av Microsoft 
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-

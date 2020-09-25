@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265477"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurera grupp anspråk för program med Azure Active Directory
 
@@ -78,30 +78,30 @@ Om du vill konfigurera grupp anspråk för ett galleri eller ett icke-Galleri SA
 
 Klicka på **Lägg till ett grupp anspråk**  
 
-![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Skärm bild som visar sidan "användarattribut &-anspråk" med alternativet "Lägg till ett grupp anspråk" markerat.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Använd alternativ knapparna för att välja vilka grupper som ska ingå i token
 
-![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Skärm bild som visar fönstret "grupp anspråk" med "säkerhets grupper" valt.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Urval | Beskrivning |
 |----------|-------------|
 | **Alla grupper** | Skapar säkerhets grupper och distributions listor och roller.  |
-| **Säkerhetsgrupper** | Genererar säkerhets grupper som användaren är medlem i i gruppen grupp anspråk |
+| **Säkerhets grupper** | Genererar säkerhets grupper som användaren är medlem i i gruppen grupp anspråk |
 | **Katalogroller** | Om användaren har tilldelats katalog roller genereras de som ett ' wids '-anspråk (grupp anspråk genereras inte) |
 | **Grupper som har tilldelats programmet** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
 
 Om du till exempel vill generera alla säkerhets grupper som användaren är medlem i väljer du säkerhets grupper
 
-![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Skärm bild som visar fönstret "grupp anspråk" med "säkerhets grupper" valt och den nedrullningsbara menyn källattribut är öppen.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Om du vill generera grupper med hjälp av Active Directory attribut som synkroniserats från Active Directory i stället för Azure AD objectIDs väljer du det format som krävs från List rutan. Endast grupper som synkroniseras från Active Directory tas med i anspråken.
 
-![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Skärm bild som visar den nedrullningsbara menyn "källattribut" öppen.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 Om du bara vill generera grupper som är tilldelade till programmet väljer du **grupper tilldelade till programmet**
 
-![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Skärm bild som visar fönstret "grupp anspråk" med "grupper tilldelade till programmet" markerat.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Grupper som har tilldelats till programmet tas med i token.  Andra grupper som användaren är medlem i kommer att utelämnas.  Med det här alternativet inkluderas inte kapslade grupper och användaren måste vara en direkt medlem i gruppen som tilldelats programmet.
 
@@ -115,11 +115,11 @@ Hur grupp anspråk genereras kan ändras av inställningarna under avancerade al
 
 Anpassa grupp anspråkets namn: om det här alternativet väljs kan en annan anspråks typ anges för grupp anspråk.   Ange anspråks typ i fältet namn och det valfria namn området för anspråket i fältet namn område.
 
-![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Skärm bild som visar avsnittet "avancerade alternativ" med värdet "anpassa namnet på grupp anspråket" valda och "namn" och "namespace" som anges.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Vissa program kräver att grupp medlemskaps informationen visas i "roll"-anspråket. Du kan välja att generera användarens grupper som roller genom att markera rutan generera grupper av en roll anspråk.
 
-![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Skärm bild som visar avsnittet "avancerade alternativ" med "anpassa namnet på grupp anspråket" och "generera grupper som roll anspråk" valda.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > Om alternativet att generera grupp data som roller används, visas endast grupper i roll anspråket.  Alla program roller som användaren är tilldelad visas inte i roll anspråket.
@@ -147,7 +147,7 @@ Giltiga värden är:
 | **"DirectoryRole** | Om användaren har tilldelats katalog roller genereras de som ett ' wids '-anspråk (grupp anspråk genereras inte) |
 | **"Variabeln applicationgroup** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
 
-   Ett exempel:
+   Exempel:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

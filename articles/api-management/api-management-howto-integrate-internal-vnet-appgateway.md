@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 778c65b9ec42c27ea0ae1530c1ba7fa9739fbc3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025123"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321895"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt VNET med Application Gateway
 
@@ -91,7 +91,7 @@ I den här guiden kommer vi också att exponera **utvecklings portalen** för ex
 > 
 > Application Gateway WAF-regler, som kan bryta portalens funktioner:
 > 
-> - `920330`,,,,,,, `931130` `942100` `942110` `942180` `942200` `942260` `942370` `949110` `980130` för administrations läge
+> - `920300`,,,,,,, `920330` `931130` `942100` `942110` `942180` `942200` `942260` `942340` `942370` för administrations läge
 > - `942200`,,, `942260` `942370` `942430` , `942440` för den publicerade portalen
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
@@ -315,7 +315,7 @@ $apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apim
 
 ### <a name="step-9"></a>Steg 9
 
-Konfigurera en backend-IP-adresspool med namnet **apimbackend** med den interna virtuella IP-adressen för den API Management tjänst som skapades ovan.
+Konfigurera en backend-IP-adresspool med namnet **apimbackend**  med den interna virtuella IP-adressen för den API Management tjänst som skapades ovan.
 
 ```powershell
 $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]

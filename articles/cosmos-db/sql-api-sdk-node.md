@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 76671ba2dec2590baf4f3df38325b4cfb0129e8d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-js
+ms.openlocfilehash: 8334f8bbbdb6cad210839fc724c46834f559bf91
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586111"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324375"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "88586111"
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Våren data v2](sql-api-sdk-java-spring-v2.md)
 > * [Våren data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark-anslutning](sql-api-sdk-java-spark.md)
+> * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
@@ -471,7 +471,7 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 | [1.0.1](#1.0.1) |15 maj, 2015 |30 augusti 2020 |
 | [1.0.0](#1.0.0) |08, 2015 |30 augusti 2020 |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

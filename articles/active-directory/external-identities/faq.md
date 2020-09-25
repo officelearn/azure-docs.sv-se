@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910147"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274052"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Vanliga frågor och svar om Azure Active Directory B2B-samarbete
 
@@ -61,7 +61,7 @@ Om en användare inte har tilldelats rollen begränsad administratör behöver i
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan jag blockera åtkomst till Azure Portal för gäst användare?
 
-Japp! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
+Ja! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som säkerhets administratör eller administratör för villkorlig åtkomst.
 2. I Azure Portal väljer du **Azure Active Directory**. 
@@ -116,6 +116,9 @@ Om partnern har en Azure AD-klient som är federerad för den lokala autentiseri
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Jag trodde att Azure AD B2B inte accepterade gmail.com-och outlook.com-e-postadresser och att B2C användes för dessa typer av konton?
 Vi tar bort skillnaderna mellan B2B-och B2C-samarbete (Business-to-Consumer) i termer för vilka identiteter som stöds. Den identitet som används är inte en korrekt anledning att välja mellan att använda B2B eller med hjälp av B2C. Information om hur du väljer samarbets alternativ finns i [jämföra B2B-samarbete och B2C i Azure Active Directory](compare-with-b2c.md).
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Kan ett Azure AD B2C lokalt konto bjudas in till en Azure AD-klient för B2B-samarbete?
+Nej. Ett Azure AD B2C lokalt konto kan bara användas för att logga in på Azure AD B2C klienten. Kontot kan inte användas för att logga in på en Azure AD-klient. Det finns inte stöd för att bjuda in ett Azure AD B2C lokalt konto till en Azure AD-klient för B2B-samarbete.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Vilka program och tjänster stöder Azure B2B-gäst användare?
 Alla Azure AD-integrerade program kan ha stöd för Azure B2B-gäst användare, men de måste använda en slut punkt som har kon figurer ATS som en klient för att autentisera gäst användare. Du kan också behöva [Anpassa anspråk](claims-mapping.md) i SAML-token som utfärdas när en gäst användare autentiserar sig till appen. 

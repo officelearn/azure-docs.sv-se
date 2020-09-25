@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265994"
 ---
 # <a name="conditional-access-block-access"></a>Villkorlig åtkomst: blockera åtkomst
 
@@ -38,7 +38,7 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Följande steg hjälper dig att skapa principer för villkorlig åtkomst för att blockera åtkomst till alla appar förutom [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) om användarna inte är i ett betrott nätverk. Dessa principer sätts i [läget endast för rapporter](howto-conditional-access-insights-reporting.md) för att starta så att administratörer kan bestämma vilken effekt de kommer att ha på befintliga användare. När administratörer är van vid att principerna ska gälla som de ska, kan de byta till **på**.
+Följande steg hjälper dig att skapa principer för villkorlig åtkomst för att blockera åtkomst till alla appar förutom [Office 365](concept-conditional-access-cloud-apps.md#office-365) om användarna inte är i ett betrott nätverk. Dessa principer sätts i [läget endast för rapporter](howto-conditional-access-insights-reporting.md) för att starta så att administratörer kan bestämma vilken effekt de kommer att ha på befintliga användare. När administratörer är van vid att principerna ska gälla som de ska, kan de byta till **på**.
 
 Den första principen blockerar åtkomst till alla appar förutom Microsoft 365 program om de inte är på en betrodd plats.
 
@@ -52,7 +52,7 @@ Den första principen blockerar åtkomst till alla appar förutom Microsoft 365 
    1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**väljer du följande alternativ:
    1. Under **Inkludera**väljer du **alla molnappar**.
-   1. Under **exkludera**väljer du **Office 365 (för hands version)**, väljer **Välj**och väljer sedan **Slutför**.
+   1. Under **exkludera**väljer du **Office 365**, väljer **Välj**och väljer sedan **Slutför**.
 1. Under **villkor**:
    1. Under **villkor**  >  **plats**.
       1. **Konfigurera** till **Ja**
@@ -72,7 +72,7 @@ En andra princip skapas nedan för att kräva Multi-Factor Authentication eller 
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
    1. Välj **Klar**.
-1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**, sedan **Office 365 (för hands version)** och väljer **Välj**och sedan **Slutför**.
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**, sedan **Office 365**och väljer **Välj**och sedan **Slutför**.
 1. Under **åtkomst kontroller**  >  **bevilja**väljer du **bevilja åtkomst**.
    1. Välj **Kräv Multi-Factor Authentication** och **Kräv att enheten är markerad som kompatibel** Välj **Välj**.
    1. Se till att **alla markerade kontroller** är markerat.

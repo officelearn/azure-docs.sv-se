@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322367"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Modell tolkning i Azure Machine Learning (för hands version)
 
@@ -39,20 +39,11 @@ Att göra det möjligt att förklara en maskin inlärnings modell är viktigt un
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Tolkning med Azure Machine Learning
 
-Tolknings klasser görs tillgängliga via flera SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+Tolknings klasser görs tillgängliga via följande SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
-* `azureml.interpret`, huvud paketet, som innehåller funktioner som stöds av Microsoft.
+* `azureml.interpret`, innehåller funktioner som stöds av Microsoft.
 
-* `azureml.contrib.interpret`, för hands versioner och experiment funktioner som du kan prova.
-
-Använd `pip install azureml-interpret` och `pip install azureml-contrib-interpret` för allmän användning.
-
-
-> [!IMPORTANT]
-> Innehållet i `contrib` namn området stöds inte fullt ut. När experiment funktionerna blir mogna, kommer de gradvis att flyttas till huvud namn rummet.
-.
-
-
+Används `pip install azureml-interpret` för allmän användning.
 
 ## <a name="how-to-interpret-your-model"></a>Så här tolkar du din modell
 
@@ -71,7 +62,7 @@ Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som s
 
  `azureml-interpret` använder tolknings tekniker som utvecklats i [tolkning – community](https://github.com/interpretml/interpret-community/), ett python-paket med öppen källkod för inlärnings bara modeller och hjälper till att förklara blackbox AI-system. [Tolkning – community](https://github.com/interpretml/interpret-community/) fungerar som värd för den här SDK: s support förklaringar och stöder för närvarande följande tolknings tekniker:
 
-|Tolknings teknik|Beskrivning|Typ|
+|Tolknings teknik|Description|Typ|
 |--|--|--------------------|
 |SHAP Tree-förklaring| [SHAP](https://github.com/slundberg/shap): s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd **och ensembler för träd**.|Modell-/regionsspecifika|
 |SHAP djup förklaring| Baserat på förklaringen från SHAP är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i [SHAP Nips-papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** -modeller och **keras** -modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".|Modell-/regionsspecifika|

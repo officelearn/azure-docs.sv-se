@@ -4,14 +4,14 @@ description: Lär dig hur Azure Cosmos DB tillhandahåller databas skydd med RBA
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e65c17be47cdc59f929aa539071cf1c758e271f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320888"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomstkontroll i Azure Cosmos DB
 
@@ -25,8 +25,8 @@ Följande är de inbyggda roller som stöds av Azure Cosmos DB:
 |---------|---------|
 |[DocumentDB-konto deltagare](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Kan hantera Azure Cosmos DB-konton.|
 |[Cosmos DB konto läsare](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Kan läsa Azure Cosmos DB konto data.|
-|[Ansvarig för Cosmos-säkerhetskopiering](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Kan skicka en Restore-begäran för en Azure Cosmos-databas eller en behållare.|
-|[Cosmos DB operatör](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Kan etablera Azure Cosmos-konton, databaser och behållare, men har inte åtkomst till de nycklar som krävs för att komma åt data.|
+|[Ansvarig för Cosmos-säkerhetskopiering](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Kan skicka en Restore-begäran för en Azure Cosmos-databas eller en behållare. Det går inte att komma åt data eller använda Datautforskaren.|
+|[Cosmos DB operatör](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Kan etablera Azure Cosmos-konton, databaser och behållare. Det går inte att komma åt data eller använda Datautforskaren.|
 
 > [!IMPORTANT]
 > RBAC-stöd i Azure Cosmos DB gäller endast för kontroll Plans åtgärder. Data Plans åtgärder skyddas med hjälp av huvud nycklar eller resurs-token. Mer information finns i [säker åtkomst till data i Azure Cosmos DB](secure-access-to-data.md)
@@ -40,6 +40,9 @@ Fönstret **åtkomst kontroll (IAM)** i Azure Portal används för att konfigure
 ## <a name="custom-roles"></a>Anpassade roller
 
 Förutom de inbyggda rollerna kan användare också skapa [anpassade roller](../role-based-access-control/custom-roles.md) i Azure och tillämpa dessa roller för tjänstens huvud namn i alla prenumerationer inom sin Active Directory-klient. Anpassade roller ger användarna möjlighet att skapa Azure-roll definitioner med en anpassad uppsättning av resurs leverantörs åtgärder. Om du vill veta vilka åtgärder som är tillgängliga för att skapa anpassade roller för Azure Cosmos DB, se [Azure Cosmos DB Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+
+> [!TIP]
+> Anpassade roller som behöver komma åt data som lagras i Cosmos DB eller använda Datautforskaren i Azure Portal måste ha `Microsoft.DocumentDB/databaseAccounts/listKeys/*` åtgärd.
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Förhindra ändringar från Azure Cosmos DB SDK: er
 

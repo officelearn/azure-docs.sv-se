@@ -1,21 +1,21 @@
 ---
-title: Använd skapare för att skapa inliggande kartor
-description: Använd Azure Maps Creator för att skapa inomhus Maps.
+title: 'Självstudie: använda Creator för att skapa inomhus Maps'
+description: Själv studie kurs om hur du använder Azure Maps Creator för att skapa inomhus Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 01182343fb0c96040ec8e86ddf915050ba68cf9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469923"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335219"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Självstudie: använda Creator för att skapa inomhus Maps
 
 I den här kursen får du lära dig hur du skapar inlednings kartor. I den här självstudien får du lära dig hur du använder API: et för att:
 
@@ -28,7 +28,7 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skapa inomhus Maps:
 
@@ -162,7 +162,7 @@ Exempel ritnings paketet ska konverteras utan fel eller varningar. Men om du få
 }
 ```
 
-## <a name="create-a-dataset"></a>Skapa en datamängd
+## <a name="create-a-dataset"></a>Skapa en datauppsättning
 
 Data uppsättningen är en samling kart funktioner, till exempel byggnader, nivåer och rum. Om du vill skapa en data uppsättning använder du [data uppsättningen Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Skapa-API: et för data uppsättningen tar `conversionId` för det konverterade ritnings paketet och returnerar en `datasetId` av de skapade data uppsättningarna. Stegen nedan visar hur du skapar en data uppsättning.
 
@@ -404,43 +404,11 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 
 Med [funktionen Get](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) States API kan du hämta tillståndet för en funktion med hjälp av dess funktion `ID` . Du kan också ta bort stateset och dess resurser genom att använda [funktions tillstånd ta bort API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
+Om du vill veta mer om de olika Azure Maps Creator-tjänster som beskrivs i den här artikeln kan du läsa om [Creators inomhus Maps](creator-indoor-maps.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Ladda upp ditt Drawing-paket för Inhämtnings kartor
-> * Konvertera ditt Drawing-paket till kart data
-> * Skapa en data uppsättning från dina kart data
-> * Skapa en TILESET från data i din data uppsättning
-> * Fråga tjänsten Azure Maps WFS om du vill veta mer om dina kart funktioner
-> * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
-> * Uppdatera din funktions stateset
-
-Nu är du utrustad med de kunskaper du behöver för att gå vidare till nästa guider:
+Information om hur du använder modulen inomhus Maps finns i
 
 > [!div class="nextstepaction"]
 > [Använda modulen inomhus Maps](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implementera dynamisk formatering för inomhus Maps](indoor-map-dynamic-styling.md)
-
-Läs mer om de olika Azure Maps tjänsterna som beskrivs i den här artikeln:
-
-> [!div class="nextstepaction"]
-> [Data uppladdning](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Data konvertering](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Datamängd](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Tileset](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Funktions tillstånds uppsättning](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [WFS-tjänst](creator-indoor-maps.md#web-feature-service-api)

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 81c4558bde3ffdbec72a756562b972c2eed4a1ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273049"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Skapa data styrenheten för Azure-bågen
 
@@ -45,7 +45,7 @@ För närvarande är den lista över Kubernetes tjänster och distributioner som
 > [!NOTE]
 > Om du använder Red Hat OpenShift container Platform på Azure rekommenderar vi att du använder den senaste tillgängliga versionen.
 
-Beroende på vilket alternativ du väljer _krävs_vissa verktyg, men vi rekommenderar att du [installerar alla klient verktyg](install-client-tools.md) innan du börjar skapa data styrenheten för Azure-bågen.
+Beroende på vilket alternativ du väljer _krävs_vissa verktyg, men vi rekommenderar att du [installerar alla klient verktyg](./install-client-tools.md) innan du börjar skapa data styrenheten för Azure-bågen.
 
 Oavsett vilket alternativ du väljer måste du ange följande information under skapande processen:
 
@@ -53,7 +53,7 @@ Oavsett vilket alternativ du väljer måste du ange följande information under 
 - **Datacontroller-användar namn** – valfritt användar namn för administratörs användaren för data kontrollanten.
 - **Lösen ord för datakontrollant** – ett lösen ord för administratörs användaren för datakontrollanten.
 - **Namnet på ditt Kubernetes-namnområde** – namnet på Kubernetes-namnområdet som du vill skapa data styrenheten i.
-- **Anslutnings läge** – [anslutnings läget](connectivity.md) för klustret. För närvarande stöds endast "indirekt".
+- **Anslutnings läge** – [anslutnings läget](./connectivity.md) för klustret. För närvarande stöds endast "indirekt".
 - **Azure-prenumerations-ID** – GUID för Azure-prenumerationen där du vill att data styrenhets resursen i Azure ska skapas.
 - **Namn på Azure-resurs grupp** – namnet på den resurs grupp där du vill att data styrenhets resursen i Azure ska skapas.
 - **Azure-plats** – Azure-platsen där data styrenhetens resurs-metadata ska lagras i Azure. En lista över tillgängliga regioner finns i [Azure Global Infrastructure/products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -68,5 +68,5 @@ Det finns flera alternativ för att skapa data styrenheten för Azure-bågen:
 - [Skapa en datakontrollant med Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
 - [Skapa en datakontrollant med Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Skapa en datakontrollant från Azure Portal via en Jupyter Notebook i Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
-- [Skapa en datakontrollant med Kubernetes-verktyg som kubectl eller oc](create-data-controller-using-k8s-native-tools.md)
+- [Skapa en datakontrollant med Kubernetes-verktyg som kubectl eller oc](create-data-controller-using-kubernetes-native-tools.md)
 - [Skapa en datakontrollant med Azure Arc-rivstart med för en snabbare upplevelse av en test distribution](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)

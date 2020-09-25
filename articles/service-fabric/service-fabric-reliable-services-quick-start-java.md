@@ -1,17 +1,17 @@
 ---
 title: Skapa din första Reliable service i Java
-description: Introduktion till att skapa ett Microsoft Azure Service Fabric-program med tillstånds lösa och tillstånds känsliga tjänster.
+description: Introduktion till att skapa ett Microsoft Azure Service Fabric-program med tillstånds lösa och tillstånds känsliga tjänster i Java.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
 ms.author: suhuruli
-ms.openlocfilehash: 30797e68081e346ee0f31f77da15f820776337a0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f74265c7b774e4b471c8621e99377a009f939ee1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250104"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Kom igång med Reliable Services i Java
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Plattformen anropar den här metoden när en instans av en tjänst placeras och 
 
 Den här dirigeringen hanteras av Service Fabric för att hålla tjänsten hög tillgänglig och korrekt bal anse rad.
 
-`runAsync()`bör inte blockera synkront. Din implementering av runAsync ska returnera en CompletableFuture som gör att körningen kan fortsätta. Om din arbets belastning behöver implementera en tids krävande uppgift som ska utföras i CompletableFuture.
+`runAsync()` bör inte blockera synkront. Din implementering av runAsync ska returnera en CompletableFuture som gör att körningen kan fortsätta. Om din arbets belastning behöver implementera en tids krävande uppgift som ska utföras i CompletableFuture.
 
 #### <a name="cancellation"></a>Annullering
 Annullering av din arbets belastning är en samarbets insats som dirigeras av den angivna avbrotts-token. Systemet väntar tills åtgärden har slutförts (genom slutförd, annullering eller fel) innan den flyttas. Det är viktigt att du följer token för uppsägning, slutför allt arbete och avslutar `runAsync()` så snabbt som möjligt när systemet begär uppsägning. Följande exempel visar hur du hanterar en annullerings händelse:
@@ -184,7 +184,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()` . Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
+`RunAsync()` fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()` . Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och tillförlitliga tillstånds hanterare
 ```java

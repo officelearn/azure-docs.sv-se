@@ -3,12 +3,12 @@ title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a687bcbaff56fa1229794b6977e3565070c56e2a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302680"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -47,7 +47,7 @@ En princip kan inkluderas som en av många _artefakter_ i en skiss definition. M
 
 En skiss består av _artefakter_. Azure-ritningar stöder för närvarande följande resurser som artefakter:
 
-|Resurs  | Hierarkialternativ| Beskrivning  |
+|Resurs  | Hierarkialternativ| Description  |
 |---------|---------|---------|
 |Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Dessa resurs grupper för plats hållare gör det möjligt att organisera resurser exakt som du vill att de ska vara strukturerade och ger en omfattnings gräns för inkluderade principer och roll tilldelnings artefakter och ARM-mallar. |
 |ARM-mall | Prenumeration, resursgrupp | Mallar, inklusive kapslade och länkade mallar, används för att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
@@ -78,7 +78,9 @@ Varje **publicerad** **version** av en skiss kan tilldelas (med en maximal namn 
 
 ## <a name="permissions-in-azure-blueprints"></a>Behörigheter i Azure Blueprint
 
-Om du vill använda skisser måste du ha beviljade behörigheter via [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC). Om du vill skapa skisser måste ditt konto ha följande behörigheter:
+Om du vill använda skisser måste du ha beviljade behörigheter via [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC). Om du vill läsa eller Visa en skiss i Azure Portal måste ditt konto ha Läs behörighet till omfånget där skiss definitionen finns.
+
+Om du vill skapa skisser måste ditt konto ha följande behörigheter:
 
 - `Microsoft.Blueprint/blueprints/write` – Skapa en skissdefinition
 - `Microsoft.Blueprint/blueprints/artifacts/write` – Skapa artefakter på en skissdefinition
@@ -103,7 +105,7 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 
 Följande inbyggda roller är tillgängliga:
 
-|Azure-roll | Beskrivning |
+|Azure-roll | Description |
 |-|-|
 |[Ägare](../../role-based-access-control/built-in-roles.md#owner) | Förutom andra behörigheter innehåller alla Azure Blueprint-relaterade behörigheter. |
 |[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | Förutom andra behörigheter kan skapa och ta bort skiss definitioner, men har inte behörighet för skiss tilldelning. |

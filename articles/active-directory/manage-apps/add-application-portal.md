@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305773"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: lägga till ett program till din Azure Active Directory-klient (Azure AD)
 
@@ -47,13 +47,24 @@ Så här lägger du till ett program i Azure AD-klienten:
 3. I fönstret **företags program** väljer du **nytt program**. 
     ![Välj nytt program för att lägga till en Galleri-app till din klient organisation](media/add-application-portal/new-application.png)
 4. Växla till den nya Galleri förhands granskningen: i banderollen högst upp på **sidan Lägg till ett program**väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet**.
-5. Fönstret **Bläddra i Azure AD-galleriet (förhands granskning)** öppnas och visar paneler för moln plattformar, lokala program och aktuella program. Program som listas i avsnittet **aktuella program** innehåller ikoner som visar om de stöder federerad enkel inloggning (SSO) och etablering.
+5. Fönstret **Bläddra i Azure AD-galleriet (förhands granskning)** öppnas och visar paneler för moln plattformar, lokala program och aktuella program. Program som listas i avsnittet **aktuella program** innehåller ikoner som visar om de stöder federerad enkel inloggning (SSO) och etablering. 
     ![Sök efter en app efter namn eller kategori](media/add-application-portal/browse-gallery.png)
-6. Du kan bläddra i galleriet för det program som du vill lägga till eller söka efter programmet genom att ange dess namn i sökrutan. Välj sedan programmet från resultaten. I formuläret kan du redigera namnet på programmet så att det matchar organisationens behov. I det här exemplet har vi valt GitHub och ändrat namnet till **GitHub-test**.
-    ![Visar hur du lägger till ett program från galleriet](media/add-application-portal/create-application.png)
-    >[!TIP]
-    >Om det program som du söker efter inte finns i galleriet kan du klicka på länken **skapa ditt eget program** och under **vad vill du göra med ditt program?** Välj **integrera andra program som du inte hittar i galleriet**. Microsoft har redan arbetat med många programutvecklare för att förkonfigurera dem att fungera med Azure AD. Detta är de appar som visas i galleriet. Men om den app som du vill lägga till inte visas i listan kan du skapa en ny, allmän app och sedan konfigurera den själv eller med hjälp av den utvecklare som skapade den.
-7. Välj **Skapa**. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
+6. Du kan bläddra i galleriet för det program som du vill lägga till eller söka efter programmet genom att ange dess namn i sökrutan. Välj sedan programmet från resultaten. 
+7. Nästa steg är beroende av hur utvecklaren av programmet har implementerat enkel inloggning (SSO). Enkel inloggning kan implementeras av apps-utvecklare på fyra sätt. De fyra sätten är SAML, OpenID Connect, Password och Linked. När du lägger till en app kan du välja att filtrera och bara se appar med en viss SSO-implementering som visas på skärm bilden. Till exempel kallas en populär standard för att implementera SSO Security Assertion Markup Language (SAML). En annan standard som är populär kallas OpenId Connect (OIDC). Sättet att konfigurera SSO med dessa standarder är annorlunda, och anteckna vilken typ av SSO som implementeras av appen som du lägger till.
+
+    :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Skärm bild som visar väljaren för SSO-typer." lightbox="media/add-application-portal/sso-types.png":::
+
+    - Om utvecklaren av appen använde OIDC- **standarden** för SSO väljer du **Registrera dig**. En installations sida visas. Gå sedan till snabb starten för att konfigurera OIDC-baserad enkel inloggning.
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Skärm bild som visar hur du lägger till en OIDC-baserad SSO-app.":::
+
+    - Om utvecklaren av appen använde SAML- **standarden** för SSO väljer du **skapa**. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation. I formuläret kan du redigera namnet på programmet så att det matchar organisationens behov. Gå sedan till snabb starten för att konfigurera SAML-baserad enkel inloggning.
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Skärm bild som visar hur du lägger till en SAML-baserad SSO-app.":::
+
+
+> [!IMPORTANT]
+> Det finns vissa viktiga skillnader mellan SAML-baserade och OIDC-baserade SSO-implementeringar. Med SAML-baserade appar kan du lägga till flera instanser av samma app. Till exempel GitHub1, GitHub2 osv. För OIDC-baserade appar kan du bara lägga till en instans av en app. Om du redan har lagt till en OIDC-baserad app och försöker lägga till samma app igen och ange medgivande två gånger, läggs den inte till igen i klient organisationen.
+
+Om det program som du söker efter inte finns i galleriet kan du välja länken **skapa ditt eget program** och under **vad vill du göra med ditt program?** Välj **integrera andra program som du inte hittar i galleriet**. Microsoft har redan arbetat med många programutvecklare för att förkonfigurera dem att fungera med Azure AD. Förkonfigurerade appar visas i galleriet. Men om den app som du vill lägga till inte visas i listan kan du skapa en ny, allmän app och sedan konfigurera den själv eller med hjälp av den utvecklare som skapade den.
 
 Du har lagt till ett program. Nästa snabb start visar hur du ändrar logo typen och redigerar andra egenskaper för programmet.
 
@@ -62,7 +73,7 @@ Du har lagt till ett program. Nästa snabb start visar hur du ändrar logo typen
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta med snabb starts serien bör du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).
+Om du inte kommer att fortsätta med snabb starts serien kan du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

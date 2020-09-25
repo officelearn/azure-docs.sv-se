@@ -3,13 +3,13 @@ title: 'Snabb start: QnA Maker klient bibliotek för Node.js'
 description: Den här snabb starten visar hur du kommer igång med QnA Maker klient biblioteket för Node.js.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4085ec5aaff75f33fc7a87708693084831ff5d8d
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-js
+ms.openlocfilehash: b64379e81f6c4d3da37526d75e08bc0fbed37103
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253959"
 ---
 Använd QnA Maker klient biblioteket för Node.js för att:
 
@@ -26,7 +26,7 @@ Använd QnA Maker klient biblioteket för Node.js för att:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * Den aktuella versionen av [Node.js](https://nodejs.org).
@@ -100,7 +100,7 @@ Förutsägelse QnA Maker-klienten är ett QnAMakerRuntimeClient-objekt som auten
 De här kodfragmenten visar hur du gör följande med QnA Maker klient biblioteket för .NET:
 
 * [Autentisera redigerings klienten](#authenticate-the-client-for-authoring-the-knowledge-base)
-* [Skapa en kunskapsbas](#create-a-knowledge-base)
+* [Skapa en kunskaps bas](#create-a-knowledge-base)
 * [Uppdatera en kunskapsbas](#update-a-knowledge-base)
 * [Hämta en kunskaps bas](#download-a-knowledge-base)
 * [Publicera en kunskapsbas](#publish-a-knowledge-base)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1f194424a4030a2b829af6c8f5b97a3c200bd2e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320820"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes-rollbaserad Access Control på din Azure Stack Edge Pro GPU-enhet
 
@@ -91,25 +91,7 @@ Här är ett diagram som illustrerar implementeringen av RBAC på Azure Stack Ed
 
 I det här diagrammet har Alice, Bob och Klas endast åtkomst till tilldelade användar namn områden, som i det här fallet är `ns1` , `ns2` `ns3` respektive. I dessa namn områden har de administratörs åtkomst. Kluster administratören å andra sidan har administratörs behörighet för system namn rymder och resurser i hela klustret.
 
-Du kan använda `kubectl` kommandon för att skapa namn områden och användare, tilldela användare till namn områden eller ladda ned `kubeconfig` filer. Här är ett arbets flöde med hög nivå:
-
-1. Skapa ett namn område och en användare.  
-
-    `New-HcsKubernetesNamespace -Namespace`  
-
-2. Skapa en användare.  
-
-    `New-HcsKubernetesUser -UserName`  
-
-3. Koppla namn området till den användare som du skapade.  
-
-    `Grant-HcsKubernetesNamespaceAccess -Namespace -UserName`  
-
-4. Spara användar konfigurationen till `C:\Users\<username>\.kube` .  
-
-5. Installera `kubectl` och börja distribuera program till `kubectl` . 
-
-Detaljerade steg-för-steg-anvisningar finns i [komma åt Kubernetes-kluster via kuebctl på din Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+Som användare kan du skapa namn områden och användare, tilldela användare till namn områden eller ladda ned `kubeconfig` filer. Detaljerade steg-för-steg-anvisningar finns i [komma åt Kubernetes-kluster via kuebctl på din Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 
 När du arbetar med namn områden och användare på dina Azure Stack Edge Pro-enheter gäller följande villkor:

@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335139"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Käll kart stöd för JavaScript-program
 
@@ -78,10 +78,10 @@ Alla användare på portalen som använder den här funktionen måste minst till
 
 1. Verifiera att motsvarande käll mappning överförs till rätt BLOB-behållare
 2. Kontrol lera att käll mappnings filen är namngiven efter JavaScript-filen som den mappar till, suffix med `.map` .
-    - Söker till exempel `/static/js/main.4e2ca5fa.chunk.js` efter blobben med namnet`main.4e2ca5fa.chunk.js.map`
+    - Söker till exempel `/static/js/main.4e2ca5fa.chunk.js` efter blobben med namnet `main.4e2ca5fa.chunk.js.map`
 3. Kontrol lera webbläsarens konsol för att se om några fel loggas. Ta med detta i ett support ärende.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Azure-fil kopierings aktivitet](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 

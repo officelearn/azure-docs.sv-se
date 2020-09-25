@@ -1,15 +1,17 @@
 ---
 title: Referens för mönster-syntax – LUIS
 description: Skapa entiteter för att extrahera nyckel data från User yttranden i Language Understanding-appar (LUIS). Extraherade data används av klient programmet.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 533dc87e50abc5a689d1157b294070ece39dab9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322826"
 ---
 # <a name="pattern-syntax"></a>Mönstersyntax
 
@@ -24,15 +26,15 @@ Pattern-syntaxen stöder följande syntax:
 
 |Funktion|Syntax|Kapslings nivå|Exempel|
 |--|--|--|--|
-|entitetsrelation| {}– typografiska hakparenteser|2|Var finns formatet {Entity-Name}?|
+|entitetsrelation| {} – typografiska hakparenteser|2|Var finns formatet {Entity-Name}?|
 |valfri|[]-hakparenteser<BR><BR>Det finns en gräns på 3 på kapslings nivåer för valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
 |baserat|() – parenteser|2|är (a \| b)|
-|eller| \|– lodrätt streck (pipe)<br><br>Det finns en gräns på 2 på de lodräta staplarna (eller) i en grupp |-|Var form ({form-Name-Short} &#x7c; {form-Name-Long} &#x7c; {form-Number})|
+|eller| \| – lodrätt streck (pipe)<br><br>Det finns en gräns på 2 på de lodräta staplarna (eller) i en grupp |-|Var form ({form-Name-Short} &#x7c; {form-Name-Long} &#x7c; {form-Number})|
 |början och/eller slutet av uttryck|^-cirkumflex|-|^ Starta uttryck<br>uttryck är slutförd ^<br>^ Strict literal matchning av hela uttryck med {Number} Entity ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Kapsla syntax i mönster
 
-Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Exempel: `[[this]is] a new form`. I det här exemplet används följande yttranden:
+Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Till exempel: `[[this]is] a new form`. I det här exemplet används följande yttranden:
 
 |Exempel på kapslade valfria uttryck|Förklaring|
 |--|--|
@@ -40,7 +42,7 @@ Den **valfria** syntaxen, med hakparenteser, kan kapslas två nivåer. Exempel: 
 |är ett nytt formulär|matchar yttre valfria ord och icke-valfria ord i mönstret|
 |ett nytt formulär|matchar endast obligatoriska ord|
 
-**Grupperingstypen** , med parenteser, kan kapslas två nivåer. Exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Med den här funktionen kan alla de tre entiteterna matchas.
+**Grupperingstypen** , med parenteser, kan kapslas två nivåer. Till exempel: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Med den här funktionen kan alla de tre entiteterna matchas.
 
 Om Entity1 är en plats med roller som t. ex. ursprung (Seattle) och destination (Cairo) och entitet 2 är ett känt byggnads namn från en List-entitet (RedWest-C) mappar följande yttranden till det här mönstret:
 
@@ -56,8 +58,8 @@ En kombination av **gruppering** med **valfri** syntax har en gräns på 3 kapsl
 
 |Tillåts|Exempel|
 |--|--|
-|Ja|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
-|Inga|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
+|Yes|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
+|No|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Kapslade gränser för grupper med eller-ing-syntax
 
@@ -65,8 +67,8 @@ En kombination av **gruppering** med **eller-ing-** syntaxen har en gräns på 2
 
 |Tillåts|Exempel|
 |--|--|
-|Ja|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
-|Inga|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|Yes|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
+|No|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntax för att lägga till en entitet i en mönster mall
 Om du vill lägga till en entitet i mönster mal len omger du entitetsnamnet med klammerparenteser, till exempel `Who does {Employee} manage?` .
@@ -124,9 +126,9 @@ Om du vill åtgärda det här undantaget till mönstret lägger du till `the man
 ## <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntax för att markera valfri text i en mall uttryck
 Markera valfri text i uttryck med det reguljära uttrycket hak paren tes syntax, `[]` . Den valfria texten kan kapsla hakparenteser upp till två hakparenteser.
 
-|Mönster med valfri text|Betydelse|
+|Mönster med valfri text|Innebörd|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`och `from {person}` är valfria|
+|`[find] email about {subject} [from {person}]`|`find` och `from {person}` är valfria|
 |' Kan du hjälpa mig [?]|Interpunktion-tecknet är valfritt|
 
 Skiljetecken ( `?` , `!` , `.` ) ska ignoreras och du måste ignorera dem med hjälp av klammer i mönster.

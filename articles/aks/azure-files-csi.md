@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 330c1b74a46b0f18af1068797d080e903f516ea6
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d845e7589b57bf76d3da48c48fa0a520b09e1f94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089878"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299314"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Använda CSI-drivrutiner (Azure Files container Storage Interface) i Azure Kubernetes service (AKS) (för hands version)
 
@@ -194,16 +194,98 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
+
+## <a name="nfs-file-shares"></a>NFS-filresurser
+[Azure Files har nu stöd för NFS v 4.1-protokollet](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4,1-stöd för Azure Files ger dig ett fullständigt hanterat NFS-filsystem som en tjänst som bygger på en hög tillgänglig och mycket varaktig distribuerad elastisk lagrings plattform.
+
+ Det här alternativet är optimerat för slumpmässiga åtkomst arbets belastningar med data uppdateringar på plats och ger fullständig POSIX-filsystem stöd. Det här avsnittet visar hur du använder NFS-resurser med Azure-filen CSI-drivrutinen i ett AKS-kluster.
+
+Se till att kontrol lera [begränsningar](../storage/files/storage-files-compare-protocols.md#limitations) och [regions tillgänglighet](../storage/files/storage-files-compare-protocols.md#regional-availability) under för hands versions fasen.
+
+### <a name="register-the-allownfsfileshares-preview-feature"></a>Registrera `AllowNfsFileShares` förhands gransknings funktionen
+
+Om du vill skapa en fil resurs som utnyttjar NFS 4,1 måste du aktivera `AllowNfsFileShares` funktions flaggan i din prenumeration.
+
+Registrera `AllowNfsFileShares` funktions flaggan med hjälp av kommandot [AZ Feature register][az-feature-register] , som du ser i följande exempel:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
+```
+
+Det tar några minuter för statusen att visa *registrerad*. Verifiera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
+```
+
+När du är klar uppdaterar du registreringen av *Microsoft. Storage* Resource Provider med hjälp av [AZ Provider register][az-provider-register] kommando:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Storage
+```
+
+### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Skapa ett lagrings konto för NFS-filresursen
+
+[Skapa en `Premium_LRS` Azure Storage-konto](../storage/files/storage-how-to-create-premium-fileshare.md) med följande konfigurationer för att stödja NFS-resurser:
+- konto typ: FileStorage
+- säker överföring krävs (Aktivera endast HTTPS-trafik): falskt
+- Välj det virtuella nätverket för dina agent-noder i brand väggar och virtuella nätverk
+
+### <a name="create-nfs-file-share-storage-class"></a>Skapa fil resurs lagrings klass för NFS
+
+Spara en `nfs-sc.yaml` fil med manifestet nedan redigera respektive plats hållare.
+
+```yml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azurefile-csi
+provisioner: file.csi.azure.com
+parameters:
+  resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
+  storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
+  protocol: nfs
+```
+
+När du har redigerat och sparat filen skapar du lagrings klassen med kommandot [kubectl Apply][kubectl-apply] :
+
+```console
+$ kubectl apply -f nfs-sc.yaml
+
+storageclass.storage.k8s.io/azurefile-csi created
+```
+
+### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>Skapa en distribution med en NFS-baserad fil resurs
+Du kan distribuera en exempel [tillstånds känslig uppsättning](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) som sparar tidsstämplar i en fil `data.txt` genom att distribuera följande kommando med kommandot [kubectl Apply][kubectl-apply] :
+
+ ```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+
+statefulset.apps/statefulset-azurefile created
+```
+
+Verifiera volymens innehåll genom att köra:
+
+```console
+$ kubectl exec -it statefulset-azurefile-0 -- df -h
+
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1                                                                                 29G   11G   19G  37% /etc/hosts
+accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
+...
+```
+
 ## <a name="windows-containers"></a>Windows-containrar
 
-Azure Files CSI-drivrutinen stöder också Windows-noder och behållare. Om du vill använda Windows-behållare följer du [själv studie kursen för Windows-behållare](windows-container-cli.md) för att lägga till en pool för Windows-noden.
+Azure Files CSI-drivrutinen stöder också Windows-noder och behållare. Om du vill använda Windows-behållare följer du [själv studie kursen för Windows-behållare](windows-container-cli.md) för att lägga till en Windows-Node-pool.
 
 När du har en Windows-adresspool använder du de inbyggda lagrings klasserna som `azurefile-csi` eller skapar anpassade. Du kan distribuera ett exempel på en [Windows-baserad tillstånds känslig uppsättning](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) som sparar tidsstämplar i en fil `data.txt` genom att distribuera följande kommando med kommandot [kubectl Apply][kubectl-apply] :
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
 
-statefulset.apps/busybox-azuredisk created
+statefulset.apps/busybox-azurefile created
 ```
 
 Verifiera volymens innehåll genom att köra:
@@ -248,10 +330,10 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md

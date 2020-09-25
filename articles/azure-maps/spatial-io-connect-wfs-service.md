@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 890bf60ac794740716817094a60f2b4cb4ba5835
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: ab6eb4851b9f2574fc235056f8f512edcb2054bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321789"
 ---
 # <a name="connect-to-a-wfs-service"></a>Ansluta till en WFS-tjänst
 
@@ -22,12 +22,12 @@ En webb funktions tjänst (WFS) är en webb tjänst för att fråga spatialdata 
 
 Följande funktioner stöds av `WfsClient` klassen:
 
-- Versioner som stöds: `1.0.0` , `1.1.0` , och`2.0.0`
+- Versioner som stöds: `1.0.0` , `1.1.0` , och `2.0.0`
 - Filter operatorer som stöds: binära jämförelser, logik, matematik, värde och `bbox` .
 - Begär Anden görs `HTTP GET` endast med.
 - Åtgärder som stöds:
 
-    | Åtgärd | Beskrivning |
+    | Åtgärd | Description |
     | :-- | :-- |
     | GetCapabilities | Genererar ett Metadatadokumentet med giltiga WFS-åtgärder och-parametrar |
     | GetFeature | Returnerar ett urval av funktioner från en data Källa |

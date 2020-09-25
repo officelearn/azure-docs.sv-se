@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336640"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -48,7 +48,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 
 [Azure-båge](../../azure-arc/index.yml):
 
-- Hantera hybrid servrar i skala – [Azure Arc-aktiverade servrar (för hands version)](../../azure-arc/servers/overview.md):
+- Hantera hybrid servrar i skala – [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md):
   - [Hantera Windows Server-eller Linux-datorer utanför Azure som är anslutna](../../azure-arc/servers/onboard-portal.md) till delegerade prenumerationer och/eller resurs grupper i Azure
   - Hantera anslutna datorer med hjälp av Azure-konstruktioner, till exempel Azure Policy och taggning
   - Se till att samma uppsättning principer tillämpas på kunders hybrid miljöer

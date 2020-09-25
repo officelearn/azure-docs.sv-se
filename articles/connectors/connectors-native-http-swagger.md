@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271196"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Anropa REST-slutpunkter genom att använda Azure Logic Apps
 
@@ -54,17 +54,17 @@ Den här inbyggda utlösaren skickar en HTTP-begäran till en URL för en Swagge
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Ange URL för Swagger-slutpunkt](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Skärm bild som visar Logic app designer med utlösaren "H T T P + Swagger" och "Swagger Endpoint U R L" inställd på ett U R L-värde.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. När designern visar de åtgärder som beskrivs av Swagger-filen väljer du den åtgärd som du vill använda.
 
-   ![Åtgärder i Swagger-fil](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Skärm bild som visar Logic app designer med utlösaren "H T T P + Swagger" och en lista som visar Swagger-åtgärder.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Ange värdena för utlösarens parametrar, som varierar beroende på den valda åtgärden, som du vill inkludera i slut punkts anropet. Konfigurera upprepningen för hur ofta du vill att utlösaren ska anropa slut punkten.
 
    I det här exemplet byter du ut utlösaren till "HTTP + Swagger-utlösare: Face-detect" så att steget har ett mer beskrivande namn.
 
-   ![Åtgärdsinformation](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Skärm bild som visar Logic app designer med utlösaren "H T T P + Swagger" som visar åtgärden "ansikts identifiering".](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. Om du vill lägga till andra tillgängliga parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda.
 
@@ -145,7 +145,7 @@ Du kan referera till en Swagger-fil som inte finns eller som inte uppfyller krav
 
 Här är mer information om utdata från en HTTP + Swagger-utlösare eller åtgärd. HTTP + Swagger-anropet returnerar denna information:
 
-| Egenskapsnamn | Typ | Beskrivning |
+| Egenskapsnamn | Typ | Description |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
 | body | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |

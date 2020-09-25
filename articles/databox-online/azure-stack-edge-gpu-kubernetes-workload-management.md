@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: f64f9b612ff47fb5c0b6e6202ad87f7660959100
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320803"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Kubernetes arbets belastnings hantering på din Azure Stack Edge Pro-enhet
 
@@ -29,7 +29,7 @@ De två vanligaste typerna av arbets belastningar som du kan distribuera på din
 
     Du kan skapa en Kubernetes-distribution för att distribuera ett tillstånds löst program i klustret. 
 
-- **Tillstånds känsliga program** kräver att deras tillstånd sparas. Tillstånds känsliga program använder beständig lagring, till exempel beständiga volymer, för att spara data som ska användas av servern eller av andra användare. Exempel på tillstånds känsliga program är databaser som MongoDB.
+- **Tillstånds känsliga program** kräver att deras tillstånd sparas. Tillstånds känsliga program använder beständig lagring, till exempel beständiga volymer, för att spara data som ska användas av servern eller av andra användare. Exempel på tillstånds känsliga program är databaser som [Azure SQL Edge](../azure-sql-edge/overview.md) och MongoDB.
 
     Du kan skapa en Kubernetes-distribution för att distribuera ett tillstånds känsligt program. 
 

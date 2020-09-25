@@ -1,6 +1,6 @@
 ---
-title: System krav för Microsoft Azure Stack Edge Pro | Microsoft Docs
-description: Lär dig mer om program-och nätverks kraven för din Azure Stack Edge Pro
+title: Microsoft Azure Stack gräns system krav | Microsoft Docs
+description: Lär dig mer om system kraven för din Microsoft Azure Stack Edge-lösning och för klienter som ansluter till Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 091d272ff00982a0d0a5ae44885a04cc62d7a4b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899155"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320735"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>System krav för Azure Stack Edge Pro med GPU 
 

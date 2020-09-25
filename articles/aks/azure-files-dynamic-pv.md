@@ -5,12 +5,12 @@ description: Lär dig att dynamiskt skapa en permanent volym med Azure Files fö
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 0c11748c6faa0b94ff84dfc944e475116a2a1bd4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299277"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure Files i Azure Kubernetes service (AKS)
 
@@ -33,6 +33,7 @@ En lagrings klass används för att definiera hur en Azure-filresurs skapas. Ett
 * *Standard_ZRS* -standard zon redundant lagring (ZRS)
 * *Standard_RAGRS* -standard Geo-redundant lagring med Läs behörighet (RA-GRS)
 * *Premium_LRS* – Premium lokalt redundant lagring (LRS)
+* *Premium_ZRS* -Premium Zone-redundant lagring (ZRS)
 
 > [!NOTE]
 > Azure Files support Premium Storage i AKS-kluster som kör Kubernetes 1,13 eller högre, är den minsta Premium-filresursen 100 GB

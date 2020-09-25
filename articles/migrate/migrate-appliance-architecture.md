@@ -3,12 +3,12 @@ title: Programarkitektur för Azure Migrate
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514583"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322265"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Programarkitektur för Azure Migrate
 
@@ -72,7 +72,7 @@ Enheten kommunicerar med vCenter-servrar och Hyper-V-värdar/-kluster med följa
 2. **Samla in metadata och prestanda data**:
     - Enheten använder en Common Information Model-session (CIM) för att samla in virtuella Hyper-V-Datadata från Hyper-V-värden på port 5985.
     - Enheten kommunicerar med port 443 som standard för att samla in virtuella VMware-Datadata från vCenter Server.
-3. **Skicka data**: enheten skickar insamlade data till Azure Migrate Server utvärdering och migrering av Azure Migrate Server över SSL-port 443. Enheten kan ansluta till Azure via Internet, eller så kan du använda ExpressRoute med offentlig/Microsoft-peering.
+3. **Skicka data**: enheten skickar insamlade data till Azure Migrate Server utvärdering och migrering av Azure Migrate Server över SSL-port 443. Enheten kan ansluta till Azure via Internet eller via ExpressRoute (kräver Microsoft-peering).
     - För prestanda data samlar enheten in real tids användnings data.
         - Prestanda data samlas in var 20: e sekund för VMware och var 30: e sekund för Hyper-V för varje prestanda mått.
         - Insamlade data samlas in för att skapa en enda data punkt i 10 minuter.

@@ -3,13 +3,13 @@ title: Övervaka din Node.js-tjänster med Azure Application Insights | Microsof
 description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371625"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323302"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -25,14 +25,14 @@ Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare 
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Konfigurera en Application Insights resurs
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Konfigurera en Application Insights resurs
 
 1. Logga in på [Azure-portalen][portal].
 2. [Skapa en Application Insights resurs](create-new-resource.md)
@@ -59,7 +59,7 @@ Inkludera SDK:n i din app så den kan samla in data.
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-4.  Du kan också tillhandahålla en iKey via miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY` , i stället för att skicka den manuellt till `setup()` eller `new appInsights.TelemetryClient()` . Med den här metoden kan du behålla ikeys utanför den allokerade källkoden och ange olika ikeys för olika miljöer. För att konfigurera manuellt anrop `appInsights.setup('[your ikey]');` .
+4.  Du kan också tillhandahålla en iKey via miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY` , i stället för att skicka den manuellt till  `setup()` eller `new appInsights.TelemetryClient()` . Med den här metoden kan du behålla ikeys utanför den allokerade källkoden och ange olika ikeys för olika miljöer. För att konfigurera manuellt anrop `appInsights.setup('[your ikey]');` .
 
     Ytterligare konfigurationsalternativ finns i följande avsnitt.
 
@@ -67,7 +67,7 @@ Inkludera SDK:n i din app så den kan samla in data.
 
 5. Börja samla in och skicka data automatiskt genom att anropa `appInsights.start();` .
 
-### <a name="monitor-your-app"></a><a name="monitor"></a>Övervaka din app
+### <a name="monitor-your-app"></a><a name="monitor"></a> Övervaka din app
 
 SDK: n samlar automatiskt in telemetri om Node.js Runtime och några vanliga moduler från tredje part. Använd ditt program för att skapa vissa av dessa data.
 
@@ -110,7 +110,7 @@ Det finns stora ändringar mellan versioner före version 0,22 och senare. Dessa
 I allmänhet kan du migrera med följande:
 
 - Ersätt referenser till `appInsights.client` med `appInsights.defaultClient` .
-- Ersätt referenser till `appInsights.getClient()` med`new appInsights.TelemetryClient()`
+- Ersätt referenser till `appInsights.getClient()` med `new appInsights.TelemetryClient()`
 - Ersätt alla argument till client. Track *-metoder med ett enda objekt som innehåller namngivna egenskaper som argument. Se din IDE: s inbyggda typ tips eller [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) för det undantagna objektet för varje typ av telemetri.
 
 Om du har åtkomst till SDK-konfigurations funktioner utan att koppla dem till `appInsights.setup()` , kan du nu hitta dessa funktioner på `appInsights.Configurations` (till exempel `appInsights.Configuration.setAutoCollectDependencies(true)` ). Granska ändringarna i standard konfigurationen i nästa avsnitt.
@@ -374,7 +374,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Du kan skapa flera Application Insights-resurser och skicka olika data till var och en genom att använda deras respektive instrument knappar ("iKey").
 
- Till exempel:
+ Exempel:
 
 ```javascript
 let appInsights = require("applicationinsights");

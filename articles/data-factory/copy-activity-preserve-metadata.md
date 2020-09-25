@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324305"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Bevara metadata och ACL: er med kopierings aktivitet i Azure Data Factory
 
@@ -24,18 +24,18 @@ ms.locfileid: "82891757"
 
 När du använder Azure Data Factory kopierings aktivitet för att kopiera data från källan till Sink, kan du i följande scenarier även bevara metadata och åtkomst kontrol listor tillsammans.
 
-## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a>Bevara metadata för sjö migrering
+## <a name="preserve-metadata-for-lake-migration"></a><a name="preserve-metadata"></a> Bevara metadata för sjö migrering
 
-När du migrerar data från ett data Lake till ett annat, inklusive [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md)och [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), kan du välja att bevara filens metadata tillsammans med data.
+När du migrerar data från ett data Lake till ett annat, inklusive [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)och [Azure File Storage](connector-azure-file-storage.md), kan du välja att bevara filens metadata tillsammans med data.
 
 Kopierings aktiviteten har stöd för att bevara följande attribut under data kopieringen:
 
 - **Alla angivna metadata för kunden** 
 - Och följande **fem inbyggda system egenskaper för data lagring**: `contentType` , `contentLanguage` (förutom Amazon S3),, `contentEncoding` `contentDisposition` , `cacheControl` .
 
-**Hantera skillnader i metadata:** Amazon S3 och Azure Storage tillåta olika teckenuppsättningar i nycklarna för kundens angivna metadata. När du väljer att bevara metadata med Copy aktivitets ersätter ADF automatiskt de ogiltiga tecknen med "_".
+**Hantera skillnader i metadata:** Amazon S3 och Azure Storage tillåta olika teckenuppsättningar i nycklarna för kundens angivna metadata. När du väljer att bevara metadata med kopierings aktivitet ersätter ADF automatiskt de ogiltiga tecknen med "_".
 
-När du kopierar filer som de är från Amazon S3/Azure Data Lake Storage Gen2/Azure blob till Azure Data Lake Storage Gen2/Azure Blob med binärformat kan du hitta alternativet **bevara** på fliken **Kopiera aktivitets**  >  **Inställningar** för aktivitets redigering eller sidan **Inställningar** i kopiera data verktyget.
+När du kopierar filer som de är från Amazon S3/Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage till Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage med binärformat, kan du hitta alternativet **Spara** på fliken **Kopiera aktivitets**  >  **Inställningar** för aktivitets redigering eller sidan **Inställningar** i kopiera data verktyget.
 
 ![Bevara metadata för kopierings aktivitet](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
@@ -80,7 +80,7 @@ Här är ett exempel på en kopierings aktivitets JSON-konfiguration (se `preser
 ]
 ```
 
-## <a name="preserve-acls-from-data-lake-storage-gen1gen2-to-gen2"></a><a name="preserve-acls"></a>Bevara ACL: er från Data Lake Storage Gen1/Gen2 till Gen2
+## <a name="preserve-acls-from-data-lake-storage-gen1gen2-to-gen2"></a><a name="preserve-acls"></a> Bevara ACL: er från Data Lake Storage Gen1/Gen2 till Gen2
 
 När du uppgraderar från Azure Data Lake Storage Gen1 till Gen2 eller kopierar data mellan ADLS Gen2 kan du välja att behålla åtkomst kontrol listorna för POSIX (ACL) tillsammans med datafiler. Mer information om åtkomst kontroll finns i [åtkomst kontroll i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md) och [åtkomst kontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
@@ -149,5 +149,5 @@ Här är ett exempel på en kopierings aktivitets JSON-konfiguration (se `preser
 
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
 - [Kopiera aktivitetsprestanda](copy-activity-performance.md)

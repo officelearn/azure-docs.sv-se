@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322520"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -114,7 +114,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
    Observera alternativet att **lägga till i ett befintligt Gateway-kluster**, som du väljer när du installerar ytterligare gatewayer för [scenarier med hög tillgänglighet](#high-availability).
 
-1. Kontrol lera regionen för gateway-moln tjänsten och [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) som används av din gateway-installation. Som standard är den här regionen samma plats som Azure AD-klienten för ditt Azure-konto.
+1. Kontrol lera regionen för gateway-moln tjänsten och [Azure Service Bus meddelande instansen](../service-bus-messaging/service-bus-messaging-overview.md) som används av din gateway-installation. Som standard är den här regionen samma plats som Azure AD-klienten för ditt Azure-konto.
 
    ![Bekräfta region för Gateway-tjänsten och Service Bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 ## <a name="check-or-adjust-communication-settings"></a>Kontrol lera eller justera kommunikations inställningar
 
-Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i de här ämnena:
+Den lokala datagatewayen är beroende av [Azure Service Bus meddelanden](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutningar och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus meddelande hantering. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i de här ämnena:
 
 * [Justera kommunikationsinställningar för den lokala datagatewayen](/data-integration/gateway/service-gateway-communication)
 * [Konfigurera proxyinställningar för den lokala datagatewayen](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Användare i din organisation kan komma åt lokala data som de redan har behöri
 
 Gatewayen hjälper till att under lätta snabbare och säkrare bakom kommunikationen i bakgrunden. Den här kommunikationen flödar mellan en användare i molnet, moln tjänsten gateway och den lokala data källan. Gateway-moln tjänsten krypterar och lagrar autentiseringsuppgifter för data källan och gateway-informationen. Tjänsten dirigerar även frågor och resultat mellan användaren, gatewayen och din lokala data källa.
 
-Gatewayen fungerar med brand väggar och använder endast utgående anslutningar. All trafik kommer som säker utgående trafik från Gateway-agenten. Gatewayen vidarebefordrar data från lokala källor på krypterade kanaler via [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Den här Service Bus skapar en kanal mellan gatewayen och den anropande tjänsten, men lagrar inte några data. Alla data som passerar genom gatewayen krypteras.
+Gatewayen fungerar med brand väggar och använder endast utgående anslutningar. All trafik kommer som säker utgående trafik från Gateway-agenten. Gatewayen skickar data från lokala källor på krypterade kanaler via [Azure Service Bus meddelande hantering](../service-bus-messaging/service-bus-messaging-overview.md). Den här Service Bus skapar en kanal mellan gatewayen och den anropande tjänsten, men lagrar inte några data. Alla data som passerar genom gatewayen krypteras.
 
 ![Arkitektur för lokal datagateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ Dessa steg beskriver vad som händer när du interagerar med ett element som är
 
 1. Moln tjänsten skapar en fråga, tillsammans med de krypterade autentiseringsuppgifterna för data källan. Tjänsten skickar sedan frågan och autentiseringsuppgifterna till gateway-kön för bearbetning.
 
-1. Gatewaymolntjänsten analyserar frågan och skickar begäran till Azure Service Bus.
+1. Gateway-moln tjänsten analyserar frågan och skickar begäran till Azure Service Bus meddelanden.
 
-1. Azure Service Bus skickar väntande begäranden till gatewayen.
+1. Azure Service Bus Messaging skickar väntande begär anden till gatewayen.
 
 1. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till en eller flera datakällor med dessa autentiseringsuppgifter.
 

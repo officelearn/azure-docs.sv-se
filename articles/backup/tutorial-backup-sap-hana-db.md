@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: b43fd5c432b06902de0a898fc4bb0f114143b3ba
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254355"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -25,7 +25,7 @@ Den här självstudien visar hur du säkerhetskopierar SAP HANA databaser som k�
 >[!NOTE]
 >Från och med den 1 augusti 2020 är SAP HANA säkerhets kopiering för RHEL (7,4, 7,6, 7,7 & 8,1) allmänt tillgänglig.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
@@ -65,7 +65,7 @@ Med privata slut punkter kan du ansluta säkert från servrar i ett virtuellt n�
 
 ### <a name="nsg-tags"></a>NSG-Taggar
 
-Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/security-overview.md#service-tags) för *Azure AD* och *Azure Storage*.  Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
+Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](../virtual-network/security-overview.md#service-tags) för Azure AD (*AzureActiveDirectory*) och Azure Storage (*lagring*). Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
 
 1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
 
@@ -75,7 +75,7 @@ Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen 
 
 1. Välj **Lägg till**  för att spara den nyligen skapade utgående säkerhets regeln.
 
-Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](../virtual-network/service-tags-overview.md).
+Du kan också skapa [NSG utgående säkerhets regler](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](../virtual-network/service-tags-overview.md).
 
 ### <a name="azure-firewall-tags"></a>Azure Firewall-Taggar
 
@@ -139,7 +139,7 @@ Så här skapar du ett Recovery Services-valv:
 
    ![Välj Alla tjänster](./media/tutorial-backup-sap-hana-db/all-services.png)
 
-3. I dialogrutan **Alla tjänster** anger du **Recovery Services**. Listan över resurser filtreras enligt dina inaktuella inaktuella. Välj **Recovery Services valv**i listan över resurser.
+3. I dialogrutan **Alla tjänster** anger du **Recovery Services**. Listan med resurser filtreras enligt din inmatning. I resurslistan väljer du **Recovery Services-valv**.
 
    ![Välj Recovery Services valv](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
@@ -147,15 +147,15 @@ Så här skapar du ett Recovery Services-valv:
 
    ![Lägg till Recovery Services valv](./media/tutorial-backup-sap-hana-db/add-vault.png)
 
-   Dialog rutan **Recovery Services valv** öppnas. Ange värden för **namn, prenumeration, resurs grupp** och **plats**
+   Dialogrutan **Recovery Services-valv** öppnas. Ange värden för **namn, prenumeration, resurs grupp** och **plats**
 
    ![Skapa Recovery Services-valv](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-   * **Namn**: namnet används för att identifiera Recovery Services valvet och måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två, men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck. I den här självstudien har vi använt namnet **SAPHanaVault**.
-   * **Prenumeration**: Välj den prenumeration som ska användas. Om du är medlem i endast en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standard prenumerationen (rekommenderas). Det finns flera alternativ bara om ditt arbets-eller skol konto är associerat med fler än en Azure-prenumeration. Här har vi använt prenumerations prenumerationen för **SAP HANA Solution Lab** .
-   * **Resurs grupp**: Använd en befintlig resurs grupp eller skapa en ny. Här har vi använt **SAPHANADemo**.<br>
-   Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Om du vill skapa en ny resurs grupp väljer du **Skapa ny** och anger namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
-   * **Plats**: Välj det geografiska området för valvet. Valvet måste finnas i samma region som den virtuella datorn som kör SAP HANA. Vi har använt **USA, östra 2**.
+   * **Namn**: namnet används för att identifiera Recovery Services valvet och måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två, men högst 50 tecken. Namnet måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck. I den här självstudien har vi använt namnet **SAPHanaVault**.
+   * **Prenumeration**: Välj den prenumeration som ska användas. Om du bara är medlem i en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda, använder du standardprenumerationen (den föreslagna). Du kan bara välja mellan flera alternativ om ditt arbets- eller skolkonto är associerat med mer än en Azure-prenumeration. Här har vi använt prenumerations prenumerationen för **SAP HANA Solution Lab** .
+   * **Resursgrupp**: Använd en befintlig resursgrupp eller skapa en ny. Här har vi använt **SAPHANADemo**.<br>
+   Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Skapa en ny resursgrupp genom att välja **Skapa ny** och ange namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
+   * **Plats**: Välj ett geografiskt område för valvet. Valvet måste finnas i samma region som den virtuella datorn som kör SAP HANA. Vi har använt **USA, östra 2**.
 
 5. Välj **Granska + skapa**.
 

@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/29/2020
-ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 2b6a54c25430cd2c1e68c42571f0f9039449ce96
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441790"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335100"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Snabb start: Använd Azure Portalens Frågeredigeraren för att fråga en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Frågeredigeraren är ett verktyg i Azure Portal för att köra SQL-frågor mot 
 
 I den här snabb starten använder du Frågeredigeraren för att köra Transact-SQL (T-SQL)-frågor mot en databas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten krävs AdventureWorksLT-exempel databasen. Om du inte har en fungerande kopia av AdventureWorksLT-exempel databasen i SQL Database skapar följande snabb start snabbt en:
 

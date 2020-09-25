@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601681"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265943"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentiseringsessionshantering med villkorsstyrd åtkomst
 
@@ -89,6 +89,8 @@ Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-lice
 
 > [!WARNING]
 > Observera att vi inte har stöd för att skapa två olika principer för samma användar-eller app-kombination om du använder den [konfigurerbara livs längden för token](../develop/active-directory-configurable-token-lifetimes.md) i en offentlig för hands version. Microsoft planerar att dra tillbaka den konfigurerbara livs längden för token den 1 maj 2020 och ersätta den med funktionen för hantering av autentisering med villkorlig åtkomst.  
+>
+> Innan du aktiverar inloggnings frekvens kontrollerar du att andra inställningar för autentisering är inaktiverade i din klient. Om "kom ihåg MFA på betrodda enheter" är aktive rad måste du inaktivera den innan du använder inloggnings frekvensen, eftersom de båda inställningarna kan leda till att användarna uppmanas att vänta. Mer information om omautentiserings-prompter och sessionens livs längd finns i artikeln [optimera omautentiserings-prompter och förstå sessionens livs längd för Azure Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Princip 1: kontroll för inloggnings frekvens
 

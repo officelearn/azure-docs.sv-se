@@ -3,34 +3,35 @@ title: Azure Hybrid-förmån och virtuella Linux-datorer
 description: Med Azure Hybrid-förmån kan du spara pengar på dina virtuella Linux-datorer som körs på Azure.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
+author: mathapli
 manager: westonh
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: a9ea3b21908d1f461745ffe2689b36f8efcb6f89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279781"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
+# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>För hands version: Azure Hybrid-förmån – hur det gäller för Virtuella Linux-datorer
 
 ## <a name="overview"></a>Översikt
 
-Azure Hybrid-förmån gör att du enkelt kan migrera din lokala Red Hat Enterprise Linux-(RHEL) och SUSE Linux Enterprise-Server (SLES) till Azure genom att använda din egen befintliga Red Hat-eller SUSE-program prenumeration. Med den här förmånen betalar du bara för infrastruktur kostnaderna för din virtuella dator eftersom program varu avgiften täcks av din RHEL-eller SLES-prenumeration. Förmånen gäller för alla PAYG-avbildningar (RHEL-och SLES Marketplace).
+Azure Hybrid-förmån gör att du enkelt kan migrera dina lokala Red Hat Enterprise Linux (RHEL) och SUSE Linux Enterprise Server (virtuella datorer) till Azure med hjälp av din egen befintliga Red Hat-eller SUSE-programprenumeration. Med den här förmånen betalar du bara för infrastruktur kostnaderna för din virtuella dator eftersom program varu avgiften täcks av din RHEL-eller SLES-prenumeration. Förmånen gäller för alla PAYG-avbildningar (RHEL-och SLES Marketplace).
+
+> [!IMPORTANT]
+> Azure Hybrid-förmån för virtuella Linux-datorer är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="benefit-description"></a>Förmåns Beskrivning
 
 Med hjälp av Azure Hybrid-förmån kan du lättare migrera dina lokala RHEL-och SLES-servrar till Azure genom att konvertera befintliga RHEL-och SLES PAYG-datorer på Azure för att få en BYOS-fakturering. Vanligt vis debiteras virtuella datorer som distribueras från PAYG-avbildningar på Azure både en infrastruktur avgift och en program varu avgift. Med Azure Hybrid-förmån kan virtuella datorer konverteras till en BYOS-fakturerings modell utan att omdistribueras, vilket undviker eventuell stillestånds risk.
 
-![Azure Hybrid-förmån kostnads visualisering på virtuella Linux-datorer](./media/ahb-linux/azure-hybrid-benefit-cost.png)
+:::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Azure Hybrid-förmån kostnads visualisering på virtuella Linux-datorer.":::
 
 När du aktiverar fördelen med en RHEL-eller SLES-VM debiteras du inte längre för den ytterligare program varu avgiften som normalt uppstår på en PAYG VM. I stället påbörjas den virtuella datorn med en BYOS avgift som bara omfattar beräknings maskin varu avgiften och ingen program varu avgift.
 

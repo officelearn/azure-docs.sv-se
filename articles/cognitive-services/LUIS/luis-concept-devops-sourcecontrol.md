@@ -1,26 +1,28 @@
 ---
 title: Käll kontroll och utvecklings grenar – LUIS
 description: Underhålla din Language Understanding-app (LUIS) under käll kontroll. Så här tillämpar du uppdateringar på en LUIS-app när du arbetar i en utvecklings gren.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 2d060fefbd32ecea1f91e6b062da7606699a63c4
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309514"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps-metoder för LUIS
 
 Program varu tekniker som utvecklar en Language Understanding-app (LUIS) kan tillämpa DevOps-metoder kring [käll kontroll](luis-concept-devops-sourcecontrol.md), [automatiserade versioner](luis-concept-devops-automation.md), [testning](luis-concept-devops-testing.md)och [versions hantering](luis-concept-devops-automation.md#release-management) genom att följa dessa rikt linjer.
 
-## <a name="source-control-and-branch-strategies-for-luis"></a>Käll kontroll och gren strategier för LUIS
+## <a name="source-control-and-branch-strategies-for-luis"></a>Källkontroll och förgreningsstrategier för LUIS
 
 En av de viktigaste faktorer som DevOps är beroende av är [käll kontroll](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops). Ett käll kontroll system gör det möjligt för utvecklare att samar beta med kod och spåra ändringar. Med hjälp av grenar kan utvecklare växla mellan olika versioner av kodbasen och arbeta oberoende av andra medlemmar i teamet. När utvecklare höjer en [pull-begäran](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) för att föreslå uppdateringar från en gren till en annan, eller när ändringar slås samman, kan det vara utlösaren för [automatiserade versioner](luis-concept-devops-automation.md) för att bygga och kontinuerligt testa kod.
 
 Genom att använda koncepten och vägledningen som beskrivs i det här dokumentet kan du utveckla en LUIS-app när du spårar ändringar i ett käll kontroll system och följer dessa metod tips för program varu teknik:
 
-- **Käll kontroll**
+- **Källkontroll**
   - Käll koden för din LUIS-app är i ett format som kan läsas av människa.
   - Modellen kan skapas från källan på ett repeterbart sätt.
   - Käll koden kan hanteras av en käll kods lagrings plats.
@@ -40,7 +42,7 @@ Genom att använda koncepten och vägledningen som beskrivs i det här dokumente
 
 ## <a name="source-control"></a>Källkontroll
 
-Om du vill underhålla [appens schema definition](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) för en Luis-app i ett käll kods hanterings system använder du [LUDown format ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) åter givning av appen. `.lu`formatet är det bästa `.json` formatet eftersom det är läsligt, vilket gör det enklare att göra och granska ändringar i pull.
+Om du vill underhålla [appens schema definition](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) för en Luis-app i ett käll kods hanterings system använder du [LUDown format ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  åter givning av appen. `.lu` formatet är det bästa `.json` formatet eftersom det är läsligt, vilket gör det enklare att göra och granska ändringar i pull.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Spara en LUIS-app med LUDown-formatet
 
@@ -66,7 +68,7 @@ För att en LUIS-app ska kunna *bygga från källan* innebär att du kan [skapa 
 
 Följande typer av filer för ditt LUIS-program bör underhållas under käll kontroll:
 
-- `.lu`fil för LUIS-programmet
+- `.lu` fil för LUIS-programmet
 
 - [Enhets test definitions filer](luis-concept-devops-testing.md#writing-tests) (yttranden och förväntade resultat)
 

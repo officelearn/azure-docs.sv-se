@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 61cb5384fd4d935ef4038c18b391b5da5fbc96b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e03850dcc75e639c0436ceea339da5f2da5df4b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277877"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Självstudie: Skapa Azure AD-användare med hjälp av Azure AD-program
 
@@ -167,11 +167,11 @@ En liknande metod för hur du ställer in **katalog läsar** behörighet för SQ
 
     Se till att lägga till **program behörigheter** samt de **delegerade behörigheterna**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="AAD – appar":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Skärm bild som visar Appregistreringar sidan för Azure Active Directory. En app med visnings namnet AppSP är markerad.":::
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="API – behörigheter":::
 
-2. Du måste också skapa en klient hemlighet för att logga in. Följ anvisningarna här för att [Ladda upp ett certifikat eller skapa en hemlighet för inloggning](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in).
+2. Du måste också skapa en klient hemlighet för att logga in. Följ anvisningarna här för att [Ladda upp ett certifikat eller skapa en hemlighet för inloggning](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 3. Registrera följande från din program registrering. Den bör vara tillgänglig i **översikts** fönstret:
     - **Program-ID**

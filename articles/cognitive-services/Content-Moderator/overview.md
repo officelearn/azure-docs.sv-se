@@ -8,24 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 82dc81c540115f08e57f87e63184e1e895c5e4fe
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: cog-serv-seo-aug-2020
+keywords: Content moderator, Azure Content moderator, online moderator, innehålls filtrerings program vara, innehålls moderator tjänst
+ms.openlocfilehash: d502f41a79500b80e1891219b54bde30eb3cd8ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309662"
 ---
 # <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Content Moderator är en kognitiv tjänst som kontrollerar text-, bild-och video innehåll för material som kan vara stötande, riskfyllda eller på annat sätt olämpligt. När det här materialet hittas tillämpar tjänsten lämpliga etiketter (flaggor) på innehållet. Appen kan sedan hantera flaggat innehåll för att uppfylla krav eller upprätthålla den avsedda miljön för användare. I avsnittet [moderator-API: er](#moderation-apis) kan du läsa mer om vad olika innehålls flaggor visar.
+Azure Content Moderator är en AI-tjänst som låter dig hantera innehåll som potentiellt stötande, riskfyllda eller på annat sätt olämpligt. Den innehåller den AI-drivna innehålls moderator tjänsten som skannar text, bilder och videor och använder innehålls flaggor automatiskt, samt gransknings verktyget, en online moderator miljö för ett team av mänskliga granskare.
+
+Du kanske vill bygga program vara för innehålls filtrering i din app för att följa regler eller underhålla användarnas avsedda miljö.
 
 ## <a name="where-its-used"></a>Där den används
 
-Följande är några scenarier där en programutvecklare eller ett team kan använda Content Moderator:
+Följande är några scenarier där en programutvecklare eller ett team kräver en Content moderator-tjänst:
 
 - Marknads platser på marknaden som är till för stora produkt kataloger och annat innehåll som skapats av användare.
 - Spel företag som är måttligt användardefinierade spel artefakter och chat-rum.
@@ -33,7 +37,7 @@ Följande är några scenarier där en programutvecklare eller ett team kan anv�
 - Företags medie företag som implementerar Central moderator för innehållet.
 - K-12 utbildnings lösnings leverantörer filtrerar bort innehåll som är olämpligt för studenter och lärare.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Du kan inte använda Content Moderator för att identifiera ogiltiga underordnade användnings avbildningar. Kvalificerade organisationer kan dock använda [moln tjänsten PhotoDNA](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud service") för den här typen av innehåll.
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
@@ -48,7 +52,7 @@ I tjänsten Content Moderator ingår redigerings-API: er som kontrollerar inneh�
 
 I följande tabell beskrivs de olika typerna av redigerings-API: er.
 
-| API-grupp | Beskrivning |
+| API-grupp | Description |
 | ------ | ----------- |
 |[**Textmoderering**](text-moderation-api.md)| Söker efter stötande innehåll, sexuellt stötande eller förslag på innehåll, svordomar och personliga data.|
 |[**Anpassade termlistor**](try-terms-list-api.md)| Söker igenom text mot en anpassad lista med villkor tillsammans med de inbyggda villkoren. Använd anpassade listor för att blockera eller tillåta innehåll baserat på dina egna innehållsprinciper.|  
@@ -77,4 +81,4 @@ Som med alla Cognitive Services bör utvecklare som använder Content Moderator-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Komma igång med Content Moderator-tjänsten genom att följa instruktionerna för att [prova Content Moderator på webben](quick-start.md).
+Kom igång med att använda Content Moderator på webb portalen genom att följa [Try Content moderator på webben](quick-start.md). Eller Slutför snabb starten av [klient biblioteket](client-libraries.md) för att implementera de grundläggande scenarierna i kod.

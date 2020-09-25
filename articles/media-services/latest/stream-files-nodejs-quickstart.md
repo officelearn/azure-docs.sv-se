@@ -10,15 +10,15 @@ keywords: azure media services, strömma
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 901287a82ece873a572d7773dd53f80e1e8af716
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 38207ac47d2e58c689f1933a6ade6d5c86cd44ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268680"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Självstudie: koda en fjärrfil baserat på URL och strömma video-Node.js
 
@@ -74,7 +74,7 @@ Exemplet utför följande åtgärder:
 
 När den är igång bör du se liknande utdata:
 
-![Kör](./media/stream-files-nodejs-quickstart/run.png)
+![Skärm bild av ett kommando fönster med utdata från StreamFileSample-exempel appen som visar URL: er för tre filer som hämtats till den lokala katalogen.](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Testa med Azure Media Player
 

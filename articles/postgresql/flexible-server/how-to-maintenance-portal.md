@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b06120437555ec71bc431cb1429120cb5e1987f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: be6040b8b84a4b86746d62bd2f1c07f0ffea0a3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336300"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--flexible-server"></a>Hantera schemalagda underhålls inställningar för Azure Database for PostgreSQL – flexibel Server
  
@@ -31,9 +31,9 @@ För att slutföra den här instruktions guiden behöver du:
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Meddelanden om schemalagda underhålls händelser
  
-Du kan använda Azure Service Health för att [Visa meddelanden](/azure/service-health/service-notifications.md) om kommande och utfört schemalagt underhåll på din flexibla Server. Du kan också [ställa in](/azure/service-health/resource-health-alert-monitor-guide.md) aviseringar i Azure Service Health för att få meddelanden om underhålls händelser.
+Du kan använda Azure Service Health för att [Visa meddelanden](../../service-health/service-notifications.md) om kommande och utfört schemalagt underhåll på din flexibla Server. Du kan också [ställa in](../../service-health/resource-health-alert-monitor-guide.md) aviseringar i Azure Service Health för att få meddelanden om underhålls händelser.
  
 ## <a name="next-steps"></a>Nästa steg  
  
 * Läs mer om [schemalagt underhåll i Azure Database for PostgreSQL – flexibel Server](concepts-maintenance.md)
-* Lean- [Azure Service Health](/azure/service-health/overview.md)
+* Lean- [Azure Service Health](../../service-health/overview.md)

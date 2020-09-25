@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 874e9dd0454fa4f0a0877d949a34058baa711b83
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 65ced3812072bd2650fc36bbb7a7b0f3f75e0def
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336793"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Kom igång med dubbla enheter (Node.js)
 
@@ -40,7 +40,7 @@ För att slutföra den här kursen behöver du:
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -109,7 +109,7 @@ I det här avsnittet skapar du en Node.js-konsolsession som lägger till platsen
 
     Efter uppdatering av taggarna anropar funktionen **queryTwins** .
 
-5. Lägg till följande kod i slutet av **AddTagsAndQuery.js** för att implementera funktionen **queryTwins** :
+5. Lägg till följande kod i slutet av  **AddTagsAndQuery.js** för att implementera funktionen **queryTwins** :
 
    ```javascript
         var queryTwins = function() {

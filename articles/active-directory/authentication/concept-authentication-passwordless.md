@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266623"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
@@ -82,7 +82,7 @@ För att komma igång med lösen ords lös inloggning, slutför du följande anv
 
 ## <a name="fido2-security-keys"></a>FIDO2 säkerhets nycklar
 
-Alliansen FIDO (snabb identitet Online) hjälper till att främja Open Authentication-standarder och minska användaren av lösen ord som en form av autentisering. FIDO2 är den senaste standarden som införlivar webbautentiseringen (webauthn)-standarden.
+Alliansen FIDO (snabb identitet Online) hjälper till att främja Open Authentication-standarder och minska användningen av lösen ord som en form av autentisering. FIDO2 är den senaste standarden som införlivar webbautentiseringen (webauthn)-standarden.
 
 FIDO2-säkerhetsnycklar är en unphishable standard-baserad autentiseringsmetod för lösen ords skydd som kan komma i vilken form som helst. Snabb identitet Online (FIDO) är en öppen standard för lösen ords mässig autentisering. Med FIDO kan användare och organisationer utnyttja standard för att logga in på sina resurser utan användar namn eller lösen ord med hjälp av en extern säkerhets nyckel eller en plattforms nyckel som är inbyggd i en enhet.
 

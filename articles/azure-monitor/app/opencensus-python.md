@@ -1,18 +1,16 @@
 ---
-title: Övervaka python-program med Azure Monitor (för hands version) | Microsoft Docs
+title: Övervaka python-program med Azure Monitor | Microsoft Docs
 description: Innehåller instruktioner för att ansluta till openräkningar python med Azure Monitor
 ms.topic: conceptual
-author: lzchen
-ms.author: lechen
-ms.date: 10/11/2019
+ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: ac7569a48e4bab25d4db17f2fc6dd92b31afcab5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323273"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
@@ -31,8 +29,6 @@ Installera Azure Monitor-exportörer för Open-räkning:
 ```console
 python -m pip install opencensus-ext-azure
 ```
-
-En fullständig lista över paket och integreringar finns i [openräkning-paket](./nuget.md#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure`Kommandot förutsätter att du har en `PATH` miljö variabel uppsättning för python-installationen. Om du inte har konfigurerat den här variabeln måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns. Resultatet är ett kommando som detta: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure` .

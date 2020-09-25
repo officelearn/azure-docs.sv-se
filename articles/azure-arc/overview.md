@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Arc
 description: Lär dig mer om vad Azure-bågen är och hur den hjälper kunderna att aktivera hantering och styrning av sina hybrid resurser med andra Azure-tjänster och-funktioner.
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 46bd2089dbc2794d0fb98ceb9a5e97011e36d6ea
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e6dc052655bffae949399f77a26d7b76c5b0d13c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335406"
 ---
 # <a name="azure-arc-overview"></a>Översikt över Azure Arc
 
@@ -34,7 +34,7 @@ Viktiga funktioner i Azure Arc är:
 
 * Konfigurera [Azure VM-tillägg](./servers/manage-vm-extensions.md) för att använda Azures hanterings tjänster för att övervaka, säkra och uppdatera dina servrar.
 
-* Hantera och styr Kubernetes-kluster i stor skala. 
+* Hantera och styr Kubernetes-kluster i stor skala.
 
 * Använd GitOps konfiguration som kod hantering för att distribuera program och konfiguration i ett eller flera kluster direkt från käll kontroll, till exempel GitHub.
 
@@ -50,7 +50,17 @@ Följande är pris information för de funktioner som är tillgängliga idag med
 
 ### <a name="arc-enabled-servers"></a>Arc-aktiverade servrar
 
-I den aktuella förhands gransknings fasen erbjuds Azure Arc-aktiverade servrar utan extra kostnad.
+Azure båg Control plan-funktioner erbjuds utan extra kostnad.Det här omfattar:
+
+* Resurs organisation via hanterings grupper och-taggar i Azure.
+
+* Sökning och indexering via Azure Resource Graph.
+
+* Åtkomst och säkerhet via RBAC och prenumerationer.
+
+* Miljöer och automatisering via mallar och tillägg.
+
+* Uppdaterings hantering
 
 Alla Azure-tjänster som används på Arc-aktiverade servrar, till exempel Azure Security Center eller Azure Monitor debiteras enligt prissättningen för den tjänsten. Mer information finns på [sidan med priser för Azure](https://azure.microsoft.com/pricing/).
 
@@ -58,7 +68,7 @@ Alla Azure-tjänster som används på Arc-aktiverade servrar, till exempel Azure
 
 I den aktuella förhands gransknings fasen erbjuds Azure Arc-Kubernetes utan extra kostnad.
 
-### <a name="azure-arc-enabled-data-services"></a>Azure Arc-aktiverade data tjänster
+### <a name="azure-arc-enabled-data-services"></a>Azure Arc-aktiverade datatjänster
 
 I den aktuella förhands gransknings fasen erbjuds Azure Arc-aktiverade data tjänster utan extra kostnad.
 

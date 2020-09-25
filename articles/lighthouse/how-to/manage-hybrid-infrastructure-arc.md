@@ -1,14 +1,14 @@
 ---
 title: Hantera hybrid infrastruktur i stor skala med Azure Arc
 description: Lär dig hur du effektivt hanterar kundernas datorer och Kubernetes-kluster utanför Azure.
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ffbe9019398896c594b7cb0e0424d2b5f4dc37a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605336"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336623"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Hantera hybrid infrastruktur i stor skala med Azure Arc
 
@@ -16,19 +16,16 @@ Som tjänst leverantör kan du ha registrerat flera kund klienter i [Azure-Light
 
 [Azure båg](../../azure-arc/overview.md) hjälper till att förenkla komplexa och distribuerade miljöer i både lokalt och i flera moln, vilket möjliggör distribution av Azure-tjänster var som helst och för att utöka Azure-hanteringen till alla infrastrukturer.
 
-Med [Azure Arc-aktiverade servrar (förhands granskning)](../../azure-arc/servers/overview.md)kan kunder hantera alla Windows-och Linux-datorer utanför Azure i företagets nätverk, på samma sätt som de hanterar interna virtuella Azure-datorer. När en hybriddator länkas till Azure ansluts den och behandlas som en resurs i Azure. Tjänste leverantörer kan sedan hantera dessa datorer som inte är Azure-datorer tillsammans med sina kunders Azure-resurser.
+Med [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)kan kunder hantera alla Windows-och Linux-datorer som finns utanför Azure i företagets nätverk, på samma sätt som de hanterar interna virtuella Azure-datorer. När en hybriddator länkas till Azure ansluts den och behandlas som en resurs i Azure. Tjänste leverantörer kan sedan hantera dessa datorer som inte är Azure-datorer tillsammans med sina kunders Azure-resurser.
 
 [Azure Arc Enabled Kubernetes (för hands version)](../../azure-arc/kubernetes/overview.md) låter kunder ansluta och konfigurera Kubernetes-kluster i eller utanför Azure. När ett Kubernetes-kluster är kopplat till Azure-bågen visas det i Azure Portal, med ett Azure Resource Manager-ID och en hanterad identitet. Kluster är anslutna till Azures standard prenumerationer, finns i en resurs grupp och kan ta emot Taggar precis som andra Azure-resurser.
 
-Det här avsnittet innehåller en översikt över hur tjänst leverantörer kan använda Azure Arc-aktiverade servrar (för hands version) och Azure Arc-aktiverade Kubernetes (för hands version) på ett skalbart sätt för att hantera kundernas hybrid miljö, med insyn i alla hanterade kund klienter.
+Det här avsnittet innehåller en översikt över hur tjänst leverantörer kan använda Azure Arc-aktiverade servrar och Azure Arc-aktiverade Kubernetes (för hands version) på ett skalbart sätt för att hantera kundernas hybrid miljö, med insyn i alla hanterade kund klienter.
 
 > [!TIP]
 > Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet gäller den här vägledningen även för [företag som använder Azure-Lighthouse för att hantera flera klienter](../concepts/enterprise.md).
 
-## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers-preview"></a>Hantera hybrid servrar i skala med Azure Arc-aktiverade servrar (förhands granskning)
-
-> [!NOTE]
-> Azure Arc-aktiverade servrar är för närvarande en för hands version. Vi rekommenderar den inte för produktions arbets belastningar för tillfället.
+## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers"></a>Hantera hybrid servrar i skala med Azure Arc-aktiverade servrar
 
 Som tjänst leverantör kan du hantera lokala Windows Server-eller Linux-datorer utanför Azure som dina kunder har anslutit till prenumerationen med hjälp av den [Azure-anslutna dator agenten](../../azure-arc/servers/agent-overview.md).
 

@@ -4,16 +4,16 @@ description: 'Läs mer om Azure Maps Search-tjänsten. Se hur du använder den h
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310993"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Sök efter en plats med Azure Maps Sök tjänster
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: d6faf5bd42c90ea1510d454a2ab7939f121b3d0d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308443"
 ---
 # <a name="azure-private-dns-faq"></a>Vanliga frågor och svar om Azure Private DNS
 
@@ -43,6 +43,14 @@ Ja. Du måste ha behörigheten Skriv åtgärd för de virtuella nätverken och d
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Kommer de automatiskt registrerade DNS-posterna för virtuella datorer i en privat zon automatiskt att tas bort när du tar bort den virtuella datorn?
 
 Ja. Om du tar bort en virtuell dator i ett länkat virtuellt nätverk med automatisk registrering aktive rad tas registrerade poster bort automatiskt.
+
+## <a name="ive-reconfigured-the-os-in-my-virtual-machine-to-have-a-new-host-name-or-static-ip-address-why-dont-i-see-that-change-reflected-in-the-private-zone"></a>Jag har konfigurerat om operativ systemet på den virtuella datorn så att det har ett nytt värdnamn eller en statisk IP-adress. Varför ser jag inte att ändringen reflekteras i den privata zonen?
+
+Den privata zonens poster fylls i av Azure DHCP-tjänsten. klient registrerings meddelanden ignoreras. Om du har inaktiverat stöd för DHCP-klienter på den virtuella datorn genom att konfigurera en statisk IP-adress återspeglas inte ändringar av värd namnet eller den statiska IP-adressen i den virtuella datorn i zonen.
+
+## <a name="i-have-configured-a-preferred-dns-suffix-in-my-windows-virtual-machine-why-are-my-records-still-registered-in-the-zone-linked-to-the-virtual-network"></a>Jag har konfigurerat ett standard-DNS-suffix i min virtuella Windows-dator. Varför registreras mina poster fortfarande i den zon som är länkad till det virtuella nätverket?
+
+Azure DHCP-tjänsten ignorerar eventuella DNS-suffix när den registrerar den privata DNS-zonen. Om din virtuella dator till exempel har kon figurer ATS för `contoso.com` det primära DNS-suffixet, men det virtuella nätverket är länkat till den `fabrikam.com` privata DNS-zonen, visas den virtuella dator registreringen i den `fabrikam.com` privata DNS-zonen.
 
 ## <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-linked-virtual-network-be-deleted-manually"></a>Kan en automatiskt registrerad virtuell dator post i en privat zon från ett länkat virtuellt nätverk tas bort manuellt?
 

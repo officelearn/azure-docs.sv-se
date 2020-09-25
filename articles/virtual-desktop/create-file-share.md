@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825451"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287329"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -29,7 +29,7 @@ Först måste du konfigurera ett Azure Files lagrings konto.
 
 Så här konfigurerar du ett lagrings konto:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Sök efter **lagrings konto** i Sök fältet.
 
@@ -56,7 +56,7 @@ Så här skapar du en filresurs:
 
 1. Välj **Gå till resurs**.
 
-2. Välj **fil resurser**på sidan Översikt.
+2. På sidan Översikt väljer du **Filresurser**.
 
 3. Välj **+ fil resurser**, skapa en ny fil resurs med namnet **profiler**, ange sedan en lämplig kvot eller lämna fältet tomt utan kvot.
 
@@ -154,7 +154,7 @@ Så här konfigurerar du NTFS-behörigheter:
 2. Kör följande kommando för att montera Azure-filresursen och tilldela den en enhets beteckning:
 
      ```cmd
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
 3. Kör följande kommando för att granska åtkomst behörigheterna till Azure-fil resursen:
@@ -212,7 +212,7 @@ Så här konfigurerar du FSLogix på den virtuella datorn för sessionsvärd:
 
 6. Starta om den virtuella datorn.
 
-## <a name="testing"></a>Test
+## <a name="testing"></a>Testning
 
 När du har installerat och konfigurerat FSLogix kan du testa distributionen genom att logga in med ett användar konto som har tilldelats en app-grupp eller ett skriv bord på den aktuella värddatorn. Se till att det användar konto du loggar in med har behörighet för fil resursen.
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287108"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -32,7 +32,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 - Du behöver inte längre hantera lokala administratörs konton.
 - Med Azure RBAC kan du ge rätt åtkomst till virtuella datorer baserat på behov och ta bort den när den inte längre behövs.
 - Innan du tillåter åtkomst till en virtuell dator kan villkorlig åtkomst för Azure AD framtvinga ytterligare krav som: 
-   - Multi-Factor Authentication
+   - Multifaktorautentisering
    - Kontroll av inloggnings risker
 - Automatisera och skala Azure AD-anslutning för virtuella Azure Windows-datorer som ingår i dina VDI-distributioner.
 
@@ -49,7 +49,7 @@ Följande Windows-distributioner stöds för närvarande i för hands versionen 
 - Windows 10 1809 och senare
 
 > [!IMPORTANT]
-> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som är Azure AD-anslutna eller hybrid Azure AD som är anslutna till **samma** katalog som den virtuella datorn. 
+> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som antingen är Azure AD-registrerade (från och med Windows 10 20H1), Azure AD som är ansluten eller en hybrid Azure AD-anslutning till **samma** katalog som den virtuella datorn. 
 
 Följande Azure-regioner stöds för närvarande i för hands versionen av den här funktionen:
 
@@ -192,7 +192,7 @@ az role assignment create \
 Mer information om hur du använder Azure RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i följande artiklar:
 
 - [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
 - [Lägg till eller ta bort Azure Role-tilldelningar med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Använda villkorlig åtkomst

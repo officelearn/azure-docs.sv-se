@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900592"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284490"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Viktig information om Azure SQL Edge 
 
@@ -23,17 +23,23 @@ I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
 
-### <a name="sql-engine-build-number---15020001549"></a>SQL-motor versions nummer – 15.0.2000.1549
+### <a name="sql-engine-build-number---15020001552"></a>SQL-motor versions nummer – 15.0.2000.1552
 
 ### <a name="whats-new"></a>Nyheter
 1. Ubuntu 18,04-baserade behållar avbildningar. 
 2. Stöd för `IGNORE NULL` och `RESPECT NULL` syntax med `LAST_VALUE()` och- `FIRST_VALUE()` funktioner. 
 3. Tillförlitlighets förbättringar för förutsägelse med ONNX.
-4. Stöd för principbaserad rensning av datakvarhållning.      
-   - Stöd för optimerad rensning för grupperade columnstore-index.
+4. Stöd för principbaserad rensning av datakvarhållning.
+   - Stöd för ringbufferten för rensnings åtgärden för kvarhållning för fel sökning.
 5. Stöd för nya funktioner 
    - Snabb återställning
    - Automatisk justering av frågor
+   - Aktivera parallella körnings scenarier
+6. Förbättringar av energispar funktioner för låg energi läge
+7. Strömmande ny funktions support 
+   - [Snapshot-fönster](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : ny fönster typ som gör det möjligt att gruppera efter händelser på exakt samma tid. 
+   - Aktivera [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) och [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) som analys funktion så att du kan returnera poster sorterade efter valfri kolumn, utan att behöva vara en del av ett fönster. 
+   - Förbättringar av [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Korrigeringar
 1. Ytterligare fel meddelanden och information om fel sökning av TSQL streaming-åtgärder. 
@@ -41,9 +47,13 @@ I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje
 3. TSQL-strömmande motor korrigerar: 
    - Rensa för stoppat strömmande jobb 
    - Korrigeringar för förbättringar av lokalisering och Unicode-hantering
+   - Förbättra fel sökning för Edge TSQL-streaming, Tillåt användare att söka efter jobb fel från get_streaming_job.
 4. Princip baserad rensning för datakvarhållning
    - Korrigeringar för skapande och rensnings scenarier för bevarande principer.
 5. Korrigeringar för aktiviteter i bakgrunden för att förbättra energi besparingarna för låg energi läge.
+
+### <a name="known-issues"></a>Kända problem 
+1. Date_Bucket T-SQL-funktionen kan inte användas i en beräknad kolumn.
 
 
 ## <a name="ctp-23"></a>CTP 2,3

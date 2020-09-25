@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/14/2019
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 7d1c54d05430600e9fffa2659dbaaf6db0b086b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325512"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Ändra storlek på en kapacitetspool eller en volym
 Du kan ändra storleken på en kapacitets uppsättning eller en volym om det behövs. 
@@ -40,3 +40,8 @@ Du kan ändra storlek på en volym om det behövs. En volyms kapacitetsförbrukn
 2. Högerklicka på namnet på den volym som du vill ändra storlek på eller klicka på "..." ikonen i slutet av volymens rad för att Visa snabb menyn.
 3. Använd snabb meny alternativen för att ändra storlek på eller ta bort volymen.
 
+## <a name="next-steps"></a>Nästa steg
+
+- [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
+- [Hantera en manuell pool för QoS-kapacitet](manage-manual-qos-capacity-pool.md)
+- [Ändra tjänstnivå för en volym dynamiskt](dynamic-change-volume-service-level.md) 

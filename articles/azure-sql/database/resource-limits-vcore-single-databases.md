@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/21/2020
-ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e67675d0d3fb5f96b35eba0085003b00595d8214
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325285"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Resursbegränsningar för enskilda databaser med hjälp av vCore-inköpsmodellen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -525,7 +525,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Maximalt antal samtidiga inloggningar|800|1 000|1 200|1400|1600|1800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Nej|Nej|Nej|Nej|Nej|Nej|
+|Multi-AZ|Inga|Inga|Inga|Inga|Inga|Inga|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
@@ -554,7 +554,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings utrym
 |Maximalt antal samtidiga inloggningar|2 000|2 400|3 200|6 400|12 800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|
-|Multi-AZ|Nej|Nej|Nej|Nej|Nej|
+|Multi-AZ|Inga|Inga|Inga|Inga|Inga|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 

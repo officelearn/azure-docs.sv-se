@@ -1,17 +1,17 @@
 ---
 title: Uppdateringar av tjänsten Host pool i Windows Virtual Desktop (klassisk) – Azure
-description: Så här skapar du en pool för validering av värdar för övervakning av tjänst uppdateringar innan uppdateringar distribueras till produktion.
+description: Lär dig att skapa en pool för validering av värdar i Windows Virtual Desktop (klassisk) för att övervaka tjänst uppdateringar innan du distribuerar uppdateringar till produktion.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 572b74347194070615efadca4ed6b1329b3f89c2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 291f1e8b8870257c233dc32894ff49b26c0a3501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323537"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Självstudie: skapa en värdbaserad pool för att verifiera tjänst uppdateringar i Windows Virtual Desktop (klassisk)
 

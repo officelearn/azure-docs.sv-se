@@ -3,13 +3,13 @@ title: Skicka Azure Service Health-aviseringar med ServiceNow
 description: Få personligt anpassade meddelanden om service Health-händelser till din ServiceNow-instans.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 68175dc17c1601eab097b94d4eefaa2706731f5c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307576"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Skicka Azure Service Health-aviseringar med ServiceNow med webhookar
 
@@ -43,9 +43,9 @@ Den här artikeln visar hur du integrerar Azure Service Health-aviseringar med S
 
     >[!NOTE]
     >Du måste uppdatera `<secret>` `<group>` värdet, och `<email>` i skriptet nedan.
-    >* `<secret>`ska vara en slumpmässig sträng, t. ex. ett GUID
-    >* `<group>`ska vara ServiceNow-gruppen som du vill tilldela incidenten till
-    >* `<email>`ska vara den enskilde person som du vill tilldela incidenten till (valfritt)
+    >* `<secret>` ska vara en slumpmässig sträng, t. ex. ett GUID
+    >* `<group>` ska vara ServiceNow-gruppen som du vill tilldela incidenten till
+    >* `<email>` ska vara den enskilde person som du vill tilldela incidenten till (valfritt)
     >
 
     ```javascript

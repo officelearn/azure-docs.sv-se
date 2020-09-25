@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708672"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325070"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Konfigurera offentlig slut punkt i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -40,7 +40,7 @@ På grund av känsligheten hos data som finns i en hanterad instans kräver konf
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Aktiverar offentlig slut punkt för en hanterad instans i Azure Portal
 
-1. Starta Azure Portal på<https://portal.azure.com/.>
+1. Starta Azure Portal på <https://portal.azure.com/.>
 1. Öppna resurs gruppen med den hanterade instansen och välj den **SQL-hanterade instans** som du vill konfigurera offentlig slut punkt på.
 1. Välj fliken **virtuellt nätverk** på **säkerhets** inställningarna.
 1. På sidan konfiguration av virtuellt nätverk väljer du **Aktivera** och sedan **Spara** -ikonen för att uppdatera konfigurationen.
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Tillåt offentlig slut punkts trafik för nätverks säkerhets gruppen
 
-1. Om sidan konfiguration av den hanterade instansen fortfarande är öppen går du till fliken **Översikt** . gå tillbaka till din SQL- **hanterade instans** resurs. Välj länken **virtuellt nätverk/undernät** , som kommer att gå till sidan konfiguration av virtuellt nätverk.
+1. Om sidan konfiguration för den hanterade instansen fortfarande är öppen går du till fliken **Översikt** . Annars går du tillbaka till din **SQL-hanterade instans** resurs. Välj länken **virtuellt nätverk/undernät** , som kommer att gå till sidan konfiguration av virtuellt nätverk.
 
     ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
 
@@ -94,7 +94,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Välj fliken **inkommande säkerhets regler** och **Lägg till** en regel som har högre prioritet än **deny_all_inbound** regeln med följande inställningar: </br> </br>
 
-    |Inställningen  |Föreslaget värde  |Beskrivning  |
+    |Inställning  |Föreslaget värde  |Beskrivning  |
     |---------|---------|---------|
     |**Källa**     |Valfri IP-adress eller service tag         |<ul><li>För Azure-tjänster som Power BI väljer du Azure Cloud Service-taggen</li> <li>Använd NAT IP-adress för din dator eller virtuella Azure-dator</li></ul> |
     |**Källportintervall**     |* |Lämna det till * (valfritt) eftersom käll portarna vanligt vis är dynamiskt allokerade och som sådana, oförutsägbara |

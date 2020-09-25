@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 0a505e5fb11e776a90c8e198b2568e2ac0bd1854
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 6e4db45385c95bc39cea58511115eba25461cf6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298462"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node.js program. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
@@ -29,7 +29,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
 
 Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
 
@@ -55,7 +55,7 @@ Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Skapa ett projekt och deklarera nödvändiga moduler
 
-I samma katalog som din `package.json` skapar du ett nytt Node.js-projekt med hjälp av valfri IDE eller redigeringsprogram. Exempel: `sample.js`.
+I samma katalog som din `package.json` skapar du ett nytt Node.js-projekt med hjälp av valfri IDE eller redigeringsprogram. Till exempel: `sample.js`.
 
 Kopiera den här koden till projektet. Den läser in de moduler som installerades i föregående avsnitt.
 

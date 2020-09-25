@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dc05722ee79f72b2931cb1fa6106f742c5bc0e15
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274211"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336657"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team data science-processen i praktiken – använda ett Azure HDInsight Hadoop-kluster på en data uppsättning på 1 TB
 
@@ -67,7 +67,7 @@ Konfigurera din Azure Data Science-miljö för att skapa förutsägelse analys l
 
    * Länka lagrings kontot som skapades i steg 1 med ditt HDInsight-kluster när det skapas. Det här lagrings kontot används för att komma åt data som kan bearbetas i klustret.
    * Aktivera fjärråtkomst till Head-noden i klustret när den har skapats. Kom ihåg de autentiseringsuppgifter för fjärråtkomst som du anger här (skiljer sig från de autentiseringsuppgifter som angavs när klustret skapas): utför följande procedurer.
-3. [Skapa en Azure Machine Learning Studio-arbetsyta (klassisk)](../studio/create-workspace.md): den här Azure Machine Learning arbets ytan används för att skapa maskin inlärnings modeller efter en inledande data utforskning och inaktive insampling i HDInsight-klustret.
+3. [Skapa en Azure Machine Learning Studio-arbetsyta (klassisk)](../classic/create-workspace.md): den här Azure Machine Learning arbets ytan används för att skapa maskin inlärnings modeller efter en inledande data utforskning och inaktive insampling i HDInsight-klustret.
 
 ## <a name="get-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Hämta och använda data från en offentlig källa
 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) -datauppsättningen kan nås genom att klicka på länken, godkänna användnings villkoren och ange ett namn. Här visas en ögonblicks bild:
@@ -98,7 +98,7 @@ Till vänster visas "Hadoop kommando rad", som är vår WorkHorse för data utfo
 
 Nu är du redo att börja första delen av genom gången: data utforskning med Hive och hämtning av data som är redo för Azure Machine Learning.
 
-## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a>Skapa Hive-databas och tabeller
+## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Skapa Hive-databas och tabeller
 Om du vill skapa Hive-tabeller för vår Criteo-datauppsättning öppnar du ***kommando raden för Hadoop*** på Skriv bordet för Head-noden och anger Hive-katalogen genom att ange kommandot
 
 ```console
@@ -208,7 +208,7 @@ criteo_train
 Time taken: 1.437 seconds, Fetched: 4 row(s)
 ```
 
-## <a name="data-exploration-in-hive"></a><a name="exploration"></a>Data utforskning i Hive
+## <a name="data-exploration-in-hive"></a><a name="exploration"></a> Data utforskning i Hive
 Nu är du redo att utföra vissa grundläggande data utforskningar i Hive. Du börjar med att räkna antalet exempel i tabellerna träna och testa data.
 
 ### <a name="number-of-train-examples"></a>Antal träna-exempel
@@ -402,7 +402,7 @@ e5f3fd8d        a0aaffa6        792250
 Time taken: 560.22 seconds, Fetched: 15 row(s)
 ```
 
-## <a name="down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a>Exempel på data uppsättningar för Azure Machine Learning
+## <a name="down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a> Exempel på data uppsättningar för Azure Machine Learning
 Ha utforskat data uppsättningarna och visat hur du utför den här typen av utforskning för variabler (inklusive kombinationer) och nedåt, så att modeller i Azure Machine Learning kan skapas. Kom ihåg att fokus på problemet är: Ange en uppsättning exempel-attribut (funktions värden från Col2-Col40), förutse om Col1 är 0 (inget klick) eller 1 (klicka).
 
 Om du vill se ett exempel på att data uppsättningarna tränas och testas till 1% av den ursprungliga storleken använder du Hive: s inbyggda RAND ()-funktion. Nästa skript, [exempel&#95;hive&#95;criteo&#95;nedsampling&#95;träna&#95;data uppsättning. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) gör detta för tågets data uppsättning:
@@ -471,7 +471,7 @@ Med det här alternativet är du redo att använda vårt insamlade tränat tåg 
 
 Det finns en slutlig viktig komponent innan du går vidare till Azure Machine Learning, vilket avser Count-tabellen. I nästa avsnitt beskrivs tabellen Count i viss detalj.
 
-## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a>En kort diskussion om Count-tabellen
+## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> En kort diskussion om Count-tabellen
 Som du såg har flera kategoriska-variabler en hög dimensionalitet. I genom gången är en kraftfull teknik som kallas [inlärning med antal](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att koda dessa variabler på ett effektivt och robust sätt presenteras. Mer information om den här tekniken finns i den angivna länken.
 
 >[!NOTE]
@@ -480,7 +480,7 @@ Som du såg har flera kategoriska-variabler en hög dimensionalitet. I genom gå
 
 Om du vill bygga antalet tabeller i Count-data använder du datan i mappen RAW/Count. I avsnittet modellering visas användare hur man skapar dessa Count-tabeller för kategoriska-funktioner från grunden, eller om du vill använda en fördefinierad beräknings tabell för deras utforskningar. I det som följer, när "förskapade antal tabeller" refereras till, betyder vi att du använder antalet tabeller som har angetts. Detaljerade anvisningar om hur du kommer åt dessa tabeller finns i nästa avsnitt.
 
-## <a name="build-a-model-with-azure-machine-learning"></a><a name="aml"></a>Bygg en modell med Azure Machine Learning
+## <a name="build-a-model-with-azure-machine-learning"></a><a name="aml"></a> Bygg en modell med Azure Machine Learning
 Vår modell skapande process i Azure Machine Learning följande steg:
 
 1. [Hämta data från Hive-tabeller till Azure Machine Learning](#step1)
@@ -491,7 +491,7 @@ Vår modell skapande process i Azure Machine Learning följande steg:
 
 Nu är du redo att bygga modeller i Azure Machine Learning Studio. Våra exempel data sparas som Hive-tabeller i klustret. Använd modulen Azure Machine Learning **Importera data** för att läsa dessa data. Autentiseringsuppgifterna för att komma åt lagrings kontot för det här klustret tillhandahålls i det som följer.
 
-### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a>Steg 1: Hämta data från Hive-tabeller till Azure Machine Learning använda modulen importera data och välj den för ett Machine Learning-experiment
+### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Steg 1: Hämta data från Hive-tabeller till Azure Machine Learning använda modulen importera data och välj den för ett Machine Learning-experiment
 Börja med att välja ett **+ nytt**  ->  **experiment**  ->  **tomt experiment**. Sedan söker du efter "Importera data" från **sökrutan längst** upp till vänster. Dra och släpp modulen **Importera data** till arbets ytan för experimentet (den mittersta delen av skärmen) om du vill använda modulen för data åtkomst.
 
 Så här ser **import data** ut som när data hämtas från Hive-tabellen:
@@ -525,7 +525,7 @@ Om du vill välja den sparade data uppsättningen som ska användas i ett Machin
 >
 >
 
-### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a>Steg 2: skapa ett experiment i Azure Machine Learning för att förutse klickningar/inga klick
+### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Steg 2: skapa ett experiment i Azure Machine Learning för att förutse klickningar/inga klick
 Vårt Azure Machine Learning Studio (klassiska) experiment ser ut så här:
 
 ![Machine Learning experiment](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -602,7 +602,7 @@ Detta utdrag visar att för de kolumner som räknas på, får du antalet och log
 
 Nu är du redo att skapa en Azure Machine Learning modell med dessa omvandlade data uppsättningar. I nästa avsnitt visas hur detta kan göras.
 
-### <a name="step-3-build-train-and-score-the-model"></a><a name="step3"></a>Steg 3: skapa, träna och Poäng modellen
+### <a name="step-3-build-train-and-score-the-model"></a><a name="step3"></a> Steg 3: skapa, träna och Poäng modellen
 
 #### <a name="choice-of-learner"></a>Val av lärare
 Först måste du välja en elev. Använd ett besluts träd med två klasser som vår elev. Här är standard alternativen för den här eleven:
@@ -616,12 +616,12 @@ För utbildning ska du bara anropa en modul för **träna modell** . De två inm
 
 ![Träna modell modul](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
-#### <a name="score-the-model"></a>Poängsätt modellen
+#### <a name="score-the-model"></a>Poängsätta modellen
 När du har en tränad modell är du redo att få poäng på test data uppsättningen och utvärdera dess prestanda. Gör detta med hjälp av modulen **Poäng modell** som visas i följande figur, tillsammans med modulen **utvärdera modell** :
 
 ![Modulen Poängsätta modell](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step-4-evaluate-the-model"></a><a name="step4"></a>Steg 4: utvärdera modellen
+### <a name="step-4-evaluate-the-model"></a><a name="step4"></a> Steg 4: utvärdera modellen
 Slutligen bör du analysera modell prestanda. För två klassificerings problem för klass (Binary) är vanligt vis ett lyckat mått AUC. Om du vill visualisera den här kurvan ansluter du **Poäng modellens** modul till en **modell för utvärderings modell** . Att klicka på **visualisera** i modulen **utvärdera modell** ger en bild som liknar följande:
 
 ![Utvärdera modulen BDT modell](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -630,7 +630,7 @@ I binära (eller två klass-) klassificerings problem är ett utmärkt mått på
 
 ![Visualisera modell modul för bedömning](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a>Steg 5: publicera modellen som en webb tjänst
+### <a name="step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a> Steg 5: publicera modellen som en webb tjänst
 Möjligheten att publicera en Azure Machine Learning modell som webb tjänster med ett minimum av återställnings bara är en värdefull funktion för att göra den mycket tillgänglig. När den är färdig kan vem som helst ringa till webb tjänsten med indata som de behöver förutsägelse för, och webb tjänsten använder modellen för att returnera dessa förutsägelser.
 
 Spara först vår utbildade modell som ett tränat modell objekt genom att högerklicka på modulen **träna modell** och använda alternativet **Spara som tränad modell** .
@@ -695,4 +695,3 @@ Standard-API-nyckeln har ersatts med vår API-nyckel för WebService. Om du klic
 De två test exemplen som meddelas om i python-skriptet JSON Framework får du tillbaka svar i formatet "Poäng etiketter, betygs ätt". I det här fallet har standardvärdena valts som den före konserverande koden innehåller (0 gäller för alla numeriska kolumner och strängen "värde" för alla kategoriska-kolumner).
 
 I slutet visar vår genom gång hur du hanterar storskalig data uppsättning med Azure Machine Learning. Du började med en terabyte data, konstruerat en förutsägelse modell och distribuerat den som en webb tjänst i molnet.
-

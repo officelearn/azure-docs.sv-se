@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336759"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Ge åtkomst till Key Vault nycklar, certifikat och hemligheter med en rollbaserad åtkomst kontroll i Azure (för hands version)
 
@@ -45,8 +45,10 @@ Mer information om rikt linjer för Azure Key Vault hantering finns i:
 - [Azure Key Vault tjänst gränser](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Inbyggda Azure-roller för Key Vault data Plans åtgärder (för hands version)
+> [!NOTE]
+> `Key Vault Contributor` rollen är för hanterings Plans åtgärder för att hantera nyckel valv. Den tillåter inte åtkomst till nycklar, hemligheter och certifikat.
 
-| Inbyggd roll | Beskrivning | ID |
+| Inbyggd roll | Description | ID |
 | --- | --- | --- |
 | Key Vault administratör (förhands granskning) | Utför alla data Plans åtgärder på ett nyckel valv och alla objekt, inklusive certifikat, nycklar och hemligheter. Det går inte att hantera Key Vault-resurser eller hantera roll tilldelningar. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Key Vault certifikat ansvarig (förhands granskning) | Utföra alla åtgärder för certifikaten för ett nyckel valv, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | a4417e6f-fecd-4de8-b567-7b0420556985 |
@@ -215,7 +217,7 @@ Mer information om hur du skapar anpassade roller finns i:
 
 -   Svars tid för roll tilldelningar: vid aktuell förväntad prestanda tar det upp till 10 minuter (600 sekunder) efter att roll tilldelningarna har ändrats för att rollen ska tillämpas
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 
 - [Översikt över Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Själv studie kurs om anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)

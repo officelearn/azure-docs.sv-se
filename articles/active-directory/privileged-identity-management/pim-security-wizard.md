@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335892"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Identifiering och insikter (för hands version) för Azure AD-roller (tidigare säkerhets guide)
 
@@ -29,9 +29,9 @@ Om du börjar med Privileged Identity Management (PIM) i din Azure Active Direct
 
 Innan organisationen börjar använda Privileged Identity Management, är alla roll tilldelningar permanenta. Användarna är alltid i tilldelade roller även om de inte behöver sina privilegier. Identifiering och insikter (för hands version), som ersätter den tidigare säkerhets guiden, visar en lista över privilegierade roller och hur många användare som för närvarande finns i dessa roller. Du kan lista ut tilldelningar för en roll för att lära dig mer om de tilldelade användarna om en eller flera av dem är okända.
 
-: heavy_check_mark: **Microsoft rekommenderar** att du behåller 2 Bryt glas konton som är permanent tilldelade till den globala administratörs rollen som inte kräver Multi-Factor Authentication vid inloggning. Du kan använda dessa i ett scenario för rast glas eller om det inte går att göra en höjning till den globala administratörs rollen.
+: heavy_check_mark: **Microsoft rekommenderar** att du behåller två rast glas konton som är permanent tilldelade till den globala administratörs rollen. Se till att dessa konton inte kräver samma Multi-Factor Authentication-mekanism som dina vanliga administrativa konton för att logga in, enligt beskrivningen i [Hantera åtkomst konton för nöd situationer i Azure AD](../users-groups-roles/directory-emergency-access.md).
 
-Håll också roll tilldelningar permanenta om en användare har en Microsoft-konto (med andra ord, ett konto som de använder för att logga in på Microsoft-tjänster som Skype eller Outlook.com). Om du behöver Multi-Factor Authentication för att aktive ras i en sådan roll kommer användaren att låsas ute.
+Håll också roll tilldelningar permanenta om en användare har en Microsoft-konto (med andra ord, ett konto som de använder för att logga in på Microsoft-tjänster som Skype eller Outlook.com). Om du behöver Multi-Factor Authentication för en användare med en Microsoft-konto för att aktivera en roll tilldelning kommer användaren att låsas upp.
 
 ## <a name="open-discovery-and-insights-preview"></a>Öppna identifiering och insikter (för hands version)
 
@@ -49,7 +49,7 @@ Håll också roll tilldelningar permanenta om en användare har en Microsoft-kon
 
 1. Granska listan med roll tilldelningar för global administratör.
 
-    ![Minska globala administratörer – roll fönstret visar alla medlemmar](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Minimera globala administratörer – roll fönstret som visar alla globala administratörer](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Välj **Nästa** för att välja de användare eller grupper som du vill göra berättigade och välj sedan **gör giltig** eller **ta bort tilldelning**.
 

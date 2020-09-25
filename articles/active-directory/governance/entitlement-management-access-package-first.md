@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9df1226d4b61326f8e5aa6f9b71d36eb5a33e81e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306522"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
 
@@ -29,7 +29,7 @@ Att hantera åtkomst till alla resurser som krävs av de anställda, till exempe
 
 I den här självstudien arbetar du för Sparbanken-bank som IT-administratör. Du har fått en förfrågan om att skapa ett paket med resurser för en marknadsförings kampanj som interna användare kan själv betjäna. Begär Anden kräver inte godkännande och användarens åtkomst upphör att gälla efter 30 dagar. I den här självstudien är marknadsförings kampanjens resurser bara medlemmar i en enda grupp, men det kan vara en samling av grupper, program eller SharePoint Online-webbplatser.
 
-![Översikt över scenario](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Diagram som visar scenario översikten.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 I den här guiden får du lära dig att:
 
@@ -110,7 +110,7 @@ Ett *Access-paket* är ett paket med resurser som ett team eller projekt behöve
 
      Som standard visas grupper i den allmänna katalogen. När du väljer en grupp utanför den allmänna katalogen, som du kan se om du markerar kryss rutan **Se alla** , kommer den att läggas till i den allmänna katalogen.
 
-    ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Skärm bild som visar fliken "nytt åtkomst paket – resurs roller" och "Välj grupper".](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. Klicka på **Välj** för att lägga till gruppen i listan.
 

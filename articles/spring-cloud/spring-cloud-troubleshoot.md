@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336164"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
@@ -131,7 +131,7 @@ Du kan inte ladda upp en *zip* -fil för en .net Core Steeltoe-app med hjälp av
 
 När du distribuerar programpaketet med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)avsöker Azure CLI regelbundet distributions förloppet och i slutet visas distributions resultatet.
 
-Kontrol lera att programmet är paketerat i rätt *. zip* -filformat. Om den inte paketeras korrekt kommer processen att låsa sig eller så visas ett fel meddelande.
+Kontrol lera att programmet är paketerat i rätt *. zip* -filformat. Om den inte paketeras korrekt kommer processen att sluta svara eller så visas ett fel meddelande.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

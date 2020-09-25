@@ -4,12 +4,12 @@ description: Lär dig hur du identifierar AWS-instanser med Azure Migrate Server
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c2d91e0b2c2eaa2df8b01aca60e5a0e18e251fb8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275463"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Självstudie: identifiera AWS-instanser med Server utvärdering
 
@@ -47,7 +47,7 @@ Om du vill skapa ett Azure Migrate-projekt och registrera Azure Migrate-enheten 
 - Deltagar-eller ägar behörigheter för en Azure-prenumeration.
 - Behörighet att registrera Azure Active Directory appar.
 
-Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
+Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
 
 1. I Azure Portal söker du efter "prenumerationer" och under **tjänster**väljer du **prenumerationer**.
 
@@ -76,7 +76,18 @@ Konfigurera ett konto som kan användas av enheten för att komma åt AWS-instan
 
 - För Windows-servrar konfigurerar du ett lokalt användar konto på alla Windows-servrar som du vill ska ingå i identifieringen. Lägg till användar kontot i följande grupper:-fjärr styrnings användare – prestanda övervaknings användare – prestanda loggar användare.
  - För Linux-servrar behöver du ett rotkonto på de Linux-servrar som du vill identifiera.
-
+- Azure Migrate använder lösenordsautentisering vid identifiering av AWS-instanser. AWS-instanser har inte stöd för lösenordsautentisering som standard. Innan du kan identifiera instansen måste du aktivera lösenordsautentisering.
+    - Tillåt WinRM-port 5985 (HTTP) för Windows-datorer. Detta tillåter fjärr-WMI-anrop.
+    - För Linux-datorer:
+        1. Logga in på varje Linux-dator.
+        2. Öppna filen sshd_config: vi/etc/ssh/sshd_config
+        3. Leta upp raden **PasswordAuthentication** i filen och ändra värdet till **Ja**.
+        4. Spara filen och Stäng den. Starta om SSH-tjänsten.
+    - Om du använder en rot användare för att identifiera dina virtuella Linux-datorer, måste du kontrol lera att rot inloggningen är tillåten på de virtuella datorerna.
+        1. Logga in på varje Linux-dator
+        2. Öppna filen sshd_config: vi/etc/ssh/sshd_config
+        3. Leta upp raden **PermitRootLogin** i filen och ändra värdet till **Ja**.
+        4. Spara filen och Stäng den. Starta om SSH-tjänsten.
 
 ## <a name="set-up-a-project"></a>Konfigurera ett projekt
 
@@ -118,7 +129,7 @@ Så här konfigurerar du den apparat som du:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generera Azure Migrate projekt nyckel
 
-1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
+1. I **Migreringsmål** > **Servrar** > **Azure Migrate: Serverutvärdering** väljer du **Identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, Välj **fysiska eller andra (AWS, GCP, Xen osv.)**.
 3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av fysiska eller virtuella servrar. Namnet måste vara alfanumeriskt med 14 tecken eller färre.
 1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
@@ -240,11 +251,11 @@ Anslut nu från installationen till de fysiska servrarna som ska identifieras oc
 
 Detta startar identifieringen. Det tar ungefär 2 minuter per server för metadata om identifierad server som visas i Azure Portal.
 
-## <a name="verify-servers-in-the-portal"></a>Verifiera servrar i portalen
+## <a name="verify-servers-in-the-portal"></a>Verifiera servrarna i portalen
 
 När identifieringen är klar kan du kontrol lera att servrarna visas i portalen.
 
-1. Öppna instrument panelen för Azure Migrate.
+1. Öppna instrumentpanelen för Azure Migrate.
 2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 ## <a name="next-steps"></a>Nästa steg

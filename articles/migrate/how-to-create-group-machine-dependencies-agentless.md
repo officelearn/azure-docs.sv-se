@@ -3,12 +3,12 @@ title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275599"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
 
 - I vyn beroende analys kan du för närvarande inte lägga till eller ta bort en server från en grupp.
 - En beroende karta för en grupp med servrar är inte tillgänglig för närvarande.
-- Insamling av beroende data kan konfigureras samtidigt för 400-servrar. Du kan analysera ett större antal servrar genom att sekvensera i batchar på 400.
+- Insamling av beroende data kan konfigureras samtidigt för 1000-servrar. Du kan analysera ett större antal servrar genom att sekvensera i batchar på 1000.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -57,7 +57,7 @@ Lägg till användar kontot till enheten.
 
 ## <a name="start-dependency-discovery"></a>Starta beroende identifiering
 
-Välj de datorer där du vill aktivera beroende identifiering.
+Välj de datorer där du vill aktivera beroende identifiering. 
 
 1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
@@ -68,7 +68,7 @@ Välj de datorer där du vill aktivera beroende identifiering.
 
     ![Starta beroende identifiering](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
-Du kan visualisera beroenden runt sex timmar efter start av beroende identifiering.
+Du kan visualisera beroenden runt sex timmar efter start av beroende identifiering. Om du vill aktivera flera datorer kan du använda [PowerShell](#start-or-stop-dependency-discovery-using-powershell) för att göra det.
 
 ## <a name="visualize-dependencies"></a>Visualisera beroenden
 
@@ -125,7 +125,7 @@ Målport | Port nummer på mål datorn
 
 ## <a name="stop-dependency-discovery"></a>Stoppa beroende identifiering
 
-Välj de datorer där du vill stoppa beroende identifiering.
+Välj de datorer där du vill stoppa beroende identifiering. 
 
 1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
@@ -133,6 +133,114 @@ Välj de datorer där du vill stoppa beroende identifiering.
 3. På sidan **ta bort servrar** **väljer du den installation som identifierar** de virtuella datorer där du vill stoppa beroende identifiering.
 4. Välj datorerna i listan dator.
 5. Klicka på **ta bort servrar**.
+
+Om du vill stoppa beroendet på flera datorer kan du använda [PowerShell](#start-or-stop-dependency-discovery-using-powershell) för att göra det.
+
+
+### <a name="start-or-stop-dependency-discovery-using-powershell"></a>Starta eller stoppa beroende identifiering med PowerShell
+
+Ladda ned PowerShell-modulen från [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) lagrings platsen på GitHub.
+
+
+#### <a name="log-in-to-azure"></a>Logga in på Azure
+
+1. Logga in på Azure-prenumerationen med hjälp av cmdleten Connect-AzAccount.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+    Om du använder Azure Government använder du följande kommando.
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+2. Välj den prenumeration där du har skapat Azure Migrate-projektet 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. Importera den hämtade AzMig_Dependencies PowerShell-modulen
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+#### <a name="enable-or-disable-dependency-data-collection"></a>Aktivera eller inaktivera insamling av beroende data
+
+1. Hämta listan med identifierade virtuella VMware-datorer i ditt Azure Migrate-projekt med hjälp av följande kommandon. I exemplet nedan är projekt namnet FabrikamDemoProject och den resurs grupp som det tillhör är FabrikamDemoRG. Listan över datorer kommer att sparas i FabrikamDemo_VMs.csv
+
+    ```PowerShell
+    Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
+    ```
+
+    I filen kan du se namnet på den virtuella datorns visnings namn, aktuell status för beroende samling och ARM-ID för alla identifierade virtuella datorer. 
+
+2. Om du vill aktivera eller inaktivera beroenden skapar du en CSV-fil med indata. Filen måste ha en kolumn med huvudet "ARM-ID". Eventuella ytterligare rubriker i CSV-filen ignoreras. Du kan skapa en CSV-fil med hjälp av filen som genererades i föregående steg. Skapa en kopia av filen som behåller de virtuella datorer som du vill aktivera eller inaktivera beroenden för. 
+
+    I följande exempel aktive ras beroende analys i listan över virtuella datorer i indatafilen FabrikamDemo_VMs_Enable.csv.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Enable.csv -Enable
+    ```
+
+    I följande exempel inaktive ras beroende analys i listan över virtuella datorer i indatafilen FabrikamDemo_VMs_Disable.csv.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Disable.csv -Disable
+    ```
+
+## <a name="visualize-network-connections-in-power-bi"></a>Visualisera nätverks anslutningar i Power BI
+
+Azure Migrate erbjuder en Power BI mall som du kan använda för att visualisera nätverks anslutningar för många servrar samtidigt, och filtrera efter process och server. Du kan visualisera genom att läsa in Power BI med beroende data enligt anvisningarna nedan.
+
+1. Ladda ned PowerShell-modulen och Power BI mal len från [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) lagrings platsen på GitHub.
+
+2. Logga in på Azure med hjälp av anvisningarna nedan: 
+- Logga in på Azure-prenumerationen med hjälp av cmdleten Connect-AzAccount.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+
+- Om du använder Azure Government använder du följande kommando.
+
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+- Välj den prenumeration där du har skapat Azure Migrate-projektet 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. Importera den hämtade AzMig_Dependencies PowerShell-modulen
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+4. Kör följande kommando. Det här kommandot hämtar beroende data i en CSV och bearbetar dem för att generera en lista med unika beroenden som kan användas för visualisering i Power BI. I exemplet nedan är projekt namnet FabrikamDemoProject och den resurs grupp som det tillhör är FabrikamDemoRG. Beroendena hämtas för datorer som identifieras av FabrikamAppliance. De unika beroendena kommer att sparas i FabrikamDemo_Dependencies.csv
+
+    ```PowerShell
+    Get-AzMigDependenciesAgentless -ResourceGroup FabrikamDemoRG -Appliance FabrikamAppliance -ProjectName FabrikamDemoProject -OutputCsvFile "FabrikamDemo_Dependencies.csv"
+    ```
+
+5. Öppna mallen för hämtade Power BI
+
+6. Läs in de nedladdade beroende data i Power BI.
+    - Öppna mallen i Power BI.
+    - Klicka på **Hämta data** i verktygsfältet. 
+    - Välj **text/CSV** från vanliga data källor.
+    - Välj beroende filen som hämtats.
+    - Klicka på **Läs in**.
+    - Du ser att en tabell importeras med namnet på CSV-filen. Du kan se tabellen i fält fältet till höger. Byt namn på den till AzMig_Dependencies
+    - Klicka på Uppdatera från verktygsfältet.
+
+    Diagrammet nätverks anslutningar och käll serverns namn, mål serverns namn, käll process namn, namn utsnitt för mål process, bör vara lätta med importerade data.
+
+7. Visualisera kartan över filtrering av nätverks anslutningar efter servrar och processer. Spara filen.
 
 
 ## <a name="next-steps"></a>Nästa steg

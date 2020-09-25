@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335542"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -135,14 +135,13 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 
 |  K8s-version | Överordnad version  | AKS för hands version  | AKS GA  | Uttjänta |
 |--------------|-------------------|--------------|---------|-------------|
+| 1.16  | Sep-19-19  | Jan 2019   | Mar 2020  | 1,19 GA | 
 | 1,17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1,20 GA | 
 | 1,18  | Mar – 23-20  | Maj 2020   | Aug 2020  | 1,21 GA | 
-| 1,19  | Aug – 04-20  | Aug 2020   | Nov 2020  | 1,22 GA | 
-| 1,20  | * Nov 2020    | * Dec 2020   | * Jan 2021  | 1,23 GA | 
+| 1,19  | Aug – 04-20  | Sep 2020   | Nov 2020  | 1,22 GA | 
+| 1,20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1,23 GA | 
 
-\* Datum bekräftelse för väntande lansering av uppladdning.
-
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Hur ofta ska jag förvänta mig att uppgradera Kubernetes-versioner för att stanna kvar i supporten?**
 

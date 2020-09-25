@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: b4ee17ba6587c38efb6da15117a5c55dc5abb873
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bddb33210f3b1d76a89ce18ddf6884898905f388
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286413"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ServiceNow för automatisk användar etablering
 
@@ -93,11 +93,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 3. Välj fliken **Etablering**.
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
 4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
 5. Under avsnittet **admin credentials** måste du skriva in dina autentiseringsuppgifter och användar namn för ServiceNow-administratören. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till ServiceNow. Om anslutningen Miss lyckas kontrollerar du att ServiceNow-kontot har administratörs behörighet och försöker igen.
 

@@ -1,6 +1,6 @@
 ---
 title: Strömma videofiler med Azure Media Services – .NET | Microsoft Docs
-description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services konto, koda en fil och strömma den till Azure Media Player.
+description: Följ stegen i den här självstudien för att använda .NET för att skapa ett nytt Azure Media Services konto, koda en fil och strömma den till Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ec60f775fbeb176f9442aff11117c85c5028a81f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268697"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon – .NET
 
@@ -70,7 +70,7 @@ När du kör appen visas URL:er som kan användas för uppspelning av video med 
 1. Tryck på Ctrl+F5 för att köra programmet *EncodeAndStreamFiles*.
 2. Välj Apples **HLS**-protokoll (slutar med *manifest(format=m3u8-aapl)*) och kopiera strömnings-URL:en från konsolen.
 
-![Utdata](./media/stream-files-tutorial-with-api/output.png)
+![Skärm bild av utdata från EncodeAndStreamFiles-appen i Visual Studio som visar tre strömnings-URL: er som används i Azure Media Player.](./media/stream-files-tutorial-with-api/output.png)
 
 I exemplets [källkod](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs), kan du se hur URL:en är byggd. För att skapa den, måste du sammanfoga strömningsslutpunktens värdnamn och sökvägen för strömningslokaliseraren.  
 

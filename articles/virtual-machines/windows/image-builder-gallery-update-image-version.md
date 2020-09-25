@@ -1,17 +1,17 @@
 ---
 title: Skapa en ny avbildnings version från en befintlig avbildnings version med hjälp av Azure Image Builder (för hands version)
-description: Skapa en ny version av VM-avbildningen från en befintlig avbildnings version med hjälp av Azure Image Builder.
+description: Skapa en ny version av VM-avbildningen från en befintlig avbildnings version med hjälp av Azure Image Builder i Windows.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: bdae608d573bc411242b4bf66ea033a7df421cfc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7515e0a39d1cf0da74d2a23457443e96716b4275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005709"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335960"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>För hands version: skapa en ny version av VM-avbildning från en befintlig avbildnings version med hjälp av Azure Image Builder i Windows
 
@@ -171,8 +171,8 @@ dir c:\
 ```
 
 Nu bör du se två kataloger:
-- `buildActions`som skapades i den första avbildnings versionen.
-- `buildActions2`som skapades som en del av uppdateringen av den första avbildnings versionen för att skapa den andra avbildnings versionen.
+- `buildActions` som skapades i den första avbildnings versionen.
+- `buildActions2` som skapades som en del av uppdateringen av den första avbildnings versionen för att skapa den andra avbildnings versionen.
 
 
 ## <a name="next-steps"></a>Nästa steg

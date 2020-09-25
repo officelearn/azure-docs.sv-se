@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084370"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287397"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -48,7 +48,8 @@ För att börja skapa den nya poolen:
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
    
-   >! Lägg Om du loggar in på US Gov portal går du till [https://portal.azure.us/](https://portal.azure.us/) i stället.
+   >[!NOTE]
+   > Om du loggar in på US Gov portal går du till [https://portal.azure.us/](https://portal.azure.us/) i stället.
 
 2. Ange det **virtuella Windows-skrivbordet** i Sök fältet och Sök sedan efter och välj **Windows Virtual Desktop** under tjänster.
 

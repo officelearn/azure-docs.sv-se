@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7259e1981f873c8385a02fe4f353dcdda495f823
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287429"
 ---
 ### <a name="property-limits"></a>Egenskaps gränser
 
@@ -26,14 +26,13 @@ Azure Time Series Insights egenskaps gränser har ökat till 1 000 från en maxi
 | Gen1 (S1) | 600 egenskaper (kolumner) |
 | Gen1 (S2) | 800 egenskaper (kolumner) |
 
-### <a name="event-sources"></a>Händelsekällor
+### <a name="streaming-ingestion"></a>Strömningsinmatning
 
-Högst två händelse källor stöds per instans.
+* Det finns högst två [händelse källor](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md) per miljö.
 
-* Lär dig hur du [lägger till en Event Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Konfigurera [en IoT Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* De bästa metoderna och allmänna rikt linjer för händelse källor hittar du [här](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)
 
-Som standard [stöder Gen2-miljöer](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) ingångs hastigheter på upp till **1 megabyte per sekund (MB/s) per miljö**. Kunder kan skala sina miljöer upp till **16 MB/s** genom strömning vid behov. Det finns också en gräns per partition på **0,5 MB/s**.
+* Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en hastighet på **upp till 1 megabyte per sekund (Mbit/s) per Azure Time Series Insights Gen2-miljö**. Det finns ytterligare begränsningar [per nav-partition](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Du kan tillhandahålla hastigheter på upp till 8 Mbit/s genom att skicka ett support ärende via Azure Portal. Läs mer i [data flödes gränser för strömning](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
 
 ### <a name="api-limits"></a>API-gränser
 

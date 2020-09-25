@@ -1,6 +1,6 @@
 ---
 title: Schema för Azure Media Services utdata-metadata | Microsoft Docs
-description: Den här artikeln ger en översikt över Azure Media Services schemat för utdata.
+description: Den här artikeln ger en översikt över Azure Media Services v3-schemat för utdata för metadata.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336419"
 ---
 # <a name="output-metadata"></a>Utgående metadata
 
@@ -51,7 +51,7 @@ Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlag
 
 | Name | Beskrivning |
 | --- | --- |
-| **Identitet**<br /> Obligatorisk |Noll-baserat index för det här video spåret. **Obs:**  Detta **ID** är inte nödvändigt vis det TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 1`|
+| **Id**<br /> Obligatorisk |Noll-baserat index för det här video spåret. **Obs:**  Detta **ID** är inte nödvändigt vis det TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 1`|
 | **FourCC**<br />Obligatorisk | Video-codec FourCC-kod som rapporteras av ffmpeg.  <br /><br />Exempel: `"FourCC": "avc1"`|
 | **Profil** |H264,-profil (gäller endast H264,-codec).  <br /><br />Exempel: `"Profile": "High"` |
 | **Nivå** |H264,-nivå (gäller endast H264,-codec).  <br /><br />Exempel: `"Level": "3.2"`|
@@ -69,7 +69,7 @@ Varje fysisk AssetFile kan innehålla i noll eller flera ljud spår som är öve
 
 | Name  | Beskrivning |
 | --- | --- |
-| **Identitet**<br />Obligatorisk  |Noll-baserat index för det här ljud spåret. **Obs:**  Detta är inte nödvändigt vis TrackID som används i en MP4-fil.  <br /><br />Exempel: `"Id": 2`|
+| **Id**<br />Obligatorisk  |Noll-baserat index för det här ljud spåret. **Obs:**  Detta är inte nödvändigt vis TrackID som används i en MP4-fil.  <br /><br />Exempel: `"Id": 2`|
 | **ADPCM**  |Ljud spårets codec-sträng.  <br /><br />Exempel: `"Codec": "aac"`|
 | **Språk**|Exempel: `"Language": "eng"`|
 | **Kanaler**<br />Obligatorisk|Antal ljud kanaler.  <br /><br />Exempel: `"Channels": 2`|

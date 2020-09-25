@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b295c4f8380d59d8824049e8050605cb66fbae65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275293"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Konfigurera en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet
 
@@ -136,6 +136,14 @@ Indexeraren körs varannan timme (schema intervall anges till "PT2H"). Om du vil
 Mer information om API för att skapa index finns i [skapa indexerare](/rest/api/searchservice/create-indexer).
 
 Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
+
+## <a name="troubleshooting"></a>Felsökning
+
+Om du upptäcker att du inte kan indexera data från Cosmos DB bör du tänka på följande:
+
+1. Om du nyligen har roterat dina Cosmos DB konto nycklar måste du vänta upp till 15 minuter för att anslutnings strängen för den hanterade identiteten ska fungera.
+
+1. Kontrol lera om det Cosmos DB kontot har åtkomst begränsad till Välj nätverk. Om det gör det, se [indexerare åtkomst till data källor med hjälp av funktioner i Azure nätverks säkerhet](search-indexer-securing-resources.md).
 
 ## <a name="see-also"></a>Se även
 

@@ -7,14 +7,14 @@ titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data W
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: f664ffbfc9aa38dcf8eb7736b28613efb95bde63
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 431d7ff2631f9b4a0a20db82c40b512c41209b7e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325376"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Inställningar för Azure SQL-anslutning
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ Anslutnings inställningarna är tillgängliga från skärmen **brand väggar oc
 > [!NOTE]
 > När de här inställningarna har tillämpats **börjar de gälla omedelbart** och kan leda till förlust av anslutningar för dina klienter om de inte uppfyller kraven för varje inställning.
 
-## <a name="deny-public-network-access"></a>Neka offentlig nätverks åtkomst
+## <a name="deny-public-network-access"></a>Neka åtkomst till offentligt nätverk
 
 Om alternativet **Neka åtkomst till offentligt nätverk** är inställt på **Ja**, tillåts bara anslutningar via privata slut punkter. När den här inställningen är **Nej** (standard) kan klienter ansluta med hjälp av antingen offentliga slut punkter (IP-baserade brand Väggs regler, VNet-baserade brand Väggs regler) eller privata slut punkter (med privat länk) enligt beskrivningen i [Översikt över nätverks åtkomst](network-access-controls-overview.md). 
 
@@ -76,7 +76,7 @@ Följande PowerShell-skript visar hur du `Get` och `Set` den **offentliga nätve
 # Update Public Network Access to Disabled
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Disabled"
 ```
 
 ## <a name="change-public-network-access-via-cli"></a>Ändra offentlig nätverks åtkomst via CLI

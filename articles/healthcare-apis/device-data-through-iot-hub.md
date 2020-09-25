@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 04c732b857c06246bdc636f01afd2689c98c2b0d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831625"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308233"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Självstudie: ta emot enhets data via Azure IoT Hub
 
@@ -48,10 +48,10 @@ I det här steget definieras en slut punkt som IoT Hub dirigerar data till. Skap
 
 Här är listan över parametrar som ska användas med kommandot för att skapa en slut punkt:
 
-|PowerShell-parameter|CLI-parameter|Beskrivning|
+|PowerShell-parameter|CLI-parameter|Description|
 |---|---|---|
 |ResourceGroupName|resource-group|Resurs grupps namnet för din IoT Hub-resurs.|
-|Namn|hubb-namn|Namnet på din IoT Hub-resurs.|
+|Name|hubb-namn|Namnet på din IoT Hub-resurs.|
 |EndpointName|slut punkt-namn|Använd ett namn som du vill tilldela till slut punkten som skapas.|
 |EndpointType|slut punkt-typ|Typ av slut punkt som IoT Hub måste ansluta till. Använd literal-värdet "EventHub" för PowerShell och "eventhub" för CLI.|
 |EndpointResourceGroup|slut punkt-resurs grupp|Resurs grupp namn för din Azure IoT-anslutning för FHIRs Azure API för FHIR-resurs. Du kan hämta det här värdet från översikts sidan för Azure API för FHIR.|
@@ -61,12 +61,12 @@ Här är listan över parametrar som ska användas med kommandot för att skapa 
 ### <a name="add-a-message-route"></a>Lägg till en meddelande väg
 I det här steget definieras en meddelande väg som använder den slut punkt som skapades ovan. Skapa en väg med antingen [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell-kommandot eller [AZ IoT Hub Route skapa](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI-kommando baserat på din preferens.
 
-Här är listan över parametrar som ska användas med kommandot för att skapa en slut punkt:
+Här är listan över parametrar som ska användas med kommandot för att lägga till en meddelande väg:
 
-|PowerShell-parameter|CLI-parameter|Beskrivning|
+|PowerShell-parameter|CLI-parameter|Description|
 |---|---|---|
 |ResourceGroupName|g|Resurs grupps namnet för din IoT Hub-resurs.|
-|Namn|hubb-namn|Namnet på din IoT Hub-resurs.|
+|Name|hubb-namn|Namnet på din IoT Hub-resurs.|
 |EndpointName|slut punkt-namn|Namnet på den slut punkt som du har skapat ovan.|
 |RouteName|flödes namn|Ett namn som du vill tilldela till den meddelande väg som skapas.|
 |Källa|typ av källa|Typ av data som ska skickas till slut punkten. Använd litteralt värde för "DeviceMessages" för PowerShell och "DeviceMessages" för CLI.|

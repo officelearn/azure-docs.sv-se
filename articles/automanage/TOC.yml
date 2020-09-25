@@ -1,0 +1,28 @@
+- name: Azure Automanage
+  href: automanage-virtual-machines.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Aktivera på virtuella datorer i Azure-portalen
+      href: quick-create-virtual-machines-portal.md
+- name: Begrepp
+  expanded: true
+  items:
+    - name: Virtuella datorer
+      href: automanage-virtual-machines.md
+    - name: Regelverk för virtuella datorer
+      href: virtual-machines-best-practices.md
+- name: Gör så här för att
+  expanded: true
+  items:
+    - name: Skapa anpassade inställningar
+      href: virtual-machines-custom-preferences.md
+    - name: Aktivera på virtuella datorer via Azure Policy
+      href: virtual-machines-policy-enable.md
+- name: Resurser
+  expanded: true
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md
+    - name: Cloud Adoption Framework
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management'

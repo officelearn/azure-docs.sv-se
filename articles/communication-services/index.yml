@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Azure Communication Services
+summary: Azure Communication Services är en molnbaserad kommunikationstjänst som gör att du kan lägga till röst-, video-, chatt-och telefonifunktioner i dina appar. Observera att Azure Communication Services för närvarande finns i offentlig förhandsversion.
+metadata:
+  title: Azure Communication Services
+  description: Azure Communication Services är en molnbaserad kommunikationstjänst som gör att du kan lägga till röst-, video-, chatt-och telefonifunktioner i dina appar. Observera att Azure Communication Services för närvarande finns i offentlig förhandsversion.
+  ms.service: azure-communication-services
+  ms.topic: landing-page
+  author: mikben
+  ms.author: mikben
+  ms.date: 08/10/2020
+  ms.openlocfilehash: 6081063605439982e29984cc4378ec3aee7ac08a
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929043"
+landingContent:
+- title: Om Azure Communication Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Communication Services?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Klientbiblioteksalternativ
+      url: concepts/sdk-options.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en Communication Services-resurs
+      url: quickstarts/create-communication-resource.md
+    - text: Skapa och hantera token för användaråtkomst
+      url: quickstarts/access-tokens.md
+  - linkListType: concept
+    links:
+    - text: Klient- och serverarkitektur
+      url: concepts/client-and-server-architecture.md
+    - text: Autentisering och auktorisering
+      url: concepts/authentication.md
+    - text: Händelsehantering
+      url: concepts/event-handling.md
+    - text: Meddelanden
+      url: concepts/notifications.md
+- title: Röst- och videosamtal
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Lägga till röst- och videosamtal i din app
+      url: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - text: Använda klientbiblioteket för samtal
+      url: quickstarts/voice-video-calling/calling-client-samples.md
+  - linkListType: concept
+    links:
+    - text: Begrepp inom röst- och videosamtal
+      url: concepts/voice-video-calling/about-call-types.md
+    - text: Översikt över klientbiblioteket för samtal
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Samtalsflöden
+      url: concepts/call-flows.md
+- title: Telefoni och SMS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Hämta ett telefonnummer
+      url: quickstarts/telephony-sms/get-phone-number.md
+    - text: Skicka ett SMS-meddelande
+      url: quickstarts/telephony-sms/send.md
+    - text: Hantera SMS-händelser
+      url: quickstarts/telephony-sms/handle-sms-events.md
+  - linkListType: concept
+    links:
+    - text: SMS-begrepp
+      url: concepts/telephony-sms/concepts.md
+    - text: Översikt över klientbiblioteket för SMS
+      url: concepts/telephony-sms/sdk-features.md
+    - text: Översikt över klientbiblioteket för samtal
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Planera din telefoni- och SMS-lösning
+      url: concepts/telephony-sms/plan-solution.md
+- title: Chatt
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Lägga till chatt i din app
+      url: quickstarts/chat/get-started.md
+  - linkListType: concept
+    links:
+    - text: Chattbegrepp
+      url: concepts/chat/concepts.md
+    - text: Översikt över klientbiblioteket för chatt
+      url: concepts/chat/sdk-features.md
+- title: Exempel
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Kom igång med exemplet angående gruppsamtal
+      url: samples/calling-hero-sample.md
+    - text: Kom igång med exemplet angående chatt
+      url: samples/chat-hero-sample.md

@@ -50,6 +50,8 @@
       items:
         - name: Stödmatris för Azure Backup
           href: backup-support-matrix.md
+        - name: Stödmatris för Backup Center
+          href: backup-center-support-matrix.md
         - name: Stödmatris för säkerhetskopiering av virtuell Azure-dator
           href: backup-support-matrix-iaas.md
         - name: Stödmatris för DPM/Azure Backup Server (MABS)
@@ -68,6 +70,8 @@
       items:
         - name: Vanliga frågor och svar – Recovery Services-valv
           href: backup-azure-backup-faq.md
+        - name: Vanliga frågor och svar – Backup Center
+          href: backup-center-faq.md
         - name: Vanliga frågor och svar – Säkerhetskopiering av virtuella Azure-datorer
           href: backup-azure-vm-backup-faq.md
         - name: Vanliga frågor och svar – MARS-agenten
@@ -88,18 +92,36 @@
       href: guidance-best-practices.md
 - name: Guider
   items:
-    - name: Recovery Services-valv
+    - name: Valv
+      items:
+        - name: Recovery Services-valv
+          items:
+            - name: Översikt
+              href: backup-azure-recovery-services-vault-overview.md
+            - name: Skapa
+              href: backup-create-rs-vault.md
+            - name: Ta bort
+              href: backup-azure-delete-vault.md
+            - name: Flytta
+              href: backup-azure-move-recovery-services-vault.md
+            - name: Hantera
+              href: backup-azure-manage-windows-server.md
+        - name: Backup-valv
+          items:
+            - name: Översikt
+              href: backup-vault-overview.md
+    - name: Backup Center
       items:
         - name: Översikt
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: Skapa
-          href: backup-create-rs-vault.md
-        - name: Ta bort
-          href: backup-azure-delete-vault.md
-        - name: Flytta
-          href: backup-azure-move-recovery-services-vault.md
-        - name: Hantera
-          href: backup-azure-manage-windows-server.md
+          href: backup-center-overview.md
+        - name: Övervaka och hantera
+          href: backup-center-monitor-operate.md
+        - name: Generera insikter
+          href: backup-center-obtain-insights.md
+        - name: Hantera miljön
+          href: backup-center-govern-environment.md
+        - name: Utföra åtgärder
+          href: backup-center-actions.md
     - name: Säkerhetskopiering av virtuell Azure-dator
       items:
         - name: Översikt
@@ -150,6 +172,10 @@
           href: restore-sql-database-azure-vm.md
         - name: Hantera
           href: manage-monitor-sql-database-backup.md
+    - name: Säkerhetskopiering med Azure Database for PostgreSQL
+      items:
+        - name: Backup
+          href: backup-azure-database-postgresql.md
     - name: Windows-säkerhetskopiering med MARS-agent
       items:
         - name: Översikt

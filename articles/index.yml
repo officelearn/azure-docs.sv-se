@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: ae4e327b7b4d230bd89baccdd27d5ac416ebb6cb
-  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90087957"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90904150"
 highlightedContent:
   items:
   - title: Utvecklarens startguide för Azure
@@ -36,7 +36,7 @@ highlightedContent:
 productDirectory:
   title: Bläddra bland Azure-produkter
   items:
-  - title: Avvikelseidentifiering (förhandsversion)
+  - title: Avvikelseidentifiering
     summary: Lägg enkelt till funktioner för avvikelseidentifiering i dina appar
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
     azureCategories:
@@ -144,6 +144,13 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
+  - title: Communication Services
+    summary: Lägg till röst, video och telefoni i realtid i dina appar
+    imageSrc: ./media/index/communication-services.svg
+    azureCategories:
+    - web
+    - mobile
+    url: communication-services/overview.md
   - title: Visuellt innehåll
     summary: Hämta användbar information från bilder
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -610,7 +617,7 @@ productDirectory:
     azureCategories:
     - databases
     url: azure-sql/managed-instance/index.yml
-  - title: Azure SQL Edge (förhandsversion)
+  - title: Azure SQL Edge
     summary: Edge-optimerad datamotor med inbyggd AI och minimalt fotavtryck
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:

@@ -180,6 +180,8 @@
               href: manage/grant-access-to-create-subscription.md
             - name: Exportera prenumerationsinformation
               href: manage/export-subscriptions.md
+            - name: Ta bort en betalningsmetod för fakturor i Azure
+              href: manage/delete-azure-payment-method.md
             - name: Ändra kreditkort
               href: manage/change-credit-card.md
             - name: Ändra administratör

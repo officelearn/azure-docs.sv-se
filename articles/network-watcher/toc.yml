@@ -31,6 +31,8 @@
       href: connection-monitor-preview.md
     - name: Diagnostisera problem med VM-nätverkstrafikfilter
       href: network-watcher-ip-flow-verify-overview.md
+    - name: Diagnostisera NSG-regler och trafikfiltrering
+      href: network-watcher-network-configuration-diagnostics-overview.md
     - name: Diagnostisera problem med VM-routning
       href: network-watcher-next-hop-overview.md
     - name: Diagnostisera problem med utgående VM-kommunikation

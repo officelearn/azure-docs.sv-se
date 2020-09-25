@@ -60,7 +60,7 @@
               href: entitlement-management-catalog-create.md
             - name: Delegera till åtkomstpakethanterare
               href: entitlement-management-delegate-managers.md
-        - name: Åtkomstpakethanterare
+        - name: Hanterare och tilldelningshanterare för åtkomstpaket
           items:
             - name: Skapa ett nytt åtkomstpaket
               href: entitlement-management-access-package-create.md
@@ -68,8 +68,10 @@
               href: entitlement-management-access-package-settings.md
             - name: Ändra resursroller
               href: entitlement-management-access-package-resources.md
-            - name: Ändra inställningar för begäran och godkännande
+            - name: Ändra förfrågningsinställningar
               href: entitlement-management-access-package-request-policy.md
+            - name: Ändra godkännandeinställningar
+              href: entitlement-management-access-package-approval-policy.md
             - name: Ändra livscykelinställningar
               href: entitlement-management-access-package-lifecycle-policy.md
             - name: Visa begäran

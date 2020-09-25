@@ -1,0 +1,80 @@
+- name: Dokumentation om Managed HSM
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Managed HSM
+      href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: Azure Resource Manager-mall
+      href: quick-create-template.md
+- name: Självstudier
+  items:
+    - name: Hantera med Azure CLI
+      href: key-management.md
+    - name: Hantering av Managed HSM-roller
+      href: role-management.md
+    - name: Säker åtkomst till Managed HSM
+      href: secure-your-managed-hsm.md
+    - name: Konfigurera loggning för Managed HSM
+      href: logging.md
+    - name: Haveriberedskap
+      href: disaster-recovery-guide.md
+    - name: Importera HSM-skyddade nycklar till Managed HSM
+      href: hsm-protected-keys-byok.md
+    - name: Säkerhetskopiering och återställning
+      href: backup-restore.md
+- name: Begrepp
+  items:
+    - name: Säkerhetsdomän
+      href: security-domain.md
+    - name: Bästa praxis
+      href: best-practices.md
+    - name: Åtkomstkontroll
+      href: access-control.md
+    - name: Inbyggda roller för lokal rollbaserad åtkomstkontroll
+      href: built-in-roles.md
+- name: Anvisningar
+  items: null
+- name: Referens
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/distaster-recoveryeyvault/?view=azps-1.2.0#key_vault
+    - name: Azure CLI
+      href: /cli/azure/keyvault
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.keyvault/allversions
+      displayName: ARM
+- name: Resurser
+  items:
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-key-vault
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+    - name: Serviceavtal (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+    - name: Tjänstbegränsningar
+      href: ../general/service-limits.md
+    - name: Tjänststatus
+      href: 'https://azure.microsoft.com/status/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=key-vault'
+    - name: Blogg
+      href: 'https://blogs.technet.com/b/kv/'
+    - name: Produktfeedback
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

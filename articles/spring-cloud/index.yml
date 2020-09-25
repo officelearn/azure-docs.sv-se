@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation av Azure Spring Cloud
-summary: Azure Spring Cloud tillhandahåller en hanterad tjänst som gör det möjligt för Java-utvecklare att enkelt skapa och köra Spring-boot-baserade mikrotjänster på Azure utan kodändringar.
+summary: Azure Spring Cloud är en hanterad tjänst som gör att du kan köra mikrotjänster i Azure med hjälp av Spring-boot eller Steeltoe (förhandsversion) utan kodändringar.
 metadata:
   title: Azure Spring Cloud
-  description: Azure Spring Cloud tillhandahåller en hanterad tjänst som gör det möjligt för Java-utvecklare att enkelt skapa och köra Spring-boot-baserade mikrotjänster på Azure utan kodändringar.
+  description: Azure Spring Cloud är en hanterad tjänst som gör att du kan köra mikrotjänster i Azure med hjälp av Spring-boot eller Steeltoe (förhandsversion) utan kodändringar.
   services: spring-cloud
   ms.service: spring-cloud
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: bmitchell287
   ms.author: brendm
   ms.date: 09/26/2019
-  ms.openlocfilehash: 277d058427cc9527e6ed71ed252a4930489353fd
-  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+  ms.openlocfilehash: 1c1f45ab0f589634446a7d329f69609797071b36
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89049901"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90902963"
 landingContent:
 - title: Om Azure Spring Cloud
   linkLists:
@@ -32,11 +32,11 @@ landingContent:
     links:
     - text: Snabbstart – distribuera ditt första Azure Spring Cloud-program
       url: spring-cloud-quickstart.md
-    - text: Introduktion till Piggy Metrics-exempelapp
+    - text: Exempelapp med introduktion till PiggyMetrics
       url: spring-cloud-quickstart-sample-app-introduction.md
   - linkListType: tutorial
     links:
-    - text: Förbereda en Java Spring-app för distribution
+    - text: Förbered en Spring- eller Steeltoe-app för distribution
       url: spring-cloud-tutorial-prepare-app-deployment.md
 - title: Konfigurera din tjänst
   linkLists:

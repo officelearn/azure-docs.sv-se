@@ -2,173 +2,171 @@
   href: index.yml
   items:
     - name: Uppdateringar för den kommersiella marknadsplatsen
-      href: ./marketplace-roadmap.md
-    - name: Principer och villkor för den kommersiella marknadsplatsen
-      href: ./policies-terms.md
+      href: marketplace-roadmap.md
     - name: Översikt över och fördelar med den kommersiella marknadsplatsen
-      href: ./marketplace-publishers-guide.md
+      href: marketplace-publishers-guide.md
       items:
         - name: 'En marknadsplats, två onlinebutiker'
-          href: ./comparing-appsource-azure-marketplace.md
+          href: comparing-appsource-azure-marketplace.md
         - name: Publiceringsalternativ och överväganden
-          href: ./determine-your-listing-type.md
+          href: determine-your-listing-type.md
           items:
             - name: Leadhantering
-              href: ./lead-management-for-cloud-marketplace.md
+              href: lead-management-for-cloud-marketplace.md
             - name: Göra transaktioner på den kommersiella marknadsplatsen
-              href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+              href: marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: Planer och priser
               href: plans-pricing.md
             - name: Privata erbjudanden
-              href: ./private-offers.md
+              href: private-offers.md
             - name: Standardavtal
-              href: ./standard-contract.md
+              href: standard-contract.md
             - name: Spårning av kundanvändning för Azure-partner
-              href: ./azure-partner-customer-usage-attribution.md
+              href: azure-partner-customer-usage-attribution.md
             - name: Länder och regioner som stöds
-              href: ./sell-from-countries.md
+              href: sell-from-countries.md
         - name: Publiceringsguider efter erbjudandetyp
-          href: ./publisher-guide-by-offer-type.md
+          href: publisher-guide-by-offer-type.md
           items:
             - name: Planera ett SaaS-erbjudande
-              href: ./plan-saas-offer.md
+              href: plan-saas-offer.md
             - name: Virtuella datorer
-              href: ./marketplace-virtual-machines.md
+              href: marketplace-virtual-machines.md
             - name: Lösningsmallar för Azure-appar
-              href: ./marketplace-solution-templates.md
+              href: marketplace-solution-templates.md
             - name: Hanterade program för Azure-appar
-              href: ./marketplace-managed-apps.md
+              href: marketplace-managed-apps.md
             - name: Containrar
-              href: ./marketplace-containers.md
+              href: marketplace-containers.md
             - name: IoT Edge-moduler
-              href: ./iot-edge-module.md
+              href: iot-edge-module.md
             - name: Konsulttjänster
-              href: ./consulting-services.md
+              href: consulting-services.md
             - name: 'Microsoft 365, Dynamics 365 och Power BI'
-              href: ./appsource-offer-publishing-guide.md
+              href: appsource-offer-publishing-guide.md
             - name: Aktivera autentisering av erbjudanden med Azure AD
-              href: ./enable-appsource-marketplace-using-azure-ad.md
+              href: enable-appsource-marketplace-using-azure-ad.md
             - name: Integrerade lösningar
-              href: ./integrated-solutions-for-publishers.md
+              href: integrated-solutions-for-publishers.md
         - name: Metodtips för marknadsföring
-          href: ./gtm-marketing-best-practices.md
+          href: gtm-marketing-best-practices.md
           items:
             - name: Metodtips för erbjudandelistor
-              href: ./gtm-offer-listing-best-practices.md
+              href: gtm-offer-listing-best-practices.md
             - name: Hämta funktion
-              href: ./gtm-how-to-get-featured.md
+              href: gtm-how-to-get-featured.md
             - name: Validering av Marketplace-innehåll
-              href: ./marketplace-criteria-content-validation.md
+              href: marketplace-criteria-content-validation.md
             - name: Leverantörer av molnlösningar
-              href: ./cloud-solution-providers.md
+              href: cloud-solution-providers.md
             - name: Onboardingguiden Ansluta program
-              href: ./business-applications-isv-program.md
+              href: business-applications-isv-program.md
         - name: Dina Marketplace-förmåner
-          href: ./gtm-your-marketplace-benefits.md
+          href: gtm-your-marketplace-benefits.md
           items:
             - name: Azure-förbrukningsåtagandeförmån
-              href: ./azure-consumption-commitment-benefit.md
+              href: azure-consumption-commitment-benefit.md
             - name: Deltagande i partnersäljsamarbete
-              href: ./marketplace-co-sell.md
+              href: marketplace-co-sell.md
             - name: Önskade lösningar
-              href: ./preferred-solutions.md
+              href: preferred-solutions.md
             - name: Integrerade lösningar
-              href: ./integrated-solutions.md
+              href: integrated-solutions.md
         - name: Stöd för den kommersiella marknadsplatsen
-          href: ./support-azure-marketplace.md
+          href: support-azure-marketplace.md
           items:
             - name: Vanliga frågor och svar om den kommersiella marknadsplatsen
-              href: ./marketplace-faq-publisher-guide.md
+              href: marketplace-faq-publisher-guide.md
             - name: Geografisk tillgänglighet och valutor
-              href: ./marketplace-geo-availability-currencies.md
+              href: marketplace-geo-availability-currencies.md
 - name: Den kommersiella marknadsplatsen i Partner-centrum
   items:
     - name: Översikt över den kommersiella marknadsplatsen
-      href: ./partner-center-portal/commercial-marketplace-overview.md
+      href: partner-center-portal/commercial-marketplace-overview.md
     - name: Vanliga frågor och svar om migrering
-      href: ./cloud-partner-portal-migration-faq.md
+      href: cloud-partner-portal-migration-faq.md
     - name: Kontohantering
       items:
         - name: Skapa ett nytt Partnercenter-konto
-          href: ./partner-center-portal/create-account.md
+          href: partner-center-portal/create-account.md
         - name: Hantera ditt Partnercenter-konto
-          href: ./partner-center-portal/manage-account.md
+          href: partner-center-portal/manage-account.md
         - name: Hitta eller skapa ett arbetskonto för företag
-          href: ./partner-center-portal/company-work-accounts.md
+          href: partner-center-portal/company-work-accounts.md
         - name: Kontomigrering från CPP till Partner-centrum
-          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
+          href: partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Skapa ett nytt erbjudande
       items:
         - name: Erbjudanden för Azure-program
           items:
             - name: Skapa ett erbjudande för Azure-program
-              href: ./partner-center-portal/create-new-azure-apps-offer.md
+              href: partner-center-portal/create-new-azure-apps-offer.md
             - name: Förbrukningsbaserad fakturering för Azure-program
-              href: ./partner-center-portal/azure-app-metered-billing.md
+              href: partner-center-portal/azure-app-metered-billing.md
             - name: Hantera feedback från granskning
-              href: ./partner-center-portal/azure-apps-review-feedback.md
+              href: partner-center-portal/azure-apps-review-feedback.md
             - name: API för registrering
-              href: ./partner-center-portal/azure-app-apis.md
+              href: partner-center-portal/azure-app-apis.md
         - name: Azure Container-erbjudanden
           items:
             - name: Förbereda tekniska tillgångar
-              href: ./partner-center-portal/create-azure-container-technical-assets.md
+              href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Skapa ett Azure Container-erbjudande
-              href: ./partner-center-portal/create-azure-container-offer.md
+              href: partner-center-portal/create-azure-container-offer.md
         - name: Erbjudande för virtuella datorer
           items:
             - name: Skapa ett erbjudande för virtuella datorer i Azure
-              href: ./partner-center-portal/azure-vm-create-offer.md
+              href: partner-center-portal/azure-vm-create-offer.md
             - name: Skapa tekniska tillgångar för virtuella Azure-datorer
               items:
                 - name: Certifiering av virtuella datorer – problem och lösningar
-                  href: ./partner-center-portal/vm-certification-issues-solutions.md
+                  href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Skapa tekniska tillgångar för en virtuell Azure-dator
-                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                  href: partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Vanliga frågor och svar om tekniska tillgångar för virtuella Azure-datorer
-                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                  href: partner-center-portal/common-issues-during-vhd-creation.md
                 - name: Testa virtuell dator som distribuerats från VHD
-                  href: ./partner-center-portal/azure-vm-image-certification.md
+                  href: partner-center-portal/azure-vm-image-certification.md
                 - name: SAS-URI
                   items:
                     - name: Hämta SAS-URI
-                      href: ./partner-center-portal/get-sas-uri.md
+                      href: partner-center-portal/get-sas-uri.md
                     - name: Vanliga frågor och svar om SAS-URI
-                      href: ./partner-center-portal/common-sas-uri-issues.md
+                      href: partner-center-portal/common-sas-uri-issues.md
         - name: Konsulttjänster
           items:
             - name: Krav
-              href: ./partner-center-portal/consulting-service-prerequisites.md
+              href: partner-center-portal/consulting-service-prerequisites.md
             - name: Skapa ett konsulttjänsterbjudande
-              href: ./partner-center-portal/create-consulting-service-offer.md
+              href: partner-center-portal/create-consulting-service-offer.md
         - name: Dynamics 365-erbjudanden
           items:
             - name: Skapa ett erbjudande för Dynamics 365 for Customer Engagement och Power Apps
-              href: ./partner-center-portal/create-new-customer-engagement-offer.md
+              href: partner-center-portal/create-new-customer-engagement-offer.md
             - name: Skapa ett erbjudande för Dynamics 365 for Operations
               items:
                 - name: Skapa ett erbjudande för Dynamics 365 for Operations
-                  href: ./partner-center-portal/create-new-operations-offer.md
+                  href: partner-center-portal/create-new-operations-offer.md
                 - name: Funktionell validering
-                  href: ./dynamics-365-finance-operations-functional-validation.md
+                  href: dynamics-365-finance-operations-functional-validation.md
             - name: Skapa ett erbjudande för Dynamics 365 for Business Central
-              href: ./partner-center-portal/create-new-business-central-offer.md
+              href: partner-center-portal/create-new-business-central-offer.md
         - name: Erbjudanden för IoT Edge-moduler
           items:
             - name: Skapa ett IoT Edge-modulerbjudande
-              href: ./partner-center-portal/azure-iot-edge-module-creation.md
+              href: partner-center-portal/azure-iot-edge-module-creation.md
             - name: Förbereda tekniska tillgångar för IoT Edge-moduler
-              href: ./partner-center-portal/create-iot-edge-module-asset.md
+              href: partner-center-portal/create-iot-edge-module-asset.md
         - name: Hanterade tjänsterbjudanden
           items:
             - name: Skapa ett erbjudande för hanterad tjänst
-              href: ./partner-center-portal/create-new-managed-service-offer.md
+              href: partner-center-portal/create-new-managed-service-offer.md
         - name: Erbjudanden för Power BI-appen
           items:
             - name: Publicera översikt
-              href: ./partner-center-portal/create-power-bi-app-overview.md
+              href: partner-center-portal/create-power-bi-app-overview.md
             - name: Skapa erbjudande för Power BI-appen
-              href: ./partner-center-portal/create-power-bi-app-offer.md
+              href: partner-center-portal/create-power-bi-app-offer.md
         - name: SaaS-erbjudanden
           items:
             - name: Planera ett SaaS-erbjudande
@@ -176,13 +174,13 @@
             - name: Azure AD-autentisering för SaaS
               items:
                 - name: Översikt över Azure AD och SaaS
-                  href: ./azure-ad-saas.md
+                  href: azure-ad-saas.md
                 - name: Landningssida för överföringsbara erbjudanden
-                  href: ./azure-ad-transactable-saas-landing-page.md
+                  href: azure-ad-transactable-saas-landing-page.md
                 - name: Landningssida för kostnadsfria erbjudanden eller utvärderingserbjudanden
-                  href: ./azure-ad-free-or-trial-landing-page.md
+                  href: azure-ad-free-or-trial-landing-page.md
             - name: SaaS-fakturering efter förbrukning
-              href: ./partner-center-portal/saas-metered-billing.md
+              href: partner-center-portal/saas-metered-billing.md
             - name: Skapa och publicera ett SaaS-erbjudande
               items:
                 - name: Skapa ett SaaS-erbjudande
@@ -202,129 +200,141 @@
             - name: Marknadsför ditt SaaS-erbjudande
               href: create-new-saas-offer-marketing.md
             - name: 'API:er för uppfyllnad av SaaS'
-              href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+              href: partner-center-portal/pc-saas-fulfillment-apis.md
               items:
                 - name: Registrera ett SaaS-program
-                  href: ./partner-center-portal/pc-saas-registration.md
+                  href: partner-center-portal/pc-saas-registration.md
                 - name: 'API:er för uppfyllnad av SaaS, v2'
-                  href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+                  href: partner-center-portal/pc-saas-fulfillment-api-v2.md
                 - name: 'API:er för uppfyllnad av SaaS, v1 (inaktuell)'
-                  href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+                  href: partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
-                  href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+                  href: partner-center-portal/saas-fulfillment-apis-faq.md
         - name: Leadhantering – översikt
-          href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+          href: partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
             - name: Azure-blobb
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
             - name: Azure-tabell
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
             - name: Dynamics 365 för Customer Engagement
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
             - name: HTTPS-slutpunkt
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
             - name: Marketo
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Marketplace-mättjänst
           items:
             - name: Autentiseringsstrategier
-              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+              href: partner-center-portal/marketplace-metering-service-authentication.md
             - name: 'API:er för Marketplace Metering Service'
-              href: ./partner-center-portal/marketplace-metering-service-apis.md
+              href: partner-center-portal/marketplace-metering-service-apis.md
             - name: 'API:er för Marketplace Metering Service – vanliga frågor och svar'
-              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+              href: partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Test Drive
           items:
             - name: Vad är en provkörning?
-              href: ./what-is-test-drive.md
+              href: what-is-test-drive.md
             - name: Teknisk konfiguration för provkörning
-              href: ./test-drive-technical-configuration.md
+              href: test-drive-technical-configuration.md
             - name: Azure Resource Manager-provkörning
-              href: ./azure-resource-manager-test-drive.md
+              href: azure-resource-manager-test-drive.md
         - name: Alternativ för säljsamarbete
-          href: ./partner-center-portal/commercial-marketplace-co-sell.md
+          href: partner-center-portal/commercial-marketplace-co-sell.md
           items:
             - name: Lands- och regionkoder
-              href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+              href: partner-center-portal/commercial-marketplace-co-sell-countries.md
             - name: Delstatskoder
-              href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
+              href: partner-center-portal/commercial-marketplace-co-sell-states.md
     - name: Granska och publicera
       href: review-publish-offer.md
     - name: Uppdatera befintliga erbjudanden
-      href: ./partner-center-portal/update-existing-offer.md
+      href: partner-center-portal/update-existing-offer.md
     - name: Aktivera Marketplace-förmåner
-      href: ./partner-center-portal/marketplace-rewards.md
+      href: partner-center-portal/marketplace-rewards.md
     - name: Partnercenteranalys
       items:
         - name: Analys för den kommersiella marknadsplatsen
-          href: ./partner-center-portal/analytics.md
+          href: partner-center-portal/analytics.md
         - name: Instrumentpanel för sammanfattningar
-          href: ./partner-center-portal/summary-dashboard.md
+          href: partner-center-portal/summary-dashboard.md
         - name: Orderinstrumentpanel
-          href: ./partner-center-portal/orders-dashboard.md
+          href: partner-center-portal/orders-dashboard.md
         - name: Instrumentpanelen Användning
-          href: ./partner-center-portal/usage-dashboard.md
+          href: partner-center-portal/usage-dashboard.md
         - name: Instrumentpanelen Kund
-          href: ./partner-center-portal/customer-dashboard.md
+          href: partner-center-portal/customer-dashboard.md
         - name: Instrumentpanelen Marknadsplatsinsikter
-          href: ./partner-center-portal/insights-dashboard.md
+          href: partner-center-portal/insights-dashboard.md
         - name: Ladda ned instrumentpanel
-          href: ./partner-center-portal/downloads-dashboard.md
+          href: partner-center-portal/downloads-dashboard.md
         - name: Instrumentpanel för omdömen och recensioner
-          href: ./partner-center-portal/ratings-reviews.md
+          href: partner-center-portal/ratings-reviews.md
         - name: Vanliga frågor och terminologi
-          href: ./partner-center-portal/faq-terminology.md
+          href: partner-center-portal/faq-terminology.md
     - name: Få betalt
       items:
         - name: Få betalt
-          href: ./partner-center-portal/get-paid.md
+          href: partner-center-portal/get-paid.md
         - name: Konfigurera utbetalningskonto och deklarationsblanketter
-          href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
         - name: 'Betalningströsklar, metoder och tidsramar'
-          href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+          href: partner-center-portal/payment-thresholds-methods-timeframes.md
         - name: Översikt över utbetalningssammanfattning
-          href: ./partner-center-portal/payout-summary-overview.md
+          href: partner-center-portal/payout-summary-overview.md
         - name: Utbetalningssammanfattningar
-          href: ./partner-center-portal/payout-summary.md
+          href: partner-center-portal/payout-summary.md
         - name: Information om utbetalningsprincip
-          href: ./partner-center-portal/payout-policy-details.md
+          href: partner-center-portal/payout-policy-details.md
         - name: Skatteinformation
-          href: ./partner-center-portal/tax-details-paid-transactions.md
+          href: partner-center-portal/tax-details-paid-transactions.md
     - name: CPP API-referens
       items:
         - name: Översikt
-          href: ./cloud-partner-portal-api-overview.md
+          href: cloud-partner-portal-api-overview.md
         - name: Krav
-          href: ./cloud-partner-portal-api-prerequisites.md
+          href: cloud-partner-portal-api-prerequisites.md
         - name: Överväganden
-          href: ./cloud-partner-portal-api-considerations.md
+          href: cloud-partner-portal-api-considerations.md
         - name: Samtidighetskontroll
-          href: ./cloud-partner-portal-api-concurrency-control.md
+          href: cloud-partner-portal-api-concurrency-control.md
         - name: Hämta erbjudanden
-          href: ./cloud-partner-portal-api-retrieve-offers.md
+          href: cloud-partner-portal-api-retrieve-offers.md
         - name: Hämta särskilt erbjudande
-          href: ./cloud-partner-portal-api-retrieve-specific-offer.md
+          href: cloud-partner-portal-api-retrieve-specific-offer.md
         - name: Lägga till eller ändra ett erbjudande
-          href: ./cloud-partner-portal-api-creating-offer.md
+          href: cloud-partner-portal-api-creating-offer.md
         - name: Hämta erbjudandestatus
-          href: ./cloud-partner-portal-api-retrieve-offer-status.md
+          href: cloud-partner-portal-api-retrieve-offer-status.md
         - name: Publicera ett erbjudande
-          href: ./cloud-partner-portal-api-publish-offer.md
+          href: cloud-partner-portal-api-publish-offer.md
         - name: Hämta åtgärder
-          href: ./cloud-partner-portal-api-retrieve-operations.md
+          href: cloud-partner-portal-api-retrieve-operations.md
         - name: Avbryt åtgärder
-          href: ./cloud-partner-portal-api-cancel-operations.md
+          href: cloud-partner-portal-api-cancel-operations.md
         - name: Sätt igång
-          href: ./cloud-partner-portal-api-go-live.md
+          href: cloud-partner-portal-api-go-live.md
         - name: Prissättning för erbjudanden på virtuella datorer
-          href: ./cloud-partner-portal-api-setting-price.md
+          href: cloud-partner-portal-api-setting-price.md
         - name: Felsöka autentiseringsfel
-          href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+          href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Supportalternativ
-      href: ./partner-center-portal/support.md
-    - name: Resurser
-      items:
-        - name: HTML-taggar som stöds
-          href: supported-html-tags.md
+      href: partner-center-portal/support.md
+- name: Principer och villkor för den kommersiella marknadsplatsen
+  items:
+    - name: Om våra policyer och villkor
+      href: policies-terms.md
+    - name: Certifieringsprinciper för Commercial Marketplace
+      href: /legal/marketplace/offer-policies-change-history?context=/azure/marketplace/context/context
+    - name: Granska policyerna för den kommersiella marknadsplatsen
+      href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
+    - name: Deltagandepolicyer för Azure Marketplace
+      href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
+    - name: Azure Marketplace-villkor
+      href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+- name: Resurser
+  items:
+    - name: HTML-taggar som stöds
+      href: supported-html-tags.md

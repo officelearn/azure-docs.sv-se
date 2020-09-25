@@ -165,18 +165,24 @@
           href: directory-manage-roles-portal.md
         - name: Anpassade roller
           items:
-            - name: Anpassade roller
+            - name: Översikt över anpassade roller
               href: roles-custom-overview.md
             - name: Skapa en anpassad roll
               href: roles-create-custom.md
             - name: Visa anpassade rolltilldelningar
               href: roles-view-assignments.md
-            - name: Tilldela roller i administrationscenter för Azure AD
+            - name: Tilldela anpassade roller i Azure-portalen
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: Tilldela anpassade roller i PowerShell
               href: roles-assign-powershell.md
+            - name: Tilldela anpassade roller för företagsappar
+              href: custom-enterprise-apps.md
             - name: Anpassade rollbehörigheter
-              href: roles-custom-available-permissions.md
+              items:
+                - name: Behörigheter för appregistrering
+                  href: roles-custom-available-permissions.md
+                - name: Behörigheter för företagsappar
+                  href: custom-enterprise-app-permissions.md
             - name: Delegera behörigheter för appadministratörer
               href: roles-delegate-app-roles.md
         - name: Hantera rolltilldelningar med hjälp av grupper

@@ -39,6 +39,10 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
+    - name: Lastbalanserare mellan regioner
+      href: cross-region-overview.md
+    - name: Nyheter
+      href: whats-new.md
     - name: Komponenter
       href: components.md
     - name: Begrepp

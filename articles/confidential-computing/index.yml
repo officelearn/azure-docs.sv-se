@@ -1,0 +1,115 @@
+### YamlMime:Landing
+title: Dokumentation om konfidentiell databehandling i Azure
+summary: Med konfidentiell databehandling i Azure kan du skapa lösningar för att isolera känsliga data medan de bearbetas i molnet. Lär dig hur du skapar och distribuerar program baserat på konfidentiell databehandling genom att studera begrepp, gå igenom självstudier och arbeta med kodexempel. Använd Microsofts produkter som bygger på konfidentiell databehandling för bästa möjliga skydd av dina arbetsbelastningar.
+metadata:
+  title: Konfidentiell databehandling i Azure
+  description: Lär dig mer om hur den konfidentiella databehandlingen i Azure skyddar dina data medan de används och hur du skapar konfidentiella arbetsbelastningar i molnet.
+  ms.service: virtual-machines
+  ms.subservice: workloads
+  ms.topic: landing-page
+  author: JBCook
+  ms.author: jencook
+  ms.date: 09/22/2020
+  ms.openlocfilehash: abe5104ff5425103baaca72efdc960a34ffc6a73
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90992031"
+landingContent:
+- title: Om konfidentiell databehandling i Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är konfidentiell databehandling i Azure?
+      url: overview.md
+    - text: Scenarier
+      url: use-cases-scenarios.md
+  - linkListType: concept
+    links:
+    - text: Virtuella datorer
+      url: confidential-computing-enclaves.md
+    - text: Containerbaserad databehandling i AKS
+      url: confidential-containers.md
+    - text: Apputveckling
+      url: application-development.md
+    - text: Attestering
+      url: attestation.md
+  - linkListType: reference
+    links:
+    - text: Virtuella Intel SGX-datorer
+      url: ../virtual-machines/dcv2-series.md
+- title: Virtuella datorer
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Virtuella Intel SGX-datorer
+      url: confidential-computing-enclaves.md
+  - linkListType: concept
+    links:
+    - text: Lösningar på virtuella datorer
+      url: virtual-machine-solutions.md
+  - linkListType: quickstart
+    links:
+    - text: Distribuera i Azure-portalen
+      url: quick-create-portal.md
+    - text: Distribuera på Azure Marketplace
+      url: quick-create-marketplace.md
+  - linkListType: reference
+    links:
+    - text: Vanliga frågor och svar om virtuella datorer för konfidentiell databehandling
+      url: faq.md
+    - text: Prissättning
+      url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
+    - text: Tillgänglighet
+      url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+- title: Containerberäkning
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Noder för konfidentiell databehandling i Azure Kubernetes Service (förhandsversion)
+      url: confidential-nodes-aks-overview.md
+  - linkListType: concept
+    links:
+    - text: Konfidentiella containrar
+      url: confidential-containers.md
+    - text: Enklavmedvetna containrar
+      url: enclave-aware-containers.md
+    - text: Out of proc-attestering
+      url: confidential-nodes-out-of-proc-attestation.md
+  - linkListType: quickstart
+    links:
+    - text: En enkel enklavcontainerapp i AKS
+      url: confidential-nodes-aks-get-started.md
+  - linkListType: sample
+    links:
+    - text: Exempel på konfidentiella containrar (ej modifierade containrar i SGX)
+      url: https://github.com/Azure-Samples/confidential-container-samples
+    - text: Exempel på enklavmedvetna containrar
+      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+  - linkListType: reference
+    links:
+    - text: Vanliga frågor och svar om konfidentiella noder i AKS
+      url: confidential-nodes-aks-overview.md
+    - text: Om Azure Kubernetes Service (AKS)
+      url: ../aks/intro-kubernetes.md
+- title: Konfidentiella molntjänster
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Microsoft Azure Attestation
+      url: ../attestation/overview.md
+    - text: ONNX-miljö för konfidentiell slutsatsdragning
+      url: https://aka.ms/confidentialinference
+- title: Skapa med konfidentiell databehandling
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Demo om konfidentiell sjukvård i AKS
+      url: https://github.com/Azure-Samples/confidential-container-samples
+    - text: Attesterad ömsesidig TLS med Open Enclave i AKS
+      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+  - linkListType: reference
+    links:
+    - text: SDK:t Open Enclave (OE)
+      url: https://aka.ms/oesdkGitHubRepo

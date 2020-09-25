@@ -109,7 +109,7 @@
           href: howto-run-a-job.md
     - name: Transformering
       items:
-        - name: Exportera data till molnmål (förhandsversion)
+        - name: Exportera data till molndestinationer
           href: howto-export-data.md
         - name: Exportera data till molnmål (äldre)
           href: howto-export-data-legacy.md

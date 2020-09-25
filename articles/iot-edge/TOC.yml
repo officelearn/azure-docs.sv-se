@@ -101,6 +101,8 @@
           href: iot-edge-security-manager.md
         - name: IoT Edge-certifikat
           href: iot-edge-certs.md
+        - name: Konfidentiell databehandling
+          href: deploy-trusted-applications.md
     - name: Plattformssupport
       href: support.md
     - name: Checklista för produktionsdistribution

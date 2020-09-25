@@ -1,0 +1,125 @@
+- name: Dokumentation om Azure Defender för IoT
+  href: index.yml
+- name: Översikt
+  href: overview.md
+  items:
+    - name: Lösningsarkitektur
+      href: architecture.md
+    - name: Säkerhetsmodul för Azure RTOS
+      href: iot-security-azure-rtos.md
+    - name: Säkerhetsagenter
+      href: security-agent-architecture.md
+    - name: Edge-säkerhetsmodul
+      href: security-edge-architecture.md
+    - name: Förutsättningar för tjänsten
+      href: service-prerequisites.md
+    - name: Komma igång med Azure Defender for IoT
+      href: getting-started.md
+      items:
+        - name: IoT Hub
+          href: iot-hub-integration.md
+        - name: Säkerhetsagenter
+          href: security-agents.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Konfigurera säkerhetsmodul för Azure RTOS
+      href: quickstart-azure-rtos-security-module.md
+    - name: Registrera Azure Defender for IoT i IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: Konfigurera lösningen
+      href: quickstart-configure-your-solution.md
+    - name: Skapa en Azure Defender for IoT-modultvilling
+      href: quickstart-create-security-twin.md
+    - name: Undersöka säkerhetsrekommendationer
+      href: quickstart-investigate-security-recommendations.md
+    - name: Skapa anpassade säkerhetsaviseringar
+      href: quickstart-create-custom-alerts.md
+    - name: Undersöka säkerhetsaviseringar
+      href: quickstart-investigate-security-alerts.md
+- name: Begrepp
+  items:
+    - name: Säkerhetsmodul för Azure RTOS
+      items:
+        - name: Förstå säkerhetsmodulen för Azure RTOS
+          href: concept-rtos-security-module.md
+        - name: Aviseringar och rekommendationer för säkerhetsmodul för Azure RTOS
+          href: concept-rtos-security-alerts-recommendations.md
+    - name: Autentisering av säkerhetsagent
+      href: concept-security-agent-authentication-methods.md
+    - name: Säkerhetsmodul
+      href: concept-security-module.md
+    - name: Säkerhetsaviseringar
+      href: concept-security-alerts.md
+    - name: Anpassningsbara säkerhetsaviseringar
+      href: concept-customizable-security-alerts.md
+    - name: Säkerhetsrekommendationer
+      href: concept-recommendations.md
+    - name: Baslinje
+      href: concept-baseline.md
+    - name: Händelsesammansättning
+      href: event-aggregation.md
+    - name: Prissättning och associerade kostnader
+      href: concept-pricing.md
+- name: Anvisningar
+  items:
+    - name: Arbeta med säkerhetsmodul för Azure RTOS
+      href: how-to-azure-rtos-security-module.md
+    - name: Vilken agent ska jag distribuera?
+      items:
+        - name: Välj en agent för att distribuera
+          href: how-to-deploy-agent.md
+        - name: Distribuera en C#-baserad säkerhetsagent på en Windows-enhet
+          href: how-to-deploy-windows-cs.md
+        - name: Distribuera en C#-baserad säkerhetsagent på en Linux-enhet
+          href: how-to-deploy-linux-cs.md
+        - name: Distribuera en C-baserad säkerhetsagent på en Linux-enhet
+          href: how-to-deploy-linux-c.md
+    - name: Felsöka en säkerhetsagent
+      items:
+        - name: Felsöka Azure Defender for IoT Linux-säkerhetsagenten
+          href: troubleshoot-agent.md
+        - name: Lokal konfiguration C
+          href: azure-iot-security-local-configuration-c.md
+        - name: Lokal konfiguration C#
+          href: azure-iot-security-local-configuration-csharp.md
+    - name: Distribuera Edge-säkerhetsmodul
+      href: how-to-deploy-edge.md
+    - name: Konfigurera säkerhetsagenter
+      href: how-to-agent-configuration.md
+    - name: Skicka dina egna säkerhetsmeddelanden
+      href: how-to-send-security-messages.md
+    - name: Få åtkomst till råsäkerhetsdata
+      href: how-to-security-data-access.md
+    - name: Undersöka en enhet
+      href: how-to-investigate-device.md
+    - name: Ansluta till Azure Sentinel
+      href: how-to-configure-with-sentinel.md
+    - name: Anpassa din lösning
+      href: how-to-customize-solution.md
+- name: Referenser
+  items:
+    - name: Säkerhetsmodul för Azure RTOS-API
+      href: azure-rtos-security-module-api.md
+    - name: Vanliga frågor och svar
+      href: resources-frequently-asked-questions.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+- name: Resurser
+  items:
+    - name: Utveckla dina säkerhetskunskaper med Microsoft Learn
+      href: 'https://docs.microsoft.com/learn/browse/?term=securityS&terms=securityS'
+    - name: Dokumentation om Azure Security Center
+      href: 'https://docs.microsoft.com/azure/security-center/'
+    - name: Dokumentation om Azure-säkerhet
+      href: 'https://docs.microsoft.com/azure/security/'
+    - name: Azure RTOS-säkerhetsmodul på Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
+    - name: 'Blogg om säkerhet, sekretess och efterlevnad för IoT i Azure'
+      href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Video
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

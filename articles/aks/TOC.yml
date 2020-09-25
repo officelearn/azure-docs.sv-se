@@ -132,6 +132,8 @@
       items:
         - name: Skala ett AKS-kluster
           href: scale-cluster.md
+        - name: Stoppa ett AKS-kluster (förhandsversion)
+          href: start-stop-cluster.md
         - name: Uppgradera ett AKS-kluster
           href: upgrade-cluster.md
         - name: Använda serviceavtal för drifttid
@@ -307,8 +309,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Utveckla och köra program
       items:
-        - name: Använda lokal process med Kubernetes med Visual Studio Code (förhandsversion)
-          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
+        - name: Använda Bridge to Kubernetes med Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: Använda Bridge to Kubernetes med Visual Studio
+          href: /visualstudio/containers/bridge-to-kubernetes
         - name: Installera befintliga program med Helm
           href: kubernetes-helm.md
         - name: Använda OpenFaaS

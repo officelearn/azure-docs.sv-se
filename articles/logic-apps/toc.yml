@@ -61,10 +61,14 @@
       items:
         - name: Skapa från fördefinierade mallar
           href: logic-apps-create-logic-apps-from-templates.md
+        - name: Hantera Azure-resurser med hjälp av automatiserade uppgifter
+          href: create-automation-tasks-azure-resources.md
         - name: Migrera från BizTalk Services
           href: logic-apps-move-from-mabs.md
         - name: Exportera flöden från Power Automate och distribuera till Azure Logic Apps
           href: export-from-microsoft-flow-logic-app-template.md
+        - name: Skapa tillståndskänsliga eller tillståndslösa arbetsflöden i Visual Studio Code
+          href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Kontrollera arbetsflödeskörning
           items:
             - name: Villkorssatser
@@ -166,8 +170,8 @@
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: Hantera EDIFACT-filer med UNH2.5-segment
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: Utbyta RosettaNet-meddelanden
-          href: logic-apps-enterprise-integration-rosettanet.md
+            - name: Utbyta RosettaNet-meddelanden
+              href: logic-apps-enterprise-integration-rosettanet.md
         - name: Utbyta X12-meddelanden
           href: logic-apps-enterprise-integration-x12.md
           items:
@@ -312,7 +316,7 @@
         - name: Hantera logikappar – Visual Studio
           href: manage-logic-apps-with-visual-studio.md
         - name: Hantera integrationskonton
-          href: ./logic-apps-enterprise-integration-create-integration-account.md
+          href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Hantera integreringstjänstmiljöer
           href: ise-manage-integration-service-environment.md
         - name: Flytta logikappresurser

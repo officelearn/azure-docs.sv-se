@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f47569eef7281840108c32283f664c3218de23dc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357802"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurera Always Encrypted med hjälp av Windows certifikat Arkiv
 
@@ -37,7 +37,7 @@ Följ stegen i den här artikeln för att lära dig hur du konfigurerar Always E
 * Skapa en databas tabell och kryptera kolumner.
 * Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien behöver du:
 
@@ -127,7 +127,7 @@ Du kan kryptera kolumnerna nu eller spara ett PowerShell-skript för att köra s
 
 Kontrol lera att inställningarna är korrekta och klicka på **Slutför** för att slutföra installationen av Always Encrypted.
 
-![Sammanfattning](./media/always-encrypted-certificate-store-configure/summary.png)
+![Skärm bild som visar sidan resultat med aktiviteter som har marker ATS som slutförda.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Verifiera guidens åtgärder
 

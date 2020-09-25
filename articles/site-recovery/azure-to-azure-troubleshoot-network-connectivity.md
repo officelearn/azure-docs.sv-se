@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8be0349bfff9ebc858d76928344039b6879d2b80
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357071"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -74,11 +74,11 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 1. Skapa en HTTPS utgående säkerhets regel för NSG så som visas på följande skärm bild. I det här exemplet används **destinations tjänst tag gen**: _Storage. öster_ och **mål Port intervall**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="lagrings tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Skärm bild som visar rutan Lägg till regel för utgående trafik för en säkerhets regel för lagrings punkt öst U S.":::
 
 1. Skapa en HTTPS utgående säkerhets regel för NSG så som visas på följande skärm bild. I det här exemplet används **destinations tjänst tag gen**: _AzureActiveDirectory_ -och **mål Port intervall**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="AAD-tagg":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Skärm bild som visar fönstret Lägg till utgående säkerhets regel för en säkerhets regel för Azure Active Directory.":::
 
 1. På samma sätt som säkerhets regler, skapar du en utgående HTTPS (443) säkerhets regel för "EventHub. Central" på den NSG som motsvarar mål platsen. Detta ger åtkomst till Site Recovery övervakning.
 1. Skapa en utgående HTTPS (443) säkerhets regel för "AzureSiteRecovery" på NSG. Detta ger till gång till Site Recovery tjänst i vilken region som helst.

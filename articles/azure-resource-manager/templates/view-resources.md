@@ -3,12 +3,12 @@ title: Identifiera resurs egenskaper
 description: Beskriver hur du söker efter resurs egenskaper.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327756"
 ---
 # <a name="discover-resource-properties"></a>Identifiera resurs egenskaper
 
@@ -74,7 +74,7 @@ Resursläsaren är inbäddat i Azure Portal. Innan du använder den här metoden
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I rutan Sök anger du **resurs läsaren**och väljer sedan **Resursläsaren**.
 
-    ![Azure Portal Resursläsaren](./media/view-resources/azure-portal-resource-explorer.png)
+    ![Skärm bild som visar sökning efter Resursläsaren i Azure Portal.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. Från vänster expanderar du **prenumerationer**och expanderar sedan din Azure-prenumeration. Du kan hitta lagrings kontot under antingen **providers** eller **ResourceGroups**.
 

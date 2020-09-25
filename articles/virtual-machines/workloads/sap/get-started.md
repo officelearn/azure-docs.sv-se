@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 986e4fd8c7043f5c01868302ffc2b554e2ce76f7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f778e996eeda0f2b850864c9c90cd522c411b032
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328028"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -82,6 +82,7 @@ I det här avsnittet hittar du information om hur du konfigurerar SSO med de fle
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 09/02/2020: Lägg till nya certifierade SKU: er för HLI i [tillgängliga SKU: er för HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/08/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) för att klargöra stonith-definitioner
 - 09/03/2020: ändra i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) för att anpassa till minimal 2 IOPS per 1 GB kapacitet med Ultra disk
 - 09/02/2020: ändring av [tillgängliga SKU: er för HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) för att få mer transparenta i vilka SKU: er är Hana-certifierade

@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c2d76ccd0c2e81147c39f81568fd1394cc1868b6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.custom: devx-track-js
+ms.openlocfilehash: 86bc968c922bcfb90da9ae2babd456ce4db81cb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327484"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
 
@@ -32,7 +32,7 @@ Programmet är ett enkelt ”hello world”-program:
 
 ![En webbläsare som visar webbsidan Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!NOTE]
 > I den här kursen används Azure PowerShell, vilket kräver Windows.
 

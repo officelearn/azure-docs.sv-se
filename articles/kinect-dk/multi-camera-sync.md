@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specifikationer, maskin vara, DK, funktioner, djup, färg, RGB, IMU, matris, djup, multi, synkronisering
-ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361168"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synkronisera flera Azure Kinect DK-enheter
 
@@ -26,7 +26,7 @@ Det finns många skäl att använda flera Azure Kinect DK-enheter, inklusive fö
 
 - Fyll i Occlusions. Även om Azure Kinect DK-dataomvandlingar skapar en enda bild, är de två kamerorna (djup och RGB) i själva verket ett litet avstånd från varandra. Förskjutningen gör Occlusions möjlig. En ocklusion inträffar när ett förgrunds objekt blockerar vyn av ett bakgrunds objekt för en av de två kamerorna på en enhet. I den resulterande färg bilden förefaller förgrundsobjektet att omvandla en skugga på bakgrunds objektet.  
    I följande diagram ser den vänstra kameran den grå pixeln "P2". Det vita förgrunds objektet blockerar dock den högra kamerans IR-balk. Den högra kameran har inga data för "P2".  
-   ![Ocklusion](./media/occlusion.png)  
+   ![Diagrammet visar två kameror riktade mot samma punkt med en av dem blockerad.](./media/occlusion.png)  
    Ytterligare synkroniserade enheter kan tillhandahålla Occluded-data.
 - Skanna objekt i tre dimensioner.
 - Öka den effektiva bild frekvensen till ett värde som är större än 30 bild rutor per sekund (FPS).

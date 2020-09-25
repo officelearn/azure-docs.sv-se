@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c95e345255b28ba43e474087cdb80fcab493394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356425"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Köra en anpassad behållare i Azure
 
@@ -57,7 +57,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 1. Om filen _Dockerfile_ inte öppnas automatiskt öppnar du den från **Solution Explorer**.
 
-1. Du behöver en [överordnad avbildning som stöds](#use-a-different-parent-image). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod och spara filen:
+1. Du behöver en [överordnad avbildning som stöds](configure-custom-container.md#supported-parent-images). Ändra den överordnade avbildningen genom att ersätta raden `FROM` med följande kod och spara filen:
 
    ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -169,22 +169,16 @@ De strömmade loggarna ser ut så här:
 
 ![Uppdaterad webbapp i Azure](./media/quickstart-custom-container/azure-web-app-updated.png)
 
-## <a name="use-a-different-parent-image"></a>Använd en annan överordnad avbildning
-
-Du kan använda en annan anpassad Docker-avbildning för att köra din app. Du måste dock välja den högra [överordnade avbildningen (bas avbildningen)](https://docs.docker.com/develop/develop-images/baseimages/) för det ramverk som du vill använda:
-
-- Om du vill distribuera .NET Framework appar använder du en överordnad avbildning som baseras på Windows Server Core 2019 [långsiktig LTSC-version (långsiktig service Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . 
-- Om du vill distribuera .NET Core-appar använder du en överordnad avbildning som baseras på Windows Server nano 1809-versionen från [halvårs kanal (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
-
-Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:
-
-- [MCR.Microsoft.com/dotNET/Framework/ASPNET](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): 4.7.2-windowsservercore-ltsc2019
-- [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 – den här avbildningen är bas behållaren som används i Microsoft [ASP.net Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Nano Server-avbildningar från Microsoft Windows.
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Migrera till Windows-container i Azure](tutorial-custom-container.md)
+
+Eller kolla ut andra resurser:
+
+> [!div class="nextstepaction"]
+> [Konfigurera en anpassad container](configure-custom-container.md)
+
 ::: zone-end  
 
 ::: zone pivot="container-linux"
@@ -225,7 +219,7 @@ docker --version
 
 Se slutligen till att Azure Container Registry är ansluten. Det gör du genom att välja Docker-logo typen i aktivitets fältet och sedan navigera till **register**.
 
-![Register](./media/quickstart-docker/registries.png)
+![Skärm bild visar värdet för register värden med Azure Expanded och en fil med tillägget dot i o filename.](./media/quickstart-docker/registries.png)
 
 ## <a name="deploy-the-image-to-azure-app-service"></a>Distribuera avbildningen till Azure App Service
 
@@ -260,5 +254,10 @@ Kolla sedan in de andra Azure-tilläggen.
 * [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Eller hämta dem genom att installera tilläggs paketet för [Azure tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) .
+
+Kolla ut andra resurser:
+
+> [!div class="nextstepaction"]
+> [Konfigurera en anpassad container](configure-custom-container.md)
 
 ::: zone-end

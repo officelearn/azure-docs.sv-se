@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/19/2018
 ms.author: allensu
-ms.openlocfilehash: fba1f0b1f8160dece41c312b61cbc8ae9571436d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed82adcc1432bde27042d5775c454bfabcdb96ca
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887022"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358142"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Begränsa Azure CDN innehåll efter land/region
 
@@ -38,7 +38,7 @@ För **Azure CDN Premium från Verizon** -profiler måste du använda **hanterin
 ### <a name="define-the-directory-path"></a>Definiera sökvägen till katalogen
 Om du vill komma åt geo-filtrerings funktionen väljer du din CDN-slutpunkt i portalen och väljer **geo-filtrering** under Inställningar i den vänstra menyn. 
 
-![Geo-filtrering standard](./media/cdn-filtering/cdn-geo-filtering-standard.png)
+![Skärm bild som visar geo-filtrering valt på menyn för en slut punkt.](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
 I rutan **sökväg** anger du den relativa sökvägen till den plats som användarna ska beviljas eller nekas åtkomst till. 
 
@@ -67,7 +67,7 @@ I listan **lands koder** väljer du de länder/regioner som du vill blockera ell
 
 När du är färdig med att välja länder/regioner väljer du **Spara** för att aktivera den nya geo-filtrerings regeln. 
 
-![Regler för geo-filtrering](./media/cdn-filtering/cdn-geo-filtering-rules.png)
+![Skärm bild som visar lands koder som används för att blockera eller tillåta länder eller regioner.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 Om du vill ta bort en regel markerar du den i listan på sidan **geo-filtrering** och väljer sedan **ta bort**.
@@ -79,7 +79,7 @@ För **Azure CDN Premium från Verizon** -profiler, skiljer sig användar gräns
 
 2. Välj **http stor**på Verizon-portalen och välj sedan **land filtrering**.
 
-    ![Geo-filtrering standard](./media/cdn-filtering/cdn-geo-filtering-premium.png)
+    ![Skärm bild som visar hur du väljer land filtrering i Azure C D N.](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
 3. Välj **Lägg till land filter**.
 
@@ -93,12 +93,12 @@ För **Azure CDN Premium från Verizon** -profiler, skiljer sig användar gräns
     
     Den nya regeln visas i tabellen på sidan **land filtrering** .
 
-    ![Regler för geo-filtrering](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
+    ![Skärm bild som visar var regeln visas i lands filtrering.](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 I tabellen land/region filtrerings regler väljer du ikonen Ta bort bredvid en regel för att ta bort den eller redigera-ikonen för att ändra den.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 * Ändringar av konfigurationen för geo-filtrering börjar inte gälla direkt:
    * För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom 10 minuter. 
    * För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 

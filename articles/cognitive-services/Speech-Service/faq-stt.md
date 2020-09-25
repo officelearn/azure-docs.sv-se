@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357581"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -29,7 +29,7 @@ Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan 
 
 **F: Hur börjar jag om jag vill använda en bas linje modell?**
 
-**A**: börja med att hämta en [prenumerations nyckel](get-started.md). Om du vill göra REST-anrop till de fördistribuerade bas linje modellerna kan du läsa mer i [REST-API: erna](rest-apis.md). Om du vill använda WebSockets laddar du [ned SDK: n](speech-sdk.md).
+**A**: börja med att hämta en [prenumerations nyckel](overview.md#try-the-speech-service-for-free). Om du vill göra REST-anrop till de fördistribuerade bas linje modellerna kan du läsa mer i [REST-API: erna](rest-apis.md). Om du vill använda WebSockets laddar du [ned SDK: n](speech-sdk.md).
 
 **F: behöver jag alltid skapa en anpassad tal modell?**
 

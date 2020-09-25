@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Machine Learning Studio (klassisk)
+summary: Machine Learning Studio (klassisk) är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
+metadata:
+  title: Dokumentation om Machine Learning Studio (klassisk) – Azure
+  description: Machine Learning Studio (klassisk) är ett dra-och-släpp-verktyg som du kan använda till att bygga, testa och distribuera prediktiva analyslösningar.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: studio
+  ms.topic: landing-page
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 03/05/2020
+  ms.openlocfilehash: e31651c07cc9567af0deac8311b2321ad6dee4ba
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91337538"
+landingContent:
+- title: Komma igång med Studio (klassisk)
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Vad är Studio (klassisk)?
+      url: studio-classic-overview.md
+    - text: Skapa ditt första ML-experiment
+      url: create-experiment.md
+    - text: Skapa en förebyggande lösning
+      url: tutorial-part1-credit-risk.md
+- title: Utforska referensinnehåll
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: PowerShell-moduler
+      url: powershell-module.md
+    - text: Algoritm och moduler
+      url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+    - text: 'Hantering av REST API: er'
+      url: https://docs.microsoft.com/rest/api/machinelearning/
+    - text: Felkoder för webbtjänst
+      url: web-service-error-codes.md
+- title: Fler Azure ML-tekniker
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Machine Learning
+      url: /azure/machine-learning/
+    - text: Virtuell dator för datavetenskap
+      url: /azure/machine-learning/data-science-virtual-machine
+    - text: Jämför våra ML-produkter
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

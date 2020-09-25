@@ -1,24 +1,24 @@
 ---
-title: Ansluta hybrid dator med Azure Arc-aktiverade servrar (förhands granskning)
-description: Lär dig hur du ansluter och registrerar en hybrid dator med Azure Arc-aktiverade servrar (för hands version).
+title: Ansluta hybrid dator med Azure Arc-aktiverade servrar
+description: Lär dig hur du ansluter och registrerar en hybrid dator med Azure Arc-aktiverade servrar.
 ms.topic: quickstart
-ms.date: 08/12/2020
-ms.openlocfilehash: eacf75871b1f7cc7fc3b703d8859338578e43456
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213606"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327892"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers-preview"></a>Snabb start: ansluta hybrid dator med Azure Arc-aktiverade servrar (förhands granskning)
+# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Snabb start: ansluta hybrid dator med Azure Arc-aktiverade servrar
 
-Med [Azure Arc-aktiverade servrar](../overview.md) (för hands version) kan du hantera och styra dina Windows-och Linux-datorer som finns i miljöer med lokala nätverk, Edge och flera moln. I den här snabb starten distribuerar och konfigurerar du den anslutna dator agenten på en Windows-eller Linux-dator som finns utanför Azure för hantering av Arc-aktiverade servrar (för hands version).
+Med [Azure Arc-aktiverade servrar](../overview.md) kan du hantera och styra dina Windows-och Linux-datorer som finns i alla lokala, Edge-och multimoln miljöer. I den här snabb starten distribuerar och konfigurerar du den anslutna dator agenten på en Windows-eller Linux-dator som finns utanför Azure för hantering av Arc-aktiverade servrar.
 
 ## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Om du distribuerar Arc-aktiverade servrar (för hands version) måste du ha administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och i Windows, med ett konto som är medlem i den lokala gruppen Administratörer.
+* Att distribuera Arc-aktiverade servrar hybrid ansluten dator agent kräver att du har administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och i Windows, med ett konto som är medlem i den lokala gruppen Administratörer.
 
 * Innan du börjar måste du granska agent [kraven](../agent-overview.md#prerequisites) och kontrol lera följande:
 
@@ -28,13 +28,13 @@ Med [Azure Arc-aktiverade servrar](../overview.md) (för hands version) kan du h
 
     * Om datorn ansluter via en brand vägg eller proxyserver för kommunikation via Internet kontrollerar du att URL: erna i [listan](../agent-overview.md#networking-configuration) inte är blockerade.
 
-    * Azure Arc-aktiverade servrar (för hands version) stöder bara de regioner som anges [här](../overview.md#supported-regions).
+    * Azure Arc-aktiverade servrar stöder bara de regioner som anges [här](../overview.md#supported-regions).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="register-azure-resource-providers"></a>Registrera Azure-resurs leverantörer
 
-Azure Arc-aktiverade servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
+Azure Arc-aktiverade servrar är beroende av följande Azure-resurs leverantörer i din prenumeration för att kunna använda den här tjänsten:
 
 * Microsoft. HybridCompute
 * Microsoft. GuestConfiguration
@@ -97,7 +97,7 @@ Skriptet för att automatisera hämtning, installation och upprättande av anslu
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Kontrollera anslutningen med Azure Arc
 
-När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa datorn i [Azure Portal](https://aka.ms/hybridmachineportal).
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar går du till Azure Portal för att kontrol lera att servern har anslutits. Visa datorn i [Azure Portal](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="En lyckad dator anslutning" border="false":::
 
@@ -105,7 +105,7 @@ När du har installerat agenten och konfigurerat den för att ansluta till Azure
 
 Nu när du har aktiverat din Linux-eller Windows hybrid-dator och har anslutit till tjänsten är du redo att aktivera Azure Policy för att förstå efterlevnad i Azure.
 
-Fortsätt till självstudien om du vill lära dig att identifiera Azure Arc-aktiverade servrar (förhands granskning) som är aktive rad på datorn som inte har Log Analytics agent
+Fortsätt till självstudien om du vill lära dig att identifiera Azure Arc-aktiverade datorer som inte har installerat Log Analytics-agenten:
 
 > [!div class="nextstepaction"]
 > [Skapa en principtilldelning för att identifiera icke-kompatibla resurser](tutorial-assign-policy-portal.md)

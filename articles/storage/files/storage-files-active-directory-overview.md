@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358380"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Översikt över Azure Files Identity-baserade autentiseringsalternativ för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -114,7 +114,7 @@ Följande diagram visar arbets flödet för Azure AD DS-autentisering till Azure
 
 - Först behöver du inte skapa identiteten i Azure AD DS för att representera lagrings kontot. Detta utförs av aktiverings processen i bakgrunden.
 
-- Andra användare finns i Azure AD kan autentiseras och auktoriseras. Användaren kan endast vara moln eller hybrid. Synkroniseringen från Azure AD till Azure AD DS hanteras av plattformen utan att det krävs någon användar konfiguration. Klienten måste dock vara domänansluten till Azure AD DS, den kan inte vara Azure AD-ansluten eller registrerad. 
+- För det andra kan alla användare som finns i Azure AD autentiseras och auktoriseras. Användaren kan endast vara moln eller hybrid. Synkroniseringen från Azure AD till Azure AD DS hanteras av plattformen utan att det krävs någon användar konfiguration. Klienten måste dock vara domänansluten till Azure AD DS, den kan inte vara Azure AD-ansluten eller registrerad. 
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Venndiagram":::
 

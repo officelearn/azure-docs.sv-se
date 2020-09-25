@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661755"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327501"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referens för standardregelmotor för Azure CDN
 
@@ -40,7 +40,7 @@ Som ingår i den här gränsen är en *Global standard regel*. Den globala regel
 
 Varje Azure CDN slut punkt kan ha upp till 25 regler. Varje regel kan ha upp till tio matchnings villkor och fem åtgärder. Prissättningen för regel motorn följer nedanstående dimensioner: 
 - Regler: $1 per regel per månad 
-- Bearbetade begär Anden: $0,60 per miljon requets
+- Bearbetade begär Anden: $0,60 per miljon begär Anden
 - De första 5 reglerna är fortfarande fria
 
 ## <a name="syntax"></a>Syntax

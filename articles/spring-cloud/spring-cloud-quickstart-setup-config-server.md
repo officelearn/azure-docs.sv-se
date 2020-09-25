@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 639672bdeff2f833c280a041e497197286c9ff24
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 503eb4bf23c66ca8a9a73c32327f466721024b26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326141"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Snabb start: Konfigurera Azure våren Cloud Configuration Server
 
@@ -74,23 +74,9 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ---
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Hoppa över det här steget om du tänker fortsätta till nästa snabb start i den här serien.
-
-I de här snabb starterna skapade du Azure-resurser som kommer fortsätta att debiteras om de finns kvar i din prenumeration. Om du inte tänker fortsätta till nästa snabb start och du inte förväntar dig att behöva dessa resurser i framtiden, tar du bort resurs gruppen med hjälp av portalen eller genom att köra följande kommando i Cloud Shell:
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-I en tidigare snabb start anger du också standard resurs gruppens namn. Om du inte tänker fortsätta med nästa snabb start tar du bort standardvärdet genom att köra följande CLI-kommando:
-
-```azurecli
-az configure --defaults group=
-```
-
 ## <a name="next-steps"></a>Nästa steg
+
+I den här snabb starten skapade du Azure-resurser som kommer fortsätta att debiteras om de finns kvar i din prenumeration. Om du inte tänker fortsätta till nästa snabb start, se [Rensa resurser](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Annars går du vidare till nästa snabb start:
 
 > [!div class="nextstepaction"]
 > [Skapa och distribuera appar](spring-cloud-quickstart-deploy-apps.md)

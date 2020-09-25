@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 6887371e50f5b7e8706cac0a0700873c42bdac06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321653"
+ms.locfileid: "91357798"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Strategier för haveri beredskap för program som använder Azure SQL Database elastiska pooler
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Jag är en vuxen SaaS-app med en nivå med tjänst erbjudanden och olika service
 
 För att stödja det här scenariot separerar du utvärderings klienterna från betalda klienter genom att sätta dem i separata elastiska pooler. Utvärderings kunder har lägre eDTU-eller virtuella kärnor per klient och lägre service avtal med en längre återställnings tid. De betalar kunderna finns i en pool med högre eDTU-eller virtuella kärnor per klient och ett högre service avtal. För att garantera den lägsta återställnings tiden är de betalande kundernas klient databaser geo-replikerade. Den här konfigurationen illustreras i nästa diagram.
 
-![Bild 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![Diagrammet visar en primär region och en D R-region som använder geo-replikering mellan hanterings databasen och betald kunds primära pool och den sekundära poolen utan replikering för den utvärderings kunder som har en pool.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 Som i det första scenariot är hanterings databaserna ganska aktiva så att du kan använda en enda geo-replikerad databas för den (1). Detta säkerställer förutsägbar prestanda för nya kund prenumerationer, profil uppdateringar och andra hanterings åtgärder. Den region där presidentval för hanterings databaserna finns är den primära regionen och den region där sekundärerna för hanterings databaserna finns är DR-regionen.
 
@@ -86,7 +86,7 @@ De betalande kundernas klient databaser har aktiva databaser i poolen "betald" s
 
 Om ett avbrott uppstår i den primära regionen visas återställnings stegen för att ta ditt program online i nästa diagram:
 
-![Figur 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![Diagrammet visar ett avbrott för den primära regionen, med redundans till hanterings databasen, betald kund sekundär pool och skapande och återställning av utvärderings kunder.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Växla omedelbart över hanterings databaserna till DR-regionen (3).
 * Ändra programmets anslutnings sträng så att den pekar på DR-regionen. Nu skapas alla nya konton och klient databaser i DR-regionen. De befintliga utvärderings kunderna ser sina data tillfälligt otillgängliga.
@@ -99,7 +99,7 @@ I det här läget är ditt program online igen i DR-regionen. Alla betalande kun
 
 När den primära regionen återställs av Azure *efter* att du har återställt programmet i Dr-regionen kan du fortsätta att köra programmet i den regionen, eller så kan du välja att växla tillbaka till den primära regionen. Om den primära regionen återställs *innan* redundansväxlingen är klar bör du överväga att återställa direkt. Återställnings proceduren utför stegen som illustreras i nästa diagram:
 
-![Bild 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![Diagrammet visar återställnings steg som implementeras efter återställning av den primära regionen.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Avbryt alla utestående geo Restore-begäranden.
 * Redundansväxla hanterings databaser (8). Efter regions återställningen blir den gamla primären automatiskt den sekundära. Nu blir det primärt igen.  
@@ -128,7 +128,7 @@ Använd tre separata elastiska pooler för att stödja det här scenariot. Etabl
 
 För att garantera den lägsta återställnings tiden under drifts tiden är de betalande kundernas klient databaser geo-replikerade med 50% av de primära databaserna i var och en av de två regionerna. På samma sätt har varje region 50% av de sekundära databaserna. På det här sättet, om en region är offline, påverkas endast 50% av de betalda kundernas databaser och måste återställas. De andra databaserna förblir intakta. Den här konfigurationen illustreras i följande diagram:
 
-![Bild 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![Diagram visar ett primärt område som kallas region A och en sekundär region som kallas region B, som använder geo-replikering mellan hanterings databasen och betald kunds primära pool och sekundär pool utan replikering för en pool med utvärderings kunder.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 Som i föregående scenarier är hanterings databaserna ganska aktiva så att de konfigureras som enskilda geo-replikerade databaser (1). Detta säkerställer förutsägbar prestanda för de nya kund prenumerationerna, profil uppdateringar och andra hanterings åtgärder. Region A är den primära regionen för hanterings databaserna och region B används för återställning av hanterings databaser.
 
@@ -136,7 +136,7 @@ De betalande kundernas klient databaser är också geo-replikerade, men med pres
 
 Nästa diagram illustrerar de återställnings steg som ska vidtas om ett avbrott inträffar i region A.
 
-![Figur 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![Diagrammet visar ett avbrott för den primära regionen, med redundans till hanterings databasen, betald kund sekundär pool och skapande och återställning av utvärderings kunder till region B.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Växla omedelbart över hanterings databaserna till region B (3).
 * Ändra programmets anslutnings sträng så att den pekar på hanterings databaserna i region B. ändra hanterings databaserna för att se till att de nya kontona och klient databaserna skapas i region B och att befintliga klient databaser även finns där. De befintliga utvärderings kunderna ser sina data tillfälligt otillgängliga.
@@ -152,7 +152,7 @@ I det här läget är ditt program online igen i region B. Alla betalande kunder
 
 När region A återställs måste du bestämma om du vill använda region B för utvärderings kunder eller återställning efter fel för att använda poolen utvärderings kunder i region A. Ett kriterium kan vara% av de databas för utvärdering av klient databaser som ändrades sedan återställningen. Oavsett det beslutet måste du balansera om de betalande klienterna mellan två pooler. Nästa diagram illustrerar processen när en utvärderings klient databas växlar tillbaka till region A.  
 
-![Bild 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![Diagrammet visar återställnings steg som ska implementeras efter återställning av region A.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * Avbryt alla väntande geo-återställnings begär Anden för att prova DR-poolen.
 * Redundansväxla hanterings databasen (8). Efter återställningen av regionen blev den gamla primära automatiskt den sekundära. Nu blir det primärt igen.  

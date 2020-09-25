@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 467f7b3525883e16e57a06ff97cf4fd386279d22
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360216"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Felsöka återkommande utgående anslutnings fel i Azure App Service
 
@@ -32,7 +32,7 @@ Program och funktioner som finns på Azure App-tjänsten kan ha ett eller flera 
 En större orsak till dessa symptom är att program instansen inte kan öppna en ny anslutning till den externa slut punkten eftersom den har nått någon av följande gränser:
 
 * TCP-anslutningar: det finns en gräns för hur många utgående anslutningar som kan göras. Detta är associerat med den arbets storlek som används.
-* SNAT-portar: som beskrivs i [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md)använder azure käll Network Address TRANSLATION (SNAT) och en Load Balancer (visas inte för kunder) för att kommunicera med slut punkter utanför Azure i det offentliga IP-adressutrymmet. Varje instans i Azure Apps tjänsten tilldelas ursprungligen ett förallokerat antal **128** SNAT-portar. Den gränsen påverkar öppnande av anslutningar till samma värd-och port kombination. Om din app skapar anslutningar till en blandning av adress-och kombinations kombinationer kan du inte använda dina SNAT-portar. SNAT-portarna används när du upprepade samtal till samma adress-och port kombination. När en port har frigjorts är porten tillgänglig för åter användning vid behov. Azure Network Load Balancer återtar SNAT-porten från stängda anslutningar endast efter en väntan på 4 minuter.
+* SNAT-portar: som beskrivs i [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md)använder azure käll Network Address TRANSLATION (SNAT) och en Load Balancer (visas inte för kunder) för att kommunicera med slut punkter utanför Azure i det offentliga IP-adressutrymmet, samt slut punkter som är interna för Azure och som inte drar nytta av tjänst slut punkter. Varje instans i Azure Apps tjänsten tilldelas ursprungligen ett förallokerat antal **128** SNAT-portar. Den gränsen påverkar öppnande av anslutningar till samma värd-och port kombination. Om din app skapar anslutningar till en blandning av adress-och kombinations kombinationer kan du inte använda dina SNAT-portar. SNAT-portarna används när du upprepade samtal till samma adress-och port kombination. När en port har frigjorts är porten tillgänglig för åter användning vid behov. Azure Network Load Balancer återtar SNAT-porten från stängda anslutningar endast efter en väntan på 4 minuter.
 
 När program eller funktioner snabbt öppnar en ny anslutning kan de snabbt försätta sin förallokerade kvot på 128-portarna. De blockeras sedan tills en ny SNAT-port blir tillgänglig, antingen genom att dynamiskt allokera ytterligare SNAT-portar eller genom åter användning av en reportad SNAT-port. Program eller funktioner som blockeras på grund av att det inte går att skapa nya anslutningar kommer att påbörjas ett eller flera av problemen som beskrivs i avsnittet **symptom** i den här artikeln.
 
@@ -124,7 +124,7 @@ För andra miljöer granskar du provider-eller drivrutinsspecifika dokument för
 
 Att undvika de utgående TCP-gränserna är enklare att lösa, eftersom gränserna anges av storleken på din arbets grupp. Du kan se gränserna i [sand Box tvärs med numeriska gränser – TCP-anslutningar](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Gräns namn|Beskrivning|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
+|Gräns namn|Description|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
 |---|---|---|---|---|---|
 |Anslutningar|Antal anslutningar över hela den virtuella datorn|1920|3968|8064|16 000|
 
@@ -156,7 +156,7 @@ TCP-anslutningar och SNAT-portar är inte direkt relaterade. En användnings det
 * Gränsen för TCP-anslutningar sker på arbets instans nivån. Azure Network utgående belastnings utjämning använder inte TCP-anslutnings måttet för begränsning av SNAT-portar.
 * Gränsen för TCP-anslutningar beskrivs i [sand Box Cross VM-numeriska gränser-TCP-anslutningar](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Gräns namn|Beskrivning|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
+|Gräns namn|Description|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
 |---|---|---|---|---|---|
 |Anslutningar|Antal anslutningar över hela den virtuella datorn|1920|3968|8064|16 000|
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 31c0e9a690bde7a52a32fd9194afda76e1aaba8c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bdcf197b4e8a619e55895faf7637ebac0ac12ae
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329150"
+ms.locfileid: "91361151"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Självstudie: Konfigurera säkerhets medvetenhets utbildning för Webroot för automatisk användar etablering
 
@@ -106,7 +106,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** , inmatat `https://awarenessapi.webrootanywhere.com/api/v2/scim` i **klient-URL**. Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till säkerhets medvetenhets utbildningen för Webroot. Om anslutningen Miss lyckas kontrollerar du att ditt konto för säkerhets medvetenhet i Webroot har administratörs behörighet och försöker igen.
 
-    ![etablerings](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 45dc137141491938367fb57c6955e8e3145f8ff9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.custom: devx-track-js
+ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327626"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Självstudier: Azure SignalR Service-autentisering med Azure Functions
 
@@ -26,7 +26,7 @@ En stegvis självstudiekurs som beskriver hur du skapar ett chattrum med autenti
 * [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Skicka nya meddelanden till anslutna chattklienter
 * [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Lagra den statiska webbplatsen för chattklientens användargränssnitt
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Följande programvara krävs för den här självstudien.
 
@@ -62,7 +62,7 @@ Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR 
     |---|---|
     | Resursnamn | Ett unikt namn för SignalR Service-instansen |
     | Resursgrupp | Skapa en ny resurs grupp med ett unikt namn |
-    | Location | Välj en plats nära dig |
+    | Plats | Välj en plats nära dig |
     | Prisnivå | Kostnadsfri |
 
 1. Klicka på **Skapa**.
@@ -332,7 +332,7 @@ Ett Azure Storage konto krävs av en Function-app som körs i Azure. Du kommer o
     | Prenumeration | Välj den prenumeration som innehåller SignalR tjänst instansen |
     | Resursgrupp | Välj samma resurs grupp |
     | Resursnamn | Ett unikt namn för lagrings kontot |
-    | Location | Välj samma plats som dina andra resurser |
+    | Plats | Välj samma plats som dina andra resurser |
     | Prestanda | Standard |
     | Typ av konto | StorageV2 (generell användning v2) |
     | Replikering | Lokalt redundant lagring (LRS) |

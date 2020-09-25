@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66f22fa2781fb4c0f4caa07323b3de8cac1ef9fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437453"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361117"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Utforska SaaS Analytics med Azure SQL Database, Azure Synapse Analytics, Data Factory och Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Den här självstudien innehåller grundläggande exempel på insikter som kan u
 
 ## <a name="setup"></a>Installation
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
@@ -111,7 +111,7 @@ I Object Explorer:
     1. De stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
     1. Den lagrade proceduren **sp_transformExtractedData** används för att transformera data och läsa in dem i stjärn schema tabeller.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![Skärm bild som visar Object Explorer med tabeller expanderade för att visa olika databas objekt.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Blob Storage
 
@@ -167,7 +167,7 @@ Det finns tre data uppsättningar som motsvarar de tre länkade tjänsterna och 
   
 ### <a name="data-warehouse-pattern-overview"></a>Översikt över informations lager mönster
 
-Azure Synapse (tidigare SQL Data Warehouse) används som analys lager för att utföra agg regering på klient data. I det här exemplet används PolyBase för att läsa in data till data lagret. Rå data läses in i tillfälliga tabeller som har en identitets kolumn för att hålla reda på rader som har omvandlats till stjärn schema tabeller. Följande bild visar inläsnings mönstret: ![ loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse (tidigare SQL Data Warehouse) används som analys lager för att utföra agg regering på klient data. I det här exemplet används PolyBase för att läsa in data till data lagret. Rå data läses in i tillfälliga tabeller som har en identitets kolumn för att hålla reda på rader som har omvandlats till stjärn schema tabeller. Följande bild visar inläsnings mönstret: ![ diagrammet visar inläsnings mönstret för databas tabeller.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 SCD-typ 1-dimensions tabeller (långsamt ändring av dimension) används i det här exemplet. Varje dimension har en surrogat nyckel definierad med en identitets kolumn. Som bästa praxis är datum dimensions tabellen i förväg ifylld för att spara tid. För de andra dimensions tabellerna visas en CREATE TABLE som Välj... (CTAS)-instruktionen används för att skapa en temporär tabell som innehåller befintliga ändrade och icke-ändrade rader, tillsammans med surrogat nycklar. Detta görs med IDENTITY_INSERT = på. Nya rader infogas sedan i tabellen med IDENTITY_INSERT = OFF. För enkel återställning ändras namnet på den befintliga dimensions tabellen och den temporära tabellen byter namn till den nya dimensions tabellen. Innan varje körning tas den gamla dimensions tabellen bort.
 
@@ -181,14 +181,14 @@ Följ stegen nedan för att köra den fullständiga pipelinen Extract, Load och 
 
 1. På fliken **författare** i ADF-användargränssnittet väljer du **SQLDBToDW** pipeline i det vänstra fönstret.
 1. Klicka på **utlösare** och på den nedrullningsbara menyn Klicka på **Utlös nu**. Den här åtgärden kör pipelinen direkt. I ett produktions scenario definierar du en tidsplan för att köra pipelinen för att uppdatera data enligt ett schema.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![Skärm bild som visar fabriks resurser för en pipeline med namnet S Q L D B till D W med utlösnings alternativet expanderat och utlösare nu valt.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. På sidan **pipeline-körning** klickar du på **Slutför**.
 
 ### <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
 1. I användar gränssnittet för ADF växlar du till fliken **övervakare** från menyn till vänster.
 1. Klicka på **Uppdatera** tills SQLDBToDW pipelines status har **slutförts**.
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![Skärm bild som visar S Q L D B till D W-pipeline med statusen lyckades.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Anslut till informations lagret med SSMS och fråga stjärn schema-tabellerna för att verifiera att data har lästs in i dessa tabeller.
 
 När pipelinen har slutförts innehåller fakta tabellen biljett försäljnings data för alla platser och dimensions tabellerna fylls i med motsvarande platser, händelser och kunder.

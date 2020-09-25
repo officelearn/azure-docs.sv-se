@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361100"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Skapa en Azure VM-utvärdering
 
@@ -29,9 +29,9 @@ Den här artikeln beskriver hur du skapar en Azure VM-utvärdering för lokala v
 ## <a name="azure-vm-assessment-overview"></a>Översikt över Azure VM-utvärdering
 Det finns två typer av storleks kriterier som du kan använda för att skapa en Azure VM-utvärdering med Azure Migrate: Server bedömning.
 
-**Utvärdering** | **Detaljer** | **Data**
+**Utvärdering** | **Information** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
+**Prestandabaserad** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala virtuella dator storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
@@ -40,51 +40,51 @@ Det finns två typer av storleks kriterier som du kan använda för att skapa en
 
 Kör en utvärdering på följande sätt:
 
-1. Gå igenom [metod tipsen](best-practices-assessment.md) för att skapa utvärderingar.
+1. Granska [metodtipsen](best-practices-assessment.md) för att skapa utvärderingar.
 2. Klicka på **utvärdera**i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
 
-    ![Utvärdera](./media/how-to-create-assessment/assess.png)
+    ![Skärm bild som visar Azure Migrate servrar med utvärdering valt under utvärderings verktyg.](./media/how-to-create-assessment/assess.png)
 
 3. I **utvärdera servrar**väljer du bedömnings typ som "Azure VM", väljer identifierings källa och anger bedömnings namnet.
 
-    ![Grundläggande om bedömning](./media/how-to-create-assessment/assess-servers-azurevm.png)
+    ![Grunder i utvärderingar](./media/how-to-create-assessment/assess-servers-azurevm.png)
 
 4. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
 
-    ![Bedömnings egenskaper](./media/how-to-create-assessment//view-all.png)
+    ![Utvärderingsegenskaper](./media/how-to-create-assessment//view-all.png)
 
-5. Klicka på **Nästa** för att **välja datorer att utvärdera**. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
+5. Klicka på **Nästa** och **Välj datorer att utvärdera**. I **Välj eller skapa en grupp** väljer du **Skapa ny** och anger ett gruppnamn. En grupp samlar en eller flera virtuella datorer för utvärdering.
 6. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
-7. Klicka på **Nästa** för att **Granska + skapa utvärdering** för att granska utvärderings informationen.
+7. Klicka på **Nästa** för att **Granska och skapa utvärdering** och granska utvärderingsinformationen.
 8. Klicka på **Skapa utvärdering** för att skapa gruppen och kör utvärderingen.
 
     ![Skapa en utvärdering](./media/how-to-create-assessment//assessment-create.png)
 
-9. När utvärderingen har skapats kan du Visa den på **servrar**  >  **Azure Migrate:**  >  **utvärderingar**av Server bedömning.
+9. När utvärderingen har skapats kan du se den i **Servrar** > **Azure Migrate: Serverutvärdering** > **Utvärderingar**.
 10. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
 
 
-## <a name="review-an-azure-vm-assessment"></a>Granska en utvärdering av Azure VM
+## <a name="review-an-azure-vm-assessment"></a>Granska en Azure VM-utvärdering
 
-En utvärdering av Azure VM beskriver:
+En Azure VM-utvärdering beskriver:
 
 - **Azure-beredskap**: om virtuella datorer är lämpliga för migrering till Azure.
 - **Månads kostnads uppskattning**: beräknad kostnad för beräkning och lagring för de virtuella datorerna i Azure.
-- **Kostnads uppskattning för månatlig lagring**: beräknade kostnader för disk lagring efter migrering.
+- **Uppskattad månatlig lagringskostnad**: Uppskattade kostnader för disklagring efter migreringen.
 
 ### <a name="view-an-azure-vm-assessment"></a>Visa en utvärdering av Azure VM
 
 1. I **mål**  >   **Server**för migrering klickar du på **utvärderingar** i **Azure Migrate: Server bedömning**.
 2. I **bedömningar**klickar du på en utvärdering för att öppna den.
 
-    ![Utvärderings Sammanfattning](./media/how-to-create-assessment/assessment-summary.png)
+    ![Sammanfattning av utvärdering](./media/how-to-create-assessment/assessment-summary.png)
 
-### <a name="review-azure-readiness"></a>Granska Azure readiness
+### <a name="review-azure-readiness"></a>Granska Azure-beredskap
 
 1. I **Azure-beredskap**kontrollerar du om de virtuella datorerna är klara för migrering till Azure.
 2. Granska VM-statusen:
-    - **Redo för Azure**: Azure Migrate rekommenderar en VM-storlek och kostnads uppskattning för virtuella datorer i utvärderingen.
+    - **Redo för Azure**: Azure Migrate rekommenderar en VM-storlek och kostnadsuppskattning för virtuella datorer i utvärderingen.
     - **Klar med villkor**: visar problem och Rekommenderad reparation.
     - **Inte redo för Azure**: visar problem och förslag på åtgärder.
     - **Beredskap okänd**: används när Azure Migrate inte kan utvärdera beredskap på grund av problem med data tillgänglighet.
@@ -93,13 +93,13 @@ En utvärdering av Azure VM beskriver:
 
 
 
-### <a name="review-cost-details"></a>Granska kostnads information
+### <a name="review-cost-details"></a>Granska kostnadsinformation
 
-I den här vyn visas den beräknade beräknings-och lagrings kostnaden för virtuella datorer som körs i Azure.
+Vyn visar uppskattad beräknings- och lagringskostnad för att köra de virtuella datorerna i Azure.
 
 1. Granska kostnader för beräkning och lagring per månad. Kostnaderna sammanställs för alla virtuella datorer i den utvärderade gruppen.
 
-    - Kostnads uppskattningar baseras på storleks rekommendationerna för en dator och dess diskar och egenskaper.
+    - Kostnadsuppskattningarna baseras på storleksrekommendationerna för en dator, samt dess diskar och egenskaper.
     - Uppskattade månatliga kostnader för beräkning och lagring visas.
     - Kostnads uppskattningen är att köra lokala virtuella datorer som virtuella IaaS-datorer. Azure Migrate Server-utvärderingen beaktar inte PaaS-eller SaaS-kostnader.
 

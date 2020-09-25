@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326107"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Återställning av tidpunkter för block-blobar
 
@@ -37,13 +37,6 @@ Endast en återställnings åtgärd kan köras på ett lagrings konto i taget. E
 
 Åtgärden **Återställ BLOB-intervall** returnerar ett återställnings-ID som unikt identifierar åtgärden. Om du vill kontrol lera statusen för en tidpunkts återställning anropar du åtgärden **Hämta återställnings status** med det återställnings-ID som returnerades från åtgärden **Återställ BLOB-intervall** .
 
-Tänk på följande begränsningar för återställnings åtgärder:
-
-- Ett block som har överförts via funktionen för att [blockera eller](/rest/api/storageservices/put-block) [blockera från URL](/rest/api/storageservices/put-block-from-url), men som inte har allokerats via [list block](/rest/api/storageservices/put-block-list), är inte en del av en blob och återställs därför inte som en del av en återställnings åtgärd.
-- Det går inte att återställa en blob med ett aktivt lån. Om en blob med ett aktivt lån ingår i det intervall med blobbar som ska återställas, Miss Miss kan återställnings åtgärden samköras.
-- Ögonblicks bilder skapas eller tas inte bort som en del av en återställnings åtgärd. Endast bas-bloben återställs till sitt tidigare tillstånd.
-- Om en BLOB har flyttats mellan frekventa och låg frekventa nivåer under perioden mellan den aktuella tidpunkten och återställnings punkten, återställs blobben till den tidigare nivån. En blob som har flyttats till Arkiv nivån kommer dock inte att återställas.
-
 > [!IMPORTANT]
 > När du utför en återställnings åtgärd, Azure Storage blockera data åtgärder på Blobbarna i de intervall som återställs under drift tiden. Läs-, skriv-och borttagnings åtgärder blockeras på den primära platsen. Därför kan åtgärder som att Visa behållare i Azure Portal inte utföras som förväntat medan återställnings åtgärden pågår.
 >
@@ -57,7 +50,7 @@ Tänk på följande begränsningar för återställnings åtgärder:
 Vid återställning från tidpunkt krävs att följande Azure Storage funktioner aktive ras innan du kan aktivera återställning vid tidpunkter:
 
 - [Mjuk borttagning](soft-delete-overview.md)
-- [Ändra feed](storage-blob-change-feed.md)
+- [Ändringsfeed](storage-blob-change-feed.md)
 - [BLOB-versioner](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Kvarhållningsperiod för återställning av tidpunkt
@@ -76,9 +69,12 @@ För att initiera en återställnings åtgärd måste klienten ha Skriv behörig
 
 Återställning av tidpunkt för block-blobar har följande begränsningar och kända problem:
 
-- Endast block-blobar i ett standard lagrings konto för allmän användning v2 kan återställas som en del av en återställnings åtgärd vid tidpunkten. Det går inte att lägga till blobar, Page blob-och Premium block-blobar. Om du har tagit bort en behållare under kvarhållningsperioden, återställs inte den behållaren med återställnings åtgärden vid tidpunkten. Om du vill veta mer om att skydda behållare från borttagning, se [mjuk borttagning för behållare (för hands version)](soft-delete-container-overview.md).
-- Endast block-blobar på frekventa eller låg frekventa nivåer kan återställas i en tidpunkt då en återställning utförs vid en viss tidpunkt. Det finns inte stöd för att återställa block-blobar på Arkiv nivå. Om till exempel en blog på frekvent nivå flyttades till en arkivnivå för två dagar sedan, och en återställningsåtgärd återställer till en punkt för tre dagar sedan, återställs inte bloben till frekvent nivå. För att återställa en arkiverad BLOB, flytta först bort den från Arkiv lag rings nivån.
-- Om en block-BLOB i intervallet som ska återställas har ett aktivt lån kommer återställningen av återställnings tiden att Miss läge. Bryt eventuella aktiva lån innan du påbörjar återställnings åtgärden.
+- Endast block-blobar i ett standard lagrings konto för allmän användning v2 kan återställas som en del av en återställnings åtgärd vid tidpunkten. Det går inte att lägga till blobar, Page blob-och Premium block-blobar. 
+- Om du har tagit bort en behållare under kvarhållningsperioden, återställs inte den behållaren med återställnings åtgärden vid tidpunkten. Om du försöker återställa ett intervall med blobbar som innehåller blobbar i en borttagen behållare, Miss lyckas återställnings åtgärden vid tidpunkten. Om du vill veta mer om att skydda behållare från borttagning, se [mjuk borttagning för behållare (för hands version)](soft-delete-container-overview.md).
+- Om en BLOB har flyttats mellan frekventa och låg frekventa nivåer under perioden mellan den aktuella tidpunkten och återställnings punkten, återställs blobben till den tidigare nivån. Det finns inte stöd för att återställa block-blobar på Arkiv nivå. Om till exempel en blog på frekvent nivå flyttades till en arkivnivå för två dagar sedan, och en återställningsåtgärd återställer till en punkt för tre dagar sedan, återställs inte bloben till frekvent nivå. För att återställa en arkiverad BLOB, flytta först bort den från Arkiv lag rings nivån. Mer information finns i [rehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md)lag rings nivån.
+- Ett block som har överförts via funktionen för att [blockera eller](/rest/api/storageservices/put-block) [blockera från URL](/rest/api/storageservices/put-block-from-url), men som inte har allokerats via [list block](/rest/api/storageservices/put-block-list), är inte en del av en blob och återställs därför inte som en del av en återställnings åtgärd.
+- Det går inte att återställa en blob med ett aktivt lån. Om en blob med ett aktivt lån ingår i det intervall med blobbar som ska återställas, Miss Miss kan återställnings åtgärden samköras. Bryt eventuella aktiva lån innan du påbörjar återställnings åtgärden.
+- Ögonblicks bilder skapas eller tas inte bort som en del av en återställnings åtgärd. Endast bas-bloben återställs till sitt tidigare tillstånd.
 - Det finns inte stöd för att återställa Azure Data Lake Storage Gen2 enkla och hierarkiska namn områden.
 
 > [!IMPORTANT]

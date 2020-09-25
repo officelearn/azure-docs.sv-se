@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042815"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356782"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrerar dem i katalogen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Om du vill förstå hur Wingtip biljetter-programmet implementerar ny klient eta
 
 2. Om du vill lägga till en Bryt punkt placerar du markören var som helst på den rad som står för *ny klient*. Tryck sedan på F9.
 
-   ![Brytning](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Skärm bild som visar ett skript med New-Tenant markerat för att lägga till en Bryt punkt.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Tryck på F5 för att köra skriptet.
 

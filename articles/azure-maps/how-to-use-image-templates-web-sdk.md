@@ -4,17 +4,17 @@ description: Lär dig hur du lägger till bild ikoner och mönster fyllda polygo
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: d6c7ba255b0dcec280d05eab36be71b8c9a726ae
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086563"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335559"
 ---
 # <a name="how-to-use-image-templates"></a>Så här använder du avbildningsmallar
 
@@ -119,7 +119,7 @@ Se den pennan <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>-HTML-markören
 
 Om programmet använder samma ikon med olika ikoner eller om du skapar en modul som lägger till ytterligare bildmallar, kan du enkelt lägga till och hämta dessa ikoner från Azure Maps Web SDK. Använd följande statiska funktioner i `atlas` namn området.
 
-| Name | Returtyp | Beskrivning | 
+| Name | Returtyp | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Lägger till en anpassad SVG-bildmall i Atlas-namnområdet. |
 |  `getImageTemplate(templateName: string, scale?: number)`| sträng | Hämtar en SVG-mall efter namn. |
@@ -127,7 +127,7 @@ Om programmet använder samma ikon med olika ikoner eller om du skapar en modul 
 
 SVG-bildmallar stöder följande plats hållarnas värden:
 
-| Platshållare | Beskrivning |
+| Platshållare | Description |
 |-|-|
 | `{color}` | Den primära färgen. | 
 | `{secondaryColor}` | Den sekundära färgen. | 

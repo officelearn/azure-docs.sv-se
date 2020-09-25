@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f58adf124634ce1b4326f0026718688f0eb1dc7b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.reviewer: jrasnick
+ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288264"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga efter kapslade typer i Parquet-och JSON-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > I det här exemplet används en fil från COVID-19 Open Research-datauppsättningen. [Se licensen och data strukturen här](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det första steget är att skapa en databas där data källan kommer att skapas. Sedan initierar du objekten genom att köra ett [installations skript](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) i databasen. Installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i exemplen.
 
@@ -117,7 +117,7 @@ FROM
 
 Resultatet visas i följande tabell:
 
-|rubrik  | first_author_name | body_text | complex_column |
+|title  | first_author_name | body_text | complex_column |
 | --- | --- | --- | --- |
 | Extra information ett eko-epidemiolo... | Julien   | – Bild S1: Phylogeny av... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 

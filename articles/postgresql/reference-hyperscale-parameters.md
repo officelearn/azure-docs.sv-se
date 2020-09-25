@@ -1,5 +1,5 @@
 ---
-title: Server parametrar – storskalig (citus)-Azure Database for PostgreSQL
+title: Server parametrar – storskalig (citus) – Azure Database for PostgreSQL
 description: Parametrar i den storskaliga (citus) SQL API
 author: jonels-msft
 ms.author: jonels
@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 2b4d3d44cb4e78f52ab03f31e58df5e66118ae25
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336249"
 ---
 # <a name="server-parameters"></a>Serverparametrar
 
 Det finns olika Server parametrar som påverkar citus (Scale Scale), både från standard-PostgreSQL och som är särskilt för citus ().
 De här parametrarna kan anges i Azure Portal för en citus-Server (för en storskalig). Under kategorin **Inställningar** väljer du parametrar för **Work Node** eller **noden koordinator parametrar**. Med dessa sidor kan du ange parametrar för alla arbetsnoder, eller bara för koordinator-noden.
 
-## <a name="hyperscale-parameters"></a>Storskaliga parametrar
+## <a name="hyperscale-citus-parameters"></a>Citus-parametrar
 
 > [!NOTE]
 >
-> De storskaliga Server grupperna som kör äldre versioner av citus-motorn kanske inte erbjuder alla parametrar som anges nedan.
+> Citus-Server grupper som kör äldre versioner av citus-motorn kanske inte erbjuder alla parametrar som anges nedan.
 
 ### <a name="general-configuration"></a>Allmän konfiguration
 

@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288298"
 ---
-# <a name="query-csv-files"></a>Fråga CSV-filer
+# <a name="query-csv-files"></a>Köra frågor mot CSV-filer
 
 I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med SQL på begäran (för hands version) i Azure Synapse Analytics. CSV-filer kan ha olika format: 
 
@@ -29,7 +29,7 @@ Alla ovanstående variationer kommer att täckas av nedan.
 
 ## <a name="quickstart-example"></a>Exempel på snabb start
 
-`OPENROWSET`funktionen gör att du kan läsa innehållet i CSV-filen genom att ange URL: en till filen.
+`OPENROWSET` funktionen gör att du kan läsa innehållet i CSV-filen genom att ange URL: en till filen.
 
 ### <a name="read-a-csv-file"></a>Läs en CSV-fil
 
@@ -72,7 +72,7 @@ Om en data källa är skyddad med SAS-nyckel eller anpassad identitet kan du kon
 
 ### <a name="explicitly-specify-schema"></a>Ange ett schema explicit
 
-`OPENROWSET`med kan du uttryckligen ange vilka kolumner som du vill läsa från filen med hjälp av `WITH` satsen:
+`OPENROWSET` med kan du uttryckligen ange vilka kolumner som du vill läsa från filen med hjälp av `WITH` satsen:
 
 ```sql
 select top 10 *

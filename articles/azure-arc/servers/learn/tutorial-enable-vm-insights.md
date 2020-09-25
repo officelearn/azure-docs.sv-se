@@ -2,17 +2,17 @@
 title: Självstudie – övervaka en hybrid dator med Azure Monitor for VMs
 description: Lär dig hur du samlar in och analyserar data från en hybrid dator i Azure Monitor.
 ms.topic: tutorial
-ms.date: 08/12/2020
-ms.openlocfilehash: 76df7d403fdce6fc3ac77c0b24849aedffb57ce0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: 97ab390570f434295a5aa836ef994640f6dc14f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335423"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Självstudie: övervaka en hybrid dator med Azure Monitor for VMs
 
-[Azure Monitor](../overview.md) kan samla in data direkt från dina virtuella hybrid datorer till en Log Analytics arbets yta för detaljerad analys och korrelation. Detta innebär vanligt vis att installera [Log Analytics agent](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) på datorn med hjälp av ett skript, manuellt eller en automatiserad metod enligt dina konfigurations hanterings standarder. Arc-aktiverade servrar (för hands version) introducerade nyligen stöd för att installera Log Analytics-och beroende agentens [VM-tillägg](../manage-vm-extensions.md) för Windows och Linux, vilket gör att Azure Monitor kan samla in data från virtuella datorer som inte är Azure-datorer.
+[Azure Monitor](../overview.md) kan samla in data direkt från dina virtuella hybrid datorer till en Log Analytics arbets yta för detaljerad analys och korrelation. Detta innebär vanligt vis att installera [Log Analytics agent](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) på datorn med hjälp av ett skript, manuellt eller en automatiserad metod enligt dina konfigurations hanterings standarder. Arc-aktiverade servrar har nyligen lanserat stöd för att installera Log Analytics-och beroende agentens [VM-tillägg](../manage-vm-extensions.md) för Windows och Linux, vilket gör att Azure Monitor kan samla in data från virtuella datorer som inte är Azure-datorer.
 
 Den här självstudien visar hur du konfigurerar och samlar in data från dina virtuella Linux-eller Windows-datorer genom att aktivera Azure Monitor for VMs följa en förenklad uppsättning steg som effektiviserar upplevelsen och tar kortare tid.  
 

@@ -3,18 +3,18 @@ title: 'Snabb start: Azure Blob Storage för Java Script v10 i webbläsaren'
 description: Lär dig att ladda upp, lista och ta bort blobar med Java Script v10 SDK på en HTML-sida.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 134408704d54479fbbe0dfb5094f2920fa2e74be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336215"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -43,7 +43,7 @@ Innan ditt webb program kan komma åt en blob-lagring från klienten måste du k
 
 I följande tabell beskrivs varje CORS-inställning och de värden som används för att definiera regeln.
 
-|Inställningen  |Värde  | Beskrivning |
+|Inställning  |Värde  | Beskrivning |
 |---------|---------|---------|
 | Tillåtna ursprung | * | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `*` ges alla domäner åtkomst till lagringskontot. |
 | Tillåtna metoder     | delete, get, head, merge, post, options och put | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |
@@ -64,7 +64,7 @@ SAS, eller signatur för delad åtkomst, används av den kod som körs i webblä
 
 Du kan skapa en SAS med hjälp av Azure CLI via Azure Cloud Shell eller med Azure Portal eller Azure Storage Explorer. I följande tabell beskrivs de parametrar du behöver ange värden för för att skapa en SAS med CLI.
 
-| Parameter      |Description  | Platshållare |
+| Parameter      |Beskrivning  | Platshållare |
 |----------------|-------------|-------------|
 | *förfallo*       | Förfallodatum för åtkomsttoken i formatet YYYY-MM-DD. Ange morgondagens datum under den här snabbstarten. | *FUTURE_DATE* |
 | *konto namn* | Namnet på lagringskontot. Använd det namn som noterades i ett tidigare steg. | *YOUR_STORAGE_ACCOUNT_NAME* |

@@ -4,21 +4,21 @@ description: Azure-säkerhet för benchmark v2 och styrning och strategi
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e8a5196bf71712caae1218933ed13345f4cecd99
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 255e5533dc19036624042a0b82116c4dc107d762
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336232"
 ---
-# <a name="security-control-governance-and-strategy"></a>Säkerhets kontroll: styrning och strategi
+# <a name="security-control-v2-governance-and-strategy"></a>Säkerhets kontroll v2: styrning och strategi
 
-Säkerhets kopiering och återställning täcker kontroller för att säkerställa att säkerhets kopiering av data och konfigurationer på olika tjänst nivåer utförs, verifieras och skyddas.
+Styrning och strategi ger vägledning för att säkerställa en konsekvent säkerhets strategi och dokumenterad styrnings metod för att hjälpa och upprätthålla säkerhets garantier, inklusive att upprätta roller och ansvar för de olika moln säkerhets funktionerna, en enhetlig teknisk strategi och stöd för principer och standarder.
 
-## <a name="gs-1-define-asset-management-and-protection-strategy"></a>GS-1: definiera strategi för till gångs hantering och skydd
+## <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: definiera strategi för till gångs hantering och data skydd
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
@@ -44,47 +44,70 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 -   Lämpliga kryptografiska standarder
 
-Obs! din till gångs hantering och din skydds metod för molnet och lokalt kan vara olika beroende på flera faktorer, till exempel program tjänst/värd modell, affärs risker och krav på efterlevnad. 
-
+Mer information finns i följande referenser:
 - [Rekommendation för Azure Security Architecture – lagring, data och kryptering](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Grundläggande Azure-säkerhet – Azure Data Security, kryptering och lagring](../fundamentals/encryption-overview.md)
 
 - [Ramverk för moln införande – metod tips för Azure Data Security och kryptering](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Hantering av Azure Security-inventarier](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Hantering av Azure Security-inventarier](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Azure Security benchmark – data skydd](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security benchmark – data skydd](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-2-define-security-posture-management-strategy"></a>GS-2: definiera säkerhets position hanterings strategi
+## <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: definiera strategi för företags segmentering
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| GS-2 | 20, 3, 5 | RA, CM, SC |
+| GS-2 | 4, 9, 16 | AC, CA, SC |
+
+Upprätta en företagsomfattande strategi för att segmentera åtkomst till till gångar med en kombination av identitet, nätverk, program, prenumeration, hanterings grupp och andra kontroller.
+
+Du bör noggrant balansera behovet av säkerhets separation med behovet av att möjliggöra daglig drift av de system som behöver kommunicera med varandra och komma åt data.
+
+Se till att segmenterings strategin implementeras konsekvent över kontroll typer, inklusive nätverks säkerhet, identitets-och åtkomst modeller samt program behörighet/åtkomst modeller och kontroller för mänsklig process.
+
+- [Vägledning om segment strategi i Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+
+- [Vägledning om segment strategi i Azure (dokument)](/security/compass/governance#enterprise-segmentation-strategy)
+
+- [Justera nätverks segmentering med strategi för företags segmentering](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+
+**Ansvar**: kund
+
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+
+- [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
+
+## <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: definiera säkerhets position hanterings strategi
+
+| Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
+|--|--|--|--|
+| GS-3 | 20, 3, 5 | RA, CM, SC |
 
 Kontinuerligt mäta och minimera risker för enskilda till gångar och den miljö som de finns i. Prioritera höga värde till gångar och högexponerade attack ytor, till exempel publicerade program, ingångs-och utgångs punkter, användar-och administratörs slut punkter osv.
 
-- [Azure Security benchmark – position och sårbarhets hantering](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security benchmark – position och sårbarhets hantering](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-3-align-organization-roles-responsibilities-and-accountabilities"></a>GS-3: justera organisations roller, ansvars områden och Accountabilities
+## <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: justera organisations roller, ansvars områden och Accountabilities
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| GS-3 | E.t. | PL, PM |
+| GS-4 | Saknas | PL, PM |
 
-Se till att dokumentera och förmedla en tydlig strategi för roller och ansvar i din säkerhets organisation. Prioritera att tillhandahålla tydliga ansvar för säkerhets beslut, utbildning på den delade ansvars modellen och teknisk utbildning för moln säkerhet. 
+Se till att dokumentera och förmedla en tydlig strategi för roller och ansvar i din säkerhets organisation. Prioritera att tillhandahålla tydliga ansvar för säkerhets beslut, utbilda alla på den delade ansvars modellen och utbilda tekniska team om teknik för att skydda molnet.
 
 - [Bästa praxis för Azure-säkerhet 1 – personer: utbilda team om molnets säkerhets resa](https://aka.ms/AzSec1)
 
@@ -94,15 +117,15 @@ Se till att dokumentera och förmedla en tydlig strategi för roller och ansvar 
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-4-define-network-security-strategy"></a>GS-4: definiera nätverks säkerhets strategi
+## <a name="gs-5-define-network-security-strategy"></a>GS-5: definiera nätverks säkerhets strategi
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| GS-4 | 9 | CA, SC |
+| GS-5 | 9 | CA, SC |
 
 Upprätta en Azure Network Security-metod som en del av din organisations övergripande strategi för säkerhets åtkomst kontroll.  
 
@@ -120,11 +143,11 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 -   Aktuella nätverks säkerhets artefakter (t. ex. nätverks diagram, referens nätverks arkitektur)
 
-Obs! din nätverks säkerhets metod för molnet och lokalt kan vara olika beroende på flera faktorer, till exempel program tjänst modell, Hot exponering och hybrid nätverks installation.
+Mer information finns i följande referenser:
 
 - [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](https://aka.ms/AzSec11)
 
-- [Säkerhet för Azure-säkerhet](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Säkerhet för Azure-säkerhet](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
 - [Översikt över Azure Network Security](../fundamentals/network-overview.md)
 
@@ -132,15 +155,15 @@ Obs! din nätverks säkerhets metod för molnet och lokalt kan vara olika beroen
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-5-define-identity-and-privileged-access-strategy"></a>GS-5: definiera identitets-och privilegie rad åtkomst strategi
+## <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: definiera identitets-och privilegie rad åtkomst strategi
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| GS-5 | 16, 4 | AC, AU, SC |
+| GS-6 | 16, 4 | AC, AU, SC |
 
 Upprätta en Azure Identity-och Privileged Access-metod som en del av din organisations övergripande strategi för säkerhets åtkomst kontroll.  
 
@@ -156,11 +179,11 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 -   Process för användar identitets-och åtkomst granskning och avstämning
 
-Obs! din identitets-och privilegie rad åtkomst metod för molnet och lokalt kan vara olika beroende på flera faktorer, till exempel åtkomst Sök väg för data/program, tjänst modell och kund-/partner åtkomst strategi.
+Mer information finns i följande referenser:
 
-- [Azure-säkerhet för prestandatest – identitets hantering](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure-säkerhet för prestandatest – identitets hantering](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Azure Security benchmark – privilegie rad åtkomst](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Azure Security benchmark – privilegie rad åtkomst](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
 - [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](https://aka.ms/AzSec11)
 
@@ -168,15 +191,15 @@ Obs! din identitets-och privilegie rad åtkomst metod för molnet och lokalt kan
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-6-define-logging-and-threat-response-strategy"></a>GS-6: definiera strategi för loggning och hot svar
+## <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: definiera strategi för loggning och hot svar
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| GS-6 | 19 | IR, AU, RA, SC |
+| GS-7 | 19 | IR, AU, RA, SC |
 
 Upprätta en strategi för loggning och hot svar för att snabbt upptäcka och åtgärda hot samtidigt som de uppfyller kraven för efterlevnad. Prioritera att ge analytiker med hög kvalitets varningar och sömlösa upplevelser så att de kan fokusera på hot i stället för integrering och manuella steg. 
 
@@ -196,11 +219,10 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 -   Processer för hantering av incidenter och aktiviteter efter incidenter, till exempel lektioner som lärts och underlags kvarhållning
 
-Obs! din inloggnings-och hot identifierings metod för molnet och lokalt kan vara olika beroende på flera faktorer, till exempel krav på efterlevnad, Threat landskap och identifiering och reparation. 
+Mer information finns i följande referenser:
+- [Azure-säkerhet för benchmark-loggning och hot identifiering](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure-säkerhet för benchmark-loggning och hot identifiering](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
-
-- [Azure-säkerhet benchmark – incident svar](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure-säkerhet benchmark – incident svar](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
 - [Azure Security Best Practice 4 – process. Uppdatera incident svars processer för molnet](https://aka.ms/AzSec11)
 
@@ -210,15 +232,15 @@ Obs! din inloggnings-och hot identifierings metod för molnet och lokalt kan var
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-7-define-backup-and-recovery-strategy"></a>GS-7: definiera strategi för säkerhets kopiering och återställning
+## <a name="gs-8-define-backup-and-recovery-strategy"></a>GS-8: definiera strategi för säkerhets kopiering och återställning
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| GS-7 | 10 | CP |
+| GS-8 | 10 | CP |
 
 Upprätta en Azures säkerhets kopierings-och återställnings strategi för din organisation. 
 
@@ -230,9 +252,8 @@ Strategin bör omfatta dokumenterad vägledning, principer och standarder för f
 
 -   Skydd av säkerhets kopiering med åtkomst kontroll och data kryptering
 
-Obs! din säkerhets kopierings-och återställnings metod för molnet och den lokala tjänsten kan vara olika beroende på flera faktorer, till exempel infrastrukturens redundans, program tjänst/värd modell och krav på efterlevnad.
-
-- [Prestandatest för Azure-säkerhet – säkerhets kopiering och återställning](/azure/security/benchmarks/security-controls-v2-backup-recovery)
+Mer information finns i följande referenser:
+- [Prestandatest för Azure-säkerhet – säkerhets kopiering och återställning](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
 
 - [Azures ramverk för well-Architecture – säkerhets kopiering och haveri beredskap för Azure-program](/azure/architecture/framework/resiliency/backup-and-recovery)
 
@@ -240,7 +261,7 @@ Obs! din säkerhets kopierings-och återställnings metod för molnet och den lo
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Alla intressenter](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

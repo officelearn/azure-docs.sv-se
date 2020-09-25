@@ -1,20 +1,20 @@
 ---
-title: 'Självstudie: skapa en inhägnad och spåra enheter på Azure Maps'
-description: Lär dig hur du konfigurerar ett geografiskt avgränsnings tecken. Se hur du spårar enheter i förhållande till den här gränsen genom att använda tjänsten Azure Maps spatial.
+title: 'Självstudie: skapa en inhägnad och spåra enheter på en Microsoft Azure karta'
+description: Själv studie kurs om hur du konfigurerar ett geografiskt avgränsnings tecken. Se hur du spårar enheter i förhållande till den här gränsen genom att använda tjänsten Azure Maps spatial
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335202"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geofence med hjälp av Azure Maps
 
@@ -30,7 +30,7 @@ Azure Maps tillhandahåller ett antal tjänster för att stödja spårning av ut
 > * Använd [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) för att prenumerera på att ange och avsluta händelser för ditt Azure Maps-avgränsning. Du ställer in två händelse prenumerationer för webhook som anropar de HTTP-slutpunkter som definierats i dina två Logic Apps. Logi Kap par skickar sedan lämpliga e-postaviseringar om utrustning som flyttas utanför eller genom att ange ett geografiskt avgränsnings tecken.
 > * Använd [Sök funktionen för att hämta API: er](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att ta emot meddelanden när en del av utrustningen avslutas och anger de områden som ligger utanför gränsen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
@@ -429,14 +429,14 @@ I föregående geografiskt JSON-svar har utrustningen hållits i den huvudsaklig
 
 I föregående geografiskt JSON-svar har utrustningen hållits på den huvudsakliga platsens gräns, men har slut på under platsens gräns. Observera dock att `userTime` värdet är efter det `expiredTime` som definieras i de här gräns värdena. Därför `isEventPublished` anges parametern till `false` och Operations Manager får inte något e-postmeddelande.
 
-### <a name="location-547637988-1221338344"></a>Plats 5 (47.637988,-122,1338344)
+### <a name="location-5-4763799--122134505"></a>Plats 5 (47,63799,-122,134505)
 
 1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Gör det till *plats 5*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
 
 2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. Ersätt `{Azure-Maps-Primary-Subscription-key}` med den primära prenumerations nyckeln och `{udid}` med det `udid` som du sparade i [avsnittet Ladda upp polystaket-indata-JSON](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Välj **Skicka**. Följande Poly-JSON visas i svars fönstret:
@@ -469,13 +469,10 @@ I föregående geografiskt JSON-svar har utrustningen hållits på den huvudsakl
 
 I föregående geografiskt JSON-svar har utrustningen avslutat huvud platsens gräns. Därför `isEventPublished` anges parametern till `true` och Operations Manager får ett e-postmeddelande som anger att utrustningen har avslutat ett avgränsnings tecken.
 
+
+Du kan också [skicka e-postmeddelanden med hjälp av event Grid och Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) och kontrol lera de [händelser som stöds i Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers) med Azure Maps.
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Hantera innehålls typer i Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Skicka e-postmeddelanden med hjälp av Event Grid och Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Händelse hanterare som stöds i Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers)

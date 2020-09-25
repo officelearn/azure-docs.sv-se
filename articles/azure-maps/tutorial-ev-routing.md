@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: dirigera elektriska bilar med Azure Notebooks (python) | Microsoft Azure Maps'
-description: 'Dirigera elektriska fordon med Microsoft Azure mappar API: er för Routning och Azure Notebooks.'
+description: 'Självstudie om hur du dirigerar elektriska fordon med Microsoft Azure mappar API: er för Routning och Azure Notebooks'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 28fcdc992f98ff380467718314148984559a7fee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335236"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
@@ -387,8 +387,6 @@ display(Image(staticMapImage))
 
 ![En karta som visar vägen](./media/tutorial-ev-routing/route.png)
 
-## <a name="next-steps"></a>Nästa steg
-
 I den här självstudien lärde du dig att anropa Azure Maps REST-API: er direkt och visualisera Azure Maps data med hjälp av python.
 
 Om du vill utforska de Azure Maps-API: er som används i den här självstudien, se:
@@ -399,7 +397,11 @@ Om du vill utforska de Azure Maps-API: er som används i den här självstudien,
 * [Rendera-Hämta kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Publicera väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Hämta väg riktningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [Azure Maps REST-API: er](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
-En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Notebooks finns i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Mer information om Azure Notebooks finns i
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

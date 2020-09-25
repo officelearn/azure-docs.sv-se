@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 06/09/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: c8f431a609dafc1064b901cfdda8d170124cf0f9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1506ab7210f8b98614f51e5168555068cce0afbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089283"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325699"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -186,14 +186,15 @@ Följande kodfragment visar hur du skapar ett NetApp-konto i en Azure Resource M
 
 3. Klicka på **+ Lägg till pooler**. 
 
-    ![Klicka på Lägg till pooler](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![Klicka på Lägg till pooler](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. Ange information för kapacitets gruppen: 
-    1. Ange **mypool1** som poolnamn.
-    2. Välj **Premium** för Service nivån. 
-    3. Ange **4 (TIB)** som pool-storlek. 
+    * Ange **mypool1** som poolnamn.
+    * Välj **Premium** för Service nivån. 
+    * Ange **4 (TIB)** som pool-storlek. 
+    * Använd den **automatiska** QoS-typen.
 
-5. Klicka på **OK**.
+5. Klicka på **Skapa**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -416,7 +417,7 @@ När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att
 
 3. På sidan resurs grupp klickar du på **ta bort resurs grupp**.
 
-    ![Ta bort resursgrupp](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Skärm bild som visar knappen Ta bort resurs grupp.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     Ett fönster öppnas och visar en varning om vilka resurser som tas bort med resursgruppen.
 

@@ -6,20 +6,29 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/28/2020
-ms.openlocfilehash: f9dc54959979d00d57536e3a3fa2262d27e28f96
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.date: 09/22/2020
+ms.openlocfilehash: d5db91a8864d6090466b40197187c9386e053d12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325546"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
 Du kan montera eller demontera en volym för virtuella Windows-eller Linux-datorer om det behövs.  Monterings anvisningarna för virtuella Linux-datorer finns på Azure NetApp Files.  
 
-> [!IMPORTANT] 
-> Du måste ha minst en export princip för att kunna komma åt en NFS-volym.
+## <a name="requirements"></a>Krav 
+
+* Du måste ha minst en export princip för att kunna komma åt en NFS-volym.
+* För att montera en NFS-volym ser du till att följande NFS-portar är öppna mellan klienten och NFS-volymerna:
+    * 111 = `RPCBIND/Portmapper`
+    * 635 = `mountd`
+    * 2049 = `nfs`
+    * 4045 = `nlockmgr` (endast NFSv3)
+    * 4046 = `status` (endast NFSv3)
+
+## <a name="steps"></a>Steg
 
 1. Klicka på bladet **volymer** och välj sedan den volym som du vill montera. 
 2. Klicka på **monterings instruktioner** från den valda volymen och följ sedan anvisningarna för att montera volymen. 

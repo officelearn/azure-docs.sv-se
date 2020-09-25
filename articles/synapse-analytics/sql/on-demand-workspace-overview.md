@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc47bf73f39d73861c166674a692932d51064e6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288536"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL på begäran (för hands version) i Azure Synapse Analytics 
 
@@ -25,9 +25,11 @@ SQL på begäran är en fråge tjänst över data i din data Lake. Du kan komma 
 - En välbekant T-SQL-syntax för att skicka frågor till data på plats utan att behöva kopiera eller läsa in data i ett specialiserat lager. 
 - Integrerad anslutning via T-SQL-gränssnittet som erbjuder en mängd olika Business Intelligence-och ad hoc-frågemeddelanden, inklusive de mest populära driv rutinerna. 
 
-SQL på begäran är ett distribuerat data bearbetnings system som skapats för stor data skalning och data bearbetning. Med SQL på begäran kan du analysera dina Big data på några sekunder till minuter, beroende på arbets belastningen. Tack vare den inbyggda fel toleransen för körning av frågor ger systemet hög tillförlitlighet och lyckade priser även för långvariga frågor som omfattar stora data mängder.
+SQL på begäran är ett distribuerat data bearbetnings system som bygger på storskaliga data-och beräknings funktioner. Med SQL på begäran kan du analysera dina Big data på några sekunder till minuter, beroende på arbets belastningen. Tack vare den inbyggda fel toleransen för körning av frågor ger systemet hög tillförlitlighet och lyckade priser även för långvariga frågor som omfattar stora data mängder.
 
-SQL på begäran är Server lös, därför finns det ingen infrastruktur för att konfigurera eller kluster att underhålla. En standard slut punkt för den här tjänsten finns i varje Azure Synapse-arbetsyta, så att du kan börja fråga efter data så fort arbets ytan skapas. Det kostar inget att betala för resurser. du debiteras bara för de data som genomsöks av frågor som du kör, och därför är den här modellen en sann kostnad per användnings modell.  
+SQL på begäran är Server lös, därför finns det ingen infrastruktur för att konfigurera eller kluster att underhålla. En standard slut punkt för den här tjänsten finns i varje Azure Synapse-arbetsyta, så att du kan börja fråga efter data så fort arbets ytan skapas. 
+
+Det kostar inget att betala för resurser. du debiteras bara för de data som bearbetas av frågor som du kör, och därför är den här modellen en sann modell för betalning per användning.  
 
 Om du använder Apache Spark för Azure-Synapse i din datapipeline för förberedelse av data, rengöring eller anrikning, kan du [fråga externa Spark-tabeller](develop-storage-files-spark-tables.md) som du har skapat i processen direkt från SQL på begäran. Använd [privat länk](../security/how-to-connect-to-workspace-with-private-links.md) för att flytta din SQL-slutpunkt på begäran till din [hanterade VNet-VNet](../security/synapse-workspace-managed-vnet.md).  
 
@@ -56,7 +58,7 @@ SQL på begäran aktiverar befintliga SQL ad-hoc-frågor och Business Intelligen
 
 ## <a name="t-sql-support"></a>T-SQL-stöd
 
-SQL på begäran erbjuder T-SQL frågor på Surface-området, som är något förbättrat/utökat i vissa aspekter för att få plats med frågor om att fråga om delvis strukturerade och ostrukturerade data. Dessutom stöds inte vissa aspekter av T-SQL-språket på grund av utformningen av SQL på begäran, som ett exempel på att DML-funktionen inte stöds för närvarande.
+SQL på begäran erbjuder T-SQL frågor på Surface-området, som är något förbättrat/utökat i vissa aspekter för att få plats med frågor om att fråga om delvis strukturerade och ostrukturerade data. Dessutom stöds inte vissa aspekter av T-SQL-språket på grund av utformningen av SQL på begäran, eftersom DML-funktionen för närvarande inte stöds för närvarande.
 
 - Arbets belastningen kan organiseras med hjälp av välbekanta koncept:
 - Databaser-SQL-slutpunkt på begäran kan ha flera databaser.

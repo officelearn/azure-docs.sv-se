@@ -7,16 +7,16 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325801"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
+# <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med timer-utlösare i Azure Functions. Med en timer-utlösare kan du köra en funktion enligt ett schema. 
+Den här artikeln förklarar hur du arbetar med timer-utlösare i Azure Functions. Med en timer-utlösare kan du köra en funktion enligt ett schema.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Följande exempel funktion utlöses och körs var femte minut. `@TimerTrigger`Anteckningen för funktionen definierar schemat med samma sträng format som [cron-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en timer-utlösare bindning i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. Ett [Timer-objekt](#usage) skickas till funktionen.
@@ -111,9 +126,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Följande exempel visar hur du konfigurerar *function.js* och *run.ps1* -filen för en timer-utlösare i [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+En instans av det [tidsinställda objektet](#usage) skickas som det första argumentet till funktionen.
+
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel används en timerupplösning-bindning vars konfiguration beskrivs i *function.jsi* filen. Den faktiska [python-funktionen](functions-reference-python.md) som använder bindningen beskrivs i filen * __init__. py* . Objektet som har skickats till funktionen är av typen [Azure. functions. TimerRequest-objekt](/python/api/azure-functions/azure.functions.timerrequest). Funktions logiken skriver till loggarna som anger om det aktuella anropet beror på en utebliven schema förekomst. 
+I följande exempel används en timerupplösning-bindning vars konfiguration beskrivs i *function.jsi* filen. Den faktiska [python-funktionen](functions-reference-python.md) som använder bindningen beskrivs i filen * __init__. py* . Objektet som har skickats till funktionen är av typen [Azure. functions. TimerRequest-objekt](/python/api/azure-functions/azure.functions.timerrequest). Funktions logiken skriver till loggarna som anger om det aktuella anropet beror på en utebliven schema förekomst.
 
 Här är bindnings data i *function.jspå* filen:
 
@@ -145,21 +195,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-Följande exempel funktion utlöses och körs var femte minut. `@TimerTrigger`Anteckningen för funktionen definierar schemat med samma sträng format som [cron-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
@@ -188,14 +223,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 Attribut stöds inte av C#-skript.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Attribut stöds inte av Java Script.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Attribut stöds inte av python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 `@TimerTrigger`Anteckningen för funktionen definierar schemat med samma sträng format som [cron-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -210,6 +237,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Attribut stöds inte av Java Script.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Attribut stöds inte av PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Attribut stöds inte av python.
 
 ---
 
@@ -229,7 +268,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Vi rekommenderar att du ställer in **runOnStartup** på `true` i produktion. Med den här inställningen kan kod köras vid mycket oförutsägbara tidpunkter. I vissa produktions inställningar kan de här extra körningarna leda till betydligt högre kostnader för appar som hanteras av förbruknings planer. Med **runOnStartup** aktive ras till exempel utlösaren när din Function-app skalas. Se till att du är helt medveten om produktions beteendet för dina funktioner innan du aktiverar **runOnStartup** i produktion.   
+> Vi rekommenderar att du ställer in **runOnStartup** på `true` i produktion. Med den här inställningen kan kod köras vid mycket oförutsägbara tidpunkter. I vissa produktions inställningar kan de här extra körningarna leda till betydligt högre kostnader för appar som hanteras av förbruknings planer. Med **runOnStartup** aktive ras till exempel utlösaren när din Function-app skalas. Se till att du är helt medveten om produktions beteendet för dina funktioner innan du aktiverar **runOnStartup** i produktion.
 
 ## <a name="usage"></a>Användning
 
@@ -250,8 +289,7 @@ När en timer-utlösare anropas, skickas ett Timer-objekt till funktionen. Följ
 
 `IsPastDue`Egenskapen är `true` när den aktuella funktions anropet är senare än schemalagt. Till exempel kan en omstart av en funktion orsaka att ett anrop saknas.
 
-
-## <a name="ncrontab-expressions"></a>NCRONTAB-uttryck 
+## <a name="ncrontab-expressions"></a>NCRONTAB-uttryck
 
 Azure Functions använder [NCronTab](https://github.com/atifaziz/NCrontab) -biblioteket för att tolka NCronTab-uttryck. Ett NCRONTAB-uttryck liknar ett CRON-uttryck, förutom att det innehåller ett ytterligare sjätte fält vid början som ska användas för tids precision i sekunder:
 
@@ -300,12 +338,12 @@ Till skillnad från ett CRON-uttryck `TimeSpan` anger ett värde tidsintervall m
 
 Anges som en sträng `TimeSpan` är formatet när det `hh:mm:ss` `hh` är mindre än 24. När de två första siffrorna är 24 eller större är formatet `dd:hh:mm` . Här följer några exempel:
 
-|Exempel |Utlöses av  |
-|---------|---------|
-|"01:00:00" | varje timma        |
-|"00:01:00"|varje minut         |
-|"24:00:00" | var 24 dag        |
-|"1,00:00:00" | Varje dag        |
+| Exempel      | Utlöses av |
+|--------------|----------------|
+| "01:00:00"   | varje timma     |
+| "00:01:00"   | varje minut   |
+| "24:00:00"   | var 24 dag  |
+| "1,00:00:00" | Varje dag      |
 
 ## <a name="scale-out"></a>Utskalning
 

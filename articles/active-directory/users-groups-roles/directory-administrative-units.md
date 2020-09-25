@@ -1,5 +1,5 @@
 ---
-title: Hantering av administrativa enheter (för hands version) – Azure AD | Microsoft Docs
+title: Administrativa enheter i Azure Active Directory | Microsoft Docs
 description: Använd administrativa enheter för mer detaljerad delegering av behörigheter i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: a31c4a5c9d20b5b248f7d722ed3d9289bbb4dded
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335824"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Hantering av administrativa enheter i Azure Active Directory (för hands version)
+# <a name="administrative-units-in-azure-active-directory"></a>Administrativa enheter i Azure Active Directory
 
-I den här artikeln beskrivs administrativa enheter i Azure Active Directory (Azure AD). En administrativ enhet är en Azure AD-resurs som kan vara en behållare för andra Azure AD-resurser. I den här för hands versionen kan en administrativ enhet bara innehålla användare och grupper.
+I den här artikeln beskrivs administrativa enheter i Azure Active Directory (Azure AD). En administrativ enhet är en Azure AD-resurs som kan vara en behållare för andra Azure AD-resurser. En administrativ enhet kan bara innehålla användare och grupper.
 
 Med administrativa enheter kan du bevilja administratörs behörigheter som är begränsade till en avdelning, region eller något annat segment i din organisation som du definierar. Du kan använda administrativa enheter för att delegera behörigheter till regionala administratörer eller ange en princip på en detaljerad nivå. En användar konto administratör kan till exempel uppdatera profil information, återställa lösen ord och tilldela licenser enbart för användare i sin administrativa enhet.
 
@@ -44,11 +44,11 @@ Användning av administrativa enheter kräver en Azure Active Directory Premium-
 
 ## <a name="manage-administrative-units"></a>Hantera administrativa enheter
 
-I den här för hands versionen kan du hantera administrativa enheter med hjälp av Azure Portal, PowerShell-cmdlets och skript, eller Microsoft Graph. Du hittar mer information i vår dokumentation:
+Du kan hantera administrativa enheter med hjälp av Azure Portal, PowerShell-cmdletar och skript, eller Microsoft Graph. Du hittar mer information i vår dokumentation:
 
 - [Skapa, ta bort, fylla i och lägga till roller i administrativa enheter](roles-admin-units-manage.md): fullständiga instruktions procedurer
-- [Arbeta med administratörs enheter](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): så här arbetar du med administrativa enheter med hjälp av PowerShell
-- [Stöd för diagram över administrativa enheter](/graph/api/resources/administrativeunit?view=graph-rest-beta): detaljerad dokumentation om Microsoft Graph för administrativa enheter.
+- [Arbeta med administratörs enheter](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): så här arbetar du med administrativa enheter med hjälp av PowerShell
+- [Stöd för diagram över administrativa enheter](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): detaljerad dokumentation om Microsoft Graph för administrativa enheter.
 
 ### <a name="planning-your-administrative-units"></a>Planera dina administrativa enheter
 

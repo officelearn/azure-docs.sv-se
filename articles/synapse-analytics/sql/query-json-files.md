@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0757c867d46144ac9fb9b9eca8b2a588aeeb15d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489732"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288332"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga JSON-filer med SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig hur du skriver en fråga med SQL på begä
 
 ## <a name="read-json-documents"></a>Läsa JSON-dokument
 
-Det enklaste sättet att se innehållet i JSON-filen är att ange fil-URL: en som `OPENROWSET` fungerar, ange CSV `FORMAT` och ange värden `0x0b` för `fieldterminator` och `fieldquote` . Om du behöver läsa tabbavgränsade JSON-filer räcker detta. Om du har en klassisk JSON-fil måste du ange värden `0x0b` för `rowterminator` . `OPENROWSET`funktionen kommer att parsa JSON och returnera varje dokument i följande format:
+Det enklaste sättet att se innehållet i JSON-filen är att ge filen URL till `OPENROWSET` funktionen, ange CSV `FORMAT` och ange värden `0x0b` för `fieldterminator` och `fieldquote` . Om du behöver läsa tabbavgränsade JSON-filer räcker detta. Om du har en klassisk JSON-fil måste du ange värden `0x0b` för `rowterminator` . `OPENROWSET` funktionen kommer att parsa JSON och returnera varje dokument i följande format:
 
 | inköpsdok |
 | --- |
@@ -33,7 +33,7 @@ Det enklaste sättet att se innehållet i JSON-filen är att ange fil-URL: en so
 |{"date_rep": "2020-07-26", "dag": 26, "månad": 7, "år": 2020, "Cases": 4, "dödsfall": 0, "geo_id": "AF"}|
 |{"date_rep": "2020-07-27", "Day": 27, "månad": 7, "Year": 2020, "Cases": 8, "dödsfall": 0, "geo_id": "AF"}|
 
-Om filen är offentligt tillgänglig, eller om din Azure AD-identitet kan komma åt den här filen, bör du kunna se innehållet i filen med frågan som den som visas i följande exempel.
+Om filen är offentligt tillgänglig eller om din Azure AD-identitet har åtkomst till den här filen bör du se innehållet i filen med hjälp av frågan som visas i följande exempel.
 
 ### <a name="read-json-files"></a>Läsa JSON-filer
 

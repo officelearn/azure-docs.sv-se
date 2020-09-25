@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84142154"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325614"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Kostnadsmodell för Azure NetApp Files 
 
-Att förstå kostnads modellen för Azure NetApp Files hjälper dig att hantera dina utgifter från tjänsten.
+Att förstå kostnads modellen för Azure NetApp Files hjälper dig att hantera dina utgifter från tjänsten. 
+
+För kostnads modell som är speciell för replikering över flera regioner, se [kostnads modell för replikering över flera regioner](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ## <a name="calculation-of-capacity-consumption"></a>Beräkning av kapacitets förbrukning
 
@@ -61,6 +63,7 @@ Du kan öka eller minska storleken på poolen manuellt. Följande begränsningar
 * En 1-TiB-ökning efter det första inköpet av 4-TiB minimalt
 * En minsta fakturerings ökning på en timme
 * Den etablerade poolen kan inte minskas till mindre än den totala använda kapaciteten i poolen.
+* För kapacitets grupper med manuell QoS kan pool storleken bara minskas om storleken och tjänst nivån ger mer data flöde än det faktiska tilldelade data flödet för alla volymer.
 
 ## <a name="behavior-of-maximum-size-pool-overage"></a>Beteende för maximal storlek för poolen   
 
@@ -94,3 +97,4 @@ Kapacitets förbrukningen för ögonblicks bilder i Azure NetApp Files debiteras
 * [Sidan Azure NetApp Files prissättning](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Tjänstnivåer för Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Kostnads modell för replikering över flera regioner](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

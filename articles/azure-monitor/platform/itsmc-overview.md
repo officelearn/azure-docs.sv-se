@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325329"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325767"
 ---
-# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med hjälp av Hantering av IT-tjänster (ITSM)
+# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
 ![Anslutningsprogram för hantering av IT-tjänster (ITSM) symbol](media/itsmc-overview/itsmc-symbol.png)
 
@@ -114,8 +114,8 @@ Med åtgärds grupper får du ett modulärt och återanvändbart sätt att utlö
 
 Följ dessa steg:
 
-1. Klicka på **övervaka**i Azure Portal.
-2. I den vänstra rutan klickar du på **Åtgärds grupper**. Fönstret **Lägg till åtgärds grupp** visas.
+1. Klicka på  **övervaka**i Azure Portal.
+2. I den vänstra rutan klickar du på  **Åtgärds grupper**. Fönstret **Lägg till åtgärds grupp** visas.
 
     ![Åtgärdsgrupper](media/itsmc-overview/action-groups.png)
 
@@ -137,6 +137,10 @@ När du skapar/redigerar en regel för Azure-avisering använder du en åtgärds
 > [!NOTE]
 >
 > Information om prissättning av ITSM-åtgärder finns på [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) för åtgärds grupper.
+
+> [!NOTE]
+>
+> Fältet kort beskrivning i varnings regel definitionen är begränsat till 40 tecken när det skickas med ITSM-åtgärden.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualisera och analysera incidenter och data för ändringsbegäran
@@ -228,7 +232,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Planerat slutdatum
 - Start datum för arbete
 - Slutdatum för arbete
-- Beskrivning
+- Description
 - Dator
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Utdata för en ServiceNow-incident
@@ -247,7 +251,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | AssignedTo_s | Tilldelad  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
-| Description_s|  Obs! |
+| Description_s|  Kommentarer |
 | CreatedDate_t|  Inleddes |
 | ClosedDate_t| stängd|
 | ResolvedDate_t|Matchat|
@@ -275,7 +279,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | PlannedEndDate_t  |   Planerat slutdatum |
 | WorkStartDate_t  | Verkligt start datum |
 | WorkEndDate_t | Verkligt slutdatum|
-| Description_s | Beskrivning |
+| Description_s | Description |
 | Dator  | Konfigurations objekt |
 
 
@@ -289,7 +293,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 2. Om data från ServiceNow inte kommer att synkroniseras till Log Analytics, se till att ServiceNow-instansen inte är i vilo läge. ServiceNow dev-instanser går ibland till ström spar läge när de är inaktiva under en längre tid. Annars kan du rapportera problemet.
 3. Om Log Analytics-aviseringar om brand, men arbets objekt inte skapas i ITSM-produkten eller om konfigurations objekt inte skapas/länkas till arbets objekt eller för någon annan allmän information, tittar du på följande platser:
-   -  ITSMC: lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen** med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
+   -  ITSMC: lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen**  med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
    - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*` ServiceDeskLog_CL `*` .
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325580"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -132,6 +132,12 @@ Azure NetApp Files stöder NFSv3 och NFSv 4.1. Du kan [skapa en volym](azure-net
 
 Du kan ange om rot kontot ska ha åtkomst till volymen eller inte genom att använda volymens export princip. Mer information finns i [Konfigurera export princip för en NFS-volym](azure-netapp-files-configure-export-policy.md) .
 
+### <a name="can-i-use-the-same-file-path-volume-creation-token-for-multiple-volumes"></a>Kan jag använda samma fil Sök väg (token för skapande av volym) för flera volymer?
+
+Ja, det kan du. Fil Sök vägen måste dock användas i antingen en annan prenumeration eller i en annan region.   
+
+Du kan till exempel skapa en volym som heter `vol1` . Och sedan skapar du en annan volym som också kallas `vol1` i en annan pool med kapacitet men i samma prenumeration och region. I det här fallet orsakar det ett fel när du använder samma volym namn `vol1` . Om du vill använda samma fil Sök väg måste namnet vara i en annan region eller prenumeration.
+
 ## <a name="smb-faqs"></a>Vanliga frågor och svar om SMB
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Vilka SMB-versioner stöds av Azure NetApp Files?
@@ -161,12 +167,6 @@ Azure NetApp Files stöder Windows Server 2008r2SP1-2019-versioner av Active Dir
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Varför visar det tillgängliga utrymmet på min SMB-klient inte den etablerade storleken?
 
 Den volym storlek som rapporteras av SMB-klienten är den maximala storlek som Azure NetApp Files volymen kan växa till. Storleken på Azure NetApp Files volymen som det visas på SMB-klienten reflekterar inte volymens kvot eller storlek. Du kan få Azure NetApp Files volym storlek eller kvot genom Azure Portal eller API: et.
-
-<!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1f3ec5b2b1c46b40c6f99836fc10778c98b59d4c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336147"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -74,7 +74,7 @@ I Azure Portal väljer du ditt lagrings konto. Om du vill definiera en ny CORS-r
 
 I följande tabell beskrivs varje CORS-inställning och de värden som används för att definiera regeln.
 
-|Inställningen  |Värde  | Beskrivning |
+|Inställning  |Värde  | Beskrivning |
 |---------|---------|---------|
 | **TILLÅTNA URSPRUNG** | **\*** | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `*` ges alla domäner åtkomst till lagringskontot. |
 | **TILLÅTNA METODER** | **Ta bort**, **Hämta**, **huvud**, **slå samman**, **anslå**, **alternativ**och **Placera** | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |

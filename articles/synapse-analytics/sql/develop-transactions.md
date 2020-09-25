@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288621"
 ---
 # <a name="use-transactions-in-sql-pool"></a>Använda transaktioner i SQL-pool
 
 Tips för att implementera transaktioner i SQL-poolen (informations lager) för att utveckla lösningar.
 
-## <a name="what-to-expect"></a>Vad som ska förväntas
+## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 Som förväntat stöder SQL-poolen transaktioner som en del av arbets belastningen för data lagret. Men för att säkerställa att SQL-poolens prestanda upprätthålls i skala är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln beskrivs skillnaderna och en lista över de andra.
 
@@ -29,7 +29,7 @@ Som förväntat stöder SQL-poolen transaktioner som en del av arbets belastning
 
 SQL-poolen implementerar syror-transaktioner. Isolerings nivån för transaktions stödet är som standard SKRIVSKYDDad.  Du kan ändra den för att läsa en ISOLERAd ÖGONBLICKs bild isolering genom att aktivera READ_COMMITTED_SNAPSHOT databas alternativ för en användar databas när du är ansluten till huvud databasen.  
 
-När den är aktive rad körs alla transaktioner i den här databasen under den SKRIVSKYDDade ÖGONBLICKs bild ISOLERINGen och inställningen Läs upp ej ALLOKERAd på sessions nivå kommer inte att ske. Se [Alter Database set Options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) för mer information.
+När den är aktive rad körs alla transaktioner i den här databasen under den SKRIVSKYDDade ÖGONBLICKs bild ISOLERINGen och inställningen Läs upp ej ALLOKERAd på sessions nivå kommer inte att ske. Se [Alter Database set Options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) för mer information.
 
 ## <a name="transaction-size"></a>Transaktions storlek
 En enda data ändrings transaktion är begränsad i storlek. Gränsen tillämpas per distribution. Den totala allokeringen kan därför beräknas genom att gränsen multipliceras med antalet distributioner. 
@@ -134,11 +134,11 @@ SELECT @xact_state AS TransactionState;
 
 Föregående kod ger följande fel meddelande:
 
-MSG 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: en transaktion i ett återställnings tillstånd återställs inte explicit före en DDL-, DML-eller SELECT-instruktion.
+MSG 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: en transaktion i ett återställnings tillstånd återställs inte uttryckligen före en DDL-, DML-eller SELECT-instruktion.
 
 Du får inte utdata från ERROR_ * functions.
 
-I SQL-poolen behöver koden ändras till något av följande:
+I SQL-poolen måste koden ändras till något av följande:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,21 +181,19 @@ Allt som har ändrats är att återställningen av transaktionen måste ske inna
 
 ## <a name="error_line-function"></a>Error_Line ()-funktionen
 
-Det är också värt att notera att SQL-poolen inte implementerar eller stöder funktionen ERROR_LINE (). Om du har det här i din kod måste du ta bort den för att vara kompatibel med SQL-poolen. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](develop-label.md) .
+Det är också värt att notera att SQL-poolen inte implementerar eller stöder funktionen ERROR_LINE (). Om du har den här funktionen i din kod måste du ta bort den för att vara kompatibel med SQL-poolen. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](develop-label.md) .
 
 ## <a name="use-of-throw-and-raiserror"></a>Använda THROW-och RAISERROR
 
 THROW är den mer moderna implementeringen för att generera undantag i SQL-poolen, men RAISERROR stöds också. Det finns några skillnader som är intressanta att betala.
 
-* Användardefinierade fel meddelande nummer får inte ligga inom intervallet 100 000-150 000 för THROW
+* Användardefinierade fel meddelande nummer får inte ligga i intervallet 100 000-150 000 för THROW
 * RAISERROR fel meddelanden åtgärdas med 50 000
 * Det finns inte stöd för användning av sys. Messages
 
 ## <a name="limitations"></a>Begränsningar
 
-SQL-poolen har några andra begränsningar som relaterar till transaktioner.
-
-Det här är skillnaderna:
+SQL-poolen har några andra begränsningar som relaterar till transaktioner. Det här är skillnaderna:
 
 * Inga distribuerade transaktioner
 * Inga kapslade transaktioner tillåts

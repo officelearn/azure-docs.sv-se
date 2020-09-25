@@ -1,6 +1,6 @@
 ---
 title: Optimera transaktioner för SQL-pool
-description: Lär dig hur du optimerar prestandan för transaktions koden i SQL-poolen (data lager) och minimerar risken för långa återställningar.
+description: Lär dig hur du optimerar prestandan för transaktions koden i SQL-poolen.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288655"
 ---
 # <a name="optimize-transactions-in-sql-pool"></a>Optimera transaktioner i SQL-poolen
 
@@ -23,7 +23,7 @@ Lär dig hur du optimerar prestandan för transaktions koden i SQL-poolen samtid
 
 ## <a name="transactions-and-logging"></a>Transaktioner och loggning
 
-Transaktioner är en viktig komponent i en Relations databas motor. SQL-poolen använder transaktioner under data ändringen. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste vara knutna till varandra i en enda atomisk enhet.
+Transaktioner är en viktig komponent i en Relations databas motor. SQL-poolen använder transaktioner under data ändringen. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste knytas ihop till en enda atomisk enhet.
 
 SQL-poolen genomför ändringar i databasen med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
 
@@ -68,7 +68,7 @@ CTAS och infoga... SELECT är både Mass inläsnings åtgärder. Båda påverkas
 
 | Primärt index | Läs in scenario | Loggnings läge |
 | --- | --- | --- |
-| Heap |Valfri |**Minimal** |
+| Heap |Alla |**Minimal** |
 | Grupperat index |Tom mål tabell |**Minimal** |
 | Grupperat index |Inlästa rader överlappar inte befintliga sidor i mål |**Minimal** |
 | Grupperat index |Inlästa rader överlappar befintliga sidor i målet |Fullständig |
@@ -84,7 +84,7 @@ Inläsning av data i en icke-tom tabell med ett grupperat index kan ofta innehå
 
 ## <a name="optimize-deletes"></a>Optimera borttagningar
 
-TA bort är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell eller partition är det ofta mer meningsfullt för `SELECT` de data som du vill behålla, vilket kan köras som en minimalt loggad åtgärd.  Om du vill välja data skapar du en ny tabell med [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  När du har skapat använder du [rename](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att byta ut den gamla tabellen med den tabell som skapats nyligen.
+TA bort är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell eller partition är det ofta mer meningsfullt för `SELECT` de data som du vill behålla, vilket kan köras som en minimalt loggad åtgärd.  Om du vill välja data skapar du en ny tabell med [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  När du har skapat använder du [rename](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) för att byta ut den gamla tabellen med den tabell som skapats nyligen.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

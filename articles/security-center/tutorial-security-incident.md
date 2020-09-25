@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 08e04749eae7158abb501f9a4d127cdd7a89a391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336283"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -76,7 +76,7 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
    ![Aviserings information från incidenten](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-   Typen av varning kan variera. Läs [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) för mer information om typen av varning och potentiella åtgärder. För varningar som kan avfärdas säkert kan du högerklicka på varningen och välja alternativet **Stäng**:
+   Typen av varning kan variera. Läs [Förstå säkerhetsaviseringar i Azure Security Center](security-center-alerts-type.md) för mer information om typen av varning och potentiella åtgärder. För varningar som kan avfärdas säkert kan du högerklicka på varningen och välja alternativet **Stäng**:
 
    ![Varning](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 

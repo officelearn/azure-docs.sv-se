@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496244"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288315"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ I den här artikeln får du lära dig hur du skriver en fråga med SQL på begä
 
 ## <a name="quickstart-example"></a>Exempel på snabb start
 
-`OPENROWSET`funktionen gör att du kan läsa innehållet i Parquet-filen genom att ange URL: en till filen.
+`OPENROWSET` funktionen gör att du kan läsa innehållet i Parquet-filen genom att ange URL: en till filen.
 
 ### <a name="read-parquet-file"></a>Läs Parquet-fil
 
@@ -57,7 +57,7 @@ Om en data källa är skyddad med SAS-nyckel eller anpassad identitet kan du kon
 
 ### <a name="explicitly-specify-schema"></a>Ange ett schema explicit
 
-`OPENROWSET`med kan du uttryckligen ange vilka kolumner som du vill läsa från filen med hjälp av `WITH` satsen:
+`OPENROWSET` med kan du uttryckligen ange vilka kolumner som du vill läsa från filen med hjälp av `WITH` satsen:
 
 ```sql
 select top 10 *
@@ -182,7 +182,7 @@ Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabel
 | INT32 |INT (8, falskt) |tinyint |
 | INT32 |INT (16, falskt) |int |
 | INT32 |INT (32, falskt) |bigint |
-| INT32 |DATE |date |
+| INT32 |DATE |datum |
 | INT32 |DECIMAL |decimal |
 | INT32 |TID (MILLIS)|time |
 | INT64 |INT (64, sant) |bigint |

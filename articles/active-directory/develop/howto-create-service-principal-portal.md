@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265909"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
 
-Den här artikeln visar hur du skapar ett nytt Azure Active Directory (Azure AD)-program och tjänstens huvud namn som kan användas med rollbaserad åtkomst kontroll. När du har program, värdbaserade tjänster eller automatiserade verktyg som behöver åtkomst till eller ändra resurser, kan du skapa en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Åtkomst till resurser begränsas av de roller som är tilldelade till tjänstens huvud namn, vilket ger dig kontroll över vilka resurser som kan nås och på vilka nivåer. Av säkerhetsskäl rekommenderar vi att du alltid använder tjänstens huvudnamn med automatiserade verktyg i stället för att tillåta inloggning med en användaridentitet. 
+Den här artikeln visar hur du skapar ett nytt Azure Active Directory (Azure AD)-program och tjänstens huvud namn som kan användas med rollbaserad åtkomst kontroll. När du har program, värdbaserade tjänster eller automatiserade verktyg som behöver åtkomst till eller ändra resurser, kan du skapa en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Åtkomst till resurser begränsas av de roller som är tilldelade till tjänstens huvud namn, vilket ger dig kontroll över vilka resurser som kan nås och på vilka nivåer. Av säkerhetsskäl rekommenderar vi att du alltid använder tjänstens huvudnamn med automatiserade verktyg i stället för att tillåta inloggning med en användaridentitet.
 
 Den här artikeln visar hur du använder portalen för att skapa tjänstens huvud namn i Azure Portal. Den fokuserar på ett program med en enda klient där programmet är avsett att köras endast inom en organisation. Du använder vanligt vis program med en enda klient för branschspecifika program som körs i din organisation.  Du kan också [använda Azure PowerShell för att skapa ett huvud namn för tjänsten](howto-authenticate-service-principal-powershell.md).
 
@@ -129,12 +129,13 @@ När du har loggat in via programmering måste du skicka klient-ID: t med din au
 
    ![Kopiera program-ID: t (klient)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>Ladda upp ett certifikat eller skapa en hemlighet för inloggning
-Det finns två typer av autentisering för tjänstens huvud namn: lösenordsbaserad autentisering (program hemlighet) och certifikatbaserad autentisering.  Vi rekommenderar att du använder ett certifikat, men du kan också skapa en ny program hemlighet.
+## <a name="authentication-two-options"></a>Autentisering: två alternativ
 
-### <a name="upload-a-certificate"></a>Ladda upp ett certifikat
+Det finns två typer av autentisering för tjänstens huvud namn: lösenordsbaserad autentisering (program hemlighet) och certifikatbaserad autentisering. *Vi rekommenderar att du använder ett certifikat*, men du kan också skapa en program hemlighet.
 
-Du kan använda ett befintligt certifikat om du har ett.  Alternativt kan du bara skapa ett självsignerat certifikat för *testning*. Om du vill skapa ett självsignerat certifikat öppnar du PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa certifikatet i användar certifikat arkivet på datorn: 
+### <a name="option-1-upload-a-certificate"></a>Alternativ 1: Ladda upp ett certifikat
+
+Du kan använda ett befintligt certifikat om du har ett.  Alternativt kan du bara skapa ett självsignerat certifikat för *testning*. Om du vill skapa ett självsignerat certifikat öppnar du PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa certifikatet i användar certifikat arkivet på datorn:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ För att ladda upp certifikatet:
 
 När du har registrerat certifikatet med ditt program i program registrerings portalen måste du aktivera klient program koden för att använda certifikatet.
 
-### <a name="create-a-new-application-secret"></a>Skapa en ny programhemlighet
+### <a name="option-2-create-a-new-application-secret"></a>Alternativ 2: skapa en ny program hemlighet
 
 Om du väljer att inte använda ett certifikat kan du skapa en ny program hemlighet.
 
@@ -178,14 +179,15 @@ Om du väljer att inte använda ett certifikat kan du skapa en ny program hemlig
    ![Kopiera det hemliga värdet eftersom du inte kan hämta det senare](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Konfigurera åtkomst principer för resurser
-Kom ihåg att du kan behöva konfigurera ytterligare behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.  
+Kom ihåg att du kan behöva konfigurera ytterligare behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt nyckel valv och väljer **åtkomst principer**.  
+1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt nyckel valv och väljer **åtkomst principer**.
 1. Välj **Lägg till åtkomst princip**och välj sedan de nyckel-, hemlighet-och certifikat behörigheter som du vill ge ditt program.  Välj tjänstens huvud namn som du skapade tidigare.
 1. Välj **Lägg** till för att lägga till åtkomst principen och spara för att **Spara** ändringarna.
     ![Lägg till åtkomst princip](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [använder Azure PowerShell för att skapa ett huvud namn för tjänsten](howto-authenticate-service-principal-powershell.md).
-* Information om hur du anger säkerhets principer finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
+* Information om hur du anger säkerhets principer finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * En lista över tillgängliga åtgärder som kan beviljas eller nekas till användare finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md).
+* Information om hur du arbetar med app-registreringar med hjälp av **Microsoft Graph**finns i API-referens för [program](/graph/api/resources/application) .

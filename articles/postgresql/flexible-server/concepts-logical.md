@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fd0826ad11a153d72ee47f35930d25f0df498418
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: dd7aed0d23dd657b655e473565611ef36c592562
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336334"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Logisk replikering och logisk avkodning i Azure Database for PostgreSQL-flexibel Server
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL-flexibel Server är i för hands version
 
-PostgreSQL för logisk replikering och logisk avkodning stöds i Azure Database for PostgreSQL-flexibel Server.
+PostgreSQL för logiska replikering och logiska avkodning stöds i Azure Database for PostgreSQL-flexibel Server, för postgres version 11.
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Jämföra logisk replikering och logisk avkodning
 Logisk replikering och logisk avkodning har flera likheter. Båda
@@ -43,7 +43,11 @@ Logisk avkodning
 1. Ange server parametern `wal_level` till `logical` .
 2. Starta om servern för att tillämpa `wal_level` ändringen.
 3. Bekräfta att PostgreSQL-instansen tillåter nätverks trafik från din anslutande resurs.
-4. Använd administratörs användaren när du kör replikerings kommandon.
+4. Bevilja behörighet för administratörs användare.
+   ```SQL
+   ALTER ROLE <adminname> WITH REPLICATION;
+   ```
+
 
 ## <a name="using-logical-replication-and-logical-decoding"></a>Använda logisk replikering och logisk avkodning
 
@@ -54,7 +58,7 @@ Logisk replikering använder villkoren "utgivare" och "prenumerant".
 
 Här är en exempel kod som du kan använda för att testa logisk replikering.
 
-1. Anslut till utgivaren. Skapa en tabell och Lägg till data.
+1. Anslut till utgivar databasen. Skapa en tabell och Lägg till data.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    INSERT INTO basic(name) VALUES ('apple');
@@ -66,14 +70,14 @@ Här är en exempel kod som du kan använda för att testa logisk replikering.
    CREATE PUBLICATION pub FOR TABLE basic;
    ```
 
-3. Anslut till prenumeranten. Skapa en tabell med samma schema som utgivaren.
+3. Anslut till prenumerantens databas. Skapa en tabell med samma schema som utgivaren.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    ```
 
 4. Skapa en prenumeration som kommer att ansluta till publikationen du skapade tidigare.
    ```SQL
-   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
 
 5. Nu kan du fråga tabellen på prenumeranten. Du kommer att se att den har tagit emot data från utgivaren.
@@ -170,8 +174,9 @@ SELECT * FROM pg_replication_slots;
 
 [Ange aviseringar](howto-alert-on-metrics.md) för **högsta använda transaktions-ID** och **lagrings utrymme som används** med flexibla Server mått för att meddela dig när värdena ökar de tidigare normala tröskelvärdena. 
 
-## <a name="read-replicas"></a>Skrivskyddade repliker
-Azure Database for PostgreSQL Läs repliker stöds för närvarande inte för flexibla servrar.
+## <a name="limitations"></a>Begränsningar
+* **Läs repliker** – Azure Database for PostgreSQL Läs repliker stöds för närvarande inte för flexibla servrar.
+* **Platser och ha redundans** – logiska replikerings-platser på den primära servern är inte tillgängliga på vänte läges servern i din sekundära AZ. Detta gäller om servern använder det alternativ för zon-redundant hög tillgänglighet. I händelse av redundansväxling till standby-servern är inte logiska replikerings platser tillgängliga i vänte läge.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [nätverks alternativ](concepts-networking.md)

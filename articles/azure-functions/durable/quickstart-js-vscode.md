@@ -1,17 +1,17 @@
 ---
 title: Skapa din första beständiga funktion i Azure med hjälp av JavaScript
-description: Skapa och publicera en beständig Azure-funktion med hjälp av Visual Studio Code.
+description: Skapa och publicera en Azure-beständig funktion i Java Script med Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7614cec43fd9b2f294a04ed266cb0614f6cde872
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291833"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335457"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -21,7 +21,7 @@ I den här artikeln får du lära dig hur du använder Azure Functions-tillägge
 
 ![Köra beständiga funktioner i Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -186,7 +186,7 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:`http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. Du bör få samma statussvar som förut när du använder den publicerade appen.
 

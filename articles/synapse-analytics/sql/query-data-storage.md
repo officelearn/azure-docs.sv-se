@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288383"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Fråga Storage-filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL
 
@@ -52,7 +52,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 
 Granska artikeln [query Parquet-filer](query-parquet-files.md) för användnings exempel.
 
-## <a name="query-csv-files"></a>Fråga CSV-filer
+## <a name="query-csv-files"></a>Köra frågor mot CSV-filer
 
 Om du vill fråga CSV-källdata använder du FORMAT = CSV. Du kan ange schemat för CSV-filen som en del av `OPENROWSET` funktionen när du frågar CSV-filer:
 
@@ -264,7 +264,7 @@ Demonstrations data innehåller följande data uppsättningar:
 
 Mer information om hur du frågar olika filtyper och hur du skapar och använder vyer finns i följande artiklar:
 
-- [Fråga CSV-filer](query-single-csv-file.md)
+- [Köra frågor mot CSV-filer](query-single-csv-file.md)
 - [Efterfråga Parquet-filer](query-parquet-files.md)
 - [Efterfråga JSON-filer](query-json-files.md)
 - [Fråga efter kapslade värden](query-parquet-nested-types.md)

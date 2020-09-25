@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: skapa ett program för Store Locator med Azure Maps | Microsoft Azure Maps'
-description: Lär dig hur du skapar webb program för Store Locator. Använd Azure Maps Web SDK för att skapa en webb sida, fråga Sök tjänsten och Visa resultat på en karta.
+description: Själv studie kurs om hur du skapar webb program för Store Locator. Använd Azure Maps Web SDK för att skapa en webb sida, fråga Sök tjänsten och Visa resultat på en karta.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085322"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335270"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
 Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här guiden får du lära dig att:
-    
+
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:et Azure Kartkontroll.
 > * Läs in anpassade data från en fil och visa dem på en karta.
@@ -924,34 +924,21 @@ Om du ändrar storlek på webbläsarfönstret till mindre än 700 bildpunkter el
 
 ![Skärmbild av butikslokaliserarversionen för små skärmar](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+I den här självstudien har du lärt dig hur du skapar en grundläggande Store-lokaliserare med hjälp av Azure Maps. Butikslokaliseraren som du skapar i den här självstudien kanske har alla funktioner som du behöver. Du kan lägga till funktioner till butikslokaliseraren eller använda mer avancerade funktioner för en mer anpassad användarupplevelse: 
+
+ * Aktivera [förslag medan du skriver](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) i sökrutan.  
+ * Lägg till [stöd för flera språk](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+ * Tillåt att användaren [filtrerar på platser längs en väg](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+ * Lägg till möjligheten att [ange filter](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+ * Lägg till stöd för att ange ett inledande sökvärde med hjälp av en frågesträng. När du inkluderar det här alternativet i butikslokaliseraren kan du skapa bokmärken och dela sökningar. Det ger också ett enkelt sätt att skicka sökningar till den här sidan från en annan sida.  
+ * Distribuera din butikslokaliserare som en [Azure App Service-webbapp](https://docs.microsoft.com/azure/app-service/quickstart-html). 
+ * Lagra dina data i en databas och sök efter närliggande ställen. Mer information finns i [översikten över rumsliga data för SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) och [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true) (Fråga rumsliga data efter den närmaste grannen).
+
+Du kan [Visa fullständig källkod](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [Visa Live-exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) och lära dig mer om täckningen och funktionerna i Azure Maps med hjälp av [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md). Du kan också [använda data drivna format uttryck](data-driven-style-expressions-web-sdk.md) för din affärs logik.
+
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudien får lära du att skapa en grundläggande butikslokaliserare med hjälp av Azure Maps. Butikslokaliseraren som du skapar i den här självstudien kanske har alla funktioner som du behöver. Du kan lägga till funktioner till butikslokaliseraren eller använda mer avancerade funktioner för en mer anpassad användarupplevelse: 
-
-> [!div class="checklist"]
-> * Aktivera [förslag medan du skriver](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) i sökrutan.  
-> * Lägg till [stöd för flera språk](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Tillåt att användaren [filtrerar på platser längs en väg](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-> * Lägg till möjligheten att [ange filter](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Lägg till stöd för att ange ett inledande sökvärde med hjälp av en frågesträng. När du inkluderar det här alternativet i butikslokaliseraren kan du skapa bokmärken och dela sökningar. Det ger också ett enkelt sätt att skicka sökningar till den här sidan från en annan sida.  
-> * Distribuera din butikslokaliserare som en [Azure App Service-webbapp](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Lagra dina data i en databas och sök efter närliggande ställen. Mer information finns i [översikten över rumsliga data för SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) och [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor) (Fråga rumsliga data efter den närmaste grannen).
-
-> [!div class="nextstepaction"]
-> [Visa fullständig käll kod](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [Visa Live-exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-Mer information om täckning och funktionerna i Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md)
 
 Fler kodexempel och en interaktiv kodupplevelse:
 
 > [!div class="nextstepaction"]
 > [Använda kart kontrollen](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Använda datadrivna formatuttryck](data-driven-style-expressions-web-sdk.md)

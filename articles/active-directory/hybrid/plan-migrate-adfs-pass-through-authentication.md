@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661897"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335977"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från Federation till direktautentisering för Azure Active Directory
 
@@ -283,9 +283,9 @@ Nästa. distribuera ytterligare autentiseringsmetoder:
 
 4. Kör installations agenten för autentisering. Under installationen måste du ange autentiseringsuppgifterna för ett globalt administratörs konto.
 
-   ![Skärm bild som visar knappen Installera på sidan Microsoft Azure AD Connect Authentication agent Package](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Skärm bild som visar knappen Installera som du använder för att köra Microsoft Azure AD Connect Authentication agent-paketet.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![Skärm bild som visar inloggnings Sidan](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Skärm bild som visar Microsoft-inloggnings sidan.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. När du har installerat Authentication agent kan du gå tillbaka till sidan hälso tillstånd för direktautentisering för att kontrol lera statusen för de ytterligare agenterna.
 
@@ -327,7 +327,7 @@ Börja med att aktivera direktautentisering:
    * **Sömlös enkel inloggning** har angetts till **aktive rad**.
    * **Direktautentisering** är inställt på **aktive rad**.
    
-   ![Skärm bild som visar inställningarna i användar inloggnings avsnittet](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![Skärm bild som visar de inställningar som ska verifieras i användar inloggnings avsnittet.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Välj **direktautentisering** och kontrol lera att statusen är **aktiv**.<br />
    
    Om Autentiseringstjänsten inte är aktiv slutför du vissa [fel söknings steg](./tshoot-connect-pass-through-authentication.md) innan du fortsätter med domän konverteringen i nästa steg. Du riskerar att orsaka autentiserings avbrott om du konverterar dina domäner innan du verifierar att dina direktautentisering har installerats och att deras status är **aktiv** i Azure Portal.
@@ -368,7 +368,7 @@ Slutför konverteringen med hjälp av Azure AD PowerShell-modulen:
    * **Sömlös enkel inloggning** har angetts till **aktive rad**.
    * **Direktautentisering** är inställt på **aktive rad**.<br />
 
-   ![Skärm bild som visar inställningarna i användar inloggnings avsnittet](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Skärm bild som visar inställningarna i avsnittet användar inloggning i Azure AD-portalen.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>Testning och nästa steg
 

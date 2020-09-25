@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336045"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Windows-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
@@ -77,7 +77,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](/cli/azure/ext/vm-rep
 3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts. Resurs gruppen och det virtuella dator namnet som används i alla steg är för den icke-funktionella virtuella datorn. Om den virtuella datorn använder Azure Disk Encryption försöker kommandot låsa upp den krypterade disken så att den är tillgänglig när den kopplas till den virtuella reparations datorn.
 
    ```azurecli-interactive
-   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
+   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
 4. Kör `az vm repair run`. Det här kommandot kommer att köra det angivna reparations skriptet på den anslutna disken via den virtuella reparations datorn. Om fel söknings guiden som du använder har angett ett kör-ID ska du använda den här, annars kan du använda `az vm repair list-scripts` för att se tillgängliga reparations skript. Resurs gruppen och det virtuella dator namnet används här för den icke-funktionella virtuella datorn som användes i steg 3.

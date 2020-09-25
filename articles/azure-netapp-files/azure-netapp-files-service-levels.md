@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 09/22/2019
 ms.author: b-juche
-ms.openlocfilehash: 639f1e09fdb5603965209e5b5ee6c224ad238b76
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 818b3b59b1113875b6486ffe64bc8d2d30d613d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325476"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Tjänstnivåer för Azure NetApp Files
 Service nivåer är ett attribut för en pool med kapacitets värden. Service nivåer definieras och särskiljs av det tillåtna maximala data flödet för en volym i kapacitetsutnyttjandet baserat på den kvot som har tilldelats till volymen.
@@ -30,29 +30,47 @@ Azure NetApp Files stöder tre service nivåer: *Ultra*, *Premium*och *standard*
 
 * <a name="Ultra"></a>Ultra Storage
 
-    Den ultra lagrings nivån ger upp till 128 MiB/s av data flöde per 1 TiB volym kvot tilldelad. 
+    Ultra Storage-nivån ger upp till 128 MiB/s data flöde per 1 TiB med kapacitet. 
 
 * <a name="Premium"></a>Premium-lagring
 
-    Premium Storage-nivån ger upp till 64 MiB/s av data flöde per 1 TiB volym kvot tilldelad. 
+    Premium Storage-nivån ger upp till 64 MiB/s genom strömning per 1 TiB kapacitet. 
 
 * <a name="Standard"></a>Standard lagring
 
-    Standard lagrings nivån ger upp till 16 MiB/s med data flöde per 1 TiB volym kvot tilldelad.
+    Standard lagrings nivån ger upp till 16 MiB/s genom strömning per 1 TiB kapacitet.
 
 ## <a name="throughput-limits"></a>Dataflödesbegränsningar
 
 Data flödes gränsen för en volym bestäms av kombinationen av följande faktorer:
 * Service nivå för den kapacitets pool som volymen tillhör
 * Kvoten som tilldelats volymen  
+* QoS-typen (*Auto* eller *manuell*) för kapacitets gruppen  
 
-Det här konceptet illustreras i diagrammet nedan:
+### <a name="throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool"></a>Data flödes gräns exempel på volymer i en pool med automatisk QoS-kapacitet
+
+Diagrammet nedan visar exempel på data flödes gränser för volymer i en pool med automatisk QoS-kapacitet:
 
 ![Bild på service nivå](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-I exempel 1 ovan tilldelas en volym från en kapacitets pool med Premium Storage-nivån som tilldelas 2 TiB kvoten en data flödes gräns på 128 MiB/s (2 TiB * 64 MiB/s). Det här scenariot gäller oavsett storleken på kapacitets gruppen eller den faktiska volym förbrukningen.
+* I exempel 1 ovan tilldelas en volym från en pool med automatisk QoS-kapacitet med Premium Storage-nivån som tilldelas 2 TiB kvoten en data flödes gräns på 128 MiB/s (2 TiB * 64 MiB/s). Det här scenariot gäller oavsett storleken på kapacitets gruppen eller den faktiska volym förbrukningen.
 
-I exempel 2 ovan tilldelas en volym från en kapacitets pool med Premium Storage-nivån som tilldelas 100 GiB av kvoten en data flödes gräns på 6,25 MiB/s (0,09765625 TiB * 64 MiB/s). Det här scenariot gäller oavsett storleken på kapacitets gruppen eller den faktiska volym förbrukningen.
+* I exempel 2 ovan tilldelas en volym från en pool med automatisk QoS-kapacitet med Premium Storage-nivån som tilldelas 100 GiB av kvoten en data flödes gräns på 6,25 MiB/s (0,09765625 TiB * 64 MiB/s). Det här scenariot gäller oavsett storleken på kapacitets gruppen eller den faktiska volym förbrukningen.
+
+### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>Data flödes gräns exempel på volymer i en manuell pool för QoS-kapacitet 
+
+Om du använder en manuell pool för QoS-kapacitet kan du tilldela kapaciteten och data flödet för en volym oberoende av varandra. När du skapar en volym i en manuell pool för QoS-kapacitet kan du ange data flöde (MiB/S)-värdet. Det totala data flödet som tilldelats volymer i en manuell QoS-kapacitet beror på Poolens storlek och på tjänst nivå. Det är ett tak av (storleken på TiB x service nivå genom strömning/TiB). Till exempel har en pool med 10 TiB-kapacitet med Ultra service-nivå en total data flödes kapacitet på 1280 MiB/s (10 TiB x 128 MiB/s/TiB) tillgängliga för volymerna.
+
+För ett SAP HANA system kan den här kapacitets poolen användas för att skapa följande volymer. Varje volym ger en individuell storlek och data flöde som uppfyller dina program krav:
+
+* SAP HANA data volym: storlek 4 TB med upp till 704 MiB/s
+* SAP HANA logg volym: storlek 0,5 TB med upp till 256 MiB/s
+* SAP HANA delad volym: storlek 1 TB med upp till 64 MiB/s
+* SAP HANA säkerhets kopierings volym: storlek 4,5 TB med upp till 256 MiB/s
+
+Diagrammet nedan visar scenarier för SAP HANA volymer:
+
+![QoS-SAP HANA volym scenarier](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -61,3 +79,4 @@ I exempel 2 ovan tilldelas en volym från en kapacitets pool med Premium Storage
 - [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
 - [Serviceavtal (SLA) för Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Ändra tjänstnivå för en volym dynamiskt](dynamic-change-volume-service-level.md) 
+- [Service nivå mål för replikering över flera regioner](cross-region-replication-introduction.md#service-level-objectives)

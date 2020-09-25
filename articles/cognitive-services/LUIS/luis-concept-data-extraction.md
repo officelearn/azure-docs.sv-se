@@ -1,15 +1,17 @@
 ---
 title: Data extrahering – LUIS
 description: Extrahera data från uttryck text med avsikter och entiteter. Lär dig vilken typ av data som kan extraheras från Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c69971b36bf945086d1a8f398043444071acea5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324832"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att hämta information från en användares naturliga språk yttranden. Informationen extraheras på ett sätt som kan användas av ett program, program eller en chatt-robot för att vidta åtgärder. I följande avsnitt lär du dig vilka data som returneras från avsikter och entiteter med exempel på JSON.
@@ -192,7 +194,7 @@ Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 * * *
 
-|Domain|Data objekt|Datatyp|Dataplats|Värde|
+|Domän|Data objekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|--|
 |Verktyg|Avsikt|Sträng|avsikter [0]. avsikt|"<b>Verktyg</b>. ShowNext"|
 |Kommunikation|Avsikt|Sträng|avsikter [1]. avsikt|<b>Kommunikation</b>. StartOver"|
@@ -247,7 +249,7 @@ Vissa appar måste kunna hitta nya och nya namn, till exempel produkter eller f�
 
 [Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar. Entiteten som används i mönstret måste hittas för att mönstret ska kunna användas.
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 Om sentiment-analysen konfigureras vid [publiceringen](luis-how-to-publish-app.md#sentiment-analysis)innehåller Luis JSON-svaret sentiment analys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.
 
 ## <a name="key-phrase-extraction-entity-data"></a>Nyckel fras extrahering av enhets data

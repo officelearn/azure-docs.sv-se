@@ -1,7 +1,7 @@
 ---
 title: Diagnostisera ett problem med Routning av VM-nätverk – Azure CLI
 titleSuffix: Azure Network Watcher
-description: I den här artikeln får du lära dig hur du diagnostiserar ett problem med nätverks routning i en virtuell dator med hjälp av nästa hopp funktion i Azure Network Watcher.
+description: I den här artikeln får du lära dig hur du använder Azure CLI för att diagnostisera ett problem med nätverks routning i en virtuell dator med hjälp av nästa hopp funktion i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -17,22 +17,22 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 889db5cdcb1807b859339eaf326e3cec7ea64b84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738825"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302289"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostisera ett problem med nätverks routning för virtuella datorer – Azure CLI
 
 I den här artikeln distribuerar du en virtuell dator (VM) och kontrollerar sedan kommunikationen med en IP-adress och URL. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör Azure CLI-version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). När du har kontrollerat Azure CLI-versionen kör `az login` du för att skapa en anslutning till Azure. Azure CLI-kommandona i den här artikeln är formaterade för att köras i ett bash-gränssnitt.
+Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör Azure CLI-version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). När du har kontrollerat Azure CLI-versionen kör `az login`  du för att skapa en anslutning till Azure. Azure CLI-kommandona i den här artikeln är formaterade för att köras i ett bash-gränssnitt.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 

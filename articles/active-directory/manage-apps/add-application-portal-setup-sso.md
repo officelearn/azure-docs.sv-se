@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Konfigurera enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient'
-description: Den här snabb starten vägleder dig genom processen med att konfigurera enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient.
+title: 'Snabb start: Konfigurera SAML-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient'
+description: Den här snabb starten vägleder dig genom processen att konfigurera SAML-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 040cc2dfa48f24fff4c7dda2cb6010efb01e9b86
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305791"
 ---
-# <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: Konfigurera enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient
+# <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: Konfigurera SAML-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient
 
 Kom igång med förenklade användar inloggningar genom att konfigurera enkel inloggning (SSO) för ett program som du har lagt till i din Azure Active Directory (Azure AD)-klient. När du har konfigurerat SSO kan användarna logga in i ett program genom att använda sina autentiseringsuppgifter för Azure AD. SSO ingår i den kostnads fria versionen av Azure AD.
 
@@ -38,7 +37,6 @@ Om du vill konfigurera SSO för ett program som du har lagt till i din Azure AD-
 >[!IMPORTANT]
 >Använd en icke-produktions miljö för att testa stegen i den här snabb starten.
 
-
 ## <a name="enable-single-sign-on-for-an-app"></a>Aktivera enkel inloggning för en app
 
 När du har lagt till ett program i Azure AD-klienten visas sidan Översikt. Om du konfigurerar ett program som redan har lagts till tittar du på den första snabb starten. Den vägleder dig genom att visa de program som har lagts till i din klient organisation. 
@@ -47,6 +45,9 @@ Så här konfigurerar du enkel inloggning för ett program:
 
 1. I Azure AD-portalen väljer du **företags program**. Hitta och välj sedan det program som du vill konfigurera för enkel inloggning.
 1. I avsnittet **Hantera** väljer du **enkel inloggning** för att öppna fönstret **enkel inloggning** för redigering.
+
+    > [!IMPORTANT]
+    > Om appen använder OpenID Connect (OIDC)-standarden för SSO visas inget alternativ för enkel inloggning i navigeringen. Läs snabb starten för OIDC-baserad SSO för att lära dig hur du konfigurerar den.
 
     :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Skärm bild som visar konfigurations sidan för enkel inloggning i Azure AD-portalen.":::
 
@@ -60,7 +61,6 @@ Så här konfigurerar du enkel inloggning för ett program:
     > Mer information om alternativen för SAML-konfiguration finns i [Konfigurera SAML-baserad enkel inloggning](configure-saml-single-sign-on.md).
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Skärm bild som visar alternativet för enkel inloggning i Enterprise-prenumerationen på prissättnings sidan för GitHub.":::
-
 
 > [!TIP]
 > Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).

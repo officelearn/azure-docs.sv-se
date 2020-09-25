@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305683"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ett nät för automatisk användar etablering
 
@@ -126,7 +126,7 @@ Gör så här för att konfigurera automatisk användar etablering för nät i A
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. I rutan **klient webb adress** anger du **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
+   a. I rutan **klient webb adress** anger du **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . Du kan hämta ditt konto-ID för ditt nät från webb adressen i webbläsaren när du är inloggad i ett nät.
    b. I rutan **hemlig token** anger du värdet för scim-autentisering som du sparade i steg 6 i avsnittet "Konfigurera ett nät för etablering".  
    c. Välj **Testa anslutning** för att se till att Azure AD kan ansluta till nätet. Om anslutningen Miss lyckas kontrollerar du att ditt konto för ditt konto har *Administratörs* behörighet och försöker sedan igen.
 
@@ -160,7 +160,7 @@ Gör så här för att konfigurera automatisk användar etablering för nät i A
 
 1. Under **Inställningar**i list rutan **omfattning** väljer du hur du vill synkronisera de användare eller grupper som du håller på att tillhandahålla.
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 1. När du är redo att etablera väljer du **Spara**.
 
@@ -173,8 +173,8 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

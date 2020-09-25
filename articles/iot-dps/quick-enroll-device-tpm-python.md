@@ -1,5 +1,5 @@
 ---
-title: Registrera TPM-enhet på Azure Device Provisioning-tjänsten med python
+title: Snabb start – registrera TPM-enhet på Azure Device Provisioning-tjänsten med python
 description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med hjälp av python-etablerings tjänstens SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: dd34806cbfeeccadbaac247a9ea4d019cc22fc57
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 96bd1e85de45ac36515580025dfc392e931643f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876418"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323771"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med hjälp av python Provisioning service SDK
 

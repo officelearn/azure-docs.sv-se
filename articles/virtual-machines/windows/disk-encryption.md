@@ -2,18 +2,18 @@
 title: Kryptering på Server sidan av Azure Managed Disks – PowerShell
 description: Azure Storage skyddar dina data genom att kryptera dem i vila innan du sparar dem i lagrings kluster. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina hanterade diskar, eller så kan du använda Kundhanterade nycklar för att hantera kryptering med dina egna nycklar.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815597"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274783"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Kryptering på Server sidan av Azure-disklagring för PowerShell
 
@@ -47,6 +47,10 @@ För närvarande har Kundhanterade nycklar följande begränsningar:
 - Om den här funktionen är aktive rad för disken kan du inte inaktivera den.
     Om du behöver kringgå detta måste du [Kopiera alla data](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) till en helt annan hanterad disk som inte använder Kundhanterade nycklar.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>Regioner som stöds
+
+Kundhanterade nycklar är tillgängliga i alla regioner som Managed disks är tillgängliga.
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Kryptering vid värd-slutpunkt-till-slutpunkt-kryptering för dina VM-data
 

@@ -3,7 +3,7 @@ title: Översikt över ett Oracle Disaster Recovery-scenario i Azure-miljön | M
 description: Ett katastrof återställnings scenario för en Oracle Database 12C-databas i din Azure-miljö
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 6d1c7a48332aa49bc5c506ceeae287bc3affef16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.openlocfilehash: 5a162c0683a953399b48aaf627bbff5bc674e9dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274569"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö
 

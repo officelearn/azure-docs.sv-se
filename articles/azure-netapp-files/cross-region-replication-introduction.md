@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: e7d424435c29eb3e7a6779a7036816a7bedd2085
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90709046"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278302"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replikering mellan regioner av Azure NetApp Files volymer
 
@@ -45,6 +45,7 @@ Azure NetApp Files Volume Replication är för närvarande tillgänglig i följa
 * Japan, östra och Japan, väst
 * Storbritannien, södra och Tyskland, västra centrala
 * Sydostasien och östra Australien
+* Centrala Indien och södra Indien
 
 ## <a name="service-level-objectives"></a>Mål på service nivå
 
@@ -110,10 +111,10 @@ Vanlig Azure NetApp Files lagrings kapacitet för månad 2 gäller för mål vol
 
 ## <a name="next-steps"></a>Nästa steg
 * [Krav och överväganden för att använda replikering över flera regioner](cross-region-replication-requirements-considerations.md)
-* [Skapa replikerings-peering](cross-region-replication-create-peering.md)
-* [Visa hälso status för replikeringsrelation](cross-region-replication-display-health-status.md)
+* [Skapa replikeringspeering](cross-region-replication-create-peering.md)
+* [Visa hälsostatus för replikeringsrelation](cross-region-replication-display-health-status.md)
 * [Hantera haveriberedskap](cross-region-replication-manage-disaster-recovery.md)
 * [Mått för volym replikering](azure-netapp-files-metrics.md#replication)
-* [Felsöka replikering över flera regioner](troubleshoot-cross-region-replication.md)
+* [Felsöka replikering mellan regioner](troubleshoot-cross-region-replication.md)
 
 

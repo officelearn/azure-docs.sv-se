@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 751fbbb83f1ccb75cb84453f8c03296f6d1a786c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647826"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275787"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Validering av avbildning av virtuella Azure-datorer
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du testar och skickar en virtuell dator avbildni
 
 Slutför de här stegen innan du skickar ditt virtuella dator erbjudande:
 
-- Distribuera en virtuell Azure-dator med hjälp av din generaliserade avbildning.
+- Distribuera en virtuell Azure-dator med hjälp av din generaliserade avbildning. Mer information om [generaliserade avbildningar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image)finns här.
 - Köra valideringar.
 
 ## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Distribuera en virtuell Azure-dator med hjälp av din generaliserade avbildning
@@ -599,7 +599,9 @@ När det automatiserade testet har slutförts, anger du ytterligare information 
 
 På den sista skärmen kan du ange mer information, till exempel SSH Access-information för en virtuell Linux-avbildning och en förklaring till eventuella misslyckade utvärderingar om du söker efter undantag.
 
-Välj slutligen skapa rapport för att ladda ned test resultaten och loggfilerna för de test ärenden som körts, tillsammans med dina svar till enkäten. Spara resultatet i samma behållare som dina virtuella hård diskar.
+Välj slutligen skapa rapport för att ladda ned test resultaten och loggfilerna för de test ärenden som körts, tillsammans med dina svar till enkäten. 
+> [!Note]
+> Några utgivare har scenarier där virtuella datorer måste låsas eftersom de har program vara, till exempel brand väggar som är installerade på den virtuella datorn. I det här fallet kan utgivare Ladda ned det [certifierade testverktyget](https://aka.ms/AzureCertificationTestTool) här och tillhandahålla rapporten på [Marketplace Publisher-support](https://aka.ms/marketplacepublishersupport)
 
 ## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Hur du använder PowerShell för att använda API: et för självtest
 

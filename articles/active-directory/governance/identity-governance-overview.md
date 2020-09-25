@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460822"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306471"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -46,7 +46,7 @@ Identitets styrning hjälper organisationer att få en balans mellan *produktivi
 
 ![Identitets livs cykel](./media/identity-governance-overview/identity-lifecycle.png)
 
-För många organisationer är identitets livs cykeln för anställda knuten till åter givning av användaren i ett HCM-system (Human kapitalet Management).  Azure AD Premium hanterar automatiskt användar identiteter för personer som representeras i Workday i både Active Directory och Azure Active Directory, enligt beskrivningen i [självstudien om inkommande etablering för arbets dagar](../saas-apps/workday-inbound-tutorial.md).  Azure AD Premium innehåller även [Microsoft Identity Manager](/microsoft-identity-manager/), som kan importera poster från lokala HCM-system som SAP, Oracle eBusiness och Oracle, Oracle.
+För många organisationer är identitets livs cykeln för anställda knuten till åter givning av användaren i ett HCM-system (Human kapitalet Management).  Azure AD Premium hanterar automatiskt användar identiteter för personer som representeras i Workday och SuccessFactors i både Active Directory och Azure Active Directory, enligt beskrivningen i  [molnet HR Application to Azure Active Directory Planning Guide för användar etablering](../app-provisioning/plan-cloud-hr-provision.md).  Azure AD Premium innehåller även [Microsoft Identity Manager](/microsoft-identity-manager/), som kan importera poster från lokala HCM system som SAP HCM, Oracle eBusiness och Oracle, Oracle.
 
 I allt större utsträckning kräver scenarier samarbete med personer utanför organisationen. Med [Azure AD B2B](/azure/active-directory/b2b/) -samarbete kan du på ett säkert sätt dela din organisations program och tjänster med gäst användare och externa partner från vilken organisation som helst, samtidigt som du behåller kontrollen över dina egna företags data.  Med [hantering av Azure AD-hantering](entitlement-management-overview.md) kan du välja vilka organisations användare som tillåts begära åtkomst och läggas till som B2B-gäster till din organisations katalog och se till att dessa gäster tas bort när de inte längre behöver åtkomst.
 
@@ -69,6 +69,24 @@ Historiskt sett har privilegie rad åtkomst beskrivits av andra leverantörer so
 ![Livs cykel för privilegie rad åtkomst](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) ger ytterligare kontroller som är anpassade för att skydda åtkomst rättigheter för resurser, i Azure AD, Azure och andra Microsoft Online Services.  Just-in-Time-åtkomst och roll ändrings aviseringar som tillhandahålls av Azure AD PIM, förutom Multi-Factor Authentication och villkorlig åtkomst, ger en omfattande uppsättning styrnings kontroller för att skydda företagets resurser (katalog, Microsoft 365 och Azure resurs roller). Precis som med andra former av åtkomst kan organisationer använda åtkomst granskningar för att konfigurera återcertifiering av återkommande åtkomst för alla användare i administratörs roller.
+
+## <a name="governance-capabilities-in-other-azure-ad-features"></a>Styrnings funktioner i andra Azure AD-funktioner
+
+Förutom de funktioner som anges ovan är ytterligare Azure AD-funktioner som ofta används för att tillhandahålla identitets styrnings scenarier:
+
+| Kapacitet | Scenario |Funktion
+| ------- | --------------------- |-----|
+|Identitets livs cykel (anställda)|Administratörer kan aktivera användar konto etablering från Workday eller SuccessFactors Cloud HR eller lokalt HR.|[Azure Azures användar etablering för Azure AD](../app-provisioning/plan-cloud-hr-provision.md)|
+|Identitets livs cykel (gäster)|Administratörer kan aktivera självbetjäning gäst användare som onboarding från en annan Azure AD-klient, direkt Federation, en Time-lösenord (eng ång slö sen ord) eller Google-konton.  Gäst användare etableras automatiskt och avetableras enligt livs cykel principer.|[Hantering av rättigheter](entitlement-management-overview.md) med [B2B](../external-identities/what-is-b2b.md)|
+|Berättigandehantering|Resurs ägare kan skapa åtkomst paket som innehåller appar, grupper, Azure AD-och Microsoft 365 grupper och SharePoint Online-webbplatser.|[Berättigandehantering](entitlement-management-overview.md)|
+|Åtkomst begär Anden|Slutanvändare kan begära grupp medlemskap eller program åtkomst. Slutanvändare, inklusive gäster från andra organisationer, kan begära åtkomst till paket.|[Berättigandehantering](entitlement-management-overview.md)|
+|Arbetsflöde|Resurs ägare kan definiera god kännare och god kännare för åtkomst begär Anden och god kännare för roll aktiverings begär Anden.  |[Hantering av rättigheter](entitlement-management-overview.md) och [PIM](../privileged-identity-management/pim-configure.md)|
+|Princip-och roll hantering|Admin kan definiera principer för villkorlig åtkomst för körnings åtkomst till program.  Resurs ägare kan definiera principer för användares åtkomst via åtkomst paket.|Principer för [villkorlig åtkomst](../conditional-access/overview.md) och [rättighets hantering](entitlement-management-overview.md)|
+|Åtkomst certifiering|Administratörer kan aktivera återkommande åtkomst certifiering för: SaaS-appar eller moln grupps medlemskap, Azure AD eller Azures resurs roll tilldelningar. Ta bort resurs åtkomst automatiskt, blockera gäst åtkomst och ta bort gäst konton.|[Åtkomst granskningar](access-reviews-overview.md), även på papper i [PIM](../privileged-identity-management/pim-how-to-start-security-review.md)|
+|Uppfyllelse och etablering|Automatisk etablering och avetablering i Azure AD-anslutna appar, inklusive via SCIM och på SharePoint Online-webbplatser. |[användar etablering](../app-provisioning/user-provisioning.md)|
+|Rapportering och analys|Administratörer kan hämta gransknings loggar för den senaste användar etableringen och inloggnings aktiviteten. Integration med Azure Monitor och som har åtkomst via åtkomst paket.|[Azure AD-rapporter](../reports-monitoring/overview-reports.md) och- [övervakning](../reports-monitoring/overview-monitoring.md)|
+|Privilegierad åtkomst|Just-in-Time och schemalagd åtkomst, avisering, godkännande arbets flöden för Azure AD-roller (inklusive anpassade roller) och Azure-resurs roller.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
+|Granskning|Administratörer kan bli aviserad om skapandet av administratörs konton.|[Azure AD PIM-aviseringar](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
 ## <a name="getting-started"></a>Komma igång
 

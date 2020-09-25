@@ -5,27 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9efb3b451f6fc6c70c5d9ec346132bfc763ca28
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705783"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278864"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhetsidentiteter med hjälp av Azure-portalen
 
 Med Azure AD får du en central plats för att hantera enhets identiteter.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory**  >  **enheter**.
-
-[![Vyn alla enheter i Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
 På sidan **alla enheter** kan du:
 
@@ -38,6 +33,13 @@ På sidan **alla enheter** kan du:
 - Konfigurera enhetens identitets inställningar.
 - Aktivera eller inaktivera Enterprise State Roaming.
 - Granska enhets relaterade gransknings loggar
+
+[![Vyn alla enheter i Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+Du kan komma åt enhets portalen med följande steg:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Bläddra till **Azure Active Directory**  >  **enheter**.
 
 ## <a name="manage-devices"></a>Hantera enheter
 
@@ -147,6 +149,13 @@ Du kommer nu att kunna **lägga till filter** i vyn **alla enheter** .
 
 Om du vill hantera enhets identiteter med Azure AD-portalen måste dessa enheter antingen vara [registrerade eller anslutna](overview.md) till Azure AD. Som administratör kan du styra processen för att registrera och ansluta enheter genom att konfigurera följande enhets inställningar.
 
+Du måste ha tilldelats någon av följande roller för att kunna visa eller hantera enhets inställningar i Azure Portal:
+
+- Global administratör
+- Moln enhets administratör
+- Global läsare
+- Katalog läsare
+
 ![Enhets inställningar som är relaterade till Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Användare kan ansluta enheter till Azure AD** – med den här inställningen kan du välja vilka användare som kan registrera sina enheter som Azure AD-anslutna enheter. Standardvärdet är **alla**.
@@ -168,7 +177,7 @@ Om du vill hantera enhets identiteter med Azure AD-portalen måste dessa enheter
 
 - [Företagsroaming](enterprise-state-roaming-overview.md)
 
-## <a name="audit-logs"></a>Granskningsloggar
+## <a name="audit-logs"></a>Spårningsloggar
 
 Enhets aktiviteter är tillgängliga via aktivitets loggarna. Dessa loggar innehåller aktiviteter som utlösts av registrerings tjänsten för enheter och användare:
 
@@ -185,11 +194,11 @@ Gransknings loggen har en Standardlistvy som visar:
 - Initieraren/aktören (som) för en aktivitet
 - Aktiviteten (vad)
 
-![Granskningsloggar](./media/device-management-azure-portal/63.png)
+![Spårningsloggar](./media/device-management-azure-portal/63.png)
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Granskningsloggar](./media/device-management-azure-portal/64.png)
+![Spårningsloggar](./media/device-management-azure-portal/64.png)
 
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
 
@@ -202,7 +211,7 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 
 Förutom filtren kan du söka efter vissa poster.
 
-![Granskningsloggar](./media/device-management-azure-portal/65.png)
+![Spårningsloggar](./media/device-management-azure-portal/65.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

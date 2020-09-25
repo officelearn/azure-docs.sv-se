@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f83baf7a038ad8cf17421c778deccbc7dc389d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325563"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Mått för Azure NetApp Files
 
@@ -38,20 +38,23 @@ Azure NetApp Files tillhandahåller mått för allokerat lagrings utrymme, fakti
     Det totala logiska utrymmet (GiB) som används för volymer i en kapacitets grupp.  
 
 - *Total ögonblicks bild storlek för poolen*    
-    Summan av ögonblicks bild storleken för alla volymer i poolen.
+    Summan av ögonblicks bild storleken från alla volymer i poolen.
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Användnings statistik för volymer
 
-<!--
-- *Volume Quota Size*    
-    The quota size (GiB) the volume is provisioned with.   
-    This size is the size you selected during capacity pool creation. 
+<!-- ANF-5023: fixed version: 2020.08, 2020.09
+- *Percentage Volume Consumed Size*    
+    The percentage of the volume consumed, including snapshots.  
 -->
+- *Allokerad volym storlek*   
+    En volyms allokerade storlek
+- *Volym kvots storlek*    
+    Kvot storlek (GiB) som volymen är etablerad med.   
 - *Storlek på förbrukad volym*   
-    Det totala logiska utrymmet som används i en volym (GiB).  
+    Den logiska storleken på volymen (använda byte).  
     Den här storleken inkluderar det logiska utrymmet som används av aktiva fil system och ögonblicks bilder.  
 - *Storlek på volym ögonblicks bild*   
-   Det stegvisa logiska utrymmet som används av ögonblicks bilder i en volym.  
+   Storleken på alla ögonblicks bilder i en volym.  
 
 ## <a name="performance-metrics-for-volumes"></a>Prestanda mått för volymer
 
@@ -63,11 +66,28 @@ Azure NetApp Files tillhandahåller mått för allokerat lagrings utrymme, fakti
     Antalet läsningar till volymen per sekund.
 - *Skriv IOPS*   
     Antalet skrivningar till volymen per sekund.
+- *Läsa MiB/s*   
+    Läs data flöde i byte per sekund.
+- *Skriv MiB/s*   
+    Skriv data flöde i byte per sekund.
+
+<!-- ANF-4128; 2020.07
+- *Pool Provisioned Throughput*   
+    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
+- *Pool Allocated to Volume Throughput*   
+    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
+-->
+
+<!-- ANF-6443; future
+- *Pool Consumed Throughput*    
+    The total throughput being consumed by volumes in a given capacity pool.
+-->
+
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Mått för volym replikering
 
 - *Är Volume Replication-status felfri*   
-    Villkoret för replikeringsrelationen. 
+    Villkoret för replikeringsrelationen. Ett felfritt tillstånd betecknas av `1` . Ett ohälsosamt tillstånd betecknas av `0` .
 
 - *Överför volym replikering*    
     Anger om status för Volume Replication är ' transfer '. 

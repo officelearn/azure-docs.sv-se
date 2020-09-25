@@ -1,6 +1,6 @@
 ---
-title: Skala snabbt och skydda ett webb program med Azures front dörr och Azure Web Application-brandväggen (WAF) | Microsoft Docs
-description: I den här självstudien får du lära dig hur du använder brand vägg för webbaserade program med din Azure-frontend
+title: Skala och skydda en webbapp med hjälp av Azures front dörr och WAF
+description: I den här självstudien visas hur du använder Azures brand vägg för webbaserade program med Azures frontend-tjänst.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -11,58 +11,60 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1958481193b66c8cec2cb6a1ac6648a6900d70ac
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276290"
 ---
-# <a name="tutorial-quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Självstudie: snabbt skala och skydda ett webb program med Azures frontend-dörr och Azure WebApplication-brandvägg (WAF)
+# <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Självstudie: snabbt skala och skydda ett webb program med hjälp av Azures frontend och brand vägg för Azure Web Application (WAF)
 
-Många webb program har en snabb ökning av trafiken i de senaste veckorna relaterade till COVID-19. Dessutom underhåller dessa webb program också en överbelastning i skadlig trafik, inklusive denial of Service-attacker. Ett effektivt sätt att hantera båda dessa behov, skala ut för trafik toppar och skydda mot attacker, är att konfigurera Azure-frontend med Azure WAF som en acceleration, cachelagring och säkerhets nivå framför ditt webb program. Den här artikeln innehåller rikt linjer för hur du snabbt får den här Azure-startdörren med Azure WAF-installation för alla webb program som körs i eller utanför Azure. 
+Många webb program har en snabb ökning av trafiken i de senaste veckorna på grund av COVID-19. Dessa webb program har också en överspänning i skadlig trafik, inklusive denial-of-Service-attacker. Det finns ett effektivt sätt att både skala ut för trafik toppar och skydda dig mot attacker: Konfigurera Azure-frontend med Azure WAF som en acceleration, cachelagring och ett säkerhets lager framför din webbapp. Den här artikeln innehåller rikt linjer för hur du snabbt får en Azure-frontend med Azure-WAF som har kon figurer ATS för alla webbappar som körs i eller utanför Azure. 
 
-Vi använder Azure CLI för att konfigurera WAF i den här självstudien, men alla dessa steg stöds också fullt ut i Azure Portal, Azure PowerShell, Azure ARM och Azure REST-API: er. 
+Vi använder Azure CLI för att konfigurera WAF i den här självstudien. Du kan utföra samma sak genom att använda Azure Portal, Azure PowerShell, Azure Resource Manager eller Azure REST-API: er. 
 
-I den här guiden får du lära dig att:
+I den här självstudien får du lära dig att:
 > [!div class="checklist"]
 > - Skapa en frontend-dörr.
 > - Skapa en Azure WAF-princip.
-> - Konfigurera rulesets för WAF-princip.
-> - Koppla WAF-princip till front dörr
-> - Konfigurera anpassat domän
+> - Konfigurera regel uppsättningar för en WAF-princip.
+> - Koppla en WAF-princip till front dörren.
+> - Konfigurera en anpassad domän.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Anvisningarna i den här bloggen använder kommando rads gränssnittet för Azure (CLI). Visa den här guiden för att [komma igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- Anvisningarna i den här självstudien använder Azure CLI. [Visa den här guiden](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) för att komma igång med Azure CLI.
 
-*Tips: ett enkelt & snabbt sätt att komma igång med Azure CLI är med [bash i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)*
+  > [!TIP] 
+  > Ett enkelt och snabbt sätt att komma igång med Azure CLI är med [bash i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
-Kontrol lera att tillägget för front dörren har lagts till i Azure CLI
+- Kontrol lera att `front-door` tillägget har lagts till i Azure CLI:
 
-```azurecli-interactive 
-az extension add --name front-door
-```
+   ```azurecli-interactive 
+   az extension add --name front-door
+   ```
 
-Obs! mer information om de kommandon som anges nedan finns i [Azure CLI-referensen för front dörren](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
+> [!NOTE] 
+> Mer information om de kommandon som används i den här självstudien finns i [Azure CLI-referens för front dörren](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
 
-## <a name="create-an-azure-front-door-afd-resource"></a>Skapa en AFD-resurs (Azure frontend dörr)
+## <a name="create-an-azure-front-door-resource"></a>Skapa en resurs för Azures frontend-dörr
 
 ```azurecli-interactive 
 az network front-door create --backend-address <>  --accepted-protocols <> --name <> --resource-group <>
 ```
 
-**--backend-adress**: Server dels adressen är det fullständigt kvalificerade domän namnet (FQDN) för det program som du vill skydda. Till exempel myapplication.contoso.com
+`--backend-address`: Det fullständigt kvalificerade domän namnet (FQDN) för det program som du vill skydda. Till exempel `myapplication.contoso.com`.
 
-**--godkända**protokoll: de godkända protokollen anger vilka protokoll som du vill att AFD ska stödja för ditt webb program. Ett exempel skulle bli--godkänt-protokoll http https.
+`--accepted-protocols`: Anger de protokoll som du vill att Azures frontend-dörr ska stödja för ditt webb program. Till exempel `--accepted-protocols Http Https`.
 
-**--Name**: Ange ett namn för din AFD-resurs
+`--name`: Namnet på din Azure-frontend-resurs.
 
-**--resurs grupp**: den resurs grupp som du vill placera den här AFD-resursen i.  Mer information om resurs grupper finns i hantera resurs grupper i Azure
+`--resource-group`: Den resurs grupp som du vill placera den här resursen i Azures frontend-dörr i. Mer information om resurs grupper finns i [Hantera resurs grupper i Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
-I svaret som du kommer att köra det här kommandot söker du efter nyckeln hostName och noterar värdet så att det används i ett senare steg. HostName är DNS-namnet för den AFD-resurs som du har skapat
+I svaret som du får när du kör det här kommandot ska du leta efter nyckeln `hostName` . Du behöver det här värdet i ett senare steg. `hostName`Är DNS-namnet på den Azure-frontend-resurs som du skapade.
 
 ## <a name="create-an-azure-waf-profile-to-use-with-azure-front-door-resources"></a>Skapa en Azure WAF-profil som ska användas med resurser i Azures frontend-dörr
 
@@ -70,85 +72,92 @@ I svaret som du kommer att köra det här kommandot söker du efter nyckeln host
 az network front-door waf-policy create --name <>  --resource-group <>  --disabled false --mode Prevention
 ```
 
---namn Ange ett namn för din Azure WAF-princip
+`--name`: Namnet på den nya Azure WAF-principen.
 
---resurs grupp den resurs grupp som du vill placera den här WAF-resursen i. 
+`--resource-group`: Den resurs grupp som du vill placera den här WAF-resursen i. 
 
-CLI-koden ovan skapar en WAF-princip som är aktive rad och är i förebyggande läge. 
+Föregående CLI-kod skapar en WAF-princip som är aktive rad och som är i förebyggande läge. 
 
-Obs! Du kanske också vill skapa WAF i identifierings läge och se hur det identifierar & loggning av skadliga begär Anden (och inte blockerar) innan du bestämmer dig för att ändra till skydds läge.
+> [!NOTE] 
+> Du kanske vill skapa WAF-principen i identifierings läge och se hur den identifierar och loggar skadliga begär Anden (utan att blockera dem) innan du bestämmer dig för att använda skydds läget.
 
-I svaret som du får från att köra det här kommandot, letar du efter nyckeln "ID" och noterar värdet så att det används i ett senare steg. ID-fältet ska ha formatet
+I svaret som du får när du kör det här kommandot ska du leta efter nyckeln `ID` . Du behöver det här värdet i ett senare steg. 
+
+`ID`Fältet ska ha följande format:
 
 /Subscriptions/**prenumerations-ID**/ResourceGroups/**resurs grupp namn**/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/**WAF princip namn**
 
-## <a name="add-managed-rulesets-to-this-waf-policy"></a>Lägg till hanterade rulesets i den här WAF-principen
+## <a name="add-managed-rule-sets-to-the-waf-policy"></a>Lägg till hanterade regel uppsättningar i WAF-principen
 
-I en WAF-princip kan du lägga till hanterade rulesets som är en uppsättning regler som skapats och hanteras av Microsoft och som utgör ut ur Box-skyddet mot alla typer av hot. I det här exemplet lägger vi till två sådana rulesets (1) standard-ruleset som skyddar mot vanliga webbhoten och (2) bot Protection-ruleset, som skyddar mot skadlig robotar
+Du kan lägga till hanterade regel uppsättningar i en WAF-princip. En hanterad regel uppsättning är en uppsättning regler som skapats och hanteras av Microsoft och som hjälper dig att skydda dig mot en klass av hot. I det här exemplet ska vi lägga till två regel uppsättningar:
+- Standard regel uppsättningen, som hjälper dig att skydda dig mot vanliga webb hot. 
+- Regel uppsättningen för bot-skydd, som hjälper dig att skydda dig mot skadliga robotar.
 
-(1) Lägg till standard-ruleset
+Lägg till standard regel uppsättningen:
 
-```azurecli-interactive 
-az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type DefaultRuleSet --version 1.0
-```
+   ```azurecli-interactive 
+   az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type DefaultRuleSet --version 1.0
+   ```
 
-(2) Lägg till robot Manager-ruleset
+Lägg till regel uppsättningen för bot-skydd:
 
-```azurecli-interactive 
-az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type Microsoft_BotManagerRuleSet --version 1.0
-```
+   ```azurecli-interactive 
+   az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type Microsoft_BotManagerRuleSet --version 1.0
+   ```
 
---princip – namnge det namn du angav för din Azure WAF-resurs
+`--policy-name`: Det namn du angav för din Azure WAF-resurs.
 
---resurs grupp den resurs grupp som du har placerat den här WAF-resursen i.
+`--resource-group`: Den resurs grupp som du placerade WAF-resursen i.
 
-## <a name="associate-the-waf-policy-with-the-afd-resource"></a>Koppla WAF-principen till AFD-resursen
+## <a name="associate-the-waf-policy-with-the-azure-front-door-resource"></a>Koppla WAF-principen till Azures frontend-resurs
 
-I det här steget ska vi associera WAF-principen som vi har skapat med AFD-resursen som är framför ditt webb program.
+I det här steget associerar vi den WAF-princip som vi skapade med Azures frontend-resurs som är framför ditt webb program:
 
 ```azurecli-interactive 
 az network front-door update --name <> --resource-group <> --set frontendEndpoints[0].webApplicationFirewallPolicyLink='{"id":"<>"}'
 ```
 
---namnge det namn du angav för din AFD-resurs
+`--name`: Det namn du angav för din Azure-frontend-resurs.
 
---resurs grupp den resurs grupp som du har placerat i Azures resurs för front dörr i.
+`--resource-group`: Den resurs grupp som du placerade Azures frontend-resurs i.
 
---Ange det här är den plats där du vill uppdatera attributet WebApplicationFirewallPolicyLink för frontendEndpoint som är associerat med din AFD-resurs med den nyligen skapade WAF-principen. Du hittar ID för WAF-principen från det svar du fick från steg #2 ovan
+`--set`: Det är här du uppdaterar `WebApplicationFirewallPolicyLink` attributet för `frontendEndpoint` associerat med din Azure-frontend-resurs med den nya WAF-principen. Du bör ha ID: t för WAF-principen från svaret du fick när du skapade WAF-profilen tidigare i den här självstudien.
 
-Obs! exemplet ovan är för det fall där du inte använder en anpassad domän om du
+ > [!NOTE] 
+> Föregående exempel är tillämpbara när du inte använder en anpassad domän. Om du inte använder några anpassade domäner för att komma åt dina webb program kan du hoppa över nästa avsnitt. I så fall får du kunderna som `hostName` du fick när du skapade Azures frontend-resurs. De använder detta `hostName` för att gå till ditt webb program.
 
-Om du inte använder några anpassade domäner för att komma åt dina webb program kan du hoppa över steg #5. I så fall kommer du att ge slutanvändarna det värdnamn du fick i steg #1 för att navigera till ditt webb program
+## <a name="configure-the-custom-domain-for-your-web-application"></a>Konfigurera en anpassad domän för ditt webb program
 
-## <a name="configure-custom-domain-for-your-web-application"></a>Konfigurera en anpassad domän för ditt webb program
+Det anpassade domän namnet för ditt webb program är det som kunderna använder för att referera till ditt program. Till exempel www.contoso.com. Inlednings vis pekade det här anpassade domän namnet på den plats där det kördes innan du introducerade Azures front dörr. När du har lagt till Azures frontend-och WAF för att framgångs punkten ska den DNS-post som motsvarar den anpassade domänen peka på resursen för Azures front dörr. Du kan göra den här ändringen genom att mappa om posten i DNS-servern till den Azure-hemdörr `hostName` som du noterade när du skapade Azures frontend-resurs.
 
-Det anpassade domän namnet för ditt webb program (det som kunder använder för att referera till ditt program, till exempel www.contoso.com), pekade på den plats där det kördes innan AFD infördes. Efter den här ändringen av arkitektur som lägger till AFD + WAF till fram till programmet, ska DNS-posten som motsvarar den anpassade domänen nu peka på den här AFD-resursen. Detta kan göras genom att mappa om posten i DNS-servern till AFD-värdnamnet som du noterade i steg #1.
+De olika stegen för att uppdatera dina DNS-poster beror på din DNS-tjänstleverantör. Om du använder Azure DNS för att vara värd för ditt DNS-namn kan du läsa mer i dokumentationen om [hur du uppdaterar en DNS-post](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) och pekar på Azures front dörr `hostName` . 
 
-De olika stegen för att uppdatera dina DNS-poster beror på din DNS-tjänstleverantör, men om du använder Azure DNS för att vara värd för ditt DNS-namn kan du läsa mer i dokumentationen om [hur du uppdaterar en DNS-post](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) och pekar på AFD-värdnamnet. 
+Det finns ett viktigt saker att notera om du behöver dina kunder för att komma åt din webbplats med hjälp av zon spetsen (till exempel contoso.com). I det här fallet måste du använda Azure DNS och dess [aliasresurspost](https://docs.microsoft.com/azure/dns/dns-alias) för att vara värd för ditt DNS-namn. 
 
-En viktig kommentar här är att om du behöver dina användare att navigera till din webbplats med hjälp av zon Apex, till exempel contoso.com, måste du använda Azure DNS och dess [alias är post typen](https://docs.microsoft.com/azure/dns/dns-alias) som värd för ditt DNS-namn. 
+Du måste också uppdatera konfigurationen för din Azure-frontend för att [lägga till den anpassade domänen](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) så att den är medveten om den här mappningen.
 
-Dessutom måste du också uppdatera AFD-konfigurationen för att [lägga till den här anpassade domänen](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) så att AFD förstår mappningen.
-
-Slutligen, om du använder en anpassad domän för att komma åt ditt webb program och vill aktivera HTTPS-protokollet, måste du ha [certifikat för din anpassade domän konfiguration i AFD](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Slutligen, om du använder en anpassad domän för att komma åt ditt webb program och vill aktivera HTTPS-protokollet, måste du [Konfigurera certifikaten för din anpassade domän i Azures front dörr](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
 ## <a name="lock-down-your-web-application"></a>Låsa ditt webb program
 
-En valfri metod att följa är att se till att endast AFD kanter kan kommunicera med ditt webb program. Den här åtgärden ser till att ingen kan kringgå AFD-skydd och komma åt dina program direkt. Du kan göra det här låset genom att gå till [avsnittet Vanliga frågor och svar i AFD](https://docs.microsoft.com/azure/frontdoor/front-door-faq) och referera till frågan om att låsa upp Server delar för att få åtkomst till AFD.
+Vi rekommenderar att du ser till att endast Azures främre dörrs kanter kan kommunicera med ditt webb program. På så sätt ser du till att ingen kan kringgå Azures front dörrs skydd och få åtkomst till ditt program direkt. Om du vill göra detta kan du läsa mer i [Hur gör jag för att låsa ned åtkomsten till min server del till Azures front dörr?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver resurserna i den här självstudien använder du kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) för att ta bort resurs gruppen, frontend-dörren och WAF-principen.
+När du inte längre behöver de resurser som används i den här självstudien använder du kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) för att ta bort resurs gruppen, frontend-dörren och WAF-principen:
 
 ```azurecli-interactive
   az group delete \
     --name <>
 ```
---Namnge resurs grupps namnet för alla resurser som distribueras i den här självstudien.
+`--name`: Namnet på resurs gruppen för alla resurser som används i den här självstudien.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om hur du felsöker din front dörr kan du fortsätta till instruktions guiderna.
+Information om hur du felsöker din front dörr finns i fel söknings guider:
 
 > [!div class="nextstepaction"]
 > [Felsöka vanliga problem med Routning](front-door-troubleshoot-routing.md)
+
+> [!div class="nextstepaction"]
+> [Tillåtna certifikatutfärdare](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

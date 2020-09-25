@@ -18,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa7be140b47d389bea0e7468d1a5ac7e58c3b1b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 26fdf202cb9bcacee94c83578432f7a399f90a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276294"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306284"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Information om övervakning Azure AD Connect (Sync) med Azure AD Connect Health finns i [använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md). Information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns dessutom i [använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
@@ -33,7 +33,7 @@ Avsnittet om Azure AD Connect Health-aviseringar innehåller en lista över akti
 
 Om du dubbelklickar en aktiv eller åtgärdad avisering visas ett nytt blad med ytterligare information, samt de steg som du kan utföra för att åtgärda aviseringen liksom länkar till relevant dokumentation. Du kan också visa historiska data för tidigare åtgärdade aviseringar.
 
-![Azure AD Connect Health-portalen](./media/how-to-connect-health-adfs/alert2.png)
+![Skärm bild som visar sidan med Azure AD Connect Health "aviseringar" med en avisering markerad och fönstret "varnings information" visas.](./media/how-to-connect-health-adfs/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>Användningsanalys för AD FS
 Azure AD Connect Health-användningsanalys analyserar autentiseringstrafiken på dina federationsservrar. Om du dubbelklickar på kryssrutan för användningsanalys öppnas bladet för användningsanalys, som visar flera mått och grupperingar.
@@ -43,7 +43,7 @@ Azure AD Connect Health-användningsanalys analyserar autentiseringstrafiken på
 >
 >
 
-![Azure AD Connect Health-portalen](./media/how-to-connect-health-adfs/report1.png)
+![Skärm bild som visar sidan för Azure AD Connect Health "användnings analys".](./media/how-to-connect-health-adfs/report1.png)
 
 Om du vill välja fler mått, ange ett tidsintervall eller ändra grupperingen högerklickar du på diagrammet med användningsanalysen och väljer Redigera diagram. Sedan kan du ange tidsintervallet, välja ett annat mått och ändra grupperingen. Du kan visa autentiseringstrafikens fördelning baserat på olika ”mått” och gruppera varje mått med relevanta ”gruppera efter”-parametrar som beskrivs i följande avsnitt:
 
@@ -78,7 +78,7 @@ Om du vill välja fler mått, ange ett tidsintervall eller ändra grupperingen h
 ## <a name="performance-monitoring-for-ad-fs"></a>Prestandaövervakning för AD FS
 Azure AD Connect Health-prestandaövervakning tillhandahåller övervakningsinformation för mått. Om du markerar rutan Övervakning öppnas ett blad med detaljerad information om måtten.
 
-![Azure AD Connect Health-portalen](./media/how-to-connect-health-adfs/perf1.png)
+![Skärm bild som visar sidan för Azure AD Connect Health prestanda övervakning.](./media/how-to-connect-health-adfs/perf1.png)
 
 Om du väljer filteralternativet längst upp i bladet kan du filtrera efter server och visa måtten för enskilda servrar. Om du vill ändra måttet högerklickar du i övervakningsdiagrammet under övervakningsbladet och väljer Redigera diagram (eller klickar på Redigera diagram). Från det nya bladet som öppnas kan du sedan välja ytterligare mått i listrutan och ange ett tidsintervall som du vill visa prestandadata för.
 
@@ -89,7 +89,7 @@ Men det finns andra skäl till ett oväntat antal begäranden som hanteras av AD
 
 Azure AD Connect Health för AD FS tillhandahåller en rapport över de 50 användarna med flest misslyckade inloggningsförsök på grund av ett ogiltigt användarnamn eller lösenord. Rapporten skapas genom att bearbeta granskningshändelserna som genereras av alla AD FS-servrar i servergrupperna.
 
-![Azure AD Connect Health-portalen](./media/how-to-connect-health-adfs/report1a.png)
+![Skärm bild som visar avsnittet "rapporter" med antalet felaktiga lösen ords försök från de senaste 30 dagarna.](./media/how-to-connect-health-adfs/report1a.png)
 
 I den här rapporten kan du enkelt få tillgång till följande typer av information:
 
@@ -108,7 +108,7 @@ Diagrammet innehåller följande information:
 
 Rapporten innehåller följande information:
 
-| Rapportobjekt | Beskrivning |
+| Rapportobjekt | Description |
 | --- | --- |
 | Användar-ID |Visar användar-ID:t som användes. Det här värdet är vad användaren har angett, vilket i vissa fall är fel användar-ID. |
 | Misslyckade försök |Visar totalt antal misslyckade försök för det specifika användar-ID:t. Tabellen sorteras med flest antal misslyckade försök i fallande ordning. |

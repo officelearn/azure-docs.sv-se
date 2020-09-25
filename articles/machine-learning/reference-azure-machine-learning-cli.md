@@ -10,17 +10,17 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 794e2c8b436b6a6dfa736bef59eb2ad0bda83bc2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 490ee6e0dea5f5106d8027c2a4c9c7b09bb81fd0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893124"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307967"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 
 
-Azure Machine Learning CLI är ett tillägg till [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattforms oberoende kommando rads gränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning. Det gör att du kan automatisera dina Machine Learning-aktiviteter. Följande lista innehåller några exempel åtgärder som du kan göra med CLI-tillägget:
+Azure Machine Learning CLI är ett tillägg till [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true), ett plattforms oberoende kommando rads gränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning. Det gör att du kan automatisera dina Machine Learning-aktiviteter. Följande lista innehåller några exempel åtgärder som du kan göra med CLI-tillägget:
 
 + Köra experiment för att skapa maskin inlärnings modeller
 
@@ -34,13 +34,13 @@ CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplet
 
 * Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-* Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
     Om du använder [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)kan CLI nås via webbläsaren och finns i molnet.
 
 ## <a name="full-reference-docs"></a>Fullständiga referens dokument
 
-Hitta [fullständiga referens dokument för Azure-CLI-ml-tillägget för Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
+Hitta [fullständiga referens dokument för Azure-CLI-ml-tillägget för Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Ansluta CLI till din Azure-prenumeration
 
@@ -57,7 +57,7 @@ Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida l�
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-För andra metoder för autentisering, se [Logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+För andra metoder för autentisering, se [Logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="install-the-extension"></a>Installera tillägget
 
@@ -111,7 +111,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
-    Mer information finns i [skapa en AZ ml-arbetsyta](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
+    Mer information finns i [skapa en AZ ml-arbetsyta](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Koppla en arbets ytans konfiguration till en mapp för att aktivera CLI-kontext medvetenhet.
 
@@ -121,7 +121,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
 
     Det här kommandot skapar en `.azureml` under katalog som innehåller exempel på runconfig-och Conda-miljöfiler. Den innehåller också en `config.json` fil som används för att kommunicera med din Azure Machine Learning-arbetsyta.
 
-    Mer information finns i [AZ ml Folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+    Mer information finns i [AZ ml Folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach).
 
 + Anslut en Azure Blob-behållare som ett data lager.
 
@@ -129,7 +129,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
 
-    Mer information finns i [AZ ml data lager Attach-BLOB](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
+    Mer information finns i [AZ ml data lager Attach-BLOB](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-datastore-attach-blob).
 
 + Ladda upp filer till ett data lager.
 
@@ -137,7 +137,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml datastore upload  -n datastorename -p sourcepath
     ```
 
-    Mer information finns i [AZ ml data lager uppladdning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-upload).
+    Mer information finns i [AZ ml data lager uppladdning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-datastore-upload).
 
 + Anslut ett AKS-kluster som ett beräknings mål.
 
@@ -145,7 +145,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
 
-    Mer information finns i [AZ ml computetarget Attach AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+    Mer information finns i [AZ ml computetarget Attach AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
 
 ### <a name="compute-clusters"></a>Beräknings kluster
 
@@ -182,7 +182,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
         az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
         ```
 
-Mer information finns i [AZ ml computetarget Create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+Mer information finns i [AZ ml computetarget Create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
 
@@ -191,45 +191,45 @@ Mer information finns i [AZ ml computetarget Create amlcompute](https://docs.mic
 ### <a name="compute-instance"></a>Beräkninsinstans
 Hantera beräknings instanser.  I alla exempel nedan är namnet på beräknings instansen **CPU**
 
-    + Skapa en ny computeinstance.
++ Skapa en ny computeinstance.
 
-        ```azurecli-interactive
-        az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
-        ```
+    ```azurecli-interactive
+    az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
+    ```
     
-        Mer information finns i [AZ ml computetarget Create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
+    Mer information finns i [AZ ml computetarget Create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
 
-    + Stoppa en computeinstance.
++ Stoppa en computeinstance.
     
-        ```azurecli-interactive
-        az ml computetarget stop computeinstance -n cpu -v
-        ```
+    ```azurecli-interactive
+    az ml computetarget stop computeinstance -n cpu -v
+    ```
     
-        Mer information finns i [AZ ml computetarget Stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Mer information finns i [AZ ml computetarget Stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
     
-    + Starta en computeinstance.
++ Starta en computeinstance.
     
-        ```azurecli-interactive
-        az ml computetarget start computeinstance -n cpu -v
-       ```
+    ```azurecli-interactive
+    az ml computetarget start computeinstance -n cpu -v
+    ```
     
-        Mer information finns i [AZ ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Mer information finns i [AZ ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
     
-    + Starta om en computeinstance.
++ Starta om en computeinstance.
     
-        ```azurecli-interactive
-        az ml computetarget restart computeinstance -n cpu -v
-       ```
+    ```azurecli-interactive
+    az ml computetarget restart computeinstance -n cpu -v
+    ```
     
-        Mer information finns i [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Mer information finns i [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
     
-    + Ta bort en computeinstance.
++ Ta bort en computeinstance.
     
-        ```azurecli-interactive
-        az ml computetarget delete -n cpu -v
-       ```
+    ```azurecli-interactive
+    az ml computetarget delete -n cpu -v
+    ```
     
-        Mer information finns i [AZ ml computetarget Delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Mer information finns i [AZ ml computetarget Delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 
 ## <a name="run-experiments"></a><a id="experiments"></a>Köra experiment
@@ -243,11 +243,11 @@ Hantera beräknings instanser.  I alla exempel nedan är namnet på beräknings 
     > [!TIP]
     > `az ml folder attach`Kommandot skapar en `.azureml` under katalog som innehåller två exempel på runconfig-filer. 
     >
-    > Om du har ett Python-skript som skapar ett kör konfigurations objekt program mässigt kan du använda [RunConfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) för att spara det som en RunConfig-fil.
+    > Om du har ett Python-skript som skapar ett kör konfigurations objekt program mässigt kan du använda [RunConfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) för att spara det som en RunConfig-fil.
     >
     > Du hittar det fullständiga runconfig-schemat i den här [JSON-filen](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). Schemat är självdokumenterande genom `description` nyckeln för varje objekt. Det finns dessutom uppräkningar för möjliga värden och ett mallkod i slutet.
 
-    Mer information finns i [AZ ml Run Submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+    Mer information finns i [AZ ml Run Submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script).
 
 * Visa en lista över experiment:
 
@@ -255,7 +255,7 @@ Hantera beräknings instanser.  I alla exempel nedan är namnet på beräknings 
     az ml experiment list
     ```
 
-    Mer information finns i [AZ ml experiment List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+    Mer information finns i [AZ ml experiment List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list).
 
 ### <a name="hyperdrive-run"></a>HyperDrive körning
 
@@ -299,7 +299,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
 
     Information om formatet på den JSON-fil som används för att definiera data uppsättningen använder du `az ml dataset register --show-template` .
 
-    Mer information finns i [AZ ml data data register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
+    Mer information finns i [AZ ml data data register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-dataset-register).
 
 + Lista alla data uppsättningar på en arbets yta:
 
@@ -307,7 +307,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
     az ml dataset list
     ```
 
-    Mer information finns i [AZ ml dataset List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list).
+    Mer information finns i [AZ ml dataset List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-dataset-list).
 
 + Hämta information om en data uppsättning:
 
@@ -315,7 +315,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
     az ml dataset show -n dataset-name
     ```
 
-    Mer information finns i [AZ ml data uppsättning show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
+    Mer information finns i [AZ ml data uppsättning show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-dataset-show).
 
 + Avregistrera en data uppsättning:
 
@@ -323,7 +323,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
     az ml dataset unregister -n dataset-name
     ```
 
-    Mer information finns i [avregistrering av AZ ml-datauppsättning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Mer information finns i [avregistrering av AZ ml-datauppsättning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-dataset-archive).
 
 ## <a name="environment-management"></a>Miljöhantering
 
@@ -335,7 +335,7 @@ Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Le
     az ml environment scaffold -n myenv -d myenvdirectory
     ```
 
-    Mer information finns i [AZ ml Environment Autogenerera](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-scaffold).
+    Mer information finns i [AZ ml Environment Autogenerera](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-environment-scaffold).
 
 + Registrera en miljö:
 
@@ -343,7 +343,7 @@ Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Le
     az ml environment register -d myenvdirectory
     ```
 
-    Mer information finns i [AZ ml miljö register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-register).
+    Mer information finns i [AZ ml miljö register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-environment-register).
 
 + Lista registrerade miljöer:
 
@@ -351,7 +351,7 @@ Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Le
     az ml environment list
     ```
 
-    Mer information finns i [AZ ml Environment List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-list).
+    Mer information finns i [AZ ml Environment List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-environment-list).
 
 + Ladda ned en registrerad miljö:
 
@@ -359,11 +359,11 @@ Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Le
     az ml environment download -n myenv -d downloaddirectory
     ```
 
-    Mer information finns i [AZ ml-miljö hämtning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
+    Mer information finns i [AZ ml-miljö hämtning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-environment-download).
 
 ### <a name="environment-configuration-schema"></a>Konfigurations schema för miljö
 
-Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `azureml_environment.json` som kan ändras och används för att skapa anpassade miljö konfigurationer med cli. Objektet på den översta nivån mappas löst till [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) klassen i python SDK. 
+Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `azureml_environment.json` som kan ändras och används för att skapa anpassade miljö konfigurationer med cli. Objektet på den översta nivån mappas löst till [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) klassen i python SDK. 
 
 ```json
 {
@@ -407,9 +407,9 @@ Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `
 }
 ```
 
-Följande tabell innehåller information om varje översta fält i JSON-filen, dess typ och en beskrivning. Om en objekt typ är länkad till en klass från python SDK finns det en lös 1:1-matchning mellan varje JSON-fält och namnet på den offentliga variabeln i python-klassen. I vissa fall kan fältet mappas till ett konstruktor-argument i stället för en klass variabel. Till exempel `environmentVariables` mappas fältet till `environment_variables` variabeln i- [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) klassen.
+Följande tabell innehåller information om varje översta fält i JSON-filen, dess typ och en beskrivning. Om en objekt typ är länkad till en klass från python SDK finns det en lös 1:1-matchning mellan varje JSON-fält och namnet på den offentliga variabeln i python-klassen. I vissa fall kan fältet mappas till ett konstruktor-argument i stället för en klass variabel. Till exempel `environmentVariables` mappas fältet till `environment_variables` variabeln i- [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) klassen.
 
-| JSON-fält | Typ | Beskrivning |
+| JSON-fält | Typ | Description |
 |---|---|---|
 | `name` | `string` | Miljöns namn. Starta inte namn med **Microsoft** eller **azureml**. |
 | `version` | `string` | Version av miljön. |
@@ -430,7 +430,7 @@ Följande kommandon visar hur du arbetar med maskin inlärnings pipeliner:
     az ml pipeline create -n mypipeline -y mypipeline.yml
     ```
 
-    Mer information finns i [AZ ml pipeline Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create).
+    Mer information finns i [AZ ml pipeline Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-pipeline-create).
 
     Mer information om pipeline YAML-filen finns i [definiera pipelines i Machine Learning i yaml](reference-pipeline-yaml.md).
 
@@ -440,7 +440,7 @@ Följande kommandon visar hur du arbetar med maskin inlärnings pipeliner:
     az ml run submit-pipeline -n myexperiment -y mypipeline.yml
     ```
 
-    Mer information finns i [AZ ml Run Submit-pipeline](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-pipeline).
+    Mer information finns i [AZ ml Run Submit-pipeline](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-pipeline).
 
     Mer information om pipeline YAML-filen finns i [definiera pipelines i Machine Learning i yaml](reference-pipeline-yaml.md).
 
@@ -450,7 +450,7 @@ Följande kommandon visar hur du arbetar med maskin inlärnings pipeliner:
     az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
     ```
 
-    Mer information finns i [AZ ml pipeline Create-Schedule](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create-schedule).
+    Mer information finns i [AZ ml pipeline Create-Schedule](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-pipeline-create-schedule).
 
     Mer information om YAML-filen för pipelinen finns i [definiera pipelines för maskin inlärning i yaml](reference-pipeline-yaml.md#schedules).
 
@@ -464,14 +464,14 @@ Följande kommandon visar hur du registrerar en utbildad modell och sedan distri
     az ml model register -n mymodel -p sklearn_regression_model.pkl
     ```
 
-    Mer information finns i [AZ ml modell register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
+    Mer information finns i [AZ ml modell register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-register).
 
 + **Valfritt** Profilera din modell för att få optimala processor-och minnes värden för distribution.
     ```azurecli-interactive
     az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
     ```
 
-    Mer information finns i [AZ ml modell Profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
+    Mer information finns i [AZ ml modell Profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-profile).
 
 + Distribuera din modell till AKS
     ```azurecli-interactive
@@ -482,7 +482,7 @@ Följande kommandon visar hur du registrerar en utbildad modell och sedan distri
     
     Mer information om schemat för distributions konfigurations filen finns i [schema för distributions konfiguration](#deploymentconfig).
 
-    Mer information finns i [AZ ml modell Deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+    Mer information finns i [AZ ml modell Deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy).
 
 <a id="inferenceconfig"></a>
 
@@ -508,6 +508,6 @@ Följande kommandon visar hur du registrerar en utbildad modell och sedan distri
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kommando referens för Machine Learning CLI-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
+* [Kommando referens för Machine Learning CLI-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest&preserve-view=true).
 
 * [Träna och distribuera maskin inlärnings modeller med Azure-pipelines](/azure/devops/pipelines/targets/azure-machine-learning)

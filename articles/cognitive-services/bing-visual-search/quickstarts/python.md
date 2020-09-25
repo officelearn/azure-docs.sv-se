@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Hämta bild insikter med hjälp av REST API och python-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
+description: Lär dig hur du laddar upp en avbildning med hjälp av API för visuell sökning i Bing och python och få insikter om avbildningen.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
 ms.custom: devx-track-python
-ms.openlocfilehash: 7c76ec8600ade26098206a5d18559e795db53178
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ef265ab0cff9514695b40995e842518803e2e4c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324594"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och python
 

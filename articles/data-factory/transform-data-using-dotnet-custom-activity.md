@@ -1,6 +1,6 @@
 ---
 title: Använd anpassade aktiviteter i en pipeline
-description: Lär dig hur du skapar anpassade aktiviteter och använder dem i en Azure Data Factory pipeline.
+description: Lär dig hur du skapar anpassade aktiviteter med hjälp av .NET och sedan använder aktiviteterna i en Azure Data Factory pipeline.
 services: data-factory
 ms.service: data-factory
 author: nabhishek
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019970"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276514"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
@@ -100,13 +100,13 @@ I det här exemplet är helloworld.exe ett anpassat program som lagras i mappen 
 
 I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika för den här aktiviteten.
 
-| Egenskap              | Beskrivning                              | Obligatorisk |
+| Egenskap              | Beskrivning                              | Krävs |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Namn på aktiviteten i pipelinen     | Ja      |
+| namn                  | Namn på aktiviteten i pipelinen     | Yes      |
 | description           | Text som beskriver vad aktiviteten gör.  | No       |
-| typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Ja      |
-| linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Ja      |
-| command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som `cmd /c dir` är inbyggt i Windows batch pool-noden. | Ja      |
+| typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Yes      |
+| linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Yes      |
+| command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som `cmd /c dir` är inbyggt i Windows batch pool-noden. | Yes      |
 | resourceLinkedService | Azure Storage länkad tjänst till lagrings kontot där det anpassade programmet lagras | Inga &#42;       |
 | folderPath            | Sökväg till mappen för det anpassade programmet och alla dess beroenden<br/><br/>Om du har beroenden lagrade i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* , är mappstrukturen för närvarande utplattad när filerna kopieras till Azure Batch. Det innebär att alla filer kopieras till en enda mapp utan undermappar. Undvik problemet genom att komprimera filerna, kopiera den komprimerade filen och packa upp den med anpassad kod på önskad plats. | Inga &#42;       |
 | referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | No       |
@@ -310,7 +310,7 @@ Du kan skicka anpassade värden från koden i en anpassad aktivitet tillbaka til
 
 ## <a name="retrieve-securestring-outputs"></a>Hämta SecureString-utdata
 
-Känsliga egenskaps värden som anges som typ *SecureString*, som du ser i några av exemplen i den här artikeln, maskeras ut i fliken övervakning i Data Factory användar gränssnitt.  I faktisk pipeline-körning serialiseras dock egenskapen *SecureString* som JSON i `activity.json` filen som oformaterad text. Ett exempel:
+Känsliga egenskaps värden som anges som typ *SecureString*, som du ser i några av exemplen i den här artikeln, maskeras ut i fliken övervakning i Data Factory användar gränssnitt.  I faktisk pipeline-körning serialiseras dock egenskapen *SecureString* som JSON i `activity.json` filen som oformaterad text. Exempel:
 
 ```json
 "extendedProperties": {
@@ -325,7 +325,7 @@ Den här serialiseringen är inte riktigt säker och är inte avsedd att vara s�
 
 För att få åtkomst till egenskaper av typen *SecureString* från en anpassad aktivitet, kan du läsa `activity.json` filen som placeras i samma mapp som din. EXE, deserialisera JSON och öppna sedan JSON-egenskapen (extendedProperties => [propertyName] => värde).
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a>Jämför v2-aktivitet för anpassad aktivitet och version 1 (anpassad) DotNet
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a> Jämför v2-aktivitet för anpassad aktivitet och version 1 (anpassad) DotNet
 
 I Azure Data Factory version 1 implementerar du en (anpassad) DotNet-aktivitet genom att skapa ett biblioteks projekt för .NET-klass med en klass som implementerar- `Execute` metoden för `IDotNetActivity` gränssnittet. Länkade tjänster, data uppsättningar och utökade egenskaper i JSON-nyttolasten för en (anpassad) DotNet-aktivitet skickas till körnings metoden som starkt skrivna objekt. Mer information om beteendet för version 1 finns i [(anpassad) dotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen måste din version 1 DotNet-aktivitets kod riktas mot .NET Framework 4.5.2. En DotNet-aktivitet från version 1 måste också köras på Windows-baserade Azure Batch pool-noder.
 

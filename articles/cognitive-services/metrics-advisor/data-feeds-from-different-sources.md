@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: ''
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324475"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Lägg till datafeeds från olika data källor i mått Advisor
 
@@ -23,7 +23,7 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 
 ## <a name="supported-authentication-types"></a>Autentiseringstyper som stöds
 
-| Autentiseringstyper | Beskrivning |
+| Autentiseringstyper | Description |
 | ---------------------|-------------|
 |**Basic** | Du måste kunna tillhandahålla grundläggande parametrar för åtkomst till data källor. Till exempel en anslutnings sträng eller nyckel. Data flödes administratörer kan visa dessa autentiseringsuppgifter. |
 | **AzureManagedIdentity** | [Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för Azure-resurser är en funktion i Azure Active Directory. Den tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering.|
@@ -223,7 +223,7 @@ The timestamp field must match one of these two formats:
     SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
     ```
 
-## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>
+## <a name="span-ideselasticsearchspan"></a><span id="es">ElasticSearch</span>
 
 * **Värd**: Ange huvud värden för ElasticSearch-kluster.
 * **Port**: Ange huvud porten för ElasticSearch-klustret.

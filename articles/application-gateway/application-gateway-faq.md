@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278642"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -49,7 +49,9 @@ Se [stödda Server dels resurser](https://docs.microsoft.com/azure/application-g
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>I vilka regioner är Application Gateway tillgängliga?
 
-Application Gateway är tillgängligt i alla regioner i Global Azure. Det är också tillgängligt i [Azure Kina 21Vianet](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+Application Gateway v1 (standard och WAF) är tillgängligt i alla regioner i Global Azure. Det är också tillgängligt i [Azure Kina 21Vianet](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+
+Application Gateway v2 (Standard_v2 och WAF_v2) tillgänglighet finns i [regioner som stöds för Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>Är den här distributionen dedikerad för min prenumeration eller delas den mellan kunder?
 
@@ -182,11 +184,15 @@ Nej. Men du kan distribuera andra programgatewayer i under nätet.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Stöds nätverks säkerhets grupper i undernät för Application Gateway?
 
-Se [nätverks säkerhets grupper i Application Gateway under nätet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
+Se [nätverks säkerhets grupper i Application Gateway under nätet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Har Application Gateway-undernätet stöd för användardefinierade vägar?
 
 Se [användardefinierade vägar som stöds i Application Gateway under nätet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+
+### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>Stöds service slut punkts principer i Application Gateway-undernätet?
+
+Nej. [Tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) för lagrings konton stöds inte i Application Gateway under nät och konfigureras blockerar Azures infrastruktur trafik.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Vilka är gränserna för Application Gateway? Kan jag öka de här gränserna?
 
@@ -222,7 +228,7 @@ Fältet värd anger namnet som avsökningen ska skickas till när du har konfigu
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Kan jag bara tillåta Application Gateway åtkomst till några få käll-IP-adresser?
 
-Ja. Se [begränsa åtkomsten till vissa käll-IP-adresser](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Ja. Se [begränsa åtkomsten till vissa käll-IP-adresser](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Kan jag använda samma port för både offentlig och privat lyssnare?
 

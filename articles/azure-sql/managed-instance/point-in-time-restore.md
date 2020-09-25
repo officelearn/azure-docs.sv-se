@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, mathoma
+ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c4a538a0dc5447f95152de87f9a19ed57f08359
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325121"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Återställa en databas i en Azure SQL-hanterad instans till en tidigare tidpunkt
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,8 +46,8 @@ I följande tabell visas tidpunkter för återställnings scenarier för SQL-han
 
 |           |Återställ befintlig databas till samma instans av SQL-hanterad instans| Återställa en befintlig databas till en annan SQL-hanterad instans|Återställ utelämnad databas till samma SQL-hanterade instans|Återställ utelämnad databas till en annan SQL-hanterad instans|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| Ja|No |Ja|No|
-|**Azure CLI**|Ja |Ja |Nej|Nej|
+|**Azure-portalen**| Ja|Inga |Ja|Inga|
+|**Azure CLI**|Ja |Ja |Inga|Inga|
 |**PowerShell**| Ja|Ja |Ja|Ja|
 
 ## <a name="restore-an-existing-database"></a>Återställa en befintlig databas

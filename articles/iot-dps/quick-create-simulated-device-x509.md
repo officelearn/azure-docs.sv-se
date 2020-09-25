@@ -1,5 +1,5 @@
 ---
-title: Etablera simulerad X. 509-enhet i Azure IoT Hub med C
+title: Snabb start – etablera simulerad X. 509-enhet till Azure IoT Hub att använda C
 description: Den här snabbstarten använder enskilda registreringar. I den här snabb starten skapar du och etablerar en simulerad X. 509-enhet med C-enhets-SDK för Azure IoT Hub Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6cd606a8373e8abd4c58151cdb0b5f1f2b689535
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 42636695113dd824797d1a837e21ab2901d87738
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323872"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad X.509-enhet med Azure IoT C SDK
 

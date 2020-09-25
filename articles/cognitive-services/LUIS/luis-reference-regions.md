@@ -1,18 +1,20 @@
 ---
 title: Publicerings regioner &-slutpunkter – LUIS
 description: Den region som anges i Azure Portal är samma där du kommer att publicera LUIS-appen och en slut punkts-URL genereras för samma region.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: 680887ecda0843bf770c62a4b9a4d88305ea9e73
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 134f71e957b39cf35b4e45e42c2101fbce233f05
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590918"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277163"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Redigerings-och publicerings regioner och tillhör ande nycklar
 
-Tre redigerings regioner stöds av motsvarande LUIS-portaler. Om du vill publicera en LUIS-app i fler än en region behöver du minst en nyckel per region.
+Tre redigerings regioner stöds av motsvarande LUIS-portaler. Om du vill publicera en LUIS-app till fler än en region behöver du minst en nyckel per region.
 
 <a name="luis-website"></a>
 
@@ -30,7 +32,7 @@ Redigerings regioner har [parat på växlings bara regioner](https://docs.micros
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>Publicera regioner och Azure-resurser
-Appen publiceras till alla regioner som är kopplade till de LUIS-resurser som lagts till i LUIS-portalen. För en app som skapas på [www.Luis.AI][www.luis.ai], om du till exempel skapar en Luis-eller kognitiv tjänst resurs i **väst** och [lägger till den i appen som en resurs](luis-how-to-azure-subscription.md), publiceras appen i den regionen.
+Appen publiceras till alla regioner som är associerade med de LUIS-resurser som lagts till i LUIS-portalen. För en app som skapas på [www.Luis.AI][www.luis.ai], om du till exempel skapar en Luis-eller kognitiv tjänst resurs i **väst** och [lägger till den i appen som en resurs](luis-how-to-azure-subscription.md), publiceras appen i den regionen.
 
 ## <a name="public-apps"></a>Offentliga appar
 En offentlig app publiceras i alla regioner så att en användare med en regions-baserad LUIS resurs nyckel kan komma åt appen i den region som är kopplad till deras resurs nyckel.
@@ -39,7 +41,7 @@ En offentlig app publiceras i alla regioner så att en användare med en regions
 
 ## <a name="publishing-regions-are-tied-to-authoring-regions"></a>Publicerings regioner är knutna till redigerings regioner
 
-Det går bara att publicera appen för redigerings region i en motsvarande publicerings region. Om din app för närvarande är i fel redigerings region, exportera appen och importera den till rätt redigerings region för publicerings regionen.
+Det går bara att publicera appen för redigerings region i en motsvarande publicerings region. Om din app för närvarande är i fel redigeringsregion exporterar du appen och importerar den till rätt redigeringsregion för din publiceringsregion.
 
 LUIS-appar som skapas på https://www.luis.ai kan publiceras till alla slut punkter förutom de [Europeiska](#publishing-to-europe) och [australiska](#publishing-to-australia) regionerna.
 
@@ -52,7 +54,7 @@ För att publicera till de europeiska regionerna skapar du LUIS-appar https://eu
  Global region | Redigera API-region & redigerings webbplats| Publicerar & fråge område<br>`API region name`   |  URL-format för slut punkt   |
 |-----|------|------|------|
 | [Europa](#publishing-to-europe)| `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Frankrike, centrala<br>`francecentral`     | `https://francecentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
-| [Europa](#publishing-to-europe)| `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Europa, norra<br>`northeurope`     | `https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| [Europa](#publishing-to-europe)| `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Norra Europa<br>`northeurope`     | `https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | [Europa](#publishing-to-europe) | `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Europa, västra<br>`westeurope`    |  `https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | [Europa](#publishing-to-europe) | `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Storbritannien, södra<br>`uksouth`    |  `https://uksouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
@@ -82,8 +84,8 @@ Om du vill publicera till andra regioner skapar du LUIS-appar [https://www.luis.
 | Asien | `westus`<br>[www.luis.ai][www.luis.ai]| Sydkorea, centrala<br>`koreacentral`     |   `https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Asien | `westus`<br>[www.luis.ai][www.luis.ai]| Sydostasien<br>`southeastasia`     |   `https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Nordamerika |`westus`<br>[www.luis.ai][www.luis.ai] | Kanada, centrala<br>`canadacentral`     |   `https://canadacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
-| Nordamerika |`westus`<br>[www.luis.ai][www.luis.ai] | USA, centrala<br>`centralus`     |   `https://centralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
-| Nordamerika |`westus`<br>[www.luis.ai][www.luis.ai] | USA, östra<br>`eastus`      |  `https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| Nordamerika |`westus`<br>[www.luis.ai][www.luis.ai] | Central US<br>`centralus`     |   `https://centralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| Nordamerika |`westus`<br>[www.luis.ai][www.luis.ai] | East US<br>`eastus`      |  `https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Nordamerika | `westus`<br>[www.luis.ai][www.luis.ai] | USA, östra 2<br>`eastus2`     |  `https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Nordamerika | `westus`<br>[www.luis.ai][www.luis.ai] | USA, norra centrala<br>`northcentralus`  |  `https://northcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Nordamerika | `westus`<br>[www.luis.ai][www.luis.ai] | USA, södra centrala<br>`southcentralus`  |  `https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |

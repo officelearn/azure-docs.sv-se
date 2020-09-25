@@ -4,23 +4,23 @@ description: DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azu
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: Azure, SQL Server, SAP, AlwaysOn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2018
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 56a7b91327e84ca36e6ec6e4b15f594dbc61830e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274307"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure Virtual Machines DBMS-distribution för SAP NetWeaver
 
@@ -309,7 +309,7 @@ ms.locfileid: "88654590"
 
 
 
-Det här dokumentet omfattar flera olika områden att tänka på när du distribuerar SQL Server för SAP-arbetsbelastningar i Azure IaaS. Som ett villkor för det här dokumentet bör du läsa dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) samt andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](./get-started.md). 
+Det här dokumentet omfattar flera olika områden att tänka på när du distribuerar SQL Server för SAP-arbetsbelastningar i Azure IaaS. Som ett villkor för det här dokumentet bör du läsa dokument [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_general.md) samt andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](./get-started.md). 
 
 
 
@@ -320,7 +320,7 @@ Det här dokumentet omfattar flera olika områden att tänka på när du distrib
 
 I allmänhet bör du överväga att använda de senaste SQL Server versionerna för att köra SAP-arbetsbelastningar i Azure IaaS. De senaste SQL Server-versionerna erbjuder bättre integrering i några av Azure-tjänsterna och-funktionerna. Eller har ändringar som optimerar åtgärder i en Azure IaaS-infrastruktur.
 
-Vi rekommenderar att du läser [den här][virtual-machines-sql-server-infrastructure-services] dokumentationen innan du fortsätter.
+Vi rekommenderar att du läser artikeln [vad är SQL Server på Azure Virtual Machines (Windows)] [ https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview ] innan du fortsätter.
 
 I följande avsnitt samlas delar av delar av dokumentationen under länken ovan samman och anges. Information kring SAP nämns också och vissa begrepp beskrivs i detalj. Vi rekommenderar dock starkt att du går igenom dokumentationen ovan innan du läser den SQL Server-/regionsspecifika dokumentationen.
 
@@ -332,13 +332,13 @@ Det finns vissa SQL Server i IaaS information som du bör känna till innan du f
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Rekommendationer för VM/VHD-struktur för SAP-relaterade SQL Server distributioner
-I enlighet med den allmänna beskrivningen ska SQL Server körbara filer finnas eller installeras i system enheten för den virtuella datorns OS-disk (enhet C: \) .  Normalt används de flesta SQL Server System databaserna inte på en hög nivå av SAP NetWeaver-arbetsbelastningar. Därför kan system databaserna för SQL Server (Master, msdb och Model) finnas kvar på C:\ enheten också. Ett undantag bör vara tempdb, som i fallet med SAP-arbetsbelastningar, kan kräva antingen högre data volym eller I/O-åtgärdernas volym. I/O-arbetsbelastning, som inte ska användas för OS-VHD: n. Följande steg bör utföras för sådana system:
+I enlighet med den allmänna beskrivningen, operativ systemet SQL Server körbara filer, och i händelse av SAP 2-Tier-system, bör SAP-körbara filer finnas eller vara installerade på separata Azure-diskar. Normalt används de flesta SQL Server System databaserna inte på en hög nivå av SAP NetWeaver-arbetsbelastningar. System databaserna för SQL Server (Master, msdb och Model) måste dock vara, tillsammans med de andra SQL Server katalogerna på en separat Azure-disk. SQL Server tempdb ska antingen finnas på nonperisisted-D:\ enhet eller på en separat disk.
 
 
 * Med alla SAP-certifierade VM-typer (se SAP anmärkning [1928533]), förutom A-seriens virtuella datorer, tempdb-data och loggfiler kan placeras på den icke-sparade D:\ kombinationsenhet. 
-* Du rekommenderas dock att använda flera tempdb-datafiler. Var medveten om D:\ enhets volymer är olika beroende på den virtuella dator typen. För exakta storlekar på D:\ enhet för de olika virtuella datorerna kontrollerar du artikel [storlekarna för virtuella Windows-datorer i Azure](../../sizes.md).
+* För äldre SQL Server-versioner, där SQL Server installerar tempdb med en datafil som standard, rekommenderar vi att du använder flera tempdb-datafiler. Var medveten om D:\ enhets volymer är olika beroende på den virtuella dator typen. För exakta storlekar på D:\ enhet för de olika virtuella datorerna kontrollerar du artikel [storlekarna för virtuella Windows-datorer i Azure](../../sizes.md).
 
-Dessa konfigurationer gör det möjligt för tempdb att förbruka mer utrymme än system enheten kan tillhandahålla. Icke-permanent D:\ enheten erbjuder också bättre I/O-latens och data flöde (med undantag för virtuella datorer i A-serien). För att fastställa rätt tempdb-storlek kan du kontrol lera tempdb-storlekarna på befintliga system. 
+Dessa konfigurationer gör det möjligt för tempdb att förbruka mer utrymme och mer viktig mer IOPS och lagrings bandbredd än system enheten kan tillhandahålla. Den D:\ som inte är permanent enheten erbjuder också bättre I/O-latens och data flöde (med undantag för virtuella datorer i A-serien). För att fastställa rätt tempdb-storlek kan du kontrol lera tempdb-storlekarna på befintliga system. 
 
 >[!NOTE]
 > Om du placerar tempdb-datafilerna och logg filen i en mapp på D:\ enhet som du har skapat måste du kontrol lera att mappen finns efter en omstart av datorn. Eftersom D:\ enheten initieras nyligen efter att en virtuell dator har startats om alla fil-och katalog strukturer rensas bort. En möjlighet att återskapa eventuella katalog strukturer på D:\ enheten innan SQL Servers tjänstens början dokumenteras i [den här artikeln](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
@@ -347,11 +347,10 @@ En VM-konfiguration, som kör SQL Server med en SAP-databas och där tempdb-data
 
 ![Diagram över enkel disk konfiguration för virtuell dator för SQL Server](./media/dbms_sqlserver_deployment_guide/Simple_disk_structure.PNG)
 
-Diagrammet ovan visar ett enkelt ärende. Som eluded i artikeln [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md), antal och storlek för Premium Storage diskar är beroende av olika faktorer. Men i allmänhet rekommenderar vi att:
+Diagrammet ovan visar ett enkelt ärende. Som eluded i artikeln [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md), är Azures lagrings typ, antal och storlek för diskarna beroende av olika faktorer. Men i allmänhet rekommenderar vi att:
 
-- Använda lagrings utrymmen för att skapa ett eller ett litet antal volymer, som innehåller SQL Server-datafilerna. Anledningen till att den här konfigurationen är att i real tid finns det flera SAP-databaser med olika storleks databas filer med olika I/O-arbetsbelastningar.
-- Använd lagrings utrymmen för att tillhandahålla tillräckligt med IOPS och för SQL Server transaktions logg filen. Potentiell IOPS-belastning är ofta den GUID-rad som används för storleks ändring av transaktions logg volymen och inte den potentiella volymen hos SQL Server transaktions volymen
-- Använd D:\drive för tempdb så länge prestanda är tillräckligt hög. Om den övergripande arbets belastningen är begränsad i prestanda genom tmepdb som finns på D:\ enhet du kan behöva överväga att flytta tempdb till separata Premium Storage diskar enligt rekommendationerna i [den här artikeln](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
+- Använda en stor volym som innehåller SQL Server-datafilerna. Anledningen till att den här konfigurationen är att i real tid finns det flera SAP-databaser med olika storleks databas filer med olika I/O-arbetsbelastningar.
+- Använd D:\drive för tempdb så länge prestanda är tillräckligt hög. Om den övergripande arbets belastningen är begränsad i prestandan av tempdb som finns på D:\ enhet du kan behöva överväga att flytta tempdb till att separera Azure Premium Storage eller Ultra disk disks enligt rekommendationer i [den här artikeln](../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 
 ### <a name="special-for-m-series-vms"></a>Special för virtuella datorer i M-serien
@@ -359,7 +358,7 @@ För virtuella datorer i Azure M-serien kan svars tiden som skrivs till transakt
   
 
 ### <a name="formatting-the-disks"></a>Formatera diskarna
-För SQL Server ska NTFS-block storleken för diskar som innehåller SQL Server data och loggfiler vara 64 kB. Du behöver inte formatera D:\ kombinationsenhet. Den här enheten levereras i förväg.
+För SQL Server ska NTFS-block storleken för diskar som innehåller SQL Server data och loggfiler vara 64 KB. Du behöver inte formatera D:\ kombinationsenhet. Den här enheten levereras i förväg.
 
 För att se till att det inte går att initiera datafilerna genom att nollställa innehållet i filerna bör du se till att den användar kontext som SQL Server tjänsten körs i har en viss behörighet. Användare i gruppen Windows-administratörer har vanligt vis dessa behörigheter. Om SQL Server-tjänsten körs i användar kontexten för en användare som inte är Windows-administratör, måste du tilldela användaren användar rättigheten att **utföra volym underhålls aktiviteter**.  Se informationen i den här artikeln i Microsoft Knowledge Base: <https://support.microsoft.com/kb/2574695>
 
@@ -385,13 +384,13 @@ SQL Server 2014 och senare versioner öppnar du möjligheten att lagra databasfi
 * Värdbaserade cachelagring som är tillgängligt för Azure Premium Storage-diskar är inte tillgängligt när du placerar SQL Server-datafiler direkt på Azure-blobar.
 * På virtuella datorer i M-serien kan Azure Skrivningsaccelerator inte användas för att stödja under millisekunder-skrivningar mot logg filen för SQL Servers transaktioner. 
 
-Information om den här funktionen finns i artikeln [SQL Server datafiler i Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017)
+Information om den här funktionen finns i artikeln [SQL Server datafiler i Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure)
 
 Rekommendationen för produktions system är att undvika den här konfigurationen och i stället välja placeringar av SQL Server data och loggfiler i Azure Premium Storage VHD: er i stället för direkt på Azure-blobar.
 
 
 ## <a name="sql-server-2014-buffer-pool-extension"></a>SQL Server 2014-buffertpooltillägget
-SQL Server 2014 introducerade en ny funktion som kallas [buffertpooltillägget](/sql/database-engine/configure-windows/buffer-pool-extension?view=sql-server-2017). Den här funktionen utökar bufferten för SQL Server, som lagras i minnet med en sekundär cache som backas upp av lokala SSD på en server eller virtuell dator. Buffertpooltillägget ger en större arbets mängd med data i minnet. Jämfört med åtkomst till Azure standard Storage är åtkomsten till tillägget för bufferten, som lagras på lokala SSD av en virtuell Azure-dator, många faktorer snabbare. Om du jämför buffertpooltillägget för Azure Premium Storage Read cache, som rekommenderas för SQL Server datafiler, förväntas inga betydande fördelar för buffertpooltillägget. Orsak är att både cacheminnen (SQL Server buffertpooltillägget och Premium Storage Read cache) använder de lokala diskarna i Azure Compute-noden.
+SQL Server 2014 introducerade en ny funktion som kallas [buffertpooltillägget](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension). Den här funktionen utökar bufferten för SQL Server, som lagras i minnet med en sekundär cache som backas upp av lokala SSD på en server eller virtuell dator. Buffertpooltillägget ger en större arbets mängd med data i minnet. Jämfört med åtkomst till Azure standard Storage är åtkomsten till tillägget för bufferten, som lagras på lokala SSD av en virtuell Azure-dator, många faktorer snabbare. Om du jämför buffertpooltillägget för Azure Premium Storage Read cache, som rekommenderas för SQL Server datafiler, förväntas inga betydande fördelar för buffertpooltillägget. Orsak är att både cacheminnen (SQL Server buffertpooltillägget och Premium Storage Read cache) använder de lokala diskarna i Azure Compute-noden.
 
 Erfarenheter som erhålls under tiden med SQL Server buffertpooltillägget med SAP-arbetsbelastning är blandade och tillåter fortfarande inte tydliga rekommendationer för huruvida de ska användas i samtliga fall. Det idealiska fallet är att den arbets uppsättning som SAP-programmet kräver passar i huvud minnet. Med Azure samtidigt som de virtuella datorer som levereras med upp till 4 TB minne, bör det vara möjligt att ha den aktiva arbets minnet. Därför är användningen av buffertpooltillägget begränsad till vissa sällsynta fall och bör inte vara en vanlig väska.  
 
@@ -409,9 +408,9 @@ Det finns flera möjligheter att utföra manuella säkerhets kopieringar genom a
 
 Den första metoden är känd och används i många fall även i den lokala världen. Dock lämnar den aktiviteten för att lösa säkerhets kopierings platsen för längre tid. Eftersom du inte vill behålla säkerhets kopiorna i 30 eller fler dagar i den lokalt anslutna Azure Storage måste du antingen använda Azure Backup tjänster eller ett annat säkerhets kopierings-eller återställnings verktyg från tredje part som innehåller åtkomst och bevarande hantering för dina säkerhets kopior. Eller så skapar du en stor fil server i Azure med hjälp av Windows lagrings utrymmen.
 
-Den andra metoden beskrivs närmare i artikeln [SQL Server säkerhets kopiering till URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Olika versioner av SQL Server har vissa variationer i den här funktionen. Därför bör du ta en titt på dokumentationen för din specifika SQL Server versions kontroll. Viktigt att Observera att den här artikeln innehåller en mängd olika begränsningar. Du har antingen möjlighet att utföra säkerhets kopieringen mot:
+Den andra metoden beskrivs närmare i artikeln [SQL Server säkerhets kopiering till URL](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/backup-restore). Olika versioner av SQL Server har vissa variationer i den här funktionen. Därför bör du ta en titt på dokumentationen för din specifika SQL Server versions kontroll. Viktigt att Observera att den här artikeln innehåller en mängd olika begränsningar. Du har antingen möjlighet att utföra säkerhets kopieringen mot:
 
-- En enda Azure Page-BLOB, som sedan begränsar säkerhets kopians storlek till 1000 GB. Detta begränsar också det data flöde som du kan uppnå.
+- En enda Azure Page-BLOB, som sedan begränsar säkerhets kopians storlek till 1000 GB. Den här begränsningen begränsar också det data flöde som du kan uppnå.
 - Flera (upp till 64) Azure block-blobar som möjliggör en teoretisk säkerhets kopierings storlek på 12 TB. Tester med kund databaser visar dock att maximal säkerhets kopierings storlek kan vara mindre än den teoretiska gränsen. I det här fallet ansvarar du för att hantera kvarhållning av säkerhets kopior och även komma åt o säkerhets kopieringarna.
 
 
@@ -423,7 +422,7 @@ Mer information om funktionerna i den här metoden finns i följande artiklar:
 - SQL Server 2014: [Automatisk säkerhets kopiering för SQL Server 2014 Virtual Machines (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-backup-sql-2014.md)
 - SQL Server 2016/2017: [Automatisk säkerhets kopiering v2 för Azure Virtual Machines (Resource Manager)](../../../azure-sql/virtual-machines/windows/automated-backup.md)
 
-I dokumentationen kan du se att funktionerna med de nyare SQL Server-versionerna har förbättrats. Mer information om SQL Server automatiserade säkerhets kopieringar publiceras i artikeln [SQL Server hanterad säkerhets kopiering till Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). Den teoretiska storleks gränsen för säkerhets kopiering är 12 TB.  De automatiserade säkerhets kopieringarna kan vara en lämplig metod för säkerhets kopierings storlekar på upp till 12 TB. Eftersom flera blobbar skrivs till parallellt kan du vänta på ett data flöde som är större än 100 MB/SEK. 
+I dokumentationen kan du se att funktionerna med de nyare SQL Server-versionerna har förbättrats. Mer information om SQL Server automatiserade säkerhets kopieringar publiceras i artikeln [SQL Server hanterad säkerhets kopiering till Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure). Den teoretiska storleks gränsen för säkerhets kopiering är 12 TB.  De automatiserade säkerhets kopieringarna kan vara en lämplig metod för säkerhets kopierings storlekar på upp till 12 TB. Eftersom flera blobbar skrivs till parallellt kan du vänta på ett data flöde som är större än 100 MB/SEK. 
  
 
 ### <a name="azure-backup-for-sql-server-vms"></a>Azure Backup för SQL Server virtuella datorer
@@ -466,13 +465,13 @@ Latin1-General, binary code point comparison sort for Unicode Data, SQL Server S
 Om resultatet skiljer sig kan du avbryta distributionen av SAP och undersöka varför installations kommandot inte fungerade som förväntat. Det finns **inte** stöd för distribution av SAP NetWeaver-program till SQL Server-instans med olika SQL Server-kodsidor än det som anges ovan.
 
 ## <a name="sql-server-high-availability-for-sap-in-azure"></a>SQL Server hög tillgänglighet för SAP i Azure
-Med hjälp av SQL Server i Azure IaaS-distributioner för SAP har du flera olika möjligheter att lägga till för att distribuera DBMS-skiktet med hög tillgänglighet. Som det beskrivs i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) , tillhandahåller Azure olika service avtal för en enskild virtuell dator och ett par med virtuella datorer som distribueras i en Azures tillgänglighets uppsättning. Antagande är att du driver upp till SLA för drift tid för dina produktions distributioner som kräver distribution i Azures tillgänglighets uppsättningar. I sådana fall måste du distribuera minst två virtuella datorer i en sådan tillgänglighets uppsättning. En virtuell dator kommer att köra den aktiva SQL Server-instansen. Den andra virtuella datorn kommer att köra den passiva instansen
+Med hjälp av SQL Server i Azure IaaS-distributioner för SAP har du flera olika möjligheter att lägga till för att distribuera DBMS-skiktet med hög tillgänglighet. Som beskrivs i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) , tillhandahåller Azure olika service avtal för en enskild virtuell dator och ett par med virtuella datorer som distribueras i en Azures tillgänglighets uppsättning. Antagande är att du driver upp till SLA för drift tid för dina produktions distributioner som kräver distribution i Azures tillgänglighets uppsättningar. I sådana fall måste du distribuera minst två virtuella datorer i en sådan tillgänglighets uppsättning. En virtuell dator kommer att köra den aktiva SQL Server-instansen. Den andra virtuella datorn kommer att köra den passiva instansen
 
-### <a name="sql-server-clustering-using-windows-scale-out-file-server"></a>SQL Server klustring med Windows-skalbar fil Server
-Med Windows Server 2016 lanserade Microsoft [Lagringsdirigering](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). SQL Server FCI-klustring stöds baserat på Lagringsdirigering distribution. Information finns i artikeln [konfigurera SQL Server redundanskluster på Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md). Lösningen kräver en Azure Load Balancer och hanterar den virtuella IP-adressen för kluster resurserna. SQL Server databasfiler lagras i lagrings utrymmen. Därför är det en förutsättning att du måste skapa lagrings utrymmen för Windows baserat på Azure Premium Storage. Eftersom den här lösningen har stöd för för länge än finns det inga kända SAP-kunder som använder den här lösningen i SAP-produktions scenarier.  
+### <a name="sql-server-clustering-using-windows-scale-out-file-server-or-azure-shared-disk"></a>SQL Server klustring med Windows-skalbar fil server eller Azure delad disk
+Med Windows Server 2016 lanserade Microsoft [Lagringsdirigering](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). SQL Server FCI-klustring stöds i allmänhet baserat på Lagringsdirigering distribution. Azure erbjuder också [Azure-delade diskar](https://docs.microsoft.com/azure/virtual-machines/disks-shared-enable?tabs=azure-cli) som kan användas för Windows-kluster. För SAP-arbetsbelastningar har vi inte stöd för dessa HA-alternativ. 
 
 ### <a name="sql-server-log-shipping"></a>SQL Server logg överföring
-En av metoderna för hög tillgänglighet (HA) är SQL Server logg överföring. Om de virtuella datorerna som ingår i HA-konfigurationen har fungerande namn matchning, finns det inga problem och installationen i Azure skiljer sig inte från alla inställningar som görs lokalt. Vad gäller att ställa in logg överföring och principerna kring logg överföring. Information om SQL Server logg överföring finns i artikeln [om logg överföring (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-2017).
+En av metoderna för hög tillgänglighet (HA) är SQL Server logg överföring. Om de virtuella datorerna som ingår i HA-konfigurationen har fungerande namn matchning, finns det inga problem och installationen i Azure skiljer sig inte från alla inställningar som görs lokalt. Vad gäller att ställa in logg överföring och principerna kring logg överföring. Information om SQL Server logg överföring finns i artikeln [om logg överföring (SQL Server)](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server).
 
 Den SQL Server logg leverans funktionen användes i Azure för att uppnå hög tillgänglighet i en Azure-region. I följande scenarier har SAP-kunder använt logg överföring tillsammans med Azure:
 
@@ -499,7 +498,7 @@ Några saker att tänka på när du använder en tillgänglighets grupps lyssnar
 * Det går bara att använda en lyssnare för tillgänglighets grupper med Windows Server 2012 eller högre som gäst operativ system för den virtuella datorn. För Windows Server 2012 måste du kontrol lera att den här korrigerings filen tillämpas: <https://support.microsoft.com/kb/2854082> 
 * För Windows Server 2008 R2 finns inte den här korrigeringen och Always on måste användas på samma sätt som databas spegling genom att ange en redundansrelation i anslutnings strängen (görs via SAP-standardvärdet. PFL-parametern databaser/MSS/server-se SAP NOTE [965908]).
 * När du använder en tillgänglighets grupps lyssnare måste de virtuella datorerna i databasen vara anslutna till en dedikerad Load Balancer. För att undvika att Azure tilldelar nya IP-adresser i fall där båda VM: ar stängs av, bör en tilldela statiska IP-adresser till nätverks gränssnitten för de virtuella datorerna i konfigurationen Always On (definiera en statisk IP-adress beskrivs i [den här][virtual-networks-reserved-private-ip] artikeln)
-* Det krävs särskilda steg när du skapar WSFC-klustrets konfiguration där klustret behöver en speciell IP-adress, eftersom Azure med dess aktuella funktion skulle tilldela kluster namnet samma IP-adress som den nod som klustret skapas på. Det innebär att en manuell åtgärd måste utföras för att tilldela klustret en annan IP-adress.
+* Det krävs särskilda steg när du skapar WSFC-klustrets konfiguration där klustret behöver en speciell IP-adress, eftersom Azure med dess aktuella funktion skulle tilldela kluster namnet samma IP-adress som den nod som klustret skapas på. Det här beteendet innebär att en manuell åtgärd måste utföras för att tilldela klustret en annan IP-adress.
 * Tillgänglighets gruppens lyssnare kommer att skapas i Azure med TCP/IP-slutpunkter, som tilldelas de virtuella datorerna som kör de primära och sekundära replikerna i tillgänglighets gruppen.
 * Det kan finnas behov av att skydda dessa slut punkter med ACL: er.
 
@@ -514,33 +513,33 @@ Detaljerad dokumentation om hur du distribuerar Always on med SQL Server i Azure
 
 SQL Server Always On är den vanligaste funktionen för hög tillgänglighet och haveri beredskap som används i Azure för SAP-arbetsbelastnings distributioner. De flesta kunder använder Always on för hög tillgänglighet inom en enda Azure-region. Om distributionen är begränsad till två noder har du två alternativ för anslutning:
 
-- Använda tillgänglighets gruppens lyssnare. Med tillgänglighets gruppens lyssnare måste du distribuera en Azure Load Balancer. Detta är vanligt vis standard metoden för distribution. SAP-program konfigureras för att ansluta mot tillgänglighets gruppens lyssnare och inte mot en enskild nod
+- Använda tillgänglighets gruppens lyssnare. Med tillgänglighets gruppens lyssnare måste du distribuera en Azure Load Balancer. På det här sättet är standard metoden för distribution. SAP-program konfigureras för att ansluta mot tillgänglighets gruppens lyssnare och inte mot en enskild nod
 - Använda anslutnings parametrarna för SQL Server databas spegling. I så fall måste du konfigurera anslutningarna för SAP-programmen på ett sätt där båda namnen på noderna namnges. Exakt information om en sådan konfiguration av SAP-sidan finns dokumenterad i SAP Obs [#965908](https://launchpad.support.sap.com/#/notes/965908). Genom att använda det här alternativet behöver du inte konfigurera en lyssnare för tillgänglighets grupp. Och med att det inte finns någon Azure Load Balancer för SQL Server hög tillgänglighet. Därför är nätverks fördröjningen mellan SAP-programlagret och DBMS-skiktet lägre eftersom den inkommande trafiken till SQL Server-instansen inte dirigeras via Azure Load Balancer. Men återkallande, det här alternativet fungerar bara om du begränsar din tillgänglighets grupp så att den omfattar två instanser. 
 
 Ett fåtal kunder utnyttjar SQL Server alltid funktioner för ytterligare haveri beredskap mellan Azure-regioner. Flera kunder använder också möjligheten att utföra säkerhets kopieringar från en sekundär replik. 
 
 ## <a name="sql-server-transparent-data-encryption"></a>SQL Server transparent datakryptering
-Det finns ett antal kunder som använder SQL Server [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) när de distribuerar SAP SQL Server-databaser i Azure. Den SQL Server TDE-funktionen stöds fullt ut av SAP (se SAP Obs! [#1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
+Det finns ett antal kunder som använder SQL Server [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) när de distribuerar SAP SQL Server-databaser i Azure. Den SQL Server TDE-funktionen stöds fullt ut av SAP (se SAP Obs! [#1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
 
 ### <a name="applying-sql-server-tde"></a>Använda SQL Server TDE
-I de fall där du utför en heterogen migrering från en annan DBMS, som körs lokalt, till Windows/SQL Server som körs i Azure, bör du skapa en tom mål databas i SQL Server i förväg. Som nästa steg ska du tillämpa SQL Server TDE-funktioner. Även om du fortfarande kör ditt produktions system lokalt. Anledningen till att du vill utföra i den här sekvensen är att processen för att kryptera den tomma databasen kan ta en stund. SAP import-processerna importerar sedan data till den krypterade databasen under drift stopps fasen. Behovet av att importera till en krypterad databas har lägre tids påverkan än att kryptera databasen efter export fasen i fasen drift. Negativa upplevelser var som möjligt när du försöker tillämpa TDE med SAP-arbetsbelastning som körs ovanpå databasen. Därför kommer rekommendationen att behandla distributionen av TDE som en aktivitet som behöver utföras utan SAP-arbetsbelastning på den aktuella databasen.
+I de fall där du utför en heterogen migrering från en annan DBMS, som körs lokalt, till Windows/SQL Server som körs i Azure, bör du skapa en tom mål databas i SQL Server i förväg. Som nästa steg ska du tillämpa SQL Server TDE-funktioner. Även om du fortfarande kör ditt produktions system lokalt. Anledningen till att du vill utföra i den här sekvensen är att processen för att kryptera den tomma databasen kan ta en stund. SAP import-processerna importerar sedan data till den krypterade databasen under drift stopps fasen. Behovet av att importera till en krypterad databas har lägre tids påverkan än att kryptera databasen efter export fasen i fasen drift. Negativa upplevelser gjordes vid försök att tillämpa TDE med SAP-arbetsbelastning som körs ovanpå databasen. Därför kommer rekommendationen att behandla distributionen av TDE som en aktivitet som behöver utföras utan SAP-arbetsbelastning på den aktuella databasen.
 
 I de fall där du flyttar SAP SQL Server-databaser från lokala enheter till Azure rekommenderar vi att du testar den infrastruktur som du kan använda för att få krypteringen att tillämpas snabbast. Tänk på följande:
 
-- Du kan inte definiera hur många trådar som används för att tillämpa data kryptering i databasen. Antalet trådar är större beroende av antalet disk volymer som SQL Server data och loggfiler distribueras över. Innebär att de mer distinkta volymerna (enhets beteckningar), desto fler trådar används parallellt för att utföra krypteringen. En sådan konfiguration strider mot en bit med tidigare disk konfigurations förslag på att skapa ett eller ett mindre antal lagrings utrymmen för SQL Server databasfiler i virtuella Azure-datorer. En konfiguration med ett litet antal volymer skulle leda till ett litet antal trådar som kör krypteringen. En Encryption-kryptering läser fler än 64 KB, krypterar den och skriver sedan en post i transaktions logg filen, vilket talar om att den krypterade. Det innebär att belastningen på transaktions loggen är måttlig.
+- Du kan inte definiera hur många trådar som används för att tillämpa data kryptering i databasen. Antalet trådar är större beroende av antalet disk volymer som SQL Server data och loggfiler distribueras över. Innebär att de mer distinkta volymerna (enhets beteckningar), desto fler trådar används parallellt för att utföra krypteringen. En sådan konfiguration strider mot en bit med tidigare disk konfigurations förslag på att skapa ett eller ett mindre antal lagrings utrymmen för SQL Server databasfiler i virtuella Azure-datorer. En konfiguration med ett litet antal volymer skulle leda till ett litet antal trådar som kör krypteringen. En Encryption-kryptering läser 64 KB-lagring, krypterar den och skriver sedan en post i transaktions logg filen, vilket anger att den har krypterats. Det innebär att belastningen på transaktions loggen är måttlig.
 - I äldre SQL Server-versioner fick komprimerings komprimeringen inte längre effektivitet när du krypterade SQL Server-databasen. Detta kan leda till ett problem när ditt abonnemang var att kryptera din SQL Server databas lokalt och sedan kopiera en säkerhets kopia till Azure för att återställa databasen i Azure. SQL Server säkerhets kopierings komprimering uppnår vanligt vis ett komprimerings förhållande på faktor 4.
 - Med SQL Server SQL Server 2016 introducerade vi nya funktioner som gör det möjligt att komprimera krypterade databaser på ett effektivt sätt. Mer information finns i [den här bloggen](/archive/blogs/sqlcat/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases) .
  
-Genom att behandla programmet för TDE-kryptering utan några till små SAP-arbetsbelastningar bör du testa den specifika konfigurationen på om det är bättre att tillämpa TDE på din SAP-databas lokalt eller att göra det i Azure. I Azure har du mer flexibilitet när det gäller överetablerings infrastruktur och krymper infrastrukturen när TDE har tillämpats.
+Genom att behandla program varan för TDE-kryptering utan eller bara några SAP-arbetsbelastningar bör du testa den specifika konfigurationen på om det är bättre att tillämpa TDE på din SAP-databas lokalt eller att göra det i Azure. I Azure har du mer flexibilitet när det gäller överetablerings infrastruktur och krymper infrastrukturen när TDE har tillämpats.
 
 ### <a name="using-azure-key-vault"></a>Använda Azure Key Vault
 Azure erbjuder tjänsten för en [Key Vault](https://azure.microsoft.com/services/key-vault/) att lagra krypterings nycklar. SQL Server på den andra sidan erbjuder en koppling för att utnyttja Azure Key Vault som Arkiv för TDE-certifikaten.
 
 Mer information om hur du använder Azure Key Vault för SQL Server TDE-listor som:
 
-- [Utöknings bar nyckel hantering med hjälp av Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server?view=sql-server-2017).
-- [SQL Server TDE utöknings bar nyckel hantering med Azure Key Vault installations steg](/sql/relational-databases/security/encryption/setup-steps-for-extensible-key-management-using-the-azure-key-vault?view=sql-server-2017).
-- [SQL Server-anslutning underhåll & fel sökning](/sql/relational-databases/security/encryption/sql-server-connector-maintenance-troubleshooting?view=sql-server-2017).
+- [Utöknings bar nyckel hantering med hjälp av Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
+- [SQL Server TDE utöknings bar nyckel hantering med Azure Key Vault installations steg](https://docs.microsoft.com/sql/relational-databases/security/encryption/setup-steps-for-extensible-key-management-using-the-azure-key-vault).
+- [SQL Server-anslutning underhåll & fel sökning](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-connector-maintenance-troubleshooting?).
 - [Fler frågor från kunder om SQL Server Transparent datakryptering – TDE + Azure Key Vault](/archive/blogs/saponsqlserver/more-questions-from-customers-about-sql-server-transparent-data-encryption-tde-azure-key-vault).
 
 
@@ -565,3 +564,9 @@ Det finns många rekommendationer i den här hand boken och vi rekommenderar att
 9. Använd högsta möjliga databas komprimering. Vilket är sid komprimering för SQL Server.
 10. Var noga med att använda SQL Server avbildningar från Azure Marketplace. Om du använder SQL Server en måste du ändra instans sorteringen innan du installerar något SAP NetWeaver-system på den.
 11. Installera och konfigurera SAP Host Monitoring för Azure enligt beskrivningen i [distributions guiden][deployment-guide].
+
+
+## <a name="next-steps"></a>Nästa steg
+Läs artikeln 
+
+- [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md)

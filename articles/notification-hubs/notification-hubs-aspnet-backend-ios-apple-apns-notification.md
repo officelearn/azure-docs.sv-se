@@ -1,8 +1,8 @@
 ---
 title: Skicka push-meddelanden till vissa användare med hjälp av Azure Notification Hubs | Microsoft Docs
-description: Lär dig att använda Azure Notification Hubs till att skicka push-meddelanden till specifika användare.
+description: Lär dig hur du skickar push-meddelanden till vissa iOS-användare med hjälp av Azure Notification Hubs.
 documentationcenter: ios
-author: sethm
+author: sethmanheim
 manager: femila
 services: notification-hubs
 ms.service: notification-hubs
@@ -14,12 +14,12 @@ ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302197"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa användare med Azure Notification Hubs
 
@@ -312,7 +312,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     ```
 
     > [!NOTE]
-    > Följande kodfragment är inte ett säkert autentiseringsschema, du bör ersätta implementeringen av `createAndSetAuthenticationHeaderWithUsername:AndPassword:` med din speciella autentiseringsmekanism som genererar en autentiseringstoken som ska användas av den registrerade klient klassen, t. ex. OAuth, Active Directory.
+    > Följande kodfragment är inte ett säkert autentiseringsschema, du bör ersätta implementeringen av    `createAndSetAuthenticationHeaderWithUsername:AndPassword:` med din speciella autentiseringsmekanism som genererar en autentiseringstoken som ska användas av den registrerade klient klassen, t. ex. OAuth, Active Directory.
 
 10. I `@implementation` avsnittet i `ViewController.m` lägger du till följande kod, som lägger till implementeringen för att ange enhets-token och Authentication-huvudet.
 

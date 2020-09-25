@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325697"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
@@ -65,7 +65,7 @@ Funktionen för **ögonblicks bilds principen** är för närvarande en för han
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Du kan också använda Azure CLI-kommandon [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) och [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) Registrera funktionen och Visa registrerings status. 
+Du kan också använda [Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` och `az feature show` Registrera funktionen och Visa registrerings status. 
 
 ### <a name="create-a-snapshot-policy"></a>Skapa en ögonblicks bild princip 
 
@@ -221,6 +221,6 @@ Om du har markerat kryss rutan Dölj ögonblicks bilds Sök väg när du skapade
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå lagringshierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Felsöka ögonblicks bilds principer](troubleshoot-snapshot-policies.md)
 * [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files ögonblicks bilder 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

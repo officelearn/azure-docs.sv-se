@@ -2,17 +2,19 @@
 title: Ange Service Fabric tjänst slut punkter
 description: Så här beskriver du slut punkts resurser i ett tjänst manifest, inklusive hur du konfigurerar HTTPS-slutpunkter
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267813"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänst manifest
 ## <a name="overview"></a>Översikt
-Tjänst manifestet gör det möjligt för resurser som används av tjänsten att deklareras eller ändras, utan att den kompilerade koden ändras. Service Fabric stöder konfiguration av slut punkts resurser för tjänsten. Åtkomst till de resurser som anges i tjänst manifestet kan styras via SecurityGroup i applikations manifestet. Resurs deklarationen gör att dessa resurser kan ändras vid distributions tillfället, vilket innebär att tjänsten inte behöver införa en ny konfigurations funktion. Schema definitionen för ServiceManifest.xml-filen installeras med Service Fabric SDK och verktyg för *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Service Fabric program och tjänster definieras och versions hantering med hjälp av MANIFEST-filer. En mer övergripande översikt över ServiceManifest.xml och ApplicationManifest.xml finns i [Service Fabric program-och tjänst manifest](service-fabric-application-and-service-manifests.md).
+
+Tjänst manifestet gör det möjligt för resurser som används av tjänsten att deklareras eller ändras, utan att den kompilerade koden ändras. Service Fabric stöder konfiguration av slut punkts resurser för tjänsten. Åtkomst till de resurser som anges i tjänst manifestet kan styras via SecurityGroup i applikations manifestet. Resurs deklarationen gör att dessa resurser kan ändras vid distributions tillfället, vilket innebär att tjänsten inte behöver införa en ny konfigurations funktion. Schema definitionen för ServiceManifest.xml-filen installeras med Service Fabric SDK och verktyg för att *C:\Program\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*och dokumenteras i [ServiceFabricServiceModel. xsd schema-dokumentation](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Slutpunkter
 När en slut punkts resurs definieras i tjänst manifestet tilldelar Service Fabric portar från det reserverade programmets port intervall när en port inte anges explicit. Titta till exempel på slut punkts *ServiceEndpoint1* som anges i manifestet som anges efter detta stycke. Dessutom kan tjänster även begära en speciell port i en resurs. Tjänst repliker som körs på olika klusternoder kan tilldelas olika port nummer, medan repliker av en tjänst som körs på samma nod delar porten. Tjänste replikerna kan sedan använda dessa portar vid behov för replikering och lyssna efter klient begär Anden.
@@ -155,14 +157,16 @@ Här är ett exempel på en ApplicationManifest som demonstrerar konfigurationen
 
 För Linux-kluster är **mitt** Arkiv standardvärdet för mappen **/var/lib/sfcerts**.
 
+Ett exempel på ett fullständigt program som använder en HTTPS-slutpunkt finns i [lägga till en HTTPS-slutpunkt till en ASP.net Core webb-API-frontend-tjänst med hjälp av Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+
 ## <a name="port-acling-for-http-endpoints"></a>Port ACLing för HTTP-slutpunkter
-Service Fabric kommer automatiskt att ange HTTP-slutpunkter för ACL: er som anges som standard. Den kommer **inte** att utföra automatiska acling om en slut punkt inte har någon kopplad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) och Service Fabric har kon figurer ATS för att köras med ett konto med administratörs behörighet.
+Service Fabric kommer automatiskt att ange HTTP-slutpunkter för ACL: er som anges som standard. Den kommer **inte** att utföra automatiska ACLing om en slut punkt inte har någon kopplad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) och Service Fabric har kon figurer ATS för att köras med ett konto med administratörs behörighet.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Åsidosätt slut punkter i ServiceManifest.xml
 
 I ApplicationManifest lägger du till en ResourceOverrides-sektion, som kommer att vara en syskon till ConfigOverrides-avsnittet. I det här avsnittet kan du ange åsidosättningen för avsnittet slut punkter i avsnittet resurser som anges i tjänst manifestet. Det finns stöd för att åsidosätta slut punkter i runtime 5.7.217/SDK 2.7.217 och högre.
 
-För att åsidosätta slut punkten i ServiceManifest med ApplicationParameters ändrar du ApplicationManifest enligt följande:
+För att åsidosätta slut punkten i ServiceManifest med hjälp av ApplicationParameters ändrar du ApplicationManifest så här:
 
 I avsnittet service manifest import lägger du till ett nytt avsnitt "ResourceOverrides".
 
@@ -194,15 +198,15 @@ I parametrarna lägger du till nedan:
   </Parameters>
 ```
 
-När du distribuerar programmet kan du överföra dessa värden som ApplicationParameters.  Ett exempel:
+När du distribuerar programmet kan du skicka dessa värden som ApplicationParameters.  Exempel:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Obs! Om värdena för ApplicationParameters är tomma går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
+Obs! Om värdet som angetts för en angiven ApplicationParameter är tomt går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
 
-Ett exempel:
+Exempel:
 
 Om du har angett i ServiceManifest
 
@@ -214,6 +218,18 @@ Om du har angett i ServiceManifest
   </Resources>
 ```
 
-Och värdet PORT1 och Protocol1 för program parametrarna är null eller tomt. Porten bestäms fortfarande av ServiceFabric. Och protokollet kommer att TCP.
+Antag att värdet PORT1 och Protocol1 för program parametrarna är null eller tomt. Porten kommer att bestämmas av ServiceFabric och protokollet kommer att vara TCP.
 
-Anta att du anger ett felaktigt värde. Precis som för porten angav du ett sträng värde "foo" i stället för en int.  New-ServiceFabricApplication-kommandot Miss fungerar med ett fel: parametern override med namnet ServiceEndpoint1 PORT1 i avsnittet ResourceOverrides är ogiltig. Det angivna värdet är ' foo ' och måste vara ' int '.
+Anta att du anger ett felaktigt värde. Anta att du har angett ett sträng värde "foo" i stället för en int.  Kommandot New-ServiceFabricApplication kommer inte att fungera med ett fel: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+
+## <a name="next-steps"></a>Efterföljande moment
+
+I den här artikeln förklaras hur du definierar slut punkter i Service Fabric tjänst manifest. Mer detaljerade exempel finns i:
+
+> [!div class="nextstepaction"]
+> [Exempel på program och tjänstmanifest](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+
+En genom gång av paketering och distribution av ett befintligt program på ett Service Fabric-kluster finns i:
+
+> [!div class="nextstepaction"]
+> [Paketera och distribuera en befintlig körbar fil till Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)

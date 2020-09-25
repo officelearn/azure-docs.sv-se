@@ -3,14 +3,14 @@ title: Principer för obeställbara meddelanden och återförsök-Azure Event Gr
 description: Beskriver hur du anpassar alternativ för händelse leverans för Event Grid. Ange ett mål för obeställbara meddelanden och ange hur lång tid överföringen ska göras.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261812"
 ---
-# <a name="dead-letter-and-retry-policies"></a>Principer för obeställbara meddelanden och återförsök
+# <a name="set-dead-letter-location-and-retry-policy"></a>Ange plats för obeställbara meddelanden och försök igen
 
 När du skapar en händelse prenumeration kan du anpassa inställningarna för händelse leverans. Den här artikeln visar hur du konfigurerar en plats för obeställbara meddelanden och hur du anpassar inställningarna för återförsök. Information om dessa funktioner finns i [Event Grid meddelande leverans och försök igen](delivery-and-retry.md).
 

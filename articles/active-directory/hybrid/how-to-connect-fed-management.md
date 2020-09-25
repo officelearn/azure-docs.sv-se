@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274120"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services (AD FS) med Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassar Active Directory Federation Services (AD FS) (AD FS) med hjälp av Azure Active Directory (Azure AD) Connect. Den innehåller också andra vanliga AD FS uppgifter som du kan behöva utföra för en fullständig konfiguration av en AD FS server grupp.
@@ -52,11 +52,11 @@ Du kan använda Azure AD Connect för att kontrol lera den aktuella hälsan för
    ![Reparera AAD-och ADFS-förtroende](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. På sidan **Anslut till Azure AD** anger du dina autentiseringsuppgifter som global administratör för Azure AD och klickar på **Nästa**.
-   ![Anslut till Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![Skärm bild som visar sidan "Anslut till Azure AD" med exempel uppgifter som angetts.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. Ange autentiseringsuppgifterna för domän administratören på sidan **autentiseringsuppgifter för fjärråtkomst** .
 
-   ![Autentiseringsuppgifter för fjärråtkomst](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
+   ![Skärm bild som visar sidan "autentiseringsuppgifter för fjärråtkomst" med exempel uppgifter som angetts.](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
     När du har klickat på **nästa**Azure AD Connect kontrollerar om det finns certifikat hälsa och eventuella problem visas.
 
@@ -64,7 +64,7 @@ Du kan använda Azure AD Connect för att kontrol lera den aktuella hälsan för
 
     Sidan **klar att konfigurera** visar en lista över åtgärder som ska utföras för att reparera förtroendet.
 
-    ![Klart att konfigurera](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![Skärm bild som visar sidan "klar att konfigurera" med en lista över åtgärder.](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. Klicka på **Installera** för att reparera förtroendet.
 
@@ -98,7 +98,7 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
 
 2. På sidan **Anslut till Azure AD** anger du dina autentiseringsuppgifter som global administratör för Azure AD och klickar på **Nästa**.
 
-   ![Anslut till Azure AD](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Skärm bild som visar sidan "Anslut till Azure AD" med exempel uppgifter som angetts.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. Ange autentiseringsuppgifter för domän administratören.
 
@@ -106,9 +106,9 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
 
 4. Azure AD Connect frågar efter lösen ordet för den PFX-fil som du angav när du konfigurerade den nya AD FS-gruppen med Azure AD Connect. Klicka på **Ange lösen ord** för att ange lösen ordet för PFX-filen.
 
-   ![Certifikat lösen ord](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   ![Skärm bild som visar sidan "ange SSL-certifikat" där fönstret "certifikat lösen ord" är öppet.](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Ange TLS/SSL-certifikat](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Skärm bild som visar sidan "ange SSL-certifikat" efter att ett lösen ord har angetts för PFX-filen.](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. På sidan **AD FS servrar** anger du det Server namn eller den IP-adress som ska läggas till i AD FS-gruppen.
 
@@ -116,9 +116,9 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
 
 6. Klicka på **Nästa**och gå igenom den sista **konfigurations** sidan. När Azure AD Connect har lagt till servrarna i AD FS-gruppen får du alternativet att verifiera anslutningen.
 
-   ![Klart att konfigurera](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
+   ![Skärm bild som visar sidan "klar att konfigurera" med en lista över åtgärder som ska utföras när du klickar på "installera".](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![Installationen är klar](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    ![Skärm bild som visar sidan "installationen har slutförts" och meddelandet "intranäts konfigurationen har verifierats" visas. ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Lägg till en AD FS WAP-server 
 
@@ -131,7 +131,7 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
 
 2. Ange Azures globala administratörs behörighet.
 
-   ![Anslut till Azure AD](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Skärm bild som visar sidan "Anslut till Azure AD" med ett exempel på användar namn och lösen ord angivet.](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. På sidan **ange SSL-certifikat** anger du lösen ordet för den PFX-fil som du angav när du konfigurerade AD FS-servergruppen med Azure AD Connect.
    ![Certifikat lösen ord](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -148,7 +148,7 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
 
 6. På sidan **klar att konfigurera** visar guiden en lista över åtgärder som ska utföras.
 
-   ![Klart att konfigurera](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![Skärm bild som visar sidan "klar att konfigurera" med en lista över åtgärder som ska utföras.](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. Slutför konfigurationen genom att klicka på **Installera** . När konfigurationen är klar ger guiden dig möjlighet att verifiera anslutningen till servrarna. Klicka på **Verifiera** för att kontrol lera anslutningen.
 

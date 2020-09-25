@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: ''
 ms.date: 09/03/2020
 ms.author: pimorano
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 99f4471a3b64990fb71341dc8210bf7f8e5b0d5a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.reviewer: jrasnick
+ms.openlocfilehash: cbf7fb8deba86dd966ccb8087823c76b20413db8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260367"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
 I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal.
@@ -30,7 +30,7 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
     |Grundläggande inställningar|**Namn på arbetsyta**|Du kan ge det något annat namn.| I det här dokumentet använder vi min **arbets yta**.|
     |Grundläggande inställningar|**Region**|Matcha lagrings kontots region.|
 
-1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste alternativet att skapa en ny. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
+1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste valet är att skapa ett nytt. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
 1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
     1. Under **välj Data Lake Storage gen 2**, klickar du på **Skapa nytt** och ge den namnet **contosolake**.
     1. Under **välj Data Lake Storage gen 2**, klickar du på **fil system** och namnger IT- **användare**.

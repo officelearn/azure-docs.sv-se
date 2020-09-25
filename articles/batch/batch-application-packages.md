@@ -2,66 +2,63 @@
 title: Distribuera programpaket till Compute-noder
 description: Använd funktionen programpaket i Azure Batch för att enkelt hantera flera program och versioner för installation på batch Compute-noder.
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 0d705ca731c40563deaeb02c29da120211db7ff4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.custom:
+- H1Hack27Feb2017
+- devx-track-csharp
+- contperfq1
+ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277707"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
 
-Funktionen programpaket i Azure Batch hjälper dig att hantera aktivitets program och deras distribution för att beräkna noder i dina pooler. Programpaket kan förenkla koden i din batch-lösning och sänka den omkostnader som krävs för att hantera de program som dina aktiviteter kör. Med programpaket kan du ladda upp och hantera flera versioner av programmen som dina aktiviteter kör, inklusive deras stödfiler. Du kan sedan automatiskt distribuera ett eller flera av dessa program till Compute-noderna i poolen.
-
-Programpaket kan hjälpa dina kunder att välja program för sina jobb, ange den exakta version som ska användas vid bearbetning av jobb med din batch-aktiverade tjänst. Du kan också ge dina kunder möjlighet att ladda upp och spåra sina egna program i din tjänst.
+Programpaket kan förenkla koden i din Azure Batch-lösning och göra det enklare att hantera de program som dina aktiviteter kör. Med programpaket kan du ladda upp och hantera flera versioner av programmen som dina aktiviteter kör, inklusive deras stödfiler. Du kan sedan automatiskt distribuera ett eller flera av dessa program till Compute-noderna i poolen.
 
 API: erna för att skapa och hantera programpaket ingår i [batch Management .net](/dotnet/api/overview/azure/batch/management) -biblioteket. API: erna för att installera programpaket på en Compute-nod är en del av [batch .net](/dotnet/api/overview/azure/batch/client) -biblioteket. Jämförbara funktioner finns i de tillgängliga batch-API: erna för andra språk.
 
-Den här artikeln förklarar hur du laddar upp och hanterar programpaket i Azure Portal och hur du installerar dem i en Pools datornoder med [batch .net](/dotnet/api/overview/azure/batch/client) -biblioteket.
+Den här artikeln förklarar hur du överför och hanterar programpaket i Azure Portal. Det visar också hur du installerar dem i en Pools datornoder med [batch .net](/dotnet/api/overview/azure/batch/client) -biblioteket.
 
 ## <a name="application-package-requirements"></a>Krav för applikations paket
 
 Om du vill använda programpaket måste du [Länka ett Azure Storage-konto](#link-a-storage-account) till ditt batch-konto.
 
-Det finns begränsningar för antalet program och programpaket i ett batch-konto och den maximala storleken för programpaket. Mer information om dessa begränsningar finns i [kvoter och begränsningar för Azure Batch tjänsten](batch-quota-limit.md) .
+Det finns begränsningar för antalet program och programpaket i ett batch-konto och den maximala storleken för programpaket. Mer information finns i [kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md).
 
 > [!NOTE]
-> Batch-pooler som skapats före den 5 juli 2017 har inte stöd för programpaket (såvida de inte skapats efter den 10 mars 2016 med Cloud Services konfiguration).
->
-> Funktionen programpaket som beskrivs här ersätter funktionen batch apps som finns i tidigare versioner av tjänsten.
+> Batch-pooler som skapats före den 5 juli 2017 har inte stöd för programpaket (såvida de inte skapats efter den 10 mars 2016 med Cloud Services konfiguration). Funktionen programpaket som beskrivs här ersätter funktionen batch apps som finns i tidigare versioner av tjänsten.
 
-## <a name="about-applications-and-application-packages"></a>Om program och programpaket
+## <a name="understand-applications-and-application-packages"></a>Förstå program och programpaket
 
-I Azure Batch refererar ett *program* till en uppsättning versioner av binärfiler som kan hämtas automatiskt till Compute-noderna i poolen. Ett *programpaket* refererar till en specifik uppsättning av dessa binärfiler som representerar en angiven version av programmet.
+I Azure Batch refererar ett *program* till en uppsättning versioner av binärfiler som kan hämtas automatiskt till Compute-noderna i poolen. Ett program innehåller ett eller flera *programpaket*som representerar olika versioner av programmet.
+
+Varje *programpaket* är en. zip-fil som innehåller programmets binärfiler och eventuella stödfiler. Endast zip-formatet stöds.
 
 :::image type="content" source="media/batch-application-packages/app_pkg_01.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
 
-Ett *program* i batch innehåller ett eller flera programpaket och anger konfigurations alternativ för programmet. Ett program kan till exempel ange standard versionen för programpaket som ska installeras på Compute-noder och om dess paket kan uppdateras eller tas bort.
-
-Ett *programpaket* är en. zip-fil som innehåller programmets binärfiler och stödfiler som krävs för att dina aktiviteter ska köra programmet. Varje programpaket representerar en specifik version av programmet. Endast zip-formatet stöds.
-
-Du kan ange programpaket på pool-eller aktivitets nivå. Du kan ange ett eller flera av dessa paket och (valfritt) en version när du skapar en pool eller uppgift.
+Du kan ange programpaket på pool-eller aktivitets nivå.
 
 - **Programpaket för pooler** distribueras till varje nod i poolen. Program distribueras när en nod ansluter till en pool och när den startas om eller avbildningas om.
   
-    Programpaket för poolen är lämpliga när alla noder i en pool kör jobbets aktiviteter. Du kan ange ett eller flera programpaket när du skapar en pool och du kan lägga till eller uppdatera en befintlig Pools paket. Om du uppdaterar en befintlig Pools programpaket måste du starta om noderna för att installera det nya paketet.
+    Poolens programpaket är lämpliga när alla noder i en pool ska köra ett jobbs aktiviteter. Du kan ange ett eller flera programpaket som ska distribueras när du skapar en pool. Du kan också lägga till eller uppdatera en befintlig Pools paket. Om du vill installera ett nytt paket i en befintlig pool måste du starta om noderna.
 
 - **Programpaket för uppgifter** distribueras endast till en Compute-nod som har schemalagts för att köra en uppgift, precis innan aktivitetens kommando rad körs. Om det angivna programpaketet och versionen redan finns på noden omdistribueras det inte och det befintliga paketet används.
   
-    Programpaket för uppgifter är användbara i miljöer med delade pooler, där olika jobb körs på en pool, och poolen tas inte bort när ett jobb har slutförts. Om jobbet har färre aktiviteter än noder i poolen kan programpaket för aktiviteter minimera dataöverföringen eftersom ditt program bara distribueras till noderna som kör aktiviteterna.
+    Uppgifts program paket är användbara i miljöer med delade pooler, där olika jobb körs på en pool och poolen inte tas bort när ett jobb slutförs. Om jobbet har färre aktiviteter än noder i poolen kan programpaket för aktiviteter minimera data överföringen eftersom ditt program bara distribueras till noderna som kör aktiviteter.
   
-    Andra scenarier som kan dra nytta av uppgifts programmets paket är jobb som kör ett stort program, men endast för några få uppgifter. Till exempel ett för bearbetnings steg eller en sammanfognings uppgift, där för bearbetnings-eller kopplings programmet är Heavyweight, kan dra nytta av att använda uppgifts programpaket.
+    Andra scenarier som kan dra nytta av uppgifts programmets paket är jobb som kör ett stort program, men endast för några få uppgifter. Till exempel kan uppgifts program vara användbara för ett Heavyweight för bearbetnings steg eller en sammanslagnings uppgift.
 
 Med programpaket behöver inte poolens start uppgift ange en lång lista med enskilda resursfiler som ska installeras på noderna. Du behöver inte manuellt hantera flera versioner av dina programfiler i Azure Storage eller på noderna. Och du behöver inte oroa dig för att skapa [SAS-URL: er](../storage/common/storage-sas-overview.md) för att ge åtkomst till filerna i ditt lagrings konto. Batch fungerar i bakgrunden med Azure Storage för att lagra programpaket och distribuera dem till Compute-noder.
 
 > [!NOTE]
-> Den totala storleken på en startaktivitet måste vara mindre än eller lika med 32768 tecken, inklusive resursfiler och miljövariabler. Om start aktiviteten överskrider den här gränsen är det ett annat alternativ att använda programpaket. Du kan också skapa en. zip-fil som innehåller dina resursfiler, ladda upp den som en blob till Azure Storage och sedan zippa upp den från kommando raden för start aktiviteten.
+> Den totala storleken på en startaktivitet måste vara mindre än eller lika med 32768 tecken, inklusive resursfiler och miljövariabler. Om start aktiviteten överskrider den här gränsen, är det ett annat alternativ att använda programpaket. Du kan också skapa en. zip-fil som innehåller dina resursfiler, ladda upp den som en blob till Azure Storage och sedan zippa upp den från kommando raden för start aktiviteten.
 
 ## <a name="upload-and-manage-applications"></a>Ladda upp och hantera program
 
-Du kan använda [Azure Portal](https://portal.azure.com) eller API: er för batch Management för att hantera programpaketen i batch-kontot. I kommande avsnitt visar vi först hur man länkar ett lagrings konto och diskuterar sedan att lägga till program och paket och hantera dem med portalen.
+Du kan använda [Azure Portal](https://portal.azure.com) eller API: er för batch Management för att hantera programpaketen i batch-kontot. I följande avsnitt beskrivs hur du länkar ett lagrings konto och hur du lägger till och hanterar program och programpaket i Azure Portal.
 
 ### <a name="link-a-storage-account"></a>Länka ett lagrings konto
 
@@ -74,7 +71,7 @@ När du har länkat de två kontona kan batch automatiskt distribuera paketen so
 > [!IMPORTANT]
 > Du kan inte använda programpaket med Azure Storage konton som kon figurer ATS med [brand Väggs regler](../storage/common/storage-network-security.md)eller med **hierarkiskt namn område** inställt på **aktiverat**
 
-Batch-tjänsten använder Azure Storage för att lagra dina programpaket som block-blobbar. Du [debiteras som normal](https://azure.microsoft.com/pricing/details/storage/) för block-BLOB-data och storleken på varje paket får inte överskrida den största blockets BLOB-storlek. Mer information finns i [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../storage/blobs/scalability-targets.md). För att minimera kostnaderna, måste du ta hänsyn till storleken på och antalet programpaket och regelbundet ta bort inaktuella paket.
+Batch-tjänsten använder Azure Storage för att lagra dina programpaket som block-blobbar. Du [debiteras som normal](https://azure.microsoft.com/pricing/details/storage/) för block-BLOB-data och storleken på varje paket får inte överskrida den största blockets BLOB-storlek. Mer information finns i [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../storage/blobs/scalability-targets.md). För att minimera kostnaderna måste du ta hänsyn till storleken på och antalet programpaket och regelbundet ta bort inaktuella paket.
 
 ### <a name="view-current-applications"></a>Visa aktuella program
 
@@ -88,19 +85,19 @@ När du väljer det här meny alternativet öppnas fönstret **program** . I det
 - **Standard version**: om det är tillämpligt den program version som ska installeras om ingen version anges när programmet distribueras.
 - **Tillåt uppdateringar**: anger om paket uppdateringar och borttagningar tillåts.
 
-Om du vill se [fil strukturen](files-and-directories.md) för programpaketet på din Compute-nod går du till batch-kontot i Azure Portal. Välj **pooler** och välj sedan den pool som innehåller den Compute-nod som du är intresse rad av. Välj sedan den Compute-nod där programpaketet är installerat och öppna mappen **program** .
+Om du vill se [fil strukturen](files-and-directories.md) för programpaketet på en Compute-nod går du till batch-kontot i Azure Portal. Välj **pooler**. Välj sedan den pool som innehåller Compute-noden. Välj den Compute-nod där programpaketet är installerat och öppna mappen **program** .
 
 ### <a name="view-application-details"></a>Visa programinformation
 
 Om du vill se information om ett program väljer du det i fönstret **program** . Du kan konfigurera följande inställningar för ditt program.
 
-- **Tillåt uppdateringar**: anger om programpaket kan [uppdateras eller tas bort](#update-or-delete-an-application-package). Standardvärdet är **Ja**. Om detta är inställt på **Nej**tillåts inte paket uppdateringar och borttagningar för programmet, men nya programpaket versioner kan läggas till.
+- **Tillåt uppdateringar**: anger om programpaket kan [uppdateras eller tas bort](#update-or-delete-an-application-package). Standardvärdet är **Ja**. Om det är inställt på **Nej**kan befintliga programpaket inte uppdateras eller tas bort, men nya programpaket versioner kan fortfarande läggas till.
 - **Standard version**: det standard program paket som ska användas när programmet distribueras, om ingen version har angetts.
 - **Visnings namn**: ett eget namn som din batch-lösning kan använda när den visar information om programmet. Namnet kan till exempel användas i användar gränssnittet för en tjänst som du tillhandahåller till dina kunder via batch.
 
 ### <a name="add-a-new-application"></a>Lägg till ett nytt program
 
-Om du vill skapa ett nytt program lägger du till ett programpaket och anger ett nytt, unikt program-ID.
+Om du vill skapa ett nytt program lägger du till ett programpaket och anger ett unikt program-ID.
 
 Välj **program** i batch-kontot och välj sedan **Lägg till**.
 
@@ -143,7 +140,7 @@ Nu när du har lärt dig hur du hanterar programpaket i Azure Portal kan vi disk
 
 ### <a name="install-pool-application-packages"></a>Installera poolens programpaket
 
-Om du vill installera ett programpaket på alla Compute-noder i en pool anger du ett eller flera Programpakets referenser för poolen. De programpaket som du anger för en pool installeras på varje Compute-nod när noden ansluter till poolen, och när noden startas om eller avbildningas om.
+Om du vill installera ett programpaket på alla Compute-noder i en pool anger du ett eller flera Programpakets referenser för poolen. De programpaket som du anger för en pool installeras på varje Compute-nod som ansluter till poolen och på alla noder som startas om eller avbildningar.
 
 I batch .NET anger du en eller flera [CloudPool. ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences) när du skapar en ny pool eller för en befintlig pool. [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) -klassen anger ett program-ID och en version som ska installeras i en Pools datornoder.
 
@@ -170,7 +167,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Om distributionen av ett programpaket Miss lyckas, markerar batch-tjänsten noden som [oanvändbar](/dotnet/api/microsoft.azure.batch.computenode.state)och inga aktiviteter är schemalagda för körning på den noden. I så fall bör du starta om noden för att initiera paket distributionen igen. När du startar om noden aktive ras även schemaläggning igen på noden.
+> Om distributionen av ett programpaket Miss lyckas, markerar batch-tjänsten noden som [oanvändbar](/dotnet/api/microsoft.azure.batch.computenode.state)och inga aktiviteter är schemalagda för körning på den noden. Om detta händer startar du om noden för att starta om paket distributionen. När du startar om noden aktive ras även schemaläggning igen på noden.
 
 ### <a name="install-task-application-packages"></a>Installera programpaket för uppgift
 
@@ -246,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Uppdatera programpaket för en pool
 
-Om en befintlig pool redan har kon figurer ATS med ett programpaket kan du ange ett nytt paket för poolen. Om du anger en ny paket referens för en pool gäller följande:
+Om en befintlig pool redan har kon figurer ATS med ett programpaket kan du ange ett nytt paket för poolen. Detta innebär att:
 
 - Batch-tjänsten installerar det nyligen angivna paketet på alla nya noder som ansluter till poolen och på alla befintliga noder som startas om eller avbildningar.
 - Compute-noder som redan finns i poolen när du uppdaterar paket referenserna installerar inte automatiskt det nya programpaketet. De här Compute-noderna måste startas om eller avbildningas om för att det nya paketet ska kunna tas emot.

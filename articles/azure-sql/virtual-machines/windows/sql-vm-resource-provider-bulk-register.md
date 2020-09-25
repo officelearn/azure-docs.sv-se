@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d1d74f1240f919bb20d8893755a86abc19fa828
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cf1fdd3feff76454f0e801d7bd53c63702000014
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271995"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrera flera virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -215,7 +215,7 @@ Rapporten skapas som en `.txt` fil med namnet `RegisterSqlVMScriptReport<Timesta
 | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server på Windows | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server eller inte är en virtuell Windows-dator. De virtuella datorerna visas i formatet `SubscriptionID, Resource Group, Virtual Machine` . | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Loggas 
+### <a name="log"></a>Logga 
 
 Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` , där tidsstämpel är den tid då skriptet startade. Om felet finns på prenumerations nivån innehåller loggen det kommaavgränsade prenumerations-ID: t och fel meddelandet. Om felet är med den virtuella dator registreringen innehåller loggen prenumerations-ID, resurs gruppens namn, namn på virtuell dator, felkod och meddelande avgränsade med kommatecken. 
 

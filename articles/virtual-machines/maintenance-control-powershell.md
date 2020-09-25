@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 5cb504e10c9a1b10c5bad201f4f599a3c00992fe
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306947"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -66,6 +66,33 @@ Du kan fråga efter tillgängliga underhålls konfigurationer med [Get-AzMainten
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Skapa en underhålls konfiguration med schemalagt fönster (i förhands granskning)
+
+
+> [!IMPORTANT]
+> Funktionen för schemalagda fönster är för närvarande en offentlig för hands version.
+> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Använd New-AzMaintenanceConfiguration för att skapa en underhålls konfiguration med ett schemalagt fönster när Azure ska tillämpa uppdateringarna på dina resurser. I det här exemplet skapas en underhålls konfiguration med namnet config med ett schemalagt fönster på 5 timmar den fjärde måndagen i varje månad. När du har skapat en schemalagd period behöver du inte längre använda uppdateringarna manuellt.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> Underhålls **tiden** måste vara *2 timmar* eller längre. **Upprepning** av underhåll måste anges till minst en gång i 35 dagar.
+
+**Upprepning** av underhåll kan uttryckas som dagliga, veckovis eller månads Visa scheman. Dagliga schema exempel är recurEvery: Day, recurEvery: 3Days. Vecko schema exempel är recurEvery: 3Weeks, recurEvery: Week lördag, söndag. Månads schema exempel är recurEvery: månad day23, day24, recurEvery: månad sista söndag, recurEvery: månad fjärde måndagen.
+
 
 ## <a name="assign-the-configuration"></a>Tilldela konfigurationen
 

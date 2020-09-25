@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21d84bea808ba5832b81d415001a3fc25a7e1630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61442247"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323965"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrera SIM-data i lösningen för fjärrövervakning
 
@@ -61,7 +61,7 @@ Följande anslutnings parametrar publiceras:
 * Nätverks baserad plats
 * Förbrukad data trafik
 
-![Instrumentpanel](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
+![Skärm bild av Device Explorer-fönstret på instrument panelen för Azure IoT-fjärrövervakning. En rad som visar WeatherStation enhets information är markerad.](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -70,5 +70,5 @@ Nu när du har en översikt över hur du integrerar SIM-data i Azure IoT Remote 
 * [Använda Azure IoT-lösningen för fjärrövervakning](quickstart-remote-monitoring-deploy.md)
 * [Utföra avancerad övervakning](iot-accelerators-remote-monitoring-monitor.md)
 * [Hantera dina enheter](iot-accelerators-remote-monitoring-manage.md)
-* [Felsöka enhetsproblem](iot-accelerators-remote-monitoring-maintain.md)
+* [Felsöka enhets problem](iot-accelerators-remote-monitoring-maintain.md)
 

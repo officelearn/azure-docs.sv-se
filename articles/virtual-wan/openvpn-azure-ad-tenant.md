@@ -3,17 +3,17 @@ title: 'Azure AD-klient för användares VPN-anslutningar: Azure AD-autentiserin
 description: Du kan använda Azures virtuella WAN-användare VPN (punkt-till-plats) för att ansluta till ditt VNet med Azure AD-autentisering
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f77d17881054440b01e30e738a8c38407c38b4a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507564"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306556"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Förbereda Azure Active Directory-klient för VPN-OpenVPN för användare
 
@@ -46,7 +46,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 2. Därefter beviljar du administratörs medgivande för din organisation, så att Azure VPN-appen kan logga in och läsa användar profiler. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
 
-    Offentlig
+    Offentliga
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent

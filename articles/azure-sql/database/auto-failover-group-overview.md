@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277741"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -213,11 +213,11 @@ För att illustrera ändrings ordningen kommer vi att anta att Server A är den 
 
 ## <a name="best-practices-for-sql-managed-instance"></a>Metod tips för SQL-hanterad instans
 
-Gruppen för automatisk redundans måste konfigureras på den primära instansen och ansluter den till den sekundära instansen i en annan Azure-region.  Alla databaser i instansen kommer att replikeras till den sekundära instansen.
+Den automatiska redundansgruppen måste vara konfigurerad på den primära instansen och ansluter den till den sekundära instansen i en annan Azure-region.  Alla databaser i instansen replikeras till den sekundära instansen.
 
 Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av en hanterad instans och en grupp för automatisk redundans.
 
-![automatisk redundans](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![diagram över automatisk redundans](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > Mer information om hur du lägger till en SQL-hanterad instans finns i [lägga till hanterad instans i en failover-grupp](../managed-instance/failover-group-add-instance-tutorial.md) för en detaljerad steg-för-steg-guide.
@@ -237,16 +237,16 @@ Mer information om hur du skapar den sekundära SQL-hanterade instansen i samma 
 
 Eftersom varje instans är isolerad i sitt eget VNet måste dubbelriktad trafik mellan dessa virtuella nätverk tillåtas. Se [Azure VPN-gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Skapa en failover-grupp mellan hanterade instanser i olika prenumerationer
+### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Skapa en redundansgrupp mellan hanterade instanser i olika prenumerationer
 
 Du kan skapa en grupp för redundans mellan SQL-hanterade instanser i två olika prenumerationer, så länge prenumerationerna är kopplade till samma [Azure Active Directory-klient](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). När du använder PowerShell API kan du göra det genom att ange `PartnerSubscriptionId` parametern för den sekundära SQL-hanterade instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs` parametern ha sitt eget subscriptionID.
   
 > [!IMPORTANT]
-> Azure Portal har inte stöd för att skapa redundans grupper över olika prenumerationer. För de befintliga grupperna för växling vid fel i olika prenumerationer och/eller resurs grupper kan redundansväxlingen också inte initieras manuellt via portalen från den primära SQL-hanterade instansen. Starta den från den geo-sekundära instansen i stället.
+> Azure Portal har inte stöd för att skapa redundans grupper över olika prenumerationer. För de befintliga grupperna för växling vid fel i olika prenumerationer och/eller resurs grupper kan redundansväxlingen också inte initieras manuellt via portalen från den primära SQL-hanterade instansen. Starta från den geo-sekundära instansen i stället.
 
 ### <a name="managing-failover-to-secondary-instance"></a>Hantera redundans till sekundär instans
 
-Gruppen redundans hanterar redundansväxlingen för alla databaser i den SQL-hanterade instansen. När en grupp skapas blir varje databas i instansen automatiskt geo-replikerad till den sekundära SQL-hanterade instansen. Du kan inte använda grupper för växling vid fel för att initiera en delvis redundansväxling av en delmängd av databaserna.
+Redundansgruppen hanterar redundansväxlingen för alla databaser i den hanterade SQL-instansen. När du skapar en grupp geo-replikeras alla databaser i instansen automatiskt till den sekundära hanterade SQL-instansen. Du kan inte använda redundansgrupper till att initiera en delvis redundansväxling av en delmängd av databaserna.
 
 > [!IMPORTANT]
 > Om en databas tas bort från den primära SQL-hanterade instansen kommer den också att släppas automatiskt på den geo-sekundära SQL-hanterade instansen.
@@ -260,7 +260,7 @@ När du utför OLTP-åtgärder ska du använda `<fog-name>.zone_id.database.wind
 Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. Om du vill ansluta direkt till den geo-replikerade sekundära använder du `<fog-name>.secondary.<zone_id>.database.windows.net` som server-URL och anslutningen görs direkt till den geo-replikerade sekundära.
 
 > [!NOTE]
-> I vissa tjänst nivåer SQL Database stöder användning av [skrivskyddade repliker](read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp av `ApplicationIntent=ReadOnly` parametern i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär kan du använda den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
+> I vissa tjänst nivåer SQL Database stöder användning av [skrivskyddade repliker](read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp av `ApplicationIntent=ReadOnly` parametern i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär instans kan du använda den här funktionen till att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
 >
 > - Använd om du vill ansluta till en skrivskyddad replik på den primära platsen `<fog-name>.<zone_id>.database.windows.net` .
 > - Använd om du vill ansluta till en skrivskyddad replik på den sekundära platsen `<fog-name>.secondary.<zone_id>.database.windows.net` .
@@ -355,9 +355,9 @@ När du ställer in en redundans grupp mellan primära och sekundära SQL-hanter
 - De två instanserna av SQL-hanterad instans måste finnas i olika Azure-regioner.
 - De två instanserna av SQL-hanterad instans måste vara samma tjänst nivå och ha samma lagrings storlek.
 - Din sekundära instans av SQL-hanterad instans måste vara tom (inga användar databaser).
-- De virtuella nätverk som används av instanserna av SQL-hanterad instans måste anslutas via en [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Se till att det inte finns någon brand Väggs regel som blockerar portarna 5022 och 11000-11999 när två virtuella nätverk ansluter till ett lokalt nätverk. Global VNet-peering stöds inte.
+- De virtuella nätverk som används av instanserna av SQL-hanterad instans måste anslutas via en [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Se till att inga brandväggsregler blockerar portarna 5022 eller 11000–11999 när två virtuella nätverk ansluter via ett lokalt nätverk. Global VNet-peering stöds inte.
 - De två SQL Managed instance-virtuella nätverk kan inte ha överlappande IP-adresser.
-- Du måste konfigurera dina nätverks säkerhets grupper (NSG) så att portarna 5022 och intervallet 11000 ~ 12000 är öppna inkommande och utgående för anslutningar från under nätet för den andra hanterade instansen. Detta är att tillåta replikeringstrafik mellan instanserna.
+- Du måste konfigurera dina nätverkssäkerhetsgrupper (NSG) så att portarna 5022 och intervallet 11000–12000 är öppna för inkommande och utgående anslutningar från den andra hanterade instansens undernät. Det här görs för att tillåta replikeringstrafik mellan instanserna.
 
    > [!IMPORTANT]
    > Felkonfigurerade NSG säkerhets regler leder till låsta databas kopierings åtgärder.
@@ -369,9 +369,9 @@ När du ställer in en redundans grupp mellan primära och sekundära SQL-hanter
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
 
-Du kan uppgradera eller nedgradera en primär databas till en annan beräknings storlek (inom samma tjänst nivå, inte mellan Generell användning och Affärskritisk) utan att koppla från några sekundära databaser. När du uppgraderar rekommenderar vi att du uppgraderar alla sekundära databaser först och sedan uppgraderar du den primära. Vid nedgradering ändrar du ordningen: nedgradera först den primära databasen och nedgradera sedan alla sekundära databaser. När du uppgraderar eller nedgradera databasen till en annan tjänst nivå tillämpas den här rekommendationen.
+Du kan uppgradera eller nedgradera en primär databas till en annan beräknings storlek (inom samma tjänst nivå, inte mellan Generell användning och Affärskritisk) utan att koppla från några sekundära databaser. När du uppgraderar rekommenderar vi att du uppgraderar alla sekundära databaser först och sedan uppgraderar du den primära. Vid nedgradering ändrar du ordningen: nedgradera först den primära databasen och nedgradera sedan alla sekundära databaser. När du uppgraderar eller nedgraderar databasen till en annan tjänstnivå tillämpas den här rekommendationen.
 
-Den här sekvensen rekommenderas särskilt för att undvika problemet där den sekundära vid en lägre SKU blir överbelastad och måste dirigeras om under en uppgraderings-eller nedgraderings process. Du kan också undvika problemet genom att göra den primära skrivskyddade kostnaden för att påverka alla Läs-och skriv arbets belastningar mot den primära.
+Den här sekvensen rekommenderas särskilt för att undvika problemet där den sekundära instansen med en lägre SKU blir överbelastad och måste dirigeras om under en uppgradering eller nedgradering. Du kan också undvika problemet genom att göra den primära instansen skrivskyddad, vilket dock påverkar alla arbetsbelastningar med skrivningar mot den primära instansen.
 
 > [!NOTE]
 > Om du har skapat en sekundär databas som en del av konfigurationen av redundanskonfiguration bör du inte nedgradera den sekundära databasen. Detta är för att säkerställa att data nivån har tillräckligt med kapacitet för att bearbeta din normala arbets belastning När redundansväxlingen har Aktiver ATS.

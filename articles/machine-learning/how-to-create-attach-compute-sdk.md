@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ac440db4c1dbddd317743e2d681a62251624d9bd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc7ca9d217e405b0b39779cf256edcf0669afd6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302442"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Skapa beräknings mål för modell utbildning och distribution med python SDK
 
@@ -81,7 +81,7 @@ När du utför en härledning skapar Azure Machine Learning en Docker-behållare
 
 När du använder den lokala datorn för **utbildning**behöver du inte skapa något beräknings mål.  [Skicka bara utbildnings körningen](how-to-set-up-training-targets.md) från den lokala datorn.
 
-När du använder den lokala datorn för att få en **härledning**måste du ha Docker installerat. Utför distributionen genom att använda [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) för att definiera den port som webb tjänsten ska använda. Använd sedan den normala distributions processen enligt beskrivningen i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+När du använder den lokala datorn för att få en **härledning**måste du ha Docker installerat. Utför distributionen genom att använda [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) för att definiera den port som webb tjänsten ska använda. Använd sedan den normala distributions processen enligt beskrivningen i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning beräknings kluster
 
@@ -105,8 +105,7 @@ Azure Machine Learning Compute kan återanvändas över körningar. Beräkningen
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-   Du kan också konfigurera flera avancerade egenskaper när du skapar Azure Machine Learning Compute. Med egenskaperna kan du skapa ett beständigt kluster med fast storlek eller inom en befintlig Azure-Virtual Network i din prenumeration.  Mer information finns i [AmlCompute-klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
-    ) .
+   Du kan också konfigurera flera avancerade egenskaper när du skapar Azure Machine Learning Compute. Med egenskaperna kan du skapa ett beständigt kluster med fast storlek eller inom en befintlig Azure-Virtual Network i din prenumeration.  Mer information finns i [AmlCompute-klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) .
 
     Eller så kan du skapa och koppla en beständig Azure Machine Learning beräknings resurs i [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#portal-create).
 
@@ -276,8 +275,25 @@ Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator 
 
 1. **Konfigurera**: skapa en körnings konfiguration för DSVM Compute Target. Docker och Conda används för att skapa och konfigurera utbildnings miljön på DSVM.
 
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
-
+   ```python
+   from azureml.core import ScriptRunConfig
+   from azureml.core.environment import Environment
+   from azureml.core.conda_dependencies import CondaDependencies
+   
+   # Create environment
+   myenv = Environment(name="myenv")
+   
+   # Specify the conda dependencies
+   myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+   
+   # If no base image is explicitly specified the default CPU image "azureml.core.runconfig.DEFAULT_CPU_IMAGE" will be used
+   # To use GPU in DSVM, you should specify the default GPU base Docker image or another GPU-enabled image:
+   # myenv.docker.enabled = True
+   # myenv.docker.base_image = azureml.core.runconfig.DEFAULT_GPU_IMAGE
+   
+   # Configure the run configuration with the Linux DSVM as the compute target and the environment defined above
+   src = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv) 
+   ```
 
 Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](how-to-set-up-training-targets.md).
 
@@ -494,7 +510,7 @@ Se dessa antecknings böcker för exempel på utbildning med olika beräknings m
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd beräknings resursen för att [skicka en utbildnings körning](how-to-set-up-training-targets.md).
+* Använd beräknings resursen för att [Konfigurera och skicka en utbildnings körning](how-to-set-up-training-targets.md).
 * [Självstudie: träna en modell](tutorial-train-models-with-aml.md) använder ett hanterat beräknings mål för att träna en modell.
 * Lär dig hur du [effektivt justerar disponeringsparametrarna](how-to-tune-hyperparameters.md) för att bygga bättre modeller.
 * När du har en tränad modell lär du dig [hur och var modeller ska distribueras](how-to-deploy-and-where.md).

@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320978"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261407"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -268,39 +268,7 @@ När du distribuerar \<PARTNER> program vara kan Microsoft identifiera installat
 
 ## <a name="get-support"></a>Få support
 
-Det finns två Support kanaler beroende på de problem som du är riktad mot.
-
-Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
-
-![Skärm bild av sidan Hämta support](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-Om du behöver hjälp med att registrera dig för Marketplace och/eller kund användning i allmänhet, till exempel hur du ställer in kund användnings behörighet, följer du stegen nedan:
-
-1. Gå till [support Sidan](https://go.microsoft.com/fwlink/?linkid=844975).
-
-1. Välj **Marketplace-onboarding**under **problem typ**.
-
-1. Välj **kategori** för ditt problem:
-
-   - För användnings Kopplings problem väljer du **annat**.
-   - Välj **åtkomst problem**för åtkomst problem med Azure Marketplace.
-
-     ![Välj ärende kategori](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. Välj **Start förfrågan**.
-
-1. Ange de värden som krävs på nästa sida. Välj **Fortsätt**.
-
-1. Ange de värden som krävs på nästa sida.
-
-   > [!IMPORTANT]
-   > I rutan **incident rubrik** anger du **användnings spårning för ISV**. Beskriv problemet i detalj.
-
-   ![Ange användnings spårning i ISV för incident rubriken](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. Fyll i formuläret och välj sedan **Skicka**.
-
-Du kan också få teknisk vägledning från en Microsoft-partner teknisk konsult för tekniska försäljnings-, distributions-och app Development-scenarier för att förstå och införliva kund användnings behörighet.
+Lär dig mer om support alternativen i den kommersiella Marketplace [för support för programmet för kommersiella marknads platser i Partner Center](./partner-center-portal/support.md).
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Så här skickar du en begäran om tekniskt samråd
 
@@ -319,7 +287,7 @@ Visa steg-för-steg-instruktioner med skärm dum par med [tekniska försäljning
 
 Du kommer att kontaktas av en teknisk konsult från Microsoft-partner för att skapa ett samtal för att tillgodose dina behov.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Vad är fördelen med att lägga till GUID i mallen?**
 

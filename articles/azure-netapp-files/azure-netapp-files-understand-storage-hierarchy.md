@@ -1,5 +1,5 @@
 ---
-title: Vilken lagrings-hierarki är Azure NetApp Files | Microsoft Docs
+title: Azure NetApp Files för lagringspool | Microsoft Docs
 description: Beskriver lagringshierarkin, inklusive Azure NetApp Files-konton, kapacitetspooler och volymer.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 91fecbc68efec1adcee9a2c4013dea46f6da86af
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278336"
 ---
-# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Vad är lagrings-hierarkin för Azure NetApp Files
+# <a name="storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Filess lagrings-hierarki
 
 Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en pool för etablerad kapacitet.  Du måste ha ett NetApp-konto för att kunna konfigurera en kapacitetspool. När du förstår lagringshierarkin är det lättare att konfigurera och hantera Azure NetApp Files-resurser.
 
@@ -37,7 +37,12 @@ Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en
 
 ## <a name="capacity-pools"></a><a name="capacity_pools"></a>Kapacitetspooler
 
-- En kapacitetspool mäts genom dess etablerade kapacitet.  
+Förstå hur kapacitets grupper fungerar genom att välja rätt kapacitets pool för dina lagrings behov. 
+
+### <a name="general-rules-of-capacity-pools"></a>Allmänna regler för kapacitets grupper
+
+- En kapacitetspool mäts genom dess etablerade kapacitet.   
+    Mer information finns i [QoS-typer](#qos_types) .  
 - Kapaciteten etableras via de fasta SKU:er som du köpte (exempelvis en kapacitet på 4 TiB).
 - Kapacitetspoolen kan endast ha en servicenivå.  
 - Varje kapacitetspool kan endast tillhör ett NetApp-konto. Du kan dock ha flera kapacitetspooler inom ett NetApp-konto.  
@@ -45,10 +50,35 @@ Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en
   I [Konceptdiagram över lagringshierarki](#conceptual_diagram_of_storage_hierarchy) nedan kan exempelvis Capacity Pool 1 inte flyttas från NetApp-kontot USA, östra till NetApp-kontot USA, västra 2.  
 - Det går inte att ta bort en kapacitets pool förrän alla volymer i kapacitets gruppen har tagits bort.
 
+### <a name="quality-of-service-qos-types-for-capacity-pools"></a><a name="qos_types"></a>QoS-typer (Quality of Service) för kapacitets grupper
+
+QoS-typen är ett attribut för en pool för kapacitet. Azure NetApp Files innehåller två QoS-typer för kapacitets grupper. 
+
+- *Automatiskt (eller automatiskt)* QoS-typ  
+
+    När du skapar en pool för kapacitet är standard typen för QoS automatisk.
+
+    I en pool med automatisk QoS-kapacitet tilldelas data flöde automatiskt till volymerna i poolen, proportionella mot storleks kvoten som tilldelats volymerna. 
+
+    Det maximala data flöde som tilldelas en volym beror på tjänst nivå för kapacitets gruppen och volymens storleks kvot. Se [service nivåer för Azure NetApp Files](azure-netapp-files-service-levels.md) till exempel beräkning.
+
+- <a name="manual_qos_type"></a>*Manuell* QoS-typ  
+
+     > [!IMPORTANT] 
+     > Att använda den manuella QoS-typen för en kapacitets pool kräver registrering.  Se [hantera en manuell pool för QoS-kapacitet](manage-manual-qos-capacity-pool.md).  
+
+    Du kan välja att använda den manuella QoS-typen för en kapacitets grupp.
+
+    I en manuell pool för QoS-kapacitet kan du tilldela kapaciteten och data flödet för en volym oberoende av varandra. Det totala data flödet för alla volymer som skapats med en manuell QoS-kapacitet begränsas av poolens totala genomflöde.  Det bestäms av kombinationen av poolens storlek och data flödet på tjänst nivå. 
+
+    Till exempel har en 4-TiB kapacitets pool med Ultra Service Level en total data flödes kapacitet på 512 MiB/s (4 TiB x 128 MiB/s/TiB) tillgängliga för volymerna.
+
+
 ## <a name="volumes"></a><a name="volumes"></a>Enheter
 
 - En volym mäts efter logisk kapacitetsförbrukning och är skalbar. 
 - En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet.
+- En volyms data flödes förbrukning räknas mot poolens tillgängliga data flöde. Se [manuell QoS-typ](#manual_qos_type).
 - Varje volym hör till endast en pool, men en pool kan innehålla flera volymer. 
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Konceptdiagram över lagringshierarki 
@@ -60,3 +90,7 @@ I följande exempel visar vi sambanden mellan Azure-prenumeration, NetApp-konton
 
 - [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
 - [Registrera dig för Azure NetApp Files](azure-netapp-files-register.md)
+- [Tjänstnivåer för Azure NetApp Files](azure-netapp-files-service-levels.md)
+- [Saker att tänka på gällande prestanda för Azure NetApp Files](azure-netapp-files-performance-considerations.md)
+- [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
+- [Hantera en manuell pool för QoS-kapacitet](manage-manual-qos-capacity-pool.md)

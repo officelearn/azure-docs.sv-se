@@ -3,17 +3,17 @@ title: 'Snabb start: Azure Blob Storage-bibliotek V12 – Java Script'
 description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för Java Script för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c4343012c7d0abb7c8b8a22da687dc5ac668dc19
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.custom: devx-track-js
+ms.openlocfilehash: 54bf6265a5b440e5c450d21b192acc2f7024f938
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307542"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script V12 SDK i Node.js
 
@@ -26,7 +26,7 @@ Ytterligare resurser:
 * [Paket (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob)
 * [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -136,7 +136,7 @@ I de här exempel kods tycken visas hur du gör följande med klient biblioteket
 * [Hämta anslutningssträngen](#get-the-connection-string)
 * [Skapa en container](#create-a-container)
 * [Ladda upp blobbar till en behållare](#upload-blobs-to-a-container)
-* [Visa en lista över blobarna i en container](#list-the-blobs-in-a-container)
+* [Visa blobar i en container](#list-the-blobs-in-a-container)
 * [Ladda ned blobbar](#download-blobs)
 * [Ta bort en container](#delete-a-container)
 
@@ -210,7 +210,7 @@ const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
 console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
 ```
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+### <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 Visa en lista över blobarna i behållaren genom att anropa metoden [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
 
@@ -312,7 +312,8 @@ I den här snabb starten har du lärt dig att ladda upp, ladda ned och lista blo
 För självstudier, exempel, snabb starter och annan dokumentation går du till:
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Azure för Java Script](/azure/developer/javascript/)
+> [Azure för Java Script Developer Center](/azure/developer/javascript/)
 
-* Mer information finns i [klient biblioteket för Azure Blob Storage för Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+* Information om hur du distribuerar en webbapp som använder Azure Blob Storage finns i [Självstudier: Ladda upp avbildnings data i molnet med Azure Storage](/azure/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)
 * Om du vill se exempel appar för Blob Storage kan du fortsätta till [Azure Blob Storage-V12 JavaScript-exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
+* Mer information finns i [klient biblioteket för Azure Blob Storage för Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).

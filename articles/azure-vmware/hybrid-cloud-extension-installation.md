@@ -1,18 +1,18 @@
 ---
-title: Installera Hybrid Cloud Extension (HCX)
-description: Konfigurera HCX-lösningen (VMware Hybrid Cloud Extension) för ditt privata moln i Azure VMware-lösningen
+title: Installera VMware-HCX
+description: Konfigurera VMware HCX-lösningen för ditt privata moln i Azure VMware-lösningen
 ms.topic: how-to
-ms.date: 07/15/2020
-ms.openlocfilehash: fb8497af33b364c1d2ab475233bd2a83ef1befad
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/24/2020
+ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263210"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
-I den här artikeln går vi igenom procedurerna för att konfigurera VMWare Hybrid Cloud Extension (HCX)-lösningen för ditt privata moln i Azure VMWare-lösningen. HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds.
+I den här artikeln går vi igenom procedurerna för att konfigurera VMWare HCX-lösningen för ditt privata moln i Azure VMWare-lösningen. HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds.
 
 HCX Advanced, standard-installationen stöder upp till tre plats anslutningar (lokalt eller molnet till molnet). Om fler än tre plats anslutningar krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support, som för närvarande är en för hands version. HCX Enterprise ger ytterligare avgifter för kunder efter allmän tillgänglighet (GA) men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
@@ -40,7 +40,7 @@ När du har slutfört installationen kan du följa de rekommenderade nästa steg
 
 Att ändra storlek på arbets belastningar mot beräknings-och lagrings resurser är ett viktigt planerings steg när du förbereder att använda Azure VMware-lösningens privata moln HCX-lösning. Adressera storleks steget som en del av den ursprungliga planeringen av molnet i den ursprungliga miljön. 
 
-Du kan också ändra arbets belastningar genom att slutföra en utvärdering av Azure VMware-lösningen i Azure Migrate portal ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
+Du kan också ändra arbets belastningar genom att slutföra en [utvärdering av Azure VMware-lösningen](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) i Azure Migrate portalen.
 
 ## <a name="software-version-requirements"></a>Program versions krav
 
@@ -67,15 +67,13 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Distribuera VMware HCX-ägg lokalt
 
+1. Logga in på Azure VMware Solution HCX Manager på `https://x.x.x.9` port 443 med **cloudadmin** -användarautentiseringsuppgifter och gå sedan till **support**.
+
+1. Välj nedladdnings länken för VMware HCX-filen för ägg. 
+
 1. Logga in på Azure VMware-lösningen SDDC vCenter och välj **HCX**.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Logga in på Azure VMware-lösningen SDDC vCenter och välj HCX.":::
-
-1. Under **Administration**väljer du **System uppdateringar** och väljer sedan **begär nedladdnings länk** för att ladda ned VMware HCX-filer.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/administration-updates.png" alt-text="Under administration väljer du system uppdateringar och väljer sedan begär nedladdnings länk för att ladda ned VMware HCX-filer.":::
-
-1. Gå sedan till den lokala vCenter och välj en OVF-mall för att distribuera till din lokala vCenter.  
+   
+1. Gå till den lokala vCenter och välj en OVF-mall för att distribuera till din lokala vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Gå sedan till den lokala vCenter och välj en OVF-mall för att distribuera till din lokala vCenter.":::
 
@@ -83,7 +81,7 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/configure-template.png" alt-text=" Välj ett namn och en plats och välj sedan en resurs/ett kluster där HCX måste distribueras. Granska sedan information och nödvändiga resurser.":::
 
-1. Läs igenom licens villkoren och välj nödvändigt lagring och nätverk om du godkänner. Välj sedan **Nästa**.
+1. Läs igenom licens villkoren och välj nödvändigt lagring och nätverk om du godkänner. Välj **Nästa**.
 
 1. I **Anpassa mall**anger du all information som krävs. 
 
@@ -95,7 +93,7 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
 Efter installationen utför du följande steg.
 
-1. Logga in på den lokala HCX Manager på `https://HCXManagerIP:9443` och logga in med ditt användar namn och ditt lösen ord. 
+1. Logga in på den lokala HCX Manager på `https://HCXManagerIP:9443` och logga in med autentiseringsuppgifterna för **Administratörs** användare. 
 
    > [!IMPORTANT]
    > Se till att ta `9443` med port numret med IP-adressen för HCX Manager.

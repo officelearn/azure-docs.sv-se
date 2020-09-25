@@ -1,5 +1,5 @@
 ---
-title: Registrera TPM-enhet på Azure Device Provisioning-tjänsten med hjälp av Node.js
+title: Snabb start – registrera TPM-enhet på Azure Device Provisioning-tjänsten med hjälp av Node.js
 description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med hjälp av Node.js service SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: b0928b81ebf585e51eb9275c81df29918aa5e6a0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 184fb4bbf8845b749459e1963bed3c6d9fa64856
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323853"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med hjälp av Node.js service SDK
 

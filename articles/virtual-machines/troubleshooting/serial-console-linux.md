@@ -1,6 +1,6 @@
 ---
 title: Azures serie konsol för Linux | Microsoft Docs
-description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets.
+description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets med ett Linux-exempel.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306879"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure-seriekonsol för Linux
 
@@ -71,7 +71,7 @@ SUSE        | Nyare SLES-avbildningar som är tillgängliga i Azure har åtkomst
 Oracle Linux        | Seriell konsol åtkomst aktiverat som standard.
 
 ### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
-Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
+Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
 
 Du ska också lägga till ttyS0 som mål för seriella utdata. Mer information om hur du konfigurerar en anpassad avbildning för att arbeta med serie konsolen finns i system krav för att [skapa och ladda upp en Linux-VHD i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -99,7 +99,7 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ### <a name="channel-security"></a>Kanal säkerhet
 Alla data som skickas fram och tillbaka krypteras i kabeln.
 
-### <a name="audit-logs"></a>Granskningsloggar
+### <a name="audit-logs"></a>Spårningsloggar
 All åtkomst till serie konsolen är för närvarande inloggad i [Start](./boot-diagnostics.md) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
 
 > [!CAUTION]
@@ -133,38 +133,38 @@ Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskr
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**F. Hur gör jag för att skicka feedback?**
+**C. Hur gör jag för att skicka feedback?**
 
-A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback . Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com .
+A. Ge feedback genom att skapa ett GitHub-problem på  https://aka.ms/serialconsolefeedback . Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com .
 
-**F. har serie konsolen stöd för kopiera/klistra in?**
+**C. Har serie konsolen stöd för kopiera/klistra in?**
 
 A. Ja. Använd **CTRL** + **Shift** + **C** och **CTRL** + **Shift** + **V** för att kopiera och klistra in i terminalen.
 
-**F. kan jag använda en serie konsol i stället för en SSH-anslutning?**
+**C. Kan jag använda en serie konsol i stället för en SSH-anslutning?**
 
 A. Även om den här användningen kan verka tekniskt möjlig, är serie konsolen avsedd att användas främst som ett fel söknings verktyg i situationer där det inte går att ansluta via SSH. Vi rekommenderar att du använder serie konsolen som en SSH-ersättning av följande skäl:
 
 - Serie konsolen har inte lika mycket bandbredd som SSH. Eftersom det är en endast text anslutning är det svårt att använda mer grafiska och omfattande interaktioner.
 - Seriell konsol åtkomst är för närvarande möjligt bara med ett användar namn och lösen ord. Eftersom SSH-nycklar är mycket säkrare än kombinationer av användar namn/lösen ord, rekommenderar vi SSH över seriell konsol från ett säkerhets perspektiv för inloggning.
 
-**F. Vem kan aktivera eller inaktivera en serie konsol för min prenumeration?**
+**C. Vem kan aktivera eller inaktivera en serie konsol för min prenumeration?**
 
 A. Om du vill aktivera eller inaktivera serie konsolen på en prenumerations nivå måste du ha Skriv behörighet till prenumerationen. Roller som har Skriv behörighet inkluderar administratörs-eller ägar roller. Anpassade roller kan också ha Skriv behörighet.
 
-**F. Vem har åtkomst till serie konsolen för min skalnings uppsättning för virtuella datorer/virtuella datorer?**
+**C. Vem har åtkomst till serie konsolen för min skalnings uppsättning för virtuella datorer/virtuella datorer?**
 
 A. Du måste ha rollen virtuell dator deltagare eller högre för en virtuell dator eller skalnings uppsättning för virtuell dator för att få åtkomst till serie konsolen.
 
-**F. min serie konsol visar inte något, vad gör jag?**
+**C. Min serie konsol visar inte något, vad gör jag?**
 
 A. Avbildningen är troligt vis felkonfigurerad för åtkomst till serie konsol. Information om hur du konfigurerar avbildningen för att aktivera en serie konsol finns [seriell konsol tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
 
-**F. är serie konsolen tillgänglig för skalnings uppsättningar för virtuella datorer?**
+**C. Är serie konsolen tillgänglig för skalnings uppsättningar för virtuella datorer?**
 
 A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**F. om jag konfigurerar en skalnings uppsättning för den virtuella datorn eller den virtuella datorn genom att bara använda SSH-nyckelalgoritm, kan jag fortfarande använda den seriella konsolen för att ansluta till min VM/virtuell dators skalnings uppsättnings instans?**
+**C. Kan jag fortfarande använda den seriella konsolen för att ansluta till min VM/virtuell dators skalnings uppsättnings instans om jag konfigurerar den virtuella datorn eller den virtuella datorns skalnings uppsättning med endast autentisering med SSH-nyckel?**
 
 A. Ja. Eftersom serie konsolen inte kräver SSH-nycklar behöver du bara konfigurera en kombination av användar namn/lösen ord. Du kan göra det genom att välja **Återställ lösen ord** i Azure Portal och använda autentiseringsuppgifterna för att logga in i serie konsolen.
 

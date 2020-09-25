@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323733"
 ---
 # <a name="system-requirements"></a>Systemkrav
 
@@ -63,6 +63,17 @@ En stabil nätverks anslutning med låg fördröjning är avgörande för en bä
 Se särskilda kapitel för [nätverks krav](../reference/network-requirements.md).
 
 Information om fel sökning av nätverks problem finns i [fel söknings guiden](../resources/troubleshoot.md#unstable-holograms).
+
+### <a name="network-ports"></a>Nätverksportar
+
+Se till att brand väggarna (på enheten, i routrarna osv.) inte blockerar följande portar:
+
+| Port              | Protokoll | Tillåt    | Description |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | Autentiseringsnivå | Första anslutning (HTTP-handskakning) |
+| 8266              | UDP      | Autentiseringsnivå | Dataöverföring |
+| 5000, 5433, 8443  | TCP      | Autentiseringsnivå | Krävs för [ArrInspector-verktyget](../resources/tools/arr-inspector.md)|
+
 
 ## <a name="software"></a>Programvara
 

@@ -1,15 +1,15 @@
 ---
 title: Azure Monitor för områdes mappningar för behållare
-description: I den här artikeln beskrivs de region mappningar som stöds mellan Azure Monitor för behållare, Log Analytics arbets yta och anpassade mått.
+description: Beskriver de region mappningar som stöds mellan Azure Monitor för behållare, Log Analytics arbets yta och anpassade mått.
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e3b8635c70dfdf33b0a062be80c948cd77923cc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194992"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272913"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Region mappningar som stöds av Azure Monitor för behållare
 
@@ -17,7 +17,8 @@ ms.locfileid: "84194992"
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Mappningar som stöds av Log Analytics Workspace
 
-AKS-kluster resurserna eller Log Analytics arbets ytan kan finnas i andra regioner och följande tabell visar våra mappningar.
+AKS-regioner som stöds visas i [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). Arbets ytan Log Analytics måste finnas i samma region utom de regioner som anges i följande tabell. Se [AKS-versions anmärkningar](https://github.com/Azure/AKS/releases) för uppdateringar.
+
 
 |**AKS-kluster region** | **Region för Log Analytics arbets yta** |
 |-----------------------|------------------------------------|
@@ -25,43 +26,24 @@ AKS-kluster resurserna eller Log Analytics arbets ytan kan finnas i andra region
 |SouthAfricaNorth |Västeuropa |
 |SouthAfricaWest |Västeuropa |
 |**Australien** | |
-|AustraliaEast |AustraliaEast |
-|AustraliaCentral |AustraliaCentral |
 |AustraliaCentral2 |AustraliaCentral |
-|AustraliaEast |AustraliaEast |
-|**Asien och stillahavsområdet** | |
-|Asienöstra |Asienöstra |
-|Sydostasien |Sydostasien |
 |**Brasilien** | |
 |Centrala | Usasödracentrala |
 |**Kanada** ||
-|Indiensödra |Indiensödra |
 |Indien |Indiensödra |
 |**Europa** | |
-|FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
-|Europanorra |Europanorra |
-|UKSouth |UKSouth |
 |Västrastorbritannien |UKSouth |
-|Västeuropa |Västeuropa |
 |**Indien** | |
-|Kanada |Kanada |
 |Australienöstra |Kanada |
 |Usavästracentrala |Kanada |
 |**Japan** | |
-|Japanöstra |Japanöstra |
 |Japanvästra |Japanöstra |
 |**Korea** | |
-|Centrala |Centrala |
 |Koreasödra |Centrala |
 |**USA** | |
-|Centra lus |Centra lus|
-|Platsen eastus |Platsen eastus |
-|EastUS2 |EastUS2 |
-|WestUS |WestUS |
-|WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|Östra USA<sup>1</sup>|
-|US Gov, Virginia |US Gov, Virginia |
+
 
 <sup>1</sup> på grund av kapacitets begränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar en Log Analytics-arbetsyta. Befintliga länkade resurser i regionen bör dock fortsätta att fungera.
 

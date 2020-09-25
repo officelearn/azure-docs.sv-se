@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059987"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260418"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökad Apache Spark historik Server för att felsöka och diagnostisera Apache Spark program
 
 Den här artikeln innehåller rikt linjer för hur du använder den utökade Apache Spark historik servern för att felsöka och diagnostisera slutförda och köra Spark-program.
 
-Tillägget innehåller fliken data, fliken Graph och fliken diagnostik. Använd fliken **data** om du vill kontrol lera indata och utdata för Spark-jobbet. På fliken **Graph** visas data flödet och uppspelning av jobb diagrammet. På fliken **diagnos** visas **data skevning**, **tids skevning**och **användnings analys av utförar**.
+Tillägget innehåller fliken data, fliken Graph och fliken diagnostik. Använd fliken **data** för att kontrol lera indata och utdata för Spark-jobbet. På fliken **Graph** visas data flödet och uppspelning av jobb diagrammet. På fliken **diagnos** visas  **data skevning**, **tids skevning**och **användnings analys av utförar**.
 
 ## <a name="access-the-apache-spark-history-server"></a>Få åtkomst till Apache Spark historik Server
 
@@ -30,11 +30,11 @@ Apache Spark historik Server är webb användar gränssnittet för slutförd och
 
 1. Öppna [Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Klicka på **övervaka**och välj **Apache Spark program**.
+2. Välj **övervaka**och välj sedan **Apache Spark program**.
 
-    ![Klicka på övervaka och välj Spark-program.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![Välj övervaka och välj Spark-program.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
-3. Välj ett program och öppna sedan **logg frågan** genom att klicka på den.
+3. Välj ett program och öppna sedan **logg frågan** genom att markera den.
 
     ![Öppna logg frågas fönster.](./media/apache-spark-history-server/open-application-window.png)
 
@@ -46,11 +46,11 @@ Apache Spark historik Server är webb användar gränssnittet för slutförd och
 
 1. Från din Azure Synapse Studio-anteckningsbok väljer du **Spark historik Server** från cellen för att köra utdata för jobb eller från panelen status längst ned i Anteckningsbok-dokumentet. Välj **Sessionsinformation**.
 
-   ![Starta Spark-historik Server](./media/apache-spark-history-server/launch-history-server2.png "Starta Spark-historik Server")
+   ![Starta Spark-historik Server 1](./media/apache-spark-history-server/launch-history-server2.png "Starta Spark-historik Server")
 
 2. Välj **Spark historik Server** på panelen bild ut.
 
-   ![Starta Spark-historik Server](./media/apache-spark-history-server/launch-history-server.png "Starta Spark-historik Server")
+   ![Starta Spark historik Server 2](./media/apache-spark-history-server/launch-history-server.png "Starta Spark-historik Server")
 
 ## <a name="explore-the-data-tab-in-spark-history-server"></a>Utforska fliken data i Spark historik Server
 
@@ -80,7 +80,7 @@ Välj jobb-ID för det jobb som du vill visa. Välj sedan **data** på verktygs 
 
     ![Data för hämtnings raden för Spark-program](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-* Om du vill kopiera en fullständig sökväg eller relativ sökväg väljer du alternativet **Kopiera fullständig sökväg** eller **Kopiera relativa sökvägar** som visas i den nedrullningsbara menyn. För Azure Data Lake Storage filer **öppnar du Azure Storage Explorer i** startar Azure Storage Explorer och letar upp mappen när du är inloggad.
+* Om du vill kopiera en fullständig sökväg eller relativ sökväg väljer du alternativet **Kopiera fullständig sökväg** eller **Kopiera relativa sökvägar** som visas på den nedrullningsbara menyn. För Azure Data Lake Storage filer **öppnar du Azure Storage Explorer i** startar Azure Storage Explorer och letar upp mappen när du är inloggad.
 
     ![Data för Spark-programmets kopierings Sök väg](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -125,7 +125,7 @@ Om du vill spela upp jobbet väljer du **uppspelning**. Du kan välja **stoppa**
 |Green|Lyckades: jobbet har slutförts.|
 |Orange|Nytt försök: instanser av aktiviteter som misslyckats men inte påverkar jobbets slut resultat. De här uppgifterna hade dubbla eller nya försök för instanser som kan lyckas senare.|
 |Blue|Körs: aktiviteten körs.|
-|Vita|Väntar eller hoppas över: aktiviteten väntar på att köras eller så har fasen hoppats över.|
+|Vit|Väntar eller hoppas över: aktiviteten väntar på att köras eller så har fasen hoppats över.|
 |Red|Misslyckades: aktiviteten har misslyckats.|
 
 Följande bild visar status färgerna grön, orange och blå.
@@ -157,7 +157,7 @@ Hovra över diagram-noden för att se knapp beskrivningen när det inte finns n�
 
 På fliken jobb diagram har stadier en knapp beskrivning och en liten ikon som visas om de har aktiviteter som uppfyller följande villkor:
 
-|Villkor|Beskrivning|
+|Condition (Väderförhållanden)|Description|
 |-|-|
 |Data skevning|data Läs storlek > genomsnittlig läsnings storlek för alla aktiviteter i det här steget * 2 och dataens Läs storlek > 10 MB|
 |Tids skevning|körnings tid > genomsnittlig körnings tid för alla aktiviteter i det här steget * 2 och körnings tiden > 2 minuter|
@@ -200,7 +200,7 @@ Kontrol lera **data skevningen**, **tids skevningen**och **utförar användnings
 
 När du väljer fliken **data skevning** visas motsvarande skevade uppgifter baserat på de angivna parametrarna.
 
-* **Ange parametrar** – det första avsnittet visar parametrarna som används för att identifiera data skevning. Standard regeln är: lästa aktivitets data är större än tre gånger i Genomsnittligt aktivitets data, och uppgifts data är större än 10 MB. Om du vill definiera en egen regel för skevade uppgifter kan du välja parametrar, de **skevade stegen** och **skeva tecken** avsnitt uppdateras i enlighet med detta.
+* **Ange parametrar** – det första avsnittet visar parametrarna som används för att identifiera data skevning. Standard regeln är: lästa aktivitets data är större än tre gånger i Genomsnittligt aktivitets data, och uppgifts data är större än 10 MB. Om du vill definiera en egen regel för skevade uppgifter kan du välja parametrar. De **skevade stegen** för att skeva och **skeva char** -avsnitt uppdateras därefter.
 
 * **Skevad fas** – det andra avsnittet visar steg, som har skevade uppgifter som uppfyller de villkor som anges ovan. Om det finns fler än en skevad aktivitet i ett stadium visar den skevade scen tabellen bara den mest sneda aktiviteten (till exempel de största data för data skevning).
 
@@ -234,7 +234,7 @@ Användnings diagrammet för utförar visualiserar Spark-jobbets utförar alloke
 
 ## <a name="known-issues"></a>Kända problem
 
-In-/utdata-data med elastiska distribuerade data uppsättningar (RDD) visas inte i fliken data.
+Indata/utdata-data med elastiska distribuerade data uppsättningar (RDD) visas inte i fliken data.
 
 ## <a name="next-steps"></a>Nästa steg
 

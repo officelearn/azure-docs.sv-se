@@ -1,18 +1,18 @@
 ---
 title: Så här distribuerar du Windows 10 på Azure med värd rättigheter för flera innehavare
-description: Lär dig hur du maximerar dina Windows Software Assurance-förmåner för att ta med lokala licenser till Azure
+description: Lär dig hur du maximerar dina Windows Software Assurance-förmåner för att ta med lokala licenser till Azure med värd rättigheter för flera innehavare.
 author: xujing
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 40b5f4ee0c30e38c6cd5bd01c724ed783921670d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279033"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Så här distribuerar du Windows 10 på Azure med värd rättigheter för flera innehavare 
 För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows anslutning för virtuella skriv bord per användare (användar prenumerations licenser eller användar prenumerations licenser), kan du använda värd rättigheterna för flera innehavare för Windows 10 för att ta med Windows 10-licenser till molnet och köra Windows 10 Virtual Machines på Azure utan att betala för en annan licens. Mer information finns i [värd för flera innehavare för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -105,6 +105,6 @@ LicenseType              :
 >
 >
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 - Läs mer om hur du [konfigurerar VDA för Windows 10](/windows/deployment/vda-subscription-activation)
 - Läs mer om [värd för flera innehavare för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)

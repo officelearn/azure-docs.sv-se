@@ -3,7 +3,7 @@ title: Implementera den gyllene Oracle-porten på en virtuell Azure Linux-dator 
 description: Få snabbt en Oracle-gyllene grind igång i Azure-miljön.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274800"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera den gyllene Oracle-porten på en virtuell Azure Linux-dator 
 
@@ -443,7 +443,7 @@ Slutför följande steg för att installera den gyllene Oracle-porten:
 
    ![Skärm bild av installations sidan Välj installations sida](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Ändra program varu platsen. Välj sedan rutan **starta hanteraren** och ange databas platsen. Välj **Nästa** för att fortsätta.
+3. Ändra program varu platsen. Välj sedan rutan **starta hanteraren** och ange databas platsen. Fortsätt genom att välja **Nästa**.
 
    ![Skärm bild av sidan Välj installation](./media/oracle-golden-gate/golden_gate_install_02.png)
 

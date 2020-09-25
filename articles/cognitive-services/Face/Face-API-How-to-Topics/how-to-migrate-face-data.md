@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d52cd57d48a03c5dab8cb8098cd212e76ca76a1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6f6b2ed9357acf4dceeb960b1abdf6813987f657
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324900"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts data till en annan ansikts prenumeration
 
@@ -237,4 +237,3 @@ Gå sedan till relevant API-referens dokumentation, utforska en exempel-app som 
 - [Exempel på ansikts ögonblicks bild](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Lägg till ansikten](how-to-add-faces.md)
 - [Identifiera ansikten i en bild](HowtoDetectFacesinImage.md)
-- [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)

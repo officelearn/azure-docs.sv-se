@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324067"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -100,6 +100,31 @@ Om du vill låsa ditt program för att endast acceptera trafik från din specifi
 
 -    Utför en GET-åtgärd på din front dörr med API-versionen `2020-01-01` eller högre. Leta efter fält i API-anropet `frontdoorID` . Filtrera på det inkommande huvudet "**X-Azure-FDID**" som skickas av front dörren till Server delen med värdet som fältet `frontdoorID` . Du kan också hitta `Front Door ID` ett värde under avsnittet Översikt från Portal sidan front dörr. 
 
+- Använd regel filtrering på backend-webbservern för att begränsa trafik baserat på det resulterande "X-Azure-FDID"-huvudets värde.
+
+  Här är ett exempel på [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
+
+
+
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Kan anycast-IP-förändring under hela front dörren?
 
 Klient delens anycast-IP för din front dörr bör normalt inte ändras och kan vara statisk för livs längden för front dörren. Det finns dock **inga garantier** för samma. Skriv inte några direkta beroenden på IP-adressen.
@@ -132,6 +157,10 @@ Azures front dörr (AFD) kräver en offentlig IP-adress eller offentligt matchat
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Vilka är de olika tids gränserna och gränserna för Azures front dörr?
 
 Lär dig mer om alla dokumenterade [tids gränser och begränsningar för Azures front dörr](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+
+### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Hur lång tid tar det innan en regel börjar gälla när den har lagts till i motorn för front dörrs regler?
+
+Konfigurationen av regel motorn tar cirka 10 till 15 minuter att slutföra en uppdatering. Du kan se till att regeln börjar gälla så fort uppdateringen har slutförts. 
 
 ## <a name="performance"></a>Prestanda
 

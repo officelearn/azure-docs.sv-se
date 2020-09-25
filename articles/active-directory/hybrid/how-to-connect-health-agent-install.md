@@ -12,23 +12,27 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3b2c89086688451b16a8a6e10c25be65ffd4d9dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273865"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 
 Det här dokumentet beskriver hur du installerar och konfigurerar Azure AD Connect Health-agenterna. Du kan ladda ned agenterna [här](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
 ## <a name="requirements"></a>Krav
+
+
+> [!IMPORTANT]
+> Det finns inte stöd för att installera Azure AD Connect Health Agent på Windows Server Core.
 
 Följande tabell är en lista över kraven för att använda Azure AD Connect Health.
 
@@ -48,7 +52,7 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 
 > [!NOTE]
 > Om du har en mycket låst och mycket begränsad miljö måste du lägga till de URL: er som anges i tjänst slut punkts listorna nedan förutom de som anges i den tillåtna säkerhets konfigurationen för IE utökad säkerhet ovan. 
->
+
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Utgående anslutning till Azure-tjänstens slutpunkter
 

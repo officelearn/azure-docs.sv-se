@@ -1,14 +1,16 @@
 ---
 title: Gränser – LUIS
 description: Den här artikeln innehåller de kända gränserna för Azure Cognitive Services Language Understanding (LUIS). LUIS har flera gräns områden. Modell gräns kontroller för avsikter, entiteter och funktioner i LUIS. Kvot gränser baserat på nyckel typ. Tangent bords kombinationen styr LUIS-webbplatsen.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055349"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324713"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Begränsningar för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Den första är [modell gränsen](#model-limits), som styr avsikter, entiteter och funktioner i Luis. Det andra avsnittet är [kvot gränser](#key-limits) baserat på nyckel typ. Ett tredje begränsat utrymme är [tangentkombinationen](#keyboard-controls) för att kontrol lera Luis-webbplatsen. Ett fjärde område är [Mappning av världs regionen](luis-reference-regions.md) mellan Luis Authoring-webbplatsen och API: erna för Luis- [slutpunkt](luis-glossary.md#endpoint) .
@@ -21,7 +23,7 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 
 |Område|Gräns|
 |--|:--|
-| [App-namn][luis-get-started-create-app] | * Standard-största antal bokstäver |
+| [Appens namn][luis-get-started-create-app] | * Standard-största antal bokstäver |
 | Program| 500 program per Azure Authoring-resurs |
 | [Batch-testning][batch-testing]| 10 data uppsättningar, 1000 yttranden per data uppsättning|
 | Explicit lista | 50 per program|
@@ -39,7 +41,7 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 | [Roller](luis-concept-roles.md)|300 roller per program. 10 roller per entitet|
 | [Yttrande][utterances] | 500 tecken<br><br>Om du har text längre än den här tecken gränsen måste du segmentera uttryck innan indatamängden till LUIS och du får enskilda svar per segment. Det finns uppenbara raster som du kan arbeta med, till exempel skiljetecken och långa pauser i tal.|
 | [Uttryck-exempel][utterances] | 15 000 per program-det finns ingen gräns för antalet yttranden per avsikt<br><br>Om du behöver träna programmet med fler exempel kan du använda en metod för [sändnings](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) modellen. Du tränar enskilda LUIS-appar (kallade underordnade appar till den överordnade sändnings appen) med en eller flera avsikter och sedan tränar du en sändnings app som innehåller exempel från varje underordnad LUIS Apps yttranden för att dirigera förutsägelsen till rätt underordnad app. |
-| [5](luis-concept-version.md)| 100-versioner per program |
+| [Versioner](luis-concept-version.md)| 100-versioner per program |
 | [Versions namn][luis-how-to-manage-versions] | 128 tecken |
 
 * Standard tecken Max är 50 tecken.
@@ -94,7 +96,7 @@ Använd _typen_, `LUIS` när du filtrerar resurser i Azure Portal. Slut punkts r
 |F0 – kostnads fri nivå |10 000 per månad, 5/sekund|
 |S0 – standard nivå|50/sekund|
 
-### <a name="sentiment-analysis"></a>Sentimentanalys
+### <a name="sentiment-analysis"></a>Attitydanalys
 
 [Sentiment analys integrering](luis-how-to-publish-app.md#enable-sentiment-analysis), som innehåller information om sentiment, tillhandahålls utan någon annan Azure-resurs.
 
@@ -106,7 +108,7 @@ Använd _typen_, `LUIS` när du filtrerar resurser i Azure Portal. Slut punkts r
 
 ## <a name="keyboard-controls"></a>Tangent bords kontroller
 
-|Tangent bords inmatare | Beskrivning |
+|Tangent bords inmatare | Description |
 |--|--|
 |Kontroll + E|växlar mellan token och entiteter i yttranden-listan|
 

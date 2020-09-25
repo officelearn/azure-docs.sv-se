@@ -7,23 +7,15 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/16/2020
+ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307729"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
-> [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
-> * [Node.js](search-get-started-nodejs.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Postman](search-get-started-postman.md)
-> * [Python](search-get-started-python.md)
 
 Guiden **Importera data** är ett Azure Portal verktyg som vägleder dig genom skapandet av ett Sök index så att du kan skriva intressanta frågor inom några minuter. 
 
@@ -276,8 +268,3 @@ Använd en portal guide för att skapa en färdig webb program som körs i en we
 
 > [!div class="nextstepaction"]
 > [Skapa en demo-app i portalen](search-create-app-portal.md)
-
-Vill du optimera och Spara på dina moln utgifter?
-
-> [!div class="nextstepaction"]
-> [Börja analysera kostnaderna med Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

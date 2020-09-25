@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440550"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324339"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Kopiera aktivitets prestanda optimerings funktioner
 
@@ -124,32 +124,36 @@ När du anger ett värde för `parallelCopies` egenskapen ska du ta belastnings 
 
 ## <a name="staged-copy"></a>Mellanlagrad kopia
 
-När du kopierar data från ett käll data lager till ett data lager för mottagare kan du välja att använda Blob Storage som ett interimistiskt mellanlagrings lager. Mellanlagring är särskilt användbart i följande fall:
+När du kopierar data från ett käll data lager till ett data lager för mottagare kan du välja att använda Azure Blob Storage eller Azure Data Lake Storage Gen2 som ett interimistiskt mellanlagrings lager. Mellanlagring är särskilt användbart i följande fall:
 
-- **Du vill mata in data från olika data lager i Azure Synapse Analytics (tidigare SQL Data Warehouse) via PolyBase.** Azure Synapse Analytics använder PolyBase som en mekanism för hög genom strömning för att läsa in en stor mängd data i Azure Synapse Analytics. Källdata måste finnas i Blob Storage eller Azure Data Lake Store, och det måste uppfylla ytterligare kriterier. När du läser in data från ett annat data lager än Blob Storage eller Azure Data Lake Store, kan du aktivera data kopiering via tillfällig mellanlagring av blob-lagring. I så fall utför Azure Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i Azure Synapse Analytics effektivt. Mer information finns i [använda PolyBase för att läsa in data i Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+- **Du vill mata in data från olika data lager i Azure Synapse Analytics (tidigare SQL Data Warehouse) via PolyBase, kopiera data från/till snö eller mata in data från Amazon RedShift/HDFS performantly.** Lär dig mer om att:
+  - [Använd PolyBase för att läsa in data i Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+  - [Snö-koppling](connector-snowflake.md)
+  - [Amazon RedShift-anslutning](connector-amazon-redshift.md)
+  - [HDFS-anslutning](connector-hdfs.md)
+- **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen på grund av företagets IT-principer.** När du till exempel kopierar data från ett lokalt data lager till en Azure SQL Database eller en Azure Synapse-analys måste du aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företags brand väggen. I det här scenariot kan mellanlagrad kopiering dra nytta av den lokala integrerings körningen för att först kopiera data till en mellanlagring via HTTP eller HTTPS på port 443 och sedan läsa in data från mellanlagring i SQL Database eller Azure Synapse Analytics. I det här flödet behöver du inte aktivera port 1433.
 - **Ibland tar det en stund att utföra en hybrid data förflyttning (det vill säga kopiera från ett lokalt data lager till ett moln data lager) över en långsam nätverks anslutning.** Du kan förbättra prestanda genom att använda mellanlagrad kopia för att komprimera data lokalt så att det tar mindre tid att flytta data till lagrings data lagret i molnet. Sedan kan du expandera data i mellanlagrings platsen innan du läser in i mål data lagret.
-- **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen på grund av företagets IT-principer.** När du t. ex. kopierar data från ett lokalt data lager till en Azure SQL Database mottagare eller en Azure Synapse Analytics-mottagare måste du aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företags brand väggen. I det här scenariot kan mellanlagrad kopiering dra nytta av den lokala integrerings körningen för att först kopiera data till en mellanlagringsplats för Blob Storage via HTTP eller HTTPS på port 443. Sedan kan den läsa in data i SQL Database eller Azure Synapse Analytics från mellanlagring av blob-lagring. I det här flödet behöver du inte aktivera port 1433.
 
 ### <a name="how-staged-copy-works"></a>Så här fungerar mellanlagrad kopiering
 
-När du aktiverar mellanlagrings funktionen kopieras först data från käll data lagret till mellanlagringen av blob-lagringen (ta med din egen). Därefter kopieras data från mellanlagrings data lagringen till data lagret för mottagaren. Azure Data Factory hanterar automatiskt flödet i två steg åt dig. Azure Data Factory rensar också tillfälliga data från mellanlagringen när data förflyttningen är klar.
+När du aktiverar mellanlagrings funktionen kopieras först data från käll data lagret till mellanlagringsplatsen (ta med din egen Azure-Blob eller Azure Data Lake Storage Gen2). Därefter kopieras data från mellanlagringen till data lagret för mottagare. Azure Data Factory kopierings aktivitet hanterar automatiskt flödet i två steg åt dig och rensar även tillfälliga data från mellanlagringen när data förflyttningen är klar.
 
 ![Mellanlagrad kopia](media/copy-activity-performance/staged-copy.png)
 
-När du aktiverar data förflyttning med hjälp av ett mellanlagrings lager kan du ange om du vill att data ska komprimeras innan du flyttar data från käll data lagret till ett interimistiskt eller mellanlagrat data lager och sedan expanderar innan du flyttar data från ett interimistiskt eller mellanlagrat data lager till data lagret för mottagare.
+När du aktiverar data förflyttning med hjälp av ett mellanlagrings lager kan du ange om du vill att data ska komprimeras innan du flyttar data från käll data lagret till mellanlagrings platsen och sedan expanderar innan du flyttar data från ett interimistiskt eller mellanlagrat data lager till data lagret för mottagare.
 
 För närvarande kan du inte kopiera data mellan två data lager som är anslutna via en annan egen värd, varken med eller utan mellanlagrad kopia. I det här scenariot kan du konfigurera två explicit länkade kopierings aktiviteter för kopiering från källa till mellanlagring och från mellanlagring till mottagare.
 
 ### <a name="configuration"></a>Konfiguration
 
-Konfigurera inställningen **enableStaging** i kopierings aktiviteten och ange om du vill att data ska mellanlagras i Blob Storage innan du läser in dem i ett mål data lager. När du ställer in **enableStaging** på `TRUE` anger du ytterligare egenskaper som anges i följande tabell. Du måste också skapa en signatur för delad åtkomst för Azure Storage eller lagrings plats för delad åtkomst för mellanlagring om du inte har någon.
+Konfigurera **enableStaging** -inställningen i kopierings aktiviteten och ange om du vill att data ska mellanlagras i lagrings utrymmet innan du läser in dem i ett mål data lager. När du ställer in **enableStaging** på `TRUE` anger du ytterligare egenskaper som anges i följande tabell. 
 
 | Egenskap | Beskrivning | Standardvärde | Obligatorisk |
 | --- | --- | --- | --- |
-| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |Inga |
-| linkedServiceName |Ange namnet på en länkad [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i Azure Synapse Analytics via PolyBase. Du kan använda den i alla andra scenarier. |E.t. |Ja, när **enableStaging** är inställt på True |
-| path |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |E.t. |Inga |
-| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Inga |
+| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |No |
+| linkedServiceName |Ange namnet på en [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) -eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) -länkad tjänst, som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. |Saknas |Ja, när **enableStaging** är inställt på True |
+| path |Ange den sökväg som du vill ska innehålla mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. |Saknas |No |
+| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |No |
 
 >[!NOTE]
 > Om du använder mellanlagrad kopiering med komprimering aktive rad stöds inte tjänstens huvud namn eller MSI-autentisering för den länkade Blob-tjänsten.
@@ -159,25 +163,24 @@ Här är en exempel definition av en kopierings aktivitet med de egenskaper som 
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }

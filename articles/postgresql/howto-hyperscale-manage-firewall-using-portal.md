@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884320"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275429"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Hantera brand Väggs regler för Azure Database for PostgreSQL-storskalig (citus)
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en citus-koordinator (disscale) från en angiven IP-adress eller ett intervall med IP-adresser.
@@ -49,7 +49,7 @@ Alternativt kan du klicka på **+ Lägg till 0.0.0.0-255.255.255.255** (till hö
 
 ## <a name="connecting-from-azure"></a>Ansluta från Azure
 
-Det finns ett enkelt sätt att bevilja storskalig databas åtkomst till program som finns på Azure (till exempel ett Azure Web Apps-program eller som körs i en virtuell Azure-dator). Ställ bara in alternativet **Tillåt Azure-tjänster och resurser för att komma åt denna server grupp** på **Ja** i portalen från fönstret **nätverk** och tryck på **Spara**.
+Det finns ett enkelt sätt att bevilja storskalig (citus) databas åtkomst till program som finns på Azure (till exempel ett Azure Web Apps-program eller som körs i en virtuell Azure-dator). Ställ bara in alternativet **Tillåt Azure-tjänster och resurser för att komma åt denna server grupp** på **Ja** i portalen från fönstret **nätverk** och tryck på **Spara**.
 
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.

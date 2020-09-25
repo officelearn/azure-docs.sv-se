@@ -8,18 +8,25 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a006ece278e4ec750040bde5bd4b7a6144c9e720
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303377"
 ---
 # <a name="what-is-azure-communication-services"></a>Vad är Azure Communication Services?
 
 [!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 Med Azure Communication Services kan du enkelt lägga till funktioner för multimedia, video och telefoni för kommunikation i real tid till dina program. Klient biblioteken för kommunikations tjänster låter dig också lägga till chatt-och SMS-funktioner i kommunikations lösningarna.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+
+<br>
+<br>
 
 Du kan använda kommunikations tjänster för röst-, video-, text-och data kommunikation i olika scenarier:
 
@@ -36,7 +43,7 @@ Följande resurser är en bra plats för att börja om du är nybörjare på Azu
 
 | Resurs                               |Beskrivning                           |
 |---                                    |---                                   |
-|**[Skapa en kommunikations tjänst resurs](./quickstarts/create-communication-resource.md)**|Du kan börja använda Azure Communication Services med hjälp av klient biblioteket Azure Portal eller kommunikations tjänst administration för att etablera din första kommunikations tjänst resurs. När du har resurs anslutnings strängen för kommunikations tjänster kan du etablera dina första åtkomsttoken för användare.|
+|**[Skapa en Communication Services-resurs](./quickstarts/create-communication-resource.md)**|Du kan börja använda Azure Communication Services med hjälp av klient biblioteket Azure Portal eller kommunikations tjänst administration för att etablera din första kommunikations tjänst resurs. När du har resurs anslutnings strängen för kommunikations tjänster kan du etablera dina första åtkomsttoken för användare.|
 |**[Skapa din första åtkomsttoken för användare](./quickstarts/access-tokens.md)**|Token för användar åtkomst används för att autentisera dina tjänster mot Azure Communication Services-resursen. Dessa tokens tillhandahålls och återutfärdas med administrations klient biblioteket för kommunikations tjänster.|
 |**[Hämta ett telefonnummer](./quickstarts/telephony-sms/get-phone-number.md)**|Du kan använda Azure Communication Services för att etablera och frigöra telefonnummer. Dessa telefonnummer kan användas för att initiera utgående samtal och bygga SMS-kommunikations lösningar.|
 |**[Skicka ett SMS från din app](./quickstarts/telephony-sms/send.md)**|Med klient biblioteket för Azure Communication Services SMS kan du skicka och ta emot SMS-meddelanden från .NET-och JavaScript-program.|
@@ -49,7 +56,7 @@ Följande resurser är en bra plats för att börja om du är nybörjare på Azu
 I följande exempel demonstreras slut punkt till slut punkt för klient biblioteken för Azure Communication Services. Du kan använda dessa exempel för att starta dina egna kommunikations tjänst lösningar.
 <br>
 
-| Exempel namn                               | Beskrivning                           |
+| Exempel namn                               | Description                           |
 |---                                    |---                                   |
 |**[Gruppen som anropar ett hjälte exempel](./samples/calling-hero-sample.md)**|Se hur kommunikations tjänstens klient bibliotek kan användas för att bygga en grupp som anropar en funktion.|
 |**[Hjälte-exemplet för grupp Chat](./samples/chat-hero-sample.md)**|Se hur kommunikations tjänstens klient bibliotek kan användas för att bygga en grupps Chat-upplevelse.|
@@ -61,10 +68,10 @@ Följande resurser hjälper dig att lära dig mer om klient biblioteken för Azu
 
 | Resurs                               | Beskrivning                           |
 |---                                    |---                                   |
-|**[Klient bibliotek och REST-API: er](./concepts/sdk-options.md)**|Azure Communication Services-funktionerna organiseras konceptuellt i sex områden som representeras av ett klient bibliotek. Du kan bestämma vilka klient bibliotek som ska användas utifrån dina kommunikations behov i real tid.|
-|**[Översikt över samtals klient bibliotek](./concepts/voice-video-calling/calling-sdk-features.md)**|Granska översikt över kommunikations tjänsterna som anropar klient biblioteket.|
-|**[Översikt över Chat-klient bibliotek](./concepts/chat/sdk-features.md)**|Läs översikt över kommunikations tjänstens Chat-klient bibliotek.|
-|**[Översikt över SMS-klient bibliotek](./concepts/telephony-sms/sdk-features.md)**|Läs översikt över kommunikations tjänstens SMS-klientcertifikat.|
+|**[Klientbibliotek och REST-API:er](./concepts/sdk-options.md)**|Azure Communication Services-funktionerna organiseras konceptuellt i sex områden som representeras av ett klient bibliotek. Du kan bestämma vilka klient bibliotek som ska användas utifrån dina kommunikations behov i real tid.|
+|**[Översikt över klientbiblioteket för samtal](./concepts/voice-video-calling/calling-sdk-features.md)**|Granska översikt över kommunikations tjänsterna som anropar klient biblioteket.|
+|**[Översikt över klientbiblioteket för chatt](./concepts/chat/sdk-features.md)**|Läs översikt över kommunikations tjänstens Chat-klient bibliotek.|
+|**[Översikt över klientbiblioteket för SMS](./concepts/telephony-sms/sdk-features.md)**|Läs översikt över kommunikations tjänstens SMS-klientcertifikat.|
 
 ## <a name="compare-azure-communication-services"></a>Jämför Azure Communication Services
 
@@ -77,4 +84,4 @@ Det finns två andra Microsoft-kommunikationsprodukter som du kan överväga att
 
 ## <a name="next-steps"></a>Efterföljande moment
 
- - [Skapa en kommunikations tjänst resurs](./quickstarts/create-communication-resource.md)
+ - [Skapa en Communication Services-resurs](./quickstarts/create-communication-resource.md)

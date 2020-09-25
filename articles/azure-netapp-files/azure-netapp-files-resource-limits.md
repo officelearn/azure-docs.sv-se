@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0ddb9998c1e1b9b70303aeb4608bc0b53bc103ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708112"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325495"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -44,7 +44,9 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 |  Maximal storlek på en enskild volym     |    100 TiB    |    No    |
 |  Maximal storlek för en enskild fil     |    16 TiB    |    No    |    
 |  Maximal storlek på katalogens metadata i en enskild katalog      |    320 MB    |    No    |    
-|  Maximalt antal filer ([maxfiles](#maxfiles)) per volym     |    100 000 000    |    Yes    |   
+|  Maximalt antal filer ([maxfiles](#maxfiles)) per volym     |    100 000 000    |    Yes    |    
+|  Lägsta tilldelade data flöde för en manuell QoS-volym     |    1 MiB/s   |    No    |    
+|  Maximalt kopplat data flöde för en manuell QoS-volym     |    4 500 MiB/s    |    No    |    
 |  Antal data skydds volymer för replikering mellan regioner (mål volymer)     |    5    |    Yes    |     
 
 Mer information finns i [vanliga frågor och svar om kapacitets hantering](azure-netapp-files-faqs.md#capacity-management-faqs).

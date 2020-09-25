@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 0809894964ff99c468f8bf3876bfdb44995656f7
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325665"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
@@ -48,7 +48,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Användnings analys med Azure Application Insights](app/usage-overview.md) -tillagd video.
 
 ### <a name="autoscale"></a>Automatisk skalning
-- [Kom igång med autoskalning i Azure](platform/autoscale-get-started.md) -tillagda avsnitt om routning till Healty-instanser för App Service.
+- [Kom igång med autoskalning i Azure](platform/autoscale-get-started.md) -tillägg i routning till felfria instanser för App Service.
 
 ### <a name="data-collection"></a>Datainsamling
 - [Konfigurera data insamling för Azure Monitor Agent (för hands version)](platform/data-collection-rule-azure-monitor-agent.md) – ny artikel.
@@ -192,12 +192,12 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 
 - [Arkivera Azures resurs loggar till lagrings kontot](./platform/resource-logs.md#send-to-azure-storage)
 - [Händelse schema för Azure aktivitets logg](platform/activity-log-schema.md)
-- [Azure aktivitets logg](platform/activity-log.md)
+- [Azure-aktivitetslogg](platform/activity-log.md)
 - [Azure Monitor CLI-exempel](samples/cli-samples.md)
 - [Azure Monitor PowerShell-exempel](samples/powershell-samples.md)
 - [Genom gång av Azure Monitoring REST API](platform/rest-api-walkthrough.md)
 - [Tjänster och scheman som stöds av Azure-resurs loggar](./platform/resource-logs-schema.md)
-- [Azure resurs loggar](platform/resource-logs.md)
+- [Azure-resursloggar](platform/resource-logs.md)
 - [Samla in och analysera Azure aktivitets logg i Azure Monitor](./platform/activity-log.md)
 - [Samla in Azures resurs loggar i Log Analytics arbets yta](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](platform/diagnostic-settings.md)
@@ -558,7 +558,6 @@ Flera nya artiklar för konverterings guiden för Visa designer till arbets böc
 - [Application Insights för Worker service-appar (icke-http-appar)](app/worker-service.md) – en standard loggnings nivå har lagts till i C#-koden. Uppdaterad paket referens version.
 - [ApplicationInsights.config referens – Azure](app/configuration-with-applicationinsights-config.md) -uppdaterad exempel kod.
 - [Automatisera Azure Application Insights med PowerShell](app/powershell.md) – uppdatera till Resource Manager-mall.
-- [Azure Monitor Application Insights NuGet-paket](app/nuget.md) – uppdaterade paket versioner.
 - [Skapa en ny Azure Application Insights-resurs](app/create-new-resource.md) -anteckning som har lagts till i globalt unikt namn.
 - [Diagnostisera med Live Metrics Stream-Azure Application Insights](app/live-stream.md) – uppdaterat krav för ASP.net Core SDK-version.
 - [Händelse räknare i Application Insights](app/eventcounters.md) -uppdaterad kategori och tabell till customMetrics.

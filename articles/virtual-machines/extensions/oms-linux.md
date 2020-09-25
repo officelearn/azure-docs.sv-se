@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999826"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307457"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics-tillägg för virtuella datorer för Linux
 
@@ -43,7 +43,7 @@ Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillä
 
 | Version för Log Analytics Linux VM-tillägg | Log Analytics agent paket version | 
 |--------------------------------|--------------------------|
-| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
+| 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0 – 9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -104,7 +104,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel |
+| Name | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | utgivare | Microsoft. EnterpriseCloud. Monitoring |
@@ -211,7 +211,9 @@ Utökning av utdata loggas i följande fil:
 | 19 | Installations problem för OMI-paket | 
 | 20 | Installations problem för SCX-paket |
 | 51 | Det här tillägget stöds inte för den virtuella datorns åtgärds system | |
-| 55 | Det går inte att ansluta till Azure Monitor tjänsten eller nödvändiga paket saknas eller så är dpkg Package Manager låst| Kontrol lera att datorn har Internet åtkomst eller att en giltig HTTP-proxy har angetts. Kontrol lera också att arbetsyte-ID: t är korrekt och att du har installerat verktygen för att lösa problemet. |
+| 52 | Tillägget misslyckades på grund av ett saknat beroende | Se utdata och loggfiler för mer information om vilket beroende som saknas. |
+| 53 | Tillägget misslyckades på grund av saknade eller felaktiga konfigurations parametrar | Se utdata och loggfiler för mer information om vad som gick fel. Kontrol lera också att arbetsyte-ID: t är korrekt och att datorn är ansluten till Internet. |
+| 55 | Det går inte att ansluta till Azure Monitor tjänsten eller nödvändiga paket saknas eller så är dpkg Package Manager låst| Kontrol lera att datorn har Internet åtkomst eller att en giltig HTTP-proxy har angetts. Kontrol lera också att arbetsyte-ID: t är korrekt och att du har installerat de olika verktygen. |
 
 Ytterligare felsöknings information finns i [fel söknings guiden Log Analytics-agent-för-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

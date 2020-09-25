@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259644"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -44,7 +44,7 @@ I den tekniska profilen mappar du anspråks matcharen till anspråks typen. Azur
 
 I följande avsnitt listas tillgängliga anspråks lösningar.
 
-### <a name="culture"></a>Culture (Kultur)
+### <a name="culture"></a>Kultur
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
@@ -53,7 +53,7 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 | {Culture: RegionName} | ISO-koden för den två bokstaven för regionen. | USA |
 | {Culture: RFC5646} | Språk koden RFC5646. | sv-SE |
 
-### <a name="policy"></a>Princip
+### <a name="policy"></a>Policy
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
@@ -66,17 +66,17 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC: AuthenticationContextReferences} |Frågesträngparametern `acr_values` . | E.t. |
-| {OIDC: ClientId} |Frågesträngparametern `client_id` . | 00000000-0000-0000-0000-000000000000 |
-| {OIDC: DomainHint} |Frågesträngparametern `domain_hint` . | facebook.com |
+| {OIDC: AuthenticationContextReferences} |Frågesträngparametern `acr_values` . | Saknas |
+| {OIDC: ClientId} |Frågesträngparametern `client_id`  . | 00000000-0000-0000-0000-000000000000 |
+| {OIDC: DomainHint} |Frågesträngparametern `domain_hint`  . | facebook.com |
 | {OIDC: LoginHint} |  Frågesträngparametern `login_hint` . | someone@contoso.com |
-| {OIDC: MaxAge} | `max_age`. | E.t. |
-| {OIDC: nonce} |Frågesträngparametern `Nonce` . | defaultNonce |
+| {OIDC: MaxAge} | `max_age`. | Saknas |
+| {OIDC: nonce} |Frågesträngparametern `Nonce`  . | defaultNonce |
 | {OIDC: lösen ord}| [Autentiseringsuppgifter för resurs ägarens lösen ord flödar](ropc-custom.md) användarens lösen ord.| password1| 
 | {OIDC: prompt} | Frågesträngparametern `prompt` . | inloggning |
-| {OIDC: RedirectUri} |Frågesträngparametern `redirect_uri` . | https://jwt.ms |
-| {OIDC: resurs} |Frågesträngparametern `resource` . | E.t. |
-| {OIDC: omfång} |Frågesträngparametern `scope` . | OpenID |
+| {OIDC: RedirectUri} |Frågesträngparametern `redirect_uri`  . | https://jwt.ms |
+| {OIDC: resurs} |Frågesträngparametern `resource`  . | Saknas |
+| {OIDC: omfång} |Frågesträngparametern `scope`  . | OpenID |
 | {OIDC: username}| [Autentiseringsuppgifter för resurs ägar lösen ord flöda](ropc-custom.md) användarens användar namn.| emily@contoso.com| 
 
 ### <a name="context"></a>Kontext
@@ -106,13 +106,14 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | Hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
 | {OAUTH-KV: loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | E.t. |
+| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Saknas |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {OAuth2: access_token} | Åtkomsttoken. | E.t. |
+| {OAuth2: access_token} | Åtkomsttoken. | Saknas |
+| {OAuth2: refresh_token} | Refresh-token. | Saknas |
 
 
 ### <a name="saml"></a>SAML

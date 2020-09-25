@@ -4,23 +4,23 @@ description: DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure V
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, Azure, Oracle, data Guard
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/14/2018
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66837a0e4118695b19776972fdb4fd88a70ee561
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d83c4ffe4e60ef2896e16b97e1ec34d71a022b9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279016"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
 
@@ -318,7 +318,7 @@ Oracle-programvaran stöds av Oracle för att köras på Microsoft Azure. För y
 
 Följande SAP-anteckningar är relaterade till SAP på Azure.
 
-| Antecknings nummer | Title |
+| Antecknings nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -344,18 +344,20 @@ Undantag, enligt SAP Obs [#2039619](https://launchpad.support.sap.com/#/notes/20
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-windows"></a>Konfigurations rikt linjer för Oracle för SAP-installationer i virtuella Azure-datorer i Windows
 
-I enlighet med hand boken för SAP-installationen bör Oracle-relaterade filer inte installeras eller finnas i system driv rutinen för en virtuell dators OS-disk (enhet c:). Virtuella datorer av varierande storlekar kan stödja ett varierande antal anslutna diskar. Färre typer av virtuella datorer kan ha stöd för ett mindre antal anslutna diskar. 
+I enlighet med hand boken för SAP-installationen bör Oracle-relaterade filer inte installeras eller finnas på den virtuella datorns OS-disk (enhet c:). Virtuella datorer av varierande storlekar kan stödja ett varierande antal anslutna diskar. Färre typer av virtuella datorer kan ha stöd för ett mindre antal anslutna diskar. 
 
-Om du har mindre virtuella datorer rekommenderar vi att du installerar/hittar Oracle Home, Stage, "saptrace", "saparch", "sapbackup", "sapcheck" eller "sapreorg" i OS-disken. Dessa delar av Oracle DBMS-komponenter är inte intensiva i I/O och I/O-genomflöde. Det innebär att operativ system disken kan hantera i/O-kraven. Standard storleken på OS-disken är 127 GB. 
+Om du har mindre virtuella datorer och skulle överskrida gränsen för antalet diskar som du kan ansluta till den virtuella datorn, kan du installera/hitta Oracle Home, Stage,,,, `saptrace` `saparch` `sapbackup` `sapcheck` eller `sapreorg` till OS-disken. Dessa delar av Oracle DBMS-komponenter är inte för intensiva i I/O och I/O-genomflöde. Det innebär att operativ system disken kan hantera i/O-kraven. Standard storleken på OS-disken ska vara 127 GB. 
 
-Om det inte finns tillräckligt med ledigt utrymme kan disken [ändra storlek](../../windows/expand-os-disk.md) till 2048 GB. Oracle Database och gör om-loggfiler måste lagras på separata data diskar. Det finns ett undantag för det tillfälliga Oracle-datatabellområdet. Tempfiles kan skapas på D:/ (icke-beständig enhet). Icke-permanent D:\ enheten erbjuder också bättre I/O-latens och data flöde (med undantag för virtuella datorer i A-serien). 
+Oracle Database och gör om-loggfiler måste lagras på separata data diskar. Det finns ett undantag för det tillfälliga Oracle-datatabellområdet. `Tempfiles` kan skapas på D:/ (icke-beständig enhet). Icke-permanent D:\ enheten erbjuder också bättre I/O-latens och data flöde (med undantag för virtuella datorer i A-serien). 
 
-För att fastställa rätt utrymme för tempfiles kan du kontrol lera storleken på tempfiles på befintliga system.
+`tempfiles`Du kan kontrol lera storleken på befintliga system för att avgöra hur mycket utrymme som är bäst för `tempfiles` .
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
 Endast Oracle med enkel instans med NTFS-formaterade diskar stöds. Alla databasfiler måste lagras på fil systemet NTFS på Managed Disks (rekommenderas) eller på virtuella hård diskar. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) eller [Azure Managed disks](../../managed-disks-overview.md). 
 
-Vi rekommenderar starkt att du använder [Azure Managed disks](../../managed-disks-overview.md). Vi rekommenderar också starkt att du använder [Premium-SSD](../../disks-types.md) för dina Oracle Database-distributioner.
+Kolla in artikeln [Azure Storage typer för SAP-arbetsbelastningar](./planning-guide-storage.md) för att få mer information om de Azure block Storage-typer som är lämpliga för DBMS-arbetsbelastningar.
+
+Vi rekommenderar starkt att du använder [Azure Managed disks](../../managed-disks-overview.md). Vi rekommenderar också starkt att använda [Azure Premium Storage eller Azure Ultra disk](../../disks-types.md) för dina Oracle Database-distributioner.
 
 Nätverks enheter eller fjär resurser som Azure File Services stöds inte för Oracle Database-filer. Mer information finns i:
 
@@ -374,37 +376,37 @@ Den lägsta konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA & mirrlogB | Premium | Inget | Krävs inte |
-| \oracle \<SID> \origlogaB & mirrlogA | Premium | Inget | Krävs inte |
-| \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Kan användas |
+| \oracle \<SID> \origlogaA & mirrlogB | Premium eller Ultra disk | Inget | Krävs inte |
+| \oracle \<SID> \origlogaB & mirrlogA | Premium eller Ultra disk | Inget | Krävs inte |
+| \oracle \<SID> \sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Kan användas för Premium |
 | \oracle \<SID> \oraarch | Standard | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | | Krävs inte |
+| Oracle Home, `saptrace` ,... | OS-disk (Premium) | | Krävs inte |
 
 
-Diskar som väljs för att vara värd för online-återupprepnings loggar bör drivas av IOPs-krav Det går att lagra alla sapdata1... n (register namn) på en enda monterad disk så länge storlek, IOPS och data flöde uppfyller kraven. 
+Diskar som väljs för att vara värd för online-återupprepnings loggar bör drivas av IOPS-krav Det går att lagra alla sapdata1... n (register namn) på en enda monterad disk så länge storlek, IOPS och data flöde uppfyller kraven. 
 
 Prestanda konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA | Premium | Inget | Kan användas  |
-| \oracle \<SID> \origlogaB | Premium | Inget | Kan användas |
-| \oracle \<SID> \mirrlogAB | Premium | Inget | Kan användas |
-| \oracle \<SID> \mirrlogBA | Premium | Inget | Kan användas |
-| \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| \oracle\SID\sapdata (n + 1) * | Premium | Inget | Kan användas |
-| \oracle \<SID> \oraarch * | Premium | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | Krävs inte |
+| \oracle \<SID> \origlogaA | Premium eller Ultra disk | Inget | Kan användas för Premium  |
+| \oracle \<SID> \origlogaB | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| \oracle \<SID> \mirrlogAB | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| \oracle \<SID> \mirrlogBA | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| \oracle \<SID> \sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Rekommenderas för Premium  |
+| \oracle\SID\sapdata (n + 1) * | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| \oracle \<SID> \oraarch * | Premium eller Ultra disk | Inget | Krävs inte |
+| Oracle Home, `saptrace` ,... | OS-disk (Premium) | Krävs inte |
 
 * (n + 1): värdbaserade SYSTEM-, TEMP-och UNDO-datatabeller. I/O-mönstret för system-och Undo-datatabeller skiljer sig från andra register utrymmen som är värdar för program data. Ingen cachelagring är det bästa alternativet för systemets prestanda och återställa tabell utrymmen.
 
 * oraarch: lagringspoolen är inte nödvändig från en prestanda punkt i vyn. Den kan användas för att få mer utrymme.
 
-Om det krävs mer IOPS rekommenderar vi att du använder Windows-lagringspooler (endast tillgängligt i Windows Server 2012 och senare) för att skapa en stor logisk enhet över flera monterade diskar. Den här metoden fören klar administrations omkostnader för att hantera disk utrymmet och hjälper dig att undvika att distribuera filer manuellt över flera monterade diskar.
+Om det krävs mer IOPS för Azure Premium Storage rekommenderar vi att du använder Windows-lagringspooler (endast tillgängligt i Windows Server 2012 och senare) för att skapa en stor logisk enhet över flera monterade diskar. Den här metoden fören klar administrations omkostnader för att hantera disk utrymmet och hjälper dig att undvika att distribuera filer manuellt över flera monterade diskar.
 
 
 #### <a name="write-accelerator"></a>Skrivningsaccelerator
-Svars tiden för virtuella datorer i Azure M-serien kan minskas med faktorer jämfört med Azure Premium Storage. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md).
+Svars tiden för virtuella datorer i Azure M-serien kan minskas med faktorer jämfört med Azure Premium Storage. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md). Eller Använd Azure Ultra disk för att göra en logg volym online.
 
 
 ### <a name="backuprestore"></a>Säkerhets kopiering/återställning
@@ -420,7 +422,7 @@ Mer information om haveri beredskap för Oracle-databaser i Azure finns i [haver
 
 ### <a name="accelerated-networking"></a>Snabbare nätverk
 För Oracle-distributioner i Windows rekommenderar vi att du påskyndade nätverket enligt beskrivningen i [Azure accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Överväg även rekommendationer som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 [Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Information om Oracle Database på Oracle Linux
@@ -437,7 +439,7 @@ Allmän information om hur du kör SAP Business Suite på Oracle finns på [sida
 
 I enlighet med SAP-installations handböcker bör Oracle-relaterade filer inte installeras eller finnas i system driv rutiner för en virtuell dators start disk. Varierande storlekar för virtuella datorer stöder ett varierande antal anslutna diskar. Färre typer av virtuella datorer kan ha stöd för ett mindre antal anslutna diskar. 
 
-I det här fallet rekommenderar vi att du installerar/hittar Oracle Home, Stage, saptrace, saparch, sapbackup, sapcheck eller sapreorg till Start disk. Dessa delar av Oracle DBMS-komponenter är inte intensiva i I/O och I/O-genomflöde. Det innebär att operativ system disken kan hantera i/O-kraven. Standard storleken på OS-disken är 30 GB. Du kan expandera start disken med hjälp av Azure Portal, PowerShell eller CLI. När Start disken har expanderats kan du lägga till ytterligare en partition för Oracle-binärfiler.
+I det här fallet rekommenderar vi att du installerar/hittar Oracle Home, Stage,,,, `saptrace` `saparch` `sapbackup` `sapcheck` eller `sapreorg` Start disk. Dessa delar av Oracle DBMS-komponenter är inte intensiva i I/O och I/O-genomflöde. Det innebär att operativ system disken kan hantera i/O-kraven. Standard storleken på OS-disken är 30 GB. Du kan expandera start disken med hjälp av Azure Portal, PowerShell eller CLI. När Start disken har expanderats kan du lägga till ytterligare en partition för Oracle-binärfiler.
 
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
@@ -445,6 +447,8 @@ I det här fallet rekommenderar vi att du installerar/hittar Oracle Home, Stage,
 Fil systemet för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras i dessa fil system baserat på VHD: er eller Managed Disks. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure Managed disks](../../managed-disks-overview.md).
 
 För Oracle Linux UEK-kärnor krävs minst UEK version 4 för att stödja [Azure Premium-SSD](../../premium-storage-performance.md#disk-caching).
+
+Checka in artikeln [Azure Storage typer för SAP-arbetsbelastningar](./planning-guide-storage.md) för att få mer information om de olika lagrings typer som är lämpliga för DBMS-arbetsbelastningar.
 
 Vi rekommenderar starkt att du använder [Azure Managed disks](../../managed-disks-overview.md). Vi rekommenderar också att du använder [Azure Premium-SSD](../../disks-types.md) för dina Oracle Database-distributioner.
 
@@ -456,7 +460,7 @@ Nätverks enheter eller fjär resurser som Azure File Services stöds inte för 
 
 Om du använder diskar som är baserade på Azure Page Blob Storage eller Managed Disks, gäller de instruktioner som gjorts i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) även för distributioner med Oracle Database.
 
- Kvoter på IOPS-dataflöde för Azure-diskar finns. Det här konceptet beskrivs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). De exakta kvoterna beror på vilken VM-typ som används. En lista över VM-typer med deras kvoter finns i [storlekar för virtuella Linux-datorer i Azure][virtual-machines-sizes-linux].
+Kvoter på IOPS-dataflöde för Azure-diskar finns. Det här konceptet beskrivs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). De exakta kvoterna beror på vilken VM-typ som används. En lista över VM-typer med deras kvoter finns i [storlekar för virtuella Linux-datorer i Azure][virtual-machines-sizes-linux].
 
 Information om vilka typer av virtuella Azure-datorer som stöds finns i SAP anmärkning [1928533].
 
@@ -464,11 +468,11 @@ Lägsta konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Inget | Krävs inte |
-| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Inget | Krävs inte |
-| /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Kan användas |
+| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium eller Ultra disk | Inget | Krävs inte |
+| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium eller Ultra disk | Inget | Krävs inte |
+| /Oracle/ \<SID> /sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Kan användas för Premium |
 | /Oracle/ \<SID> /oraarch | Standard | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | | Krävs inte |
+| Oracle Home, `saptrace` ,... | OS-disk (Premium) | | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
 
@@ -478,14 +482,14 @@ Prestanda konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA | Premium | Inget | Kan användas  |
-| /Oracle/ \<SID> /origlogaB | Premium | Inget | Kan användas |
-| /Oracle/ \<SID> /mirrlogAB | Premium | Inget | Kan användas |
-| /Oracle/ \<SID> /mirrlogBA | Premium | Inget | Kan användas |
-| /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| /Oracle/ \<SID> /sapdata (n + 1) * | Premium | Inget | Kan användas |
-| /Oracle/ \<SID> /oraarch * | Premium | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | Krävs inte |
+| /Oracle/ \<SID> /origlogaA | Premium eller Ultra disk | Inget | Kan användas för Premium  |
+| /Oracle/ \<SID> /origlogaB | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| /Oracle/ \<SID> /mirrlogAB | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| /Oracle/ \<SID> /mirrlogBA | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| /Oracle/ \<SID> /sapdata1... m | Premium eller Ultra disk | Skrivskyddad | Rekommenderas för Premium  |
+| /Oracle/ \<SID> /sapdata (n + 1) * | Premium eller Ultra disk | Inget | Kan användas för Premium |
+| /Oracle/ \<SID> /oraarch * | Premium eller Ultra disk | Inget | Krävs inte |
+| Oracle Home, `saptrace` ,... | OS-disk (Premium) | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
 
@@ -494,11 +498,11 @@ Prestanda konfiguration:
 * oraarch: lagringspoolen är inte nödvändig från en prestanda punkt i vyn.
 
 
-Om det krävs mer IOPS rekommenderar vi att du använder LVM (Logical Volume Manager) eller MDADM för att skapa en stor logisk volym över flera monterade diskar. Mer information finns i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) gällande rikt linjer och pekare om hur man utnyttjar LVM eller MDADM. Med den här metoden kan du förenkla administrationen av disk utrymmet och hjälpa dig att undvika att distribuera filer manuellt över flera monterade diskar.
+Om mer IOPS krävs när du använder Azure Premium Storage rekommenderar vi att du använder LVM (Logical Volume Manager) eller MDADM för att skapa en stor logisk volym över flera monterade diskar. Mer information finns i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) gällande rikt linjer och pekare om hur man utnyttjar LVM eller MDADM. Med den här metoden kan du förenkla administrationen av disk utrymmet och hjälpa dig att undvika att distribuera filer manuellt över flera monterade diskar.
 
 
 #### <a name="write-accelerator"></a>Skrivningsaccelerator
-När du använder Azure-Skrivningsaccelerator för virtuella datorer i Azure M-serien kan svars tiderna för att skriva till online-serien minskas med faktorer jämfört med Azure Premium Storage prestanda. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md).
+När du använder Azure-Skrivningsaccelerator för virtuella datorer i Azure M-serien kan svars tiderna för att skriva till online-serien minskas med faktorer när du använder Azure Premium Storage. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md). Eller Använd Azure Ultra disk för att göra en logg volym online.
 
 
 ### <a name="backuprestore"></a>Säkerhets kopiering/återställning
@@ -523,5 +527,9 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Annat
-[Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.
+## <a name="next-steps"></a>Nästa steg
+Läs artikeln 
+
+- [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md)
+ 
+

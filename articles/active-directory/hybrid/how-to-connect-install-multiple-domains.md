@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662441"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306369"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Stöd för flera domäner för federering med Azure AD
 Följande dokumentation ger vägledning om hur du använder flera toppnivå domäner och under domäner när du federerar med Microsoft 365-eller Azure AD-domäner.
@@ -38,7 +38,7 @@ När en domän är federerad med Azure AD, anges flera egenskaper för domänen 
 
 Du kan visa IssuerUri med hjälp av PowerShell-kommandot `Get-MsolDomainFederationSettings -DomainName <your domain>` .
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Skärm bild som visar resultat när du har angett kommandot "Get-MsolDomainFederationSettings" i PowerShell.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 Ett problem uppstår när du lägger till fler än en domän på den översta nivån.  Anta till exempel att du har konfigurerat federation mellan Azure AD och din lokala miljö.  Domänen bmcontoso.com används för det här dokumentet.  Nu har en andra toppnivå domän bmfabrikam.com lagts till.
 
@@ -46,7 +46,7 @@ Ett problem uppstår när du lägger till fler än en domän på den översta ni
 
 När du försöker konvertera bmfabrikam.com-domänen till federerad, uppstår ett fel.  Orsaken är att Azure AD har en begränsning som inte tillåter att egenskapen IssuerUri har samma värde för fler än en domän.  
 
-![Federations fel](./media/how-to-connect-install-multiple-domains/error.png)
+![Skärm bild som visar ett Federations fel i PowerShell.](./media/how-to-connect-install-multiple-domains/error.png)
 
 ### <a name="supportmultipledomain-parameter"></a>SupportMultipleDomain-parameter
 För att undvika den här begränsningen måste du lägga till en annan IssuerUri, som kan göras med hjälp av `-SupportMultipleDomain` parametern.  Den här parametern används med följande cmdletar:
@@ -57,11 +57,11 @@ För att undvika den här begränsningen måste du lägga till en annan IssuerUr
 
 Den här parametern gör att Azure AD konfigurerar IssuerUri så att den baseras på domänens namn.  IssuerUri är unika för alla kataloger i Azure AD.  Med parametern kan PowerShell-kommandot slutföras.
 
-![Federations fel](./media/how-to-connect-install-multiple-domains/convert.png)
+![Skärm bild som visar att PowerShell-kommandot har slutförts.](./media/how-to-connect-install-multiple-domains/convert.png)
 
 När du tittar på inställningarna för bmfabrikam.com-domänen kan du se följande:
 
-![Federations fel](./media/how-to-connect-install-multiple-domains/settings.png)
+![Skärm bild som visar inställningarna för domänen "bmfabrikam.com".](./media/how-to-connect-install-multiple-domains/settings.png)
 
 `-SupportMultipleDomain` ändrar inte de andra slut punkterna, som fortfarande är konfigurerade så att de pekar på Federations tjänsten på adfs.bmcontoso.com.
 
@@ -88,11 +88,11 @@ Om du inte konfigurerade det federerade förtroendet mellan AD FS och din instan
 
 Om du har lagt till en ny domän i Azure AD-portalen och sedan försöker konvertera den med `Convert-MsolDomaintoFederated -DomainName <your domain>` , får du följande fel meddelande.
 
-![Federations fel](./media/how-to-connect-install-multiple-domains/trust1.png)
+![Skärm bild som visar ett Federations fel i PowerShell när du försöker konvertera en ny domän med kommandot "Convert-MsolDomaintoFederated".](./media/how-to-connect-install-multiple-domains/trust1.png)
 
 Om du försöker lägga till `-SupportMultipleDomain` växeln visas följande fel meddelande:
 
-![Federations fel](./media/how-to-connect-install-multiple-domains/trust2.png)
+![Skärm bild som visar ett Federations fel när du har lagt till växeln "-SupportMultipleDomain".](./media/how-to-connect-install-multiple-domains/trust2.png)
 
 Att bara försöka köra `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain` på den ursprungliga domänen resulterar också i ett fel.
 
@@ -121,7 +121,7 @@ Använd följande steg för att lägga till den nya toppnivå domänen med hjäl
 Använd följande steg för att lägga till den nya domänen på den översta nivån med hjälp av Azure AD Connect.
 
 1. Starta Azure AD Connect från Skriv bordet eller Start-menyn
-2. Välj Lägg till ytterligare en Azure AD-domän, ![ Lägg till ytterligare en Azure AD-domän](./media/how-to-connect-install-multiple-domains/add1.png)
+2. Välj "Lägg till ytterligare en Azure AD-domän"- ![ skärm bild som visar sidan "ytterligare aktiviteter" med "Lägg till ytterligare en Azure AD-domän" vald.](./media/how-to-connect-install-multiple-domains/add1.png)
 3. Ange dina autentiseringsuppgifter för Azure AD och Active Directory
 4. Välj den andra domän som du vill konfigurera för federation.
    ![Lägg till ytterligare en Azure AD-domän](./media/how-to-connect-install-multiple-domains/add2.png)
@@ -130,7 +130,7 @@ Använd följande steg för att lägga till den nya domänen på den översta ni
 ### <a name="verify-the-new-top-level-domain"></a>Verifiera den nya domänen på den översta nivån
 Med hjälp av PowerShell-kommandot `Get-MsolDomainFederationSettings -DomainName <your domain>` kan du Visa den uppdaterade IssuerUri.  Skärm bilden nedan visar Federations inställningarna som uppdaterades på den ursprungliga domänen `http://bmcontoso.com/adfs/services/trust`
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Skärm bild som visar de Federations inställningar som uppdaterats på den ursprungliga domänen.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 Och IssuerUri på den nya domänen har angetts till `https://bmfabrikam.com/adfs/services/trust`
 
@@ -171,7 +171,7 @@ Använd följande steg för att lägga till ett anpassat anspråk för att stöd
 
     ![Ersätt anspråk](./media/how-to-connect-install-multiple-domains/sub2.png)
 
-5. Klicka på OK.  Klicka på Använd.  Klicka på OK.  Stäng AD FS-hantering.
+5. Klicka på OK.  Klicka på Applicera.  Klicka på OK.  Stäng AD FS-hantering.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när Azure AD Connect är installerat kan du [verifiera installationen och tilldela licenser](how-to-connect-post-installation.md).

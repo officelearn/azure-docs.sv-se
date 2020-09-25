@@ -1,14 +1,16 @@
 ---
 title: Så här fungerar Personanpassare – Personanpassare
 description: Inlärnings _slingan_ använder Machine Learning för att bygga modellen som förutsäger den främsta åtgärden för ditt innehåll. Modellen har bara tränats på dina data som du har skickat till den med rang-och belönings samtal.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303615"
 ---
 # <a name="how-personalizer-works"></a>Så här fungerar Personanpassning
 

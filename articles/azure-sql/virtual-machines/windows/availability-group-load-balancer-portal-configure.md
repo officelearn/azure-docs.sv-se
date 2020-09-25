@@ -7,18 +7,18 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b3f2e8b56af41d1729b9786adda3abdcc4eb0b02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89482852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325036"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurera en belastningsutjämnare för en SQL Server Always on-tillgänglighetsgrupper i Azure Virtual Machines
 
@@ -67,7 +67,7 @@ Skapa först belastningsutjämnaren.
 
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
@@ -116,7 +116,7 @@ Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser s
 
 3. Konfigurera avsökningen på bladet **Lägg till sökning** . Använd följande värden för att konfigurera avsökningen:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
    | **Protokoll** |**TCP** |
@@ -142,14 +142,14 @@ Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar 
 
 3. Konfigurera belastnings Utjämnings regeln på bladet **Lägg till belastnings Utjämnings regler** . Använd följande inställningar: 
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar reglerna för belastnings utjämning. Till exempel **SQLAlwaysOnEndPointListener**. |
    | **Protokoll** |**TCP** |
    | **Port** |*1433* |
    | **Backend-port** |*1433*. det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt Server retur)**. |
    | **Avsökning** |Använd namnet på avsökningen som du skapade för den här belastningsutjämnaren. |
-   | **Sessionspermanens** |**Inga** |
+   | **Sessionspermanens** |**Ingen** |
    | **Tids gräns för inaktivitet (minuter)** |*4* |
    | **Flytande IP (direkt Server retur)** |**Aktiverad** |
 
@@ -234,7 +234,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
 
 7. Lägg till en hälso avsökning med hjälp av följande inställningar:
 
-   |Inställningen |Värde
+   |Inställning |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar avsökningen.
    |**Protokoll** |TCP
@@ -248,7 +248,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
 
 10. Konfigurera den nya regeln för belastnings utjämning med följande inställningar:
 
-    |Inställningen |Värde
+    |Inställning |Värde
     |:-----|:----
     |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln. 
     |**Klientdelens IP-adress** |Välj den IP-adress som du skapade. 
@@ -297,7 +297,7 @@ Om en tillgänglighets grupp deltar i en distribuerad tillgänglighets grupp beh
 
 1. Skapa belastnings Utjämnings regeln med följande inställningar:
 
-   |Inställningen |Värde
+   |Inställning |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln för den distribuerade tillgänglighets gruppen. 
    |**Klientdelens IP-adress** |Använd samma IP-adress för klient delen som tillgänglighets gruppen.

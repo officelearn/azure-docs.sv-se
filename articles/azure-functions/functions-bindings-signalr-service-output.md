@@ -1,17 +1,17 @@
 ---
 title: Utgående bindning för Azure Functions SignalR-tjänst
-description: Lär dig att skicka signalerande tjänst meddelanden från Azure Functions.
+description: Lär dig mer om utgående bindning för signal tjänst för Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: b401ff20b553629341c5190deb4cfc54c474d789
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323336"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Utgående bindning för signal tjänst för Azure Functions
 
@@ -728,7 +728,7 @@ public SignalRGroupAction removeFromGroup(
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `SignalRConnectionInfo` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp**| saknas | Måste anges till `signalRConnectionInfo` .|
 |**position**| saknas | Måste anges till `in` .|
@@ -741,7 +741,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `SignalR` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp**| saknas | Måste anges till `signalR` .|
 |**position**| saknas | Måste anges till `out` .|

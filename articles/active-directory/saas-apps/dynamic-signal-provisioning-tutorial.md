@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d578e089edbd99f8a0d37d805c297b42f60b3f4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555673"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323878"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Självstudie: Konfigurera dynamisk signal för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i dynamisk signal och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till dynamisk signal.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -80,7 +80,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Konfigurera automatisk användar etablering för dynamisk signal i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -88,13 +88,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Dynamic Signal-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
 5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för ditt dynamiska signal konto enligt beskrivningen i steg 6.
 
@@ -112,7 +112,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-postmeddelande](common/provisioning-notification-email.png)
+    ![E-postavisering](common/provisioning-notification-email.png)
 
 9. Klicka på **Spara**.
 
@@ -124,19 +124,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Användarattribut för dynamisk signal](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
-12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Om du vill aktivera Azure AD Provisioning-tjänsten för dynamisk signal ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
 14. Definiera de användare och/eller grupper som du vill etablera till dynamisk signal genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på dynamisk signal.
 
@@ -149,10 +149,10 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 

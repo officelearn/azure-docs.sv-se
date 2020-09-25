@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 4dc1f86ce7dbb060c747c4433f0c2b871ce5582d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92975251955b608d9dd888328b54a4b40f4592d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907651"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275838"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Skydda en Azure Machine Learning arbets yta med virtuella nätverk
 
@@ -67,7 +67,7 @@ I det här avsnittet får du lära dig hur du skyddar ett Azure Storage-konto me
 >
 > Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
 >
-> För lagrings konton som inte är standard `storage_account` kan du ange ett anpassat lagrings konto per Azure-resurs-ID i-parametern i [ `Workspace.create()` funktionen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) .
+> För lagrings konton som inte är standard `storage_account` kan du ange ett anpassat lagrings konto per Azure-resurs-ID i-parametern i [ `Workspace.create()` funktionen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) .
 
 Använd följande steg för att använda ett Azure Storage-konto för arbets ytan i ett virtuellt nätverk:
 
@@ -180,6 +180,8 @@ Om du vill använda Azure Container Registry inuti ett virtuellt nätverk måste
 
     När ACR ligger bakom ett virtuellt nätverk kan Azure Machine Learning inte använda det för att direkt bygga Docker-avbildningar. I stället används beräknings klustret för att bygga avbildningarna.
 
+* Innan du använder ACR med Azure Machine Learning i ett virtuellt nätverk måste du öppna en support incident för att aktivera den här funktionen. Mer information finns i [Hantera och öka kvoter](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
 När dessa krav är uppfyllda använder du följande steg för att aktivera Azure Container Registry.
 
 1. Hitta namnet på Azure Container Registry för din arbets yta med någon av följande metoder:
@@ -215,7 +217,7 @@ När dessa krav är uppfyllda använder du följande steg för att aktivera Azur
     > [!IMPORTANT]
     > Ditt lagrings konto, beräknings kluster och Azure Container Registry måste finnas i samma undernät i det virtuella nätverket.
     
-    Mer information finns i metod referensen [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
+    Mer information finns i metod referensen [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
 
 1. Använd följande Azure Resource Manager mall. Med den här mallen kan din arbets yta kommunicera med ACR.
 

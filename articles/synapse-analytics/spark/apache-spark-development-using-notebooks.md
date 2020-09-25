@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 2feaf33f7bc31396764bfbaa3ae6291b6752e961
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 0f6f193f531be746d3ef4920b86855ffa49efda2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260463"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du använder antecknings böcker i Azure Synapse
 
 Det finns två sätt att skapa en antecknings bok. Du kan skapa en ny antecknings bok eller importera en befintlig antecknings bok till en Azure Synapse-arbetsyta från **Object Explorer**. Bärbara Azure Synapse Studio-datorer kan känna igen standard Jupyter Notebook IPYNB-filer.
 
-![Synapse-Create-import – Notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![Skapa import-anteckningsbok](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## <a name="develop-notebooks"></a>Utveckla notebook-filer
 
@@ -71,7 +71,7 @@ Du kan ställa in det primära språket för nya tillagda celler i list rutan i 
 
 Du kan använda flera språk i en bärbar dator genom att ange rätt språk-Magic-kommando i början av en cell. I följande tabell visas Magic-kommandon för att växla mellan cell språk.
 
-|Magiskt kommando |Språk | Beskrivning |  
+|Magiskt kommando |Språk | Description |  
 |---|------|-----|
 |%% pyspark| Python | Kör en **python** -fråga mot Spark-kontext.  |
 |%% Spark| Scala | Kör en **Scala** -fråga mot Spark-kontext.  |  
@@ -80,7 +80,7 @@ Du kan använda flera språk i en bärbar dator genom att ange rätt språk-Magi
 
 Följande bild är ett exempel på hur du kan skriva en PySpark-fråga med kommandot **%% PySpark** Magic eller en SparkSQL-fråga med **%% SQL** Magic-kommandot i en **Spark-anteckningsbok (Scala)** . Observera att det primära språket för antecknings boken är inställt på pySpark.
 
-   ![Synapse – Spark-MAGICS](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Synapse Spark Magic-kommandon](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### <a name="use-temp-tables-to-reference-data-across-languages"></a>Använd temporära tabeller för att referera till data över olika språk
 
@@ -119,18 +119,18 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 |PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
 |SparkSQL|Ja|Ja|-|-|-|-|-|-|
-|.NET för Spark (C#)|Ja|-|-|-|-|-|-|-|
+|.NET för Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 
 Du kan använda format knapparna i verktygsfältet text celler för att utföra vanliga markdown-åtgärder. Den innehåller fet text, kursivering av text, infoga kodfragment, infoga osorterad lista, infoga sorterad lista och infoga bild från URL.
 
-  ![Synapse – text – cell-verktygsfält](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Synapse text cells verktygsfält](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### <a name="undo-cell-operations"></a>Ångra cell åtgärder
 Klicka på knappen **Ångra** eller tryck på **CTRL + Z** för att återkalla den senaste cell åtgärden. Nu kan du ångra upp till de senaste 20 historiska cell åtgärderna. 
 
-   ![Synapse – ångra-celler](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Synapse ångra celler](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### <a name="move-a-cell"></a>Flytta en cell
 
@@ -149,13 +149,13 @@ Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under
    ![ta bort a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
 ### <a name="collapse-a-cell-input"></a>Komprimera en cell Indatatyp
-Klicka på pilen längst ned i den aktuella cellen för att dölja den. Klicka på pilknappen när cellen är komprimerad för att expandera den.
+Välj pilknappen längst ned i den aktuella cellen för att dölja den. Om du vill expandera den väljer du pilknappen när cellen är komprimerad.
 
    ![Komprimera-cell-Indatatyp](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 ### <a name="collapse-a-cell-output"></a>Komprimera cell utdata
 
-Klicka på knappen för att **Komprimera utdata** längst upp till vänster i den aktuella cellens utdata för att dölja den. Expandera det genom att klicka på **Visa cellens utdata** medan cellens utdata komprimeras.
+Klicka på knappen **Komprimera utdata** längst upp till vänster i den aktuella cellens utdata för att dölja den. För att expandera den, väljer du **Visa cellens utdata** medan cellens utdata är komprimerad.
 
    ![Komprimera-cell-utdata](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
@@ -180,7 +180,7 @@ Det finns flera sätt att köra koden i en cell.
 
 
 ### <a name="run-all-cells"></a>Kör alla celler
-Klicka på knappen **Kör alla** för att köra alla celler i den aktuella antecknings boken i följd.
+Välj knappen **Kör alla** för att köra alla celler i den aktuella antecknings boken i följd.
 
    ![Kör alla – celler](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
@@ -192,7 +192,7 @@ Om du vill komma åt menyn ytterligare cell åtgärder längst till höger välj
 
 
 ### <a name="cancel-all-running-cells"></a>Avbryt alla celler som körs
-Klicka på knappen **Avbryt alla** om du vill avbryta körningen av celler eller celler som väntar i kön. 
+Välj knappen **Avbryt alla** om du vill avbryta de celler eller celler som väntar i kön. 
    ![Avbryt – alla celler](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 ### <a name="cell-status-indicator"></a>Cell status indikator
@@ -204,7 +204,7 @@ En steg-för-steg-cells körnings status visas under cellen för att hjälpa dig
 ### <a name="spark-progress-indicator"></a>Status indikator för Spark
 
 Azure Synapse Studio-anteckningsbok är enbart Spark-baserad. Kod celler körs i Spark-poolen via fjärr anslutning. En status indikator för Spark-jobbet visas med en förlopps indikator i real tid som hjälper dig att förstå jobb körnings statusen.
-Antalet aktiviteter per jobb eller steg hjälper dig att identifiera parallell nivån för ditt Spark-jobb. Du kan också gå djupare till Spark-ANVÄNDARGRÄNSSNITTET för ett bestämt jobb (eller steg) genom att klicka på länken på jobbets (eller scenens) namn.
+Antalet aktiviteter per jobb eller steg hjälper dig att identifiera parallell nivån för ditt Spark-jobb. Du kan också gå djupare till Spark-ANVÄNDARGRÄNSSNITTET för ett bestämt jobb (eller steg) genom att välja länken på jobbets (eller scenens) namn.
 
 
 ![Spark-Progress-Indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -215,7 +215,7 @@ Du kan ange tids längd, antal och storlek på körningar för att ge den aktuel
 
 [![session-hantering](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
-En spark-session rekommenderar att du nu är tillgänglig på konfigurations panelen i Spark-sessionen. Du kan välja en spark-pool direkt från konfigurations panelen för sessionen och se hur många noder som används och hur många återstående körningar som är tillgängliga. Den här informationen kan hjälpa dig att ange en lämplig storlek i stället för att ändra den och tillbaka.
+En spark-sessionshantering är nu tillgänglig på konfigurations panelen för Spark-sessionen. Du kan välja en spark-pool direkt från konfigurations panelen för sessionen och se hur många noder som används och hur många återstående körningar som är tillgängliga. Den här informationen kan hjälpa dig att ange lämplig sessionsgräns i stället för att ändra den och tillbaka.
 
 ![session – rekommendera](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
@@ -277,23 +277,24 @@ Du kan komma åt data i det primära lagrings kontot direkt. Du behöver inte an
 
 En vy med tabell resultat tillhandahålls med möjligheten att skapa ett stapeldiagram, linje diagram, cirkel diagram, punkt diagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagram alternativen**. 
 
-Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa <code>display(df)</code> en spark-DataFrames eller en RDD-funktion (elastiskt distribuerade data uppsättningar) för att skapa den åter givnings tabell som visas.
+Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa <code>display(df)</code> Spark DataFrames, Pandas DataFrames, list eller elastiska distribuerade data uppsättningar (RDD) för att producera den åter givnings tabellen.
 
    [![inbyggt – diagram](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
 ### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualisera inbyggda diagram från storskalig data uppsättning 
 
-Som standard <code>display(df)</code> tar funktionen bara de första 1000 raderna i data för att återge diagram. Kontrol lera **agg regeringen för alla resultat** och klicka på knappen **tillämpa** . du kommer att använda diagrammets generering från hela data uppsättningen. Ett Spark-jobb utlöses när diagram inställningen ändras, det tar en stund att slutföra beräkningen och återge diagrammet. 
+Som standard <code>display(df)</code> tar funktionen bara de första 1000 raderna i data för att återge diagram. Kontrol lera **agg regeringen för alla resultat** och välj **Verkställ** om du vill använda diagrammets generering från hela data uppsättningen. Ett Spark-jobb utlöses när diagram inställningen ändras, det tar en stund att slutföra beräkningen och återge diagrammet. 
     [![Builtin – diagram – agg regering – alla](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
+
 ### <a name="visualize-data-statistic-information"></a>Visualisera information om data statistik
-Du kan använda <code>display(df, summary = true)</code> för att kontrol lera statistik sammanfattningen för en specifik Spark-DataFrame som innehåller kolumn namn, kolumn typ, unika värden och saknade värden för varje kolumn. Du kan också välja en speciell kolumn för att se dess minimala värde, maximalt värde, medelvärde och standard avvikelse.
+Du kan använda <code>display(df, summary = True)</code> för att kontrol lera statistik sammanfattningen för en specifik Spark-DataFrame som innehåller kolumn namn, kolumn typ, unika värden och saknade värden för varje kolumn. Du kan också välja en speciell kolumn för att se dess minimala värde, maximalt värde, medelvärde och standard avvikelse.
     [![Builtin – diagram – Sammanfattning ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
 
 ### <a name="render-html-or-interactive-libraries"></a>Återge HTML eller interaktiva bibliotek
 
-Du kan återge HTML-eller interaktiva bibliotek, som **bokeh**, med hjälp av **displayHTML ()**.
+Du kan rendera HTML-kod, inklusive Java Script, CSS, D3 eller interaktiva bibliotek, t. ex. **bokeh**, med hjälp av **displayHTML ()**.
 
 Följande bild är ett exempel på hur du ritar glyfer över en karta med **bokeh**.
 
@@ -349,7 +350,7 @@ I egenskaperna för antecknings boken kan du konfigurera om du vill ta med celle
    ![Notebook – egenskaper](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>Magic-kommandon
-Du kan använda dina välkända Jupyter Magic-kommandon i Azure Synapse Studio-anteckningsböcker. Kontrol lera listan nedan som de aktuella tillgängliga Magic-kommandona. Berätta för oss [dina användnings fall på GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) så att vi kan fortsätta att bygga upp fler Magic-kommandon för att uppfylla dina behov.
+Du kan använda välkända Jupyter Magic-kommandon i Azure Synapse Studio-anteckningsböcker. Granska följande lista som de aktuella tillgängliga Magic-kommandona. Berätta för oss [dina användnings fall på GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) så att vi kan fortsätta att bygga upp fler Magic-kommandon för att uppfylla dina behov.
 
 Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% tid](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
@@ -360,9 +361,9 @@ Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/int
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Lägga till en antecknings bok i en pipeline
 
-Klicka på knappen **Lägg till i** det övre högra hörnet för att lägga till en antecknings bok till en befintlig pipeline eller skapa en ny pipeline.
+Välj knappen **Lägg till i** det övre högra hörnet för att lägga till en antecknings bok i en befintlig pipeline eller skapa en ny pipeline.
 
-![Lägg till i pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+![Lägg till antecknings bok i pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### <a name="designate-a-parameters-cell"></a>Ange en parameter cell
 
@@ -370,13 +371,13 @@ Om du vill Parameterisera din bärbara dator väljer du ellipserna (...) för at
 
 ![Växla-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
-Azure Data Factory letar efter parameter cellen och behandlar den här cellen som standard för de parametrar som skickas vid körningen. Körnings motorn lägger till en ny cell under parameter cellen med indataparametrarna för att skriva över standardvärdena. När det inte finns någon parameter cell, infogas den inmatade cellen längst upp i antecknings boken.
+Azure Data Factory letar efter parameter cellen och behandlar den här cellen som standard för de parametrar som skickas vid körningen. Körnings motorn lägger till en ny cell under parameter cellen med indataparametrar för att skriva över standardvärdena. När en parameter cell inte anges infogas den inmatade cellen längst upp i antecknings boken.
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Tilldela parameter värden från en pipeline
 
 När du har skapat en antecknings bok med parametrar kan du köra den från en pipeline med Azure Synapse Notebook-aktiviteten. När du har lagt till aktiviteten till din pipeline-arbetsyta kan du ange parametrar-värden under avsnittet **grundläggande parametrar** på fliken **Inställningar** . 
 
-![tilldela parameter](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+![Tilldela en parameter](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
 När du tilldelar parameter värden kan du använda [uttrycks språket](../../data-factory/control-flow-expression-language-functions.md) eller [systemvariablerna](../../data-factory/control-flow-system-variables.md)för pipelinen.
 
@@ -386,11 +387,11 @@ När du tilldelar parameter värden kan du använda [uttrycks språket](../../da
 
 I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsbokar ett spärrat användar gränssnitt. Tangent bordet skiljer sig åt beroende på vilket läge som Notebook-cellen finns i. Bärbara datorer i Synapse Studio har stöd för följande två lägen för en specifik kod cell: kommando läge och redigerings läge.
 
-1. En cell är i kommando läge när ingen text markör visas som anger att du skriver. När en cell är i kommando läge kan du redigera antecknings boken som helhet men inte skriva in enskilda celler. Ange kommando läge genom att trycka `ESC` eller använda musen för att klicka utanför cellens redigerings området.
+1. En cell är i kommando läge när ingen text markör visas som anger att du skriver. När en cell är i kommando läge kan du redigera antecknings boken som helhet men inte skriva in enskilda celler. Ange kommando läge genom att trycka `ESC` eller använda musen för att välja utanför cellens redigerings området.
 
    ![kommando läge](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du skriva i cellen. Ange redigerings läge genom att trycka `Enter` eller använda musen för att klicka på cellens redigerings yta.
+2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du skriva i cellen. Ange redigerings läge genom att trycka `Enter` eller använda musen för att välja en cells redigerings yta.
    
    ![redigerings-läge](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

@@ -3,12 +3,12 @@ title: Konfigurera IP-brandvägg för Azure Event Grid ämnen eller domäner
 description: I den här artikeln beskrivs hur du konfigurerar brand Väggs inställningar för Event Grid ämnen eller domäner.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324169"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Konfigurera IP-brandvägg för Azure Event Grid ämnen eller domäner 
 Som standard är ämne och domän tillgängligt från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Utgivare som härstammar från andra IP-adresser avvisas och får ett 403-svar (förbjuden). Mer information om nätverks säkerhets funktioner som stöds av Event Grid finns i [nätverks säkerhet för Event Grid](network-security.md).
@@ -23,7 +23,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa regler fö
 
     Du kan begränsa trafiken med hjälp av IP-baserade brand Väggs regler. Ange en enskild IPv4-adress eller ett intervall med IP-adresser i CIDR-notation (Classless Inter-Domain routing). 
 
-    ![Sidan offentliga nätverk](./media/configure-firewall/public-networks-page.png)
+    ![Skärm bild som visar sidan "offentlig nätverks åtkomst" där "offentliga nätverk" har valts.](./media/configure-firewall/public-networks-page.png)
 3. Välj **endast privata slut punkter** om du endast vill tillåta anslutningar för privata slut punkter för att få åtkomst till den här resursen. Använd fliken **anslutningar för privata slut punkter** på den här sidan för att hantera anslutningar. 
 
     ![Sidan offentliga nätverk](./media/configure-firewall/private-endpoints-page.png)
@@ -35,7 +35,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa regler fö
 Det här avsnittet visar hur du använder Azure CLI-kommandon för att skapa ämnen med inkommande IP-regler. Stegen som visas i det här avsnittet gäller för ämnen. Du kan använda liknande steg för att skapa inkommande IP-regler för **domäner**. 
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Uppdatera Azure Event Grid-tillägget för CLI genom att köra följande kommando: 
 
 ```azurecli-interactive
@@ -162,7 +162,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>Använd PowerShell
 Det här avsnittet visar hur du använder Azure PowerShell-kommandon för att skapa Azure Event Grid ämnen med regler för inkommande IP-brandvägg. Stegen som visas i det här avsnittet gäller för ämnen. Du kan använda liknande steg för att skapa inkommande IP-regler för **domäner**. 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Följ instruktionerna i [så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md) för att skapa ett Azure Active Directory program och anteckna följande värden:
 
 - Katalog-ID (klient)

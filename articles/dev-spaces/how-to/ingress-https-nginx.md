@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Lär dig hur du konfigurerar Azure dev Spaces för att använda en anpassad NGINX ingångs kontroll och konfigurera HTTPS med den här ingångs styrenheten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 199b077f20f396919d26b69d3fea422a8d9b4358
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-js
+ms.openlocfilehash: 23bad8d7def12f4454986fb005158c3a65acd33e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212485"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276272"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Använd en anpassad NGINX ingångs kontroll och konfigurera HTTPS
 
@@ -56,7 +56,7 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> Exemplet ovan skapar en offentlig slut punkt för din ingångs kontroll. Om du behöver använda en privat slut punkt för din ingångs styrenhet i stället lägger du till inställningen *--set Controller. service. annotations. " service \\ . beta \\ . Kubernetes \\ . io/Azure-Load-Balancer-Internal "= true-* parameter till kommandot *Helm install* . Till exempel:
+> Exemplet ovan skapar en offentlig slut punkt för din ingångs kontroll. Om du behöver använda en privat slut punkt för din ingångs styrenhet i stället lägger du till inställningen *--set Controller. service. annotations. " service \\ . beta \\ . Kubernetes \\ . io/Azure-Load-Balancer-Internal "= true-* parameter till kommandot *Helm install* . Exempel:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
@@ -253,7 +253,7 @@ Uppgradera exempel programmet med `helm` :
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https. Observera också att sidan läses in, men webbläsaren visar vissa fel. Om du öppnar webb läsar konsolen visas felet relaterar till en HTTPS-sida vid försök att läsa in HTTP-resurser. Till exempel:
+Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https. Observera också att sidan läses in, men webbläsaren visar vissa fel. Om du öppnar webb läsar konsolen visas felet relaterar till en HTTPS-sida vid försök att läsa in HTTP-resurser. Exempel:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.

@@ -3,12 +3,12 @@ title: Koncept – integrera en Azure VMware-lösning distribution i en hubb och
 description: Lär dig mer om rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny hubb och eker-arkitektur på Azure.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 1862b98b40788b6b71d05eb4be43bdacd39e927f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a2007e159d23a02ca573fd833590651061c59973
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271740"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrera Azure VMware-lösningen i en hubb och eker-arkitektur
 
@@ -100,7 +100,7 @@ En andra nivå av trafik segmentering som använder nätverks säkerhets grupper
 
 Azure Application Gateway v1 och v2 har testats med webbappar som körs på virtuella datorer i Azure VMware-lösningen som en backend-pool. Application Gateway är för närvarande den enda metoden som stöds för att exponera webbappar som körs på virtuella datorer i Azure VMware-lösningen till Internet. Det kan också exponera appar till interna användare på ett säkert sätt.
 
-Mer information och krav hittar du i artikeln om Azure VMware-lösningar på [Application Gateway](./protect-avs-web-apps-with-app-gateway.md) .
+Mer information och krav hittar du i artikeln om Azure VMware Solution-Special på [Application Gateway](./protect-avs-web-apps-with-app-gateway.md) .
 
 :::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Sekundär nivå för trafik segmentering med nätverks säkerhets grupper" border="false":::
 
@@ -109,7 +109,7 @@ Mer information och krav hittar du i artikeln om Azure VMware-lösningar på [Ap
 
 Få åtkomst till Azure VMwares lösnings miljö med hopp, som är en virtuell Windows 10-eller Windows Server-dator som har distribuerats i det delade tjänst under nätet i det virtuella hubb nätverket.
 
-Av säkerhets skäl bör du distribuera [Microsoft Azure skydds](../bastion/index.yml) -tjänsten i det virtuella hubb nätverket. Azure skydds ger sömlös RDP-och SSH-åtkomst till virtuella datorer som distribueras i Azure utan att behöva etablera offentliga IP-adresser till dessa resurser. När du har etablerat Azure skydds-tjänsten kan du komma åt den valda virtuella datorn från Azure Portal. När du har upprättat anslutningen öppnas en ny flik med hjälp av Skriv bordet och från det Skriv bordet kan du komma åt Azure VMware-lösningens privata moln hanterings plan.
+Av säkerhets skäl bör du distribuera [Microsoft Azure skydds](../bastion/index.yml) -tjänsten i det virtuella hubb nätverket. Azure skydds ger sömlös RDP-och SSH-åtkomst till virtuella datorer som distribueras i Azure utan att behöva etablera offentliga IP-adresser till dessa resurser. När du har etablerat Azure skydds-tjänsten kan du komma åt den valda virtuella datorn från Azure Portal. När du har upprättat anslutningen öppnas en ny flik med det växlande Skriv bordet där du kan komma åt Azure VMware-lösningens privata moln hanterings plan.
 
 > [!IMPORTANT]
 > Ge inte en offentlig IP-adress till den virtuella datorn i hoppet eller exponera port 3389/TCP på det offentliga Internet. 
@@ -142,7 +142,7 @@ Lokala och Azure VMware Solution-servrar kan konfigureras med villkorliga vidare
 
 ## <a name="identity-considerations"></a>Identitets överväganden
 
-För identitets syfte är det bästa sättet att distribuera minst en AD-domänkontrollant på hubben med hjälp av det delade tjänst under nätet, helst två av dem i zon-distribuerat eller en tillgänglighets uppsättning för virtuella datorer. Se [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) för att utöka din lokala AD-domän till Azure.
+För identitets syfte är det bästa sättet att distribuera minst en AD-domänkontrollant på hubben med hjälp av det delade tjänst under nätet. De flesta två av dem i zon-distribuerad mode eller en tillgänglighets uppsättning för virtuella datorer. Se [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) för att utöka din lokala AD-domän till Azure.
 
 Dessutom kan du distribuera en annan domänkontrollant på Azure VMware-lösningen för att agera som identitet och DNS-källa i vSphere-miljön.
 

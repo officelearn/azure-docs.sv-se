@@ -12,13 +12,13 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-- devx-track-javascript
-ms.openlocfilehash: b424ea01d8283963c49d899a97120c9132d862f8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 101bd9ce351ea830688fc18affdf21ce527ba43a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261438"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
@@ -173,7 +173,7 @@ Fälten som visas i schemat kan vara av följande typer:
 
 ### <a name="supported-methods"></a>Metoder som stöds
 
-Simulerade enheter kan även reagera på metod anrop, i vilket fall de kör en viss logik och ger svar på några svar. På samma sätt som simuleringen lagras metod logiken i en JavaScript-fil och kan samverka med enhetens tillstånd. Ett exempel:
+Simulerade enheter kan även reagera på metod anrop, i vilket fall de kör en viss logik och ger svar på några svar. På samma sätt som simuleringen lagras metod logiken i en JavaScript-fil och kan samverka med enhetens tillstånd. Exempel:
 
 ```json
 "CloudToDeviceMethods": {
@@ -263,7 +263,7 @@ JavaScript-filerna måste ha en **huvud** funktion som accepterar två parametra
     * **deviceModel**. Till exempel en **hiss**.
 * Ett **tillstånds** objekt som är det värde som returneras av funktionen i föregående anrop. Enhetens tillstånd underhålls av simulerings tjänsten och används för att generera telemetri-meddelanden.
 
-**Main** -funktionen returnerar det nya enhets läget. Ett exempel:
+**Main** -funktionen returnerar det nya enhets läget. Exempel:
 
 ```JavaScript
 function main(context, state) {

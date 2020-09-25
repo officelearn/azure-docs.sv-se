@@ -1,15 +1,17 @@
 ---
 title: Data ändring – LUIS
 description: Lär dig hur data kan ändras innan förutsägelser i Language Understanding (LUIS)
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f3eb30662cae5f117942db6322b27491670abb1b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324849"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttryck-data före eller under förutsägelse
 LUIS tillhandahåller sätt att ändra uttryck före eller under förutsägelsen. Detta inkluderar att [åtgärda stavnings](luis-tutorial-bing-spellcheck.md)-och åtgärda tids zons problem för färdiga [datetimeV2](luis-reference-prebuilt-datetimev2.md).

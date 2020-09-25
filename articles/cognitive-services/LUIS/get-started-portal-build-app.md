@@ -1,14 +1,16 @@
 ---
 title: 'Snabb start: skapa en ny app i LUIS-portalen'
 description: I den här snabb starten skapar du grundläggande delar av en app, avsikter och entiteter samt test med exempel uttryck på LUIS-portalen.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697254"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303870"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
 
@@ -28,7 +30,7 @@ I den här snabb starten skapar du en ny app i LUIS-portalen. Börja med att ska
    |Inställningsnamn| Värde | Syfte|
    |--|--|--|
    |Name|`myEnglishApp`|Unikt namn på LUIS-app<br>krävs|
-   |Culture (Kultur)|**Engelska**|Språk för yttranden från användare, **en-US**<br>krävs|
+   |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>krävs|
    |Beskrivning (valfritt)|`App made with LUIS Portal`|Beskrivning av app<br>valfri|
    |Förutsägelse resurs (valfritt) |-  |Välj inte. LUIS ger dig en start nyckel som du kan använda utan kostnad för redigering och 1 000 förutsägelse slut punkts begär Anden. |
 
@@ -135,7 +137,7 @@ Yttranden för **inget** exempel bör ligga utanför din klient program domän.
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Titta på entiteten reguljära uttryck i exemplet yttranden
 
-1. Verifiera att entiteten finns i **FindForm** avsikt genom att välja **avsikter** på den vänstra menyn. Välj sedan **FindForm** avsikt.
+1. Verifiera att entiteten finns i **FindForm**  avsikt genom att välja **avsikter** på den vänstra menyn. Välj sedan **FindForm** avsikt.
 
    Entiteten är markerad där den visas i exemplet yttranden.
 
@@ -161,7 +163,7 @@ Använd det interaktiva **test** fönstret i Luis-portalen för att verifiera at
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den här snabb starten och inte fortsätter till nästa snabb start väljer du **Mina appar** på den översta navigerings menyn. Markera sedan appens vänstra kryss ruta i listan och välj **ta bort** från verktygsfältet kontext ovanför listan.
+När du är klar med den här snabb starten och inte fortsätter till nästa snabb start väljer du **Mina appar** på den översta navigerings menyn. Markera sedan appens vänstra kryss ruta i listan och välj  **ta bort** från verktygsfältet kontext ovanför listan.
 
 ## <a name="next-steps"></a>Nästa steg
 

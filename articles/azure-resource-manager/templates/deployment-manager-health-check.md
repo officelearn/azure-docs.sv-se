@@ -3,14 +3,14 @@ title: Distribution av hälso integrering – Azure Deployment Manager
 description: Beskriver hur du distribuerar en tjänst i flera regioner med Azure Deployment Manager. Den visar en säker distributions metod för att kontrol lera stabiliteten för din distribution innan den distribueras till alla regioner.
 author: mumian
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6925ef8f72615cc3868c8b5cd4ea030ed3c3c40
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278079"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducera distribution av hälso integration till Azure Deployment Manager (offentlig för hands version)
 
@@ -20,9 +20,9 @@ Med [Azure Deployment Manager](./deployment-manager-overview.md) kan du utföra 
 
 För att kunna göra hälso integration så enkel som möjligt har Microsoft arbetat med några av de främsta hälso övervaknings företagen för tjänsten för att tillhandahålla en enkel kopierings-och Inklistrings lösning för att integrera hälso kontroller med dina distributioner. Om du inte redan använder en hälso övervakning är dessa bra lösningar som börjar med:
 
-| ![Azure Deployment Manager Health Monitor-Provider Datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![Azure Deployment Manager Health Monitor-Provider Site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![Azure Deployment Manager Health Monitor-Provider Wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
-|-----|------|------|
-|Datadog, den ledande plattformen för övervakning och analys för moderna moln miljöer. Se [hur Datadog integreras med Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, den allt-i-ett-privata och offentliga moln tjänster, övervaknings lösning. Se [hur Site24x7 integreras med Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, övervaknings-och analys plattformen för program miljöer med flera moln. Se [hur Wavefront integreras med Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
+| ![Azure Deployment Manager Health Monitor-Provider Azure Monitor](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-azure-monitor.svg)| ![Azure Deployment Manager Health Monitor-Provider Datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![Azure Deployment Manager Health Monitor-Provider Site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![Azure Deployment Manager Health Monitor-Provider Wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
+|-----|-----|------|------|
+|Azure Monitor är Microsofts kompletta modell för att kontrol lera om det finns moln intern & hybrid övervakning och analys. |Datadog, den ledande plattformen för övervakning och analys för moderna moln miljöer. Se [hur Datadog integreras med Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, den allt-i-ett-privata och offentliga moln tjänster, övervaknings lösning. Se [hur Site24x7 integreras med Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, övervaknings-och analys plattformen för program miljöer med flera moln. Se [hur Wavefront integreras med Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
 
 ## <a name="how-service-health-is-determined"></a>Hur tjänstens hälsa fastställs
 
@@ -38,10 +38,55 @@ Flödet för att få installations programmet med Azure Deployment Managers häl
 1. Skapa en eller flera healthCheck-steg som en del av distributionen av Azure Deployment Manager. Fyll i healthCheck-stegen med följande information:
 
     1. URI: n för REST API för dina hälso övervakare (enligt definitionen av hälso tjänst leverantören).
-    1. Autentiseringsinformation. För närvarande stöds inte autentisering med API-nyckel format.
+    1. Autentiseringsinformation. För närvarande stöds inte autentisering med API-nyckel format. För Azure Monitor ska autentiseringstypen anges som – "RolloutIdentity" eftersom den användare som tilldelats hanterad identitet som används för distribution av Azure Deployment Manager är i Azure Monitor.
     1. [HTTP-statuskod](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) eller reguljära uttryck som definierar ett felfritt svar. Observera att du kan ange reguljära uttryck som alla måste matcha för att svaret ska anses vara felfritt, eller så kan du ange uttryck som måste matchas för att svaret ska anses vara felfritt. Båda metoderna stöds.
 
-    Följande JSON är ett exempel:
+    Följande JSON är ett exempel på hur du integrerar Azure Monitor med Azure Deployment Manager som utnyttjar RolloutIdentity och fastställer hälso kontroll om en distribution fortsätter om det inte finns några aviseringar. Den enda Azure Monitor-API: n som stöds [– Hämta alla](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+
+    ```json
+    {
+      "type": "Microsoft.DeploymentManager/steps",
+      "apiVersion": "2018-09-01-preview",
+      "name": "healthCheckStep",
+      "location": "[parameters('azureResourceLocation')]",
+      "properties": {
+        "stepType": "healthCheck",
+        "attributes": {
+          "waitDuration": "PT1M",
+          "maxElasticDuration": "PT1M",
+          "healthyStateDuration": "PT1M",
+          "type": "REST",
+          "properties": {
+            "healthChecks": [
+              {
+                "name": "appHealth",
+                "request": {
+                  "method": "GET",
+                  "uri": "[parameters('healthCheckUrl')]",
+                  "authentication": {
+                    "type": "RolloutIdentity"
+                  }
+                },
+                "response": {
+                  "successStatusCodes": [
+                    "200"
+                  ],
+                  "regex": {
+                    "matches": [
+                      "\"value\":\\[\\]"
+                    ],
+                    "matchQuantifier": "All"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+    ```
+
+    Följande JSON är ett exempel på alla andra hälso övervaknings leverantörer:
 
     ```json
     {
@@ -132,23 +177,23 @@ Information om ett exempel finns i [Självstudier: använda hälso kontroll i Az
 
 ## <a name="phases-of-a-health-check"></a>Faser av en hälso kontroll
 
-I det här läget vet Azure Deployment Manager att du kan fråga efter hälso tillståndet för tjänsten och i vilka faser i distributionen du ska göra det. Azure Deployment Manager tillåter dock också djupgående konfiguration av tiden för de här kontrollerna. Ett healthCheck-steg körs i tre sekventiella faser som alla har konfigurerbara varaktigheter: 
+I det här läget vet Azure Deployment Manager att du kan fråga efter hälso tillståndet för tjänsten och i vilka faser i distributionen du ska göra det. Azure Deployment Manager tillåter dock också djupgående konfiguration av tiden för de här kontrollerna. Ett healthCheck-steg körs i tre sekventiella faser som alla har konfigurerbara varaktigheter:
 
 1. Vänta
 
-    1. När en distributions åtgärd har slutförts kan virtuella datorer startas om, konfigureras om baserat på nya data eller till och med startas för första gången. Det tar också tid för tjänster att börja sända hälso signaler som ska aggregeras av hälso övervaknings leverantören i något användbart. Under den här tumultuous-processen kan det vara klokt att kontrol lera tjänstens hälso tillstånd eftersom uppdateringen ännu inte har nått ett stabilt tillstånd. Tjänsten kan vara svängning mellan felfria och felaktiga tillstånd när resurserna är lösta. 
-    1. Under vänte fasen övervakas inte tjänstens hälsa. Detta används för att tillåta att de distribuerade resurserna är i gång innan hälso kontroll processen påbörjas. 
+    1. När en distributions åtgärd har slutförts kan virtuella datorer startas om, konfigureras om baserat på nya data eller till och med startas för första gången. Det tar också tid för tjänster att börja sända hälso signaler som ska aggregeras av hälso övervaknings leverantören i något användbart. Under den här tumultuous-processen kan det vara klokt att kontrol lera tjänstens hälso tillstånd eftersom uppdateringen ännu inte har nått ett stabilt tillstånd. Tjänsten kan vara svängning mellan felfria och felaktiga tillstånd när resurserna är lösta.
+    1. Under vänte fasen övervakas inte tjänstens hälsa. Detta används för att tillåta att de distribuerade resurserna är i gång innan hälso kontroll processen påbörjas.
 1. Elastiska
 
     1. Eftersom det är omöjligt att känna till i samtliga fall hur lång tid det tar innan det blir stabilt, kan den elastiska fasen för en flexibel tids period mellan när resurserna är potentiellt instabila och när de krävs för att upprätthålla ett felfritt stabilt tillstånd.
-    1. När den elastiska fasen börjar påbörjar Azure Deployment Manager avsökningen av den angivna REST-slutpunkten för tjänstens hälsa regelbundet. Avsöknings intervallet kan konfigureras. 
-    1. Om hälso övervakaren kommer tillbaka med signaler som anger att tjänsten inte är felfri, ignoreras dessa signaler, den elastiska fasen fortsätter och avsökningen fortsätter. 
-    1. Så snart hälso övervakaren kommer tillbaka med signaler som indikerar att tjänsten är felfri, slutar den elastiska fasen och HealthyState-fasen börjar. 
-    1. Den varaktighet som anges för den elastiska fasen är alltså den längsta tid som kan användas för att söka efter tjänstens hälsa innan ett felfritt svar anses vara obligatoriskt. 
+    1. När den elastiska fasen börjar påbörjar Azure Deployment Manager avsökningen av den angivna REST-slutpunkten för tjänstens hälsa regelbundet. Avsöknings intervallet kan konfigureras.
+    1. Om hälso övervakaren kommer tillbaka med signaler som anger att tjänsten inte är felfri, ignoreras dessa signaler, den elastiska fasen fortsätter och avsökningen fortsätter.
+    1. Så snart hälso övervakaren kommer tillbaka med signaler som indikerar att tjänsten är felfri, slutar den elastiska fasen och HealthyState-fasen börjar.
+    1. Den varaktighet som anges för den elastiska fasen är alltså den längsta tid som kan användas för att söka efter tjänstens hälsa innan ett felfritt svar anses vara obligatoriskt.
 1. HealthyState
 
-    1. Under HealthyState-fasen avsöker service hälsan hela tiden med samma intervall som den elastiska fasen. 
-    1. Tjänsten förväntas upprätthålla felfria signaler från hälso övervaknings leverantören för hela den angivna tiden. 
+    1. Under HealthyState-fasen avsöker service hälsan hela tiden med samma intervall som den elastiska fasen.
+    1. Tjänsten förväntas upprätthålla felfria signaler från hälso övervaknings leverantören för hela den angivna tiden.
     1. Om ett svar som inte är felfritt har identifierats stoppar Azure Deployment Manager hela distributionen och returnerar REST-svaret som innehåller felaktiga tjänst signaler.
     1. När HealthyState-varaktigheten har upphört är healthCheck slutförd och distributionen fortsätter till nästa steg.
 

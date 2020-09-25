@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275140"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Konfigurera en anslutning till ett Azure Storage konto med en hanterad identitet
 
@@ -143,6 +143,10 @@ Indexeraren körs varannan timme (schema intervall anges till "PT2H"). Om du vil
 Mer information om API för att skapa index finns i [skapa indexerare](/rest/api/searchservice/create-indexer).
 
 Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
+
+## <a name="accessing-secure-data-in-storage-accounts"></a>Åtkomst till säkra data i lagrings konton
+
+Azure Storage-konton kan skyddas ytterligare med hjälp av brand väggar och virtuella nätverk. Om du vill indexera innehåll från ett Blob Storage-konto eller Data Lake Gen2 lagrings konto som skyddas med en brand vägg eller ett virtuellt nätverk, följer du anvisningarna för [att få åtkomst till data i lagrings konton på ett säkert sätt via ett betrott tjänst undantag](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Se även
 

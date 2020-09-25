@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 5f88b4755c7b4c0b20f27065cf9de2351251bc1c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: edfebe3d9470defbe70b3694d5574e58ca3b5938
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513884"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325529"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Saker att tänka på gällande prestanda för Azure NetApp Files
 
-[Data flödes gränsen](azure-netapp-files-service-levels.md) för en volym bestäms av en kombination av den kvot som tilldelats volymen och den valda Service nivån. När du gör prestanda planer om Azure NetApp Files måste du förstå flera saker att tänka på. 
+[Data flödes gränsen](azure-netapp-files-service-levels.md) för en volym med automatisk QoS bestäms av en kombination av den kvot som tilldelats volymen och den valda Service nivån. För volymer med manuell QoS kan data flödes gränsen definieras individuellt. När du gör prestanda planer om Azure NetApp Files måste du förstå flera saker att tänka på. 
 
 ## <a name="quota-and-throughput"></a>Kvot och data flöde  
 
@@ -31,19 +31,25 @@ Data flödes gränsen är bara en Determinant av de faktiska prestanda som komme
 
 Vanliga överväganden för lagrings prestanda, inklusive Läs-och skriv mixning, överförings storlek, slumpmässiga eller sekventiella mönster, och många andra faktorer bidrar till den totala prestanda som levereras.  
 
-Det maximala empiriska data flödet som har observerats vid testning är 4 500 MiB/s.  På Premium Storage-nivån tillhandahåller en volym kvot på 70,31 TiB en gräns för data flöde som är tillräckligt hög för att uppnå den här prestanda nivån.  
+Det maximala empiriska data flödet som har observerats vid testning är 4 500 MiB/s.  På Premium Storage-nivån tillhandahåller en automatisk QoS-volym på 70,31 TiB en data flödes gräns som är tillräckligt hög för att uppnå den här prestanda nivån.  
 
-Om du överväger att tilldela volym kvots mängder utöver 70,31 TiB kan ytterligare kvot tilldelas till en volym för lagring av ytterligare data. Den tillagda kvoten kommer dock inte att resultera i en ytterligare ökning av det faktiska data flödet.  
+Om du överväger att tilldela volym kvots belopp utöver 70,31 TiB, kan ytterligare kvot tilldelas till en volym för lagring av ytterligare data. Den tillagda kvoten kommer dock inte att resultera i en ytterligare ökning av det faktiska data flödet.  
 
-## <a name="overprovisioning-the-volume-quota"></a>Överetablera volym kvoten
+Samma tak för empiriska data flöden gäller för volymer med manuella QoS. Maximalt data flöde kan tilldelas till en volym är 4 500 MiB/s.
 
-Om arbets Belastningens prestanda är data flödes gräns, är det möjligt att överetablera volym kvoten för att ange en högre data flödes nivå och uppnå högre prestanda.  
+## <a name="automatic-qos-volume-quota-and-throughput"></a>Automatisk volym kvot och data flöde för QoS
 
-Om en volym på nivån Premium lagring till exempel bara har 500 GiB av data men kräver 128 MiB/s av data flödet, kan du ange kvoten till 2 TiB så att data flödes nivån anges enligt detta (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
+I det här avsnittet beskrivs kvot hantering och data flöde för volymer med den automatiska QoS-typen.
 
-Om du konsekvent överetablerar en volym för att uppnå ett högre data flöde bör du överväga att använda en högre service nivå i stället.  I exemplet ovan kan du uppnå samma data flödes gräns med hälften av volym kvoten genom att använda Ultra Storage-nivå i stället (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
+### <a name="overprovisioning-the-volume-quota"></a>Överetablera volym kvoten
 
-## <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Öka eller minska volym kvoten dynamiskt
+Om arbets Belastningens prestanda är data flödes gräns, är det möjligt att överetablera den automatiska QoS-volymens kvot för att ange en högre data flödes nivå och uppnå högre prestanda.  
+
+Om till exempel en automatisk QoS-volym på Premium Storage-nivån bara har 500 GiB av data men kräver 128 MiB/s av data flöde, kan du ange kvoten till 2 TiB så att data flödes nivån anges enligt detta (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
+
+Om du konsekvent överetablerar en volym för att uppnå ett högre data flöde bör du överväga att använda de manuella QoS-volymerna eller att använda en högre service nivå i stället.  I exemplet ovan kan du uppnå samma data flödes gräns med hälften av den automatiska QoS-volymens kvot genom att använda Ultra Storage-nivå i stället (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
+
+### <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Öka eller minska volym kvoten dynamiskt
 
 Om dina prestanda krav är temporära i natur, eller om du har ökat prestanda behov under en viss tids period, kan du dynamiskt öka eller minska volym kvoten för att omedelbart justera data flödes gränsen.  Tänk på följande: 
 
@@ -55,9 +61,14 @@ Om dina prestanda krav är temporära i natur, eller om du har ökat prestanda b
 
     Ändringen avbryter eller påverkar inte volym åtkomsten eller I/O.  
 
-* Anpassning av volym kvoten kräver en ändring i storleken på kapacitets gruppen.  
+* Anpassning av volym kvoten kan kräva en ändring i storleken på kapacitets gruppen.  
 
     Storleken på kapacitets poolen kan justeras dynamiskt och utan att volymens tillgänglighet eller I/O påverkas.
+
+## <a name="manual-qos-volume-quota-and-throughput"></a>Manuell volym kvot och data flöde för QoS 
+
+Om du använder manuella QoS-volymer behöver du inte överetablera volym kvoten för att uppnå ett högre data flöde eftersom data flödet kan tilldelas till varje volym oberoende av varandra. Du måste dock fortfarande se till att kapacitets gruppen är företablerad med tillräckligt med data flöde för dina prestanda behov. Data flödet i en pool för kapacitet tillhandahålls enligt dess storlek och service nivå. Mer information finns i [tjänste nivåer för Azure NetApp Files](azure-netapp-files-service-levels.md) .
+
 
 ## <a name="next-steps"></a>Nästa steg
 

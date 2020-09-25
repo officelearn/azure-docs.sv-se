@@ -1,6 +1,6 @@
 ---
-title: Dela Galleri bilder över klienter i Azure
-description: Lär dig hur du delar VM-avbildningar i Azure-klienter med hjälp av delade avbildnings gallerier.
+title: Dela Galleri bilder över klienter
+description: Lär dig hur du skapar skalnings uppsättningar med bilder som delas mellan Azure-klienter med hjälp av delade avbildnings gallerier.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323489"
 ---
-# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Dela Galleri VM-avbildningar över klienter i Azure
+# <a name="share-images-across-tenants-with-shared-image-gallery"></a>Dela bilder över klienter med delade avbildnings Galleri
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,4 +51,4 @@ az vmss create \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du stöter på problem kan du [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).
+Om du stöter på problem kan du [Felsöka delade avbildnings gallerier](../virtual-machines/troubleshooting-shared-images.md).

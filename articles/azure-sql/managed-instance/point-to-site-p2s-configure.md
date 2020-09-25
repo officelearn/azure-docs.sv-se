@@ -10,25 +10,25 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova, jovanpop
+ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a629d230d63506a163cac0c530a1a8fbfed9627f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708671"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325087"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL-hanterad instans från den lokala platsen
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Den här snabb starten visar hur du ansluter till en Azure SQL-hanterad instans med [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) från en lokal klient dator över en punkt-till-plats-anslutning. Information om punkt-till-plats-anslutningar finns i [om punkt-till-plats-VPN](../../vpn-gateway/point-to-site-about.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten:
 
-- Använder resurserna som skapats i [skapa en hanterad instans](instance-create-quickstart.md) som start punkt.
+- Använder resurserna som skapats i  [skapa en hanterad instans](instance-create-quickstart.md) som start punkt.
 - Kräver PowerShell 5,1 och Azure PowerShell 1.4.0 eller senare på din lokala klient dator. Om det behövs kan du läsa anvisningarna för [att installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Kräver den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) på den lokala klient datorn.
 

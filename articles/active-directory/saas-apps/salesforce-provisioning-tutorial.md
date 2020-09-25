@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Konfigurera Salesforce för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce.
+description: Lär dig de steg som krävs för att utföra i Salesforce och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979777"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273304"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 

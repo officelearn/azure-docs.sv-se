@@ -1,14 +1,16 @@
 ---
 title: Migrera till v3-enhet för maskin inlärning
 description: V3-redigeringen innehåller en ny entitetstyp, en enhet för maskin inlärning, tillsammans med möjligheten att lägga till relationer i enheten för maskin inlärning och andra entiteter eller funktioner i programmet.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324696"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrera till v3-redigering av entitet
 
@@ -106,7 +108,7 @@ Följande tabell visar migreringen:
 
 |V2-modeller|V3-modeller|
 |--|--|
-|Överordnad komponent enhet med namnet`Order`|Överordnad maskin inlärnings enhet med namnet`Order`|
+|Överordnad komponent enhet med namnet `Order`|Överordnad maskin inlärnings enhet med namnet `Order`|
 |Underordnade-fördefinierade datetimeV2|* Migrera en fördefinierad entitet till en ny app.<br>* Lägg till nödvändig funktion på överordnad datetimeV2.|
 |Entitet med underordnad lista för toppings|* Migrera List entiteten till en ny app.<br>* Lägg sedan till en nödvändig funktion på den överordnade entiteten lista.|
 
@@ -132,7 +134,7 @@ Följande tabell visar migreringen:
 
 |V2-modeller|V3-modeller|
 |--|--|
-|Överordnad komponent enhet med namnet`Order`|Överordnad maskin inlärnings enhet med namnet`Order`|
+|Överordnad komponent enhet med namnet `Order`|Överordnad maskin inlärnings enhet med namnet `Order`|
 |Underordnad-hierarkisk entitet med ursprunglig och slutgiltig pizza-topping|* Lägg till roll för `Order` varje topping.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>API-ändrings begränsning ersatt med nödvändig funktion

@@ -3,12 +3,12 @@ title: Azure Event Grid leverans och försök igen
 description: Beskriver hur Azure Event Grid levererar händelser och hur de hanterar meddelanden som inte levererats.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324101"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
@@ -89,11 +89,151 @@ Event Grid skickar en händelse till platsen för obeställbara meddelanden när
 
 Det senaste försöket att leverera en händelse är en fördröjning på fem minuter mellan det senaste försöket att leverera en händelse och när den levereras till platsen för obeställbara meddelanden. Den här fördröjningen är avsedd att minska antalet Blob Storage-åtgärder. Om platsen för obeställbara meddelanden inte är tillgänglig i fyra timmar släpps händelsen.
 
-Innan du anger platsen för obeställbara meddelanden måste du ha ett lagrings konto med en behållare. Du anger slut punkten för den här behållaren när du skapar händelse prenumerationen. Slut punkten har formatet:`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Innan du anger platsen för obeställbara meddelanden måste du ha ett lagrings konto med en behållare. Du anger slut punkten för den här behållaren när du skapar händelse prenumerationen. Slut punkten har formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Du kanske vill bli meddelad när en händelse har skickats till platsen för obeställbara meddelanden. Om du vill använda Event Grid för att svara på Ej levererade händelser [skapar du en händelse prenumeration](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) för blob-lagringen med obeställbara meddelanden. Varje gång en blob-lagring med obeställbara meddelanden tar emot en händelse som inte levererats meddelar Event Grid din hanterare. Hanteraren svarar med åtgärder som du vill vidta för att stämma av ej levererade händelser.
+Du kanske vill bli meddelad när en händelse har skickats till platsen för obeställbara meddelanden. Om du vill använda Event Grid för att svara på Ej levererade händelser [skapar du en händelse prenumeration](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) för blob-lagringen med obeställbara meddelanden. Varje gång en blob-lagring med obeställbara meddelanden tar emot en händelse som inte levererats meddelar Event Grid din hanterare. Hanteraren svarar med åtgärder som du vill vidta för att stämma av ej levererade händelser. Ett exempel på hur du konfigurerar en kö för obeställbara meddelanden och återförsöks principer finns i [principer för obeställbara brev och återförsök](manage-event-delivery.md).
 
-Ett exempel på hur du konfigurerar en plats för obeställbara meddelanden finns i [principer för obeställbara brev och återförsök](manage-event-delivery.md).
+## <a name="delivery-event-formats"></a>Leverans händelse format
+Det här avsnittet innehåller exempel på händelser och meddelanden om obeställbara meddelanden i olika leverans schema format (Event Grid schema, CloudEvents 1,0-schema och anpassat schema). Mer information om dessa format finns i [Event Grid schema](event-schema.md) -och [moln händelser 1,0 schema](cloud-event-schema.md) artiklar. 
+
+### <a name="event-grid-schema"></a>Event Grid-schema
+
+#### <a name="event"></a>Händelse 
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/000000000-0000-0000-0000-00000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Händelse för obeställbara meddelanden
+
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    },
+
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T17:18:14.0265758Z",
+    "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
+}
+```
+
+### <a name="cloudevents-10-schema"></a>CloudEvents 1,0-schema
+
+#### <a name="event"></a>Händelse
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Händelse för obeställbara meddelanden
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    },
+
+    "deadletterreason": "MaxDeliveryAttemptsExceeded",
+    "deliveryattempts": 1,
+    "lastdeliveryoutcome": "NotFound",
+    "publishtime": "2020-08-13T21:21:36.4018726Z",
+}
+```
+
+### <a name="custom-schema"></a>Anpassat schema
+
+#### <a name="event"></a>Händelse
+
+```json
+{
+    "prop1": "my property",
+    "prop2": 5,
+    "myEventType": "fooEventType"
+}
+
+```
+
+#### <a name="dead-letter-event"></a>Händelse för obeställbara meddelanden
+```json
+{
+    "id": "8bc07e6f-0885-4729-90e4-7c3f052bd754",
+    "eventTime": "2020-08-13T18:11:29.4121391Z",
+    "eventType": "myEventType",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/00000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.EventGrid/topics/myCustomSchemaTopic",
+    "subject": "subjectDefault",
+  
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T18:11:29.4121391Z",
+    "lastDeliveryAttemptTime": "2020-08-13T18:11:29.4277644Z",
+  
+    "data": {
+        "prop1": "my property",
+        "prop2": 5,
+        "myEventType": "fooEventType"
+    }
+}
+```
+
 
 ## <a name="message-delivery-status"></a>Status för meddelande leverans
 
@@ -117,7 +257,7 @@ Alla andra koder som inte finns i ovanstående uppsättning (200-204) betraktas 
 | ------------|----------------|
 | 400 – Felaktig begäran | Försök igen om 5 minuter eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |
 | 401 – Ej behörig | Försök igen om 5 minuter eller mer |
-| 403 – Förbjuden | Försök igen om 5 minuter eller mer |
+| 403 förbud | Försök igen om 5 minuter eller mer |
 | 404 – Hittades inte | Försök igen om 5 minuter eller mer |
 | 408 Timeout för begäran | Försök igen om 2 minuter eller mer |
 | 413 begär ande enheten är för stor | Försök igen om 10 sekunder eller mer (obeställbara meddelanden kön omedelbart om obeställbara meddelanden kön-konfigurationen) |

@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb82eb2d8e23daec0ddb8856b713c1aa051f25c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6460015430850c11fbf70a005d7440ce1b92fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306012"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Felsöka problem med käll ankare under installationen
 I den här artikeln förklaras olika käll fäst punkter för problem som kan uppstå under installationen och som kan lösa problemen.
@@ -27,16 +27,16 @@ I den här artikeln förklaras olika käll fäst punkter för problem som kan up
 Vid anpassad installation läser Azure AD Connect käll fäst punkts princip från Azure Active Directory. Om principen finns i Azure Active Directory, Azure AD Connect tillämpar samma princip om den inte åsidosätts av kunden. Guiden informerar dig om vilket attribut som har lästs. Dessutom varnar guiden om du försöker åsidosätta käll fäst punkten.
 
 Under den här Läs åtgärden är det möjligt att käll fäst punkten i Azure Active Directory är oväntad. I det här fallet vet Azure AD Connect inte vad käll ankaret ska använda och kräver manuellt åsidosättning.</br>
-![ett](media/tshoot-connect-source-anchor/source1.png)
+![Skärm bild som visar var du kan åsidosätta käll fäst punkten manuellt.](media/tshoot-connect-source-anchor/source1.png)
 
 För att lösa det här problemet kan du manuellt åsidosätta käll fäst punkten genom att välja ett speciellt attribut. Fortsätt med det här alternativet om och bara om du är säker på vilket attribut som ska väljas. Om du inte är säker kontaktar du [Microsoft Support](https://support.microsoft.com/contactus/) om du behöver hjälp. Om du ändrar käll fäst punkts principen kan den bryta kopplingen mellan dina lokala användare och deras associerade Azure-resurser.</br>
-![ett](media/tshoot-connect-source-anchor/source2.png)
+![Skärm bild som visar det angivna attributet som åsidosätter käll ankaret.](media/tshoot-connect-source-anchor/source2.png)
 
 ### <a name="express-installation"></a>Snabb installation
 Under snabb installationen läser Azure AD Connect käll fäst punkts princip från Azure Active Directory. Om principen finns i Azure Active Directory, Azure AD Connect tillämpar samma princip. Det finns inget alternativ för manuell åsidosättning.
 
 Under den här Läs åtgärden är det möjligt att käll fäst punkten i Azure Active Directory är oväntad. I det här fallet vet Azure AD Connect inte vad käll fäst punkten ska vara.</br>
-![ett](media/tshoot-connect-source-anchor/source3.png)
+![Skärm bild som visar vad som händer när käll ankaret i Azure Active Directory är oväntat.](media/tshoot-connect-source-anchor/source3.png)
 
 För att lösa det här problemet måste du installera på nytt med det anpassade läget och åsidosätta käll ankaret manuellt genom att välja ett särskilt attribut. Fortsätt med det här alternativet om och bara om du är säker på vilket attribut som ska väljas. Om du inte är säker kontaktar du [Microsoft Support](https://support.microsoft.com/contactus/) om du behöver hjälp. Om du ändrar käll fäst punkts principen kan den bryta kopplingen mellan dina lokala användare och deras associerade Azure-resurser.
 

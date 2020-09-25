@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: dda911add42568e76160e4233502a1f4f550520d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325631"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Konfigurera NFSv4.1-standarddomän för Azure NetApp Files
 
@@ -54,7 +54,7 @@ Som exemplet ovan visar bör användaren för `file1` vara `root` , men den mapp
 
 I följande exempel visas den resulterande ändringen av användare/grupp: 
 
-![Resulterande konfiguration för NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+![Skärm bild som visar ett exempel på ändringen av en användare/grupp.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 Som exemplet visar har användaren/gruppen nu ändrats från `nobody` till `root` .
 
@@ -64,7 +64,7 @@ Azure NetApp Files stöder lokala användare (användare som har skapats lokalt 
 
 I följande exempel `Host1` har tre befintliga test användar konton ( `testuser01` , `testuser02` , `testuser03` ): 
 
-![Resulterande konfiguration för NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
+![Skärm bild som visar att host1 har tre befintliga test användar konton.](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
 `Host2`Observera att test användar kontona inte har skapats, men att samma volym är monterad på båda värdarna:
 

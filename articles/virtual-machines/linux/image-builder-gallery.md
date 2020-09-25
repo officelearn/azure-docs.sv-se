@@ -1,6 +1,6 @@
 ---
 title: Använd Azure Image Builder & delade avbildnings galleriet för virtuella Linux-datorer (för hands version)
-description: Skapa virtuella Linux-avbildningar med Azure Image Builder och delade avbildnings galleriet.
+description: Lär dig hur du använder Azure Image Builder och Azure CLI för att skapa en avbildnings version i ett delat avbildnings galleri och sedan distribuera avbildningen globalt.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 1eeb8df2605bbe63fe72c5bd451b43111322a7f6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bab5a86cdf8e3fa6b17866fe4088b28ed3ece6f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307304"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>För hands version: skapa en Linux-avbildning och distribuera den till ett delat avbildnings Galleri 
 

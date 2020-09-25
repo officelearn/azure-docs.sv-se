@@ -5,17 +5,17 @@ services: virtual-machines-linux
 author: MashaMSFT
 ms.date: 10/22/2019
 tags: azure-service-management
-ms.topic: conceptual
+ms.topic: quickstart
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5ce3ab92be33b378aeb6694efe181ee19da5d3f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e1a9d2722987464b1bb3c8b1489a2d1258a41d15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284361"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273100"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Etablera en virtuell Linux-dator som kör SQL Server i Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -91,7 +91,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
      ![Ingående portar](./media/sql-vm-create-portal-quickstart/port-settings.png)
 
 1. Gör de ändringar du vill i inställningarna i följande ytterligare flikar eller behåll standardinställningarna.
-    * **Disk**
+    * **Diskar**
     * **Nätverk**
     * **Hantering**
     * **Gästkonfiguration**

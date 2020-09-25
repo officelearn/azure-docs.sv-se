@@ -4,16 +4,16 @@ description: I den här artikeln lär du dig hur du visar trafik data på en kar
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b07b520dec4e9149c6748777a119b68e56c65e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126405"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272964"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafik data på kartan med Azure Maps Android SDK
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Använd följande kodfragment för att ställa in trafik flödes data. Precis som koden i föregående avsnitt skickar vi returvärdet för `flow` metoden till- `setTraffic` metoden. Det finns fyra värden som kan skickas till `flow` och varje värde utlöser `flow` sig för att returnera respektive värde. Returvärdet från skickas `flow` sedan som argumentet till `setTraffic` . Se tabellen nedan för följande fyra värden:
 
-|Flödes värde | Beskrivning|
+|Flödes värde | Description|
 | :-- | :-- |
 | TrafficFlow. NONE | Visar inte trafik data på kartan |
 | TrafficFlow. relativ | Visar trafik data som är relativa till vägens fria flödes hastighet |

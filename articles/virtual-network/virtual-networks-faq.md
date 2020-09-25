@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d39e66e205c592d58a93c1187a1c77269da9e7ad
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 171fc11c8de9cd53a7abd9602768a117341826ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438236"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306608"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -266,7 +266,7 @@ Följande resurser kan använda grundläggande belastningsutjämnare, vilket inn
 Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Kan jag aktivera VNet-peering om mina virtuella nätverk tillhör prenumerationer inom olika Azure Active Directory klienter?
-Ja. Det går att etablera VNet-peering (oavsett om den är lokal eller global) om prenumerationerna tillhör olika Azure Active Directory klienter. Du kan göra detta via PowerShell eller CLI. Portalen stöds inte ännu.
+Ja. Det går att etablera VNet-peering (oavsett om den är lokal eller global) om prenumerationerna tillhör olika Azure Active Directory klienter. Du kan göra detta via portalen, PowerShell eller CLI.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mitt VNet-peering-anslutning har *initierats* , varför kan jag inte ansluta?
 Om peering-anslutningen är i ett *initierat* tillstånd innebär det att du bara har skapat en länk. En dubbelriktad länk måste skapas för att en anslutning ska kunna upprättas. Till exempel, för peer-VNet A till VNet B, måste en länk skapas från VNetA till VNetB och från VNetB till VNetA. Om du skapar båda länkarna ändras statusen till *ansluten*.

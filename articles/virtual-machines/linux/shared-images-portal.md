@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 30e61a9a8bf4d7f843db5e68278e4b10a3a8c023
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e65e5478c81a99db7789eab4d532ddd01ffc635a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307168"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Skapa ett galleri för delad avbildning med hjälp av portalen
 
@@ -78,5 +78,5 @@ Du kan också skapa en delad resurs för avbildnings galleriet med hjälp av mal
 - [Skapa en avbildningsversion i ett Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Skapa en virtuell dator från avbildningsversion](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Mer information om delade avbildnings gallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).
+Mer information om delade avbildnings gallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](../troubleshooting-shared-images.md).
 

@@ -3,12 +3,12 @@ title: Hantera formler i Azure DevTest Labs för att skapa virtuella datorer | M
 description: Den här artikeln visar hur du skapar en formel från antingen en bas (anpassad avbildning, Marketplace-avbildning eller en annan formel) eller en befintlig virtuell dator.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0a254d306ad2417c500571df4b8f2d852d21e7ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308902"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Hantera Azure DevTest Labs formler
 
@@ -60,7 +60,7 @@ Följande steg vägleder dig genom processen att skapa en formel från en anpass
     - **Förfallo datum och-tid** -du kan inte redigera det här fältet. 
     - **Gör så att den här datorn kan kräva** en dator "anspråkable" innebär att den inte tilldelas ägande vid tidpunkten för skapandet. I stället kommer labb användare att kunna ta ägarskap ("anspråk") till datorn på labb sidan.  
 
-        ![Sida för avancerade inställningar](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Skärm bild som visar avancerade inställningar för sidan "skapa formel (återanvändbara Base)".](./media/devtest-lab-create-formulas/advanced-settings.png)
     - Om du har valt en avbildning av ett delat bild galleri som bas, visas även fältet **bild version** som gör att du kan välja den version av avbildningen från galleriet som du vill använda som bas. 
 
         ![Sida för avancerade inställningar](./media/devtest-lab-create-formulas/advanced-settings-shared-image-gallery.png)
@@ -98,7 +98,7 @@ Följ dessa steg om du vill ändra en formel:
 3. I listan med labb väljer du önskat labb.  
 4. På labb sidan väljer du **formler (återanvändbara baser)**.
    
-    ![Formel meny](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+    ![Skärm bild som visar labb sidan med "formler (återanvändbara baser)" markerade.](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. På sidan **labb formler** väljer du den formel som du vill ändra.
 6. På sidan **Uppdatera formel** gör du önskade ändringar och väljer **Uppdatera**.
 
@@ -113,7 +113,7 @@ Följ dessa steg om du vill ta bort en formel:
     ![Formel meny](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. På sidan **labb formler** väljer du ellipsen till höger om formeln som du vill ta bort.
    
-    ![Formel meny](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
+    ![Skärm bild som visar sidan "labb formler" med tre punkter för formel alternativen markerade.](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. På formelns snabb meny väljer du **ta bort**.
    
     ![Snabb meny för formel](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)

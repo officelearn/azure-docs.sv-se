@@ -5,16 +5,16 @@ description: Lär dig hur du utför flera vanliga data vetenskaps uppgifter med 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/17/2020
+ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816226"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275990"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Data vetenskap med en Ubuntu Data Science Virtual Machine i Azure
 
@@ -374,7 +374,7 @@ Rattle kan också köra kluster analys. Vi kan utesluta vissa funktioner för at
 * word_freq_business
 * skräppost
 
-Gå tillbaka till fliken **kluster** . Välj **KMeans**och ange sedan **antalet kluster** till **4**. Välj **Kör**. Resultaten visas i fönstret utdata. Ett kluster har hög frekvens på _George_ och _HP_och är förmodligen ett legitimt företags-e-postmeddelande.
+Gå tillbaka till fliken **kluster** . Välj **KMeans**och ange sedan **antal kluster** till **4**. Välj **Kör**. Resultaten visas i fönstret utdata. Ett kluster har hög frekvens på _George_ och _HP_och är förmodligen ett legitimt företags-e-postmeddelande.
 
 Så här skapar du en grundläggande besluts träd Machine Learning-modell:
 
@@ -468,7 +468,7 @@ Kom igång genom att öppna SQuirreL SQL på **program** -menyn. Så här konfig
 1. Högerklicka på **postgresql** och välj **ändra driv rutin**.
 1. Välj **extra klass Sök väg**  >  **Lägg till**.
 1. För **fil namn**anger du **/usr/share/Java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
-1. Välj **Open** (Öppna).
+1. Välj **Öppna**.
 1. Välj **list driv rutiner**. För **klass namn**väljer du **org. postgresql. driver**och väljer sedan **OK**.
 
 Så här konfigurerar du anslutningen till den lokala servern:

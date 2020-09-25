@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 959837ff540fd95d186497858d7b9de1f8b1124d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292732"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274018"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst för dig själv till grupper eller program i åtkomst granskningar för Azure AD
 
@@ -65,13 +65,13 @@ När du har öppnat åtkomst granskningen kan du se din åtkomst.
 
     Om begäran är att granska åtkomsten för andra, ser sidan annorlunda ut. Mer information finns i [Granska åtkomst till grupper eller program](perform-access-review.md).
 
-    ![Öppna åtkomst granskning och fråga om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review.png)
+    ![Skärm bild som visar en öppen åtkomst granskning som frågar om du fortfarande behöver åtkomst till en grupp.](./media/review-your-access/perform-access-review.png)
 
 1. Klicka på **Ja** om du vill behålla åtkomsten eller på **Nej** om du vill ta bort åtkomsten.
 
 1. Om du klickar på **Ja**kan du behöva ange en motivering i rutan **orsak** .
 
-    ![Slutförd åtkomst granskning som frågar om du fortfarande behöver åtkomst till en grupp](./media/review-your-access/perform-access-review-submit.png)
+    ![Skärm bild som visar en slutförd åtkomst granskning som frågar om du fortfarande behöver åtkomst till en grupp, med alternativet Ja valt.](./media/review-your-access/perform-access-review-submit.png)
 
 1. Klicka på **Skicka**.
 

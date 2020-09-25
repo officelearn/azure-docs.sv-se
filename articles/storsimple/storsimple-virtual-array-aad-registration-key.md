@@ -1,17 +1,17 @@
 ---
 title: Ny autentisering för virtuella StorSimple-matriser
-description: Förklarar hur du använder AAD-baserad autentisering för din tjänst, genererar en ny registrerings nyckel och utför manuell registrering av enheterna.
+description: Lär dig om AAD-autentisering, den associerade nya tjänst registrerings nyckeln och ändringar av brand Väggs reglerna som är tillämpliga för StorSimple-enheterna.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d750b3a85741bb4761b640848f01e5917760b5aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76273811"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261098"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Använd den nya autentiseringen för din StorSimple
 
@@ -38,7 +38,7 @@ För att säkerställa att tjänsten använder AAD-baserad autentisering måste 
 
 Om du använder StorSimple virtuell matris kontrollerar du att följande URL ingår i brand Väggs reglerna:
 
-| URL-mönster                         | Molnet | Komponent/funktion         |
+| URL-mönster                         | Moln | Komponent/funktion         |
 |------------------------------------|-------|---------------------------------|
 | `https://login.windows.net`        | Azure, offentlig |AAD-autentiseringstjänst      |
 | `https://login.microsoftonline.us` | US Government |AAD-autentiseringstjänst      |

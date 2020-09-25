@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef533b3566ac557b57f1435a2a9b2dbe26896993
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306896"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-kommandon – CMD och PowerShell
 
@@ -30,11 +30,11 @@ Med SAC kan du ansluta till ditt operativ system via en seriell port. När du st
 
 Eftersom SAC är begränsat till en 80x24 utan att rulla tillbaka, lägger du till `| more` kommandon för att visa utdata en sida i taget. Använd `<spacebar>` för att se nästa sida eller `<enter>` för att se nästa rad.
 
-`SHIFT+INSERT`är den infogade genvägen för serie konsol fönstret.
+`SHIFT+INSERT` är den infogade genvägen för serie konsol fönstret.
 
 På grund av SAC: s begränsade skärmsläckare kan längre kommandon vara enklare att skriva ut i en lokal text redigerare och sedan klistras in i SAC.
 
-## <a name="view-and-edit-windows-registry-settings"></a>Visa och redigera inställningar för Windows-registret
+## <a name="view-and-edit-windows-registry-settings-using-cmd"></a>Visa och redigera inställningar för Windows-registret med hjälp av CMD
 ### <a name="verify-rdp-is-enabled"></a>Verifiera att RDP är aktiverat
 `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections`
 
@@ -49,7 +49,7 @@ Den andra nyckeln (under \Policies) kommer bara att finnas om den relevanta grup
 
 Den andra nyckeln (under \Policies) behövs bara om den relevanta grup princip inställningen hade kon figurer ATS. Värdet skrivs om nästa gång grup princip uppdateras om det har kon figurer ATS i en grup princip.
 
-## <a name="manage-windows-services"></a>Hantera Windows-tjänster
+## <a name="manage-windows-services-using-cmd"></a>Hantera Windows-tjänster med CMD
 
 ### <a name="view-service-state"></a>Visa tjänst status
 `sc query termservice`
@@ -79,7 +79,7 @@ eller
 eller
 
 `sc stop termservice`
-## <a name="manage-networking-features"></a>Hantera nätverksfunktioner
+## <a name="manage-networking-features-using-cmd"></a>Hantera nätverksfunktioner med hjälp av CMD
 ### <a name="show-nic-properties"></a>Visa NIC-egenskaper
 `netsh interface show interface`
 ### <a name="show-ip-properties"></a>Visa IP-egenskaper
@@ -120,7 +120,7 @@ När det gäller metoder som är tillgängliga i Windows som standard, kan Power
 Du kan använda det här kommandot när du felsöker för att tillfälligt utesluta Windows-brandväggen. Den aktive ras vid nästa omstart eller när du aktiverar den med hjälp av kommandot nedan. Stoppa inte tjänsten Windows Firewall service (MPSSVC) eller tjänsten för bas filtrerings motor (BFE) på ett sätt som kan utesluta Windows-brandväggen. Om du stoppar MPSSVC eller BFE leder det till att alla anslutningar blockeras.
 ### <a name="enable-windows-firewall"></a>Aktivera Windows-brandväggen
 `netsh advfirewall set allprofiles state on`
-## <a name="manage-users-and-groups"></a>Hantera användare och grupper
+## <a name="manage-users-and-groups-using-cmd"></a>Hantera användare och grupper med hjälp av CMD
 ### <a name="create-local-user-account"></a>Skapa lokalt användar konto
 `net user /add <username> <password>`
 ### <a name="add-local-user-to-local-group"></a>Lägg till lokal användare i lokal grupp
@@ -150,7 +150,7 @@ Exempel rader av intresse från ett lokalt administratörs konto:
 
 ### <a name="view-local-groups"></a>Visa lokala grupper
 `net localgroup`
-## <a name="manage-the-windows-event-log"></a>Hantera händelse loggen i Windows
+## <a name="manage-the-windows-event-log-using-cmd"></a>Hantera händelse loggen i Windows med hjälp av CMD
 ### <a name="query-event-log-errors"></a>Händelse logg fel för fråga
 `wevtutil qe system /c:10 /f:text /q:"Event[System[Level=2]]" | more`
 
@@ -165,7 +165,7 @@ Exempel rader av intresse från ett lokalt administratörs konto:
 Använd `604800000` för att se tillbaka 7 dagar i stället för 24 timmar.
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Fråga händelse logg efter händelse-ID, Provider och EventData under de senaste 7 dagarna
 `wevtutil qe security /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Visa eller ta bort installerade program
+## <a name="view-or-remove-installed-applications-using-cmd"></a>Visa eller ta bort installerade program med hjälp av CMD
 ### <a name="list-installed-applications"></a>Visa lista över installerade program
 `wmic product get Name,InstallDate | sort /r | more`
 
@@ -175,7 +175,7 @@ De `sort /r` sorterar fallande efter installations datum så att det blir enkelt
 
 Ersätt `<name>` med namnet som returneras i ovanstående kommando för det program som du vill ta bort.
 
-## <a name="file-system-management"></a>Hantering av fil system
+## <a name="file-system-management-using-cmd"></a>Fil system hantering med hjälp av CMD
 ### <a name="get-file-version"></a>Hämta fil version
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
@@ -206,7 +206,7 @@ Sökvägen när du använder `/restore` måste vara den överordnade mappen till
 ## <a name="manage-group-policy"></a>Hantera grupprincip
 ### <a name="force-group-policy-update"></a>Framtvinga uppdatering av grup princip
 `gpupdate /force /wait:-1`
-## <a name="miscellaneous-tasks"></a>Diverse aktiviteter
+## <a name="miscellaneous-tasks-using-cmd"></a>Diverse aktiviteter med CMD
 ### <a name="show-os-version"></a>Visa OS-version
 `ver`
 
@@ -259,7 +259,7 @@ Om kommandot ovan returnerar PSReadLine-modulens version kör du följande komma
 
 `remove-module psreadline`
 
-## <a name="view-and-edit-windows-registry-settings"></a>Visa och redigera inställningar för Windows-registret
+## <a name="view-and-edit-windows-registry-settings-using-powershell"></a>Visa och redigera inställningar för Windows-registret med PowerShell
 ### <a name="verify-rdp-is-enabled"></a>Verifiera att RDP är aktiverat
 `get-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections'`
 
@@ -272,11 +272,11 @@ Den andra nyckeln (under \Policies) kommer bara att finnas om den relevanta grup
 `set-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections' 0 -type dword`
 
 Den andra nyckeln (under \Policies) behövs bara om den relevanta grup princip inställningen hade kon figurer ATS. Värdet skrivs om nästa gång grup princip uppdateras om det har kon figurer ATS i en grup princip.
-## <a name="manage-windows-services"></a>Hantera Windows-tjänster
+## <a name="manage-windows-services-using-powershell"></a>Hantera Windows-tjänster med PowerShell
 ### <a name="view-service-details"></a>Visa tjänst information
 `get-wmiobject win32_service -filter "name='termservice'" |  format-list Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId`
 
-`Get-Service`kan användas men inkluderar inte tjänstens inloggnings konto. `Get-WmiObject win32-service`stämm.
+`Get-Service` kan användas men inkluderar inte tjänstens inloggnings konto. `Get-WmiObject win32-service` stämm.
 ### <a name="set-service-logon-account"></a>Ange tjänst inloggnings konto
 `(get-wmiobject win32_service -filter "name='termservice'").Change($null,$null,$null,$null,$null,$false,'NT Authority\NetworkService')`
 
@@ -284,14 +284,14 @@ När du använder ett annat tjänst konto än `NT AUTHORITY\LocalService` , `NT 
 ### <a name="set-service-startup-type"></a>Ange starttyp för tjänst
 `set-service termservice -startuptype Manual`
 
-`Set-service`accepterar `Automatic` , `Manual` eller `Disabled` för start metod.
+`Set-service` accepterar `Automatic` , `Manual` eller `Disabled` för start metod.
 ### <a name="set-service-dependencies"></a>Ange tjänst beroenden
 `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')`
 ### <a name="start-service"></a>Starta tjänst
 `start-service termservice`
 ### <a name="stop-service"></a>Stoppa tjänst
 `stop-service termservice`
-## <a name="manage-networking-features"></a>Hantera nätverksfunktioner
+## <a name="manage-networking-features-using-powershell"></a>Hantera nätverksfunktioner med PowerShell
 ### <a name="show-nic-properties"></a>Visa NIC-egenskaper
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
@@ -299,7 +299,7 @@ eller
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
-`Get-NetAdapter`är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject` .
+`Get-NetAdapter` är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject` .
 ### <a name="show-ip-properties"></a>Visa IP-egenskaper
 `get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'" |  format-list DNSHostName,IPAddress,DHCPEnabled,IPSubnet,DefaultIPGateway,MACAddress,DHCPServer,DNSServerSearchOrder`
 ### <a name="enable-nic"></a>Aktivera NIC
@@ -309,13 +309,13 @@ eller
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
-`Get-NetAdapter`är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject` .
+`Get-NetAdapter` är tillgängligt i 2012 + för 2008R2-användning `Get-WmiObject` .
 ### <a name="set-nic-to-use-dhcp"></a>Ange NIC för att använda DHCP
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | Set-NetIPInterface -DHCP Enabled`
 
 `(get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'").EnableDHCP()`
 
-`Get-NetAdapter`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Virtuella Azure-datorer måste alltid konfigureras i gäst operativ systemet för att använda DHCP för att hämta en IP-adress. Den statiska IP-inställningen i Azure använder fortfarande DHCP för att ge IP-adressen till den virtuella datorn.
+`Get-NetAdapter` är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Virtuella Azure-datorer måste alltid konfigureras i gäst operativ systemet för att använda DHCP för att hämta en IP-adress. Den statiska IP-inställningen i Azure använder fortfarande DHCP för att ge IP-adressen till den virtuella datorn.
 ### <a name="ping"></a>Pinga
 `test-netconnection`
 
@@ -326,7 +326,7 @@ eller
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
-`Test-Netconnection`utan parametrar kommer att försöka pinga `internetbeacon.msedge.net` . Den är tillgänglig på 2012 +. För 2008R2 används `Get-WmiObject` som i det andra exemplet.
+`Test-Netconnection` utan parametrar kommer att försöka pinga `internetbeacon.msedge.net` . Den är tillgänglig på 2012 +. För 2008R2 används `Get-WmiObject` som i det andra exemplet.
 ### <a name="port-ping"></a>Port-ping
 `test-netconnection -ComputerName bing.com -Port 80`
 
@@ -334,7 +334,7 @@ eller
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
-`Test-NetConnection`är tillgängligt på 2012 +. För 2008R2-användning`Net.Sockets.TcpClient`
+`Test-NetConnection` är tillgängligt på 2012 +. För 2008R2-användning `Net.Sockets.TcpClient`
 ### <a name="test-dns-name-resolution"></a>Testa DNS-namnmatchning
 `resolve-dnsname bing.com`
 
@@ -342,7 +342,7 @@ eller
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
-`Resolve-DnsName`är tillgängligt på 2012 +. För användning av 2008R2 `System.Net.DNS` .
+`Resolve-DnsName` är tillgängligt på 2012 +. För användning av 2008R2 `System.Net.DNS` .
 ### <a name="show-windows-firewall-rule-by-name"></a>Visa regel för Windows-brandvägg efter namn
 `get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP`
 ### <a name="show-windows-firewall-rule-by-port"></a>Visa regel för Windows-brandvägg per port
@@ -352,12 +352,12 @@ eller
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
-`Get-NetFirewallPortFilter`är tillgängligt på 2012 +. För 2008R2 använder du `hnetcfg.fwpolicy2` com-objektet.
+`Get-NetFirewallPortFilter` är tillgängligt på 2012 +. För 2008R2 använder du `hnetcfg.fwpolicy2` com-objektet.
 ### <a name="disable-windows-firewall"></a>Inaktivera Windows-brandväggen
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
-`Set-NetFirewallProfile`är tillgängligt på 2012 +. För 2008R2-användning `netsh advfirewall` som det hänvisas till i avsnittet cmd ovan.
-## <a name="manage-users-and-groups"></a>Hantera användare och grupper
+`Set-NetFirewallProfile` är tillgängligt på 2012 +. För 2008R2-användning `netsh advfirewall` som det hänvisas till i avsnittet cmd ovan.
+## <a name="manage-users-and-groups-using-powershell"></a>Hantera användare och grupper med hjälp av PowerShell
 ### <a name="create-local-user-account"></a>Skapa lokalt användar konto
 `new-localuser <name>`
 ### <a name="verify-user-account-is-enabled"></a>Kontrol lera att användar kontot är aktiverat
@@ -367,7 +367,7 @@ eller
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
-`Get-LocalUser`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500` . Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator` .
+`Get-LocalUser` är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500` . Virtuella Azure-datorer som skapas från en generaliserad avbildning kommer att ha det lokala administratörs kontot bytt namn till det namn som angavs under VM-etableringen. Därför är det vanligt vis inte `Administrator` .
 ### <a name="add-local-user-to-local-group"></a>Lägg till lokal användare i lokal grupp
 `add-localgroupmember -group Administrators -member <username>`
 ### <a name="enable-local-user-account"></a>Aktivera lokalt användar konto
@@ -381,12 +381,12 @@ eller
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
-`Get-LocalUser`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500` .
+`Get-LocalUser` är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` . Det här exemplet visar det inbyggda lokala administratörs kontot, som alltid har SID `S-1-5-21-*-500` .
 ### <a name="view-local-groups"></a>Visa lokala grupper
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
-`Get-LocalUser`är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` .
-## <a name="manage-the-windows-event-log"></a>Hantera händelse loggen i Windows
+`Get-LocalUser` är tillgängligt på 2012 +. För användning av 2008R2 `Get-WmiObject` .
+## <a name="manage-the-windows-event-log-using-powershell"></a>Hantera Windows-händelseloggen med PowerShell
 ### <a name="query-event-log-errors"></a>Händelse logg fel för fråga
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
 
@@ -401,12 +401,12 @@ eller
 Använd `604800000` för att se tillbaka 7 dagar i stället för 24 timmar. |
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Fråga händelse logg efter händelse-ID, Provider och EventData under de senaste 7 dagarna
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Visa eller ta bort installerade program
+## <a name="view-or-remove-installed-applications-using-powershell"></a>Visa eller ta bort installerade program med PowerShell
 ### <a name="list-installed-software"></a>Visa lista över installerade program
 `get-wmiobject win32_product | select installdate,name | sort installdate -descending | more`
 ### <a name="uninstall-software"></a>Avinstallera program vara
 `(get-wmiobject win32_product -filter "Name='<name>'").Uninstall()`
-## <a name="file-system-management"></a>Hantering av fil system
+## <a name="file-system-management-using-powershell"></a>Fil system hantering med PowerShell
 ### <a name="get-file-version"></a>Hämta fil version
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
@@ -415,7 +415,7 @@ Det här exemplet returnerar fil versionen av den virtuella nätverkskort driv r
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
 Det här exemplet skapar en `c:\bin` mapp och hämtar och extraherar sedan Sysinternals-serien med verktyg till `c:\bin` .
-## <a name="miscellaneous-tasks"></a>Diverse aktiviteter
+## <a name="miscellaneous-tasks-using-powershell"></a>Diverse uppgifter med PowerShell
 ### <a name="show-os-version"></a>Visa OS-version
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
 ### <a name="view-os-install-date"></a>Visa OS-installations datum

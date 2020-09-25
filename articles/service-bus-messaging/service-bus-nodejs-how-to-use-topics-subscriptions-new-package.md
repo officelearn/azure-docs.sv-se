@@ -6,13 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.custom: devx-track-js
+ms.openlocfilehash: 4a1bb3346d50825dcab799477794cb138ac2de91
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326294"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node.js och Azure/Service-Bus-paketet
 I den här självstudien får du lära dig hur du skriver ett Node.js program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus prenumeration med det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) paketet. Det här paketet använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md) medan det äldre [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet används [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Exemplen är skrivna i Java Script.
@@ -137,7 +137,7 @@ Varje prenumeration har en standard regel som använder det sanna filtret för a
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Mer information finns i följande resurser.
 
 - [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)

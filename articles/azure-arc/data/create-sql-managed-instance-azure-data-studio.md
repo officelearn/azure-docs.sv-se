@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 989496885445a8a0a8d3bbc1a789975a2875c6e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311537"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Skapa SQL-hanterad instans – Azure Arc med Azure Data Studio
 
@@ -48,7 +48,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - Starta Azure Data Studio
 - På fliken anslutningar klickar du på de tre punkterna längst upp till vänster och väljer "ny distribution"
 - Från distributions alternativen väljer du **Azure SQL-hanterad instans – Azure Arc** 
-  > **Obs:** Du kan uppmanas att installera azdata CLI här om det inte redan är installerat.
+  > [!NOTE]
+  > Du kan uppmanas att installera azdata CLI här om det inte redan är installerat.
 - Godkänn sekretess-och licens villkoren och klicka på **Välj** längst ned
 
 

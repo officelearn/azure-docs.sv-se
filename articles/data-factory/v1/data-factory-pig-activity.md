@@ -1,6 +1,6 @@
 ---
 title: Transformera data med hjälp av gris-aktivitet i Azure Data Factory
-description: Lär dig hur du kan använda gris-aktiviteten i en Azure Data Factory för att köra gris-skript på ett eget HDInsight-kluster på begäran.
+description: Lär dig hur du kan använda aktiviteten gris i en Azure Data Factory v1 för att köra gris-skript på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e20b7a92d054a6664a00064fa7263b1150c3df9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74703200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282586"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av gris-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -82,14 +82,14 @@ HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipe
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namn på aktiviteten |Ja |
+| namn |Namn på aktiviteten |Yes |
 | description |Text som beskriver vad aktiviteten används för |No |
-| typ |HDinsightPig |Ja |
+| typ |HDinsightPig |Yes |
 | tillför |En eller flera indata som används av aktiviteten gris |No |
-| utdata |En eller flera utdata som produceras av gris-aktiviteten |Ja |
-| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
+| utdata |En eller flera utdata som produceras av gris-aktiviteten |Yes |
+| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Yes |
 | skript |Ange det infogade gris-skriptet |No |
 | scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |No |
 | definierar |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |No |

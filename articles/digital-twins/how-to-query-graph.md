@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 89013e3b6ec9a0a6112e8b7fdcde4870be331d79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282314"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -25,6 +25,15 @@ Resten av den här artikeln innehåller exempel på hur du använder dessa åtg�
 ## <a name="query-syntax"></a>Frågesyntax
 
 Det här avsnittet innehåller exempel frågor som illustrerar frågans språk struktur och utför möjliga frågor på [digitala dubbla](concepts-twins-graph.md).
+
+### <a name="show-all-existing-digital-twins"></a>Visa alla befintliga digitala dubbla
+
+Här är den grundläggande fråga som returnerar en lista över alla digitala enheter i instansen:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
 
 ### <a name="select-top-items"></a>Markera de översta objekten
 
@@ -169,7 +178,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 Du kan **kombinera** någon av ovanstående typer av fråga med hjälp av kombinations operatorer för att inkludera mer information i en enskild fråga. Här följer några ytterligare exempel på sammansatta frågor som frågar efter fler än en typ av dubbel beskrivare på en gång.
 
-| Beskrivning | Söka i data |
+| Description | Söka i data |
 | --- | --- |
 | Från de enheter som *Room 123* har kan du returnera de MxChip-enheter som hanterar rollen operatör | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Hämta dubbla som har en relation som heter *innehåller* med en annan som har ID: t *id1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
@@ -208,8 +217,8 @@ Följande sträng funktioner stöds:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| STARTS_WITH (x, y) | Returnerar ett booleskt värde som anger om det första sträng uttrycket börjar med det andra. |
-| ENDS_WITH (x, y) | Returnerar ett booleskt värde som anger om det första sträng uttrycket slutar med det andra. |
+| STARTSWITH (x, y) | Returnerar ett booleskt värde som anger om det första sträng uttrycket börjar med det andra. |
+| ENDSWITH (x, y) | Returnerar ett booleskt värde som anger om det första sträng uttrycket slutar med det andra. |
 
 ## <a name="run-queries-with-an-api-call"></a>Köra frågor med ett API-anrop
 

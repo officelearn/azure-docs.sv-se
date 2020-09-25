@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089453"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311384"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
 
@@ -41,7 +41,7 @@ Uttryck visas som JSON-matriser. Det första elementet i ett uttryck i matrisen 
 
 Azure Maps Web SDK stöder många typer av uttryck. Uttryck kan användas på egen hand eller i kombination med andra uttryck.
 
-| Typ av uttryck | Beskrivning |
+| Typ av uttryck | Description |
 |---------------------|-------------|
 | [Mängd uttryck](#aggregate-expression) | Ett uttryck som definierar en beräkning som bearbetas över en uppsättning data och som kan användas med `clusterProperties` alternativet i en `DataSource` . |
 | [Booleska uttryck](#boolean-expressions) | Booleska uttryck tillhandahåller en uppsättning booleska operator uttryck för att utvärdera booleska jämförelser. |
@@ -86,7 +86,7 @@ I alla exempel i det här dokumentet används följande funktion för att demons
 
 Data uttryck ger till gång till egenskaps data i en funktion. 
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Returtyp | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | objekt | Hämtar ett objekt från en matris. |
 | `['geometry-type']` | sträng | Hämtar funktionens geometri typ: punkt, MultiPoint, lin Est ring, MultiLineString, polygon, multipolygon. |
@@ -98,6 +98,8 @@ Data uttryck ger till gång till egenskaps data i en funktion.
 | `['length', string | array]` | nummer | Hämtar längden för en sträng eller en matris. |
 | `['in', boolean | string | number, array]` | boolean | Anger om ett objekt finns i en matris |
 | `['in', substring, string]` | boolean | Anger om en under sträng finns i en sträng |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | nummer | Returnerar den första positionen vid vilken ett objekt kan hittas i en matris eller en under sträng kan hittas i en sträng, eller `-1` om det inte går att hitta indatatypen. Accepterar ett valfritt index varifrån sökningen ska påbörjas. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|matris | Returnerar ett objekt från en matris eller en under sträng från en sträng från ett angivet start index eller mellan ett start index och ett slut index om det har angetts. Returvärdet är inkluderat i Start indexet, men inte slut indexet. |
 
 **Exempel**
 
@@ -151,8 +153,11 @@ Här följer några ytterligare exempel på hur du använder data uttryck:
 //Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
 ['at', 1, ['at', 0, ['get', 'array2d']]]
 
-//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+//Check to see if a value is in an array "properties.abcArray.indexOf('a') !== -1" = true
 ['in', 'a', ['get', 'abcArray']]
+
+//Gets the index of the value 'b' in an array "properties.abcArray.indexOf('b')" = 1
+['index-of', 'b', ['get', 'abcArray']]
 
 //Get the length of an array "properties.abcArray.length" = 3
 ['length', ['get', 'abcArray']]
@@ -162,13 +167,19 @@ Här följer några ytterligare exempel på hur du använder data uttryck:
 
 //Check that "fillColor" exists as a subproperty of "_style".
 ['has', 'fillColor', ['get', '_style']]
+
+//Slice an array starting at index 2 "properties.abcArray.slice(2)" = ['c']
+['slice', ['get', 'abcArray'], 2]
+
+//Slice a string from index 0 to index 4 "properties.entityType.slice(0, 4)" = 'rest'
+['slice', ['get', 'entityType'], 0, 4]
 ```
 
 ## <a name="math-expressions"></a>Matematiska uttryck
 
 Matematiska uttryck tillhandahåller matematiska operatorer för att utföra data drivna beräkningar i uttrycks ramverket.
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Returtyp | Description |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | nummer | Beräknar summan av de angivna talen. |
 | `['-', number]` | nummer | Subtraherar 0 efter det angivna talet. |
@@ -223,10 +234,10 @@ Booleska uttryck tillhandahåller en uppsättning booleska operator uttryck för
 
 När värden jämförs skrivs jämförelsen strikt. Värden av olika typer betraktas alltid som likvärdiga. De fall där typerna är kända för olika tidpunkter för parsar betraktas som ogiltiga och genererar ett parsningsfel. 
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Returtyp | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Logisk negation. Returnerar `true` Om indatatypen är `false` och `false` Om indatatypen är `true` . |
-| `['!= ', value, value]` | boolean | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
+| `['!', boolean]` | boolean | Logisk negation. Returnerar `true` Om indatatypen är `false` och `false` Om indatatypen är `true` . |
+| `['!=', value, value]` | boolean | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
 | `['<', value, value]` | boolean | Returnerar `true` om den första indatamängden är strikt mindre än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
 | `['<=', value, value]` | boolean | Returnerar `true` om den första indatamängden är mindre än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
 | `['==', value, value]` | boolean | Returnerar `true` Om indatavärdena är identiska, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
@@ -426,7 +437,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, t. ex. strängar, siffror och booleska värden.
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Returtyp | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | mat ris \| objekt | Returnerar en literal matris eller ett objekt värde. Använd det här uttrycket för att förhindra att en matris eller ett objekt utvärderas som ett uttryck. Detta är nödvändigt när en matris eller ett objekt måste returneras av ett uttryck. |
 | `['image', string]` | sträng | Kontrollerar om ett angivet bild-ID läses in i Maps-avbildningen Sprite. Om så är fallet returneras ID, annars returneras null. |
@@ -462,7 +473,7 @@ Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, 
 
 Färg uttryck gör det enklare att skapa och ändra färg värden.
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Returtyp | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | color | Skapar ett färg värde från *röda*, *gröna*och *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent i `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
 | `['rgba', number, number, number, number]` | color | Skapar ett färg värde från *röda*, *gröna*, *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent inom ett intervall av `0` och `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
@@ -888,7 +899,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 Variabel bindnings uttryck lagrar resultatet av en beräkning i en variabel. Så att beräknings resultaten kan refereras till någon annan stans i ett uttryck flera gånger. Det är en bra optimering för uttryck som omfattar många beräkningar.
 
-| Uttryck | Returtyp | Beskrivning |
+| Uttryck | Returtyp | Description |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Let",<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler som används av `var` uttrycket i det underordnade uttrycket som returnerar resultatet. |
 | `['var', name: string]` | valfri | Refererar till en variabel som skapats med `let` uttrycket. |

@@ -3,12 +3,12 @@ title: Visa och använda en virtuell dators Azure Resource Manager mall
 description: Lär dig hur du använder Azure Resource Manager-mallen från en virtuell dator för att skapa andra virtuella datorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282518"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Skapa virtuella datorer med hjälp av en Azure Resource Manager mall 
 
@@ -23,7 +23,7 @@ Det finns två sätt att skapa virtuella datorer i DevTest Labs med en Resource 
 
 - Resource Manager-mallar som använder en Microsoft. DevTestLab/Labs/virtualmachines-resurs typ (enligt vad som anges i egenskapen "resurs" i mallen) kan etablera enskilda virtuella labb datorer. Varje virtuell dator visas sedan som ett enskilt objekt i DevTest Labs Virtual Machines List:
 
-   ![Lista över virtuella datorer som enskilda objekt i DevTest Labs Virtual Machines List](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![Skärm bild som visar en lista över virtuella datorer som enskilda objekt i DevTest Labs Virtual Machines-listan.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
    Den här typen av Resource Manager-mall kan tillhandahållas via Azure PowerShell kommandot **New-AzResourceGroupDeployment** eller via Azure CLI-kommandot **AZ Group Deployment Create**. Det krävs administratörs behörighet, så användare som har tilldelats en användar roll för DevTest Labs kan inte utföra distributionen. 
 
@@ -40,7 +40,7 @@ I resten av den här artikeln beskrivs Resource Manager-mallar som använder Mic
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visa och spara en virtuell dators Resource Manager-mall
 1. Följ stegen i [skapa din första virtuella dator i ett labb](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) för att börja skapa en virtuell dator.
 1. Ange den information som krävs för den virtuella datorn och Lägg till eventuella artefakter som du vill använda för den här virtuella datorn.
-1. Swtich till fliken **Avancerade inställningar** . 
+1. Växla till fliken **Avancerade inställningar** . 
 1. Längst ned i fönstret Konfigurera inställningar väljer du **Visa arm-mall**.
 1. Kopiera och spara Resource Manager-mallen och Använd den senare för att skapa en annan virtuell dator.
 

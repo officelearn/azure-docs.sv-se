@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282382"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -166,7 +166,7 @@ Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync(
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern
-* Andra egenskaper i ett `$metadata` avsnitt. Dessa omfattar:
+* Andra egenskaper i ett `$metadata` avsnitt. Exempel:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
@@ -383,6 +383,17 @@ Ett exempel på hur du tar bort alla dubbla på en gång finns i den exempel app
 Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## <a name="view-all-digital-twins"></a>Visa alla digitala dubbla
+
+Om du vill visa alla digitala dubbla i din instans använder du en [fråga](how-to-query-graph.md). Du kan köra en fråga med [fråge-API: erna](how-to-use-apis-sdks.md) eller [CLI-kommandona](how-to-use-cli.md).
+
+Här är bröd texten i den grundläggande frågan som returnerar en lista över alla digitala, dubbla, i instansen:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,12 +3,12 @@ title: Skapa ett schema för klass rums labb i Azure Lab Services | Microsoft Do
 description: Lär dig hur du skapar scheman för klass rums labb i Azure Lab Services så att virtuella datorer i labbet startar och stängs ned vid en viss tidpunkt.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445788"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326447"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klass rums labb i Azure Lab Services 
 Med scheman kan du konfigurera ett klass rums labb så att virtuella datorer i labbet startar och stängs av automatiskt vid en viss tidpunkt. Du kan definiera ett eng ång slö schema eller ett återkommande schema. Följande procedurer ger dig anvisningar om hur du skapar och hanterar scheman för ett klass rums labb: 
@@ -27,7 +27,7 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
 
 1. Växla till sidan **scheman** och välj **Lägg till schemalagd händelse** i verktygsfältet. 
 
-    ![Knappen Lägg till schema på sidan scheman](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Skärm bild som visar sidan för Azure Lab Services "schema" med knappen Lägg till schema markerat.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Bekräfta att **standard** är valt **händelse typ**. Du väljer **Start bara** för att ange start tiden för de virtuella datorerna. Du väljer **stoppa endast** om du bara vill ange stopp tiden för de virtuella datorerna. 
 7. I avsnittet **Upprepa** väljer du det aktuella schemat. 
 

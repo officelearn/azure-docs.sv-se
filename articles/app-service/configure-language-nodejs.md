@@ -1,17 +1,17 @@
 ---
 title: Konfigurera Node.js appar
-description: Lär dig hur du konfigurerar en Node.js-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
-ms.custom: devx-track-javascript
+description: Lär dig hur du konfigurerar en Node.js-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. I artikeln visas de vanligaste konfigurationsåtgärderna.
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311843"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurera en Node.js app för Azure App Service
 
@@ -98,9 +98,9 @@ Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatis
 1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
 
 > [!NOTE]
-> Som beskrivs i [NPM-dokument](https://docs.npmjs.com/misc/scripts), skript som heter `prebuild` och `postbuild` körs före och efter `build` , om de anges. `preinstall`och `postinstall` Kör före respektive efter `install` .
+> Som beskrivs i [NPM-dokument](https://docs.npmjs.com/misc/scripts), skript som heter `prebuild` och `postbuild` körs före och efter `build` , om de anges. `preinstall` och `postinstall` Kör före respektive efter `install` .
 
-`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
 
 I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
 
@@ -131,7 +131,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Kör NPM-start
 
-För att starta din app med `npm start` , se bara till att `start` det finns ett skript i *package.jspå* filen. Till exempel:
+För att starta din app med `npm start` , se bara till att `start` det finns ett skript i *package.jspå* filen. Exempel:
 
 ```json
 {
@@ -179,7 +179,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Du kan felsöka Node.js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av * .config.js, *. yml eller *. yaml*.
 
-I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process.jspå* fil (standard eller anpassad), måste den ha en `script` egenskap i JSON-roten. Till exempel:
+I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process.jspå* fil (standard eller anpassad), måste den ha en `script` egenskap i JSON-roten. Exempel:
 
 ```json
 {
@@ -199,7 +199,7 @@ När du är färdig med fel sökningen stoppar du fel sökningen genom att välj
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [Ange inställningar för appar](configure-common.md) utanför appens kod. Sedan kan du komma åt dem med standard Node.jss mönstret. Om du till exempel vill få åtkomst till en appinställning med namnet `NODE_ENV` använder du följande kod:
+I App Service kan du [ange appinställningar](configure-common.md) utanför din appkod. Sedan kan du komma åt dem med standard Node.jss mönstret. Om du till exempel vill få åtkomst till en appinställning med namnet `NODE_ENV` använder du följande kod:
 
 ```javascript
 process.env.NODE_ENV
@@ -209,7 +209,7 @@ process.env.NODE_ENV
 
 App Service Bygg automatisering körs som standard `npm install --production` när den identifierar en Node.js-app distribueras via git eller zip-distribution med funktionen för att bygga automatisering aktive rad. Om din app kräver något av de populära automatiserings verktygen, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) för att köra det.
 
-Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Till exempel:
+Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Exempel:
 
 ```json
 "dependencies": {
@@ -288,7 +288,7 @@ fi
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
-Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Till exempel:
+Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Exempel:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -317,7 +317,7 @@ if (req.secure) {
 Prova följande när en fungerande Node.js-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör dina Node.js appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Till exempel:
+- Testa appen lokalt i produktions läge. App Service kör dina Node.js appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
     - Beroende på din *package.js*kan olika paket installeras i produktions läge ( `dependencies` vs. `devDependencies` ).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.
@@ -337,7 +337,7 @@ Prova följande när en fungerande Node.js-app fungerar annorlunda i App Service
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Vanliga frågor och svar om App Service Linux](faq-app-service-linux.md)
+> [Vanliga frågor och svar om App Service på Linux](faq-app-service-linux.md)
 
 ::: zone-end
 

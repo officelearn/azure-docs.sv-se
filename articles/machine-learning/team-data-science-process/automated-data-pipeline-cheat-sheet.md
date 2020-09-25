@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f60b62faa36352ab1221b23332fca695f32a3d74
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250648"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Facit för en automatiserad datapipeline för Azure Machine Learning-förutsägelser
 **Lathund-bladet för automatisk datapipeline i Microsoft Azure Machine Learning** hjälper dig att navigera genom den teknik som du kan använda för att hämta dina data till din Machine Learning-webbtjänst där den kan visas av modellen för förutsägelse analys.
@@ -35,7 +35,6 @@ Hämta lathund-bladet här: ** [Microsoft Azure Machine Learning automatisk data
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Mer hjälp med Machine Learning Studio
-* En översikt över Microsoft Azure Machine Learning finns i [Introduktion till Machine Learning på Microsoft Azure](../studio/what-is-machine-learning.md).
-* En förklaring av hur du distribuerar en bedömnings webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
-* En beskrivning av hur du använder en bedömnings webb tjänst finns i [så här använder du en Azure Machine Learning-webbtjänst](../studio/consume-web-services.md).
-
+* En översikt över Microsoft Azure Machine Learning finns i [Introduktion till Machine Learning på Microsoft Azure](../classic/index.yml).
+* En förklaring av hur du distribuerar en bedömnings webb tjänst finns i [distribuera en Azure Machine Learning-webbtjänst](../classic/deploy-a-machine-learning-web-service.md).
+* En beskrivning av hur du använder en bedömnings webb tjänst finns i [så här använder du en Azure Machine Learning-webbtjänst](../classic/consume-web-services.md).

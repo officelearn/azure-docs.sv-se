@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: e500f678d2066d24de12a04f28ccbdb3f76eda3a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326787"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för en SQL-databas med hjälp av Azure Logic Apps
 
@@ -71,15 +71,15 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
 1. För **Autentiseringstyp**väljer du den autentisering som krävs och är aktive rad på databasen i Azure SQL Database eller Azure SQL-hanterad instans:
 
-   | Autentisering | Beskrivning |
+   | Autentisering | Description |
    |----------------|-------------|
    | [**Azure AD-integrerad**](../azure-sql/database/authentication-aad-overview.md) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver en giltig identitet i Azure Active Directory (Azure AD) som har åtkomst till din databas. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL – integrerad Azure AD-autentisering](../azure-sql/database/authentication-aad-overview.md) |
-   | [**SQL Server-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i databasen. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**SQL Server autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i databasen. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Det här exemplet fortsätter med **Azure AD Integrated**:
 
-   ![Välj autentiseringstyp som ska användas](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+   ![Skärm bild som visar anslutnings fönstret "SQL Server" med den öppnade "autentiseringstypen"-listan och "Azure AD Integrated" vald.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
 1. När du har valt **Azure AD Integrated**väljer du **Logga**in. Välj dina användarautentiseringsuppgifter för autentisering baserat på om du använder Azure SQL Database eller Azure SQL-hanterad instans.
 
@@ -87,9 +87,9 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Servernamn** | Ja | Adressen till din SQL-Server, till exempel`Fabrikam-Azure-SQL.database.windows.net` |
-   | **Databasnamn** | Ja | Namnet på din SQL-databas, till exempel`Fabrikam-Azure-SQL-DB` |
-   | **Tabell namn** | Ja | Den tabell som du vill använda, till exempel`SalesLT.Customer` |
+   | **Servernamn** | Yes | Adressen till din SQL-Server, till exempel `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Databasnamn** | Yes | Namnet på din SQL-databas, till exempel `Fabrikam-Azure-SQL-DB` |
+   | **Tabell namn** | Yes | Den tabell som du vill använda, till exempel `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -115,10 +115,10 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
 1. För **Autentiseringstyp**väljer du den autentisering som krävs och är aktive rad på SQL Server:
 
-   | Autentisering | Beskrivning |
+   | Autentisering | Description |
    |----------------|-------------|
    | [**Windows-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Stöder endast non-ISE SQL Server-anslutningen, som kräver en data gateway-resurs som tidigare har skapats i Azure för anslutningen, oavsett om du använder Azure med flera innehavare eller en ISE. <p><p>-Kräver ett giltigt Windows-användarnamn och-lösen ord för att bekräfta din identitet via ditt Windows-konto. <p>Mer information finns i [Windows-autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**SQL Server-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i SQL Server. <p>Mer information finns i [SQL Server autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**SQL Server autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i SQL Server. <p>Mer information finns i [SQL Server autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Det här exemplet fortsätter med **Windows-autentisering**:
@@ -129,10 +129,10 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **SQL Server-namn** | Ja | Adressen till din SQL-Server, till exempel`Fabrikam-Azure-SQL.database.windows.net` |
-   | **SQL-databasens namn** | Ja | Namnet på SQL Server databasen, till exempel`Fabrikam-Azure-SQL-DB` |
-   | **Användarnamn** | Ja | Ditt användar namn för SQL Server och databasen |
-   | **Lösenord** | Ja | Ditt lösen ord för SQL Server och databasen |
+   | **SQL Server-namn** | Yes | Adressen till din SQL-Server, till exempel `Fabrikam-Azure-SQL.database.windows.net` |
+   | **SQL-databasens namn** | Yes | Namnet på SQL Server databasen, till exempel `Fabrikam-Azure-SQL-DB` |
+   | **Användarnamn** | Yes | Ditt användar namn för SQL Server och databasen |
+   | **Lösenord** | Yes | Ditt lösen ord för SQL Server och databasen |
    | **Prenumeration** |  Ja, för Windows-autentisering | Azure-prenumerationen för den data gateway-resurs som du tidigare skapade i Azure |
    | **Gateway för anslutning** | Ja, för Windows-autentisering | Namnet på den data gateway-resurs som du tidigare skapade i Azure <p><p>**Tips**: om din Gateway inte visas i listan kontrollerar du att du har konfigurerat [din gateway](../logic-apps/logic-apps-gateway-connection.md)korrekt. |
    |||

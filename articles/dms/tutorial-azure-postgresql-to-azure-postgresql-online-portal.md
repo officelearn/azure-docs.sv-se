@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 6a5415e12a5a063790077eeefdc9ea4d1487d68b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 713b1698bff703507f46e1a8f76c6be385f41ec5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282481"
 ---
 # <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server-or-hyperscale-citus-online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL-enskild server eller citus () online med DMS via Azure Portal
 

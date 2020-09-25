@@ -4,17 +4,17 @@ description: Lär dig hur du lägger till kartnålar, etiketter och geometriska 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/23/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d5dcc2701a0b77509868471ec97c45917b2ccf42
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311027"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
@@ -148,7 +148,7 @@ Du kan också hämta plats informationen för sökvägen och PIN-koden genom att
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Öppna en ny flik i Postman-appen för att hämta udId. Välj Hämta HTTP-metod på fliken Builder. gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId.
+6. Öppna en ny flik i Postman-appen för att hämta udId. Välj Hämta HTTP-metod på fliken Builder. Gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId.
 
    ```JSON
    {

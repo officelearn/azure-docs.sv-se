@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: 75c5b8fa8542de2bb3d7bed438d6025303f75cb0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: c3f0b7c262fc774e43f2f63ebf09a1a08beea686
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262679"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java Script
 
@@ -39,7 +39,7 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet på `value` attributet för `inputImage` kontrollen med URL: en till en annan bild som du vill extrahera text från.
-1. Spara koden som en fil med tillägget `.html`. Exempelvis `get-text.html`.
+1. Spara koden som en fil med tillägget `.html`. Till exempel `get-text.html`.
 1. Öppna ett webbläsarfönster.
 1. När webb sidan visas i webbläsaren fyller du i de nödvändiga parametrarna och klickar på knappen **Läs avbildning** .
 

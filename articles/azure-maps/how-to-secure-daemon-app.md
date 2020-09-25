@@ -5,16 +5,16 @@ description: Använd Azure Portal för att hantera autentisering för att konfig
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006646"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311078"
 ---
 # <a name="secure-a-daemon-application"></a>Skydda ett daemon-program
 
@@ -120,14 +120,14 @@ Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldel
     > ![Bevilja åtkomst med Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. **Lägg till** en roll tilldelning på fliken **roll tilldelningar** . 
-    
+
     > [!div class="mx-imgBorder"]
     > ![Lägg till rolltilldelning](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Välj en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare**. Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn** eller hanterad identitet med användaren tilldelad hanterad identitet **hanterad**identitet  /  **System assigned Managed identity**. Välj huvud konto. Välj sedan **Spara**.
 
     > [!div class="mx-imgBorder"]
-    > ![Lägg till rolltilldelning](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![Så här lägger du till roll tilldelning](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. Du kan bekräfta att roll tilldelningen har tillämpats på fliken roll tilldelning.
 
@@ -139,7 +139,7 @@ När en hanterad identitet har kon figurer ATS för värd resursen använder du 
 
 När du har registrerat din app och associerar den med Azure Maps kan du begära åtkomst-token.
 
-* Resurs-ID för Azure AD`https://atlas.microsoft.com/`
+* Resurs-ID för Azure AD `https://atlas.microsoft.com/`
 * Azure AD App-ID
 * Azure AD-klient-ID
 * Azure AD App klient hemlighet för registrering

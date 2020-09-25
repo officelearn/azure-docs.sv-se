@@ -4,22 +4,22 @@ description: Lär dig hur du använder Azure Portal för att hantera ett Azure M
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5717e48683234e55638393d232d931bc50cb59b1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c618e8193bed1f35cbbe884d5725c4ecfb25dd75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311129"
 ---
 # <a name="manage-your-azure-maps-account"></a>Hantera ditt Azure Maps konto
 
 Du kan hantera ditt Azure Maps-konto via Azure Portal. När du har ett konto kan du implementera API: erna på din webbplats eller i ett mobil program.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-new-account"></a>Skapa ett nytt konto
 

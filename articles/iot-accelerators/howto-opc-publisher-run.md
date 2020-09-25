@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a4b65195488f101d36aaf73956f1422bfccbbf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282144"
 ---
 # <a name="run-opc-publisher"></a>Köra OPC Publisher
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Den här artikeln beskriver hur du kör AD debug OPC Publisher. Den behandlar också prestanda-och minnes överväganden.
 
@@ -375,7 +378,7 @@ Om du vill lägga till OPC-utgivare som modul till din IoT Edge-distribution gå
 1. Välj **Ange moduler**.
 1. Välj **Lägg till** under **distributions moduler** och sedan **IoT Edge modul**.
 1. I fältet **namn** anger du **utgivare**.
-1. I fältet **bild-URI** anger du`mcr.microsoft.com/iotedge/opc-publisher:<tag>`
+1. I fältet **bild-URI** anger du `mcr.microsoft.com/iotedge/opc-publisher:<tag>`
 1. Du kan hitta tillgängliga taggar på [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher)
 1. Klistra in följande JSON i fältet **skapa alternativ för container** :
 
@@ -519,7 +522,7 @@ Körnings miljön påverkar hur certifikat sparas. Undvik att skapa nya certifik
 
 - Som körs internt i Windows kan du inte använda ett program certifikat Arkiv av typen `Directory` eftersom åtkomsten till den privata nyckeln Miss lyckas. I det här fallet använder du alternativet `--at X509Store` .
 - Kör som Linux Docker-behållare, du kan mappa certifikat arkiven till värd fil systemet med alternativet Docker-körning `-v <hostdirectory>:/appdata` . Det här alternativet gör att certifikatet beständigt mellan program körs.
-- Körs som Linux Docker-behållare och du vill använda ett X509-Arkiv för program certifikatet använder du alternativet Docker-körning `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` och alternativet program`--at X509Store`
+- Körs som Linux Docker-behållare och du vill använda ett X509-Arkiv för program certifikatet använder du alternativet Docker-körning `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` och alternativet program `--at X509Store`
 
 ## <a name="performance-and-memory-considerations"></a>Överväganden för prestanda och minne
 
@@ -531,9 +534,9 @@ När du kör OPC-Utgivare måste du vara medveten om dina prestanda krav och de 
 
 Minnes-och prestanda är beroende av varandra och båda beror på konfigurationen av hur många noder som du konfigurerar att publicera. Se till att följande parametrar uppfyller dina krav:
 
-- IoT Hub skickar intervall:`--si`
-- IoT Hub meddelande storlek (standard `1` ):`--ms`
-- Kapacitet för övervakade objekt i kö:`--mq`
+- IoT Hub skickar intervall: `--si`
+- IoT Hub meddelande storlek (standard `1` ): `--ms`
+- Kapacitet för övervakade objekt i kö: `--mq`
 
 `--mq`Parametern styr den övre kanten av kapaciteten för den interna kön, som buffrar alla OPC ändrings meddelanden för Node-noder. Om OPC Publisher inte kan skicka meddelanden till IoT Hub tillräckligt snabbt så buffrar den här kön aviseringarna. Parametern anger antalet meddelanden som kan buffras. Om du ser hur många objekt i den här kön som ökar i test körningarna, så att du undviker att förlora meddelanden:
 

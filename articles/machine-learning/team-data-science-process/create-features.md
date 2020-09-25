@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836829"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250665"
 ---
 # <a name="feature-engineering-in-data-science"></a>Funktions teknik i data vetenskap
 
-I den här artikeln får du lära dig mer om funktions teknik och dess roll i att förbättra data i Machine Learning. Lär dig mer om exempel som ritats från [Azure Machine Learning Studio (klassiska)](../studio/what-is-ml-studio.md) experiment. 
+I den här artikeln får du lära dig mer om funktions teknik och dess roll i att förbättra data i Machine Learning. Lär dig mer om exempel som ritats från [Azure Machine Learning Studio (klassiska)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) experiment. 
 
 * **Funktions teknik**: processen för att skapa nya funktioner från rå data för att öka den förutsägande kraften hos inlärnings algoritmen. De funktioner som är tillverkade bör fånga ytterligare information som inte är lätt att hitta i den ursprungliga funktions uppsättningen.
 * **Val av funktion**: processen att välja en nyckel del uppsättning av funktioner för att minska inlärnings problemets dimensionalitet.
@@ -74,7 +74,7 @@ En jämförelse av prestanda resultatet för de fyra modellerna sammanfattas i f
 
 De bästa resultaten visas av funktionerna A + B + C. Fel frekvensen minskar när ytterligare funktions uppsättning ingår i tränings data. Den verifierar att funktionen uppsättning B, C ger ytterligare relevant information för Regressions uppgiften. Men om du lägger till D-funktionen verkar det inte ge någon ytterligare minskning av fel frekvensen.
 
-## <a name="example-2-create-features-for-text-mining"></a><a name="example2"></a>Exempel 2: skapa funktioner för text utvinning
+## <a name="example-2-create-features-for-text-mining"></a><a name="example2"></a> Exempel 2: skapa funktioner för text utvinning
 
 Funktions teknik används ofta i uppgifter som rör text utvinning, till exempel dokument klassificering och sentiment analys. Eftersom enskilda delar av RAW-text vanligt vis fungerar som indata, krävs funktions teknik processen för att skapa funktioner som rör frekvenser för ord/fraser.
 

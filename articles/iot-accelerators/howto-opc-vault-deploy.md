@@ -8,21 +8,24 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282031"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Bygga och distribuera certifikat hanterings tjänsten för OPC Vault
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Den här artikeln förklarar hur du distribuerar OPC-valvet för certifikat hantering i Azure.
 
 > [!NOTE]
 > Mer information finns i GitHub [OPC Vault-lagringsplatsen](https://github.com/Azure/azure-iiot-opc-vault-service).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-required-software"></a>Installera nödvändig program vara
 
@@ -75,9 +78,9 @@ Ett PowerShell-skript är ett enkelt sätt att distribuera OPC Vault mikrotjäns
    > [!NOTE]
    > I händelse av problem kan du läsa avsnittet "Felsöka distributions fel" senare i artikeln.
 
-8. Öppna din favorit webbläsare och öppna program sidan:`https://myResourceGroup.azurewebsites.net`
+8. Öppna din favorit webbläsare och öppna program sidan: `https://myResourceGroup.azurewebsites.net`
 8. Ge webbappen och OPC-valvet en mikrotjänst några minuter att värma upp efter distributionen. Webb start sidan kan sluta svara vid första användningen, i upp till en minut tills du får de första svaren.
-11. Ta en titt på Swagger-API: et genom att öppna:`https://myResourceGroup-service.azurewebsites.net`
+11. Ta en titt på Swagger-API: et genom att öppna: `https://myResourceGroup-service.azurewebsites.net`
 13. Starta en lokal GDS-server med dotNet genom att starta `.\myResourceGroup-gds.cmd` . Starta med Docker `.\myResourceGroup-dockergds.cmd` .
 
 Det går att distribuera om en version med exakt samma inställningar. Tänk på att en sådan åtgärd förnyar alla program hemligheter och kan återställa vissa inställningar i program registreringarna i Azure Active Directory (Azure AD).
@@ -88,7 +91,7 @@ När distributionen är klar kan du börja använda tjänsterna. Se [Hantera cer
 
 ## <a name="delete-the-services-from-the-subscription"></a>Ta bort tjänsterna från prenumerationen
 
-Gör så här:
+Så här gör du:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Gå till resurs gruppen där tjänsten distribuerades.

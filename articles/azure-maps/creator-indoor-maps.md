@@ -1,6 +1,6 @@
 ---
 title: Arbeta med inomhus Maps i Azure Maps Creator
-description: Den här artikeln beskriver begrepp som gäller för Azure Maps Creator-tjänster.
+description: Den här artikeln beskriver begrepp som gäller för Azure Maps Creator Services
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 05/18/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d55a0726000a6ed55f049ac4a4146f66421a7085
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ad1b7ae08e74f455190c44a813dde44b0b683014
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311367"
 ---
 # <a name="creator-for-indoor-maps"></a>Skapare för inomhus Maps
 
@@ -49,7 +49,7 @@ Använd data uppsättnings tjänsten för att skapa en data uppsättning från e
 Använd TILESET-tjänsten för att skapa en vektorbaserad representation av en data uppsättning. Program kan använda en TILESET för att presentera en visuell panel baserad vy av data uppsättningen.
 * [Funktions tillstånds tjänst](https://docs.microsoft.com/rest/api/maps/featurestate). Använd funktions tillstånds tjänsten för att stödja dynamisk Map-formatering. Med dynamisk kart stil kan program avspegla real tids händelser på utrymmen i IoT-systemet.
 
-### <a name="datasets"></a>Datamängder
+### <a name="datasets"></a>Datauppsättningar
 
 En data uppsättning är en samling funktioner i insamlings kartor. Funktionerna i den inställda kartan representerar anläggningar som definierats i ett konverterat ritnings paket. När du har skapat en data uppsättning med [data uppsättnings tjänsten](https://docs.microsoft.com/rest/api/maps/dataset/createpreview)kan du skapa valfritt antal [tilesets](#tilesets) -eller [funktions statesets](#feature-statesets).
 
@@ -65,7 +65,7 @@ Förutom vektor data tillhandahåller TILESET metadata för optimering av kart r
 
 När en TILESET har skapats kan den hämtas av [rendera v2-tjänsten](#render-v2-service).
 
-Om en TILESET blir inaktuell och inte längre är användbar kan du ta bort TILESET. Mer information om hur du tar bort tilesets finns i [data underhåll](#data-maintenance).
+Om en TILESET blir inaktuell och inte längre är användbar kan du ta bort TILESET. Mer information om hur du tar bort tilesets finns i  [data underhåll](#data-maintenance).
 
 >[!NOTE]
 >En TILESET är oberoende av den data uppsättning som den skapades från. Om du skapar tilesets från en data uppsättning och sedan uppdaterar den data uppsättningen kommer tilesets inte att uppdateras. För att avspegla ändringar i en data uppsättning måste du skapa nya tilesets. Om du tar bort en TILESET påverkas däremot inte data uppsättningen.

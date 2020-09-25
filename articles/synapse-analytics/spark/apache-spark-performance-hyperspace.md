@@ -10,33 +10,35 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f25aae64e117452cd689b68c5478e7431d1a21bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249373"
 ---
-# <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Hyperspace – ett indexerings under system för Apache Spark
+# <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hyperspace: ett indexerings under system för Apache Spark
 
-Hyperspace introducerar möjligheten för Apache Spark användare att skapa index för sina data uppsättningar (till exempel CSV, JSON, Parquet osv.) och utnyttja dem för potentiell fråga och arbets belastnings acceleration.
+Hyperspace introducerar möjligheten för Apache Spark användare att skapa index för sina data uppsättningar, till exempel CSV, JSON och Parquet, och använda dem för potentiell fråga och arbets belastnings acceleration.
 
-I den här artikeln har vi markerat grunderna för hyperspace, vilket betonar att det är enkelt och visar hur det kan användas av alla.
+I den här artikeln fokuserar vi på grunderna för hyperspace, betonar dess enkelhet och visar hur det kan användas av alla.
 
-Fri skrivning: hyperspace hjälper dig att påskynda dina arbets belastningar/frågor under två omständigheter:
+Fri skrivning: hyperspace hjälper dig att påskynda dina arbets belastningar eller frågor under två omständigheter:
 
-* Frågor innehåller filter på predikat med hög selektivitet (du kan till exempel välja 100 som matchar rader från en miljon Candidate rader)
-* Frågor innehåller en koppling som kräver tung-blandad (till exempel att du vill ansluta till en 100 GB-datauppsättning med en 10 GB-datauppsättning)
+* Frågor innehåller filter för predikat med hög selektivitet. Du kanske till exempel vill välja 100 som matchar rader från en miljon Candidate-rader.
+* Frågor innehåller en koppling som kräver tunga blandningar. Till exempel kanske du vill ansluta till en 100 GB-datauppsättning med en 10 GB-datauppsättning.
 
 Du kanske vill övervaka dina arbets belastningar noga och avgöra om indexeringen hjälper dig att få hjälp av varje fall.
 
-Det här dokumentet är också tillgängligt i anteckningsbok-formulär för [python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), för [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) och [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
+Det här dokumentet är också tillgängligt i anteckningsbok-formulär för [python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)och [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
 
 ## <a name="setup"></a>Installation
 
-Börja med genom att starta en ny Spark-session. Eftersom det här dokumentet är en själv studie kurs som bara illustrerar vad hyperspace kan erbjuda, gör du en konfigurations ändring som gör att vi kan markera vilka hyperspace som gör i små data uppsättningar. Som standard använder Spark sändnings koppling för att optimera kopplings frågor när data storleken för en sida av kopplingen är liten (vilket är fallet för de exempel data som vi använder i den här självstudien). Vi inaktiverar därför sändnings kopplingar så att när vi kör join-frågor använder Spark-sammanfogningen koppling. Detta är främst för att visa hur hyperspace-index används i skala för att påskynda kopplings frågor.
+Börja med genom att starta en ny Spark-session. Eftersom det här dokumentet är en själv studie kurs som bara illustrerar vad hyperspace kan erbjuda, gör du en konfigurations ändring som gör att vi kan markera vilka hyperspace som gör i små data uppsättningar. 
 
-Utdata från cellen nedan visar en referens till den skapade Spark-sessionen och skriver ut "-1" som värde för den ändrade kopplings konfigurationen, som anger att sändnings anslutning har inaktiverats.
+Som standard använder Spark sändnings koppling för att optimera kopplings frågor när data storleken för en sida av kopplingen är liten (vilket är fallet för de exempel data som vi använder i den här självstudien). Vi inaktiverar därför sändnings kopplingar så att när vi kör join-frågor använder Spark-sammanfogningen koppling. Detta är främst för att visa hur hyperspace-index används i skala för att påskynda kopplings frågor.
+
+Utdata från att köra följande cell visar en referens till den skapade Spark-sessionen och skriver ut "-1" som värde för den ändrade kopplings konfigurationen, som anger att broadcast-anslutningen har inaktiverats.
 
 :::zone pivot = "programming-language-scala"
 
@@ -44,7 +46,7 @@ Utdata från cellen nedan visar en referens till den skapade Spark-sessionen och
 // Start your Spark session
 spark
 
-// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 // Verify that BroadcastHashJoin is set correctly
@@ -57,10 +59,10 @@ println(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-python"
 
 ```python
-# Start your Spark session
+# Start your Spark session.
 spark
 
-# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently Hyperspace indexes utilize SortMergeJoin to speed up query.
+# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 # Verify that BroadcastHashJoin is set correctly 
@@ -72,10 +74,10 @@ print(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-// Disable BroadcastHashJoin, so Spark™ will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.Conf().Set("spark.sql.autoBroadcastJoinThreshold", -1);
 
-// Verify that BroadcastHashJoin is set correctly 
+// Verify that BroadcastHashJoin is set correctly.
 Console.WriteLine(spark.Conf().Get("spark.sql.autoBroadcastJoinThreshold"));
 ```
 
@@ -90,11 +92,11 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 
 ## <a name="data-preparation"></a>Förberedelse av data
 
-För att förbereda din miljö kommer du att skapa exempel data poster och spara dem som Parquet-datafiler. När Parquet används för illustration kan du använda andra format, till exempel CSV. I de efterföljande cellerna får du se hur du skapar flera hyperspace-index i den här exempel data uppsättningen och hur du kan göra Spark att använda dem när du kör frågor.
+För att förbereda din miljö skapar du exempel data poster och sparar dem som Parquet-datafiler. Parquet används för illustration, men du kan också använda andra format, till exempel CSV. I de efterföljande cellerna får du se hur du kan skapa flera hyperspace-index i den här exempel data uppsättningen och göra Spark att använda dem när du kör frågor.
 
-Exempel posterna motsvarar två data uppsättningar: avdelning och anställd. Du bör konfigurera sökvägar för "empLocation" och "deptLocation" så att de pekar på lagrings kontot som de pekar på platsen för att spara genererade datafiler.
+Exempel posterna motsvarar två data uppsättningar: avdelning och anställd. Du bör konfigurera Sök vägarna "empLocation" och "deptLocation" så att de pekar på den plats där du vill spara genererade datafiler på lagrings kontot.
 
-Utdata från cellen som körs nedan visar innehållet i våra data uppsättningar som en lista över tredubbla, följt av referenser till dataFrames som skapats för att spara innehållet i varje data uppsättning på den önskade platsen.
+Utdata från att köra följande cell visar innehållet i våra data uppsättningar som en lista över tredubbla, följt av referenser till dataFrames som skapats för att spara innehållet i varje data uppsättning på den önskade platsen.
 
 :::zone pivot = "programming-language-scala"
 
@@ -240,9 +242,9 @@ empLocation: String = /your-path/employees.parquet
 deptLocation: String = /your-path/departments.parquet  
 ```
 
-Vi ska kontrol lera innehållet i Parquet-filer som vi skapade ovan för att se till att de innehåller förväntade poster i rätt format. Vi använder dessa datafiler senare för att skapa hyperspace-index och köra exempel frågor.
+Vi ska kontrol lera innehållet i de Parquet-filer som vi har skapat för att se till att de innehåller förväntade poster i rätt format. Senare använder vi dessa data filer för att skapa hyperspace-index och köra exempel frågor.
 
-Om du kör cellen nedanför, visar utdata raderna i personal-och avdelnings dataFrames i ett tabell format. Det bör finnas 14 anställda och 4 avdelningar, som var och en överensstämmer med ett av de tre tredubbla stegen som du skapade i föregående cell.
+Genom att köra följande cell skapas och matas som visar raderna i personal-och avdelnings dataFrames i ett tabell format. Det bör finnas 14 anställda och 4 avdelningar, som var och en överensstämmer med ett av de tre tredubbla stegen som du skapade i föregående cell.
 
 :::zone pivot = "programming-language-scala"
 
@@ -262,7 +264,7 @@ deptDF.show()
 
 ```python
 
-# emp_Location and dept_Location are the user defined locations above to save parquet files
+# emp_Location and dept_Location are the user-defined locations above to save parquet files
 emp_DF = spark.read.parquet(emp_Location)
 dept_DF = spark.read.parquet(dept_Location)
 
@@ -278,7 +280,7 @@ dept_DF.show()
 
 ```csharp
 
-// empLocation and deptLocation are the user defined locations above to save parquet files
+// empLocation and deptLocation are the user-defined locations above to save parquet files
 DataFrame empDF = spark.Read().Parquet(empLocation);
 DataFrame deptDF = spark.Read().Parquet(deptLocation);
 
@@ -329,18 +331,22 @@ deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 mo
 
 ## <a name="indexes"></a>Index
 
-Med hyperspace kan du skapa index för poster som genomsökts från sparade datafiler. När en post som motsvarar indexet har skapats läggs den till i hyperspace metadata. Dessa metadata används senare av Apache Sparks optimering (med våra tillägg) under frågans bearbetning för att hitta och använda lämpliga index.
+Med hyperspace kan du skapa index för poster som genomsökts från sparade datafiler. När de har skapats läggs en post som motsvarar indexet till i hyperspace metadata. Dessa metadata används senare av Apache Sparks optimering (med våra tillägg) under frågans bearbetning för att hitta och använda lämpliga index.
 
 När index har skapats kan du utföra flera åtgärder:
 
+* **Uppdatera om underliggande data ändras.** Du kan uppdatera ett befintligt index för att avbilda ändringarna.
+* **Ta bort om indexet inte behövs.** Du kan utföra en mjuk borttagning, det vill säga indexet är inte fysiskt Borttaget, men är markerat som "borttaget" så att det inte längre används i dina arbets belastningar.
+* **Vakuum om ett index inte längre krävs.** Du kan vakuuma ett index, vilket tvingar en fysisk borttagning av index innehållet och associerade metadata helt från hyperspace metadata.
+
 Uppdatera om underliggande data ändras kan du uppdatera ett befintligt index för att avbilda det.
 Ta bort om indexet inte behövs kan du utföra en mjuk borttagning. indexet tas inte bort fysiskt utan markeras som borttaget så att det inte längre används i dina arbets belastningar.
-Vakuum om ett index inte längre behövs kan du vakuuma det, vilket tvingar en fysisk borttagning av index innehållet och associerade metadata helt från hyperspace metadata.
-Nedan visas hur sådana index hanterings åtgärder kan utföras i hyperspace.
 
-Först måste du importera de bibliotek som krävs och skapa en instans av hyperspace. Du kommer senare att använda den här instansen för att anropa olika hyperspace-API: er för att skapa index för dina exempel data och ändra dessa index.
+I följande avsnitt visas hur sådana index hanterings åtgärder kan utföras i hyperspace.
 
-Utdata från cellen som körs nedanför visar en referens till den skapade hyperspace-instansen.
+Först måste du importera de bibliotek som krävs och skapa en instans av hyperspace. Senare använder du den här instansen för att anropa olika hyperspace-API: er för att skapa index för dina exempel data och ändra dessa index.
+
+Utdata för att köra följande cell visar en referens till den skapade hyperspace-instansen.
 
 :::zone pivot = "programming-language-scala"
 
@@ -388,9 +394,10 @@ hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyper
 
 Om du vill skapa ett hyperspace-index måste du ange två delar av informationen:
 
-En spark-DataFrame som refererar till de data som ska indexeras.
-Ett index konfigurations objekt: IndexConfig, som anger index namn, indexerade och inkluderade kolumner i indexet.
-Du börjar med att skapa tre hyperspace-index för våra exempel data: två index på avdelnings data uppsättningen med namnet "deptIndex1" och "deptIndex2", och ett index för den anställdas data uppsättning med namnet "empIndex". För varje index behöver du en motsvarande IndexConfig för att avbilda namnet tillsammans med kolumn listor för de indexerade och inkluderade kolumnerna. Om du kör under cellen skapas dessa indexConfigs och dess utdata visas.
+* En spark-DataFrame som refererar till de data som ska indexeras.
+* Ett index konfigurations objekt, IndexConfig, som anger index namnet och de indexerade och inkluderade kolumnerna i indexet.
+
+Du börjar med att skapa tre hyperspace-index för våra exempel data: två index på avdelnings data uppsättningen med namnet "deptIndex1" och "deptIndex2" och ett index för den anställdas data uppsättning med namnet "empIndex". För varje index behöver du en motsvarande IndexConfig för att avbilda namnet tillsammans med kolumn listor för de indexerade och inkluderade kolumnerna. När du kör följande cell skapas dessa IndexConfigs och dess utdata visas.
 
 > [!Note]
 > En index kolumn är en kolumn som visas i dina filter eller som ansluts till villkor. En inkluderad kolumn är en kolumn som visas i ditt urval/projekt.
@@ -454,8 +461,7 @@ empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empInde
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
 ```
-
-Nu skapar du tre index med hjälp av index konfigurationerna. För det här ändamålet anropar du kommandot "createIndex" på vår hyperspace-instans. Det här kommandot kräver en index konfiguration och dataFrame som innehåller rader som ska indexeras. Om du kör cellen nedan skapas tre index.
+Nu skapar du tre index med hjälp av index konfigurationerna. För det här ändamålet anropar du kommandot "createIndex" på vår hyperspace-instans. Det här kommandot kräver en index konfiguration och dataFrame som innehåller rader som ska indexeras. Om du kör följande cell skapas tre index.
 
 :::zone pivot = "programming-language-scala"
 
@@ -505,14 +511,17 @@ import com.microsoft.hyperspace.index.Index
 
 ## <a name="list-indexes"></a>List index
 
-Koden nedan visar hur du kan visa en lista över alla tillgängliga index i en hyperspace-instans. Den använder "index" API som returnerar information om befintliga index som en spark-DataFrame så att du kan utföra ytterligare åtgärder. Du kan till exempel anropa giltiga åtgärder på den här DataFrame för att kontrol lera innehållet eller analysera det ytterligare (till exempel filtrera vissa index eller gruppera dem enligt en viss egenskap).
+Koden nedan visar hur du kan visa en lista över alla tillgängliga index i en hyperspace-instans. Den använder "index" API som returnerar information om befintliga index som en spark-DataFrame så att du kan utföra ytterligare åtgärder. 
 
-Under cellen används DataFrame ' Show '-åtgärd för att skriva ut raderna och Visa information om våra index i ett tabell format. För varje index kan du se all information som hyperspace har lagrat i metadata. Du kommer omedelbart att märka följande:
+Du kan till exempel anropa giltiga åtgärder på den här DataFrame för att kontrol lera innehållet eller analysera det ytterligare (till exempel filtrera vissa index eller gruppera dem enligt en viss egenskap).
 
-* "config. indexName", "config. indexedColumns", "config. includedColumns" och "status. status" är de fält som en användare vanligt vis refererar till.
-* "dfSignature" genereras automatiskt av hyperspace och är unikt för varje index. Hyperspace använder den här signaturen internt för att underhålla indexet och utnyttja det vid tidpunkten för frågan.
+I följande cell används DataFrame ' Show '-åtgärd för att skriva ut raderna och Visa information om våra index i ett tabell format. För varje index kan du se all information som hyperspace har lagrat i metadata. Du kommer omedelbart att märka följande:
 
-I utdata nedan ska alla tre index ha "aktiv" som status och deras namn, indexerade kolumner och inkluderade kolumner ska överensstämma med det som vi definierade i index konfigurationerna ovan.
+* config. indexName, config. indexedColumns, config. includedColumns och status. status är de fält som en användare vanligt vis refererar till.
+* dfSignature genereras automatiskt av hyperspace och är unikt för varje index. Hyperspace använder den här signaturen internt för att underhålla indexet och utnyttja det vid tidpunkten för frågan.
+
+
+I följande utdata ska alla tre index ha "aktiv" som status och deras namn, indexerade kolumner och inkluderade kolumner ska överensstämma med det som vi definierade i index konfigurationerna ovan.
 
 :::zone pivot = "programming-language-scala"
 
@@ -554,9 +563,11 @@ Resultat i:
 
 ## <a name="delete-indexes"></a>Ta bort index
 
-Du kan släppa ett befintligt index med hjälp av API: t "deleteIndex" och ange index namnet. Borttagning av index innebär en mjuk borttagning: den uppdaterar indexets status huvudsakligen i hyperspace metadata från "ACTIVE" till "DELETEd". Detta utesluter det borttagna indexet från alla framtida optimeringar av frågor och hyperspace inte längre plockar det indexet för någon fråga. Indexfiler för ett borttaget index är dock fortfarande tillgängligt (eftersom det är en mjuk borttagning), så att indexet kan återställas om användaren ber om det.
+Du kan släppa ett befintligt index med hjälp av API: t "deleteIndex" och ange index namnet. Borttagning av index innebär en mjuk borttagning: den uppdaterar indexets status huvudsakligen i hyperspace metadata från "ACTIVE" till "DELETEd". Detta utesluter det borttagna indexet från alla framtida optimeringar av frågor och hyperspace inte längre plockar det indexet för någon fråga. 
 
-Under cellen tar bort indexet med namnet "deptIndex2" och visar en lista med hyperspace metadata. Utdata bör liknas vid över-cellen för "List index", förutom "deptIndex2", som nu ska ha statusen ändrad till "BORTTAGet".
+Indexfiler för ett borttaget index är dock fortfarande tillgängligt (eftersom det är en mjuk borttagning), så att indexet kan återställas om användaren ber om det.
+
+Följande cell tar bort indexet med namnet "deptIndex2" och visar en lista med hyperspace metadata. Utdata bör liknas vid över-cellen för "List index", förutom "deptIndex2", som nu ska ha statusen ändrad till "BORTTAGet".
 
 :::zone pivot = "programming-language-scala"
 
@@ -602,7 +613,7 @@ Resultat i:
 
 ## <a name="restore-indexes"></a>Återställ index
 
-Du kan använda API: t "restoreIndex" för att återställa ett borttaget index. Detta kommer att återställa den senaste versionen av index till aktiv status och kan användas igen för frågor. I cellen nedan visas ett exempel på användningen av "restoreIndex". Du tar bort "deptIndex1" och återställer det. Utdata visar "deptIndex1" först i status "BORTTAGen" efter att ha anropat "deleteIndex"-kommandot och kom tillbaka till "aktiv"-status efter att ha anropat "restoreIndex".
+Du kan använda API: t "restoreIndex" för att återställa ett borttaget index. Detta kommer att återställa den senaste versionen av index till aktiv status och kan användas igen för frågor. I följande cell visas ett exempel på "restoreIndex"-användning. Du tar bort "deptIndex1" och återställer det. Utdata visar "deptIndex1" först i status "BORTTAGen" efter att ha anropat "deleteIndex"-kommandot och kom tillbaka till "aktiv"-status efter att ha anropat "restoreIndex".
 
 :::zone pivot = "programming-language-scala"
 
@@ -666,9 +677,9 @@ Resultat i:
 
 ## <a name="vacuum-indexes"></a>Vakuum-index
 
-Du kan utföra en hård borttagning som är, helt ta bort filer och metadata-posten för ett borttaget index med kommandot "vacuumIndex". När du har slutfört den här åtgärden går det inte att ångra den här åtgärden eftersom den fysiskt tar bort alla indexfiler (vilket är orsaken till att det är en hård borttagning).
+Du kan utföra en hård borttagning, det vill säga ta bort filer och metadata-posten för ett borttaget index med hjälp av kommandot **vacuumIndex** . Den här åtgärden går inte att ångra. Den tar bort alla indexfiler fysiskt, vilket är anledningen till att det är en hård borttagning.
 
-Cellen under vakuumet "deptIndex2"-indexet och visar hyperspace metadata efter vakuumering. Du bör se metadata-poster för två index "deptIndex1" och "empIndex" både med "aktiv" status och ingen post för "deptIndex2".
+Följande cell vakuum indexet "deptIndex2" och visar hyperspace metadata efter vakuumering. Du bör se metadata-poster för två index "deptIndex1" och "empIndex" både med "aktiv" status och ingen post för "deptIndex2".
 
 :::zone pivot = "programming-language-scala"
 
@@ -711,13 +722,14 @@ Resultat i:
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## <a name="enabledisable-hyperspace"></a>Aktivera/inaktivera hyperspace
+## <a name="enable-or-disable-hyperspace"></a>Aktivera eller inaktivera hyperspace
 
 Hyperspace innehåller API: er för att aktivera eller inaktivera index användning med Spark.
 
-Genom att använda kommandot "enableHyperspace" blir hyperspace optimerings regler synliga för Spark optimering och de kan utnyttja befintliga hyperspace-index för att optimera användar frågor.
-Med hjälp av kommandot "disableHyperspace" gäller hyperspace-reglerna inte längre under optimering av frågor. Observera att inaktive ring av hyperspace inte påverkar de skapade indexen när de förblir intakta.
-Under cellen visas hur du kan använda dessa kommandon för att aktivera eller inaktivera hyperspace. Utdata visar bara en referens till den befintliga Spark-sessionen vars konfiguration uppdateras.
+* Genom att använda kommandot **enableHyperspace** blir hyperspace optimerings regler synliga för Spark-optimeringen och utnyttja befintliga hyperspace-index för att optimera användar frågor.
+* Med hjälp av kommandot **disableHyperspace** gäller hyperspace-regler inte längre under optimering av frågor. Att inaktivera hyperspace har ingen påverkan på skapade index eftersom de förblir intakta.
+
+Följande cell visar hur du kan använda dessa kommandon för att aktivera eller inaktivera hyperspace. Utdata visar en referens till den befintliga Spark-sessionen vars konfiguration uppdateras.
 
 :::zone pivot = "programming-language-scala"
 
@@ -770,7 +782,7 @@ res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@
 
 För att Spark ska kunna använda hyperspace-index under frågekörningen, måste du se till att hyperspace är aktiverat.
 
-Cellen nedan aktiverar hyperspace och skapar två DataFrames som innehåller exempel data poster som du använder för att köra exempel frågor. Ett par exempel rader skrivs ut för varje DataFrame.
+Följande cell aktiverar hyperspace och skapar två DataFrames som innehåller exempel data poster som du använder för att köra exempel frågor. Ett par exempel rader skrivs ut för varje DataFrame.
 
 :::zone pivot = "programming-language-scala"
 
@@ -857,11 +869,11 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 För närvarande har hyperspace regler för att utnyttja index för två grupper av frågor:
 
 * Urvals frågor med lookup eller Range Selection filtrering av predikat.
-* Delta i frågor med ett likhets kopplings predikat (det vill säga Equi-kopplingar).
+* Delta i frågor med ett likhets kopplings predikat (det vill säga equijoins).
 
 ## <a name="indexes-for-accelerating-filters"></a>Index för Accelerator filter
 
-I den första exempel frågan görs en sökning efter avdelnings poster (se nedanstående cell). I SQL ser den här frågan ut så här:
+I den första exempel frågan görs en sökning efter avdelnings poster, som du ser i följande cell. I SQL ser den här frågan ut som i följande exempel:
 
 ```sql
 SELECT deptName
@@ -869,12 +881,12 @@ FROM departments
 WHERE deptId = 20
 ```
 
-Resultatet från att köra cellen nedan visar:
+Utdata från att köra följande cell visar:
 
 * Frågeresultat, som är ett enda avdelnings namn.
 * Frågeplan som Spark använde för att köra frågan.
 
-I frågeplan visar operatorn "FileScan" längst ned i planen den data källa som posterna lästes från. Platsen för den här filen anger sökvägen till den senaste versionen av indexet "deptIndex1". Detta visar att enligt frågan och användningen av hyperspace optimerings regler, beslutade Spark att utnyttja rätt index vid körning.
+I **FileScan** -operatorn längst ned i planen visas data källan där posterna lästes från. Platsen för den här filen anger sökvägen till den senaste versionen av indexet "deptIndex1". Den här informationen visar att enligt frågan och användningen av hyperspace optimerings regler, beslutade Spark att utnyttja rätt index vid körning.
 
 :::zone pivot = "programming-language-scala"
 
@@ -954,7 +966,7 @@ Project [deptName#534]
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), EqualTo(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-Det andra exemplet är en urvals fråga på avdelnings poster. I SQL ser den här frågan ut så här:
+Det andra exemplet är en urvals fråga på avdelnings poster. I SQL ser den här frågan ut som i följande exempel:
 
 ```sql
 SELECT deptName
@@ -962,7 +974,7 @@ FROM departments
 WHERE deptId > 20
 ```
 
-Precis som i det första exemplet visar utdata i cellen nedan frågeresultaten (namn på två avdelningar) och frågeplan. Platsen för data filen i FileScan-operatorn visar att "deptIndex1" användes för att köra frågan.
+Precis som i det första exemplet visar utdata i följande cell frågeresultaten (namn på två avdelningar) och frågeplan. Platsen för data filen i **FileScan** -operatorn visar att "deptIndex1" användes för att köra frågan.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1041,16 +1053,14 @@ Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 > 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
-
-Det tredje exemplet är en fråga som ansluter till avdelnings-och medarbetar poster på avdelnings-ID: t. Motsvarande SQL-uttryck visas nedan:
+Det tredje exemplet är en fråga som ansluter till avdelnings-och medarbetar poster på avdelnings-ID: t. Motsvarande SQL-uttryck visas på följande sätt:
 
 ```sql
 SELECT employees.deptId, empName, departments.deptId, deptName
 FROM   employees, departments
 WHERE  employees.deptId = departments.deptId
 ```
-
-Utdata från cellen nedan visar frågeresultaten, som är namnen på 14 anställda och namnet på den avdelning där varje anställd arbetar i. Frågeplan ingår också i utdata. Observera hur fil platser för två FileScan-operatörer visar att Spark använde "empIndex" och "deptIndex1" index för att köra frågan.
+Resultatet från att köra följande cell visar frågeresultaten, som är namnen på 14 anställda och namnet på den avdelning som varje medarbetare arbetar i. Frågeplan ingår också i utdata. Observera hur fil platser för två **FileScan** -operatörer visar att Spark använde "empIndex" och "deptIndex1" index för att köra frågan.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1286,7 +1296,7 @@ Project [empName#528, deptName#534]
 
 ## <a name="explain-api"></a>Förklara API
 
-Index är fantastiska, men hur vet du om de används? Med hyperspace kan användarna jämföra sin ursprungliga plan och den uppdaterade index beroende planen innan han eller hon kör sin fråga. Du har möjlighet att välja mellan HTML/klartext/konsol läge för att visa utdata från kommandot.
+Index är fantastiska, men hur vet du om de används? Hyperspace gör det möjligt för användare att jämföra sin ursprungliga plan och den uppdaterade index beroende planen innan frågan körs. Du kan välja mellan HTML-, klartext-eller konsol läge för att Visa kommandoutdata.
 
 I följande cell visas ett exempel med HTML. Avsnittet markerat visar skillnaden mellan ursprungliga och uppdaterade planer tillsammans med de index som används.
 
@@ -1367,12 +1377,12 @@ empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/i
 
 ## <a name="refresh-indexes"></a>Uppdatera index
 
-Om de ursprungliga data som ett index har skapats på inte längre kommer att fånga det senaste data läget. Du kan uppdatera ett sådant inaktuellt index med kommandot "refreshIndex". Detta gör att indexet återskapas helt och uppdaterar det enligt de senaste data posterna (oroa dig inte, vi visar dig hur du stegvis uppdaterar ditt index i andra antecknings böcker).
+Om de ursprungliga data som ett index har skapats på inte längre kommer att fånga det senaste data läget. Du kan uppdatera ett inaktuellt index med kommandot **refreshIndex** . Det här kommandot gör att indexet återskapas fullständigt och uppdaterar det enligt de senaste data posterna. Vi visar hur du stegvis uppdaterar ditt index i andra antecknings böcker.
 
-De två cellerna nedan visar ett exempel för det här scenariot:
+Följande två celler visar ett exempel för det här scenariot:
 
-* Första cellen lägger till två fler avdelningar till de ursprungliga avdelnings data. Den läser och skriver ut en lista med avdelningar för att kontrol lera att nya avdelningar läggs till korrekt. Utdata visar sex avdelningar totalt: fyra gamla och två nya. Anropar "refreshIndex"-uppdateringar "deptIndex1" så att index fångar in nya avdelningar.
-* Andra cellen kör vårt urvals exempel fråga. Resultaten bör nu innehålla fyra avdelningar: två är de som visas innan vi körde frågan ovan och två är de nya avdelningar som vi nyss lade till.
+* Den första cellen lägger till två fler avdelningar till de ursprungliga avdelnings data. Den läser och skriver ut en lista med avdelningar för att kontrol lera att nya avdelningar läggs till korrekt. Utdata visar sex avdelningar totalt: fyra gamla och två nya. Anropar **refreshIndex** -uppdateringar "deptIndex1" så att indexet fångar in nya avdelningar.
+* Den andra cellen kör vårt urvals exempel fråga. Resultaten bör nu innehålla fyra avdelningar: två är de som visas innan föregående fråga kördes, och två är de nya avdelningar som vi har lagt till.
 
 ### <a name="specific-index-refresh"></a>Detaljerad uppdatering av index
 

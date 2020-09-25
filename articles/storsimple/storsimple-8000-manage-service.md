@@ -1,6 +1,6 @@
 ---
 title: Distribuera StorSimple Enhetshanteraren-tjänsten i Azure | Microsoft Docs
-description: Förklarar hur du skapar och tar bort StorSimple-Enhetshanteraren tjänsten i Azure Portal och beskriver hur du hanterar tjänst registrerings nyckeln.
+description: Lär dig mer om de steg som krävs för att skapa, ta bort, migrera och hantera tjänst registrerings nyckeln.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847105"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249560"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för enheter med StorSimple 8000-serien
 
@@ -177,12 +177,12 @@ Utför följande steg för att uppdatera tjänst data krypteringen på enheten.
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Så här uppdaterar du krypterings nyckeln för tjänst data på fysiska enheter
 1. Använd Windows PowerShell för StorSimple för att ansluta till-konsolen. Välj alternativ 1 för att logga in med fullständig åtkomst.
-2. Skriv följande i kommando tolken:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+2. Skriv följande i kommando tolken:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Ange krypterings nyckeln för tjänst data som du hämtade i [steg 2: använd Windows PowerShell för StorSimple för att initiera ändringen av tjänst data krypterings nyckeln](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Så här uppdaterar du krypterings nyckeln för tjänst data på alla 8010/8020-moln enheter
 1. Hämta och konfigurera [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell-skript. 
-2. Öppna PowerShell och skriv följande i kommando tolken:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+2. Öppna PowerShell och skriv följande i kommando tolken:  `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Det här skriptet ser till att krypterings nyckeln för tjänst data är inställd på alla 8010/8020-moln enheter under enhets hanteraren.
 
@@ -200,7 +200,7 @@ I Azure Portal stöds endast de StorSimple-enheter som kör uppdatering 5,0 och 
 | Skapa, ändra och ta bort en volym                                                                                             | No             |
 | Skapa, ändra och ta bort en princip för säkerhets kopiering                                                                                      | No             |
 | Gör en manuell säkerhets kopiering                                                                                                            | No             |
-| Gör en schemalagd säkerhets kopiering                                                                                                         | Ej tillämpligt |
+| Gör en schemalagd säkerhets kopiering                                                                                                         | Inte tillämpligt |
 | Återställ från en säkerhets kopian                                                                                                        | No             |
 | Klona till en enhet som kör uppdatering 3,0 och senare <br> Käll enheten kör version före uppdatering 3,0.                                | Yes            |
 | Klona till en enhet som kör versioner före uppdateringen 3,0                                                                          | No             |

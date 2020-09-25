@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da34c2aa8a178a99f325bef8beb4a7e7685b3cbc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283045"
 ---
 # <a name="specify-a-face-recognition-model"></a>Ange en ansiktsigenkänningsmodell
 
@@ -35,10 +35,11 @@ Läs vidare om du vill veta hur du anger en vald modell i olika ansikts operatio
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du bör känna till begreppen AI-ansikts identifiering och identifiering. Om du inte gör det kan du läsa följande instruktions guider först:
+Du bör känna till begreppen AI-ansikts identifiering och identifiering. Om du inte gör det, se de här guiderna först:
 
+* [Koncept för ansikts igenkänning](../concepts/face-detection.md)
+* [Koncept för ansikts igenkänning](../concepts/face-recognition.md)
 * [Identifiera ansikten i en bild](HowtoDetectFacesinImage.md)
-* [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Identifiera ansikten med angiven modell
 

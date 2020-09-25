@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 1293534849c98cee51349bbefd3073cc8b94f876
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9ffc134c2bded747346f3639119dde4a6f14231b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250716"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Skapa och utforska Azure Machine Learning data uppsättning med etiketter
 
@@ -52,7 +52,7 @@ Läs in dina märkta data uppsättningar i en Pandas dataframe-eller Torchvision
 
 ### <a name="pandas-dataframe"></a>Pandas dataframe
 
-Du kan läsa in märkta data uppsättningar i en Pandas-dataframe med [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metoden från- `azureml-contrib-dataset` klassen. Installera-klassen med följande Shell-kommando: 
+Du kan läsa in märkta data uppsättningar i en Pandas-dataframe med [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metoden från- `azureml-contrib-dataset` klassen. Installera-klassen med följande Shell-kommando: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -80,7 +80,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Torchvision data uppsättningar
 
-Du kan läsa in märkta data uppsättningar i Torchvision data uppsättning med metoden [to_torchvision ()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#&preserve-view=trueto-torchvision--) även från `azureml-contrib-dataset` klassen. Om du vill använda den här metoden måste du ha [PyTorch](https://pytorch.org/) installerat. 
+Du kan läsa in märkta data uppsättningar i Torchvision data uppsättning med metoden [to_torchvision ()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) även från `azureml-contrib-dataset` klassen. Om du vill använda den här metoden måste du ha [PyTorch](https://pytorch.org/) installerat. 
 
 ```python
 from torchvision.transforms import functional as F

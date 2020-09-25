@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 00709ca5e842e51edbf5b26c53fe0a18e80bb896
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751961"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262356"
 ---
-# <a name="receipt-concepts"></a>Kvitto koncept
+# <a name="receipt-concepts"></a>Koncept för kvitton
 
 Azure formulär tolken kan analysera kvitton med hjälp av en av sina förinställda modeller. Kvitto-API: et extraherar viktig information från försäljnings kvitton på engelska, till exempel handels namn, transaktions datum, transaktions summa, rad artiklar med mera. 
 
@@ -74,14 +74,11 @@ Kvitto-API: t returnerar även följande information:
   > Språk information 
   >
   > Förbyggd kvitto v 2.1 – för hands version. 1 har en valfri begäran-parameter för att ange ett kvitto språk från ytterligare engelska marknader. För försäljnings kvitton på engelska från Australien (EN-AU), Kanada (EN-CA), Storbritannien (EN-GB) och Indien (EN-i) kan du ange språkvarianten för att få bättre resultat. Om ingen språkvariant anges i v 2.1 – för hands version. 1, kommer modellen att standardvärdet för EN-US-modell.
-  
- ### <a name="input-requirements"></a>Krav för indatamängd 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>Åtgärden analysera inleverans
 
-I det här dokumentet [analyseras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) en bild eller ett PDF-kvitto som indata och extraherar värdena för Intrest och text. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
+I det här dokumentet [analyseras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) en bild eller en PDF av ett kvitto som indata och det går att extrahera värdena för ränta och text. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
@@ -456,7 +453,10 @@ Kvitto-API: t ger också [AIBuilder för kvitto bearbetning](https://docs.micros
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Följ snabb starten för att komma igång med din [API python-snabb start](./quickstarts/python-receipts.md).
-- Lär dig mer om [formulär tolken REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Läs mer om [formulär igenkänning](overview.md).
+- Slutför snabb starten för [formulär tolkens klient bibliotek](quickstarts/client-library.md) för att komma igång med att skriva en app för mottagnings bearbetning med formulär tolken på valfritt språk.
+- Eller så följer du in [kvitto-API python-snabb](./quickstarts/python-receipts.md) starten för att identifiera kvitton med hjälp av REST API.
 
+## <a name="see-also"></a>Se även
+
+* [Vad är formigenkänning?](./overview.md)
+* [REST API referens dokument](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)

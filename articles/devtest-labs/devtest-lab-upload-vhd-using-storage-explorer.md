@@ -3,12 +3,12 @@ title: Ladda upp VHD-filen till Azure DevTest Labs med Storage Explorer
 description: Ladda upp VHD-filen till Labbets lagrings konto med hjälp av Microsoft Azure Storage Explorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282535"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Ladda upp VHD-filen till Labbets lagrings konto med hjälp av Microsoft Azure Storage Explorer
 
@@ -90,13 +90,13 @@ Följande steg beskriver hur du laddar upp en VHD-fil till DevTest Labs med [Mic
 
     1. I det högra fönstret i Storage Explorer bör du se en lista över blobarna i den **uppladdade** BLOB-behållaren för labbets lagrings konto. I verktygsfältet i BLOB Editor väljer du **överför** 
         
-        ![Knappen för överföring][6]
+        ![Skärm bild som visar den Storage Explorer högra rutan med knappen Ladda upp markerad.][6]
     
     1. I den nedrullningsbara menyn **överför** väljer du **överför filer...**.
     
     1. I dialog rutan **överför filer** väljer du ellipsen.
         
-        ![Välj fil][8]  
+        ![Skärm bild som visar dialog rutan Ladda upp filer med den valda ellipsen.][8]  
 
     1. I dialog rutan **Välj filer att ladda upp** bläddrar du till önskad VHD-fil, markerar den och väljer sedan **Öppna**.
     

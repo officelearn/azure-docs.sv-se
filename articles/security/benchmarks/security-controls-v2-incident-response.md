@@ -4,19 +4,19 @@ description: Incident svar för Azure Security benchmark v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2dbdb1af139472d5c7f4537399d434e045bb05cb
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326396"
 ---
-# <a name="security-control-incident-response"></a>Säkerhets kontroll: incident svar
+# <a name="security-control-v2-incident-response"></a>Säkerhets kontroll v2: incident svar
 
-Incident svar omfattar kontroller i incident svars livs cykel-förberedelse, identifiering och analys, inne slutnings-och efter incident aktiviteter. Detta inkluderar användning av Azure-tjänster som Azure Security Center och Sentinel för att automatisera incident svars processen.
+Incident svar omfattar kontroller i incident svars livs cykel-förberedelse, identifiering och analys, inne slutning och efter incident aktiviteter. Detta inkluderar användning av Azure-tjänster som Azure Security Center och Sentinel för att automatisera incident svars processen.
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: förberedelse – uppdatera incident svars process för Azure
 
@@ -28,13 +28,13 @@ Se till att din organisation har processer som svarar på säkerhets incidenter,
 
 - [Implementera säkerhet i företags miljön](https://aka.ms/AzSec4)
 
-- [Referens guide för incident svar](https://aka.ms/IRRG)
+- [Referens guide för incident svar](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -52,9 +52,9 @@ Konfigurera kontakt information för säkerhets incidenter i Azure Security Cent
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -78,9 +78,9 @@ Exportera dina Azure Security Center-aviseringar och rekommendationer med hjälp
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -92,17 +92,19 @@ Exportera dina Azure Security Center-aviseringar och rekommendationer med hjälp
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Se till att analytiker kan fråga och använda olika data källor när de undersöker potentiella incidenter, för att bygga en fullständig vy över vad som hände. Se till att insikter och insikter samlas in för andra analytiker och för framtida historiska referenser. 
+Se till att analytiker kan fråga och använda olika data källor när de undersöker potentiella incidenter, för att bygga en fullständig vy över vad som hände. Diverse loggar bör samlas in för att spåra aktiviteter för en potentiell angripare över Kill-kedjan för att undvika att fläckar.  Du bör också se till att insikter och kunskaper fångas upp för andra analytiker och för framtida historiska referenser.  
 
 Data källorna för undersökningen innehåller de centraliserade loggnings källor som redan har samlats in från tjänster som omfattas och som kör system, men kan även innehålla:
 
-Nätverks data – Använd Nätverks säkerhets grupper flödes loggar, Azure Network Watcher och Azure Monitor för att avbilda nätverks flödes loggar och annan analys information. Ögonblicks bilder av system som körs: 
+- Nätverks data – Använd Nätverks säkerhets grupper flödes loggar, Azure Network Watcher och Azure Monitor för att avbilda nätverks flödes loggar och annan analys information. 
 
--   Använd ögonblicks bild funktionen i Azure Virtual Machine för att skapa en ögonblicks bild av den aktiva system disken. 
+- Ögonblicks bilder av system som körs: 
 
--   Använd operativ systemets interna minnes dumpnings funktion för att skapa en ögonblicks bild av det aktiva systemets minne.
+    - Använd ögonblicks bild funktionen i Azure Virtual Machine för att skapa en ögonblicks bild av den aktiva system disken. 
 
--   Använd ögonblicks bild funktionen i Azure-tjänsterna eller din program varu funktion för att skapa ögonblicks bilder av de system som körs.
+    - Använd operativ systemets interna minnes dumpnings funktion för att skapa en ögonblicks bild av det aktiva systemets minne.
+
+    - Använd ögonblicks bild funktionen i Azure-tjänsterna eller din program varu funktion för att skapa ögonblicks bilder av de system som körs.
 
 Azure Sentinel tillhandahåller omfattande data analyser i praktiskt taget alla logg källor och en ärende hanterings Portal för att hantera den fullständiga livs cykeln för incidenter. Informations information under en undersökning kan associeras med en incident för spårning och rapportering. 
 
@@ -116,9 +118,9 @@ Azure Sentinel tillhandahåller omfattande data analyser i praktiskt taget alla 
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -134,7 +136,7 @@ Tillhandahålla en kontext till analytiker på vilka incidenter kan fokusera på
 
 Azure Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller analysera det som används för att utfärda aviseringen, samt den konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
 
-Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings system för att identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data.  Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
+Markera dessutom resurser med taggar och skapa ett namngivnings system för att identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data.  Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
 - [Säkerhetsaviseringar i Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
@@ -142,9 +144,9 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -166,9 +168,9 @@ Automatisera manuella återkommande uppgifter för att påskynda svars tiden och
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Incidentberedskap](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 

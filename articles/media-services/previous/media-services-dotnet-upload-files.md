@@ -1,6 +1,6 @@
 ---
 title: Ladda upp filer till ett Media Services-konto med hjälp av .NET | Microsoft Docs
-description: Lär dig hur du hämtar medie innehåll i Media Services genom att skapa och ladda upp till gångar.
+description: Lär dig hur du hämtar medie innehåll i Media Services genom att skapa och ladda upp till gångar med .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51f6b40fc4cafad16ef6f6ca92fafa7ba1378c4a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 83e9b0278e99867cafa7e633bc382e490ec273c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250561"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Ladda upp filer till ett Media Services-konto med .NET
 

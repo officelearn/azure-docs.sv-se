@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 8e48a5c896c4927b82f7d77f31b7f1c47fd156c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311571"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure automanage för virtuella datorer
 
@@ -43,12 +43,11 @@ Det finns flera förutsättningar att tänka på innan du försöker aktivera Az
 
 - Endast Windows Server-VM
 - Virtuella datorer måste köras
-- Endast icke-skala uppsättning virtuella datorer
 - Virtuella datorer måste finnas i en region som stöds
 - Användaren måste ha rätt behörighet
 - Virtuella datorer får inte länka till en Log Analytics-arbetsyta i en annan prenumeration
 
-Följande RBAC-behörighet krävs för att aktivera autohantering: **ägar** rollen eller **deltagare** tillsammans med **Administratörs roller för användar åtkomst** .
+Du måste ha **deltagar** rollen för att aktivera autohantering med ett befintligt konto för autohantering. Om du aktiverar automanage med ett nytt konto för autohantering behöver du följande behörigheter: **ägar** roll eller **deltagare** tillsammans med administratörs roller för **användar åtkomst** .
 
 Det är också viktigt att Observera att den automatiska hanteringen endast stöder virtuella Windows-datorer som finns i följande regioner: Västeuropa, östra USA, västra USA 2, centrala Kanada, västra centrala USA.
 
@@ -105,7 +104,7 @@ Kontot för automatisk hantering är säkerhets kontexten eller den identitet un
 När du aktiverar autohantering på de virtuella datorerna i Azure Portals upplevelsen finns en avancerad listruta på bladet **Aktivera Azure VM Best Practice** som gör att du kan tilldela eller skapa det automatiska hanterings kontot manuellt.
 
 > [!NOTE]
-> Följande RBAC-behörighet krävs för att aktivera autohantering: **ägar** rollen eller **deltagare** tillsammans med **Administratörs roller för användar åtkomst** .
+> Du måste ha **deltagar** rollen för att aktivera autohantering med ett befintligt konto för autohantering. Om du aktiverar automanage med ett nytt konto för autohantering behöver du följande behörigheter: **ägar** roll eller **deltagare** tillsammans med administratörs roller för **användar åtkomst** .
 
 
 ## <a name="status-of-vms"></a>Status för virtuella datorer

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311605"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2
 
@@ -36,6 +36,8 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
 * Den nya v2-gatewayen har nya offentliga och privata IP-adresser. Det går inte att flytta IP-adresserna som är kopplade till den befintliga v1-gatewayen sömlöst till v2. Du kan dock allokera en befintlig offentlig eller privat IP-adress till den nya v2-gatewayen.
 * Du måste ange ett IP-adressutrymme för ett annat undernät i ditt virtuella nätverk där v1-gatewayen finns. Skriptet kan inte skapa v2-gatewayen i några befintliga undernät som redan har en v1-Gateway. Men om det befintliga under nätet redan har en v2-Gateway, kan det fortfarande fungera om det finns tillräckligt med IP-adressutrymme.
+* Om du har en nätverks säkerhets grupp eller användardefinierade vägar kopplade till v2 Gateway-undernätet, kontrollerar du att de följer kraven för [NSG](../application-gateway/configuration-infrastructure.md#network-security-groups) och [UDR](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) för en lyckad migrering
+* [Slut punkts principer för virtuella nätverk](../virtual-network/virtual-network-service-endpoint-policies-overview.md) stöds för närvarande inte i ett Application Gateway-undernät.
 * Om du vill migrera en TLS/SSL-konfiguration måste du ange alla TLS/SSL-certifikat som används i v1-gatewayen.
 * Om FIPS-läge har Aktiver ATS för din v1-Gateway migreras den inte till din nya v2-Gateway. FIPS-läge stöds inte i v2.
 * v2 stöder inte IPv6, så IPv6-aktiverade v1-gatewayer migreras inte. Om du kör skriptet kanske det inte slutförs.
@@ -44,7 +46,7 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
 ## <a name="download-the-script"></a>Hämta skriptet
 
-Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAppGWMigration).
+Hämta migrerings skriptet från  [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
 ## <a name="use-the-script"></a>Använd skriptet
 

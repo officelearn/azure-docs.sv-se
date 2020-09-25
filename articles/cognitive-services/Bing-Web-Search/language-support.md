@@ -1,7 +1,7 @@
 ---
 title: Språk stöd – API för webbsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över naturliga språk, länder och regioner som stöds av API för nyhetssökning i Bing.
+description: En lista över naturliga språk, länder och regioner som stöds av API för webbsökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262832"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Språk-och region stöd för API för webbsökning i Bing
 
 API för webbsökning i Bing har stöd för över tre dussin länder eller regioner, många med fler än ett språk. Genom att ange ett land eller en region med en fråga kan du förfina Sök resultat baserat på dessa länder eller regioner. Resultaten kan innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användargränssnittet enligt angivet land/region eller språk.
 
-Du kan ange ett land eller en region med `cc` hjälp av Frågeparametern. När ett land eller en region har angetts måste du ange en eller flera språk koder med [ `Accept-Language` rubriken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd [tabellen marknader](#markets) för att visa en lista över språk som stöds på varje marknad.
+Du kan ange ett land eller en region med hjälp av `cc` Frågeparametern. När ett land eller en region har angetts måste du ange en eller flera språk koder med [ `Accept-Language` rubriken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd [tabellen marknader](#markets) för att visa en lista över språk som stöds på varje marknad.
 
 Alternativt kan du ange marknaden med `mkt` Frågeparametern och en kod från tabellen **marknader** . Att ange en marknad samtidigt anger ett land eller en region och ett önskat språk. Du kan uttryckligen ange språket med `setLang` Frågeparametern.
 
@@ -40,14 +40,14 @@ Alternativt kan du ange marknaden med `mkt` Frågeparametern och en kod från ta
 |Finland|FI|
 |Frankrike|FR|
 |Tyskland|DE|
-|Hongkong|HK|
+|Folkrepubliken Kinas särskilda administrativa region Hongkong|HK|
 |Indien|IN|
 |Indonesien|ID|
 |Italien|IT|
 |Japan|JP|
 |Korea|KR|
 |Malaysia|MY|
-|Mexiko|MX|
+|Mexico|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
 |Norge|NO|
@@ -71,44 +71,44 @@ Alternativt kan du ange marknaden med `mkt` Frågeparametern och en kod från ta
 |Land/region|Språk|Marknads kod|
 |-------|--------|-----------|
 |Argentina|Spanska|ES-AR|
-|Australien|Svenska|en – AU|
+|Australien|Engelska|en – AU|
 |Österrike|Tyska|avinstallation|
 |Belgien|Nederländska|NL-vara|
 |Belgien|Franska|fr-vara|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Svenska|en-CA|
+|Kanada|Engelska|en-CA|
 |Kanada|Franska|fr-CA|
 |Chile|Spanska|ES-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
-|Hongkong|Traditionell kinesiska|zh-HK|
-|Indien|Svenska|en-IN|
-|Indonesien|Svenska|en-ID|
+|Folkrepubliken Kinas särskilda administrativa region Hongkong|Traditionell kinesiska|zh-HK|
+|Indien|Engelska|en-IN|
+|Indonesien|Engelska|en-ID|
 |Italien|Italienska|it-IT|
 |Japan|Japanska|ja-JP|
-|Korea|Koreansk|ko-KR|
-|Malaysia|Svenska|en-MY|
-|Mexiko|Spanska|ES – MX|
+|Korea|Koreanska|ko-KR|
+|Malaysia|Engelska|en-MY|
+|Mexico|Spanska|ES – MX|
 |Nederländerna|Nederländska|nl-NL|
-|Nya Zeeland|Svenska|en-NZ|
+|Nya Zeeland|Engelska|en-NZ|
 |Norge|Norska|ingen – nej|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|pt-PT|
-|Filippinerna|Svenska|en-PH|
+|Filippinerna|Engelska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|en-ZA|
+|Sydafrika|Engelska|en-ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|sv-SE|
 |Schweiz|Franska|Frankrike-CH|
 |Schweiz|Tyska|de-CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|tr-TR|
-|Storbritannien|Svenska|en-GB|
-|USA|Svenska|sv-SE|
+|Storbritannien|Engelska|en-GB|
+|USA|Engelska|sv-SE|
 |USA|Spanska|ES – USA|
 
 ## <a name="next-steps"></a>Nästa steg

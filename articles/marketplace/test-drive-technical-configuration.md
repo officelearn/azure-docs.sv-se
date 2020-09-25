@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: a7afaf0da3bbb021d76c2d109cb385d86fd7c860
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ba3d25a07e4d6c32bd14c315018f0d008032b73
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250495"
 ---
 # <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
@@ -74,7 +74,7 @@ Om du vill att Microsoft ska kunna distribuera test enheten åt dig skapar du oc
 
 - **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure AD-appens klient hemlighet** (krävs) – Ange din Azure AD-program [klient hemlighet](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Glöm inte att kopiera värdet. Du behöver inte gå bort från sidan innan du kopierar värdet.
+- **Azure AD-appens klient hemlighet** (krävs) – Ange din Azure AD-program [klient hemlighet](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Glöm inte att kopiera värdet. Du behöver inte gå bort från sidan innan du kopierar värdet.
 
 ## <a name="test-drive-listings"></a>Testa enhets listor
 

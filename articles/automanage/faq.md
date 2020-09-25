@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311554"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vanliga frågor och svar om Azure automanage för virtuella datorer
 
@@ -36,7 +36,9 @@ Följande är förutsättningar för att aktivera Azure automanage:
 
 **Vilken RBAC-behörighet krävs för att aktivera autohantering?**
 
-Användare måste ha ägar rollen. Användare kan också ha rollen deltagare tillsammans med rollen administratör för användar åtkomst för att tillämpa automanage.
+Om du aktiverar automanage på en virtuell dator med ett befintligt konto för autohantering, behöver du deltagar rollen till resurs gruppen där den virtuella datorn finns. 
+
+Om du använder ett nytt automanage-konto när du aktiverar måste användarna antingen ha ägar rollen eller ha rollen användare av användar åtkomst administratör för prenumerationen.
 
 
 **Vilka regioner stöds?**
@@ -82,6 +84,11 @@ Ja, vi har en inbyggd princip som automatiskt tillämpar automatisk hantering f�
 **Vad är ett konto för autohantering?**
 
 Kontot för automatisk hantering är en MSI (Hanterad tjänstidentitet) som tillhandahåller säkerhets kontexten eller den identitet under vilken de automatiserade åtgärderna sker.
+
+
+**Påverkas eventuella ytterligare virtuella datorer förutom de virtuella datorer jag valt när de aktiverar autohantering?**
+
+Om den virtuella datorn är länkad till en befintlig Log Analytics arbets yta, kommer vi att återanvända den arbets ytan för att tillämpa dessa lösningar: Ändringsspårning, inventering och Uppdateringshantering. Alla virtuella datorer som är anslutna till den arbets ytan kommer att ha dessa lösningar aktiverade. 
 
 
 **Kan jag ändra konfigurations profilen för min virtuella dator?**

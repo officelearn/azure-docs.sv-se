@@ -8,13 +8,13 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: ab697778e00def1e23a3124b14458f1acb994041
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 7982c094117d3cd40d26873ca2250edbda81b1ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261642"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut enheten till den fjärrstyrda lösnings acceleratorn (Node.js)
 
@@ -329,7 +329,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
       });
       ```
 
-1. Spara ändringarna i **remote_monitoring.jss** filen.
+1. Spara ändringarna i **remote_monitoring.jss ** filen.
 
 1. Starta exempel programmet genom att köra följande kommando i en kommando tolk:
 

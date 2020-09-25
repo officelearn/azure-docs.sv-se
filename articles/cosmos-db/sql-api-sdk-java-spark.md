@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 05f81e4d93244db854bf8d0ec254ee647f81d9cc
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: afee95f6a8776c3506e10c29cfd8e776734a915a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326685"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark Connector for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -56,12 +56,20 @@ Du kan använda anslutningen med [Azure Databricks](https://azure.microsoft.com/
 
 | Resurs | Länk |
 |---|---|
-| **SDK-hämtning** | [Ladda ned från Apache Spark](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
+| **SDK-hämtning** | [Hämta senaste. jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**API-dokumentation** | [Spark Connector-referens]() |
 |**Bidra till SDK: n** | [Azure Cosmos DB Connector för Apache Spark på GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
 |**Komma igång** | [Påskynda stor data analys genom att använda Apache Spark för att Azure Cosmos DB koppling](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Använd Apache Spark strukturerad strömning med Apache Kafka och Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>Versions historik
+
+### <a name="330"></a>3.3.0
+#### <a name="new-features"></a>Nya funktioner
+- Lägger till ett nytt konfigurations alternativ, `changefeedstartfromdatetime` som kan användas för att ange start tiden för när changefeed ska bearbetas. Mer information finns i [konfigurations alternativ](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references).
+
+### <a name="320"></a>3.2.0
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+- Åtgärdar en regression som orsakade överdriven minnes förbrukning på körningarna för stora resultat uppsättningar (till exempel med miljon tals rader), vilket resulterade i felet `java.lang.OutOfMemoryError: GC overhead limit exceeded` .
 
 ### <a name="311"></a>3.1.1
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
@@ -109,7 +117,7 @@ Du kan använda anslutningen med [Azure Databricks](https://azure.microsoft.com/
 #### <a name="new-features"></a>Nya funktioner
 * Förbättrar anslutnings hanteringen och anslutningspoolen för att minska antalet metadata-anrop.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Nästa steg

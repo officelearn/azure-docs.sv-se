@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: 28efbb605221b9f613b39c2a72d47c7606afb67e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5f7ed8a905aad873ecfc878979ac32af1e21730
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526883"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312252"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>Självstudie: Konfigurera Workgrid för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i Workgrid och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Workgrid.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -54,15 +54,15 @@ Innan du konfigurerar Workgrid för automatisk användar etablering med Azure AD
 
 1. Logga in på Workgrid. Navigera till **användare > användar etablering**.
 
-    ![Workgrid](media/Workgrid-provisioning-tutorial/user.png)
+    ![Skärm bild av Workgrid U med användare och användar etablerings alternativ som anropas.](media/Workgrid-provisioning-tutorial/user.png)
 
 2. Under **Account Management API**klickar du på **skapa autentiseringsuppgifter**.
 
-    ![Workgrid](media/Workgrid-provisioning-tutorial/scim.png)
+    ![Skärm bild av alternativet för konto hantering i P I I avsnittet Skapa autentiseringsuppgifter som kallas för.](media/Workgrid-provisioning-tutorial/scim.png)
 
 3. Kopiera värdena för **scim-slutpunkten** och **åtkomsttoken** . Dessa anges i fältet klient- **URL** och **hemligt token** på fliken etablering i Workgrid-programmet i Azure Portal.
 
-    ![Workgrid](media/Workgrid-provisioning-tutorial/token.png)
+    ![Skärm bild av konto hantering A P I avsnittet med S C I M-slutpunkt och åtkomsttoken som kallas för.](media/Workgrid-provisioning-tutorial/token.png)
 
 
 ## <a name="add-workgrid--from-the-gallery"></a>Lägg till Workgrid från galleriet
@@ -96,7 +96,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-workgrid--in-azure-ad"></a>Konfigurera automatisk användar etablering för Workgrid i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -104,13 +104,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Workgrid-länken i program listan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
 5. Under avsnittet admin credentials måste du skriva in **scim-slutpunkten** och de **åtkomsttoken** som hämtades tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Workgrid. Om anslutningen Miss lyckas kontrollerar du att Workgrid-kontot har administratörs behörighet och försöker igen.
 
@@ -118,13 +118,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-postmeddelande](common/provisioning-notification-email.png)
+    ![E-postavisering](common/provisioning-notification-email.png)
 
 7. Klicka på **Spara**.
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Workgrid**.
 
-    ![Workgrid användar mappningar](media/Workgrid-provisioning-tutorial/usermapping.png)
+    ![Skärm bild av avsnittet mappningar med alternativet Synkronisera Azure Active Directory användare till Workgrid.](media/Workgrid-provisioning-tutorial/usermapping.png)
 
 9. Granska de användarattribut som synkroniseras från Azure AD till Workgrid i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Workgrid för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
@@ -132,25 +132,25 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Workgrid**
 
-    ![Workgrid användar mappningar](media/Workgrid-provisioning-tutorial/groupmapping.png)
+    ![Skärm bild av avsnittet mappningar med alternativet Synkronisera Azure Active Directory grupper till Workgrid.](media/Workgrid-provisioning-tutorial/groupmapping.png)
 
 12. Granska gruppattributen som synkroniseras från Azure AD till Workgrid i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Workgrid för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Workgrid användar mappningar](media/Workgrid-provisioning-tutorial/groupattribute.png)
+    ![Skärm bild av avsnittet attribut mappningar med tre mappningar som visas.](media/Workgrid-provisioning-tutorial/groupattribute.png)
 
-13. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. Om du vill aktivera Azure AD Provisioning-tjänsten för Workgrid ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
 15. Definiera de användare och/eller grupper som du vill etablera till Workgrid genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 16. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [hur lång tid det tar att etablera användare](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
@@ -158,9 +158,9 @@ Du kan använda avsnittet **aktuell status** för att övervaka förloppet och f
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

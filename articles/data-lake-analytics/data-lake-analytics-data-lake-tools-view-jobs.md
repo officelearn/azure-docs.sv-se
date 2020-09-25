@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131896"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282620"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använda jobbwebbläsaren och jobbvyn för Azure Data Lake Analytics
 Azure Data Lake Analytics tjänst arkiverar jobb som skickats i ett frågearkivet. I den här artikeln får du lära dig hur du använder jobb webbläsare och jobb visning i Azure Data Lake verktyg för Visual Studio för att hitta den historiska jobb informationen. 
@@ -38,7 +38,7 @@ Vyn jobb innehåller:
     
       Jobb status beskriver jobb faserna:
     
-      ![Status för Azure Data Lake Analytics jobb faser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Skärm bild som visar Azure Data Lake Analytics jobb faserna.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Förbereda: Ladda upp skriptet till molnet, kompilera och optimera skriptet med compile-tjänsten.
     * Köade: jobb placeras i kö när de väntar på tillräckligt med resurser, eller så överskrider jobben högsta antalet samtidiga jobb per konto begränsning. Prioritets inställningen bestämmer ordningen för köade jobb – ju lägre siffra, desto högre prioritet.
@@ -50,7 +50,7 @@ Vyn jobb innehåller:
     
       Den grundläggande jobb informationen visas i den nedre delen av panelen jobb Sammanfattning.
     
-      ![Status för Azure Data Lake Analytics jobb faser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Skärm bild som visar jobb sammanfattningen med beskrivningar i text rutor.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * Jobb resultat: lyckades eller misslyckades. Jobbet kan Miss lyckas i varje fas.
     * Total varaktighet: väggens klock slag (varaktighet) mellan att skicka in tid och slut tid.
@@ -60,10 +60,10 @@ Vyn jobb innehåller:
     * Konto: det Data Lake Analytics konto som används för att köra jobbet.
     * Författare: användaren som skickade jobbet kan vara en riktig persons konto eller ett system konto.
     * Prioritet: jobbets prioritet. Ju lägre siffra, desto högre prioritet. Den påverkar bara ordningen på jobben i kön. Om du anger en högre prioritet åsidosätts inte jobb som körs.
-    * Parallellitet: det begärda maximala antalet samtidiga Azure Data Lake Analyticss enheter (ADLAUs), aka-hörn. För närvarande är ett hörn lika med en virtuell dator med två virtuella kärnor och sex GB RAM-minne, men det kan uppgraderas i framtida Data Lake Analytics uppdateringar.
+    * Parallelitet: det begärda maximala antalet samtidiga Azure Data Lake Analyticss enheter (ADLAUs), även kallat formhörn. För närvarande är ett hörn lika med en virtuell dator med två virtuella kärnor och sex GB RAM-minne, men det kan uppgraderas i framtida Data Lake Analytics uppdateringar.
     * Byte kvar: byte som måste bearbetas tills jobbet har slutförts.
     * Lästa byte/skrivna byte: byte som har lästs/skrivits sedan jobbet startades.
-    * Totalt antal hörn: jobbet är uppdelat i många olika arbets delar kallas varje arbets plats. Det här värdet beskriver hur många delar av arbetet som jobbet består av. Du kan tänka på att en form hörn som en grundläggande process enhet, aka Azure Data Lake Analytics Unit (ADLAU) och formhörn kan köras parallellt. 
+    * Totalt antal hörn: jobbet är uppdelat i många olika arbets delar kallas varje arbets plats. Det här värdet beskriver hur många delar av arbetet som jobbet består av. Du kan betrakta ett formhörn som en Basic process Unit, även kallat Azure Data Lake Analytics Unit (ADLAU) och formhörn kan köras parallellt. 
     * Slutförd/körs/misslyckades: antalet slutförda/aktiva/misslyckade hörn. Hörnen kan Miss lyckas på grund av både användar kod och systemfel, men systemet försöker igen formhörn automatiskt några gånger. Om hörnen fortfarande Miss lyckas efter ett nytt försök kommer hela jobbet att Miss lyckas.
 * Jobb diagram
   
@@ -71,7 +71,7 @@ Vyn jobb innehåller:
   
     ![Status för Azure Data Lake Analytics jobb faser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Ett jobb är uppdelat i många olika arbets delar. Varje arbets del kallas för ett formhörn. Hörnen är grupperade som Super-hörn (aka Stage) och visualiseras som jobb diagram. Den gröna scenen placards i jobb diagrammet visar stegen.
+    Ett jobb är uppdelat i många olika arbets delar. Varje arbets del kallas för ett formhörn. Hörnen är grupperade som överordnade hörn (även kallade Stage) och visualiserade som jobb diagram. Den gröna scenen placards i jobb diagrammet visar stegen.
   
     Varje hörn i en fas gör samma typ av arbete med olika delar av samma data. Om du till exempel har en fil med en TB-data, och det finns hundratals hörn som läser från den, så läser var och en av dem ett segment. Dessa hörn är grupperade i samma steg och utför samma arbete på olika delar av samma indatafil.
   
@@ -163,7 +163,7 @@ Jobb information visar detaljerad information om jobbet, inklusive skript, resur
   
     Den visar information om körning av formhörn. Jobb profilen arkiverar varje form av körnings logg, till exempel total läsning/skrivning av data, körning, tillstånd osv. I den här vyn kan du få mer information om hur ett jobb körs. Mer information finns i [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Om du vill använda körnings visning för hörn, se [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

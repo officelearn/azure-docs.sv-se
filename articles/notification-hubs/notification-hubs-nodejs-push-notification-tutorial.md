@@ -17,13 +17,13 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d9b914c631c829c2e3dc71940a171cdb3dc81960
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250427"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hubs och Node.js
 
@@ -96,10 +96,10 @@ Hämta anslutnings `connectionstring` värdet från [Azure portalen] genom att u
 
 `NotificationHubService`Objektet visar följande objekt instanser för att skicka push-meddelanden till vissa enheter och program:
 
-- **Android** – Använd `GcmService` objektet, som finns på`notificationHubService.gcm`
-- **iOS** – Använd `ApnsService` objektet som är tillgängligt på`notificationHubService.apns`
-- **Windows Phone** – Använd `MpnsService` objektet som finns på`notificationHubService.mpns`
-- **Universell Windows-plattform** – Använd `WnsService` objektet som finns på`notificationHubService.wns`
+- **Android** – Använd `GcmService` objektet, som finns på `notificationHubService.gcm`
+- **iOS** – Använd `ApnsService` objektet som är tillgängligt på `notificationHubService.apns`
+- **Windows Phone** – Använd `MpnsService` objektet som finns på `notificationHubService.mpns`
+- **Universell Windows-plattform** – Använd `WnsService` objektet som finns på `notificationHubService.wns`
 
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Gör så här: skicka push-meddelanden till Android-program
 
@@ -155,7 +155,7 @@ notificationHubService.apns.send(null, payload, function(error){
 
 - **Taggar** – tag-ID. Om ingen tagg anges skickas meddelandet till alla klienter.
 - **Nytto Last** – meddelandets XML-nytto Last.
-- **TargetName**  -  TargetName `toast` för popup-meddelanden. `token`för panel meddelanden.
+- **TargetName**  -  TargetName `toast` för popup-meddelanden. `token` för panel meddelanden.
 - **NotificationClass** – meddelandets prioritet. Se avsnittet **http-huvud element** i [push-meddelanden från ett Server](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) dokument för giltiga värden.
 - **Alternativ** – valfria begärandehuvuden.
 - **Motringning** – funktionen motringning.

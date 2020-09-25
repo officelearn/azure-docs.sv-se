@@ -6,26 +6,30 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+keywords: kognitiva tjänster, kognitiv intelligens, kognitiva lösningar, AI-tjänster
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262441"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Snabb start: skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
-Använd den här snabb starten för att komma igång med Azure Cognitive Services med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar i din Azure-prenumeration. När du har skapat resursen använder du nycklarna och slut punkten som du skapade för att autentisera dina program.
+Använd den här snabb starten för att komma igång med Azure Cognitive Services med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+Azure Cognitive Services är Cloud-Base-tjänster med REST API: er och SDK: er för klient bibliotek som är tillgängliga för att hjälpa utvecklare att bygga kognitiv information i program utan att ha direkt artificiell intelligens (AI) eller data vetenskaps kunskaper eller kunskap. Azure Cognitive Services gör det möjligt för utvecklare att enkelt lägga till kognitiva funktioner i sina program med kognitiva lösningar som kan se, höra, tala, förstå och till och med börja på skäl.
+
+Cognitive Services representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar i din Azure-prenumeration. När du har skapat resursen använder du nycklarna och slut punkten som du skapade för att autentisera dina program.
 
 I den här snabb starten får du lära dig hur du registrerar dig för Azure Cognitive Services och skapar ett konto som har en tjänst prenumeration eller flera tjänster med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Dessa tjänster representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), vilket gör att du kan ansluta till en eller flera av azure-API:er för Cognitive Services.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/cognitive-services) kostnads fri.
 * [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -50,7 +54,7 @@ Om du vill skapa en resurs behöver du en av de Azure-platser som är tillgängl
 
 > [!IMPORTANT]
 > * Kom ihåg Azure-platsen, eftersom du behöver den när du anropar Azure-Cognitive Services.
-> * Tillgängligheten för vissa Cognitive Services kan variera beroende på region. Mer information finns i [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
+> * Tillgängligheten för vissa Cognitive Services kan variera beroende på region. Mer information finns i [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ```azurecli-interactive
 az account list-locations \
@@ -76,7 +80,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="multi-service"></a>Multi-service
 
-| Tjänst                    | Variant                      |
+| Tjänst                    | Typ                      |
 |----------------------------|---------------------------|
 | Flera tjänster. Mer information finns på sidan med [pris](https://azure.microsoft.com/pricing/details/cognitive-services/) information.            | `CognitiveServices`     |
 
@@ -86,7 +90,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="vision"></a>Visuellt innehåll
 
-| Tjänst                    | Variant                      |
+| Tjänst                    | Typ                      |
 |----------------------------|---------------------------|
 | Visuellt innehåll            | `ComputerVision`          |
 | Custom Vision förutsägelse | `CustomVision.Prediction` |
@@ -95,9 +99,9 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Formigenkänning            | `FormRecognizer`          |
 | Handskriftsigenkänning             | `InkRecognizer`           |
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
-| Tjänst            | Variant                  |
+| Tjänst            | Typ                  |
 |--------------------|-----------------------|
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
 | Anpassad sökning i Bing | `Bing.CustomSearch`   |
@@ -107,14 +111,14 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="speech"></a>Speech
 
-| Tjänst            | Variant                 |
+| Tjänst            | Typ                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | Taligenkänning | `SpeakerRecognition` |
 
 ### <a name="language"></a>Språk
 
-| Tjänst            | Variant                |
+| Tjänst            | Typ                |
 |--------------------|---------------------|
 | Formulär förståelse | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -124,7 +128,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="decision"></a>Beslut
 
-| Tjänst           | Variant               |
+| Tjänst           | Typ               |
 |-------------------|--------------------|
 | Avvikelseidentifiering  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |

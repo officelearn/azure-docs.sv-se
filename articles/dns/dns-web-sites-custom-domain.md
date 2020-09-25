@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: cc36eca0b39db5188be7a63ffb148cc0f4cf30bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252892"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 > * Skapa en A- och TXT-post för den anpassade domänen
 > * Skapa en CNAME-post för den anpassade domänen
 > * Testa de nya posterna
-> * Lägg till anpassade värdnamn till din webbapp
+> * Lägg till anpassade värdnamn i din webbapp
 > * Testa de anpassade domännamnen
 
 
@@ -175,7 +175,7 @@ set-AzWebApp `
 > [!NOTE]
 > Se till att du inkluderar `http://` prefixet, annars kan webbläsaren försöka förutsäga en URL åt dig!
 
-Du bör se samma sida för båda URL:er. Till exempel:
+Du bör se samma sida för båda URL:er. Exempel:
 
 ![Contoso-apptjänst](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

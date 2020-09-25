@@ -4,16 +4,16 @@ description: Lär dig hur du lägger till ett panel lager till en karta. Se ett 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bae1d06f1b5a96ad99d970613d957ce75a0c1393
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311099"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
 
@@ -30,12 +30,12 @@ Ett panel lager läses in i paneler från en server. Dessa bilder kan förrender
 
 Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
-* `{x}`-X position i rutan. Du måste också ha `{y}` och `{z}` .
-* `{y}`-Y position i panelen. Du måste också ha `{x}` och `{z}` .
-* `{z}`-Zoomnings nivå i panelen. Du måste också ha `{x}` och `{y}` .
-* `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
-* `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
-* `{subdomain}`– En plats hållare för under domänens värden, om värdet under domän är angivet.
+* `{x}` -X position i rutan. Du måste också ha `{y}` och `{z}` .
+* `{y}` -Y position i panelen. Du måste också ha `{x}` och `{z}` .
+* `{z}` -Zoomnings nivå i panelen. Du måste också ha `{x}` och `{y}` .
+* `{quadkey}` -Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
+* `{bbox-epsg-3857}` – En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
+* `{subdomain}` – En plats hållare för under domänens värden, om värdet under domän är angivet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -1,6 +1,6 @@
 ---
 title: Inaktivera och ta bort en enhet med StorSimple 8000-serien | Microsoft Docs
-description: Beskriver hur du tar bort StorSimple-enheten från tjänsten genom att först inaktivera den och sedan ta bort den.
+description: Lär dig hur du inaktiverar och tar bort en StorSimple-enhet som är ansluten till en StorSimple Enhetshanteraren-tjänst.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64163011506380eec87457a2d8a2f699ec56dc68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249645"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Inaktivera och ta bort en StorSimple-enhet
 
@@ -100,7 +100,7 @@ Om du är intresse rad av att ta bort enheten men vill behålla data, utför du 
        ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. När borttagningen har slutförts meddelas du. Enhets listan uppdateras också för att återspegla borttagningen.
 
-## <a name="deactivate-and-delete-a-cloud-appliance"></a>Inaktivera och ta bort en moln installation
+## <a name="deactivate-and-delete-a-cloud-appliance"></a>Inaktivera och ta bort en molninstallation
 
 För en StorSimple Cloud Appliance avaktiverar du från portalen, frigör och tar bort den virtuella datorn och de resurser som skapades när den etablerades. När molninstallationen har inaktiverats kan den inte återställas till sitt tidigare tillstånd.
 

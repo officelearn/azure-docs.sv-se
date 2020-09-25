@@ -1,6 +1,6 @@
 ---
 title: Regler för namngivning av Azure Data Factory entiteter – version 1
-description: Beskriver namngivnings regler för Data Factory entiteter.
+description: Beskriver namngivnings regler för Data Factory v1-entiteter.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2b6dc5b89b8c5d691b19e9e3368d805eb59b1db1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a329a9c25b9ea85886938a170eb4194ca84643e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282603"
 ---
 # <a name="rules-for-naming-azure-data-factory-entities"></a>Regler för namngivning av Azure Data Factory entiteter
 > [!NOTE]
@@ -25,7 +25,7 @@ ms.locfileid: "87082868"
 
 Följande tabell innehåller namngivnings regler för Data Factory artefakter.
 
-| Namn | Namn unikhet | Verifierings kontroller |
+| Name | Namn unikhet | Verifierings kontroller |
 |:--- |:--- |:--- |
 | Data Factory |Unikt mellan Microsoft Azure. Namn är inte Skift läges känsliga, det `MyDF` vill säga och `mydf` referera till samma data fabrik. |<ul><li>Varje data fabrik är knuten till exakt en Azure-prenumeration.</li><li>Objekt namn måste börja med en bokstav eller en siffra och får bara innehålla bokstäver, siffror och bindestreck (-).</li><li>Varje bindestreck (-) måste föregås omedelbart och följas av en bokstav eller en siffra. Efterföljande bindestreck tillåts inte i behållar namn.</li><li>Namnet kan vara 3-63 tecken långt.</li></ul> |
 | Länkade tjänster/tabeller/pipelines |Unikt med i en data fabrik. Namn är inte Skift läges känsliga. |<ul><li>Maximalt antal tecken i tabell namn: 260.</li><li>Objekt namn måste börja med en bokstav, en siffra eller ett under streck (_).</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |

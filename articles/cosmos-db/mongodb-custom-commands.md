@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 4b069dea3f07477fcbca21e08166cdfad8cad2cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326736"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB-tilläggs kommandon för att hantera data som lagras i Azure Cosmos DB s API för MongoDB 
 
@@ -33,7 +33,7 @@ Följande tilläggs kommandon ger möjlighet att skapa och ändra Azure Cosmos D
 * [Uppdatera samling](#update-collection)
 * [Hämta samling](#get-collection)
 
-## <a name="create-database"></a><a id="create-database"></a>Skapa databas
+## <a name="create-database"></a><a id="create-database"></a> Skapa databas
 
 Kommandot Skapa databas tillägg skapar en ny MongoDB-databas. Databas namnet kan användas från den databas kontext som anges av `use database` kommandot. I följande tabell beskrivs parametrarna i kommandot:
 
@@ -86,7 +86,7 @@ use test
 db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughput: 20000 } });
 ```
 
-## <a name="update-database"></a><a id="update-database"></a>Uppdatera databas
+## <a name="update-database"></a><a id="update-database"></a> Uppdatera databas
 
 Kommandot uppdatera databas tillägg uppdaterar de egenskaper som är associerade med den angivna databasen. I följande tabell beskrivs parametrarna i kommandot:
 
@@ -129,7 +129,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 ```
 
 
-## <a name="get-database"></a><a id="get-database"></a>Hämta databas
+## <a name="get-database"></a><a id="get-database"></a> Hämta databas
 
 Kommandot Hämta databas tillägg returnerar databasobjektet. Databas namnet används från databas kontexten som kommandot körs mot.
 
@@ -154,7 +154,7 @@ Om kommandot lyckas innehåller svaret ett dokument med följande fält:
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Status för svar. 1 = = lyckades. 0 = = Miss lyckas.      |
 | `database`    |    `string`        |   Namnet på databasen.      |
-|   `provisionedThroughput`  |    `int`      |    Tillhandahållet data flöde som har ställts in på databasen om databasen använder ett [manuellt data flöde på databas nivå](set-throughput.md#set-throughput-on-a-database)     |
+|   `provisionedThroughput`  |    `int`      |    Tillhandahållet data flöde som har ställts in på databasen om databasen använder ett  [manuellt data flöde på databas nivå](set-throughput.md#set-throughput-on-a-database)     |
 | `autoScaleSettings` | `Object` | Det här objektet innehåller de kapacitets parametrar som är kopplade till databasen om den använder [autoskalning-läget](provision-throughput-autoscale.md). `maxThroughput`Värdet beskriver det högsta antalet enheter för programbegäran som databasen kommer att höjas till dynamiskt. |
 
 Om kommandot Miss lyckas returneras ett anpassat standard kommando svar. Se [standardutdata](#default-output) för det anpassade kommandot för parametrarna i utdata.
@@ -195,7 +195,7 @@ Om databasen har ett [data flöde för autoskalning på databas nivå](provision
 }
 ```
 
-## <a name="create-collection"></a><a id="create-collection"></a>Skapa samling
+## <a name="create-collection"></a><a id="create-collection"></a> Skapa samling
 
 Kommandot Skapa samlings tillägg skapar en ny MongoDB-samling. Databas namnet används från den databas kontext som anges av `use database` kommandot. Formatet för CreateCollection-kommandot är följande:
 
@@ -234,7 +234,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Detta leder till en ny fast, unsharded, samling med 400RU/s och ett index i fältet som `_id` skapas automatiskt. Den här typen av konfiguration kommer också att gälla när du skapar nya samlingar via `insert()` funktionen. Ett exempel: 
+Detta leder till en ny fast, unsharded, samling med 400RU/s och ett index i fältet som `_id` skapas automatiskt. Den här typen av konfiguration kommer också att gälla när du skapar nya samlingar via `insert()` funktionen. Exempel: 
 
 ```javascript
 use test
@@ -288,7 +288,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", shardKey: "a.b", autoScaleSettings: { maxThroughput: 20000 }});
 ```
 
-## <a name="update-collection"></a><a id="update-collection"></a>Uppdatera samling
+## <a name="update-collection"></a><a id="update-collection"></a> Uppdatera samling
 
 Kommandot för att uppdatera samlings tillägg uppdaterar egenskaperna som är associerade med den angivna samlingen.
 
@@ -324,7 +324,7 @@ use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a name="get-collection"></a><a id="get-collection"></a>Hämta samling
+## <a name="get-collection"></a><a id="get-collection"></a> Hämta samling
 
 Det anpassade kommandot Hämta samling returnerar objektet Collection.
 
@@ -413,7 +413,7 @@ Om samlingen delar [data flöde på databas nivå](set-throughput.md#set-through
 ```
 
 
-## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a>Standardutdata för ett anpassat kommando
+## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a> Standardutdata för ett anpassat kommando
 
 Om inget anges innehåller ett anpassat svar ett dokument med följande fält:
 
@@ -423,7 +423,7 @@ Om inget anges innehåller ett anpassat svar ett dokument med följande fält:
 | `code`    |   `int`      |   Returneras endast om kommandot misslyckades (t. ex. OK = = 0). Innehåller fel koden för MongoDB. Detta är en valfri svars parameter.      |
 |  `errMsg`   |  `string`      |    Returneras endast om kommandot misslyckades (t. ex. OK = = 0). Innehåller ett användarvänligt fel meddelande. Detta är en valfri svars parameter.      |
 
-Ett exempel:
+Exempel:
 
 ```javascript
 { "ok" : 1 }

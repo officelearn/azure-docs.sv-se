@@ -4,16 +4,16 @@ description: Lär dig hur du lägger till former i Maps. Se kod exempel som anv�
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311316"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Lägga till en form till en karta med Azure Maps Android SDK
 
@@ -238,7 +238,7 @@ Med **polygon-lagret** kan du återge ytan på polygonen till kartan. Följ steg
     });
     ```
 
-    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Sedan skapas ett data käll objekt med hjälp av klassen **DataSource** och läggs till i kartan. Ett **polygon** -objekt skapas sedan från en lista med **punkt** objekt och läggs till i data källan. Ett **polygon-lager** återger data som radbryts i data källan på kartan. Sedan skapas ett polygon-lager för att rendera polygonområdet och lägga till data källan till den. Ett **linje lager** återger linje objekt som har omslutits i en data källa. Den sista delen av kodfragmentet skapar ett linje lager som återger konturen på polygonen och lägger till data källan till den.
+    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Sedan skapas ett data käll objekt med hjälp av klassen **DataSource** och läggs till i kartan. Ett **polygon** -objekt skapas sedan från en lista med **punkt**  objekt och läggs till i data källan. Ett **polygon-lager** återger data som radbryts i data källan på kartan. Sedan skapas ett polygon-lager för att rendera polygonområdet och lägga till data källan till den. Ett **linje lager** återger linje objekt som har omslutits i en data källa. Den sista delen av kodfragmentet skapar ett linje lager som återger konturen på polygonen och lägger till data källan till den.
 
     När du har lagt till kodfragmentet ovan `MainActivity.java` bör det se ut som det som visas nedan:
 

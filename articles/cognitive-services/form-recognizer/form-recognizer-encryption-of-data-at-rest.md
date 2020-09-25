@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 86b15b0059c2e3466ef65daeb53780798b3882d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079259"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326804"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Formulär tolkens kryptering av data i vila
 
-Azure formulär tolken krypterar dina data automatiskt när de sparas i molnet. Formulär igenkännings kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden.
+Azure formulär tolken krypterar automatiskt dina data när de behålls i molnet. Formulär igenkännings kryptering skyddar dina data så att du kan uppfylla organisationens säkerhets-och efterlevnads åtaganden.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 

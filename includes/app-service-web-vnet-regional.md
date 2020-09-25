@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255270"
 ---
 Genom att använda regional VNet-integrering kan din app komma åt:
 
@@ -56,7 +56,7 @@ En adress används för varje plan instans. Om du skalar din app till fem instan
 
 Om du vill att dina appar i en annan plan ska kunna komma åt ett VNet som redan är anslutet till av appar i ett annat abonnemang väljer du ett annat undernät än det som används av den befintliga VNet-integreringen.
 
-Funktionen stöds fullt ut för både Windows-och Linux-webbappar. Alla beteenden fungerar på samma sätt mellan Windows-appar och Linux-appar.
+Funktionen stöds fullt ut för både Windows-och Linux-appar, inklusive [anpassade behållare](../articles/app-service/quickstart-custom-container.md). Alla beteenden fungerar på samma sätt mellan Windows-appar och Linux-appar.
 
 ### <a name="service-endpoints"></a>Tjänstslutpunkter
 

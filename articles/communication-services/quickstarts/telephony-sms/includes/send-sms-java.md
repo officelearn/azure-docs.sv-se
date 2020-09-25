@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 72bb38b7d9d28366fb75c5656832a1f37c770fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303340"
 ---
 Kom igång med Azure Communication Services med hjälp av kommunikations tjänsterna Java SMS-klient bibliotek för att skicka SMS-meddelanden.
 
@@ -30,7 +30,8 @@ Att slutföra den här snabb starten innebär en låg kostnad av några USD cent
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 eller senare.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- En distribuerad kommunikations tjänst resurs. [Skapa en kommunikations tjänst resurs](../../create-communication-resource.md).
+- En aktiv kommunikations tjänst resurs och anslutnings sträng. [Skapa en kommunikations tjänst resurs](../../create-communication-resource.md).
+- Ett SMS-aktiverat telefonnummer. [Hämta ett telefonnummer](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Krav kontroll
 

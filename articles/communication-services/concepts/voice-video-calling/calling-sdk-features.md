@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9cc00cfa9f44c69a5880d53c0b7ac623f60be16b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6021bb4fa5d30de423ab56bfb5fdea6af2665a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334488"
 ---
-# <a name="calling-client-library-overview"></a>Översikt över samtals klient bibliotek
+# <a name="calling-client-library-overview"></a>Översikt över klientbiblioteket för samtal
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -55,8 +55,7 @@ I följande lista presenteras de funktioner som för närvarande är tillgängli
 |                   | Placera ett grupp samtal med PSTN-deltagare                                                                           | ✔️   | ✔️            | ✔️
 |                   | Marknadsför ett ett-till-ett-samtal med en PSTN-deltagare i ett grupp anrop                                                 | ✔️   | ✔️            | ✔️
 |                   | Ringa ut från ett grupp anrop som en PSTN-deltagare                                                                    | ✔️   | ✔️            | ✔️   
-| Allmänt           | Delta i ett grupp anrop som innehåller upp till 350 deltagare                                                       |  ✔️  | ✔️            | ✔️    
-|                   | Testa din mikrofon, talare och kamera med en ljud test tjänst (tillgänglig genom att anropa 8: echo123)                   |  ✔️  | ✔️            | ✔️   
+| Allmänt           | Testa din mikrofon, talare och kamera med en ljud test tjänst (tillgänglig genom att anropa 8: echo123)                   |  ✔️  | ✔️            | ✔️   
 
 ## <a name="calling-client-library-browser-support"></a>Anropar stöd för klient biblioteks webbläsare
 

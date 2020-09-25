@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: komma igång med att analysera data med SQL-pool'
+title: 'Självstudie: komma igång med att analysera data med dedikerade SQL-pooler'
 description: I den här självstudien använder du NYC taxi-exempel data för att utforska SQL-poolens analys funktioner.
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,16 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 3df0959003923a9a4ff2347330fd5a4f22e52245
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300130"
 ---
-# <a name="analyze-data-with-sql-pools"></a>Analysera data med SQL-pooler
+# <a name="analyze-data-with-sql-dedicated-pools"></a>Analysera data med SQL-dedikerade pooler
 
-Azure Synapse Analytics ger dig möjlighet att analysera data med SQL-poolen. I den här självstudien använder du NYC taxi-exempel data för att utforska SQL-poolens analys funktioner.
+Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild SQL-pool. I den här självstudien använder du NYC taxi-data för att utforska en förväntad SQL-Pools funktioner.
 
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Läs in NYC taxi-data till SQLDB1
 
@@ -71,7 +71,7 @@ Azure Synapse Analytics ger dig möjlighet att analysera data med SQL-poolen. I 
     ```
 1. Skriptet tar ungefär 1 minut att köra. Den läser in 2 000 000 rader av NYC taxi-data i en tabell med namnet **dbo. Resa**
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Utforska NYC taxi-data i SQL-poolen
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Utforska NYC taxi-data i den dedikerade SQL-poolen
 
 1. Gå till **datahubben** i Synapse Studio.
 1. Gå till **SQLDB1**-  >  **tabeller**. Du ser att flera tabeller har lästs in.

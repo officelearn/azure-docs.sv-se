@@ -7,17 +7,17 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c562708dcf554afc8dfe4acf6b525db1db677f40
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.custom: devx-track-js
+ms.openlocfilehash: 1ccbe6cb332f357eeef02dff22b8a4be328b8de0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89564910"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324237"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
 
-Just nu är de enda publicerade data Plans SDK: erna för att interagera med Azures digitala dubbla API: er för .NET (C#) och Java Script. Du kan läsa om dessa SDK: er och API: erna i allmänhet i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar ett eget data plan SDK på det språk som du väljer med hjälp av AutoRest.
+Just nu är de enda publicerade data Plans SDK: erna för att interagera med Azures digitala dubbla API: er för .NET (C#), Java Script och Java. Du kan läsa om dessa SDK: er och API: erna i allmänhet i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar ett eget data plan SDK på det språk som du väljer med hjälp av AutoRest.
 
 >[!NOTE]
 > Du kan också använda AutoRest för att generera ett Control plan SDK om du vill. Det gör du genom att följa anvisningarna i den här artikeln med hjälp av [openapi-filen (Control plan Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) i stället för data planet en.

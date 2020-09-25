@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 6f1199b29e3bdaa2200aeb7fe4f76c4c9d0d8e19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9d3aafad457f5c72a8c45f4f98f8f03eb8d978d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324271"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Viktig information om Azure Stack Edge Pro med GPU allmän tillgänglighet (GA)
 
@@ -21,9 +21,7 @@ I följande versions information identifieras kritiska öppnings problem och lö
 
 Viktig information uppdateras kontinuerligt och eftersom kritiska problem som kräver en lösning upptäcks, läggs de till. Läs igenom informationen i viktig information innan du distribuerar din Azure Stack Edge Pro-enhet.
 
-Den här artikeln gäller för program versionen **Azure Stack Edge Pro 2009** . 
-
-<!--- This software release corresponds to software version number **2.1.1328.1904**-->
+Den här artikeln gäller för **Azure Stack Edge Pro 2009** -versionen som mappar till program versions nummer **2.1.1358.2075**.
 
 ## <a name="whats-new"></a>Nyheter
 

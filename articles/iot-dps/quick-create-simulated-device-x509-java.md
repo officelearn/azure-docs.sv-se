@@ -1,5 +1,5 @@
 ---
-title: Etablera simulerad X. 509-enhet till Azure IoT Hub med Java
+title: Snabb start – etablera simulerad X. 509-enhet till Azure IoT Hub med Java
 description: Azure snabb start – skapa och etablera en simulerad X. 509-enhet med hjälp av Java-enhets-SDK för IoT Hub Device Provisioning Service (DPS). I den här snabb starten används enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: e36f026257563555013fa432a897f8458de22ab0
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0198a32800f364f921a2b9f64048166c48a14f7e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532485"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323897"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad X. 509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning Service
 

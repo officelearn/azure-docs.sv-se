@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892509"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323645"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Förstå appar och distribution i Azure våren Cloud
 
@@ -29,11 +29,11 @@ Azure våren Cloud standard-nivån tillåter att en app har en produktions distr
 ## <a name="app"></a>App
 Följande funktioner/egenskaper definieras på App-nivå.
 
-| Enum | Definition |
+| Funktioner | Description |
 |:--|:----------------|
 | Offentliga</br>Slutpunkt | URL: en för att komma åt appen |
 | Anpassad</br>Domän | CNAME-post som skyddar den anpassade domänen |
-| Tjänst</br>Bindning | Bindnings konfigurations egenskaper som anges i function.jspå filen och attributet *ServiceBusTrigger* |
+| Tjänst</br>Bindning | Anslutning med andra Azure-tjänster ur Box |
 | Hanterade</br>Identitet | Hanterad identitet med Azure Active Directory gör att din app enkelt kan komma åt andra Azure AD-skyddade resurser som Azure Key Vault |
 | Permanent</br>Storage | Inställning som gör att data kan sparas efter omstart av appar |
 
@@ -41,14 +41,14 @@ Följande funktioner/egenskaper definieras på App-nivå.
 
 Följande funktioner/egenskaper definieras på distributions nivå och kommer att bytas ut när du växlar produktion/mellanlagrings distribution.
 
-| Enum | Definition |
+| Funktioner | Beskrivning |
 |:--|:----------------|
-| Processor | Antal virtuella kärnor per app-instans |
-| Minne | Inställning som allokerar minne för att skala upp eller skala ut distributioner |
+| CPU | Antal virtuella kärnor per app-instans |
+| Minne | GB minne per app-instans|
 | Instans</br>Antal | Antalet App-instanser, ange manuellt eller automatiskt |
 | Automatisk skalning | Skala instans antal automatiskt baserat på fördefinierade regler och scheman |
-| JVM</br>Alternativ | inställning: JAVA_OPTS |
-| Miljö</br>Variabler | Inställningar som gäller för hela Azure våren Cloud-miljön |
+| JVM</br>Alternativ | Ange JVM-alternativ  |
+| Miljö</br>Variabler | Ställa in miljövariabler |
 | Körmiljö</br>Version | Java 8/Java 11|
 
 ## <a name="restrictions"></a>Begränsningar

@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16448706b7167f55f31c7603676010e4ad30166f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 07a38e106b765fd28a8c3c1115e5fe84744ade62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985838"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303097"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installera och Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -104,11 +104,16 @@ Du kan köra Azure Cosmos-emulatorn på Windows Docker-behållaren. Mer informat
 
    # <a name="command-line"></a>[Kommandorad](#tab/cli)
 
-   ```cmd
+   ```bash
 
    md %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 
    docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
+   ```
+   Windows-baserade Docker-avbildningar kanske inte är allmänt kompatibla med varje Windows-värd-OS. Till exempel är standard avbildningen av Azure Cosmos-emulatorn bara kompatibel med Windows 10 och Windows Server 2016. Om du behöver en avbildning som är kompatibel med Windows Server 2019 kör du följande kommando i stället:
+
+   ```bash
+   docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%hostDirectory%,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/winsrv2019/azure-cosmos-emulator:latest
    ```
 
    # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -123,7 +128,7 @@ Du kan köra Azure Cosmos-emulatorn på Windows Docker-behållaren. Mer informat
 
    Svaret ser ut ungefär så här:
 
-   ```cmd
+   ```bash
    Starting emulator
    Emulator Endpoint: https://172.20.229.193:8081/
    Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -143,7 +148,7 @@ Du kan köra Azure Cosmos-emulatorn på Windows Docker-behållaren. Mer informat
 
    # <a name="command-line"></a>[Kommandorad](#tab/cli)
 
-   ```cmd
+   ```bash
    cd  %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
    powershell .\importcert.ps1
    ```
@@ -223,7 +228,7 @@ Använd följande steg för att använda emulatorn i Linux-eller macOS-miljöer:
 
 1. Kör följande kommando från den virtuella Windows-datorn och anteckna IPv4-adressen:
 
-   ```cmd
+   ```bash
    ipconfig.exe
    ```
 
@@ -231,7 +236,7 @@ Använd följande steg för att använda emulatorn i Linux-eller macOS-miljöer:
 
 1. Från den virtuella Windows-datorn startar du Azure Cosmos-emulatorn från kommando raden med hjälp av följande alternativ. Mer information om parametrarna som stöds av kommando raden finns i [kommando rads verktyget för emulatorn](emulator-command-line-parameters.md):
 
-   ```cmd
+   ```bash
    Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM +4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    ```
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345350"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284121"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Identifierings bara typer av flask halsar i frågor i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -58,7 +58,7 @@ Ett underoptimerat schema som genereras av SQL Query Optimering kan vara orsaken
 
 I följande avsnitt lär du dig hur du löser frågor med en underoptimerad körnings plan för frågor.
 
-### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Frågor med PSP-problem (parameter känslig plan)
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a> Frågor med PSP-problem (parameter känslig plan)
 
 Ett problem med en parameter känslig plan (PSP) inträffar när Query Optimering genererar en plan för frågekörningen som är optimal endast för ett särskilt parameter värde (eller uppsättning värden) och den cachelagrade planen är inte optimal för parameter värden som används i löpande körningar. Planer som inte är optimala kan sedan orsaka problem med frågans prestanda och försämra det totala data flödet.
 
@@ -166,7 +166,7 @@ En ökning av program trafik och arbets belastnings volym kan orsaka ökad CPU-a
 - Är frågorna från programmet orsaken till det höga processor problemet?
 - För de [vanligaste processor krävande frågorna som du kan identifiera](database/monitoring-with-dmvs.md#the-cpu-issue-occurred-in-the-past):
 
-  - Är flera körnings planer kopplade till samma fråga? I så fall, varför?
+  - Är flera körnings planer kopplade till samma fråga? I så fall varför?
   - Kördes körnings tiderna för frågor med samma körnings plan? Ökade körnings antalet? I så fall kan arbets belastnings ökningen troligen orsaka prestanda problem.
 
 I sammanfattning, om körnings planen inte kördes annorlunda men CPU-användningen ökade tillsammans med antalet körningar, är prestanda problemet sannolikt relaterat till en ökad arbets belastning.

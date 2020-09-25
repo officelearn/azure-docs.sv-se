@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 4b2324c480ef81ef241f4d639c22c2ed4dd1545b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c4c19850cda158afdb888188d3f99b7d93195aa5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334862"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Långsiktig kvarhållning – Azure SQL Database och Azure SQL-hanterad instans
 
@@ -79,7 +79,7 @@ Om du använder aktiv geo-replikering eller failover-grupper som verksamhets kon
 > [!NOTE]
 > När den ursprungliga primära databasen återställs från ett avbrott som orsakade redundansväxlingen, blir det en ny sekundär. Därför återupptas inte skapandet av säkerhets kopieringen och den befintliga LTR-principen börjar inte gälla förrän den blir primär igen. 
 
-## <a name="sql-managed-instance-support"></a>Stöd för SQL-hanterad instans
+## <a name="sql-managed-instance-support"></a>Stöd för SQL Managed Instance
 
 Användning av långsiktig kvarhållning av säkerhets kopior med Azure SQL Managed instance har följande begränsningar:
 

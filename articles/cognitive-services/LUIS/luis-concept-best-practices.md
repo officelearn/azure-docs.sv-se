@@ -1,15 +1,17 @@
 ---
 title: Metod tips för att skapa en LUIS-app
 description: Lär dig mer om bästa praxis för att få bästa möjliga resultat från LUIS-appens modell.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6ab7b8db3e1bc1b1134c0e7ab6c14bd17f819935
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683758"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324883"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Metod tips för att skapa en LUIS-app (Language förståelseing)
 Använd redigerings processen för appar för att skapa LUIS-appen:
@@ -65,7 +67,7 @@ Om ord listan mellan två avsikter är densamma kombinerar du avsikten och anvä
 |Boka en flygning|
 |Boka ett hotell|
 
-`Book a flight`och `Book a hotel` Använd samma vokabulär i `book a ` . Det här formatet är detsamma, så det bör vara samma avsikt med de olika orden av `flight` och `hotel` som extraherade entiteter.
+`Book a flight` och `Book a hotel` Använd samma vokabulär i `book a ` . Det här formatet är detsamma, så det bör vara samma avsikt med de olika orden av `flight` och `hotel` som extraherade entiteter.
 
 ## <a name="do-add-features-to-intents"></a>Lägg till funktioner till avsikter
 

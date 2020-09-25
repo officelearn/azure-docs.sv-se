@@ -4,18 +4,18 @@ description: Använd blockchain Data Manager för Azure blockchain-tjänsten fö
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79533189"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283469"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Självstudie: Använd blockchain Data Manager för att skicka data till Azure Cosmos DB
 
 I den här självstudien använder du blockchain Data Manager för Azure blockchain-tjänsten för att registrera blockchain transaktions data i Azure Cosmos DB. Blockchain Data Manager fångar, transformerar och levererar blockchain-redovisningsinformation till Azure Event Grid ämnen. Från Azure Event Grid använder du en Azure Logic app-anslutning för att skapa dokument i en Azure Cosmos DB databas. När du är klar med självstudien kan du utforska blockchain-transaktions data i Azure Cosmos DB Datautforskaren.
 
-[![Blockchain transaktions information](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[![Skärm bild som visar blockchain transaktions information.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 I den här kursen får du:
 
@@ -41,7 +41,7 @@ I den här kursen får du:
 
 En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain service Transaction-nod. En instans fångar alla RAW-block och rå transaktions data från Transaction-noden. En utgående anslutning skickar blockchain-data till Azure Event Grid. Du konfigurerar en enda utgående anslutning när du skapar instansen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Gå till den Azure blockchain service-medlem som du skapade i den nödvändiga [snabb starten: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md). Välj **Blockchain Data Manager**.
 1. Välj **Lägg till**.
 
@@ -49,9 +49,9 @@ En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain s
 
     Ange följande uppgifter:
 
-    Inställningen | Exempel | Beskrivning
+    Inställning | Exempel | Beskrivning
     --------|---------|------------
-    Namn | Watcher | Ange ett unikt namn för en ansluten blockchain Data Manager.
+    Name | Watcher | Ange ett unikt namn för en ansluten blockchain Data Manager.
     Transaction Node | myblockchainmember | Välj noden standard transaktion för den Azure blockchain service-medlem som du skapade i förutsättningen.
     Anslutningsnamn | cosmosdb | Ange ett unikt namn på den utgående anslutningen där blockchain transaktions data skickas.
     Event Grid-slutpunkt | Avsnittet | Välj ett event Grid-ämne som du skapade i förutsättningen. Obs! Data Manager blockchain-instansen och avsnittet Event Grid måste vara i samma prenumeration.
@@ -108,9 +108,9 @@ Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås a
 
     ![Skapa en lagrings konto behållare](./media/data-manager-cosmosdb/create-container.png)
 
-    | Inställningen | Beskrivning |
+    | Inställning | Beskrivning |
     |---------|-------------|
-    | Namn  | Ge containern ett namn. Till exempel *smartcontract* |
+    | Name  | Ge containern ett namn. Till exempel *smartcontract* |
     | Offentlig åtkomstnivå | Välj *privat (ingen anonym åtkomst)* |
 
 1. Klicka på **OK** för att skapa containern.
@@ -144,9 +144,9 @@ Generera en signatur för delad åtkomst för varje blob.
 
     Ange namnet på blockchain-programmet och URL: en för smart kontrakt ABI och bytekod.
 
-    Inställningen | Beskrivning
+    Inställning | Beskrivning
     --------|------------
-    Namn | Ange ett unikt namn för blockchain-programmet som ska spåras.
+    Name | Ange ett unikt namn för blockchain-programmet som ska spåras.
     Kontrakt ABI | URL-sökväg till kontraktets ABI-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
     Kontraktets bytekod | URL-sökväg till bytekod-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
 
@@ -171,7 +171,7 @@ Du kan använda Datautforskaren i Azure Portal för att skapa en databas och beh
 
     ![Lägg till behållar inställningar](./media/data-manager-cosmosdb/add-container.png)
 
-    | Inställningen | Beskrivning
+    | Inställning | Beskrivning
     |---------|-------------|
     | Databas-id | Ange **blockchain-data** som namn på den nya databasen. |
     | Dataflöde | Lämna data flödet på **400** enheter för programbegäran per sekund (ru/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.|
@@ -202,7 +202,7 @@ Varje logikapp måste börja med en utlösare som utlöses när en specifik hän
 
     ![Inställningar för Event Grid-utlösare](./media/data-manager-cosmosdb/event-grid-trigger.png)
 
-    | Inställningen | Beskrivning
+    | Inställning | Beskrivning
     |---------|-------------|
     | Prenumeration | Välj den prenumeration som innehåller Event Grid ämnet. |
     | Resurstyp | Välj **Microsoft. EventGrid. ämnen**. |
@@ -219,7 +219,7 @@ Lägg till en åtgärd för att skapa ett dokument i Cosmos DB för varje transa
 
     ![Cosmos DB anslutnings inställningar](./media/data-manager-cosmosdb/cosmosdb-connection.png)
 
-    | Inställningen | Beskrivning
+    | Inställning | Beskrivning
     |---------|-------------|
     | Anslutningsnamn | Välj den prenumeration som innehåller Event Grid ämnet. |
     | DocumentDB-konto | Välj det DocumentDB-konto som du skapade i avsnittet [skapa Azure Cosmos DB konto](#create-azure-cosmos-db) . |
@@ -271,7 +271,7 @@ Nu när du har anslutit dina blockchain-Data Manager till Azure Cosmos DB kan du
 
 1. Bläddra igenom meddelandena genom att välja objekt-ID och hitta meddelandet med den matchande transaktionens hash.
 
-    [![Blockchain transaktions information](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![Skärm bild som visar blockchain transaktions information om ett valt objekt.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     Meddelandet rå transaktion innehåller information om transaktionen. Men egenskaps informationen är krypterad.
 

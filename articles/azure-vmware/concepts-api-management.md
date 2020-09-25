@@ -1,22 +1,22 @@
 ---
 title: Koncept – API Management
-description: 'Lär dig hur API Management skyddar API: er som körs på virtuella Azure VMware-lösningar (virtuella datorer)'
+description: 'Lär dig hur API Management skyddar API: er som körs på virtuella datorer i Azure VMware-lösningen'
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 62112bf3c0bf551232e09e5910e3eaae228dc202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 346d0f795c3d19b115ced771991263cce2104217
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85306950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262985"
 ---
-# <a name="api-management-to-publish-and-protect-apis-running-on-avs-based-vms"></a>API Management att publicera och skydda API: er som körs på AVS-baserade virtuella datorer
+# <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>API Management att publicera och skydda API: er som körs på Azure VMware-lösningar baserade på virtuella datorer
 
 Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) låter utvecklare och DevOps-team publicera på ett säkert sätt antingen till interna eller externa konsumenter.
 
-Även om det finns flera SKU: er är det bara utvecklare och Premium-SKU: er som tillåter Azure Virtual Network-integrering att publicera API: er som körs på Azures arbets belastningar för VMware-lösningar. Dessa två SKU: er aktiverar säker anslutning mellan API Management tjänst och Server delen. Developer SKU är avsedd för utveckling och testning medan Premium-SKU: n är avsedd för produktions distributioner.
+Även om det finns flera SKU: er kan endast utvecklare och Premium-SKU: er tillåta Azure Virtual Network-integrering att publicera API: er som körs på arbets belastningar för Azure VMware-lösningar Dessa två SKU: er aktiverar säker anslutning mellan API Management tjänst och Server delen. Developer SKU är avsedd för utveckling och testning medan Premium-SKU: n är avsedd för produktions distributioner.
 
-För Server dels tjänster som körs ovanpå virtuella AVS-datorer (VM: ar) är konfigurationen i API Management som standard densamma som för lokala server dels tjänster. För både interna och externa distributioner konfigurerar API Management den virtuella IP-adressen (VIP) för belastningsutjämnaren som backend-slutpunkt när backend-servern placeras bakom en NSX Load Balancer på AVS-sidan.
+För backend-tjänster som körs ovanpå virtuella Azure VMware-lösningar (VM: ar) är konfigurationen i API Management som standard densamma som för lokala server dels tjänster. För både interna och externa distributioner konfigurerar API Management den virtuella IP-adressen (VIP) för belastningsutjämnaren som backend-slutpunkt när backend-servern placeras bakom en NSX Load Balancer på Azure VMware-lösningens sida.
 
 ## <a name="external-deployment"></a>Extern distribution
 
@@ -24,7 +24,7 @@ En extern distribution publicerar API: er som används av externa användare med
 
 Det externa distributions diagrammet visar hela processen och de aktörer som ingår (visas överst). Aktörerna är:
 
-- **Administratör (er):** Representerar administratörs-eller DevOps-teamet som hanterar AVS genom Azure Portal-och automation-mekanismer som PowerShell eller Azure DevOps.
+- **Administratör (er):** Representerar administratörs-eller DevOps-teamet som hanterar Azure VMware-lösningen via Azure Portal-och automation-mekanismer som PowerShell eller Azure DevOps.
 
 - **Användare:**  Representerar användare av exponerade API: er och representerar både användare och tjänster som konsumerar API: erna.
 
@@ -32,7 +32,7 @@ Trafikflödet går genom API Management instans, som sammanfattar backend-tjäns
 
 API Management har ett offentligt Azure-API och aktivera Azure DDOS Protection Service rekommenderas. 
 
-:::image type="content" source="media/api-management/external-deployment.png" alt-text="Extern distribution – API Management för AVS":::
+:::image type="content" source="media/api-management/external-deployment.png" alt-text="Extern distribution – API Management för Azure VMware-lösning":::
 
 
 ## <a name="internal-deployment"></a>Intern distribution
@@ -49,11 +49,11 @@ Interna distributioner kan vara [med Azure Application Gateway](../api-managemen
 
 I distributions diagrammet nedan visas konsumenter som kan vara interna eller externa, och varje typ använder samma eller olika API: er.
 
-I en intern distribution kommer API: er att exponeras för samma API Management-instans. Framför API Management, Application Gateway distribueras med WAF-funktionen (Azure Web Application Firewall) aktive rad och en uppsättning HTTP-lyssnare och regler för att filtrera trafiken, exponera endast en delmängd av Server dels tjänsterna som körs på AVS.
+I en intern distribution kommer API: er att exponeras för samma API Management-instans. Framför API Management, Application Gateway distribueras med WAF-funktionen (Azure Web Application Firewall) aktive rad och en uppsättning HTTP-lyssnare och regler för att filtrera trafiken, exponera endast en delmängd av Server dels tjänsterna som körs på Azure VMware-lösningen.
 
 * Intern trafik dirigeras genom ExpressRoute Gateway till Azure-brandväggen och sedan för att API Management om trafik regler upprättas eller direkt till API Management.  
 
 * Extern trafik går in i Azure via Application Gateway, som använder det externa skydds skiktet för API Management.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Intern distribution – API Management för AVS":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Intern distribution – API Management för Azure VMware-lösning":::

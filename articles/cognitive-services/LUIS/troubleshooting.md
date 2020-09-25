@@ -1,15 +1,17 @@
 ---
 title: Vanliga frågor och svar – LUIS
 description: Den här artikeln innehåller svar på vanliga frågor om Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ff7beff6682d594f9b9fc1901d396d29028ec989
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334709"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -78,7 +80,7 @@ Läs mer om [versions import fel](luis-how-to-manage-versions.md#import-errors).
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Hur gör jag för att ge medarbetarna åtkomst till LUIS med Azure Active Directory (Azure AD) eller rollbaserad åtkomst kontroll (RBAC)?
 
-Se [Azure Active Directory resurser](luis-how-to-collaborate.md#azure-active-directory-resources) och [Azure Active Directory klient användare](luis-how-to-collaborate.md#azure-active-directory-tenant-user) för att lära dig hur du ger samarbets åtkomst.
+Se [Azure Active Directory resurser](luis-how-to-collaborate.md#azure-active-directory-resources)  och [Azure Active Directory klient användare](luis-how-to-collaborate.md#azure-active-directory-tenant-user) för att lära dig hur du ger samarbets åtkomst.
 
 <a name="luis-endpoint"></a>
 
@@ -267,7 +269,7 @@ Det första problemet är att isolera om problemet är relaterat till LUIS eller
 #### <a name="resolve-issue-in-luis"></a>Lös problem i LUIS
 Skicka samma uttryck till LUIS från Luis- [slutpunkten](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Om du får ett fel meddelande kan du lösa problemet i LUIS tills felet inte längre returneras. Vanliga fel är:
 
-* `Out of call volume quota. Quota will be replenished in <time>.`– Det här problemet indikerar att du antingen måste ändra från en redigerings nyckel till en [slut punkts nyckel](luis-how-to-azure-subscription.md) eller ändra [tjänst nivåerna](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` – Det här problemet indikerar att du antingen måste ändra från en redigerings nyckel till en [slut punkts nyckel](luis-how-to-azure-subscription.md) eller ändra [tjänst nivåerna](luis-how-to-azure-subscription.md#change-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Lös problem i Azure Bot Service
 

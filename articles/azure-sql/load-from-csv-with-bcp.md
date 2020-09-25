@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: a5c09ef5ca1e3a4f47c4fd9d7d022c000378a6d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c07abc336d77719bb2af54ccf11a4786225b0e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283929"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Läsa in data från CSV till Azure SQL Database eller SQL-hanterad instans (flata filer)
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Du kan använda kommando rads verktyget BCP för att importera data från en CSV
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här artikeln behöver du:
 

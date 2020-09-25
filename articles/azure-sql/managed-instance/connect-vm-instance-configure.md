@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, srbozovi, bonova
+ms.reviewer: sstein, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 72d5a722e6c1e6b936c6ec0386036317e887bb92
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 072dc3c453984eb30805bb6c2c8c44cc39b06d17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969837"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283623"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Snabb start: Konfigurera en virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -53,10 +53,10 @@ Följande steg skapar ett nytt undernät i det virtuella SQL-hanterade instans-V
    | ---------------- | ----------------- | ----------- |
    | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är användbart för den här snabb starten.|
-   | **Nätverkssäkerhetsgrupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
-   | **Routningstabell** | Ingen | Standardvärdet är användbart för den här snabb starten.|
+   | **Nätverkssäkerhetsgrupp** | Inget | Standardvärdet är användbart för den här snabb starten.|
+   | **Routningstabell** | Inget | Standardvärdet är användbart för den här snabb starten.|
    | **Tjänstslutpunkter** | 0 valda | Standardvärdet är användbart för den här snabb starten.|
-   | **Delegering av undernät** | Ingen | Standardvärdet är användbart för den här snabb starten.|
+   | **Delegering av undernät** | Inget | Standardvärdet är användbart för den här snabb starten.|
 
    ![Nytt SQL Managed instance-undernät för virtuell klient dator](./media/connect-vm-instance-configure/new-subnet.png)
 

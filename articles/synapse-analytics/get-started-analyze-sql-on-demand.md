@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: komma igång med att analysera data med SQL på begäran'
+title: 'Självstudie: komma igång med att analysera data med serverles SQL'
 description: I den här självstudien får du lära dig hur du analyserar data med SQL på begäran med hjälp av data som finns i Spark-databaser.
 services: synapse-analytics
 author: saveenr
@@ -9,18 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 93ebc1c5e89e54f4813f270b9f8b7b13f672fbe3
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 8d26a03a8b61850dc17bc4efff5f8ca12dfca191
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300232"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Analysera data med SQL på begäran
 
-I den här självstudien får du lära dig hur du analyserar data med SQL på begäran med hjälp av data som finns i Spark-databaser. 
+I den här självstudien får du lära dig hur du analyserar data med Server lös SQL med hjälp av SQL-poolen på begäran med hjälp av data som finns i Spark-databaser. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-sql-on-demand"></a>Analysera NYC taxi-data i Blob Storage med SQL på begäran
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-sql-on-demand-pool"></a>Analysera NYC taxi-data i Blob Storage med SQL på begäran-pool
 
 1. I **data** hubben under **länkad**högerklickar du på **Azure Blob Storage > exempel data uppsättningar > nyc_tlc_yellow** och väljer **Välj de översta 100 raderna**
 1. Då skapas ett nytt SQL-skript med följande kod:

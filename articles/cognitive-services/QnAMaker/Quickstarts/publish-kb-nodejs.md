@@ -3,14 +3,14 @@ title: 'Snabb start: QnA Maker med REST API: er för Node.js'
 description: 'Den här snabb starten visar hur du kommer igång med QnA Maker REST-API: er för Node.js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.'
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, devx-track-javascript
+ms.custom: RESTCURL2020FEB27, devx-track-js
 ms.topic: how-to
-ms.openlocfilehash: a891e806c54d8d88eea1021c95923ffdc90c36f9
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 67c4711d74bdeb970a706eabf795e8f9bdcbbded
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266433"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324611"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Snabb start: QnA Maker REST-API: er för Node.js
 
@@ -67,7 +67,7 @@ npm install requestretry request --save
 
 De här kodfragmenten visar hur du gör följande med QnA Maker REST-API: er för Node.js:
 
-* [Skapa en kunskapsbas](#create-a-knowledge-base)
+* [Skapa en kunskaps bas](#create-a-knowledge-base)
 * [Ersätta en kunskaps bas](#replace-a-knowledge-base)
 * [Publicera en kunskapsbas](#publish-a-knowledge-base)
 * [Ta bort en kunskapsbas](#delete-a-knowledge-base)

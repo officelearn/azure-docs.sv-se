@@ -5,39 +5,32 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/24/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 9eff9b5356f3201f151cc959a96b070d2afaa267
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76759864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283468"
 ---
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure Portal:
 
 1. Välj **Alla tjänster** på menyn i Azure-portalen. Skriv **lagringskonton** i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **lagrings konton**.
-2. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
-3. Välj den prenumeration där du vill skapa lagringskontot.
-4. Under fältet **Resursgrupp** väljer du **Skapa ny**. Ange ett namn för din nya resursgrupp som du ser i följande bild.
+1. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
+1. På fliken **grundläggande** väljer du den prenumeration där du vill skapa lagrings kontot.
+1. Under fältet **resurs grupp** väljer du önskad resurs grupp eller skapar en ny resurs grupp.  Mer information om Azures resurs grupper finns i [Azure Resource Manager översikt](../articles/azure-resource-manager/resource-group-overview.md).
+1. Ange sedan ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure. Namnet måste också vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
+1. Välj en plats för ditt lagringskonto eller använd standardplatsen.
+1. Välj en prestanda nivå. Standard nivån är *standard*.
+1. Ange fältet **Kontotyp** till *Storage v2 (General-Purpose v2)*.
+1. Ange hur lagrings kontot ska replikeras. Standard alternativet för replikering är *Read-Access Geo-redundant lagring (RA-GRS)*. Mer information om tillgängliga replikeringsalternativ finns [Azure Storage redundans](../articles/storage/common/storage-redundancy.md).
+1. Ange åtkomst nivå för blobbar i lagrings kontot. Standard nivån är *varm*. Mer information om BLOB Access-nivåer finns i frekventa, låg frekventa [och arkivera åtkomst nivåer för blobbar](../articles/storage/blobs/storage-blob-storage-tiers.md).
+1. Om du vill använda [Azure Data Lake Storage](/services/storage/data-lake-storage/)väljer du fliken **Avancerat** och sedan ange **hierarkiskt namn område** till **aktive rad**.
+1. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
+1. Välj **Skapa**.
 
-    ![Skärmbild som visar hur du skapar en resursgrupp i portalen](./media/storage-create-account-portal-include/create-resource-group-for-storage.png)
+Följande bild visar inställningarna på fliken **grundläggande** för ett nytt lagrings konto:
 
-5. Ange sedan ett namn för lagringskontot. Namnet du väljer måste vara unikt för Azure. Namnet måste också bestå av mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
-6. Välj en plats för ditt lagringskonto eller använd standardplatsen.
-7. Lämna dessa fält med respektive standardvärde:
-
-   |Fält  |Värde  |
-   |---------|---------|
-   |Distributionsmodell     |Resource Manager         |
-   |Prestanda     |Standard         |
-   |Typ av konto     |StorageV2 (generell användning v2)         |
-   |Replikering     |Geo-redundant lagring med läsbehörighet (RA-GRS)         |
-   |Åtkomstnivå     |Frekvent         |
-
-8. Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)väljer du fliken **Avancerat** och sedan ange **hierarkiskt namn område** till **aktive rad**.
-9. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
-10. Välj **Skapa**.
-
-Mer information om typer av lagringskonton och andra inställningar för lagringskonto finns i [översikten över Azure-lagringskonton](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Mer information om resurs grupper finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
+:::image type="content" source="media/storage-create-account-portal-include/account-create-portal.png" alt-text="Skärmbild som visar hur du skapar ett lagringskonto i Azure-portalen":::

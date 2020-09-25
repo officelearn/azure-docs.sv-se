@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9e960914f86f2f9fc63a62d62fe1f923d21b9d31
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a05c7a6f9c3752507705e1c4242becfe1d65ffd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334845"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Azures säkerhets bas linje för säkerhets kopiering
 
@@ -252,9 +252,9 @@ Du kan också publicera en Log Analytics arbets yta till Azure Sentinel eftersom
 
 Support dokumentation:
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center övervakning**: Ja
 
@@ -760,9 +760,9 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: om du använder anpassade Azure policys definitioner använder du Azure DevOps eller Azure databaser för att lagra och hantera din kod på ett säkert sätt.
 
-- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/index)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -914,7 +914,7 @@ Säkerhetskopiera kund hanterade nycklar inom Azure Key Vault.
 
 **Vägledning**: testa återställning av säkerhetskopierade nycklar som hanteras av kunden.
 
-- [Återställa Key Vault-nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Återställa Key Vault-nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1346fed738bb9afa595b63c91064a481e2ee2b51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334892"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av moln program med SQL Database aktiv geo-replikering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ För att uppnå dessa mål kan du, förutom att använda Web Appss miljöer, dra
 * Den primära databasen i den primära regionen (2)
 * En standby-instans av webbappen i säkerhets kopierings regionen (3)
 * Den geo-replikerade sekundära databasen i säkerhets kopierings regionen (4)
-* En Traffic Manager prestanda profil med en online-slutpunkt `contoso-1.azurewebsites.net` som kallas och en offline-slutpunkt som kallas`contoso-dr.azurewebsites.net`
+* En Traffic Manager prestanda profil med en online-slutpunkt `contoso-1.azurewebsites.net` som kallas och en offline-slutpunkt som kallas `contoso-dr.azurewebsites.net`
 
 För att göra det möjligt att återställa uppgraderingen måste du skapa en mellanlagrings miljö med en helt synkroniserad kopia av programmet. Eftersom du måste se till att programmet snabbt kan återställas om det uppstår ett oåterkalleligt fel under uppgraderings processen, måste mellanlagrings miljön vara Geo-redundant också. Följande steg krävs för att skapa en utvecklings miljö för uppgraderingen:
 

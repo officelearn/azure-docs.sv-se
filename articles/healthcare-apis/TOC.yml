@@ -80,7 +80,7 @@
     - name: Exportera data
       expanded: false
       items:
-        - name: Avidentifierad export
+        - name: Exportera data
           href: export-data.md
     - name: 'Hitta ID:n för identitetsobjekt'
       href: find-identity-object-ids.md

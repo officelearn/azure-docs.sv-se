@@ -8,15 +8,15 @@ ms.subservice: data-movement
 author: stevestein
 ms.custom: sqldbrb=2
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: 10d10ccfbd04a52f6d522700d66d2c959fed24ee
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 9fb638feb254d5789d26cd854c0dcb3ae70da472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982442"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284360"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database och Azure SQL-hanterad instans
 
@@ -24,7 +24,7 @@ ms.locfileid: "85982442"
 
 När du behöver exportera en databas för arkivering eller för att flytta till en annan plattform kan du exportera databasens schema och data till en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) -fil. En BACPAC-fil är en ZIP-fil med en utökning av BACPAC som innehåller metadata och data från databasen. En BACPAC-fil kan lagras i Azure Blob Storage eller i lokal lagring på en lokal plats och senare importeras tillbaka till Azure SQL Database, Azure SQL-hanterad instans eller en SQL Server instans.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 - För att en export ska kunna utföras konsekvent måste du se till att ingen Skriv aktivitet inträffar under exporten eller att du exporterar från en [transaktions konsekvent kopia](database-copy.md) av databasen.
 - Om du exporterar till Blob Storage är den maximala storleken för en BACPAC-fil 200 GB. För att arkivera en större BACPAC-fil, exportera till lokal lagring.

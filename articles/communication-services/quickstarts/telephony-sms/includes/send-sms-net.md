@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: b4e085a4c81b44f721ddc8385d2dcd0f4a56f42a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7fc1225a37353e43f5fb17f3394df167fb795bf7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303339"
 ---
 Kom igång med Azure Communication Services med hjälp av kommunikations tjänsterna C# SMS-klient biblioteket för att skicka SMS-meddelanden.
 
@@ -59,13 +59,14 @@ dotnet build
 När du fortfarande är i program katalogen installerar du Azure Communication Services SMS-klient biblioteket för .NET-paketet med hjälp av `dotnet add package` kommandot.
 
 ```console
-dotnet add package Azure.Communication.Sms
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.1
 ```
 
 Lägg till ett `using` direktiv överst i **program.cs** för att inkludera `Azure.Communication` namn området.
 
 ```csharp
 
+using Azure.Communication;
 using Azure.Communication.Sms;
 
 ```

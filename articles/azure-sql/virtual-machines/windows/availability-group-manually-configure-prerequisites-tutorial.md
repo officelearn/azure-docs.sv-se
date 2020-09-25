@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263240"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
 
@@ -89,8 +89,8 @@ Skapa det virtuella nätverket i Azure Portal:
    | --- | --- |
    | **Namn** |autoHAVNET |
    | **Adressutrymme** |10.33.0.0/24 |
-   | **Under näts namn** |Administratör |
-   | **Adress intervall för under nätet** |10.33.0.0/29 |
+   | **Namn på undernät** |Administratör |
+   | **Adressintervall för undernätet** |10.33.0.0/29 |
    | **Prenumeration** |Ange den prenumeration som du vill använda. **Prenumerationen** är tom om du bara har en prenumeration. |
    | **Resursgrupp** |Välj **Använd befintlig** och välj namnet på resurs gruppen. |
    | **Plats** |Ange Azure-platsen. |
@@ -132,10 +132,10 @@ Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 | --- | --- |
 | **Namn** |**autoHAVNET** |
 | **Adressutrymme** |Det här värdet beror på tillgängliga adress utrymmen i din prenumeration. Ett typiskt värde är 10.0.0.0/16. |
-| **Under näts namn** |**administratör** |
-| **Adress intervall för under nätet** |Det här värdet beror på tillgängliga adress intervall i din prenumeration. Ett typiskt värde är 10.0.0.0/24. |
-| **Under näts namn** |**sqlsubnet** |
-| **Adress intervall för under nätet** |Det här värdet beror på tillgängliga adress intervall i din prenumeration. Ett typiskt värde är 10.0.1.0/24. |
+| **Namn på undernät** |**administratör** |
+| **Adressintervall för undernätet** |Det här värdet beror på tillgängliga adress intervall i din prenumeration. Ett typiskt värde är 10.0.0.0/24. |
+| **Namn på undernät** |**sqlsubnet** |
+| **Adressintervall för undernätet** |Det här värdet beror på tillgängliga adress intervall i din prenumeration. Ett typiskt värde är 10.0.1.0/24. |
 | **Prenumeration** |Ange den prenumeration som du vill använda. |
 | **Resursgrupp** |**SQL-HA-RG** |
 | **Plats** |Ange samma plats som du valde för resurs gruppen. |
@@ -232,7 +232,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
     ![Dialog rutan Lägg till roller](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
 
 7. Välj **Nästa** tills du kommer till **bekräftelse** avsnittet. Markera kryss rutan **starta om mål servern automatiskt vid behov** .
-8. Välj **Installera**.
+8. Välj **Install** (Installera).
 9. När funktionerna har installerats går du tillbaka till instrument panelen för **Serverhanteraren** .
 10. Välj alternativet ny **AD DS** i rutan till vänster.
 11. Välj länken **mer** i det gula varnings fältet.
@@ -248,7 +248,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |
 
 14. Välj **Nästa** för att gå igenom de andra sidorna i guiden. På sidan **krav kontroll** kontrollerar du att följande meddelande visas: **alla nödvändiga kontroller lyckades**. Du kan granska tillämpliga varnings meddelanden, men det är möjligt att fortsätta med installationen.
-15. Välj **Installera**. Den virtuella datorn för **AD-primär domänkontrollant** startas om automatiskt.
+15. Välj **Install** (Installera). Den virtuella datorn för **AD-primär domänkontrollant** startas om automatiskt.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Anteckna IP-adressen för den primära domänkontrollanten
 

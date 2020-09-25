@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Hämta bild insikter med hjälp av REST API och ruby-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
+description: Lär dig hur du laddar upp en avbildning med hjälp av API för visuell sökning i Bing och ruby, och få insikter om avbildningen.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 20c5ef930af8cc279f63432e9e3a14a0767ca592
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ba5d07017c0244c370a8dc6945a7958beb0f224f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324577"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och ruby
 
 Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing med hjälp av ruby-programmeringsspråket. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [Ruby 2,4 eller senare](https://www.ruby-lang.org/en/downloads/).
 * Hämta en prenumerations nyckel.

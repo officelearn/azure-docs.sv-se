@@ -9,14 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707534"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300113"
 ---
-# <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
+# <a name="prerequisites"></a>Förutsättningar
+
+För att slutföra den här själv studie kursen måste du ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för. Skapa arbets ytan Synapse i den här resurs gruppen.
+
+## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 I den här självstudien får du lära dig hur du skapar en Synapse-arbetsyta, en SQL-pool och en Apache Spark pool. 
 

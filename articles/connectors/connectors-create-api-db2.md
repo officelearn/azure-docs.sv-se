@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284055"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334607"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Få åtkomst till och hantera IBM DB2-resurser med hjälp av Azure Logic Apps
 
@@ -82,15 +82,15 @@ Om du vill konfigurera din anslutning anger du följande information när du upp
 
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
-| **Anslutnings namn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" |
-| **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
-| **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
-| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
-| **Lösenord** | Ja | Ditt lösen ord för databasen |
+| **Anslut via lokal gateway** | No | Gäller endast för lokala anslutningar. |
+| **Anslutnings namn** | Yes | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" |
+| **Server** | Yes | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
+| **Databas** | Yes | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
+| **Användarnamn** | Yes | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
+| **Lösenord** | Yes | Ditt lösen ord för databasen |
 ||||
 
-Till exempel:
+Exempel:
 
 ![Anslutnings information för molnbaserade databaser](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -102,17 +102,17 @@ Innan du skapar anslutningen måste du redan ha din lokala datagateway installer
 
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | Ja | Gäller när du vill ha en lokal anslutning och visar de lokala anslutnings egenskaperna. |
-| **Anslutnings namn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" | 
-| **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server: 50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
-| **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
-| **Autentisering** | Ja | Autentiseringstypen för anslutningen, till exempel "grundläggande" <p><p>**Obs**: Välj det här värdet i listan, som innehåller Basic eller Windows (Kerberos). |
-| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
-| **Lösenord** | Ja | Ditt lösen ord för databasen |
-| **Nyckeln** | Ja | Namnet på din installerade lokala datagateway <p><p>**Obs**: Välj det här värdet i listan, som innehåller alla installerade datagatewayer i din Azure-prenumeration och resurs grupp. |
+| **Anslut via lokal gateway** | Yes | Gäller när du vill ha en lokal anslutning och visar de lokala anslutnings egenskaperna. |
+| **Anslutnings namn** | Yes | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" | 
+| **Server** | Yes | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server: 50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
+| **Databas** | Yes | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
+| **Autentisering** | Yes | Autentiseringstypen för anslutningen, till exempel "grundläggande" <p><p>**Obs**: Välj det här värdet i listan, som innehåller Basic eller Windows (Kerberos). |
+| **Användarnamn** | Yes | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
+| **Lösenord** | Yes | Ditt lösen ord för databasen |
+| **Nyckeln** | Yes | Namnet på din installerade lokala datagateway <p><p>**Obs**: Välj det här värdet i listan, som innehåller alla installerade datagatewayer i din Azure-prenumeration och resurs grupp. |
 ||||
 
-Till exempel:
+Exempel:
 
 ![Anslutnings information för lokala databaser](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -153,11 +153,11 @@ Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hä
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabell namn** | Ja | Den tabell som innehåller den post som du vill ha, till exempel "AREA" i det här exemplet |
-   | **Area-ID** | Ja | ID för den post som du vill ha, till exempel "99999" i det här exemplet |
+   | **Tabell namn** | Yes | Den tabell som innehåller den post som du vill ha, till exempel "AREA" i det här exemplet |
+   | **Area-ID** | Yes | ID för den post som du vill ha, till exempel "99999" i det här exemplet |
    ||||
 
-   ![Välj tabell](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Skärm bild som visar åtgärden "Hämta rad (för hands version)" med det öppnade "Tabell namnet"-listan och värdet "AREA" valt.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. När du är klar väljer du **Spara**i verktygsfältet designer.
 
@@ -192,7 +192,7 @@ Om du vill hämta alla poster i en DB2-databas tabell använder du åtgärden **
 
 1. Öppna listan **tabell namn** och välj sedan den tabell som du vill ha, vilket är "Area" i det här exemplet:
 
-   ![Välj tabell](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Skärm bild som visar åtgärden "Hämta rad (för hands version)" med värdet "AREA" som har marker ATS i listan "Tabell namn".](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Välj **Visa avancerade alternativ**om du vill ange ett filter eller en fråga för resultat.
 
@@ -233,15 +233,15 @@ Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtg
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabell namn** | Ja | Tabellen där posten ska läggas till, till exempel "AREA" |
-   | **Area-ID** | Ja | ID för det utrymme som ska läggas till, till exempel "99999" |
-   | **Beskrivning av områden** | Ja | Beskrivningen för det utrymme som ska läggas till, till exempel "Area 99999" |
-   | **Regions-ID** | Ja | ID för den region som ska läggas till, till exempel "102" |
+   | **Tabell namn** | Yes | Tabellen där posten ska läggas till, till exempel "AREA" |
+   | **Area-ID** | Yes | ID för det utrymme som ska läggas till, till exempel "99999" |
+   | **Beskrivning av områden** | Yes | Beskrivningen för det utrymme som ska läggas till, till exempel "Area 99999" |
+   | **Regions-ID** | Yes | ID för den region som ska läggas till, till exempel "102" |
    |||| 
 
-   Till exempel:
+   Exempel:
 
-   ![Välj tabell](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Skärm bild som visar Logic Apps designer med åtgärden "Infoga rad (förhands granskning)" och exempel egenskaps värden.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. När du är klar väljer du **Spara**i verktygsfältet designer.
 
@@ -280,16 +280,16 @@ Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgä
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabell namn** | Ja | Den tabell där posten ska uppdateras, t. ex. "AREA" |
-   | **Rad-ID** | Ja | ID för den post som ska uppdateras, till exempel "99999" |
-   | **Area-ID** | Ja | Det nya yt-ID: t, till exempel "99999" |
-   | **Beskrivning av områden** | Ja | Beskrivningen av det nya fältet, till exempel "uppdaterad 99999" |
-   | **Regions-ID** | Ja | Det nya regions-ID: t, till exempel "102" |
+   | **Tabell namn** | Yes | Den tabell där posten ska uppdateras, t. ex. "AREA" |
+   | **Rad-ID** | Yes | ID för den post som ska uppdateras, till exempel "99999" |
+   | **Area-ID** | Yes | Det nya yt-ID: t, till exempel "99999" |
+   | **Beskrivning av områden** | Yes | Beskrivningen av det nya fältet, till exempel "uppdaterad 99999" |
+   | **Regions-ID** | Yes | Det nya regions-ID: t, till exempel "102" |
    ||||
 
-   Till exempel:
+   Exempel:
 
-   ![Välj tabell](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Skärm bild som visar Logic Apps designer med åtgärden Uppdatera rad (förhands granskning) där du väljer en tabell.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. När du är klar väljer du **Spara**i verktygsfältet designer.
 
@@ -328,13 +328,13 @@ Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtg
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabell namn** | Ja | Den tabell där posten ska tas bort, till exempel "AREA" |
-   | **Rad-ID** | Ja | ID för den post som ska tas bort, till exempel "99999" |
+   | **Tabell namn** | Yes | Den tabell där posten ska tas bort, till exempel "AREA" |
+   | **Rad-ID** | Yes | ID för den post som ska tas bort, till exempel "99999" |
    ||||
 
-   Till exempel:
+   Exempel:
 
-   ![Välj tabell](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Skärm bild som visar Logic Apps designer med åtgärden "ta bort rad (förhands granskning)" där du väljer en tabell som ska tas bort.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. När du är klar väljer du **Spara**i verktygsfältet designer.
 

@@ -4,23 +4,27 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255269"
 ---
 Funktionen är enkel att konfigurera, men det innebär inte att du kommer att få problem kostnads fritt. Om du stöter på problem med att komma åt den önskade slut punkten finns det vissa verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till **verktyg**  >  **kudu**. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken **fel söknings konsol** . Gå till **verktyg**-konsolen för att komma till den Azure Portal-värdbaserade konsolen från din app  >  **Console**.
 
 #### <a name="tools"></a>Verktyg
-Verktygen **ping**, **nslookup**och **tracert** fungerar inte via-konsolen på grund av säkerhets begränsningar. Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver.exe**. Syntax:
+I inbyggda Windows-appar fungerar inte **ping**, **nslookup**och **tracert** genom-konsolen på grund av säkerhets begränsningar (de fungerar i [anpassade Windows-behållare](../articles/app-service/quickstart-custom-container.md)). Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver.exe**. Syntax:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
 ```
 
 Du kan använda nameresolver för att kontrol lera de värdnamn som appen är beroende av. På så sätt kan du testa om du har något som är felkonfigurerat med DNS eller kanske inte har åtkomst till din DNS-server. Du kan se den DNS-server som appen använder i-konsolen genom att titta på miljövariabler WEBSITE_DNS_SERVER och WEBSITE_DNS_ALT_SERVER.
+
+> [!NOTE]
+> nameresolver.exe fungerar för närvarande inte i anpassade Windows-behållare.
+>
 
 Du kan använda nästa verktyg för att testa TCP-anslutning till en kombination av värd och port. Det här verktyget kallas **tcpping** och syntaxen är:
 

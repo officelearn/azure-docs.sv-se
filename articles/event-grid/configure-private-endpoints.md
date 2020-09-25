@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du konfigurerar privata slut punkt
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508846"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324152"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Konfigurera privata slut punkter för Azure Event Grid ämnen eller domäner
 Du kan använda [privata slut punkter](../private-link/private-endpoint-overview.md) för att tillåta ingress av händelser direkt från ditt virtuella nätverk till dina ämnen och domäner på ett säkert sätt över en [privat länk](../private-link/private-link-overview.md) utan att gå via det offentliga Internet. Den privata slut punkten använder en IP-adress från VNet-adressutrymmet för ditt ämne eller din domän. Mer konceptuell information finns i [nätverks säkerhet](network-security.md).
@@ -42,7 +42,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa en privat 
         3. Bekräfta att **mål under resursen** har angetts till **ämne** eller **domän** (baserat på den resurs typ som du har valt).    
         4. Välj **Nästa: konfiguration >s ** knappen längst ned på sidan. 
 
-            ![Privat slut punkt – resurs sida](./media/configure-private-endpoints/resource-page.png)
+            ![Skärm bild som visar sidan "skapa en privat slut punkt-resurs".](./media/configure-private-endpoints/resource-page.png)
     2. Om du väljer **Anslut till en resurs med ett resurs-ID eller ett alias**följer du dessa steg:
         1. Ange resursens ID. Till exempel: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. För **resurs**anger du **ämne** eller **domän**. 
@@ -68,7 +68,7 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
 |--|--|--|
 | Inget | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
@@ -108,7 +108,7 @@ Du kan avvisa en privat slut punkt som är i vänte läge eller godkänt tillst�
 
 1. Välj den **privata slut punkt** som du vill avvisa och välj **avvisa** i verktygsfältet.
 
-    ![Privat slut punkt-avvisa](./media/configure-private-endpoints/reject-button.png)
+    ![Skärm bild som visar "nätverk-privata slut punkts anslutningar (förhands granskning)" med "avvisa" valt.](./media/configure-private-endpoints/reject-button.png)
 1. I dialog rutan **avvisa anslutning** anger du en kommentar (valfritt) och väljer **Ja**. 
 
     ![Privat slut punkt-avvisa](./media/configure-private-endpoints/reject.png)
@@ -151,7 +151,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Uppdatera Azure Event Grid-tillägget för CLI genom att köra följande kommando: 
 
 ```azurecli-interactive

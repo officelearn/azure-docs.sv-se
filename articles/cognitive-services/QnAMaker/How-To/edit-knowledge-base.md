@@ -3,12 +3,12 @@ title: Redigera en kunskaps bas – QnA Maker
 description: Med QnA Maker kan du hantera innehållet i kunskaps basen genom att tillhandahålla en användarvänlig redigerings upplevelse.
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34eec343defa4614881e23543f2099040b866997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324628"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Redigera QnA-par i kunskaps basen
 
@@ -57,7 +57,7 @@ Text redigering av svars texten ger dig markdown format från ett enkelt verktyg
     |Funktioner i Rich-Text-redigeraren|Kortkommando|
     |--|--|
     |Växla mellan Rich-Text Editor och markdown. `</>`|CTRL+M|
-    |Breda. **T**|Prod + LB|
+    |Breda. **B**|Prod + LB|
     |Kursiv stil, visas med kursivt ** _i_**|CTRL + I|
     |Osorterad lista||
     |Ordnad lista||
@@ -72,7 +72,7 @@ Text redigering av svars texten ger dig markdown format från ett enkelt verktyg
 
 
     > [!div class="mx-imgBorder"]
-    > ![Använd RTF-redigeraren för att lägga till en offentligt tillgänglig bild och dess alternativ text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Skärm bild som visar redigerings programmet på plats med den allmänt tillgängliga bild-URL: en och en alternativ text för den angivna bilden.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Lägg till en länk till en URL genom att antingen välja texten i svaret och sedan välja länk ikonen i verktygsfältet eller genom att välja länk ikonen i verktygsfältet och sedan ange ny text och URL: en.
 

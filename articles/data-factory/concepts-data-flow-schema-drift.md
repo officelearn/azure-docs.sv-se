@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324356"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schema avvikelse i mappnings data flödet
 
@@ -60,7 +60,7 @@ Om schema avvikelse är aktiverat kontrollerar du att skjutreglaget för **autom
 När ditt data flöde har förfallna kolumner, kan du komma åt dem i dina omvandlingar med följande metoder:
 
 * Använd `byPosition` uttryck och `byName` för att explicit referera till en kolumn efter namn eller positions nummer.
-* Lägg till ett kolumn mönster i en härledd kolumn eller aggregerad omvandling så att den matchar valfri kombination av namn, ström, position eller typ
+* Lägg till ett kolumn mönster i en härledd kolumn eller aggregerad omvandling så att den matchar valfri kombination av namn, ström, position, ursprung eller typ
 * Lägg till regelbaserade mappningar i en urvals-eller Sink-omvandling för att matcha nedsänkta kolumner till kolumnalias i kolumner via ett mönster
 
 Mer information om hur du implementerar kolumn mönster finns [i kolumn mönster i mappa data flöde](concepts-data-flow-column-pattern.md).

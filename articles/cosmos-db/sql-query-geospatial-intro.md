@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 25150722e2d42625731cb741be80b86645c857e0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420098"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302939"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
 
@@ -164,7 +164,7 @@ En **multipolygon** är en matris med noll eller flera polygoner. **Multipolygon
 
 Eftersom jordens form är oregelbunden, representeras koordinaterna för geospatiala geografiska data i många koordinatsystem, var och en med sina egna referens ramar och mått enheter. Till exempel är "National Grid of Storbritannien" ett referens system som är korrekt för Förenade kungariket, men inte utanför det.
 
-Det mest populära BOKNINGs systemet som används idag är världens Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). GPS-enheter och många mappnings tjänster, inklusive Google Maps och Bing Maps-API: er använder WGS-84. Azure Cosmos DB stöder indexering och frågor om geospatiala geografi data med endast WGS-84-boknings system.
+Det mest populära BOKNINGs systemet som används idag är världens Geodetic System  [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). GPS-enheter och många mappnings tjänster, inklusive Google Maps och Bing Maps-API: er använder WGS-84. Azure Cosmos DB stöder indexering och frågor om geospatiala geografi data med endast WGS-84-boknings system.
 
 ## <a name="creating-documents-with-spatial-data"></a>Skapa dokument med spatialdata
 När du skapar dokument som innehåller geospatiala JSON-värden, indexeras de automatiskt med ett rums index i enlighet med behållarens indexerings princip. Om du arbetar med ett Azure Cosmos DB SDK på ett dynamiskt inskrivet språk som python eller Node.js måste du skapa en giltig interjson.

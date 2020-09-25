@@ -7,12 +7,12 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284123"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334590"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Skapa och hantera poster i Common Data Service med Azure Logic Apps
 
@@ -51,9 +51,9 @@ I det här exemplet lägger du till den Common Data Service utlösare som utlös
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Miljö** | Ja | Miljön som ska övervakas, till exempel "Fabrikam Sales Production". Mer information finns i [Översikt över Power Platform-miljöer](/power-platform/admin/environments-overview). |
-   | **Entitetsnamn** | Ja | Entiteten som ska övervakas, till exempel "leads" |
-   | **Omfång** | Ja | Källan som skapade den nya posten, till exempel en användare i din affär senhet eller någon annan användare i din organisation. I det här exemplet används "affär senhet". |
+   | **Miljö** | Yes | Miljön som ska övervakas, till exempel "Fabrikam Sales Production". Mer information finns i [Översikt över Power Platform-miljöer](/power-platform/admin/environments-overview). |
+   | **Entitetsnamn** | Yes | Entiteten som ska övervakas, till exempel "leads" |
+   | **Omfång** | Yes | Källan som skapade den nya posten, till exempel en användare i din affär senhet eller någon annan användare i din organisation. I det här exemplet används "affär senhet". |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Lägg till Common Data Service åtgärd
@@ -72,8 +72,8 @@ Lägg nu till en Common Data Service-åtgärd som skapar en uppgifts post för e
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Organisationsnamn** | Ja | Miljön där du vill skapa posten, som inte behöver vara samma miljö i utlösaren, men är "Fabrikam Sales Production" i det här exemplet |
-   | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel "aktiviteter" |
+   | **Organisationsnamn** | Yes | Miljön där du vill skapa posten, som inte behöver vara samma miljö i utlösaren, men är "Fabrikam Sales Production" i det här exemplet |
+   | **Entitetsnamn** | Yes | Entiteten där du vill skapa posten, till exempel "aktiviteter" |
    | **Ämne** | Ja, baserat på den entitet som valts i det här exemplet | En kort beskrivning av målet för den här uppgiften |
    ||||
 
@@ -87,7 +87,7 @@ Lägg nu till en Common Data Service-åtgärd som skapar en uppgifts post för e
 
       ![Välj Utlös utdata som ska användas i uppgifts posten](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | Utlös utdata | Beskrivning |
+      | Utlös utdata | Description |
       |----------------|-------------|
       | **Förnamn** | Förnamnet från lead-posten som ska användas som primär kontakt i uppgifts posten |
       | **Efter namn** | Efter namnet från lead-posten som ska användas som primär kontakt i uppgifts posten |
@@ -108,7 +108,7 @@ För utlösare som körs när poster uppdateras, t. ex. **när en post uppdatera
 
 1. I utlösaren i listan **Lägg till ny parameter** väljer du **attribut filter**.
 
-   ![Lägg till egenskapen "Attribute filters"](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Skärm bild som visar åtgärden "när en post uppdateras" och den öppnade listan "Lägg till ny parameter" med egenskapen "Attribute filter" vald.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. För varje **attribut filter objekt**väljer du det attribut som du vill övervaka för uppdateringar, till exempel:
 
@@ -122,7 +122,7 @@ För åtgärder som returnerar poster, till exempel åtgärden **lista poster** 
 
    ![Lägg till egenskapen filter fråga](./media/connect-common-data-service/list-records-action-filter-query.png)
 
-1. I den **filter** egenskaps fråga som nu visas i åtgärden, anger du den här OData-filter frågan:`statuscode eq 1`
+1. I den **filter** egenskaps fråga som nu visas i åtgärden, anger du den här OData-filter frågan: `statuscode eq 1`
 
    ![Ange ODATA filter fråga för att filtrera poster](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
@@ -136,7 +136,7 @@ För åtgärder som returnerar poster, till exempel åtgärden **lista poster** 
 
    ![Lägg till "order by"-egenskap](./media/connect-common-data-service/list-records-action-order-by.png)
 
-1. I **order by** -egenskapen som nu visas i åtgärden, anger du den här OData-filter frågan:`name`
+1. I **order by** -egenskapen som nu visas i åtgärden, anger du den här OData-filter frågan: `name`
 
    ![Ange ODATA filter-fråga för att ordna poster](./media/connect-common-data-service/list-records-action-order-by-value.png)
 

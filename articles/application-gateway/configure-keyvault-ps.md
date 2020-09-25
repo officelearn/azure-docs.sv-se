@@ -1,19 +1,19 @@
 ---
 title: Konfigurera TLS-avslutning med Key Vault certifikat – PowerShell
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du kan integrera Azure Application Gateway med Key Vault för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare.
+description: Lär dig hur du använder ett Azure PowerShell-skript för att integrera nyckel valvet med din Application Gateway för certifikat för TLS/SSL-avslutning.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4a872bc63be33ebed0a8ba9d89383cdfc9feef28
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: aaaeed9d8d6a2d84fa13f495f581dc1f5fdc19e2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323432"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Konfigurera TLS-avslutning med Key Vault certifikat med Azure PowerShell
 

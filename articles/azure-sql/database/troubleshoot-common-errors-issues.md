@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: carlrab,vanto
+ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: aa4bcee7a2eaf5e6ec11b9066ed6eca6b33bdba1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284133"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Fel sökning av anslutnings problem och andra fel med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -315,7 +315,7 @@ Följande fel är relaterade till att skapa och använda elastiska pooler:
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Den elastiska poolen har nått sin lagrings gräns. Lagrings användningen för den elastiska poolen får inte överskrida (% d) MB. Försök att skriva data till en databas när lagrings gränsen för den elastiska poolen har nåtts. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> |Överväg att öka DTU: er och/eller lägga till lagring till den elastiska poolen om det är möjligt för att öka lagrings gränsen, minska lagrings utrymmet som används av enskilda databaser i den elastiska poolen eller ta bort databaser från den elastiska poolen. För skalning av elastiska pooler, se [skala elastiska pool resurser](elastic-pool-scale.md).|
 | 10929 | 16 |% S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> Annars kan du försöka igen senare. DTU/vCore min per databas; Max per databas för DTU/vCore. Det totala antalet samtidiga arbetare (begär Anden) över alla databaser i den elastiska poolen försökte överskrida poolens gräns. |Överväg att öka DTU: er-eller virtuella kärnor för den elastiska poolen om det är möjligt för att öka arbets gränsen, eller ta bort databaser från den elastiska poolen. |
-| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |E.t. |
+| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |Saknas |
 | 40857 | 16 |Det gick inte att hitta någon elastisk pool för servern:% ls, namn på elastisk pool:% ls. Den angivna elastiska poolen finns inte på den angivna servern. | Ange ett giltigt namn på elastisk pool. |
 | 40858 | 16 |Den elastiska poolen% LS finns redan på servern:% ls. Den angivna elastiska poolen finns redan på den angivna servern. | Ange ett nytt namn på elastisk pool. |
 | 40859 | 16 |Den elastiska poolen stöder inte tjänst nivån% ls. Den angivna tjänst nivån stöds inte för etablering av elastisk pool. |Ange rätt utgåva eller lämna tjänst nivån tom för att använda standard tjänst nivån. |

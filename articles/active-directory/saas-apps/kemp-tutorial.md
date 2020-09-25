@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 1d974badd715d7966f552603a77d77aab95d70f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549978"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300066"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Självstudie: Azure Active Directory SSO-integrering med Kemp: LoadMaster Azure AD-integrering
 
@@ -139,7 +139,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-a-virtual-service"></a>Skapa en virtuell tjänst 
 
-1. Gå till Kemp: LoadMaster Azure AD integration load Master-webbgränssnitt > virtuella tjänster > Lägg till ny.
+1. Gå till Kemp: LoadMaster Azure AD integration LoadMaster Web UI > virtuella tjänster > Lägg till ny.
 
 1. Klicka på Lägg till ny.
 
@@ -197,11 +197,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="ssl-acceleration"></a>SSL-acceleration
  
-1. Gå till Kemp: Load Master Web UI > virtuella tjänster > virtuella tjänster.
+1. Gå till Kemp: LoadMaster Web UI > virtuella tjänster > Visa/ändra tjänster.
 
 1. Klicka på ändra under åtgärd.
 
-1. Under egenskaper för TCP/x.x.x.: 443 (ID: 6) – drift på nivå 7 klickar du på SSL-egenskaper.
+1. Klicka på SSL-egenskaper (som fungerar på nivå 7).
     
     ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-3.png)
     
@@ -384,7 +384,7 @@ När du klickar på panelen Kemp: LoadMaster Azure AD-integration på åtkomst p
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

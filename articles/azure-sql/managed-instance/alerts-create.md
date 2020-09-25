@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48dfc456616fa4876b7053483f7377eda21aabde
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283827"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Skapa aviseringar för Azure SQL-hanterad instans med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Managed instance-databasen med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig, anropa en webbhook, köra Azure Function, Runbook, anropa ett externt ITSM-kompatibelt biljett system, anropa dig på telefonen eller skicka ett SMS när en del mått, t. ex. instans lagrings storlek eller CPU-användning, når ett fördefinierat tröskelvärde. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.
+Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Managed instance-databasen med hjälp av Azure Portal. Med aviseringar kan du få ett e-postmeddelande, anropa en webhook, köra en Azure-funktion eller en runbook, anropa ett externt ITSM-kompatibelt biljettsystem, bli uppringd på telefonen eller få ett SMS när ett mått, till exempel lagringsstorleken för en instans eller CPU-användning, når ett fördefinierat tröskelvärde. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.
 
 
 ## <a name="overview"></a>Översikt
@@ -50,13 +50,13 @@ Du kan konfigurera och få information om aviserings regler med hjälp av [Azure
 
 Följande mått för hanterade instanser är tillgängliga för aviserings konfiguration:
 
-| Metric | Beskrivning | Mått enhet \ möjliga värden |
+| Mått | Beskrivning | Mått enhet \ möjliga värden |
 | :--------- | --------------------- | ----------- |
 | Genomsnittlig CPU-procent | Genomsnittlig procent andel CPU-användning under den valda tids perioden. | 0-100 (procent) |
 | Lästa IO-byte | IO-lästa byte i den valda tids perioden. | Byte |
 | Skrivna IO-byte | IO-byte skrivna under den valda tids perioden. | Byte |
 | Antal IO-begäranden | Antal IO-begäranden inom den valda tids perioden. | Numeriska |
-| Reserverat lagrings utrymme | Aktuell max. lagrings utrymme reserverat för den hanterade instansen. Ändringar med resurs skalnings åtgärd. | MB (megabyte) |
+| Reserverat lagrings utrymme | Aktuellt Max lagrings utrymme reserverat för den hanterade instansen. Ändringar med resurs skalnings åtgärd. | MB (megabyte) |
 | Använt lagrings utrymme | Det lagrings utrymme som används under den valda perioden. Ändringar med lagrings förbrukning per databaser och instansen. | MB (megabyte) |
 | Antal virtuella kärnor | Virtuella kärnor har tillhandahållits för den hanterade instansen. Ändringar med resurs skalnings åtgärd. | 4-80 (virtuella kärnor) |
 

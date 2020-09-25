@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706451"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283878"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Självstudie: säkerhet i Azure SQL-hanterad instans med hjälp av Azure AD server-huvudobjekt (inloggningar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - En hanterad instans
   - Följ den här artikeln: [snabb start: skapa en hanterad instans](instance-create-quickstart.md)
-- Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Mer information finns i:
+- Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Du kan läsa mer här:
   - [Ansluta program till en hanterad instans](connect-application-instance.md)
   - [Anslutnings arkitektur för SQL-hanterad instans](connectivity-architecture-overview.md)
   - [Konfigurera och hantera Azure Active Directory-autentisering med SQL](../database/authentication-aad-configure.md)
@@ -104,7 +104,7 @@ I följande artiklar finns exempel på hur du ansluter till SQL-hanterad instans
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Skärm bild av fliken resultat i S M S Object Explorer visar namnet, principal_id, sid, typ och type_desc för den nyligen tillagda inloggningen.](./media/aad-security-configure-tutorial/native-login.png)
 
 Mer information finns i [SKAPA INLOGGNING](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -153,13 +153,13 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
    - Active Directory – lösenord
    - Active Directory – integrerad </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Skärm bild av dialog rutan Anslut till server i s M S med Active Directory-Universal with MFA-stöd som marker ATS i list rutan för autentisering.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      Mer information finns i [Universal Authentication (SSMS-stöd för Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
 1. Välj **Active Directory – Universell med stöd för MFA**. Detta öppnar ett Multi-Factor Authentication inloggnings fönster. Logga in med ditt Azure AD-lösenord.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Skärm bild av Multi-Factor Authentication inloggnings fönstret med markören i fältet ange lösen ord.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. I SSMS **Object Explorer** högerklickar du på servern och väljer **Ny fråga**.
 1. Använd följande syntax i frågefönstret för att skapa en inloggning för ytterligare ett Azure AD-konto:
@@ -222,7 +222,7 @@ Auktorisering till enskilda databaser fungerar ungefär på samma sätt i SQL-ha
 
 Nu när vi har skapat en databas som heter **MyMITestDB**, och en inloggning som endast har standardbehörigheterna, är nästa steg att skapa en användare från den inloggningen. För tillfället kan inloggningen ansluta till den hanterade instansen och se alla databaser, men inte interagera med databaserna. Om du loggar in med Azure AD-kontot som har standardbehörigheterna och försöker expandera den nyligen skapade databasen visas följande fel:
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Skärm bild av ett fel meddelande från S S M Object Explorer som läser "det går inte att komma åt databasen MyMITestDB. (ObjectExplorer)".](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Läs mer om hur du beviljar databasbehörigheter i [Getting Started with Database Engine Permissions](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions) (Komma igång med behörigheter för databasmotorn).
 
@@ -326,7 +326,7 @@ För att användaren ska kunna se data i databasen ger vi användaren [roller p�
 1. Skapa en ny anslutning till den hanterade instansen med användaren som lades till i rollen `db_datareader`.
 1. Expandera databasen i **Object Explorer** du vill se tabellen.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Skärm bild från Object Explorer i S S M S visar mappstrukturen för tabeller i MyMITestDB. Dbo. Mappen TestTable är markerad.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Öppna ett nytt frågefönster och kör följande SELECT-sats:
 
@@ -337,7 +337,7 @@ För att användaren ska kunna se data i databasen ger vi användaren [roller p�
 
     Kan du se data från tabellen? Du bör se de kolumner som returneras.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Skärm bild av fliken resultat i S M S Object Explorer visar tabell kolumn rubrikerna AccountNum, ort, namn och tillstånd.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Personifiera Azure AD-säkerhetsobjekt på server nivå (inloggningar)
 
@@ -445,7 +445,7 @@ Se artikeln [SQL-hanterad instans säkerhetsfunktioner](sql-managed-instance-paa
 - [SQL-hanterad instans granskning](auditing-configure.md)
 - [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Hotidentifiering](threat-detection-configure.md)
-- [Dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking)
+- [Dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking)
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security)
 - [Transparent data kryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 

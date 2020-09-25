@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284303"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -26,7 +26,7 @@ Azure SQL Database tillhandahåller flera metoder för att skapa en kopia av en 
 
 ## <a name="overview"></a>Översikt
 
-En databas kopia är en transaktions konsekvent ögonblicks bild av käll databasen vid en tidpunkt efter att kopierings förfrågan har initierats. Du kan välja samma server eller en annan server för kopieringen. Du kan också välja att behålla tjänst nivån och beräknings storleken för käll databasen, eller använda en annan beräknings storlek inom samma eller en annan tjänst nivå. När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. Inloggningar, användare och behörigheter i den kopierade databasen hanteras oberoende av käll databasen. Kopian skapas med hjälp av tekniken för geo-replikering. När replik dirigeringen är klar avslutas geo-replikeringslänken automatiskt. Alla krav för att använda geo-replikering gäller för databas kopierings åtgärden. Mer information finns i [Översikt över aktiv geo-replikering](active-geo-replication-overview.md) .
+En databas kopia är en transaktions konsekvent ögonblicks bild av käll databasen vid en tidpunkt efter att kopierings förfrågan har initierats. Du kan välja samma server eller en annan server för kopieringen. Du kan också välja att behålla tjänst nivån och beräknings storleken för käll databasen, eller använda en annan beräknings storlek inom samma eller en annan tjänst nivå. När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. Inloggningar, användare och behörigheter i den kopierade databasen hanteras oberoende av käll databasen. Kopian skapas med hjälp av tekniken för geo-replikering. När replikseeding är klar avslutas geo-replikeringslänken automatiskt. Alla krav för användning av geo-replikering gäller för databaskopieringsåtgärden. Mer information finns i [Översikt över aktiv geo-replikering](active-geo-replication-overview.md) .
 
 ## <a name="logins-in-the-database-copy"></a>Inloggningar i databas kopian
 
@@ -36,13 +36,13 @@ När du kopierar en databas till en annan server blir det säkerhets objekt som 
 
 Oavsett mål servern kopieras alla databas användare, deras behörigheter och deras säkerhets identifierare (sid) till databas kopian. Om du använder [inneslutna databas användare](logins-create-manage.md) för data åtkomst säkerställer du att den kopierade databasen har samma användarautentiseringsuppgifter, så att när kopieringen är klar kan du omedelbart komma åt den med samma autentiseringsuppgifter.
 
-Om du använder inloggningar på server nivå för data åtkomst och kopierar databasen till en annan server, kanske inloggnings-baserad åtkomst inte fungerar. Detta kan inträffa eftersom inloggningarna inte finns på mål servern eller på grund av att deras lösen ord och säkerhets identifierare (sid) skiljer sig åt. Information om hur du hanterar inloggningar när du kopierar en databas till en annan server finns i [hantera Azure SQL Database säkerhet efter haveri beredskap](active-geo-replication-security-configure.md). När kopierings åtgärden till en annan server lyckas och innan andra användare mappas om, är det bara inloggningen som är kopplad till databas ägaren eller så kan Server administratören logga in på den kopierade databasen. Information om hur du löser inloggningar och upprättar data åtkomst när kopieringen är klar finns i [lösa inloggningar](#resolve-logins).
+Om du använder inloggningar på servernivå för dataåtkomst och kopierar databasen till en annan server kanske inte den inloggningsbaserade åtkomsten fungerar. Detta kan inträffa eftersom inloggningarna inte finns på målservern, eller på grund av att deras lösenord och säkerhetsidentifierare (SID) skiljer sig åt. Information om hur du hanterar inloggningar när du kopierar en databas till en annan server finns i [hantera Azure SQL Database säkerhet efter haveri beredskap](active-geo-replication-security-configure.md). När kopierings åtgärden till en annan server lyckas och innan andra användare mappas om, är det bara inloggningen som är kopplad till databas ägaren eller så kan Server administratören logga in på den kopierade databasen. Information om hur du löser inloggningar och upprättar data åtkomst när kopieringen är klar finns i [lösa inloggningar](#resolve-logins).
 
 ## <a name="copy-using-the-azure-portal"></a>Kopiera med Azure Portal
 
 Om du vill kopiera en databas med hjälp av Azure Portal öppnar du sidan för databasen och klickar sedan på **Kopiera**.
 
-   ![Databas kopia](./media/database-copy/database-copy.png)
+   ![Databaskopia](./media/database-copy/database-copy.png)
 
 ## <a name="copy-using-powershell-or-the-azure-cli"></a>Kopiera med PowerShell eller Azure CLI
 

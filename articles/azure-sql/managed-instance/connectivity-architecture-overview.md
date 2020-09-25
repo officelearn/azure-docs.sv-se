@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
-ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283385"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Anslutningsarkitektur för Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -111,24 +111,24 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska inkommande säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Namn       |Port                        |Protokoll|Källa           |Mål|Action|
+| Name       |Port                        |Protokoll|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetPublic    |MI-UNDERNÄT  |Tillåt |
-|mi_subnet   |Valfri                         |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
-|health_probe|Valfri                         |Valfri     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska utgående säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Namn       |Port          |Protokoll|Källa           |Mål|Action|
+| Name       |Port          |Protokoll|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
-|mi_subnet   |Valfri           |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Användardefinierade vägar med konfiguration av tjänstestyrt undernät
 
-|Namn|Adressprefix|Nästa hopp|
+|Name|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |undernät-till-vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -331,18 +331,18 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
-| Namn       |Port                        |Protokoll|Källa           |Mål|Action|
+| Name       |Port                        |Protokoll|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Valfri              |MI-UNDERNÄT  |Tillåt |
-|mi_subnet   |Valfri                         |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
-|health_probe|Valfri                         |Valfri     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
 
-| Namn       |Port          |Protokoll|Källa           |Mål|Action|
+| Name       |Port          |Protokoll|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
-|mi_subnet   |Valfri           |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 
 > [!IMPORTANT]
 > Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440 och 1452, och en utgående regel för portarna 443 och 12000. SQL-hanterad instans etablering via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler fungerar inte-distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy` .
@@ -357,7 +357,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
-|Namn|Adressprefix|Nästa hopp|
+|Name|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|

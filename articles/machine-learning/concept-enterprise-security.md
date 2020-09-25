@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35b39ceb7ef54b0e00eaa53dad821c9336ea88ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302629"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -42,7 +42,7 @@ Mer information finns i [Konfigurera autentisering för Azure Machine Learning r
 
 Azure Machine Learning stöder två typer av autentisering för webb tjänster: nyckel och token. Varje webb tjänst kan bara aktivera en form av autentisering i taget.
 
-|Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
+|Autentiseringsmetod|Description|Azure Container Instances|AKS|
 |---|---|---|---|
 |Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
@@ -118,7 +118,7 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 ### <a name="encryption-at-rest"></a>Kryptering i vila
 
 > [!IMPORTANT]
-> Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. Det `hbi_workspace` går bara att ange flaggan när en arbets yta skapas. Den kan inte ändras för en befintlig arbets yta.
+> Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. Det `hbi_workspace` går bara att ange flaggan när en arbets yta skapas. Den kan inte ändras för en befintlig arbets yta.
 
 `hbi_workspace`Flaggan styr mängden [data som Microsoft samlar in i diagnostiska syfte](#microsoft-collected-data) och möjliggör [ytterligare kryptering i Microsoft-hanterade miljöer](../security/fundamentals/encryption-atrest.md). Dessutom kan du använda följande åtgärder:
 
@@ -156,7 +156,7 @@ Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med K
     * `cmk_keyvault`: Den här parametern är resurs-ID för nyckel valvet i din prenumeration. Det här nyckel valvet måste finnas i samma region och prenumeration som du ska använda för Azure Machine Learning-arbetsytan. 
     
         > [!NOTE]
-        > Den här Key Vault-instansen kan vara annorlunda än nyckel valvet som skapas av Azure Machine Learning när du etablerar arbets ytan. Om du vill använda samma Key Vault-instans för arbets ytan skickar du samma nyckel valv medan du konfigurerar arbets ytan med hjälp av [parametern key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > Den här Key Vault-instansen kan vara annorlunda än nyckel valvet som skapas av Azure Machine Learning när du etablerar arbets ytan. Om du vill använda samma Key Vault-instans för arbets ytan skickar du samma nyckel valv medan du konfigurerar arbets ytan med hjälp av [parametern key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resurs grupp i din prenumeration, tillsammans med de resurser som krävs. Den hanterade resurs gruppen har namnet i formatet `<AML Workspace Resource Group Name><GUID>` . Om din Azure Machine Learning-arbetsyta använder en privat slut punkt skapas även ett virtuellt nätverk för Cosmos DB-instansen. Det här virtuella nätverket används för att skydda kommunikationen mellan Cosmos DB och Azure Machine Learning.
 
@@ -197,7 +197,7 @@ Om du vill använda nyckeln när du distribuerar en modell till Azure Container 
 
 Mer information om hur du skapar och använder en distributions konfiguration finns i följande artiklar:
 
-* Referens för [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* Referens för [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
 * [Var och hur du distribuerar](how-to-deploy-and-where.md)
 * [Distribuera en modell till Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
@@ -290,6 +290,10 @@ Information om bedömnings förfrågningar lagras i Application Insights. Applic
 > Vissa åtgärder i Azure Machine Learning-arbetsytan loggar inte information i aktivitets loggen. Exempelvis loggas inte starten av en utbildnings körning och registreringen av en modell.
 >
 > Några av dessa åtgärder visas i området **aktiviteter** i din arbets yta, men dessa meddelanden indikerar inte vem som initierade aktiviteten.
+
+### <a name="vulnerability-scanning"></a>Sårbarhets sökning
+
+Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. För Azure Machine Learning bör du Aktivera genomsökning av Azure Container Registry resurs-och Azure Kubernetes-tjänsteresurser. Se [Azure Container Registry avbildnings genomsökning av Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) och [integrering med Azure Kubernetes Services med Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
 
 ## <a name="data-flow-diagrams"></a>Data flödes diagram
 

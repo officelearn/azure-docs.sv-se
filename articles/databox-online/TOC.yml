@@ -7,6 +7,10 @@
       items:
         - name: Vad är Azure Stack Edge Pro med GPU?
           href: azure-stack-edge-gpu-overview.md
+    - name: Snabbstarter
+      items:
+        - name: Kom igång
+          href: azure-stack-edge-gpu-quickstart.md
     - name: Självstudier
       items:
         - name: 0 – Hämta checklista

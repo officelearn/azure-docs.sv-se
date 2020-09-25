@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 295c4bde64ad21a19d21fd48f2556114b26b202d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fe5fe29a66483934ae47f70512a310a4ae6bb1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303256"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Kom igång med hjälte-exemplet för grupp Chat
 
@@ -30,7 +30,7 @@ Hjälte exemplet Azure Communication Services **Group Chat** visar hur kommunika
 I den här snabb starten ska vi lära dig hur exemplet fungerar innan vi kör exemplet på den lokala datorn. Vi distribuerar sedan exemplet till Azure med dina egna Azure Communication Services-resurser.
 
 > [!IMPORTANT]
-> [Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
 ## <a name="overview"></a>Översikt
 
@@ -72,29 +72,24 @@ Ett enda trådat chatt-exempel är i princip två "program" som en klient och et
 
 Du kan testa exemplet lokalt genom att öppna flera webbläsare med URL: en för chatten för att simulera en chatt för flera användare.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Innan du kör exemplet för första gången
+## <a name="before-running-the-sample-for-the-first-time"></a>Innan du kör exemplet för första gången
 
 1. Öppna en instans av PowerShell, Windows Terminal, kommando tolken eller motsvarande och navigera till den katalog som du vill klona exemplet till.
-2. `git clone`
-3. Gå till mappen **chatt/ClientApp** och kör `npm run setup`
-   1. Om du ser felet 1 tittar du ovan i utdata för en URL där du måste gå till för att auktorisera klienten. (URL ser ut så här: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...` ) När du besöker webb adressen i en webbläsare, kopierar du kommandot från webbläsarfönstret och kör det.
-   2. Kör kommandot `npm run setup` igen när du är klar med föregående steg.
-4. Hämta `Connection String` från Azure Portal. Mer information om anslutnings strängar finns i [skapa en Azure-kommunikations resurser](../quickstarts/create-communication-resource.md)
-5. När du `Connection String` har lagt till lägger du till anslutnings strängen i **chatten/appsettings.js** filen som finns under mappen chatt. Mata in anslutnings strängen i variabeln: `ResourceConnectionString` .
+2. `git clone https://github.com/Azure/Communication.git`
+3. Hämta `Connection String` från Azure Portal. Mer information om anslutnings strängar finns i [skapa en Azure-kommunikations resurser](../quickstarts/create-communication-resource.md)
+4. När du `Connection String` har lagt till lägger du till anslutnings strängen i **chatten/appsettings.js** filen som finns under mappen chatt. Mata in anslutnings strängen i variabeln: `ResourceConnectionString` .
+5. Uppdatera ENVIRONMENT_URL i `./Chat/ClientApp/src/constants.tsx` med platsen för din resurs. (t. ex. https://<RESOURCE_NAME>. communication.azure.com)
 
 ### <a name="local-run"></a>Lokal körning
 
-1. Gå till mappen Chat
-2. Öppna `Chat.csproj` lösningen i Visual Studio
-3. Kör `Chat` projektet. *
-
-* Webbläsaren öppnas på localhost: 5000 (där noden distribuerar klient programmet). Appen stöds inte i Internet Explorer.
+1. Gå till mappen chatt och öppna `Chat.csproj` lösningen i Visual Studio
+2. Kör projektet. Webbläsaren öppnas på localhost: 5000.
 
 #### <a name="troubleshooting"></a>Felsökning
 
 - Lösningen kan inte skapas, den genererar fel under NPM installation/build
 
-Rengör/återskapa C#-lösningen
+   Rengör/återskapa C#-lösningen
 
 ## <a name="publish-the-sample-to-azure"></a>Publicera exemplet till Azure
 
@@ -108,6 +103,9 @@ Om du vill rensa och ta bort en kommunikations tjänst prenumeration kan du ta b
 
 ## <a name="next-steps"></a>Nästa steg
 
+>[!div class="nextstepaction"] 
+>[Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+
 Mer information finns i följande artiklar:
 
 - Lär dig mer om [chatt-koncept](../concepts/chat/concepts.md)
@@ -115,7 +113,7 @@ Mer information finns i följande artiklar:
 
 ## <a name="additional-reading"></a>Mer att läsa
 
-- [Azure-kommunikation för hands version](https://github.com/Azure/communication-preview) – om du vill veta mer om Chat-webbsdk
+- [Azure Communication-GitHub](https://github.com/Azure/communication) – Hitta fler exempel och information på den officiella GitHub-Sidan
 - [Redux](https://redux.js.org/) – tillstånds hantering på klient Sidan
 - [FluentUI](https://developer.microsoft.com/fluentui#/) – Microsoft Powered UI-bibliotek
 - [Reagera](https://reactjs.org/) – bibliotek för att skapa användar gränssnitt

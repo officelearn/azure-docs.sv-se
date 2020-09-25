@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254947"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284371"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Database Advisor prestanda rekommendationer för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Tillgängliga alternativ för prestanda rekommendation i Azure SQL Database:
 
 | Prestanda rekommendation | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :----------------------------- | ----- | ----- |
-| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Nej |
-| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
-| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Nej |
-| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när Azure SQL Database visar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Nej |
+| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Inga |
+| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Inga |
+| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Inga |
+| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när Azure SQL Database visar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Inga |
 
 ![Prestanda rekommendationer för Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -84,9 +84,9 @@ Rekommendationer för *Parameterisera-frågor* visas när du har en eller flera 
 
 Varje fråga måste ursprungligen kompileras för att generera en körnings plan. Varje genererad plan läggs till i planens cacheminne. Efterföljande körningar av samma fråga kan återanvända den här planen från cachen, vilket eliminerar behovet av ytterligare kompilering.
 
-Frågor med icke-parametriserade värden kan leda till prestanda kostnader eftersom körnings planen kompileras om varje gången de värden som inte har parameteras är olika. I många fall genererar samma frågor med olika parameter värden samma körnings planer. Dessa planer läggs dock fortfarande separat till i plan cacheminnet.
+Frågor med icke-parametriserade värden kan leda till pålägg på prestandan eftersom körningsplanen kompileras om varje gång de icke-parametriserade värden är annorlunda. I många fall genererar samma frågor med olika parametervärden samma körningsplaner. Dessa planer läggs däremot fortfarande till separat i plancachen.
 
-Processen för att kompilera om körnings planer använder databas resurser, ökar varaktigheten för frågan och flödar över planens cacheminne. Dessa händelser i sin tur gör att planer tas bort från cachen. Du kan ändra det här beteendet genom att ange alternativet Tvingad Parameterisering i databasen.
+Processen för att kompilera om körningsplaner använder databasresurser, ökar frågevaraktigheten och översvämmar plancachen. Dessa händelser leder i sin tur till att planer avlägsnas från cachen. Du kan ändra det här beteendet genom att ange alternativet Tvingad Parameterisering i databasen.
 
 För att hjälpa dig att beräkna effekten av den här rekommendationen får du en jämförelse mellan den faktiska processor användningen och den beräknade processor användningen (som om rekommendationen tillämpades). Den här rekommendationen kan hjälpa dig att få CPU-besparingar. Det kan också hjälpa dig att minska frågans varaktighet och kostnader för planens cacheminne, vilket innebär att fler av planerna kan stanna kvar i cacheminnet och återanvändas. Du kan snabbt använda den här rekommendationen genom att välja kommandot **Apply** .
 

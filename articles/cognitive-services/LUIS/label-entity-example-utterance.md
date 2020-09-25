@@ -1,14 +1,16 @@
 ---
 title: Etikett för entitets exempel uttryck
 description: Lär dig hur du etiketterar en enhet för maskin inlärning med underentiteter i ett exempel på en uttryck på LUIS-portalen.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610497"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303734"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etiketten maskin inlärnings enhet i ett exempel uttryck
 
@@ -53,7 +55,7 @@ Entity-paletten erbjuder ett alternativ till föregående etikett upplevelse. De
 3. I uttryck-exemplet _målar_ du entiteten med markören.
 
     > [!div class="mx-imgBorder"]
-    > ![Entity-palett för entiteten för maskin inlärning](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Skärm bilden visar enheten som målats med markören.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Lägga till entitet som en funktion från entitetens palett
 

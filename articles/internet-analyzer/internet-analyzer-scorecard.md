@@ -1,18 +1,18 @@
 ---
 title: Tolka ditt styrkort | Microsoft Docs
-description: Vanliga frågor och svar om Azure Internet Analyzer.
+description: Lär dig hur du tolkar ditt styrkort. Fliken styrkort innehåller sammanställda och analyserade resultat från dina tester.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 5ed8621fbfd1528bfffeaa986fa9c2e17c19f82b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330221"
 ---
 # <a name="interpreting-your-scorecard"></a>Tolka ditt styrkort
 
@@ -50,7 +50,7 @@ Konfidens intervall (CI) är ett intervall med värden som har sannolikhet att i
 
 För Internet Analyzer är ett smalt konfidens intervall bra eftersom det visar exempel måttet är förmodligen mycket nära det faktiska populations måttet. Ett brett konfidens intervall innebär mindre säkerhet att vårt exempel mått återspeglar det faktiska populations måttet. Det bästa sättet att förbättra CI är att öka antalet mått.
 
-## <a name="time-series"></a>Tids serier 
+## <a name="time-series"></a>Tidsserier 
 
 En tids serie visar hur ett mått förändras över tid. På Internet finns det många temporala faktorer som påverkar prestandan, till exempel högsta trafik perioder, veckodag-veckosluts skillnader och helgdagar.
 

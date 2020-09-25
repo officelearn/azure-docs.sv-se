@@ -1,26 +1,28 @@
 ---
-title: 'Snabb start: formulär tolkens klient bibliotek | Microsoft Docs'
-description: Kom igång med klient biblioteket [produkt namn].
+title: 'Snabb start: formulär tolkens klient bibliotek'
+titleSuffix: Azure Cognitive Services
+description: Använd formulär identifierarens klient bibliotek för att skapa en app för bearbetning av formulär som extraherar nyckel/värde-par och tabell data från dina anpassade dokument.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 0aa72b595bf60184aa840922a3d8a6496bb983a7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: formulär bearbetning, automatisk data bearbetning
+ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318949"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Snabb start: Använd formulär tolkens klient bibliotek
 
-Kom igång med formulär tolkens klient bibliotek. Formulär tolken är en kognitiv tjänst som använder maskin inlärnings teknik för att identifiera och extrahera nyckel/värde-par och tabell data från formulär dokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Följ de här stegen för att installera SDK-paketet och prova exempel koden för grundläggande uppgifter.
+Kom igång med formulär tolkens klient bibliotek på valfritt språk. Azure formulär igenkänning är en kognitiv tjänst som gör att du kan skapa automatiserad data bearbetnings program vara med hjälp av Machine Learning-teknik. Identifiera och extrahera text, nyckel/värde-par och tabell data från formulär dokument &mdash; tjänsten visar strukturerade data som innehåller relationerna i original filen. Följ de här stegen för att installera SDK-paketet och prova exempel koden för grundläggande uppgifter.
 
 Använd formulär identifierarens klient bibliotek för att:
 

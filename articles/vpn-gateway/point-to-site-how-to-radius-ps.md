@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e45afed3332d26006cf0b4296986edb6f6588962
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421738"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329167"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med RADIUS-autentisering: PowerShell
 
@@ -24,8 +24,9 @@ En P2S VPN-anslutning startas från Windows- och Mac-enheter. Anslutande kliente
 
 * RADIUS-server
 * VPN Gateway intern certifikatautentisering
+* Intern Azure Active Directory-autentisering (endast Windows 10)
 
-Den här artikeln hjälper dig att konfigurera en P2S-konfiguration med autentisering med RADIUS-server. Om du vill autentisera med hjälp av genererade certifikat och intern autentisering i VPN-gateway i stället, se [Konfigurera en punkt-till-plats-anslutning till ett VNet med intern certifikatautentisering för VPN-gateway](vpn-gateway-howto-point-to-site-rm-ps.md).
+Den här artikeln hjälper dig att konfigurera en P2S-konfiguration med autentisering med RADIUS-server. Om du vill autentisera med hjälp av genererade certifikat och intern autentisering i VPN-gateway i stället, se [Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med VPN-gatewayens interna certifikatautentisering](vpn-gateway-howto-point-to-site-rm-ps.md) eller [skapa en Azure Active Directory-klient för P2s OpenVPN-protokoll anslutningar](openvpn-azure-ad-tenant.md) för Azure Active Directory autentisering.
 
 ![Anslutnings diagram-RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
@@ -40,7 +41,7 @@ Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig I
 P2S-anslutningar kräver följande:
 
 * En RouteBased VPN gateway. 
-* En RADIUS-server för hantering av användarautentisering. RADIUS-servern kan distribueras lokalt eller i Azure VNet.
+* En RADIUS-server för hantering av användarautentisering. RADIUS-servern kan distribueras lokalt eller i Azure VNet. Du kan också konfigurera två RADIUS-servrar för hög tillgänglighet.
 * Ett konfigurations paket för VPN-klienten för de Windows-enheter som ska ansluta till det virtuella nätverket. Ett konfigurations paket för VPN-klienten ger de inställningar som krävs för att en VPN-klient ska kunna ansluta via P2S.
 
 ## <a name="about-active-directory-ad-domain-authentication-for-p2s-vpns"></a><a name="aboutad"></a>Om Active Directory (AD) domänautentisering för P2S-VPN
@@ -223,6 +224,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
+   Använd följande syntax för att ange **två** RADIUS-servrar **(för hands version)** . Ändra värdet **VpnClientProtocol** vid behov
+
+    ```azurepowershell-interactive
+    $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
+    $radiusServer2 = New-AzRadiusServer -RadiusServerAddress 10.1.0.16 -RadiusServerSecret $radiuspd -RadiusServerScore 1
+
+    $radiusServers = @( $radiusServer1, $radiusServer2 )
+
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
+    ```
+
 ## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> Hämta konfigurations paketet för VPN-klienten och konfigurera VPN-klienten
 
 Konfigurationen av VPN-klienten gör att enheter kan ansluta till ett VNet via en P2S-anslutning.Om du vill generera ett konfigurations paket för VPN-klienten och konfigurera VPN-klienten, se [skapa en VPN-klientkonfiguration för RADIUS-autentisering](point-to-site-vpn-client-configuration-radius.md).
@@ -268,7 +280,7 @@ Information om hur du felsöker en P2S-anslutning finns i [Felsöka Azure punkt-
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 Detta vanliga frågor och svar gäller för P2S med RADIUS-autentisering
 

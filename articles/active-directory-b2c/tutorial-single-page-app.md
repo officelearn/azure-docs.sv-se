@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c8aca82567de0b564aadc355b198502450dd7a5c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169811"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258922"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C
 
@@ -34,7 +34,7 @@ I den här självstudien är den första i en serie i två delar:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
@@ -51,7 +51,7 @@ Dessutom behöver du följande i din lokala utvecklings miljö:
 
 I den andra själv studie kursen som du avslutade som en del av förutsättningarna registrerade du ett webb program i Azure AD B2C. Om du vill aktivera kommunikation med kod exemplet i den här självstudien lägger du till en svars-URL (kallas även en omdirigerings-URI) till program registreringen.
 
-Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -92,8 +92,8 @@ Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient
 
 1. Öppna *authConfig.js* -filen i mappen *JavaScriptSPA*
 1. I `msalConfig` objektet uppdaterar du:
-    * `clientId`med värdet med det **program-ID (klient)** som du registrerade i ett tidigare steg
-    * `authority`URI med ditt Azure AD B2C klient namn och namnet på det registrerings-/inloggnings användar flöde som du skapade som en del av förutsättningarna (till exempel *B2C_1_signupsignin1*)
+    * `clientId` med värdet med det **program-ID (klient)** som du registrerade i ett tidigare steg
+    * `authority` URI med ditt Azure AD B2C klient namn och namnet på det registrerings-/inloggnings användar flöde som du skapade som en del av förutsättningarna (till exempel *B2C_1_signupsignin1*)
 
     ```javascript
     const msalConfig = {
@@ -119,7 +119,7 @@ Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Till exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller exemplet. Exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -148,7 +148,7 @@ Det här exempel programmet stöder registrering, inloggning och lösen ords åt
 1. Azure AD B2C visar en inloggnings sida som innehåller en registrerings länk. Eftersom du ännu inte har ett konto väljer du länken **Registrera dig nu** .
 1. Arbets flödet för registrering visar en sida där du kan samla in och verifiera användarens identitet med hjälp av en e-postadress. Arbets flödet för registrering samlar även in användarens lösen ord och de begärda attribut som definierats i användar flödet.
 
-    Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
+    Använd en giltig e-postadress och verifiera med verifieringskoden. Ställ in ett lösenord. Ange värden för de begärda attributen.
 
     :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Sidan registrera visas i Azure AD B2C användar flöde":::
 

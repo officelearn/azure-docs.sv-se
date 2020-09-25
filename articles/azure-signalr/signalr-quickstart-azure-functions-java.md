@@ -1,6 +1,6 @@
 ---
 title: Använd Java för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
-description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
+description: En snabb start för att använda Azure SignalR service och Azure Functions för att skapa ett chattrum med Java.
 author: sffamily
 ms.service: signalr
 ms.devlang: java
@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: 544f200e749b1b125e8077ee65f20a06779fb13d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ab13c9494ee04d112cec93af9efaab43705297bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319528"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabb start: Använd Java för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
 
 Med Azure SignalR service kan du enkelt lägga till real tids funktioner i ditt program och Azure Functions är en plattform utan server som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabb starten använder du Java för att bygga ett Server lös chatt-program i real tid med hjälp av SignalR service och functions.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En kod redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

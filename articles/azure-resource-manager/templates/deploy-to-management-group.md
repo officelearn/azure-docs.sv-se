@@ -2,13 +2,13 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605234"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284830"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
@@ -45,7 +45,7 @@ Använd följande för att hantera resurser:
 
 * [taggen](/azure/templates/microsoft.resources/tags)
 
-### <a name="schema"></a>Schema
+## <a name="schema"></a>Schema
 
 Schemat som används för distributioner av hanterings grupper skiljer sig från schemat för distributioner av resurs grupper.
 
@@ -60,6 +60,30 @@ Schemat för en parameter fil är detsamma för alla distributions omfång. För
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Distributions omfång
+
+När du distribuerar till en hanterings grupp kan du rikta in den angivna hanterings gruppen i distributions kommandot, eller så kan du välja en annan hanterings grupp i klienten.
+
+De resurser som definieras i avsnittet resurser i mallen tillämpas på hanterings gruppen från distributions kommandot.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+Om du vill rikta en annan hanterings grupp lägger du till en kapslad distribution och anger `scope` egenskapen. Ange `scope` ett värde i formatet för egenskapen `Microsoft.Management/managementGroups/<mg-name>` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+Du kan också rikta prenumerationer eller resurs grupper i en hanterings grupp. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+Om du vill rikta en prenumeration inom hanterings gruppen använder du en kapslad distribution och `subscriptionId` egenskapen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+Om du vill rikta en resurs grupp i den prenumerationen lägger du till en annan kapslad distribution och `resourceGroup` egenskapen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+Om du vill använda en distribution av hanterings grupper för att skapa en resurs grupp i en prenumeration och distribuera ett lagrings konto till den resurs gruppen, se [distribuera till prenumeration och resurs grupp](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-commands"></a>Distributions kommandon
 
@@ -94,97 +118,6 @@ För distributioner på hanterings grupp nivå måste du ange en plats för dist
 Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
-
-## <a name="deployment-scopes"></a>Distributions omfång
-
-När du distribuerar till en hanterings grupp kan du rikta den hanterings grupp som anges i distributions kommandot eller andra hanterings grupper i klient organisationen. Du kan också rikta prenumerationer eller resurs grupper i en hanterings grupp. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
-
-De resurser som definieras i avsnittet resurser i mallen tillämpas på hanterings gruppen från distributions kommandot.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        management-group-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Om du vill rikta en annan hanterings grupp lägger du till en kapslad distribution och anger `scope` egenskapen.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-10-01",
-            "name": "nestedDeployment",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-different-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Om du vill rikta en prenumeration inom hanterings gruppen använder du en kapslad distribution och `subscriptionId` egenskapen. Om du vill rikta en resurs grupp i den prenumerationen lägger du till en annan kapslad distribution och `resourceGroup` egenskapen.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "westus2",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedRG",
-              "resourceGroup": "rg2",
-              "properties": {
-                "mode": "Incremental",
-                "template": {
-                  nested-template-with-resources-in-resource-group
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-Om du vill använda en distribution av hanterings grupper för att skapa en resurs grupp i en prenumeration och distribuera ett lagrings konto till den resurs gruppen, se [distribuera till prenumeration och resurs grupp](#deploy-to-subscription-and-resource-group).
 
 ## <a name="use-template-functions"></a>Använda mall funktioner
 

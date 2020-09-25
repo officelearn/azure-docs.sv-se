@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266067"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -66,8 +66,8 @@ Den här processen gör det möjligt för användaren att förlora åtkomst till
 
 | | Office-webbappar | Office Win32-appar | Office för iOS | Office för Android | Office för Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Stöds | Stöds | Stöds inte | Stöds | Stöds |
-| **Exchange Online** | Stöds | Stöds | Stöds inte | Stöds | Stöds |
+| **SharePoint Online** | Stöds inte | Stöds | Stöds | Stöds | Stöds |
+| **Exchange Online** | Stöds inte | Stöds | Stöds | Stöds | Stöds |
 
 ### <a name="client-side-claim-challenge"></a>Anspråks kontroll på klient Sidan
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316587"
 ---
 # <a name="limits-and-quotas"></a>Begränsningar och kvoter
 
@@ -39,7 +39,7 @@ Antalet utbildnings bilder per projekt och taggar per projekt förväntas öka m
 |[Andra API-anrop](https://go.microsoft.com/fwlink/?linkid=865446) (transaktioner per sekund)|10|10|
 |Godkända avbildnings typer|jpg, PNG, BMP, GIF|jpg, PNG, BMP, GIF|
 |Minsta bild höjd/bredd i bild punkter|256 (se anmärkning)|256 (se anmärkning)|
-|Maximal bild höjd/bredd i bild punkter|obegränsat|obegränsat|
+|Maximal bild höjd/bredd i bild punkter|10 240|10 240|
 |Maximal bild storlek (uppladdning av inlärnings avbildning) |6 MB|6 MB|
 |Maximal bild storlek (förutsägelse)|4 MB|4 MB|
 |Bild för högsta antal regioner per objekts avkänning|300|300|
@@ -47,3 +47,4 @@ Antalet utbildnings bilder per projekt och taggar per projekt förväntas öka m
 
 > [!NOTE]
 > Bilder som är mindre än 256 bild punkter godkänns, men skalas upp.
+> Bild proportionerna får inte vara större än 25

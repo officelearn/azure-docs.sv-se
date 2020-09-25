@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320021"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>För hands version: skapa en virtuell Windows-dator med Azure Image Builder
 
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> För käll avbildningen måste du alltid [Ange en version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)som du inte kan använda `latest` .
+> För käll avbildningen måste du alltid [Ange en version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version)som du inte kan använda `latest` .
 > Om du lägger till eller ändrar resurs gruppen där avbildningen distribueras till, måste du [ange behörigheterna](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) för resurs gruppen.
  
 ## <a name="create-the-image"></a>Skapa avbildningen
@@ -179,13 +179,13 @@ az resource create \
 
 När det är klart returneras ett meddelande till konsolen och du kan skapa en `Image Builder Configuration Template` i `$imageResourceGroup` . Du kan se den här resursen i resurs gruppen i Azure Portal om du aktiverar Visa dolda typer.
 
-I bakgrunden skapar Image Builder också en resurs grupp för mellanlagring i din prenumeration. Den här resurs gruppen används för avbildnings versionen. Formatet är i följande format:`IT_<DestinationResourceGroup>_<TemplateName>`
+I bakgrunden skapar Image Builder också en resurs grupp för mellanlagring i din prenumeration. Den här resurs gruppen används för avbildnings versionen. Formatet är i följande format: `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
 > Du får inte ta bort mellanlagrings resurs gruppen direkt. Först tar du bort bild mal len artefakt. Detta innebär att den mellanlagrings resurs grupp som ska tas bort.
 
 Om tjänsten rapporterar ett problem under överföringen av avbildnings konfigurations mal len:
--  Granska de här [fel söknings](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) stegen. 
+-  Granska de här [fel söknings](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) stegen. 
 - Du måste ta bort mallen med hjälp av följande kodfragment innan du försöker skicka igen.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 Vänta tills versionen har slutförts. Detta kan ta ungefär 15 minuter.
 
-Om du stöter på några fel kan du läsa följande [fel söknings](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steg.
+Om du stöter på några fel kan du läsa följande [fel söknings](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steg.
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn

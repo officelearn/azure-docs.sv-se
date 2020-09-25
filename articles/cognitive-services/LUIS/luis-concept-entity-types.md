@@ -1,14 +1,16 @@
 ---
 title: Entitetstyper – LUIS
 description: En entitet hämtar data från en användare uttryck vid förutsägelse körning. Ett _valfritt_, sekundärt syfte är att öka förutsägelsen för avsikten eller andra entiteter genom att använda entiteten som en funktion.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316570"
 ---
 # <a name="extract-data-with-entities"></a>Extrahera data med entiteter
 

@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 40ce2844e33c9a71f87e434a6a3e9f8e0f7e3cc6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330901"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Förena flera Azure Monitor Application Insights resurser 
 I den här artikeln beskrivs hur du frågar och visar alla dina Application Insights loggdata på ett ställe, även om de finns i olika Azure-prenumerationer, som ersättning för utfasningen av Application Insights-anslutningsprogram. Antalet Application Insights-resurser som du kan ta med i en enskild fråga är begränsat till 100.
@@ -57,7 +57,7 @@ Frågan använder Application Insights schema, även om frågan körs i arbets y
 ![Exempel på resultat över frågor](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->[Frågan över resurser](./cross-workspace-query.md) i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa [frågor om kors resursfrågor](./cross-workspace-query.md) utan att göra växeln med hjälp av arm- [mallen för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) och inte från Azure Portal.
+>[Frågor över resurser](./cross-workspace-query.md) i logg aviseringar stöds bara i det aktuella [scheduledQueryRules-API: et](/rest/api/monitor/scheduledqueryrules). Om du använder äldre API för Log Analytics-varningar måste du [Växla till det aktuella API: et](../platform/alerts-log-api-switch.md). [Se exempel på mallar](../platform/alerts-log-create-templates.md).
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Schema skillnader för Application Insights och Log Analytics arbets yta
 I följande tabell visas schema skillnaderna mellan Log Analytics och Application Insights.  
@@ -73,16 +73,16 @@ I följande tabell visas schema skillnaderna mellan Log Analytics och Applicatio
 | AvailabilityMessage | meddelande |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | name |
+| AvailabilityTestName | namn |
 | AvailabilityTimestamp | timestamp |
 | Webbläsare | client_browser |
-| Stad | client_city |
+| City | client_city |
 | ClientIP | client_IP |
 | Dator | cloud_RoleInstance | 
 | Land | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | name | 
+| CustomEventName | namn | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
@@ -94,12 +94,12 @@ I följande tabell visas schema skillnaderna mellan Log Analytics och Applicatio
 | Operativsystem | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | varaktighet | 
-| PageViewName | name | 
+| PageViewName | namn | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | varaktighet | 
 | RequestID | id | 
-| RequestName | name | 
+| RequestName | namn | 
 | RequestSuccess | lyckades | 
 | ResponseCode | resultCode | 
 | Roll | cloud_RoleName |

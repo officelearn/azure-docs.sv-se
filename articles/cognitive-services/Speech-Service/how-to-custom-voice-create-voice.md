@@ -1,7 +1,7 @@
 ---
 title: Skapa en anpassad röst tal tjänst
 titleSuffix: Azure Cognitive Services
-description: När du är redo att ladda upp dina data går du till den anpassade röst portalen. Skapa eller Välj ett anpassat röst projekt. Projektet måste dela rätt språk och nationella inställningar och köns egenskaper som de data som du vill använda för din röst träning.
+description: När du är redo att ladda upp dina data går du till den anpassade röst portalen. Skapa eller Välj ett anpassat röst projekt. Projektet måste dela rätt språk och nationella inställningar och köns egenskaper som de data som du tänker använda för din röst träning.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319069"
 ---
 # <a name="create-a-custom-voice"></a>Skapa en anpassad röst
 
@@ -28,7 +28,7 @@ Kontrol lera språk som stöds för anpassad röst: [språk för anpassning](lan
 
 ## <a name="upload-your-datasets"></a>Ladda upp dina data uppsättningar
 
-När du är redo att ladda upp dina data går du till den [anpassade röst portalen](https://aka.ms/custom-voice-portal). Skapa eller Välj ett anpassat röst projekt. Projektet måste dela rätt språk och nationella inställningar och köns egenskaper som de data som du vill använda för din röst träning. Välj till exempel `en-GB` om ljud inspelningarna du har gjort på engelska med en brittisk accent.
+När du är redo att ladda upp dina data går du till den [anpassade röst portalen](https://aka.ms/custom-voice-portal). Skapa eller Välj ett anpassat röst projekt. Projektet måste dela rätt språk och nationella inställningar och köns egenskaper som de data som du tänker använda för din röst träning. Välj till exempel `en-GB` om ljud inspelningarna du har gjort på engelska med en brittisk accent.
 
 Gå till fliken **data** och klicka på **överför data**. I guiden väljer du rätt datatyp som matchar vad du har för berett.
 
@@ -44,7 +44,7 @@ Data uppsättningar verifieras automatiskt när du trycker på knappen Överför
 
 Följande tabell visar bearbetnings tillstånd för importerade data uppsättningar:
 
-| Stat | Innebörd |
+| Tillstånd | Innebörd |
 | ----- | ------- |
 | Bearbetar | Din data uppsättning har tagits emot och bearbetas. |
 | Lyckades | Din data uppsättning har verifierats och kan nu användas för att bygga en röst modell. |
@@ -86,7 +86,7 @@ I övnings tabellen visas en ny post som motsvarar den nyligen skapade modellen.
 
 Den status som visas visar processen för att konvertera data uppsättningen till en röst modell, som visas här.
 
-| Stat | Innebörd |
+| Tillstånd | Innebörd |
 | ----- | ------- |
 | Bearbetar | Din röst modell skapas. |
 | Lyckades | Din röst modell har skapats och kan distribueras. |

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661859"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295234"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 I den här artikeln beskrivs de inbyggda konfigurations reglerna. Den dokumenterar reglerna och hur dessa regler påverkar konfigurationen. Den vägleder dig också genom standard konfigurationen av Azure AD Connect Sync. Målet är att läsaren förstår hur konfigurations modellen, med namnet deklarativ etablering, fungerar i ett verkligt exempel. Den här artikeln förutsätter att du redan har installerat och konfigurerat Azure AD Connect Sync med hjälp av installations guiden.
@@ -148,7 +148,7 @@ Eftersom den här regeln är en regel som är inaktuell visas en varning när du
 
 En Synkroniseringsregel har fyra konfigurations avsnitt: Beskrivning, omfångs filter, kopplings regler och transformeringar.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 Det första avsnittet innehåller grundläggande information, till exempel ett namn och en beskrivning.
 
 ![Fliken Beskrivning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -160,7 +160,7 @@ Du kan också se att den här synkroniseringsregeln används för Lösenordssynk
 #### <a name="scoping-filter"></a>Omfångs filter
 Avsnittet omfångs filter används för att konfigurera när en Synkroniseringsregel ska gälla. Eftersom namnet på synkroniseringsregeln som du tittar på visar att det bara ska användas för aktiverade användare, är omfånget konfigurerat så att AD-attributet **UserAccountControl** inte får ha bit 2-uppsättningen. När Synkroniseringsmotorn hittar en användare i AD, tillämpas den här synkroniseringsregeln när värdet för **UserAccountControl** anges till decimal värdet 512 (aktive rad normal användare). Regeln tillämpas inte när användaren har **UserAccountControl** inställt på 514 (inaktive rad normal användare).
 
-![Fliken omfattning i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Skärm bild som visar avsnittet "omfångs filter" i fönstret "redigera regler för inkommande synkronisering".](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 Omfångs filtret har grupper och satser som kan kapslas. Alla satser i en grupp måste vara uppfyllda för att en Synkroniseringsregel ska tillämpas. När flera grupper definieras måste minst en grupp vara uppfylld för att regeln ska gälla. Det vill säga ett logiskt eller utvärderas mellan grupper och ett logiskt och utvärderas i en grupp. Ett exempel på den här konfigurationen finns i regeln för utgående synkronisering **ut till AAD – grupp anslutning**. Det finns flera filter för synkronisering, till exempel en för säkerhets grupper ( `securityEnabled EQUAL True` ) och en för distributions grupper ( `securityEnabled EQUAL False` ).
 

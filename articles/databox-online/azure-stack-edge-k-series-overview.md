@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 20efae411ae4d2fae9bf3b5e69dbfdd98da1603a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985646"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318575"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Vad är Azure Stack Edge Mini R?
 
-Azure Stack Edge Mini R är en lösning för maskin vara som en tjänst. Microsoft levererar en robust, molnbaserad, mycket portabel enhet med en inbyggd VPU (vision Processing Unit) som möjliggör accelererad AI-inferencing och har alla funktioner i en gateway för nätverks lagring. Dessa enheter är lämpliga för användning i de miljöer som är svåra att använda och är optimerade för AI-, analys-och Server lös data behandling.
+Azure Stack Edge Mini R är en extremt portabel, robust data behandlings enhet som är utformad för användning i tuffa miljöer. Azure Stack Edge Mini R levereras som en lösning för maskin vara som en tjänst. Microsoft levererar en molnbaserad enhet som fungerar som nätverks lagrings-gateway och har en inbyggd VPU (vision Processing Unit) som aktiverar accelererad AI-inferencing.
 
 Den här artikeln innehåller en översikt över Azure Stack Edge Mini R-lösningen, viktiga funktioner och scenarier där du kan distribuera den här enheten.
 
@@ -28,7 +28,7 @@ Azure Stack Edge Mini R har följande funktioner:
 
 |Funktion |Beskrivning  |
 |---------|---------|
-|Robust maskin vara| Robust maskin vara utformad för miljöer med tufft syfte.|
+|Robust maskin vara| Robust maskin vara utformad för svåra miljöer.|
 |Ultra portabel| Mycket bärbar, batteri driven form faktor.|
 |Molnbaserad hantering|Enhet och tjänst hanteras via Azure Portal.|
 |Edge Compute-arbetsbelastningar|Möjliggör analys, bearbetning och filtrering av data.<br>Stöder virtuella datorer och arbets belastningar i behållare. |
@@ -36,7 +36,7 @@ Azure Stack Edge Mini R har följande funktioner:
 |Kabelanslutna och trådlösa | Tillåter kabelanslutna och trådlösa data överföringar.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
 |Frånkopplat läge|  Enhet och tjänst kan hanteras alternativt via Azure Stack hubb. Distribuera, kör, hantera program i offlineläge. <br> Frånkopplat läge stöder scenarier med offlineuppladdning.|
-|Protokoll som stöds     |Stöder standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [Azure Stack Edge Mini R system krav](azure-stack-edge-gpu-system-requirements.md).|
+|Fil överförings protokoll som stöds      |Stöder standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [Azure Stack Edge Mini R system krav](azure-stack-edge-gpu-system-requirements.md).|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
 |Dubbel kryptering    | Med hjälp av Självkrypterande enhet får du det första krypterings lagret. VPN tillhandahåller det andra krypterings lagret. BitLocker-stöd för lokal kryptering av data och säker data överföring till molnet via *https* .|
 |Bandbredds begränsning| Begränsa bandbredds användningen under hög belastnings tider.|
@@ -60,13 +60,13 @@ Här följer de olika scenarier där Azure Stack Edge Mini R kan användas för 
 
 Azure Stack Edge Mini R-lösningen består av en Azure Stack gräns resurs, Azure Stack Edge Mini R robust, ultra portabel fysisk enhet och ett lokalt webb gränssnitt.
 
-* **Azure Stack Edge Mini R fysisk enhet** – en mycket bärbar enhet med ett onboard-batteri och ett robust hölje som tillhandahålls av Microsoft och som kan konfigureras för att skicka data till Azure. Enheten med batteriet väger mindre än 7 kg.
+* **Azure Stack Edge Mini R fysisk enhet** – en ultra portabel, robust, beräknings-och lagrings enhet som tillhandahålls av Microsoft. Enheten har ett inbyggt batteri och väger mindre än 7 kg.
 
     ![Azure Stack Edge Mini R-enhet](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
 
 * **Azure Stack Edge-resurs** – en resurs i Azure Portal som låter dig hantera en robust, Azure Stack Edge-Mini R-enhet från ett webb gränssnitt som du kan komma åt från olika geografiska platser. Använd Azure Stack Edge-resursen för att skapa och hantera resurser, Visa och hantera enheter och aviseringar och hantera resurser.  
 
-* **Azure Stack Edge mini r lokalt webb gränssnitt** – Använd det lokala webb gränssnittet för inledande enhets konfiguration för att köra diagnostik, stänga av och starta om Azure Stack Edge-mini r-enheten, Visa kopierings loggar och kontakta Microsoft Support för att skicka en tjänstbegäran.
+* **Azure Stack Edge mini r lokalt webb gränssnitt** – ett webbläsarbaserat lokalt användar gränssnitt på din Azure Stack Edge-Mini R-enhet som främst är avsedd för den inledande konfigurationen av enheten. Använd det lokala webb gränssnittet även för att köra diagnostik, stänga av och starta om Azure Stack Edge Pro-enhet, Visa kopierings loggar och kontakta Microsoft Support för att skicka en tjänstbegäran.
 
 
 ## <a name="region-availability"></a>Regional tillgänglighet
@@ -74,6 +74,8 @@ Azure Stack Edge Mini R-lösningen består av en Azure Stack gräns resurs, Azur
 Azure Stack Edge Mini R fysisk enhet, Azure-resurs och mål lagrings konto som du överför data till, behöver inte alla finnas i samma region.
 
 - **Resurs tillgänglighet** – för en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig går du till [Azure-produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+
+- **Enhets tillgänglighet** – för en lista över alla länder där Azure Stack Edge mini r-enheten är tillgänglig går du till avsnittet tillgänglighet på fliken Azure Stack Edge mini r för [Azure Stack Edge mini r-prissättning](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
 
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagrings kontona lagrar Azure Stack Edge-Mini R-data ska ligga nära den plats där enheten befinner sig för optimala prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda.
 

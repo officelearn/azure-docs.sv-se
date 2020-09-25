@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172370"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329269"
 ---
 # <a name="public-ip-addresses"></a>Offentliga IP-adresser
 
@@ -30,7 +30,7 @@ I Azure Resource Manager är en [offentlig IP-adress](virtual-network-public-ip-
 * Nätverksgränssnitt för virtuella datorer
 * Internetuppkopplade lastbalanserare
 * VPN-gateways
-* Programgateways
+* Programgatewayer
 * Azure Firewall
 
 ## <a name="ip-address-version"></a>IP-adressversion
@@ -60,9 +60,9 @@ Offentliga IP-adresser för standard-SKU:
 > [!NOTE]
 > Endast offentliga IP-adresser med Basic SKU är tillgängliga när du använder [IMDS för instans-metadata](../virtual-machines/windows/instance-metadata-service.md). Standard-SKU stöds inte.
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>Grundläggande
 
-Alla offentliga IP-adresser som skapas före införandet av SKU:er är grundläggande offentliga IP-adresser för SKU. 
+Alla offentliga IP-adresser som skapades innan SKU:erna infördes är offentliga IP-adresser på nivån Basic. 
 
 I introduktionen av SKU: er anger du vilket SKU som du vill att den offentliga IP-adressen ska vara. 
 
@@ -70,7 +70,7 @@ Grundläggande SKU-adresser:
 
 - Tilldelas med en statisk eller dynamisk allokeringsmetod.
 - Har en justerbar inkommande tidsgräns för inaktivitet i flöde på 4–30 minuter, med ett standardvärde på 4 minuter, och en fast utgående tidsgräns för inaktivitet i flöde på 4 minuter.
-- Är öppna som standard.  Nätverkssäkerhetsgrupper rekommenderas, men är valfritt för att begränsa inkommande eller utgående datatrafik.
+- Är öppna som standard.  Nätverkssäkerhetsgrupper rekommenderas för att begränsa inkommande och utgående datatrafik, men det är valfritt att använda dem.
 - Tilldelad till alla Azure-resurser som kan tilldelas en offentlig IP-adress, till exempel:
     * Nätverksgränssnitt
     * VPN-gatewayer
@@ -158,12 +158,19 @@ Mer information om SKU:er för lastbalanserare i Azure finns i [Standard-SKU fö
 
 En offentlig IP-adress tilldelas till VPN Gateway för att möjliggöra kommunikation med fjärrnätverket. Du kan endast tilldela en *dynamisk* grundläggande offentlig IP-adress till en VPN-gateway.
 
-## <a name="application-gateways"></a>Programgateways
+## <a name="application-gateways"></a>Programgatewayer
 
 Du kan associera en offentlig IP-adress med en Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genom att tilldela den till gatewayens konfiguration på **klientsidan**. 
 
 * Tilldela en **dynamisk** grundläggande offentlig IP-adress till en Application Gateway v1-konfiguration för klient delen. 
 * Tilldela en **statisk** standard-SKU-adress till en konfiguration av klient delen i v2.
+
+## <a name="azure-firewall"></a>Azure Firewall
+
+Med [Azure-brandväggen](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) kan du skapa, tillämpa och logga program-och nätverks anslutnings principer över prenumerationer och virtuella nätverk.
+
+Du kan bara koppla **statiska** offentliga IP-adresser med en brand vägg. Detta gör det möjligt för externa brand väggar att identifiera trafik från det virtuella nätverket. 
+
 
 ## <a name="at-a-glance"></a>En snabb översikt
 
@@ -173,10 +180,11 @@ I följande tabell visas den egenskap som kan användas för att koppla en offen
 | --- | --- | --- | --- |
 | Virtuell dator |Nätverksgränssnitt |Ja |Ja |
 | Internetuppkopplad lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
-| VPN gateway |IP-konfiguration för gateway |Ja |Nej |
+| VPN gateway |IP-konfiguration för gateway |Ja |Inga |
 | Programgateway |Konfiguration på klientsidan |Ja (endast V1) |Ja (endast V2) |
+| Azure Firewall | Konfiguration på klientsidan | Inga | Ja|
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 Begränsningarna för IP-adresser anges i den fullständiga uppsättningen [nätverks gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) i Azure. 
 

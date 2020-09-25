@@ -6,27 +6,30 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2f9430ae039cc54c3e6180eb8ea76791d17f67f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322133"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285136"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
+# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Utföra logg frågor i Azure Monitor som sträcker sig över arbets ytor och appar
+
+Azure Monitor loggar stöder frågor över flera Log Analytics arbets ytor och Application Insights app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta ger dig en systemomfattande vy över dina data.
+
+Det finns två metoder för att fråga data som lagras i flera arbets ytor och appar:
+1. Uttryckligen genom att ange information om arbets yta och appar. Den här tekniken beskrivs i den här artikeln.
+2. Implicit användning av [resurs kontext frågor](../platform/design-logs-deployment.md#access-mode). När du frågar i kontexten för en resurs, resurs grupp eller en prenumeration hämtas relevanta data från alla arbets ytor som innehåller data för dessa resurser. Application Insights data som lagras i appar kommer inte att hämtas.
 
 > [!IMPORTANT]
 > Om du använder en [arbets yta som baseras på arbets ytans Application Insights resurs](../app/create-workspace-resource.md) telemetri lagras i en Log Analytics arbets yta med alla andra loggdata. Använd log ()-uttrycket för att skriva en fråga som inkluderar program i flera arbets ytor. För flera program i samma arbets yta behöver du inte en fråga om flera arbets ytor.
 
-Tidigare med Azure Monitor kunde du bara analysera data från den aktuella arbets ytan och den begränsade möjligheten att fråga över flera arbets ytor som definierats i din prenumeration.  Dessutom kan du bara söka efter telemetri som samlats in från ditt webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio. Detta gjorde också det en utmaning att internt analysera drift-och program data tillsammans.
-
-Nu kan du fråga inte bara över flera Log Analytics arbets ytor, utan även data från en speciell Application Insights app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta ger dig en systemomfattande vy över dina data. Du kan bara utföra dessa typer av frågor i [Log Analytics](./log-query-overview.md).
 
 ## <a name="cross-resource-query-limits"></a>Begränsningar för kors resurs frågor 
 
 * Antalet Application Insights-resurser och Log Analytics arbets ytor som du kan ta med i en enskild fråga är begränsade till 100.
 * Frågan över resurser stöds inte i View Designer. Du kan redigera en fråga i Log Analytics och fästa den på Azure-instrumentpanelen för att [visualisera en logg fråga](../learn/tutorial-logs-dashboards.md). 
-* Frågan över resurser i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](../platform/api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa frågor om kors resurs frågor om loggen utan att göra växeln med hjälp av [Azure Resource Manager mall för scheduledQueryRules-API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules-API: n](/rest/api/monitor/scheduledqueryrules) inte är Azure Portal.
+* Frågor över resurser i logg aviseringar stöds bara i det aktuella [scheduledQueryRules-API: et](/rest/api/monitor/scheduledqueryrules). Om du använder äldre API för Log Analytics-varningar måste du [Växla till det aktuella API: et](../platform/alerts-log-api-switch.md).
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga i Log Analytics arbets ytor och från Application Insights
@@ -55,7 +58,7 @@ Att identifiera en arbets yta kan utföras på flera sätt:
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för arbets ytan. Du använder resurs-ID: t när resurs namnet är tvetydigt.  För arbets ytor är formatet: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/arbets ytor/componentName*.  
 
-    Till exempel:
+    Exempel:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -86,7 +89,7 @@ Att identifiera ett program i Application Insights kan utföras med ett *app-utt
 
 * Azure-resurs-ID – den Azure-definierade unika identiteten för appen. Du använder resurs-ID: t när resurs namnet är tvetydigt. Formatet är: */Subscriptions/subscriptionId/ResourceGroups/resourceGroup/providers/Microsoft. OperationalInsights/Components/componentName*.  
 
-    Till exempel:
+    Exempel:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -132,7 +135,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->Den här metoden kan inte användas med logg aviseringar eftersom åtkomst verifieringen av aviserings regel resurserna, inklusive arbets ytor och program, utförs när aviseringen skapas. Det går inte att lägga till nya resurser till funktionen när aviseringen har skapats. Om du föredrar att använda funktionen för resurs omfång i logg aviseringar måste du redigera aviserings regeln i portalen eller med en Resource Manager-mall för att uppdatera de omfångs resurserna. Du kan också inkludera listan över resurser i logg aviserings frågan.
+> Den här metoden kan inte användas med logg aviseringar eftersom åtkomst verifieringen av aviserings regel resurserna, inklusive arbets ytor och program, utförs när aviseringen skapas. Det går inte att lägga till nya resurser till funktionen när aviseringen har skapats. Om du föredrar att använda funktionen för resurs omfång i logg aviseringar måste du redigera aviserings regeln i portalen eller med en Resource Manager-mall för att uppdatera de omfångs resurserna. Du kan också inkludera listan över resurser i logg aviserings frågan.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

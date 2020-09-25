@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330289"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -102,16 +102,19 @@ Vi rekommenderar att du ställer in **läget** till `all` i de flesta fall. Alla
 
 `indexed` ska användas när du skapar principer som tvingar etiketter eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantaget är **resurs grupper** och **prenumerationer**. Princip definitioner som tvingar plats eller taggar i en resurs grupp eller prenumeration ska ange **läge** till `all` och särskilt vara mål för- `Microsoft.Resources/subscriptions/resourceGroups` eller- `Microsoft.Resources/subscriptions` typen. Ett exempel finns i [Pattern: Tags-Sample #1](../samples/pattern-tags.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Lägen för resurs leverantörer (för hands version)
+### <a name="resource-provider-modes"></a>Resurs leverantörs lägen
 
-Följande resurs leverantörs lägen stöds för närvarande under för hands versionen:
+Följande resurs leverantörs nod stöds fullt ut:
+
+- `Microsoft.Kubernetes.Data` för hantering av Kubernetes-kluster på eller av Azure. Definitioner som använder detta resurs leverantörs läge använder effekter _granskning_, _neka_och _inaktive rad_. Användning av [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -effekter är _föråldrad_.
+
+Följande resurs leverantörs lägen stöds för närvarande som en för **hands version**:
 
 - `Microsoft.ContainerService.Data` för hantering av regler för regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md). Definitioner som använder detta resurs leverantörs läge **måste** använda [EnforceRegoPolicy](./effects.md#enforceregopolicy) -effekter. Det här läget är _föråldrat_.
-- `Microsoft.Kubernetes.Data` för hantering av Kubernetes-kluster på eller av Azure. Definitioner som använder detta resurs leverantörs läge använder effekter _granskning_, _neka_och _inaktive rad_. Användning av [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -påverkan är _föråldrad_.
 - `Microsoft.KeyVault.Data` för hantering av valv och certifikat i [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Resurs leverantörs lägen stöder bara inbyggda princip definitioner och stöder inte initiativ i för hands versionen.
+> Resurs leverantörs lägen stöder bara inbyggda princip definitioner.
 
 ## <a name="metadata"></a>Metadata
 
@@ -552,9 +555,9 @@ Azure Policy stöder följande typer av påverkan:
 - **Neka**: genererar en händelse i aktivitets loggen och Miss lyckas med begäran
 - **DeployIfNotExists**: distribuerar en relaterad resurs om den inte redan finns
 - **Disabled**: utvärderar inte resurser för efterlevnad för princip regeln
-- **EnforceOPAConstraint** (för hands version): konfigurerar hanterings styrenheten för öppna Policy Agent med Gatekeeper v3 för självhanterade Kubernetes-kluster på Azure (för hands version)
-- **EnforceRegoPolicy** (för hands version): konfigurerar kontrollanten för att öppna princip agenter med Gatekeeper v2 i Azure Kubernetes-tjänsten
 - **Ändra**: lägger till, uppdaterar eller tar bort definierade taggar från en resurs
+- **EnforceOPAConstraint** (inaktuell): konfigurerar styrenheten för öppna princip agent med Gatekeeper v3 för självhanterade Kubernetes-kluster på Azure
+- **EnforceRegoPolicy** (inaktuell): konfigurerar styrenheten för öppna Policy Agent-inspelare med Gatekeeper v2 i Azure Kubernetes-tjänsten
 
 Fullständig information om varje effekt, utvärderings ordning, egenskaper och exempel finns i [förstå Azure policys effekter](effects.md).
 
@@ -592,6 +595,18 @@ Följande funktioner är endast tillgängliga i princip regler:
 - `requestContext().apiVersion`
   - Returnerar API-versionen för den begäran som utlöste princip utvärderingen (exempel: `2019-09-01` ).
     Det här värdet är den API-version som användes i begäran om att skicka/korrigera för utvärderingar om att skapa eller uppdatera resurser. Den senaste API-versionen används alltid vid utvärdering av efterlevnad på befintliga resurser.
+- `policy()`
+  - Returnerar följande information om den princip som utvärderas. Egenskaperna kan nås från det returnerade objektet (exempel: `[policy().assignmentId]` ).
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### <a name="policy-function-example"></a>Exempel på princip funktion
 

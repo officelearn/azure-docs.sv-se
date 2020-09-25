@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 115f01bffc4664798682923cb83a99a23a8ce274
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331105"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Snabb start: direkt webb trafik med Azure Application Gateway med Azure PowerShell
 
@@ -33,7 +33,7 @@ Du kan också slutföra den här snabb starten med [Azure CLI](quick-create-cli.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="connect-to-azure"></a>Ansluta till Azure
+## <a name="connect-to-azure"></a>Anslut till Azure
 
 Kör för att ansluta till Azure `Connect-AzAccount` .
 
@@ -53,6 +53,8 @@ För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett 
 1. Skapa under näts konfigurationerna med hjälp av `New-AzVirtualNetworkSubnetConfig` .
 2. Skapa det virtuella nätverket med under näts konfigurationerna med hjälp av `New-AzVirtualNetwork` . 
 3. Skapa den offentliga IP-adressen med hjälp av `New-AzPublicIpAddress` . 
+> [!NOTE]
+> [Slut punkts principer för virtuella nätverk](../virtual-network/virtual-network-service-endpoint-policies-overview.md) stöds för närvarande inte i ett Application Gateway-undernät.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

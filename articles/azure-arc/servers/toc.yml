@@ -47,6 +47,8 @@
       items:
         - name: Problem med agentanslutning
           href: troubleshoot-agent-onboard.md
+        - name: Problem med tillägg för virtuella datorer
+          href: troubleshoot-vm-extensions.md
 - name: Referens
   items:
     - name: Dataplacering

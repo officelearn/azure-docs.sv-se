@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3906878755b7c7c2e3801da1bfa70a50d73ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318797"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er enligt be
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-containrar
 
-En Azure Cosmos-behållare är enhets skalbarhet både för allokerat data flöde och lagring. En behållare är vågrätt partitionerad och replikeras sedan över flera regioner. De objekt som du lägger till i behållaren och det data flöde som du etablerar på den distribueras automatiskt över en uppsättning logiska partitioner baserat på partitionsnyckel. Mer information om partitionering och partitionerings nycklar finns i [partitionera data](partition-data.md). 
+En Azure Cosmos-behållare är enhets skalbarhet både för allokerat data flöde och lagring. En behållare är vågrätt partitionerad och replikeras sedan över flera regioner. De objekt som du lägger till i behållaren grupperas automatiskt i logiska partitioner, som distribueras över fysiska partitioner utifrån partitionsnyckel. Data flödet i en behållare distribueras jämnt över de fysiska partitionerna. Mer information om partitionering och partitionerings nycklar finns i [partitionera data](partition-data.md). 
 
 När du skapar en Azure Cosmos-behållare konfigurerar du genomflödet i något av följande lägen:
 
@@ -74,7 +74,7 @@ En Azure Cosmos-behållare är specialiserad i API-specifika entiteter som visas
 
 | Azure Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-behållare | Container | Tabell | Samling | Graph | Tabeller |
+|Azure Cosmos-behållare | Container | Tabell | Samling | Graph | Tabell |
 
 > [!NOTE]
 > När du skapar behållare ser du till att du inte skapar två behållare med samma namn men med olika Skift läge. Det beror på att vissa delar av Azure-plattformen inte är Skift läges känsliga, och det kan leda till förvirring/kollisioner för telemetri och åtgärder på behållare med sådana namn.
@@ -85,15 +85,15 @@ En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Ber
 
 | Systemdefinierad egenskap | Systemgenererad eller användare kan konfigureras | Syfte | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Systemgenererad | Unikt ID för behållare | Yes | Nej | Nej | Nej | Nej |
-|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Yes | Nej | Nej | Nej | Nej |
-|\_ts | Systemgenererad | Senast uppdaterad tidsstämpel för behållaren | Yes | Nej | Nej | Nej | Nej |
-|\_ständiga | Systemgenererad | Adresser bara URI för behållaren | Yes | Nej | Nej | Nej | Nej |
+|\_rid | Systemgenererad | Unikt ID för behållare | Ja | Inga | Inga | Inga | Inga |
+|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Ja | Inga | Inga | Inga | Inga |
+|\_ts | Systemgenererad | Senast uppdaterad tidsstämpel för behållaren | Ja | Inga | Inga | Inga | Inga |
+|\_ständiga | Systemgenererad | Adresser bara URI för behållaren | Ja | Inga | Inga | Inga | Inga |
 |id | Kan konfigureras av användare | Användardefinierat unikt namn på behållaren | Ja | Ja | Ja | Ja | Ja |
-|indexingPolicy | Kan konfigureras av användare | Ger möjlighet att ändra index Sök väg, index typ och index läge | Yes | Nej | Nej | Nej | Yes |
-|TimeToLive | Kan konfigureras av användare | Ger möjlighet att ta bort objekt automatiskt från en behållare efter en angiven tids period. Mer information finns i [Time to Live](time-to-live.md). | Yes | Nej | Nej | Nej | Yes |
-|changeFeedPolicy | Kan konfigureras av användare | Används för att läsa ändringar som gjorts i objekt i en behållare. Mer information finns i [ändra feed](change-feed.md). | Yes | Nej | Nej | Nej | Yes |
-|uniqueKeyPolicy | Kan konfigureras av användare | Används för att säkerställa att ett eller flera värden är unika i en logisk partition. Mer information finns i [unika nyckel begränsningar](unique-keys.md). | Yes | Nej | Nej | Nej | Yes |
+|indexingPolicy | Kan konfigureras av användare | Ger möjlighet att ändra index Sök väg, index typ och index läge | Ja | Inga | Inga | Inga | Ja |
+|TimeToLive | Kan konfigureras av användare | Ger möjlighet att ta bort objekt automatiskt från en behållare efter en angiven tids period. Mer information finns i [Time to Live](time-to-live.md). | Ja | Inga | Inga | Inga | Ja |
+|changeFeedPolicy | Kan konfigureras av användare | Används för att läsa ändringar som gjorts i objekt i en behållare. Mer information finns i [ändra feed](change-feed.md). | Ja | Inga | Inga | Inga | Ja |
+|uniqueKeyPolicy | Kan konfigureras av användare | Används för att säkerställa att ett eller flera värden är unika i en logisk partition. Mer information finns i [unika nyckel begränsningar](unique-keys.md). | Ja | Inga | Inga | Inga | Ja |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Åtgärder på en Azure Cosmos-behållare
 
@@ -121,12 +121,12 @@ Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende p
 
 | Systemdefinierad egenskap | Systemgenererad eller användare kan konfigureras| Syfte | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Systemgenererad | Unikt ID för objektet | Yes | Nej | Nej | Nej | Nej |
-|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Yes | Nej | Nej | Nej | Nej |
-|\_ts | Systemgenererad | Tidsstämpel för den senaste uppdateringen av objektet | Yes | Nej | Nej | Nej | Nej |
-|\_ständiga | Systemgenererad | Adresser bara URI för objektet | Yes | Nej | Nej | Nej | Nej |
-|id | Antingen | Användardefinierat unikt namn i en logisk partition. | Yes | Ja | Ja | Ja | Ja |
-|Godtyckliga användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som representeras i API – intern representation (inklusive JSON, BSON och CQL) | Yes | Ja | Ja | Ja | Ja |
+|\_rid | Systemgenererad | Unikt ID för objektet | Ja | Inga | Inga | Inga | Inga |
+|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Ja | Inga | Inga | Inga | Inga |
+|\_ts | Systemgenererad | Tidsstämpel för den senaste uppdateringen av objektet | Ja | Inga | Inga | Inga | Inga |
+|\_ständiga | Systemgenererad | Adresser bara URI för objektet | Ja | Inga | Inga | Inga | Inga |
+|id | Vilken som helst | Användardefinierat unikt namn i en logisk partition. | Ja | Ja | Ja | Ja | Ja |
+|Godtyckliga användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som representeras i API – intern representation (inklusive JSON, BSON och CQL) | Ja | Ja | Ja | Ja | Ja |
 
 > [!NOTE]
 > `id`Egenskapens unikhet är endast tvingande inom varje logisk partition. Flera dokument kan ha samma `id` egenskap med olika nyckel värden.
@@ -137,7 +137,7 @@ Azure Cosmos-objekt har stöd för följande åtgärder. Du kan använda någon 
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-| Infoga, ersätta, ta bort, upsert, läsa | Nej | Yes | Ja | Ja | Ja | Ja |
+| Infoga, ersätta, ta bort, upsert, läsa | Inga | Ja | Ja | Ja | Ja | Ja |
 
 ## <a name="next-steps"></a>Nästa steg
 

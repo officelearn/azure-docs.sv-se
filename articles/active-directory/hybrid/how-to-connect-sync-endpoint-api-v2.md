@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319919"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync v2 Endpoint API (offentlig för hands version) 
 Microsoft har distribuerat en ny slut punkt (API) för Azure AD Connect som förbättrar prestandan för synkroniseringstjänsten i Azure Active Directory. Genom att använda den nya v2-slutpunkten får du märkbara prestanda vinster vid export och import till Azure AD. Den här nya slut punkten stöder följande:
@@ -116,12 +116,12 @@ Följande steg kan användas för att öka medlemskaps gränsen:
 1. Öppna redigeraren för Azure AD-synkronisering 
 2. I redigeraren väljer du **utgående** för riktning 
 3. Klicka på synkroniseringsregeln **till AAD – grupp koppling** 
-4. Klicka på **Redigera** -knappen ![ Redigera Synch-regel](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+4. Klicka på **Edit** knappen Redigera ![ skärm bild som visar alternativet "Visa och hantera regler för synkronisering" med "ut till AAD-Group Join".](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. Klicka på **Ja** om du vill inaktivera standard regeln och skapa en redigerbar kopia.
- ![Redigera Synch-regel](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ ![Skärm bild som visar fönstret "redigera reserverad regel bekräftelse" med knappen "Ja" vald.](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
-7. I popup-fönstret på sidan **Beskrivning** anger du prioriteten till ett tillgängligt värde mellan 1 och 99 ![ Redigera Synch-regel](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+7. I popup-fönstret på sidan **Beskrivning** anger du prioriteten till ett tillgängligt värde mellan 1 och 99 ![ skärm bild som visar fönstret "Redigera regel för utgående synkronisering" med "prioritet" markerat.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. På sidan **omvandlingar** uppdaterar du **käll** värdet för **medlems** omvandlingen, ersätter "50000" med ett värde mellan 50001 och 250000. Den här ersättningen ökar den maximala storleken för grupper som ska synkroniseras till Azure AD. Vi rekommenderar att du börjar med ett antal 100 000 för att förstå vilken effekt som synkroniserar stora grupper med dina synkroniseringsinställningar. 
  

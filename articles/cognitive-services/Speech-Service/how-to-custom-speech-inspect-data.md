@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319142"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspektera Custom Speech-data
 
@@ -79,11 +79,13 @@ När data har importer ATS kan du klicka i data uppsättningarna och börja redi
 
 ### <a name="edit-transcription-by-listening-to-audio"></a>Redigera avskrift genom att lyssna på ljud
 
-När data överföringen har slutförts klickar du på varje objekt namn för att se information om data. Detalj sidan visar alla filer i din data uppsättning och du kan klicka på önskad uttryck. För varje uttryck kan du spela upp ljudet och granska avskrifterna och redigera avskrifterna om du hittar några infognings-, borttagnings-eller ersättnings fel. Mer information om fel typer finns i avsnittet [data utvärderings anvisningar](how-to-custom-speech-evaluate-data.md) .
+När data överföringen har slutförts klickar du på varje objekt namn för att se information om data. Du kan också använda **föregående** och **Nästa** för att flytta mellan varje fil.
+
+Detalj sidan visar alla segment i varje ljudfil och du kan klicka i önskad uttryck. För varje uttryck kan du spela upp ljudet och granska avskrifterna och redigera avskrifterna om du hittar några infognings-, borttagnings-eller ersättnings fel. Mer information om fel typer finns i avsnittet [data utvärderings anvisningar](how-to-custom-speech-evaluate-data.md) .
 
 ![Sidan redigerare](media/custom-speech/custom-speech-editor.png)
 
-Om ljud filen är lång segmenteras den automatiskt i mindre delar. Du kan redigera dem en i taget med **föregående** och **bredvid** flytta mellan sidor. När du har gjort ändringarna klickar du på knappen **Spara** .
+När du har gjort ändringarna klickar du på knappen **Spara** .
 
 ### <a name="export-datasets-from-the-editor"></a>Exportera data uppsättningar från redigeraren
 

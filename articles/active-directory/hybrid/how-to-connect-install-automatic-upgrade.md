@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053294"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317624"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades med build- [1.1.105.0 (lanserades februari 2016)](reference-connect-version-history.md).  Funktionen uppdaterades i [build-1.1.561](reference-connect-version-history.md) och stöder nu ytterligare scenarier som tidigare inte stöds.
@@ -37,7 +37,7 @@ Automatisk uppgradering är aktiverat som standard för följande:
 
 Det aktuella läget för automatisk uppgradering kan visas med PowerShell-cmdleten `Get-ADSyncAutoUpgrade` . Det har följande tillstånd:
 
-| Stat | Kommentar |
+| Tillstånd | Kommentar |
 | --- | --- |
 | Enabled |Automatisk uppgradering har Aktiver ATS. |
 | Inaktiverad |Anges endast av systemet. Systemet är **för närvarande inte** behörigt att ta emot automatiska uppgraderingar. |
@@ -64,7 +64,7 @@ Det är också möjligt att få ett resultat som inte är en UpgradeResult, t. e
 Kontrol lera sedan att du har öppnat de nödvändiga URL: erna i proxyservern eller brand väggen. Automatisk uppdatering använder Azure AD Connect Health enligt beskrivningen i [översikten](#overview). Om du använder en proxyserver kontrollerar du att hälsan har kon figurer ATS för att använda en [proxyserver](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Testa också [hälso anslutningen](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) till Azure AD.
 
 När anslutningen till Azure AD har verifierats är det dags att titta på händelse loggen. Starta logg boken och leta i **program** händelse loggen. Lägg till ett EventLog-filter för käll **Azure AD Connect uppgraderingen** och händelse-ID-intervallet **300-399**.  
-![EventLog-filter för automatisk uppgradering](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+![Skärm bild som visar fönstret "Filtrera aktuell logg" med "händelse källor" och händelse-ID: n för "inkludera/exkludera" markerat.](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 Du kan nu se händelse loggen som är associerad med status för automatisk uppgradering.  
 ![EventLog-filter för automatisk uppgradering](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  
@@ -79,7 +79,7 @@ Resultat koden har ett prefix med en översikt över statusen.
 
 Här är en lista över de vanligaste meddelanden som du hittar. Ingen lista visas, men resultat meddelandet bör vara avmarkerat med det som problemet är.
 
-| Resultat meddelande | Beskrivning |
+| Resultat meddelande | Description |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Det gick inte att skriva till registret. |

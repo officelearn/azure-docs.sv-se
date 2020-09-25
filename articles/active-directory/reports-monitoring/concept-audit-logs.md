@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331258"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
 Med Azure Active Directory (Azure AD)-rapporter kan du få den information du behöver för att avgöra hur din miljö fungerar.
+
+
 
 Rapporterings arkitekturen består av följande komponenter:
 
@@ -43,9 +45,9 @@ Den här artikeln ger en översikt över gransknings rapporten.
 
 * Användare i rollerna **säkerhets administratör**, **säkerhets läsare**, **rapport läsare** , **global läsare** eller **Global administratör**
 
-## <a name="audit-logs"></a>Granskningsloggar
+## <a name="audit-logs"></a>Spårningsloggar
 
-I gransknings loggarna i Azure AD finns register över system aktiviteter för efterlevnad. Välj **gransknings loggar** i avsnittet **övervakning** i **Azure Active Directory**för att få åtkomst till gransknings rapporten. Observera att gransknings loggar kan ha en fördröjning på upp till en timme, så det kan ta lång tid för gransknings aktivitets data att visas i portalen när du har slutfört uppgiften.
+I gransknings loggarna i Azure AD finns register över system aktiviteter för efterlevnad. Välj **gransknings loggar** i avsnittet **övervakning** i **Azure Active Directory**för att få åtkomst till gransknings rapporten. 
 
 
 
@@ -58,19 +60,19 @@ En granskningslogg har en standardlistvy som visar:
 - målet
 - initieraren/aktören (vem) för en aktivitet
 
-![Granskningsloggar](./media/concept-audit-logs/listview.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/listview.png "Spårningsloggar")
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Granskningsloggar](./media/concept-audit-logs/columns.png "Granskningsloggar")
+![Gransknings kolumner](./media/concept-audit-logs/columns.png "Gransknings kolumner")
 
 På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
-![Granskningsloggar](./media/concept-audit-logs/columnselect.png "Granskningsloggar")
+![Ta bort fält](./media/concept-audit-logs/columnselect.png "Ta bort fält")
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Granskningsloggar](./media/concept-audit-logs/details.png "Granskningsloggar")
+![Välj objekt](./media/concept-audit-logs/details.png "Välj objekt")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrera granskningsloggar
@@ -85,7 +87,7 @@ Du kan filtrera gransknings data i följande fält:
 - Initierad av (aktör)
 - Datumintervall
 
-![Granskningsloggar](./media/concept-audit-logs/filter.png "Granskningsloggar")
+![Filtrera objekt](./media/concept-audit-logs/filter.png "Filtrera objekt")
 
 Med **tjänst** filtret kan du välja från en listruta med följande tjänster:
 
@@ -157,7 +159,7 @@ När du väljer en anpassad tidsram kan du konfigurera en starttid och en slutti
 
 Du kan också välja att ladda ned filtrerade data, upp till 250 000 poster, genom att välja knappen **Hämta** . Du kan hämta loggarna i antingen CSV-eller JSON-format. Antalet poster som du kan hämta begränsas av [Azure Active Directory bevarande principer för rapporter](reference-reports-data-retention.md).
 
-![Granskningsloggar](./media/concept-audit-logs/download.png "Granskningsloggar")
+![Nedladdning av data](./media/concept-audit-logs/download.png "Nedladdning av data")
 
 ## <a name="audit-logs-shortcuts"></a>Genvägar till granskningsloggar
 
@@ -170,7 +172,7 @@ Förutom **Azure Active Directory** finns det ytterligare två ställen på Azur
 
 Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågor som:
 
-- Vilka typer av uppdateringar har getts användare?
+- Vilka typer av uppdateringar har använts för användarna?
 
 - Hur många användare ändrades?
 
@@ -188,11 +190,11 @@ Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågo
 
 Om du bara vill granska gransknings data som är relaterade till användare kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **övervakning** på fliken **användare** . Den här start punkten har **UserManagement** som förvalt kategori.
 
-![Granskningsloggar](./media/concept-audit-logs/users.png "Granskningsloggar")
+![Användare](./media/concept-audit-logs/users.png "Användare")
 
 Om du bara vill granska gransknings data som är relaterade till grupper kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **övervakning** på fliken **grupper** . Den här start punkten har **GroupManagement** som förvalt kategori.
 
-![Granskningsloggar](./media/concept-audit-logs/groups.png "Granskningsloggar")
+![Filtrera grupper](./media/concept-audit-logs/groups.png "Filtrera grupper")
 
 ### <a name="enterprise-applications-audit-logs"></a>Granskningsloggar för företagsprogram
 
@@ -206,7 +208,7 @@ Med programbaserade granskningsrapporter kan du få svar på frågor som:
 
 Om du vill granska gransknings data som är relaterade till dina program kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **aktivitet** på bladet **företags program** . Den här start punkten har **företags program** som är förvalda som **program typ**.
 
-![Granskningsloggar](./media/concept-audit-logs/enterpriseapplications.png "Granskningsloggar")
+![Företags program](./media/concept-audit-logs/enterpriseapplications.png "Företagsprogram")
 
 ## <a name="microsoft-365-activity-logs"></a>Microsoft 365 aktivitets loggar
 

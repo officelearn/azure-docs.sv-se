@@ -1,26 +1,26 @@
 ---
 title: Säkerhetsöversikt
-description: Säkerhets information om Azure Arc-aktiverade servrar (för hands version).
+description: Säkerhets information om Azure Arc-aktiverade servrar.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 17641fab9933d9d6a60c2b21912f755acc01a6dd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/23/2020
+ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329048"
 ---
-# <a name="azure-arc-for-servers-preview-security-overview"></a>Översikt över Azure Arc för servrar (förhands granskning)
+# <a name="azure-arc-for-servers-security-overview"></a>Säkerhets översikt över Azure Arc för servrar
 
 I den här artikeln beskrivs den säkerhets konfiguration och de överväganden du bör utvärdera innan du distribuerar Azure Arc-aktiverade servrar i företaget.
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-Varje Azure Arc-aktiverad server har en hanterad identitet som en del av en resurs grupp i en Azure-prenumeration som representerar servern som körs lokalt eller i en annan moln miljö. Åtkomst till den här resursen styrs av [rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/overview.md). Från [**Access Control-sidan (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) i Azure Portal kan du kontrol lera vem som har åtkomst till din Azure Arc-aktiverade Server.
+Varje Azure Arc-aktiverad server har en hanterad identitet som en del av en resurs grupp i en Azure-prenumeration, representerar den här identiteten servern som körs lokalt eller i en annan moln miljö. Åtkomst till den här resursen styrs av [rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/overview.md). Från [**Access Control-sidan (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) i Azure Portal kan du kontrol lera vem som har åtkomst till din Azure Arc-aktiverade Server.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Åtkomst kontroll för Azure Arc-aktiverad" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
-Användare och program som beviljas [deltagare](../../role-based-access-control/built-in-roles.md#contributor) eller administratörs roll åtkomst till resursen kan göra ändringar i resursen, inklusive att distribuera eller ta bort [tillägg](manage-vm-extensions.md) på datorn. Tillägg kan innehålla godtyckliga skript som körs i en privilegie rad kontext, så fundera över vem som helst i Azure-resursen som en indirekt administratör för den icke-Azure-servern.
+Användare och program som beviljas [deltagare](../../role-based-access-control/built-in-roles.md#contributor) eller administratörs roll åtkomst till resursen kan göra ändringar i resursen, inklusive att distribuera eller ta bort [tillägg](manage-vm-extensions.md) på datorn. Tillägg kan innehålla godtyckliga skript som körs i en privilegie rad kontext, vilket innebär att alla deltagare på Azure-resursen är en indirekt administratör på servern.
 
 Den **Azure-anslutna datorn onboarding** -rollen är tillgänglig för storskalig onboarding och kan bara läsa eller skapa nya ARC-aktiverade servrar i Azure. Det går inte att använda den för att ta bort servrar som redan har registrerats eller hanterar tillägg. Vi rekommenderar att du bara tilldelar den här rollen till den Azure Active Directory (Azure AD) tjänstens huvud namn som används för att registrera datorer i stor skala.
 
@@ -28,7 +28,7 @@ Användare som medlem i rollen **resurs administratör för Azure Connected Mach
 
 ## <a name="agent-security-and-permissions"></a>Agent säkerhet och behörigheter
 
-Om du vill hantera Azure Connected Machine agent (azcmagent) i Windows måste ditt användar konto vara medlem i den lokala gruppen Administratörer och på Linux måste du ha rot åtkomst behörighet.
+För att hantera Azure Connected Machine agent (azcmagent) i Windows måste ditt användar konto vara medlem i den lokala administratörs gruppen. I Linux måste du ha rot åtkomst behörighet.
 
 Den Azure-anslutna dator agenten består av tre tjänster som körs på din dator.
 
@@ -56,4 +56,4 @@ Den Azure-anslutna dator agenten använder autentisering med offentlig nyckel f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du utvärderar eller aktiverar Arc-aktiverade servrar (förhands granskning) över flera hybrid datorer kan du läsa [Översikt över anslutna dator agenter](agent-overview.md) för att förstå krav, teknisk information om agenten och distributions metoder.
+Innan du utvärderar eller aktiverar Arc-aktiverade servrar över flera hybrid datorer kan du läsa [Översikt över anslutna dator agenter](agent-overview.md) för att förstå krav, teknisk information om agenten och distributions metoder.

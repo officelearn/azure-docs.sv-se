@@ -6,19 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296373"
 ---
 # <a name="feature-list"></a>Funktionslista #
 Här är en lista över funktioner som har testats och funktioner som inte stöds:
 
 | Funktion | UTFÖR | DELVIS TESTAD | Inte TESTat | SOM inte stöds | ANTECKNINGAR |
 | ------- | ------ | ---------------- | -------- | ----------- | ----- |
-| Uppspelning                                |        |                  |          |             |                                                                                                                      |
+| **Uppspelning**                                |        |                  |          |             |                                                                                                                      |
 | Grundläggande uppspelning på begäran                | X      |                  |          |             | Stöder strömmar enbart från Azure Media Services                                                                      |
 | Grundläggande direktsänd uppspelning                     | X      |                  |          |             | Stöder strömmar enbart från Azure Media Services                                                                      |
 | AES                                     | X      |                  |          |             | Stöder Azure Media Services Key Delivery Service                                                                   |
@@ -26,12 +26,12 @@ Här är en lista över funktioner som har testats och funktioner som inte stöd
 | PlayReady                               | X      |                  |          |             | Stöder Azure Media Services Key Delivery Service                                                                   |
 | Widevine                                |        | X                |          |             | Stöder Widevine PSSH-rutor som beskrivs i manifestet                                                                    |
 | FairPlay                                |        | X                |          |             | Stöder Azure Media Services Key Delivery Service                                                                   |
-| Teknik                                   |        |                  |          |             |                                                                                                                      |
+| **Teknik**                                   |        |                  |          |             |                                                                                                                      |
 | MSE/EME (AzureHtml5JS)                  | X      |                  |          |             |                                                                                                                      |
 | Återställnings punkt (blixt)                | X      |                  |          |             | Alla funktioner är inte tillgängliga på den här Tech-tekniken.                                                                         |
 | Silverlight-återgångsreglerna      | X      |                  |          |             | Alla funktioner är inte tillgängliga på den här Tech-tekniken.                                                                         |
 | Intern HLS-vidarekoppling (HTML5)         |        | X                |          |             | Alla funktioner är inte tillgängliga på den här Tech-tekniken på grund av plattforms begränsningar.                                            |
-| Funktioner                                |        |                  |          |             |                                                                                                                      |
+| **Funktioner**                                |        |                  |          |             |                                                                                                                      |
 | API-stöd                             | X      |                  |          |             | Visa lista med kända problem                                                                                                |
 | Grundläggande användar gränssnitt                                | X      |                  |          |                                                                                                                                    |
 | Initiera genom Java Script       | X      |                  |          |             |                                                                                                                      |
@@ -40,7 +40,7 @@ Här är en lista över funktioner som har testats och funktioner som inte stöd
 | Segment adressering-index baserat        |        |                  |          | X           |                                                                                                                      |
 | Segment adressering-byte baserat         |        |                  |          | X           |                                                                                                                      |
 | Azure Media Services URL-Rewriter       |        | X                |          |             |                                                                                                                      |
-| Hjälpmedel – bild texter och under texter  |        | X                |          |             |  WebVTT-stöd för on-demand, Live CEA 708, delvis testat                                                       |
+| Hjälpmedel – bild texter och under texter  | X      |                 |          |             |  WebVTT (på begäran), CEA 708 (på begäran och Live) och IMSC1 (på begäran och Live)                                                       |
 | Hjälpmedel – snabb tangenter                 | X      |                  |          |             |                                                                                                                      |
 | Hjälpmedel – Högkontrast           |        | X                |          |             |                                                                                                                      |
 | Hjälpmedel – TABB-fokus               |        | X                |          |             |                                                                                                                      |
@@ -55,13 +55,13 @@ Här är en lista över funktioner som har testats och funktioner som inte stöd
 | Data ström för flera ljud                      |        | X                |          |             | Program mässig ljud växel stöds på AzureHtml5JS-och blixt tekniska teknik och är tillgänglig via val av användar gränssnitt på AzureHtml5JS, blixt och inbyggd HTML5 (i Safari).  De flesta plattformar kräver samma codec-privata data för att växla ljud strömmar (samma codec, kanal, samplings frekvens osv.). |
 | Lokalisering av användar gränssnitt                         |        | X                |          |             |                                                                                                                      |
 | Uppspelning med flera instanser                 |        |                  |          | X           | Det här scenariot kan fungera för vissa tekniker, men det finns för närvarande inte stöd för och är inte testat. Du kan också få detta att fungera med iframes |
-| Stöd för Ads                             |        | x                |          |             | AMP har stöd för infogning av linjära annonseringar före mitten och efter valsning från enorma kompatibla AD-servrar för VOD i AzureHtml5JS-Tech |
+| Stöd för Ads                             |        | X                |          |             | AMP har stöd för infogning av linjära annonseringar före mitten och efter valsning från enorma kompatibla AD-servrar för VOD i AzureHtml5JS-Tech |
 | Analytics                               |        | X                |          |             | Med AMP kan du lyssna på analyser och diagnostiska händelser så att du kan skicka till en analys Server del som du väljer.  Alla händelser och egenskaper är inte tillgängliga i Tech på grund av plattforms begränsningar.                                                                            |
-| Anpassade skal                            |        |                  | X        |             | Aktivera inställningen för kontroller till falskt i AMP och Använd din egen HTML och CSS.           |
+| Anpassade skal                            |        |                  | X        |             | Det här scenariot kan uppnås genom att ställa in kontroller på falskt i AMP och använda din egen HTML och CSS.           |
 | Rensning av SeekBar-fält                      |        |                  |          | X           |                                                                                                                      |
 | Lura-Play                              |        |                  |          | X           |                                                                                                                      |
-| Endast ljud                              |        |                  |          | X           | Kan fungera i vissa tekniker för anpassad direkt uppspelning men stöds för närvarande inte och fungerar inte i AzureHtml5JS. Progressiv MP3-uppspelning kan fungera med HTML5-Tech om plattformen stöder det.                                                                                                        |
-| Endast video                              |        |                  |          | X           | Kan fungera i vissa tekniker för anpassad direkt uppspelning men stöds för närvarande inte och fungerar inte i AzureHtml5JS.      |
+| Endast ljud                              | X      |                  |          |           | Stöds i AzureHtml5JS. Progressiv MP3-uppspelning kan fungera med HTML5-Tech om plattformen stöder det.                                                                                                        |
+| Endast video                              | X      |                  |          |           | Stöds i AzureHtml5JS.                                                                                                        |
 | Presentation med flera perioder               |        |                  |          | X                                                                                                                                  |
 | Flera kamera vinklar                  |        |                  |          | X           |                                                                                                                      |
 | Uppspelnings hastighet                          |        | X                |          |             | Uppspelnings hastigheten stöds i de flesta scenarier, förutom det mobila fallet på grund av ett delvis fel i Chrome                 |

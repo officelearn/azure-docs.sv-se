@@ -1,6 +1,6 @@
 ---
 title: Azure frontend-cachelagring | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur Azures front dörr övervakar hälso tillståndet för dina arbets ändar
+description: Den här artikeln hjälper dig att förstå beteendet för front dörren med routningsregler som har aktiverat cachelagring.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318462"
 ---
 # <a name="caching-with-azure-front-door"></a>Cachelagring med Azures front dörr
 Följande dokument anger beteendet för front dörren med routningsregler som har aktiverat cachelagring. Front dörren är en modern Content Delivery Network (CDN) och så vidare med dynamisk webbplats acceleration och belastnings utjämning, stöder den även cachelagring-beteenden precis som andra CDN.
@@ -113,7 +113,7 @@ Följande ordning på rubriker används för att avgöra hur länge ett objekt l
 2. Cache-kontroll: max-ålder =\<seconds>
 3. Upphör att gälla \<http-date>
 
-Cache-Control Response-huvuden som indikerar att svaret inte cachelagras, t. ex. Cache-Control: Private, Cache-Control: no-cache och Cache-Control: No-Store har besvarats. Men om det finns flera begär anden i en POP för samma URL, kan de dela svaret. Om det inte finns någon cache-kontroll är standard beteendet att AFD cachelagrar resursen för X-tid där X plockas slumpmässigt mellan 1 och tre dagar.
+Cache-Control Response-huvuden som indikerar att svaret inte cachelagras, t. ex. Cache-Control: Private, Cache-Control: no-cache och Cache-Control: No-Store har besvarats.  Om det inte finns någon cache-kontroll är standard beteendet att AFD cachelagrar resursen för X-tid där X plockas slumpmässigt mellan 1 och tre dagar.
 
 ## <a name="request-headers"></a>Begärandehuvuden
 

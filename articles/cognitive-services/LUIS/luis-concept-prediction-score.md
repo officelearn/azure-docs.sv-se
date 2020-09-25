@@ -1,14 +1,16 @@
 ---
 title: Förutsägelse resultat – LUIS
 description: Ett förutsägelse Poäng visar graden av exakthet som LUIS-API-tjänsten har för förutsägelse resultat baserat på en användares uttryck.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d836273e61752ff208133466016ce7c6ff9c28fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382364"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316468"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Förutsägelse poängen visar förutsägelse noggrannhet för avsikt och entiteter
 
@@ -19,7 +21,7 @@ En förutsägelse Poäng är mellan noll (0) och en (1). Ett exempel på en hög
 |Poäng värde|Konfidensbedömning|
 |--|--|
 |1|bestämd matchning|
-|0.99|hög exakthet|
+|0,99|hög exakthet|
 |0,01|låg exakthet|
 |0|Det gick inte att matcha|
 
@@ -46,7 +48,7 @@ Att granska poängen för alla avsikter är ett bra sätt att kontrol lera att d
 
 Om flera avsikter har nära förutsägelse resultat, baserat på kontexten för en uttryck, kan LUIS växla mellan avsikterna. För att åtgärda den här situationen fortsätter du att lägga till yttranden till varje avsikt med en större mängd olika kontext skillnader eller så kan du ha klient programmet, t. ex. en chatt-robot, göra programmerings alternativ för hur du hanterar de två främsta intentarna.
 
-2 avsikter, som är för nära resultat, kan inverteras på grund av **icke-deterministisk utbildning**. Den översta poängen kan bli den andra överst och den andra översta poängen kan bli den första översta poängen. För att förhindra den här situationen lägger du till exempel yttranden i båda de två viktigaste intentarna för uttryck med ordet och kontexten som särskiljer 2 avsikter. De två avsikterna bör ha ungefär samma antal yttranden. En tumregel för separering för att förhindra inversion på grund av utbildning, är en skillnad på 15% i poängen.
+De två avsikterna, vars poäng ligger för nära, kan inverteras på grund av **icke-deterministisk träning**. Den översta poängen kan bli den andra överst och den andra översta poängen kan bli den första översta poängen. För att förhindra den här situationen lägger du till exempel yttranden i båda de två viktigaste intentarna för uttryck med ordet och kontexten som särskiljer 2 avsikter. De två avsikterna bör ha ungefär samma antal yttranden. En tumregel för separering för att förhindra inversion på grund av utbildning, är en skillnad på 15% i poängen.
 
 Du kan inaktivera **icke-deterministisk utbildning** genom att [träna med alla data](luis-how-to-train.md#train-with-all-data).
 
@@ -60,7 +62,7 @@ Du kan inaktivera **icke-deterministisk utbildning** genom att [träna med alla 
 
 ## <a name="e-exponent-notation"></a>E-notation (exponent)
 
-Förutsägelse resultat kan använda exponent notation, _appearing_ som `9.910309E-07`visas ovanför intervallet 0-1, till exempel. Den här poängen är en indikation på ett mycket **litet** tal.
+Förutsägelse resultat kan använda exponent notation, som _visas_ ovanför intervallet 0-1, till exempel `9.910309E-07` . Den här poängen är en indikation på ett mycket **litet** tal.
 
 |Resultat för E-notation |Faktisk Poäng|
 |--|--|

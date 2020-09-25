@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526943"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266504"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
@@ -40,7 +40,7 @@ Följande är förutsättningar som krävs för den här självstudien
 - En test miljö med Azure AD Connect Sync version 1.4.32.0 eller senare
 - En ORGANISATIONSENHET eller grupp som finns i omfånget och kan användas som pilot. Vi rekommenderar att du börjar med en liten uppsättning objekt.
 - En server som kör Windows Server 2012 R2 eller senare och som kommer att vara värd för etablerings agenten.  Detta kan inte vara samma server som Azure AD Connect servern.
-- Käll ankare för AAD Connect-synkronisering ska vara antingen *objectGUID* eller *MS-DS-consistencyGUID*
+- Käll fäst punkten för Azure AD Connect Sync ska vara antingen *objectGUID* eller *MS-DS-consistencyGUID*
 
 ## <a name="update-azure-ad-connect"></a>Uppdatera Azure AD Connect
 
@@ -54,7 +54,7 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
 3.  Kör `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 >[!NOTE] 
->Om du kör en egen anpassad schemaläggare för AAD Connect-synkronisering inaktiverar du Scheduler. 
+>Om du kör en egen schemaläggare för Azure AD Connect synkronisering inaktiverar du Scheduler. 
 
 ## <a name="create-custom-user-inbound-rule"></a>Skapa anpassad regel för inkommande användare
 
@@ -62,7 +62,7 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
  ![Redigerings meny för Synkroniseringsregel](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. Välj **inkommande** i list rutan för riktning och klicka på **Lägg till ny regel**.
- ![Anpassad regel](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ ![Skärm bild som visar fönstret "Visa och hantera regler för synkronisering" med "inkommande" och knappen "Lägg till ny regel" vald.](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
  3. På sidan **Beskrivning** anger du följande och klickar på **Nästa**:
 
@@ -74,7 +74,7 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
     **Länktyp:** Ansluta<br>
     **Prioritet:** Ange ett värde som är unikt i systemet<br>
     **Tagg:** Lämna detta tomt<br>
-    ![Anpassad regel](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    ![Skärm bild som visar sidan "Skapa regel för inkommande synkronisering-Beskrivning" med värden som anges.](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
  4. På sidan **omfångs filter** anger du den organisationsenhet eller säkerhets grupp som du vill att piloten ska baseras på.  Om du vill filtrera på OU lägger du till OU-delen av det unika namnet. Den här regeln gäller för alla användare som finns i ORGANISATIONSENHETen.  Så om DN slutar med "OU = processors, DC = contoso, DC = com, lägger du till det här filtret.  Klicka på **Nästa**. 
 
@@ -83,31 +83,31 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
     |Scope OU|NAMNET|ENDSWITH|Unikt namn på ORGANISATIONSENHETen.|
     |Omfångs grupp||ISMEMBEROF|Unikt namn på säkerhets gruppen.|
 
-    ![Anpassad regel](media/how-to-cloud-custom-user-rule/user3.png)</br>
+    ![Skärm bild som visar sidan "Skapa regel för inkommande synkronisering" med ett omfångs filter värde angivet.](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5. Klicka på **Nästa**på sidan **Anslut** regler.
  6. På sidan **omvandlingar** lägger du till en konstant omvandling: Flow true to cloudNoFlow-attribut. Klicka på **Lägg till**.
- ![Anpassad regel](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ ![Skärm bild som visar sidan "Skapa regel för inkommande synkronisering-transformeringar" med flödet "konstant omvandling" tillagd.](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 Samma steg måste följas för alla typer av objekt (användare, grupp och kontakt). Upprepa steg per konfigurerad AD-anslutning/per AD-skog. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Skapa anpassad regel för utgående användare
 
  1. Välj **utgående** i list rutan för riktning och klicka på **Lägg till regel**.
- ![Anpassad regel](media/how-to-cloud-custom-user-rule/user5.png)</br>
+ ![Skärm bild som visar "utgående"-riktningen markerad och knappen Lägg till ny regel är markerad.](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. På sidan **Beskrivning** anger du följande och klickar på **Nästa**:
 
     **Namn:** Ge regeln ett beskrivande namn<br>
     **Beskrivning:** Lägg till en meningsfull beskrivning<br>
-    **Anslutet system:** Välj den AAD-koppling som du skriver den anpassade synkroniseringsregeln för<br>
+    **Anslutet system:** Välj den Azure AD-anslutning som du vill använda för att skriva den anpassade synkroniseringsregeln för<br>
     **Ansluten system objekt typ:** Användarvänlig<br>
     **Metaversum-objekt typ:** Sända<br>
     **Länktyp:** JoinNoFlow<br>
     **Prioritet:** Ange ett värde som är unikt i systemet<br>
     **Tagg:** Lämna detta tomt<br>
     
-    ![Anpassad regel](media/how-to-cloud-custom-user-rule/user6.png)</br>
+    ![Skärm bild som visar sidan beskrivning med angivna egenskaper.](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. På sidan **omfångs filter** väljer du **CloudNoFlow** lika med **Sant**. Klicka på **Nästa**.
  ![Anpassad regel](media/how-to-cloud-custom-user-rule/user7.png)</br>
@@ -122,14 +122,14 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
 2. Hämta Azure AD Connect Cloud Provisioning agent med hjälp av stegen som beskrivs [här](how-to-install.md#install-the-agent).
 3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
 3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
-![Välkomstskärmen](media/how-to-install/install1.png)</br>
+![Skärm bild som visar välkomst skärmen "Microsoft Azure A D Connect Provisioning agent".](media/how-to-install/install1.png)</br>
 
 4. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.
 5. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory administratörs konto.  Den här åtgärden lägger till din lokala katalog.  Klicka på **Nästa**.</br>
-![Välkomstskärmen](media/how-to-install/install3.png)</br>
+![Skärm bild som visar skärmen "Anslut Active Directory" med ett katalog värde angivet.](media/how-to-install/install3.png)</br>
 
 6. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
-![Välkomstskärmen](media/how-to-install/install4.png)</br>
+![Skärm bild som visar skärmen "konfigurationen är klar" med knappen "bekräfta" markerad.](media/how-to-install/install4.png)</br>
 
 7. När den här åtgärden har slutförts bör du se ett meddelande om **att det har verifierats.**  Du kan klicka på **Avsluta**.</br>
 ![Välkomstskärmen](media/how-to-install/install5.png)</br>

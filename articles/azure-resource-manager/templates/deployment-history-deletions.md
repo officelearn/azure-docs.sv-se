@@ -3,12 +3,12 @@ title: Borttagning av distributionshistorik
 description: Beskriver hur Azure Resource Manager automatiskt tar bort distributioner från distributions historiken. Distributioner tas bort när historiken är nära att överskrida gränsen på 800.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605217"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284741"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatisk borttagning från distributions historik
 
@@ -16,7 +16,7 @@ Varje gång du distribuerar en mall skrivs information om distributionen till di
 
 Azure Resource Manager tar automatiskt bort distributioner från historiken när du närmar dig gränsen. Automatisk borttagning är en förändring från tidigare beteende. Tidigare var du tvungen att manuellt ta bort distributioner från distributions historiken för att undvika ett fel. Den här ändringen implementerades den 6 augusti 2020.
 
-**Automatisk borttagning stöds för resurs grupps distributioner. För närvarande tas distributioner i distributions historiken för [prenumeration](deploy-to-subscription.md), [hanterings grupp](deploy-to-management-group.md)och [klient](deploy-to-tenant.md) distributioner inte bort.**
+**Automatisk borttagning stöds för resurs grupps distributioner. För närvarande tas distributioner i historiken för [prenumeration](deploy-to-subscription.md), [hanterings grupp](deploy-to-management-group.md)och [klient](deploy-to-tenant.md) distributioner inte bort automatiskt.**
 
 > [!NOTE]
 > Att ta bort en distribution från historiken påverkar inte några av de distribuerade resurserna.

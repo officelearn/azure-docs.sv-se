@@ -1,22 +1,22 @@
 ---
-title: Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig
-description: Säkerhets bas linjen Azure Database for PostgreSQL-storskalig ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
+title: Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig (citus)
+description: Säkerhets bas linjen Azure Database for PostgreSQL-storskalig (citus) ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318134"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig (citus)
 
-Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
+Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig (citus) innehåller rekommendationer som hjälper dig att förbättra distributionens säkerhets position.
 
 Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
@@ -631,7 +631,7 @@ Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Comput
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: Utför fullständig säkerhets kopiering av systemet och säkerhetskopiera alla Kundhanterade nycklar
 
-**Vägledning**: minst en gång per dag tar Azure Database for PostgreSQL ögonblicks bilder av datafiler och databas transaktions loggen. Med säkerhets kopiorna kan du återställa en server till alla tidpunkter inom kvarhållningsperioden. Kvarhållningsperioden är för närvarande 35 dagar för alla kluster. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
+**Vägledning**: minst en gång per dag tar Azure Database for PostgreSQL ögonblicks bilder av datafiler och databas transaktions loggen. Med säkerhets kopiorna kan du återställa en server till alla tidpunkter inom kvarhållningsperioden. Kvarhållningsperioden är för närvarande 35 dagar för alla kluster. Alla säkerhetskopior krypteras med AES 256-bitars kryptering.
 
 I Azure-regioner som har stöd för tillgänglighets zoner lagras ögonblicks bilder av säkerhets kopior i tre tillgänglighets zoner. Så länge minst en tillgänglighets zon är online är citus-klustret återställas.
 

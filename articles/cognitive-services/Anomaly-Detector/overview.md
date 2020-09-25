@@ -1,27 +1,29 @@
 ---
 title: Vad är API:et för avvikelseidentifiering?
 titleSuffix: Azure Cognitive Services
-description: Använd de avancerade algoritmerna för avvikelse detektorns API för att identifiera avvikelser i dina tids serie data.
+description: Använd algoritmer för avvikelse detektorns API för att tillämpa avvikelse identifiering på dina tids serie data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: avvikelse identifiering, maskin inlärning, algoritmer
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319324"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Vad är API:et för avvikelseidentifiering?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning. API: et för avvikelse detektor anpassningar genom att automatiskt identifiera och tillämpa de bästa passnings modellerna för dina data, oavsett bransch, scenario eller data volym. Med hjälp av dina Time Series-data fastställer API gränser för avvikelse identifiering, förväntade värden och vilka data punkter som är avvikelser.
+Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina tids serie data utan att behöva känna till Machine Learning. Algoritmerna för avvikelse detektorns API anpassas genom att automatiskt identifiera och tillämpa de bästa passnings modellerna för dina data, oavsett bransch, scenario eller data volym. Med hjälp av dina Time Series-data fastställer API gränser för avvikelse identifiering, förväntade värden och vilka data punkter som är avvikelser.
 
 ![Identifiera mönster ändringar i tjänst begär Anden](./media/anomaly_detection2.png)
 
@@ -33,7 +35,7 @@ Med avvikelse identifieraren kan du automatiskt identifiera avvikelser i tids se
 
 |Funktion  |Beskrivning  |
 |---------|---------|
-|Identifiera avvikelser när de inträffar i real tid. | Identifiera avvikelser i dina strömmande data genom att använda tidigare visade data punkter för att avgöra om det senaste är en avvikelse. Den här åtgärden genererar en modell med de data punkter som du skickar och avgör om mål punkten är en avvikelse. Genom att anropa API: et med varje ny data punkt som du skapar kan du övervaka dina data när de skapas. |
+|Avvikelse identifiering i real tid. | Identifiera avvikelser i dina strömmande data genom att använda tidigare visade data punkter för att avgöra om det senaste är en avvikelse. Den här åtgärden genererar en modell med de data punkter som du skickar och avgör om mål punkten är en avvikelse. Genom att anropa API: et med varje ny data punkt som du skapar kan du övervaka dina data när de skapas. |
 |Identifiera avvikelser i alla data uppsättningar som en batch. | Använd din tids serie för att identifiera eventuella avvikelser som kan finnas i dina data. Den här åtgärden genererar en modell med alla tids serie data, där varje punkt analyseras med samma modell.         |
 |Identifiera ändrings punkter i data uppsättningen som en batch. | Använd din tids serie för att identifiera eventuella trend ändrings punkter som finns i dina data. Den här åtgärden genererar en modell med alla tids serie data, där varje punkt analyseras med samma modell.    |
 | Få mer information om dina data. | Få värdefull information om dina data och observerade avvikelser, inklusive förväntade värden, avvikande gränser och positioner. |

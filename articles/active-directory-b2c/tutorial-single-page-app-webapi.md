@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f01ef1a4cf5bc5b805da3dd4d825ef17f81ce53e
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 8b10dd2d87ab7d4cf41a0bf860798f27651294d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259007"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: skydda och bevilja åtkomst till ett Node.js webb-API från ett program med en sida med Azure AD B2C
 
@@ -34,7 +34,7 @@ I den [första självstudien](tutorial-single-page-app.md) i den här serien lad
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför stegen och kraven i [Självstudier: aktivera autentisering i ett program med en sida med Azure AD B2C](tutorial-single-page-app.md)
 * [Visual Studio Code](https://code.visualstudio.com/) eller en annan kod redigerare
@@ -131,7 +131,7 @@ Nu är du redo att testa programmets begränsade åtkomst till API: et. Kör bå
 
 ### <a name="run-the-nodejs-web-api"></a>Kör Node.js webb-API
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node.js Web API-exemplet. Till exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node.js Web API-exemplet. Exempel:
 
     ```console
     cd active-directory-b2c-javascript-nodejs-webapi
@@ -152,7 +152,7 @@ Nu är du redo att testa programmets begränsade åtkomst till API: et. Kör bå
 
 ### <a name="run-the-single-page-app"></a>Köra appen med en sida
 
-1. Öppna ett annat konsol fönster och ändra till den katalog som innehåller SPA-exemplet för Java Script. Till exempel:
+1. Öppna ett annat konsol fönster och ändra till den katalog som innehåller SPA-exemplet för Java Script. Exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp

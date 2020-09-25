@@ -4,17 +4,17 @@ description: Azure-säkerhet för benchmark v2-loggning och hot identifiering
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 24ddca37a729a459382fc96a2f6e0ef1a7832f37
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295472"
 ---
-# <a name="security-control-logging-and-threat-detection"></a>Säkerhets kontroll: loggning och hot identifiering
+# <a name="security-control-v2-logging-and-threat-detection"></a>Säkerhets kontroll v2: loggning och hot identifiering
 
 Loggning och hot identifiering omfattar kontroller för att identifiera hot på Azure och aktivera, samla in och lagra gransknings loggar för Azure-tjänster. Detta inkluderar aktivering av identifierings-, undersöknings-och reparations processer med kontroller för att generera aviseringar med hög kvalitet med inbyggd hot identifiering i Azure-tjänster. den omfattar också insamling av loggar med Azure Monitor, centraliserad säkerhets analys med Azure Sentinel, tidssynkronisering och logg kvarhållning. 
 
@@ -40,11 +40,11 @@ Använd dessutom Azure Sentinel för att bygga analys regler, som rör hot som m
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -77,11 +77,11 @@ Azure Security Center kan även Varna vid vissa misstänkta aktiviteter, till ex
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -111,11 +111,11 @@ Aktivera och samla in resurs loggar för nätverks säkerhets grupper (NSG), NSG
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -129,7 +129,7 @@ Aktivera och samla in resurs loggar för nätverks säkerhets grupper (NSG), NSG
 |--|--|--|--|
 | LT-4 | 6,2, 6,3, 8,8 | AU-3, AU-12 |
 
-Aktivera loggning för Azure-resurser för att uppfylla kraven för efterlevnad, Hot identifiering och undersökning och hot jakt. 
+Aktivera loggning för Azure-resurser för att uppfylla kraven för efterlevnad, Hot identifiering, jakt och incident undersökning. 
 
 Du kan använda Azure Security Center och Azure Policy för att aktivera resurs loggar och logga data insamling på Azure-resurser för åtkomst till gransknings-, säkerhets-och resurs loggar. Aktivitets loggar, som är automatiskt tillgängliga, innehåller händelse källa, datum, användare, tidsstämpel, käll adresser, mål adresser och andra användbara element. 
 
@@ -141,9 +141,9 @@ Du kan använda Azure Security Center och Azure Policy för att aktivera resurs 
 
 **Ansvars område**: delat
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Infrastruktur- och slutpunktssäkerhet 
 
@@ -171,7 +171,7 @@ Många organisationer väljer att använda Azure Sentinel för "heta" data som a
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -185,25 +185,25 @@ Många organisationer väljer att använda Azure Sentinel för "heta" data som a
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-Konfigurera logg kvarhållning enligt din efterlevnad, förordning och andra krav. 
+Konfigurera logg kvarhållning enligt dina krav på efterlevnad, reglering och affärs verksamhet. 
 
 I Azure Monitor kan du Log Analytics ange arbets ytans lagrings period enligt organisationens regler för efterlevnad. Använd Azure Storage-, Data Lake-eller Log Analytics arbets ytans konton för långsiktig lagring och arkivering.
 
 - [Ändra data lagrings perioden i Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Konfigurera bevarande princip för Azure Storage konto loggar: ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+- [Konfigurera bevarande princip för Azure Storage konto loggar](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 - [Azure Security Center aviseringar och rekommendationer exportera](../../security-center/continuous-export.md)
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Säkerhets åtgärder (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Hantering av säkerhetsefterlevnad](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -225,7 +225,7 @@ Alla loggar som genereras av resurser i Azure tillhandahåller tidsstämplar med
 
 **Ansvars område**: delat
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Principer och standarder](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

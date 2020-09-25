@@ -2,18 +2,18 @@
 title: Utveckla och felsöka moduler i Visual Studio – Azure IoT Edge
 description: Använd Visual Studio med Azure IoT-verktyg för att utveckla en C-eller C# IoT Edge-modul och skicka den från din IoT Hub till en IoT-enhet, enligt konfigurationen i ett distributions manifest.
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 9722c7dec3a066d8f776424cb599be0d463416d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297053"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge
 

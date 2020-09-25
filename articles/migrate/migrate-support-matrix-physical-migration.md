@@ -4,12 +4,12 @@ description: Läs mer om stöd för migrering av fysiska servrar i Azure Migrate
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 95456298b3275c83152115d700a4539cab2d2a67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318168"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Support mat ris för fysisk server-migrering
 
@@ -42,11 +42,11 @@ Tabellen sammanfattar stödet för fysiska servrar som du vill migrera med hjäl
 **Linux-filsystem/gäst lagring** | Du hittar den senaste informationen i [Linux-filsystemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för Linux-filsystem.
 **Nätverk/lagring** | För den senaste informationen granskar du kraven för [nätverk](../site-recovery/vmware-physical-azure-support-matrix.md#network) och [lagring](../site-recovery/vmware-physical-azure-support-matrix.md#storage) för Site Recovery. Azure Migrate tillhandahåller identiska nätverks-/lagrings krav.
 **Krav för Azure** | Du hittar den senaste informationen i [Azure-nätverket](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagrings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)-och [beräknings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) kraven för Site Recovery. Azure Migrate har identiska krav för migrering av fysiska servrar.
-**Mobilitets tjänst** | Mobilitets tjänst agenten måste vara installerad på varje dator som du vill migrera.
-**UEFI-start** | Den migrerade datorn i Azure kommer automatiskt att konverteras till en BIOS-startvm. Endast server som kör Windows Server 2012 och senare stöds.<br/><br/> OS-disken bör ha upp till fyra partitioner och volymer ska formateras med NTFS.
+**Mobilitetstjänsten** | Mobilitets tjänst agenten måste vara installerad på varje dator som du vill migrera.
+**UEFI-start** | Stöds. UEFI-baserade datorer kommer att migreras till virtuella datorer i Azure generation 2.  <br/><br/> OS-disken bör ha upp till fyra partitioner och volymer ska formateras med NTFS.
 **UEFI – säker start**         | Stöds inte för migrering.
 **Mål disk** | Datorer kan bara migreras till Managed disks (standard-HDD, standard SSD, Premium SSD) i Azure.
-**Diskstorlek** | 2 TB OS-disk; 8 TB för data diskar.
+**Diskstorlek** | 2 TB OS-disk (BIOS-start); 4 TB OS-disk (UEFI-start); 8 TB för data diskar.
 **Disk gränser** |  Upp till 63 diskar per dator.
 **Krypterade diskar/volymer** |  Datorer med krypterade diskar/volymer stöds inte för migrering.
 **Delat disk kluster** | Stöds inte.

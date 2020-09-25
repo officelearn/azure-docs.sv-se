@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ed19b9dae179c3e4fe89a9ce28df4ad0cd080af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e35366e35fc127057020906ac6d3dfb0f207ab72
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263220"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331343"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal
 
@@ -63,7 +63,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
 
 3. Under **systemtilldelad**, **status**väljer du **på** och klickar sedan på **Spara**:
 
-   ![Skärm bild för konfigurations sida](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Skärm bild som visar sidan "identitets (förhands granskning)" med status "tilldelad" inställd på "på".](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Ta bort systemtilldelad hanterad identitet från en virtuell dator
 
@@ -99,7 +99,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till den Azure-prenumeration som innehåller den virtuella datorn.
 2. Navigera till önskad VM och klicka på **identitet**, **tilldelad användare** och ** \+ Lägg sedan till**.
 
-   ![Lägg till användardefinierad hanterad identitet till den virtuella datorn](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+   ![Skärm bild som visar sidan "identitet" med "tilldelade användare" och knappen "Lägg till" markerad.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 
 3. Klicka på den användare-tilldelade identitet som du vill lägga till i den virtuella datorn och klicka sedan på **Lägg till**.
 

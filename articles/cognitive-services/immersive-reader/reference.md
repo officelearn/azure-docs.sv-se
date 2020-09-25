@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73322cdee151969e6e765690284bbffc1c871f4e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330612"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Avancerad läsares Java Script SDK-referens (v 1.1)
 
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>renderButtons-parametrar
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | ---- | ---- |------------ |
 | `options` | [renderButtons-alternativ](#renderbuttons-options) | Alternativ för att konfigurera vissa beteenden för funktionen renderButtons. Valfritt. |
 
@@ -131,7 +131,7 @@ Alternativ för att återge knapparna för avancerad läsare.
 
 #### <a name="renderbuttons-options-parameters"></a>Parametrar för renderButtons-alternativ
 
-| Inställningen | Typ | Beskrivning |
+| Inställningen | Typ | Description |
 | ------- | ---- | ----------- |
 | ämnen | HTMLDivElement[] | Element som återger de fördjupade Reader-knapparna i. |
 
@@ -156,7 +156,7 @@ Innehåller svaret från anropet till `ImmersiveReader.launchAsync` . Observera 
 
 #### <a name="launchresponse-parameters"></a>LaunchResponse-parametrar
 
-| Inställningen | Typ | Beskrivning |
+| Inställningen | Typ | Description |
 | ------- | ---- | ----------- |
 | container | HTMLDivElement | HTML-element som innehåller IFRAME för avancerad läsare. |
 | sessionId | Sträng | Globalt unik identifierare för den här sessionen som används för fel sökning. |
@@ -174,14 +174,14 @@ Innehåller information om ett fel.
 
 #### <a name="error-parameters"></a>Fel parametrar
 
-| Inställningen | Typ | Beskrivning |
+| Inställningen | Typ | Description |
 | ------- | ---- | ----------- |
 | kod | Sträng | En av en uppsättning felkoder. Se [Felkoder](#error-codes). |
 | meddelande | Sträng | Mänskligt åter givning av felet. |
 
 #### <a name="error-codes"></a>Felkoder
 
-| Kod | Beskrivning |
+| Kod | Description |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt, se `message` parameter för [felet](#error). |
 | Tidsgräns | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
@@ -205,7 +205,7 @@ Innehåller det innehåll som ska visas i den fördjupade läsaren.
 
 #### <a name="content-parameters"></a>Innehålls parametrar
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | ---- | ---- |------------ |
 | title | Sträng | Rubrik text som visas överst i den fördjupade läsaren (valfritt) |
 | segment | [Segment []](#chunk) | Matris med segment |
@@ -240,7 +240,7 @@ Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
 
 #### <a name="chunk-parameters"></a>Segment parametrar
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | ---- | ---- |------------ |
 | innehåll | Sträng | Den sträng som innehåller det innehåll som skickas till den fördjupade läsaren. |
 | lang | Sträng | Språk för texten, värdet är i IETF BCP 47 language tag-format, t. ex. en, es-ES. Språket identifieras automatiskt om det inte anges. Se [Språk som stöds](#supported-languages). |
@@ -269,7 +269,7 @@ Default value: "text/plain"
 
 #### <a name="supported-mime-types"></a>MIME-typer som stöds
 
-| MIME-typ | Beskrivning |
+| MIME-typ | Description |
 | --------- | ----------- |
 | text/ren | Oformaterad text. |
 | text/html | HTML-innehåll. [Läs mer](#html-support)|
@@ -305,11 +305,11 @@ Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade lä
 
 #### <a name="options-parameters"></a>Alternativ parametrar
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | ---- | ---- |------------ |
 | uiLang | Sträng | Språk i användar gränssnittet, värdet är i IETF BCP 47 language tag-format, t. ex. en, es-ES. Standardvärdet för webb läsar språk om inget anges. |
-| timeout | Tal | Varaktighet (i millisekunder) innan [launchAsync](#launchasync) Miss lyckas med ett tids gräns fel (Standardvärdet är 15000 MS). Denna timeout gäller endast för den första starten av läsar sidan, där lyckad observeras när läsar sidan öppnas och rotations rutan startar. Justeringen av tids gränsen bör inte vara nödvändig. |
-| uiZIndex | Tal | Z-index för den iframe som ska skapas (Standardvärdet är 1000). |
+| timeout | Antal | Varaktighet (i millisekunder) innan [launchAsync](#launchasync) Miss lyckas med ett tids gräns fel (Standardvärdet är 15000 MS). Denna timeout gäller endast för den första starten av läsar sidan, där lyckad observeras när läsar sidan öppnas och rotations rutan startar. Justeringen av tids gränsen bör inte vara nödvändig. |
+| uiZIndex | Antal | Z-index för den iframe som ska skapas (Standardvärdet är 1000). |
 | useWebview | Boolesk| Använd en WebView-tagg i stället för en iframe för kompatibilitet med Chrome-appar (Standardvärdet är falskt). |
 | onExit | Funktion | Körs när den fördjupade läsaren avslutas. |
 | allowFullscreen | Boolesk | Möjligheten att växla helskärm (Standardvärdet är sant). |
@@ -390,10 +390,10 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>ReadAloudOptions-parametrar
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | ---- | ---- |------------ |
 | röst | Sträng | Röst, antingen "hona" eller "hane". Observera att inte alla språk stöder båda kön. |
-| hastighet | Tal | Uppspelnings hastigheten måste vara mellan 0,5 och 2,5. |
+| hastighet | Antal | Uppspelnings hastigheten måste vara mellan 0,5 och 2,5. |
 | Spela | Boolesk | Starta automatiskt Läs högt när den fördjupade läsaren läser in. |
 
 ##### `-voice`
@@ -429,7 +429,7 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>TranslationOptions-parametrar
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | ---- | ---- |------------ |
 | language | Sträng | Anger översättnings språket, värdet är i IETF BCP 47 language tag-format, t. ex. fr-FR, ES-MX, zh-hans-CN. Krävs för att automatiskt aktivera Word-eller dokument översättning. |
 | autoEnableDocumentTranslation | Boolesk | Översätt hela dokumentet automatiskt. |
@@ -457,9 +457,9 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>DisplayOptions-parametrar
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | ---- | ---- |------------ |
-| textSize | Tal | Anger den valda text storleken. |
+| textSize | Antal | Anger den valda text storleken. |
 | increaseSpacing | Boolesk | Anger om text avstånd ska växlas eller inaktive ras. |
 | fontFamily | Sträng | Anger det valda teckensnittet ("Calibri", "ComicSans" eller "Sitka"). |
 
@@ -491,11 +491,11 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="settings-parameters"></a>Inställnings parametrar
 
-| Inställningen | Typ | Beskrivning |
+| Inställningen | Typ | Description |
 | ------- | ---- | ----------- |
-| textSize | Tal | Anger den valda text storleken. |
+| textSize | Antal | Anger den valda text storleken. |
 | fontFamily | Sträng | Anger det valda teckensnittet ("Calibri", "ComicSans" eller "Sitka"). |
-| textSpacing | Tal | Anger om text avstånd ska växlas eller inaktive ras. |
+| textSpacing | Antal | Anger om text avstånd ska växlas eller inaktive ras. |
 | formattingEnabled | Boolesk | Anger om HTML-formateringen ska växlas eller inaktive ras. |
 | visst | Sträng | Anger det valda temat (t. ex. "Light", "mörk"...). |
 | syllabificationEnabled | Boolesk | Anger om syllabification ska växlas eller inaktive ras. |
@@ -514,7 +514,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## <a name="supported-languages"></a>Språk som stöds
 
-Översättnings funktionen i avancerad läsare har stöd för många språk. Mer information finns i [den här artikeln](https://www.onenote.com/learningtools/languagesupport) .
+Översättnings funktionen i avancerad läsare har stöd för många språk. Mer information finns i [språk stöd](./language-support.md) .
 
 <br>
 

@@ -9,12 +9,12 @@ ms.date: 07/09/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: 2743dc0164f604c9c5e033aacc3e58fae42a1fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f5cf8f8ef004dacc9fe2bbdd1b815f2ae5275311
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298124"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Snabb start: Hämta ett telefonnummer med hjälp av Azure Portal
 
@@ -117,7 +117,7 @@ Välj fliken telefonnummer på menyn för att hantera dina telefonnummer.
 
 Vanliga frågor och problem:
 
-- Endast USA och Kanada stöder köp av telefonnummer för tillfället. Detta baseras på fakturerings adressen för den prenumeration som resursen är kopplad till. För närvarande kan du inte flytta resursen till en annan prenumeration.
+- Det går bara att köpa telefonnummer för oss just nu. Detta baseras på fakturerings adressen för den prenumeration som resursen är associerad med. För tillfället går det inte att flytta en resurs till en annan prenumeration.
 
 - När ett telefonnummer tas bort frigörs inte telefonnumret eller kan köpas in igen förrän fakturerings perioden är slut.
 

@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319902"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Microsoft 365 resurser
 Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Microsoft 365 använder du det här attributet för att ange geo-platsen för användarens Microsoft 365 data. ( *Regions region* och *geo* används utbytbart.)
@@ -118,7 +118,7 @@ Alla Azure AD-attribut importeras inte till det lokala Active Directory anslutni
 4. Kontrol lera att det källattribut som du har valt att använda är markerat i attributlistan. Om du inte ser ditt attribut markerar du kryss rutan **Visa alla** .
 5. Välj **OK**för att spara.
 
-![Skärm bild av dialog rutan Synchronization Service Manager och egenskaper](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Skärm bild som visar dialog rutan Synchronization Service Manager och egenskaper där listan "attribut" är markerad.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Steg 4: Lägg till **preferredDataLocation** i Azure AD Connector-schemat
 **Det här steget behövs bara om du kör Connect version 1.3.21 eller äldre. Om du använder 1.4.18 eller senare går du vidare till steg 5.**  
@@ -143,7 +143,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
     | Attribut | Värde | Information |
     | --- | --- | --- |
     | Name | *Ange ett namn* | Till exempel "i från AD – User preferredDataLocation" |
-    | Beskrivning | *Ange en anpassad Beskrivning* |  |
+    | Description | *Ange en anpassad Beskrivning* |  |
     | Anslutet system | *Välj lokal Active Directory-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
     | Metaversum objekt typ | **Person** |  |
@@ -172,7 +172,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Attribut | Värde | Information |
     | ----- | ------ | --- |
     | Name | *Ange ett namn* | Till exempel "ut till Azure AD – User preferredDataLocation" |
-    | Beskrivning | *Ange en beskrivning* ||
+    | Description | *Ange en beskrivning* ||
     | Anslutet system | *Välj Azure AD-anslutning* ||
     | Ansluten system objekt typ | **Användare** ||
     | Metaversum objekt typ | **Person** ||

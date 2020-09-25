@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037107"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329472"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Självstudie: Utöka Windows-filservrar med Azure File Sync
 
@@ -26,13 +26,13 @@ I artikeln beskrivs de grundläggande stegen för att utöka lagrings kapacitete
 > * Skapa en synkroniseringsgrupp och en molnslutpunkt
 > * Skapa en serverslutpunkt
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Förbereda din miljö
+## <a name="prepare-your-environment"></a>Förbered din miljö
 
 För den här självstudien behöver du göra följande innan du kan distribuera Azure File Sync:
 
@@ -241,7 +241,7 @@ Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windo
 1. Välj **Tillåt när**  >  **körningen**är  >  **öppen**.
 1. Stäng PowerShell-fönstret, om du inte redan har gjort det.
 1. Acceptera standardinställningarna i **konfigurationsguiden för lagringssynkroniseringsagenten**.
-1. Välj **Installera**.
+1. Välj **Install** (Installera).
 1. Välj **Slutför**.
 
 Du har distribuerat Azure-synkroniseringstjänsten och installerat agenten på den virtuella Windows Server 2016 Datacenter-datorn. Nu behöver du registrera den virtuella datorn med tjänsten för synkronisering av lagring.
@@ -261,7 +261,7 @@ Användargränssnittet för serverregistrering bör öppnas automatiskt när du 
 
    | Värde | Beskrivning |
    | ----- | ----- |
-   | **Azure-prenumeration** | Den prenumeration som innehåller tjänsten för synkronisering av lagring för den här kursen. |
+   | **Azure Subscription (Azure-prenumeration)** | Den prenumeration som innehåller tjänsten för synkronisering av lagring för den här kursen. |
    | **Resursgrupp** | Den resursgrupp som innehåller tjänsten för synkronisering av lagring. Använd _afsresgroup101918_ för den här självstudien. |
    | **Storage Sync Service (Tjänst för synkronisering av lagring)** | Namnet på tjänsten för synkronisering av lagring. Använd _afssyncservice02_ för den här självstudien. |
 
@@ -314,6 +314,8 @@ Dina filer är nu synkroniserade i Azure-filresursen och Windows Server.
 ![Azure Storage har synkroniserats](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa de resurser som du skapade i den här självstudien tar du först bort slut punkterna från tjänsten för synkronisering av lagring. Avregistrera sedan servern med lagrings tjänsten för synkronisering, ta bort Sync-grupperna och ta bort synkroniseringstjänsten.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320361"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Del två: tilldela behörigheter på resurs nivå till en identitet
 
@@ -40,14 +40,14 @@ Du kan använda Azure Portal, Azure PowerShell eller Azure CLI för att tilldela
 
 ## <a name="assign-an-azure-role"></a>Tilldela en Azure-roll
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Följ dessa steg om du vill tilldela en Azure-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
 
 1. I Azure Portal går du till fil resursen eller [skapar en fil resurs](storage-how-to-create-file-share.md).
 1. Välj **Access Control (IAM)**.
 1. Välj **Lägg till en roll tilldelning**
-1. På bladet **Lägg till roll tilldelning** väljer du lämplig inbyggd roll (lagrings fil data SMB Share Reader, Storage File data SMB Share Contributor) från **roll** listan. Lämna inställningen **tilldela till gång till** standardinställningen: **Azure AD-användare, grupp eller tjänstens huvud namn**. Välj målets Azure AD-identitet efter namn eller e-postadress. Den valda Azure AD-identiteten måste vara en hybrid identitet och får inte vara en moln identitet. Det innebär att samma identitet också representeras i AD DS.
+1. På bladet **Lägg till roll tilldelning** väljer du lämplig inbyggd roll (lagrings fil data SMB Share Reader, Storage File data SMB Share Contributor) från **roll** listan. Lämna inställningen **tilldela till gång till** standardinställningen: **Azure AD-användare, grupp eller tjänstens huvud namn**. Välj målets Azure AD-identitet efter namn eller e-postadress. **Den valda Azure AD-identiteten måste vara en hybrid identitet och får inte vara en moln identitet.** Det innebär att samma identitet också representeras i AD DS.
 1. Klicka på **Spara** för att slutföra roll tilldelnings åtgärden.
 
 ### <a name="powershell"></a>PowerShell

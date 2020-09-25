@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar fysiska datorer till A
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 7091d95a07da60faed7012df04c05def340df7b4
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2f9b3d43effff49da6aa348e22c0c974606f4c2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296339"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -35,12 +35,12 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > * Kör en fullständig migrering till Azure.
 
 > [!NOTE]
-> Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen how-TOS för Azure Migrate.
+> Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen how-TOS för Azure Migrate.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
@@ -58,11 +58,11 @@ Förbered Azure för migrering med Server migrering.
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
 
-1. Öppna prenumerationen i Azure Portal och välj **åtkomst kontroll (IAM)**.
+1. I Azure-portalen öppnar du prenumerationen och väljer **Åtkomstkontroll (IAM)** .
 2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.
 3. Du bör ha behörighet som **deltagare** eller **ägare** .
-    - Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration.
-    - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
+    - Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen.
+    - Om du inte är prenumerationens ägare kan du be ägaren tilldela dig rollen.
 
 
 ### <a name="assign-azure-account-permissions"></a>Tilldela behörigheter för Azure-konto
@@ -229,14 +229,14 @@ Välj datorer för migrering nu.
 
 1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering**klickar du på **Replikera**.
 
-    ![Replikera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
+    ![Skärm bild av skärmen Azure Migrate-servrar som visar knappen replikera som marker ATS i Azure Migrate: migrering av Server under Migreringsverktyg.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
 2. I **Replikera**, > **käll inställningar**  >  **att datorerna har virtualiserats?** väljer du **inte virtualiserad/övrigt**.
 3. I **lokal**installation väljer du namnet på Azure Migrate-installationen som du konfigurerar.
 4. I **processerver**väljer du namnet på replikerings enheten.
 6. I **autentiseringsuppgifter för gäst**väljer du det dummy-konto som skapades tidigare under [installationen av installations programmet för replikering](#download-the-replication-appliance-installer) för att installera mobilitets tjänsten manuellt (push-installation stöds inte). Klicka sedan på **Nästa: virtuella datorer**.   
 
-    ![Replikera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Skärm bild av fliken käll inställningar på sidan replikera med fältet gäst autentiseringsuppgifter markerat.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
 7. I **Virtual Machines**, i **Importera migreringsjobb från en utvärdering?**, lämnar du standardinställningen **Nej, jag anger inställningarna för migrering manuellt**.
 8. Markera varje virtuell dator som du vill migrera. Klicka sedan på **Nästa: mål inställningar**.
@@ -252,8 +252,8 @@ Välj datorer för migrering nu.
     - Inget alternativ för infrastrukturs redundans krävs om du inte behöver någon av dessa tillgänglighets konfigurationer för de migrerade datorerna.
 12. I **Azure Hybrid-förmån**:
 
-    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
-    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
+    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka på **Nästa**.
+    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka på **Nästa**.
 
     ![Mål inställningar](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
@@ -265,11 +265,11 @@ Välj datorer för migrering nu.
     - **Tillgänglighets uppsättning**: Ange den tillgänglighets uppsättning som ska användas.
 
 > [!NOTE]
->Om du vill välja ett annat tillgänglighets alternativ för en uppsättning virtuella datorer går du till steg 1 och upprepar stegen genom att välja olika tillgänglighets alternativ när du har startat replikering för en uppsättning virtuella datorer.
+> Om du vill välja ett annat tillgänglighets alternativ för en uppsättning virtuella datorer går du till steg 1 och upprepar stegen genom att välja olika tillgänglighets alternativ när du har startat replikering för en uppsättning virtuella datorer.
 
-    ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
+   ![Beräknings inställningar](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. I **diskar**anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka sedan på **Nästa**.
+13. I **diskar**anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka på **Nästa**.
     - Du kan undanta diskar från replikering.
     - Om du undantar diskar kommer de inte att synas i den virtuella Azure-datorn efter migreringen. 
 

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 49d3fd953d069f4368d28e26265114e574e8100a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: e899b249261ea3238695a2e2be6001cb6a9bc763
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506669"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318066"
 ---
 # <a name="convert-models"></a>Konvertera modeller
 
@@ -21,9 +21,8 @@ När den har konverterats kan en modell läsas in från ett Azure Storage-konto.
 
 Konverterings tjänsten har stöd för följande format:
 
-- **FBX**  (version 2011 och senare)
-- **GLTF** (version 2. x)
-- **GLB**  (version 2. x)
+- **FBX**  (version 2011 till version 2020)
+- **GLTF** / **GLB** (version 2. x)
 
 Det finns mindre skillnader mellan formaten vad gäller omvandling av material egenskaper, enligt vad som anges i kapitel [material mappning för modell format](../../reference/material-mapping.md).
 

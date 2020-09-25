@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf0fdf5fd167987ea0fd7111a05b04bd5bf848f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319851"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planera och Felsök ändringar av UPN-namn i Azure Active Directory
 
@@ -94,7 +94,7 @@ Se kända problem och lösningar i det här dokumentet.
 
 När du synkroniserar användar konton från Active Directory till Azure AD kontrollerar du att UPN i Active Directory mappar till verifierade domäner i Azure AD.
 
-![Skärm bild av verifierade domäner](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![Skärm bild som visar exempel på UPN-mappningar som har mappats till verifierade Azure A D-domäner.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 Om värdet för userPrincipalName-attributet inte motsvarar en verifierad domän i Azure AD, ersätter synkroniseringsprocessen suffixet med värdet default. onmicrosoft.com.
 
@@ -140,7 +140,7 @@ Tillåt tillräckligt med tid för att UPN-ändringen ska synkroniseras med Azur
 ![Skärm bild av verifierade domäner](./media/howto-troubleshoot-upn-changes/other-user.png)
 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Azure AD-anslutna hybridenheter
+### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
 [Hybrid Azure AD-anslutna](../devices/concept-azure-ad-join-hybrid.md) enheter är anslutna till Active Directory och Azure AD. Du kan implementera hybrid Azure AD-anslutning om din miljö har en lokal Active Directory plats och du även vill dra nytta av de funktioner som tillhandahålls av Azure AD.
 
@@ -237,7 +237,7 @@ Användaren måste välja den nedrullningsbara menyn för det konto som har Akti
 ## <a name="security-key-fido2-known-issues-and-workarounds"></a>Kända problem och lösningar för säkerhets nyckel (FIDO2)
 
 **Kända problem** <br>
-När flera användare registreras på samma nyckel, visar inloggnings skärmen en konto val sida där det gamla UPN visas. Inloggningar med säkerhets nycklar påverkas inte av UPN-ändringar.  
+När flera användare registreras på samma nyckel, visar inloggnings skärmen en konto val sida där det gamla UPN visas. Inloggningar som använder säkerhets nycklar påverkas inte av UPN-ändringar.  
 
 **Lösning**<br>
 Om du vill ta bort referenser till gamla UPN måste användarna [återställa säkerhets nyckeln och registrera den igen](../authentication/howto-authentication-passwordless-security-key.md#known-issues).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318049"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -45,7 +45,7 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: Ja|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Kostnadsfri|
 |Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
 |[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
@@ -69,7 +69,7 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: Ja|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: Ja|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
-|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Kostnadsfri|
 |Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
 |[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
@@ -93,9 +93,9 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 |------|------|-----|-----|
 | Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Yes |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Yes |
-| Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
+| Trend Micro – djup säkerhet | Windows Server-familjen  | Inga | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
+| McAfee v10 + | Windows Server-familjen  | Inga | Ja |
 | McAfee v10 + | Linux Server-serien  | No | Ja **\*** |
 | Sophos v9 +| Linux Server-serien  | No | Ja  **\***  |
 

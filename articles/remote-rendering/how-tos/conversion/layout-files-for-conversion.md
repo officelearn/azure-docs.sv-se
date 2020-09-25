@@ -5,12 +5,12 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8acd19408c328ef3f534ba7bc41c96e395f768be
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318083"
 ---
 # <a name="laying-out-files-for-conversion"></a>Utforma filer för konvertering
 
@@ -28,6 +28,10 @@ Om Sök vägarna lagras som relativa sökvägar och den relativa platsen mellan 
 
 > [!Note]
 > Vi rekommenderar att du placerar filer i indatafilen så att de relativa platserna för filerna är desamma som när du skapade till gången.
+
+> [!Note]
+> Föredra att skapa till gångar som har relativa sökvägar.
+> Självstudien om hur du [ställer in material för 3ds Max](../../tutorials/modeling/3dsmax-material-setup.md) ger ett 3ds Max-exempel på hur du ser till att en till gång använder relativa sökvägar.
 
 ## <a name="finding-textures"></a>Hitta texturer
 

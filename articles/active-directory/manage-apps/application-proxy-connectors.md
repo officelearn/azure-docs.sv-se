@@ -1,6 +1,6 @@
 ---
 title: Förstå Azure AD-programproxy-kopplingar | Microsoft Docs
-description: Beskriver grunderna för Azure AD-programproxy-kopplingar.
+description: Lär dig mer om Azure AD-programproxy-kopplingar.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764680"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319834"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD-programproxy-kopplingar
 
@@ -99,7 +99,7 @@ I allmänhet är ju fler användare som du har, desto större dator behöver du.
 |8|32|270|1190|
 |16|64|245|1200 *|
 
-\*Den här datorn använde en anpassad inställning för att öka några av standard anslutnings gränserna utöver de rekommenderade .NET-inställningarna. Vi rekommenderar att du kör ett test med standardinställningarna innan du kontaktar supporten för att få denna gräns ändrats för din klient.
+\* Den här datorn använde en anpassad inställning för att öka några av standard anslutnings gränserna utöver de rekommenderade .NET-inställningarna. Vi rekommenderar att du kör ett test med standardinställningarna innan du kontaktar supporten för att få denna gräns ändrats för din klient.
 
 > [!NOTE]
 > Det finns inte mycket skillnad på den maximala TPS mellan 4, 8 och 16 kärn datorer. Den största skillnaden mellan dem är i den förväntade svars tiden.

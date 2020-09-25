@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285068"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Gransknings frågor i Azure Monitor loggar (förhands granskning)
 Logg läsar gransknings loggar ger telemetri om logg frågor som körs i Azure Monitor. Detta omfattar information som när en fråga kördes, vem som körde den, vilket verktyg som användes, frågetexten och prestanda statistik som beskriver frågans körning.
@@ -64,6 +64,7 @@ En gransknings post skapas varje gång en fråga körs. Om du skickar data till 
 
 ## <a name="considerations"></a>Överväganden
 
+- Frågor loggas bara när de körs i en användar kontext. Ingen service-till-tjänst i Azure kommer att loggas. De två primära uppsättningarna med frågor denna undantags kompass är fakturerings beräkningar och automatiserade aviserings körningar. I händelse av aviseringar kommer bara den schemalagda varnings frågan inte att loggas. den första körningen av aviseringen på skärmen för att skapa aviseringar körs i en användar kontext och är tillgänglig i gransknings syfte. 
 - Prestanda statistik är inte tillgänglig för frågor som kommer från Azure Datautforskaren proxy. Alla andra data för dessa frågor kommer fortfarande att fyllas i.
 - *H* -tipset på strängar som [obfuscates sträng litteraler](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) kommer inte att påverka gransknings loggarna. Frågorna samlas in exakt som de skickas utan strängen som fördunklade. Du bör se till att endast användare som har behörighet att se dessa data kan göra detta med hjälp av de olika RBAC-lägen som är tillgängliga i Log Analytics-arbetsytor.
 - För frågor som innehåller data från flera arbets ytor, kommer frågan bara att fångas in på de arbets ytor som användaren har åtkomst till.

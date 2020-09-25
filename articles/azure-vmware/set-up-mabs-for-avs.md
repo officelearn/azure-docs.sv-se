@@ -3,16 +3,16 @@ title: Konfigurera Azure Backup Server för Azure VMware-lösning
 description: Konfigurera din Azure VMware-lösning för att säkerhetskopiera virtuella datorer med hjälp av Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 516f4a2fa92740897e186a782e276fc6d40fc925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255017"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Konfigurera Azure Backup Server för Azure VMware-lösning
 
-Azure Backup Server är ett robust säkerhets kopierings-och återställnings system för företag som bidrar till din strategi för affärs kontinuitet och haveri beredskap (BCDR). Under för hands versionen av Azure VMware-lösningen kan du bara konfigurera säkerhets kopiering av virtuella datorer med hjälp av Azure Backup Server. 
+Azure Backup Server är ett robust säkerhets kopierings-och återställnings system för företag som bidrar till din strategi för affärs kontinuitet och haveri beredskap (BCDR). Under Azure VMware-lösningen kan du bara konfigurera säkerhets kopiering på virtuella datorer med hjälp av Azure Backup Server. 
 
 Azure Backup Server kan lagra säkerhetskopierade data till:
 
@@ -34,7 +34,7 @@ I den här artikeln hjälper vi dig att förbereda din Azure VMware-lösning fö
 - **Återställning utan agent:** Azure Backup Server kräver inte att en agent installeras på vCenter-eller ESXi-servern för att säkerhetskopiera den virtuella datorn. Ange i stället IP-adressen eller det fullständigt kvalificerade domän namnet (FQDN) och de inloggnings uppgifter som används för att autentisera VMware-servern med Azure Backup Server.
 - **Cloud-integrerad säkerhets kopiering:** Azure Backup Server skyddar arbets belastningar till disk och molnet. Arbets flödet för säkerhets kopiering och återställning av Azure Backup Server hjälper dig att hantera långsiktig kvarhållning och säkerhets kopiering på annan plats.
 - **Identifiera och skydda virtuella datorer som hanteras av vCenter:** Azure Backup Server identifierar och skyddar virtuella datorer som distribueras på en vCenter-eller ESXi-Server. Azure Backup Server identifierar även virtuella datorer som hanteras av vCenter så att du kan skydda stora distributioner.
-- **Autoskydd på mappnivå:** vCenter gör det möjligt att organisera dina virtuella datorer i VM-mappar. Azure Backup Server identifierar dessa mappar och du kan använda den för att skydda virtuella datorer på mappnivå, som innehåller alla undermappar. När du skyddar mappar, Azure Backup Server inte bara skyddar de virtuella datorerna i mappen, utan också skyddar virtuella datorer senare. Azure Backup Server identifierar nya virtuella datorer dagligen och skyddar dem automatiskt. När du ordnar de virtuella datorerna i rekursiva mappar, Azure Backup Server automatiskt identifiera och skydda de nya virtuella datorerna som distribueras i de rekursiva mapparna.
+- **Autoskydd på mappnivå:** vCenter gör det möjligt att organisera dina virtuella datorer i VM-mappar. Azure Backup Server identifierar mapparna. Du kan använda den för att skydda virtuella datorer på mappnivå, som innehåller alla undermappar. När du skyddar mappar, Azure Backup Server inte bara skyddar de virtuella datorerna i mappen, utan också skyddar virtuella datorer senare. Azure Backup Server identifierar nya virtuella datorer dagligen och skyddar dem automatiskt. När du ordnar de virtuella datorerna i rekursiva mappar, Azure Backup Server automatiskt identifiera och skydda de nya virtuella datorerna som distribueras i de rekursiva mapparna.
 - **Azure Backup Server fortsätter att skydda virtuella vMotioned-datorer i klustret:** Eftersom virtuella datorer är vMotioned för belastnings utjämning i klustret, identifierar Azure Backup Server automatiskt och fortsätter med VM-skyddet.
 - **Återställ nödvändiga filer snabbare:** Azure Backup Server kan återställa filer eller mappar från en virtuell Windows-dator utan att återställa hela den virtuella datorn.
 
@@ -68,7 +68,7 @@ Se till att du [konfigurerar nätverk för ditt privata VMware-moln i Azure](tut
 
 ### <a name="determine-the-size-of-the-virtual-machine"></a>Bestäm storleken på den virtuella datorn
 
-Du måste skapa en virtuell Windows-dator i det virtuella nätverk som du skapade i föregående steg. När du väljer en server för att köra Azure Backup Server börjar du med en Galleri avbildning av Windows Server 2019 Data Center. Självstudien [skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md) hjälper dig att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure.
+Skapa en virtuell Windows-dator i det virtuella nätverk som du skapade i föregående steg. När du väljer en server för att köra Azure Backup Server börjar du med en Galleri avbildning av Windows Server 2019 Data Center. Självstudien [skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md) hjälper dig att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure.
 
 I följande tabell sammanfattas det högsta antalet skyddade arbets belastningar för varje Azure Backup Server virtuell dator storlek. Informationen baseras på interna prestanda och skalningstester med kanoniska värden för arbetsbelastningsstorlek och omsättning. Den faktiska arbets belastnings storleken kan vara större men bör hanteras av diskarna som är anslutna till den Azure Backup Server virtuella datorn.
 
@@ -148,26 +148,26 @@ Ett Recovery Services-valv är en lagrings enhet som lagrar återställnings pun
 
    Listan över Recovery Services-valv i prenumerationen visas.
 
-1. På instrument panelen för **Recovery Services valv** väljer du **Lägg till**.
+1. På instrumentpanelen **Recovery Services-valv** väljer du **Lägg till**.
 
    ![Lägg till ett Recovery Services-valv.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
-   Dialog rutan **Recovery Services valv** öppnas.
+   Dialogrutan **Recovery Services-valv** öppnas.
 
 1. Ange värden för **namn**, **prenumeration**, **resurs grupp**och **plats**.
 
    ![Konfigurera Recovery Services-valvet.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Namn**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck.
-   - **Prenumeration**: Välj den prenumeration som ska användas. Om du är medlem i endast en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standard prenumerationen (rekommenderas). Det finns flera alternativ bara om ditt arbets-eller skol konto är associerat med fler än en Azure-prenumeration.
-   - **Resurs grupp**: Använd en befintlig resurs grupp eller skapa en ny. Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Om du vill skapa en ny resurs grupp väljer du **Skapa ny** och anger namnet.
-   - **Plats**: Välj det geografiska området för valvet. För att skapa ett valv för att skydda virtuella datorer i Azure VMware-lösningen *måste* valvet vara i samma region som Azure VMware-lösningens privata moln.
+   - **Namn**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två men högst 50 tecken. Namnet måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
+   - **Prenumeration**: Välj den prenumeration som ska användas. Om du bara är medlem i en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda, använder du standardprenumerationen (den föreslagna). Du kan bara välja mellan flera alternativ om ditt arbets- eller skolkonto är associerat med mer än en Azure-prenumeration.
+   - **Resursgrupp**: Använd en befintlig resursgrupp eller skapa en ny. Om du vill se en lista med tillgängliga resursgrupper i prenumerationen, väljer du **Använd befintliga** och en resurs i listrutan. Skapa en ny resursgrupp genom att välja **Skapa ny** och ange namnet.
+   - **Plats**: Välj ett geografiskt område för valvet. För att skapa ett valv för att skydda virtuella datorer i Azure VMware-lösningen *måste* valvet vara i samma region som Azure VMware-lösningens privata moln.
 
-1. När du är redo att skapa Recovery Services-valvet väljer du **skapa**.
+1. När du är redo att skapa Recovery Services-valvet väljer du **Skapa**.
 
    ![Skapa Recovery Services-valvet.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
-   Det kan ta en stund att skapa Recovery Services-valvet. Övervaka status meddelanden i **meddelande** fältet i det övre högra hörnet i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv väljer du **Uppdatera**.
+   Det kan ta en stund innan Recovery Services-valvet har skapats. Övervaka status meddelanden i **meddelande** fältet i det övre högra hörnet i portalen. När valvet har skapats visas det i listan med Recovery Services-valv. Om du inte ser valvet väljer du **Uppdatera**.
 
    ![Uppdatera listan över säkerhets kopierings valv.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
@@ -183,8 +183,6 @@ Med alternativet lagrings replikering kan du välja mellan Geo-redundant lagring
 1. Under **Inställningar** väljer du **Egenskaper**. Under **säkerhets kopierings konfiguration**väljer du **Uppdatera**.
 
 1. Välj typ av lagrings replikering och välj **Spara**.
-
-   ![Ange lagrings konfiguration för nytt valv.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Hämta och installera programpaketet
 
@@ -309,7 +307,7 @@ Om du har laddat ned program varu paketet till en annan server kopierar du filer
    * **Databas**: **databasename** ska vara **reportserver $ \<SQLInstanceName> **.
    * **Webb portal-URL**: den **virtuella katalogen** ska vara **Reports_ \<SQLInstanceName> **.
 
-   [Läs mer](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
+   Läs mer om [SSRS-konfiguration](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode).
 
    > [!NOTE]
    > [Microsoft Online Services-villkoren](https://www.microsoft.com/licensing/product-licensing/products) (ost) styr licensieringen för SQL Server som används som databas för Azure Backup Server. Enligt OST kan SQL Server paketerat med Azure Backup Server bara användas som databas för Azure Backup Server.

@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2b7acb1ad6fbe0beb4d79ee2a833561f0829664c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296203"
 ---
 # <a name="options"></a>Alternativ #
 
@@ -51,7 +51,7 @@ Om spela upp automatiskt är sant börjar videon spelas upp så snart sidan har 
 > [!NOTE]
 > Det här alternativet stöds inte av mobila enheter som Windows Phone, Apple iOS och Android. Mobila enheter blockerar funktionen för automatisk uppspelning för att förhindra att konsuments månatliga data planer används (ofta dyra). Du måste använda touch/klickning för att starta videon i det här fallet.
 
-`<video autoplay ...>`eller`{ "autoplay": true }`
+`<video autoplay ...>`eller `{ "autoplay": true }`
 
 ### <a name="poster"></a>affisch ###
 Attributet affisch anger den bild som visas innan videon börjar spelas upp. Detta är ofta en bild ruta i videon eller en anpassad rubrik skärm. Så fort användaren klickar på spela upp går bilden bort.
@@ -93,11 +93,11 @@ Genom att ställa in det här alternativet på True video-element får du full b
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`alternativet åsidosätter explicita `width` och `height` Inställningar. Det här alternativet är endast tillgängligt i Azure Media Player version `2.0.0` och senare.
+`fluid` alternativet åsidosätter explicita `width` och `height` Inställningar. Det här alternativet är endast tillgängligt i Azure Media Player version `2.0.0` och senare.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed`alternativ styr playbackSpeed-styrning och uppsättning av uppspelnings hastighets inställningar som är tillgängliga för användaren. `playbackSpeed`tar ett objekt. För att aktivera uppspelnings hastigheten i kontroll fältet `enabled` måste egenskapen för objektet anges till sant. Ett exempel på hur du aktiverar uppspelnings hastigheten i markeringen:
+`playbackSpeed` alternativ styr playbackSpeed-styrning och uppsättning av uppspelnings hastighets inställningar som är tillgängliga för användaren. `playbackSpeed` tar ett objekt. För att aktivera uppspelnings hastigheten i kontroll fältet `enabled` måste egenskapen för objektet anges till sant. Ett exempel på hur du aktiverar uppspelnings hastigheten i markeringen:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 

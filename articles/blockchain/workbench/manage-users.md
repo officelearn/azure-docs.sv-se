@@ -4,12 +4,12 @@ description: Hantera användare i Azure blockchain Workbench.
 ms.date: 07/15/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 541d5b2fa3d1a0cd5c4beba65cfe5ff3bdc3124a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: be078e7149ba008ab8b7ad44a016a0d1cf82df0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263019"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure blockchain Workbench
 
@@ -79,7 +79,7 @@ Använd blockchain Workbench-programmet för att hantera användare och organisa
 1. Välj medlems Panelen för att visa en lista över aktuella medlemmar.
 1. Välj **Lägg till medlemmar**.
 
-    ![Lägg till medlemmar](./media/manage-users/application-add-members.png)
+    ![Skärm bild som visar fönstret program medlemskap med knappen Lägg till en medlem markerad.](./media/manage-users/application-add-members.png)
 
 1. Sök efter användarens namn.  Endast Azure AD-användare som finns i Blockchain Workbench-klientorganisationen visas. Om användaren inte hittas måste du [lägga till Azure AD-användare](#add-azure-ad-users).
 

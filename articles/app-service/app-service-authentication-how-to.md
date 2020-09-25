@@ -4,12 +4,12 @@ description: Lär dig att anpassa funktionen för autentisering och auktoriserin
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: a5d81d99759c972d91f66ec75c482e08826a8e07
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255221"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -443,7 +443,7 @@ Följande förbrukar möjliga konfigurations alternativ i filen:
                 }
             },
             "preserveUrlFragmentsForLogins": <true|false>,
-            "allowedExternalRedirectUrls": [
+            "allowedExternalRedirectUri": [
                 "https://uri1.azurewebsites.net/",
                 "https://uri2.azurewebsites.net/"
             ],

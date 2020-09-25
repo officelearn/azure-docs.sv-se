@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 21120239c44dbdd812dfb3d3208990db4372ec29
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7c463beb7874e0b66e2a45a1675484f19c4fab34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249677"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
 
@@ -59,16 +59,16 @@ Proceduren som visas här tilldelar en behållare en roll som är begränsad til
 1. Leta upp den behållare som du vill tilldela en roll till och Visa behållarens inställningar.
 1. Välj **åtkomst kontroll (IAM)** om du vill visa inställningar för åtkomst kontroll för behållaren. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
 
-    ![Skärm bild som visar inställningar för åtkomst kontroll för behållare](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="Skärm bild som visar inställningar för åtkomst kontroll för behållare":::
 
 1. Klicka på knappen **Lägg till roll tilldelning** för att lägga till en ny roll.
 1. I fönstret **Lägg till roll tilldelning** väljer du den Azure Storages roll som du vill tilldela. Sök sedan efter det säkerhets objekt som du vill tilldela rollen.
 
-    ![Skärm bild som visar hur du tilldelar en Azure-roll](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Skärm bild som visar hur du tilldelar en Azure-roll":::
 
 1. Klicka på **Spara**. Identiteten som du har tilldelat rollen visas i listan under den rollen. Följande bild visar till exempel att användaren lade till nu har Läs behörighet till data i behållaren med namnet *Sample-container*.
 
-    ![Skärm bild som visar en lista över användare som har tilldelats en roll](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Skärm bild som visar en lista över användare som har tilldelats en roll":::
 
 Du kan följa liknande steg för att tilldela en roll som är begränsad till lagrings kontot, resurs gruppen eller prenumerationen.
 

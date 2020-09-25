@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d5809d7475759450a513153abf641f7943163d98
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: be8e43585fca77fc891a9142066d406444b674d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253242"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellerar och partitionerar du data i Azure Cosmos DB med ett verkligt exempel
 
@@ -323,7 +323,7 @@ function createComment(postId, comment) {
 Den här lagrade proceduren hämtar ID för inlägget och texten för den nya kommentaren som parametrar, sedan:
 
 - hämtar inlägget
-- ökar`commentCount`
+- ökar `commentCount`
 - ersätter inlägget
 - lägger till den nya kommentaren
 
@@ -365,7 +365,7 @@ Den här lagrade proceduren använder ID: t för användaren och användarens ny
 
 - hämtar alla objekt `userId` som matchar (som kan vara inlägg, kommentarer eller gilla)
 - för var och en av dessa objekt
-  - ersätter`userUsername`
+  - ersätter `userUsername`
   - ersätter objektet
 
 > [!IMPORTANT]
@@ -418,8 +418,8 @@ Men den återstående frågan filtreras fortfarande inte i `posts` behållarens 
 Det är enkelt att tänka på den här situationen:
 
 1. Den här begäran *måste* filtreras på `userId` eftersom vi vill hämta alla inlägg för en viss användare
-1. Det fungerar inte bra eftersom det körs mot `posts` behållaren, som inte har partitionerats av`userId`
-1. Vi kommer att lösa våra prestanda problem genom att utföra den här begäran mot en behållare som *har* partitionerats av`userId`
+1. Det fungerar inte bra eftersom det körs mot `posts` behållaren, som inte har partitionerats av `userId`
+1. Vi kommer att lösa våra prestanda problem genom att utföra den här begäran mot en behållare som *har* partitionerats av `userId`
 1. Det visar att vi redan har en sådan behållare: `users` containern!
 
 Vi introducerar därför en andra nivå av avnormalisering genom att duplicera hela inlägg till `users` behållaren. Genom att göra det får vi en kopia av våra inlägg, endast partitionerade utmed olika dimensioner, vilket gör dem mer effektiva att hämta `userId` .

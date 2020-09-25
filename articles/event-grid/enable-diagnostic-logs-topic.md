@@ -3,12 +3,12 @@ title: Azure Event Grid – aktivera diagnostikloggar för ämnen eller domäner
 description: Den här artikeln innehåller steg-för-steg-instruktioner om hur du aktiverar diagnostikloggar för ett Azure Event Grid-ämne.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114711"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297529"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Aktivera diagnostikloggar för Azure Event Grid-ämnen eller domäner
 Med diagnostikinställningar kan Event Grid användare fånga och visa **publicerings-och leverans fel** loggar i antingen ett lagrings konto, en händelsehubben eller en Log Analytics arbets yta. Den här artikeln innehåller steg-för-steg-instruktioner för att aktivera de här inställningarna i ett Event Grid ämne.
@@ -37,19 +37,19 @@ Med diagnostikinställningar kan Event Grid användare fånga och visa **publice
     
     ![Knappen Lägg till diagnostisk inställning](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Ange ett **namn** för den diagnostiska inställningen. 
-7. Välj alternativen **DeliveryFailures** och **PublishFailures** i avsnittet **logg** . 
+6. Välj alternativen **DeliveryFailures** och **PublishFailures** i avsnittet **logg** . 
     ![Välj felen](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. Aktivera en eller flera av avbildnings målen för loggarna och konfigurera dem genom att välja en tidigare skapad avbildnings resurs. 
+7. Aktivera en eller flera av avbildnings målen för loggarna och konfigurera dem genom att välja en tidigare skapad avbildnings resurs. 
     - Om du väljer **Arkiv till ett lagrings konto**väljer du **lagrings konto – Konfigurera**och väljer sedan lagrings kontot i din Azure-prenumeration. 
 
-        ![Arkivera till ett Azure Storage-konto](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![Skärm bild som visar sidan "diagnostikinställningar" med "arkivera till ett Azure Storage-konto" markerat och ett lagrings konto har valts.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - Om du väljer **Stream till en händelsehubben**väljer du **Event Hub – konfigurera**och väljer sedan Event Hubs namnrymd, händelsehubben och åtkomst principen. 
-        ![Strömma till en Event Hub](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Skärm bild som visar sidan "diagnostikinställningar" med "Stream to a Event Hub" markerad.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Om du väljer **Skicka till Log Analytics**väljer du arbets ytan Log Analytics.
-        ![Skicka till Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Skärm bild som visar sidan diagnostiska inställningar med "Skicka till Log Analytics" markerad.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Välj **Spara**. Välj sedan **X** i det högra hörnet för att stänga sidan. 
 9. Nu bekräftar du på sidan **diagnostikinställningar** och bekräftar att du ser en ny post i tabellen **diagnostikinställningar** . 
-    ![Diagnostisk inställning i listan](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![Skärm bild som visar sidan diagnostiska inställningar med en ny post markerad i tabellen "diagnostikinställningar".](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      Du kan också aktivera insamling av alla mått för ämnet. 
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289916"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287430"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planera din Azure Time Series Insights Gen2-miljö
 
@@ -69,10 +69,7 @@ Du kan välja upp till tre nycklar för att unikt särskilja dina resurser. Mer 
 
 Egenskapen **timestamp** är också viktig. Du kan ange den här egenskapen när du lägger till händelse källor. Varje händelse källa har en valfri tidstämpel egenskap som används för att spåra händelse källor över tid. Tidsstämplar-värden är Skift läges känsliga och måste formateras till den enskilda specifikationen för varje händelse källa.
 
-> [!TIP]
-> Kontrol lera formaterings-och tolknings kraven för dina händelse källor.
-
-När värdet är tomt används händelsens tidsintervall för händelse källan som händelsens tidsstämpel. Om du skickar historiska data eller batch-händelser är det mer praktiskt att anpassa egenskapen timestamp än standard händelsens kötid. Mer information finns i så här lägger du till [händelse källor i Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+När den lämnas tom används den tidpunkt då händelsen köade i IoT Hub eller Händelsehubben används som händelsens tidsstämpel. I allmänhet bör användare välja egenskapen timestamp och använda den tid då sensorn eller taggen genererar läsningen, i stället för hubben i kö. För mer information och Läs om tids zons förskjutningar Läs tids [stämpling för händelse källan](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>Förstå tids serie modellen
 
@@ -91,7 +88,7 @@ En lämplig tumregel:
 * Lagra metadata i din tids serie modell.
 * Se till att tids serie läge, instans fält och händelser bara innehåller nödvändig information, till exempel ett Time Series-ID eller en tidstämpel egenskap.
 
-Mer information finns i [form-händelser](./time-series-insights-send-events.md#supported-json-shapes).
+Mer information och för att förstå hur händelser kommer att förenklas och lagras finns i reglerna för att [förenkla och stoppa JSON](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

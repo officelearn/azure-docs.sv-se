@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att konfigurera en Azure-SSIS integration runtime för att ansluta till ett virtuellt nätverk
-description: Lär dig hur du ansluter en Azure-SSIS integration runtime till ett virtuellt Azure-nätverk.
+description: Lär dig hur du ansluter en Azure-SSIS integration runtime för att ansluta till ett virtuellt Azure-nätverk.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118147"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292311"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Konfigurera en Azure-SQL Server Integration Services (SSIS) integration Runtime (IR) för att ansluta till ett virtuellt nätverk
 
@@ -29,7 +29,7 @@ Stegen är:
 - Konfigurera ett virtuellt nätverk.
 - Anslut Azure-SSIS IR till ett virtuellt nätverk från Azure Data Factory Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-SSIS integration runtime**. Om du inte har en Azure-SSIS integration runtime, [etablera en Azure-SSIS integration runtime i Azure Data Factory](tutorial-deploy-ssis-packages-azure.md) innan du börjar.
 
@@ -149,6 +149,6 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
 1. Starta din Azure-SSIS IR genom att välja **Start** -knappen i kolumnen **åtgärder** för din Azure-SSIS IR. Det tar cirka 20 till 30 minuter att starta Azure-SSIS IR som ansluter till ett virtuellt nätverk.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig mer om [att ansluta Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md).

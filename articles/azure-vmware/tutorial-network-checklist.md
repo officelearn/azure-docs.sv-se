@@ -1,55 +1,59 @@
 ---
-title: 'Självstudie: nätverks check lista'
-description: Krav på nätverks krav och information om nätverks anslutning och nätverks portar
+title: Självstudie – check lista för nätverks planering
+description: Läs om kraven för nätverks krav och information om nätverks anslutningar och nätverks portar för Azure VMware-lösningen.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: aba5d7767e420b3ade6238621487884e44fbb6e2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750423"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254405"
 ---
-# <a name="networking-checklist-for-azure-vmware-solution"></a>Nätverks check lista för Azure VMware-lösning 
+# <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Check lista för nätverks planering för Azure VMware-lösning 
 
-Azure VMware-lösningen erbjuder en privat VMware-moln miljö, som är tillgänglig för användare och program från lokala och Azure-baserade miljöer eller resurser. Anslutningen levereras via nätverks tjänster som Azure ExpressRoute och VPN-anslutningar och kräver vissa nätverks adress intervall och brand Väggs portar för att aktivera tjänsterna. Den här artikeln innehåller den information du behöver för att kunna konfigurera nätverket så att det fungerar med Azure VMware-lösningen.
+Azure VMware-lösningen erbjuder en privat VMware-moln miljö, som är tillgänglig för användare och program från lokala och Azure-baserade miljöer eller resurser. Anslutningen levereras via nätverks tjänster som Azure ExpressRoute och VPN-anslutningar och kräver vissa nätverks adress intervall och brand Väggs portar för att aktivera tjänsterna. Den här artikeln innehåller den information du behöver för att konfigurera nätverket så att det fungerar med Azure VMware-lösningen.
 
-I den här självstudien får du lära dig hur du:
+I den här självstudiekursen lär du dig:
 
 > [!div class="checklist"]
-> * Krav för nätverks anslutning
-> * DHCP i Azure VMware-lösning
+> * Överväganden för virtuella nätverks-och ExpressRoute-kretsar
+> * Krav för Routning och undernät
+> * Nätverks portar som krävs för att kommunicera med tjänsterna
+> * Överväganden för DHCP och DNS i Azure VMware-lösningen
 
-## <a name="virtual--network-and-expressroute-circuit--considerations"></a>Överväganden för virtuella nätverks-och ExpressRoute-kretsar
-När du skapar en anslutning från ett virtuellt nätverk i din prenumeration upprättas ExpressRoute-kretsen genom peering, använder en autentiseringsnyckel och ett peering-ID som du begär i Azure Portal. Peering är en privat, en-till-en-anslutning mellan ditt privata moln och det virtuella nätverket.
+
+
+## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Överväganden för virtuella nätverks-och ExpressRoute-kretsar
+När du skapar en virtuell nätverks anslutning i din prenumeration upprättas ExpressRoute-kretsen genom peering, använder en autentiseringsnyckel och ett peering-ID som du begär i Azure Portal. Peering är en privat, en-till-en-anslutning mellan ditt privata moln och det virtuella nätverket.
 
 > [!NOTE] 
 > ExpressRoute-kretsen ingår inte i en distribution av privata moln. Den lokala ExpressRoute-kretsen ligger utanför det här dokumentets omfattning. Om du behöver lokal anslutning till ditt privata moln kan du använda en av dina befintliga ExpressRoute-kretsar eller köpa ett i Azure Portal.
 
-När du distribuerar ett privat moln får du IP-adresser för vCenter och NSX-T Manager. För att få åtkomst till dessa hanterings gränssnitt måste du skapa ytterligare resurser i ett virtuellt nätverk i din prenumeration. Du kan hitta procedurerna för att skapa dessa resurser och upprätta ExpressRoute privata peering i självstudierna.
+När du distribuerar ett privat moln får du IP-adresser för vCenter och NSX-T Manager. Du måste skapa ytterligare resurser i prenumerationens virtuella nätverk för att få åtkomst till dessa hanterings gränssnitt. Du kan hitta procedurerna för att skapa dessa resurser och upprätta [ExpressRoute privata peering](tutorial-expressroute-global-reach-private-cloud.md) i självstudierna.
 
 Det privata molnet logiska nätverk levereras med företablerade NSX-T. En gateway på nivå 0 och nivå 1 har fördefinierats för dig. Du kan skapa ett segment och koppla det till den befintliga nivån-1-gatewayen eller koppla den till en ny nivå 1-gateway som du definierar. NSX-T logiska nätverks komponenter ger sydöstra anslutningar mellan arbets belastningar och ger Nord-syd-anslutning till Internet och Azure-tjänster.
 
 ## <a name="routing-and-subnet-considerations"></a>Överväganden för Routning och undernät
 Det privata AVS-molnet är anslutet till ditt virtuella Azure-nätverk med en Azure ExpressRoute-anslutning. Med den här hög bandbredden kan du få åtkomst till tjänster som körs i din Azure-prenumeration från din privata moln miljö. Routning är Border Gateway Protocol (BGP) baserat, automatiskt etablerade och aktiverat som standard för varje privat moln distribution. 
 
-AVS-privata moln kräver minst ett `/22` CIDR-adressblock för undernät som visas nedan. Det här nätverket kompletterar dina lokala nätverk. Adress blocket får inte överlappa adress block som används i andra virtuella nätverk som finns i din prenumeration och lokala nätverk. I det här adress blocket kan hantering, etablering och vMotion-nätverk tillhandahållas automatiskt.
+AVS-privata moln kräver minst ett `/22` CIDR-adressblock för undernät som visas nedan. Det här nätverket kompletterar dina lokala nätverk. Adress blocket får inte överlappa adress block som används i andra virtuella nätverk i din prenumeration och lokala nätverk. I det här adress blocket kan hantering, etablering och vMotion-nätverk tillhandahållas automatiskt.
 
 Exempel på `/22` CIDR-nätverks adress block:  `10.10.0.0/22`
 
 Under näten:
 
-| Nätverksanvändning             | Undernät | Exempel        |
-| ------------------------- | ------ | -------------- |
-| Hantering av privata moln  | `/24`  | `10.10.0.0/24` |
-| vMotion-nätverk           | `/24`  | `10.10.1.0/24` |
-| Arbetsbelastningar för virtuella datorer              | `/24`  | `10.10.2.0/24` |
-| ExpressRoute-peering      | `/24`  | `10.10.3.8/30` |
+| Nätverksanvändning             | Undernät | Exempel          |
+| ------------------------- | ------ | ---------------- |
+| Hantering av privata moln  | `/26`  | `10.10.0.0/26`   |
+| vMotion-nätverk           | `/25`  | `10.10.1.128/25` |
+| Arbetsbelastningar för virtuella datorer              | `/24`  | `10.10.2.0/24`   |
+| ExpressRoute-peering      | `/29`  | `10.10.3.8/29`   |
 
 
-### <a name="network-ports-required-to-communicate-with-the-service"></a>Nätverks portar som krävs för att kommunicera med tjänsten
+## <a name="required-network-ports"></a>Nätverks portar som krävs
 
-| Källa | Mål | Protokoll | Port | Beskrivning  | 
+| Källa | Mål | Protokoll | Port | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
 | DNS-server för privat moln | Lokal DNS-Server | UDP | 53 | DNS-klient vidarebefordra begär Anden från PC vCenter för alla lokala DNS-frågor (kontrol lera DNS-avsnittet nedan) |  
 | Lokal DNS-Server   | DNS-server för privat moln | UDP | 53 | DNS-klient vidarebefordra begär Anden från lokala tjänster till privata moln DNS-servrar (kontrol lera DNS-avsnittet nedan) |  
@@ -67,20 +71,17 @@ Under näten:
 | Lokalt vCenter-nätverk | Nätverk för hantering av privata moln | TCP | 8000 |  vMotion av virtuella datorer från lokala vCenter till privat moln vCenter   |     
 
 ## <a name="dhcp-and-dns-resolution-considerations"></a>Överväganden för DHCP och DNS-matchning
-Program och arbets belastningar som körs i en privat moln miljö kräver namn matchning och DHCP-tjänster för sökning och tilldelning av IP-adresser. En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator för att tillhandahålla dessa tjänster i din privata moln miljö.  
+Program och arbets belastningar som körs i en privat moln miljö kräver namn matchning och DHCP-tjänster för sökning och IP-adress tilldelningar. En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator för att tillhandahålla dessa tjänster i din privata moln miljö.  
 
-Vi rekommenderar att du använder den DHCP-tjänst som är inbyggd för att NSX eller använda en lokal DHCP-server i det privata molnet i stället för att dirigera broadcast-DHCP-trafik via WAN tillbaka till lokalt.
+Använd den DHCP-tjänst som är inbyggd för att NSX eller använda en lokal DHCP-server i det privata molnet i stället för att dirigera broadcast-DHCP-trafik via WAN tillbaka till lokalt.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att:
+I den här självstudien har du lärt dig om överväganden och krav för att distribuera ett privat moln i Azure VMware-lösningen. 
 
-> [!div class="checklist"]
-> * Krav för nätverks anslutning
-> * DHCP i Azure VMware-lösning
 
 När du har rätt nätverk på plats kan du fortsätta till nästa självstudie för att skapa ett privat moln i Azure VMware-lösningen.
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa ett privat moln för Azure VMware-lösningen](tutorial-create-private-cloud.md)
+> [Skapa ett privat moln för Azure VMware-lösningen](tutorial-create-private-cloud.md)

@@ -7,23 +7,23 @@ author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 23b25340906ddb4501492b048740f590c13654c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258038"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett angulande Enkels Ides program
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett särskilt SPA-program (Single-Side Application) kan logga in användare som har personliga Microsoft-konton, arbets konton eller skol konton. En vinkel-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/).
@@ -96,7 +96,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > Ersätt följande värden:
 >
->|Värdenamn|Beskrivning|
+>|Värdenamn|Description|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|På sidan **Översikt** i program registreringen är det här ditt **program (klient) ID-** värde. |
 >|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).|

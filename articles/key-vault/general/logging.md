@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0364495d751465f644686824758992d47f0b8bdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290661"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -133,6 +133,7 @@ Vad loggas:
   * Skapa, ändra eller ta bort nycklar eller hemligheter.
   * Signering, verifiering, kryptering, dekryptering, wrapping och unwrap-nycklar, Hämta hemligheter och Visa nycklar och hemligheter (och deras versioner).
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begär Anden som inte har en Bearer-token, som har fel format eller som har upphört att gälla eller som har en ogiltig token.  
+* Event Grid meddelande händelser för snart utgångs datum, upphör ande och åtkomst principen för valv har ändrats (ny versions händelse loggas inte). Händelser loggas oavsett om det finns en händelse prenumeration som skapats i Key Vault. Mer information finns i [Event Grid händelse schema för Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## <a name="enable-logging-using-azure-cli"></a>Aktivera loggning med Azure CLI
 
@@ -190,7 +191,7 @@ Datum- och tidsvärdena använder UTC.
 
 Eftersom du kan använda samma lagrings konto för att samla in loggar för flera resurser, är det fullständiga resurs-ID: t i BLOB-namnet användbart för att få åtkomst till eller hämta bara de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Skapa en mapp för att ladda ned Blobbarna. Ett exempel:
+Skapa en mapp för att ladda ned Blobbarna. Exempel:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -210,7 +211,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 När du kör det här andra kommandot **/** skapar avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och lagra Blobbarna som filer.
 
-Om du vill ladda ned blobbarna selektivt använder du jokertecken. Ett exempel:
+Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
@@ -267,7 +268,7 @@ I följande tabell visas fält namn och beskrivningar:
 
 | Fältnamn | Description |
 | --- | --- |
-| **tid** |Datum och tid i UTC. |
+| **time** |Datum och tid i UTC. |
 | **resourceId** |Azure Resource Manager resurs-ID. För Key Vault loggar är detta alltid Key Vault resurs-ID. |
 | **operationName** |Namnet på åtgärden, som beskrivs i nästa tabell. |
 | **operationVersion** |REST API version som begärs av klienten. |
@@ -281,13 +282,15 @@ I följande tabell visas fält namn och beskrivningar:
 | **Autentiseringsidentitet** |Identitet från den token som angavs i REST API begäran. Detta är vanligt vis en "användare", "tjänstens huvud namn" eller kombinationen "användare + appId", som i fallet med en begäran som resulterar från en Azure PowerShell-cmdlet. |
 | **egenskaperna** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **skapa** eller **VaultGet**), innehåller det även nyckel-URI (as `id` ), valv-URI eller hemlig URI. |
 
-Värdena för **operationName** -fältet är i *ObjectVerb* -format. Ett exempel:
+Värdena för **operationName** -fältet är i *ObjectVerb* -format. Exempel:
 
 * Alla Key Vault-åtgärder har `Vault<action>` formatet, till exempel `VaultGet` och `VaultCreate` .
 * Alla viktiga åtgärder har `Key<action>` formatet, till exempel `KeySign` och `KeyList` .
 * Alla hemliga åtgärder har `Secret<action>` formatet, till exempel `SecretGet` och `SecretListVersions` .
 
 I följande tabell visas **operationName** -värdena och motsvarande REST API-kommandon:
+
+### <a name="operation-names-table"></a>Åtgärds namn tabell
 
 | operationName | REST API kommando |
 | --- | --- |
@@ -318,6 +321,13 @@ I följande tabell visas **operationName** -värdena och motsvarande REST API-ko
 | **SecretDelete** |[Ta bort en hemlighet](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Händelse publicering har ändrats för valv åtkomst princip |
+| **SecretNearExpiryEventGridNotification** |Hemlig händelse som är nära utgångs händelse publicerad |
+| **SecretExpiredEventGridNotification** |Hemligt utgånget händelse publicerat |
+| **KeyNearExpiryEventGridNotification** |Nyckel för nära förfallo händelser publicerad |
+| **KeyExpiredEventGridNotification** |Händelse publicerad för nyckel utgångna |
+| **CertificateNearExpiryEventGridNotification** |Certifikat nära utgångs händelse publicerad |
+| **CertificateExpiredEventGridNotification** |Utgånget certifikat-händelse publicerat |
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Använda Azure Monitor loggar
 

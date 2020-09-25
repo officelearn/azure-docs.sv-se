@@ -4,12 +4,12 @@ description: Övervaka beroende anrop från din lokala eller Microsoft Azure web
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d98fe91994c992d11fc58e3fec42d1796c0c966
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263937"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
@@ -101,9 +101,10 @@ För ASP.NET-program samlas fullständig SQL-frågetext in med hjälp av kod ins
 | Plattform | Steg som krävs för att få en fullständig SQL-fråga |
 | --- | --- |
 | Azure Web App |På kontroll panelen i din webbapp [öppnar du bladet Application Insights](../../azure-monitor/app/azure-web-apps.md) och aktiverar SQL-kommandon under .net |
-| IIS-server (virtuell Azure-dator, lokal och så vidare) | Använd antingen [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet eller Använd statusövervakare PowerShell-modulen för att [Installera Instrumentation-motorn](../../azure-monitor/app/status-monitor-v2-api-reference.md) och starta om IIS. |
+| IIS-server (virtuell Azure-dator, lokal och så vidare) | Använd antingen [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet eller Använd statusövervakare PowerShell-modulen för att [Installera Instrumentation-motorn](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) och starta om IIS. |
 | Azure Cloud Service | Lägg till [Start aktivitet för att installera StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Din app ska kunna integreras med ApplicationInsights SDK i bygg tid genom att installera NuGet-paket för [ASP.net](./asp-net.md) eller [ASP.net Core program](./asp-net-core.md) |
 | IIS Express | Använd [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet.
+| Azure-webbjobb | Använd [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet.
 
 Förutom plattforms stegen ovan **måste du även uttryckligen välja att aktivera SQL-filinsamling** genom att ändra applicationInsights.config-filen med följande:
 

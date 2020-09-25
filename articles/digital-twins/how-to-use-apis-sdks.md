@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: aac5c937ab2f80dcbe1567a3817b056a6285cf17
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 9812724b62717440160b9db8604a65ab787f3a9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252671"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -61,6 +61,8 @@ Använda data Plans-API: er:
 * Du kan använda **Java Script** SDK. För att använda JavaScript SDK...
    - Du kan visa och installera paketet från NPM: [Azure Azure Digitals dubbla klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
    - Du kan visa [SDK Reference-dokumentationen](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
+* Du kan använda **Java Script** SDK. För att använda JavaScript SDK...
+   - Du kan visa och installera paketet från maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
 * Du kan skapa ett SDK för ett annat språk med hjälp av AutoRest. Följ instruktionerna i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 Du kan också utföra API: er för datum plan genom att interagera med Azure Digitals flätar via [CLI](how-to-use-cli.md).
@@ -298,7 +300,7 @@ Härifrån kan du visa måtten för din instans och skapa anpassade vyer.
 ## <a name="next-steps"></a>Nästa steg
 
 Se hur du använder API: erna för att konfigurera en digital Azure-instans och autentisering:
-* [*Anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md)
+* [*Anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md)
 
 Du kan också gå igenom stegen för att skapa en klient app som den som används i den här instruktionen:
 * [*Självstudie: koda en klient app*](tutorial-code.md)

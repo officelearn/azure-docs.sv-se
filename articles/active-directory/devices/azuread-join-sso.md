@@ -1,6 +1,6 @@
 ---
 title: Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter | Microsoft Docs
-description: Lär dig att konfigurera Hybrid Azure Active Directory-anslutningsenheter.
+description: Lär dig hur du utökar SSO-upplevelsen genom att konfigurera hybrid Azure Active Directory anslutna enheter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256470"
 ---
-# <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter
+# <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Så fungerar enkel inloggning till lokala resurser på Azure AD-anslutna enheter
 
 Det är förmodligen inte en överraskning att en Azure Active Directory (Azure AD) ansluten enhet ger dig en enkel inloggning (SSO) till klientens molnappar. Om din miljö har en lokal Active Directory (AD) kan du utöka SSO-upplevelsen på dessa enheter till resurser och program som är beroende av lokala AD också. 
 
 Den här artikeln förklarar hur det fungerar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
  Om Azure AD-anslutna datorer inte är anslutna till din organisations nätverk krävs en VPN-eller annan nätverks infrastruktur. Lokal inloggning kräver detaljerad kommunikation med dina lokala AD DS-domänkontrollanter.
 

@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c341235a646fff28a16d30d1bf010932b02cf19
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295047"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning
 
@@ -306,7 +306,7 @@ Microsoft tillhandahåller ett verktyg som du kan använda för att testa din SA
 2.  Klicka på Installera nu för att börja ladda ned och installera verktyget.
 3.  Välj "Jag kan inte konfigurera Federation med Office 365, Azure eller andra tjänster som använder Azure Active Directory".
 4.  När verktyget har laddats ned och körs visas fönstret anslutnings diagnos. Verktyget kommer att gå igenom hur du testar din Federations anslutning.
-5.  Anslutnings analys öppnar din SAML 2,0-IDP så att du kan logga in, ange autentiseringsuppgifterna för det användar huvud som du testar: ![ SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  Anslutnings analysen öppnar din SAML 2,0-IDP så att du kan logga in, ange autentiseringsuppgifterna för det användar huvud som du testar: ![ skärm bild som visar inloggnings fönstret för SAML 2,0-IDP.](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  I fönstret för Federations test inloggning ska du ange ett konto namn och lösen ord för den Azure AD-klient som har kon figurer ATS för federerad med din SAML 2,0-identitetsprovider. Verktyget försöker logga in med de här autentiseringsuppgifterna och detaljerade resultat från tester som utförs under inloggnings försöket visas som utdata.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Det här fönstret visar ett undersöknings resultat som inte kunde utföras. Om du klickar på granska detaljerade resultat visas information om resultatet för varje test som utfördes. Du kan också spara resultatet till disk för att dela dem.

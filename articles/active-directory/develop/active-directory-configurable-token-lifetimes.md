@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: bbe4328d797f740e124d4944aee889d471393200
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2f6ade3a01022bf3bcc4d6b522e45ae98fe29b33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258428"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurerbara livstider för token i Microsoft Identity Platform (för hands version)
 
@@ -89,9 +89,9 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
 | Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |180 dagar<sup>1</sup> |
-| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |180 dagar<sup>1</sup> |
+| Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) | 180 dagar |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) | 180 dagar |10 minuter |Till och med återkalla<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är den maximala explicita längden som kan anges för dessa attribut.
 * <sup>2</sup> För att säkerställa att Microsoft Teams webb klienten fungerar rekommenderar vi att du håller AccessTokenLifetime till mer än 15 minuter för Microsoft Teams.

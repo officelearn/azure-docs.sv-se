@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258684"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
 
@@ -262,7 +262,7 @@ Namngivnings standarden hjälper dig att hitta principer och förstå deras syft
 
 * När det gäller (om tillämpligt)
 
-![Namngivnings standard](media/plan-conditional-access/11.png)
+![Skärm bild som visar namngivnings standarder för principer.](media/plan-conditional-access/11.png)
 
 **Exempel**; En princip för att kräva MFA för marknadsförings användare som har åtkomst till Dynamics CRP-appen från externa nätverk kan vara:
 

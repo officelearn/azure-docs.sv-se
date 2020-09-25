@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887488"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293908"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Database DACPAC-och BACPAC-paket i SQL Edge
 
 Azure SQL Edge är en optimerad relationsdatabasmotor som är avsedd för IoT- och Edge-distributioner. Den bygger på de senaste versionerna av Microsoft SQL Database-motorn, som tillhandahåller branschledande prestanda-, säkerhets-och fråge bearbetnings funktioner. Tillsammans med de branschledande Relations databas hanterings funktionerna i SQL Server ger Azure SQL Edge inbyggd strömnings kapacitet för analys i real tid och komplex händelse bearbetning.
 
-Azure SQL Edge tillhandahåller också en inbyggd implementering av SqlPackage.exe som gör att du kan distribuera ett [SQL Database DACPAC-och BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under distributionen av SQL Edge. 
+Azure SQL Edge tillhandahåller inbyggd mekanism som gör att du kan distribuera ett [SQL Database DACPAC-och BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) -paket under eller efter distributionen av SQL Edge.
 
 SQL Database DACPAC-och BACPAC-paket kan distribueras till SQL Edge med `MSSQL_PACKAGE` miljövariabeln. Miljö variabeln kan konfigureras med något av följande.  
 - En lokal mapplats i SQL-behållaren som innehåller DACPAC-och BACPAC-filerna. Den här mappen kan mappas till en värd volym med hjälp av antingen monterings punkter eller data volym behållare. 
@@ -64,6 +64,10 @@ Om du vill distribuera (eller importera) ett SQL Database DAC-paket `(*.dacpac)`
 5. Efter uppdateringen laddas paketfilerna ned, zippas upp och distribueras mot SQL Edge-instansen.
 
 Vid varje omstart av Azure SQL Edge-behållaren försöker SQL Edge hämta det zippade fil paketet och utvärdera för ändringar. Om en ny version av DACPAC-filen påträffas distribueras ändringarna till databasen i SQL Edge.
+
+## <a name="known-issue"></a>Känt problem
+
+Under vissa DACPAC-eller BACPAC-distributioner kan användare stöta på ett kommando-timeout, vilket leder till att DACPAC distributions åtgärden Miss lyckas. Om det här problemet uppstår använder du SQLPackage.exe (eller SQL-klient verktyg) för att tillämpa DACPAC-eller BACPAC-som. 
 
 ## <a name="next-steps"></a>Nästa steg
 

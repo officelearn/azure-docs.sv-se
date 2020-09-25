@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462147"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264617"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -20,7 +20,7 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
@@ -162,7 +162,7 @@ Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat b
 
 Följande IP-adressintervall definieras också som en del av klustret Create process:
 
-* *--Service-CIDR* används för att tilldela interna tjänster i AKS-klustret en IP-adress. Detta IP-adressintervall ska vara ett adress utrymme som inte används någon annan stans i din nätverks miljö. Det här intervallet omfattar alla lokala nätverks intervall om du ansluter eller planerar att ansluta, dina virtuella Azure-nätverk med Express Route eller en VPN-anslutning från plats till plats.
+* *--Service-CIDR* används för att tilldela interna tjänster i AKS-klustret en IP-adress. Detta IP-adressintervall ska vara ett adress utrymme som inte används någon annan stans i din nätverks miljö, inklusive alla lokala nätverks intervall om du ansluter eller planerar att ansluta till dina virtuella Azure-nätverk med hjälp av Express Route eller en VPN-anslutning från plats till plats.
 
 * IP-adressen för *--DNS-service-IP* måste vara *.10* -adressen till tjänstens IP-adressintervall.
 

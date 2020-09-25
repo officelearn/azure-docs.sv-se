@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
-ms.openlocfilehash: a47a6e1860edcb9b2bf89c25e78f6a66e8a7cf4d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295625"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Felsöka anslutnings problem till Azure Database for PostgreSQL-storskalig (citus)
 
@@ -27,7 +27,7 @@ Anslutnings problem kan bero på flera saker, till exempel:
 * Underhåll av tjänst
 * Koordinator noden växlar över till ny maskin vara
 
-I allmänhet kan anslutnings problem till storskaligt klassificeras enligt följande:
+I allmänhet kan anslutnings problem till storskalig (citus) klassificeras enligt följande:
 
 * Tillfälliga fel (kort livs längd eller intermittent)
 * Beständiga eller icke-tillfälliga fel (fel som upprepas regelbundet)
@@ -36,7 +36,7 @@ I allmänhet kan anslutnings problem till storskaligt klassificeras enligt följ
 
 Tillfälliga fel uppstår av flera orsaker. Det vanligaste är system underhåll, fel med maskin vara eller program vara och vCore uppgraderingar av koordinatorer.
 
-Om du aktiverar hög tillgänglighet för noder i den storskaliga Server gruppen kan du undvika dessa typer av problem automatiskt. Ditt program bör dock fortfarande vara för berett för att förlora anslutningen i korthet. Även andra händelser kan ta längre tid att undvika, till exempel när en stor transaktion orsakar en tids krävande återställning.
+Om du aktiverar hög tillgänglighet för citus-noder kan du undvika dessa typer av problem automatiskt. Ditt program bör dock fortfarande vara för berett för att förlora anslutningen i korthet. Även andra händelser kan ta längre tid att undvika, till exempel när en stor transaktion orsakar en tids krävande återställning.
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Steg för att lösa problem med tillfälliga anslutningar
 
@@ -49,13 +49,13 @@ Om du aktiverar hög tillgänglighet för noder i den storskaliga Server gruppen
 
 Om programmet inte kan ansluta till storskalig (citus) är de vanligaste orsakerna till fel i brand väggen eller användar fel.
 
-* Konfiguration av koordinator-nodens brand vägg: kontrol lera att den storskaliga Server brand väggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
+* Konfiguration av koordinator-nodens brand vägg: se till att citus-serverns brand vägg är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
 * Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. Vissa brand väggar kräver att inte bara program efter namn, utan att tillåta IP-adresser och portar för-servern.
 * Användar fel: kontrol lera anslutnings strängen. Du kan ha felangede parametrar som server namn. Du kan hitta anslutnings strängar för olika språk ramverk och psql i Azure Portal. Gå till sidan **anslutnings strängar** i citus-servergruppen (för Server gruppen). Tänk också på att citus-kluster bara har en databas och dess fördefinierade namn är **citus**.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 
-1. Konfigurera [brand Väggs regler](howto-hyperscale-manage-firewall-using-portal.md) som tillåter KLIENTens IP-adress. För temporär testning kan du konfigurera en brand Väggs regel med 0.0.0.0 som första IP-adress och använda 255.255.255.255 som sista IP-adress. Regeln öppnar servern med alla IP-adresser. Om regeln löser anslutnings problemet tar du bort den och skapar en brand Väggs regel för en lämplig, begränsad IP-adress eller ett IP-adressintervall.
+1. Konfigurera [brand Väggs regler](howto-hyperscale-manage-firewall-using-portal.md) som tillåter KLIENTens IP-adress. För temporär testning kan du konfigurera en brand Väggs regel med 0.0.0.0 som första IP-adress och använda 255.255.255.255 som sista IP-adress. Regeln öppnar servern för alla IP-adresser. Om regeln löser anslutnings problemet tar du bort den och skapar en brand Väggs regel för en lämplig, begränsad IP-adress eller ett IP-adressintervall.
 2. Kontrol lera att port 5432 är öppen för utgående anslutningar på alla brand väggar mellan klienten och Internet.
 3. Kontrol lera anslutnings strängen och andra anslutnings inställningar.
 4. Kontrol lera tjänstens hälso tillstånd på instrument panelen.

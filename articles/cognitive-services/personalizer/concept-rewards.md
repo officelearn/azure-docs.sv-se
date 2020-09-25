@@ -1,14 +1,16 @@
 ---
 title: Belönings Poäng – Personanpassare
 description: Belönings poängen anger hur bra det RewardActionID som har gjort det, för användaren. Värdet för belönings poängen bestäms av affärs logiken, baserat på observationer av användar beteende. Personanpassa tågens maskin inlärnings modeller genom att utvärdera belöningarna.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 58ce4d7593b23807f4b31e3e71cbfdcd873b1fcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253504"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Belönings Poäng visar att anpassningen lyckades
 

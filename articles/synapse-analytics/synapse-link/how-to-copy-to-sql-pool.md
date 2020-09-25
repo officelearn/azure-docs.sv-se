@@ -9,18 +9,18 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88962d63519cfeb78be694c4f702b05ed4e7d3df
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287858"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Kopiera data från Azure Cosmos DB till en SQL-pool med Apache Spark
 
 Azure Synapse-länken för Azure Cosmos DB gör det möjligt för användare att köra nära real tids analys över drifts data i Azure Cosmos DB. Det finns dock tillfällen då vissa data behöver aggregeras och berikas för att hantera informations lager användare. Att granska och exportera Synapse länk data kan göras med bara några få celler i en bärbar dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Etablera en Synapse-arbetsyta](../quickstart-create-workspace.md) med:
     * [Spark-pool](../quickstart-create-apache-spark-pool-studio.md)
     * [SQL-pool](../quickstart-create-sql-pool-studio.md)
@@ -29,12 +29,12 @@ Azure Synapse-länken för Azure Cosmos DB gör det möjligt för användare att
 * [Har rätt installation för att importera data till en SQL-pool från Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Steg
-I den här självstudien ansluter du till analys lagret så att det inte påverkar transaktions lagret (det kommer inte att förbruka några enheter för programbegäran). Vi ska gå igenom följande steg:
+I den här självstudien ansluter du till analys lagret så att det inte påverkar transaktions lagringen (den kommer inte att förbruka några enheter för programbegäran). Vi går igenom följande steg:
 1. Läs Cosmos DB HTAP-behållaren i en spark-dataframe
 2. Sammanställ resultatet i en ny dataframe
 3. Mata in data i en SQL-pool
 
-[![Spark till SQL-steg](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Spark till SQL steg 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Data
 I det exemplet använder vi en HTAP-behållare som heter **RetailSales**. Den är en del av en länkad tjänst med namnet **ConnectedData**och har följande schema:
@@ -50,7 +50,7 @@ I det exemplet använder vi en HTAP-behållare som heter **RetailSales**. Den ä
 * weekStarting: långt (Nullable = true)
 * _etag: sträng (Nullable = true)
 
-Vi kommer att aggregera försäljningen (*kvantitet*, *intäkter* (pris × kvantitet) av *ProductCode* och *weekStarting* för rapportering. Slutligen kommer vi att exportera dessa data till en SQL-adresspool med namnet **dbo. productsales**.
+Vi sammanställer försäljningen (*kvantitet*, *intäkt* (pris × kvantitet) av *ProductCode* och *weekStarting* för rapportering. Slutligen ska vi exportera dessa data till en SQL-adresspool med namnet **dbo. productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Konfigurera en spark-anteckningsbok
 Skapa en spark-anteckningsbok med Scala som Spark (Scala) som huvud språk. Vi använder antecknings bokens standardinställning för sessionen.
@@ -97,7 +97,7 @@ SELECT  [productCode]
  FROM [dbo].[productsales]
 ```
 
-Frågan visar följande resultat i ett diagram läge: [ ![ Spark till SQL-steg](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+Frågan visar följande resultat i ett diagram läge: [ ![ Spark till SQL steg 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Fråga Azure Cosmos DB analys lager med Apache Spark](./how-to-query-analytical-store-spark.md)

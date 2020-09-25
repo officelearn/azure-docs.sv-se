@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d7e6d3c1554f70ea14e097ff2fe6df47987b5927
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423056"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296254"
 ---
 # <a name="azure-media-player-full-setup"></a>Fullständig installation av Azure Media Player #
 
@@ -56,11 +56,11 @@ Med Azure Media Player kan du använda en HTML5-video tag för att bädda in en 
 1. `<data-setup>`Attributet i `<video>` instruerar Azure Media Player att automatiskt konfigurera videon när sidan är klar och läsa eventuella (i JSON-format) från attributet.
 1. `id`Attributet: ska användas och vara unikt för varje video på samma sida.
 1. `class`Attributet innehåller två klasser:
-    - `azuremediaplayer`använder format som krävs för Azure Media Player UI-funktioner
-    - `amp-default-skin`tillämpar standard skalet på HTML5-kontrollerna
+    - `azuremediaplayer` använder format som krävs för Azure Media Player UI-funktioner
+    - `amp-default-skin` tillämpar standard skalet på HTML5-kontrollerna
 1. `<source>`Innehåller två obligatoriska attribut
-    - `src`attribut kan innehålla en **. ISM/manifest-* fil från Azure Media Services läggs till, Azure Media Player lägger automatiskt till URL: er för streck, mjuk och HLS i spelaren
-    - `type`attribut är den nödvändiga MIME-typen för data strömmen. MIME-typen som är associerad med *". ISM/manifest"* är *"Application/VND. MS-sstr + XML"*
+    - `src` attribut kan innehålla en **. ISM/manifest-* fil från Azure Media Services läggs till, Azure Media Player lägger automatiskt till URL: er för streck, mjuk och HLS i spelaren
+    - `type` attribut är den nödvändiga MIME-typen för data strömmen. MIME-typen som är associerad med *". ISM/manifest"* är *"Application/VND. MS-sstr + XML"*
 1. Det *valfria* `<data-setup>` attributet på `<source>` visar Azure Media Player om det finns några unika leverans principer för strömmen från Azure Media Services, inklusive, men inte begränsat till, krypterings typ (AES eller PlayReady, Widevine eller Fairplay) och token.
 
 Inkludera/exkludera attribut, inställningar, källor och spår exakt som för HTML5-video.

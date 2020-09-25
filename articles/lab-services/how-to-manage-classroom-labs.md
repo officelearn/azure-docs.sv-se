@@ -3,17 +3,17 @@ title: Hantera klass rums labb i Azure Lab Services | Microsoft Docs
 description: Lär dig hur du skapar och konfigurerar ett klass rums labb, visar alla klass rums labb, delar registrerings länken med en labb användare eller tar bort ett labb.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251685"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klass rums labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klass rums labb. Det visar också hur du visar alla klass rums labb i ett labb konto. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägaren kan lägga till andra användare till rollen Lab Creator genom att använda stegen i följande artikel: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) (Lägg till en användare till rollen Lab Creator).
 
 ## <a name="create-a-classroom-lab"></a>Skapa ett klassrumslabb
@@ -32,7 +32,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
     1. Granska det **totala priset per timme** som visas på sidan. 
     1. Välj **Spara**.
 
-        ![Nytt labb fönster](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Skärm bild som visar fönstret "nytt labb".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > Du ser ett alternativ för att välja en plats för ditt labb om labb kontot har kon figurer ATS för att [tillåta labb skapare att välja alternativet labb plats](allow-lab-creator-pick-lab-location.md) . 
@@ -89,15 +89,15 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 
 ### <a name="vm-sizes"></a>VM-storlekar  
 
-| Storlek | Kärnor | RAM | Beskrivning | 
+| Storlek | Kärnor | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Liten | 2 | 3,5 GB | Den här storleken passar bäst för kommando rad, öppna webbläsare, webb servrar med låg trafik, små till medel stora databaser. |
-| Medium | 4 | 7 GB | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys | 
+| Medium | 4 | 7 GB | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys | 
 | Medium (kapslad virtualisering) | 4 | 16 GB | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys. Den här storleken stöder även kapslad virtualisering. <p>Den här storleken kan användas i scenarier där varje student behöver flera virtuella datorer. Lärare kan använda kapslad virtualisering för att konfigurera ett fåtal kapslade virtuella datorer med liten storlek inuti den virtuella datorn. </p> |
 | Liten GPU (Compute) | 6 | 56 GB | <p>Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärnings program.</p><p>Azure Lab Services installerar och konfigurerar automatiskt de nödvändiga GPU-drivrutinerna åt dig när du skapar ett labb med GPU-avbildningar. </p> | 
 | Liten GPU (visualisering) | 6 | 56 GB | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. | 
 | Stor | 8 | 16 GB | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. |
-| Stor (kapslad virtualisering) | 8 | 32 GB | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. Den här storleken stöder även kapslad virtualisering. |  
+| Stor (kapslad virtualisering) | 8 | 32 GB | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. Den här storleken stöder även kapslad virtualisering. |  
 | Medelhög GPU (visualisering) | 12 | 112 GB | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. | 
 
 > [!NOTE]

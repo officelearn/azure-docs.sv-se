@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: d08984165f59f15e9feb739a719d80e7dc3902a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 97d3b5030ed0ddb29fc439f4a0f6bcc7ff98b6ce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268034"
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
 För att hjälpa kunder att förhindra, upptäcka och reagera på hot, Azure Security Center samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurations information, metadata, händelse loggar och mycket annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
@@ -76,7 +76,7 @@ Om du inte använder Azure Defender kan du också inaktivera data insamling frå
 
 Kunder kan förbruka Security Center-relaterade data från olika dataströmmar:
 
-* **Azure-aktivitet**: alla säkerhets aviseringar, godkända Security Center [just-in-Time-](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) begäranden och alla aviseringar som genereras av [anpassningsbara program kontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Azure-aktivitet**: alla säkerhets aviseringar, godkända Security Center [just-in-Time-](security-center-just-in-time.md) begäranden och alla aviseringar som genereras av [anpassningsbara program kontroller](security-center-adaptive-application.md).
 * **Azure Monitor loggar**: alla säkerhets aviseringar.
 
 

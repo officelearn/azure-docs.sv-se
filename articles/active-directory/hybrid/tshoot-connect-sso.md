@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294826"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -37,6 +37,7 @@ Den här artikeln hjälper dig att hitta felsöknings information om vanliga pro
 - Om du synkroniserar 30 eller fler Active Directory skogar kan du inte aktivera sömlös SSO via Azure AD Connect. Som en lösning kan du [aktivera funktionen manuellt](#manual-reset-of-the-feature) på klienten.
 - Om du lägger till Azure AD-tjänstens URL ( `https://autologon.microsoftazuread-sso.com` ) i zonen betrodda platser i stället för zonen Lokalt intranät *blockeras användare från att logga in*.
 - Sömlös SSO stöder AES256_HMAC_SHA1, AES128_HMAC_SHA1 och RC4_HMAC_MD5 krypterings typer för Kerberos. Det rekommenderas att krypterings typen för AzureADSSOAcc $-kontot har angetts till AES256_HMAC_SHA1, eller en av AES-typerna vs. RC4 för ytterligare säkerhet. Krypterings typen lagras i attributet msDS-SupportedEncryptionTypes för kontot i din Active Directory.  Om krypterings typen för AzureADSSOAcc $-kontot har angetts till RC4_HMAC_MD5 och du vill ändra den till en av AES-krypterings typerna, se till att du först rullar över Kerberos-dekrypterings nyckeln för AzureADSSOAcc $-kontot enligt beskrivningen i [FAQ-dokumentet](how-to-connect-sso-faq.md) under den aktuella frågan, annars sker ingen sömlös SSO.
+-  Om du har mer än en skog med skogs förtroende, aktiverar SSO i en av skogarna, kommer att aktivera SSO i alla betrodda skogar. Om du aktiverar SSO i en skog där SSO redan är aktiverat, får du ett fel meddelande om att SSO redan har Aktiver ATS i skogen.
 
 ## <a name="check-status-of-feature"></a>Kontrol lera status för funktionen
 

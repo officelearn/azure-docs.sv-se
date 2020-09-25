@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5e3cb07730aafed7d1c339f543e7fb09fe956cab
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961915"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255170"
 ---
 # <a name="use-an-app-service-environment"></a>Använd App Service Environment
 
@@ -196,7 +196,7 @@ Om du integrerar med Log Analytics kan du se loggarna genom att välja **loggar*
 
 **Skapa en avisering**
 
-Om du vill skapa en avisering mot loggarna följer du anvisningarna i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor][logalerts]. I korthet:
+Om du vill skapa en avisering mot loggarna följer du anvisningarna i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-log.md). I korthet:
 
 * Öppna sidan aviseringar i ASE-portalen
 * Välj **ny aviserings regel**

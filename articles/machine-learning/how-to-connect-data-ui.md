@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 54d33b849f809dbe1ebefbbc3d2f63db6877e86e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296679"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Ansluta till data med Azure Machine Learning Studio
 
@@ -24,14 +24,14 @@ I den här artikeln får du lära dig hur du får åtkomst till dina data med [A
 
 I följande tabell definieras och sammanfattas fördelarna med data lager och data uppsättningar. 
 
-||Beskrivning| Fördelar|   
+|Objekt|Description| Fördelar|   
 |---|---|---|
-|Datalager| Anslut säkert till lagrings tjänsten på Azure genom att lagra din anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan | Eftersom informationen lagras på ett säkert sätt kan du <br><br> <li> Ange &nbsp; inte &nbsp; &nbsp; autentiseringsuppgifter för autentisering eller ursprungliga data källor i risk zonen. <li> Behöver du inte längre hårdkoda dem i dina skript.
+|Datalager| Anslut säkert till lagrings tjänsten på Azure genom att lagra din anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan | Eftersom informationen lagras på ett säkert sätt kan du <br><br> <li> Ange &nbsp; inte &nbsp; &nbsp; autentiseringsuppgifter &nbsp; för autentisering eller &nbsp; ursprungliga &nbsp; data källor i risk zonen. <li> Behöver du inte längre hårdkoda dem i dina skript.
 |Datauppsättningar| Genom att skapa en datamängd skapar du en referens till datakällans plats, tillsammans med en kopia av dess metadata. Med data uppsättningar kan du <br><br><li> Få åtkomst till data under modell träning.<li> Dela data och samar beta med andra användare.<li> Utnyttja bibliotek med öppen källkod, som Pandas, för data utforskning. | Eftersom data uppsättningar är Lazy utvärderas och data finns kvar på sin befintliga plats, <br><br><li>Behåll en enda kopia av data i lagrings utrymmet.<li> Ingen extra lagrings kostnad <li> Riskerar inte att oavsiktligt ändra dina ursprungliga data källor.<li>Förbättra prestanda hastigheten i ML-arbetsflöde. 
 
 Information om var data lager och data uppsättningar passar i Azure Machine Learning programmets övergripande data åtkomst arbets flöde finns i artikeln [säker åtkomst till data](concept-data.md#data-workflow) .
 
-För en kod första gången kan du läsa följande artiklar för att använda [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) för att:
+För en kod första gången kan du läsa följande artiklar för att använda [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) för att:
 * [Anslut till Azure Storage-tjänster med data lager](how-to-access-data.md). 
 * [Skapa Azure Machine Learning data uppsättningar](how-to-create-register-datasets.md). 
 
@@ -112,22 +112,22 @@ Mer specifikt innehåller Azure Machine Learning data uppsättningens data profi
 >[!NOTE]
 > Tomma poster visas för funktioner med irrelevanta typer.
 
-Statistik|Beskrivning
-------|------
-Funktion| Namn på den kolumn som sammanfattas.
-Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
-Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så den här visualiseringen är användbar för att identifiera udda eller saknade värden.
-Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
-Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (som booleska värden).
-Max| Max värde för kolumnen. 
-Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
-Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
-Kvantiler| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
-Medelvärde| Aritmetiskt medelvärde eller genomsnitt för kolumnen.
-Standardavvikelse| Mått på mängden spridning eller variation för den här kolumnens data.
-Varians| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
-Snedhet| Mått på hur olika data från den här kolumnen kommer från en normal distribution.
-Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
+|Statistik|Description
+|------|------
+|Funktion| Namn på den kolumn som sammanfattas.
+|Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
+|Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så den här visualiseringen är användbar för att identifiera udda eller saknade värden.
+|Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
+|Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (som booleska värden).
+|Max| Max värde för kolumnen. 
+|Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
+|Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
+|Kvantiler| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
+|Medelvärde| Aritmetiskt medelvärde eller genomsnitt för kolumnen.
+|Standardavvikelse| Mått på mängden spridning eller variation för den här kolumnens data.
+|Varians| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
+|Snedhet| Mått på hur olika data från den här kolumnen kommer från en normal distribution.
+|Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
 
 ## <a name="storage-access-and-permissions"></a>Lagrings åtkomst och behörigheter
 

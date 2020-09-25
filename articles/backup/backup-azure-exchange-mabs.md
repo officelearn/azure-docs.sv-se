@@ -4,18 +4,18 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: eff702cb50317e6b685e19e7df1ffc99b5fc1736
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263002"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
 
 Den här artikeln beskriver hur du konfigurerar Microsoft Azure Backup Server (MABS) för att säkerhetskopiera en Microsoft Exchange-Server till Azure.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter kontrollerar du att Azure Backup Server är [installerat och förberett](backup-azure-microsoft-azure-backup.md).
 
@@ -23,8 +23,8 @@ Innan du fortsätter kontrollerar du att Azure Backup Server är [installerat oc
 
 Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 
-1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installera agenten på Exchange-servern genom att välja **hanterings > agenter > installera** i Mabs administratörskonsol. Se [Installera Mabs Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) för detaljerade anvisningar.
+1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Installera agenten på Exchange-servern genom att välja **hanterings > agenter > installera** i Mabs administratörskonsol. Se [Installera Mabs Protection Agent](/system-center/dpm/deploy-dpm-protection-agent) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
 

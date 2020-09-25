@@ -3,12 +3,12 @@ title: Fjärrans luta till en Azure Service Fabric-klusternod
 description: Lär dig hur du fjärransluter till en skalnings uppsättnings instans (en Service Fabric klusternod).
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268102"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Fjärrans luta till en instans av en skalnings uppsättning för virtuell dator eller en klusternod
 I ett Service Fabric kluster som körs i Azure kan varje typ av klusternod som du definierar [ställa in en virtuell dator separat skala](service-fabric-cluster-nodetypes.md).  Du kan fjärrans luta till angivna skalnings uppsättnings instanser (klusternoder).  Till skillnad från virtuella datorer med en instans, har skalnings uppsättnings instanser inte sina egna virtuella IP-adresser. Detta kan vara svårt när du söker efter en IP-adress och port som du kan använda för att fjärrans luta till en angiven instans.
@@ -21,11 +21,11 @@ Utför följande steg för att hitta en IP-adress och port som du kan använda f
     
     På sidan för belastningsutjämnaren i Azure Portal väljer du **Inställningar**  >  **inkommande NAT-regler**: 
 
-    ![Ingående NAT-regler för belastnings utjämning](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Skärm bild av sidan för belastnings utjämning i Azure Portal. På den vänstra menyn, under Inställningar, väljs inkommande NAT-regler.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     Följande skärm bild visar de ingående NAT-reglerna för en nodtyp med namnet FrontEnd: 
 
-    ![Ingående NAT-regler för belastnings utjämning](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Skärm bild som visar inkommande NAT-regler för en belastningsutjämnare. Namnet, IP-versionen, målet, målet och tjänsten visas för varje regel.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     För varje nod visas IP-adressen i **mål** kolumnen, kolumnen **mål** som visar skalnings uppsättnings instansen och **tjänst** kolumnen innehåller port numret. För fjärr anslutning allokeras portarna till varje nod i stigande ordning som börjar med port 3389.
 

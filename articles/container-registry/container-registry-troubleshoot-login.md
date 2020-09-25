@@ -3,12 +3,12 @@ title: Felsöka inloggning till registret
 description: Symptom, orsaker och lösningar på vanliga problem vid inloggning i ett Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253362"
 ---
 # <a name="troubleshoot-registry-login"></a>Felsöka inloggning av registret
 
@@ -105,9 +105,9 @@ Relaterade länkar:
 
 * [RBAC-roller och behörigheter – Azure Container Registry](container-registry-roles.md)
 * [Logga in med lagringsplats-token](container-registry-repository-scoped-permissions.md)
-* [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md)
 * [Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Skapa en ny programhemlighet](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Skapa en ny programhemlighet](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Azure AD-autentisering och auktoriseringsregler](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>Kontrol lera att autentiseringsuppgifterna inte har upphört att gälla
@@ -140,7 +140,7 @@ Om du inte löser problemet här kan du läsa följande alternativ.
 
 * Andra fel söknings avsnitt för registret innehåller:
   * [Felsöka nätverks problem med registret](container-registry-troubleshoot-access.md)
-  * [Felsöka register prestanda](container-registry-troubleshoot-performance.md)
+  * [Felsöka registerprestanda](container-registry-troubleshoot-performance.md)
 * Alternativ för [Community-support](https://azure.microsoft.com/support/community/)
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [Öppna en support ärende](https://azure.microsoft.com/support/create-ticket/) baserad på information som du anger, en snabb diagnostik kan köras för autentiseringsfel i registret

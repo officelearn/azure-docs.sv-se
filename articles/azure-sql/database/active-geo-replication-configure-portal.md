@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1beb2065f1823135981545e42d499c5429b87c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7e4da2051ab84cebff5aae857c02907f7b58e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045398"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263631"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Självstudie: Konfigurera aktiv geo-replikering och redundans i Azure Portal (Azure SQL Database)
 
@@ -28,7 +28,7 @@ För bästa praxis med grupper för automatisk redundans, se [metod tips för Az
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera aktiv geo-replikering med hjälp av Azure Portal behöver du följande resurs:
 
@@ -55,12 +55,12 @@ När den sekundära har skapats och dirigerats påbörjar data replikeringen fr�
     ![Konfigurera geo-replikering](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Välj eller konfigurera server och pris nivå för den sekundära databasen.
 
-    ![Konfigurera sekundär](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![Skapa sekundärt formulär](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Alternativt kan du lägga till en sekundär databas i en elastisk pool. Om du vill skapa den sekundära databasen i en pool klickar du på **elastisk pool** och väljer en pool på mål servern. En pool måste redan finnas på mål servern. Det här arbets flödet skapar inte någon pool.
 5. Klicka på **skapa** för att lägga till den sekundära.
 6. Den sekundära databasen skapas och initierings processen påbörjas.
 
-    ![Konfigurera sekundär](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![sekundär mappning](./media/active-geo-replication-configure-portal/seeding0.png)
 7. När initierings processen är klar visas dess status i den sekundära databasen.
 
     ![Dirigering har slutförts](./media/active-geo-replication-configure-portal/seeding-complete.png)
@@ -73,7 +73,7 @@ Den sekundära databasen kan växlas till den primära.
 2. På bladet SQL Database väljer du **alla inställningar**  >  **geo-replikering**.
 3. I listan **sekundära** väljer du den databas som du vill bli den nya primära och klickar på **Framtvinga redundans**.
 
-    ![(](./media/active-geo-replication-configure-portal/secondaries.png)
+    ![redundans](./media/active-geo-replication-configure-portal/secondaries.png)
 4. Klicka på **Ja** för att starta redundansväxlingen.
 
 Kommandot växlar omedelbart den sekundära databasen till den primära rollen. Den här processen bör normalt slutföras inom 30 SEK eller mindre.

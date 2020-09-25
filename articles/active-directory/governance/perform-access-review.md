@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265689"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Granska åtkomst till grupper och program i åtkomst granskningar för Azure AD
 
@@ -37,7 +37,7 @@ Du kan starta åtkomst gransknings processen från e-postmeddelandet eller genom
 
 1. Sök efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett exempel på ett e-postmeddelande för att granska åtkomsten för en grupp.
 
-    ![Exempel på e-post från Microsoft för att kontrol lera åtkomsten till en grupp](./media/perform-access-review/access-review-email.png)
+    ![Skärm bild som visar ett exempel på ett e-postmeddelande från Microsoft för att kontrol lera åtkomsten till en grupp.](./media/perform-access-review/access-review-email.png)
 
 1. Klicka på länken **Starta granskning** för att öppna åtkomst granskningen.
 
@@ -54,7 +54,7 @@ Du kan starta åtkomst gransknings processen från e-postmeddelandet eller genom
         > [!NOTE]
         > Om panelen **åtkomst granskningar** inte visas finns det inga åtkomst granskningar att utföra för organisationen och ingen åtgärd krävs för tillfället.
 
-        ![Lista över väntande åtkomst granskningar för appar och grupper](./media/perform-access-review/access-reviews-list.png)
+        ![Skärm bild som visar listan över väntande åtkomst granskningar för appar och grupper.](./media/perform-access-review/access-reviews-list.png)
 
     1. Klicka på länken **Starta granskning** för den åtkomst granskning som du vill utföra.
 
@@ -99,7 +99,7 @@ För att få åtkomst granskningar enklare och snabbare ger vi även rekommendat
 
 1. Klicka på **Godkänn rekommendationer**i det blå fältet längst ned på sidan.
 
-    ![Öppna listan med åtkomst granskningar som visar knappen Godkänn rekommendationer](./media/perform-access-review/accept-recommendations.png)
+    ![Skärm bild som visar den öppna åtkomst gransknings listan med knappen "Godkänn rekommendationer" markerad.](./media/perform-access-review/accept-recommendations.png)
 
     Du ser en sammanfattning av de rekommenderade åtgärderna.
 

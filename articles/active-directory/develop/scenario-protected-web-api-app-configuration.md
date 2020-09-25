@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257460"
 ---
 # <a name="protected-web-api-code-configuration"></a>Skyddat webb-API: kod konfiguration
 
@@ -111,6 +111,12 @@ Om du har accepterat app-ID-URI: n som föreslås av appens registrerings Portal
 
 När en app anropas på en styrenhets åtgärd som innehåller ett **[auktorisera]** -attribut, ASP.NET och ASP.net Core extrahera åtkomsttoken från Authorization-huvudets Bearer-token. Åtkomsttoken vidarebefordras sedan till JwtBearer mellanprogram, som anropar Microsoft IdentityModel-tillägg för .NET.
 
+#### <a name="microsoftidentityweb"></a>Microsoft. Identity. Web
+
+Microsoft rekommenderar att du använder [Microsoft. Identity. Web NuGet-](https://www.nuget.org/packages/Microsoft.Identity.Web) paketet när du utvecklar ett webb-API med ASP.net Core.
+
+_Microsoft. Identity. Web_ ger ett lim mellan ASP.net Core, autentisering mellanprogram och [Microsoft Authentication Library (MSAL)](msal-overview.md) för .net. Det ger en tydligare och mer robust utvecklare och utnyttjar kraften hos Microsoft Identity Platform och Azure AD B2C.
+
 #### <a name="using-microsoftidentityweb-templates"></a>Använda Microsoft. Identity. Web templates
 
 Du kan skapa ett webb-API från grunden med hjälp av Microsoft. Identity. Web Project-mallar. Mer information finns i [projekt mal len Microsoft. Identity. Web-Web-API](https://aka.ms/ms-id-web/webapi-project-templates)
@@ -134,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- För närvarande skapar ASP.NET Core mallar Azure Active Directory (Azure AD) webb-API: er som loggar in användare i din organisation eller i en organisation. De loggar inte in användare med personliga konton. Du kan dock ändra mallarna till att använda Microsoft Identity Platform-slutpunkten genom att använda [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web), som är tillgängligt som ett NuGet-paket, och ersätta koden i *startup.cs*:
+ För närvarande skapar ASP.NET Core mallar Azure Active Directory (Azure AD) webb-API: er som loggar in användare i din organisation eller i en organisation. De loggar inte in användare med personliga konton. Du kan dock ändra mallarna till att använda Microsoft Identity Platform-slutpunkten genom att använda [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) och ersätta koden i *startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -189,7 +195,7 @@ Validerings stegen samlas in i verifierare, som tillhandahålls av [Microsoft Id
 
 I den här tabellen beskrivs verifierarna:
 
-| Systemhälsoverifierare | Beskrivning |
+| Systemhälsoverifierare | Description |
 |---------|---------|
 | **ValidateAudience** | Säkerställer att token är för programmet som validerar token åt dig. |
 | **ValidateIssuer** | Säkerställer att token utfärdats av en betrodd STS, vilket innebär att det är från någon som du litar på. |

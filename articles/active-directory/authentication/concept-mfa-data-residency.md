@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b8673dd98ab66714c54720ea1d909a90e117c18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266436"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Data placering och kund information för Azure Multi-Factor Authentication
 
@@ -28,7 +28,7 @@ Azure Multi-Factor Authentication-tjänsten har data Center i USA, Europa och As
 
 * Multi-Factor Authentication som använder telefonsamtal kommer från amerikanska data Center och dirigeras av globala leverantörer.
 * Generell användning av autentiseringsbegäranden från andra regioner, till exempel Europa eller Australien bearbetas för närvarande baserat på användarens plats.
-* Push-meddelanden med hjälp av Microsoft Authenticator-appen kommer att använda regionala Data Center baserat på användarens plats.
+* Push-meddelanden med hjälp av Microsoft Authenticator-appen behandlas för närvarande i de regionala data centren baserat på användarens plats.
     * Enhets leverantörer – vissa tjänster, t. ex. Apple Push-meddelanden, kan finnas utanför användarens plats.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Person uppgifter som lagras av Azure Multi-Factor Authentication

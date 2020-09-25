@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261421"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Snabb start: Ladda upp, koda och strömma innehåll med portalen
 
@@ -66,7 +66,7 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
 
 Om du navigerar till fönstret till gångar, ser du att en ny till gång har lagts till i listan:
 
-![Ladda upp](./media/manage-assets-quickstart/upload.png)
+![Skärm bild av Azure Portal visar fönstret till gångar som öppnats genom att välja till gångar (nytt) och en ny till gång genom att välja knappen Överför.](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>Koda
 
@@ -78,7 +78,7 @@ Om du navigerar till fönstret till gångar, ser du att en ny till gång har lag
 
 Om du navigerar till fönstret till gångar kommer du att se att den utgående till gången har lagts till i listan:
 
-![Koda](./media/manage-assets-quickstart/encode.png)
+![Skärm bild av fönstret till gångar i Azure Portal visar den till gång ignite.mp4 Media-kodad standard som har kodats till listan över till gångar.](./media/manage-assets-quickstart/encode.png)
 
 ## <a name="monitor-the-job-progress"></a>Övervaka jobb förloppet
 

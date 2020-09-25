@@ -1,5 +1,5 @@
 ---
-title: Tilldela och lista roller med administrativ enhets omfattning (för hands version) – Azure Active Directory | Microsoft Docs
+title: Tilldela och lista roller med den administrativa enhetens omfattning – Azure Active Directory | Microsoft Docs
 description: Använda administrativa enheter för att begränsa omfånget för roll tilldelningar i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/10/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264954"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Tilldela begränsade roller till en administrativ enhet
 
@@ -40,7 +40,7 @@ Användar administratör  |  Kan hantera alla aspekter av användare och grupper
 
 ## <a name="assign-a-scoped-role"></a>Tilldela en omfattnings roll
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Gå till **Azure AD > administrativa enheter** i portalen. Välj den administrativa enhet som du vill tilldela rollen till en användare. I den vänstra rutan väljer du roller och administratörer för att visa en lista över alla tillgängliga roller.
 
@@ -80,7 +80,7 @@ Request body
 
 ## <a name="list-the-scoped-admins-on-an-au"></a>Visa en lista över omfångs administratörer på en AU
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Alla roll tilldelningar som har gjorts med en administrativ enhets omfattning kan visas i [avsnittet administrativa enheter i Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Gå till **Azure AD > administrativa enheter** i portalen. Välj admin-enheten för roll tilldelningarna som du vill visa. Välj **roller och administratörer** och öppna en roll för att Visa tilldelningarna i admin-enheten.
 
@@ -105,4 +105,4 @@ Request body
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använd moln grupper för att hantera roll tilldelningar](roles-groups-concept.md)
-- [Fel söknings roller tilldelade till moln grupper](roles-groups-faq-troubleshooting.md)
+- [Felsökningsroller tilldelade till molngrupper](roles-groups-faq-troubleshooting.md)

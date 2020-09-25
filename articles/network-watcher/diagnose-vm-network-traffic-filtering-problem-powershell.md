@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: diagnostisera ett problem med trafik filter för virtuella dator nätverk – Azure PowerShell'
 titleSuffix: Azure Network Watcher
-description: I den här snabbstarten lär du dig hur du diagnostiserar problem med filtreringen av nätverkstrafik på en virtuell dator med hjälp av funktionen Kontrollera IP-flöde i Azure Network Watcher.
+description: Lär dig hur du använder Azure PowerShell för att diagnostisera ett problem med nätverks trafik filter från en virtuell dator med hjälp av IP-flödet verifiera Azure-Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6d1c41df638c092daf24938931c3526fb18ea3db
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b74987e225314112c84280e18af523bc5c3804a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074788"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296067"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer – Azure PowerShell
 

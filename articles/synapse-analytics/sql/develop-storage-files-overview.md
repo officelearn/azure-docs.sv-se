@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288995"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Åtkomst till extern lagring i Synapse SQL (på begäran)
 
@@ -52,7 +52,7 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
-Om det inte finns några AUTENTISERINGSUPPGIFTER på server nivå som matchar URL: en eller SQL-användare saknar referens behörighet för den här autentiseringsuppgiften returneras felet. SQL-huvudobjekt kan inte personifiera med en viss Azure AD-identitet.
+Om det inte finns några AUTENTISERINGSUPPGIFTER på server nivå som matchar URL: en, eller om SQL-användaren inte har referens behörighet för den här autentiseringsuppgiften, returneras felet. SQL-huvudobjekt kan inte personifiera med en viss Azure AD-identitet.
 
 ### <a name="direct-access"></a>[Direkt åtkomst](#tab/direct-access)
 
@@ -75,11 +75,11 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-Användare som kör den här frågan måste kunna komma åt filerna. Användarna måste personifieras med SAS- [token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) eller [hanterad identitet för arbets ytan](develop-storage-files-storage-access-control.md?tabs=managed-identity) om de inte kan komma åt filerna direkt med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity) eller [anonym åtkomst](develop-storage-files-storage-access-control.md?tabs=public-access).
+Användaren som kör den här frågan måste kunna komma åt filerna. Användarna måste personifieras med SAS- [token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) eller [hanterad identitet för arbets ytan](develop-storage-files-storage-access-control.md?tabs=managed-identity) om de inte kan komma åt filerna direkt med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity) eller [anonym åtkomst](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### <a name="impersonation"></a>[Personifiering](#tab/impersonation)
 
-`DATABASE SCOPED CREDENTIAL`anger hur du kommer åt filer på den refererade data källan (för närvarande SAS och hanterad identitet). Privilegierade användare med `CONTROL DATABASE` behörighet måste skapa `DATABASE SCOPED CREDENTIAL` som kommer att användas för att komma åt lagringen och `EXTERNAL DATA SOURCE` anger URL: en till data källan och autentiseringsuppgiften som ska användas:
+`DATABASE SCOPED CREDENTIAL` anger hur du kommer åt filer på den refererade data källan (för närvarande SAS och hanterad identitet). Privilegierade användare med `CONTROL DATABASE` behörighet måste skapa `DATABASE SCOPED CREDENTIAL` som kommer att användas för att komma åt lagringen och `EXTERNAL DATA SOURCE` anger URL: en till data källan och autentiseringsuppgiften som ska användas:
 
 ```sql
 EXECUTE AS somepoweruser;
@@ -99,9 +99,9 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 Anroparen måste ha någon av följande behörigheter för att köra OpenRowSet-funktionen:
 
 - En av behörigheterna för att köra OpenRowSet:
-  - `ADMINISTER BULK OPERATIONS`aktiverar inloggning för att köra OpenRowSet-funktionen.
-  - `ADMINISTER DATABASE BULK OPERATIONS`gör det möjligt för databas omfattnings användare att köra OpenRowSet-funktionen.
-- `REFERENCES DATABASE SCOPED CREDENTIAL`till autentiseringsuppgiften som refereras till i `EXTERNAL DATA SOURCE` .
+  - `ADMINISTER BULK OPERATIONS` aktiverar inloggning för att köra OpenRowSet-funktionen.
+  - `ADMINISTER DATABASE BULK OPERATIONS` gör det möjligt för databas omfattnings användare att köra OpenRowSet-funktionen.
+- `REFERENCES DATABASE SCOPED CREDENTIAL` till autentiseringsuppgiften som refereras till i `EXTERNAL DATA SOURCE` .
 
 ### <a name="direct-access"></a>[Direkt åtkomst](#tab/direct-access)
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 Användare med behörighet att läsa tabell har åtkomst till externa filer med hjälp av en extern tabell som skapats ovanpå Azure Storage mappar och filer.
 
-Användare som har [behörighet att skapa en extern tabell](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (till exempel CREATE TABLE och ändra AUTENTISERINGSUPPGIFTER eller referenser till databasens begränsade autentiseringsuppgifter) kan använda följande skript för att skapa en tabell ovanpå Azure Storage data Källa:
+Användare som har [behörighet att skapa en extern tabell](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (till exempel CREATE TABLE och ändra AUTENTISERINGSUPPGIFTER eller referenser till databasens begränsade autentiseringsuppgifter) kan använda följande skript för att skapa en tabell ovanpå Azure Storage data Källa:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]
@@ -171,8 +171,8 @@ FROM dbo.DimProductsExternal
 ```
 
 Anroparen måste ha följande behörigheter för att kunna läsa data:
-- `SELECT`behörighet för extern tabell
-- `REFERENCES DATABASE SCOPED CREDENTIAL`behörighet om `DATA SOURCE` har`CREDENTIAL`
+- `SELECT` behörighet för extern tabell
+- `REFERENCES DATABASE SCOPED CREDENTIAL` behörighet om `DATA SOURCE` har `CREDENTIAL`
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -181,10 +181,10 @@ I följande tabell visas de behörigheter som krävs för de åtgärder som ange
 | Söka i data | Behörigheter som krävs|
 | --- | --- |
 | OpenRowSet (BULK) utan DataSource | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` eller SQL-inloggningen måste ha referenser till autentiseringsuppgifter:: \<URL> för SAS-skyddad lagring |
-| OpenRowSet (BULK) med DataSource utan autentiseringsuppgifter | `ADMINISTER BULK OPERATIONS`eller `ADMINISTER DATABASE BULK OPERATIONS` , |
-| OpenRowSet (BULK) med data källa med autentiseringsuppgifter | `REFERENCES DATABASE SCOPED CREDENTIAL`och en av `ADMINISTER BULK OPERATIONS` eller`ADMINISTER DATABASE BULK OPERATIONS` |
+| OpenRowSet (BULK) med DataSource utan autentiseringsuppgifter | `ADMINISTER BULK OPERATIONS` eller `ADMINISTER DATABASE BULK OPERATIONS` , |
+| OpenRowSet (BULK) med data källa med autentiseringsuppgifter | `REFERENCES DATABASE SCOPED CREDENTIAL` och en av `ADMINISTER BULK OPERATIONS` eller `ADMINISTER DATABASE BULK OPERATIONS` |
 | SKAPA EXTERN DATA KÄLLA | `ALTER ANY EXTERNAL DATA SOURCE` och `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| SKAPA EXTERN TABELL | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` , och`ALTER ANY EXTERNAL DATA SOURCE` |
+| SKAPA EXTERN TABELL | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` , och `ALTER ANY EXTERNAL DATA SOURCE` |
 | VÄLJ FRÅN EXTERN TABELL | `SELECT TABLE` och `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CETAS | För att skapa tabell `CREATE TABLE` , `ALTER ANY SCHEMA` ,, `ALTER ANY DATA SOURCE` och `ALTER ANY EXTERNAL FILE FORMAT` . Läsa data: `ADMINISTER BULK OPERATIONS` eller `REFERENCES CREDENTIAL` `SELECT TABLE` per tabell/vy/funktion i fråga + R/W behörighet för lagring |
 
@@ -204,6 +204,6 @@ Nu är du redo att fortsätta med följande artiklar:
 
 - [Använda funktioner för partitionering och metadata](query-specific-files.md)
 
-- [Fråga kapslade typer](query-parquet-nested-types.md)
+- [Köra frågor mot kapslade typer](query-parquet-nested-types.md)
 
 - [Skapa och använda vyer](create-use-views.md)

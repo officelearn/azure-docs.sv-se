@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e33a5e32848dfd0a6cf252d6876616fc89edd1d7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263189"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Konfigurera en SQL Server Always on-tillgänglighets grupp i olika Azure-regioner
 
@@ -107,7 +107,7 @@ Gör så här om du vill skapa en replik i ett fjärranslutet Data Center:
 
 1. Lägg till IP-adressen som ett beroende för kärn kluster namnet.
 
-   Öppna kluster egenskaperna en gång till och välj fliken **beroenden** . Konfigurera ett eller beroende för de två IP-adresserna: 
+   Öppna kluster egenskaperna en gång till och välj fliken **beroenden** . Konfigurera ett eller-beroende för de två IP-adresserna: 
 
    ![Kluster egenskaper](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
@@ -183,7 +183,7 @@ Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över r
 
 När du har testat anslutningen flyttar du tillbaka den primära repliken till ditt primära Data Center och återställer tillgänglighets läget till sina normala drift inställningar. I följande tabell visas de normala drift inställningarna för den arkitektur som beskrivs i det här dokumentet:
 
-| Position | Server instans | Roll | Tillgänglighets läge | Växlings läge
+| Plats | Server instans | Roll | Tillgänglighets läge | Växlings läge
 | ----- | ----- | ----- | ----- | -----
 | Primärt Data Center | SQL-1 | Primär | Synkront | Automatiskt
 | Primärt Data Center | SQL-2 | Sekundär | Synkront | Automatiskt

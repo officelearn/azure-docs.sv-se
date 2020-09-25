@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260384"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Ansluta till din Azure Synapse-arbetsyta med privata länkar (förhands granskning)
 
@@ -21,7 +21,7 @@ I den här artikeln får du lära dig hur du skapar privat slut punkt till din A
 
 ## <a name="step-1-register-network-resource-provider"></a>Steg 1: registrera nätverks resurs leverantör
 
-Registrera nätverks resurs leverantören om du inte redan har gjort det. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Välj *Microsoft. Network* i listan över resurs leverantörer när du [registrerar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)dig. Om nätverks resurs leverantören redan är registrerad, Fortsätt sedan till steg 2.
+Registrera nätverks resurs leverantören om du inte redan gjort det. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Välj *Microsoft. Network* i listan över resurs leverantörer när du [registrerar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)dig. Om nätverks resurs leverantören redan är registrerad, Fortsätt sedan till steg 2.
 
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Steg 2: öppna din Azure Synapse-arbetsyta i Azure Portal
@@ -34,7 +34,7 @@ Välj **privat slut punkts anslutning** under **säkerhet** och välj sedan **+ 
 Välj din **prenumeration** och **resurs grupp**under fliken **grundläggande** i fönstret **skapa en privat slut punkt** . Ange ett **namn** på den privata slut punkt som du vill skapa. Välj den **region** där du vill att den privata slut punkten ska skapas.
 
 Privata slut punkter skapas i ett undernät. Prenumerationen, resurs gruppen och den region som valts filtrerar de privata slut punkterna. Välj **Nästa: resurs >** när du är färdig.
-![Välj information om prenumeration och region](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
+![Välj information om prenumeration och region 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
 
 ## <a name="step-4-select-your-azure-synapse-workspace-details"></a>Steg 4: Välj din information om din Azure Synapse-arbetsyta
 
@@ -43,17 +43,17 @@ Välj **Anslut till en Azure-resurs i min katalog** på fliken **resurs** . Väl
 Välj din Azure Synapse-arbetsyta som **resurs**. Varje Azure Synapse-arbetsyta har tre **mål under resurser** som du kan skapa en privat slut punkt för: SQL, SqlOnDemand och dev.
 
 Välj **Nästa: konfigurations>** för att gå vidare till nästa del av installationen.
-![Välj information om prenumeration och region](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
+![Välj information om prenumeration och region 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
 
 På fliken **konfiguration** väljer du det **virtuella nätverket** och **under nätet** där den privata slut punkten ska skapas. Du måste också skapa en DNS-post som mappar till den privata slut punkten.
 
 Välj **Ja** om du vill **integrera med en privat DNS-zon** för att integrera din privata slut punkt med en privat DNS-zon. Om du inte har en privat DNS-zon som är kopplad till din Microsoft Azure Virtual Network skapas en ny privat DNS-zon. Välj **Granska + skapa** när du är färdig.
 
-![Välj information om prenumeration och region](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
+![Välj information om prenumeration och region 3](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
 När distributionen är klar öppnar du Azure dataSynapses-arbetsytan i Azure Portal och väljer **privata slut punkts anslutningar**. Den nya privata slut punkten och anslutnings namnet för den privata slut punkten som är associerat med den privata slut punkten visas.
 
-![Välj information om prenumeration och region](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
+![Välj information om prenumeration och region 4](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85430aea183cca977e3cb648cb43779f25c61a0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a5d5528865fc910751b8052dcc78a82131e17290
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657826"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266249"
 ---
 # <a name="what-is-identity-provisioning"></a>Vad är identitetsetablering?
 
@@ -24,7 +24,7 @@ Företag och organisationer blir i dag allt mer en blandning av lokala och molnb
 
 Etablering är en process för att skapa ett objekt baserat på vissa villkor, hålla objektet uppdaterat och ta bort objektet när villkoren inte längre uppfylls. Till exempel när en ny användare ansluter till din organisation, anges användaren i HR-systemet.  Vid detta tillfälle kan etableringen skapa ett motsvarande användar konto i molnet, i Active Directory och olika program som användaren behöver åtkomst till.  Detta gör att användaren kan starta arbetet och ha åtkomst till de program och system som de behöver på dag ett. 
 
-![moln etablering](media/what-is-provisioning/cloud1.png)
+![Diagram som visar moln etablering med Azure Active Directory.](media/what-is-provisioning/cloud1.png)
 
 Med avseende på Azure Active Directory kan etableringen delas upp i följande viktiga scenarier.  
 
@@ -34,7 +34,7 @@ Med avseende på Azure Active Directory kan etableringen delas upp i följande v
 
 ## <a name="hr-driven-provisioning"></a>HR-driven etablering
 
-![moln etablering](media/what-is-provisioning/cloud2.png)
+![Diagram som visar HR-driven etablering med moln HR, lokalt HR och Azure Active Directory.](media/what-is-provisioning/cloud2.png)
 
 Etableringen från HR till molnet innebär att du kan skapa objekt (användare, roller, grupper osv.) baserat på den information som finns i ditt HR-system.  
 
@@ -48,7 +48,7 @@ Det vanligaste scenariot är att när en ny medarbetare ansluts till företaget 
 
 ## <a name="app-provisioning"></a>App-etablering
 
-![moln etablering](media/what-is-provisioning/cloud3.png)
+![Diagram som visar app-etablering med lokala appar, molnappar som inte kommer från Microsoft och Azure Active Directory.](media/what-is-provisioning/cloud3.png)
 
 I Azure Active Directory (Azure AD), avser termen **[app-etablering](../app-provisioning/user-provisioning.md)** att automatiskt skapa användar identiteter och roller i de moln program som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)och mycket annat.
 

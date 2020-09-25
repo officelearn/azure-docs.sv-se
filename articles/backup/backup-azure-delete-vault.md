@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: c0b75d147abba45a745f811de5e4b8ac45088bd8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd941db933d243b83c1c19c7ae0fdfc2d7869b8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293075"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -123,7 +123,7 @@ När den här processen är klar kan du ta bort säkerhets kopierings objekt fr�
 >Om du har tagit bort eller förlorat käll datorn utan att stoppa säkerhets kopieringen kommer nästa schemalagda säkerhets kopiering att Miss kopie ras. Den gamla återställnings punkten upphör att gälla enligt principen, men den sista enskilda återställnings punkten behålls alltid tills du stoppar säkerhets kopieringen och tar bort data. Du kan göra detta genom att följa stegen i [det här avsnittet](#delete-protected-items-on-premises).
 
 1. Öppna hanterings konsolen för MARS, gå till **Åtgärds** fönstret och välj **Schemalägg säkerhets kopiering**.
-2. På sidan **ändra eller stoppa en schemalagd säkerhets kopiering** väljer du **sluta använda detta schema för säkerhets kopiering och tar bort alla lagrade säkerhets kopior**. Välj sedan **Nästa**.
+2. På sidan **ändra eller stoppa en schemalagd säkerhets kopiering** väljer du **sluta använda detta schema för säkerhets kopiering och tar bort alla lagrade säkerhets kopior**. Välj **Nästa**.
 
     ![Ändra eller stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
@@ -331,7 +331,7 @@ Utför följande steg för att ta bort befintliga Recovery Services-valv:
                        [--yes]
     ```
 
-    Mer information finns i den här [artikeln](/cli/azure/backup/vault?view=azure-cli-latest)
+    Mer information finns i den här [artikeln](/cli/azure/backup/vault)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Ta bort Recovery Services valvet med Azure Resource Manager
 

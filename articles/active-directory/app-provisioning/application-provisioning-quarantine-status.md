@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/28/2020
+ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6a716aef65cc81c5558a214c1ee5f93180810977
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266691"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Program etablering i karantän status
 
@@ -45,10 +45,11 @@ Det finns tre sätt att kontrol lera om ett program finns i karantän:
   - Kontrol lera att du har angett en giltig **e-postadress för aviseringar** i etablerings konfigurationen för programmet.
   - Se till att det inte finns någon skräp filtrering på Inkorgen för e-postavisering.
   - Se till att du inte har avbrutit prenumerationen på e-postmeddelanden.
+  - Sök efter e-postmeddelanden från azure-noreply@microsoft.com
 
 ## <a name="why-is-my-application-in-quarantine"></a>Varför är mitt program i karantän?
 
-|Beskrivning|Rekommenderad åtgärd|
+|Description|Rekommenderad åtgärd|
 |---|---|
 |**Problem med scim-kompatibilitet:** Ett HTTP/404-svar som inte hittades returnerades i stället för det förväntade HTTP/200 OK-svaret. I det här fallet har Azure AD Provisioning-tjänsten gjort en begäran till mål programmet och fått ett oväntat svar.|Kontrol lera avsnittet admin credentials för att se om programmet kräver att klient webb adressen anges och att webb adressen är korrekt. Om du inte ser något problem kontaktar du programutvecklaren för att se till att deras tjänster är SCIM-kompatibla. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Ogiltiga autentiseringsuppgifter:** Vid försök att bevilja åtkomst till mål programmet fick vi ett svar från mål programmet som anger att de angivna autentiseringsuppgifterna är ogiltiga.|Gå till avsnittet admin credentials i etablerings konfigurationens gränssnitt och auktorisera åtkomsten igen med giltiga autentiseringsuppgifter. Om programmet finns i galleriet läser du själv studie kursen om program konfiguration för eventuella ytterligare steg som krävs.|

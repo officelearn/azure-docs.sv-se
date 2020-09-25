@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258344"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Markera din app som verifierad av utgivare
 
-När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av sina Microsoft Partner Network-konton (MPN) och har associerat MPN-kontot med sin program registrering. Den här artikeln beskriver hur du slutför [verifierings processen för utgivaren](publisher-verification-overview.md) .
+När en app-registrering har en verifierad utgivare, innebär det att appens utgivare har [verifierat](/partner-center/verification-responses) sin identitet med hjälp av sina Microsoft Partner Network-konton (MPN) och har associerat det här MPN-kontot med sin app-registrering. Den här artikeln beskriver hur du slutför [verifierings processen för utgivaren](publisher-verification-overview.md) .
 
 ## <a name="quickstart"></a>Snabbstart
 Om du redan har registrerat dig i Microsoft Partner Network (MPN) och har uppfyllt [kraven](publisher-verification-overview.md#requirements)kan du komma igång direkt: 
@@ -42,9 +42,9 @@ Se till att du har uppfyllt [kraven](publisher-verification-overview.md#requirem
 
 1. Se till att du har loggat in med [Multi-Factor Authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) till ett organisations konto (Azure AD) som har behörighet att göra ändringar i de appar som du vill markera som utgivare verifierad och på MPN-kontot i Partner Center.
 
-    - I Azure AD måste den här användaren vara medlem i någon av följande roller: program administratör, Cloud program admin, global administratör. 
+    - I Azure AD måste den här användaren vara medlem i någon av följande [roller](../users-groups-roles/directory-assign-admin-roles.md): program administratör, Cloud program admin, global administratör. 
 
-    - Den här användaren måste ha följande roller i Partner Center: MPN admin, Account admin eller global admin (detta är en delad roll som administreras i Azure AD). 
+    - Den här användaren måste ha följande [roller](/partner-center/permissions-overview)i Partner Center: MPN admin, Account admin eller global admin (detta är en delad roll som administreras i Azure AD). 
 
 1. Gå till registrerings portalen för appen:  
 

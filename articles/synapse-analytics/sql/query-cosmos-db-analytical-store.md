@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c64a42c66a3b1c1810c17347e18979d599b36b6f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8dd6ab5bcb42765c995e8cd767358be5e62aa0b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288401"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-on-demand-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med SQL på begäran i Azure Synapse-länk (för hands version)
 
@@ -44,7 +44,7 @@ Anslutnings strängen Azure Cosmos DB anger Azure Cosmos DB konto namnet, databa
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
 
-Namnet på Azure Cosmos DB containern anges utan citat tecken i `OPENROWSET` syntaxen. Om behållar namnet innehåller specialtecken (t. ex. ett bindestreck), ska namnet omslutas inom `[]` (hakparenteser) i `OPENROWSET` syntaxen.
+Namnet på Azure Cosmos DB containern anges utan citat tecken i `OPENROWSET` syntaxen. Om behållar namnet innehåller specialtecken (till exempel ett bindestreck "-"), ska namnet omslutas inom `[]` (hakparenteser) i `OPENROWSET` syntaxen.
 
 > [!NOTE]
 > SQL på begäran stöder inte frågor om Azure Cosmos DB transaktions lager.
@@ -71,7 +71,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-I exemplet ovan instruerar vi SQL on-demand att ansluta till `covid` databasen i Azure Cosmos DB konto som `MyCosmosDbAccount` autentiseras med hjälp av Azure Cosmos DBS nyckeln (dummy i exemplet ovan). Vi ansluter sedan till behållarens `EcdcCases` analys lager i `West US 2` regionen. Eftersom det inte finns någon projektion av vissa egenskaper, `OPENROWSET` returnerar funktionen alla egenskaper från Azure Cosmos DB objekt.
+I exemplet ovan instruerar vi SQL on-demand att ansluta till `covid` databasen i Azure Cosmos DB konto som `MyCosmosDbAccount` autentiseras med hjälp av Azure Cosmos DBS nyckeln (dummy i exemplet ovan). Vi ansluter sedan till behållarens `EcdcCases` analys lager i `West US 2` regionen. Eftersom ingen projektion av vissa egenskaper visas, `OPENROWSET` returnerar funktionen alla egenskaper från Azure Cosmos DB objekt.
 
 Om du behöver utforska data från den andra behållaren i samma Azure Cosmos DB databas kan du använda samma anslutnings sträng och referens som krävs för behållare som tredje parameter:
 
@@ -85,9 +85,9 @@ FROM OPENROWSET(
 
 ## <a name="explicitly-specify-schema"></a>Ange ett schema explicit
 
-När den automatiska schema utlösaren i `OPENROWSET` tillhandahåller en enkel, lättanvänd querience, kan dina affärs scenarier kräva att du uttryckligen anger schemat för att skrivskydda relevanta egenskaper från Azure Cosmos db data.
+När den automatiska schema utlösaren i `OPENROWSET` tillhandahåller en enkel, lättanvänd querience kan dina affärs scenarier kräva att du uttryckligen anger schemat till skrivskyddade relevanta egenskaper från Azure Cosmos db data.
 
-`OPENROWSET` med kan du uttryckligen ange vilka egenskaper du vill läsa från data i behållaren och ange deras data typer. Låt oss anta att vi har importerat data från [ECDC COVID data uppsättning](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) med följande struktur till Azure Cosmos DB:
+`OPENROWSET` med kan du uttryckligen ange vilka egenskaper du vill läsa från data i behållaren och ange deras data typer. Anta att vi har importerat några data från [ECDC COVID data uppsättning](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) med följande struktur till Azure Cosmos DB:
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
@@ -236,7 +236,7 @@ Extra information ett eko-epidemi... | `[{"first":"Nicolas","last":"4#","suffix"
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB mappningar av SQL-typ
 
-Det är viktigt att först Observera att när Azure Cosmos DB transaktions lager är schema-oberoende, är analys lagret schematiserade för att optimera prestandan för analytiska frågor. Med funktionen för automatisk synkronisering av Synapse, hanterar Azure Cosmos DB schema representationen i den analytiska lagrings platsen, som omfattar hantering av kapslade data typer. Eftersom SQL på begäran skickar frågor till analys lagret är det viktigt att du förstår hur du mappar Azure Cosmos DB indata-typer till SQL-datatyper.
+Det är viktigt att först Observera att när Azure Cosmos DB transaktions lager är schema-oberoende, är analys lagret schematiserade för att optimera prestandan för analytiska frågor. Med funktionen för automatisk synkronisering av Synapse, hanterar Azure Cosmos DB schema representationen i den analytiska lagrings platsen som omfattar hantering av kapslade data typer. Eftersom SQL på begäran skickar frågor till analys lagret är det viktigt att du förstår hur du mappar Azure Cosmos DB indata-typer till SQL-datatyper.
 
 Azure Cosmos DB konton av SQL-API (Core) stöder JSON-egenskapsvärde av typen Number, String, Boolean, null, nested Object eller array. Du måste välja SQL-typer som matchar dessa JSON-typer om du använder- `WITH` satsen i `OPENROWSET` . Se under de SQL-kolumn typer som ska användas för olika egenskaps typer i Azure Cosmos DB.
 

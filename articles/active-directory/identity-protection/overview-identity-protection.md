@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b19b8e928a220efa8a445ff033582e0f13c6de
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707738"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265286"
 ---
 # <a name="what-is-identity-protection"></a>Vad är Identity Protection?
 
@@ -53,8 +53,8 @@ Identitets skyddet identifierar risker i följande klassificeringar:
 | Anonym IP-adress | Logga in från en anonym IP-adress (t. ex. Tor webbläsare, Anonymizer VPN). |
 | Obekanta inloggningsegenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. |
 | Länkad IP-adress för skadlig kod | Logga in från en länkad IP-adress med skadlig kod. |
-| Läckta autentiseringsuppgifter | Den här risk identifieringen visar att användarens giltiga autentiseringsuppgifter har läckts. |
-| Lösen ords sprayning | Anger att flera användar namn angrips med vanliga lösen ord i ett enhetligt brutet sätt. |
+| Läckta autentiseringsuppgifter | Anger att användarens giltiga autentiseringsuppgifter har läckts. |
+| Lösen ords sprayning | Anger att flera användar namn angrips med vanliga lösen ord på ett enhetligt, brutet sätt. |
 | Azure AD Threat Intelligence | Microsofts interna och externa hot informations källor har identifierat ett känt angrepps mönster. |
 
 Mer information om dessa risker och hur/när de beräknas finns i artikeln, [Vad är risk](concept-identity-protection-risks.md).
@@ -91,12 +91,12 @@ Identitets skydd kräver att användare är en säkerhets läsare, säkerhets op
 | --- | --- | --- |
 | Global administratör | Fullständig åtkomst till identitets skydd |   |
 | Säkerhetsadministratör | Fullständig åtkomst till identitets skydd | Återställ lösen ord för en användare |
-| Säkerhets operatör | Visa alla identitets skydds rapporter och översikts blad <br><br> Ignorera användar risk, bekräfta säker inloggning, bekräfta kompromettera | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera aviseringar |
-| Säkerhetsläsare | Visa alla identitets skydds rapporter och översikts blad | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera aviseringar <br><br> Ge feedback om identifieringar |
+| Säkerhets operatör | Visa alla identitets skydds rapporter och översikts blad <br><br> Ignorera användar risk, bekräfta säker inloggning, bekräfta kompromettera | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera varningar |
+| Säkerhetsläsare | Visa alla identitets skydds rapporter och översikts blad | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera varningar <br><br> Ge feedback om identifieringar |
 
 För närvarande går det inte att komma åt rapporten över riskfyllda inloggningar i rollen säkerhets operatör.
 
-Administratörer för villkorlig åtkomst kan också skapa principer som faktorr i inloggnings risker som ett villkor. mer information finns i artikeln [villkorlig åtkomst: villkor](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Administratörer för villkorlig åtkomst kan också skapa principer som faktorn i inloggnings risken som ett villkor. Mer information finns i artikeln [villkorlig åtkomst: villkor](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Licenskrav
 

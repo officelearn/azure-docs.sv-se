@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289488"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
@@ -50,7 +50,7 @@ När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake St
 1. Öppna [Azure-portalen](https://portal.azure.com)
 2. Navigera till Azure Data Lake Storage Gen2 kontot
 3. Navigera till container (FileSystem) som du har valt för Azure Synapse-arbetsytan
-4. Klicka på **Access Control (IAM)**
+4. Välj **Access Control (IAM)**
 5. Tilldela följande roller:
    1. Rollen **läsare** för att:`Synapse_WORKSPACENAME_Users`
    2. Rollen **Storage BLOB data-ägare** till:`Synapse_WORKSPACENAME_Admins`
@@ -64,17 +64,17 @@ När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake St
 
 1. Gå till [ **webb gränssnittet för Azure Synapse Web**](https://web.azuresynapse.net)
 2. Gå till **Hantera**   >  **säkerhets**  >  **åtkomst kontroll**
-3. Klicka på **Lägg till administratör**och välj `Synapse_WORKSPACENAME_Admins`
+3. Välj **Lägg till administratör**och välj `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Steg 4: Konfigurera SQL admin-åtkomst för arbets ytan
 
 1. Gå till [Azure Portal](https://portal.azure.com)
 2. Navigera till din arbets yta
 3. Gå till **Inställningar**  >  **Active Directory admin**
-4. Klicka på **Ange administratör**
+4. Välj **Ange administratör**
 5. Välj `Synapse_WORKSPACENAME_Admins`
-6. Klicka på **Välj**
-7. Klicka på **Spara**
+6. Välj **Välj**
+7. Välj **Spara**
 
 > [!NOTE]
 > WORKSPACENAME – du bör ersätta den här delen med din faktiska arbets ytans namn.

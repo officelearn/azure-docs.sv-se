@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7bf9e7a4c17134a47cbaafbc2bde25d467c6a978
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548556"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255745"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Självstudie: Konfigurera Signagelive för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i Signagelive och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Signagelive.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -85,7 +85,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-signagelive--in-azure-ad"></a>Konfigurera automatisk användar etablering för Signagelive i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -93,52 +93,52 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Signagelive-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
 5. Under avsnittet admin credentials, inmatat ` https://samlapi.signagelive.com/scim/v2` i **klient-URL**. I fältet **hemlig token** anger du det värde för **Bearer-token** som tillhandahålls av teknik utvecklings teamet. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Signagelive. Om anslutningen Miss lyckas kontrollerar du att Signagelive-kontot har administratörs behörighet och försöker igen.
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-postmeddelande](common/provisioning-notification-email.png)
+    ![E-postavisering](common/provisioning-notification-email.png)
 
 7. Klicka på **Spara**.
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Signagelive**.
 
-    ![Signagelive användar mappningar](media/signagelive-provisioning-tutorial/usermapping.png)
+    ![Skärm bild av avsnittet mappningar med alternativet Synkronisera Azure Active Directory användare till Signagelive.](media/signagelive-provisioning-tutorial/usermapping.png)
 
 9. Granska de användarattribut som synkroniseras från Azure AD till Signagelive i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Signagelive för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Signagelive-användarattribut](media/signagelive-provisioning-tutorial/userattribute.png)
+    ![Skärm bild av avsnittet attribut mappningar med sju mappningar som visas.](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupp till Signagelive**.
 
-    ![Signagelive användar mappningar](media/signagelive-provisioning-tutorial/groupmapping.png)
+    ![Skärm bild av avsnittet mappningar med alternativet Synkronisera Azure Active Directory grupp till Signagelive som anropas.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. Granska gruppattributen som synkroniseras från Azure AD till Signagelive i avsnittet **Mappning av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha grupp kontona i Signagelive för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Signagelive-användarattribut](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![Skärm bild av avsnittet attribut mappningar med tre mappningar som visas.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
-12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Om du vill aktivera Azure AD Provisioning-tjänsten för Signagelive ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
 14. Definiera de användare och/eller grupper som du vill etablera till Signagelive genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [hur lång tid det tar att etablera användare](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users). 
 
@@ -146,9 +146,9 @@ Du kan använda avsnittet **aktuell status** för att övervaka förloppet och f
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

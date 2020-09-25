@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266050"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst
 
@@ -51,7 +51,7 @@ Organisationer måste utföra följande steg för att kräva att ett godkänt kl
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
    1. Välj **Klar**.
-1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 (för hands version)**.
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
    1. Ta med **Android** och **iOS**.
@@ -102,7 +102,7 @@ Organisationer måste utföra följande steg för att kräva att ett godkänt kl
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
    1. Välj **Klar**.
-1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 (för hands version)**.
+1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365**.
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
    1. Ta med **Android** och **iOS**.

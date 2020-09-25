@@ -1,5 +1,5 @@
 ---
-title: Lägga till och ta bort administrativa enheter (förhands granskning) – Azure Active Directory | Microsoft Docs
+title: Lägga till och ta bort administrativa enheter – Azure Active Directory | Microsoft Docs
 description: Använd administrativa enheter för att begränsa omfånget för roll behörigheter i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977a90419c142e576fcf484562875d12c8dad451
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264738"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Hantera administrativa enheter i Azure Active Directory
 
@@ -45,7 +45,7 @@ För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) k
 
 1. I Azure Portal går du till Azure AD och väljer sedan **administrativa enheter**i den vänstra rutan.
 
-    ![Skärm bild av länken administrativa enheter (förhands granskning) i Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Skärm bild av den administrativa unitslink i Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. Välj **Lägg till** och ange sedan namnet på den administrativa enheten. Du kan också lägga till en beskrivning av den administrativa enheten.
 

@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ad2b13fbfbd9871a55efb1826fa1e978d4eeb453
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289177"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Gruppera efter alternativ i Synapse SQL
 Med Synapse SQL kan du utveckla lösningar genom att implementera olika grupper med alternativ. 
 
 ## <a name="what-does-group-by-do"></a>Vad sker gruppera efter
 
-[Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattande uppsättning rader.
+[Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL-satsen sammanställer data till en sammanfattande uppsättning rader.
 
 SQL på begäran stöder hela intervallet av GROUP BY-alternativ. SQL-poolen stöder ett begränsat antal grupper med alternativ.
 
@@ -124,7 +124,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Följande bild visar resultatet av [CREATE TABLE som Välj](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
+Följande bild visar resultatet av [CREATE TABLE som Välj](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ![Gruppera efter kub](./media/develop-group-by-options/develop-group-by-cube.png)
 

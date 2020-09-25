@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b71c78f484eef0fc4d9c34a2f218a177dbffa0a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257526"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Skriv bords app som anropar webb-API: registrera appar
 
@@ -33,7 +33,6 @@ Om ditt Skriv bords program använder interaktiv autentisering kan du logga in a
 ### <a name="audience-for-desktop-app-silent-flows"></a>Mål grupp för tyst flöden i Desktop-appen
 
 - Om du vill använda integrerad Windows-autentisering eller ett användar namn och ett lösen ord måste ditt program logga in användare i din egen klient, till exempel om du är en affärsutvecklare (LOB). Eller, i Azure Active Directory organisationer, måste ditt program logga in användare i din egen klient om det är ett ISV-scenario. Dessa autentiserings flöden stöds inte för Microsoft-personliga konton.
-- Om du vill använda enhets kod flödet kan du inte logga in användare med sina personliga Microsoft-konton ännu.
 - Om du loggar in användare med sociala identiteter som skickar en B2C-auktoritet (Business-to-Commerce) och-princip kan du bara använda autentiseringen interaktiv och username-Password.
 
 ## <a name="redirect-uris"></a>Omdirigera URI: er
@@ -45,11 +44,14 @@ De omdirigerings-URI: er som ska användas i ett Skriv bords program beror på d
   > [!IMPORTANT]
   > Idag använder MSAL.NET en annan omdirigerings-URI som standard i Skriv bords program som körs på Windows ( `urn:ietf:wg:oauth:2.0:oob` ). I framtiden kommer vi att behöva ändra denna standard, så vi rekommenderar att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 
-- Om du skapar en ursprunglig mål-C-eller Swift-app för macOS registrerar du omdirigerings-URI: n baserat på programmets paket-ID i följande format: msauth. <your.app.bundle.id>://auth. ersätter <your.app.bundle.id> med programmets paket-ID.
+- Om du skapar en ursprunglig mål-C-eller Swift-app för macOS registrerar du omdirigerings-URI: n baserat på programmets paket identifierare i följande format: `msauth.<your.app.bundle.id>://auth` . Ersätt `<your.app.bundle.id>` med programmets paket-ID.
 - Om din app endast använder integrerad Windows-autentisering eller ett användar namn och ett lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Dessa flöden gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI.
-- Om du vill särskilja enhets kod flödet, integrerad Windows-autentisering och ett användar namn och ett lösen ord från ett konfidentiellt klient program flöde som inte har omdirigerings-URI: er antingen (det flöde för klientautentisering som används i daemon-program), måste du uttrycka att ditt program är ett offentligt klient program. För att uppnå den här konfigurationen går du till avsnittet **autentisering** för ditt program. I underavsnittet **Avancerade inställningar** i stycket **standard klient typ** väljer du **Ja** för att **behandla program som en offentlig klient**.
+- För att särskilja [enhets kod flödet](scenario-desktop-acquire-token.md#device-code-flow), [integrerad Windows-autentisering](scenario-desktop-acquire-token.md#integrated-windows-authentication)och ett [användar namn och ett lösen ord](scenario-desktop-acquire-token.md#username-and-password) från ett konfidentiellt klient program med hjälp av ett flöde för autentiseringsuppgifter för klient som används i [daemon-program](scenario-daemon-overview.md), ingen som kräver en omdirigerings-URI, måste du konfigurera den som ett offentligt klient program. För att uppnå den här konfigurationen:
 
-  ![Tillåt offentlig klient](media/scenarios/default-client-type.png)
+    1. I [Azure Portal](https://portal.azure.com)väljer du din app i **Appregistreringar**och väljer sedan **autentisering**.
+    1. I **Avancerade inställningar**  >  är**standard klient typen**  >  **behandla program som en offentlig klient**väljer du **Ja**.
+
+        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Aktivera offentlig klient inställning i fönstret autentisering i Azure Portal":::
 
 ## <a name="api-permissions"></a>API-behörigheter
 

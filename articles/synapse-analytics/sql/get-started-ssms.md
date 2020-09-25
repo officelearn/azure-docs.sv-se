@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077724"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288791"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ansluta till Synapse-SQL med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ Innan du börjar måste du kontrol lera att du har följande krav:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * För SQL-pool behöver du ett befintligt informations lager. Information om hur du skapar en SQL-pool finns i [skapa en SQL-pool](../quickstart-create-sql-pool-portal.md). För SQL på begäran är en redan etablerad i din arbets yta när du skapar den. 
-* Det fullständigt kvalificerade SQL Server namnet. Mer information finns i [ansluta till SYNAPSE SQL](connect-overview.md).
+* Det fullständigt kvalificerade SQL Server namnet. Du hittar det här namnet i [Anslut till SYNAPSE SQL](connect-overview.md).
 
-## <a name="connect"></a>Anslut
+## <a name="connect"></a>Ansluta
 
 ### <a name="sql-pool"></a>SQL-pool
 
@@ -52,7 +52,7 @@ Följ dessa steg om du vill ansluta till Synapse SQL med SQL-pool:
 1. Öppna SQL Server Management Studio (SSMS). 
 1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut**: 
   
-    ![Anslut till server](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
+    ![Anslut till Server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
    * **Autentisering**: Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**.
@@ -60,7 +60,7 @@ Följ dessa steg om du vill ansluta till Synapse SQL med SQL-pool:
 
 1. Expandera Azure-SQL Server i **Object Explorer**. Du kan visa databaserna som är kopplade till servern, till exempel AdventureWorksDW-databasen. Du kan expandera databasen för att se tabellerna:
    
-    ![Utforska AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
+    ![Utforska AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### <a name="sql-on-demand-preview"></a>SQL på begäran (för hands version)
@@ -70,16 +70,16 @@ Följ dessa steg om du vill ansluta till Synapse SQL med SQL på begäran:
 1. Öppna SQL Server Management Studio (SSMS).
 1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut**: 
    
-    ![Anslut till server](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Anslut till Server 2](./media/get-started-ssms/connect-object-explorer1.png)
    
    * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
    * **Autentisering**: Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**:
    * **Användar namn** och **lösen ord**: Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
-   * Klicka på **Anslut**.
+   * Välj **Anslut**.
 
 4. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera *demonstration* för att se innehållet i exempel databasen.
    
-    ![Utforska AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Utforska AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
 
 
 ## <a name="run-a-sample-query"></a>Kör en exempelfråga
@@ -91,18 +91,18 @@ Nu när en databas anslutning har upprättats kan du fråga efter data.
 1. Högerklicka på din databas i SQL Server Object Explorer.
 2. Välj **Ny fråga**. Ett nytt frågefönster öppnas.
    
-    ![Ny fråga](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
-3. Kopiera den här T-SQL-frågan till frågefönstret:
+    ![Ny fråga 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
+3. Kopiera följande T-SQL-fråga till frågefönstret:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Kör frågan. Det gör du genom att klicka på `Execute` eller använda följande genväg: `F5` .
+4. Kör frågan genom att välja `Execute` eller Använd följande genväg: `F5` .
    
-    ![Kör frågan](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
-5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.
+    ![Kör fråga 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
+5. Titta på frågeresultaten. I följande exempel har FactInternetSales-tabellen 60398 rader.
    
-    ![Frågeresultat](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
+    ![Frågeresultat 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### <a name="sql-on-demand"></a>SQL på begäran
 
@@ -111,18 +111,18 @@ Nu när du har upprättat en databas anslutning kan du fråga efter data.
 1. Högerklicka på din databas i SQL Server Object Explorer.
 2. Välj **Ny fråga**. Ett nytt frågefönster öppnas.
    
-    ![Ny fråga](./media/get-started-ssms/new-query.png)
+    ![Ny fråga 2](./media/get-started-ssms/new-query.png)
 3. Kopiera följande T-SQL-fråga till frågefönstret:
    
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Kör frågan. Det gör du genom att klicka på `Execute` eller använda följande genväg: `F5` .
+4. Kör frågan genom att välja `Execute` eller Använd följande genväg: `F5` .
    
-    ![Kör frågan](./media/get-started-ssms/execute-query.png)
+    ![Kör fråga 2](./media/get-started-ssms/execute-query.png)
 5. Titta på frågeresultaten. I det här exemplet har usPopulationView-vyn 3664512 rader.
    
-    ![Frågeresultat](./media/get-started-ssms/results.png)
+    ![Frågeresultat 2](./media/get-started-ssms/results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du kan ansluta och fråga kan du prova [att visualisera data med Power BI](get-started-power-bi-professional.md).

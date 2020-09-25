@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267507"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: dirigera trafik genom NVA – anpassad (för hands version)
 
@@ -65,14 +65,14 @@ Därför ger vår anslutnings mat ris tre distinkta anslutnings mönster, som ö
 
 Vi behöver dessa statiska vägar för att säkerställa att VNet-till-gren-och gren-till-VNet-trafik går genom NVA i tjänstens VNet (VNet 4):
 
-| Beskrivning | Routningstabell | Statisk väg              |
+| Description | Routningstabell | Statisk väg              |
 | ----------- | ----------- | ------------------------- |
 | Grenar    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
 | NVA pinnar  | Standardvärde     | 10.1.0.0/16-> vnet4conn  |
 
 Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används.
 
-| Beskrivning | Anslutning | Statisk väg            |
+| Description | Anslutning | Statisk väg            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16-> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16-> 10.4.0.5 |

@@ -10,21 +10,21 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 33e1ebc2269ef1db6bb0646f845b09be1a01c724
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495309"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289063"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Använd T-SQL-slingor i Synapse SQL
 Den här artikeln innehåller viktiga tips för att använda T-SQL-slingor, ersätta markörer och utveckla relaterade lösningar med SQL-poolen i Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Syfte med WHILe-slingor
 
-Synapse SQL stöder [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) -slingan för att köra instruktions block upprepade gånger. Den här WHILe-slingan fortsätter så länge som de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med hjälp av nyckelordet BREAK. 
+Synapse SQL stöder [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) -slingan för att köra instruktions block upprepade gånger. Den här WHILe-slingan fortsätter så länge som de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med hjälp av nyckelordet BREAK. 
 
-Slingor i SQL-poolen är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligt vis är nästan alla markörer som skrivs i SQL-kod av den snabba, skrivskyddade sorten. Därför är det ett bra alternativ att ersätta markörer med [WHILe]-slingor.
+Slingor i SQL-poolen är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligt vis är nästan alla markörer som skrivs i SQL-kod av den snabba, skrivskyddade sorten. Detta innebär att slingor är ett bra alternativ för att ersätta markörer.
 
 ## <a name="replace-cursors-in-sql-pool"></a>Ersätt markörer i SQL-pool
 

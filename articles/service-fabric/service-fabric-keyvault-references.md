@@ -3,18 +3,24 @@ title: Azure Service Fabric – använda referenser för Service Fabric-program 
 description: Den här artikeln förklarar hur du använder Service Fabric KeyVaultReference-stöd för program hemligheter.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261149"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
+# <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
 
 En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligheter som krävs av ditt program. Du kanske till exempel vill lagra autentiseringsuppgifterna för behållar databasen i nyckel valvet och referera till den i program manifestet. Service Fabric KeyVaultReference använder Service Fabric hanterad identitet och gör det enkelt att referera till nyckel valv hemligheter. Resten av den här artikeln beskriver hur du använder Service Fabric KeyVaultReference och innehåller en typisk användning.
 
-## <a name="prerequisites"></a>Krav
+> [!IMPORTANT]
+> Användning av den här förhands gransknings funktionen rekommenderas inte i produktions miljöer.
+
+> [!NOTE]
+> Funktionen för hands version av nyckel valv har endast stöd för [versions](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) hemligheter. Det finns inte stöd för versions hanterings hemligheter.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - Hanterad identitet för program (MIT)
     
@@ -90,14 +96,14 @@ Låt oss säga att programmet behöver läsa databas lösen ordet för Server de
 
 - Lägg till ett avsnitt i settings.xml
 
-    Definiera `DBPassword` parameter med typ `KeyVaultReference` och värde`<KeyVaultURL>`
+    Definiera `DBPassword` parameter med typ `KeyVaultReference` och värde `<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Referera till det nya avsnittet i ApplicationManifest.xml i`<ConfigPackagePolicies>`
+- Referera till det nya avsnittet i ApplicationManifest.xml i `<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -149,7 +155,7 @@ KeyVaultReference är en typ som stöds för container RepositoryCredentials. ne
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 - Hanterad identitet måste aktive ras för KeyVaultReference-stöd, din program aktivering Miss fungerar om KeyVaultReference används utan att aktivera hanterad identitet.
 
 - Om du använder en tilldelad identitet skapas den bara när programmet har distribuerats och detta skapar ett cirkulärt beroende. När ditt program har distribuerats kan du ge systemet tilldelad identitet åtkomst behörighet till nyckel valvet. Du hittar systemet tilldelad identitet efter namn {Cluster}/{Application namn}/{ServiceName}

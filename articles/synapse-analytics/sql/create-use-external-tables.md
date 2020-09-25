@@ -1,6 +1,6 @@
 ---
 title: Skapa och Använd externa tabeller i SQL på begäran (för hands version)
-description: I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (för hands version). Externa tabeller är användbara när du vill kontrol lera åtkomsten till externa data i SQL på begäran och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL på begäran.
+description: I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (för hands version).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289335"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd externa tabeller i SQL på begäran (för hands version) med Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ I det här avsnittet får du lära dig hur du skapar och använder [externa tabe
 - Offentlig lagring där användare kommer åt offentliga lagringsfiler.
 - Skyddad lagring där användare får åtkomst till lagrings filer med SAS-autentiseringsuppgifter, Azure AD-identitet eller hanterad identitet för Synapse-arbetsytan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att skapa en databas där tabellerna ska skapas. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Detta installations skript kommer att skapa följande objekt som används i det här exemplet:
 - DATABASens begränsade AUTENTISERINGSUPPGIFTER `sqlondemand` som ger åtkomst till SAS-skyddade `https://sqlondemandstorage.blob.core.windows.net` Azure Storage-konton.
@@ -132,4 +132,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du lagrar resultat från en fråga till lagringen hittar du i [butiks frågeresultaten till lagringen](../sql/create-external-table-as-select.md).
+Information om hur du lagrar resultat från en fråga till lagringen hittar du i [Sök resultaten för butiken till lagrings](../sql/create-external-table-as-select.md) artikeln.

@@ -1,6 +1,6 @@
 ---
 title: Problem med att spara administratörsautentiseringsuppgifter konfigurera Azure AD Gallery-appen
-description: Så här felsöker du vanliga problem med att konfigurera användar etablering till ett program som redan finns med i Azure AD-programgalleriet
+description: Lär dig hur du felsöker problem med ansikte när du sparar administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4f47954f3f4943846cab2dd9a38fd310abce3469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a3340e72499087dce7773264272601dfce8a50f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266790"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program 
 

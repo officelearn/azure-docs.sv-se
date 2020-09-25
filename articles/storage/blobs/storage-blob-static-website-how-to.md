@@ -7,19 +7,22 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289879"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
 Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt från en behållare i ett Azure Storage GPv2-konto. Mer information finns i den [statiska webbplatsen som är värd för i Azure Storage](storage-blob-static-website.md).
 
 Den här artikeln visar hur du aktiverar statisk webbplats värd med hjälp av Azure Portal, Azure CLI eller PowerShell.
+
+> [!NOTE]
+> Se till att skapa ett standard lagrings konto för generell användning v2. Statiska webbplatser är inte tillgängliga i någon annan typ av lagrings konto.
 
 ## <a name="enable-static-website-hosting"></a>Aktivera statisk webbplats värd
 
@@ -129,7 +132,7 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
 ---
 
-## <a name="upload-files"></a>Överföra filer 
+## <a name="upload-files"></a>Ladda upp filer 
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -141,7 +144,7 @@ De här anvisningarna visar hur du överför filer med hjälp av den version av 
 
 3. Välj knappen **Ladda upp** för att ladda upp filer.
 
-   ![Överföra filer](media/storage-blob-static-website/storage-blob-static-website-upload.png)
+   ![Ladda upp filer](media/storage-blob-static-website/storage-blob-static-website-upload.png)
 
 4. Om du vill att webbläsaren ska visa innehållet i filen kontrollerar du att innehålls typen för filen är inställt på `text/html` . 
 

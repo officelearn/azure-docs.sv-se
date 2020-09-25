@@ -6,17 +6,20 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295997"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Spåra databas aktivitet med gransknings loggar i Azure Database for MySQL flexibel Server
 
 > [!IMPORTANT] 
 > Azure Database for MySQL flexibel Server är för närvarande en offentlig för hands version
+
+> [!NOTE]
+> Att integrera med Azure Monitor diagnostikinställningar för att komma åt loggarna är under distributionen och att alla funktioner blir tillgängliga snart.
 
 Azure Database for MySQL flexibel Server ger användare möjlighet att konfigurera gransknings loggar. Gransknings loggar kan användas för att spåra aktiviteter på databas nivå, inklusive anslutning, admin, DDL och DML-händelser. Den här typen av loggar används ofta för att uppfylla efterlevnadskrav.
 
@@ -49,6 +52,9 @@ Andra parametrar som du kan justera för att styra gransknings loggnings beteend
 | `TABLE_ACCESS` | – Endast tillgängligt för MySQL 5,7 <br> – Läs instruktioner för tabell, t. ex. SELECT eller INSERT INTO... SELECT <br> – Tabell borttagnings instruktioner, till exempel ta bort eller TRUNCATE TABLE <br> – Infoga uttryck för tabeller, till exempel infoga eller Ersätt <br> – Tabell uppdaterings instruktioner, till exempel uppdatering |
 
 ## <a name="access-audit-logs"></a>Åtkomst till granskningsloggar
+
+> [!NOTE]
+> Att integrera med Azure Monitor diagnostikinställningar för att komma åt loggarna är under distributionen och att alla funktioner blir tillgängliga snart.
 
 Gransknings loggar är integrerade med Azure Monitor diagnostikinställningar. När du har aktiverat gransknings loggar på din MySQL-flexibla Server kan du generera dem till Azure Monitor loggar, Event Hubs eller Azure Storage. Mer information om diagnostiska inställningar finns i [dokumentationen för diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md). Mer information om hur du aktiverar diagnostikinställningar i Azure Portal finns i [artikeln Gransknings logg Portal](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 

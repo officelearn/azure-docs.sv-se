@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: ac76ce5d4fb788e6c2fb3dc9ec01c8d88bfb55cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268085"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Aviserings validering i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -62,16 +62,16 @@ När Security Center agent har installerats på datorn följer du de här stegen
 
 ## <a name="validate-alerts-on-kubernetes"></a>Verifiera aviseringar på Kubernetes <a name="validate-kubernetes"></a>
 
-Om du använder Security Center för hands versions funktionen i integrera Azure Kubernetes-tjänsten kör du följande kubectl-kommando för att testa att dina aviseringar fungerar:
+Om du har integrerat Azure Kubernetes-tjänsten med Security Center kan du testa att aviseringarna fungerar med följande kubectl-kommando:
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-Mer information om integreringen av Azure Kubernetes service och Azure Security Center finns i [den här artikeln](azure-kubernetes-service-integration.md).
+Mer information om att försvara dina Kubernetes-noder och-kluster finns i [Introduktion till Azure Defender för Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln förklaras processen för aviseringsverifiering. Nu när du är bekant med den här verifieringen kan du titta på följande artiklar:
 
 * [Verifiera Azure Key Vault hot identifiering i Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Hantera och svara på säkerhets aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) – lär dig hur du hanterar aviseringar och svarar på säkerhets incidenter i Security Center.
+* [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hur du hanterar aviseringar och svarar på säkerhets incidenter i Security Center.
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
-* [Förstå säkerhets aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) – lär dig mer om de olika typerna av säkerhets aviseringar.
+* [Förstå säkerhets aviseringar i Azure Security Center](security-center-alerts-type.md) – lär dig mer om de olika typerna av säkerhets aviseringar.

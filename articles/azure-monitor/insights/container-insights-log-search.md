@@ -3,12 +3,12 @@ title: Så här frågar du efter loggar från Azure Monitor för behållare | Mi
 description: Azure Monitor för behållare samlar in Mät värden och loggdata och den här artikeln beskriver posterna och innehåller exempel frågor.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f9b30f11ae6a2f64601b9595bfb1d45493209849
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569687"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254898"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
 
@@ -27,7 +27,7 @@ I följande tabell finns information om de poster som samlats in av Azure Monito
 | Inventering av noder som ingår i ett Kubernetes-kluster | Kube-API | `KubeNodeInventory` | TimeGenerated, dator, kluster namn, ClusterId, LastTransitionTimeReady, etiketter, status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes-händelser | Kube-API | `KubeEvents` | TimeGenerated, dator, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, meddelande, SourceSystem | 
 | Tjänster i Kubernetes-klustret | Kube-API | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Prestanda mått för noder som ingår i Kubernetes-klustret | Användnings statistik hämtas från cAdvisor och begränsningar från Kube-API: et | Perf &#124; WHERE ObjectName = = "K8SNode" | Dator, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Prestanda mått för noder som ingår i Kubernetes-klustret | Användnings statistik hämtas från cAdvisor och begränsningar från Kube-API: et | Perf &#124; WHERE ObjectName = = "K8SNode" | Dator, ObjectName, CounterName &#40;cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Prestanda mått för container delar i Kubernetes-klustret | Användnings statistik hämtas från cAdvisor och begränsningar från Kube-API: et | Perf &#124; WHERE ObjectName = = "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Anpassade mått ||`InsightsMetrics` | Dator, namn, namn område, ursprung, SourceSystem, Taggar<sup>1</sup>, TimeGenerated, typ, Va, _ResourceId | 
 
@@ -47,7 +47,7 @@ Behållaren loggar utdata som vidarebefordras till din arbets yta är STDOUT och
 
 Det är ofta användbart att skapa frågor som börjar med ett exempel eller två och sedan ändra dem så att de passar dina behov. För att hjälpa till att bygga mer avancerade frågor kan du experimentera med följande exempel frågor:
 
-| Söka i data | Beskrivning | 
+| Söka i data | Description | 
 |-------|-------------|
 | ContainerInventory<br> &#124; projekt dator, namn, bild, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; återge tabell | Lista all information om livs cykeln för en behållare| 
 | KubeEvents_CL<br> &#124; där inte (IsEmpty (Namespace_s))<br> &#124; sortera efter TimeGenerated DESC<br> &#124; återge tabell | Kubernetes-händelser|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73686487"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268079"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Moln Smart aviserings korrelation i Azure Security Center (incidenter)
 
@@ -38,5 +38,5 @@ Under en undersökning av en incident behöver analytiker ofta extra kontext fö
 
 ![Skärm bild av identifierad rapport för säkerhets incident](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-För att bättre förstå säkerhets incidenter, se [hantera säkerhets incidenter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
+För att bättre förstå säkerhets incidenter, se [hantera säkerhets incidenter i Azure Security Center](security-center-incident.md).
 

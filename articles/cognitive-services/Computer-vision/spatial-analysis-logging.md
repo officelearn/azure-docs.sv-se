@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 2d19c061ad1e5cf033d2801df64a0ae37736c418
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254082"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetri och fel sökning
 
@@ -103,7 +103,7 @@ När modulen teleympkvistar har distribuerats kan de rapporterade måtten nås v
 
 ### <a name="system-health-events"></a>System hälso händelser
 
-| Händelsenamn | Beskrivning|
+| Händelsenamn | Description|
 |------|---------|
 |archon_exit    |Skickas när en användare ändrar status för spatial Analysis-modulen från att *köras* till *stoppad*.  |
 |archon_error   |Skickas när någon av processerna i behållarens krasch. Detta är ett kritiskt fel.  |
@@ -248,7 +248,7 @@ I tabellen nedan visas de parametrar som du kan använda när du frågar efter l
 
 I följande tabell visas attributen i svaret på frågan.
 
-| Följt | Beskrivning|
+| Följt | Description|
 |--|--|
 |DoPost| Antingen *Sant* eller *falskt*. Anger om loggarna har överförts eller inte. Om du väljer att inte ladda upp loggar, returnerar API information ***synkront***. När du väljer att ladda upp loggar returnerar API 200, om begäran är giltig och börjar ladda upp loggar ***asynkront***.|
 |TimeFilter| Tids filtret som används för loggarna.|
@@ -313,8 +313,7 @@ Om du ser följande meddelande i-modulens loggar, kan det betyda att din Azure-p
 
 "Container är inte i ett giltigt tillstånd. Prenumerations verifieringen misslyckades med status matchnings fel. API-nyckeln är inte avsedd för den aktuella behållar typen. "
 
-Mer information finns i [begära godkännande för att köra behållaren](spatial-analysis-container.md#request-approval-to-run-the-container). 
-
+Mer information finns i [begära godkännande för att köra behållaren](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Felsöka Azure Stack Edge-enheten
 

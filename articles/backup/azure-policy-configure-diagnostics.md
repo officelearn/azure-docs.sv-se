@@ -3,12 +3,12 @@ title: Konfigurera inställningar för valv diagnostik i skala
 description: Konfigurera inställningar för Log Analytics diagnostik för alla valv i ett angivet omfång med Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293092"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurera inställningar för valv diagnostik i skala
 
@@ -34,7 +34,7 @@ Följ stegen nedan om du vill tilldela principen för valv i det begärda omfån
 
 1. Logga in på Azure Portal och gå till instrument panelen för **principer** .
 2. Välj **definitioner** på den vänstra menyn för att få en lista över alla inbyggda principer i Azure-resurser.
-3. Filtrera listan för **kategori = övervakning**. Leta upp principen med namnet **[för hands version]: Distribuera diagnostikinställningar för Recovery Services valv till Log Analytics arbets yta för resursbaserade kategorier**.
+3. Filtrera listan för **kategori = säkerhets kopiering**. Leta upp principen med namnet **[för hands version]: Distribuera diagnostikinställningar för Recovery Services valv till Log Analytics arbets yta för resursbaserade kategorier**.
 
     ![Fönstret princip definition](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

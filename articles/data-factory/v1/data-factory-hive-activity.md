@@ -1,6 +1,6 @@
 ---
 title: Transformera data med Hive-aktivitet – Azure
-description: Lär dig hur du kan använda Hive-aktiviteten i en Azure Data Factory för att köra Hive-frågor på ett eget HDInsight-kluster på begäran.
+description: Lär dig hur du kan använda Hive-aktiviteten i en Azure Data Factory v1 för att köra Hive-frågor på ett eget HDInsight-kluster på begäran.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41f570f93e95e9801b08c06cacc0423b1bf3b8e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74703362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252791"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -72,14 +72,14 @@ HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pip
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Namn på aktiviteten |Ja |
+| namn |Namn på aktiviteten |Yes |
 | description |Text som beskriver vad aktiviteten används för |No |
-| typ |HDinsightHive |Ja |
+| typ |HDinsightHive |Yes |
 | tillför |Indata som används av Hive-aktiviteten |No |
-| utdata |Utdata som produceras av Hive-aktiviteten |Ja |
-| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
+| utdata |Utdata som produceras av Hive-aktiviteten |Yes |
+| linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Yes |
 | skript |Ange Hive-skriptet infogat |No |
 | scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |No |
 | definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |No |

@@ -1,6 +1,6 @@
 ---
 title: Installera uppdatering 1,0 på StorSimple virtuell matris | Microsoft Docs
-description: Beskriver hur du använder StorSimple-webbgränssnittet för virtuella matriser för att tillämpa uppdateringar med hjälp av metoden Azure Portal och snabb korrigeringar
+description: Beskriver hur du använder StorSimple-webbgränssnittet för virtuella matriser för att tillämpa uppdatering 1,0 med hjälp av metoden Azure Portal och snabb korrigering.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bb6b61bb7d9392984bf5c308ce7ee039234461e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295574"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installera uppdatering 1,0 på din virtuella StorSimple-matris
 
@@ -33,7 +33,7 @@ Du tillämpar program uppdateringarna eller hotfixarna för att hålla din StorS
 >
 > - Uppdatering 1,0 motsvarar **10.0.10296.0** program varu version på enheten. Information om vad som är nytt i den här uppdateringen finns i [viktig information om uppdatering 1,0](storsimple-virtual-array-update-1-release-notes.md).
 >
-> - Kom ihåg att om du installerar en uppdatering eller snabb korrigering startas enheten om. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp.
+> - Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Med tanke på att den virtuella StorSimple-matrisen är en enskild Node-enhet avbryts alla i/O-åtgärder och enheten upplever drift stopp.
 >
 > - Uppdatering 1 är bara tillgänglig i Azure Portal om den virtuella matrisen kör uppdatering 0,6. För virtuella matriser som kör för uppdatering 0,6-versioner måste du först installera uppdatering 0,6 och sedan installera uppdatering 1.
 
@@ -104,7 +104,7 @@ Den här proceduren tar cirka 4 minuter att slutföra. Utför följande steg fö
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Använd**.
+2. I **Uppdatera fil Sök väg**anger du fil namnet för uppdateringen eller snabb korrigeringen. Du kan också bläddra till installations filen för uppdateringen eller hotfixen om den placeras på en nätverks resurs. Klicka på **Applicera**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-1/update2m.png)
 

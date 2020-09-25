@@ -1,14 +1,14 @@
 ---
 title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252012"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -374,8 +374,8 @@ När **enforcementMode** är _inaktive rad_utvärderas resurserna fortfarande. L
 
 Den här inställningen används med ett princip definitions _läge_ för `Microsoft.Kubernetes.Data` . Den används för att skicka Gatekeeper v3-regler för åtkomst kontroll som definierats med [OPA constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) till att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) till Kubernetes-kluster i Azure.
 
-> [!NOTE]
-> [Azure policy för Kubernetes](./policy-for-kubernetes.md) finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner. Inbyggda princip definitioner finns i kategorin **Kubernetes** . De begränsade för hands versions princip definitionerna med **EnforceOPAConstraint** -effekter och den relaterade **Kubernetes-tjänst** kategorin är _inaktuella_. Använd i stället effekterna _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> De begränsade definitionerna för för hands versions principer med **EnforceOPAConstraint** -effekter och den relaterade **Kubernetes tjänste** kategorin är _inaktuella_. Använd i stället effekterna _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint-utvärdering
 
@@ -430,8 +430,8 @@ Exempel: Gatekeeper v3-åtkomstkontroll för att ange behållarens processor gr�
 
 Den här inställningen används med ett princip definitions _läge_ för `Microsoft.ContainerService.Data` . Den används för att skicka Gatekeeper v2-regler för åtkomst kontroll som definierats med [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) för att [Öppna princip agent](https://www.openpolicyagent.org/) (OPA) på [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure policy för Kubernetes](./policy-for-kubernetes.md) finns i för hands version och stöder bara Linux-nodkonfigurationer och inbyggda princip definitioner. Inbyggda princip definitioner finns i kategorin **Kubernetes** . De begränsade för hands versions princip definitionerna med **EnforceRegoPolicy** -effekter och den relaterade **Kubernetes-tjänst** kategorin är _inaktuella_. Använd i stället effekterna _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> De begränsade definitionerna för för hands versions principer med **EnforceRegoPolicy** -effekter och den relaterade **Kubernetes tjänste** kategorin är _inaktuella_. Använd i stället effekterna _granskning_ och _neka_ med resurs leverantörs läge `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy-utvärdering
 
@@ -569,7 +569,7 @@ Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika s
 
 Egenskapen **operation** har följande alternativ:
 
-|Åtgärd |Beskrivning |
+|Åtgärd |Description |
 |-|-|
 |addOrReplace |Lägger till den definierade egenskapen eller taggen och värdet i resursen, även om egenskapen eller taggen redan finns med ett annat värde. |
 |Lägg till |Lägger till den definierade egenskapen eller taggen och värdet i resursen. |

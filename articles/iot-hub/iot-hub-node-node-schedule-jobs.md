@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 16e6c72f9fbb710524752c2d220d442735d809b7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 2c5ce219e40117a2b656b7acab6dd68a1d20dffb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251940"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Schema-och sändnings jobb (Node.js)
 
@@ -57,7 +57,7 @@ I slutet av den här självstudien har du två Node.js-appar:
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -130,7 +130,7 @@ I det här avsnittet skapar du en Node.js-konsolsession som svarar på en direkt
    });
    ```
 
-8. Spara och Stäng **simDevice.jss** filen.
+8. Spara och Stäng **simDevice.jss ** filen.
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), enligt förslag i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
@@ -266,7 +266,7 @@ I det här avsnittet skapar du en Node.js-konsolsession som initierar en fjärra
     });
     ```
 
-9. Spara och Stäng **scheduleJobService.jss** filen.
+9. Spara och Stäng **scheduleJobService.jss ** filen.
 
 ## <a name="run-the-applications"></a>Köra programmen
 

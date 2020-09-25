@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 2012f590aa833bea1b49955958095917a6479665
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289811"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Vill du arkivera vad som är nytt i Azure Security Center?
 
@@ -76,7 +76,7 @@ Security Center försvaret omfattar:
 - **Säkerhets rekommendationer** – användbara rekommendationer som hjälper dig att följa säkerhets metoder för AKS. Dessa rekommendationer ingår i dina säkra Poäng för att se till att de visas som en del av din organisations säkerhets position. Ett exempel på en AKS rekommendation som du kan se är "rollbaserad åtkomst kontroll ska användas för att begränsa åtkomsten till ett Kubernetes service-kluster".
 - **Hot skydd** – genom kontinuerlig analys av din AKS-distribution, Security Center varnar dig om hot och skadlig aktivitet som har identifierats på värd-och AKS kluster nivå.
 
-Lär dig mer om [Azure Kubernetes Services-integration med Security Center](azure-kubernetes-service-integration.md).
+Lär dig mer om [Azure Kubernetes Services-integration med Security Center](defender-for-kubernetes-introduction.md).
 
 Läs mer om [behållar säkerhetsfunktionerna i Security Center](container-security.md).
 

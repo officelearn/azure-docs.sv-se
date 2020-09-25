@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bc503213169f909850460edf5e50ed3f1b34fbe2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288604"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Använd Multi-Factor AAD-autentisering med Synapse SQL (SSMS-stöd för MFA)
 
@@ -22,9 +22,7 @@ Synapse SQL-support anslutningar från SQL Server Management Studio (SSMS) med *
 
 I den här artikeln beskrivs skillnaderna mellan olika autentiseringsalternativ och de begränsningar som är associerade med att använda Universal Authentication. 
 
-**Hämta den senaste SSMS** – på klient datorn laddar du ned den senaste versionen av SSMS, från [nedladdnings SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
-
-**Hämta den senaste SSMS** – på klient datorn laddar du ned den senaste versionen av SSMS, från [nedladdnings SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+**Hämta den senaste SSMS** – på klient datorn laddar du ned den senaste versionen av SSMS, från [nedladdnings SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 För alla funktioner som beskrivs i den här artikeln använder du minst juli 2017, version 17,2.  Dialog rutan senaste anslutning bör se ut ungefär som på följande bild:
 
@@ -33,8 +31,8 @@ För alla funktioner som beskrivs i den här artikeln använder du minst juli 20
 ## <a name="the-five-authentication-options"></a>De fem alternativen för autentisering  
 
 Active Directory Universal Authentication stöder de två icke-interaktiva autentiseringsmetoderna:
-    - `Active Directory - Password`anspråksautentisering
-    - `Active Directory - Integrated`anspråksautentisering
+    - `Active Directory - Password` anspråksautentisering
+    - `Active Directory - Integrated` anspråksautentisering
 
 Det finns två icke-interaktiva autentiseringsscheman och kan användas i många olika program (ADO.NET, JDCB, ODC osv.). Dessa två metoder resulterar aldrig i popup-dialog rutor:
 
@@ -51,7 +49,7 @@ En beskrivning av Multi-Factor Authentication finns i [Multi-Factor Authenticati
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD-domän namn eller klient-ID-parameter
 
-Från och med [SSMS version 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)kan användare som importeras till den aktuella Active Directory från andra Azure Active Directory som gäst användare ange Azure AD-domännamnet eller klient-ID när de ansluter. 
+Från och med [SSMS version 17](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)kan användare som importeras till den aktuella Active Directory från andra Azure Active Directory som gäst användare ange Azure AD-domännamnet eller klient-ID när de ansluter. 
 
 Gäst användare inkluderar användare som har bjudits in från andra Azure-annonser, Microsoft-konton som outlook.com, hotmail.com, live.com eller andra konton som gmail.com. Den här informationen tillåter **Active Directory universell med MFA-autentisering** för att identifiera rätt autentiserings-utfärdare. Det här alternativet krävs också för att stödja Microsoft-konton (MSA) som outlook.com, hotmail.com, live.com eller icke-MSA konton. 
 
@@ -61,7 +59,7 @@ Om till exempel Azure Server är associerad med Azure AD-domän `contosotest.onm
 
 När användaren är en inbyggd användare av Azure AD som är länkad till Azure Server och inte är ett MSA-konto krävs inget domän namn eller klient-ID. 
 
-Om du vill ange parametern (från och med SSMS version 17,2) går du till dialog rutan **Anslut till databas** , fyller i dialog rutan, väljer **Active Directory-universell med MFA** -autentisering, klickar på **alternativ**, fyller i rutan **användar namn** och klickar sedan på fliken **anslutnings egenskaper** . 
+Om du vill ange parametern (från och med SSMS version 17,2) går du till dialog rutan **Anslut till databas** , fyller i dialog rutan, väljer **Active Directory-universell med MFA** -autentisering, väljer **alternativ**, fyller i rutan **användar namn** och väljer sedan fliken **anslutnings egenskaper** . 
 
 Kontrol lera rutan **AD-domännamn eller klient-ID** och tillhandahålla autentiserings utfärdare, till exempel domän namnet (**CONTOSOTEST.ONMICROSOFT.com**) eller GUID för klient-ID: t.  
 
@@ -80,7 +78,7 @@ När databas användaren har skapats `steve@gmail.com` kan användaren logga in 
 
 Usergroup har som standard bara Connect-behörigheten och all ytterligare data åtkomst som behöver beviljas på normalt sätt. 
 
-Observera att användaren `steve@gmail.com` som gäst användare måste markera kryss rutan och lägga till AD-domännamnet `contosotest.onmicrosoft.com` i dialog rutan SSMS **Connection Property** . Alternativet **AD-domännamn eller klient-ID** stöds bara för universellt med MFA-anslutnings alternativ, annars är det nedtonad.
+Som gäst användare `steve@gmail.com` måste markera kryss rutan och lägga till AD-domännamnet `contosotest.onmicrosoft.com` i dialog rutan SSMS **Connection Property** . Alternativet **AD-domännamn eller klient-ID** stöds bara för universellt med MFA-anslutnings alternativ, annars är det nedtonad.
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Begränsningar för Universal-autentisering för Synapse SQL
 
@@ -88,7 +86,7 @@ Observera att användaren `steve@gmail.com` som gäst användare måste markera 
 - SSMS version 17,2, stöder samtidig åtkomst till flera användare med hjälp av Universal Authentication med MFA. Version 17,0 och 17,1, begränsad en inloggning för en instans av SSMS med hjälp av Universal Authentication till ett enda Azure Active Directory konto. Om du vill logga in som ett annat Azure AD-konto måste du använda en annan instans av SSMS. (Den här begränsningen är begränsad till Active Directory Universal Authentication. du kan logga in på olika servrar med Active Directory lösenordsautentisering, Active Directory integrerad autentisering eller SQL Server autentisering).
 - SSMS stöder Active Directory Universal Authentication för Object Explorer, Frågeredigeraren och visualisering av fråge arkiv.
 - SSMS version 17,2 ger stöd för DacFx-guiden för export/extrahering/distribution av data databaser. När en enskild användare har autentiserats via dialog rutan inledande autentisering med hjälp av Universal Authentication, fungerar DacFx-guiden på samma sätt som för alla andra autentiseringsmetoder.
-- SSMS-Tabelldesigner stöder inte Universal-autentisering.
+- SSMS-Tabelldesigner stöder inte Universal Authentication.
 - Det finns inga ytterligare program varu krav för Active Directory Universal Authentication, förutom att du måste använda en version av SSMS som stöds.  
 - Active Directory-autentiseringsbibliotek-versionen (ADAL) för Universal Authentication har uppdaterats till den senaste ADAL.dll 3.13.9 tillgänglig version. Se [Active Directory-autentiseringsbibliotek 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 

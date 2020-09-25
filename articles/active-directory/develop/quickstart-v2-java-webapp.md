@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258106"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -53,7 +53,7 @@ Om du vill köra det här exemplet behöver du:
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `java-webapp`.
->    - Välj **Registrera**.
+>    - Välj **Register** (Registrera).
 > 1. På sidan **Översikt** hittar du program- **ID: t** och **katalogens ID-** värden för programmet. Kopiera dessa värden för senare.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
 >    - Lägg till **webb** plattforms konfigurationen.  Lägg till dessa `https://localhost:8443/msal4jsample/secure/aad` och `https://localhost:8443/msal4jsample/graph/me` som **omdirigerings-URI: er**..
@@ -70,7 +70,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 >
-> 1. Lägg till svars-URL: er som `https://localhost:8443/msal4jsample/secure/aad` och`https://localhost:8443/msal4jsample/graph/me`
+> 1. Lägg till svars-URL: er som `https://localhost:8443/msal4jsample/secure/aad` och `https://localhost:8443/msal4jsample/graph/me`
 > 1. Skapa en klient hemlighet.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
@@ -122,8 +122,8 @@ Om du vill köra det här exemplet behöver du:
 > Där:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-> - `Enter_the_Client_Secret_Here`– är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
-> - `Enter_the_Tenant_Info_Here`-är **katalog-ID-** värdet för det program som du har registrerat.
+> - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` -är **katalog-ID-** värdet för det program som du har registrerat.
 > 1. Om du vill använda https med localhost, fyller du i egenskaperna Server. SSL. nyckel. Om du vill skapa ett självsignerat certifikat använder du verktyget för verktyg (ingår i JRE).
 >
 >  ```
@@ -149,7 +149,7 @@ Kör den direkt från din IDE genom att använda den inbäddade våren-startserv
 
 ##### <a name="running-from-ide"></a>Köra från IDE
 
-Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan till projektets start sida. För det här exemplet är standard start sidans URLhttps://localhost:8443
+Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan till projektets start sida. För det här exemplet är standard start sidans URL https://localhost:8443
 
 1. På den första sidan väljer du knappen **Logga in** för att omdirigera till Azure Active Directory och uppmana användaren att ange sina autentiseringsuppgifter.
 
@@ -162,7 +162,7 @@ Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan 
 Om du vill distribuera webb exemplet till Tomcat måste du göra några ändringar i käll koden.
 
 1. Öppna MS-Identity-Java-webapp/pom.xml
-    - Under `<name>msal-web-sample</name>` Lägg till`<packaging>war</packaging>`
+    - Under `<name>msal-web-sample</name>` Lägg till `<packaging>war</packaging>`
 
 2. Öppna MS-Identity-Java-webapp/src/main/Java/com. Microsoft. Azure. msalwebsample/MsalWebSampleApplication
 
@@ -193,18 +193,19 @@ Om du vill distribuera webb exemplet till Tomcat måste du göra några ändring
 3.   Tomcat-standardporten är 8080, men en HTTPS-anslutning över Port 8443 krävs. Så här konfigurerar du detta:
         - Gå till Tomcat/conf/server.xml
         - Sök efter `<connector>` taggen och ersätt den befintliga anslutningen med:
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Öppna en kommando tolk, gå till rotmappen för det här exemplet (där pom.xml-filen finns) och kör `mvn package` för att skapa projektet
     - Då skapas en `msal-web-sample-0.1.0.war` fil i/Targets-katalogen.
-    - Byt namn på filen till`msal4jsample.war`
+    - Byt namn på filen till `msal4jsample.war`
     - Distribuera den här War-filen med Tomcat eller någon annan J2EE container-lösning.
         - Du distribuerar genom att kopiera filen msal4jsample. War till `/webapps/` katalogen i din tomcat-installation och sedan starta Tomcat-servern.
 
@@ -249,16 +250,11 @@ Lägg till en referens till MSAL för Java genom att lägga till följande kod �
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Efterföljande moment
 
-Lär dig mer om behörigheter och medgivande:
+För en mer djupgående diskussion om att skapa webbappar som loggar in användare på Microsoft Identity Platform, går du vidare till vår scenario serie med flera delar:
 
 > [!div class="nextstepaction"]
-> [Behörigheter och tillstånd](./v2-permissions-and-consent.md)
-
-Om du vill veta mer om auth-flödet för det här scenariot, se OAuth 2,0 Authorization Code Flow:
-
-> [!div class="nextstepaction"]
-> [Auktoriseringskod OAuth-flöde](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[Scenario: webb program som loggar in användare](scenario-web-app-sign-user-overview.md?tabs=java)

@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 02/10/2020
+ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 5551655843b8d3ed5b6d70f5d6ed3a0eb4d0e92f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f51ffc3135ff35214a2c5c40cce1f2b3fcaf33e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290927"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning
 
@@ -39,13 +39,17 @@ Du får lära dig hur du använder Azure Machine Learning för att göra väder 
   - Spara resultatet i Azure Blob Storage.
 - Använd Microsoft Azure Storage Explorer för att Visa väder prognosen.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 - Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
   - En aktiv Azure-prenumeration.
   - En Azure IoT-hubb under din prenumeration.
   - Ett klient program som skickar meddelanden till Azure IoT Hub.
 - Ett [Azure Machine Learning Studio (klassiskt)](https://studio.azureml.net/) konto.
+- Ett [Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts)är ett **Allmänt-Purpose v2-** konto, men alla Azure Storage-konton som stöder Azure Blob Storage fungerar också.
+
+> [!Note]
+> Den här artikeln använder Azure Stream Analytics och flera andra betalda tjänster. Extra kostnader uppkommer i Azure Stream Analytics när data måste överföras i Azure-regioner. Av den anledningen är det bra att se till att din resurs grupp, IoT Hub och Azure Storage-konto – samt den Machine Learning Studio (klassiska) arbets ytan och Azure Stream Analytics jobb läggs till senare i den här självstudien – alla finns i samma Azure-region. Du kan kontrol lera regional support för Azure Machine Learning Studio och andra Azure-tjänster på [sidan för Azure produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Distribuera väder förutsägelse modellen som en webb tjänst
 
@@ -59,7 +63,7 @@ I det här avsnittet får du en väder förutsägelse modell från Azure AI Gall
 
    ![Öppna sidan för väder förutsägelse modellen i Azure AI Gallery](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
 
-1. Klicka på **Öppna i Studio (klassisk)** för att öppna modellen i Microsoft Azure Machine Learning Studio (klassisk).
+1. Välj **Öppna i Studio (klassisk)** för att öppna modellen i Microsoft Azure Machine Learning Studio (klassisk). Välj en region nära IoT-hubben och rätt arbets yta i popup-fönstret **Kopiera experiment från Galleri** .
 
    ![Öppna väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
 
@@ -67,7 +71,7 @@ I det här avsnittet får du en väder förutsägelse modell från Azure AI Gall
 
 För att modellen ska fungera korrekt måste temperatur-och fuktighets data konverteras till numeriska data. I det här avsnittet lägger du till en R-script-modul till den väder förutsägelse modell som tar bort alla rader som har data värden för temperatur eller fuktighet som inte kan konverteras till numeriska värden.
 
-1. Klicka på pilen till vänster i fönstret Azure Machine Learning Studio för att expandera panelen verktyg. Ange "kör" i sökrutan. Välj modulen **Kör R-skript** .
+1. På vänster sida av Azure Machine Learning Studio fönstret väljer du pilen för att expandera panelen verktyg. Ange "kör" i sökrutan. Välj modulen **Kör R-skript** .
 
    ![Välj Kör R-skript modul](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -98,21 +102,21 @@ För att modellen ska fungera korrekt måste temperatur-och fuktighets data konv
 
 I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb tjänst baserat på modellen och distribuerar sedan webb tjänsten.
 
-1. Verifiera stegen i modellen genom att klicka på **Kör** . Det här steget kan ta några minuter att slutföra.
+1. Välj **Kör** för att validera stegen i modellen. Det här steget kan ta några minuter att slutföra.
 
    ![Kör experimentet för att verifiera stegen](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Klicka på **Konfigurera**webb tjänsten  >  **förutsägbar webb tjänst**. Det förutsägande experiment diagrammet öppnas.
+1. Välj **Konfigurera**den  >  **förutsägbara webb tjänsten**för webb tjänsten. Det förutsägande experiment diagrammet öppnas.
 
    ![Distribuera väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
-1. I det förutsägande experiment diagrammet tar du bort anslutningen mellan **webb tjänstens indata-** modul och **väder data uppsättningen** överst. Dra sedan modulen för **Indataporten för webb tjänsten** någonstans i modulen **Poäng modell** och Anslut den så att den visas:
+1. I det förutsägande experiment diagrammet tar du bort anslutningen mellan **webb tjänstens indata-** modul och **Välj kolumner i data uppsättningen** längst upp. Dra sedan modulen för **Indataporten för webb tjänsten** någonstans i modulen **Poäng modell** och Anslut den så att den visas:
 
-   ![Anslut två moduler i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![Anslut två moduler i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
 
-1. Verifiera stegen i modellen genom att klicka på **Kör** .
+1. Välj **Kör** för att validera stegen i modellen.
 
-1. Klicka på **distribuera webb tjänst** för att distribuera modellen som en webb tjänst.
+1. Välj **distribuera webb tjänst** för att distribuera modellen som en webb tjänst.
 
 1. På instrument panelen för modellen laddar du ned **Excel 2010 eller tidigare arbets bok** för **begäran/svar**.
 
@@ -129,45 +133,53 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
 ### <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. I [Azure Portal](https://portal.azure.com/) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **skapa en resurs**. Skriv "Stream Analytics-jobb" i sökrutan och välj **Stream Analytics jobb** i list rutan resultat. När fönstret **Stream Analytics jobb** öppnas väljer du **skapa**.
 1. Ange följande information för jobbet.
 
    **Jobbnamn**: Jobbets namn. Namnet måste vara globalt unikt.
+
+   **Prenumeration**: Välj din prenumeration om den skiljer sig från standardvärdet.
 
    **Resurs grupp**: Använd samma resurs grupp som din IoT Hub använder.
 
    **Plats**: Använd samma plats som din resurs grupp.
 
-   **Fäst på instrumentpanelen**: Välj det här alternativet för enkel åtkomst till IoT-hubben från instrumentpanelen.
+   Lämna alla andra fält standardvärden.
 
-   ![Skapa ett Stream Analytics jobb i Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
+   ![Skapa ett Stream Analytics jobb i Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. Klicka på **Skapa**.
+1. Välj **Skapa**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
 1. Öppna Stream Analyticss jobbet.
-1. Under **Jobbtopologi** klickar du på **Indata**.
-1. I rutan **indata** klickar du på **Lägg till**och anger följande information:
+1. Välj **Indata** under **Jobbtopologi**.
+1. I rutan **indata** väljer du **Lägg till Stream-indata**och väljer sedan **IoT Hub** i list rutan. I fönstret **nytt indata** väljer du **Välj IoT Hub från dina prenumerationer** och anger följande information:
 
    **Indataområde**: det unika aliaset för indatamängden.
 
-   **Källa**: Välj **IoT Hub**.
+   **Prenumeration**: Välj din prenumeration om den skiljer sig från standardvärdet.
+
+   **IoT Hub**: Välj IoT Hub från din prenumeration.
+
+   **Princip namn för delad åtkomst**: Välj  **tjänst**. (Du kan också använda **iothubowner**.)
 
    **Konsument grupp**: Välj den konsument grupp som du skapade.
 
-   ![Lägg till inmatade Stream Analytics jobb i Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
+   Lämna alla andra fält standardvärden.
 
-1. Klicka på **Skapa**.
+   ![Lägg till inmatade Stream Analytics jobb i Azure](media/iot-hub-weather-forecast-machine-learning/add-input-stream-analytics-job.png)
+
+1. Välj **Spara**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
-1. Under **Jobbtopologi** klickar du på **Utdata**.
-1. I fönstret **utdata** klickar du på **Lägg till**och anger följande information:
+1. Välj **Utdata** under **Jobbtopologi**.
+1. I fönstret **utdata** väljer du **Lägg till**och väljer sedan **Blob Storage/data Lake Storage** i list rutan. I fönstret **nytt utdata** väljer du alternativet för att **välja lagring från dina prenumerationer** och anger följande information:
 
    **Utdataalias**: Utdatas unika alias.
 
-   **Mottagare**: Välj **Blob Storage**.
+   **Prenumeration**: Välj din prenumeration om den skiljer sig från standardvärdet.
 
    **Lagrings konto**: lagrings kontot för blob-lagringen. Du kan skapa ett lagrings konto eller använda ett befintligt.
 
@@ -175,32 +187,28 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
    **Format för händelse serialisering**: Välj **CSV**.
 
-   ![Lägga till utdata till Stream Analytics jobb i Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
+   ![Lägga till utdata till Stream Analytics jobb i Azure](media/iot-hub-weather-forecast-machine-learning/add-output-stream-analytics-job.png)
 
-1. Klicka på **Skapa**.
+1. Välj **Spara**.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Lägg till en funktion i Stream Analytics jobbet för att anropa den distribuerade webb tjänsten
 
-1. Klicka på **funktioner**Lägg till under **jobb sto pol Ogin**  >  **Add**.
-1. Ange följande information:
+1. Under **jobb sto pol Ogin**väljer du **Functions**.
+1. I rutan **funktioner** väljer du **Lägg till**och väljer sedan **Azure ml Studio** i list rutan. (Se till att du väljer **azure ml Studio**, inte **Azure ml-tjänsten**.) I fönstret **ny funktion** väljer du **ange inställningar för Azure Machine Learning funktion manuellt** och anger följande information:
 
    **Funktions Ali Aset**: ange `machinelearning` .
-
-   **Funktions typ**: Välj **Azure ml**.
-
-   **Import alternativ**: Välj **Importera från en annan prenumeration**.
 
    **URL**: Ange webb tjänst-URL: en som du antecknade från Excel-arbetsboken.
 
    **Nyckel**: Ange den åtkomst nyckel som du antecknade från Excel-arbetsboken.
 
-   ![Lägga till en funktion i Stream Analytics jobbet i Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
+   ![Lägga till en funktion i Stream Analytics jobbet i Azure](media/iot-hub-weather-forecast-machine-learning/add-function-stream-analytics-job.png)
 
-1. Klicka på **Skapa**.
+1. Välj **Spara**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
-1. Under **Jobbtopologi** klickar du på **Fråga**.
+1. Välj **Fråga** under **Jobbtopologi**.
 1. Ersätt den befintliga koden med följande kod:
 
    ```sql
@@ -216,13 +224,16 @@ I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb 
 
    Ersätt `[YourOutputAlias]` med utdataalias för jobbet.
 
-1. Klicka på **Spara**.
+1. Välj **Spara fråga**.
+
+> [!Note]
+> Om du väljer **test fråga**visas följande meddelande: fråga testning med Machine Learning funktioner stöds inte. Ändra frågan och försök igen. Du kan ignorera detta meddelande på ett säkert sätt och välja **OK** för att stänga meddelande rutan. Se till att spara frågan innan du fortsätter till nästa avsnitt.
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
-I Stream Analytics jobb klickar du på **Starta**  >  **nu**  >  **Start**. När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
+I Stream Analytics jobb väljer du **Översikt** i det vänstra fönstret. Välj sedan **Starta**  >  **nu**  >  **Start**. När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
 
-![Köra Stream Analytics-jobbet](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Köra Stream Analytics-jobbet](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Använd Microsoft Azure Storage Explorer för att Visa väder prognosen
 
@@ -232,7 +243,7 @@ Kör klient programmet för att börja samla in och skicka temperatur-och fuktig
 1. Öppna Azure Storage Explorer.
 1. Logga in på ditt Azure-konto.
 1. Välj din prenumeration.
-1. Klicka på prenumerationen > **lagrings konton** > ditt lagrings konto > **Blob-behållare** > din behållare.
+1. Välj din prenumeration > **lagrings konton** > ditt lagrings konto > **Blob-behållare** > din behållare.
 1. Hämta en CSV-fil för att se resultatet. Den sista kolumnen registrerar risken för regn.
 
    ![Få resultat för väder prognoser med Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)

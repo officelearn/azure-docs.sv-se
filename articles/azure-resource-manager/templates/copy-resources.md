@@ -2,19 +2,19 @@
 title: Distribuera flera instanser av resurser
 description: Använd kopierings åtgärd och matriser i en Azure Resource Manager mall för att distribuera resurs typen flera gånger.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/21/2020
+ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293976"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Resurs upprepning i ARM-mallar
 
 Den här artikeln visar hur du skapar fler än en instans av en resurs i din Azure Resource Manager-mall (ARM). Genom att lägga till elementet **Kopiera** i avsnittet resurser i mallen kan du dynamiskt ange antalet resurser som ska distribueras. Du behöver inte heller upprepa syntaxen för mallar.
 
-Du kan också använda kopiera med [Egenskaper](copy-properties.md), [variabler](copy-variables.md) och [utdata](copy-outputs.md).
+Du kan också använda kopiera med [Egenskaper](copy-properties.md), [variabler](copy-variables.md)och [utdata](copy-outputs.md).
 
 Om du behöver ange om en resurs har distribuerats alls, se [villkors element](conditional-resource-deployment.md).
 
@@ -156,6 +156,8 @@ Som standard skapar Resource Manager resurserna parallellt. Den tillämpar ingen
 
 Men du kanske vill ange att resurserna distribueras i följd. Till exempel, när du uppdaterar en produktions miljö, kanske du vill sprida uppdateringarna så att bara ett visst nummer uppdateras vid ett tillfälle. Om du vill distribuera mer än en instans av en resurs kan du `mode` ange **seriell** och `batchSize` antalet instanser som ska distribueras i taget. Med seriellt läge skapar Resource Manager ett beroende på tidigare instanser i slingan, så det går inte att starta en batch förrän den föregående batchen har slutförts.
 
+Värdet för `batchSize` får inte överstiga värdet för `count` i kopierings elementet.
+
 Om du till exempel vill distribuera lagrings konton två i taget, använder du:
 
 ```json
@@ -279,7 +281,7 @@ I följande exempel visas implementeringen:
 
 I följande exempel visas vanliga scenarier för att skapa mer än en instans av en resurs eller egenskap.
 
-|Mall  |Beskrivning  |
+|Mall  |Description  |
 |---------|---------|
 |[Kopiera lagring](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuerar fler än ett lagrings konto med ett index nummer i namnet. |
 |[Lagring av serie kopia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuerar flera lagrings konton en i taget. Namnet innehåller index numret. |

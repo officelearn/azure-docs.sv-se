@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: jrasnick
+ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288349"
 ---
 # <a name="query-folders-and-multiple-files"></a>Efterfråga mappar och flera filer  
 
@@ -22,7 +22,7 @@ I den här artikeln får du lära dig hur du skriver en fråga med SQL på begä
 
 SQL på begäran stöder läsning av flera filer/mappar med jokertecken som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
@@ -232,4 +232,4 @@ Eftersom du bara har en mapp som matchar villkoren, är frågeresultatet detsamm
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i artikeln om [speciella filer i frågor](query-specific-files.md) .
+Mer information finns i artikeln [query Specific Files](query-specific-files.md) .

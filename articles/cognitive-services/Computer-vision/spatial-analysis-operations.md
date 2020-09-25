@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5955bc35acfaf8f877e68db083871c353a3ce326
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f9df17afe8b6d25df3d9dcc5f4eec0b9a028404f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254014"
 ---
 # <a name="spatial-analysis-operations"></a>Åtgärder för rums analys
 
@@ -23,7 +23,7 @@ Med rums analys kan du analysera real tids strömnings video från kamera enhete
 
 Behållaren för rums analys implementerar följande åtgärder:
 
-| Åtgärds identifierare| Beskrivning|
+| Åtgärds identifierare| Description|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
@@ -32,7 +32,7 @@ Behållaren för rums analys implementerar följande åtgärder:
 
 Alla ovanstående åtgärder är också tillgängliga i `.debug` versionen, som har möjlighet att visualisera video bild rutorna när de bearbetas. Du måste köra `xhost +` på värddatorn för att aktivera visualiseringen av video bild rutor och händelser.
 
-| Åtgärds identifierare| Beskrivning|
+| Åtgärds identifierare| Description|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount. debug | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline. debug | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
@@ -43,7 +43,7 @@ Rums analys kan också köras med [Live Video Analytics](https://azure.microsoft
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| Åtgärds identifierare| Beskrivning|
+| Åtgärds identifierare| Description|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount. livevideoanalytics | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline. livevideoanalytics | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
@@ -57,7 +57,7 @@ Live Video Analytics-åtgärder är också tillgängliga i `.debug` versionen (t
 
 Dessa är de parametrar som krävs för var och en av dessa åtgärder för att utföra den här typen av
 
-| Åtgärdsparametrar| Beskrivning|
+| Åtgärdsparametrar| Description|
 |---------|---------|
 | Åtgärds-ID | Åtgärds identifieraren från tabellen ovan.|
 | enabled | Boolean: true eller false|
@@ -88,7 +88,7 @@ Dessa är de parametrar som krävs för var och en av dessa åtgärder för att 
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -121,7 +121,7 @@ Detta är ett exempel på en JSON-ineffekt för den SPACEANALYTICS_CONFIG parame
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `lines` | lista| Lista med rader.|
 | `name` | sträng| Eget namn för den här raden.|
@@ -152,7 +152,7 @@ Detta är ett exempel på en JSON-ineffekt för den SPACEANALYTICS_CONFIG parame
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -184,7 +184,7 @@ Detta är ett exempel på en JSON-ineffekt för SPACEANALYTICS_CONFIG-parametern
 }
 ```
 
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -644,7 +644,7 @@ Du kanske vill integrera identifiering eller händelser för rums analys i ditt 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Distribuera åtgärder för rums analys i skala (flera kameror)
 
-För att få bästa möjliga prestanda och användning av GPU: er kan du distribuera alla spatiala analys åtgärder på flera kameror med diagram instanser. Nedan visas ett exempel på hur du kör cognitiveservices. vision. spatialanalysis-personcount-åtgärden på fem (5) kameror.
+För att få bästa möjliga prestanda och användning av GPU: er kan du distribuera alla avstånds analys åtgärder på flera kameror med diagram instanser. Nedan visas ett exempel på hur du kör `cognitiveservices.vision.spatialanalysis-personcount` åtgärden på fem kameror.
 
 ```json
  "properties.desired": {
@@ -725,9 +725,9 @@ För att få bästa möjliga prestanda och användning av GPU: er kan du distrib
       }
   }
   ```
-| Namn | Typ| Beskrivning|
+| Namn | Typ| Description|
 |---------|---------|---------|
-| `batch_size` | int | Anger antalet kameror som ska användas i åtgärden.|
+| `batch_size` | int | Anger antalet kameror som ska användas i åtgärden. |
 
 ## <a name="next-steps"></a>Nästa steg
 

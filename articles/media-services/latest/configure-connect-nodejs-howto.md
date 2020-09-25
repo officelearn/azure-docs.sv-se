@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4f6b24b17ac0e12c286a11abe8732bb86e2deb5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: devx-track-js
+ms.openlocfilehash: d32f39daeb66990d99915e8bbcca5dd637d4f914
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297356"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296271"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ansluta till Media Services v3 API – Node.js
 
@@ -27,7 +27,7 @@ ms.locfileid: "89297356"
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3-node.js SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Installera [Node.js](https://nodejs.org/en/download/).
 - [Skapa ett Media Services-konto](./create-account-howto.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
@@ -57,7 +57,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3-node.js SDK
 
 Följande paket ska anges:
 
-|Paket|Beskrivning|
+|Paket|Description|
 |---|---|
 |`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Kontrol lera att du använder det senaste Azure Media Servicess paketet genom att markera [NPM installera Azure-arm-Media Services](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|Storage SDK. Används vid överföring av filer till till gångar.|

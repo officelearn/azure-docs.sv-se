@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280485"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289029"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
 
-`OPENROWSET(BULK...)`Funktionen gör att du kan komma åt filer i Azure Storage. `OPENROWSET`funktionen läser innehåll i en fjärrdatakälla (till exempel fil) och returnerar innehållet som en uppsättning rader. I SQL on-demand-resursen (för hands version) kan du komma åt OpenRowSet-providern för OpenRowSet genom att anropa funktionen OpenRowSet och ange alternativet för Mass rad uppsättning.  
+`OPENROWSET(BULK...)`Funktionen gör att du kan komma åt filer i Azure Storage. `OPENROWSET` funktionen läser innehåll i en fjärrdatakälla (till exempel fil) och returnerar innehållet som en uppsättning rader. I SQL on-demand-resursen (för hands version) kan du komma åt OpenRowSet-providern för OpenRowSet genom att anropa funktionen OpenRowSet och ange alternativet för Mass rad uppsättning.  
 
 `OPENROWSET`Funktionen kan refereras i- `FROM` satsen i en fråga som om den vore ett tabell namn `OPENROWSET` . Det stöder Mass åtgärder via en inbyggd Mass leverantör som gör det möjligt att läsa och returnera data från en fil som en rad uppsättning.
 
@@ -26,7 +26,7 @@ ms.locfileid: "87280485"
 
 OpenRowSet-funktionen i Synapse SQL läser innehållet i filen/filerna från en data källa. Data källan är ett Azure Storage-konto och det kan uttryckligen refereras till i `OPENROWSET` funktionen eller kan dynamiskt härledas från URL: en för de filer som du vill läsa.
 `OPENROWSET`Funktionen kan också innehålla en `DATA_SOURCE` parameter för att ange den data källa som innehåller filer.
-- `OPENROWSET`utan `DATA_SOURCE` kan användas för att läsa innehållet i filerna direkt från den URL-plats som anges som `BULK` alternativ:
+- `OPENROWSET` utan `DATA_SOURCE` kan användas för att läsa innehållet i filerna direkt från den URL-plats som anges som `BULK` alternativ:
 
     ```sql
     SELECT *
@@ -36,7 +36,7 @@ OpenRowSet-funktionen i Synapse SQL läser innehållet i filen/filerna från en 
 
 Det här är ett snabbt och enkelt sätt att läsa innehållet i filerna utan för konfigurering. Med det här alternativet kan du använda alternativet grundläggande autentisering för att komma åt lagringen (Azure AD-genomströmning för Azure AD-inloggningar och SAS-token för SQL-inloggningar). 
 
-- `OPENROWSET`med `DATA_SOURCE` kan användas för att komma åt filer på ett angivet lagrings konto:
+- `OPENROWSET` med `DATA_SOURCE` kan användas för att komma åt filer på ett angivet lagrings konto:
 
     ```sql
     SELECT *
@@ -49,7 +49,7 @@ Det här är ett snabbt och enkelt sätt att läsa innehållet i filerna utan f�
     Med det här alternativet kan du konfigurera lagrings kontots plats i data källan och ange den autentiseringsmetod som ska användas för åtkomst till lagringen. 
     
     > [!IMPORTANT]
-    > `OPENROWSET`utan `DATA_SOURCE` ger ett snabbt och enkelt sätt att komma åt lagringsfiler, men erbjuder alternativ för begränsad autentisering. Till exempel kan Azure AD-huvudobjekten bara komma åt filer med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity) eller offentligt tillgängliga filer. Om du behöver mer kraftfulla autentiseringsalternativ använder du `DATA_SOURCE` alternativet och definierar de autentiseringsuppgifter som du vill använda för att komma åt lagringen.
+    > `OPENROWSET` utan `DATA_SOURCE` ger ett snabbt och enkelt sätt att komma åt lagringsfiler, men erbjuder alternativ för begränsad autentisering. Till exempel kan Azure AD-huvudobjekten bara komma åt filer med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity) eller offentligt tillgängliga filer. Om du behöver mer kraftfulla autentiseringsalternativ använder du `DATA_SOURCE` alternativet och definierar de autentiseringsuppgifter som du vill använda för att komma åt lagringen.
 
 
 ## <a name="security"></a>Säkerhet
@@ -58,7 +58,7 @@ En databas användare måste ha `ADMINISTER BULK OPERATIONS` behörighet att anv
 
 Lagrings administratören måste också göra det möjligt för en användare att komma åt filerna genom att tillhandahålla en giltig SAS-token eller aktivera Azure AD-huvudobjektet för åtkomst till lagringsfiler Läs mer om åtkomst kontroll för lagring i [den här artikeln](develop-storage-files-storage-access-control.md).
 
-`OPENROWSET`Använd följande regler för att avgöra hur du ska autentisera till lagring:
+`OPENROWSET` Använd följande regler för att avgöra hur du ska autentisera till lagring:
 - I `OPENROWSET` utan `DATA_SOURCE` autentiseringsmekanism beror på samtals typ.
   - Alla användare kan använda `OPENROWSET` utan `DATA_SOURCE` att läsa offentligt tillgängliga filer i Azure Storage.
   - Azure AD-inloggningar kan komma åt skyddade filer med sin egen [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) om Azure Storage gör det möjligt för Azure AD-användaren att komma åt underliggande filer (till exempel om anroparen har `Storage Reader` behörighet för Azure Storage).
@@ -117,9 +117,9 @@ Unstructured_data_path som upprättar en sökväg till data kan vara en absolut 
 | -------------------------- | ------ | ---------------------------------------------------- |
 | Azure Blob Storage         | http [s]  | \<storage_account>. blob.core.windows.net/path/file   |
 | Azure Blob Storage         | wasb [s]  | \<container>@\<storage_account>. blob.core.windows.net/path/file |
-| Azure Data Lake Store gen1 | http [s]  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen1 | http [s]  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http [s]  | \<storage_account>. dfs.core.windows.net/Path/File   |
-| Azure Data Lake Store Gen2 | ABFS [s]  | [\<file_system>@\<account_name>. dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | aufs [s]  | [\<file_system>@\<account_name>. dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -184,7 +184,7 @@ Parametern ESCAPE_CHAR tillämpas oavsett om FIELDQUOTE är eller inte är aktiv
 
 FIRSTROW = first_row 
 
-Anger numret på den första raden som ska läsas in. Standard är 1. Detta anger den första raden i den angivna data filen. Rad numren bestäms genom att räkna rad avbrotten. FIRSTROW är 1-baserad.
+Anger numret på den första raden som ska läsas in. Standardvärdet är 1 och anger den första raden i den angivna data filen. Rad numren bestäms genom att räkna rad avbrotten. FIRSTROW är 1-baserad.
 
 FIELDQUOTE = field_quote 
 
@@ -203,7 +203,7 @@ Anger vilken parser-version som ska användas vid läsning av filer. För närva
 - PARSER_VERSION = ' 1,0 '
 - PARSER_VERSION = ' 2,0 '
 
-CSV-parser version 1,0 är standard och funktionen är intensiv, medan 2,0 har skapats för prestanda och inte stöder alla alternativ och kodningar. 
+CSV-parser version 1,0 är standard och Rich-funktionen. Version 2,0 är konstruerad för prestanda och har inte stöd för alla alternativ och kodningar. 
 
 CSV-parser version 2,0-information:
 
@@ -229,7 +229,7 @@ WITH (
 ) AS [r]
 ```
 
-I följande exempel returneras alla kolumner för den första raden från data uppsättningen för inventering i Parquet-format utan att ange kolumn namn och data typer: 
+I följande exempel returneras alla kolumner för den första raden från data uppsättningen för inventering i Parquet-format, och utan att ange kolumn namn och data typer: 
 
 ```sql
 SELECT 

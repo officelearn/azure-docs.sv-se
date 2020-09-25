@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288077"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Stöd för databas sortering för Synapse SQL
 
@@ -24,7 +24,7 @@ Du kan ändra standard databas sorteringen från Azure Portal när du skapar en 
 Du kan ange standard sorteringen för SQL-Synapse på begäran när den skapas med instruktionen CREATE DATABASE.
 
 ## <a name="change-collation"></a>Ändrings sortering
-Om du vill ändra standard sorteringen för SQL-pool-databasen kan du enkelt uppdatera sorterings fältet i etablerings upplevelsen. Om du till exempel vill ändra standard sorteringen till Skift läges känslig, behöver du bara byta namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS. 
+Om du vill ändra standard sorteringen för SQL-adresspoolen uppdaterar du till sorterings fältet i etablerings upplevelsen. Om du till exempel vill ändra standard sorteringen till Skift läges känslig skulle du byta namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS. 
 
 Om du vill ändra standard sorteringen för SQL på begäran-databasen kan du använda ALTER DATABASE-instruktionen.
 
@@ -98,7 +98,7 @@ Om du vill ändra standard sorteringen för SQL på begäran-databasen kan du an
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Dessutom stöder SQL-poolen inte följande sorterings typer:
+SQL-poolen stöder inte heller följande sorterings typer:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS

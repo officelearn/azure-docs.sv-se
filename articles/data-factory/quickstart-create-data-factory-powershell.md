@@ -1,6 +1,6 @@
 ---
 title: Kopiera data i Blob Storage med Azure Data Factory
-description: Skapa en Azure-datafabrik för att kopiera data från en plats i Azure Blob Storage till en annan plats.
+description: Skapa en Azure-datafabrik med PowerShell för att kopiera data från en plats i Azure Blob Storage till en annan plats.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ebcab92c40705bf108d5839a7e67aee345c1bbc7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292395"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabb start: skapa en Azure-datafabrik med hjälp av PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabbstart: Skapa en Azure-datafabrik med hjälp av PowerShell
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -166,7 +166,7 @@ Skapa länkade tjänster i en datafabrik för att länka ditt datalager och ber�
 I den här proceduren skapar du två datauppsättningar: **InputDataset** och **OutputDataset**. Dessa data uppsättningar är av typen **Binary**. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt.
 Datauppsättningen för indata representerar källdata i indatamappen. I definitionen av datauppsättningen för indata anger du blobcontainern (**adftutorial**), mappen (**input**) och filen (**emp.txt**) som innehåller källdata.
 Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av datauppsättningen för utdata anger du blobcontainern (**adftutorial**), mappen (**output**) och filen som data ska kopieras till. 
-1. Skapa en JSON-fil med namnet **InputDataset. JSON** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
+1. Skapa en JSON-fil med namnet **InputDataset.js** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
     ```json
     {
@@ -208,7 +208,7 @@ Datauppsättningen för utdata representerar de data som kopieras till målet. I
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
-3. Upprepa stegen för att skapa datauppsättningen för utdata. Skapa en JSON-fil med namnet **OutputDataset. JSON** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
+3. Upprepa stegen för att skapa datauppsättningen för utdata. Skapa en JSON-fil med namnet **OutputDataset.js** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
     ```json
     {

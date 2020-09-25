@@ -12,14 +12,14 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258157"
 ---
-# <a name="publisher-verification"></a>Utgivarens verifiering
+# <a name="publisher-verification"></a>Verifiering av utgivare
 
 Utgivar verifieringen hjälper administratörer och slutanvändare att förstå äktheten hos programutvecklare som integreras med Microsoft Identity Platform. När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av ett [Microsoft Partner Network](https://partner.microsoft.com/membership) konto som har slutfört [verifierings](/partner-center/verification-responses) processen och ASSOCIERAt det här MPN-kontot med sin program registrering. 
 
@@ -33,9 +33,10 @@ Utgivar verifieringen ger följande fördelar:
 
 - **Förbättrat varumärke**– ett "verifierat"-märke visas på sidan Azure AD [medgivande](application-consent-experience.md), sidan företags appar och ytterligare UX-ytor som används av slutanvändare och administratörer. 
 
-- **Smidigare företags införande**– administratörer kan konfigurera [principer för användar medgivande](../manage-apps/configure-user-consent.md), med status för utgivarens verifierings status som ett av de primära princip villkoren. 
+- **Smidigare företags införande**– administratörer kan konfigurera [principer för användar medgivande](../manage-apps/configure-user-consent.md), med status för utgivarens verifierings status som ett av de primära princip villkoren.
 
-- **Förbättrad riskbedömning**– Microsofts identifieringar för riskhanterings begär Anden kommer att inkludera utgivar verifiering som en signal. 
+> [!NOTE]
+> Från och med november 2020 kan slutanvändare inte längre bevilja medgivande till de senast registrerade apparna för flera klient organisationer utan verifierade utgivare. Detta gäller för appar som registrerats efter den 8 november 2020, använder OAuth 2.0 för att begära behörigheter bortom Basic-inloggning och läsa användar profil och begära medgivande från användare i olika klienter än den som appen är registrerad i. En varning visas på skärmen medgivande som informerar användarna om att dessa appar är riskfyllda och kommer från ej verifierade utgivare.    
 
 ## <a name="requirements"></a>Krav
 Det finns några krav för utgivar verifiering, varav vissa redan har slutförts av många Microsoft-partner. De är: 
@@ -69,7 +70,7 @@ Nedan visas några vanliga frågor om verifierings programmet för utgivare. Van
 
   Utvecklare som också integrerar med Microsoft 365 kan få ytterligare förmåner från dessa program. Mer information finns i [Microsoft 365 utgivarens attestering](/microsoft-365-app-certification/docs/attestation) och [Microsoft 365 certifiering av appar](/microsoft-365-app-certification/docs/certification). 
 
-- **Är det samma sak som Azure AD-programgalleriet?** Ingen-utgivar verifiering är ett komplett men separat program till [Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md). Utvecklare som uppfyller ovanstående kriterier bör slutföra utgivarens verifierings process oberoende av deltagande i det programmet. 
+- **Är det samma sak som Azure AD-programgalleriet?** Ingen-utgivar verifiering är ett komplett men separat program till [Azure Active Directory program galleriet](v2-howto-app-gallery-listing.md). Utvecklare som uppfyller ovanstående kriterier bör slutföra utgivarens verifierings process oberoende av deltagande i det programmet. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [markerar en app när utgivaren har verifierats](mark-app-as-publisher-verified.md).

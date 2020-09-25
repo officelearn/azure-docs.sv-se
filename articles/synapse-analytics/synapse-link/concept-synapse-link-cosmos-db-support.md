@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 336409b8b6f804b224b87d5fb11fded0654b8619
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287836"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse-länk (för hands version) för Azure Cosmos DB funktioner som stöds
 
@@ -29,7 +29,7 @@ Det finns två typer av behållare i Azure Cosmos DB:
 > [!IMPORTANT]
 > Azure Synapse-länken för Azure Cosmos DB stöds för närvarande i Synapse-arbetsytor som inte har hanterat virtuellt nätverk aktiverat. 
 
-Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-länken, i så fall kan du bara läsa/skriva till transaktions arkivet. Nedan visas en lista över de funktioner som stöds för närvarande i Synapse-länken för Azure Cosmos DB. 
+Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-länken. I det här scenariot kan du bara läsa/skriva till transaktions arkivet. Nedan visas en lista över de funktioner som stöds för närvarande i Synapse-länken för Azure Cosmos DB. 
 
 | Kategori              | Beskrivning |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL utan Server](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
@@ -37,14 +37,14 @@ Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-län
 | **Stöd för Azure Cosmos DB-API** | Azure Cosmos DB API-typ som stöds | SQL/MongoDB | SQL/MongoDB |
 | **Jobbobjektet**  |Objekt som en tabell som kan skapas, peka direkt på Azure Cosmos DB behållare| Dataframe, Visa, tabell | Visa |
 | **Läsa**    | Typ av Azure Cosmos DB behållare som kan läsas | OLTP/HTAP | HTAP  |
-| **Skriva**   | Kan Azure Synapse-körningsmiljön användas för att skriva data till en Azure Cosmos DB behållare | Ja | Nej |
+| **Skriva**   | Kan Azure Synapse-körningsmiljön användas för att skriva data till en Azure Cosmos DB behållare | Ja | Inga |
 
-* Om du skriver data i en Azure Cosmos DB-behållare från Spark sker detta genom transaktions arkivet för Azure Cosmos DB och påverkar prestanda för transaktions arbets belastningar på Azure Cosmos DB och använder enheter för programbegäran.
-* Synapse SQL-pool via externa tabeller stöds inte för närvarande.
-
+* Om du skriver data till en Azure Cosmos DB behållare från Spark sker den här processen genom transaktions arkivet för Azure Cosmos DB. Den påverkar transaktions prestandan för Azure Cosmos DB genom att förbruka enheter för programbegäran.
+* SQL-pool-integrering via externa tabeller stöds inte för närvarande.
+ 
 ## <a name="supported-code-generated-actions-for-spark"></a>Kod genererade åtgärder som stöds för Spark
 
-| Gest              | Beskrivning |OLTP |HTAP  |
+| Gest              | Description |OLTP |HTAP  |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Läs in till DataFrame** |Läsa in och läsa data i en spark-DataFrame |✓| ✓ |
 | **Skapa Spark-tabell** |Skapa en tabell som pekar på en Azure Cosmos DB behållare|✓| ✓ |
@@ -53,10 +53,9 @@ Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-län
 | **Skriv strömmande DataFrame till behållare** |Strömma data med Azure Cosmos DB ändra feed|✓| ✓ |
 
 
-
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>Kod genererade åtgärder för SQL Server utan stöd
 
-| Gest              | Beskrivning |OLTP |HTAP |
+| Gest              | Description |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Utforska data** |Utforska data från en behållare med välbekant T-SQL-syntax och automatisk schema härledning|X| ✓ |
 | **Skapa vyer och skapa BI-rapporter** |Skapa en SQL-vy för att få direkt åtkomst till en behållare för BI via Synapse SQL Server-lös |X| ✓ |

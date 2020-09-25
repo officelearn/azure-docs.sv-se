@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4b61b89921b41476ff1c2196502092809862a82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d43c223c0a3e67ff784688255bd75fc61e5c120c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288026"
 ---
 # <a name="sql-authentication"></a>SQL-autentisering
 
@@ -34,7 +34,7 @@ Det finns två administrativa konton (**Serveradministratör** och **Active Dire
 
 - **Serveradministratör**
 
-  När du skapar en Azure Synapse-analys måste du ange en **inloggning för Server administratör**. SQL Server skapar kontot som en inloggning i huvuddatabasen. Det här kontot ansluter med hjälp av SQL Server-autentisering (användarnamn och lösenord). Endast ett av dessa konton kan finnas.
+  När du skapar en Azure Synapse-analys måste du namnge en **inloggning för Server administratör**. SQL Server skapar kontot som en inloggning i huvuddatabasen. Det här kontot ansluter med hjälp av SQL Server-autentisering (användarnamn och lösenord). Endast ett av dessa konton kan finnas.
 
 - **Azure Active Directory-administratör**
 
@@ -61,7 +61,7 @@ CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-När inloggningen finns kan du skapa användare i de enskilda databaserna i SQL-slutpunkten på begäran och bevilja de nödvändiga behörigheterna till dessa användare. Om du vill skapa en användning kan du använda följande syntax:
+När inloggningen finns kan du skapa användare i de enskilda databaserna i SQL-slutpunkten på begäran och bevilja de här användarna nödvändig behörighet. Om du vill skapa en användning kan du använda följande syntax:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -126,13 +126,13 @@ Användaren kan nu ansluta till `master` databasen och kan skapa nya databaser. 
 
 ### <a name="login-managers"></a>Inloggningshanterare
 
-Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den här rollen kan skapa nya inloggningar i huvuddatabasen. Om du vill kan du slutföra samma steg (skapa en inloggning och användare och lägga till en användare i rollen **loginmanager**) så att en användare kan skapa nya inloggningar i huvuddatabasen. Inloggningar är vanligtvis inte nödvändiga, eftersom Microsoft rekommenderar att du använder oberoende databasanvändare, som autentiseras på databasnivå istället för att använda användare baserat på inloggningar. Mer information finns i [Användare av oberoende databas – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den här rollen kan skapa nya inloggningar i huvuddatabasen. Om du vill kan du slutföra samma steg (skapa en inloggning och användare och lägga till en användare i rollen **loginmanager**) så att en användare kan skapa nya inloggningar i huvuddatabasen. Vanligt vis är inloggningar inte nödvändiga eftersom Microsoft rekommenderar att du använder inneslutna databas användare, som autentiseras på databas nivå i stället för att använda användare baserat på inloggningar. Mer information finns i [Användare av oberoende databas – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
 ## <a name="non-administrator-users"></a>Användare som är icke-administratörer
 
-Icke-administratörskonton behöver i allmänhet inte åtkomst till huvuddatabasen. Skapa oberoende databasanvändare på databasnivå med hjälp av instruktionen [SKAPA ANVÄNDARE (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). 
+Icke-administratörskonton behöver vanligt vis inte åtkomst till huvud databasen. Skapa oberoende databasanvändare på databasnivå med hjälp av instruktionen [SKAPA ANVÄNDARE (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). 
 
 Användaren kan vara en Azure Active Directory-autentiserad oberoende databasanvändare (om du har konfigurerat din miljö för Azure AD-autentisering), eller en SQL Server-autentiserad oberoende databasanvändare, eller en SQL Server-autentiserad användare baserad på en SQL Server-autentiserad inloggning (skapad i föregående steg.)  
 
@@ -166,7 +166,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 > [!NOTE]
 > En vanlig orsak till att skapa en databas användare baserat på en Server inloggning är för användare som behöver åtkomst till flera databaser. Eftersom inneslutna databas användare är enskilda entiteter, behåller varje databas sin egen användare och det egna lösen ordet. Detta kan medföra att användaren måste komma ihåg varje lösen ord för varje databas, och det kan bli untenable när du behöver ändra flera lösen ord för många databaser. Men när du använder SQL Server inloggningar och hög tillgänglighet (aktiva geo-replikering och failover-grupper) måste SQL Server inloggningar anges manuellt på varje server. Annars kommer databas användaren inte längre att mappas till Server inloggningen efter en redundansväxling och kommer inte att kunna komma åt databasen efter redundansväxlingen. 
 
-Mer information om hur du konfigurerar inloggningar för geo-replikering finns i [Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Mer information om hur du konfigurerar inloggningar för geo-replikering finns i  [Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurera brandvägg på databasnivå
 
@@ -190,7 +190,7 @@ Databasrollerna kan vara de inbyggda rollerna, som **db_owner**, **db_ddladmin**
 
 Till exempel ger den fasta databasrollen **db_datareader** läsbehörighet till alla tabeller i databasen, vilket vanligtvis är mer än är absolut nödvändigt. 
 
-Det är mycket bättre att använda instruktionen [SKAPA ROLL](https://msdn.microsoft.com/library/ms187936.aspx) för att skapa dina egna anpassade databasroller och noggrant bevilja varje roll minsta möjliga behörighet som krävs för företagets behov. När en användare är medlem i flera roller sammanställs behörigheterna för alla.
+Det är mycket bättre att använda instruktionen [create Role](https://msdn.microsoft.com/library/ms187936.aspx) för att skapa egna användardefinierade databas roller och samtidigt ge varje roll de lägsta behörigheter som krävs för affärs behovet. När en användare är medlem i flera roller sammanställs behörigheterna för alla.
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -205,13 +205,13 @@ Börja med listan över behörigheter på [Behörigheter (Databasmotor)](https:/
 Tänk på följande när du hanterar inloggningar och användare i SQL Database:
 
 - Du måste vara ansluten till **huvud** databasen när du kör `CREATE/ALTER/DROP DATABASE` instruktionerna.
-- Databasanvändaren som motsvarar inloggningen som **serveradministratör** kan inte ändras eller tas bort.
+- Databas användaren som motsvarar inloggningen för **Server administratören** kan inte ändras eller tas bort.
 - Amerikansk engelska är standardspråket för inloggningen **Serveradministratör**.
 - Endast administratörer (inloggningen som **serveradministratör** eller Azure AD-administratör) och medlemmar i databasrollen **dbmanager** i **huvuddatabasen** har behörighet att köra `CREATE DATABASE`- och `DROP DATABASE`-uttrycken.
 - Du måste vara ansluten till huvuddatabasen när du kör uttrycket `CREATE/ALTER/DROP LOGIN`. Att använda inloggningar rekommenderas inte. Använd i stället oberoende databasanvändare.
 - Du måste ange namnet på databasen i anslutningssträngen för att ansluta till en användardatabas.
 - Endast huvudsaklig inloggning på servernivå och medlemmarna i databasrollen **loginmanager** i **huvud**databasen har behörighet att köra uttryck `CREATE LOGIN`, `ALTER LOGIN` och `DROP LOGIN`.
-- När du kör uttryck `CREATE/ALTER/DROP LOGIN` och `CREATE/ALTER/DROP DATABASE` i ett ADO.NET-program, är det inte tillåtet att använda parametriserade kommandon. Mer information finns i [Kommandon och parametrar](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- När du kör `CREATE/ALTER/DROP LOGIN` `CREATE/ALTER/DROP DATABASE` -satserna i ett ADO.NET-program är det inte tillåtet att använda parametriserade kommandon. Mer information finns i [Kommandon och parametrar](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 - När du kör uttrycket `CREATE/ALTER/DROP DATABASE` och `CREATE/ALTER/DROP LOGIN`, måste vart och ett av dessa uttryck vara den enda instruktionen i en Transact-SQL-batch. Annars uppstår ett fel. Till exempel kontrollerar följande Transact-SQL huruvida databasen finns. Om den finns anropas ett `DROP DATABASE`-uttryck för att ta bort databasen. Eftersom `DROP DATABASE`-uttrycket inte är det enda uttrycket i batchen, ger körning av följande Transact-SQL-uttryck ett fel.
 
   ```sql
@@ -231,7 +231,7 @@ Tänk på följande när du hanterar inloggningar och användare i SQL Database:
 - När du kör uttryck `CREATE USER` med alternativ `FOR/FROM LOGIN`, måste det vara det enda uttrycket i en Transact-SQL-batch.
 - När du kör uttryck `ALTER USER` med alternativ `WITH LOGIN`, måste det vara det enda uttrycket i en Transact-SQL-batch.
 - För `CREATE/ALTER/DROP` behöver en användare behörighet `ALTER ANY USER` på databasen.
-- När ägaren av en databasroll försöker lägga till eller ta bort en annan databasanvändare till eller från databasrollen uppstår följande fel: **Användarens eller rollens ”Namn” finns inte i den här databasen.** Det här felet beror på att användaren inte är synlig för ägaren. Ge rollägare behörighet `VIEW DEFINITION` på användaren för att lösa problemet. 
+- När ägaren av en databasroll försöker lägga till eller ta bort en annan databasanvändare till eller från databasrollen uppstår följande fel: **Användarens eller rollens ”Namn” finns inte i den här databasen.** Felet beror på att användaren inte är synlig för ägaren. Ge rollägare behörighet `VIEW DEFINITION` på användaren för att lösa problemet. 
 
 ## <a name="next-steps"></a>Nästa steg
 

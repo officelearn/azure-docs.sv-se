@@ -1,15 +1,17 @@
 ---
 title: 'Självstudie: Language Understanding bot Node.js v4'
 description: Med hjälp av Node.js skapar du en chatt-robot integrerad med språk förståelse (LUIS) i den här självstudien. Den här chattroboten använder appen Personalfrågor för att snabbt implementera en robotlösning. Roboten skapas med Bot Framework version 4 och webbappsroboten i Azure.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 522502a043778d6f482c1756506063dfa6515ca3
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: d6ef0b0d437674d78064e6c5c5a91e1b2b89074a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324679"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i Node.js
 
@@ -41,7 +43,7 @@ Använd Node.js för att bygga en chatt-robot integrerad med språk förståelse
     |Robot referens|Resursnamn|`luis-nodejs-bot-` + `<your-name>`, till exempel `luis-nodejs-bot-johnsmith`|
     |Prenumeration|Prenumeration där roboten ska skapas.|Din primära prenumeration.
     |Resursgrupp|Logisk grupp med Azure-resurser|Skapa en ny grupp för att lagra alla resurser som används med den här roboten och ge gruppen namnet `luis-nodejs-bot-resource-group`.|
-    |Position|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
+    |Plats|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
     |Prisnivå|Används för begränsningar och fakturering av tjänstbegäranden.|`F0` är den kostnadsfria nivån.
     |Appnamn|Namnet används som underdomänen när din robot distribueras till molnet (exempelvis humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, till exempel `luis-nodejs-bot-johnsmith`|
     |Robotmall|Bot Framework-inställningar – se nästa tabell|

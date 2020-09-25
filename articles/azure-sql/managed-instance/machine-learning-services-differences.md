@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: garyericson
 ms.author: garye
-ms.reviewer: carlrab, davidph
+ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 05/27/2020
-ms.openlocfilehash: f267b155fe21e5dee1a7c488c999fe194ed38eb1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ff2de18042c466bdd8fa6c71194fff4286c820d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325104"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Viktiga skillnader medllan Machine Learning Services i Azure SQL Managed Instance och SQL Server
 

@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 663c07795926b17eb42ff185ca248454c5bc459c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287737"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagera med Azure Cosmos DB att använda Apache Spark i Azure Synapse-länken (för hands version)
 
@@ -120,6 +120,8 @@ df.write.format("cosmos.oltp").
     save()
 ```
 
+## <a name="load-streaming-dataframe-from-container"></a>Läs in strömmande DataFrame från behållare
+I den här gesten använder du Spark streaming-funktioner för att läsa in data från en behållare till en dataframe. Data lagras i det primära data Lake-kontot (och fil systemet) som du anslöt till arbets ytan. 
 > [!NOTE]
 > Om du vill referera till externa bibliotek i Synapse Apache Spark kan du läsa mer [här](#external-library-management). Om du till exempel vill mata in en spark-DataFrame till en behållare med Cosmos DB API för mongo DB kan du använda Mongo DB Connector för Spark [här](https://docs.mongodb.com/spark-connector/master/).
 

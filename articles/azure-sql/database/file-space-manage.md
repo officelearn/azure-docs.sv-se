@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335079"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Hantera fil utrymme för databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ De flesta mått för lagrings utrymme som visas i Azure Portal och följande API
 
 Följande API: er mäter dock också storleken på utrymmet som allokerats för databaser och elastiska pooler:
 
-- T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL:  [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Krympa datafiler
@@ -64,7 +64,7 @@ Det är viktigt att förstå följande lagrings utrymmes mängder för att hante
 |**Använt data utrymme**|Mängden utrymme som används för att lagra databas data på 8 KB-sidor.|Normalt ökar utrymmet som används (minskar) vid infogningar (rader). I vissa fall ändras inte utrymmet som används vid infogningar eller borttagningar beroende på mängden och mönstret för data som ingår i åtgärden och eventuell fragmentering. Att till exempel ta bort en rad från alla data sidor minskar inte nödvändigt vis det utrymme som används.|
 |**Allokerat data utrymme**|Mängden formaterat fil utrymme som är tillgängligt för lagring av databas data.|Mängden utrymme som allokeras växer automatiskt, men minskar aldrig efter borttagningarna. Det här beteendet säkerställer att framtida infogningar är snabbare eftersom utrymmet inte behöver formateras om.|
 |**Allokerat data utrymme men oanvänt**|Skillnaden mellan mängden allokerat data utrymme och använt data utrymme.|Den här kvantiteten representerar den maximala mängden ledigt utrymme som kan frigöras genom att krympa datafiler för databasen.|
-|**Max storlek för data**|Den maximala mängd utrymme som kan användas för att lagra databas data.|Mängden allokerat data utrymme kan inte växa utöver data Max storleken.|
+|**Maximal datastorlek**|Den maximala mängd utrymme som kan användas för att lagra databas data.|Mängden allokerat data utrymme kan inte växa utöver data Max storleken.|
 
 Följande diagram illustrerar förhållandet mellan de olika typerna av lagrings utrymme för en databas.
 
@@ -120,7 +120,7 @@ Det är viktigt att förstå följande lagrings utrymmes mängder för att hante
 |**Använt data utrymme**|En summering av data utrymmet som används av alla databaser i den elastiska poolen.||
 |**Allokerat data utrymme**|En summering av det data utrymme som allokerats av alla databaser i den elastiska poolen.||
 |**Allokerat data utrymme men oanvänt**|Skillnaden mellan mängden allokerat data utrymme och data utrymme som används av alla databaser i den elastiska poolen.|Den här kvantiteten representerar den maximala mängden utrymme som allokerats för den elastiska poolen som kan frigöras genom att krympa datafiler för databasen.|
-|**Max storlek för data**|Den maximala mängden data utrymme som kan användas av den elastiska poolen för alla dess databaser.|Utrymmet som allokerats för den elastiska poolen får inte överskrida den högsta tillåtna storleken för elastisk pool.  Om det här tillståndet inträffar kan allokerat utrymme som inte används frigöras genom att krympa datafiler för databasen.|
+|**Maximal datastorlek**|Den maximala mängden data utrymme som kan användas av den elastiska poolen för alla dess databaser.|Utrymmet som allokerats för den elastiska poolen får inte överskrida den högsta tillåtna storleken för elastisk pool.  Om det här tillståndet inträffar kan allokerat utrymme som inte används frigöras genom att krympa datafiler för databasen.|
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Fråga en elastisk pool för lagrings utrymmes information
 
@@ -236,7 +236,7 @@ När datafilerna i databasen krymps kan index bli fragmenterade och förlora pre
 
 - Information om Max storlek för databas finns i:
   - [Azure SQL Database vCore-baserade inköps modell gränser för en enskild databas](resource-limits-vcore-single-databases.md)
-  - [Resurs gränser för enskilda databaser som använder den DTU-baserade inköps modellen](resource-limits-dtu-single-databases.md)
+  - [Resursbegränsningar för enskilda databaser som använder den DTU-baserade inköpsmodellen](resource-limits-dtu-single-databases.md)
   - [Azure SQL Database vCore-baserade inköps modell gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)
   - [Resurs begränsningar för elastiska pooler med hjälp av den DTU-baserade inköps modellen](resource-limits-dtu-elastic-pools.md)
 - Mer information om `SHRINKDATABASE` kommandot finns i [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).

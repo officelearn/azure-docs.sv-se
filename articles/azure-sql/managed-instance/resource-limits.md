@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
+ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: c563862c777dd9b5bf4c9f31155aa65c430acd1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323251"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Översikt över gränser för resurs gränser för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,8 +76,8 @@ SQL-hanterad instans har två tjänst nivåer: [generell användning](../databas
 | Maximalt antal databasfiler per instans | Upp till 280, om inte instansens lagrings storlek eller [Azure Premium disk](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) utrymmes gräns har nåtts. | 32 767 filer per databas, om inte storleks gränsen för instans lagring har uppnåtts. |
 | Maximal data fil storlek | Begränsad till tillgänglig instans lagrings storlek (högst 2 TB-8 TB) och [lagrings utrymme för Azure Premium-disk](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Begränsad till tillfället tillgänglig instans lagrings storlek (upp till 1 TB-4 TB). |
 | Största logg fils storlek | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. |
-| Data/logga IOPS (ungefärligt) | Upp till 30-40 kB IOPS per instans *, 500-7500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k – 200 KB (2500 IOPS/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
-| Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
+| Data/logga IOPS (ungefärligt) | Upp till 30-40 kB IOPS per instans *, 500-7500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k – 200 KB (4000 IOPS/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
+| Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Max 120 MB/s per instans<br/>22-65 MB/s per DB<br/>\*[Öka fil storleken för att få bättre IO-prestanda](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s per vCore<br/>Max 96 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](#file-io-characteristics-in-general-purpose-tier) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
 | Minnesintern OLTP | Stöds inte | Tillgängligt, [storleken beror på antalet vCore](#in-memory-oltp-available-space) |

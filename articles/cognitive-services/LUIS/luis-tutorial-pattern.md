@@ -1,14 +1,16 @@
 ---
 title: 'Självstudie: mönster – LUIS'
 description: Använd mönster för att öka avsikt och enhets förutsägelse samtidigt som du ger färre exempel yttranden i den här självstudien. Mönstret anges som en mall uttryck exempel som innehåller syntax för att identifiera entiteter och text som kan ignoreras.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86039508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324662"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format för att förbättra förutsägelser
 
@@ -191,7 +193,7 @@ Rätt Top-avsikt förväntades, `OrgChart-Manager` men poängen är inte över 7
 Lämna det här andra webbläsarfönstret öppet. Du kommer att använda den igen senare i självstudien.
 
 ## <a name="template-utterances"></a>Mallyttranden
-På grund av typen av mänsklig resurs ämnes domän finns det några vanliga sätt att fråga om medarbetar relationer i organisationer. Ett exempel:
+På grund av typen av mänsklig resurs ämnes domän finns det några vanliga sätt att fråga om medarbetar relationer i organisationer. Exempel:
 
 |Yttranden|
 |--|

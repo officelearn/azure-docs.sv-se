@@ -1,14 +1,16 @@
 ---
 title: 'Självstudie: extrahera strukturerade data med Machine Learning-entitet – LUIS'
 description: Extrahera strukturerade data från en uttryck med hjälp av enheten för maskin inlärning. Om du vill öka extraherings precisionen lägger du till underentiteter med funktioner.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86045611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334742"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Självstudie: extrahera strukturerade data från User uttryck med Machine Learning-entiteter i Language Understanding (LUIS)
 
@@ -79,12 +81,12 @@ Om du vill extrahera information om en pizza-beställning skapar du en enhet på
 
 1. I rutan **Välj typ av enhet** väljer du **Lägg till struktur** och sedan **Nästa**. Det krävs en struktur för att lägga till underentiteter som storlek och kvantitet.
 
-    ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![Skärm bild som visar fönstret Välj typ av enhet med alternativet Lägg till struktur markerat.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. I rutan **Lägg till underentiteter (valfritt)** väljer **+** du på `Order` raden och sedan Lägg till `Size` och `Quantity` som underentiteter och väljer sedan **skapa**.
 
     > [!div class="mx-imgBorder"]
-    > ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![Skärm bild som visar fönstret Lägg till underentiteter (valfritt) med underentiteter markerade.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>Redigera underentiteter för att förbättra extraheringen
 
@@ -121,7 +123,7 @@ Att lägga till en lista med kända storlekar som klient programmet känner av k
 
 
     > [!div class="mx-imgBorder"]
-    > ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![Skärm bild som visar SizeList-fönstret och list objekt med XLarge valt.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>Lägg till funktion i SizeList-entiteten
 
@@ -160,7 +162,7 @@ Att lägga till en fördefinierad Number-entitet kommer också att hjälpa till 
 På sidan entitets **detalj för entiteten entitet väljer** du asterisken, `*` för både funktionen **@ SizeList** och funktionen **@ Number** . Asterisken visas i samma etikett som funktions namnet.
 
 > [!div class="mx-imgBorder"]
-> ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![Skärm bild som visar @SizeList funktionen med asterisken och kräver varning.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -200,7 +202,7 @@ Välj **träna**för att träna appen. Träningen tillämpar ändringarna, till 
 1. Om du vill ändra förutsägelsen till en etikettad entitet markerar du kryss rutan på samma rad.
 
     > [!div class="mx-imgBorder"]
-    > ![En del skärm bild av den nya exempel uttryck som förutsägs med entitet](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![Skärm bild som visar ett exempel på uttryck med bock markeringen markerat.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     I det här läget fungerar enheten för maskin inlärning eftersom den kan hitta entiteten i ett nytt exempel uttryck. När du lägger till exempel yttranden, om entiteten inte är korrekt förväntad, kan du namnge entiteten och underentiteterna. Om entiteten förutsägs korrekt, se till att bekräfta förutsägelserna.
 

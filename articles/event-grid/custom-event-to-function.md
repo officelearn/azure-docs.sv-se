@@ -3,12 +3,12 @@ title: 'Snabb start: skicka anpassade händelser till Azure Function-Event Grid'
 description: 'Snabb start: Använd Azure Event Grid och Azure CLI eller portal för att publicera ett ämne och prenumerera på händelsen. En Azure-funktion används för slut punkten.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324448"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Snabb start: dirigera anpassade händelser till en Azure-funktion med Event Grid
 
@@ -17,14 +17,17 @@ Azure Event Grid är en händelsetjänst för molnet. Azure Functions är en av 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Skapa Azure-funktion
+Innan du prenumererar på det anpassade ämnet skapar du en funktion för att hantera händelserna. 
 
-Innan du prenumererar på det anpassade ämnet ska vi skapa en funktion för att hantera händelserna. Klicka på skapa en resurs och skriv funktion i Azure Portal och välj sedan Funktionsapp och klicka på Skapa. Välj "Skapa ny" under resurs grupp och ge den ett namn. Du kommer att använda det här för resten av självstudien. Ge Funktionsapp ett namn, lämna "Publish"-växlingen "Code", Välj valfri körning och region och sedan på Skapa.
+1. Skapa en Function-app med hjälp av instruktioner från [skapa en Function-app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+2. Skapa en funktion med hjälp av **Event Grid-utlösaren**. Välj om det här är första gången du använder den här utlösaren kan du behöva klicka på installera för att installera tillägget.
+    1. På sidan **Funktionsapp** väljer du **funktioner** på den vänstra menyn, söker efter **Event Grid** i mallar och väljer sedan **Azure Event Grid utlösare**. 
 
-När Funktionsapp är klar navigerar du till den och klickar på + ny funktion. Välj "in-portal" för utvecklings miljö och tryck på Fortsätt. Under skapa en funktion väljer du fler mallar om du vill visa fler mallar och söker efter "Azure Event Grid utlösare" och markerar den. Om det här är första gången du använder den här utlösaren kan du behöva klicka på installera för att installera tillägget.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Välj Event Grid utlösare":::
+3. På sidan **ny funktion** anger du ett namn för funktionen och väljer **skapa funktion**.
 
-![Funktion Event Grid utlösare](./media/custom-event-to-function/grid-trigger.png)
-
-När du har installerat tillägget klickar du på Fortsätt, ger din funktion ett namn och trycker sedan på Skapa.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Sidan ny funktion":::
+4. Använd sidan **kod + test** för att se den befintliga koden för funktionen och uppdatera den. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -81,8 +84,12 @@ Du prenumererar på ett Event Grid-ämne därför att du vill ange för Event Gr
     5. För funktions slut punkten väljer du den Azure-prenumeration och resurs grupp som du Funktionsapp är i och väljer sedan den Funktionsapp och funktion som du skapade tidigare. Välj **Bekräfta val**.
 
        ![Ange slutpunktens webbadress](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. Gå tillbaka till sidan **Skapa händelse prenumeration** och välj **skapa**.
+    6. Det här steget är valfritt, men rekommenderas för produktions scenarier. På sidan **Skapa händelse prenumeration** växlar du till fliken **avancerade funktioner** och anger värden för **Max antal händelser per batch** och **önskad batchstorlek i kilobyte**. 
+    
+        Satsvis kompilering kan ge dig stora data flöden. För **Max antal händelser per batch**ställer du in maximalt antal händelser som en prenumeration ska inkludera i en batch. Önskad batchstorlek ställer in den önskade övre gränsen för batchstorlek i kilobyte byte, men kan överskridas om en enskild händelse är större än det här tröskelvärdet.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Aktivera batchbearbetning":::
+    6. På sidan **Skapa händelse prenumeration** väljer du **skapa**.
 
 ## <a name="send-an-event-to-your-topic"></a>Skicka en händelse till ditt ämne
 

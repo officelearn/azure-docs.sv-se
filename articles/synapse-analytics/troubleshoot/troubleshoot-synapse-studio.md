@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f859700be32bda5d8245429076c2359d1adf9d5a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287755"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Fel sökning för Azure Synapse Studio (för hands version)
 
@@ -31,7 +31,8 @@ Alternativet "SQL on-demand" är nedtonat i list rutan "Anslut till".
 
 Genom att köra frågan med "SQL på begäran" får du fel meddelandet "Det gick inte att upprätta anslutningen till servern".
 
-![Skärm bilden visar att det inte gick att upprätta en anslutning till Server meddelandet.](media/troubleshooting-synapse-studio/symptom2.png)
+![symptom 2](media/troubleshooting-synapse-studio/symptom2.png)
+ 
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
@@ -54,7 +55,7 @@ Kontrol lera att "inaktivera cache" i "Network"-panelen är markerat.
 
 Försök utföra åtgärden igen i Azure Synapse Studio. Du kan se nya objekt som visas i listan "nätverk" i "Utvecklarverktyg". Notera din aktuella system tid för att tillhandahålla support ärendet.
 
-![Skärm bild som visar DevTools-fönster med nätverk och inaktivera cacheminne online har valts.](media/troubleshooting-synapse-studio/network-panel.png)
+![nätverks panel 1](media/troubleshooting-synapse-studio/network-panel.png)
 
 Hitta objektet vars URL-kolumn matchar följande mönster:
 
@@ -64,9 +65,9 @@ Där [*A*] är namnet på din arbets yta och "-OnDemand" kan vara "-sqlod" och v
 
 Om någon av dem har något annat än "20x" och:
 
-- status börjar med "(misslyckad)", antingen utvidgar kolumnen "status" eller hovra över status texten för att se hela texten. Ta med texten och/eller skärm bilden när du öppnar support ärendet.
+- Status börjar med "(misslyckad)", antingen utvidgar kolumnen "status" eller hovra över status texten för att se hela texten. Ta med texten och/eller skärm bilden när du öppnar support ärendet.
 
-    ![Skärm bilden visar resultatet, inklusive ett felaktigt värde i kolumnen Status.](media/troubleshooting-synapse-studio/status-text.png)
+    ![status text](media/troubleshooting-synapse-studio/status-text.png)
 
     - Om du ser ERR_NAME_NOT_RESOLVED och du har skapat din arbets yta inom 10 minuter, vänta i 10 minuter och försök att se om problemet fortfarande finns.
     - Om du ser ERR_INTERNET_DISCONNECTED eller ERR_NETWORK_CHANGED kan det bero på att din DATORs nätverks anslutning har problem. Kontrol lera nätverks anslutningen och försök igen.
@@ -74,7 +75,7 @@ Om någon av dem har något annat än "20x" och:
     - Om du ser ERR_NETWORK_ACCESS_DENIED kan du behöva kontrol lera med administratören om den lokala brand Väggs principen har blockerat åtkomst till antingen *. database.windows.net-domän eller Fjärrport 1443.
     - Du kan också prova samma åtgärd direkt på en annan dator och/eller nätverks miljö för att utesluta ett problem med nätverks konfigurationen på din dator.
 
-- status är "40x", "50 gånger" eller andra siffror, Välj objekt för att se information. Du bör se objekt informationen till höger. Hitta avsnittet "svars huvud". kontrol lera sedan om ett objekt med namnet "åtkomst kontroll-Allow-Origin" finns. I så fall, kontrol lera om det har något av följande värden:
+- Status är "40x", "50 gånger" eller andra siffror, Välj objekt för att se information. Du bör se objekt informationen till höger. Hitta avsnittet "svars huvud". kontrol lera sedan om ett objekt med namnet "åtkomst kontroll-Allow-Origin" finns. I så fall, kontrol lera om det har något av följande värden:
 
     - `*` (enkel asterisk)
     - https://web.azuresynapse.net/ (eller annat värde som texten i webbläsarens Adress fält börjar med)
@@ -83,21 +84,22 @@ Om svars huvudet innehåller ett av ovanstående värden, innebär det att vi re
 
 Om du inte kan se rubriken eller om rubriken inte har något av värdena som anges ovan, bifoga en skärm bild av objekt detaljerna när du öppnar biljetten.
 
-![Skärm bild som visar DevTools-fönstret med U R L markerat i svarshuvuden.](media/troubleshooting-synapse-studio/item-details.png)
-
+ 
+![objekt information](media/troubleshooting-synapse-studio/item-details.png)
+ 
 Om stegen ovan inte löser problemet kan du behöva öppna ett support ärende. När du skickar in ditt support ärende ska du ta med "sessions-ID" eller "diagnostikinformation" som hämtades i början av den här guiden.
 
 När du rapporterar problemet kan du eventuellt ta en skärm bild av din "konsol"-flik i "Utvecklarverktyg" och koppla den till support ärendet. Rulla innehållet och ta mer än en skärm bild om det behövs för att avbilda hela meddelandet.
 
-![Skärm bild som visar DevTools-fönstret, storlek för att visa hela meddelandet för en möjlig skärm bild.](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![konsol för utvecklarverktyg](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 Om du kopplar skärm bilder anger du tiden (eller ett uppskattat tidsintervall) för när du tog skärm bilderna. Det hjälper oss när du tittar på problemet.
 
 Vissa webbläsare har stöd för att Visa tidsstämplar på fliken "konsol". För krom Edge/Chrome öppnar du dialog rutan "Inställningar" i "Utvecklarverktyg" och kontrollerar "Visa tidsstämplar" på fliken "Preferences".
 
-![Skärm bild som visar DevTools-fönstret med inställningar som valts i en snabb meny.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![konsol inställningar för utvecklarverktyg](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![Skärm bild som visar DevTools fönster inställningar med Visa valda tidsstämplar.](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![Visa tidstämpel](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Om föregående steg inte hjälper till att lösa problemet [skapar du ett support ärende](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

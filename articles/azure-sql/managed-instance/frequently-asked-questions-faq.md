@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar
+title: Vanliga frågor och svar (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Vanliga frågor och svar (FAQ) om Azure SQL Managed Instance
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325223"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Detta är en aktuell begränsning för den underliggande komponenten som verifie
 
 **Hur kan jag skala min hanterade instans?**
 
-Du kan skala din hanterade instans från [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [POWERSHELL](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) eller [arm-mallar](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Du kan skala din hanterade instans från [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [POWERSHELL](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) eller [arm-mallar](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Kan jag flytta min hanterade instans från en region till en annan?**
 
@@ -102,7 +102,7 @@ Ja, det kan du. Instruktioner finns i [Flytta resurser mellan regioner](../datab
 
 **Hur kan jag ta bort min hanterade instans?**
 
-Du kan ta bort hanterade instanser via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) eller [Resource Manager REST API: er](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Du kan ta bort hanterade instanser via Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) eller [Resource Manager REST API: er](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Hur lång tid tar det att skapa eller uppdatera en instans eller återställa en databas?**
 
@@ -135,9 +135,9 @@ Den hanterade instansen ger samma prestanda nivåer per beräknings-och lagrings
 
 Ett alternativ är att [Exportera en databas till BACPAC](../database/database-export.md) och sedan [Importera BACPAC-filen](../database/database-import.md). Detta är den rekommenderade metoden om databasen är mindre än 100 GB.
 
-[Transaktionsreplikering](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) kan användas om alla tabeller i databasen har *primära* nycklar och det inte finns några minnesbaserade OLTP-objekt i databasen.
+[Transaktionsreplikering](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) kan användas om alla tabeller i databasen har *primära* nycklar och det inte finns några minnesbaserade OLTP-objekt i databasen.
 
-Det går inte att återställa interna COPY_ONLY säkerhets kopieringar från hanterade instanser till SQL Server eftersom den hanterade instansen har en högre databas version jämfört med SQL Server. Mer information finns i [Kopiera endast säkerhets kopiering](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
+Det går inte att återställa interna COPY_ONLY säkerhets kopieringar från hanterade instanser till SQL Server eftersom den hanterade instansen har en högre databas version jämfört med SQL Server. Mer information finns i [Kopiera endast säkerhets kopiering](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 **Hur kan jag migrera min SQL Server-instans till SQL-hanterad instans?**
 
@@ -184,11 +184,11 @@ Alla möjliga alternativ för att övervaka och varna för användning och prest
 
 **Kan jag använda SQL profileraren för prestanda spårning?**
 
-Ja, SQL-profiler stöds eller SQL-hanterad instans. Mer information finns i [SQL](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15)profiler.
+Ja, SQL-profiler stöds eller SQL-hanterad instans. Mer information finns i [SQL](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true)profiler.
 
 **Är Database Advisor och Query Performance Insight stöd för hanterade instans databaser?**
 
-Nej, de stöds inte. Du kan använda [DMV: er](../database/monitoring-with-dmvs.md) och [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) tillsammans med [SQL profilerare](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) och [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) för att övervaka dina databaser.
+Nej, de stöds inte. Du kan använda [DMV: er](../database/monitoring-with-dmvs.md) och [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) tillsammans med [SQL profilerare](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) och [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) för att övervaka dina databaser.
 
 **Kan jag skapa mått varningar på SQL-hanterad instans?**
 
@@ -228,7 +228,7 @@ Information om hur du spårar när automatiska säkerhets kopieringar har utför
 
 **Stöds säkerhets kopiering på begäran?**
 
-Ja, du kan skapa en fullständig kopia av en fullständig säkerhets kopia i Azure-Blob Storage, men den kommer bara att återställas i en hanterad instans. Mer information finns i [Kopiera endast säkerhets kopiering](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Det är dock omöjligt att kopiera säkerhets kopior om databasen krypteras av tjänstehanterade TDE eftersom det inte går att komma åt certifikatet som används för kryptering. I sådana fall använder du funktionen för att återställa en plats i taget för att flytta databasen till en annan SQL-hanterad instans eller växla till kundhanterad nyckel.
+Ja, du kan skapa en fullständig kopia av en fullständig säkerhets kopia i Azure-Blob Storage, men den kommer bara att återställas i en hanterad instans. Mer information finns i [Kopiera endast säkerhets kopiering](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true). Det är dock omöjligt att kopiera säkerhets kopior om databasen krypteras av tjänstehanterade TDE eftersom det inte går att komma åt certifikatet som används för kryptering. I sådana fall använder du funktionen för att återställa en plats i taget för att flytta databasen till en annan SQL-hanterad instans eller växla till kundhanterad nyckel.
 
 **Stöds intern återställning (från. bak-filer) till hanterad instans?**
 
@@ -390,7 +390,7 @@ Ja, transparent datakryptering stöds för SQL-hanterad instans. Mer information
 
 **Kan jag utnyttja modellen "ta med din egen nyckel" för TDE?**
 
-Ja, Azure Key Vault för BYOK-scenario är tillgängligt för Azure SQL-hanterad instans. Mer information finns i [Transparent datakryptering med kundhanterad nyckel](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Ja, Azure Key Vault för BYOK-scenario är tillgängligt för Azure SQL-hanterad instans. Mer information finns i [Transparent datakryptering med kundhanterad nyckel](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
 
 **Kan jag migrera en krypterad SQL Server databas?**
 
@@ -509,6 +509,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 
 ## <a name="service-updates"></a>Tjänstuppdateringar
+
+**Vilken ändring av rot certifikat utfärdare för Azure SQL Database & SQL-hanterad instans?**
+
+Se [certifikat rotation för Azure SQL Database & SQL-hanterad instans](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
 
 **Vad är en planerad underhålls händelse för SQL-hanterad instans?**
 

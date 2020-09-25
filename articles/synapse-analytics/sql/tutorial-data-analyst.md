@@ -1,6 +1,6 @@
 ---
 title: Använd SQL på begäran (för hands version) för att analysera Azure Open-datauppsättningar i Azure Synapse Studio (för hands version)
-description: I den här självstudien får du lära dig hur du enkelt kan utföra analys av test data som kombinerar olika Azure Open-datauppsättningar med SQL på begäran (för hands version) och visualisera resultatet i Azure Synapse Studio.
+description: Lär dig hur du enkelt kan utföra analys av test data som kombinerar olika Azure Open-datauppsättningar med SQL på begäran (för hands version) och visualisera resultatet i Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 6325c5c597ce0f85615780f7970a4a3c6c4c451b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288060"
 ---
 # <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Använd SQL på begäran för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio
 
@@ -135,7 +135,7 @@ Följande fragment visar resultatet för den här frågan:
 
 ![Stapeldiagram som visar det dagliga antalet åsidosättningar för 2016](./media/tutorial-data-analyst/7.png)
 
-I diagrammet kan du se att det finns ett vecko mönster, med lördagar som topp dag. Under sommaren månader finns det färre taxi-åsidosättningar på grund av semester. Det finns också några betydande droppar av antalet taxi-förändringar utan tydliga mönster på när och varför de inträffar.
+I diagrammet kan du se att det finns ett vecko mönster, med lördagar som topp dag. Under sommaren månader finns det färre taxi-åsidosättningar på grund av semester. Lägg också märke till några betydande droppar i antalet taxi-åsidosättningar utan tydliga mönster för när och varför de inträffar.
 
 Nu ska vi se om det går att korrelera med offentliga helgdagar genom att ansluta till NYC taxi-uppsättningen med offentliga helgdagar:
 

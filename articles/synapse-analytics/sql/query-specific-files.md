@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288111"
 ---
 # <a name="use-file-metadata-in-queries"></a>Använda fil-metadata i frågor
 
@@ -22,7 +22,7 @@ SQL på begäran kan hantera flera filer och mappar enligt beskrivningen i artik
 
 Ibland kan du behöva veta vilken fil eller mapp källa som motsvarar en speciell rad i resultat uppsättningen.
 
-Du kan använda funktionen `filepath` och `filename` för att returnera fil namn och/eller sökvägen i resultat uppsättningen. Eller så kan du använda dem för att filtrera data baserat på fil namnet och/eller mappsökvägen. Dessa funktioner beskrivs i funktionen syntax i avsnittet [filename](query-data-storage.md#filename-function) och funktionen fil [Sök väg](query-data-storage.md#filepath-function). Nedan hittar du korta beskrivningar utmed exempel.
+Du kan använda funktionen `filepath` och `filename` för att returnera fil namn och/eller sökvägen i resultat uppsättningen. Eller så kan du använda dem för att filtrera data baserat på fil namnet och/eller mappsökvägen. Dessa funktioner beskrivs i funktionen syntax i avsnittet [filename](query-data-storage.md#filename-function) och funktionen fil [Sök väg](query-data-storage.md#filepath-function). I följande avsnitt hittar du korta beskrivningar utmed exempel.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

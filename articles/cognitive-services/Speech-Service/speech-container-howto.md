@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334690"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare 
 
@@ -37,12 +37,12 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 >
 > Om du vill använda tal behållarna måste du skicka in en online-begäran och godkänna den. Mer information finns i avsnittet om **godkännande av begäran till avsnittet kör behållare** nedan.
 
-| Funktion | Funktioner | Senast |
+| Container | Funktioner | Senast |
 |--|--|--|
-| Tal till text | Analyserar sentiment och beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar med mellanliggande resultat.  | 2.3.1 |
-| Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.3.1 |
-| Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.5.0 |
-| Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.5.0 |
+| Tal till text | Analyserar sentiment och beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar med mellanliggande resultat.  | 2.5.0 |
+| Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.5.0 |
+| Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.7.0 |
+| Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.7.0 |
 | Tal Språkidentifiering | Identifiera det språk som talas i ljudfiler. | 1,0 |
 | Neurala text till tal | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. | 1.1.0 |
 
@@ -96,7 +96,7 @@ Core och minne motsvarar `--cpus` `--memory` inställningarna och som används s
 
 ## <a name="request-approval-to-the-run-the-container"></a>Begär godkännande till kör containern
 
-Fyll i och skicka [formuläret för begäran](https://aka.ms/cognitivegate) för att begära åtkomst till behållaren. 
+Fyll i och skicka [formuläret för begäran](https://aka.ms/csgate) för att begära åtkomst till behållaren. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -468,7 +468,7 @@ Det här kommandot:
 * Om den anpassade modellen tidigare har hämtats, `ModelId` ignoreras.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
-# <a name="language-detection"></a>[Språkidentifiering](#tab/lid)
+# <a name="speech-language-detection"></a>[Tal Språkidentifiering](#tab/lid)
 
 Kör följande kommando för att köra *tal språkidentifiering* containern `docker run` .
 
@@ -482,7 +482,7 @@ ApiKey={API_KEY}
 
 Det här kommandot: 
 
-* Kör en språk identifierings behållare för tal från behållar avbildningen.
+* Kör en språk identifierings behållare för tal från behållar avbildningen. För närvarande kommer du inte att debiteras för att köra den här avbildningen. 
 * Allokerar 1 processor kärnor och 1 GB minne.
 * Exponerar TCP-port 5003 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
@@ -506,10 +506,10 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 > [!NOTE]
 > Använd ett unikt port nummer om du kör flera behållare.
 
-| Containers | SDK-värd-URL | Protokoll |
+| Containrar | SDK-värd-URL | Protokoll |
 |--|--|--|
 | Standard tal-till-text och Custom Speech-till-text | `ws://localhost:5000` | WS |
-| Text till tal (inklusive standard, anpassad och neurala), språk identifiering | `http://localhost:5000` | HTTP |
+| Text till tal (inklusive standard, anpassad och neurala), igenkänning av tal språk | `http://localhost:5000` | HTTP |
 
 Mer information om hur du använder WSS-och HTTPS-protokoll finns i [behållar säkerhet](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

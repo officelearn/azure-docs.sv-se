@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa79af1047862e8694fa6342942ffd0793bafcb6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335015"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Konfigurera och hantera innehålls referens – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ I den här artikeln hittar du en innehålls referens för olika guider, skript o
 
 - [Konfigurera Azure Active Directory-autentisering (Azure AD)](authentication-aad-configure.md)
 - [Konfigurera villkorlig åtkomst](conditional-access-configure.md)
-- [Multi-Factor Azure AD auth](authentication-mfa-ssms-overview.md)
+- [Flerfaktorautentisering för Azure AD](authentication-mfa-ssms-overview.md)
 - [Konfigurera Multi-Factor Authentication](authentication-mfa-ssms-configure.md)
 - [Konfigurera temporal bevarandeprincip](temporal-tables-retention-policy.md)
 - [Konfigurera TDE med BYOK](transparent-data-encryption-byok-configure.md)
@@ -111,7 +111,7 @@ I den här artikeln hittar du en innehålls referens för olika guider, skript o
 
 ## <a name="develop-applications"></a>Utveckla program
 
-- [Anslutningsmöjligheter](connect-query-content-reference-guide.md#libraries)
+- [Anslutning](connect-query-content-reference-guide.md#libraries)
 - [Använda Spark-anslutningsappen](spark-connector.md)
 - [Autentisera app](application-authentication-get-client-id-keys.md)
 - [Använd batching för bättre prestanda](../performance-improve-use-batching.md)

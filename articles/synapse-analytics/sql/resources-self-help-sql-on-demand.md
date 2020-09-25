@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7a6b145e9a1efb29bbb6c233f2a09498b4a4ea7f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8bd955e844c9569438c5d35f152ba1bcdfccc306
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213133"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288009"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Själv hjälp för SQL på begäran (för hands version)
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller information om hur du felsöker vanliga problem me
 
 Om Synapse Studio inte kan upprätta en anslutning till SQL på begäran, ser du att SQL på begäran är nedtonat eller visar status "offline". Det här problemet uppstår vanligt vis när något av följande inträffar:
 
-1) Nätverket förhindrar kommunikation till Azure Synapse-backend. Det vanligaste fallet är att port 1443 är blockerad. För att hämta SQL på begäran för att ta bort blockeringen av porten. Andra problem kan förhindra att SQL på begäran fungerar också, finns i [fullständig fel söknings guide för mer information](../troubleshoot/troubleshoot-synapse-studio.md).
+1) Nätverket förhindrar kommunikation till Azure Synapse-backend. Det vanligaste fallet är att port 1443 är blockerad. Ta bort den här porten om du vill att SQL på begäran ska fungera. Andra problem kan förhindra att SQL på begäran fungerar också, finns i [fullständig fel söknings guide för mer information](../troubleshoot/troubleshoot-synapse-studio.md).
 2) Du har inte behörighet att logga in på SQL på begäran. För att få åtkomst måste en av Azure Synapse-arbetsytans administratörer lägga till dig i arbets ytans administratör eller rollen SQL-administratör. [Mer information finns i fullständig guide om åtkomst kontroll](access-control.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Frågan Miss lyckas eftersom det inte går att öppna filen
@@ -35,7 +35,7 @@ Om frågan Miss lyckas med felet "det går inte att öppna filen eftersom den in
 
 Om frågan Miss lyckas med fel meddelandet "det går inte att köra den här frågan på grund av aktuella resurs begränsningar", innebär det att SQL på begäran inte kan köra den just nu på grund av resurs begränsningar: 
 
-- Se till att du använder datatyper av rimlig storlek. Ange också schemat för Parquet-filerna för strängkolumner eftersom de är VARCHAR(8000) som standard. 
+- Se till att data typerna av rimliga storlekar används. Ange också schema för Parquet-filer för sträng kolumner eftersom de kommer att vara VARCHAR (8000) som standard. 
 
 - Om din fråga är CSV-filer bör du överväga att [skapa statistik](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
@@ -61,7 +61,7 @@ Lösning:
 CREATE DATABASE <DATABASE_NAME>
 ```
 
-  2. Kör Create-instruktionen i kontexten för <DATABASE_NAME> som misslyckades tidigare för Master-databasen. 
+  2. Kör Create-instruktionen i kontexten för <DATABASE_NAME>, som misslyckades tidigare för Master-databasen. 
   
   Exempel på hur du skapar externt fil format:
     

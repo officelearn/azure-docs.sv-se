@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287720"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnostisera anslutnings problem med Azure Synapse Studio (för hands version) med PowerShell-skript
 
@@ -27,13 +27,13 @@ Azure Synapse Studio (för hands version) är beroende av en uppsättning webb-A
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-Högerklicka på följande länk och klicka på "Spara mål som":
+Högerklicka på följande länk och välj "Spara mål som":
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Alternativt kan du öppna länken direkt och spara den öppna skript filen. Spara inte adressen till länken ovan, eftersom den kan ändras i framtiden.
 
-I Utforskaren högerklickar du på den nedladdade skript filen och klickar på Kör med PowerShell.
+I Utforskaren högerklickar du på den nedladdade skript filen och väljer Kör med PowerShell.
 
 ![Kör Hämtad skript fil med PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 
@@ -58,4 +58,4 @@ Om du är nätverks administratör och justerar brand Väggs konfigurationen fö
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om föregående steg inte hjälper till att lösa problemet [skapar du ett support ärende](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+Om föregående steg inte hjälper till att lösa problemet kan du [skapa ett support ärende](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

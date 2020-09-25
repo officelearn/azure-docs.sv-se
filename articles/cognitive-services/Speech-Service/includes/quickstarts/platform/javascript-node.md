@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e5c83b4b8e579223fa8bc00e1347e5cb2f92fca1
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 6a7fbac72c73ae44d158d91653b3713b271f8da4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406439"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324791"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Java Script för användning med NodeJS. Om du bara vill att paket namnet ska komma igång på egen hand kan du köra `npm install microsoft-cognitiveservices-speech-sdk` det från ditt befintliga projekt.
 
@@ -34,7 +34,7 @@ Skapa en ny katalog och kör `npm init` och gå igenom dess prompter.
 
 ## <a name="add-the-speech-sdk-package"></a>Lägg till tal SDK-paketet
 
-Jag kör `npm install microsoft-cognitiveservices-speech-sdk`
+Kör `npm install microsoft-cognitiveservices-speech-sdk`
 
 ## <a name="next-steps"></a>Nästa steg
 

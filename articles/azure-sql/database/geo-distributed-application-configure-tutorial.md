@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: bdc03d93654fdb0ae90600f8dad279f0fc8efbe9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070844"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335084"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Självstudie: implementera en geo-distribuerad databas (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ Konfigurera en databas i SQL Database och klient program för redundansväxling 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

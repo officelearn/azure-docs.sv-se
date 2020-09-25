@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 332b5198f046d0096e95e79e27cbc49408e6d136
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325206"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Innehålls referens för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ I den här artikeln hittar du en innehålls referens till olika guider, skript o
 
 - [Konfigurera Azure AD-autentisering](../database/authentication-aad-configure.md)
 - [Konfigurera villkorlig åtkomst](../database/conditional-access-configure.md)
-- [Multi-Factor Azure AD auth](../database/authentication-mfa-ssms-overview.md)
+- [Flerfaktorautentisering för Azure AD](../database/authentication-mfa-ssms-overview.md)
 - [Konfigurera multifaktorautentisering](../database/authentication-mfa-ssms-configure.md)
 - [Konfigurera en princip för temporal bevarande](../database/temporal-tables-retention-policy.md)
 - [Konfigurera TDE med BYOK](../database/transparent-data-encryption-byok-configure.md)
@@ -79,7 +79,7 @@ I den här artikeln hittar du en innehålls referens till olika guider, skript o
 
 - [Skapa aviseringar på en hanterad instans](alerts-create.md)
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 - [Användarinitierade manuell redundans på SQL-hanterad instans](user-initiated-failover.md)
 

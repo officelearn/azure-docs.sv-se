@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du återställer SAP
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0a6cec234c367ceb1c6032e99d64d6ca5bc4805
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 0e524bfe090f0d67b76c13e876f44e83986aeb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334811"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: återställa SAP HANA-databaser på en virtuell Azure-dator med Azure CLI
 
@@ -34,7 +34,7 @@ Den här självstudien förutsätter att du har en SAP HANA databas som körs p�
 
 ## <a name="view-restore-points-for-a-backed-up-database"></a>Visa återställnings punkter för en säkerhets kopie rad databas
 
-Om du vill visa en lista över alla återställnings punkter för en databas använder du [AZ backup recoverypoint List](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) cmdlet enligt följande:
+Om du vill visa en lista över alla återställnings punkter för en databas använder du [AZ backup recoverypoint List](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet enligt följande:
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -57,7 +57,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 Som du kan se innehåller listan ovan tre återställnings punkter: en för fullständig, differentiell och logg säkerhets kopiering.
 
 >[!NOTE]
->Du kan också visa start-och slut punkterna för varje skadad logg säkerhets kopierings kedja med hjälp av [AZ backup recoverypoint show-log-kedje](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) cmdlet.
+>Du kan också visa start-och slut punkterna för varje skadad logg säkerhets kopierings kedja med hjälp av [AZ backup recoverypoint show-log-kedje](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet.
 
 ## <a name="prerequisites-to-restore-a-database"></a>Krav för att återställa en databas
 
@@ -74,7 +74,7 @@ Azure Backup kan återställa SAP HANA databaser som körs på virtuella Azure-d
 * Återställ till ett visst datum eller en angiven tidpunkt (till den andra) med hjälp av logg säkerhets kopior. Azure Backup identifierar automatiskt lämpliga fullständiga, differentiella säkerhets kopior och kedja av logg säkerhets kopior som krävs för att återställa baserat på den valda tiden.
 * Återställ till en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-Om du vill återställa en databas använder du cmdleten AZ Restore [-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) , som kräver ett återställnings konfigurations objekt som en av indata. Det här objektet kan genereras med [AZ backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Återställnings konfigurations objekt innehåller all information för att utföra en återställning. En av dem är återställnings läge – **OriginalWorkloadRestore** eller **AlternateWorkloadRestore**.
+Om du vill återställa en databas använder du cmdleten AZ Restore [-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) , som kräver ett återställnings konfigurations objekt som en av indata. Det här objektet kan genereras med [AZ backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Återställnings konfigurations objekt innehåller all information för att utföra en återställning. En av dem är återställnings läge – **OriginalWorkloadRestore** eller **AlternateWorkloadRestore**.
 
 >[!NOTE]
 > **OriginalWorkloadRestore** – Återställ data till samma SAP HANA instans som den ursprungliga källan. Med det här alternativet skrivs den ursprungliga databasen över. <br>
@@ -86,11 +86,11 @@ Om du vill återställa en databas till en annan plats använder du **AlternateW
 
 I den här självstudien kommer du att återställa till en tidigare återställnings punkt. [Visa listan över återställnings punkter](#view-restore-points-for-a-backed-up-database) för databasen och välj den punkt som du vill återställa till. I den här självstudien används återställnings punkten med namnet *7660777527047692711*.
 
-Med hjälp av återställnings punkt namnet ovan och återställnings läget ska vi skapa återställnings konfigurations objekt med hjälp av [AZ backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Nu ska vi titta på vad var och en av de återstående parametrarna i denna cmdlet innebär:
+Med hjälp av återställnings punkt namnet ovan och återställnings läget ska vi skapa återställnings konfigurations objekt med hjälp av [AZ backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Nu ska vi titta på vad var och en av de återstående parametrarna i denna cmdlet innebär:
 
 * **--mål objekt namn** Detta är det namn som den återställda databasen kommer att använda. I det här fallet använde vi namnet *restored_database*.
 * **--mål-server namn** Detta är namnet på en SAP HANA-server som har registrerats till ett Recovery Services-valv och som finns i samma region som databasen som ska återställas. I den här självstudien kommer vi att återställa databasen till samma SAP HANA-server som vi har skyddat, med namnet *hxehost*.
-* **--mål-server-typ** **SapHanaDatabase** måste användas för att återställa SAP HANA-databaser.
+* **--mål-server-typ** **HANAInstance** måste användas för att återställa SAP HANA-databaser.
 
 ```azurecli-interactive
 
@@ -113,7 +113,7 @@ Svaret på ovanstående fråga är ett återställnings konfigurations objekt so
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-För att återställa databasen kör [AZ Restore-azurewl-](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. Om du vill använda det här kommandot anger vi ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig.jspå*.
+För att återställa databasen kör [AZ Restore-azurewl-](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdleten. Om du vill använda det här kommandot anger vi ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig.jspå*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -130,13 +130,13 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb statusen med [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb statusen med [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="restore-and-overwrite"></a>Återställ och skriv över
 
 För att återställa till den ursprungliga platsen använder vi **OrignialWorkloadRestore** som återställnings läge. Du måste sedan välja återställnings punkten, som antingen kan vara en tidigare tidpunkt eller någon av de tidigare återställnings punkterna.
 
-I den här självstudien väljer vi den föregående tidpunkten "28-11-2019-09:53:00" för att återställa till. Du kan tillhandahålla den här återställnings punkten i följande format: dd-mm-åååå, dd-mm-åååå-hh: mm: SS. Du kan välja en giltig tidpunkt för återställning till genom att använda cmdleten [AZ backup recoverypoint show-log-kedje](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) , som visar intervallen med brutna logg säkerhets kopior.
+I den här självstudien väljer vi den föregående tidpunkten "28-11-2019-09:53:00" för att återställa till. Du kan tillhandahålla den här återställnings punkten i följande format: dd-mm-åååå, dd-mm-åååå-hh: mm: SS. Du kan välja en giltig tidpunkt för återställning till genom att använda cmdleten [AZ backup recoverypoint show-log-kedje](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) , som visar intervallen med brutna logg säkerhets kopior.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -154,7 +154,7 @@ Svaret på ovanstående fråga är ett återställnings konfigurations objekt so
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-För att återställa databasen kör [AZ Restore-azurewl-](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. Om du vill använda det här kommandot anger vi ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig.jspå*.
+För att återställa databasen kör [AZ Restore-azurewl-](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdleten. Om du vill använda det här kommandot anger vi ovanstående JSON-utdata som sparas i en fil med namnet *recoveryconfig.jspå*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -171,15 +171,15 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="restore-as-files"></a>Återställ som filer
 
 För att återställa säkerhets kopierings data som filer i stället för en databas använder vi **RestoreAsFiles** som återställnings läge. Välj sedan återställnings punkten, som antingen kan vara en tidigare tidpunkt eller någon av de tidigare återställnings punkterna. När filerna har dumpas till en angiven sökväg kan du ta dessa filer till alla SAP HANA datorer där du vill återställa dem som en databas. Eftersom du kan flytta filerna till vilken dator som helst kan du nu återställa data mellan prenumerationer och regioner.
 
-I den här självstudien väljer vi den tidigare tidpunkten `28-11-2019-09:53:00` för att återställa till och platsen för att dumpa säkerhetskopieringsfiler som `/home/saphana/restoreasfiles` på samma SAP HANA-Server. Du kan tillhandahålla den här återställnings punkten i något av följande format: **dd-mm-åååå** eller **dd-mm-åååå-hh: mm: SS**. Du kan välja en giltig tidpunkt för återställning till genom att använda cmdleten [AZ backup recoverypoint show-log-kedje](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) , som visar intervallen med brutna logg säkerhets kopior.
+I den här självstudien väljer vi den tidigare tidpunkten `28-11-2019-09:53:00` för att återställa till och platsen för att dumpa säkerhetskopieringsfiler som `/home/saphana/restoreasfiles` på samma SAP HANA-Server. Du kan tillhandahålla den här återställnings punkten i något av följande format: **dd-mm-åååå** eller **dd-mm-åååå-hh: mm: SS**. Du kan välja en giltig tidpunkt för återställning till genom att använda cmdleten [AZ backup recoverypoint show-log-kedje](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) , som visar intervallen med brutna logg säkerhets kopior.
 
-Med återställnings punkt namnet ovan och återställnings läget ska vi skapa återställnings konfigurations objekt med hjälp av [AZ backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Nu ska vi titta på vad var och en av de återstående parametrarna i denna cmdlet innebär:
+Med återställnings punkt namnet ovan och återställnings läget ska vi skapa återställnings konfigurations objekt med hjälp av [AZ backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Nu ska vi titta på vad var och en av de återstående parametrarna i denna cmdlet innebär:
 
 * **--mål-container-Name** Detta är namnet på en SAP HANA-server som har registrerats till ett Recovery Services-valv och som finns i samma region som databasen som ska återställas. I den här självstudien kommer vi att återställa databasen som filer till samma SAP HANA-server som vi har skyddat, med namnet *hxehost*.
 * **--RP-Name** För en tidpunkt för återställning av återställnings punkter är namnet på återställnings punkten **DefaultRangeRecoveryPoint**
@@ -216,7 +216,7 @@ Svaret på frågan ovan är ett återställnings konfigurations objekt som ser u
 }
 ```
 
-Om du nu vill återställa databasen som filer kör du [AZ Restore-azurewl-](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) cmdleten. För att kunna använda det här kommandot anger vi JSON-utdata ovanför som sparas till en fil med namnet *recoveryconfig.jspå*.
+Om du nu vill återställa databasen som filer kör du [AZ Restore-azurewl-](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdleten. För att kunna använda det här kommandot anger vi JSON-utdata ovanför som sparas till en fil med namnet *recoveryconfig.jspå*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -267,7 +267,7 @@ Utdata kommer att se ut så här:
 }
 ```
 
-Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 Filerna som dumpas till mål behållaren är:
 

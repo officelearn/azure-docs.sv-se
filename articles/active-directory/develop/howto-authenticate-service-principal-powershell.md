@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178815"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265841"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
 
@@ -225,3 +225,4 @@ Du kan få följande fel när du skapar ett huvudnamn för tjänsten:
 * Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * En mer detaljerad förklaring av program och tjänstens huvudnamn finns i [Programobjekt och tjänstobjekt](app-objects-and-service-principals.md).
 * Mer information om Azure AD-autentisering finns i [autentiserings scenarier för Azure AD](./authentication-vs-authorization.md).
+* Information om hur du arbetar med app-registreringar med hjälp av **Microsoft Graph**finns i API-referens för [program](/graph/api/resources/application) .

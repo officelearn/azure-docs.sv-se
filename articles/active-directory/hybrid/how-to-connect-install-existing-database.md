@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23bcb63b6b499e72cb43089659e513d276bd8306
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265399"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server databas för att lagra data. Du kan antingen använda standard SQL Server 2012 Express-LocalDB som installerats med Azure AD Connect eller använda din egen fullständiga version av SQL. Tidigare skapades en ny databas med namnet ADSync alltid när du installerade Azure AD Connect. Med Azure AD Connect version 1.1.613.0 (eller senare) har du möjlighet att installera Azure AD Connect genom att peka den på en befintlig ADSync-databas.
@@ -58,7 +58,7 @@ Viktiga anteckningar för att anteckna innan du fortsätter:
 ## <a name="steps-to-install-azure-ad-connect-with-use-existing-database-mode"></a>Steg för att installera Azure AD Connect med läget "Använd befintlig databas"
 1.  Ladda ned Azure AD Connect Installer (AzureADConnect.MSI) till Windows Server. Dubbelklicka på installations programmet för Azure AD Connect för att börja installera Azure AD Connect.
 2.  När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.
-![Välkommen](./media/how-to-connect-install-existing-database/db1.png)
+![Skärm bild som visar sidan "Välkommen till Azure A D Connect" med "Express inställningar" på den vänstra menyn markerad.](./media/how-to-connect-install-existing-database/db1.png)
 3.  Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen C:\Program\Microsoft Azure Active Directory Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
 
 > [!NOTE]
@@ -66,9 +66,9 @@ Viktiga anteckningar för att anteckna innan du fortsätter:
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. Du välkomnas med Välkommen till Azure AD Connect-skärmen. När du godkänt licensvillkoren och sekretesspolicyn klickar du på **Fortsätt**.
-   ![Välkommen](./media/how-to-connect-install-existing-database/db3.png)
-1. På skärmen **Installera nödvändiga komponenter** är alternativet **Använd en befintlig SQL-server** aktiverat. Ange namnet på den SQL-server som är värd för ADSync-databasen. Om SQL-motorinstansen som används som värd för ADSync-databasen inte är standardinstansen på SQL-servern, måste du ange instansnamnet för SQL-motorn. Om SQL-surfning inte är aktiverat, måste du dessutom också ange portnumret för SQL-motorinstansen. Ett exempel:         
-   ![Välkommen](./media/how-to-connect-install-existing-database/db4.png)           
+   ![Skärm bild som visar sidan "Välkommen till Azure A D Connect"](./media/how-to-connect-install-existing-database/db3.png)
+1. På skärmen **Installera nödvändiga komponenter** är alternativet **Använd en befintlig SQL-server** aktiverat. Ange namnet på den SQL-server som är värd för ADSync-databasen. Om SQL-motorinstansen som används som värd för ADSync-databasen inte är standardinstansen på SQL-servern, måste du ange instansnamnet för SQL-motorn. Om SQL-surfning inte är aktiverat, måste du dessutom också ange portnumret för SQL-motorinstansen. Exempel:         
+   ![Skärm bild som visar sidan "installera nödvändiga komponenter".](./media/how-to-connect-install-existing-database/db4.png)           
 
 1. På skärmen **Anslut till Azure AD**, måste du ange autentiseringsuppgifter för en global administratör i Azure AD-katalogen. Det rekommenderas att använda ett konto i standarddomänen onmicrosoft.com. Det här kontot används bara för att skapa ett tjänstkonto i Azure AD och används inte när guiden har slutförts.
    ![Anslut](./media/how-to-connect-install-existing-database/db5.png)
@@ -77,10 +77,10 @@ Viktiga anteckningar för att anteckna innan du fortsätter:
    ![Kataloger](./media/how-to-connect-install-existing-database/db6.png)
  
 1. I popup-fönstret kan du antingen (i) ange autentiseringsuppgifter för en företagsadministratör och låta Azure AD Connect skapa AD DS-kontot åt dig, eller (ii) skapa AD DS-kontot och ange dess autentiseringsuppgifter till Azure AD Connect. När du har valt ett alternativ och angett nödvändiga autentiseringsuppgifter klickar du på **OK** för att stänga popup-fönstret.
-   ![Välkommen](./media/how-to-connect-install-existing-database/db7.png)
+   ![Skärm bild som visar popup-dialog rutan "A D-skogs konto" med "Skapa nytt A D-konto" markerat.](./media/how-to-connect-install-existing-database/db7.png)
  
 1. När autentiseringsuppgifterna har angetts ersätts den röda kryssikonen med en grön bockikon. Klicka på **Nästa**.
-   ![Välkommen](./media/how-to-connect-install-existing-database/db8.png)
+   ![Skärm bild som visar sidan "Anslut dina kataloger".](./media/how-to-connect-install-existing-database/db8.png)
  
 1. På skärmen **redo att konfigurera** klickar du på **Installera**.
    ![Välkommen](./media/how-to-connect-install-existing-database/db9.png)

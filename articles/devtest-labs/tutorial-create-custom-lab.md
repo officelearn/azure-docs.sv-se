@@ -3,12 +3,12 @@ title: Skapa ett labb med Azure DevTest Labs | Microsoft Docs
 description: I den här självstudien skapar du ett labb i Azure DevTest Labs med hjälp av Azure Portal. En labb administratör konfigurerar ett labb, skapar virtuella datorer i labbet och konfigurerar principer.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85476571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324288"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudie: Konfigurera ett labb med hjälp av Azure DevTest Labs
 I självstudien skapar du ett labb med hjälp av Azure Portal. En labbadministratör konfigurerar ett labb i en organisation, skapar virtuella datorer i labbet och konfigurerar principer. Labbanvändarna (till exempel utvecklare och testare) gör anspråk på de virtuella datorerna i labbet, ansluter till dem och använder dem. 
@@ -56,7 +56,7 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
     2. Som **Användarnamn** anger du namnet på den användare som har åtkomst till den virtuella datorn. 
     3. För **Lösenord** anger du lösenordet för användaren. 
 
-        ![Välja en bas](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Skärm bild som visar grundläggande inställningar för sidan "Skapa labb resurs".](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. Välj fliken **Avancerade inställningar**.
     1. I **Gör den här datorn anspråksbar** väljer du **Ja**.
     2. Kontrollera att **instansantalet** är **1**. Om du anger det till **2** kommer två virtuella datorer skapas med namnen: `<base image name>00' and <base image name>01`. Exempelvis: `win10vm00` och `win10vm01`.     

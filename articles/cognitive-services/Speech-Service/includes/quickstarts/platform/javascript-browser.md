@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 54fe96ecee99f3de37667d255b57b89c34aecc14
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 2701b4cd17a132de07c031166bbe4cb1086227e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406440"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324790"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Java Script för användning med en webb sida.
 
@@ -29,11 +29,11 @@ Skapa en ny, tom mapp. Om du vill värdbasera exemplet på en webbserver ser du 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Packa upp Speech SDK för JavaScript i den mappen
 
 Ladda ned Speech SDK som ett [.zip-paket](https://aka.ms/csspeech/jsbrowserpackage) och packa upp det i den nya mappen. Detta resulterar i att fem filer packas upp:
-* `microsoft.cognitiveservices.speech.sdk.bundle.js`En läslig version av talet SDK.
-* `microsoft.cognitiveservices.speech.sdk.bundle.js.map`En mappnings fil som används för att felsöka SDK-kod.
-* `microsoft.cognitiveservices.speech.sdk.bundle.d.ts`Objekt definitioner som ska användas med TypeScript
-* `microsoft.cognitiveservices.speech.sdk.bundle-min.js`En minified-version av talet SDK.
-* `speech-processor.js`Kod för att förbättra prestanda i vissa webbläsare.
+* `microsoft.cognitiveservices.speech.sdk.bundle.js` En läslig version av talet SDK.
+* `microsoft.cognitiveservices.speech.sdk.bundle.js.map` En mappnings fil som används för att felsöka SDK-kod.
+* `microsoft.cognitiveservices.speech.sdk.bundle.d.ts` Objekt definitioner som ska användas med TypeScript
+* `microsoft.cognitiveservices.speech.sdk.bundle-min.js` En minified-version av talet SDK.
+* `speech-processor.js` Kod för att förbättra prestanda i vissa webbläsare.
 
 ## <a name="create-an-indexhtml-page"></a>Skapa en index.html-sida
 

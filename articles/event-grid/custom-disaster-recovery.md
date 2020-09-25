@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du konfigurerar din 
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004552"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324135"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen haveri beredskap för anpassade ämnen i Event Grid
 Haveriberedskap handlar om att återställa från en betydande förlust av programfunktion. Den här självstudien vägleder dig genom hur du konfigurerar din händelsearkitektur för att återställa om Event Grid-tjänsten blir skadad i en viss region.
@@ -72,7 +72,7 @@ Skapa först två Event Grid-ämnen. De här avsnitten fungerar som din primära
    * Välj Endpoint Type Web Hook (Webhook av slutpunktstyp).
    * Ange slutpunkten till din händelsemottagares händelse-URL, som bör se ut ungefär så här: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Händelseprenumeration för primär Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Skärm bild som visar sidan "Skapa händelse prenumeration – grundläggande" med värdena "namn", "slut punkts typ" och "slut punkt" markerade.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Upprepa samma flöde för att skapa ditt sekundära ämne och prenumerationen. Den här gången ersätter du suffixet ”-primärt” med ”-sekundärt” för enklare spårning. Slutligen placerar du det i en annan Azure-region. Du kan placera det var du vill, men det rekommenderas att du använder [länkade Azure-regioner](../best-practices-availability-paired-regions.md). Genom att placera det sekundära ämnet och prenumerationen i en annan region säkerställer du att nya händelser flödar även om den primära regionen slutar fungera.
 
@@ -183,7 +183,7 @@ namespace EventGridFailoverPublisher
 }
 ```
 
-### <a name="try-it-out"></a>Prova
+### <a name="try-it-out"></a>Prova nu
 
 Nu när du har alla komponenter på plats kan du testa implementeringen av redundans. Kör exemplet ovan i Visual Studio Code eller din favoritmiljö. Ersätt följande fyra värden med slutpunkterna och nycklarna från dina ämnen:
 

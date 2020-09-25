@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 78758fbfd14810cb7320d95026f8d4af647a3f2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436790"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334964"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -192,7 +192,7 @@ Följande bild visar en jobbagent som kör flera jobb över olika typer av målg
 |[**Elastisk jobbagent**](#elastic-job-agent) | Den Azure-resurs som du skapar för att köra och hantera jobb. |
 |[**Jobbdatabas**](#job-database) | En databas i Azure SQL Database som jobb agenten använder för att lagra projektrelaterade data, jobb definitioner osv. |
 |[**Målgrupp**](#target-group) | Den uppsättning servrar, pooler, databaser och shardkartor som ett jobb ska köras mot. |
-|[**Uppgift**](#job) | Ett jobb är en arbetsprocess som består av ett eller flera [jobbsteg](#job-step). Jobbsteg anger vilket T-SQL-skript som ska köras samt annan information som krävs för att köra skriptet. |
+|[**Jobb**](#job) | Ett jobb är en arbetsprocess som består av ett eller flera [jobbsteg](#job-step). Jobbsteg anger vilket T-SQL-skript som ska köras samt annan information som krävs för att köra skriptet. |
 
 #### <a name="elastic-job-agent"></a>Elastisk jobbagent
 

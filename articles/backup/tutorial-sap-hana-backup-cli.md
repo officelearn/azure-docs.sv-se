@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du säkerhetskopiera
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007595"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324968"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: säkerhetskopiera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Recovery Services-valvet är som standard inställt på geo-redundant lagring. Geo-redundant lagring garanterar att dina säkerhets kopierings data replikeras till en sekundär Azure-region som är hundratals mil bort från den primära regionen. Om inställningen för lagring av lagrings utrymme behöver ändras använder du [AZ säkerhets kopierings valv, egenskaper set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+Recovery Services-valvet är som standard inställt på geo-redundant lagring. Geo-redundant lagring garanterar att dina säkerhets kopierings data replikeras till en sekundär Azure-region som är hundratals mil bort från den primära regionen. Om inställningen för lagring av lagrings utrymme behöver ändras använder du [AZ säkerhets kopierings valv, egenskaper set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \
@@ -59,7 +59,7 @@ az backup vault backup-properties set \
     --backup-storage-redundancy "LocallyRedundant/GeoRedundant"
 ```
 
-Använd cmdleten [AZ Backup Vault List](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-list) för att se om valvet har skapats. Följande svar visas:
+Använd cmdleten [AZ Backup Vault List](/cli/azure/backup/vault#az-backup-vault-list) för att se om valvet har skapats. Följande svar visas:
 
 ```output
 Location   Name             ResourceGroup
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 För SAP HANA-instansen (den virtuella datorn med SAP HANA installerad) som ska identifieras av Azure-tjänsterna måste ett [för registrerings skript](https://aka.ms/scriptforpermsonhana) köras på SAP HANA datorn. Kontrol lera att alla [krav](./tutorial-backup-sap-hana-db.md#prerequisites) är uppfyllda innan du kör skriptet. Mer information om vad skriptet gör finns i avsnittet så här [fungerar skriptet för för registrering](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
 
-När skriptet har körts kan SAP HANA-instansen registreras med Recovery Services-valvet som vi skapade tidigare. Registrera instansen med hjälp av [AZ för säkerhets kopierings behållare](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) . *VMResourceId* är resurs-ID: t för den virtuella dator som du skapade för att installera SAP HANA.
+När skriptet har körts kan SAP HANA-instansen registreras med Recovery Services-valvet som vi skapade tidigare. Registrera instansen med hjälp av [AZ för säkerhets kopierings behållare](/cli/azure/backup/container#az-backup-container-register) . *VMResourceId* är resurs-ID: t för den virtuella dator som du skapade för att installera SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -87,7 +87,7 @@ az backup container register --resource-group saphanaResourceGroup \
 
 När du registrerar SAP HANA-instansen upptäcks automatiskt alla befintliga databaser. Men för att identifiera nya databaser som kan läggas till i framtiden går du till [identifiera nya databaser som läggs till i avsnittet registrerad SAP HANA](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) instans.
 
-Om du vill kontrol lera om SAP HANA-instansen har registrerats med ditt valv använder du cmdleten [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) . Följande svar visas:
+Om du vill kontrol lera om SAP HANA-instansen har registrerats med ditt valv använder du cmdleten [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) . Följande svar visas:
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -100,7 +100,7 @@ VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphana
 
 ## <a name="enable-backup-on-sap-hana-database"></a>Aktivera säkerhets kopiering på SAP HANA databas
 
-[AZ säkerhets kopierings skydds lista](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) med flera objekt listar alla databaser som identifierats på den SAP HANA-instans som du registrerade i föregående steg.
+[AZ säkerhets kopierings skydds lista](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) med flera objekt listar alla databaser som identifierats på den SAP HANA-instans som du registrerade i föregående steg.
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -121,7 +121,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 Som du kan se från ovanstående utdata, är SID för det SAP HANA systemet HXE. I den här självstudien konfigurerar vi säkerhets kopiering för den *saphanadatabase; hxe; hxe* -databas som finns på *hxehost* -servern.
 
-För att skydda och konfigurera säkerhets kopiering för en databas, en i taget, använder vi [AZ backup Protection Enable-to-azurewl-](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl) cmdlet. Ange namnet på den princip som du vill använda. Om du vill skapa en princip med CLI använder du [AZ säkerhets kopierings princip skapa](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet. I den här självstudien använder vi *sapahanaPolicy* -principen.
+För att skydda och konfigurera säkerhets kopiering för en databas, en i taget, använder vi [AZ backup Protection Enable-to-azurewl-](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl) cmdlet. Ange namnet på den princip som du vill använda. Om du vill skapa en princip med CLI använder du [AZ säkerhets kopierings princip skapa](/cli/azure/backup/policy#az-backup-policy-create) cmdlet. I den här självstudien använder vi *sapahanaPolicy* -principen.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
@@ -133,7 +133,7 @@ az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-Du kan kontrol lera om säkerhets kopierings konfigurationen ovan har slutförts med cmdleten [AZ backup Job List](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) . Utdata visas på följande sätt:
+Du kan kontrol lera om säkerhets kopierings konfigurationen ovan har slutförts med cmdleten [AZ backup Job List](/cli/azure/backup/job#az-backup-job-list) . Utdata visas på följande sätt:
 
 ```output
 Name                                  Operation         Status     Item Name   Start Time UTC
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-[AZ för säkerhets kopierings jobb lista](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) visar en lista över alla säkerhets kopierings jobb (schemalagda eller på begäran) som har körts eller som för närvarande körs på den skyddade databasen, förutom andra åtgärder som registrera, konfigurera säkerhets kopiering och ta bort säkerhetskopierade data.
+[AZ för säkerhets kopierings jobb lista](/cli/azure/backup/job#az-backup-job-list) visar en lista över alla säkerhets kopierings jobb (schemalagda eller på begäran) som har körts eller som för närvarande körs på den skyddade databasen, förutom andra åtgärder som registrera, konfigurera säkerhets kopiering och ta bort säkerhetskopierade data.
 
 >[!NOTE]
 >Azure Backup anpassas inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en SAP HANA databas som körs på en virtuell Azure-dator.
@@ -173,7 +173,7 @@ Name                                  ResourceGroup
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Med svaret får du jobb namnet. Det här jobb namnet kan användas för att spåra jobb status med hjälp av [AZ säkerhets kopierings jobb show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 >[!NOTE]
 >Förutom att schemalägga en fullständig eller differentiell säkerhets kopiering kan de också aktive ras manuellt. Logg säkerhets kopior aktive ras automatiskt och hanteras av SAP HANA internt.

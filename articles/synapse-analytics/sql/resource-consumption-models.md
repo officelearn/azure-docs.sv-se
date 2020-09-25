@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288230"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse för SQL-resursförbrukning
 
@@ -29,7 +29,7 @@ Rekommendationer för att välja det idealiska antalet informations lager enhete
 
 ### <a name="data-warehouse-units"></a>Informationslagerenheter
 
-En Synapse SQL-pool representerar en samling analys resurser som tillhandahålls. Analys resurser definieras som en kombination av CPU, minne och IO. Dessa tre resurser paketeras i enheter med beräknings skala som kallas informations lager enheter (DWU: er). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda. En ändring av Service nivån ändrar antalet DWU: er som är tillgängliga för systemet, vilket i sin tur justerar prestandan och kostnaden för systemet.
+En Synapse SQL-pool representerar en samling analys resurser som tillhandahålls. Analys resurser definieras som en kombination av CPU, minne och IO. Dessa tre resurser paketeras i enheter med beräknings skala som kallas informations lager enheter (DWU: er). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda. En ändring av Service nivån ändrar antalet DWU: er som är tillgängliga för systemet. I sin tur justerar den här ändringen systemets prestanda och kostnad.
 
 För högre prestanda kan du öka antalet informations lager enheter. Minska data lagrets enheter för mindre prestanda. Lagrings- och beräkningskostnader faktureras separat, så ändringar av informationslagerenheter påverkar inte lagringskostnaderna.
 
@@ -73,7 +73,7 @@ Varje prestanda nivå använder en något annorlunda mått enhet för sina infor
 
 Både DWU: er och cDWUs har stöd för att skala upp eller ned och pausa beräkningen när du inte behöver använda data lagret. De här åtgärderna är alla på begäran. Gen2 använder en lokal diskbaserad cache på Compute-noderna för att förbättra prestandan. När du skalar eller pausar systemet blir cacheminnet inställt och så en period av cache-uppvärmning krävs innan optimala prestanda uppnås.  
 
-När du ökar informations lager enheter är du linjärt ökande data bearbetnings resurser. Gen2 tillhandahåller bästa prestanda för frågor och högsta skalning. Gen2-system gör också den mest använda cachen.
+När du ökar informations lager enheter ökar du linjärt data bearbetnings resurser. Gen2 tillhandahåller bästa prestanda för frågor och högsta skalning. Gen2-system gör också den mest använda cachen.
 
 #### <a name="capacity-limits"></a>Kapacitetsbegränsningar
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 Ändra DWU: er:
 
-1. Öppna [Azure Portal](https://portal.azure.com), öppna databasen och klicka på **skala**.
+1. Öppna [Azure Portal](https://portal.azure.com), öppna databasen och välj **skala**.
 
 2. Under **skala**flyttar du skjutreglaget åt vänster eller höger för att ändra DWU-inställningen.
 
-3. Klicka på **Spara**. Ett bekräftelsemeddelande visas. Klicka på **Ja** för att bekräfta eller **Nej** för att avbryta.
+3. Välj **Spara**. Ett bekräftelsemeddelande visas. Välj **Ja** för att bekräfta eller **Nej** för att avbryta.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -180,7 +180,7 @@ DWU ändringar kan ta flera minuter att slutföra. Om du skalar automatiskt bör
 
 Genom att kontrol lera databas statusen via olika slut punkter kan du implementera Automation korrekt. Portalen visar ett meddelande när en åtgärd har slutförts och databasens aktuella tillstånd, men tillåter inte program kontroll av status.
 
-Det går inte att kontrol lera databasens tillstånd för skalnings åtgärder med Azure Portal.
+Du kan inte kontrol lera databasens tillstånd för skalnings åtgärder med Azure Portal.
 
 Så här kontrollerar du status för DWU-ändringar:
 

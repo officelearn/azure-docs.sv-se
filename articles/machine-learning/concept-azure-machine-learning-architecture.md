@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276092"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -102,24 +102,17 @@ Du skapar en körning när du skickar ett skript för att träna en modell. En k
 
 [Arbets yta](#workspace)  >  [Experiment](#experiments)  >  [Kör](#runs)  >  **Kör konfiguration**
 
-En körnings konfiguration är en uppsättning instruktioner som definierar hur ett skript ska köras i ett angivet beräknings mål. Konfigurationen innehåller en mängd olika beteende definitioner, till exempel om du vill använda en befintlig python-miljö eller om du vill använda en Conda miljö som bygger på en specifikation.
+En körnings konfiguration definierar hur ett skript ska köras i ett angivet beräknings mål. Du kan använda konfigurationen för att ange skript, beräknings mål och Azure ML-miljö som ska köras på, alla distribuerade projektspecifika konfigurationer och vissa ytterligare egenskaper. Mer information om en fullständig uppsättning konfigurerbara alternativ för körningar finns i [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
 
 En körnings konfiguration kan sparas i en fil i den katalog som innehåller ditt utbildnings skript.   Eller så kan det skapas som ett minnes intern objekt och användas för att skicka in en körning.
 
-Du kan t. ex. köra konfigurationer i [använda ett beräknings mål för att träna din modell](how-to-set-up-training-targets.md).
-
-### <a name="estimators"></a>Kostnadsberäknare
-
-För att under lätta modell träningen med populära ramverk, gör klassen uppskattning att du enkelt kan skapa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
-
-Mer information om uppskattningar finns i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
+Du kan till exempel köra konfigurationer i [Konfigurera en tränings körning](how-to-set-up-training-targets.md).
 
 ### <a name="snapshots"></a>Ögonblicksbilder
 
 [Arbets yta](#workspace)  >  [Experiment](#experiments)  >  [Kör](#runs)  >  **Ögonblicks bild**
 
 När du skickar en körning komprimerar Azure Machine Learning den katalog som innehåller skriptet som en zip-fil och skickar den till beräknings målet. Zip-filen extraheras sedan och skriptet körs där. Azure Machine Learning lagrar också zip-filen som en ögonblicks bild som en del av körnings posten. Alla som har åtkomst till arbets ytan kan bläddra i en körnings post och ladda ned ögonblicks bilden.
-
 
 ### <a name="logging"></a>Loggning
 
@@ -133,7 +126,7 @@ Det finns flera sätt att visa dina loggar: övervakningens körnings status i r
 
 ### <a name="git-tracking-and-integration"></a>Git-spårning och integrering
 
-När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Detta fungerar med körningar som skickats med en uppskattning, ML-pipeline eller skript körning. Den fungerar även för körningar som skickats från SDK eller Machine Learning CLI.
+När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Detta fungerar med körningar som skickas med hjälp av en konfiguration för skript körning eller en ML-pipeline. Den fungerar även för körningar som skickats från SDK eller Machine Learning CLI.
 
 Mer information finns i [git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
 

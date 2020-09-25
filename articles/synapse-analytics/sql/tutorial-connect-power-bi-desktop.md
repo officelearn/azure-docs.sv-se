@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: a5944f4d512914c956d8e6fbbdbd1b8c30e35417
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288043"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran med Power BI Desktop & skapa en rapport
 
-I den här guiden får du lära dig att:
+I den här självstudien får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - [Power BI Desktop](https://powerbi.microsoft.com/downloads/) – behövs för att visualisera data och skapa en rapport.
-- [Azure Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) – behövs för att skapa databas, extern data källa och vy.
+- [Azure Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) – behövs för att skapa databas, extern data källa och Visa.
 
 Valfritt:
 
@@ -100,7 +100,7 @@ Demonstrations data innehåller följande data uppsättningar:
 
 AMERIKANSKA befolkning efter kön och tävling för varje amerikansk region från 2000 och 2010 decennial-inventering i Parquet-format.
 
-| Mappsökväg                                                  | Beskrivning                                                  |
+| Mappsökväg                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /Release                                                    | Överordnad mapp för data i demonstrations lagrings konto               |
 | /Release/us_population_county/                               | US population-datafiler i Parquet-format, partitionerade efter år med Hive/Hadoop partitionerings schema. |

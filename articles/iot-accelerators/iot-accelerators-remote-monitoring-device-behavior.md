@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4840363b2f6645fceca80f6dd57ece64fb2c8163
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 7f887aac91bdb1b8c752806c7c5076708a40bc10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419928"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276177"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementera beteendet för enhets modellen
 
@@ -37,8 +37,8 @@ I den här artikeln kan du se hur du:
 
 [Simulerings](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) avsnittet i enhets modellens schema definierar det interna läget för en simulerad enhet:
 
-- `InitialState`definierar initial värden för alla egenskaper för objektet enhets tillstånd.
-- `Script`identifierar en JavaScript-fil som körs enligt ett schema för att uppdatera enhetens tillstånd.
+- `InitialState` definierar initial värden för alla egenskaper för objektet enhets tillstånd.
+- `Script` identifierar en JavaScript-fil som körs enligt ett schema för att uppdatera enhetens tillstånd.
 
 I följande exempel visas definitionen av objektet enhets tillstånd för en simulerad kylnings enhet:
 
@@ -79,9 +79,9 @@ function main(context, previousState, previousProperties) {
 
 `context`Parametern har följande egenskaper:
 
-- `currentTime`som en sträng med format`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, till exempel`Simulated.Chiller.123`
-- `deviceModel`, till exempel`Chiller`
+- `currentTime` som en sträng med format `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, till exempel `Simulated.Chiller.123`
+- `deviceModel`, till exempel `Chiller`
 
 `state`Parametern innehåller enhetens status som underhålls av enhets simulerings tjänsten. Det här värdet är det `state` objekt som returnerades av föregående anrop till `main` .
 
@@ -200,9 +200,9 @@ function main(context, previousState, previousProperties) {
 
 `context`Parametern har följande egenskaper:
 
-- `currentTime`som en sträng med format`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, till exempel`Simulated.Chiller.123`
-- `deviceModel`, till exempel`Chiller`
+- `currentTime` som en sträng med format `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, till exempel `Simulated.Chiller.123`
+- `deviceModel`, till exempel `Chiller`
 
 `state`Parametern innehåller enhetens status som underhålls av enhets simulerings tjänsten.
 
@@ -210,9 +210,9 @@ function main(context, previousState, previousProperties) {
 
 Det finns tre globala funktioner som du kan använda för att implementera beteendet för-metoden:
 
-- `updateState`uppdatera det tillstånd som innehas av simulerings tjänsten.
-- `updateProperty`så här uppdaterar du en enskild enhets egenskap.
-- `sleep`pausa körningen för att simulera en tids krävande aktivitet.
+- `updateState` uppdatera det tillstånd som innehas av simulerings tjänsten.
+- `updateProperty` så här uppdaterar du en enskild enhets egenskap.
+- `sleep` pausa körningen för att simulera en tids krävande aktivitet.
 
 I följande exempel visas en förkortad version av **IncreasePressure-method.js** -skriptet som används av de simulerade kyl enheterna:
 

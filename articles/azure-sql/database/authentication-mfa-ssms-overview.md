@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 07/27/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277809"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Använda Multi-Factor Azure Active Directory-autentisering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,7 +29,7 @@ Azure SQL Database, Azure SQL-hanterad instans och stöd anslutningar för Azure
 
 För alla funktioner som beskrivs i den här artikeln använder du minst juli 2017, version 17,2. Dialog rutan senaste anslutning bör se ut ungefär som på följande bild:
 
-  ![1mfa – Universal-Connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Slutför rutan användar namn.")  
+  ![Skärm bild av dialog rutan Anslut till server i SQL Server Management Studio, med inställningar för Server typ, Server namn och autentisering.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 
@@ -57,11 +57,11 @@ Alla gäst användare som vill autentiseras med Universal Authentication måste 
 1. Öppna en anslutning i SSMS. Ange Server namnet och välj **Azure Active Directory-Universal med MFA** -autentisering. Lägg till det **användar namn** som du vill logga in med.
 1. Välj rutan **alternativ** och gå över till fliken **anslutnings egenskaper** . I dialog rutan **Anslut till databas** fyller du i dialog rutan för din databas. Kontrol lera rutan **AD-domännamn eller klient-ID** och tillhandahålla autentiserings utfärdare, till exempel domän namnet (**CONTOSOTEST.ONMICROSOFT.com**) eller GUID för klient-ID: t. 
 
-   ![MFA-Tenant-SSMS](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Skärm bild av fliken anslutnings egenskaper som markerar inställningarna för Anslut till databas-och AD-domännamn eller klient-ID.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 Om du kör SSMS 18. x eller senare behövs inte längre AD-domännamnet eller klient-ID: t för gäst användare eftersom 18. x eller senare identifierar det automatiskt.
 
-   ![MFA-Tenant-SSMS](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![Skärm bild av fliken anslutnings egenskaper i dialog rutan Anslut till server i s M S. "min databas" har marker ATS i fältet Anslut till databas.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Support för Azure AD Business till företag
 
@@ -97,4 +97,4 @@ När databas användaren har skapats `steve@gmail.com` kan användaren logga in 
 - [Importera en BACPAC-fil till en ny databas](database-import.md)  
 - [Exportera en databas till en BACPAC-fil](database-export.md)  
 - C# interface [IUniversalAuthProvider-gränssnitt](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- När du använder **Azure Active Directory-universell med MFA-** autentisering, är ADAL-spårning tillgängligt från och med [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Av som standard kan du aktivera ADAL-spårning genom att använda menyn **verktyg**, **alternativ** , under Azure- **tjänster**, **Azure Cloud**, **ADAL fönstret utmatning spårnings nivå**, och sedan aktivera **utdata** i menyn **Visa** . Spårningarna är tillgängliga i fönstret utdata när du väljer **Azure Active Directory alternativ**.  
+- När du använder **Azure Active Directory-universell med MFA-** autentisering, är ADAL-spårning tillgängligt från och med [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Av som standard kan du aktivera ADAL-spårning genom att använda menyn **verktyg**, **alternativ** , under Azure- **tjänster**, **Azure Cloud**, **ADAL fönstret utmatning spårnings nivå**, och sedan aktivera **utdata**  i menyn **Visa** . Spårningarna är tillgängliga i fönstret utdata när du väljer **Azure Active Directory alternativ**.  

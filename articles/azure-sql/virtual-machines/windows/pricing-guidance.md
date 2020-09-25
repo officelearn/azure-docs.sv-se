@@ -8,19 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b1d07b3ff41c16ff2145311a0b42d8c57a8e7b82
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7d18273d07cda3a6fe3517c47c9be12a2d236438
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316944"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Pris vägledning för SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -94,7 +94,7 @@ Om du vill skapa en virtuell Azure-dator som kör SQL Server 2017 med någon av 
 > [!NOTE]
 > Nu kan du ändra licensierings modellen från betala per användning för att ta med din egen licens (BYOL) och tillbaka. Mer information finns i [så här ändrar du licensierings modellen för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
-## <a name="bring-your-own-license-byol"></a><a id="byol"></a>Bring your own license (BYOL)
+## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Bring your own license (BYOL)
 
 **Genom att ta med din egen SQL Server licens via licensmobilitet**, som även kallas **BYOL**, innebär det att använda en befintlig SQL Server volym licens med Software Assurance i en virtuell Azure-dator. En SQL Server VM som bara använder BYOL avgifter för kostnaden för att köra den virtuella datorn, inte för SQL Server-licensiering, eftersom du redan har köpt licenser och Software Assurance via ett volym licensierings program.
 
@@ -134,7 +134,7 @@ Om du vill skapa en virtuell Azure-dator som kör SQL Server 2017 med någon av 
 
 För att undvika onödiga kostnader väljer du en optimal storlek på den virtuella datorn och funderar på tillfälliga avstängningar för icke-kontinuerliga arbets belastningar.
 
-### <a name="correctly-size-your-vm"></a><a id="machinesize"></a>Den virtuella datorn har rätt storlek
+### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Den virtuella datorn har rätt storlek
 
 Licens kostnaden för SQL Server är direkt relaterad till antalet virtuella processorer. Välj en VM-storlek som matchar dina förväntade behov för processor, minne, lagring och I/O-bandbredd. En fullständig lista över alternativ för dator storlek finns i [Windows VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) och [virtuella Linux-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

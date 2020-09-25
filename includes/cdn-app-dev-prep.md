@@ -4,14 +4,14 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77608722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316772"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du skriver kod för CDN-hantering måste du göra en förberedelse för att aktivera koden för att interagera med Azure Resource Manager. För att göra det här preparatet måste du:
 
 * Skapa en resurs grupp som innehåller CDN-profilen som skapats i den här självstudien
@@ -20,16 +20,16 @@ Innan du skriver kod för CDN-hantering måste du göra en förberedelse för at
 
 ### <a name="creating-the-resource-group"></a>Skapa resursgruppen
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **Skapa en resurs**.
+2. Klicka på **skapa en resurs**.
 3. Sök efter **resurs grupp** och klicka på **skapa**i fönstret resurs grupp.
 
     ![Skapa en ny resurs grupp](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 3. Namnge resurs gruppen *CdnConsoleTutorial*.  Välj din prenumeration och välj en plats nära dig.  Om du vill kan du klicka på kryss rutan **Fäst på instrument panelen** för att fästa resurs gruppen på instrument panelen i portalen.  Genom att fästa blir det enklare att hitta senare.  När du har gjort dina val klickar du på **skapa**.
 
-    ![Namnge resurs gruppen](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+    ![Skärm bild av dialog rutan resurs grupp.](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. När resurs gruppen har skapats, om du inte har fäst den på instrument panelen, kan du hitta den genom att klicka på **Bläddra**och sedan på **resurs grupper**.  Öppna den genom att klicka på resurs gruppen.  Anteckna ditt **prenumerations-ID**. Vi behöver den senare.
 
-    ![Namnge resurs gruppen](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Skärm bild av avsnittet C D N-konsol självstudie.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Skapa Azure AD-programmet och tillämpa behörigheter
 Det finns två sätt att autentisera appar med Azure Active Directory: enskilda användare eller ett huvud namn för tjänsten. Ett tjänst huvud namn liknar ett tjänst konto i Windows.  I stället för att bevilja en viss användar behörighet att interagera med CDN-profilerna, beviljas behörigheter i stället till tjänstens huvud namn.  Tjänstens huvud namn används vanligt vis för automatiserade, icke-interaktiva processer.  Även om den här självstudien skriver en interaktiv konsol app, kommer vi att fokusera på metoden för tjänstens huvud namn.
@@ -41,7 +41,7 @@ Att skapa ett huvud namn för tjänsten består av flera steg, inklusive att ska
 >
 > När du kommer till steget Konfigurera program med flera innehavare väljer du **Nej**.
 >
-> När du kommer till steget [tilldela programmet till en roll](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)använder du den resurs grupp som skapades tidigare, *CdnConsoleTutorial*, men i stället för rollen **läsare** tilldelar du rollen **CDN-profil deltagare** .  När du har tilldelat programmet rollen **CDN Profile Contributor** i din resurs grupp går du tillbaka till den här självstudien. 
+> När du kommer till steget [tilldela programmet till en roll](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)använder du den resurs grupp som skapades tidigare,  *CdnConsoleTutorial*, men i stället för rollen **läsare** tilldelar du rollen **CDN-profil deltagare** .  När du har tilldelat programmet rollen **CDN Profile Contributor** i din resurs grupp går du tillbaka till den här självstudien. 
 >
 >
 
@@ -62,6 +62,6 @@ Om du i stället för ett huvud namn för tjänsten har en interaktiv individuel
     ![Internt program](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 2. På nästa sida uppmanas du att ange en **omdirigerings-URI**.  URI: n är inte verifierad, men kom ihåg det du angav. Du behöver den senare.
 3. Du behöver inte skapa en nyckel för **klientautentisering**.
-4. I stället för att tilldela ett huvud namn för tjänsten till rollen **CDN Profile Contributor** ska vi tilldela enskilda användare eller grupper.  I det här exemplet kan du se att jag har tilldelat *CDN demo-användaren* till rollen **CDN Profile Contributor** .  
+4. I stället för att tilldela ett huvud namn för tjänsten till rollen **CDN Profile Contributor** ska vi tilldela enskilda användare eller grupper.  I det här exemplet kan du se att jag har tilldelat  *CDN demo-användaren* till rollen **CDN Profile Contributor** .  
 
     ![Individuell användar åtkomst](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

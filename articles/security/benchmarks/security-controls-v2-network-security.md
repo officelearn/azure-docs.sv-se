@@ -4,17 +4,17 @@ description: Säkerhet för Azures säkerhets benchmark v2-nätverk
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184416794011d259af3568c81e4648d822a2c4a5
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329439"
 ---
-# <a name="security-control-network-security"></a>Säkerhets kontroll: nätverks säkerhet
+# <a name="security-control-v2-network-security"></a>Säkerhets kontroll v2: nätverks säkerhet
 
 Nätverks säkerhet täcker kontroller för att skydda och skydda Azure-nätverk. Detta innefattar att skydda virtuella nätverk, upprätta privata anslutningar, förebygga och begränsa externa attacker och säkra DNS.
 
@@ -30,15 +30,19 @@ Beroende på dina program och din strategi för företags segmentering begränsa
 
 Använd Azure Security Center anpassad nätverks härdning för att rekommendera konfigurationer för nätverks säkerhets grupper som begränsar portar och käll-IP-adresser baserat på referensen till externa nätverks trafik regler.
 
+Använd Azure Sentinel för att identifiera användningen av äldre oskyddade protokoll som SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, osignerade LDAP-bindningar och svaga chiffer i Kerberos.
+
 - [Så här skapar du en nätverks säkerhets grupp med säkerhets regler](../../virtual-network/tutorial-filter-network-traffic.md)
 
 - [Distribuera och konfigurera Azure-brandvägg](../../firewall/tutorial-firewall-deploy-portal.md)
 
 - [Anpassad nätverks härdning i Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
 
+- [Arbets bok för Azure Sentinel-oskyddade protokoll](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
+
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -50,11 +54,11 @@ Använd Azure Security Center anpassad nätverks härdning för att rekommendera
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| NS-2 | E.t. | CA-3, AC-17, MA-4 |
+| NS-2 | Saknas | CA-3, AC-17, MA-4 |
 
 Använd Azure ExpressRoute eller Azure Virtual Private Network (VPN) för att skapa privata anslutningar mellan Azure-datacenter och lokal infrastruktur i en miljö med en valfri plats. ExpressRoute-anslutningar går inte via det offentliga Internet och de ger högre tillförlitlighet, snabbare hastigheter och lägre fördröjning än vanliga Internet anslutningar. För punkt-till-plats-VPN och plats-till-plats-VPN kan du ansluta lokala enheter eller nätverk till ett virtuellt nätverk med valfri kombination av de här VPN-alternativen och Azure-ExpressRoute.
 
-Om du vill ansluta två eller flera virtuella nätverk i Azure tillsammans använder du peering för virtuella nätverk. Nätverks trafik mellan peer-kopplat virtuella nätverk är privat och lagras i Azures stamnät nätverk. 
+Om du vill ansluta två eller flera virtuella nätverk i Azure tillsammans använder du peering för virtuella nätverk eller privat länk. Nätverks trafik mellan peer-kopplat virtuella nätverk är privat och lagras i Azures stamnät nätverk. 
 
 - [Vad är ExpressRoute-anslutnings modeller](../../expressroute/expressroute-connectivity-models.md) 
 
@@ -62,9 +66,11 @@ Om du vill ansluta två eller flera virtuella nätverk i Azure tillsammans anvä
 
 - [Peering för virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md)
 
+- [Azure Private Link](../../private-link/private-link-service-overview.md)
+
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -88,7 +94,7 @@ Privat åtkomst är ett extra försvar i djupet, förutom autentiserings-och tra
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -108,6 +114,7 @@ Skydda Azure-resurser mot attacker från externa nätverk, inklusive DDoS-attack
 -   Använd WAF-funktioner (Web Application Firewall) i Azure Application Gateway, Azures front dörr och Azure Content Delivery Network (CDN) för att skydda dina program, tjänster och API: er mot program lager attacker. 
 
 -   Skydda dina till gångar mot DDoS-attacker genom att aktivera DDoS standard skydd på dina virtuella Azure-nätverk. 
+-   Använd Azure Security Center för att identifiera risker för felaktig konfiguration som är relaterade till ovanstående. 
 
 - [Dokumentation om Azure Firewall](/azure/firewall/)
 
@@ -117,7 +124,7 @@ Skydda Azure-resurser mot attacker från externa nätverk, inklusive DDoS-attack
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 Inget
 
@@ -139,7 +146,7 @@ Obs! Om du har en regel eller annat krav för ID/IP-adresser kan du se till att 
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -165,7 +172,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -177,7 +184,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| NS-7 | E.t. | SC-20, SC – 21 |
+| NS-7 | Saknas | SC-20, SC – 21 |
 
 Följ metod tipsen för DNS-säkerhet för att undvika vanliga attacker som Dangling DNS, DNS-utlösnings attacker, DNS-förgiftning och förfalskning osv. 
 
@@ -191,7 +198,7 @@ När Azure DNS används som auktoritativ DNS-tjänst kontrollerar du att DNS-zon
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

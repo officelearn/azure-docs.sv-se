@@ -3,12 +3,12 @@ title: Förbättra tillförlitligheten för ditt program med Advisor
 description: Använd Azure Advisor för att säkerställa och förbättra tillförlitligheten i affärs kritiska Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264600"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Förbättra tillförlitligheten för ditt program genom att använda Azure Advisor
 
@@ -76,7 +76,7 @@ Virtuella datorer som finns i en tillgänglighets uppsättning med diskar som de
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparera ogiltiga logg aviserings regler
 
-Azure Advisor identifierar aviserings regler som har ogiltiga frågor angivna i villkors avsnittet. Du kan skapa logg aviserings regler i Azure Monitor och använda dem för att köra Analytics-frågor vid angivna intervall. Resultatet av en fråga avgör om en avisering behöver utlösas. Analys frågor kan bli ogiltiga över tid på grund av ändringar i refererade resurser, tabeller eller kommandon. Advisor rekommenderar att du korrigerar frågan i varnings regeln för att förhindra att den automatiskt inaktive ras och säkerställer övervakningen av dina resurser i Azure. [Läs mer om fel sökning av aviserings regler.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor identifierar logg aviserings regler som har ogiltiga frågor angivna i villkors avsnittet. Azure Monitor logga varnings regler kör frågor med angiven frekvens och brand aviseringar baserat på resultaten. Frågor kan bli ogiltiga med tiden på grund av ändringar i de resurser, tabeller eller kommandon som refereras till. Advisor rekommenderar korrigeringar för aviserings frågor för att förhindra att reglerna inaktive ras automatiskt och för att övervaka täckning. Mer information finns i [Felsöka aviserings regler](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Konfigurera konsekvent indexerings läge på din Azure Cosmos DB-samling
 

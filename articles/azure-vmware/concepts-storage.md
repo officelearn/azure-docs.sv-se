@@ -1,16 +1,16 @@
 ---
 title: Koncept – lagring
-description: Lär dig mer om nyckel lagrings funktionerna i Azure VMware-förhands granskning av privata moln.
+description: Lär dig mer om nyckel lagrings funktionerna i privata moln i Azure VMware-lösningar.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8afd58c61f2f78eec2a92354be6d88178340912e
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024323"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316825"
 ---
-# <a name="azure-vmware-solution-preview-storage-concepts"></a>Azure VMware-lösning för Preview Storage-koncept
+#  <a name="azure-vmware-solution-storage-concepts"></a>Lagrings koncept för Azure VMware-lösningar
 
 Privata moln i Azure VMware-lösningar tillhandahåller intern lagring med VMware virtuellt San. All lokal lagring från varje värd i ett kluster används i ett virtuellt San-datalager och kryptering av data på rest är tillgänglig och aktive ras som standard. Du kan använda Azure Storage resurser för att utöka lagrings funktionerna i dina privata moln.
 
@@ -28,7 +28,7 @@ Lokal lagring i kluster värdar används i virtuellt San data lager för hela kl
 
 ## <a name="data-at-rest-encryption"></a>Kryptering av data i vila
 
-Virtuellt San-datalager använder kryptering av data i vila som standard. Krypterings lösningen är KMS-baserad och stöder vCenter-åtgärder för nyckel hantering. Nyckel krypterings nycklarna lagras i en Azure Key Vault och när en värd tas bort från ett kluster kan data på SSD ogiltig förklaras omedelbart.
+Virtuellt San-datalager använder kryptering av data i vila som standard. Krypterings lösningen är KMS-baserad och stöder vCenter-åtgärder för nyckel hantering. Nycklar lagras krypterade, omslutna av en HSM-baserad Azure Key Vault huvud nyckel. När en värd tas bort från ett kluster kan data på SSD ogiltig förklaras omedelbart.
 
 ## <a name="scaling"></a>Skalning
 

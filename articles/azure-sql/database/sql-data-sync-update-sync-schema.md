@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42624506b3fe3a40cd19353c0dc25ecd8a5da02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328810"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -173,7 +173,7 @@ Att byta namn på kolumner eller tabeller gör att datasynkroniseringen slutar f
 
 För andra typer av schema ändringar – till exempel att skapa lagrade procedurer eller släppa ett index, krävs inte synkroniseringsschemat.
 
-## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a>Felsöka automatisk replikering av schema ändringar
+## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a> Felsöka automatisk replikering av schema ändringar
 
 Den replikeringsfrekvens som beskrivs i den här artikeln upphör att fungera i vissa situationer, till exempel om du har gjort en schema ändring i en lokal databas som inte stöds i Azure SQL Database. I så fall Miss lyckas synkroniseringen av schema ändrings spårnings tabellen. Du behöver åtgärda det här problemet manuellt:
 
@@ -201,7 +201,7 @@ Den replikeringsfrekvens som beskrivs i den här artikeln upphör att fungera i 
 
 Om du vill rensa posterna i tabellen schema ändrings spårning, använder du DELETE i stället för TRUNKERA. Dirigera aldrig om identitets kolumnen i tabellen schema ändrings spårning med hjälp av DBCC CHECKIDENT. Du kan skapa nya spårnings tabeller för schema ändringar och uppdatera tabell namnet i DDL-utlösaren om omdirigering krävs.
 
-## <a name="other-considerations"></a><a name="other"></a>Andra överväganden
+## <a name="other-considerations"></a><a name="other"></a> Andra överväganden
 
 -   Databas användare som konfigurerar nav-och medlems databaser måste ha tillräcklig behörighet för att köra kommandona för schema ändringar.
 

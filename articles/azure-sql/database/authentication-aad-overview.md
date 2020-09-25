@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8221c77c0e6adeabe869a088089733d289a2f6ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277957"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Använd Azure Active Directory autentisering
 
@@ -168,7 +168,7 @@ Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggn
 - En översikt över inloggningar, användare, databas roller och behörigheter i SQL Database finns i [inloggningar, användare, databas roller och behörigheter](logins-create-manage.md).
 - Mer information om huvudkonton finns i [Huvudkonton](https://msdn.microsoft.com/library/ms181127.aspx).
 - Mer information om databasroller finns [Databasroller](https://msdn.microsoft.com/library/ms189121.aspx).
-- En syntax för att skapa Azure AD server-huvudobjekt (inloggningar) för SQL-hanterad instans finns i  [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- En syntax för att skapa Azure AD server-huvudobjekt (inloggningar) för SQL-hanterad instans finns i  [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Mer information om brandväggsregler i SQL Database finns [SQL Database-brandväggsregler](firewall-configure.md).
 
 <!--Image references-->

@@ -3,14 +3,14 @@ title: Koncept – privata moln och kluster
 description: Lär dig mer om de viktigaste funktionerna i Azure VMware-programdefinierade Data Center och vSphere-kluster i VMware-lösningar på Azure av VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316876"
 ---
-# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning för hands version av privata moln och kluster koncept
+#  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning, privata moln och kluster koncept
 
 Azure VMware-lösningen levererar VMware-baserade privata moln i Azure. Privata moln skapas från kluster av dedikerade Bare Metal-värdar och distribueras och hanteras via Azure Portal. Kluster i privata moln är etablerade med VMware vSphere-, vCenter-, virtuellt San-och NSX-programvara. Azure VMware-lösningar privata moln maskin-och program varu distributioner är helt integrerade och automatiserade i Azure.
 
@@ -61,7 +61,7 @@ De allmänna uppgraderings principerna och processerna för Azure VMware Solutio
 
 Värd underhåll och livs cykel hantering görs utan påverkan på kapaciteten eller prestandan för privata moln kluster. Exempel på automatiserat värd underhåll är uppgraderingar av inbyggd program vara och reparation eller ersättning av maskin vara.
 
-Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-Edge. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gateway och aktivera Nord-syd-routning. Som administratör för ditt privata moln i Azure VMware-lösningen är du ansvarig för NSX-T SDN-konfiguration som nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
+Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-Edge. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gateway och aktivera Nord-syd-routning. Som administratör för ditt privata moln i Azure VMware-lösningen är du ansvarig för NSX-T SDN-konfigurationen. Till exempel nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
 
 > [!IMPORTANT]
 > En Azure VMware-lösning för VMware-lösningar får inte ändra konfigurationen för NSX-T Edge eller nivå 0-Gateway. Detta kan leda till förlust av tjänst.

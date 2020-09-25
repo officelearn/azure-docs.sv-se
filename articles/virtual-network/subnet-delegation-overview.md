@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2019
 ms.author: kumud
-ms.openlocfilehash: b33ff808b802b6848e2d5debaf515a73bf21a1bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbb683754aed5b2a2e6e9c022713b7e87ad9ba9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74281342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329215"
 ---
 # <a name="what-is-subnet-delegation"></a>Vad är under näts delegering?
 
@@ -51,6 +51,7 @@ Varje Azure-tjänst definierar sin egen distributions modell där de kan definie
 - avgör det minsta antalet IP-adresser i det delegerade under nätet.
 - avgör om IP-adressutrymmet i det delegerade under nätet ska vara från det privata IP-adressutrymmet (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
 - dikterar att den anpassade DNS-konfigurationen har en Azure DNS post.
+- kräver att delegering tas bort innan under nätet eller det virtuella nätverket kan tas bort.
 
 Inmatade tjänster kan också lägga till egna principer enligt följande:
 - **Säkerhets principer**: en samling säkerhets regler som krävs för att en specifik tjänst ska fungera.

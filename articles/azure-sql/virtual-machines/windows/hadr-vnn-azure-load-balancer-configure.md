@@ -8,18 +8,18 @@ manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 10ff324e85082a4a5911e2c949744e7df1d9ad0b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2f36e568603ded5a89f88cf11627a09a5a240fac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316995"
 ---
 # <a name="configure-vnn-with-azure-load-balancer-sql-server-on-azure-vms"></a>Konfigurera VNN med Azure Load Balancer (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ Den här artikeln lär dig hur du konfigurerar en belastningsutjämnare med hjä
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du slutför stegen i den här artikeln bör du redan ha:
 
@@ -157,7 +157,7 @@ Testa redundansväxlingen för den klustrade resursen för att verifiera kluster
 
 # <a name="failover-cluster-instance"></a>[Redundansklusterinstans](#tab/fci)
 
-Gör följande:
+Gör så här:
 
 1. Anslut till en av SQL Server klusternoder med hjälp av RDP.
 1. Öppna **Klusterhanteraren för växling vid fel**. Välj **roller**. Lägg märke till vilken nod som äger rollen SQL Server FCI.
@@ -170,7 +170,7 @@ Gör följande:
 
 # <a name="ag-listener"></a>[AG-lyssnare](#tab/ag)
 
-Gör följande:
+Gör så här:
 
 1. Öppna [SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) och Anslut till tillgänglighets gruppens lyssnare. 
 

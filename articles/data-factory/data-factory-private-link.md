@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 48ab83db3dcbcf5c99b640ccab205ed1f0ee7ca1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604384"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328572"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure privat länk för Azure Data Factory
 
@@ -39,7 +39,7 @@ Flera kommunikations kanaler krävs mellan Azure Data Factory och det virtuella 
 
 | Domän | Port | Description |
 | ---------- | -------- | --------------- |
-| `pe-adf.azure.com` | 443 | Ett kontroll plan, som krävs för Data Factory redigering och övervakning. |
+| `adf.azure.com` | 443 | Ett kontroll plan, som krävs för Data Factory redigering och övervakning. |
 | `*.{region}.datafactory.azure.net` | 443 | Krävs av integration runtime med egen värd för att ansluta till tjänsten Data Factory. |
 | `*.servicebus.windows.net` | 443 | Krävs av integration runtime med egen värd för interaktiv redigering. |
 | `download.microsoft.com` | 443 | Krävs av den egna värdbaserade integrerings körningen för att ladda ned uppdateringarna. |

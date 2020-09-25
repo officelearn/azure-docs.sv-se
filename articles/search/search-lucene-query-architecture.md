@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329490"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Full texts ökning i Azure Kognitiv sökning
 
@@ -51,7 +51,7 @@ En Sök förfrågan är en fullständig specifikation av vad som ska returneras 
 
 Följande exempel är en Sök förfrågan som du kan skicka till Azure Kognitiv sökning med hjälp av [REST API](/rest/api/searchservice/search-documents).  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -61,7 +61,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 I den här förfrågan gör sökmotorn följande:
 
@@ -76,9 +76,9 @@ Merparten av den här artikeln är om bearbetning av *Sök frågan*: `"Spacious,
 
 Som anges är frågesträngen den första raden i begäran: 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 Frågans parser delar upp operatorer (till exempel `*` och `+` i exemplet) från Sök villkor och dekonstruerar Sök frågan i under *frågor* av en typ som stöds: 
 
@@ -104,9 +104,9 @@ En annan Sök begär ande parameter som påverkar parsningen är `searchMode` pa
 
 När `searchMode=any` , som är standardvärdet, är avstånds avgränsaren mellan Spacious och Air-condition eller ( `||` ), vilket gör exempel frågan text som motsvarar: 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 Explicita operatorer, som `+` i `+"Ocean view"` , är tvetydiga i boolesk fråge konstruktion (termen *måste* matcha). Mindre uppenbart är hur man tolkar återstående villkor: Spacious och Air-villkor. Ska sökmotorn hitta matchningar i vyn havs- *och* Spacious- *och* Air-villkor? Eller om den ska kunna hitta *en* till havs-vy plus någon av de återstående villkoren? 
 
@@ -114,9 +114,9 @@ Som standard ( `searchMode=any` ) förutsätter sökmotorn den bredare tolkninge
 
 Anta att vi nu har angett `searchMode=all` . I det här fallet tolkas området som en "och"-åtgärd. Var och en av de återstående villkoren måste båda finnas i dokumentet för att kvalificera sig som en matchning. Den resulterande exempel frågan tolkas enligt följande: 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 Ett ändrat frågeuttryck för den här frågan skulle vara följande, där ett matchande dokument är skärnings punkten för alla tre under frågor: 
 
@@ -152,16 +152,16 @@ När standard analys processen bearbetar termen kommer den att vara i gemener oc
 
 Beteendet för en analys kan testas med hjälp av [analys-API: et](/rest/api/searchservice/test-analyzer). Ange den text som du vill analysera för att se vilka termer som visas i Analyzer. Om du till exempel vill se hur standard analys processen bearbetar texten "Air-condition" kan du utfärda följande begäran:
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 Standard analysen delar in inmatad text i följande två tokens, och kommenterar dem med attribut som start-och slut förskjutningar (används för träff markering) och deras placering (används för fras matchning):
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -178,7 +178,7 @@ Standard analysen delar in inmatad text i följande två tokens, och kommenterar
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -192,7 +192,7 @@ Lexikalisk analys gäller endast för frågetyper som kräver fullständiga vill
 
 Dokument hämtning syftar på att hitta dokument med matchande villkor i indexet. Det här steget tolkas bäst genom ett exempel. Vi börjar med ett hotell index med följande enkla schema: 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -201,11 +201,11 @@ Dokument hämtning syftar på att hitta dokument med matchande villkor i indexet
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 Anta ytterligare att det här indexet innehåller följande fyra dokument: 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -230,7 +230,7 @@ Anta ytterligare att det här indexet innehåller följande fyra dokument:
         }
     ]
 }
-~~~~
+```
 
 **Så här indexeras termer**
 
@@ -251,7 +251,7 @@ Det är vanligt, men krävs inte, för att använda samma analyser för sökning
 
 I vårt exempel, för fältet **title** ser det inverterade indexet ut så här:
 
-| Period | Dokument lista |
+| Term | Dokument lista |
 |------|---------------|
 | atman | 1 |
 | bollar | 2 |
@@ -265,7 +265,7 @@ I fältet Rubrik visas bara *hotell* i två dokument: 1, 3.
 
 I fältet **Beskrivning** ser indexet ut så här:
 
-| Period | Dokument lista |
+| Term | Dokument lista |
 |------|---------------|
 | löst | 3
 | och | 4
@@ -321,10 +321,12 @@ Varje dokument i en Sök Resultat uppsättning tilldelas en relevans poäng. Fun
 ### <a name="scoring-example"></a>Bedömnings exempel
 
 Återkalla de tre dokument som matchar vår exempel fråga:
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -347,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 Dokument 1 matchade frågan bäst eftersom både termen *Spacious* och den obligatoriska frasen i *vyn* i fältet Beskrivning visas. De två följande dokumenten matchar bara frasen i frasen i *vyn*. Det kan vara överraskande att relevans-poängen för dokument 2 och 3 är olika trots att de matchade frågan på samma sätt. Det beror på att bedömnings formeln har fler komponenter än bara TF/IDF. I det här fallet har dokument 3 tilldelats ett något högre poäng eftersom beskrivningen är kortare. Lär dig mer om [Lucene: s praktiska bedömnings formel](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) för att förstå hur fält längd och andra faktorer kan påverka relevans poängen.
 

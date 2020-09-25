@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276823"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -129,6 +129,8 @@ Du kan aktivera Tillgänglighetszoner genom att använda Azure Portal när du sk
 
 ## <a name="building-highly-available-applications"></a>Skapa program med hög tillgänglighet
 
+- Granska det förväntade [beteendet för Azure Cosmos-SDK](troubleshoot-sdk-availability.md) : er under dessa händelser och som är de konfigurationer som påverkar den.
+
 - För att säkerställa hög Skriv-och Läs tillgänglighet konfigurerar du ditt Azure Cosmos-konto så att det omfattar minst två regioner med flera-Write-regioner. Med den här konfigurationen får du högsta tillgänglighet, lägsta svars tid och bästa skalbarhet för både läsningar och skrivningar som backas upp av service avtal. Mer information finns i så här [konfigurerar du ditt Azure Cosmos-konto med flera Write-regioner](tutorial-global-distribution-sql-api.md).
 
 - För Azure Cosmos-konton med flera regioner som kon figurer ATS med en enda skrivbar region [aktiverar du automatisk redundans med hjälp av Azure CLI eller Azure Portal](how-to-manage-database-account.md#automatic-failover). När du har aktiverat automatisk redundans när det uppstår en regional katastrof, kan Cosmos DB automatiskt redundansväxla ditt konto.  
@@ -146,3 +148,4 @@ Härnäst kan du läsa följande artiklar:
 - [Global distribution](global-dist-under-the-hood.md)
 - [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
 - [Så här konfigurerar du ditt Cosmos-konto med flera Skriv regioner](how-to-multi-master.md)
+- [SDK-beteende i multiregionala miljöer](troubleshoot-sdk-availability.md)

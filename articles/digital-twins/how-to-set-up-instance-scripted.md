@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563003"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328655"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -26,15 +26,19 @@ Den här versionen av den här artikeln slutför de här stegen genom att köra 
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
+## <a name="prerequisites-download-the-script"></a>Krav: Hämta skriptet
+
+Exempel skriptet skrivs i PowerShell. Den är en del av [**Azures digitala dubbla exempel**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), som du kan ladda ned till datorn genom att gå till den exempel länken och välja hämtnings knappen för att *Ladda ned ZIP* under rubriken.
+
+Detta kommer att ladda ned exempelprojektet till datorn som _**Azure_Digital_Twins_samples.zip**_. Navigera till mappen på din dator och packa upp den för att extrahera filerna.
+
+I den zippade mappen finns distributions skriptet på _Azure_Digital_Twins_samples > skript > **deploy.ps1** _.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="run-the-deployment-script"></a>Kör distributions skriptet
+## <a name="run-the-deployment-script"></a>Kör distributionsskriptet
 
 I den här artikeln används ett digitalt kod exempel för Azure för att distribuera en digital Digitals-instans i Azure och den nödvändiga autentiseringen är halv automatiskt. Det kan också användas som utgångs punkt för att skriva dina egna skriptbaserade interaktioner.
-
-Exempel skriptet skrivs i PowerShell. Den är en del av [Azures digitala dubbla exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), som du kan ladda ned till datorn genom att gå till den exempel länken och välja hämtnings knappen för att *Ladda ned ZIP* under rubriken.
-
-I den hämtade exempel mappen finns distributions skriptet på _Azure_Digital_Twins_samples.zip > skript > **deploy.ps1** _.
 
 Här följer stegen för att köra distributions skriptet i Cloud Shell.
 1. Gå till ett [Azure Cloud Shell](https://shell.azure.com/) -fönster i webbläsaren. Logga in med det här kommandot:
@@ -43,13 +47,23 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
     ```
     Om CLI kan öppna din standard webbläsare så gör den det och läser in en Azure-inloggnings sida. Annars öppnar du en webb sida på *https://aka.ms/devicelogin* och anger den auktoriseringskod som visas i din terminal.
  
-2. När du har loggat in tittar du på det Cloud Shell fönstrets ikon fält. Välj ikonen "Ladda upp/ladda ned filer" och välj "Ladda upp".
+2. Kontrol lera att Cloud Shell har angetts för att köra PowerShell-versionen i Cloud Shell ikon fältet.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell fönster som visar val av överförings alternativ":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version":::
 
-    Navigera till _**deploy.ps1**_ -filen på din dator och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
+1. Välj ikonen "Ladda upp/ladda ned filer" och välj "Ladda upp".
 
-3. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shells fönstret. När skriptet körs genom de automatiserade konfigurations stegen uppmanas du att skicka in följande värden:
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell fönster som visar uppladdnings ikonen":::
+
+    Navigera till _**deploy.ps1**_ -filen på din dator (i _Azure_Digital_Twins_samples > skript > **deploy.ps1** _) och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
+
+4. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shells fönstret. (Kom ihåg att klistra in i Cloud Shell du kan använda **CTRL + SHIFT + V** på Windows och Linux eller **cmd + Shift + v** på MacOS. Du kan också använda snabb menyn.)
+
+    ```azurecli
+    ./deploy.ps1
+    ```
+
+    När skriptet körs genom de automatiserade konfigurations stegen uppmanas du att skicka in följande värden:
     * För instansen: *prenumerations-ID* för din Azure-prenumeration som ska användas
     * För-instansen: en *plats* där du vill distribuera instansen. Om du vill se vilka regioner som stöder Azure Digitals, kan du gå till [*Azure-produkter som är tillgängliga efter region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * För instansen: ett *resurs grupp* namn. Du kan använda en befintlig resurs grupp eller ange ett nytt namn på en som ska skapas.
@@ -107,9 +121,15 @@ Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . Om
 
 Om du vill kontrol lera skapandet av dina resurser och behörigheter som har skapats av skriptet kan du titta på dem i [Azure Portal](https://portal.azure.com).
 
+Om du inte kan verifiera att något steg lyckas kan du försöka med steget igen. Du kan utföra stegen individuellt med hjälp av [Azure Portal](how-to-set-up-instance-portal.md) -eller [CLI](how-to-set-up-instance-cli.md) -instruktionerna.
+
 ### <a name="verify-instance"></a>Verifiera instans
 
-För att kontrol lera att din instans har skapats går du till [sidan Azure Digitals dubbla](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) i Azure Portal. Den här sidan visar alla dina Azure Digitals dubbla instanser. Leta efter namnet på den nyligen skapade instansen i listan.
+För att kontrol lera att din instans har skapats går du till [sidan Azure Digitals dubbla](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) i Azure Portal. Du kan gå till den här sidan själv genom att söka efter *Azure Digital-dubbla* i portalens sökfält.
+
+Den här sidan visar alla dina Azure Digitals dubbla instanser. Leta efter namnet på den nyligen skapade instansen i listan.
+
+Om verifieringen misslyckades kan du försöka skapa en instans med hjälp av [portalen](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) eller [CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 ### <a name="verify-user-role-assignment"></a>Verifiera tilldelning av användar roll
 
@@ -117,16 +137,18 @@ För att kontrol lera att din instans har skapats går du till [sidan Azure Digi
 
 > [!NOTE]
 > Kom ihåg att skriptet för närvarande tilldelar den här nödvändiga rollen till samma användare som kör skriptet från Cloud Shell. Om du behöver tilldela rollen till någon annan som ska hantera instansen kan du göra det nu via Azure Portal ([instruktioner](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) eller CLI ([instruktioner](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
->
-> Du kan också använda portalen eller CLI för att göra om din egen roll tilldelning om det fanns några problem med skript konfigurationen.
+
+Om verifieringen misslyckades kan du också göra om din egen roll tilldelning med hjälp av [portalen](how-to-set-up-instance-portal.md#set-up-user-access-permissions) eller [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ### <a name="verify-app-registration"></a>Verifiera registrering av appar
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Kontrol lera först att inställningarna för Azure Digitals-inställningar för digital har kon figurer ATS korrekt i registreringen. Det gör du genom att välja *manifest* från meny raden för att visa appens registrerings manifest kod. Bläddra till slutet av kod fönstret och leta efter dessa fält under `requiredResourceAccess` . Värdena ska matcha dem i skärm bilden nedan:
+Kontrol lera sedan att inställningarna för Azure Digitals dubblare har angetts korrekt i registreringen. Det gör du genom att välja *manifest* från meny raden för att visa appens registrerings manifest kod. Bläddra till slutet av kod fönstret och leta efter dessa fält under `requiredResourceAccess` . Värdena ska matcha dem i skärm bilden nedan:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+
+Om ett eller båda av dessa verifierings steg Miss lyckas kan du försöka skapa appens registrering igen med hjälp av [portalen](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) eller [CLI](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) -instruktionerna.
 
 ## <a name="other-possible-steps-for-your-organization"></a>Andra möjliga steg för din organisation
 
@@ -135,7 +157,7 @@ Kontrol lera först att inställningarna för Azure Digitals-inställningar för
 ## <a name="next-steps"></a>Nästa steg
 
 Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flätat CLI-kommandon: 
-* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
 
 Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:

@@ -1,14 +1,14 @@
 ---
 title: Använda NLP med LUIS för chatt-robotar
-description: Cognitive Services tillhandahåller två bearbetnings tjänster för naturligt språk, Language Understanding och QnA Maker, var och en med olika ändamål. Förstå när du ska använda varje tjänst och hur de ska komplettera varandra.
+description: Lär dig när du ska använda Language Understanding och när du ska använda QnA Maker och förstå hur de ska komplettera varandra.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: beaa8b7033aeff3958632b3703323754e5ad5084
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 78591fa3d74b10c71c4c50ea2662c3f2ad3c5ace
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328674"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Använd Cognitive Services med naturlig språk bearbetning (NLP) för att utöka bot-konversationer
 

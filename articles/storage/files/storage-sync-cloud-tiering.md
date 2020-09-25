@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329320"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync.sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
@@ -40,7 +40,7 @@ Moln nivåer är inte beroende av NTFS-funktionen för att spåra senaste åtkom
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Vilken är den minsta fil storleken för en fil till-nivån?
 
-För agent versioner 9 och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek. Den minsta fil storlek som är berättigad till moln skiktning beräknas med dubbelt så stor kluster storlek som kluster storlek och minst 8 KB. I följande tabell visas de minsta fil storlekarna som kan vara i nivå, baserat på volym kluster storleken:
+För agent versioner 12 och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek. Den minsta fil storlek som är berättigad till moln skiktning beräknas med dubbelt så stor kluster storlek som kluster storlek och minst 8 KB. I följande tabell visas de minsta fil storlekarna som kan vara i nivå, baserat på volym kluster storleken:
 
 |Volym kluster storlek (byte) |Filer av den här storleken eller större kan skiktas  |
 |----------------------------|---------|
@@ -48,9 +48,9 @@ För agent versioner 9 och senare baseras den minsta fil storleken för en fil p
 |8 KB (8192)                 | 16 kB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 kB   |
-|64 KB (65536)               | 128 kB  |
+|64 KB (65536) och större    | 128 kB  |
 
-Med Windows Server 2019 och Azure File Sync-agent version 12 och senare, stöds även kluster storlekar på upp till 2 MB och nivåer på de större kluster storlekarna fungerar på samma sätt. Äldre operativ system eller agent versioner stöder kluster storlekar upp till 64 KB.
+Med Windows Server 2019 och Azure File Sync-agent version 12 och senare, stöds även kluster storlekar på upp till 2 MB och nivåer på de större kluster storlekarna fungerar på samma sätt. Äldre operativ system eller agent versioner har stöd för kluster storlekar på upp till 64 KB men utanför detta fungerar inte moln nivåer.
 
 Alla fil system som används av Windows, organisera din hård disk baserat på kluster storlek (även kallat storlek på allokeringsenhet). Kluster storleken representerar den minsta mängd disk utrymme som kan användas för att lagra en fil. Om fil storlekar inte kommer ut till en till följd av kluster storleken, måste ytterligare utrymme användas för att lagra filen till nästa multipel av kluster storleken.
 
@@ -85,11 +85,23 @@ Om det finns mer än en server slut punkt på en volym, är det effektiva trösk
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Hur fungerar nivåprincipen för datum tillsammans med nivåprincipen för ledigt utrymme på volymen? 
 När du aktiverar moln nivåer på en server slut punkt kan du ange en princip för ledigt utrymme på volymen. Den har alltid företräde framför alla andra principer, inklusive datum principen. Alternativt kan du aktivera en datum princip för varje server slut punkt på volymen. Den här principen hanterar att endast filer som har öppnats (dvs. läses eller skrivs till) inom det intervall med dagar som denna princip beskriver kommer att vara lokala. Filer som inte har öppnats med det angivna antalet dagar visas i nivå. 
 
-Moln nivåer använder senaste åtkomst tid för att avgöra vilka filer som ska nivåas. Filtret för filter driv rutinen för moln skikt (storagesync.sys) spårar senaste åtkomst tid och loggar informationen i värme lagret för moln lagring. Du kan se värme lagret med en lokal PowerShell-cmdlet.
+Moln nivåer använder senaste åtkomst tid för att avgöra vilka filer som ska nivåas. Filtret för filter driv rutinen för moln skikt (storagesync.sys) spårar senaste åtkomst tid och loggar informationen i värme lagret för moln lagring. Du kan hämta värme lagret och spara det i en CSV-fil med hjälp av en server lokal PowerShell-cmdlet.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]
@@ -158,10 +170,10 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Valfria parametrar:
-* `-Order CloudTieringPolicy`kommer att återkalla de senast ändrade eller öppnade filerna först och tillåts av den aktuella nivå principen. 
+* `-Order CloudTieringPolicy` kommer att återkalla de senast ändrade eller öppnade filerna först och tillåts av den aktuella nivå principen. 
     * Om principen för ledigt utrymme på volymen har kon figurer ATS, kommer filerna att återkallas tills det finns en princip inställning för ledigt utrymme på volymen. Om den kostnads fria princip inställningen till exempel är 20% stoppas återställningen när volymens lediga utrymme når 20%.  
     * Om mängden ledigt utrymme och en datum princip har kon figurer ATS kommer filerna att återkallas tills volymens lediga utrymme eller datum princip inställning nås. Om den kostnads fria princip inställningen till exempel är 20% och datum policyn är 7 dagar, stoppas återställningen när volymens lediga utrymme når 20% eller om alla filer som har öppnats eller ändrats inom 7 dagar är lokala.
-* `-ThreadCount`anger hur många filer som kan återkallas parallellt.
+* `-ThreadCount` anger hur många filer som kan återkallas parallellt.
 * `-PerFileRetryCount`anger hur ofta ett återställnings försök ska göras för en fil som för närvarande är blockerad.
 * `-PerFileRetryDelaySeconds`fastställer tiden i sekunder mellan försök att återkalla försök och bör alltid användas i kombination med föregående parameter.
 
@@ -196,7 +208,7 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Varför visas inte de filer som är i nivå med miniatyrer eller för hands versioner i Utforskaren?
 För nivåbaserade filer visas inte miniatyrer och för hands versioner på din server slut punkt. Det här beteendet förväntas eftersom funktionen för miniatyr-cache i Windows avsiktligt hoppar över läsning av filer med attributet offline. När moln nivån är aktive rad kan läsning genom nivåer av filer leda till att de hämtas (återkallas).
 
-Det här beteendet är inte bara för Azure File Sync, Windows Explorer visar ett "grått X" för alla filer som har offline-attributet inställt. X-ikonen visas vid åtkomst till filer över SMB. En detaljerad förklaring av det här problemet finns i[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+Det här beteendet är inte bara för Azure File Sync, Windows Explorer visar ett "grått X" för alla filer som har offline-attributet inställt. X-ikonen visas vid åtkomst till filer över SMB. En detaljerad förklaring av det här problemet finns i [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 <a id="afs-tiering-disabled"></a>
 ### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>Jag har inaktiverat moln nivå, varför finns det filer på Server slut punkten?

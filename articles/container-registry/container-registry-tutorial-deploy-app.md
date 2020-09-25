@@ -4,12 +4,12 @@ description: Distribuera en Linux-baserad webbapp till två olika Azure-regioner
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74456101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328697"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett geo-replikerat Azure Container Registry
 
@@ -45,7 +45,7 @@ Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte h
 
 Ange följande värden för varje inställning under **Web App for Containers**, som visas när du har valt ”Distribuera till webbapp”:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
@@ -58,7 +58,7 @@ Ange följande värden för varje inställning under **Web App for Containers**,
 
 Etablera webbappen i regionen *USA, västra* genom att välja **Skapa**.
 
-![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-02]
+![Skärm bild som visar Web App for Containers med knappen Skapa markerad.][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>Visa den distribuerade webbappen
 
@@ -66,19 +66,19 @@ När distributionen är klar kan du visa programmet som körs genom att gå till
 
 Välj **App Services** i portalen, och sedan den webbapp som du etablerade i föregående steg. I det här exemplet får webbappen namnet *uniqueregistryname-westus*.
 
-Markera webbappens hyperlänks-URL högst upp till höger i **App Service**-översikten, så att du kan se programmet som körs i din webbläsare.
+Välj den hyperlänkade URL: en för webbappen längst upp till höger i **App Service** översikt för att visa det program som körs i webbläsaren.
 
-![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-04]
+![Skärm bild som visar App Service översikt med webb program-URL markerat.][deploy-app-portal-04]
 
 När Docker-avbildningen har distribuerats från din geo-replikerade container, så visar webbplatsen en avbildning som representerar den Azure-regionen som är värd för containerregistret.
 
-![Distribuerad webbapp som visas i en webbläsare][deployed-app-westus]
+![Skärm bild som visar det distribuerade webb programmet som visas i en webbläsare.][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Distribuera en andra instans av Web App for Containers
 
 Distribuera en andra webbapp till regionen *USA, östra* med den procedur som beskrivs i föregående avsnitt. Ange följande värden under **Web App for Containers**:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
@@ -88,15 +88,15 @@ Distribuera en andra webbapp till regionen *USA, östra* med den procedur som be
 
 Etablera webbappen i regionen *USA, östra* genom att välja **Skapa**.
 
-![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-06]
+![Skärm bild som visar Web App for Containers skapa-fönstret med knappen Skapa markerad.][deploy-app-portal-06]
 
-## <a name="view-the-deployed-web-app"></a>Visa den distribuerade webbappen
+## <a name="view-the-second-deployed-web-app"></a>Visa den andra distribuerade webb programmet
 
 Liksom tidigare kan du visa programmet som körs genom att gå till URL:en i webbläsaren.
 
 Välj **App Services** i portalen, och sedan den webbapp som du etablerade i föregående steg. I det här exemplet får webbappen namnet *uniqueregistryname-eastus*.
 
-Markera webbappens hyperlänks-URL högst upp till höger i **App Service**-översikten, så att du kan se programmet som körs i din webbläsare.
+Välj den hyperlänkade URL: en för webbappen längst upp till höger i **App Service översikt** för att visa det program som körs i webbläsaren.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-07]
 

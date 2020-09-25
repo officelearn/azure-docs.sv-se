@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
+description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing och Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 4850daf8544129e29333be6a807c91106cc11f05
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dc20b6abaf04b3743218e35d258bc8beab33c542
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277452"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java
 
 Följ den här snabb starten om du vill lära dig att ringa till API för automatiska förslag i Bing och läsa JSON-svaret. Det här enkla Java-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson-biblioteket](https://github.com/google/gson)
@@ -71,7 +71,7 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-and-send-the-search-request"></a>Skapa och skicka sökbegäran
 
-1. Skapa en ny metod med namnet `get_suggestions()` och utför följande steg:
+1. Skapa en ny metod med namnet  `get_suggestions()` och utför följande steg:
 
    1. Skapa URL: en för din begäran genom att kombinera din API-värd, sökväg och kodning av Sök frågan. Se till att URL-koda frågan innan du lägger till den. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=` parametern och din fråga till `q=` parametern.
     
@@ -92,7 +92,7 @@ public static String prettify(String json_text) {
        //...
        ```
     
-   3. Skapa ett `HttpsURLConnection` objekt och Använd `openConnection()` för att skapa en anslutning. Konfigurera begäransmetoden till `GET` och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
+   3. Skapa ett `HttpsURLConnection` objekt och Använd  `openConnection()` för att skapa en anslutning. Konfigurera begäransmetoden till `GET` och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
 
       ```java
        //...

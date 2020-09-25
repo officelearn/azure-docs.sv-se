@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523323"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276681"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för hög prestanda
 
@@ -122,8 +122,7 @@ Y-axeln är antalet paket som har slutfört körningen inom en timme. Observera 
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Om du redan använder en kraftfull arbetsnode för att köra paket kan du öka det totala data flödet för integrerings körningen genom att öka **AzureSSISMaxParallelExecutionsPerNode** . 1-4 parallella körningar per nod stöds för Standard_D1_v2 noder. För alla andra typer av noder stöds 1 – Max (2 x antal kärnor, 8) parallella körningar per nod. Om du vill ha **AzureSSISMaxParallelExecutionsPerNode** utöver det högsta värde som stöds, kan du öppna ett support ärende och vi kan öka Max värdet för dig och efter att du behöver använda Azure PowerShell för att uppdatera **AzureSSISMaxParallelExecutionsPerNode**.
-Du kan uppskatta lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna storlekar för virtuella datorer](../virtual-machines/windows/sizes-general.md).
+Om du redan använder en kraftfull arbetsnode för att köra paket kan du öka det totala data flödet för integrerings körningen genom att öka **AzureSSISMaxParallelExecutionsPerNode** . Om du vill öka Max värdet måste du använda Azure PowerShell för att uppdatera **AzureSSISMaxParallelExecutionsPerNode**. Du kan uppskatta lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna storlekar för virtuella datorer](../virtual-machines/windows/sizes-general.md).
 
 | Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

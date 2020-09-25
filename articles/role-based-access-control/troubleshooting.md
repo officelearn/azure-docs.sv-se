@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329512"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Överföra en prenumeration till en annan katalog
 
-- Om du behöver steg för att överföra en prenumeration till en annan Azure AD-katalog kan du läsa mer i [överföra ägarskapet för en Azure-prenumeration till ett annat konto](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Om du behöver steg för att överföra en prenumeration till en annan Azure AD-katalog, se [överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)](transfer-subscription.md).
 - Om du överför en prenumeration till en annan Azure AD-katalog tas alla roll tilldelningar bort **permanent** från källan till Azure AD-katalogen och migreras inte till Azure AD-katalogen. Du måste återskapa roll tilldelningarna i mål katalogen. Du måste också manuellt återskapa hanterade identiteter för Azure-resurser. Mer information finns i [vanliga frågor och svar och kända problem med hanterade identiteter](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Om du är global administratör i Azure AD och du inte har åtkomst till en prenumeration efter att den överförts mellan kataloger, använder du **åtkomst hantering för Azure-resurser** för att tillfälligt [öka åtkomsten](elevate-access-global-admin.md) till prenumerationen.
 
@@ -99,11 +99,17 @@ $ras.Count
 - Om du får behörighetsfelet ”Klienten med objekt-ID har inte behörighet att utföra åtgärden över område (kod: AuthorizationFailed)” när du försöker skapa en resurs kan du kontrollera att du är inloggad med en användare med en roll som har skrivbehörighet till resursen i det valda omfånget. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista över behörigheter för varje inbyggd roll finns i [inbyggda roller i Azure](built-in-roles.md).
 - Om du får behörighets fel "du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera ett support ärende, kontrollerar du att du är inloggad med en användare som har `Microsoft.Support/supportTickets/write` behörighet, till exempel [deltagare i support förfrågan](built-in-roles.md#support-request-contributor).
 
+## <a name="move-resources-with-role-assignments"></a>Flytta resurser med roll tilldelningar
+
+Om du flyttar en resurs som har en Azure-roll som tilldelats direkt till resursen (eller en underordnad resurs) flyttas inte roll tilldelningen och blir överbliven. När du har flyttat måste du återskapa roll tilldelningen. Slutligen tas den överblivna roll tilldelningen bort automatiskt, men det är en bra idé att ta bort roll tilldelningen innan du flyttar resursen.
+
+Information om hur du flyttar resurser finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## <a name="role-assignments-with-identity-not-found"></a>Roll tilldelningar med identitet hittades inte
 
 I listan över roll tilldelningar för Azure Portal kan du märka att säkerhetsobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) anges som **identitet inte hittas** med en **okänd** typ.
 
-![Resurs grupp för webb program](./media/troubleshooting/unknown-security-principal.png)
+![Identiteten hittades inte i Azure Role-tilldelningar](./media/troubleshooting/unknown-security-principal.png)
 
 Identiteten kanske inte hittas av två skäl:
 
@@ -242,5 +248,5 @@ En läsare kan klicka på fliken **plattforms funktioner** och sedan klicka på 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsöka för gäst användare](role-assignments-external-users.md#troubleshoot)
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)
+- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](role-assignments-portal.md)
 - [Visa aktivitets loggar för Azure RBAC-ändringar](change-history-report.md)

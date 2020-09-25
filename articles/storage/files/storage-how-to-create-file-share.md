@@ -9,18 +9,18 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329420"
 ---
 # <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 Om du vill skapa en Azure-filresurs måste du svara på tre frågor om hur du ska använda den:
 
 - **Vilka prestanda krav gäller för din Azure-filresurs?**  
-    Azure Files erbjuder standard fil resurser som finns på hård diskbaserade (HDD-baserade) maskin vara och Premium-filresurser som finns på diskbaserade (SSD-) maskin vara med solid-tillstånd.
+    Azure Files erbjuder standard fil resurser (inklusive transaktions optimerings-, frekventa och häftiga fil resurser) som finns på hård diskbaserade (HDD-baserade) maskin vara och Premium-filresurser som finns på diskbaserade (SSD-) maskin vara med solid-tillstånd.
 
 - **Vilken storlek fil resurs behöver du?**  
     Standard fil resurser kan omfatta upp till 100 TiB, men den här funktionen är inte aktive rad som standard. Om du behöver en fil resurs som är större än 5 TiB måste du aktivera funktionen stor fil resurs för ditt lagrings konto. Premium-filresurser kan sträcka sig upp till 100 TiB utan någon särskild inställning, men Premium-filresurser etablerades, i stället för att betala per användning som standard fil resurser. Det innebär att etablering av en fil resurs som är mycket större än det du behöver ökar den totala lagrings kostnaden.
@@ -32,17 +32,17 @@ Om du vill skapa en Azure-filresurs måste du svara på tre frågor om hur du sk
 
 Mer information om dessa tre alternativ finns i [Planera för en Azure Files distribution](storage-files-planning.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Den här artikeln förutsätter att du redan har skapat en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Azure-filresurser distribueras till *lagrings konton*som är toppnivå objekt som representerar en delad lagringspool. Den här lagringspoolen kan användas för att distribuera flera fil resurser. 
 
 Azure har stöd för flera typer av lagrings konton för olika lagrings scenarier. kunder kan ha, men det finns två huvud typer av lagrings konton för Azure Files. Vilken typ av lagrings konto du behöver skapa beror på om du vill skapa en standard fil resurs eller en Premium fil resurs: 
 
-- **GPv2-lagrings konton (General Purpose version 2)**: med GPv2 Storage-konton kan du Distribuera Azure-filresurser på standard-/hård diskbaserade (HDD-baserade) maskin vara. Förutom att lagra Azure-filresurser kan GPv2 lagrings konton lagra andra lagrings resurser, till exempel BLOB-behållare, köer och tabeller. 
+- **GPv2-lagrings konton (General Purpose version 2)**: med GPv2 Storage-konton kan du Distribuera Azure-filresurser på standard-/hård diskbaserade (HDD-baserade) maskin vara. Förutom att lagra Azure-filresurser kan GPv2 lagrings konton lagra andra lagrings resurser, till exempel BLOB-behållare, köer och tabeller. Fil resurser kan distribueras i transaktionens optimerade (standard), frekventa eller låg frekventa nivåer.
 
 - **FileStorage lagrings konton**: med FileStorage Storage-konton kan du Distribuera Azure-filresurser i Premium/Solid-State-baserad (SSD) maskin vara. FileStorage-konton kan bara användas för att lagra Azure-filresurser. inga andra lagrings resurser (BLOB-behållare, köer, tabeller osv.) kan distribueras i ett FileStorage-konto.
 
@@ -66,7 +66,10 @@ De andra grunderna fälten är oberoende av valet av lagrings konto:
 - **Lagrings konto namn**: namnet på lagrings konto resursen som ska skapas. Det här namnet måste vara globalt unikt, men annars kan alla namn du vill ha. Namnet på lagrings kontot kommer att användas som server namn när du monterar en Azure-filresurs via SMB.
 - **Plats**: regionen för det lagrings konto som ska distribueras till. Detta kan vara den region som är kopplad till resurs gruppen eller någon annan tillgänglig region.
 - **Replikering**: även om det här är en etikettad replikering innebär det här fältet faktiskt **redundans**. Detta är önskad redundans nivå: lokalt redundans (LRS), zon redundans (ZRS), GEO-redundans (GRS) och geo-Zone-redundans. Den här List rutan innehåller också Read-Access GEO-redundans (RA-GRS) och-Access geo-Zone redundans (ra-GZRS), som inte gäller för Azure-filresurser. alla fil resurser som har skapats i ett lagrings konto med dessa är markerade är antingen geo-redundanta eller geo-zon-redundanta. Beroende på din region eller vald lagrings konto typ kan vissa alternativ för redundans inte tillåtas.
-- **Åtkomst nivå**: det här fältet gäller inte för Azure Files, så du kan välja någon av alternativ knapparna.
+- **BLOB-åtkomst nivå**: det här fältet gäller inte för Azure Files, så du kan välja någon av alternativ knapparna. 
+
+> [!Important]  
+> Att välja BLOB-åtkomstnivå påverkar inte fil resursens nivå.
 
 #### <a name="the-networking-blade"></a>Bladet nätverk
 I avsnittet nätverk kan du konfigurera nätverks alternativ. De här inställningarna är valfria för att skapa lagrings kontot och kan konfigureras senare om det behövs. Mer information om dessa alternativ finns i [Azure Files nätverks överväganden](storage-files-networking-overview.md).
@@ -92,7 +95,7 @@ Vi använder cmdleten för att skapa ett lagrings konto med hjälp av PowerShell
 
 För att förenkla skapandet av lagrings kontot och efterföljande fil resurser kommer vi att lagra flera parametrar i variabler. Du kan ersätta variabel innehållet med de värden du önskar, men Observera att lagrings konto namnet måste vara globalt unikt.
 
-```azurepowershell-interactive
+```powershell
 $resourceGroupName = "myResourceGroup"
 $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
@@ -100,7 +103,7 @@ $region = "westus2"
 
 Vi använder följande kommando för att skapa ett lagrings konto som kan lagra standard Azure-filresurser. `-SkuName`Parametern relaterar till den typ av redundans som önskas. om du vill ha ett Geo-redundant eller geo-zon-redundant lagrings konto måste du också ta bort `-EnableLargeFileShare` parametern.
 
-```azurepowershell-interactive
+```powershell
 $storAcct = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
@@ -112,7 +115,7 @@ $storAcct = New-AzStorageAccount `
 
 För att kunna skapa ett lagrings konto som kan lagra Premium Azure-filresurser, kommer vi att använda följande kommando. Observera att `-SkuName` parametern har ändrats till att inkludera både `Premium` och önskad redundans nivå för lokalt redundant ( `LRS` ). - `-Kind` Parametern är `FileStorage` istället för `StorageV2` att Premium-filresurser måste skapas i ett FileStorage lagrings konto i stället för ett GPv2-lagrings konto.
 
-```azurepowershell-interactive
+```powershell
 $storAcct = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
@@ -126,7 +129,7 @@ Om du vill skapa ett lagrings konto med hjälp av Azure CLI använder du kommand
 
 För att förenkla skapandet av lagrings kontot och efterföljande fil resurser kommer vi att lagra flera parametrar i variabler. Du kan ersätta variabel innehållet med de värden du önskar, men Observera att lagrings konto namnet måste vara globalt unikt.
 
-```azurecli-interactive
+```bash
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -134,7 +137,7 @@ region="westus2"
 
 Vi använder följande kommando för att skapa ett lagrings konto som kan lagra standard Azure-filresurser. `--sku`Parametern relaterar till den typ av redundans som önskas. om du vill ha ett Geo-redundant eller geo-zon-redundant lagrings konto måste du också ta bort `--enable-large-file-share` parametern.
 
-```azurecli-interactive
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -146,7 +149,7 @@ az storage account create \
 
 För att kunna skapa ett lagrings konto som kan lagra Premium Azure-filresurser, kommer vi att använda följande kommando. Observera att `--sku` parametern har ändrats till att inkludera både `Premium` och önskad redundans nivå för lokalt redundant ( `LRS` ). - `--kind` Parametern är `FileStorage` istället för `StorageV2` att Premium-filresurser måste skapas i ett FileStorage lagrings konto i stället för ett GPv2-lagrings konto.
 
-```azurecli-interactive
+```bash
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -158,11 +161,18 @@ az storage account create \
 ---
 
 ## <a name="create-file-share"></a>Skapa en filresurs
-När du har skapat ditt lagrings konto är allt det som är kvar att skapa din fil resurs. Den här processen är i huvudsak detsamma oavsett om du använder en Premium-filresurs eller en standard fil resurs. Den främsta skillnaden är **kvoten** och vad den representerar.
+När du har skapat ditt lagrings konto är allt det som är kvar att skapa din fil resurs. Den här processen är i huvudsak detsamma oavsett om du använder en Premium-filresurs eller en standard fil resurs. Du bör tänka på följande skillnader.
 
-För standard fil resurser är det en övre gränser för Azure-filresursen, utöver vilka slutanvändare inte kan gå. Det primära syftet med kvoten för en standard fil resurs är budget: "Jag vill inte att den här fil resursen ska växa bortom den här punkten". Om ingen kvot anges kan standard fil resursen omfatta upp till 100 TiB (eller 5 TiB om den stora fil resurs egenskapen inte har angetts för ett lagrings konto).
+Standard fil resurser kan distribueras till en av standard-nivåerna: transaktions optimering (standard), frekvent eller låg frekvent. Det här är en fildelnings nivå per fil som inte påverkas av lagrings kontots **BLOB-åtkomst** (den här egenskapen relaterar bara till Azure Blob Storage – den är inte relaterad till Azure Files alls). Du kan ändra delnings nivån när som helst efter att den har distribuerats. Premium fil resurser kan inte konverteras direkt till standard fil resurser på valfri standard nivå.
 
-För Premium-filresurser är kvoten överbelastad till en medels **Tor storlek**. Den etablerade storleken är den mängd som du debiteras för, oavsett faktisk användning. När du etablerar en Premium-filresurs vill du överväga två faktorer: 1) den framtida tillväxten av resursen från ett utrymmes användnings perspektiv och 2) IOPS som krävs för din arbets belastning. Varje etablerad GiB ger dig ytterligare reserverade och burst-IOPS. Mer information om hur du planerar för en Premium-filresurs finns i avsnittet om att [allokera Premium-filresurser](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+> [!Important]  
+> Du kan flytta fil resurser mellan nivåer inom GPv2 lagrings konto typer (transaktion optimerad, frekvent och låg frekvent). Delnings åtgärder mellan nivåer medför transaktioner: om du flyttar från en Hotter-nivå till en låg frekvent nivå kommer den avbilds nivå som är låg för varje fil i resursen, medan en flytt från en låg frekvent nivå till en Hotter-nivå kommer att medföra den låg frekventa transaktions avgiften för varje fil resursen.
+
+**Kvot** egenskapen innebär något annorlunda mellan Premium-och standard fil resurser:
+
+- För standard fil resurser är det en övre gränser för Azure-filresursen, utöver vilka slutanvändare inte kan gå. Det primära syftet med kvoten för en standard fil resurs är budget: "Jag vill inte att den här fil resursen ska växa bortom den här punkten". Om ingen kvot anges kan standard fil resursen omfatta upp till 100 TiB (eller 5 TiB om den stora fil resurs egenskapen inte har angetts för ett lagrings konto).
+
+- För Premium-filresurser är kvoten överbelastad till en medels **Tor storlek**. Den etablerade storleken är den mängd som du debiteras för, oavsett faktisk användning. När du etablerar en Premium-filresurs vill du överväga två faktorer: 1) den framtida tillväxten av resursen från ett utrymmes användnings perspektiv och 2) IOPS som krävs för din arbets belastning. Varje etablerad GiB ger dig ytterligare reserverade och burst-IOPS. Mer information om hur du planerar för en Premium-filresurs finns i avsnittet om att [allokera Premium-filresurser](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Om du precis har skapat ditt lagrings konto kan du navigera till det från distributions skärmen genom att välja **gå till resurs**. Om du tidigare har skapat lagrings kontot kan du navigera till det via den resurs grupp som innehåller det. När du är i lagrings kontot väljer du panelen med namnet **fil resurser** (du kan också navigera till **fil resurser** via innehålls förteckningen för lagrings kontot).
@@ -175,69 +185,19 @@ Bladet ny fil resurs bör visas på skärmen. Fyll i fälten på bladet ny fil r
 
 - **Namn**: namnet på den fil resurs som ska skapas.
 - **Kvot**: kvoten för fil resursen för standard fil resurser; den allokerade storleken på fil resursen för Premium-filresurser.
+- **Nivåer**: den valda nivån för en fil resurs. Det här fältet är endast tillgängligt i ett **GPv2-lagrings konto (General Purpose)**. Du kan välja transaktion optimerad, frekvent eller låg frekvent. Resurs nivån kan ändras när som helst. Vi rekommenderar att du väljer det högsta skiktet vid en migrering, för att minimera transaktions kostnaderna och sedan växlar till en lägre nivå om du vill efter att migreringen är klar.
 
 Välj **skapa** för att slutföra skapandet av den nya resursen. Observera att om ditt lagrings konto finns i ett virtuellt nätverk kan du inte skapa en Azure-filresurs om inte din klient också finns i det virtuella nätverket. Du kan också kringgå den här begränsningen genom att använda Azure PowerShell `New-AzRmStorageShare` cmdlet.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Du kan skapa Azure-filresursen med [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdleten. Följande PowerShell-kommandon förutsätter att du har angett variablerna `$resourceGroupName` och `$storageAccountName` enligt definitionen ovan i avsnittet Skapa ett lagrings konto med Azure PowerShell. 
+Du kan skapa en Azure-filresurs med [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdleten. Följande PowerShell-kommandon förutsätter att du har angett variablerna `$resourceGroupName` och `$storageAccountName` enligt definitionen ovan i avsnittet Skapa ett lagrings konto med Azure PowerShell. 
+
+I följande exempel visas hur du skapar en fil resurs med en explicit nivå med hjälp av `-AccessTier` parametern. Detta kräver att du använder modulen för förhands granskning AZ. Storage som anges i exemplet. Om en nivå inte anges, antingen på grund av att du använder GA AZ. Storage eller eftersom du inte har inkluderat det här kommandot, är standard nivån för standard fil resurser optimerad.
 
 > [!Important]  
 > För Premium-filresurser `-QuotaGiB` refererar parametern till den allokerade storleken på fil resursen. Den allokerade storleken på fil resursen är den mängd som du debiteras för, oavsett användning. Standard fil resurser faktureras baserat på användning i stället för en etablerad storlek.
 
-```azurepowershell-interactive
-$shareName = "myshare"
-
-New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -QuotaGiB 1024 | Out-Null
-```
-
-> [!Note]  
-> Namnet på filresursen får bara innehålla gemener. Fullständig information om namngivning av fil resurser och filer finns i [namnge och referera till resurser, kataloger, filer och metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Innan vi kan skapa en Azure-filresurs med Azure CLI måste du skaffa en lagrings konto nyckel för att auktorisera fil resursens skapa-åtgärd med. Detta kan göras med [`az storage account keys list`](/cli/azure/storage/account/keys) kommandot:
-
-```azurecli-interactive
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
-```
-
-När du har lagrings konto nyckeln kan du skapa Azure-filresursen med [`az storage share create`](/cli/azure/storage/share) kommandot. 
-
-> [!Important]  
-> För Premium-filresurser `--quota` refererar parametern till den allokerade storleken på fil resursen. Den allokerade storleken på fil resursen är den mängd som du debiteras för, oavsett användning. Standard fil resurser faktureras baserat på användning i stället för en etablerad storlek.
-
-```azurecli-interactive
-shareName="myshare"
-
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --name $shareName \
-    --quota 1024 \
-    --output none
-```
-
-Det här kommandot kommer inte att fungera om lagrings kontot finns i ett virtuellt nätverk och datorn som du anropar kommandot från inte ingår i det virtuella nätverket. Du kan undvika den här begränsningen genom att använda Azure PowerShell `New-AzRmStorageShare` cmdlet enligt beskrivningen ovan, eller genom att köra Azure CLI från en dator som är en del av det virtuella nätverket, inklusive via en VPN-anslutning.
-
----
-
-> [!Note]  
-> Namnet på filresursen får bara innehålla gemener. Fullständig information om namngivning av fil resurser och filer finns i [namnge och referera till resurser, kataloger, filer och metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-### <a name="create-a-hot-or-cool-file-share"></a>Skapa en frekvent eller svag fil resurs
-Ett **GPv2-lagrings konto (General Purpose v2)** kan innehålla transaktions optimerade, frekventa eller häftiga fil resurser (eller en blandning av dessa). Transaktions optimerade resurser är tillgängliga i alla Azure-regioner, men frekventa och häftiga fil resurser är bara tillgängliga [i en delmängd av regioner](storage-files-planning.md#storage-tiers). Du kan skapa en frekvent eller låg fil resurs med hjälp av Azure PowerShell Preview-modulen eller Azure CLI. 
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Azure Portal har ännu inte stöd för att skapa frekventa och häftiga fil resurser eller flytta befintliga transaktioner optimerade fil resurser till frekvent eller låg frekvent. Läs anvisningarna för att skapa en fil resurs med PowerShell eller Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Update the Azure storage module to use the preview version. You may need to close and 
 # reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
 # the following:
@@ -251,15 +211,70 @@ Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -
 # Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
 # been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
 # storage accounts. Standard tiers are only available in standard storage accounts. 
-$shareName = "myhotshare"
+$shareName = "myshare"
 
 New-AzRmStorageShare `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName `
-    -Name $shareName `
-    -AccessTier Hot
+        -ResourceGroupName $resourceGroupName `
+        -StorageAccountName $storageAccountName `
+        -Name $shareName `
+        -AccessTier TransactionOptimized `
+        -QuotaGiB 1024 | `
+    Out-Null
+```
 
-# You can also change an existing share's tier.
+> [!Note]  
+> Möjligheten att ange och ändra nivåer via PowerShell finns i modulen för för hands versionen AZ. Storage PowerShell. Dessa cmdletar eller deras utdata kan ändras innan de släpps i den allmänt tillgängliga AZ. Storage PowerShell-modulen, så skapa skript med detta i åtanke.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Du kan skapa en Azure-filresurs med [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create) kommandot. Följande Azure CLI-kommandon förutsätter att du har angett variablerna `$resourceGroupName` och `$storageAccountName` enligt definitionen ovan i avsnittet Skapa ett lagrings konto med Azure CLI.
+
+Funktionen för att skapa eller flytta en fil resurs till en speciell nivå är tillgänglig i den senaste uppdateringen av Azure CLI. Uppdatering av Azure CLI är bara för operativ system/Linux-distributioner som används. Anvisningar om hur du uppdaterar Azure CLI i systemet finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+> [!Important]  
+> För Premium-filresurser `--quota` refererar parametern till den allokerade storleken på fil resursen. Den allokerade storleken på fil resursen är den mängd som du debiteras för, oavsett användning. Standard fil resurser faktureras baserat på användning i stället för en etablerad storlek.
+
+```bash
+shareName="myshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "TransactionOptimized" \
+    --quota 1024 \
+    --output none
+```
+
+> [!Note]  
+> Möjligheten att ange en nivå med parametern anges `--access-tier` som en för hands version i det senaste Azure CLI-paketet. Det här kommandot eller dess utdata kan ändras innan de markeras som allmänt tillgängliga, så skapa skript med detta i åtanke.
+
+---
+
+> [!Note]  
+> Namnet på filresursen får bara innehålla gemener. Fullständig information om namngivning av fil resurser och filer finns i [namnge och referera till resurser, kataloger, filer och metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="changing-the-tier-of-an-azure-file-share"></a>Ändra nivån för en Azure-filresurs
+Fil resurser som har distribuerats i **GPv2-lagrings kontot (General Purpose v2)** kan finnas i transaktionen optimerade, frekventa eller låg frekventa nivåer. Du kan ändra nivån på Azure-filresursen när som helst, beroende på transaktionskostnader enligt beskrivningen ovan.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+På sidan huvud lagrings konto väljer du **fil resurser**  Välj panelen **fil resurser** (du kan också navigera till **fil resurser** via innehålls förteckningen för lagrings kontot).
+
+![En skärm bild av panelen fil resurser](media/storage-how-to-create-file-share/create-file-share-1.png)
+
+I tabell listan över fil resurser väljer du den fil resurs som du vill ändra nivån för. På sidan Översikt över fil resurs väljer du **ändra nivå** på menyn.
+
+![En skärm bild av översikts sidan för fil resurser med knappen ändra nivå markerad](media/storage-how-to-create-file-share/change-tier-0.png)
+
+I dialog rutan som visas väljer du önskad nivå: transaktion optimerad, frekvent eller låg frekvent.
+
+![En skärm bild av dialog rutan ändra nivå](media/storage-how-to-create-file-share/change-tier-1.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Följande PowerShell-cmdlet förutsätter att du har ställt `$resourceGroupName` in `$storageAccountName` , `$shareName` variabler enligt beskrivningen i de tidigare avsnitten i det här dokumentet.
+
+```PowerShell
+# This cmdlet requires Az.Storage version 2.1.1-preview, which is installed
+# in the earlier example.
 Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `
@@ -267,27 +282,16 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
-> [!Note]  
-> Möjligheten att ange och ändra nivåer via PowerShell finns i modulen för för hands versionen AZ. Storage PowerShell. Dessa cmdletar eller deras utdata kan ändras innan de släpps i den allmänt tillgängliga AZ. Storage PowerShell-modulen, så skapa skript med detta i åtanke.
-
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Funktionen för att skapa eller flytta en fil resurs till en speciell nivå är tillgänglig i den senaste uppdateringen av Azure CLI. Uppdatering av Azure CLI är bara för operativ system/Linux-distributioner som används. Anvisningar om hur du uppdaterar Azure CLI i systemet finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Följande Azure CLI-kommando förutsätter att du har ställt in `$resourceGroupName` , `$storageAccountName` , och `$shareName` variabler enligt beskrivningen i de tidigare avsnitten i det här dokumentet.
 
 ```bash
-# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
-# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
-# storage accounts. Standard tiers are only available in standard storage accounts.
-shareName="myhotshare"
-
-az storage share-rm create \
+az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
     --name $shareName \
-    --access-tier "Hot"
+    --access-tier "Cool"
 ```
-
-> [!Note]  
-> Möjligheten att ange en nivå med parametern anges `--access-tier` som en för hands version i det senaste Azure CLI-paketet. Det här kommandot eller dess utdata kan ändras innan de markeras som allmänt tillgängliga, så skapa skript med detta i åtanke.
 
 ---
 

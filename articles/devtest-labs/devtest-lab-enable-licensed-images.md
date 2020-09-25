@@ -3,12 +3,12 @@ title: Aktivera en licensierad avbildning i ditt labb i Azure DevTest Labs | Mic
 description: Lär dig hur du aktiverar en licensierad avbildning i Azure DevTest Labs att använda Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276364"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Aktivera en licensierad avbildning i labbet i Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Du kan aktivera program distribution för en licensierad avbildning genom att f�
 
 1. Identifiera en licensierad avbildning som du vill att användarna ska ha åtkomst till men vars villkor inte har accepterats. Du kan till exempel se en Data Science Virtual Machine som visar statusen **godkänd** eller **villkors granskning som behövs**.
 
-    ![Fönstret Konfigurera program mässig distribution](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Skärm bild som visar Data Science Virtual Machine bilder med erbjudande status "av" villkor accepterade "och" villkors granskning krävs "](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > Virtuella datorer för data vetenskap är avbildningar av virtuella Azure-datorer, förinstallerade, konfigurerade och testade med flera populära verktyg som ofta används för data analys, Machine Learning och AI-utbildning. [Introduktion till Azure Data Science Virtual Machine för Linux och Windows](../machine-learning/data-science-virtual-machine/overview.md) innehåller en fantastisk information om dsvm.

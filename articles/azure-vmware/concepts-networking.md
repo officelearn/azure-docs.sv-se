@@ -2,41 +2,37 @@
 title: Koncept – nätverks anslutning
 description: Lär dig mer om viktiga aspekter och användnings fall för nätverk och anslutningar i Azure VMware-lösningar.
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 3420f6aa61ced7632175f3e12edda9de72639517
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750563"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316909"
 ---
-# <a name="azure-vmware-solution-preview-networking-and-interconnectivity-concepts"></a>Azure VMware-lösning för för hands versions nätverk och interanslutnings koncept
+# <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Nätverks-och samanslutnings koncept i Azure VMware-lösningen
 
-Azure VMware-lösningen (AVS) erbjuder en privat VMware-moln miljö som är tillgänglig för användare och program från lokala och Azure-baserade miljöer eller resurser. Tjänster som Azure ExpressRoute och VPN-anslutningar levererar anslutningen. Dessa tjänster kräver vissa nätverks adress intervall och brand Väggs portar för att aktivera tjänsterna.  
+[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
 
-När du distribuerar ett privat moln, skapas privata nätverk för hantering, etablering och vMotion. De används för åtkomst till vCenter och NSX-T Manager och vMotion eller distribution av virtuella datorer. Alla privata nätverk är tillgängliga från ett VNet i Azure eller från lokala miljöer. ExpressRoute Global Reach används för att ansluta privata moln till lokala miljöer och den här anslutningen kräver ett VNet med en ExpressRoute-krets i din prenumeration.
+Ett användbart perspektiv på samverkande är att överväga de två typerna av Azure VMware-lösningar för privata moln implementeringar:
 
-När du distribuerar ett privat moln etablerades dessutom åtkomst till Internet och Azure-tjänster, så att virtuella datorer i produktions nätverk kan använda dem.  Som standard är Internet åtkomst inaktive rad för nya privata moln och kan när som helst aktive ras eller inaktive ras.
+1. [**Grundläggande Azure-anslutningar med enbart Azure**](#azure-virtual-network-interconnectivity) kan du hantera och använda ditt privata moln med bara ett enda virtuellt nätverk i Azure. Den här implementeringen passar bäst för Azures utvärdering av VMware-lösningar eller implementeringar som inte kräver åtkomst från lokala miljöer.
 
-Ett användbart perspektiv på anslutning är att ta hänsyn till de två typerna av molnets privata moln implementeringar:
-
-1. [**Grundläggande Azure-anslutningar med enbart Azure**](#azure-virtual-network-interconnectivity) kan du hantera och använda ditt privata moln med bara ett enda virtuellt nätverk i Azure. Den här implementeringen passar bäst för AVS-utvärderingar eller implementeringar som inte kräver åtkomst från lokala miljöer.
-
-1. En [**fullständig lokal till privat moln anslutning**](#on-premises-interconnectivity) utökar den grundläggande Azure-bara implementeringen för att omfatta samanslutning mellan lokala och AVS-privata moln.
+1. En [**fullständig lokal till privat moln anslutning**](#on-premises-interconnectivity) utökar den grundläggande Azure-bara implementeringen för att omfatta samanslutning mellan lokala och Azure VMware-lösningar privata moln.
  
-I den här artikeln tar vi upp några viktiga begrepp som etablerar nätverk och anslutningar, inklusive krav och begränsningar. Vi kommer också att få mer information om de två typerna av samverkande implementeringar av molnets privata moln. Den här artikeln innehåller den information som du behöver känna till för att konfigurera nätverket så att det fungerar med AVS på rätt sätt.
+I den här artikeln tar vi upp några viktiga begrepp som etablerar nätverk och anslutningar, inklusive krav och begränsningar. Vi kommer också att få mer information om de två typerna av Azure VMware-lösningars implementeringar av privata moln. Den här artikeln innehåller den information du behöver känna till för att konfigurera nätverket så att det fungerar med Azure VMware-lösningen korrekt.
 
-## <a name="avs-private-cloud-use-cases"></a>Användnings fall för molnets privata moln
+## <a name="azure-vmware-solution-private-cloud-use-cases"></a>Användnings fall för privata moln lösningar i Azure VMware
 
-Användnings fallen för privata AVS-moln är:
+Användnings fallen för privata moln i Azure VMware-lösningen är:
 - Nya virtuella VMware-arbetsbelastningar i molnet
-- VM-arbetsbelastning till molnet (endast lokalt till AVS)
-- Migrering av VM-arbetsbelastning till molnet (endast lokalt till AVS)
-- Haveri beredskap (AVS to AVS eller lokalt till AVS)
+- VM-arbetsbelastning till molnet (endast lokalt till Azure VMware-lösning)
+- Migrering av VM-arbetsbelastning till molnet (endast lokalt till Azure VMware-lösning)
+- Haveri beredskap (Azure VMware-lösning till Azure VMware-lösning eller lokal Azure VMware-lösning)
 - Användning av Azure-tjänster
 
 > [!TIP]
-> Alla användnings fall för AVS-tjänsten är aktiverade med lokal anslutning till privat moln.
+> Alla användnings fall för tjänsten Azure VMware Solution är aktiverade med lokal anslutning till privat moln.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Anslutning mellan virtuella Azure-nätverk
 
@@ -61,10 +57,10 @@ I diagrammet nedan visas samanslutningen mellan lokala och privata moln, vilket 
 
 För fullständig anslutning till ditt privata moln aktiverar du ExpressRoute Global Reach och begär sedan en auktoriseringspost och ett privat peering-ID för Global Reach i Azure Portal. Auktoriseringsregeln och peering-ID används för att etablera Global Reach mellan en ExpressRoute-krets i din prenumeration och ExpressRoute-kretsen för ditt nya privata moln. När de två ExpressRoute kretsarna dirigerar nätverks trafiken mellan dina lokala miljöer till ditt privata moln.  Se [självstudien för att skapa en ExpressRoute Global Reach peering till ett privat moln](tutorial-expressroute-global-reach-private-cloud.md) för procedurerna för att begära och använda auktoriseringsprincipen och PEERING-ID.
 
-## <a name="next-steps"></a>Nästa steg 
 
-- Lär dig mer om [nätverks anslutningens överväganden och krav](tutorial-network-checklist.md). 
-- Lär dig mer om [lagrings koncept för privata moln](concepts-storage.md).
+
+## <a name="next-steps"></a>Nästa steg 
+Lär dig mer om [lagrings koncept för privata moln](concepts-storage.md).
 
 
 <!-- LINKS - external -->

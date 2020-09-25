@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: b17e2618cd87c0689fa531e893149a1b2fab8d20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277299"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installera och kör behållaren för rums analys (förhands granskning)
 
@@ -30,7 +30,7 @@ Med behållaren för rums analys kan du analysera direktuppspelad video i real t
 
 ### <a name="spatial-analysis-container-requirements"></a>Krav för rums analys behållare
 
-Om du vill köra rums analys behållaren behöver du en beräknings enhet med en [NVIDIA Tesla T4-GPU](https://www.nvidia.com/data-center/tesla-t4/). Vi rekommenderar att du använder [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) med GPU-acceleration, men behållaren körs på en annan stationär dator som uppfyller minimi kraven. Vi kommer att referera till den här enheten som värddator.
+Om du vill köra rums analys behållaren behöver du en beräknings enhet med en [NVIDIA Tesla T4-GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). Vi rekommenderar att du använder [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) med GPU-acceleration, men behållaren körs på en annan stationär dator som uppfyller minimi kraven. Vi kommer att referera till den här enheten som värddator.
 
 #### <a name="azure-stack-edge-device"></a>[Azure Stack Edge-enhet](#tab/azure-stack-edge)
 
@@ -71,7 +71,7 @@ I den här artikeln ska du hämta och installera följande program varu paket. V
 
 ## <a name="request-approval-to-run-the-container"></a>Begär godkännande för att köra behållaren
 
-Fyll i och skicka [formuläret för begäran](https://aka.ms/cognitivegate) för att begära godkännande för att köra behållaren. 
+Fyll i och skicka [formuläret för begäran](https://aka.ms/csgate) för att begära godkännande för att köra behållaren.
 
 Formuläret efterfrågar information om dig, ditt företag och användar scenariot som du använder behållaren för. När du har skickat formuläret granskar Azure Cognitive Services-teamet det och skickar ett meddelande till dig med ett beslut.
 
@@ -116,7 +116,8 @@ Klicka på **Skapa**. Det kan ta några minuter att skapa en IoT Hub resurs. Nä
 När Edge-beräkningsrollen har konfigurerats på Edge-enheten så skapas två enheter: en IoT-enhet och en IoT Edge-enhet. Bägge enheter kan visas i IoT Hub-resursen. Azure IoT Edge runtime körs redan på IoT Edge enheten.            
 
 > [!NOTE]
-> För närvarande är Linux-plattformen bara tillgänglig för IoT Edge enheter. Information om hur du felsöker Azure Stack Edge-enheten finns i artikeln om [loggning och fel sökning](spatial-analysis-logging.md) .
+> * För närvarande stöds endast Linux-plattformen för IoT Edge enheter. Information om hur du felsöker Azure Stack Edge-enheten finns i artikeln om [loggning och fel sökning](spatial-analysis-logging.md) .
+> * Mer information om hur du konfigurerar en IoT Edge-enhet för att kommunicera via en proxyserver finns i [Konfigurera en IoT Edge enhet för att kommunicera via en proxyserver](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Aktivera MPS på Azure Stack Edge 
 
@@ -260,13 +261,14 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Om värddatorn inte är en Azure Stack Edge-enhet måste du installera [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.8. Följ de här stegen för att ladda ned rätt version: Ubuntu Server 18,04:
+Om värddatorn inte är en Azure Stack Edge-enhet måste du installera [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.8. Följ de här stegen för att ladda ned rätt version:
+
+Ubuntu Server 18,04:
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
 ```
 
 Kopiera den genererade listan.
-
 ```bash
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 ```
@@ -324,8 +326,8 @@ I följande tabell visas de olika miljövariabler som används av IoT Edge-modul
 | ARCHON_NODES_LOG_LEVEL | Statusinformation Utförlig | Loggnings nivå, Välj ett av de två värdena|
 | OMP_WAIT_POLICY | PASSIVA | Ändra inte|
 | QT_X11_NO_MITSHM | 1 | Ändra inte|
-| API_KEY | din API-nyckel| Samla in det här värdet från Azure Portal från din Visuellt innehåll-resurs. Du hittar den i avsnittet **nyckel och slut punkt** för resursen i Azure Portal. |
-| BILLING_ENDPOINT | Slut punkts-URI| Samla in det här värdet från Azure Portal från din Visuellt innehåll-resurs. Du hittar den i avsnittet **nyckel och slut punkt** för resursen i Azure Portal.|
+| API_KEY | din API-nyckel| Samla in det här värdet från Azure Portal från din Visuellt innehåll-resurs. Du hittar den i avsnittet **nyckel och slut punkt** för din resurs. |
+| BILLING_ENDPOINT | Slut punkts-URI| Samla in det här värdet från Azure Portal från din Visuellt innehåll-resurs. Du hittar den i avsnittet **nyckel och slut punkt** för din resurs.|
 | VILLKOREN | godkänt | Värdet måste anges till *acceptera* för att behållaren ska kunna köras |
 | Hur | : 1 | Värdet måste vara detsamma som utdata från `echo $DISPLAY` värddatorn. Azure Stack gräns enheter har ingen visning. Den här inställningen gäller inte|
 
@@ -339,7 +341,6 @@ När du har uppdaterat exemplet [DeploymentManifest.jspå](https://go.microsoft.
 az login
 az extension add --name azure-iot
 az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
-
 ```
 
 |Parameter  |Beskrivning  |

@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316740"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -105,7 +105,7 @@ Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom VSS-skrivare b
 
 Felet beror på att VSS-skribenterna är i ett felaktigt tillstånd. Azure Backup-tilläggen interagerar med VSS-skrivare för att ta ögonblicks bilder av diskarna. Följ dessa anvisningar för att lösa problemet:
 
-Starta om VSS-skrivare som är i ett felaktigt tillstånd.
+Steg 1: starta om VSS-skrivare som är i ett felaktigt tillstånd.
 - Kör i en upphöjd kommando tolk ```vssadmin list writers``` .
 - Utdata innehåller alla VSS-skrivare och deras tillstånd. Starta om respektive VSS-skrivare för varje VSS-skrivare med ett tillstånd som inte är **[1] stabilt**. 
 - Starta om tjänsten genom att köra följande kommandon från en upphöjd kommando tolk:
@@ -117,12 +117,20 @@ Starta om VSS-skrivare som är i ett felaktigt tillstånd.
 > Att starta om vissa tjänster kan påverka produktions miljön. Se till att godkännande processen följs och att tjänsten startas om vid schemalagd stillestånds tid.
  
    
-Om det inte gick att lösa problemet med att starta om VSS-skrivarna och problemet fortfarande kvarstår på grund av timeout, sedan:
-- Kör följande kommando från en upphöjd kommando tolk (som administratör) för att förhindra att trådarna skapas för BLOB-ögonblicksbilder.
+Steg 2: om problemet inte löstes med att starta om VSS-skrivare kör du följande kommando från en upphöjd kommando tolk (som administratör) för att förhindra att trådarna skapas för BLOB-ögonblicksbilder.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Steg 3: om det inte gick att lösa problemet med steg 1 och 2 kan felet bero på att tids gränsen för VSS-skrivare orsakade timeout på grund av begränsade IOPS.<br>
+
+Kontrol lera genom att gå till ***system-och Loggboken program loggar*** och kontrol lera följande fel meddelande:<br>
+*Tids gränsen nåddes för skuggkopieprovidern vid lagring av skrivningar till den volym som skugg kopie ras. Detta beror troligen på överdriven aktivitet på volymen av ett program eller en system tjänst. Försök igen senare när aktivitet på volymen minskas.*<br>
+
+Lösning:
+- Sök efter möjligheter att distribuera belastningen på de virtuella dator diskarna. Detta minskar belastningen på enskilda diskar. Du kan [kontrol lera IOPS-begränsningen genom att aktivera diagnostiska mått på lagrings nivå](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Ändra säkerhets kopierings policyn för att utföra säkerhets kopieringar under låg belastnings tider, när belastningen på den virtuella datorn är den lägsta.
+- Uppgradera Azure-diskarna för att stödja högre IOPs. [Läs mer här](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-åtgärden misslyckades på grund av VSS-tjänsten (Volume Shadow Copy) i felaktigt tillstånd
 
@@ -306,6 +314,13 @@ Om du har en Azure Policy som [styr Taggar i din miljö](../governance/policy/tu
 | Säkerhets kopieringen kunde inte avbryta jobbet: <br>Vänta tills jobbet har slutförts. |Inget |
 
 ## <a name="restore"></a>Återställ
+
+#### <a name="disks-appear-offline-after-file-restore"></a>Diskar visas offline efter fil återställning
+
+Om du efter att ha återställt ser du till att diskarna är offline. 
+* Kontrol lera att datorn där skriptet körs uppfyller operativ system kraven. [Läs mer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* Se till att du inte återställer till samma källa, [Läs mer](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | Felinformation | Lösning |
 | --- | --- |

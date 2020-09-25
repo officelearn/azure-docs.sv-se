@@ -3,13 +3,13 @@ title: Azure Application insikter om JavaScript-webbappar
 description: Hämta sid visning och antal sessioner, webb klient data, enstaka sid program (SPA) och spåra användnings mönster. Identifiera undantag och prestandaproblem på JavaScript-baserade webbsidor.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-js
+ms.openlocfilehash: ddbdeaed1cf3f69c20c272ea3e9dde405119bc24
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89656953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328912"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -104,10 +104,10 @@ Varje konfigurations alternativ visas på en ny rad, om du inte vill åsidosätt
 
 De tillgängliga konfigurations alternativen är 
 
-| Namn | Typ | Beskrivning
+| Namn | Typ | Description
 |------|------|----------------
 | src | sträng **[obligatoriskt]** | Den fullständiga URL: en för varifrån SDK: n ska läsas in. Det här värdet används för attributet src för ett dynamiskt tillagd &lt; skript/ &gt; tagg. Du kan använda den offentliga CDN-platsen eller en privat värd som är värd för en.
-| name | sträng *[valfritt]* | Det globala namnet för den initierade SDK: n som standard `appInsights` . Det ```window.appInsights``` kommer att vara en referens till den initierade instansen. Obs! Om du anger ett namn värde eller om en föregående instans ska tilldelas (via det globala namnet appInsightsSDK), kommer detta namn värde också att definieras i det globala namn området som ```window.appInsightsSDK=<name value>``` , detta krävs av SDK-initierings koden för att säkerställa att den initierar och uppdaterar rätt kodfragments Skeleton och proxyservrar.
+| namn | sträng *[valfritt]* | Det globala namnet för den initierade SDK: n som standard `appInsights` . Det ```window.appInsights``` kommer att vara en referens till den initierade instansen. Obs! Om du anger ett namn värde eller om en föregående instans ska tilldelas (via det globala namnet appInsightsSDK), kommer detta namn värde också att definieras i det globala namn området som ```window.appInsightsSDK=<name value>``` , detta krävs av SDK-initierings koden för att säkerställa att den initierar och uppdaterar rätt kodfragments Skeleton och proxyservrar.
 | LD | antal i MS *[valfritt]* | Definierar inläsnings fördröjning innan du försöker läsa in SDK. Standardvärdet är 0ms och ett negativt värde kommer omedelbart att lägga till en skript tagg till &lt; &gt; sidans huvud område, som sedan blockerar händelsen för sid inläsning tills skriptet läses in (eller Miss lyckas).
 | useXhr | boolesk *[valfritt]* | Den här inställningen används endast för inläsnings problem med repor ting SDK. Om du väljer att inte använda Fetch () försöker du först använda Fetch () om det är tillgängligt och sedan återgår till XHR. om värdet anges till sant kringgås bara hämtnings kontrollen. Användning av det här värdet krävs bara om programmet används i en miljö där hämtningen Miss lyckas med att skicka misslyckade händelser.
 | crossOrigin | sträng *[valfritt]* | Genom att inkludera den här inställningen inkluderar den skript kod som lagts till för att ladda ned SDK crossOrigin-attributet med det här strängvärdet. När det inte har definierats (standard) läggs inget crossOrigin-attribut till. Rekommenderade värden har inte definierats (standard). ""; eller "Anonym" (för alla giltiga värden se [HTML-attribut `crossorigin` :](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) dokumentation)
@@ -115,7 +115,7 @@ De tillgängliga konfigurations alternativen är
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Skicka telemetri till Azure Portal
 
-Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Dessa omfattar:
+Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Exempel:
 
 - Ej **fångade undantag** i appen, inklusive information om
     - Stack spårning
@@ -153,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Konfiguration
 De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey` .
 
-| Name | Standardvärde | Beskrivning |
+| Name | Standardvärde | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **Obligatoriskt**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
@@ -272,7 +272,7 @@ Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
 ![Skärm bild av sidan prestanda i Application Insights visar bild visning av beroende mått för ett webb program.](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analytics
 
 Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till en `where` -sats i visas `client_Type == "Browser"` endast data från Java Script SDK och all telemetri på Server sidan som samlas in av andra SDK: er.
  

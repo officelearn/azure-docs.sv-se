@@ -3,12 +3,12 @@ title: Koppla eller koppla från en datadisk till en virtuell dator i Azure DevT
 description: Lär dig hur du ansluter eller kopplar från en datadisk till en virtuell dator i Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eebfbda421233bcec780d441a4020acce740618
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328521"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Koppla eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs
 [Azure Managed disks](../virtual-machines/managed-disks-overview.md) hanterar de lagrings konton som är kopplade till data diskar för virtuella datorer. En användare bifogar en ny datadisk till en virtuell dator, anger typen och storleken på den disk som behövs, och Azure skapar och hanterar disken automatiskt. Data disken kan sedan frånkopplas från den virtuella datorn och antingen anslutas senare till samma virtuella dator eller anslutas till en annan virtuell dator som tillhör samma användare.
@@ -46,7 +46,7 @@ Följ dessa steg om du vill ansluta en befintlig tillgänglig datadisk till en v
 1. Från menyn till vänster väljer du **diskar**.
 1. Välj **bifoga befintlig** för att ansluta en tillgänglig datadisk till den virtuella datorn.
 
-    ![Koppla befintlig datadisk till en virtuell dator](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png)
+    ![Skärm bild som visar inställningen "diskar" markerad och "bifoga befintlig" vald.](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png)
 
 1. I fönstret **bifoga befintlig disk** väljer du OK.
 
@@ -67,7 +67,7 @@ Om du vill använda befintliga data på disken igen kan du ansluta den till samm
     ![Välj data diskar för en virtuell dator](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. Välj **koppla** från överst i diskens informations fönster.
 
-    ![Koppla ifrån en datadisk](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
+    ![Skärm bild som visar en disks informations fönster med åtgärden "koppla från" markerad.](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
 1. Välj **Ja** för att bekräfta att du vill koppla bort data disken.
 
 Disken är frånkopplad och kan anslutas till en annan virtuell dator. 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 39f277fffbb9a76a4be4bfa8aaedeaf3479a989f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068891"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328861"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ansluta Azure till ITSM-verktyg med säker export
 
@@ -112,11 +112,13 @@ Följande avsnitt innehåller information om hur du ansluter din BMC Helix-produ
 Se till att du uppfyller följande krav:
 
 * Azure AD har registrerats.
-* Du har den version av BMC Helix som stöds för flera moln tjänster (version 20,02 eller senare).
+* Du har den version av BMC Helix som stöds för flera moln tjänster (version 19,08 eller senare).
 
 ### <a name="configure-the-bmc-helix-connection"></a>Konfigurera BMC Helix-anslutningen
 
-1. Följ anvisningarna i [Aktivera inbyggd integrering med Azure Monitor för version 20,02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+1. Följ anvisningarna accoring till versionen:
+   * [Aktivera inbyggd integrering med Azure Monitor för version 20,02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+   * [Aktivera inbyggd integrering med Azure Monitor för version 19,11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
 1. Som en del av konfigurationen av anslutningen i BMC Helix, går du till integrations-BMC-instansen och följer de här anvisningarna:
 
@@ -138,4 +140,4 @@ Se till att du uppfyller följande krav:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ITSM arbets objekt från Azure-aviseringar](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+* [Skapa ITSM arbets objekt från Azure-aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)

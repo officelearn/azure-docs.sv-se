@@ -8,18 +8,18 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 365fe8c330cadcc01fcd24de28b663cd80b55117
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: cd4ec60691344cef4030472b474a82e84c70244f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535894"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261183"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-anvisningar för att skapa en ny HoloLens Unity-app med hjälp av Azure spatiala ankare
 
 I den här självstudien visas hur du skapar en ny HoloLens Unity-app med Azure spatiala ankare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -204,11 +204,11 @@ Innan du fortsätter måste du skapa ett konto för ett Azure-ankare för att h�
 
 När du har en konto identifierare, nyckel och domän för Azures ankare, går du till och klistrar in i `Account Id` `SpatialAnchorsAccountId` , in och i `Account Key` `SpatialAnchorsAccountKey` `Account Domain` `SpatialAnchorsAccountDomain` .
 
-Slutligen är det dags att koppla ihop allt. `SpawnNewAnchoredObject()`Lägg till följande kod i metoden. Metoden anropar `CreateAnchorAsync()` metoden så snart din sfär skapas. När metoden returneras uppdaterar koden nedan din sfär en sista gång, och ändrar dess färg till blå.
+Slutligen är det dags att koppla ihop allt. `CreateAndSaveSphere()`Lägg till följande kod i metoden. Metoden anropar `CreateAnchorAsync()` metoden så snart din sfär skapas. När metoden returneras uppdaterar koden nedan din sfär en sista gång, och ändrar dess färg till blå.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Kör appen från **Visual Studio** en gång till. Flytta runt ditt huvud och tryck sedan för att placera din sfär. När vi har tillräckligt många ramar blir klotet gult och moln överföringen startar. När uppladdningen är klar blir klotet blå. Alternativt kan du också använda fönstret utdata i **Visual Studio** för att övervaka de logg meddelanden som appen skickar. Du kan titta på `RecommendedForCreateProgress` , och när uppladdningen är klar kan du se den Anchor-identifierare som returnerades från molnet.
+Kör appen från **Visual Studio** en gång till. Flytta runt ditt huvud och tryck sedan för att placera din sfär. När vi har tillräckligt många ramar blir klotet gult och moln överföringen startar. När uppladdningen är klar blir klotet blå. Alternativt kan du också använda [fönstret utdata](https://docs.microsoft.com/visualstudio/ide/reference/output-window) när du felsöker i **Visual Studio** för att övervaka de logg meddelanden som appen skickar. Du kan titta på `RecommendedForCreateProgress` , och när uppladdningen är klar kan du se den Anchor-identifierare som returnerades från molnet.
 
 > [!NOTE]
 > Om du får "DllNotFoundException: det går inte att läsa in DLL-filen AzureSpatialAnchors: det gick inte att hitta den angivna modulen", bör du **rengöra** och **bygga** lösningen igen.

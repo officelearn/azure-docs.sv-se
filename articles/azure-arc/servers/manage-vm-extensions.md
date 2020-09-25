@@ -1,14 +1,14 @@
 ---
 title: Hantering av VM-tillägg med Azure Arc-aktiverade servrar
 description: Azure Arc-aktiverade servrar kan hantera distribution av virtuella dator tillägg som tillhandahåller konfiguration och automatiserings uppgifter efter distributionen med icke-virtuella datorer i Azure.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329082"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Hantering av virtuella dator tillägg med Azure Arc-aktiverade servrar
 
@@ -34,7 +34,7 @@ Funktioner för virtuella dator tillägg är bara tillgängliga i listan över [
 
 ## <a name="extensions"></a>Tillägg
 
-I den här för hands versionen har vi stöd för följande VM-tillägg på Windows-och Linux-datorer.
+I den här versionen har vi stöd för följande VM-tillägg på Windows-och Linux-datorer.
 
 |Filnamnstillägg |Operativsystem |Publisher |Ytterligare information |
 |----------|---|----------|-----------------------|
@@ -66,10 +66,7 @@ Det virtuella dator tillägget för Log Analytics agent för Linux kräver pytho
 
 Kontrol lera att din dator matchar de versioner av Windows och Linux-operativsystem som [stöds](agent-overview.md#supported-operating-systems) för den Azure-anslutna dator agenten.
 
-Den lägsta versionen av den anslutna dator agenten som stöds av den här funktionen är:
-
-* Windows-0,7. x
-* Linux-0,8. x
+Den lägsta versionen av den anslutna dator agenten som stöds av den här funktionen i Windows och Linux är 1,0-versionen.
 
 Om du vill uppgradera datorn till den version av agenten som krävs, se [uppgraderings agenten](manage-agent.md#upgrading-agent).
 
@@ -77,7 +74,7 @@ Om du vill uppgradera datorn till den version av agenten som krävs, se [uppgrad
 
 VM-tillägg kan tillämpas på en server hanterad dator via Azure Portal.
 
-1. Gå till [Azure Portal](https://aka.ms/arcserver-preview)i webbläsaren.
+1. Gå till [Azure Portal](https://portal.azure.com)i webbläsaren.
 
 2. I portalen bläddrar du till **servrar – Azure Arc** och väljer hybrid datorn i listan.
 
@@ -719,22 +716,10 @@ Borttagning av ett eller flera tillägg från en ARC-aktiverad server kan bara u
 
 4. Välj **Avinstallera** och när du uppmanas att bekräfta väljer du **Ja** för att fortsätta.
 
-## <a name="troubleshooting"></a>Felsökning
-
-Information om tillstånd för tilläggs distributioner kan hämtas från Azure Portal.
-
-Följande fel söknings steg gäller för alla VM-tillägg.
-
-1. Kontrol lera gäst agents loggen genom att titta på aktiviteten när ditt tillägg har allokerats i `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` för Windows, och för Linux under `/var/lib/GuestConfig/ext_mgr_logs` .
-
-2. Kontrol lera tilläggs loggarna för det angivna tillägget för mer information i `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` för Windows. Utökning av utdata loggas till en fil för varje tillägg som installeras på Linux under `/var/lib/GuestConfig/extension_logs` .
-
-3. Sök efter felkoder, kända problem och fel söknings avsnitt för specifika dokumentation Ytterligare felsöknings information för varje tillägg finns i avsnittet **fel sökning och support** i Översikt över tillägget. Detta inkluderar beskrivningen av felkoder som skrivs till loggen. Tilläggs artiklarna är länkade i tilläggs [tabellen](#extensions) som tidigare fanns i den här artikeln.
-
-4. Titta på system loggarna. Kontrol lera om det finns andra åtgärder som kan ha stör tillägget, till exempel en tids krävande installation av ett annat program som kräver exklusiv åtkomst till paket hanteraren.
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-policy.md)och mycket mer.
+* Felsöknings information finns i [fel söknings guiden för VM-tillägg](troubleshoot-vm-extensions.md).
 
-- Läs mer om [[Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+* Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-policy.md)och mycket mer.
+
+* Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).

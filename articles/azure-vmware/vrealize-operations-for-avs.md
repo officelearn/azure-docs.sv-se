@@ -2,13 +2,13 @@
 title: Konfigurera vRealize-åtgärder för Azure VMware-lösning
 description: Lär dig hur du konfigurerar vRealize-åtgärder för ditt privata moln i Azure VMware-lösningen.
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 729ee5c64776d7d04f702af62451175f7c53421b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/22/2020
+ms.openlocfilehash: 06b88eb610c4633018889315ab1cfd340d3f4b57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293175"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Konfigurera vRealize-åtgärder för Azure VMware-lösning
 
@@ -58,7 +58,23 @@ När du har distribuerat Azure VMware Solution-instansen av vRealize-åtgärder 
 > I VMware- [dokumentationen](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) hittar du steg-för-steg-instruktioner för att installera vRealize Operations Manager.
 
 
+## <a name="known-limitations"></a>Kända begränsningar
 
+- **cloudadmin@vsphere.local**Användaren i Azure VMware-lösningen har [begränsade privilegier](concepts-rbac.md). Minnes insamling i gästen med hjälp av VMware-verktyg stöds inte med virtuella datorer i Azure VMware-lösningen. Aktiva och förbrukade minnes användningar fortsätter att fungera i det här fallet.
+- Arbets belastnings optimering för värdbaserade affärs syften fungerar inte eftersom Azure VMware-lösningar hanterar klusterkonfigurationer, inklusive DRS-inställningar.
+- Arbets belastnings optimering för kors kluster placering i SDDC med det klusterbaserade affärs syftet stöds fullt ut med vRealize Operations Manager 8,0 och senare. Arbets belastnings optimeringen är dock inte medveten om resurspooler och placerar de virtuella datorerna på kluster nivå. En användare kan manuellt korrigera detta i Azure VMware-lösningen vCenter Server gränssnittet.
+- Det går inte att logga in på vRealize Operations Manager att använda din Azure VMware-lösning vCenter Server autentiseringsuppgifter. 
+- Azure VMware-lösningen stöder inte plugin-programmet vRealize Operations Manager.
+
+När du ansluter Azure VMware-lösningen vCenter till vRealize Operations Manager med ett vCenter Server moln konto kommer du att stöta på följande varning:
+
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Varnings korts instansen har skapats":::
+
+Varningen beror på att **cloudadmin@vsphere.local** användaren i Azure VMware-lösningen inte har tillräcklig behörighet för att utföra alla vCenter Server åtgärder som krävs för registrering. Behörigheterna är dock tillräckliga för att kort instansen ska kunna utföra data insamling, som visas nedan:
+
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Kort instans för att utföra insamling av data":::
+
+Mer information finns i [behörigheter som krävs för att konfigurera en instans av vCenter-kort](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 
 <!-- LINKS - external -->
 

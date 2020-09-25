@@ -3,18 +3,18 @@ title: Visa Azure Automation uppdaterings bedömningar
 description: Den här artikeln beskriver hur du visar uppdaterings utvärderingar för Uppdateringshantering distributioner.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92861304a946e357b2b265cd825eceb8e22f7d2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264488"
 ---
-# <a name="view-update-assessments"></a>Visa uppdateringsutvärderingar
+# <a name="view-update-assessments-in-update-management"></a>Visa uppdaterings utvärderingar i Uppdateringshantering
 
-I Uppdateringshantering kan du Visa information om dina datorer, saknade uppdateringar, uppdaterings distributioner och schemalagda uppdaterings distributioner.
+I Uppdateringshantering kan du Visa information om dina datorer, saknade uppdateringar, uppdaterings distributioner och schemalagda uppdaterings distributioner. Du kan visa utvärderings informationen som omfångs för den valda virtuella Azure-datorn, från den valda Arc-aktiverade servern eller från Automation-kontot för alla konfigurerade datorer och servrar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -22,27 +22,33 @@ Logga in på [Azure-portalen](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
-I Uppdateringshantering kan du Visa information om dina datorer, saknade uppdateringar, uppdaterings distributioner och schemalagda uppdaterings distributioner.
+Om du vill visa uppdaterings utvärdering från en virtuell Azure-dator går du till **Virtual Machines** och väljer den virtuella datorn i listan. På den vänstra menyn väljer du **gäst-och värd uppdateringar**och väljer sedan **gå till uppdateringshantering** på sidan **gäst + värd uppdateringar** .
+
+I Uppdateringshantering kan du Visa information om din dator, saknade uppdateringar, uppdaterings distributioner och schemalagda uppdaterings distributioner.
+
+[![Uppdateringshantering bedömnings vy för virtuell Azure-dator](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+Om du vill visa uppdaterings utvärdering från en ARC-aktiverad server navigerar du till **servrar – Azure-båge** och väljer din server i listan. Välj **gäst-och värd uppdateringar**på den vänstra menyn. På sidan **gäst + värd uppdateringar** väljer **du gå till uppdateringshantering**.
+
+I Uppdateringshantering kan du Visa information om din ARC-aktiverad dator, saknade uppdateringar, uppdaterings distributioner och schemalagda uppdaterings distributioner.
+
+[![Uppdateringshantering bedömnings vy för Arc-aktiverade servrar](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+Om du vill visa uppdaterings utvärdering på alla datorer, inklusive Arc-aktiverade servrar från ditt Automation-konto, går du till **Automation-konton** och väljer ditt Automation-konto med uppdateringshantering aktiverat i listan. I ditt Automation-konto väljer du **uppdaterings hantering** på den vänstra menyn.
+
+Uppdateringarna för din miljö visas på sidan hantering av **uppdateringar** . Om några uppdateringar identifieras som saknade visas en lista över dem på fliken **uppdateringar som saknas** .
 
 [![Uppdateringshantering standardvy](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-Gör följande om du vill visa en uppdaterings utvärdering.
+Under kolumnen **efterlevnad** kan du se den senaste gången datorn utvärderades. I kolumnen **Uppdatera agent beredskap** kan du se hälso tillståndet för uppdaterings agenten. Om ett problem uppstår väljer du länken för att gå till fel söknings dokumentation som kan hjälpa dig att åtgärda problemet.
 
-1. I Azure Portal går du till **Automation-konton** och väljer ditt Automation-konto med uppdateringshantering aktiverat i listan.
+Under **informations länk**väljer du länken för en uppdatering för att öppna Support artikeln som innehåller viktig information om uppdateringen.
 
-2. I ditt Automation-konto väljer du **uppdaterings hantering** i det vänstra fönstret.
+[![Visa uppdaterings status](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. Uppdateringarna för din miljö visas på sidan hantering av **uppdateringar** . Om några uppdateringar identifieras som saknade visas en lista över dem på fliken **uppdateringar som saknas** .
+Klicka på någon annan stans på uppdateringen för att öppna loggs öknings fönstret. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga för att visa detaljerad information.
 
-   Under kolumnen **efterlevnad** kan du se den senaste gången datorn utvärderades. I kolumnen **Uppdatera agent beredskap** kan du se hälso tillståndet för uppdaterings agenten. Om ett problem uppstår väljer du länken för att gå till fel söknings dokumentation som kan hjälpa dig att åtgärda problemet.
-
-4. Under **informations länk**väljer du länken för en uppdatering för att öppna Support artikeln som innehåller viktig information om uppdateringen.
-
-     [![Visa uppdaterings status](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Klicka på någon annan stans på uppdateringen för att öppna loggs öknings fönstret. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga för att visa detaljerad information.
-
-    [![Visa resultat från logg fråga](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[![Visa resultat från logg fråga](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>Visa saknade uppdateringar
 

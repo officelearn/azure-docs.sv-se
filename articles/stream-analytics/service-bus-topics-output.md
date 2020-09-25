@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ef5802d0c5e35b9c12db1f40782ba5f190ad1883
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261074"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Service Bus ämnena utdata från Azure Stream Analytics
 
@@ -20,7 +20,7 @@ Service Bus köer tillhandahåller en en-till-en-kommunikations metod från sän
 
 I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa ett Service Bus avsnitts utdata.
 
-| Egenskapsnamn | Beskrivning |
+| Egenskapsnamn | Description |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här Service Bus ämnet. |
 | Service Bus namnrymd |En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du också ett Service Bus-namnområde. |
@@ -46,6 +46,22 @@ Den maximala meddelande storleken är 256 KB per meddelande för standard nivån
 ## <a name="custom-metadata-properties-for-output"></a>Anpassade egenskaper för metadata för utdata
 
 Du kan koppla frågeegenskaper som användar egenskaper till dina utgående meddelanden. De här kolumnerna hamnar inte i nytto lasten. Egenskaperna finns i form av en ord lista i utmatnings meddelandet. *Key* är kolumnens namn och *värde* är kolumnens värde i ord listan för egenskaper. Alla Stream Analytics data typer stöds förutom post och matris.
+
+I följande exempel `DeviceId` läggs fälten och till i `DeviceStatus` metadata.
+
+1. Använd följande fråga:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Konfigurera `DeviceId,DeviceStatus` som egenskaps kolumner i utdata.
+
+   :::image type="content" source="media/service-bus-topics-output/property-columns.png" alt-text="Egenskaps kolumner":::
+
+Följande bild visar förväntade egenskaper för utmatnings meddelande som inspekterats i EventHub med hjälp av [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Anpassade egenskaper för händelse":::
 
 ## <a name="system-properties"></a>Systemegenskaper
 

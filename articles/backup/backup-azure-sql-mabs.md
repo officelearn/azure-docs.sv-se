@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server med Azure Backup Server
 description: I den här artikeln får du lära dig hur du säkerhetskopierar SQL Server databaser med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: b47cb74c6e5dbb868c03f8f7b79c00b0c4ce7886
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182317"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316927"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Säkerhetskopiera SQL Server till Azure med Azure Backup Server
 
@@ -24,10 +24,10 @@ Säkerhetskopiera en SQL Server-databas och återställa den från Azure:
 
 * Om du har en databas med filer på en fjärransluten filresurs, kommer skydd att misslyckas med felet ID 104. MABS stöder inte skydd för SQL Server data på en fjärran sluten fil resurs.
 * MABS kan inte skydda databaser som lagras på fjärr-SMB-resurser.
-* Se till att [tillgänglighets grupp replikerna är skrivskyddade](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Se till att [tillgänglighets grupp replikerna är skrivskyddade](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Du måste uttryckligen lägga till system kontot **NTAUTHORITY\SYSTEM** till sysadmin-gruppen på SQL Server.
-* När du utför en alternativ plats återställning för en delvis innesluten databas måste du se till att SQL-instansen har funktionen [innesluten databas](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) aktive rad.
-* När du utför en alternativ plats återställning för en fil Ströms databas måste du se till att SQL-instansen har funktionen [File Stream-databas](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) aktive rad.
+* När du utför en alternativ plats återställning för en delvis innesluten databas måste du se till att SQL-instansen har funktionen [innesluten databas](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) aktive rad.
+* När du utför en alternativ plats återställning för en fil Ströms databas måste du se till att SQL-instansen har funktionen [File Stream-databas](/sql/relational-databases/blob/enable-and-configure-filestream) aktive rad.
 * Skydd för SQL Server AlwaysOn:
   * MABS identifierar tillgänglighets grupper vid körning av förfrågan när en skydds grupp skapas.
   * MABS identifierar en redundansväxling och fortsätter att skydda databasen.
@@ -38,14 +38,14 @@ Säkerhetskopiera en SQL Server-databas och återställa den från Azure:
     * Endast sekundär – Säkerhetskopiering görs inte på den primära repliken. Om bara den primära repliken är online görs ingen säkerhetskopiering.
     * Primär – Säkerhetskopieringar görs alltid på den primära repliken.
     * Alla repliker – Säkerhetskopieringar kan göras på vilken tillgänglig replik som helst i tillgänglighetsgruppen. Noden som säkerhetskopieringen görs från baseras på prioriteten för säkerhetskopiering på varje nod.
-  * Observera följande:
+  * . Tänk på följande:
     * Säkerhets kopieringar kan göras från vilken läsbar replik som helst, dvs. primär, synkron sekundär, asynkron sekundär.
     * Om någon replik exkluderas från säkerhets kopian, t. ex. om **exkludera replikering** är aktive rad eller har marker ATS som ej läsbar, väljs inte den repliken för säkerhets kopiering under något av alternativen.
     * Om flera repliker är tillgängliga och läsbara väljs den nod med högst prioritet för säkerhets kopiering för säkerhets kopiering.
     * Om säkerhets kopieringen Miss lyckas på den valda noden, Miss lyckas säkerhets kopieringen.
     * Återställning till den ursprungliga platsen stöds inte.
 * SQL Server 2014 eller senare säkerhets kopierings problem:
-  * SQL Server 2014 har lagt till en ny funktion för att skapa en [databas för lokala SQL Server i Windows Azure Blob Storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS kan inte användas för att skydda den här konfigurationen.
+  * SQL Server 2014 har lagt till en ny funktion för att skapa en [databas för lokala SQL Server i Windows Azure Blob Storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS kan inte användas för att skydda den här konfigurationen.
   * Det finns några kända problem med inställningen prioritera sekundär säkerhets kopiering för SQL AlwaysOn-alternativet. MABS tar alltid en säkerhets kopia från sekundär. Om det inte går att hitta någon sekundär, Miss lyckas säkerhets kopieringen.
 
 ## <a name="before-you-start"></a>Innan du börjar
@@ -60,7 +60,7 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
 1. Välj **ny** för att skapa en skydds grupp.
 
     ![Skapa en skydds grupp i Azure Backup Server](./media/backup-azure-backup-sql/protection-group.png)
-1. På sidan Start granskar du vägledningen om hur du skapar en skydds grupp. Välj sedan **Nästa**.
+1. På sidan Start granskar du vägledningen om hur du skapar en skydds grupp. Välj **Nästa**.
 1. För typ av skydds grupp väljer du **servrar**.
 
     ![Välj typ av skydds grupp för servrar](./media/backup-azure-backup-sql/pg-servers.png)
@@ -88,19 +88,19 @@ För att skydda SQL Server databaser i Azure måste du först skapa en princip f
     Som standard skapar MABS en volym per data källa (SQL Server databas). Volymen används för den första säkerhets kopian. I den här konfigurationen begränsar LDM (Logical Disk Manager) MABS-skydd till 300-data källor (SQL Server databaser). Undvik den här begränsningen genom att välja **samplacera data i DPM-lagringspool**. Om du använder det här alternativet använder MABS en enda volym för flera data källor. Med den här installationen kan MABS skydda upp till 2 000 SQL Server-databaser.
 
     Om du väljer **utöka volymerna automatiskt**, kan Mabs konto för den ökade säkerhets kopierings volymen eftersom produktions data växer. Om du inte väljer **utöka volymerna automatiskt**, begränsar Mabs lagringen av säkerhets kopiorna till data källorna i skydds gruppen.
-1. Om du är administratör kan du välja att överföra den första säkerhets kopieringen **automatiskt över nätverket** och välja överförings tiden. Eller Välj att **manuellt** överföra säkerhets kopian. Välj sedan **Nästa**.
+1. Om du är administratör kan du välja att överföra den första säkerhets kopieringen **automatiskt över nätverket** och välja överförings tiden. Eller Välj att **manuellt** överföra säkerhets kopian. Välj **Nästa**.
 
     ![Välj en metod för att skapa en replik i MABS](./media/backup-azure-backup-sql/pg-manual.png)
 
     Den första säkerhets kopian kräver överföring av hela data källan (SQL Server Database). Säkerhetskopierade data flyttas från produktions servern (SQL Server dator) till MABS. Om den här säkerhets kopian är stor kan överföring av data över nätverket orsaka överbelastning av bandbredd. Av den anledningen kan administratörer välja att använda flyttbara media för att överföra den första säkerhets kopieringen **manuellt**. Du kan också överföra data **automatiskt via nätverket** vid en viss tidpunkt.
 
     När den första säkerhets kopieringen är klar fortsätter säkerhets kopieringarna stegvis på den första säkerhets kopian. Stegvisa säkerhets kopieringar tenderar att vara små och överförs enkelt över nätverket.
-1. Välj när du vill köra en konsekvens kontroll. Välj sedan **Nästa**.
+1. Välj när du vill köra en konsekvens kontroll. Välj **Nästa**.
 
     ![Välj när du vill köra en konsekvens kontroll](./media/backup-azure-backup-sql/pg-consistent.png)
 
     MABS kan köra en konsekvens kontroll på säkerhets kopierings punktens integritet. Den beräknar säkerhets kopian för säkerhets kopian på produktions servern (SQL Server datorn i det här exemplet) och de säkerhetskopierade data för filen i MABS. Om kontrollen hittar en konflikt antas den säkerhetskopierade filen i MABS vara skadad. MABS åtgärdar säkerhetskopierade data genom att skicka block som motsvarar matchnings fel för kontroll summan. Eftersom konsekvens kontrollen är en prestanda intensiv åtgärd kan administratörer välja att schemalägga konsekvens kontrollen eller köra den automatiskt.
-1. Välj de data källor som ska skyddas i Azure. Välj sedan **Nästa**.
+1. Välj de data källor som ska skyddas i Azure. Välj **Nästa**.
 
     ![Välj data källor som ska skyddas i Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 1. Om du är administratör kan du välja säkerhets kopierings scheman och lagrings principer som passar organisationens principer.
@@ -164,12 +164,12 @@ En återställnings punkt skapas när den första säkerhets kopieringen sker. I
 1. Högerklicka på databas namnet och välj **Återställ**.
 
     ![Återställa en databas från Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. DPM visar information om återställnings punkten. Välj **Nästa**. Om du vill skriva över databasen väljer du återställnings typen **Återställ till den ursprungliga instansen av SQL Server**. Välj sedan **Nästa**.
+1. DPM visar information om återställnings punkten. Välj **Nästa**. Om du vill skriva över databasen väljer du återställnings typen **Återställ till den ursprungliga instansen av SQL Server**. Välj **Nästa**.
 
     ![Återställa en databas till dess ursprungliga plats](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     I det här exemplet tillåter DPM återställning av databasen till en annan SQL Server instans eller till en fristående nätverksmapp.
-1. På sidan **Ange återställnings alternativ** kan du välja återställnings alternativ. Du kan till exempel välja **nätverks bandbredds begränsning** för att begränsa bandbredden som används i återställningen. Välj sedan **Nästa**.
+1. På sidan **Ange återställnings alternativ** kan du välja återställnings alternativ. Du kan till exempel välja **nätverks bandbredds begränsning** för att begränsa bandbredden som används i återställningen. Välj **Nästa**.
 1. På sidan **Sammanfattning** visas den aktuella återställnings konfigurationen. Välj **Återställ**.
 
     Återställnings status visar den databas som återställs. Du kan välja **Stäng** om du vill stänga guiden och se förloppet i arbets ytan **övervakning** .

@@ -1,5 +1,5 @@
 ---
-title: Lägg till, ta bort och lista grupper i en administrativ enhet (förhands granskning) – Azure Active Directory | Microsoft Docs
+title: Lägg till, ta bort och lista grupper i en administrativ enhet-Azure Active Directory | Microsoft Docs
 description: Hantera grupper och deras roll behörigheter i en administrativ enhet i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 324d0ff0659270c6f2e90c0456ded83344f73936
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265036"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Lägg till och hantera grupper i administrativa enheter i Azure Active Directory
 
@@ -31,7 +31,7 @@ Information om hur du förbereder för att använda PowerShell och Microsoft Gra
 
 ### <a name="azure-portal"></a>Azure Portal
 
-I förhands granskningen kan du endast tilldela grupper individuellt till en administrativ enhet. Det finns inget alternativ för Mass tilldelning av grupper till en administrativ enhet. Du kan tilldela en grupp till en administrativ enhet på något av de två sätten på portalen:
+Du kan endast tilldela grupper individuellt till en administrativ enhet. Det finns inget alternativ för att tilldela grupper i grupp till en administrativ enhet. Du kan tilldela en grupp till en administrativ enhet på något av de två sätten på portalen:
 
 1. Från sidan **Azure AD > grupper**
 

@@ -1,24 +1,24 @@
 ---
-title: 'Självstudie: Migrera från Google Maps till Azure Maps | Microsoft Azure Maps'
-description: 'En själv studie kurs om hur du migrerar från Google Maps till Microsoft Azure Maps. Vägledningen vägleder dig genom hur du växlar till Azure Maps API: er och SDK: er.'
+title: Migrera från Google Maps till Azure Maps | Microsoft Azure Maps
+description: 'Så här migrerar du från Google Maps till Microsoft Azure Maps. Vägledningen vägleder dig genom hur du växlar till Azure Maps API: er och SDK: er.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 09/23/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 2422204a809e0b13f4e337d49b851a0338681853
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c60890b301ba650c95584e33b5326217086c08c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249214"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264175"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrera från Google Maps till Azure Maps
 
-I den här självstudien får du information om hur du migrerar webb-, mobil-och serverbaserade program från Google Maps till Microsoft Azure Maps-plattformen. Den här självstudien innehåller jämför ande kod exempel, förslag på migrering och metod tips för migrering till Azure Maps.
+Den här artikeln innehåller insikter om hur du migrerar webb-, mobil-och serverbaserade program från Google Maps till Microsoft Azure Maps-plattformen. Den här självstudien innehåller jämför ande kod exempel, förslag på migrering och metod tips för migrering till Azure Maps.
 
 ## <a name="azure-maps-platform-overview"></a>Översikt över Azure Maps plattform
 
@@ -38,19 +38,19 @@ Tabellen innehåller en övergripande lista med Azure Maps funktioner som motsva
 | Avstånds mat ris             | ✓                                      |
 | Höjning                   | Planerad                                |
 | Landskod (framåt/omvänd) | ✓                                      |
-| Geolocation                 | Ej tillämpligt                                    |
+| Geolocation                 | Saknas                                    |
 | Närmaste vägar               | ✓                                      |
 | Sök efter platser               | ✓                                      |
 | Plats information              | Saknas – webbplats & telefonnummer är tillgängligt |
-| Placerar foton               | Ej tillämpligt                                    |
+| Placerar foton               | Saknas                                    |
 | Placera Autoavsluta          | ✓                                      |
 | Fäst vid väg                | ✓                                      |
 | Hastighets begränsningar                | ✓                                      |
 | Statiska Maps                 | ✓                                      |
-| Statisk gata vy          | Ej tillämpligt                                    |
+| Statisk gata vy          | Saknas                                    |
 | Tidszon                   | ✓                                      |
-| Mappar inbäddat API           | Ej tillämpligt                                    |
-| Kart-URL: er                    | Ej tillämpligt                                    |
+| Mappar inbäddat API           | Saknas                                    |
+| Kart-URL: er                    | Saknas                                    |
 
 Google Maps innehåller grundläggande nyckelbaserad autentisering. Azure Maps tillhandahåller både grundläggande nyckelbaserad autentisering och Azure Active Directory autentisering. Azure Active Directory-autentisering innehåller fler säkerhetsfunktioner jämfört med den grundläggande nyckelbaserade autentiseringen.
 
@@ -80,33 +80,37 @@ Följande är en uppgraderings plan med höga nivåer.
 5. Testa det migrerade programmet.
 6. Distribuera det migrerade programmet till produktion.
 
+## <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
+
+Följ dessa steg om du vill skapa ett Azure Maps konto och få åtkomst till Azure Maps-plattformen:
+
+1. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+2. Logga in på [Azure-portalen](https://portal.azure.com/).
+3. Skapa ett [Azure Maps-konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Hämta din Azure Maps prenumerations nyckel](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) eller konfigurera Azure Active Directory autentisering för förbättrad säkerhet.
+
 ## <a name="azure-maps-technical-resources"></a>Azure Maps tekniska resurser
 
 Här är en lista över användbara tekniska resurser för Azure Maps.
 
-- :[https://azure.com/maps](https://azure.com/maps)
-- Handlingar[https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)
-- Kod exempel för webb-SDK:[https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
-- Forum för utvecklare:[https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
-- Videos[https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
-- Blogg[https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
-- Teknisk blogg:[https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
-- Azure Maps feedback (UserVoice):[https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
+- : [https://azure.com/maps](https://azure.com/maps)
+- Handlingar [https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)
+- Kod exempel för webb-SDK: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
+- Forum för utvecklare: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
+- Videos [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
+- Blogg [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
+- Teknisk blogg: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
+- Azure Maps feedback (UserVoice): [https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
 - [Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
 
 ## <a name="migration-support"></a>Stöd för migrering
 
-Utvecklare kan söka efter stöd för migrering via [forumen](https://aka.ms/AzureMapsForums) eller via ett av de många support alternativen för Azure:[https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
+Utvecklare kan söka efter stöd för migrering via [forumen](https://aka.ms/AzureMapsForums) eller via ett av de många support alternativen för Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
-## <a name="next-steps"></a>Nästa steg
+Du kan lära dig att migrera ditt Google Maps-program med: 
 
-Lär dig mer om hur du migrerar ditt Google Maps-program med följande artiklar:
+[Migrera en Android-app](migrate-from-google-maps-android-app.md) 
 
-> [!div class="nextstepaction"]
-> [Migrera en webbapp](migrate-from-google-maps-web-app.md)
+[Migrera en webbtjänst](migrate-from-google-maps-web-services.md) 
 
-> [!div class="nextstepaction"]
-> [Migrera en Android-app](migrate-from-google-maps-android-app.md)
-
-> [!div class="nextstepaction"]
-> [Migrera en webbtjänst](migrate-from-google-maps-web-services.md)
+[Migrera en webbapp](migrate-from-google-maps-web-app.md)

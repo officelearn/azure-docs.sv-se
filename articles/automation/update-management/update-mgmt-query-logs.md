@@ -3,14 +3,14 @@ title: Fråga Azure Automation Uppdateringshantering loggar
 description: Den här artikeln beskriver hur du skickar frågor till loggarna för Uppdateringshantering i Log Analytics-arbetsytan.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264311"
 ---
 # <a name="query-update-management-logs"></a>Fråga Uppdateringshanteringsloggar
 
@@ -110,9 +110,9 @@ En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterin
 | Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
 | ComputerEnvironment | Miljö. Värdena är Azure eller icke-Azure. |
 | CorrelationId | Unik identifierare för Runbook-jobbet som körs för uppdateringen. |
-| EndTime | Tiden då synkroniseringsprocessen avslutades. |
+| EndTime | Tiden då synkroniseringsprocessen avslutades. *Den här egenskapen används inte för närvarande. Se TimeGenerated.* |
 | ErrorResult | Windows Update felkod som genereras om en uppdatering inte kan installeras. |
-| Updaterunprogress | Eventuella installations tillstånd för en uppdatering på klient datorn.<br> `NotStarted`-jobbet har inte utlösts ännu.<br> `FailedToStart`-Det gick inte att starta jobbet på datorn.<br> `Failed`-jobbet startade men misslyckades med ett undantag.<br> `InProgress`– pågående jobb.<br> `MaintenanceWindowExceeded`– om körningen var återstående men underhålls periodens intervall har uppnåtts.<br> `Succeeded`-jobbet har slutförts.<br> `InstallFailed`-Det gick inte att installera uppdateringen.<br> `NotIncluded`<br> `Excluded` |
+| Updaterunprogress | Eventuella installations tillstånd för en uppdatering på klient datorn.<br> `NotStarted` -jobbet har inte utlösts ännu.<br> `FailedToStart` -Det gick inte att starta jobbet på datorn.<br> `Failed` -jobbet startade men misslyckades med ett undantag.<br> `InProgress` – pågående jobb.<br> `MaintenanceWindowExceeded` – om körningen var återstående men underhålls periodens intervall har uppnåtts.<br> `Succeeded` -jobbet har slutförts.<br> `InstallFailed` -Det gick inte att installera uppdateringen.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Kunskaps bas artikel-ID för Windows Update. |
 | ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
 | OSType | Typ av operativ system. Värdena är Windows eller Linux. |
@@ -123,8 +123,8 @@ En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterin
 | ResourceType | Resurs typ. |
 | SourceComputerId | Unik identifierare som representerar käll datorn. |
 | SourceSystem | Käll system för posten. Värdet är `OperationsManager`. |
-| StartTime | Tid när uppdateringen har schemalagts för installation. |
-| SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
+| StartTime | Tid när uppdateringen har schemalagts för installation. *Den här egenskapen används inte för närvarande. Se TimeGenerated.* |
+| SubscriptionId | Unik identifierare för Azure-prenumerationen. |
 | SucceededOnRetry | Värde som anger om uppdaterings körningen misslyckades för det första försöket och den aktuella åtgärden är ett försök att försöka igen. |
 | TimeGenerated | Datum och tid då posten skapades. |
 | Rubrik | Uppdateringens rubrik. |
@@ -209,7 +209,7 @@ För att bekräfta att en Operations Manager hanterings grupp kommunicerar med A
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Enskilda utvärderings frågor för Azure VM (Windows)
 
-Ersätt VMUUID-värdet med VM-GUID för den virtuella dator som du frågar. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Ersätt VMUUID-värdet med VM-GUID för den virtuella dator som du frågar. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Sammanfattning av saknade uppdateringar
 
@@ -238,7 +238,7 @@ Update
 
 ### <a name="single-azure-vm-assessment-queries-linux"></a>Enkla Azure VM Assessment-frågor (Linux)
 
-För vissa Linux-distributioner, [finns det en felaktig matchning](https://en.wikipedia.org/wiki/Endianness) med VMUUID-värdet som kommer från Azure Resource Manager och vad som lagras i Azure Monitor loggar. Följande fråga söker efter en matchning på antingen endian. Ersätt VMUUID-värdena med big-endian-och lite-endian-formatet för GUID för att returnera resultaten korrekt. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar:`Update | where Computer == "<machine name>"
+För vissa Linux-distributioner, [finns det en felaktig matchning](https://en.wikipedia.org/wiki/Endianness) med VMUUID-värdet som kommer från Azure Resource Manager och vad som lagras i Azure Monitor loggar. Följande fråga söker efter en matchning på antingen endian. Ersätt VMUUID-värdena med big-endian-och lite-endian-formatet för GUID för att returnera resultaten korrekt. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Sammanfattning av saknade uppdateringar

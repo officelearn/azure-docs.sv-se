@@ -1,7 +1,7 @@
 ---
 title: Konfigurera cirkulations inställningar för en offentlig IP-adress med hjälp av Azure CLI
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du skapar en offentlig IP-adress med inställningar för Internet trafik cirkulation
+description: Lär dig hur du skapar en offentlig IP-adress med en Internet trafik cirkulations inställning med hjälp av Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 64284b198fc76c219ffe0dfbc57461b587b23130
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 39514f8a34e85525e2a8900a8e6e3cc8656fb84a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329303"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Konfigurera cirkulations inställningar för en offentlig IP-adress med hjälp av Azure CLI
 

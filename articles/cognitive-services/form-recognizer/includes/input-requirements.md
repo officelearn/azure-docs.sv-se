@@ -5,19 +5,22 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 11783f8fac147e6fb2cf371ee1a588cf318a5e9c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5de121a1a905a58f8b5eaf8e60c1f8da71ee8cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75379456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276958"
 ---
 Formulär tolken arbetar med inmatade dokument som uppfyller följande krav:
 
 * Formatet måste vara JPG, PNG, PDF (text eller scannat) eller TIFF. Text-inbäddade PDF-filer är bäst eftersom det inte går att extrahera fel i tecken extrahering och plats.
+* Fil storleken måste vara mindre än 20 MB.
+* Bild dimensioner måste vara mellan 50 x 50 pixlar och 10000 x 10000 bild punkter.
+* PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
+* För PDF och TIFF bearbetas bara de första 200 sidorna (med en prenumeration på kostnads fri nivå, bara de första två sidorna bearbetas).
+* Den totala storleken på tränings data uppsättningen måste vara 500 sidor eller mindre.
 * Om dina PDF-filer är lösenordsskyddade måste du ta bort låset innan du skickar dem.
-* PDF-och TIFF-dokument måste vara 200 sidor eller mindre och den totala storleken på tränings data uppsättningen måste vara 500 sidor eller mindre.
-* För bilder måste dimensionerna vara mellan 600 x 100 pixlar och 4200 x 4200 bild punkter.
 * Om du skannar från pappers dokument bör formulär vara av hög kvalitet.
 * Texten måste använda det latinska alfabetet (engelska tecken).
 * För oövervakad inlärning (utan märkta data) måste data innehålla nycklar och värden.

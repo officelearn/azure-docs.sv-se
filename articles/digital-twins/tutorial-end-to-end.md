@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563819"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292740"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -85,6 +85,16 @@ Du kan kontrol lera de dubbla som skapats genom att köra följande kommando, so
 ```cmd/sh
 Query
 ```
+
+>[!TIP]
+> Den här förenklade metoden tillhandahålls som en del av _**AdtE2ESample**_ -projektet. Utanför kontexten för den här exempel koden kan du när som helst fråga efter alla dubbla i din instans med hjälp av API: [er för frågor](how-to-use-apis-sdks.md) eller [CLI-kommandon](how-to-use-cli.md).
+>
+> Här är hela fråge texten för att hämta alla digitala enheter i din instans:
+> 
+> ```sql
+> SELECT *
+> FROM DIGITALTWINS
+> ``` 
 
 Därefter kan du sluta köra projektet. Låt lösningen vara öppen i Visual Studio, men eftersom du kommer att fortsätta att använda den i kursen.
 
@@ -255,13 +265,13 @@ Konfigurera sedan enhets simulatorn för att skicka data till IoT Hub-instansen.
 Börja med att hämta *anslutnings strängen för IoT Hub* med det här kommandot:
 
 ```azurecli
-az iot hub show-connection-string -n <your-IoT-hub-name>
+az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Hämta sedan *enhets anslutnings strängen* med det här kommandot:
 
 ```azurecli
-az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
+az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
 Du kopplar dessa värden till enhets Simulator koden i det lokala projektet för att ansluta simulatorn till den här IoT-hubben och IoT Hub-enheten.
@@ -436,7 +446,7 @@ Här är en recension av scenariot som du skapade i den här självstudien.
 
 Om du inte längre behöver resurserna som skapas i den här självstudien kan du ta bort dem genom att följa stegen nedan. 
 
-Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Detta tar bort resurs gruppen. Azure Digitals dubbla instanser, IoT-hubben och nav enhets registreringen. avsnittet Event Grid och associerade prenumerationer. och Azure Functions-appen, inklusive både funktioner och associerade resurser som lagring.
+Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Detta tar bort resurs gruppen. Azure Digitals dubbla instanser, IoT-hubben och nav enhets registreringen. avsnittet Event Grid och associerade prenumerationer. och Azure Functions-appen, inklusive både funktioner och associerade resurser som lagring.
 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 

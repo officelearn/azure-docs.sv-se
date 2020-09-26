@@ -7,26 +7,26 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8d1dedfcd4a93446b615d84e86666059fd210c18
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293581"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd Azures snabb starts mallar för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 I den här artikeln beskrivs hur du använder Azures snabb starts mallar för att delvis automatisera distributionen av en Always on-tillgänglighets grupps konfiguration för SQL Server virtuella datorer i Azure. Två Azure snabb starts mallar används i den här processen: 
 
-   | Mall | Beskrivning |
+   | Mall | Description |
    | --- | --- |
    | [101-SQL-VM-AG-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Skapar Windows-redundansklustret och ansluter SQL Server virtuella datorer till den. |
    | [101-SQL-VM-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Skapar tillgänglighets gruppens lyssnare och konfigurerar den interna belastningsutjämnaren. Den här mallen kan bara användas om Windows-redundansklustret skapades med mallen **101-SQL-VM-AG-setup** . |
@@ -35,7 +35,7 @@ I den här artikeln beskrivs hur du använder Azures snabb starts mallar för at
 Andra delar av tillgänglighets grupps konfigurationen måste utföras manuellt, till exempel skapa tillgänglighets gruppen och skapa den interna belastningsutjämnaren. Den här artikeln innehåller en sekvens med automatiserade och manuella steg.
  
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 Om du vill automatisera installationen av en tillgänglighets grupp som alltid är tillgänglig med hjälp av snabb starts mallar måste du ha följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resurs grupp med en domänkontrollant. 
@@ -115,7 +115,7 @@ Du behöver bara skapa den interna belastningsutjämnaren. I steg 4 hanterar sna
 4. På bladet **Load Balancer** väljer du **skapa**.
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ange ett text namn som representerar belastningsutjämnaren. Skriv till exempel **sqlLB**. |
    | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |

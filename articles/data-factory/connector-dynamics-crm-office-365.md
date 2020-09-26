@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/23/2020
+ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497631"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332108"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,10 +79,10 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen måste anges till "Dynamics", "DynamicsCrm" eller "CommonDataServiceForApps". | Ja |
-| deploymentType | Dynamics-instansens distributions typ. Värdet måste vara "online" för Dynamics Online. | Ja |
-| serviceUri | Tjänst-URL för din Dynamics-instans. Ett exempel är https://www.crmdynamics.com. | Ja |
-| authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Giltiga värden är "AADServicePrincipal" och "Office365". | Ja |
+| typ | Typ egenskapen måste anges till "Dynamics", "DynamicsCrm" eller "CommonDataServiceForApps". | Yes |
+| deploymentType | Dynamics-instansens distributions typ. Värdet måste vara "online" för Dynamics Online. | Yes |
+| serviceUri | Tjänst-URL: en för din Dynamics-instans, samma som du har åtkomst till från webbläsaren. Ett exempel är "https:// \<organization-name> . CRM [x]. Dynamics. com". | Yes |
+| authenticationType | Autentiseringstypen för att ansluta till en Dynamics-Server. Giltiga värden är "AADServicePrincipal" och "Office365". | Yes |
 | servicePrincipalId | Klient-ID för Azure AD-programmet. | Ja när autentiseringen är "AADServicePrincipal" |
 | servicePrincipalCredentialType | Den typ av autentiseringsuppgift som ska användas för autentisering av tjänstens huvud namn. Giltiga värden är "ServicePrincipalKey" och "ServicePrincipalCert". | Ja när autentiseringen är "AADServicePrincipal" |
 | servicePrincipalCredential | Tjänstens huvud behörighet. <br/><br/>När du använder "ServicePrincipalKey" som autentiseringstyp `servicePrincipalCredential` kan vara en sträng som Azure Data Factory krypteras vid en länkad tjänst distribution. Eller så kan det vara en referens till en hemlighet i Azure Key Vault. <br/><br/>När du använder "ServicePrincipalCert" som autentiseringsuppgift `servicePrincipalCredential` måste vara en referens till ett certifikat i Azure Key Vault. | Ja när autentiseringen är "AADServicePrincipal" |
@@ -102,7 +102,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://www.crmdynamics.com",  
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://www.crmdynamics.com", 
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Följande egenskaper stöds för den länkade Dynamics-tjänsten.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://www.crmdynamics.com",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -222,7 +222,7 @@ Följande egenskaper stöds för att kopiera data från och till Dynamics:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till "DynamicsEntity", "DynamicsCrmEntity" eller "CommonDataServiceForAppsEntity". |Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till "DynamicsEntity", "DynamicsCrmEntity" eller "CommonDataServiceForAppsEntity". |Yes |
 | Entitetsnamnet | Det logiska namnet på den entitet som ska hämtas. | Nej för källa om aktivitets källan har angetts som "fråga" och Ja för mottagare |
 
 #### <a name="example"></a>Exempel
@@ -254,7 +254,7 @@ För att kopiera data från Dynamics stöder avsnittet för **kopierings aktivit
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till "DynamicsSource", "DynamicsCrmSource" eller "CommonDataServiceForAppsSource". | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till "DynamicsSource", "DynamicsCrmSource" eller "CommonDataServiceForAppsSource". | Yes |
 | DocumentDB | FetchXML är ett patentskyddat frågespråk som används i Dynamics Online och lokalt. Se följande exempel. Mer information finns i [Bygg frågor med FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nej om `entityName` i data uppsättningen anges |
 
 >[!NOTE]
@@ -323,7 +323,7 @@ För att kunna kopiera data till Dynamics stöder avsnittet Kopiera aktivitets *
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till "DynamicsSink", "DynamicsCrmSink" eller "CommonDataServiceForAppsSink". | Ja. |
-| writeBehavior | Åtgärdens Skriv funktion. Värdet måste vara "upsert". | Ja |
+| writeBehavior | Åtgärdens Skriv funktion. Värdet måste vara "upsert". | Yes |
 | alternateKeyName | Det alternativa nyckel namnet som definierats i entiteten för att göra en upsert. | Nej. |
 | writeBatchSize | Rad antalet data som skrivs till Dynamics i varje batch. | Nej. Standardvärdet är 10. |
 | ignoreNullValues | Om null-värden ska ignoreras från indata förutom nyckel fält under en Skriv åtgärd.<br/><br/>Giltiga värden är **True** och **false**:<ul><li>**True**: lämna kvar data i målobjektet oförändrade när du gör en upsert-eller uppdaterings åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.</li><li>**False**: uppdatera data i målobjektet till ett null-värde när du gör en upsert-eller uppdaterings åtgärd. Infoga ett null-värde när du gör en infognings åtgärd.</li></ul> | Nej. Standardvärdet är **false**. |

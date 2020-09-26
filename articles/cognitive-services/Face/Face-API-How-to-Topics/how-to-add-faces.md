@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06c353cf5fbd5c2b1058d99e7f91e9fcc3853cb1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3643fad1c9e821a78df6d78edeede2341ec79ea8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929054"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303769"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Lägga till ansikten i en PersonGroup
 
@@ -61,7 +61,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>Steg 2: Auktorisera API-anrop
 
-När du använder ett klient bibliotek måste du skicka prenumerations nyckeln till konstruktorn för **FaceClient** -klassen. Ett exempel:
+När du använder ett klient bibliotek måste du skicka prenumerations nyckeln till konstruktorn för **FaceClient** -klassen. Exempel:
 
 ```csharp
 private readonly IFaceClient faceClient = new FaceClient(
@@ -138,6 +138,5 @@ Följande funktioner förklaras och visas:
 
 ## <a name="related-topics"></a>Relaterade ämnen
 
-- [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)
 - [Identifiera ansikten i en bild](HowtoDetectFacesinImage.md)
 - [Använda den storskaliga funktionen](how-to-use-large-scale.md)

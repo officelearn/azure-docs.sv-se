@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292463"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps
 
@@ -108,7 +108,7 @@ Här är mer information om utdata från en HTTP-utlösare eller åtgärd som re
 |----------|------|-------------|
 | `headers` | JSON-objekt | Huvudena från begäran |
 | `body` | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| `status code` | Integer | Status koden från begäran |
+| `status code` | Heltal | Status koden från begäran |
 |||
 
 | Statuskod | Description |
@@ -247,7 +247,7 @@ Vissa slut punkter, tjänster, system eller API: er returnerar ett "202 ACCEPTER
 
 Om en HTTP-utlösare eller åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade begär ande meddelandet utan att visa någon varning eller ett fel:
 
-* `Accept-*`
+* `Accept-*` huvuden utom för `Accept-version`
 * `Allow`
 * `Content-*` med dessa undantag: `Content-Disposition` , `Content-Encoding` och `Content-Type`
 * `Cookie`

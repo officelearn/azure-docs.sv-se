@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
-ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9578fadfbe057b723af63e338bf8bda63cf6f21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330918"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Så här diagramerar du prestanda med Azure Monitor for VMs
 
@@ -21,7 +21,7 @@ Azure Monitor for VMs innehåller en uppsättning prestanda diagram som riktar s
 Följande är begränsningar i prestanda insamling med Azure Monitor for VMs.
 
 - **Tillgängligt minne** är inte tillgängligt för virtuella datorer som kör Red Hat Linux (RHEL) 6. Det här måttet beräknas från **MemAvailable** som introducerades i [kernel version 3,14](http://www.man7.org/linux/man-pages/man1/free.1.html).
-- Mått är bara tillgängliga för data diskar på virtuella Linux-datorer med hjälp av EXT fil familjen (EXT2, EXT3, EXT4).
+- Mått är bara tillgängliga för data diskar på virtuella Linux-datorer med XFS-filsystem eller EXT fil familjen (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspektiv för flera virtuella datorer från Azure Monitor
 

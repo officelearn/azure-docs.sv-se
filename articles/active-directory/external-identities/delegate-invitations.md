@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278795"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivera externt B2B-samarbete och hantera vilka som kan bjuda in gäster
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs hur du aktiverar Azure Active Directory (Azure AD) 
 
 Som standard kan alla användare och gäster i din katalog bjuda in gäster även om de inte har tilldelats någon administratörs roll. Med inställningar för externa samarbete kan du aktivera eller inaktivera gäst inbjudningar för olika typer av användare i din organisation. Du kan också delegera inbjudningar till enskilda användare genom att tilldela roller som gör det möjligt för dem att bjuda in gäster.
 
-Med Azure AD kan du begränsa vad externa gäst användare kan se i Azure AD-katalogen. Som standard är gäst användare inställda på en begränsad behörighets nivå som blockerar dem från att räkna upp användare, grupper eller andra katalog resurser, men de kan se medlemskap i grupper som inte är dolda. Med en ny förhands gransknings inställning kan du begränsa gäst åtkomst ytterligare, så att gästerna bara kan se sin egen profil information. 
+Med Azure AD kan du begränsa vad externa gäst användare kan se i Azure AD-katalogen. Som standard är gäst användare inställda på en begränsad behörighets nivå som blockerar dem från att räkna upp användare, grupper eller andra katalog resurser, men de kan se medlemskap i grupper som inte är dolda. Med en ny förhands gransknings inställning kan du begränsa gäst åtkomst ytterligare, så att gästerna bara kan se sin egen profil information. Mer information finns i [begränsa åtkomst behörighet för gäst (för hands version)](../users-groups-roles/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Konfigurera inställningar för externt samarbete i B2B
 
@@ -44,9 +44,6 @@ Som standard kan alla användare, inklusive gäster, bjuda in gäst användare.
 3. Välj **externa identiteter**  >  **externa samarbets inställningar**.
 
 4. Under **åtkomst begränsningar för gäst användare (för hands version)** väljer du den åtkomst nivå som du vill att gäst användare ska ha:
-
-   > [!IMPORTANT]
-   > Under en kort tid visas dessa nya Portal kontroller för gäst användar behörigheter endast med URL: en [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . Mer information finns i [begränsa åtkomst behörighet för gäst (för hands version)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Gäst användare har samma åtkomst som medlemmar (oftast)**: det här alternativet ger gästerna samma åtkomst till Azure AD-resurser och katalog data som medlems användare.
 

@@ -2,21 +2,21 @@
 title: Skapa och distribuera mall-specifikation
 description: Lär dig hur du skapar en mall-specifikation från ARM-mallen. Distribuera sedan mallen till en resurs grupp i din prenumeration.
 author: tfitzmac
-ms.date: 08/31/2020
+ms.date: 09/25/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 47791455c63852bfc6f8a7e3152fabe18d303ecb
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369223"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Snabb start: skapa och distribuera mall specifikation (för hands version)
 
 Den här snabb starten visar hur du paketerar en Azure Resource Manager-mall (ARM-mall) i en [mall-specifikation](template-specs.md) och sedan distribuerar mallen. Din Template-specifikation innehåller en ARM-mall som distribuerar ett lagrings konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -55,7 +55,7 @@ Dessa alternativ visas nedan.
       -Version "1.0" `
       -ResourceGroupName templateSpecRG `
       -Location westus2 `
-      -TemplateJsonFile "c:\Templates\azuredeploy.json"
+      -TemplateFile "c:\Templates\azuredeploy.json"
     ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -220,7 +220,7 @@ Nu kan du distribuera mallens specifikation. Att distribuera mallens specifikati
 1. Hämta resurs-ID för mallens specifikation.
 
     ```azurepowershell
-    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
+    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Versions.Id
     ```
 
 1. Distribuera mallen specifikation.

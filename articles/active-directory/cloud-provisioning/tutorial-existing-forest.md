@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25e70809becd59ceeb3c45867b9e35119df497a3
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4b247009669d6008644c9beb54fb687138b81716
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266419"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrera en befintlig skog med en ny skog med en enskild Azure AD-klientorganisation
 
@@ -60,14 +60,14 @@ I det här scenariot synkroniseras en befintlig skog med hjälp av Azure AD Conn
 4. Klicka på "Ladda ned agent"
 5. Kör Azure AD Connect etablerings agenten
 6. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>
-![Välkomstskärmen](media/how-to-install/install1.png)</br>
+![Skärm bild som visar välkomst skärmen "Microsoft Azure AD ansluta etablerings agent paket".](media/how-to-install/install1.png)</br>
 
 7. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
 8. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Nästa**.</br>
-![Välkomstskärmen](media/how-to-install/install3.png)</br>
+![Skärm bild som visar skärmen "Anslut Active Directory".](media/how-to-install/install3.png)</br>
 
 9. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.</br>
-![Välkomstskärmen](media/how-to-install/install4.png)</br>
+![Skärm bild som visar skärmen "konfigurationen har slutförts".](media/how-to-install/install4.png)</br>
 
 10. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
 ![Välkomstskärmen](media/how-to-install/install5.png)</br>
@@ -125,7 +125,7 @@ Nu ska du kontrol lera att användarna som du hade i vår lokala katalog har syn
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Gå till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klient.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
    ![Verifiera](media/tutorial-single-forest/verify1.png)</br>
 

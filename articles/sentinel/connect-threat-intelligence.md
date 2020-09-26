@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362754"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Anslut data från hot Intelligence-leverantörer
 
@@ -59,13 +59,13 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Anslut Azure Sentinel till din Threat intelligence-plattform
 
-## <a name="prerequisites"></a>Krav  
+### <a name="prerequisites"></a>Förutsättningar  
 
 - Azure AD-rollen för antingen global administratör eller säkerhets administratör för att ge behörighet till din TIP-produkt eller anpassade program som använder direkt integrering Microsoft Graph med tiIndicators-API: et för säkerhet.
 
 - Läs-och Skriv behörighet till arbets ytan i Azure Sentinel för att lagra dina hot indikatorer.
 
-## <a name="instructions"></a>Instruktioner
+### <a name="instructions"></a>Instruktioner
 
 1. [Registrera ett program](/graph/auth-v2-service#1-register-your-app) i Azure Active Directory för att hämta ett program-ID, program hemlighet och Azure Active Directory klient-ID. Du behöver dessa värden för när du konfigurerar din integrerade tips produkt eller app som använder direkt integrering med Microsoft Graph Security tiIndicators API.
 
@@ -89,13 +89,13 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Anslut Azure Sentinel till TAXIi-servrar
 
-## <a name="prerequisites"></a>Krav  
+### <a name="prerequisites"></a>Förutsättningar
 
 - Läs-och Skriv behörighet till arbets ytan i Azure Sentinel för att lagra dina hot indikatorer.
 
 - TAXIi 2,0-Server-URI och samlings-ID.
 
-## <a name="instructions"></a>Instruktioner
+### <a name="instructions"></a>Instruktioner
 
 1. I Azure Portal går du till **Azure Sentinel**  >  **data Connectors** och väljer sedan **Threat Intelligence-anslutningen (för hands version)** .
 

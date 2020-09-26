@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266708"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -125,7 +125,7 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
   - *Reference* -Attribute innehåller ett ID som refererar till ett värde som lagras i en annan tabell i mål programmet.
   - *String*  -Attribute innehåller en text sträng.
 - **Primär nyckel?** – Anger om attributet definieras som ett primär nyckel fält i målobjektets schema.
-- **Obligatoriskt?** – Anger om attributet måste fyllas i mål programmet eller systemet.
+- **Kunna?** – Anger om attributet måste fyllas i mål programmet eller systemet.
 - **Flera värden?** – Anger om attributet stöder flera värden.
 - **Exakt fall?** – Om attributvärdena utvärderas på ett skift läges känsligt sätt.
 - **API-uttryck** – Använd inte, om det inte instrueras att göra det i dokumentationen för en speciell etablerings anslutning (till exempel Workday).
@@ -276,8 +276,8 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
 ## <a name="provisioning-a-multi-value-attribute"></a>Etablering av ett flervärdesattribut
 Vissa attribut, till exempel phoneNumbers och e-postmeddelanden, är flervärdesattribut där du kan behöva ange olika typer av telefonnummer eller e-postmeddelanden. Använd uttrycket nedan för attribut med flera värden. Det gör att du kan ange attributtypen och mappningen till motsvarande Azure AD-användarattribut för värdet. 
 
-* phoneNumbers [typ EQ "Work"]. värde
-* phoneNumbers [Type EQ "Mobile"]. värde
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
 * phoneNumbers [Type EQ "fax"]. värde
 
    ```json
@@ -316,6 +316,7 @@ Om du väljer det här alternativet tvingas en omsynkronisering av alla använda
 - Azure AD Provisioning-tjänsten har inte stöd för etablering av null-värden.
 - De primära nycklarna, vanligt vis "ID", ska inte inkluderas som målattribut i dina Attribute-mappningar. 
 - Attributet Role måste vanligt vis mappas med ett uttryck i stället för en direkt mappning. Se avsnittet ovan för mer information om roll mappning. 
+- Även om du kan inaktivera grupper från dina mappningar stöds inte inaktive ring av användare. 
 
 ## <a name="next-steps"></a>Nästa steg
 

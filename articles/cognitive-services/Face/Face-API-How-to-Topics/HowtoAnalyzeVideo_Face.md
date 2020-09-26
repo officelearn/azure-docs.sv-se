@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9de803789b7ec11a971cf9a79a5c4665ac372cb4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f9d9fa461291b2fe72e9d69928163bb54e9e1be0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928147"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303819"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Så analyserar du videor i realtid
 
@@ -221,5 +221,4 @@ I den här guiden har du lärt dig hur du utför analys av livevideoströmmar i 
 Ge oss gärna feedback och förslag på [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) eller, om det gäller mer allmängiltig API-feedback, på vår  [UserVoice-webbplats](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Relaterade ämnen
-- [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)
 - [Känna igen ansikten i en bild](HowtoDetectFacesinImage.md)

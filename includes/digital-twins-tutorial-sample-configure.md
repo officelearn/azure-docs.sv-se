@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292748"
 ---
 ## <a name="configure-the-sample-project"></a>Konfigurera exempelprojektet
 
-Konfigurera sedan ett exempel klient program som ska interagera med din Azure Digital-instansen. Om du inte redan har laddat ned exempelprojektet hämtar du det nu från sidan [*Azure Digitals-exempel*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) landning, genom att välja *Hämta zip* -knappen under rubriken.
+Konfigurera sedan ett exempel klient program som ska interagera med din Azure Digital-instansen.
 
-Navigera till den nedladdade filen på din dator och packa upp den.
+Navigera till den dator som du laddade ned tidigare från [*Azure Digitals-exempel*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (och zippa upp den om du inte redan har gjort det).
 
-När du är i den zippade mappen navigerar du till _AdtSampleApp_. Öppna _**AdtE2ESample. SLN**_ i Visual Studio 2019. 
+När du är i mappen navigerar du till _AdtSampleApp_. Öppna _**AdtE2ESample. SLN**_ i Visual Studio 2019. 
 
 I Visual Studio använder du fönstret *Solution Explorer* för att skapa en kopia av den _SampleClientApp > **serviceConfig.js. MALLFIL** _ (du kan använda de högra menyerna för att kopiera och klistra in). Byt namn på kopian *serviceConfig.jspå*. Detta fungerar som en för hands uppsättnings-JSON-fil med nödvändiga konfigurationsfiler för att köra projektet.
 

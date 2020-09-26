@@ -5,12 +5,12 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331938"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Åtkomst till diagnostikloggar för Azure Data Lake Analytics
 
@@ -26,7 +26,7 @@ Med diagnostisk loggning kan du samla in gransknings historik för data åtkomst
 
 2. Öppna ditt Data Lake Analytics-konto och välj **diagnostikloggar** i avsnittet __övervaka__ . Välj sedan __Aktivera diagnostik__.
 
-    ![Aktivera diagnostik för att samla in gransknings-och förfrågnings loggar](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Skärm bild som visar åtgärden "diagnostikloggar" som valts och aktivera diagnostik för att samla in följande loggar "markerat.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. Från __diagnostikinställningar__anger du ett __namn__ för den här loggnings konfigurationen och väljer sedan loggnings alternativ.
 
@@ -126,7 +126,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 
 #### <a name="request-log-schema"></a>Begär logg schema
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |Identifieraren för resursen som åtgärden utfördes på |
@@ -140,7 +140,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 
 #### <a name="request-log-properties-schema"></a>Schema för begär ande logg egenskaper
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | --- | --- | --- |
 | HttpMethod |Sträng |HTTP-metoden som används för åtgärden. Till exempel GET. |
 | Sökväg |Sträng |Den sökväg som åtgärden utfördes på |
@@ -149,7 +149,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 | StartTime |Sträng |Tiden då servern tog emot begäran |
 | EndTime |Sträng |Tiden då servern skickade ett svar |
 
-### <a name="audit-logs"></a>Granskningsloggar
+### <a name="audit-logs"></a>Spårningsloggar
 
 Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob har ett rot objekt som kallas **poster** som innehåller en matris med logg objekt.
 
@@ -174,9 +174,9 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 }
 ```
 
-#### <a name="audit-log-schema"></a>Schema för granskningslogg
+#### <a name="audit-log-schema"></a>Schema för spårningslogg
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |Identifieraren för resursen som åtgärden utfördes på |
@@ -194,7 +194,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 
 #### <a name="audit-log-properties-schema"></a>Schema för gransknings logg egenskaper
 
-| Namn | Typ | Beskrivning |
+| Namn | Typ | Description |
 | --- | --- | --- |
 | JobId |Sträng |Det ID som tilldelats jobbet |
 | JobName |Sträng |Det namn som har angetts för jobbet |

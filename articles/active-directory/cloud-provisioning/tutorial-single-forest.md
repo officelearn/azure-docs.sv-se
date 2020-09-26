@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1b91763c275e4fd091b7c1554699e5d6f35a6f55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266334"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Självstudie: integrera en enda skog med en enda Azure AD-klient
 
@@ -26,7 +26,7 @@ Den här självstudien vägleder dig genom att skapa en hybrid identitets miljö
 
 Du kan använda den miljö som du skapar i den här självstudien för att testa eller för att få bättre kunskaper om moln etablering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory administrations Center
 
 1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient organisation om dina lokala tjänster kraschar eller blir otillgängliga. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../fundamentals/add-users-azure-active-directory.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
@@ -61,16 +61,16 @@ Du kan använda den miljö som du skapar i den här självstudien för att testa
 5. Kör Azure AD Connect etablerings agenten.
 6. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.
 
-   ![Välkomstskärmen](media/how-to-install/install1.png)
+   ![Skärm bild som visar välkomst skärmen "Microsoft Azure A D Connect upetablerings agent paket".](media/how-to-install/install1.png)
 
 7. När den här åtgärden har slutförts startas konfigurations guiden.  Logga in med ditt globala administratörs konto för Azure AD.  Observera att om du har aktiverat förbättrad säkerhet i Internet Explorer blockeras inloggningen.  Om så är fallet, Stäng installationen, inaktivera Förbättrad säkerhet i Internet Explorer i Serverhanteraren och klicka på **guiden AAD Connect etablerings agent** för att starta om installationen.
 8. På skärmen **anslut Active Directory** klickar du på **Lägg till katalog** och loggar sedan in med ditt Active Directory domän administratörs konto.  Obs! domän administratörs kontot ska inte ha krav på lösen ords ändring. Om lösen ordet går ut eller ändras måste du konfigurera om agenten med de nya autentiseringsuppgifterna. Den här åtgärden lägger till din lokala katalog.  Klicka på **Nästa**.
 
-   ![Välkomstskärmen](media/how-to-install/install3.png)
+   ![Skärm bild av skärmen "Anslut Active Directory".](media/how-to-install/install3.png)
 
 9. Klicka på **Bekräfta**på sidan **konfiguration slutförd** .  Den här åtgärden registrerar och startar om agenten.
 
-   ![Välkomstskärmen](media/how-to-install/install4.png)
+   ![Skärm bild som visar skärmen "konfigurationen har slutförts".](media/how-to-install/install4.png)
 
 10. När den här åtgärden har slutförts bör du se ett meddelande: **din agent konfiguration har verifierats.**  Du kan klicka på **Avsluta**.</br>
 ![Välkomstskärmen](media/how-to-install/install5.png)</br>
@@ -83,7 +83,7 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)**.</br>
 ![Azure-portalen](media/how-to-install/install6.png)</br>
 
@@ -128,7 +128,7 @@ Nu ska du kontrol lera att användarna som du hade i vår lokala katalog har syn
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Gå till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klient.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
    ![Verifiera](media/tutorial-single-forest/verify1.png)</br>
 

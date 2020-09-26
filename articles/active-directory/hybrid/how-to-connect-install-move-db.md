@@ -11,12 +11,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc8b68206161abdd1782561c904d4e670ecca22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94710e99fa7d04d757f2ad5fd7b2d3f6e01371d1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306350"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Flytta Azure AD Connect-databasen från SQL Server Express till SQL Server 
 
@@ -41,13 +41,13 @@ Använd följande steg för att flytta Azure AD Connect-databasen till en fjärr
 
 8. När databasen är bifogad, gå tillbaka till Azure AD Connect-servern och installera Azure AD Connect.
 9. När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.
-   ![Välkommen](./media/how-to-connect-install-move-db/db1.png)
+   ![Skärm bild som visar sidan "Välkommen till Azure A D Connect" med "Express inställningar" på den vänstra menyn markerad.](./media/how-to-connect-install-move-db/db1.png)
 10. Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen \<drive>\Program\Microsoft Azure AD Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Du välkomnas med Välkommen till Azure AD Connect-skärmen. När du godkänt licensvillkoren och sekretesspolicyn klickar du på **Fortsätt**.
-    ![Välkommen](./media/how-to-connect-install-move-db/db3.png)
-12. På skärmen **Installera nödvändiga komponenter** är alternativet **Använd en befintlig SQL-server** aktiverat. Ange namnet på den SQL-server som är värd för ADSync-databasen. Om SQL-motorinstansen som används som värd för ADSync-databasen inte är standardinstansen på SQL-servern, måste du ange instansnamnet för SQL-motorn. Om SQL-surfning inte är aktiverat, måste du dessutom också ange portnumret för SQL-motorinstansen. Ett exempel:         
-    ![Välkommen](./media/how-to-connect-install-move-db/db4.png)           
+    ![Skärm bild som visar sidan "Välkommen till Azure A D Connect"](./media/how-to-connect-install-move-db/db3.png)
+12. På skärmen **Installera nödvändiga komponenter** är alternativet **Använd en befintlig SQL-server** aktiverat. Ange namnet på den SQL-server som är värd för ADSync-databasen. Om SQL-motorinstansen som används som värd för ADSync-databasen inte är standardinstansen på SQL-servern, måste du ange instansnamnet för SQL-motorn. Om SQL-surfning inte är aktiverat, måste du dessutom också ange portnumret för SQL-motorinstansen. Exempel:         
+    ![Skärm bild som visar sidan "installera nödvändiga komponenter".](./media/how-to-connect-install-move-db/db4.png)           
 
 13. På skärmen **Anslut till Azure AD**, måste du ange autentiseringsuppgifter för en global administratör i Azure AD-katalogen. Det rekommenderas att använda ett konto i standarddomänen onmicrosoft.com. Det här kontot används bara för att skapa ett tjänstkonto i Azure AD och används inte när guiden har slutförts.
     ![Anslut](./media/how-to-connect-install-move-db/db5.png)
@@ -57,11 +57,11 @@ Använd följande steg för att flytta Azure AD Connect-databasen till en fjärr
  
 
 15. I popup-fönstret kan du antingen (i) ange autentiseringsuppgifter för en företagsadministratör och låta Azure AD Connect skapa AD DS-kontot åt dig, eller (ii) skapa AD DS-kontot och ange dess autentiseringsuppgifter till Azure AD Connect. När du har valt ett alternativ och angett nödvändiga autentiseringsuppgifter klickar du på **OK** för att stänga popup-fönstret.
-    ![Välkommen](./media/how-to-connect-install-move-db/db7.png)
+    ![Skärm bild av popup-dialog rutan "A D-skogs konto" med alternativet "Skapa nytt A D-konto" markerat.](./media/how-to-connect-install-move-db/db7.png)
  
 
 16. När autentiseringsuppgifterna har angetts ersätts den röda kryssikonen med en grön bockikon. Klicka på **Nästa**.
-    ![Välkommen](./media/how-to-connect-install-move-db/db8.png)
+    ![Skärm bild som visar sidan "Anslut dina kataloger" när du har angett kontoautentiseringsuppgifter.](./media/how-to-connect-install-move-db/db8.png)
  
 
 17. På skärmen **redo att konfigurera** klickar du på **Installera**.

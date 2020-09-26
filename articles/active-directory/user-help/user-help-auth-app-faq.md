@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 00771f950271cfbc86994c01b6d866c5983f1b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278676"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Vanliga frågor och svar om Microsoft Authenticator-appen
 
@@ -29,6 +29,7 @@ Microsoft Authenticator-appen ersatte Azure Authenticator-appen och det är den 
 
 | Fråga | Svar |
 | -------- | ------ |
+| Varför jag har problem med Apple Watch på klockan 7? | Det finns ett problem med att godkänna meddelanden på klockan 7 och vi arbetar med Apple för att få detta åtgärdat. Under tiden ska alla meddelanden som kräver Microsoft Authenticator bevaka app godkännas på din telefon i stället.  |
 | Är registreringen av en enhet som håller på att ge företaget eller tjänst åtkomst till min enhet? | När du registrerar en enhet får enheten åtkomst till din organisations tjänster och ger inte din organisation åtkomst till din enhet. |
 | Vad är app lock och hur kan jag använda det för att hjälpa mig att skydda mig? | Med app lock kan du hålla dina lösen ord, appdata och appinställningar säkrare. När app lock är aktiverat uppmanas du att autentisera med enhetens PIN-kod eller bio mått varje gång du öppnar autentiseraren. Med appens lås kan du också se till att du är den enda som kan godkänna meddelanden genom att uppmana dig att ange din PIN-kod eller bio metrisk när du godkänner inloggnings aviseringen. Du kan aktivera eller inaktivera app lock på sidan autentisera inställningar. Som standard aktive ras app-låset när du ställer in en PIN-kod eller bio metrisk på enheten.<br><br>Tyvärr finns det ingen garanti för att app lock kommer att hindra någon från att komma åt autentiseraren. Det beror på att enhets registrering kan ske på andra platser utanför autentiseraren, t. ex. i Android-konto inställningar eller i Företagsportal-appen. |
 | Jag har en Windows Mobile-enhet och Microsoft Authenticator på Windows Mobile är inaktuell. Kan jag fortsätta autentisera med appen? | Alla autentiseringar med Microsoft Authenticator på Windows Mobile kommer att dras tillbaka efter den 15 juli 2020. Vi rekommenderar starkt att du använder en alternativ autentiseringsmetod för att undvika att vara utelåst från dina konton.<br>Alternativa alternativ för företags användare är:<br><ul><li>Konfigurera Microsoft Authenticator för [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) eller [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Konfigurera [SMS](multi-factor-authentication-setup-phone-number.md) för att ta emot verifierings koder.</li><li>Konfigurera telefonnumret för att ta emot [telefonsamtal för att verifiera deras identitet](multi-factor-authentication-setup-office-phone.md).</li></ul><br>Alternativa alternativ för personliga Microsoft-konto användare är:<br><ul><li>Konfigurera Microsoft Authenticator för [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) eller [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Konfigurera en alternativ inloggnings metod (SMS eller e-post) genom att uppdatera din säkerhets information på [sidan Microsoft konto säkerhet](https://account.microsoft.com/security/).</li></ul> |

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 09/24/2020
 ms.author: iainfou
-ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266912"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrera Azure Active Directory Domain Services från den klassiska virtuella nätverks modellen till Resource Manager
 
@@ -139,17 +139,25 @@ Det finns vissa begränsningar för de virtuella nätverk som en hanterad domän
 
 Mer information om krav för virtuella nätverk finns i [design överväganden för virtuella nätverk och konfigurations alternativ][network-considerations].
 
+Du måste också skapa en nätverks säkerhets grupp för att begränsa trafiken i det virtuella nätverket för den hanterade domänen. En Azure standard Load Balancer skapas under migreringsprocessen som kräver att dessa regler placeras. Den här nätverks säkerhets gruppen säkrar Azure AD DS och krävs för att den hanterade domänen ska fungera korrekt.
+
+Mer information om vilka regler som krävs finns i [nätverks säkerhets grupper för Azure AD DS och de portar som krävs](network-considerations.md#network-security-groups-and-required-ports).
+
+### <a name="ldaps-and-tlsssl-certificate-expiration"></a>LDAP-och TLS/SSL-certifikat upphör att gälla
+
+Om din hanterade domän har kon figurer ATS för LDAPs kontrollerar du att ditt aktuella TLS/SSL-certifikat är giltigt i mer än 30 dagar. Ett certifikat som går ut inom de närmaste 30 dagarna gör att migreringsprocessen Miss fungerar. Om det behövs förnyar du certifikatet och tillämpar det på din hanterade domän och startar sedan migreringsprocessen.
+
 ## <a name="migration-steps"></a>Migreringsanvisningar
 
 Migreringen till distributions modellen för Resource Manager och det virtuella nätverket delas upp i 5 huvud steg:
 
 | Steg    | Utförd genom  | Beräknad tid  | Driftstopp  | Återställa/återställa? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [Steg 1 – uppdatera och leta upp det nya virtuella nätverket](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minuter | Ingen stillestånds tid krävs | Ej tillämpligt |
+| [Steg 1 – uppdatera och leta upp det nya virtuella nätverket](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minuter | Ingen stillestånds tid krävs | Saknas |
 | [Steg 2 – förbereda den hanterade domänen för migrering](#prepare-the-managed-domain-for-migration) | PowerShell | 15 – 30 minuter i genomsnitt | Stillestånds tiden för Azure AD DS startar när kommandot har slutförts. | Återställa och återställa tillgängligt. |
 | [Steg 3 – flytta den hanterade domänen till ett befintligt virtuellt nätverk](#migrate-the-managed-domain) | PowerShell | 1 – 3 timmar i genomsnitt | En domänkontrollant är tillgänglig när kommandot har slutförts. avbrotts tiden är slut. | Vid ett haveri är både återställning (självbetjäning) och återställning tillgängligt. |
 | [Steg 4 – testa och vänta på replik domänkontrollanten](#test-and-verify-connectivity-after-the-migration)| PowerShell och Azure Portal | 1 timme eller mer, beroende på antalet tester | Båda domän kontrol Lanterna är tillgängliga och bör fungera normalt. | Ej tillämpligt. När den första virtuella datorn har migrerats finns det inget alternativ för att återställa eller återställa. |
-| [Steg 5 – valfria konfigurations steg](#optional-post-migration-configuration-steps) | Azure Portal och virtuella datorer | Ej tillämpligt | Ingen stillestånds tid krävs | Ej tillämpligt |
+| [Steg 5 – valfria konfigurations steg](#optional-post-migration-configuration-steps) | Azure Portal och virtuella datorer | Saknas | Ingen stillestånds tid krävs | Saknas |
 
 > [!IMPORTANT]
 > Du undviker ytterligare nedtid genom att läsa igenom all den här artikel och vägledningen för migrering innan du påbörjar migreringsprocessen. Migreringsprocessen påverkar tillgängligheten för Azure AD DS-domänkontrollanter under en viss tids period. Användare, tjänster och program kan inte autentisera mot den hanterade domänen under migreringsprocessen.
@@ -166,7 +174,9 @@ Innan du påbörjar migreringsprocessen slutför du följande inledande kontroll
 
     Kontrol lera att nätverks inställningarna inte blockerar nödvändiga portar som krävs för Azure AD DS. Portarna måste vara öppna både i det klassiska virtuella nätverket och i det virtuella Resource Manager-nätverket. De här inställningarna inkluderar routningstabeller (även om det inte rekommenderas att använda routningstabeller) och nätverks säkerhets grupper.
 
-    Om du vill visa de portar som krävs, se [nätverks säkerhets grupper och nödvändiga portar][network-ports]. För att minimera nätverks kommunikations problem rekommenderar vi att du väntar och tillämpar en nätverks säkerhets grupp eller en routningstabell i det virtuella Resource Manager-nätverket när migreringen har slutförts.
+    Azure AD DS behöver en nätverks säkerhets grupp för att skydda de portar som behövs för den hanterade domänen och blockera all annan inkommande trafik. Den här nätverks säkerhets gruppen fungerar som ett extra skydds lager för att låsa åtkomsten till den hanterade domänen. Om du vill visa de portar som krävs, se [nätverks säkerhets grupper och nödvändiga portar][network-ports].
+
+    Om du använder säker LDAP lägger du till en regel i nätverks säkerhets gruppen för att tillåta inkommande trafik för *TCP* -port *636*. Mer information finns i [låsa säker LDAP-åtkomst via Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 
     Anteckna den här mål resurs gruppen, målets virtuella nätverk och målets virtuella nätverks under nät. Dessa resurs namn används under migreringsprocessen.
 
@@ -265,9 +275,9 @@ När minst en domänkontrollant är tillgänglig slutför du följande konfigura
 
 Testa nu den virtuella nätverks anslutningen och namn matchningen. På en virtuell dator som är ansluten till det virtuella Resource Manager-nätverket eller som peer-kopplas till den, kan du prova följande nätverks kommunikations test:
 
-1. Kontrol lera om du kan pinga IP-adressen för en av domän kontrol Lanterna, till exempel`ping 10.1.0.4`
+1. Kontrol lera om du kan pinga IP-adressen för en av domän kontrol Lanterna, till exempel `ping 10.1.0.4`
     * IP-adresserna för domän kontrol Lanterna visas på **egenskaps** sidan för den hanterade domänen i Azure Portal.
-1. Verifiera namn matchning för den hanterade domänen, till exempel`nslookup aaddscontoso.com`
+1. Verifiera namn matchning för den hanterade domänen, till exempel `nslookup aaddscontoso.com`
     * Ange DNS-namnet för din egen hanterade domän för att kontrol lera att DNS-inställningarna är korrekta och att de löses.
 
 Den andra domänkontrollanten bör vara tillgänglig 1-2 timmar efter att migrerings-cmdleten har slutförts. Kontrol lera om den andra domänkontrollanten är tillgänglig genom att titta på **egenskaps** sidan för den hanterade domänen i Azure Portal. Om två IP-adresser visas är den andra domänkontrollanten klar.
@@ -295,13 +305,6 @@ Vid behov kan du uppdatera den detaljerade lösen ords principen så att den är
 1. Om en virtuell dator exponeras för Internet kan du läsa om allmänna konto namn som *administratör*, *användare*eller *gäst* med höga inloggnings försök. Uppdatera om möjligt de virtuella datorerna så att de använder mindre generiska, namngivna konton.
 1. Använd ett nätverks spår på den virtuella datorn för att hitta källan till angreppen och blockera de här IP-adresserna från att kunna försöka logga in.
 1. Om det uppstår minimala problem med utelåsning bör du uppdatera den detaljerade lösen ords principen så restriktivt som det behövs.
-
-### <a name="creating-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
-
-Azure AD DS behöver en nätverks säkerhets grupp för att skydda de portar som behövs för den hanterade domänen och blockera all annan inkommande trafik. Den här nätverks säkerhets gruppen fungerar som ett extra skydds lager för att låsa åtkomsten till den hanterade domänen och skapas inte automatiskt. Granska följande steg för att skapa nätverks säkerhets gruppen och öppna de portar som krävs:
-
-1. I Azure Portal väljer du din Azure AD DS-resurs. På sidan Översikt visas en knapp för att skapa en nätverks säkerhets grupp om ingen är kopplad till Azure AD Domain Services.
-1. Om du använder säker LDAP lägger du till en regel i nätverks säkerhets gruppen för att tillåta inkommande trafik för *TCP* -port *636*. Mer information finns i [Konfigurera säker LDAP][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Återställa och återställa från migrering
 

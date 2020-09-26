@@ -1,6 +1,6 @@
 ---
 title: Workday-attributreferens
-description: Lär dig vilka attribut från SuccessFactors som stöds av SuccessFactors-HR driven-etablering
+description: Lär dig vilka attribut som du kan hämta från Workday med hjälp av XPATH-frågor.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 4d6e5fb765125a4cf68c4939e7350feb84509bf2
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266572"
 ---
 # <a name="workday-attribute-reference"></a>Workday-attributreferens
 
@@ -226,7 +226,7 @@ Om du vill lägga till fler attribut till XPATH-tabellen för fördelen med kund
 ## <a name="supported-xpath-functions"></a>XPATH-funktioner som stöds
 Nedan visas en lista över de XPATH-funktioner som stöds av [Microsoft .net XPath-bibliotek](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) som du kan använda när du skapar ditt XPath API-uttryck. 
 
-* name
+* namn
 * pågå
 * position
 * sträng

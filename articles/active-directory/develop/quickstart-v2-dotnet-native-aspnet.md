@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: e3b666ca7418a11bba3091a5ae8191e9c7b33411
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e1b76c9b6a442e3be23ddd54c926b13601287d7f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354946"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Snabb start: anropa ett ASP.NET webb-API som skyddas av Microsoft Identity Platform
 
@@ -162,7 +162,7 @@ Ett sätt som du kan tillåta att användare från andra kataloger har åtkomst 
 1. I avsnittet **auktoriserade omfattningar** väljer du omfattning för `api://<Application ID>/access_as_user` webb-API: et.
 1. Välj **Lägg till program**.
 
-## <a name="run-your-project"></a>Köra projektet
+### <a name="run-your-project"></a>Köra projektet
 
 1. Tryck på F5 för att köra projektet. TodoListClient-appen bör öppnas.
 1. I det övre högra hörnet väljer du **Logga**in och loggar sedan in med en personlig Microsoft-konto, till exempel live.com eller hotmail.com, eller ett arbets-eller skol konto.

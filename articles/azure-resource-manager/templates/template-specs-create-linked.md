@@ -3,18 +3,18 @@ title: Skapa en mall-specifikation med länkade mallar
 description: Lär dig hur du skapar en mall-specifikation med länkade mallar.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: f1808be73981c3ab4d53fd2a651822b93b5fb790
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: df3403fea47f31481f4b3c6d1292749d69f2f584
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369186"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Självstudie: skapa en mall-specifikation med länkade mallar (förhands granskning)
 
 Lär dig hur du skapar en [mall-specifikation](template-specs.md) med en [länkad mall](linked-templates.md#linked-template). Du använder mall-specifikationer för att dela ARM-mallar med andra användare i din organisation. Den här artikeln visar hur du skapar en mall-specifikation för att paketera en huvud-mall och dess länkade mallar med hjälp av den nya `relativePath` egenskapen för [distributions resursen](/azure/templates/microsoft.resources/deployments).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -176,7 +176,7 @@ New-AzTemplateSpec `
   -Version "1.0.0.0" `
   -ResourceGroupName templateSpecRG `
   -Location westus2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -223,7 +223,7 @@ New-AzResourceGroup `
   -Name webRG `
   -Location westus2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `

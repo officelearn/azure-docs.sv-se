@@ -11,16 +11,16 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 25f12d038b2a83688c12d95adefef3d4fb39be43
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: aa86161bce0b52eb1043d792fb2f4770df0992ee
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369424"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Snabb start: pausa och återuppta beräkning i Synapse SQL-pool via Azure Portal
 
-Du kan använda Azure Portal för att pausa och återuppta beräknings resurserna för Synapse SQL-poolen (data lagret). Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Du kan använda Azure Portal för att pausa och återuppta beräknings resurserna för Synapse SQL-poolen (data lagret). Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -49,7 +49,7 @@ Följ dessa steg om du vill pausa en SQL-pool:
 5. En bekräftelse fråga visas där du tillfrågas om du vill fortsätta. Klicka på **Ja**.
 6. Vänta en stund och se sedan till att **statusen** **pausas**.
 
-    ![Pausar](./media/pause-and-resume-compute-portal/pausing.png)
+    ![Skärm bild som visar Azure Portal för ett exempel informations lager med statusvärdet Pause.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. När paus åtgärden är klar **pausas** statusen och alternativ knappen är **återuppta**.
 8. Beräknings resurserna för SQL-poolen är nu offline. Du debiteras inte för beräkning förrän du återupptar tjänsten.
@@ -71,7 +71,7 @@ Följ de här stegen för att återuppta SQL-poolen.
 5. En bekräftelse fråga visas som frågar om du vill starta. Klicka på **Ja**.
 6. Observera att **statusen** **återupptas**.
 
-    ![Återupptar](./media/pause-and-resume-compute-portal/resuming.png)
+    ![Skärm bild som visar Azure Portal för ett exempel informations lager med start-knappen vald och ett status värde för att återuppta.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. När SQL-poolen är online igen är statusen **online** och alternativ knappen är **pausad**.
 8. Beräknings resurserna för SQL-poolen är nu online och du kan använda tjänsten. Avgifter för beräkning har återupptagits.

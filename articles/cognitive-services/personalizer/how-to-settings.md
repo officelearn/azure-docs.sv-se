@@ -1,14 +1,16 @@
 ---
 title: Konfigurera Personanpassning
 description: Tjänst konfigurationen omfattar hur tjänsten behandlar förmåner, hur ofta tjänsten utforskar, hur ofta modellen omtränas och hur mycket data som lagras.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 4c0cbf35a37f6b3eb134992b34b23fd9d7be47ed
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9b7347cb98bcbf2e1d92f115d404197083acef4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292617"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Konfigurera en inlärnings slinga
 
@@ -71,7 +73,7 @@ När du har ändrat det här värdet ska du se till att välja **Spara**.
 |--|--|
 |1 minut|Uppdaterings frekvensen på en minut är användbar när du **felsöker** ett programs kod med hjälp av personanpassa, gör demonstrationer eller interaktivt testar maskin inlärnings aspekter.|
 |15 minuter|Hög modell uppdaterings frekvens är användbart i situationer där du vill **Spåra ändringar** i användar beteenden. Exempel på detta är webbplatser som körs på direktsända nyheter, virus innehåll eller Live Product-budgivning. Du kan använda en frekvens på 15 minuter i dessa scenarier. |
-|1 timme|För de flesta användnings fall är en lägre uppdaterings frekvens effektiv.|
+|1 timme|För de flesta användnings fall är en lägre uppdaterings frekvens effektiv.|
 
 ![Modell uppdaterings frekvens anger hur ofta en ny personanpassa modell ska omtränas.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 

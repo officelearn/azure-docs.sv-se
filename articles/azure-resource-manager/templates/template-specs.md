@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fad7ca60e98dcaabc5f6fc106e0d2c1b77085d67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0516947ff134992d684aa6826999c4d65bba1457
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227890"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369084"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifikationer för Azure Resource Manager mall (för hands version)
 
-En mall specifikation är en ny resurs typ för att lagra en Azure Resource Manager-mall (ARM-mall) i Azure för senare distribution. Med den här resurs typen kan du dela ARM-mallar med andra användare i din organisation. Precis som med andra Azure-resurser kan du använda rollbaserad åtkomst kontroll (RBAC) för att dela specifikationen för mallen.
+En mall specifikation är en ny resurs typ för att lagra en Azure Resource Manager-mall (ARM-mall) i Azure för senare distribution. Med den här resurs typen kan du dela ARM-mallar med andra användare i din organisation. Precis som med andra Azure-resurser kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att dela mallen specifikation.
 
 **Microsoft. Resources/templateSpecs** är den nya resurs typen för specifikationer för mallar. Det består av en huvudmall och ett valfritt antal länkade mallar. Azure sparar säkert mall-specifikationer i resurs grupper. Mall-specifikationer stöder [versions hantering](#versioning).
 
@@ -27,7 +27,7 @@ Om du vill distribuera en mall använder du standard Azure-verktyg som PowerShel
 
 Om du för närvarande har dina mallar i ett GitHub-lagrings platsen eller lagrings konto kan du köra flera utmaningar när du försöker dela och använda mallarna. För att en användare ska kunna distribuera den måste mallen antingen vara lokal eller URL: en för mallen måste vara offentligt tillgänglig. För att komma runt den här begränsningen kan du dela kopior av mallen med användare som behöver distribuera den, eller öppna åtkomst till lagrings platsen eller lagrings kontot. När användare äger lokala kopior av en mall kan de här kopiorna gå till och med den ursprungliga mallen. När du gör en lagrings platsen eller ett lagrings konto offentligt tillgängligt kan du tillåta oönskade användare att komma åt mallen.
 
-Fördelen med att använda mall-specifikationer är att du kan skapa kanoniska mallar och dela dem med team i din organisation. Mallens specifikationer är säkra eftersom de är tillgängliga för Azure Resource Manager för distribution, men inte är tillgängliga för användare utan RBAC-behörighet. Användare behöver bara Läs behörighet till mallen mall för att distribuera dess mall, så att du kan dela mallen utan att tillåta andra att ändra den.
+Fördelen med att använda mall-specifikationer är att du kan skapa kanoniska mallar och dela dem med team i din organisation. Mall-specifikationerna är säkra eftersom de är tillgängliga för att Azure Resource Manager för distribution, men inte tillgängliga för användare utan Azure RBAC-behörighet. Användare behöver bara Läs behörighet till mallen mall för att distribuera dess mall, så att du kan dela mallen utan att tillåta andra att ändra den.
 
 Mallarna som du lägger till i en mall specifikation bör verifieras av administratörer i organisationen för att följa organisationens krav och vägledning.
 

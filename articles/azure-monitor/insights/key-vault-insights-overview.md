@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278625"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault
 Azure Monitor för Key Vault ger omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
@@ -25,21 +25,6 @@ Innan du hoppar till erfarenheten bör du förstå hur den visar och visualisera
 -    **Anpassningsbara** där du kan ändra vilka mått du vill se, ändra eller ange tröskelvärden som överensstämmer med dina gränser och spara din egen arbets bok. Diagram i arbets boken kan fästas på Azure-instrumentpaneler.
 
 Azure Monitor för Key Vault kombinerar både loggar och mått för att tillhandahålla en global övervaknings lösning. Alla användare kan komma åt de mät databaserade övervaknings data, men inkludering av loggarbaserade visualiseringar kan kräva att användarna [aktiverar loggning av sina Azure Key Vault](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Konfigurera nyckel valv för övervakning
-
-> [!NOTE]
-> Aktivering av loggar är en betald tjänst som tillhandahåller ytterligare övervaknings funktioner.
-
-1. På fliken åtgärder & svars tid kan du avgöra hur många och vilka nyckel valv som är aktiverade. Börja samla in genom att välja knappen **Aktivera** , som tar dig till en separat arbets bok som visar de nyckel valv som kräver att du aktiverar diagnostikloggar.
-
-    ![Skärm bild av fliken åtgärder och svars tid med knappen blå aktivering som visas](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Om du vill aktivera diagnostikloggar klickar du på länken **Aktivera** under kolumnen åtgärder och skapar en ny diagnostisk inställning som skickar loggar till en Log Analytics-arbetsyta. Vi rekommenderar att du skickar alla loggar till samma arbets yta.
-
-3. När diagnostikinställningar har sparats kommer du att kunna visa alla loggbaserade diagram och visualiseringar under Key Vault insikter. Observera att det kan ta flera minuter för timmar att börja fylla i loggarna.
-
-4. Om du vill ha mer hjälp om hur du aktiverar diagnostikloggar för Key Vaults tjänsten läser du [hela guiden](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Visa från Azure Monitor
 
@@ -165,10 +150,6 @@ Det finns en gräns på 200 nyckel valv som kan väljas och visas. Oavsett antal
 Vi visar bara prenumerationer som innehåller nyckel valv, som väljs från det valda prenumerations filtret, som väljs i "katalog + prenumeration" i Azure Portals huvudet.
 
 ![Skärm bild av prenumerations filter](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Jag får ett fel meddelande om att "frågan överskrider det högsta antalet arbets ytor/regioner som tillåts", vad du gör nu
-
-För närvarande finns det en gräns på 25 regioner och 200 arbets ytor för att visa dina data. du måste minska antalet prenumerationer och/eller resurs grupper.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Jag vill göra ändringar eller lägga till ytterligare visualiseringar för att Key Vault insikter, hur gör jag för att
 

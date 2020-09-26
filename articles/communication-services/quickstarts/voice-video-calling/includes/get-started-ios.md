@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c67440453e5ca8395464369d75bfac418a564764
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948319"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377008"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för iOS.
 
@@ -28,21 +28,21 @@ För att slutföra den här självstudien behöver du följande förutsättninga
 
 ### <a name="creating-the-xcode-project"></a>Skapa Xcode-projektet
 
-I Xcode skapar du ett nytt iOS-projekt och väljer app-mallen för **enskild vy** . I den här självstudien används [SwiftUI-ramverket](https://developer.apple.com/xcode/swiftui/), så du bör ange **språket** till **Swift** och **användar gränssnittet** för **SwiftUI**. Du kommer inte att skapa enhets test eller UI-tester under den här snabb starten. Avmarkera kryss rutorna ta med **enhets tester** och avmarkera **Inkludera UI-tester**.
+I Xcode skapar du ett nytt iOS-projekt och väljer app-mallen för **enskild vy** . I den här självstudien används [SwiftUI-ramverket](https://developer.apple.com/xcode/swiftui/), så du bör ange **språket** till **Swift** och **användar gränssnittet** för **SwiftUI**. Du kommer inte att skapa tester under den här snabb starten. Avmarkera **ta med tester**.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Skärm bild som visar fönstret Skapa nytt nytt projekt i Xcode.":::
+:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Skärm bild som visar det nya projekt fönstret i Xcode.":::
 
 ### <a name="install-the-package"></a>Installera paketet
 
 Lägg till Azure Communication Services som anropar klient biblioteket och dess beroenden (AzureCore. Framework och AzureCommunication. Framework) i projektet.
 
 > [!NOTE]
-> Med versionen av AzureCommunicationCalling SDK hittar du ett bash-skript `BuildAzurePackages.sh` . Skriptet vid körning `sh ./BuildAzurePackages.sh` ger dig sökvägen till de skapade Ramverks paket som måste importeras i exempel programmet i nästa steg. Observera att du måste konfigurera Xcode kommando rads verktyg om du inte har gjort det innan du kör skriptet: starta Xcode, välj "inställningar-> platser". Välj din Xcode-version för kommando rads verktygen.
+> Med versionen av AzureCommunicationCalling SDK hittar du ett bash-skript `BuildAzurePackages.sh` . Skriptet vid körning `sh ./BuildAzurePackages.sh` ger dig sökvägen till de skapade Ramverks paket som måste importeras i exempel programmet i nästa steg. Observera att du måste konfigurera Xcode kommando rads verktyg om du inte har gjort det innan du kör skriptet: starta Xcode, välj "inställningar-> platser". Välj din Xcode-version för kommando rads verktygen. **BuildAzurePackages.sh-skript fungerar bara med Xcode 11,5 och senare**
 
-1. Ladda ned Azure Communication Services som anropar klient biblioteket för iOS.
+1. [Ladda ned](https://github.com/Azure/Communication/releases) Azure Communication Services som anropar klient biblioteket för iOS.
 2. I Xcode klickar du på projekt filen till och väljer Bygg målet för att öppna redigeraren för projekt inställningar.
 3. Under fliken **Allmänt** bläddrar du till avsnittet **ramverk, bibliotek och inbäddat innehåll** och klickar på ikonen **"+"** .
-4. Längst ned till vänster i dialog rutan väljer du **Lägg till filer**, navigera till katalogen **AzureCommunicationCalling. Framework** i det icke-zippade klient biblioteks paketet.
+4. Längst ned till vänster i dialog rutan använder du List rutan Välj **Lägg till filer**, navigera till katalogen **AzureCommunicationCalling. Framework** i det zippade klient biblioteks paketet.
     1. Upprepa det sista steget för att lägga till **AzureCore. Framework** och **AzureCommunication. Framework**.
 5. Öppna fliken **versions inställningar** i redigeraren för projekt inställningar och rulla till avsnittet **Sök sökvägar** . Lägg till en ny **sökväg för Sök vägar för ramverk** för katalogen som innehåller **AzureCommunicationCalling. Framework**.
     1. Lägg till en annan sökväg Sök vägar i Framework som pekar på den mapp som innehåller beroenden.
@@ -51,7 +51,7 @@ Lägg till Azure Communication Services som anropar klient biblioteket och dess 
 
 ### <a name="request-access-to-the-microphone"></a>Begär åtkomst till mikrofonen
 
-För att få åtkomst till enhetens mikrofon måste du uppdatera appens informations egenskaps lista med en `NSMicrophoneUsageDescription` . Du anger det associerade värdet till en `string` som ska ingå i dialog rutan som systemet använder för att begära åtkomstbegäran från användaren.
+För att få åtkomst till enhetens mikrofon måste du uppdatera appens informations egenskaps lista med en `NSMicrophoneUsageDescription` . Du anger det associerade värdet till en `string` som ska ingå i dialog rutan som systemet använder för att begära åtkomst från användaren.
 
 Högerklicka på `Info.plist` posten för projekt trädet och välj **öppna som**  >  **källkod**. Lägg till följande rader i avsnittet på den översta nivån `<dict>` och spara sedan filen.
 
@@ -121,7 +121,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 | ACSCallClient | CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | ACSCallAgent | CallAgent används för att starta och hantera samtal. |
 | CommunicationUserCredential | CommunicationUserCredential används som token-autentiseringsuppgifter för att instansiera CallAgent.| 
-| CommunicationIndentifier | CommunicationIndentifier används för att representera identiteten för användaren som kan vara något av följande: CommunicationUser/telefonnummer/CallingApplication. |
+| CommunicationIdentifier | CommunicationIdentifier används för att representera identiteten för användaren som kan vara något av följande: CommunicationUser/telefonnummer/CallingApplication. |
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -190,7 +190,7 @@ func endCall()
 
 ## <a name="run-the-code"></a>Kör koden
 
-Du kan skapa en kör appen på iOS-simulatorn genom att välja **produkt**  >  **körning** eller genom att använda kortkommandot (&#8984;-R).
+Du kan skapa och köra din app på iOS-simulatorn genom att välja **produkt**  >  **körning** eller genom att använda kortkommandot (&#8984;-R).
 
 :::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Det slutliga utseendet och känslan av snabb starts appen":::
 
@@ -199,6 +199,6 @@ Du kan göra ett utgående VOIP-anrop genom att ange ett användar-ID i fältet 
 > [!NOTE]
 > Första gången du gör ett samtal uppmanas du att få åtkomst till mikrofonen. I ett produktions program bör du använda API- `AVAudioSession` [kontrollen för att kontrol lera behörighetens status och på](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) ett smidigt sätt uppdatera programmets beteende när behörighet inte beviljas.
 
-## <a name="sample"></a>Exempel
+## <a name="sample-code"></a>Exempelkod
 
-Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure/Communication/tree/master/samples/AzureCommunicationCalling/iOS/Swift)
+Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)

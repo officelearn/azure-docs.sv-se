@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 6e8e6feb064a5d26eb6cb72b521d3f9df0380086
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360114"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Skicka anpassade kommandon-aktivitet till klient program
 
@@ -26,11 +26,11 @@ Du utför följande aktiviteter:
 - Definiera och skicka en anpassad JSON-nyttolast från programmet för anpassade kommandon
 - Ta emot och visualisera det anpassade JSON-nyttolasten från ett C# UWP-program för tal-SDK
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) eller senare. Den här guiden använder Visual Studio 2019
-> * En Azure-prenumerations nyckel för tal service: [Hämta en kostnads fri](get-started.md) eller skapa den på [Azure Portal](https://portal.azure.com)
-> * En tidigare [skapad app med anpassade kommandon](quickstart-custom-commands-application.md)
+> * En Azure-prenumerationsnyckel för Speech-tjänsten: [Hämta en kostnadsfritt](overview.md#try-the-speech-service-for-free) eller skapa den i [Azure-portalen](https://portal.azure.com)
+> * En tidigare [skapad app för Anpassade kommandon](quickstart-custom-commands-application.md)
 > * En klient app för tal-SDK som är aktive rad: [så här integrerar du med ett klient program med hjälp av tal-SDK](./how-to-custom-commands-setup-speech-sdk.md)
 
 ## <a name="setup-send-activity-to-client"></a>Konfigurera skicka aktivitet till klient 
@@ -51,7 +51,7 @@ Du utför följande aktiviteter:
    > [!div class="mx-imgBorder"]
    > ![Skicka regel för slut för ande av aktivitet](media/custom-commands/send-activity-to-client-completion-rules.png)
 
-## <a name="integrate-with-client-application"></a>Integrera med klient program
+## <a name="integrate-with-client-application"></a>Integrera med klientprogram
 
 I [anvisningar: Konfigurera klient program med Speech SDK (för hands version)](./how-to-custom-commands-setup-speech-sdk.md)har du skapat ett UWP-klientprogram med tal-SDK som hanterade kommandon som `turn on the tv` , `turn off the fan` . Med vissa visuella objekt tillagda kan du se resultatet av dessa kommandon.
 
@@ -150,8 +150,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 
 1. Starta programmet
 1. Välj Aktivera mikrofon
-1. Välj knappen prata
-1. Berätta`turn on the tv`
+1. Välj knappen Prata
+1. Säg `turn on the tv`
 1. TV-apparatens visuella tillstånd ska ändras till "på"
    > [!div class="mx-imgBorder"]
    > ![Skicka aktivitetens nytto Last](media/custom-commands/send-activity-to-client-turn-on-tv.png)

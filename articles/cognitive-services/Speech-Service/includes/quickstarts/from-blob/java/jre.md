@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: trbye
-ms.openlocfilehash: 804cc2213379364002a093509f2393e375c3971b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2a8deaa76c02e86c9304c2221c0617041ae2e138
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376962"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -17,7 +17,7 @@ Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 

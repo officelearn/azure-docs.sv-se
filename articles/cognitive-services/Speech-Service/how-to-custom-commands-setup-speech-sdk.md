@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918833"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360131"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrera med ett klient program med hjälp av tal-SDK
 
@@ -34,7 +34,7 @@ Det krävs ett program med anpassade kommandon för att kunna slutföra den här
 Du behöver också:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) eller senare. Den här guiden baseras på Visual Studio 2019.
-> * En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
+> * En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](overview.md#try-the-speech-service-for-free) eller skapa det på [Azure Portal](https://portal.azure.com)
 > * [Gör det möjligt för din enhet att utveckla](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Steg 1: publicera anpassade kommandon-program
@@ -404,7 +404,7 @@ Lägg till koden bakom källan enligt följande:
 
 1. Välj **Arkiv**  >  **Spara alla** på Meny raden för att spara ändringarna
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Prova nu
 
 1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360658"
 ---
 # <a name="speech-service-for-telephony-data"></a>Tal tjänst för telefoni data
 
@@ -70,7 +70,7 @@ Vår svars tid från slut punkt till slut punkt är betydligt låg för de olika
 
 Våra nya röster är också särskiljbar från mänskliga röster. Du kan använda våra röster för att ge din robot sitt unika personlighet.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
 En annan häftklammer av analys är att identifiera interaktioner där en speciell händelse eller erfarenhet har inträffat. Detta görs vanligt vis med en av två metoder. antingen en ad hoc-sökning där användaren bara skriver en fras och systemet svarar eller en mer strukturerad fråga där en analytiker kan skapa en uppsättning logiska uttryck som identifierar ett scenario i ett anrop, och varje anrop kan indexeras mot den uppsättningen med frågor. Ett bra Sökexempel är allmänt förekommande Compliance "detta samtal skall registreras i kvalitets syfte... ". Många företag vill se till att deras agenter tillhandahåller denna fri skrivning till kunderna innan samtalet faktiskt registreras. De flesta analys system har möjlighet att kunna trenda beteenden som hittas av algoritmer för frågor/sökning, och den här rapporten över trender är i slut änden en av de viktigaste funktionerna i ett analys system. Med hjälp av [kognitiva tjänster-katalogen](https://azure.microsoft.com/services/cognitive-services/directory/search/) kan din end to end-lösning förbättras avsevärt med indexerings-och Sök funktioner.
 
@@ -121,7 +121,7 @@ Ett annat scenario är direkt integrering med session initierings protokollet (S
 
  Tal tjänsten fungerar bra med inbyggda modeller. Men du kanske vill anpassa och justera upplevelsen för din produkt eller miljö ytterligare. Anpassnings alternativ sträcker sig från akustisk modell justering till unika röst teckensnitt för ditt varumärke. När du har skapat en anpassad modell kan du använda den med någon av funktionerna i tal tjänsten i real tid eller batchläge.
 
-| Tjänst för taligenkänning | Modell | Beskrivning |
+| Tjänst för taligenkänning | Modell | Description |
 | -------------- | ----- | ----------- |
 | Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
 |                | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
@@ -147,4 +147,4 @@ Exempel kod finns på GitHub för var och en av funktionerna i tal tjänsten. De
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+> [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)

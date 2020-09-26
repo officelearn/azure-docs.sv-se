@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff5c7c7018945bb93ce492ee3205f3567dff1d7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a8aa2fc0b5ba76a92a0aa0234635dadee5a00f28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925917"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376886"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
@@ -317,6 +317,6 @@ Innan du börjar ska du se till att:
 
 9. Gå tillbaka till webbläsaren och avsluta konversationen med hjälp av avslutnings knappen i det övre högra hörnet.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [!INCLUDE [footer](./footer.md)]

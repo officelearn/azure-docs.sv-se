@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c2dd0ce3c3e9a0f1f699b58ed2657394ad9acbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 608f984b3e3a3020863e0c28b0aa2ad504531e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273231"
 ---
 # <a name="azure-data-studio-dashboards"></a>Azure Data Studio instrument paneler
 
@@ -49,7 +49,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-Om du använder en LoadBalancer-typ vill du kopiera den externa IP-adressen och port numret 300080.  Om du använder NodePort ska du använda IP-adressen för din Kubernetes API-Server och port numret som anges under kolumnen PORT (er).
+Om du använder en LoadBalancer-typ vill du kopiera den externa IP-adressen och port numret. Om du använder NodePort ska du använda IP-adressen för din Kubernetes API-Server och port numret som anges under kolumnen PORT (er).
 
 Nu ska du skapa en URL till din slut punkt genom att kombinera den här informationen så här:
 

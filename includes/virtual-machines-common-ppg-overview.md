@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376491"
 ---
 Att placera virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Att placera dem i en enda tillgänglighets zon kommer också att ta dem fysiskt närmare varandra. I takt med att Azure-utrymmet växer kan en enda tillgänglighets zon sträcka sig över flera fysiska data Center, vilket kan leda till en nätverks fördröjning som påverkar ditt program. 
 
@@ -47,6 +47,39 @@ Närhets placerings grupper erbjuder samplacering i samma data Center. Men efter
 -   I händelse av elastiska arbets belastningar, där du lägger till och tar bort virtuella dator instanser, kan en grupp begränsning för närhets placering i distributionen leda till att det inte går att uppfylla begäran som resulterade i **AllocationFailure** -fel. 
 - Att stoppa (frigöra) och starta dina virtuella datorer efter behov är ett annat sätt att uppnå elastiskhet. Eftersom kapaciteten inte hålls kvar när du stoppar (frigör) en virtuell dator och startar den igen, kan det resultera i ett **AllocationFailure** -fel.
 
+## <a name="planned-maintenance-and-proximity-placement-groups"></a>Placerings grupper för planerat underhåll och närhet
+
+Planerade underhålls händelser, t. ex. maskin varu avställning i ett Azure-datacenter, kan eventuellt påverka justeringen av resurser i närhets placerings grupper. Resurser kan flyttas till ett annat data Center, vilket stör de samplacering och förväntningar som är kopplade till närhets placerings gruppen.
+
+### <a name="check-the-alignment-status"></a>Kontrol lera justerings status
+
+Du kan göra följande för att kontrol lera justerings status för närhets grupper.
+
+
+- Status för närhets placeringen kan visas med hjälp av portalen, CLI och PowerShell.
+
+    -   När du använder PowerShell kan status för samplacering erhållas med cmdleten Get-AzProximityPlacementGroup genom att inkludera den valfria parametern-ColocationStatus.
+
+    -   När du använder CLI kan du hämta samplacerings status med hjälp `az ppg show` av genom att inkludera den valfria parametern--include-superlocation-status.
+
+- För varje närhets placerings grupp tillhandahåller en egenskap för status för en **samplacering** av den aktuella justerings status sammanfattningen för de grupperade resurserna. 
+
+    - **Justerad**: resursen är inom samma latens-kuvert som den närhets placerings gruppen.
+
+    - **Okänd**: minst en av de virtuella dator resurserna har frigjorts. När du har startat dem igen bör statusen gå tillbaka till **justerad**.
+
+    - **Inte justerad**: minst en VM-resurs är inte justerad med närhets placerings gruppen. De särskilda resurser som inte justeras kommer också att anropas separat i avsnittet medlemskap
+
+- För tillgänglighets uppsättningar kan du se information om justering för enskilda virtuella datorer på översikts sidan tillgänglighets uppsättning.
+
+- För skalnings uppsättningar kan information om justering av enskilda instanser visas på fliken **instanser** på **översikts** sidan för skalnings uppsättningen. 
+
+
+### <a name="re-align-resources"></a>Justera resurser på nytt 
+
+Om det finns en närhets placerings grupp `Not Aligned` kan du stop\deallocate och sedan starta om de berörda resurserna. Om den virtuella datorn finns i en tillgänglighets uppsättning eller en skalnings uppsättning måste alla virtuella datorer i tillgänglighets uppsättningen eller skalnings uppsättningen vara stopped\deallocated först innan de startas om.
+
+Om det uppstår ett allokeringsfel på grund av distributions begränsningar kan du behöva stop\deallocate alla resurser i den påverkade närhets placerings gruppen (inklusive de justerade resurserna) först och sedan starta om dem för att återställa justeringen.
 
 ## <a name="best-practices"></a>Bästa praxis 
 - Använd närhets placerings grupper tillsammans med accelererat nätverk för lägsta latens. Mer information finns i [skapa en virtuell Linux-dator med accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [skapa en virtuell Windows-dator med accelererat nätverk](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

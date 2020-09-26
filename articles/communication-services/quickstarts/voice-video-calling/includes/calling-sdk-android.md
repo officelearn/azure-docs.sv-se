@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c0213b050745712a5c77d4861b9cfba4fc953dfd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376600"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -81,8 +81,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Placera ett utgående samtal och delta i ett grupp anrop
 
-Om du vill skapa och starta ett samtal måste du anropa `CallClient.call()` -metoden och ange `Identifier` för-eller-anropen.
-Om du vill ansluta till ett grupp anrop måste du anropa- `CallClient.join()` metoden och ange ett välliggande metod nummer. Grupp-ID: n måste vara i GUID-eller UUID-format.
+Om du vill skapa och starta ett samtal måste du anropa `CallAgent.call()` -metoden och ange `Identifier` för-eller-anropen.
+Om du vill ansluta till ett grupp anrop måste du anropa- `CallAgent.join()` metoden och ange ett välliggande metod nummer. Grupp-ID: n måste vara i GUID-eller UUID-format.
 
 Skapande av anrop och start är synkront. Anrops instansen gör att du kan prenumerera på alla händelser på anropet.
 
@@ -106,7 +106,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### <a name="place-a-11-call-with-with-video-camera"></a>Placera ett 1:1-anrop med video kameran
@@ -266,7 +266,7 @@ När hanteringen av push-meddelandet lyckas och alla händelse hanterare registr
 
 ### <a name="unregister-push-notification"></a>Avregistrera push-meddelanden
 
-- Program kan avregistrera push-meddelanden när som helst. Anropa bara `unregisterPushNotification()` metoden på callAgent.
+- Program kan avregistrera push-meddelanden när som helst. Anropa `unregisterPushNotification()` metoden på callAgent för avregistrering.
 
 ```java
 try {
@@ -300,12 +300,12 @@ CommunicationIdentifier callerId = call.getCallerId();
 ```java
 CallState callState = call.getState();
 ```
-Den returnerar ett anrops aktuella tillstånd för strängen reprensting:
+Den returnerar en sträng som representerar det aktuella status för ett anrop:
 * Ingen-första anrops status
 * ' Inkommande ' – anger att anropet är inkommande, måste antingen godkännas eller avvisas
 * Ansluter – ursprungligt över gångs tillstånd när anropet har placerats eller godkänts
 * ' Ringing ' – för ett utgående samtal – indikerar att samtal rings upp för fjärranslutna deltagare, det är "inkommande" på sin sida
-* ' EarlyMedia ' – anger ett tillstånd där en utpresentation spelas upp innan samtalet ansluts
+* ' EarlyMedia ' – anger ett tillstånd där ett meddelande spelas upp innan anropet ansluts
 * Ansluten – anropet är anslutet
 * Hold '-anropet är spärrat, inget medium flödar mellan lokal slut punkt och fjärran sluten deltagare
 * "Kopplar från"-över gångs läget innan anrop övergår till frånkopplat läge
@@ -354,7 +354,7 @@ Future startVideoFuture = call.startVideo(currentVideoStream);
 startVideoFuture.get();
 ```
 
-När du har startat sändningen `LocalVideoStream` av videon läggs en instans till i `localVideoStreams` samlingen på anrops instansen.
+När du har startat sändningen kommer en `LocalVideoStream` instans att läggas till i `localVideoStreams` samlingen på anrops instansen.
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
@@ -385,7 +385,7 @@ En viss fjärran sluten deltagare har en uppsättning egenskaper och samlingar s
 * Hämta ID: t för den här fjärran deltagaren.
 Identiteten är en av typen ' Identifier '
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * Hämta tillstånd för denna fjärran sluten deltagare.
@@ -397,7 +397,7 @@ Tillstånd kan vara en av
 * ' Connect ' – över gångs tillstånd medan deltagare ansluter till anropet
 * Ansluten – deltagaren är ansluten till anropet
 * Hold '-deltagare är stoppad
-* "EarlyMedia"-meddelandet spelas innan deltagaren ansluts till anropet
+* ' EarlyMedia ' – meddelandet spelas upp innan deltagaren ansluts till anropet
 * ' Frånkopplad ' – slutligt tillstånd-deltagare är frånkopplat från anropet
 
 

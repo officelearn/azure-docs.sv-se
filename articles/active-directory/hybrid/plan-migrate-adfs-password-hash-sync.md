@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662417"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273682"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från Federation till hash-synkronisering för lösen ord för Azure Active Directory
 
@@ -302,7 +302,7 @@ Använd den här metoden om du ursprungligen konfigurerade AD FS miljön med Azu
 
 5. På sidan **aktivera enkel inloggning** anger du autentiseringsuppgifterna för domän administratörs kontot och väljer sedan **Nästa**.
 
-   ![Skärm bild av sidan aktivera enkel inloggning](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Skärm bild av sidan aktivera enkel inloggning där du kan ange autentiseringsuppgifter för domän administratörs kontot.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Autentiseringsuppgifter för domän administratörs kontot krävs för att aktivera sömlös SSO. Processen utför följande åtgärder, som kräver dessa utökade behörigheter. Autentiseringsuppgifterna för domän administratörs kontot lagras inte i Azure AD Connect eller i Azure AD. Autentiseringsuppgifterna för domän administratörs kontot används bara för att aktivera funktionen. Autentiseringsuppgifterna tas bort när processen har slutförts.
@@ -324,7 +324,7 @@ Använd den här metoden om du ursprungligen konfigurerade AD FS miljön med Azu
    * **Sömlös enkel inloggning** har angetts till **aktive rad**.
    * **Lösenordssynkronisering** är **aktiverat**.<br /> 
 
-   ![Skärm bild som visar inställningarna i användar inloggnings avsnittet](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Skärm bild som visar inställningarna i avsnittet användar inloggning i Azure AD-portalen.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Hoppa till [test och nästa steg](#testing-and-next-steps).
 

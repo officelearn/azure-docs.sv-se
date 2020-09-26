@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: ee6b6c29c89c39c72144371af8268760da843170
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 59e862fe04e7bf715e6e44c783f2cf9c0ecbc7c3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377450"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
 > * Skapa en robot som är ansluten till den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning

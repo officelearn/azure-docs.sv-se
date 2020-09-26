@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fa7fd73a7d8019919a89dd9e9522b7389dc9c18f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377020"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -31,7 +31,7 @@ I Xcode skapar du ett nytt iOS-projekt och väljer app-mallen för **enskild vy*
 Lägg till Azure Communication Services som anropar klient biblioteket och dess beroenden (AzureCore. Framework och AzureCommunication. Framework) i projektet.
 
 > [!NOTE]
-> Med versionen av AzureCommunicationCalling SDK hittar du ett bash-skript `BuildAzurePackages.sh` . Skriptet vid körning `sh ./BuildAzurePackages.sh` ger dig sökvägen till de skapade Ramverks paket som måste importeras i exempel programmet i nästa steg. Observera att du måste konfigurera Xcode kommando rads verktyg om du inte har gjort det innan du kör skriptet: starta Xcode, välj "inställningar-> platser". Välj din Xcode-version för kommando rads verktygen.
+> Med versionen av AzureCommunicationCalling SDK hittar du ett bash-skript `BuildAzurePackages.sh` . Skriptet vid körning `sh ./BuildAzurePackages.sh` ger dig sökvägen till de skapade Ramverks paket som måste importeras i exempel programmet i nästa steg. Observera att du måste konfigurera Xcode kommando rads verktyg om du inte har gjort det innan du kör skriptet: starta Xcode, välj "inställningar-> platser". Välj din Xcode-version för kommando rads verktygen. **Observera att BuildAzurePackages.sh-skriptet endast fungerar med Xcode 11,5 och senare.**
 
 1. Ladda ned Azure Communication Services som anropar klient biblioteket för iOS.
 2. I Xcode klickar du på projekt filen till och väljer Bygg målet för att öppna redigeraren för projekt inställningar.

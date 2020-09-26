@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088552"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360539"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
@@ -218,8 +218,8 @@ I filen **PerformanceDiagnostics \_ åååå-mm-dd \_ HH-mm-SS-FFF. tar. gz** ka
 
 Fliken **Översikt** innehåller grundläggande körnings information och information om virtuella datorer. På fliken **konstaterande** visas en sammanfattning av rekommendationerna från alla de olika avsnitten i PerfInsights-rapporten.
 
-![Skärm bild av PerfInsights-rapport](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Skärm bild av PerfInsights-rapport](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Skärm bild av fliken Översikt i PerfInsights-rapporten.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Skärm bild av Linux-fliken i PerfInsights-rapporten.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Avgöranden kategoriserade som höga är kända problem som kan orsaka prestanda problem. Resultat som kategoriseras som medel representerar icke-optimala konfigurationer som inte nödvändigt vis orsakar prestanda problem. Resultat som kategoriseras som låg är endast informativa rapporter.

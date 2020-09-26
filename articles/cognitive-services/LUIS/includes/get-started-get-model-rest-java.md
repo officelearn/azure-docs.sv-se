@@ -5,16 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
 ms.author: diberry
-ms.openlocfilehash: a18cee5d6bfa13d377aa6900b0ea4a35c9edf4e8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7734a24904a2fa33aaf6eacaf631c4b7830f9abf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303933"
 ---
 [Referens dokumentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
 
@@ -53,13 +54,13 @@ ms.locfileid: "87375590"
 
 1. Med en kommando tolk i samma katalog som den plats där du skapade `Model.java` filen, anger du följande kommando för att kompilera Java-filen:
 
-    * Använd följande kommando om du använder Windows:`javac -cp ";lib/*" Model.java`
-    * Om du använder macOS eller Linux använder du följande kommando:`javac -cp ":lib/*" Model.java`
+    * Använd följande kommando om du använder Windows: `javac -cp ";lib/*" Model.java`
+    * Om du använder macOS eller Linux använder du följande kommando: `javac -cp ":lib/*" Model.java`
 
 1. Kör Java-programmet från kommando raden genom att ange följande text i kommando tolken:
 
-    * Använd följande kommando om du använder Windows:`java -cp ";lib/*" Model`
-    * Om du använder macOS eller Linux använder du följande kommando:`java -cp ":lib/*" Model`
+    * Använd följande kommando om du använder Windows: `java -cp ";lib/*" Model`
+    * Om du använder macOS eller Linux använder du följande kommando: `java -cp ":lib/*" Model`
 
 1. Granska redigerings svaret:
 

@@ -1,6 +1,6 @@
 ---
-title: Använd BLOB-index för att hantera och hitta data i Azure Blob Storage
-description: Se exempel på hur du använder BLOB-taggar för att kategorisera, hantera och fråga för att identifiera BLOB-objekt.
+title: Använd BLOB-taggar för att hantera och hitta data i Azure Blob Storage
+description: Se exempel på hur du använder BLOB-taggar för att kategorisera, hantera och fråga efter BLOB-objekt.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
@@ -9,18 +9,18 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adc510ef89a912e6d76949794aacbf130a8f066d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 41a21545939c5d15c8e2c4034a9648e98aa5a73e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018883"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280291"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data i Azure Blob Storage
 
 BLOB index-Taggar kategoriserar data i ditt lagrings konto med hjälp av attribut för nyckel värdes taggar. Taggarna indexeras automatiskt och exponeras som ett fråge bara flerdimensionellt index för att enkelt hitta data. Den här artikeln visar hur du ställer in, hämtar och hittar data med hjälp av BLOB-taggar.
 
-Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+Mer information om funktionen BLOB-index finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, Australien, **centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
@@ -56,7 +56,7 @@ using System.Threading.Tasks;
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto 
 
-2. Navigera till alternativet **behållare** under **BLOB service**, välj din behållare
+2. Navigera till alternativet **behållare** under **BLOB service**väljer du din behållare
 
 3. Välj knappen **överför** för att öppna bladet överför och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob.
 
@@ -86,7 +86,7 @@ static async Task BlobIndexTagsOnCreate()
           // Create an append blob
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
 
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -139,7 +139,7 @@ static async Task BlobIndexTagsExample()
           AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
           await appendBlob.CreateAsync();
 
-          // Set or Update Blob Index tags on existing blob
+          // Set or update blob index tags on existing blob
           Dictionary<string, string> tags = new Dictionary<string, string>
           {
               { "Project", "Contoso" },
@@ -148,7 +148,7 @@ static async Task BlobIndexTagsExample()
           };
           await appendBlob.SetTagsAsync(tags);
 
-          // Get Blob Index tags
+          // Get blob index tags
           Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
           Console.WriteLine(appendBlob.Name);
           foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
@@ -156,7 +156,7 @@ static async Task BlobIndexTagsExample()
               Console.WriteLine($"{tag.Key}={tag.Value}");
           }
 
-          // List Blobs with all options returned including Blob Index tags
+          // List blobs with all options returned including blob index tags
           await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
           {
               Console.WriteLine(Environment.NewLine + blobItem.Name);
@@ -166,7 +166,7 @@ static async Task BlobIndexTagsExample()
               }
           }
 
-          // Delete existing Blob Index tags by replacing all tags
+          // Delete existing blob index tags by replacing all tags
           Dictionary<string, string> noTags = new Dictionary<string, string>();
           await appendBlob.SetTagsAsync(noTags);
 
@@ -187,7 +187,7 @@ I Azure Portal tillämpar filtret BLOB index taggar automatiskt `@container` par
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto. 
 
-2. Navigera till alternativet **behållare** under **BLOB service**, välj din behållare
+2. Navigera till alternativet **behållare** under **BLOB service**väljer du din behållare
 
 3. Välj **filter knappen BLOB index Taggar** för att filtrera i den valda behållaren
 
@@ -205,7 +205,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
-      // Blob Index queries and selection
+      // Blob index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -227,7 +227,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
            
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -286,7 +286,7 @@ static async Task FindBlobsByTagsExample()
 
 3. Välj *Lägg till regel* och fyll sedan i formulär fälten för åtgärds uppsättning
 
-4. Välj filter uppsättning för att lägga till valfritt filter för prefix matchning och blob-index matcha ![ Lägg till BLOB index tag filter för livs cykel hantering](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Välj **filter** uppsättning för att lägga till valfritt filter för prefix matchning och blob-index matcha ![ Lägg till BLOB index tag filter för livs cykel hantering](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
 5. Välj **Granska + Lägg** till för att granska regel inställningarna ![ livs cykel hanterings regel med filter för BLOB index Taggar](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
@@ -299,6 +299,5 @@ Policys för [livs cykel hantering](storage-lifecycle-management-concepts.md) ti
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om BLOB-index. Se [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md )
-
-Läs mer om livs cykel hantering. Se [Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)
+ - Läs mer om BLOB-index i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md )
+ - Läs mer om livs cykel hantering. Se [Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)

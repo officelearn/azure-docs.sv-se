@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60246370"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313628"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect synkronisering: förstå deklarativ etablering
 I det här avsnittet beskrivs konfigurations modellen i Azure AD Connect. Modellen kallas deklarativ etablering och gör att du enkelt kan göra en konfigurations ändring. Många saker som beskrivs i det här avsnittet är avancerade och krävs inte för de flesta kund scenarier.
@@ -29,11 +29,11 @@ I det här avsnittet beskrivs konfigurations modellen i Azure AD Connect. Modell
 ## <a name="overview"></a>Översikt
 Deklarativ etablering bearbetar objekt som kommer från en källa ansluten katalog och avgör hur objektet och attributen ska omvandlas från en källa till ett mål. Ett objekt bearbetas i en synkroniseringsanslutning och pipelinen är samma för inkommande och utgående regler. En regel för inkommande trafik från ett anslutnings utrymme till metaversum och en utgående regel är från metaversum till ett anslutnings utrymme.
 
-![Synkronisering av pipelines](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![Diagram som visar ett exempel på en Sync-pipeline.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 Pipelinen har flera olika moduler. Var och en är ansvarig för ett koncept i Object synchronization.
 
-![Synkronisering av pipelines](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![Diagram som visar modulerna i pipelinen.](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
 * Källa, käll objekt
 * [Scope](#scope), hittar alla regler för synkronisering som ligger inom omfånget
@@ -44,7 +44,7 @@ Pipelinen har flera olika moduler. Var och en är ansvarig för ett koncept i Ob
 
 ## <a name="scope"></a>Omfång
 Omfångs modulen utvärderar ett objekt och fastställer reglerna i omfånget och ska inkluderas i bearbetningen. Beroende på attributets attributvärden utvärderas de olika reglerna för synkronisering enligt omfånget. Till exempel har en inaktive rad användare utan Exchange-postlåda olika regler än en aktive rad användare med en post låda.  
-![Omfång](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Diagram som visar scope-modulen för ett objekt.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 Omfånget definieras som grupper och satser. Satserna finns inuti en grupp. Ett logiskt och används mellan alla satser i en grupp. Till exempel (avdelning = IT och land = Danmark). Ett logiskt eller används mellan grupper.
 
@@ -53,7 +53,7 @@ Omfånget i den här bilden ska läsas som (avdelning = IT och land = Danmark) e
 
 Scope-modulen stöder följande åtgärder.
 
-| Åtgärd | Beskrivning |
+| Åtgärd | Description |
 | --- | --- |
 | LIKA MED, NOTEQUAL |En sträng som utvärderar om värdet är lika med värdet i attributet. För multi-valued-attribut, se ISIN och ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |En sträng jämför som utvärderar om värdet är mindre än värdet i attributet. |
@@ -78,7 +78,7 @@ Kopplingarna definieras som en eller flera grupper. I en grupp har du satser. Et
 Kopplingarna i den här bilden bearbetas uppifrån och ned. Första sidan för synkronisering av synkronisering ser om det finns en matchning på Anställningsnr. Annars ser den andra regeln om konto namnet kan användas för att koppla ihop objekten. Om detta inte är en matchning, är den tredje och sista regeln en mer suddig matchning genom att använda namnet på användaren.
 
 Om alla kopplings regler har utvärderats och det inte finns exakt en matchning, används **länk typen** på sidan **Beskrivning** . Om det här alternativet är inställt på **etablera**, skapas ett nytt objekt i målet.  
-![Etablera eller Anslut](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![Skärm bild som visar den nedrullningsbara menyn "länktyp" öppen.](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 Ett objekt får bara ha en regel för att synkronisera med kopplings regler i omfånget. Om det finns flera regler för synkronisering där koppling har definierats, uppstår ett fel. Prioritet används inte för att lösa kopplings konflikter. Ett objekt måste ha en kopplings regel i omfånget för att attributen ska flöda med samma riktning för inkommande/utgående trafik. Om du behöver flöda attribut både inkommande och utgående till samma objekt måste du ha både en inkommande och en regel för utgående synkronisering med Join.
 
@@ -91,7 +91,7 @@ Ett metaversum-objekt finns kvar så länge det finns en Synkroniseringsregel i 
 
 När ett metaversum-objekt tas bort markeras alla objekt som är kopplade till en regel för utgående synkronisering som är **markerade för att** ta bort.
 
-## <a name="transformations"></a>Transformationer
+## <a name="transformations"></a>Transformeringar
 Transformeringarna används för att definiera hur attribut ska flöda från källan till målet. Flödena kan ha en av följande **flödes typer**: direkt, konstant eller uttryck. Ett direkt flöde, flödar ett attributvärde som-är utan ytterligare transformeringar. Ett konstant värde anger det angivna värdet. Ett uttryck använder det deklarativ etablerings uttryckets språk för att uttrycka hur omvandlingen ska vara. Information om uttrycks språk finns i avsnittet förstå definitions [språk för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
 ![Etablera eller Anslut](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
@@ -101,7 +101,7 @@ Kryss rutan **Använd en gång** definierar att attributet bara ska anges när o
 ### <a name="merging-attribute-values"></a>Sammanfogar attributvärden
 I attributet flöden finns det en inställning för att avgöra om flervärdesattribut ska slås samman från flera olika anslutningar. Standardvärdet är **Update**, vilket anger att synkroniseringsregeln med högsta prioritet ska vinna.
 
-![Sammanslagnings typer](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![Skärm bild som visar avsnittet "Lägg till transformeringar" med den nedrullningsbara menyn "sammanslagnings typer" öppen.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 Det finns också **sammanfognings** -och **MergeCaseInsensitive**. Med de här alternativen kan du sammanfoga värden från olika källor. Den kan till exempel användas för att sammanfoga medlems-eller proxyAddresses-attributet från flera olika skogar. När du använder det här alternativet måste alla synkroniserade regler i omfånget för ett objekt använda samma kopplings typ. Du kan inte definiera **uppdatering** från en koppling och **koppla** från en annan. Om du försöker igen visas ett fel meddelande.
 
@@ -146,7 +146,7 @@ Prioriteten kan definieras mellan kopplingar. Det gör att kopplingar med bättr
 
 ### <a name="multiple-objects-from-the-same-connector-space"></a>Flera objekt från samma kopplings utrymme
 Om du har flera objekt i samma kopplings utrymme som är anslutna till samma metaversum-objekt, måste prioriteten justeras. Om det finns flera objekt i omfånget för samma Synkroniseringsregel kan inte Synkroniseringsmotorn avgöra prioriteten. Det är tvetydigt vilket källobjektet ska bidra till värdet för metaversum. Den här konfigurationen rapporteras som tvetydig även om attributen i källan har samma värde.  
-![Flera objekt som är kopplade till samma MV-objekt](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![Diagram som visar flera objekt som är kopplade till samma MV-objekt med ett transparent rött X-överlägg. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 I det här scenariot måste du ändra omfånget för reglerna för synkronisering, så att käll objekten har olika regler för synkronisering i omfånget. Det gör att du kan definiera en annan prioritet.  
 ![Flera objekt som är kopplade till samma MV-objekt](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  

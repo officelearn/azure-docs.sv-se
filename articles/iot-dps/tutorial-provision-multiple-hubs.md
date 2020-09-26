@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74976748"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316008"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Självstudie: etablera enheter över belastningsutjämnade IoT-hubbar
 
@@ -67,8 +67,6 @@ Länka enhetsetableringstjänsten till IoT-hubben så att enhetsetableringstjän
 4. På sidan **Lägg till länk i IoT Hub** använder du alternativknapparna för att ange om den länkade IoT-hubben är placerad i den aktuella prenumerationen eller i en annan prenumeration. Välj sedan IoT-hubbens namn från rutan **IoT Hub**.
 5. Klicka på **Spara**.
 
-## <a name="next-steps"></a>Nästa steg
-
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
@@ -76,6 +74,8 @@ I den här självstudiekursen lärde du dig att:
 > * Lägga till en post i registreringslistan för den andra enheten
 > * Ange allokeringsprincipen för enhetsetableringstjänsten till **jämn distribution**
 > * Länka den nya IoT-hubben till enhetsetableringstjänsten
+
+## <a name="next-steps"></a>Nästa steg
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 47d1f3c78a303f7a45457a435fa11f074c41d7aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316162"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Felsöka mappning av data flöden i Azure Data Factory
 
@@ -116,7 +116,7 @@ Om du kör data flödet i ett fel söknings test av en fel söknings-pipeline ka
 
 - **Meddelande**: det finns ett stort antal null-värden eller saknade värden som kan bero på att det inte finns några rader som samplats. Försök att uppdatera gränsen för fel söknings rad och uppdatera data.
 - **Orsaker**: JOIN-villkoret matchade inte några rader eller resulterade i ett stort antal null-värden under förhands granskningen.
-- **Rekommendation**: gå till fel söknings inställningar och öka antalet rader i käll rad gränsen. Kontrol lera att du har valt och Azure IR med ett tillräckligt stort data flödes kluster för att hantera mer data.
+- **Rekommendation**: gå till fel söknings inställningar och öka antalet rader i käll rad gränsen. Kontrol lera att du har valt en Azure IR med ett tillräckligt stort data flödes kluster för att hantera mer data.
 
 
 ## <a name="general-troubleshooting-guidance"></a>Allmän fel söknings vägledning

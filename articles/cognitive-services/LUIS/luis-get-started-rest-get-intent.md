@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Använd sväng och REST för att hämta avsikt – LUIS'
 titleSuffix: Azure Cognitive Services
-description: I den här REST API snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
+description: I den här REST API snabb starten använder du sväng och REST för att fastställa en användares avsikt från konversations text.
 services: cognitive-services
 author: nitinme
 manager: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
-ms.openlocfilehash: 8ab76bcdfc62ed0af52e6c99ef6c7b14ebeef25f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7a8cbfa307f14a6660dcace3315384bc523ad888
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316264"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Snabb start: Använd sväng och REST för att få avsikt
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905578"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268272"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Säkra poäng i Azure Security Center
 
@@ -179,7 +179,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
     <td class="tg-lboi"; width=55%>- Granskning på SQL Server måste vara aktiverat<br>- Diagnostikloggar i App Services ska vara aktive rad<br>- Diagnostikloggar i Azure Data Lake Store ska vara aktive rad<br>- Diagnostikloggar i Azure Stream Analytics ska vara aktive rad<br>- Diagnostikloggar i batch-konton måste vara aktiverade<br>- Diagnostikloggar i Data Lake Analytics ska vara aktive rad<br>- Diagnostikloggar i Händelsehubben måste vara aktive rad<br>- Diagnostikloggar i IoT Hub ska vara aktive rad<br>- Diagnostikloggar i Key Vault ska vara aktive rad<br>- Diagnostikloggar i Logic Apps ska vara aktive rad<br>- Diagnostikloggar i Search-tjänsten måste vara aktive rad<br>- Diagnostikloggar i Service Bus ska vara aktive rad<br>- Diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad<br>- Mått varnings regler ska konfigureras för batch-konton<br>- Inställningarna för SQL-granskning bör ha åtgärds grupper konfigurerade för att fånga kritiska aktiviteter<br>- SQL-servrar bör konfigureras med granskning av antalet dagar som är större än 90 dagar.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Aktivera avancerat skydd (max antal poäng 0)</p></strong>Azure Security Center s hot skydd ger omfattande försvar för din miljö. När Security Center identifierar ett hot i alla områden i miljön genererar den en avisering. De här aviseringarna beskriver information om de resurser som påverkas, föreslagna åtgärds steg och i vissa fall ett alternativ för att utlösa en logisk app som svar.<br>Varje hot skydds paket är ett separat, valfritt erbjudande som du kan aktivera med hjälp av rekommendationen i den här säkerhets kontrollen.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Läs mer om skydd av hot i Security Center</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Aktivera avancerat skydd (max antal poäng 0)</p></strong>Azure Security Center är valfria Azure Defender Threat Protection-planer ger du omfattande försvar för din miljö. När Security Center identifierar ett hot i alla områden i miljön genererar den en avisering. De här aviseringarna beskriver information om de resurser som påverkas, föreslagna åtgärds steg och i vissa fall ett alternativ för att utlösa en logisk app som svar.<br>Varje Azure Defender-plan är ett separat, valfritt erbjudande som du kan aktivera med hjälp av rekommendationen i den här säkerhets kontrollen.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Läs mer om skydd av hot i Security Center</a>.</td>
     <td class="tg-lboi"; width=55%>- Avancerad data säkerhet ska vara aktiverat på Azure SQL Database servrar<br>- Avancerad data säkerhet ska vara aktiverat på SQL-servrar på datorer<br>- Avancerat skydd bör vara aktiverat på Virtual Machines<br>- Avancerat skydd bör vara aktiverat på Azure App Service planer<br>- Avancerat skydd bör vara aktiverat på Azure Storage konton<br>- Avancerat skydd bör vara aktiverat på Azure Kubernetes service-kluster<br>- Avancerat skydd bör vara aktiverat på Azure Container Registry register<br>- Avancerat skydd bör vara aktiverat på Azure Key Vault valv</td>
   </tr>
   <tr>
@@ -197,14 +197,8 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
 
 ## <a name="secure-score-faq"></a>Vanliga frågor och svar om säker Poäng
 
-### <a name="why-has-my-secure-score-gone-down"></a>Varför är mina säkra Poäng borta?
-Security Center har bytt till en förbättrad säker Poäng som innehåller ändringar i hur poängen beräknas. Nu måste du lösa alla rekommendationer för en resurs för att ta emot punkter. Poängen har också ändrats till en skala på 0-10.
-
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Om jag bara har tre av fyra rekommendationer i en säkerhets kontroll, kommer mina säkra poäng att ändras?
 Nej. Den ändras inte förrän du reparerar alla rekommendationer för en enskild resurs. För att få den högsta poängen för en kontroll måste du åtgärda alla rekommendationer för alla resurser.
-
-### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>Är tidigare erfarenhet av de säkra poängen fortfarande tillgängliga? 
-Nej. En gång de körde sida vid sida för att under lätta över gången. Föregående modell har nu blivit föråldrad. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Om en rekommendation inte gäller mig och jag inaktiverar den i principen, kommer min säkerhets kontroll att uppfyllas och mina säkra resultat uppdateras?
 Ja. Vi rekommenderar att du inaktiverar rekommendationer när de inte är tillämpliga i din miljö. Instruktioner för hur du inaktiverar en speciell rekommendation finns i [inaktivera säkerhets principer](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

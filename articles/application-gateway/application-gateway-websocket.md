@@ -7,12 +7,12 @@ ms.service: application-gateway
 services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59ca7708b24d2e75381290b80adeb671e2b49822
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74130327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362703"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Översikt över WebSocket-stöd i Application Gateway
 
@@ -28,7 +28,7 @@ Den används i appar som drar nytta av snabb kommunikation i real tid, till exem
 
 För att upprätta en WebSocket-anslutning utbyts en unik HTTP-baserad hand skakning mellan klienten och servern. Om det lyckas, är applikations lager protokollet "uppgraderat" från HTTP till WebSockets med hjälp av den tidigare upprättade TCP-anslutningen. När detta inträffar är HTTP helt ur bilden. data kan skickas eller tas emot med hjälp av WebSocket-protokollet av båda slut punkterna, tills WebSocket-anslutningen har stängts. 
 
-![WebSocket](./media/application-gateway-websocket/websocket.png)
+![Diagrammet jämför en klient som interagerar med en webb server och ansluter två gånger för att få två svar, med en WebSocket-interaktion, där en klient ansluter till en server en gång för att få flera svar.](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Listener-konfigurationselementet
 

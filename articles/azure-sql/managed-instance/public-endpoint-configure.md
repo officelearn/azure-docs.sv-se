@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9bf3fbf28d8ac525f2937812742e850a5427cc9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325070"
+ms.locfileid: "91360828"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Konfigurera offentlig slut punkt i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ På grund av känsligheten hos data som finns i en hanterad instans kräver konf
 1. Välj fliken **virtuellt nätverk** på **säkerhets** inställningarna.
 1. På sidan konfiguration av virtuellt nätverk väljer du **Aktivera** och sedan **Spara** -ikonen för att uppdatera konfigurationen.
 
-![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
+![Skärm bild som visar en virtuell nätverks sida av SQL-hanterad instans med den offentliga slut punkten aktive rad.](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Aktivera offentlig slut punkt för en hanterad instans med hjälp av PowerShell
 
@@ -84,11 +84,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Om sidan konfiguration för den hanterade instansen fortfarande är öppen går du till fliken **Översikt** . Annars går du tillbaka till din **SQL-hanterade instans** resurs. Välj länken **virtuellt nätverk/undernät** , som kommer att gå till sidan konfiguration av virtuellt nätverk.
 
-    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
+    ![Skärm bild som visar sidan konfiguration av virtuellt nätverk där du kan hitta det virtuella nätverket/under nätets värde.](./media/public-endpoint-configure/mi-overview.png)
 
 1. Välj fliken **undernät** i det vänstra konfigurations fönstret i det virtuella nätverket och anteckna **säkerhets gruppen** för din hanterade instans.
 
-    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![Skärm bild som visar fliken undernät där du kan hämta säkerhets gruppen för din hanterade instans.](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Gå tillbaka till din resurs grupp som innehåller din hanterade instans. Du bör se namnet på den **nätverks säkerhets grupp** som anges ovan. Välj namnet för att gå till konfigurations sidan för nätverks säkerhets gruppen.
 
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Åtgärd**     |Tillåt         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
     |**Priority**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbounds** regeln |
 
-    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![Skärm bild som visar de inkommande säkerhets reglerna med din nya public_endpoint_inbound regel ovanför deny_all_inbounds regeln.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > Port 3342 används för offentliga slut punkts anslutningar till hanterade instanser och kan inte ändras i det här läget.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Gå till konfigurations sidan för hanterade instanser som har Aktiver ATS för den offentliga slut punkten. Välj fliken **anslutnings strängar** under **inställnings** konfigurationen.
 1. Observera att värd namnet för den offentliga slut punkten anges i formatet <mi_name>. **Public**. <dns_zone>. Database.Windows.net och att porten som används för anslutningen är 3342.
 
-    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![Skärm bild som visar anslutnings strängar för dina offentliga och privata slut punkter.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

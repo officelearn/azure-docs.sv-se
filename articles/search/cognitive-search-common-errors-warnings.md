@@ -7,13 +7,13 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/23/2020
+ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362822"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -35,7 +35,7 @@ Från och med API `2019-05-06` -versionen struktureras fel och varningar på obj
 | Egenskap | Beskrivning | Exempel |
 | --- | --- | --- |
 | key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| name | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName projektion. KnowledgeStore. Table. myTableName |
+| namn | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName projektion. KnowledgeStore. Table. myTableName |
 | meddelande | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
 | information | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 källa, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... rest av stack spårning... |
 | documentationLink | En länk till relevant dokumentation med detaljerad information för att felsöka och lösa problemet. Den här länken pekar ofta på ett av nedanstående avsnitt på den här sidan. | https://go.microsoft.com/fwlink/?linkid=2106475 |
@@ -59,9 +59,9 @@ Indexeraren med en BLOB-datakälla kunde inte extrahera innehåll eller metadata
 
 | Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider max storleken på `'134217728'` byte för dokument extrahering för din aktuella tjänst nivå. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds `'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| bloben är krypterad | Det gick inte att bearbeta dokumentet – det kan vara krypterat eller lösenordsskyddat. | Du kan hoppa över blobben med [BLOB-inställningar](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
+| blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider max storleken på `'134217728'` byte för dokument extrahering för din aktuella tjänst nivå. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds `'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| bloben är krypterad | Det gick inte att bearbeta dokumentet – det kan vara krypterat eller lösenordsskyddat. | Du kan hoppa över blobben med [BLOB-inställningar](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | tillfälliga problem | "Fel vid bearbetning av BLOB: begäran avbröts: begäran avbröts." "Tids gränsen nåddes för dokumentet under bearbetningen." | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 
 <a name="could-not-parse-document"></a>
@@ -175,7 +175,7 @@ I alla dessa fall refererar du till [data typer som stöds](/rest/api/searchserv
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Fel: den integrerade principen för ändrings spårning kan inte användas eftersom tabellen har en sammansatt primär nyckel
 
-Detta gäller för SQL-tabeller och inträffar vanligt vis när nyckeln antingen definieras som en sammansatt nyckel eller, när tabellen har definierat ett unikt grupperat index (som i ett SQL-index, inte ett Azure Search index). Huvud orsaken är att nyckelattributet ändras till en sammansatt primär nyckel när ett [unikt grupperat index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)används. I så fall kontrollerar du att SQL-tabellen inte har ett unikt grupperat index eller att du mappar nyckel fältet till ett fält som garanterat inte har dubblettvärden.
+Detta gäller för SQL-tabeller och inträffar vanligt vis när nyckeln antingen definieras som en sammansatt nyckel eller, när tabellen har definierat ett unikt grupperat index (som i ett SQL-index, inte ett Azure Search index). Huvud orsaken är att nyckelattributet ändras till en sammansatt primär nyckel när ett [unikt grupperat index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)används. I så fall kontrollerar du att SQL-tabellen inte har ett unikt grupperat index eller att du mappar nyckel fältet till ett fält som garanterat inte har dubblettvärden.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c7aba1c1f091efa0ddd4417ef0a03f3f4ca4d36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320637"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361015"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
 
@@ -183,7 +183,7 @@ Du kan använda loggar (analys) om du vill visa tillgänglighets resultat, beroe
 >![Tillgänglighets resultat](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Beroenden](media/availability-azure-functions/dependencies.png)
+>![Skärm bild som visar fliken ny fråga med beroenden begränsat till 50.](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

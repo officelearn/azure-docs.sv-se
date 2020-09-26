@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266657"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -53,7 +53,7 @@ Varje program kräver olika attribut för att skapa en användare eller grupp. S
 | Steg 1: Bestäm vilka attribut appen kräver| Steg 2: mappa appens krav till SCIM standard| Steg 3: mappa SCIM-attribut till Azure AD-attributen|
 |--|--|--|
 |loginName|userName|userPrincipalName|
-|firstName|Name. givenName|förnamn|
+|firstName|name.givenName|förnamn|
 |lastName|namn. lastName|lastName|
 |workMail|E-postmeddelanden [typ EQ "Work"]. värde|E-post|
 |manager|manager|manager|
@@ -99,18 +99,18 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 | displayName |displayName |
 |Anställnings|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|
 | Facsimile – TelephoneNumber |phoneNumbers [Type EQ "fax"]. värde |
-| förnamn |Name. givenName |
+| förnamn |name.givenName |
 | Befattning |title |
-| e-post |e-postmeddelanden [typ EQ "Work"]. värde |
+| e-post |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager |
-| mobil |phoneNumbers [Type EQ "Mobile"]. värde |
+| mobil |phoneNumbers[type eq "mobile"].value |
 | Post nummer |adresser [Type EQ "Work"]. Postnr |
 | Proxy-adresser |e-postmeddelanden [Type EQ "other"]. Värde |
 | fysisk leverans – OfficeName |adresser [Type EQ "other"]. Formatera |
 | streetAddress |adresser [Type EQ "Work"]. streetAddress |
-| surname |Name. familyName |
-| telefonnummer |phoneNumbers [typ EQ "Work"]. värde |
+| surname |name.familyName |
+| telefonnummer |phoneNumbers[type eq "work"].value |
 | User-PrincipalName |userName |
 
 
@@ -119,7 +119,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 | Azure Active Directory grupp | urn: IETF: params: scim: schemas: Core: 2.0: grupp |
 | --- | --- |
 | displayName |displayName |
-| e-post |e-postmeddelanden [typ EQ "Work"]. värde |
+| e-post |emails[type eq "work"].value |
 | mailNickname |displayName |
 | medlemmar |medlemmar |
 | objectId |externalId |
@@ -226,7 +226,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-user"></a>Skapa användare
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 
 *POST-/users*
 ```json
@@ -284,7 +284,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user"></a>Hämta användare
 
-###### <a name="request"></a><a name="request-1"></a>Förfrågan
+###### <a name="request"></a><a name="request-1"></a>Begäran
 *Hämta/Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Svar (användaren hittades)
@@ -314,7 +314,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 *Hämta/Users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Svar (användaren hittades inte. Observera att detalj nivån inte är obligatorisk, endast status.)
@@ -331,7 +331,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user-by-query"></a>Hämta användare efter fråga
 
-##### <a name="request"></a><a name="request-2"></a>Förfrågan
+##### <a name="request"></a><a name="request-2"></a>Begäran
 
 *Hämta/Users? filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
@@ -372,7 +372,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user-by-query---zero-results"></a>Hämta användare från fråga – noll resultat
 
-##### <a name="request"></a><a name="request-3"></a>Förfrågan
+##### <a name="request"></a><a name="request-3"></a>Begäran
 
 *Hämta/Users? filter = userName EQ "obefintlig användare"*
 
@@ -392,7 +392,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-user-multi-valued-properties"></a>Uppdatera användare [Egenskaper för flera värden]
 
-##### <a name="request"></a><a name="request-4"></a>Förfrågan
+##### <a name="request"></a><a name="request-4"></a>Begäran
 
 *KORRIGERING/Users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -443,7 +443,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-user-single-valued-properties"></a>Uppdatera användare [Egenskaper för enstaka värde]
 
-##### <a name="request"></a><a name="request-5"></a>Förfrågan
+##### <a name="request"></a><a name="request-5"></a>Begäran
 
 *KORRIGERING/Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -488,7 +488,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 ### <a name="disable-user"></a>Inaktivera användare
 
-##### <a name="request"></a><a name="request-14"></a>Förfrågan
+##### <a name="request"></a><a name="request-14"></a>Begäran
 
 *KORRIGERING/Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -542,7 +542,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 ```
 #### <a name="delete-user"></a>Ta bort användare
 
-##### <a name="request"></a><a name="request-6"></a>Förfrågan
+##### <a name="request"></a><a name="request-6"></a>Begäran
 
 *TA bort/users/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -559,7 +559,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-group"></a>Skapa grupp
 
-##### <a name="request"></a><a name="request-7"></a>Förfrågan
+##### <a name="request"></a><a name="request-7"></a>Begäran
 
 *PUBLICERA/Groups HTTP/1.1*
 ```json
@@ -594,7 +594,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-group"></a>Hämta grupp
 
-##### <a name="request"></a><a name="request-8"></a>Förfrågan
+##### <a name="request"></a><a name="request-8"></a>Begäran
 
 *Hämta/Groups/40734ae655284ad3abcc? excludedAttributes = medlemmar HTTP/1.1*
 
@@ -616,7 +616,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-group-by-displayname"></a>Hämta grupp efter displayName
 
-##### <a name="request"></a><a name="request-9"></a>Förfrågan
+##### <a name="request"></a><a name="request-9"></a>Begäran
 *Hämta/Groups? excludedAttributes = members&filter = displayName EQ "HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Svarade
@@ -645,7 +645,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-group-non-member-attributes"></a>Uppdaterings grupp [attribut för icke-medlem]
 
-##### <a name="request"></a><a name="request-10"></a>Förfrågan
+##### <a name="request"></a><a name="request-10"></a>Begäran
 
 *KORRIGERING/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -665,7 +665,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 ### <a name="update-group-add-members"></a>Uppdatera grupp [Lägg till medlemmar]
 
-##### <a name="request"></a><a name="request-11"></a>Förfrågan
+##### <a name="request"></a><a name="request-11"></a>Begäran
 
 *KORRIGERING/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -688,7 +688,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-group-remove-members"></a>Uppdaterings grupp [ta bort medlemmar]
 
-##### <a name="request"></a><a name="request-12"></a>Förfrågan
+##### <a name="request"></a><a name="request-12"></a>Begäran
 
 *KORRIGERING/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -711,7 +711,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="delete-group"></a>Ta bort grupp
 
-##### <a name="request"></a><a name="request-13"></a>Förfrågan
+##### <a name="request"></a><a name="request-13"></a>Begäran
 
 *TA bort/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
@@ -1193,7 +1193,7 @@ SCIM-specifikationen definierar inte ett SCIM schema för autentisering och aukt
 |--|--|--|--|
 |Användar namn och lösen ord (rekommenderas inte eller stöds inte av Azure AD)|Lätt att implementera|Osäker – [din pa $ $Word spelar ingen roll](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Stöds från fall till fall för Galleri-appar. Stöds inte för appar som inte är gallerier.|
 |Token med lång livs längd|Token för lång livs längd kräver inte att en användare finns. De är enkla för administratörer att använda vid konfigurations etablering.|Token för lång livs längd kan vara svårt att dela med en administratör utan att använda oskyddade metoder, till exempel e-post. |Stöds för Galleri-och appar som inte är gallerier. |
-|Bevilja OAuth-auktoriseringskod|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd.  En riktig användare måste närvara vid den första auktoriseringen och lägga till en ansvars nivå. |Kräver att en användare är närvarande. Om användaren lämnar organisationen är token ogiltig och auktoriseringen måste slutföras igen.|Stöds för Galleri-appar, men inte för appar som inte är gallerier. Support för icke-galleri är i vår efter släpning.|
+|Bevilja OAuth-auktoriseringskod|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd.  En riktig användare måste närvara vid den första auktoriseringen och lägga till en ansvars nivå. |Kräver att en användare är närvarande. Om användaren lämnar organisationen är token ogiltig och auktoriseringen måste slutföras igen.|Stöds för Galleri-appar, men inte för appar som inte är gallerier. Du kan dock ange en åtkomsttoken i användar gränssnittet som den hemliga token för kortsiktiga testnings ändamål. Support för OAuth-kod beviljande på icke-galleri är i vår efter släpning.|
 |Beviljande av OAuth-klientautentiseringsuppgifter|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd. Både behörigheten Tillåt och klientens autentiseringsuppgifter skapar samma typ av åtkomsttoken, så att flytta mellan dessa metoder är transparent för API: et.  Etableringen kan vara helt automatiserad och nya token kan utföras tyst utan användar interaktion. ||Stöds inte för Galleri-och appar som inte är gallerier. Support finns i vår efter släpning.|
 
 > [!NOTE]
@@ -1210,6 +1210,17 @@ Observera att OAuth v1 inte stöds på grund av exponering av klient hemligheten
 Metod tips (rekommenderas men krävs inte):
 * Stöder flera omdirigerings-URL: er. Administratörer kan konfigurera etablering från både "portal.azure.com" och "aad.portal.azure.com". Genom att stödja flera omdirigerings-URL: er ser du till att användarna kan auktorisera åtkomst från portalen.
 * Stöd för flera hemligheter för att säkerställa en smidig hemlig förnyelse utan drift avbrott. 
+
+Steg i OAuth Code Granting-flödet:
+1. Logga in på Azure Portal > företags program > Välj program > etablering > Klicka på Auktorisera.
+2. Azure Portal omdirigerar användaren till URL: en för auktorisering (inloggnings sidan för appen från tredje part).
+3. Admin tillhandahåller autentiseringsuppgifter för programmet från tredje part. 
+4. Appen från tredje part omdirigerar användaren tillbaka till Azure Portal och ger beviljande koden 
+5. Azure AD Provisioning Services anropar token-URL: en och ger Grant-koden. Programmet från tredje part svarar med åtkomsttoken, uppdateringstoken och förfallo datum
+6. När etablerings cykeln börjar kontrollerar tjänsten om den aktuella åtkomsttoken är giltig och utbyter den för en ny token vid behov. Åtkomsttoken anges i varje begäran som görs till appen och giltigheten för begäran kontrol leras före varje begäran.
+
+> [!NOTE]
+> Det går inte att konfigurera OAuth i det program som inte är galleriet i dag, men du kan skapa en åtkomsttoken manuellt från din Authorization Server och inmatade värden i fältet hemligt token i program som inte är Galleri. På så sätt kan du kontrol lera kompatibiliteten för SCIM-servern med Azure AD SCIM-klienten innan du registrerar i app-galleriet, som har stöd för OAuth-kod beviljande.  
 
 **OAuth-token för lång livs längd:** Om ditt program inte stöder OAuth-auktoriseringsvärdet för OAuth-auktoriseringskod kan du också generera en lång livs längd för OAuth Bearer-token som en administratör kan använda för att konfigurera etablerings integrationen. Token ska vara beständig, annars placeras etablerings jobbet i [karantän](application-provisioning-quarantine-status.md) när token upphör att gälla. Denna token måste vara lägre 1 KB i storlek.  
 

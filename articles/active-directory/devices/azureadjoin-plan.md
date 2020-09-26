@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268235"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370185"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -184,7 +184,7 @@ Azure AD-anslutna enheter stöder inte lokala program som förlitar sig på dato
 
 Anslutning till fjärr skrivbord till en Azure AD-ansluten enhet kräver att värddatorn antingen är Azure AD-ansluten eller hybrid Azure AD-ansluten. Fjärr skrivbord från en frånkopplad eller icke-Windows-enhet stöds inte. Mer information finns i [ansluta till en fjärran sluten Azure AD-ansluten dator](/windows/client-management/connect-to-remote-aadj-pc)
 
-Genom att starta Windows 10 2004-uppdateringen kan användare ALO använda fjärr skrivbord från en Azure AD-registrerad Windows 10-enhet till en Azure AD-ansluten enhet. 
+Genom att starta Windows 10 2004-uppdateringen kan användare även använda fjärr skrivbord från en Azure AD-registrerad Windows 10-enhet till en Azure AD-ansluten enhet. 
 
 ## <a name="understand-your-provisioning-options"></a>Förstå dina etablerings alternativ
 

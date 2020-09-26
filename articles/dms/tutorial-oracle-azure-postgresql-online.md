@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: a5047e4e63f71c482cd1bcc98152ae35e10e94b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291647"
+ms.locfileid: "91363179"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Självstudie: Migrera Oracle till Azure Database for PostgreSQL online med DMS (för hands version)
 
@@ -214,11 +214,11 @@ Om du skapar ett PostgreSQL-schema med verktyg som ora2pg innan du påbörjar da
 
 1. När du skapar ett nytt Oracle till Azure Database for PostgreSQL-migreringsjobb uppmanas du att välja mål databas och mål schema i steget Välj scheman. Fyll i mål databasen och mål schemat.
 
-   ![Visa portalprenumerationer](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+   ![Skärm bild som visar kartan till mål databaserna.](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
 2. Skärmen **Inställningar för migrering** visar en lista över tabeller i Oracle-källan. Azure Database Migration Service försöker matcha tabeller i käll-och mål tabellerna baserat på tabell namn. Om det finns flera matchande mål tabeller med olika Skift läge kan du välja vilken mål tabell som ska mappas till.
 
-    ![Visa portalprenumerationer](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
+    ![Skärm bild som visar inställningar för migrering.](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
 > Om du behöver mappa käll tabell namn till tabeller med olika namn, e-post [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) och vi kan tillhandahålla ett skript för att automatisera processen.

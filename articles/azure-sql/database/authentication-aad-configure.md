@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278183"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurera och hantera Azure AD-autentisering med Azure SQL
 
@@ -89,19 +89,19 @@ Om du vill bevilja din SQL-hanterade instans Läs behörighet för Azure AD med 
 
 3. Gå till den SQL-hanterade instans som du vill använda för Azure AD-integrering.
 
-   ![AAD](./media/authentication-aad-configure/aad.png)
+   ![Skärm bild av Azure Portal som visar sidan Active Directory administratör öppen för den valda SQL-hanterade instansen.](./media/authentication-aad-configure/aad.png)
 
 4. Välj banderollen överst på sidan Active Directory administratör och ge den aktuella användaren behörighet.
 
-    ![bevilja behörigheter – Portal](./media/authentication-aad-configure/grant-permissions.png)
+    ![Skärm bild av dialog rutan för att bevilja behörighet till en SQL-hanterad instans för åtkomst till Active Directory. Knappen bevilja behörigheter är markerad.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. När åtgärden har slutförts visas följande meddelande i det övre högra hörnet:
 
-    ![lyckades](./media/authentication-aad-configure/success.png)
+    ![Skärm bild av ett meddelande som bekräftar att Läs behörigheter för Active Directory har uppdaterats för den hanterade instansen.](./media/authentication-aad-configure/success.png)
 
 6. Nu kan du välja din Azure AD-administratör för din SQL-hanterade instans. På sidan Active Directory administratör väljer du **Ange admin** -kommando.
 
-    ![Ange administratör](./media/authentication-aad-configure/set-admin.png)
+    ![Skärm bild som visar kommandot Set admin markerat på sidan Active Directory administratör för den valda SQL-hanterade instansen.](./media/authentication-aad-configure/set-admin.png)
 
 7. På sidan Azure AD-administratör söker du efter en användare, väljer den användare eller grupp som ska vara administratör och väljer sedan **Välj**.
 
@@ -111,7 +111,7 @@ Om du vill bevilja din SQL-hanterade instans Läs behörighet för Azure AD med 
 
 8. Välj **Spara**längst upp på sidan Active Directory administratör.
 
-    ![save](./media/authentication-aad-configure/save.png)
+    ![Skärm bild av sidan Active Directory administratör med knappen Spara på den översta raden bredvid knapparna ange administratör och ta bort administratör.](./media/authentication-aad-configure/save.png)
 
     Processen med att ändra administratör kan ta några minuter. Sedan visas den nya administratören i rutan Active Directory-administratör.
 
@@ -190,7 +190,7 @@ Om du vill etablera en Azure AD-administratör kör du följande Azure PowerShel
 
 De cmdletar som används för att etablera och hantera Azure AD-administratör för din SQL-hanterade instans visas i följande tabell:
 
-| Cmdlet-namn | Beskrivning |
+| Cmdlet-namn | Description |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Etablerar en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. (Måste vara från den aktuella prenumerationen)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Tar bort en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. |
@@ -279,7 +279,7 @@ Om du vill köra PowerShell-cmdlets måste Azure PowerShell vara installerad och
 
 Cmdletar som används för att etablera och hantera Azure AD-administratör för SQL Database och Azure-Synapse:
 
-| Cmdlet-namn | Beskrivning |
+| Cmdlet-namn | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse. (Måste vara från den aktuella prenumerationen) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse.|

@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289080"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Använda fråge etiketter i Synapse SQL
 I den här artikeln finns några viktiga tips för att använda fråge etiketter i Synapse SQL.
@@ -34,9 +34,9 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Den sista raden Taggar strängen "min fråga etikett" till frågan. Den här taggen är särskilt användbar eftersom etiketten är frågekörning genom DMV: er. Fråga efter etiketter är en mekanism för att hitta problem frågor och hjälpa till att identifiera förloppet genom en ELT körning.
+Den sista raden Taggar strängen "min fråga etikett" till frågan. Den här taggen är användbar eftersom etiketten är frågekörning genom DMV: er. Fråga efter etiketter är en mekanism för att hitta problem frågor och hjälpa till att identifiera förloppet genom en ELT körning.
 
-Bra namngivnings konventioner är mest användbara. Exempel: om du startar etiketten med PROJECT, PROCEDURe, STATEMENT eller COMMENT identifieras frågan bland all kod i käll kontrollen.
+Bra namn konventioner är mest användbara. Exempel: om du startar etiketten med PROJECT, PROCEDURe, STATEMENT eller COMMENT identifieras frågan bland all kod i käll kontrollen.
 
 Följande fråga använder en vy med dynamisk hantering för att söka efter etikett:
 

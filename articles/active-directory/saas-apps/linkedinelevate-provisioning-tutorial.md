@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: e49b35de5cce914edbd8db2ac0c0c8cccd5f811b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361592"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LinkedIn-höjning för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra på L
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
 * En LinkedIn-höjnings klient
@@ -70,12 +70,12 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
     > [!NOTE]
     > När tilldela licenser inte är aktiverat innebär det att endast användar data synkroniseras.
 
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+    ![Skärm bild som visar de globala inställningarna för LinkedIn-konto Center.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
     > [!NOTE]
     > När autolicense-tilldelning har Aktiver ATS måste du anteckna program instansen och licens typen. Licenser tilldelas för första och första gången tills alla licenser har vidtagits.
 
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+    ![Skärm bild som visar konfigurations sidan för S C I M.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
 5. Klicka på **generera token**. Du bör se att din åtkomsttoken visas under fältet **åtkomsttoken** .
 
@@ -87,9 +87,9 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
 
 9. Välj din instans av LinkedIn-höjning och välj sedan fliken **etablering** .
 
-10. Ställ in **etablerings läget** på **automatiskt**.
+10. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+    ![Skärm bild som visar sidan LinkedIn-höjning.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
 11. Fyll i följande fält under **admin-autentiseringsuppgifter** :
 
@@ -105,7 +105,7 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
 
 14. I avsnittet **mappningar för attribut** granskar du de användar-och Gruppattribut som ska synkroniseras från Azure AD till LinkedIn-höjning. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha användar konton och grupper i LinkedIn-höjning för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
 
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+    ![Skärm bild som visar mappningar, inklusive mappningar av attribut.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
 15. Om du vill aktivera Azure AD Provisioning-tjänsten för LinkedIn-höjning ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
@@ -117,5 +117,5 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

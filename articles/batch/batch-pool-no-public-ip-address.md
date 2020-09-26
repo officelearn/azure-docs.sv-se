@@ -1,39 +1,40 @@
 ---
-title: Skapa en Azure Batch pool utan offentliga IP-adresser
+title: Skapa en Azure Batch-pool utan offentliga IP-adresser
 description: Lär dig hur du skapar en pool utan offentliga IP-adresser
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 09/25/2020
 ms.author: peshultz
-ms.openlocfilehash: 30792314f5bffaf4d40fc4bf60a2706acdaad34b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: references_regions
+ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367945"
 ---
-# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Skapa en Azure Batch pool utan offentliga IP-adresser
+# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Skapa en Azure Batch-pool utan offentliga IP-adresser
 
 När du skapar en Azure Batch pool kan du etablera den virtuella datorns konfigurations pool utan en offentlig IP-adress. Den här artikeln förklarar hur du konfigurerar en batch-pool utan offentliga IP-adresser.
 
 ## <a name="why-use-a-pool-without-public-ip-addresses"></a>Varför ska jag använda en pool utan offentliga IP-adresser?
 
-Som standard tilldelas alla datornoder i en Azure Batch pool för konfiguration av virtuella datorer en offentlig IP-adress. Den här adressen används av batch-tjänsten för att schemalägga aktiviteter och för kommunikation med Compute-noder, inklusive utgående åtkomst till Internet. 
+Som standard tilldelas alla datornoder i en Azure Batch pool för konfiguration av virtuella datorer en offentlig IP-adress. Den här adressen används av batch-tjänsten för att schemalägga aktiviteter och för kommunikation med Compute-noder, inklusive utgående åtkomst till Internet.
 
 Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av dessa noder från Internet kan du etablera poolen utan offentliga IP-adresser.
 
 > [!IMPORTANT]
-> Stöd för pooler utan offentliga IP-adresser i Azure Batch är för närvarande en offentlig för hands version för USA, västra centrala, östra USA, södra centrala USA, västra USA 2, US Gov, Virginia och US Gov, Arizona regioner.
+> Stöd för pooler utan offentliga IP-adresser i Azure Batch är för närvarande offentlig för hands version för alla regioner utom Kina, östra, Kina, östra 2, Kina, norra och Kina, norra 2.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Autentisering**. Om du vill använda en pool utan offentliga IP-adresser i ett [virtuellt nätverk](./batch-virtual-network.md)måste batch-klientens API använda Azure Active Directory (AD)-autentisering. Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory). Om du inte skapar poolen i ett virtuellt nätverk kan du använda Azure AD-autentisering eller nyckelbaserad autentisering.
 
 - **Ett Azure VNet**. Om du skapar poolen i ett [virtuellt nätverk](batch-virtual-network.md)följer du dessa krav och konfigurationer. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, kommando rads gränssnittet för Azure (CLI) eller andra metoder.
   - Det virtuella nätverket måste vara i samma prenumeration och region som det Batch-konto som du använder för att skapa din pool.
   - Det undernät som anges för poolen måste ha tillräckliga otilldelade IP-adresser för det antal virtuella datorer som är mål för poolen. Summan av egenskaperna `targetDedicatedNodes` och `targetLowPriorityNodes` för poolen. Om undernätet inte har tillräckligt med lediga IP-adresser, allokerar poolen datornoderna partiellt och ett storleksändringsfel inträffar.
-  - Du måste inaktivera tjänsten för privata länkar och nätverks principer för slut punkten. Detta kan göras med hjälp av Azure CLI:```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Du måste inaktivera tjänsten för privata länkar och nätverks principer för slut punkten. Detta kan göras med hjälp av Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
   
 > [!IMPORTANT]
 > För varje 100-dedikerad eller låg prioritets nod allokerar batch en privat länk tjänst och en belastningsutjämnare. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva [begära en kvot ökning](batch-quota-limit.md#increase-a-quota) för en eller flera av dessa resurser. Dessutom bör inga resurs lås användas för någon resurs som skapats av batch, eftersom detta förhindrar att resurser rensas till följd av användar initierade åtgärder som att ta bort en pool eller ändra storlek till noll.
@@ -55,7 +56,7 @@ Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av d
 1. Du kan också välja ett virtuellt nätverk och undernät som du vill använda. Det här virtuella nätverket måste finnas i samma resurs grupp som den pool som du skapar.
 1. I **etablerings typ för IP-adress**väljer du **NoPublicIPAddresses**.
 
-![Skärmen Lägg till pool med NoPublicIPAddresses valt](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+![Skärm bild av skärmen Lägg till pool med NoPublicIPAddresses valt.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 
 ## <a name="use-the-batch-rest-api-to-create-a-pool-without-public-ip-addresses"></a>Använd batch-REST API för att skapa en pool utan offentliga IP-adresser
 

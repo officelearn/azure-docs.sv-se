@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 00bca2d0c7e267bef8cd4a917463c5e7db159792
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304310"
 ---
 # <a name="camera-placement-guide"></a>Guide för kamera placering
 
@@ -56,7 +56,7 @@ I allmänhet ska kameror monteras 12-14 fötter från marken. När du planerar m
 
 ## <a name="camera-to-focal-point-distance"></a>Avstånd för kamera till brännvidd
 
-_Avståndet från kamera till brännvidd_ är det linjära avståndet från fokus punkten (eller fokus punkten för orienterings punkten) till kameran.
+_Avståndet från kamera till brännvidd_ är det linjära avståndet från fokus punkten (eller mitten av kamera bilden) till kameran som mäts på marken.
 
 ![Kamera till fokus-punkt avstånd](./media/spatial-analysis/camera-focal-point.png)
 

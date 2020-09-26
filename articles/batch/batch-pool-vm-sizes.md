@@ -2,14 +2,14 @@
 title: Välj VM-storlekar för pooler
 description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i Azure Batch pooler
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271315"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 
@@ -31,17 +31,17 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | Basic A | Alla storlekar *utom* Basic_A0 (a0) |
 | A | Alla storlekar *utom* Standard_A0 |
 | AV2 | Alla storlekar |
-| B | Inga |
-| DC | Inga |
+| B | Inget |
+| DC | Inget |
 | Dv2, DSv2 | Alla storlekar |
 | Dv3, Dsv3 | Alla storlekar |
 | Dav4<sup>1</sup> | Alla storlekar |
 | Dasv4<sup>1</sup> | Alla storlekar |
-| Ddv4, Ddsv4 |  Ingen – ännu inte tillgänglig |
-| Ev3, Esv3 | Alla storlekar, förutom E64is_v3 och E64i_v3 |
+| Ddv4, Ddsv4 |  Alla storlekar |
+| Ev3, Esv3 | Alla storlekar, förutom E64is_v3 |
 | Eav4<sup>1</sup> | Alla storlekar |
 | Easv4<sup>1</sup> | Alla storlekar |
-| Edv4, Edsv4 |  Ingen – ännu inte tillgänglig |
+| Edv4, Edsv4 |  Alla storlekar |
 | F, FS | Alla storlekar |
 | Fsv2 | Alla storlekar |
 | G, GS | Alla storlekar |
@@ -52,7 +52,7 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | Ls | Alla storlekar |
 | Lsv2<sup>1</sup> | Alla storlekar |
 | M<sup>1</sup> | Alla storlekar |
-| Mv2 | Ingen – ännu inte tillgänglig |
+| Mv2<sup>1, 2</sup> | Alla storlekar |
 | NC | Alla storlekar |
 | NCv2<sup>1</sup> | Alla storlekar |
 | NCv3<sup>1</sup> | Alla storlekar |
@@ -60,10 +60,15 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | NDv2<sup>1</sup> | Ingen – ännu inte tillgänglig |
 | NV | Alla storlekar |
 | NVv3<sup>1</sup> | Alla storlekar |
-| NVv4 | Inga |
-| SAP HANA | Inga |
+| NVv4 | Ingen – ännu inte tillgänglig |
+| SAP HANA | Inget |
 
-<sup>1</sup> dessa VM-storlekar kan allokeras i batch-pooler i konfigurationen av den virtuella datorn, men du måste skapa ett nytt batch-konto och begära en bestämd [kvot ökning](batch-quota-limit.md#increase-a-quota). Den här begränsningen tas bort när vCPU-kvoten per VM-serien har fullt stöd för batch-konton.
+<sup>1</sup> dessa VM-serier kan allokeras i batch-pooler i konfigurationen av den virtuella datorn, men du måste skapa ett nytt batch-konto och begära en bestämd [kvot ökning](batch-quota-limit.md#increase-a-quota). Den här begränsningen tas bort när vCPU-kvoten per VM-serien har fullt stöd för batch-konton.
+
+<sup>2</sup> dessa VM-serier kan bara användas med virtuella datorer i generation 2.
+
+### <a name="using-generation-2-vm-images"></a>Använda virtuella dator avbildningar i generation 2
+Vissa VM-serier, till exempel [Mv2](../virtual-machines/mv2-series.md), kan bara användas med [virtuella datorer i generation 2](../virtual-machines/generation-2.md). Generation 2 VM-avbildningar anges som alla VM-avbildningar med hjälp av egenskapen SKU för [imageReference](/rest/api/batchservice/pool/add#imagereference) -konfigurationen. "SKU"-strängarna har ett suffix som "-G2" eller "-Gen2". Om du vill hämta en lista över virtuella dator avbildningar som stöds av batch, inklusive generation 2-avbildningar, använder du ["lista över stödda bilder"](/rest/api/batchservice/account/listsupportedimages) API, [POWERSHELL](/powershell/module/az.batch/get-azbatchsupportedimage)eller [Azure CLI](/cli/azure/batch/pool/supported-images).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pooler i moln tjänst konfiguration
 

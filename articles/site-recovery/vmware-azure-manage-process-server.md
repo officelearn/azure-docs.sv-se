@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361404"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
@@ -41,11 +41,11 @@ Utjämna belastningen genom att flytta virtuella datorer mellan två process ser
 2. Klicka på den konfigurations server som process servrarna är registrerade på.
 3. Klicka på den processerver som du vill belastningsutjämna trafik för.
 
-    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![Skärm bild som visar en Processerver för vilken du kan belastningsutjämna trafik.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
 4. Klicka på **belastnings utjämning**och välj den mål process server som du vill flytta datorer till. Klicka sedan på **OK**
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![Skärm bild som visar fönstret belastnings utjämning med Välj mål process Server vald.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Klicka på **Välj datorer**och välj de datorer som du vill flytta från den aktuella till mål process servern. Information om genomsnittlig data ändring visas för varje virtuell dator. Klicka sedan på **OK**. 
 3. I valvet övervakar du förloppet för jobbet under **övervakning**  >  **Site Recovery jobb**.
@@ -61,7 +61,7 @@ Flytta hela arbets belastningen som hanteras av en processerver till en annan pr
 3. Klicka på den processerver som du vill byta arbets belastningen från.
 4. Klicka på **växel**och välj den mål process server som du vill flytta arbets belastningen till. Klicka sedan på **OK**
 
-    ![Växel](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Skärm bild som visar fönstret Välj mål process Server.](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. I valvet övervakar du förloppet för jobbet under **övervakning**  >  **Site Recovery jobb**.
 

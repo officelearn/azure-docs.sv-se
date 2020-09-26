@@ -2,13 +2,13 @@
 title: Resurser utan gräns för 800
 description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 6f7b45ec3691bc3a48d9aa3dfa072c1c68189007
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/21/2020
+ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330765"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
 
@@ -16,12 +16,15 @@ Som standard kan du distribuera upp till 800 instanser av en resurs typ i varje 
 
 För vissa resurs typer måste du kontakta supporten om du vill ta bort instans gränsen på 800. Dessa resurs typer anges i den här artikeln.
 
+
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
 * automationAccounts
 
 ## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
+* edgeSubscriptions
+* linkedSubscriptions
 * registreringar
 * registreringar/customerSubscriptions
 * registreringar/produkter
@@ -38,6 +41,7 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * gallerier/avbildningar/versioner
 * images
 * snapshots
+* virtualMachineScaleSets – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
@@ -55,24 +59,29 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * register/uppgifter
 * register/Webhooks
 
+## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+
+* pipe
+
 ## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
 * brygghuvudservrar
 
 ## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
+* flexibleServers
 * brygghuvudservrar
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
+* flexibleServers
 * serverGroups
 * brygghuvudservrar
 * serversv2
-* singleServers
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
 
-* scheman – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
+* scheman
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
@@ -104,6 +113,10 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 * integrationAccounts
 * arbetsflöden
+
+## <a name="microsoftmedia"></a>Microsoft. Media
+
+* Media Services/liveEvents
 
 ## <a name="microsoftnetapp"></a>Microsoft. NetApp
 

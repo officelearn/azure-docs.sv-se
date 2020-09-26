@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure IoT Hub Device Provisioning att använda Azure Resource Manager-mall
+title: Snabb start – konfigurera Azure-IoT Hub Device Provisioning med Azure Resource Manager-mall
 description: Azure snabb start – konfigurera Azure-IoT Hub Device Provisioning Service (DPS) med en mall
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74969590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297155"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Snabb start: Konfigurera IoT Hub Device Provisioning Service med en Azure Resource Manager-mall
 
@@ -22,7 +22,7 @@ Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Den här snabb starten kräver att du kör Azure CLI lokalt. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
@@ -61,7 +61,7 @@ Logga in på ditt Azure-konto och välj din prenumeration.
     >
     >
 
-## <a name="create-a-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
+## <a name="create-a-resource-manager-template"></a>Skapa en Resource Manager-mall
 
 Använd en JSON-mall för att skapa en etableringstjänst och en länkad IoT-hubb i din resursgrupp. Du kan också använda en Azure Resource Manager-mall för att göra ändringar i en befintlig etableringstjänst eller IoT-hubb.
 
@@ -272,7 +272,7 @@ Mallen som du definierade i det sista steget använder parametrar för att ange 
 
    ```
 
-4. Lägg till värdet **hubLocation** i parameteravsnittet. Värdet anger plats både för IoT-hubben och etableringstjänsten. Värdet måste motsvara en av de platser som anges i samlingen **allowedValues** i parameterdefinitionen i mallfilen. Den här samlingen begränsar värdena för Azure-platser som stöder både IoT-hubbar och etableringstjänster. Om du vill ha en lista över platser som stöds för enhets etablerings tjänsten kan du `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table`köra kommandot eller gå till sidan [Azure-status](https://azure.microsoft.com/status/) och söka på "enhets etablerings tjänst".
+4. Lägg till värdet **hubLocation** i parameteravsnittet. Värdet anger plats både för IoT-hubben och etableringstjänsten. Värdet måste motsvara en av de platser som anges i samlingen **allowedValues** i parameterdefinitionen i mallfilen. Den här samlingen begränsar värdena för Azure-platser som stöder både IoT-hubbar och etableringstjänster. Om du vill ha en lista över platser som stöds för enhets etablerings tjänsten kan du köra kommandot `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` eller gå till sidan [Azure-status](https://azure.microsoft.com/status/) och söka på "enhets etablerings tjänst".
 
    ```json
     "parameters": {
@@ -300,7 +300,7 @@ Mallen som du definierade i det sista steget använder parametrar för att ange 
 
 Använd följande Azure CLI-kommandon för att distribuera dina mallar och verifiera distributionen.
 
-1. Om du vill distribuera din mall navigerar du till mappen som innehåller mallen och parameter-filerna och kör följande [kommando för att starta en distribution](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. Om du vill distribuera din mall navigerar du till mappen som innehåller mallen och parameter-filerna och kör följande [kommando för att starta en distribution](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,7 +311,7 @@ Använd följande Azure CLI-kommandon för att distribuera dina mallar och verif
    ![Etableringsutdata](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Om du vill verifiera din distribution kör du följande [kommando för att lista resurser](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) och hålla utkik efter den nya etableringstjänsten och IoT-hubben i utdata:
+2. Om du vill verifiera din distribution kör du följande [kommando för att lista resurser](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) och hålla utkik efter den nya etableringstjänsten och IoT-hubben i utdata:
 
     ```azurecli
      az resource list -g {your resource group name}

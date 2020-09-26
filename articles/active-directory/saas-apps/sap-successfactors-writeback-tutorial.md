@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286658"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Självstudie: konfigurera attributet Skriv-back från Azure AD till SAP SuccessFactors
 Syftet med den här självstudien är att Visa stegen för att skriva tillbaka attribut från Azure AD till SAP SuccessFactors personal Central. 
@@ -125,68 +125,97 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
 
 ## <a name="preparing-for-successfactors-writeback"></a>Förbereder för tillbakaskrivning av SuccessFactors
 
-SuccessFactors tillbakaskrivning Provisioning-appen använder vissa *kod* värden för att ställa in e-post och telefonnummer i personal Central. Dessa *kod* värden anges som konstanta värden i tabellen Attribute-mappning och skiljer sig åt för varje SuccessFactors-instans. I det här avsnittet används [Postman](https://www.postman.com/downloads/) för att hämta kod värden. Du kan använda [sväng](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) eller andra liknande verktyg för att skicka HTTP-förfrågningar. 
+SuccessFactors tillbakaskrivning Provisioning-appen använder vissa *kod* värden för att ställa in e-post och telefonnummer i personal Central. Dessa *kod* värden anges som konstanta värden i tabellen Attribute-mappning och skiljer sig åt för varje SuccessFactors-instans. Det här avsnittet innehåller anvisningar för att samla in dessa *kod* värden.
 
-### <a name="download-and-configure-postman-with-your-successfactors-tenant"></a>Hämta och konfigurera Postman med din SuccessFactors-klient
+   > [!NOTE]
+   > Använd SuccessFactors-administratören för att slutföra stegen i det här avsnittet. 
 
-1. Hämta [Postman](https://www.postman.com/downloads/)
-1. Skapa en "ny samling" i Postman-appen. Kalla det "SuccessFactors". 
+### <a name="identify-email-and-phone-number-picklist-names"></a>Identifiera namn på list rutor för e-post och telefonnummer 
+
+I SAP SuccessFactors är en *listruta* en konfigurerbar uppsättning alternativ som en användare kan välja mellan. De olika typerna av e-post och telefonnummer (t. ex. företag, personliga, andra) representeras med hjälp av en listruta. I det här steget kommer vi att identifiera de List rutor som kon figurer ATS i din SuccessFactors-klient för att lagra värden för e-post och telefonnummer. 
+ 
+1. I SuccessFactors administrations Center kan du söka efter *Hantera företags konfiguration*. 
 
    > [!div class="mx-imgBorder"]
-   > ![Ny Postman-samling](./media/sap-successfactors-inbound-provisioning/new-postman-collection.png)
+   > ![Hantera företags konfiguration](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. Ange autentiseringsuppgifterna för den API-användare som kon figurer ATS i föregående avsnitt på fliken auktorisering. Konfigurera typ som grundläggande autentisering. 
+1. Under **HRIS element**väljer du **emailInfo** och klickar på *informationen* för fältet **e-posttyp** .
 
    > [!div class="mx-imgBorder"]
-   > ![Postman-auktorisering](./media/sap-successfactors-inbound-provisioning/postman-authorization.png)
+   > ![Hämta e-postinformation](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. Spara konfigurationen. 
+1. På sidan information om **e-posttyp** noterar du namnet på list rutan som är kopplad till det här fältet. Som standard är det **ecEmailType**. Det kan dock vara annorlunda i din klient organisation. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Identifiera List rutan för e-post](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
+
+1. Under **HRIS element**väljer du **phoneInfo** och klickar på *informationen* för fältet **telefon typ** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Hämta telefonnummer information](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
+
+1. På sidan information om **telefonnummer anger** du namnet på list rutan som är kopplad till det här fältet. Som standard är det **ecPhoneType**. Det kan dock vara annorlunda i din klient organisation. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Identifiera telefon List rutan](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
 
 ### <a name="retrieve-constant-value-for-emailtype"></a>Hämta konstant värde för emailType
 
-1. I Postman klickar du på ellipsen (...) som är associerad med SuccessFactors-samlingen och lägger till en "ny begäran" som kallas "Hämta e-posttyper" som visas nedan. 
+1. I SuccessFactors administrations Center söker du och öppnar *plock lista Center*. 
+1. Använd namnet på den e-postlista som du hämtade från föregående avsnitt (t. ex. ecEmailType) för att hitta e-postlistan. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman-e-postbegäran ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![Hitta List rutan för e-posttyp](./media/sap-successfactors-inbound-provisioning/find-email-type-picklist.png)
 
-1. Öppna begär ande panelen "Hämta e-posttyp". 
-1. Lägg till följande URL i Hämta URL och Ersätt `successFactorsAPITenantName` med API-klienten för din SuccessFactors-instans. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecEmailType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Öppna listan över aktiva e-postmeddelanden. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman hämta e-posttyp](./media/sap-successfactors-inbound-provisioning/postman-get-email-type.png)
+   > ![Öppna listan aktiv e-posttyp](./media/sap-successfactors-inbound-provisioning/open-active-email-type-picklist.png)
 
-1. Fliken "auktorisering" kommer att ärva den konfigurerade autentiseringen för samlingen. 
-1. Klicka på "Skicka" för att anropa API-anropet. 
-1. I svars texten visar du JSON-resultatet och letar efter det ID som motsvarar `externalCode = B` . 
+1. På sidan listruta för e-posttyp väljer du typ av *affärs* meddelande.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman e-posttyp svar](./media/sap-successfactors-inbound-provisioning/postman-email-type-response.png)
+   > ![Välj typ av företags e-post](./media/sap-successfactors-inbound-provisioning/select-business-email-type.png)
 
-1. Anteckna det här värdet som den konstant som ska användas med *emailType* i tabellen Attribute-mappning.
+1. Anteckna det **alternativ-ID** som är kopplat till *Business* -e-postmeddelandet. Det här är den kod som vi ska använda med *emailType* i tabellen Attribute-mappning.
+
+   > [!div class="mx-imgBorder"]
+   > ![Hämta kod för e-posttyp](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
+
+   > [!NOTE]
+   > Ta bort kommatecknet när du kopierar över värdet. T. ex. om värdet för **alternativ-ID** är *8 448*anger du *emailType* i Azure AD till det konstanta talet *8448* (utan kommatecknet). 
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>Hämta konstant värde för phoneType
 
-1. I Postman klickar du på ellipsen (...) som är associerad med SuccessFactors-samlingen och lägger till en "ny begäran" som visas nedan. 
+1. I SuccessFactors administrations Center söker du och öppnar *plock lista Center*. 
+1. Använd namnet på telefon listan som du hämtade från föregående avsnitt för att hitta telefon listan. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman-telefon förfrågan](./media/sap-successfactors-inbound-provisioning/postman-phone-request.png)
+   > ![Hitta telefon typs List rutan](./media/sap-successfactors-inbound-provisioning/find-phone-type-picklist.png)
 
-1. Öppna begär ande panelen "Hämta telefon typ". 
-1. Lägg till följande URL i Hämta URL och Ersätt `successFactorsAPITenantName` med API-klienten för din SuccessFactors-instans. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecPhoneType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Öppna listan över aktiva telefoner. 
 
    > [!div class="mx-imgBorder"]
-   > ![Telefon typ för Postman](./media/sap-successfactors-inbound-provisioning/postman-get-phone-type.png)
+   > ![Öppna listan över aktiva telefon typer](./media/sap-successfactors-inbound-provisioning/open-active-phone-type-picklist.png)
 
-1. Fliken "auktorisering" kommer att ärva den konfigurerade autentiseringen för samlingen. 
-1. Klicka på "Skicka" för att anropa API-anropet. 
-1. I svars texten visar du JSON-resultatet och letar efter det *ID* som motsvarar `externalCode = B` och `externalCode = C` . 
+1. På sidan telefon typs lista granskar du de olika telefon typerna som visas under **list Rute värden**.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman-telefon](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)
+   > ![Granska telefon typer](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
 
-1. Anteckna värdena som de konstanter som ska användas med *businessPhoneType* och *cellPhoneType* i tabellen Attribute-mappning.
+1. Anteckna det **alternativ-ID** som är kopplat till *företags* telefonen. Det här är den kod som vi ska använda med *businessPhoneType* i tabellen Attribute-mappning.
+
+   > [!div class="mx-imgBorder"]
+   > ![Hämta företags telefon kod](./media/sap-successfactors-inbound-provisioning/get-business-phone-code.png)
+
+1. Anteckna det **alternativ-ID** som är associerat med *mobil* telefonen. Det här är den kod som vi ska använda med *cellPhoneType* i tabellen Attribute-mappning.
+
+   > [!div class="mx-imgBorder"]
+   > ![Hämta mobil telefon kod](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
+
+   > [!NOTE]
+   > Ta bort kommatecknet när du kopierar över värdet. T. ex. om värdet för **alternativ-ID** är *10 606*anger du *cellPhoneType* i Azure AD till det konstanta talet *10606* (utan kommatecknet). 
+
 
 ## <a name="configuring-successfactors-writeback-app"></a>Konfigurera SuccessFactors tillbakaskrivning-appen
 
@@ -313,7 +342,7 @@ Se avsnittet för [tillbakaskrivning av scenarier](../app-provisioning/sap-succe
 ## <a name="next-steps"></a>Nästa steg
 
 * [Djupgående att gå in i integrerings referens för Azure AD och SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md)
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan SuccessFactors och Azure Active Directory](successfactors-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 * [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../app-provisioning/export-import-provisioning-configuration.md)

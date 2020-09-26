@@ -5,21 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275224"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten till att exportera data från Azure Blob Storage
 
 Den här artikeln innehåller stegvisa instruktioner för hur du använder tjänsten Azure import/export för att på ett säkert sätt exportera stora mängder data från Azure Blob Storage. Tjänsten kräver att du levererar tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagrings konto till enheterna och levererar sedan enheterna tillbaka.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du skapar ett export jobb för att överföra data från Azure Blob Storage bör du noggrant granska och slutföra följande lista över nödvändiga komponenter för tjänsten.
 Du måste:
@@ -32,7 +32,7 @@ Du måste:
   - Generera ett spårnings nummer för export jobbet.
   - Varje jobb ska ha ett separat spårningsnummer. Det finns inte stöd för flera jobb med samma spårningsnummer.
   - Om du inte har ett transport företags konto går du till:
-    - [Skapa ett FedEX-konto](https://www.fedex.com/en-us/create-account.html)eller
+    - [Skapa ett FedEx-konto](https://www.fedex.com/en-us/create-account.html)eller
     - [Skapa ett DHL-konto](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Steg 1: skapa ett export jobb
@@ -57,7 +57,7 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
     - Välj en prenumeration.
     - Ange eller Välj en resurs grupp.
 
-        ![Grunderna](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Grundläggande inställningar](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
 5. I **jobb information**:
 
@@ -83,9 +83,9 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
 
 6. I **information om retur leverans**:
 
-    - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com` med information om den operatör som du planerar att använda.
+    - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com`  med information om den operatör som du planerar att använda.
     - Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt export jobb är klart.
-    - Ange ett fullständigt och giltigt kontakt namn, telefon, e-postadress, gatuadress, ort, post, delstat/provins och land/region.
+    - Ange ett fullständigt och giltigt kontakt namn, telefon, e-postadress, gatuadress, ort, post, region och land/region.
 
         > [!TIP]
         > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
@@ -119,7 +119,7 @@ När instrument panelen rapporterar att jobbet är klart skickas diskarna till d
 1. När du har fått enheterna med exporterade data måste du hämta BitLocker-nycklarna för att låsa upp enheterna. Gå till export jobbet i Azure Portal. Klicka på fliken **Importera/exportera** .
 2. Markera och klicka på export jobbet i listan. Gå till **kryptering** och kopiera nycklarna.
 
-   ![Visa BitLocker-nycklar för export jobb](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![Visa BitLocker-nycklar för export jobb](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
 
 3. Använd BitLocker-nycklar för att låsa upp diskarna.
 
@@ -127,15 +127,13 @@ Exporten är klar.
 
 ## <a name="step-5-unlock-the-disks"></a>Steg 5: Lås upp diskarna
 
-Om du använder version 1.4.0.300 av WAImportExport-verktyget använder du följande kommando för att låsa upp enheten:
+Använd följande kommando för att låsa upp enheten:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Här är ett exempel på inmatade exempel.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-Om du använder tidigare versioner av verktyget använder du dialog rutan BitLocker för att låsa upp enheten.
 
 För tillfället kan du ta bort jobbet eller lämna det. Jobb tas automatiskt bort efter 90 dagar.
 
@@ -155,7 +153,7 @@ Det här *valfria* steget hjälper dig att avgöra hur många enheter som krävs
 
     Parametrarna beskrivs i följande tabell:
 
-    |Kommando rads parameter|Beskrivning|  
+    |Kommando rads parameter|Description|  
     |--------------------------|-----------------|  
     |**/logdir:**|Valfritt. Logg katalogen. Utförliga loggfiler skrivs till den här katalogen. Om detta inte anges används den aktuella katalogen som logg katalog.|  
     |**SN**|Krävs. Namnet på lagrings kontot för export jobbet.|  
@@ -209,7 +207,7 @@ Number of drives needed:        3
 
 I följande tabell visas exempel på giltiga BLOB-sökvägar:
 
-   | Väljare | BLOB-sökväg | Beskrivning |
+   | Väljare | BLOB-sökväg | Description |
    | --- | --- | --- |
    | Börjar med |/ |Exporterar alla blobar i lagrings kontot |
    | Börjar med |/$root/ |Exporterar alla blobbar i rot behållaren |

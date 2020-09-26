@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a154f9a75a70ed46155424d676d2b2cd8c6df3bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987138"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277979"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ I det här avsnittet lär du dig hur du konfigurerar en [grupp för automatisk r
 
 Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure Portal eller PowerShell.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav:
 
@@ -196,7 +196,7 @@ Redundansväxla till den sekundära servern:
 
 Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azure Portal eller PowerShell.  
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav:
 
@@ -348,7 +348,7 @@ Skapa en grupp för redundans mellan två hanterade instanser i Azure SQL-hanter
 
 Du måste antingen konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller skapa en gateway för det virtuella nätverket för varje SQL-hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav:
 
@@ -378,15 +378,15 @@ Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
 
    I följande tabell visas de värden som krävs för gatewayen för den primära hanterade instansen:
 
-    | **Field** | Värde |
+    | **Fält** | Värde |
     | --- | --- |
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Namn** | Namnet på den virtuella Nätverksgatewayen. |
-    | **Nationella** | Den region där din primära hanterade instans är. |
+    | **Region** | Den region där din primära hanterade instans är. |
     | **Typ av Gateway** | Välj **VPN**. |
     | **VPN-typ** | Välj **Route-baserad** |
     | **SKU**| Lämna standardvärdet `VpnGw1` . |
-    | **Position**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
+    | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
     | **Virtuellt nätverk**| Välj det virtuella nätverket för din sekundära hanterade instans. |
     | **Offentlig IP-adress**| Välj **Skapa ny**. |
     | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress. |
@@ -440,15 +440,15 @@ Upprepa stegen i föregående avsnitt för att skapa det virtuella nätverkets u
 
 I följande tabell visas de värden som krävs för gatewayen för den sekundära hanterade instansen:
 
-   | **Field** | Värde |
+   | **Fält** | Värde |
    | --- | --- |
    | **Prenumeration** |  Prenumerationen där den sekundära hanterade instansen är. |
    | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `secondary-mi-gateway` . |
-   | **Nationella** | Den region där den sekundära hanterade instansen är. |
+   | **Region** | Den region där den sekundära hanterade instansen är. |
    | **Typ av Gateway** | Välj **VPN**. |
    | **VPN-typ** | Välj **Route-baserad** |
    | **SKU**| Lämna standardvärdet `VpnGw1` . |
-   | **Position**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
+   | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
    | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-secondary` . |
    | **Offentlig IP-adress**| Välj **Skapa ny**. |
    | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `secondary-gateway-IP` . |

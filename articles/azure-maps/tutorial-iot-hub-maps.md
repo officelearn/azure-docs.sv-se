@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: implementera IoT spatial Analytics med Microsoft Azure Maps'
-description: 'Integrera IoT Hub med API: er för Azure Maps-tjänsten.'
+title: 'Självstudie: implementera IoT spatial Analytics | Microsoft Azure Maps'
+description: 'Självstudie om hur du integrerar IoT Hub med API: er för Microsoft Azure Maps-tjänsten'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 25665e75a361fbaa5479e2717d5e6aa9290c3d3a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321840"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -30,7 +30,7 @@ I den här självstudien kommer du att:
 > * Prenumerera på IoT Device telemetri-händelser från Azure-funktionen via Azure Event Grid.
 > * Filtrera telemetri-händelserna genom att använda IoT Hub meddelanderoutning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -153,7 +153,7 @@ Följ de här stegen för att ladda upp den här avgränsningen med hjälp av AP
       }
       ```
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 IoT Hub möjliggör säker och tillförlitlig dubbelriktad kommunikation mellan ett IoT-program och de enheter som hanteras av. I den här självstudien vill du hämta information från din fordons enhet för att fastställa placeringen av hyr bilen. I det här avsnittet skapar du en IoT-hubb i resurs gruppen *ContosoRental* . Den här hubben ansvarar för att publicera dina telemetri om enhets händelser.
 
@@ -253,6 +253,7 @@ När din Azure-funktion körs kan du nu skicka telemetridata till IoT Hub, som d
     dotnet run
     ```
 
+
   Den lokala terminalen bör se ut som den som anges nedan.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Skärm bild av utdata från terminalen.":::
@@ -276,8 +277,6 @@ En fullständig lista över Azure Maps REST API: er finns i:
 
 * [Azure Maps REST-API: er](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
-Mer information om IoT Plug and Play finns i:
-
 * [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 Om du vill hämta en lista över enheter som är Azure-certifierade för IoT går du till:
@@ -287,6 +286,7 @@ Om du vill hämta en lista över enheter som är Azure-certifierade för IoT gå
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du skickar telemetri från enhet till moln, och det andra sättet, finns i:
+
 
 > [!div class="nextstepaction"]
 > [Skicka telemetri från en enhet](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

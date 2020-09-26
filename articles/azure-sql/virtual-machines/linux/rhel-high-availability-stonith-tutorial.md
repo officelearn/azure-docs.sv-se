@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358992"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 
 I den här självstudien används Azure CLI för att distribuera resurser i Azure.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
@@ -223,7 +223,7 @@ Du bör få följande resultat när kommandot har slutförts:
     - `<resourceGroupName>`
     - `<VM-basename>`
     - `<availabilitySetName>`
-    - `<VM-Size>`– Ett exempel är "Standard_D16_v3"
+    - `<VM-Size>` – Ett exempel är "Standard_D16_v3"
     - `<username>`
     - `<adminPassword>`
 
@@ -485,7 +485,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
 ### <a name="register-a-new-application-in-azure-active-directory"></a>Registrera ett nytt program i Azure Active Directory
  
  1. Gå till https://portal.azure.com
- 2. Öppna [bladet Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Gå till egenskaper och skriv ner katalog-ID: t. Detta är`tenant ID`
+ 2. Öppna [bladet Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Gå till egenskaper och skriv ner katalog-ID: t. Detta är `tenant ID`
  3. Klicka på [ **Appregistreringar**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Klicka på **ny registrering**
  5. Ange ett **namn** som `<resourceGroupName>-app` , Välj **endast konton i den här organisations katalogen**
@@ -570,7 +570,7 @@ Tilldela den anpassade rollen `Linux Fence Agent Role-<username>` som skapades i
 4. Klicka på **åtkomst kontroll (IAM)**
 5. Klicka på **Lägg till en roll tilldelning**
 6. Välj rollen `Linux Fence Agent Role-<username>` från **roll** listan
-7. I listan **Välj** anger du namnet på det program som du skapade ovan.`<resourceGroupName>-app`
+7. I listan **Välj** anger du namnet på det program som du skapade ovan. `<resourceGroupName>-app`
 8. Klicka på **Spara**
 9. Upprepa stegen ovan för noden alla klusternoder.
 
@@ -908,7 +908,7 @@ På alla SQL Server-instanser sparar du de autentiseringsuppgifter som används 
 
 1. När de sekundära replikerna har anslutits kan du se dem i SSMS Object Explorer genom att expandera noden **Always on** -noden med hög tillgänglighet:
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![Skärm bild som visar de primära och sekundära tillgänglighets replikerna.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>Lägg till en databas i tillgänglighets gruppen
 

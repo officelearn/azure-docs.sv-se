@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 44005dafb1e3eee60f163f80ad2e4282147233e4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334892"
+ms.locfileid: "91355626"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av moln program med SQL Database aktiv geo-replikering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Om ditt program är beroende av automatisk säkerhets kopiering av databasen och
 > [!NOTE]
 > Dessa förberedelse steg påverkar inte produktions miljön, som kan fungera i full åtkomst läge.
 
-![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option1-1.png)
+![Diagram visar SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 När förberedelse stegen har slutförts är programmet redo för den faktiska uppgraderingen. Nästa diagram illustrerar stegen som ingår i uppgraderings processen:
 
@@ -48,7 +48,7 @@ När förberedelse stegen har slutförts är programmet redo för den faktiska u
 2. Koppla från den sekundära databasen med hjälp av planerat avslutnings läge (4). Den här åtgärden skapar en helt synkroniserad, oberoende kopia av den primära databasen. Den här databasen kommer att uppgraderas.
 3. Aktivera den sekundära databasen till Read-Write-läge och kör uppgraderings skriptet (5).
 
-![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option1-2.png)
+![Diagrammet visar SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet som kör uppgraderings skriptet.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 Om uppgraderingen har slutförts är du nu redo att växla användare till den uppgraderade kopian av programmet, vilket blir en produktions miljö. Växling innebär några fler steg, som du ser i nästa diagram:
 
@@ -67,7 +67,7 @@ I det här läget fungerar programmet fullständigt och du kan upprepa uppgrader
 > [!NOTE]
 > Återställningen kräver inte DNS-ändringar eftersom du ännu inte utförde en växlings åtgärd.
 
-![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option1-4.png)
+![Diagrammet visar SQL Database geo-replikeringskonfiguration för haveri beredskap i molnet med den mellanlagrade miljön.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 Den främsta fördelen med det här alternativet är att du kan uppgradera ett program i en enda region genom att följa en uppsättning enkla steg. Dollar kostnaden för uppgraderingen är relativt låg. 
 
@@ -98,7 +98,7 @@ För att göra det möjligt att återställa uppgraderingen måste du skapa en m
 > [!NOTE]
 > Dessa förberedelse steg påverkar inte programmet i produktions miljön. Den fungerar fortfarande fullständigt i Läs-och skriv läge.
 
-![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option2-1.png)
+![Diagrammet visar SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet med en helt synkroniserad kopia av programmet.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 När förberedelse stegen är klara är utvecklings miljön redo för uppgraderingen. Nästa diagram illustrerar dessa uppgraderings steg:
 
@@ -120,14 +120,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. Kör uppgraderings skriptet mot `contoso-1-staging.azurewebsites.net` , `contoso-dr-staging.azurewebsites.net` och den primära mellanlagrings databasen (12). Databas ändringarna replikeras automatiskt till den sekundära mellanlagringen.
 
-![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option2-2.png)
+![Diagrammet visar SQL Database geo-replikeringskonfiguration för haveri beredskap i molnet med databas ändringar som repliker ATS till mellanlagring.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 Om uppgraderingen har slutförts är du nu redo att växla användare till version 2 av programmet. Nästa diagram illustrerar stegen som ingår:
 
 1. Aktivera en växlings åtgärd mellan produktions-och mellanlagringsplatserna i webbappen i den primära regionen (13) och i säkerhets kopierings regionen (14). V2 för programmet blir nu en produktions miljö med en redundant kopia i säkerhets kopierings regionen.
 2. Om du inte längre behöver v1-programmet (15 och 16) kan du inaktivera mellanlagrings miljön.
 
-![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option2-3.png)
+![Diagrammet visar SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet med valfri inaktive ring av utvecklings miljön.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 Om uppgraderings processen Miss lyckas (till exempel på grund av ett fel i uppgraderings skriptet) bör du tänka på att mellanlagrings miljön är i ett inkonsekvent tillstånd. Återgå till att använda v1 av programmet i produktions miljön för att återställa programmet till tillstånd för för uppgradering. De steg som krävs visas i nästa diagram:
 
@@ -139,7 +139,7 @@ I det här läget fungerar programmet fullständigt och du kan upprepa uppgrader
 > [!NOTE]
 > Återställningen kräver inte DNS-ändringar eftersom du inte genomförde en växlings åtgärd.
 
-![SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet.](./media/manage-application-rolling-upgrade/option2-4.png)
+![Diagrammet visar SQL Database geo-replikeringskonfiguration för haveri beredskap för molnet med uppgraderings processen återställd.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 Fördelen med det här alternativet är att du kan uppgradera både programmet och dess geo-redundanta kopia parallellt utan att kompromissa med affärs kontinuiteten under uppgraderingen.
 

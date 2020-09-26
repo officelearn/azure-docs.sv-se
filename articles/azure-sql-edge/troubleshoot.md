@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941669"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333111"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Felsöka Azure SQL Edge-distributioner 
 
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 Nu kan du köra kommandon som om du kör dem i terminalen i behållaren. När du är färdig skriver du `exit` . Detta avslutas i den interaktiva kommando sessionen, men behållaren fortsätter att köras.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>Fel sökning av problem med data strömning
-
-Som standard skrivs loggar för Azure SQL Edge streaming-motorn till en fil med namnet `current` i **/var/opt/MSSQL/log/Services/00000001-0000-0000-0000-000000000000** -katalogen. Filen kan nås antingen direkt via den mappade volymen eller data volym behållaren eller genom att starta en interaktiv kommando tolks session till SQL Edge-behållaren. 
-
-Om du kan ansluta till SQL Edge-instansen med klient verktygen kan du dessutom använda följande T-SQL-kommando för att få åtkomst till den aktuella strömmande motor loggen. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>Aktivera utförlig loggning
 
 Om standard logg nivån för streaming-motorn inte tillhandahåller tillräckligt med information kan fel söknings loggning för strömnings motorn aktive ras i SQL Edge. Aktivera fel söknings loggning Lägg till `RuntimeLogLevel=debug` miljövariabeln i SQL Edge-distributionen. När du har aktiverat fel söknings loggning försöker du återskapa problemet och kontrollerar loggarna för alla relevanta meddelanden eller undantag. 
 
+> [!NOTE]
+> Alternativet utförlig loggning bör endast användas för fel sökning och inte för vanlig produktions belastning. 
 
 
 ## <a name="next-steps"></a>Nästa steg

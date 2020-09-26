@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320939"
 ---
 # <a name="language-support-for-immersive-reader"></a>Språk stöd för avancerad läsare
 
@@ -30,7 +30,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Arabiska (Saudiarabien) | ar-SA |
 | Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
-| Katalanska | ca-ES |
+| Katalanska | onlinecertifikatutfärdare |
+| Katalanska (katalanska) | ca-ES |
 | Kinesiska | zh |
 | Kinesiska (Kina) | zh-CN |
 | Kinesiska (Hongkong SAR) | zh-HK |
@@ -40,7 +41,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Kinesiska, förenklad | zh-hans |
 | Förenklad kinesiska (Kina) | zh-hans-CN |
 | Förenklad kinesiska (Singapore) | zh-hans-SG |
-| Kinesiska, traditionell | zh-Hant-CN |
+| Kinesiska, traditionell | zh-Hant |
+| Traditionell kinesiska (Kina) | zh-Hant-CN |
 | Traditionell kinesiska (Hongkong SAR) | zh-Hant – HK |
 | Traditionell kinesiska (Macao SAR) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
@@ -90,7 +92,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Malajiska | millisekund |
 | Malajiska (Malaysia) | ms-MY |
 | Norska bokmål| Anm |
-| Norska bokmål (Norge) | nb-NO |
+| Norska, bokmål (Norge) | nb-NO |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
@@ -103,8 +105,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
 | Slovenska | SL |
-| Slovenska (Slovenien) | SL-SL |
-| Spanska | ES |
+| Slovenska (Slovenien) | sl-SI |
+| Spanska | es |
 | Spanska (Latinamerika) | ES – 419 |
 | Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
@@ -126,13 +128,15 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Språk | Tagga |
 |----------|-----|
 | Afrikaans | AF |
+| Arabiska | bakre |
 | Arabiska (egyptiska) | ar-tex |
 | Arabiska (Saudiarabien) | ar-SA |
 | Bangla | bn |
 | Bosniska | BS |
 | Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
-| Katalanska | ca-ES |
+| Katalanska | onlinecertifikatutfärdare |
+| Katalanska (katalanska) | ca-ES |
 | Kinesiska | zh |
 | Kinesiska (Kina) | zh-CN |
 | Kinesiska (Hongkong SAR) | zh-HK |
@@ -142,7 +146,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Kinesiska, förenklad | zh-hans |
 | Förenklad kinesiska (Kina) | zh-hans-CN |
 | Förenklad kinesiska (Singapore) | zh-hans-SG |
-| Kinesiska, traditionell | zh-Hant-CN |
+| Kinesiska, traditionell | zh-Hant |
+| Traditionell kinesiska (Kina) | zh-Hant-CN |
 | Traditionell kinesiska (Hongkong SAR) | zh-Hant – HK |
 | Traditionell kinesiska (Macao SAR) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
@@ -152,6 +157,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Tjeckiska (Tjeckien) | cs-CZ |
 | Danska | da |
 | Danska (Danmark) | da-DK |
+| Dari (Afghanistan) | pull |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
 | Engelska | en |
@@ -176,6 +182,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
 | Tyska (Schweiz)| de-CH |
+| Gujarati | gu |
 | Grekiska | El |
 | Grekiska (Grekland) | el-GR |
 | Haitian (Creole) | teknik |
@@ -195,19 +202,24 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
 | Kannada | 5,0 |
-| Swahili | sv |
+| Swahili | sw |
 | Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
+| Kurdiska (Central) | kelanvändning |
+| Kurdiska (norra) | kmr |
 | Lettiska | LV |
-| Litauiska | långsiktiga |
+| Litauiska | lt |
 | Madagaskisk | MB |
 | Malajiska | millisekund |
 | Malajiska (Malaysia) | ms-MY |
 | Malayalam | ml |
 | Maltesiska | MT |
 | Maori | mi |
+| Marathi | Mr |
 | Norska bokmål| Anm |
-| Norska bokmål (Norge) | nb-NO |
+| Norska, bokmål (Norge) | nb-NO |
+| Odia | eller |
+| Afghanska (Afghanistan) | PS |
 | Persiska | bokförda |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
@@ -227,8 +239,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
 | Slovenska | SL |
-| Slovenska (Slovenien) | SL-SL |
-| Spanska | ES |
+| Slovenska (Slovenien) | sl-SI |
+| Spanska | es |
 | Spanska (Latinamerika) | ES – 419 |
 | Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
@@ -241,7 +253,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Telugu (Indien) | te-IN |
 | Thailändska | i:te |
 | Thailändska (Thailand) | th-TH |
-| Tonganska | till |
+| Tonganska | på |
 | Turkiska | TR |
 | Turkiska (Turkiet) | tr-TR |
 | Ukrainska | Storbritannien |
@@ -257,12 +269,14 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 
 | Språk | Tagga |
 |----------|-----|
+| Arabiska | bakre |
 | Arabiska (egyptiska) | ar-tex |
 | Arabiska (Saudiarabien) | ar-SA |
 | Baskiska | gemenskaps |
 | Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
-| Katalanska | ca-ES |
+| Katalanska | onlinecertifikatutfärdare |
+| Katalanska (katalanska) | ca-ES |
 | Kinesiska, förenklad | zh-hans |
 | Förenklad kinesiska (Kina) | zh-hans-CN |
 | Förenklad kinesiska (Singapore) | zh-hans-SG |
@@ -318,11 +332,11 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Lettiska | LV |
-| Litauiska | långsiktiga |
+| Litauiska | lt |
 | Malajiska | millisekund |
 | Malajiska (Malaysia) | ms-MY |
 | Norska bokmål| Anm |
-| Norska bokmål (Norge) | nb-NO |
+| Norska, bokmål (Norge) | nb-NO |
 | Norska (nynorsk) | nn |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
@@ -338,8 +352,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
 | Slovenska | SL |
-| Slovenska (Slovenien) | SL-SL |
-| Spanska | ES |
+| Slovenska (Slovenien) | sl-SI |
+| Spanska | es |
 | Spanska (Latinamerika) | ES – 419 |
 | Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
@@ -365,7 +379,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Baskiska | gemenskaps |
 | Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
-| Katalanska | ca-ES |
+| Katalanska | onlinecertifikatutfärdare |
+| Katalanska (katalanska) | ca-ES |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
 | Tjeckiska | östasiatisk |
@@ -404,9 +419,9 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Italienska (Italien) | it-IT |
 | Kazakiska | kk |
 | Lettiska | LV |
-| Litauiska | långsiktiga |
+| Litauiska | lt |
 | Norska bokmål| Anm |
-| Norska bokmål (Norge) | nb-NO |
+| Norska, bokmål (Norge) | nb-NO |
 | Norska (nynorsk) | nn |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
@@ -423,8 +438,8 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
 | Slovenska | SL |
-| Slovenska (Slovenien) | SL-SL |
-| Spanska | ES |
+| Slovenska (Slovenien) | sl-SI |
+| Spanska | es |
 | Spanska (Latinamerika) | ES – 419 |
 | Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
@@ -469,14 +484,14 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Norska bokmål| Anm |
-| Norska bokmål (Norge) | nb-NO |
+| Norska, bokmål (Norge) | nb-NO |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
 | Portugisiska (Brasilien) | pt-BR |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
-| Spanska | ES |
+| Spanska | es |
 | Spanska (Latinamerika) | ES – 419 |
 | Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
@@ -519,7 +534,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Koreanska | Ko |
 | Koreanska (Korea) | ko-KR |
 | Norska bokmål| Anm |
-| Norska bokmål (Norge) | nb-NO |
+| Norska, bokmål (Norge) | nb-NO |
 | Norska (nynorsk) | nn |
 | Polska | pl |
 | Polska (Polen) | pl-PL |
@@ -527,7 +542,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Portugisiska (Brasilien) | pt-BR |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
-| Spanska | ES |
+| Spanska | es |
 | Spanska (Latinamerika) | ES – 419 |
 | Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
@@ -557,7 +572,7 @@ Den här artikeln innehåller stöd för mänskliga språk för funktioner i ava
 | Tyska (Schweiz)| de-CH |
 | Italienska | it |
 | Italienska (Italien) | it-IT |
-| Spanska | ES |
+| Spanska | es |
 | Spanska (Latinamerika) | ES – 419 |
 | Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |

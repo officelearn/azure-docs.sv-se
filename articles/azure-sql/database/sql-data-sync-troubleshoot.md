@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: f4a851377128577cc7e50af777b502c9f59211c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a251d7a1ff4063178a6c03d71fedc5adfca423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332873"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ En översikt över SQL Data Sync finns i [synkronisera data i flera moln-och lok
 
 - [Hur hanterar data synkronisering cirkel referenser? Det vill säga när samma data har synkroniserats i flera Sync-grupper och håller på att ändras till följd av detta?](#sync-circ)
 
-### <a name="sync-fails-in-the-portal-ui-for-on-premises-databases-that-are-associated-with-the-client-agent"></a><a name="sync-fails"></a>Det går inte att synkronisera i Portal gränssnittet för lokala databaser som är associerade med klient agenten
+### <a name="sync-fails-in-the-portal-ui-for-on-premises-databases-that-are-associated-with-the-client-agent"></a><a name="sync-fails"></a> Det går inte att synkronisera i Portal gränssnittet för lokala databaser som är associerade med klient agenten
 
 Det går inte att synkronisera i SQL Data Sync portalens användar gränssnitt för lokala databaser som är associerade med klient agenten. På den lokala dator som kör-agenten visas system. IO. IOException-fel i händelse loggen. Felen säger att disken har otillräckligt med utrymme.
 
@@ -52,7 +52,7 @@ Det går inte att synkronisera i SQL Data Sync portalens användar gränssnitt f
 
 - **Lösning**. Skapa mer utrymme på den enhet där katalogen% TEMP% finns.
 
-### <a name="my-sync-group-is-stuck-in-the-processing-state"></a><a name="sync-stuck"></a>Min Sync-grupp fastnar i bearbetnings läget
+### <a name="my-sync-group-is-stuck-in-the-processing-state"></a><a name="sync-stuck"></a> Min Sync-grupp fastnar i bearbetnings läget
 
 En Sync-grupp i SQL Data Sync har bearbetats under en längre tid. Den svarar inte på kommandot **Stop** och loggarna visar inga nya poster.
 
@@ -81,7 +81,7 @@ Något av följande villkor kan resultera i att en synkroniseringsresurs fastnar
 > [!NOTE]
 > Om föregående information inte flyttar din synkroniserade grupp från bearbetnings tillståndet kan Microsoft Support återställa statusen för din Sync-grupp. Om du vill återställa statusen för din synkroniseringsstatus på [sidan Microsoft Q&en fråga för Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)skapar du ett inlägg. I inlägget inkluderar du ditt prenumerations-ID och ID för Sync-gruppen för den grupp som måste återställas. En Microsoft Support-tekniker kommer att svara på ditt inlägg och kommer att meddela dig när statusen har återställts.
 
-### <a name="i-see-erroneous-data-in-my-tables"></a><a name="sync-baddata"></a>Jag ser felaktiga data i mina tabeller
+### <a name="i-see-erroneous-data-in-my-tables"></a><a name="sync-baddata"></a> Jag ser felaktiga data i mina tabeller
 
 Om tabeller som har samma namn men som kommer från olika databas scheman ingår i en synkronisering visas felaktiga data i tabellerna efter synkroniseringen.
 
@@ -89,7 +89,7 @@ Om tabeller som har samma namn men som kommer från olika databas scheman ingår
 
 - **Lösning**. Se till att namnen på tabellerna som ingår i en synkronisering skiljer sig, även om tabellerna tillhör olika scheman i en databas.
 
-### <a name="i-see-inconsistent-primary-key-data-after-a-successful-sync"></a><a name="sync-pkdata"></a>Jag ser inkonsekventa primär nyckel data efter en lyckad synkronisering
+### <a name="i-see-inconsistent-primary-key-data-after-a-successful-sync"></a><a name="sync-pkdata"></a> Jag ser inkonsekventa primär nyckel data efter en lyckad synkronisering
 
 En synkronisering rapporteras som lyckad och loggen visar inga misslyckade eller överhoppade rader, men du ser att primär nyckel data är inkonsekventa bland databaserna i Sync-gruppen.
 
@@ -97,7 +97,7 @@ En synkronisering rapporteras som lyckad och loggen visar inga misslyckade eller
 
 - **Lösning**. Förhindra det här problemet genom att se till att inga data i en primär nyckel kolumn ändras. Om du vill åtgärda det här problemet när det har inträffat tar du bort raden som innehåller inkonsekventa data från alla slut punkter i Sync-gruppen. Infoga sedan raden igen.
 
-### <a name="i-see-a-significant-degradation-in-performance"></a><a name="sync-perf"></a>Jag ser en betydande försämring i prestandan
+### <a name="i-see-a-significant-degradation-in-performance"></a><a name="sync-perf"></a> Jag ser en betydande försämring i prestandan
 
 Prestandan försämras kraftigt, eventuellt till den punkt där du inte ens kan öppna användar gränssnittet för data synkronisering.
 
@@ -105,12 +105,12 @@ Prestandan försämras kraftigt, eventuellt till den punkt där du inte ens kan 
 
 - **Lösning**. Den bästa korrigeringen är förebyggande. Se till att du inte har cirkel referenser i dina Sync-grupper. Alla rader som synkroniseras av en Sync-grupp kan inte synkroniseras av en annan Sync-grupp.
 
-### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>Jag ser det här meddelandet: "det går inte att infoga värdet NULL i kolumnen \<column> . Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det? 
+### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a> Jag ser det här meddelandet: "det går inte att infoga värdet NULL i kolumnen \<column> . Kolumnen tillåter inte null-värden. " Vad betyder detta, och hur kan jag åtgärda det? 
 Det här fel meddelandet anger att ett av följande två problem har inträffat:
 -  En tabell har ingen primär nyckel. Åtgärda problemet genom att lägga till en primär nyckel i alla tabeller som du synkroniserar.
 -  Det finns en WHERE-sats i CREATE INDEX-instruktionen. Datasynkroniseringen hanterar inte det här tillståndet. Åtgärda problemet genom att ta bort WHERE-satsen eller manuellt göra ändringarna i alla databaser. 
  
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a><a name="sync-circ"></a>Hur hanterar data synkronisering cirkel referenser? Det vill säga när samma data har synkroniserats i flera Sync-grupper och håller på att ändras till följd av detta?
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a><a name="sync-circ"></a> Hur hanterar data synkronisering cirkel referenser? Det vill säga när samma data har synkroniserats i flera Sync-grupper och håller på att ändras till följd av detta?
 Datasynkronisering hanterar inte cirkel referenser. Se till att undvika dem. 
 
 ## <a name="client-agent-issues"></a>Problem med klient agent
@@ -135,7 +135,7 @@ Information om hur du felsöker problem med klient agenten finns i [Felsöka pro
 
 - [Vad händer när jag återställer en förlorad eller skadad databas?](#setup-restore)
 
-### <a name="i-get-a-disk-out-of-space-message"></a><a name="setup-space"></a>Jag får meddelandet "disk disk utrymme"
+### <a name="i-get-a-disk-out-of-space-message"></a><a name="setup-space"></a> Jag får meddelandet "disk disk utrymme"
 
 - **Orsak**. Meddelandet "disk slut på utrymme" kan visas om överblivna filer behöver tas bort. Detta kan bero på antivirus program eller att filer är öppna när borttagnings åtgärder görs.
 
@@ -144,7 +144,7 @@ Information om hur du felsöker problem med klient agenten finns i [Felsöka pro
 > [!IMPORTANT]
 > Ta inte bort några filer medan synkroniseringen pågår.
 
-### <a name="i-cant-delete-my-sync-group"></a><a name="setup-delete"></a>Jag kan inte ta bort min Sync-grupp
+### <a name="i-cant-delete-my-sync-group"></a><a name="setup-delete"></a> Jag kan inte ta bort min Sync-grupp
 
 Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarier kan resultera i att det inte går att ta bort en Sync-grupp:
 
@@ -166,7 +166,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
 
 - **Lösning**. Vänta tills etableringen eller synkroniseringsprocessen har slutförts och försök sedan att ta bort synkroniseringsresursen igen.
 
-### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a>Det går inte att avregistrera en SQL Server databas
+### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a> Det går inte att avregistrera en SQL Server databas
 
 - **Orsak**. Förmodligen försöker du avregistrera en databas som redan har tagits bort.
 
@@ -175,7 +175,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
   Om den här åtgärden inte går att ta bort databasen från Sync-gruppen:
 
   1. Stoppa och starta sedan om värd tjänsten för klient agent:  
-    a. Välj **Start** -menyn.  
+    a. Välj **Start**-menyn.  
     b. I rutan Sök anger du **Services. msc**.  
     c. I avsnittet **program** i rutan Sök Resultat dubbelklickar du på **tjänster**.  
     d. Högerklicka på tjänsten **SQL Data Sync** .  
@@ -186,7 +186,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
   1. Välj **Redigera autentiseringsuppgifter**och ange sedan autentiseringsuppgifterna för databasen.
   1. Fortsätt med avregistreringen.
 
-### <a name="i-dont-have-sufficient-privileges-to-start-system-services"></a><a name="setup-perms"></a>Jag har inte behörighet att starta system tjänster
+### <a name="i-dont-have-sufficient-privileges-to-start-system-services"></a><a name="setup-perms"></a> Jag har inte behörighet att starta system tjänster
 
 - **Orsak**. Det här felet uppstår i två situationer:
   -   Användar namnet och/eller lösen ordet är felaktigt.
@@ -200,7 +200,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
   1. Tryck på **Tillämpa** och välj sedan **OK**.
   1. Stäng alla fönster.
 
-### <a name="a-database-has-an-out-of-date-status"></a><a name="setup-date"></a>En databas har statusen inaktuell
+### <a name="a-database-has-an-out-of-date-status"></a><a name="setup-date"></a> En databas har statusen inaktuell
 
 - **Orsak**. SQL Data Sync tar bort databaser som har varit offline från tjänsten i 45 dagar eller mer (som räknas från den tidpunkt då databasen gick offline). Om en databas är offline i 45 dagar eller mer och sedan blir online igen är dess status **inaktuell**.
 
@@ -214,7 +214,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
   > [!WARNING]
   > Du förlorar alla ändringar som gjorts i databasen när den var offline.
 
-### <a name="a-sync-group-has-an-out-of-date-status"></a><a name="setup-date2"></a>En Sync-grupp har statusen "inaktuell"
+### <a name="a-sync-group-has-an-out-of-date-status"></a><a name="setup-date2"></a> En Sync-grupp har statusen "inaktuell"
 
 - **Orsak**. Om en eller flera ändringar inte kan tillämpas för hela kvarhållningsperioden på 45 dagar kan en Sync-grupp bli inaktuell.
 
@@ -222,7 +222,7 @@ Det gick inte att ta bort en synkroniseringsresurs. Något av följande scenarie
 
   Om statusen för synkroniseringsresursen är **inaktuell**tar du bort synkroniseringsresursen och återskapar den.
 
-### <a name="a-sync-group-cant-be-deleted-within-three-minutes-of-uninstalling-or-stopping-the-agent"></a><a name="setup-delete2"></a>Det går inte att ta bort en Sync-grupp inom tre minuter från avinstallation eller stoppa agenten
+### <a name="a-sync-group-cant-be-deleted-within-three-minutes-of-uninstalling-or-stopping-the-agent"></a><a name="setup-delete2"></a> Det går inte att ta bort en Sync-grupp inom tre minuter från avinstallation eller stoppa agenten
 
 Du kan inte ta bort en Sync-grupp inom tre minuter från avinstallation eller stopp av den associerade SQL Data Sync klient agenten.
 
@@ -235,7 +235,7 @@ Du kan inte ta bort en Sync-grupp inom tre minuter från avinstallation eller st
     b.  Installera agenten på en lokal dator (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.  
     c. Försök att ta bort Sync-gruppen.
 
-### <a name="what-happens-when-i-restore-a-lost-or-corrupted-database"></a><a name="setup-restore"></a>Vad händer när jag återställer en förlorad eller skadad databas?
+### <a name="what-happens-when-i-restore-a-lost-or-corrupted-database"></a><a name="setup-restore"></a> Vad händer när jag återställer en förlorad eller skadad databas?
 
 Om du återställer en förlorad eller skadad databas från en säkerhets kopia kan det finnas en icke-konvergens av data i de Sync-grupper som databasen tillhör.
 

@@ -7,12 +7,12 @@ author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 26fd71d829c4d844b20d0848ac1f0cd9040d0cbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d2b0e1256e50619b52a482cfe20a822ddb02de0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333013"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Azure Policy inbyggda definitioner för Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -24,6 +24,9 @@ Namnet på varje inbyggd princip definition länkar till princip definitionen i 
 ## <a name="azure-sql-database--sql-managed-instance"></a>Azure SQL Database & SQL-hanterad instans 
 
 [!INCLUDE [azure-policy-reference-service-sqldatabase](../../../includes/policy/reference/byrp/microsoft.sql.md)]
+
+## <a name="limitations"></a>Begränsningar
+- Azure Policy som är tillämpliga på en Azure SQL Database skapas inte när du använder T-SQL eller SSMS. 
 
 ## <a name="next-steps"></a>Nästa steg
 

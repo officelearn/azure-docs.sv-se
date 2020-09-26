@@ -5,13 +5,13 @@ ms.date: 12/03/2019
 ms.topic: conceptual
 description: Lär dig hur du använder Kubernetes hemligheter vid körning eller bygg tid när du utvecklar program med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 25d67d9ace6870eed283302256e3fa85661a0672
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: b9a9ef2592e7b2aa3630f19e2bc1a47b2b9ef0f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308732"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Så här hanterar du hemligheter när du arbetar med ett Azure dev-utrymme
 
@@ -26,7 +26,7 @@ Azure dev Spaces innehåller två rekommenderade, strömlinjeformade alternativ 
 
 ### <a name="using-valuesdevyaml"></a>Använda Values. dev. yaml
 
-I ett projekt som du redan har förberett med Azure dev Spaces skapar du en `values.dev.yaml` fil i samma mapp som `azds.yaml` för att definiera dina hemliga nycklar och värden. Ett exempel:
+I ett projekt som du redan har förberett med Azure dev Spaces skapar du en `values.dev.yaml` fil i samma mapp som `azds.yaml` för att definiera dina hemliga nycklar och värden. Exempel:
 
 ```yaml
 secrets:
@@ -36,7 +36,7 @@ secrets:
     key: "secretkeyhere"
 ```
 
-Verifiera `azds.yaml` fil referenserna `values.dev.yaml` som valfria med hjälp av en `?` . Ett exempel:
+Verifiera `azds.yaml` fil referenserna `values.dev.yaml` som valfria med hjälp av en `?` . Exempel:
 
 ```yaml
 install:
@@ -47,7 +47,7 @@ install:
 
 Om du har ytterligare hemliga filer kan du även lägga till dem här.
 
-Uppdatera eller verifiera att tjänsten refererar till dina hemligheter som miljövariabler. Ett exempel:
+Uppdatera eller verifiera att tjänsten refererar till dina hemligheter som miljövariabler. Exempel:
 
 ```javascript
 var redisPort = process.env.REDIS_PORT
@@ -72,7 +72,7 @@ kubectl get secret --namespace default -o yaml
 
 ### <a name="using-azdsyaml"></a>Använda azds. yaml
 
-I ett projekt som du redan har förberett med Azure dev Spaces lägger du till hemliga nycklar och värde med hjälp av *$PLACEHOLDER* syntax under *konfigurationer. utvecklar. install. Set* in `azds.yaml` . Ett exempel:
+I ett projekt som du redan har förberett med Azure dev Spaces lägger du till hemliga nycklar och värde med hjälp av *$PLACEHOLDER* syntax under *konfigurationer. utvecklar. install. Set* in `azds.yaml` . Exempel:
 
 ```yaml
 configurations:
@@ -90,7 +90,7 @@ configurations:
 > [!NOTE]
 > Du kan ange hemliga värden direkt utan att använda *$PLACEHOLDER* syntax i `azds.yaml` . Den här metoden rekommenderas dock inte eftersom `azds.yaml` är lagrad i käll kontroll.
      
-Skapa en `.env` fil i samma mapp som `azds.yaml` för att definiera *$PLACEHOLDER* värden. Ett exempel:
+Skapa en `.env` fil i samma mapp som `azds.yaml` för att definiera *$PLACEHOLDER* värden. Exempel:
 
 ```
 REDIS_PORT=3333
@@ -101,7 +101,7 @@ REDIS_KEY=myrediskey
 > [!IMPORTANT]
 > Vi rekommenderar inte att du lagrar hemligheter i käll kontroll. Om du använder git lägger `.env` du till i `.gitignore` filen för att undvika att bekräfta hemligheter i käll kontrollen.
 
-Uppdatera eller verifiera att tjänsten refererar till dina hemligheter som miljövariabler. Ett exempel:
+Uppdatera eller verifiera att tjänsten refererar till dina hemligheter som miljövariabler. Exempel:
 
 ```javascript
 var redisPort = process.env.REDIS_PORT
@@ -125,7 +125,7 @@ kubectl get secret --namespace default -o yaml
 
 Föregående avsnitt visade hur du lagrar och använder hemligheter som ska användas vid kör tid för behållare. Du kan också använda vilken hemlighet som helst vid behållar Bygg tiden, till exempel ett lösen ord för en privat NuGet, med hjälp av `azds.yaml` .
 
-I `azds.yaml` ställer du in Bygg tids hemligheter i *konfigurationer. utveckla. Build. args* med `<variable name>: ${secret.<secret name>.<secret key>}` syntaxen. Ett exempel:
+I `azds.yaml` ställer du in Bygg tids hemligheter i *konfigurationer. utveckla. Build. args* med `<variable name>: ${secret.<secret name>.<secret key>}` syntaxen. Exempel:
 
 ```yaml
 configurations:
@@ -141,9 +141,9 @@ configurations:
 I exemplet ovan är *mynugetsecret* en befintlig hemlighet och *pattoken* är en befintlig nyckel.
 
 >[!NOTE]
-> Hemliga namn och nycklar kan innehålla- `.` tecknen. Används `\` för att undvika att `.` Skicka hemligheter som build-argument. Om du till exempel vill skicka en hemlighet med namnet *foo. bar* med nyckeln för *token*: `MYTOKEN: ${secret.foo\.bar.token}` . Dessutom kan hemligheter utvärderas med prefix-och postfix-text. Exempelvis `MYURL: eus-${secret.foo\.bar.token}-version1`. Dessutom kan hemligheter som är tillgängliga i överordnad och föräldrars utrymmen skickas som build-argument.
+> Hemliga namn och nycklar kan innehålla- `.` tecknen. Används `\` för att undvika att `.` Skicka hemligheter som build-argument. Om du till exempel vill skicka en hemlighet med namnet *foo. bar* med nyckeln för *token*: `MYTOKEN: ${secret.foo\.bar.token}` . Dessutom kan hemligheter utvärderas med prefix-och postfix-text. Till exempel `MYURL: eus-${secret.foo\.bar.token}-version1`. Dessutom kan hemligheter som är tillgängliga i överordnad och föräldrars utrymmen skickas som build-argument.
 
-I din Dockerfile använder du *arg* -direktivet för att använda hemligheten och använder sedan samma variabel senare i Dockerfile. Ett exempel:
+I din Dockerfile använder du *arg* -direktivet för att använda hemligheten och använder sedan samma variabel senare i Dockerfile. Exempel:
 
 ```dockerfile
 ...

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163687"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355482"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Distribuera till Azure Functions med DevOps starter
 
@@ -95,7 +95,7 @@ DevOps starter konfigurerar automatiskt en CI/CD-pipeline i Azure DevOps-organis
 
 1. Klicka på hyperlänken under **bygge**. En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
-    ![Skapa](_img/azure-devops-project-functions/build.png)
+    ![Skärm bild som visar Azure Portal DevOps starter-instrumentpanel med en pil som pekar på en länk under build i pipeline för C I/C D.](_img/azure-devops-project-functions/build.png)
 
 1. Välj **Redigera**. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen. Versionen utför olika uppgifter, till exempel hämtning av källkod från git-lagrings platsen, skapande av program, körning av enhets test och publicering av utdata som används för distributioner.
 

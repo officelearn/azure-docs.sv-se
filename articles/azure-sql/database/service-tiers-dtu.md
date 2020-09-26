@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/26/2019
-ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321364"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 |**Processor**|Låg|Låg, medel, hög|Medel, hög|
 |**IO-genomflöde (ungefärligt)** |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |**I/o-latens (ungefärligt)**|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
-|**Columnstore-indexering** |Ej tillämpligt|S3 och högre|Stöds|
+|**Columnstore-indexering** |Saknas|S3 och högre|Stöds|
 |**Minnesintern OLTP**|Saknas|Saknas|Stöds|
 
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| **Maximal lagrings storlek** | 2 GB | 1 TB | 4 TB  |
+| **Maximal lagrings storlek** | 2 GB | 1 TB | 4 TB  |
 | **Maximalt DTU: er** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]

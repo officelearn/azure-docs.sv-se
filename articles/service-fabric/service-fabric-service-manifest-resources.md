@@ -3,12 +3,12 @@ title: Ange Service Fabric tjänst slut punkter
 description: Så här beskriver du slut punkts resurser i ett tjänst manifest, inklusive hur du konfigurerar HTTPS-slutpunkter
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267813"
+ms.locfileid: "91354767"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänst manifest
 ## <a name="overview"></a>Översikt
@@ -227,9 +227,9 @@ Anta att du anger ett felaktigt värde. Anta att du har angett ett sträng värd
 I den här artikeln förklaras hur du definierar slut punkter i Service Fabric tjänst manifest. Mer detaljerade exempel finns i:
 
 > [!div class="nextstepaction"]
-> [Exempel på program och tjänstmanifest](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+> [Exempel på program och tjänstmanifest](service-fabric-manifest-examples.md)
 
 En genom gång av paketering och distribution av ett befintligt program på ett Service Fabric-kluster finns i:
 
 > [!div class="nextstepaction"]
-> [Paketera och distribuera en befintlig körbar fil till Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)
+> [Paketera och distribuera en befintlig körbar fil till Service Fabric](service-fabric-deploy-existing-app.md)

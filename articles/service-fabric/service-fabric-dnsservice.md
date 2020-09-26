@@ -4,12 +4,12 @@ description: Använd Service Fabricens DNS-tjänst för att identifiera mikrotj�
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268051"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
 DNS-tjänsten är en valfri system tjänst som du kan aktivera i klustret för att identifiera andra tjänster som använder DNS-protokollet. 
@@ -18,7 +18,7 @@ Många tjänster, särskilt behållar tjänster, kan adresseras via en redan bef
 
 DNS-tjänsten mappar DNS-namn till tjänst namn, som i sin tur löses av Naming Service för att returnera tjänst slut punkten. DNS-namnet för tjänsten tillhandahålls vid tidpunkten för skapandet. Följande diagram visar hur DNS-tjänsten fungerar för tillstånds lösa tjänster.
 
-![tjänst slut punkter](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagram över hur DNS-namn mappas till tjänst namn av DNS-tjänsten för tillstånds lösa tjänster.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Från och med Service Fabric version 6,3 har Service Fabric DNS-protokollet utökats till att omfatta ett schema för att adressera partitionerade tillstånds känsliga tjänster. Dessa tillägg gör det möjligt att lösa vissa partitions-IP-adresser med en kombination av tillstånds känsliga DNS-namn och partitionens namn. Alla tre partitionerings scheman stöds:
 
@@ -28,7 +28,7 @@ Från och med Service Fabric version 6,3 har Service Fabric DNS-protokollet utö
 
 Följande diagram visar hur DNS-tjänsten fungerar för partitionerade tillstånds känsliga tjänster.
 
-![tillstånds känsliga tjänst slut punkter](./media/service-fabric-dnsservice/stateful-dns.png)
+![Diagram över hur DNS-namn mappas till tjänst namn av DNS-tjänsten för partitionerade tillstånds lösa tjänster.](./media/service-fabric-dnsservice/stateful-dns.png)
 
 Dynamiska portar stöds inte av DNS-tjänsten. Använd [tjänsten reverse proxy](./service-fabric-reverseproxy.md)för att lösa tjänster som exponeras på dynamiska portar.
 

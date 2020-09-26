@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160774"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355371"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Snabb start: skapa en Azure DNS zon och en post med hjälp av Azure Portal
 
-Du kan konfigurera Azure DNS för att matcha värdnamn i din offentliga domän. Om du till exempel har köpt *contoso. xyz* -domännamnet från en domän namns registrator kan du konfigurera Azure DNS att vara värd för *contoso. xyz* -domänen *`www.contoso.xyz`* och matcha IP-adressen för din webb server eller webbapp.
+Du kan konfigurera Azure DNS för att matcha värdnamn i din offentliga domän. Om du till exempel har köpt *contoso. xyz* -domännamnet från en domän namns registrator kan du konfigurera Azure DNS att vara värd för *contoso. xyz* -domänen och matcha *`www.contoso.xyz`* IP-adressen för din webb server eller webbapp.
 
 I den här snabbstarten skapar du en testdomän och skapar sedan en adresspost för att matcha *www* mot IP-adressen *10.10.10.10*.
 
@@ -28,7 +28,7 @@ I den här snabbstarten skapar du en testdomän och skapar sedan en adresspost f
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 För alla portalsteg loggar du in på [Azure-portalen](https://portal.azure.com).
 
@@ -67,7 +67,7 @@ Du skapar DNS-poster för din domän inuti DNS-zonen. Skapa en ny adresspost ell
    - **Typ**: Välj **en**. "A"-poster är de vanligaste, men det finns andra post typer för e-postservrar ("MX"), IP V6-adresser (AAAA) och så vidare. 
    - **TTL**: Skriv *1*. *Time-to-live* för DNS-begäran anger hur länge DNS-servrar och klienter kan cachelagra ett svar.
    - **TTL-enhet**: Välj **Timmar**. Det här är tidsenheten för **TTL**-värdet. 
-   - **IP-adress**: För det här snabbstartsexemplet skriver du *10.10.10.10*. Det här värdet är den IP-adress som postnamnet matchar till. I ett verkligt scenario skulle du ange den offentliga IP-adressen för din webbserver.
+   - **IP-adress**: För det här snabbstartsexemplet skriver du *10.10.10.10*. Det här värdet är den IP-adress som postnamnet matchar till. I ett verkligt scenario skulle du ange den offentliga IP-adressen till webbservern.
 
 Eftersom den här snabb starten bara är för snabba test ändamål behöver du inte konfigurera Azure DNS namnservrar på en domän namns registrator. Med en verklig produktions domän vill du att vem som helst på Internet ska kunna matcha värd namnet för att ansluta till din webb server eller app. Du besöker din domännamnsregistrator för att ersätta namnserverposterna med Azure DNS-namnservrarna. Mer information finns i [Självstudie: Använda Azure DNS som värd för din domän](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
@@ -89,7 +89,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
@@ -97,9 +97,9 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
    Du bör se något som liknar följande skärm:
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![Skärm bild som visar ett kommando tolks fönster med ett n s lookup-kommando och-värden för Server, adress, namn och adress.](media/dns-getstarted-portal/nslookup.PNG)
 
-Värd namnet **www\.contoso. xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt. 
+Värd namnet **www \. contoso. xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

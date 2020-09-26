@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 0b3e1b3bc296676c44eddf34b35a0d4e06d3b8c4
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007340"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287091"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure Boot-diagnostik
 
@@ -38,6 +38,7 @@ Alternativet startdiagnostik finns på bladet för den virtuella datorn under av
 - Startdiagnostiken har inte stöd för Premium Storage-konton, om ett Premium Storage-konto används för att starta diagnostiska användare får ett `StorageAccountTypeNotSupported` fel meddelande när den virtuella datorn startas. 
 - Hanterade lagrings konton stöds i Resource Manager API-versionen "2020-06-01" och senare.
 - Azures serie konsol är för närvarande inte kompatibel med ett hanterat lagrings konto för startdiagnostik. Lär dig mer om [Azures serie konsol](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
+- Startdiagnostik med ett hantera lagrings konto kan för närvarande endast tillämpas via Azure Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,13 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: bee28c946242ecf227287fb36b5b03aa6defb1c2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b68025c1b33a94f03e2d84693a7d6407a18abd88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88173152"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332462"
 ---
+I den här snabb starten lär du dig vanliga design mönster för att skapa text till tal-Sammanfattning med hjälp av tal-SDK. Du börjar med att utföra grundläggande konfiguration och syntes och går vidare till mer avancerade exempel för anpassad program utveckling, inklusive:
+
+* Få svar som minnes strömmar
+* Anpassa samplings frekvens och bit hastighet för utdata
+* Skicka syntes begär Anden med SSML (tal syntes Markup Language)
+* Använda neurala-röster
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="synthesize-speech-to-a-speaker"></a>Syntetisera tal till en högtalare

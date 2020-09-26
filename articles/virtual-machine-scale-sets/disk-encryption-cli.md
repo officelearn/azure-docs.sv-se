@@ -1,6 +1,6 @@
 ---
 title: Kryptera diskar för Azures skalnings uppsättningar med Azure CLI
-description: Lär dig hur du använder Azure PowerShell för att kryptera VM-instanser och anslutna diskar i en skalnings uppsättning för virtuella Windows-datorer
+description: Lär dig hur du använder Azure CLI för att kryptera VM-instanser och anslutna diskar i en skalnings uppsättning för virtuella Windows-datorer
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: dfb8a0dc6c27b042319f43bc5970dd8d1bc2b094
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4d8e6d225e02006683166de73a0b66f795bc3993
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321989"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Kryptera OS och anslutna data diskar i en skalnings uppsättning för virtuella datorer med Azure CLI
 

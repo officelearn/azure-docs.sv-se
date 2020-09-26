@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354878"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introduktion till Service Fabric Resource Model
 
@@ -66,9 +66,9 @@ Hemligheter-resurser kan distribueras oberoende av ett program eller en tjänst 
 
 Behållare gör ofta temporära diskar tillgängliga. Temporära diskar är tillfälliga, så du får en ny temporär disk och förlorar informationen när en behållare kraschar. Det är också svårt att dela information på temporära diskar med andra behållare. Volymer är kataloger som monteras i dina behållar instanser som du kan använda för att spara tillstånd. -Volymer ger dig generell fil lagring och gör att du kan läsa och skriva filer med hjälp av normal disk-I/O-fil-API: er. Volym resursen är ett deklarativ sätt att beskriva hur en katalog monteras och lagrings utrymmet för den (antingen Azure Files volym eller Service Fabric tillförlitlig volym).  Mer information finns i avsnittet om att [lagra tillstånd](service-fabric-mesh-storing-state.md#volumes).
 
-![Volymer][Image3]
+![Diagram visar en tjänst som flödar till en disk volym, som flödar till både Service Fabric tillförlitlig volym, sedan till en replikerad lokal disk och till Azure Files volym, sedan till nätverks lagring.][Image3]
 
-## <a name="programming-models"></a>Programmerings modeller
+## <a name="programming-models"></a>Programmeringsmodeller
 Tjänst resursen kräver bara en behållar avbildning att köras, som refereras till i de kod paket som är associerade med resursen. Du kan köra valfri kod, skrivet på valfritt språk, med hjälp av eventuella ramverk inuti behållaren utan att behöva känna till eller använda Service Fabric maskor specifika API: er. 
 
 Din program kod förblir portabel även utanför Service Fabric-nät och dina program distributioner är konsekventa oavsett vilket språk eller ramverk som används för att implementera dina tjänster. Om ditt program är ASP.NET Core, går eller bara en uppsättning processer och skript, är distributions modellen för Service Fabric-nätresursen densamma. 

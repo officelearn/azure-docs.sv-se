@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332686"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -67,6 +67,15 @@ Och till följande IP-adresser:
 
 Åtkomst till alla webb adresser och IP-adresser som anges ovan använder HTTPS-protokollet på port 443.
 
+När du säkerhetskopierar filer och mappar från virtuella Azure-datorer med MARS-agenten måste det virtuella Azure-nätverket också konfigureras för att tillåta åtkomst. Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen *AzureBackup* för att tillåta utgående åtkomst till Azure Backup. Förutom taggen Azure Backup måste du också tillåta anslutning för autentisering och data överföring genom att skapa liknande [NSG-regler](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) för Azure AD (*AzureActiveDirectory*) och Azure Storage (*lagring*). Följande steg beskriver processen för att skapa en regel för taggen Azure Backup:
+
+1. I **alla tjänster**går du till **nätverks säkerhets grupper** och väljer Nätverks säkerhets gruppen.
+2. Välj **utgående säkerhets regler** under **Inställningar**.
+3. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
+4. Välj **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
+
+Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+
 ### <a name="azure-expressroute-support"></a>Stöd för Azure ExpressRoute
 
 Du kan säkerhetskopiera dina data via Azure ExpressRoute med offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering. Säkerhets kopiering över privat peering stöds inte.
@@ -81,11 +90,11 @@ Med offentlig peering: säkerställa åtkomst till följande domäner/adresser:
 
 Med Microsoft-peering väljer du följande tjänster/regioner och relevanta community-värden:
 
+- Azure Backup (enligt platsen för ditt Recovery Services-valv)
 - Azure Active Directory (12076:5060)
-- Microsoft Azure region (enligt platsen för ditt Recovery Services-valv)
 - Azure Storage (enligt platsen för ditt Recovery Services-valv)
 
-Mer information finns i krav för [ExpressRoute-routning](../expressroute/expressroute-routing.md).
+Mer information finns i krav för [ExpressRoute-routning](../expressroute/expressroute-routing.md#bgp).
 
 >[!NOTE]
 >Offentlig peering är föråldrad för nya kretsar.
@@ -121,13 +130,13 @@ Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdate
 
 **Operativsystem** | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Ja | Nej |  Kontrol lera motsvarande Server version för program-/modul krav
-Windows 8,1 (Enterprise, Pro)| Ja |Nej | Kontrol lera motsvarande Server version för program-/modul krav
-Windows 8 (Enterprise, Pro) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 10 (Enterprise, Pro, Home) | Ja | Inga |  Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8,1 (Enterprise, Pro)| Ja |Inga | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8 (Enterprise, Pro) | Ja | Inga | Kontrol lera motsvarande Server version för program-/modul krav
 Windows Server 2016 (standard, data Center, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (standard, data Center, Foundation, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (standard, data Center, Foundation) | Ja | Ja |– .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildningar (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Nej | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
+Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Inga | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (standard, data Center, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 
 Mer information finns i [Mabs-och DPM-operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
@@ -142,9 +151,9 @@ För lokala eller värdbaserade miljöer, där du inte kan uppgradera operativ s
 
 | **Operativ system**                                       | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja               | Nej                 | Kontrol lera motsvarande Server version för program-/modul krav |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja               | Inga                 | Kontrol lera motsvarande Server version för program-/modul krav |
 | Windows Server 2008 R2 (standard, Enterprise, data Center, Foundation) | Ja               | Ja                | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildningar (DISM.exe) |
-| Windows Server 2008 SP2 (standard, data Center, Foundation)  | Ja               | Nej                 | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildningar (DISM.exe) <br>  – Virtual Server 2005 Base + KB KB948515 |
+| Windows Server 2008 SP2 (standard, data Center, Foundation)  | Ja               | Inga                 | – .NET 3,5, .NET 4,5 <br>  – Windows PowerShell <br>  -Kompatibel Microsoft VC + + Redistributable <br>  – Microsoft Management Console (MMC) 3,0 <br>  – Underhåll och hantering av distributions avbildningar (DISM.exe) <br>  – Virtual Server 2005 Base + KB KB948515 |
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
 
@@ -180,7 +189,7 @@ Sparse-dataström| Stöds inte. Hoppades.
 OneDrive (synkroniserade filer är sparse-strömmar)| Stöds inte.
 Mappar med DFS Replication aktiverat | Stöds inte.
 
-\*Se till att MARS-agenten har åtkomst till de certifikat som krävs för att komma åt de krypterade filerna. Otillgängliga filer kommer att hoppas över.
+\* Se till att MARS-agenten har åtkomst till de certifikat som krävs för att komma åt de krypterade filerna. Otillgängliga filer kommer att hoppas över.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering
 

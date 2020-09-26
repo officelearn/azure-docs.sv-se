@@ -1,5 +1,5 @@
 ---
-title: Konfigurera IoT Hub Device Provisioning Service i Azure Portal
+title: Snabb start – konfigurera IoT Hub Device Provisioning Service i Azure Portal
 description: Snabb start – konfigurera Azure-IoT Hub Device Provisioning Service (DPS) i Azure Portal
 author: wesmc7777
 ms.author: wesmc
@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 765b7e5bb7341974a6a16d3f1ed0bcabf415f9f3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 644635d1ab7b0a43c8df3e10bbbd02d1ea67a94a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76029180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297240"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Snabb start: Konfigurera IoT Hub Device Provisioning Service med Azure Portal
 
 IoT Hub Device Provisioning Service kan användas med IoT Hub för att möjliggöra Zero-Touch-etablering, just-in-Time-etablering till önskad IoT-hubb utan mänsklig inblandning, så att kunderna kan etablera miljon tals IoT-enheter på ett säkert och skalbart sätt. Azure IoT Hub Device Provisioning Service stöder IoT-enheter med autentisering med TPM, symmetrisk nyckel och X. 509-certifikat. Mer information finns i [IoT Hub Device Provisioning service översikt](./about-iot-dps.md)
 
 I den här snabb starten får du lära dig hur du ställer in IoT Hub Device Provisioning Service i Azure Portal för att konfigurera dina enheter med följande steg:
-> [!div class="checklist"]
-> * Använd Azure Portal för att skapa en IoT Hub
-> * Använd Azure-portalen för att skapa en IoT Hub Device Provisioning-tjänst och hämta ID-omfånget
-> * Länka IoT-hubben till Device Provisioning-tjänsten
+
+* Använd Azure Portal för att skapa en IoT Hub
+* Använd Azure-portalen för att skapa en IoT Hub Device Provisioning-tjänst och hämta ID-omfånget
+* Länka IoT-hubben till Device Provisioning-tjänsten
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

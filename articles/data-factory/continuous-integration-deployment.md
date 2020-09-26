@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: a5856d85b6a967f49fd651942ca6e4596bf15e7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320990"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -212,13 +212,17 @@ Om din utvecklings fabrik har en kopplad git-lagringsplats, kan du åsidosätta 
 * Du använder automatiserad CI/CD och du vill ändra vissa egenskaper under distributionen av Resource Manager, men egenskaperna är inte parameterstyrda som standard.
 * Fabriken är så stor att Resource Manager-standardmallen är ogiltig eftersom den har fler än det högsta tillåtna antalet parametrar (256).
 
-Om du vill åsidosätta standard mal len för parameterisering skapar du en fil med namnet **arm-template-parameters-definition.jspå** i rotmappen för git-grenen. Du måste använda det exakta fil namnet.
+Om du vill åsidosätta standard mal len Parameterisering går du till hanterings hubben och väljer **Parameterisering-mall** i avsnittet käll kontroll. Välj **Redigera mall** för att öppna kod redigeraren för parameterisering. 
 
-   ![Fil för anpassade parametrar](media/continuous-integration-deployment/custom-parameters.png)
+![Hantera anpassade parametrar](media/author-management-hub/management-hub-custom-parameters.png)
+
+När du skapar en anpassad Parameterisering-mall skapas en fil med namnet **arm-template-parameters-definition.js** i rotmappen i git-grenen. Du måste använda det exakta fil namnet.
+
+![Fil för anpassade parametrar](media/continuous-integration-deployment/custom-parameters.png)
 
 När du publicerar från samarbets grenen kommer Data Factory att läsa den här filen och använda dess konfiguration för att generera vilka egenskaper som får parametrar. Om ingen fil hittas används standard mal len.
 
-När du exporterar en Resource Manager-mall Data Factory läser filen från den gren som du för närvarande arbetar på, inte bara från samarbets grenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa dina ändringar genom att välja **Exportera arm-mall** i användar gränssnittet. Sedan kan du slå samman filen till samarbets grenen.
+När du exporterar en Resource Manager-mall Data Factory läser filen från den gren som du för närvarande arbetar på, inte samarbets grenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa dina ändringar genom att välja **Exportera arm-mall** i användar gränssnittet. Sedan kan du slå samman filen till samarbets grenen.
 
 > [!NOTE]
 > En anpassad Parameterisering-mall ändrar inte gränsen för ARM-mallparameter på 256. Du kan välja och minska antalet parameter egenskaper.

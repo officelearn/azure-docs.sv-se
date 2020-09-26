@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333063"
 ---
-# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Övervakning av prestanda för Microsoft Azure SQL Database och Azure SQL-hanterad instans med hjälp av vyer för dynamisk hantering
+# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Övervaka prestanda för Microsoft Azure SQL Database och Azure SQL Managed Instance med hjälp av dynamiska hanteringsvyer
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Microsoft Azure SQL Database och Azure SQL-hanterad instans gör det möjligt för en delmängd av vyer för dynamisk hantering att diagnostisera prestanda problem, vilket kan orsakas av blockerade eller långvariga frågor, resurs Flask halsar, dåliga fråge planer och så vidare. Det här avsnittet innehåller information om hur du identifierar vanliga prestanda problem med hjälp av dynamiska Management views.
@@ -529,7 +529,7 @@ Du kan också övervaka användningen med följande vyer:
 - Azure SQL-hanterad instans: [sys. server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
 - Både Azure SQL Database och Azure SQL-hanterad instans: [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdm_db_resource_stats"></a>sys. dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 Du kan använda [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) -vyn i varje databas. I vyn **sys. dm_db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
 
@@ -550,7 +550,7 @@ FROM sys.dm_db_resource_stats;
 
 För andra frågor, se exemplen i [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysserver_resource_stats"></a>sys. server_resource_stats
+### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
 Du kan använda [sys. server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) för att returnera processor användning, IO och lagrings data för en hanterad Azure SQL-instans. Data samlas in och sammanställs inom fem minuters intervall. Det finns en rad för var 15: e sekunds rapportering. De data som returneras inkluderar CPU-användning, lagrings storlek, i/o-användning och SKU för hanterade instanser. Historiska data behålls i cirka 14 dagar.
 

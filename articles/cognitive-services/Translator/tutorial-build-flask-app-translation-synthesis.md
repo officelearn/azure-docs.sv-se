@@ -10,13 +10,13 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 6a81e52b833a59f51f6961a0bd41d52b040050b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-js
+ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876894"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330629"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudie: Bygg en kolv-app med Azure Cognitive Services
 
@@ -86,7 +86,7 @@ Innan du skapar en-webbapp måste du skapa en arbets katalog för projektet och 
    cd flask-cog-services
    ```
 
-### <a name="create-and-activate-your-virtual-environment-with-virtualenv"></a>Skapa och aktivera din virtuella miljö med`virtualenv`
+### <a name="create-and-activate-your-virtual-environment-with-virtualenv"></a>Skapa och aktivera din virtuella miljö med `virtualenv`
 
 Nu ska vi skapa en virtuell miljö för vår mätkolv-app med hjälp av `virtualenv` . Med hjälp av en virtuell miljö kan du se till att du har en ren miljö att arbeta med.
 
@@ -139,7 +139,7 @@ Nu måste vi installera kolv. Kolv hanterar routningen för vår webbapp och gö
    ```
    pip install Flask
    ```
-   Nu ska vi se till att kolven har installerats. Kör:
+   Nu ska vi se till att kolven har installerats. Kör följande:
    ```
    flask --version
    ```
@@ -291,7 +291,7 @@ Det första du behöver göra är att skriva en funktion för att anropa Transla
    ```
 3. Lägg till prenumerations nyckeln för Translator och spara.
 
-### <a name="add-a-route-to-apppy"></a>Lägg till en väg i`app.py`
+### <a name="add-a-route-to-apppy"></a>Lägg till en väg i `app.py`
 
 Därefter måste du skapa en väg i din mätkolv-app som anropar `translate.py` . Den här vägen kommer att anropas varje gången en användare trycker på knappen Översätt i appen.
 
@@ -411,7 +411,7 @@ Uppdatera nu `index.html` .
 
 Nästa steg är att skriva vissa JavaScript-skript. Detta är bryggan mellan din HTML-och kolv-väg.
 
-### <a name="create-mainjs"></a>Fram`main.js`  
+### <a name="create-mainjs"></a>Fram `main.js`  
 
 `main.js`Filen är bryggan mellan din HTML-och kolv-väg. Din app kommer att använda en kombination av jQuery, Ajax och XMLHttpRequest för att återge innehåll och göra `POST` förfrågningar till dina Flask vägar.
 
@@ -533,7 +533,7 @@ Nu ska vi skriva en funktion för att anropa API för textanalys. Funktionen tar
    ```
 3. Lägg till din Textanalys prenumerations nyckel och spara.
 
-### <a name="add-a-route-to-apppy"></a>Lägg till en väg i`app.py`
+### <a name="add-a-route-to-apppy"></a>Lägg till en väg i `app.py`
 
 Nu ska vi skapa en väg i din mätkolv-app som anropar `sentiment.py` . Den här vägen kommer att anropas varje gången en användare trycker på analys knappen Kör sentiment i din app. Precis som vägen för översättning kommer den här vägen att acceptera `POST` begär Anden eftersom funktionen förväntar sig argument.
 
@@ -670,7 +670,7 @@ I det här avsnittet ska du göra några saker:
 
 ### <a name="call-the-text-to-speech-api"></a>Anropa text-till-Speech API
 
-Nu ska vi skriva en funktion för att konvertera text till tal. Den här funktionen tar två argument: `input_text` och `voice_font` . Den här funktionen anropas när en användare trycker på knappen omvandla text till tal i din app. `input_text`är översättnings resultatet som returneras av anropet till Översätt text, `voice_font` värdet från röst teckensnitts väljaren i HTML-koden.
+Nu ska vi skriva en funktion för att konvertera text till tal. Den här funktionen tar två argument: `input_text` och `voice_font` . Den här funktionen anropas när en användare trycker på knappen omvandla text till tal i din app. `input_text` är översättnings resultatet som returneras av anropet till Översätt text, `voice_font` värdet från röst teckensnitts väljaren i HTML-koden.
 
 1. Nu ska vi skapa en fil `synthesize.py` som kallas i roten i din arbets katalog.
 
@@ -727,7 +727,7 @@ Nu ska vi skriva en funktion för att konvertera text till tal. Den här funktio
    ```
 3. Lägg till din prenumerations nyckel för tal tjänster och spara.
 
-### <a name="add-a-route-to-apppy"></a>Lägg till en väg i`app.py`
+### <a name="add-a-route-to-apppy"></a>Lägg till en väg i `app.py`
 
 Nu ska vi skapa en väg i din mätkolv-app som anropar `synthesize.py` . Den här vägen kommer att anropas varje gången en användare trycker på knappen omvandla text till tal i din app. Precis som vägarna för översättning och sentiment analys kommer den här vägen att acceptera `POST` begär Anden eftersom funktionen förväntar sig två argument: texten att syntetisera och röst teckensnittet för uppspelning.
 

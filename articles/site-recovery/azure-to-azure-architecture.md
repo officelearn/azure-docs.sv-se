@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322095"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -62,7 +62,7 @@ Du kan hantera mål resurser på följande sätt:
 
 När du aktiverar Azure VM-replikering skapar Site Recovery en ny replikeringsprincip med de standardinställningar som sammanfattas i tabellen.
 
-**Principinställning** | **Information** | **Standard**
+**Principinställning** | **Information** | **Standardvärde**
 --- | --- | ---
 **Kvarhållning av återställnings punkt** | Anger hur länge Site Recovery behåller återställnings punkter | 24 timmar
 **Frekvens för programkonsekventa ögonblicks bilder** | Hur ofta Site Recovery tar en programkonsekvent ögonblicks bild. | Var fjärde timme
@@ -104,7 +104,7 @@ En krasch-konsekvent ögonblicks bild fångar upp data som fanns på disken när
 
 **Beskrivning** | **Information** | **Rekommendation**
 --- | --- | ---
-Programkonsekventa återställnings punkter skapas från programkonsekventa ögonblicks bilder.<br/><br/> En programkonsekvent ögonblicks bild innehåller all information i en krasch-konsekvent ögonblicks bild, plus alla data i minnet och transaktioner som pågår. | Programkonsekventa ögonblicks bilder använder tjänsten Volume Shadow Copy (VSS):<br/><br/>   1) när en ögonblicks bild initieras utför VSS en ko-åtgärd (kopiering vid skrivning) på volymen.<br/><br/>   2) innan den utför Ko informerar VSS varje app på datorn att den behöver tömma sina minnesresidenta data till disk.<br/><br/>   3) VSS tillåter sedan säkerhets kopierings-/katastrof återställnings appen (i det här fallet Site Recovery) att läsa ögonblicks bild data och fortsätta. | Programkonsekventa ögonblicks bilder tas i enlighet med den frekvens som du anger. Den här frekvensen bör alltid vara mindre än du anger för att behålla återställnings punkter. Om du till exempel behåller återställnings punkter med standardinställningen 24 timmar bör du ange frekvensen till mindre än 24 timmar.<br/><br/>De är mer komplexa och tar längre tid än krasch-konsekventa ögonblicks bilder.<br/><br/> De påverkar prestanda för appar som körs på en virtuell dator som är aktive rad för replikering. 
+Programkonsekventa återställnings punkter skapas från programkonsekventa ögonblicks bilder.<br/><br/> En programkonsekvent ögonblicks bild innehåller all information i en krasch-konsekvent ögonblicks bild, plus alla data i minnet och transaktioner som pågår. | Programkonsekventa ögonblicks bilder använder tjänsten Volume Shadow Copy (VSS):<br/><br/>   1) Azure Site Recovery använder metoden kopiera endast säkerhets kopiering (VSS_BT_COPY) som inte ändrar säkerhets kopierings tid och sekvensnummer för Microsoft SQLs transaktions logg </br></br> 2) när en ögonblicks bild initieras utför VSS en ko-åtgärd (kopiering vid skrivning) på volymen.<br/><br/>   3) innan den utför Ko informerar VSS varje app på datorn att den behöver tömma sina minnesresidenta data till disk.<br/><br/>   4) VSS tillåter sedan säkerhets kopierings-och haveri beredskap (i det här fallet Site Recovery) att läsa ögonblicks bild data och fortsätta. | Programkonsekventa ögonblicks bilder tas i enlighet med den frekvens som du anger. Den här frekvensen bör alltid vara mindre än du anger för att behålla återställnings punkter. Om du till exempel behåller återställnings punkter med standardinställningen 24 timmar bör du ange frekvensen till mindre än 24 timmar.<br/><br/>De är mer komplexa och tar längre tid än krasch-konsekventa ögonblicks bilder.<br/><br/> De påverkar prestanda för appar som körs på en virtuell dator som är aktive rad för replikering. 
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 

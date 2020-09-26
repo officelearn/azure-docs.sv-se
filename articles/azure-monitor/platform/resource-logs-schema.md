@@ -4,12 +4,12 @@ description: Förstå tjänster och händelse schema som stöds för Azures resu
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: d0f78b858da51838aacd9e3be9b0a069918710a7
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 17b4b161e76f018d8f669ee7e9b5dd578bb3e035
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421925"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278404"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Gemensamt och tjänstspecifikt schema för Azure-resurs loggar
 
@@ -23,7 +23,7 @@ En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `cat
 
 ## <a name="top-level-common-schema"></a>Gemensamt schema på översta nivån
 
-| Name | Obligatorisk/valfri | Beskrivning |
+| Name | Obligatorisk/valfri | Description |
 |---|---|---|
 | time | Obligatorisk | Tids stämplingen (UTC) för händelsen. |
 | resourceId | Obligatorisk | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
@@ -69,6 +69,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Event Hubs |[Azure Event Hubs-loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schemat är inte tillgängligt. |
 | Azure Firewall | Schemat är inte tillgängligt. |
+| Front Door | [Loggning för front dörr](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [IoT Hub åtgärder](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault loggning](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes-loggning](../../aks/view-master-logs.md#log-event-schema) |
@@ -78,7 +79,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
 | Dedikerad Power BI | [Loggning för Power BI Embedded i Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Search |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
+| Sök |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus loggar](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database loggning](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Jobbloggar](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

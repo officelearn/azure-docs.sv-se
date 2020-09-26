@@ -3,12 +3,12 @@ title: Hantera signerade avbildningar
 description: Lär dig hur du aktiverar innehålls förtroende för Azure Container Registry och push-och pull-signerade avbildningar. Content Trust är en funktion i Premium service-nivån.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253487"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Innehållsförtroende i Azure Container Registry
 
@@ -40,7 +40,7 @@ Första steget är att aktivera innehållsförtroende på registernivån. När d
 
 Om du vill aktivera innehållsförtroende för ditt register navigerar du först till registret i Azure-portalen. Under **principer**väljer du **innehålls förtroende**  >  **aktiverat**  >  **Spara**. Du kan också använda kommandot [AZ ACR config Content-Trust Update][az-acr-config-content-trust-update] i Azure CLI.
 
-![Aktivera innehållsförtroende för ett register i Azure-portalen][content-trust-01-portal]
+![Skärm bild som visar aktivering av innehålls förtroende för ett register i Azure Portal.][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>Aktivera innehållsförtroende för klient
 
@@ -76,7 +76,7 @@ Endast de användare eller system som du har beviljat behörighet kan skicka bet
 
 Information om att bevilja rollen `AcrImageSigner` i Azure-portalen och Azure CLI följer nedan.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Navigera till registret i Azure Portal och välj sedan **åtkomst kontroll (IAM)**  >  **Lägg till roll tilldelning**. Under **Lägg till rolltilldelning** väljer du `AcrImageSigner` under **Roll**. **Välj** sedan en eller flera användare eller tjänsthuvudnamn och **Spara** därefter.
 

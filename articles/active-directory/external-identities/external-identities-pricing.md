@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12aa400d6ca44043d3d90e78a93ae49d97a927e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270298"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265805"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Fakturerings modell för externa Azure AD-identiteter
 
@@ -43,11 +43,11 @@ Den pris nivå som gäller för gäst användarna baseras på den högsta pris n
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Länka din Azure AD-klient till en prenumeration
 
-En Azure AD-klient måste vara länkad till en Azure-prenumeration för korrekt fakturering och åtkomst till funktioner.
+En Azure AD-klient måste vara länkad till en Azure-prenumeration för korrekt fakturering och åtkomst till funktioner. Om katalogen inte redan har en prenumeration som du kan länka till, har du möjlighet att lägga till en under den här processen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med ett Azure-konto som har tilldelats minst [deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) rollen i prenumerationen eller en resurs grupp i prenumerationen.
 
-2. Välj den katalog som innehåller din prenumeration: Välj ikonen **katalog + prenumeration** i Azure Portal-verktygsfältet och välj sedan den katalog som innehåller din prenumeration.
+2. Välj den katalog som du vill länka: i Azure Portal verktygsfältet väljer du ikonen **katalog + prenumeration** och välj sedan katalogen.
 
     ![Välj ikonen katalog + prenumeration](media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ En Azure AD-klient måste vara länkad till en Azure-prenumeration för korrekt 
     ![Välj klienten och länka en prenumeration](media/external-identities-pricing/linked-subscriptions.png)
 
 7. I fönstret länka en prenumeration väljer du en **prenumeration** och en **resurs grupp**. Välj sedan **Använd**.
+
+   > [!NOTE]
+   > Om det inte finns några prenumerationer i listan kan du [associera en prenumeration till din klient organisation](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Du kan också lägga till en ny prenumeration genom att välja länken **om du inte redan har en prenumeration du kan skapa en här**.
 
     ![Välj en prenumeration och resurs grupp](media/external-identities-pricing/link-subscription-resource.png)
 

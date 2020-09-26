@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 359c2a27099ca298076edc255b8c30e226af0a18
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 07f5fef0103e674af1c5f73b3f09bdf759e592cb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355983"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
 
@@ -108,11 +108,24 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 När processen har skapats kan du köra en härledning eller modell bedömning i ett AKS-kluster bakom ett virtuellt nätverk. Mer information finns i [så här distribuerar du till AKS](how-to-deploy-and-where.md).
 
-## <a name="private-aks-cluster"></a>Privat AKS-kluster
+## <a name="secure-vnet-traffic"></a>Säker VNet-trafik
+
+Det finns två metoder för att isolera trafik till och från AKS-klustret till det virtuella nätverket:
+
+* __Privat AKS-kluster__: den här metoden använder Azures privata länk för att skapa en privat slut punkt för AKS-klustret i VNet.
+* __Intern AKS-belastningsutjämnare__: den här metoden konfigurerar belastningsutjämnaren för klustret att använda en intern IP-adress i VNet.
+
+> [!WARNING]
+> Båda konfigurationerna är olika sätt att uppnå samma mål (skydda trafik till AKS-klustret i VNet). **Använd en eller flera, men inte båda**.
+
+### <a name="private-aks-cluster"></a>Privat AKS-kluster
 
 Som standard har AKS-kluster ett kontroll plan eller en API-server med offentliga IP-adresser. Du kan konfigurera AKS till att använda ett privat kontroll plan genom att skapa ett privat AKS-kluster. Mer information finns i [skapa ett privat Azure Kubernetes service-kluster](../aks/private-clusters.md).
 
 När du har skapat det privata AKS-klustret [ansluter du klustret till det virtuella nätverket](how-to-create-attach-kubernetes.md) som ska användas med Azure Machine Learning.
+
+> [!IMPORTANT]
+> Innan du använder en privat länk som är aktive rad AKS-kluster med Azure Machine Learning måste du öppna en support incident för att aktivera den här funktionen. Mer information finns i [Hantera och öka kvoter](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="internal-aks-load-balancer"></a>Intern belastningsutjämnare för AKS
 
@@ -120,7 +133,7 @@ Som standard använder AKS-distributioner en [offentlig belastningsutjämnare](.
 
 En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för att använda en _intern belastningsutjämnare_. 
 
-### <a name="network-contributor-role"></a>Rollen nätverks deltagare
+#### <a name="network-contributor-role"></a>Rollen nätverks deltagare
 
 > [!IMPORTANT]
 > Om du skapar eller ansluter ett AKS-kluster genom att tillhandahålla ett virtuellt nätverk som du skapade tidigare, måste du bevilja tjänstens huvud namn (SP) eller hanterad identitet för ditt AKS-kluster rollen _nätverks deltagare_ till den resurs grupp som innehåller det virtuella nätverket. Detta måste göras innan du försöker ändra den interna belastnings utjämningen till privat IP.
@@ -152,16 +165,17 @@ En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för at
     ```
 Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [använda intern belastningsutjämnare med Azure Kubernetes service](/azure/aks/internal-lb).
 
-### <a name="enable-private-load-balancer"></a>Aktivera privat belastningsutjämnare
+#### <a name="enable-private-load-balancer"></a>Aktivera privat belastningsutjämnare
 
 > [!IMPORTANT]
-> Du kan inte aktivera privat IP när du skapar Azure Kubernetes service-klustret. Den måste vara aktive rad som en uppdatering av ett befintligt kluster.
+> Du kan inte aktivera privat IP när du skapar Azure Kubernetes service-klustret i Azure Machine Learning Studio. Du kan skapa en med hjälp av en intern belastningsutjämnare när du använder python SDK eller Azure CLI-tillägget för Machine Learning.
 
-Följande kodfragment visar hur du __skapar ett nytt AKS-kluster__och sedan uppdaterar det så att det använder en privat IP/intern belastningsutjämnare:
+Följande exempel visar hur du __skapar ett nytt AKS-kluster med en privat IP/intern belastningsutjämnare__ med hjälp av SDK och CLI:
+
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
 # Verify that cluster does not exist already
@@ -175,7 +189,7 @@ except:
     # Subnet to use for AKS
     subnet_name = "default"
     # Create AKS configuration
-    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    prov_config=AksCompute.provisioning_configuration(load_balancer_type="InternalLoadBalancer")
     # Set info for existing virtual network to create the cluster in
     prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
     prov_config.vnet_name = "myvnetname"
@@ -188,44 +202,21 @@ except:
     aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
-    
-    # Update AKS configuration to use an internal load balancer
-    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-    aks_target.update(update_config)
-    # Wait for the operation to complete
-    aks_target.wait_for_completion(show_output = True)
 ```
 
-__Azure CLI__
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
+```azurecli
+az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-Innehållet i filen som `body.json` kommandot refererar till liknar följande JSON-dokument:
+Mer information finns i [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
-```json
-{ 
-    "location": "<region>", 
-    "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
-        "computeType": "AKS", 
-        "provisioningState": "Succeeded", 
-        "properties": { 
-            "loadBalancerType": "InternalLoadBalancer", 
-            "agentCount": <agent-count>, 
-            "agentVmSize": "vm-size", 
-            "clusterFqdn": "<cluster-fqdn>" 
-        } 
-    } 
-} 
-```
+---
 
-När du __kopplar ett befintligt kluster__ till din arbets yta, måste du vänta tills efter åtgärden för att lägga till belastningsutjämnaren.
+När du __kopplar ett befintligt kluster__ till din arbets yta, måste du vänta tills efter åtgärden för att lägga till belastningsutjämnaren. Information om hur du kopplar ett kluster finns i [bifoga ett befintligt AKS-kluster](how-to-create-attach-kubernetes.md).
 
-Information om hur du kopplar ett kluster finns i [bifoga ett befintligt AKS-kluster](how-to-create-attach-kubernetes.md).
-
-När du har kopplat det befintliga klustret kan du uppdatera klustret så att det använder en privat IP-adress.
+När du har kopplat det befintliga klustret kan du uppdatera klustret så att det använder en intern belastningsutjämnare/privat IP:
 
 ```python
 import azureml.core
@@ -260,7 +251,7 @@ Använd följande steg för att använda ACI i ett virtuellt nätverk på din ar
     > [!IMPORTANT]
     > När du aktiverar delegering ska `Microsoft.ContainerInstance/containerGroups` du använda som värde för __tjänsten delegera till tjänst__ .
 
-2. Distribuera modellen med [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true) `vnet_name` och Använd `subnet_name` parametrarna och. Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
+2. Distribuera modellen med [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true) `vnet_name` och Använd `subnet_name` parametrarna och. Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322384"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
 
@@ -136,6 +136,29 @@ När du begär en kvot ökning måste du välja den tjänst som du begär för a
 
 > [!NOTE]
 > [Kostnads fria utvärderings prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera den kostnads fria utvärderings versionen av Azure till "betala per](../billing/billing-upgrade-azure-subscription.md) användning" och  [vanliga frågor om utvärderings prenumeration](https://azure.microsoft.com/free/free-account-faq).
+
+## <a name="private-endpoint-and-private-dns-quota-increases"></a>Privat slut punkt och privat DNS-kvot ökar
+
+Det finns begränsningar för antalet privata slut punkter och privata DNS-zoner som kan skapas i en prenumeration. Medan Azure Machine Learning skapar resurser i din prenumeration (kund) finns det några scenarier som skapar resurser i en Microsoft-ägd prenumeration. I följande scenarier kan du behöva begära en kvot tilldelning i den Microsoft-ägda prenumerationen:
+
+* __Privat länk aktive rad arbets yta med en kundhanterad nyckel (CMK)__
+* __Azure Container Registry för arbets ytan bakom ditt virtuella nätverk__
+* __Bifoga ett Azure Kubernetes service-kluster med en privat länk till din arbets yta__.
+
+Använd följande steg för att begära en ersättning för dessa scenarier:
+
+1. [Skapa en support förfrågan för Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) och välj följande alternativ i avsnittet __grundläggande__ information:
+
+    | Fält | Urval |
+    | ----- | ----- |
+    | Typ av problem | Teknisk |
+    | Tjänst | Mina tjänster. Välj __Machine Learning__ i list rutan. |
+    | Problem typ | Installation av arbets yta, SDK och CLI |
+    | Problem under typ | Problem med etablering eller hantering av arbetsyta |
+
+2. I avsnittet __information__ använder du fältet __Beskrivning__ för att ange den Azure-region som du vill använda och det scenario som du planerar att använda. Om du behöver begära kvot ökningar för flera prenumerationer kan du även ange prenumerations-ID: n i det här fältet.
+
+3. Använd __create__ för att skapa begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,18 +1,18 @@
 ---
-title: Aktivera tillägg för ingångs kontroll för ett nytt AKS-kluster med en ny Azure Application Gateway-instans
-description: Lär dig hur du använder Azure CLI för att aktivera tillägg för ingångs kontroll för ditt nya AKS-kluster med en ny Application Gateway-instans.
+title: 'Självstudie: aktivera tillägg för ingångs kontroll för ett nytt AKS-kluster med en ny Azure Application Gateway-instans'
+description: I den här självstudien får du lära dig hur du använder Azure CLI för att aktivera tillägg för ingångs kontroll för ditt nya AKS-kluster med en ny Application Gateway-instans.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 620fe5851f9dbde01b2206595fa79b61f62deb66
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595928"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285612"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Självstudie: aktivera tillägg för ingångs kontroll (för hands version) för ett nytt AKS-kluster med en ny Application Gateway instans
 
@@ -30,11 +30,12 @@ I den här guiden får du lära dig att:
 > * Distribuera ett exempel program genom att använda AGIC för ingress i AKS-klustret.
 > * Kontrol lera att programmet kan kontaktas via Application Gateway.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="prerequisites"></a>Krav
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare i den här självstudien. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -134,7 +135,7 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs om hur du inaktiverar AGIC-tillägget](./ingress-controller-disable-addon.md)
-* [Lär dig mer om vilka anteckningar som stöds med AGIC](./ingress-controller-annotations.md)
-* [Felsöka problem med AGIC](./ingress-controller-troubleshoot.md)
+
+> [!div class="nextstepaction"]
+> [Läs om hur du inaktiverar AGIC-tillägget](./ingress-controller-disable-addon.md)
 

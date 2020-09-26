@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e86f79a286c10c45b2586dd1aa4d3aed035fc450
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 68a2d354c45820bc9f2b291701deb9066a745235
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297886"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Skapa en Node.js-konsolapp med JavaScript SDK för att hantera data från SQL-API:et för Azure Cosmos DB
 
@@ -95,7 +95,7 @@ Nu när din app finns behöver du se till att den kan kommunicera med Azure Cosm
 
 Java Script SDK använder *behållaren* för allmänna villkor och *objektet*. En container kan vara en samling, ett diagram eller en tabell. Ett objekt kan vara ett dokument, en kant/ett hörn eller en rad, och är innehållet i en container. I föregående kodfragment `module.exports = config;` används koden för att exportera config-objektet, så att du kan referera till det i *app.js* -filen.
 
-## <a name="create-a-database-and-a-container"></a>Skapa en databas och en behållare
+## <a name="create-a-database-and-a-container"></a>Skapa en databas och en container
 
 1. Öppna *databaseContext.js* -filen i din favorit text redigerare.
 

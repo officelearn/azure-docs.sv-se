@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du kedjar en Azure Service Bus kö
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af1c8a8e043ae964c4917a58ea67275e8379817f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333689"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Kedja Service Bus entiteter med vidarebefordran
 
@@ -29,11 +29,11 @@ Målentiteten måste finnas när källentiteten skapas. Om målentiteten inte fi
 
 Du kan använda vidarebefordran för att skala ut ett enskilt ämne. Service Bus begränsar [antalet prenumerationer för ett angivet ämne](service-bus-quotas.md) till 2 000. Du kan hantera ytterligare prenumerationer genom att skapa avsnitt på andra nivån. Även om du inte är kopplad till Service Bus begränsningen för antalet prenumerationer kan du förbättra det totala data flödet i ditt ämne genom att lägga till en andra nivå med avsnitt.
 
-![Scenario för automatisk vidarebefordring][0]
+![Diagram över ett scenario för autovidarebefordran som visar ett meddelande som bearbetas via ett order-avsnitt som kan gå till någon av tre artiklar på andra nivån.][0]
 
 Du kan också använda vidarebefordran för att koppla ifrån meddelande avsändare från mottagare. Överväg till exempel ett ERP-system som består av tre moduler: order bearbetning, inventerings hantering och kund Relations hantering. Var och en av dessa moduler genererar meddelanden som är i kö i ett motsvarande ämne. Alice och Robert är säljare som är intresserade av alla meddelanden som är relaterade till sina kunder. För att ta emot dessa meddelanden, Alice och Bob var och en skapa en personlig kö och en prenumeration på var och en av ERP-ämnen som automatiskt vidarebefordrar alla meddelanden till kön.
 
-![Scenario för automatisk vidarebefordring][1]
+![Diagram över ett scenario för autovidarebefordran som visar tre bearbetnings moduler som skickar meddelanden via tre motsvarande ämnen i två separata köer.][1]
 
 Om Alice går på semester, hennes personliga kö i stället för ERP-ämnet, fylls. I det här scenariot, eftersom en försäljnings representant inte har tagit emot några meddelanden, når inget av ERP-ämnena kvoten.
 

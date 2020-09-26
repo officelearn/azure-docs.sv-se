@@ -4,15 +4,15 @@ description: Lär dig hur du skapar en App Service-miljö med en intern belastni
 author: ccompy
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f2124dd77e3e5d9828ea457a6bccdf7d1bc05405
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1bda52227737b082927dd1449fa6469cf849ff15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961779"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273270"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Skapa och Använd en intern Load Balancer App Service-miljön 
 
@@ -100,15 +100,26 @@ Både Functions och webbjobb går att använda på en ILB ASE, men för att port
 
 ## <a name="dns-configuration"></a>DNS-konfiguration 
 
-När du använder en extern VIP hanteras DNS av Azure. Appar som skapas i din ASE läggs till automatiskt till Azure DNS, som är en offentlig DNS. I en ILB ASE måste du hantera din egen DNS. Det domänsuffix som används med en ILB-ASE beror på namnet på ASE. Domänsuffixet är * &lt; ASE name &gt; . appserviceenvironment.net*. IP-adressen för din ILB finns i portalen under **IP-adresser**. 
+När du använder en extern ASE registreras appar i dina ASE med Azure DNS. Det finns inga ytterligare steg i en extern ASE för att dina appar ska vara offentligt tillgängliga. Med en ILB-ASE måste du hantera din egen DNS. Du kan göra detta på din egen DNS-server eller med Azure DNS privata zoner.
 
-Så här konfigurerar du DNS:
+Så här konfigurerar du DNS på din egen DNS-server med din ILB-ASE:
 
-- skapa en zon för * &lt; ASE name &gt; . appserviceenvironment.net*
-- skapa en A-post i den zonen som pekar på ILB IP-adress
-- skapa en A-post i den zonen som pekar @ på ILB IP-adress
-- skapa en zon i * &lt; ASE name &gt; . appserviceenvironment.net* med namnet SCM
-- skapa en A-post i SCM-zonen som pekar på ILB IP-adress
+1. skapa en zon för <ASE name> . appserviceenvironment.net
+2. skapa en A-post i den zonen som pekar på ILB IP-adress
+3. skapa en A-post i den zonen som pekar @ på ILB IP-adress
+4. skapa en zon i <ASE name> . appserviceenvironment.net med namnet SCM
+5. skapa en A-post i SCM-zonen som pekar på ILB IP-adress
+
+Så här konfigurerar du DNS i Azure DNS privata zoner:
+
+1. skapa en Azure DNS privat zon med namnet <ASE name> . appserviceenvironment.net
+2. skapa en A-post i den zonen som pekar på ILB IP-adress
+3. skapa en A-post i den zonen som pekar @ på ILB IP-adress
+4. skapa en A-post i den zonen som pekar *. scm till ILB-IP-adressen
+
+DNS-inställningarna för ditt ASE standard-domänsuffix begränsar inte dina appar till att endast vara tillgängliga för dessa namn. Du kan ange ett anpassat domän namn utan att verifiera dina appar i en ILB-ASE. Om du sedan vill skapa en zon med namnet contoso.net kan du göra det och peka den mot ILB IP-adressen. Det anpassade domän namnet fungerar för app-begäranden, men inte för SCM-platsen. SCM-webbplatsen är bara tillgänglig på <appname> . scm. <asename> . appserviceenvironment.net.
+
+Zonen med namnet. <asename> . appserviceenvironment.net är globalt unikt. Innan maj 2019 kunde kunderna ange domänsuffix för ILB-ASE. Om du vill använda. contoso.com för domänsuffix kan du göra det och inkludera SCM-webbplatsen. Det fanns utmaningar med denna modell, inklusive; hantera SSL-standardcertifikatet, avsaknad av enkel inloggning med SCM-platsen och kravet på att använda ett jokertecken. ILB ASE-processen för standard certifikats uppgradering avbröts också och det gjorde att programmet startades om. För att lösa dessa problem ändrades beteendet för ILB ASE till att använda ett domänsuffix baserat på namnet på ASE och med ett Microsoft-ägda suffix. Ändringen av ILB ASE-beteendet påverkar bara ILB ASE som gjorts efter maj 2019. Befintliga ILB-ASE måste fortfarande hantera standard certifikatet för ASE och deras DNS-konfiguration.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicera med en ILB ASE
 

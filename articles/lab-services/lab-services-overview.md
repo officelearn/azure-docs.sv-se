@@ -2,16 +2,16 @@
 title: Om Azure Lab Services | Microsoft Docs
 description: Lär dig hur Lab Services kan göra det enkelt att skapa, hantera och skydda labb med virtuella datorer som kan användas av utvecklare, testare, lärare, elever och andra.
 ms.topic: overview
-ms.date: 06/26/2020
-ms.openlocfilehash: 7661b26d16eb2c2acd53c30889ea791689c1eec0
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 09/16/2020
+ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85442813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333944"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>En introduktion till Azure Lab Services
-Med **Azure Lab Services** kan du skapa labb vars infrastruktur hanteras av Azure. För närvarande är klass rums labb den enda typen av hanterade labb som stöds av Azure Lab Services. Tjänsten hanterar all infrastruktur hantering för en hanterad labb typ, från att skapa virtuella datorer för att hantera fel och skala infrastrukturen. När en IT-administratör har skapat ett labb konto i Azure Lab Services kan en lärare snabbt konfigurera ett labb för klassen, ange antal och typ av virtuella datorer som behöver övningar i klassen och lägga till användare i klassen. När en användare har registrerat sig för klassen, kan användaren komma åt den virtuella datorn för att göra övningar för klassen.  
+Med **Azure Lab Services** kan du skapa labb vars infrastruktur hanteras av Azure. För närvarande är klass rums labb den enda typen av hanterade labb som stöds av Azure Lab Services. Tjänsten hanterar all infrastruktur hantering för en hanterad labb typ, från att skapa virtuella datorer för att hantera fel och skala infrastrukturen. När en IT-administratör har skapat ett labb konto i Azure Lab Services kan en lärare snabbt konfigurera ett labb för klassen, ange antal och typ av virtuella datorer som behövs för övningar i klassen och lägga till användare i klassen. När en användare har registrerat sig för klassen, kan användaren komma åt den virtuella datorn för att göra övningar för klassen.  
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 Azure Lab Services stöder följande viktiga funktioner:

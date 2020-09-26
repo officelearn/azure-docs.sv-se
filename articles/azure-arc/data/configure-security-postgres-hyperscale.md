@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b166348031e9f72e8005e866a198855db9c01a9c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941597"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273208"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Konfigurera säkerhet för din Azure-Arc-aktiverad PostgreSQL-Server grupp
 
@@ -156,14 +156,66 @@ Du kan använda standard metoden postgres för att skapa användare eller roller
 Azure Arc Enabled PostgreSQL-skalning levereras med den postgres administrativa användar _postgres_ som du anger lösen ordet för när du skapar din server grupp.
 Det allmänna formatet för kommandot att ändra lösen ordet är:
 ```console
-azdata arc postgres server edit --name <server group name> --admin-password <new password>
+azdata arc postgres server edit --name <server group name> --admin-password
 ```
-Lösen ordet anges till värdet för AZDATA_PASSWORD **sessionens**miljö variabel om det finns. Annars uppmanas användaren att ange ett värde.
-För att kontrol lera vad den AZDATA_PASSWORD sessionens miljö variabel finns och/eller vilket värde den har angetts för, kör du:
-```console
-printenv AZDATA_PASSWORD
-```
-Du kanske vill ta bort dess värde om du vill uppmanas att ange ett nytt lösen ord.
+
+Där--Admin-Password är ett booleskt värde som relaterar till förekomsten av ett värde i AZDATA_PASSWORD **sessionens**miljö variabel.
+Om den AZDATA_PASSWORD **sessionens**miljö variabel finns och har ett värde, kommer att köra kommandot ovan att ange lösen ordet för postgres-användaren till värdet för denna miljö variabel.
+
+Om den AZDATA_PASSWORD **sessionens**miljö variabel finns men inte har något värde eller om den AZDATA_PASSWORD **sessionens**miljö variabel inte finns, så uppmanas användaren att ange ett lösen ord interaktivt med kommandot ovan.
+
+#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Ändra lösen ordet för den administrativa postgres-användaren på ett interaktivt sätt:
+1. Ta bort den AZDATA_PASSWORD **sessionens**miljö variabel eller ta bort dess värde
+2. Kör kommandot:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Till exempel
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   Du uppmanas att ange lösen ordet och bekräfta det:
+   ```console
+   Postgres Server password:
+   Confirm Postgres Server password:
+   ```
+   När lösen ordet uppdateras visar kommandots utdata:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+   
+#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Ändra lösen ordet för den administrativa postgres-användaren med hjälp av miljövariabeln AZDATA_PASSWORD **session**:
+1. Ange värdet för den AZDATA_PASSWORD **sessionens**miljö variabel som du vill att lösen ordet ska vara.
+2. Kör kommandot:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Till exempel
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   
+   När lösen ordet uppdateras visar kommandots utdata:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+
+> [!NOTE]
+> För att kontrol lera om den AZDATA_PASSWORD sessionens miljö variabel finns och vilket värde den har, kör du:
+> - På en Linux-klient:
+> ```console
+> printenv AZDATA_PASSWORD
+> ```
+>
+> - På en Windows-klient med PowerShell:
+> ```console
+> echo $env:AZDATA_PASSWORD
+> ```
+
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44c1c1860cbea20a7a00da5a396e4d82d79efd8b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4364ed916e2b2783ab09f9d61ae63197d001ad42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941884"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273189"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Anslutnings lägen och krav
 
@@ -82,10 +82,11 @@ I förhands gransknings fasen stöds för närvarande endast det indirekt anslut
 
 |**Namn**|**Anslutningens källa**|**Anslutningens mål**|**Protokoll**|**Port**|**Kan använda proxy**|**Autentisering**|**Kommentarer**|
 |---|---|---|---|---|---|---|---|
-|**Microsoft Container Registry (MCR)**|Kubernetes-kubelet på varje Kubernetes-noder hämtar behållar avbildningarna.|`mcr.microsoft.com`|HTTPS|443|Yes|Ingen|Microsoft Container Registry är värd för de avbildningar av Azure Arc-aktiverade data Services-behållare.  Du kan hämta avbildningarna från MCR och skicka dem till ett privat behållar register och konfigurera distributions processen för datakontrollanten för att hämta behållar avbildningarna från det privata behållar registret.|
+|**Microsoft Container Registry (MCR)**|Kubernetes-kubelet på varje Kubernetes-noder hämtar behållar avbildningarna.|`mcr.microsoft.com`|HTTPS|443|Yes|Inget|Microsoft Container Registry är värd för de avbildningar av Azure Arc-aktiverade data Services-behållare.  Du kan hämta avbildningarna från MCR och skicka dem till ett privat behållar register och konfigurera distributions processen för datakontrollanten för att hämta behållar avbildningarna från det privata behållar registret.|
 |**Azure Resource Manager-API: er**|En dator som kör Azure Data Studio, Azure Data CLI eller Azure CLI som ansluter till Azure.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net`|HTTPS|443|Yes|Azure Active Directory|Azure Data Studio kan Azure Data CLI och Azure CLI ansluta till Azure Resource Manager-API: er för att skicka och hämta data till och från Azure för vissa funktioner.|
 |**Azure Monitor-API: er**|En dator som kör Azure Data CLI eller Azure CLI som laddar upp övervaknings mått eller loggar till Azure Monitor.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com`|HTTPS|443|Yes|Azure Active Directory|Azure Data Studio kan Azure Data CLI och Azure CLI ansluta till Azure Resource Manager-API: er för att skicka och hämta data till och från Azure för vissa funktioner.|
 
-> **Obs:** För närvarande är alla webbläsares HTTPS/443-anslutningar till instrument panelerna Grafana och Kibana och från Azure Data CLI till datakontrollants-API: et SSL-krypterat med självsignerade certifikat.  En funktion kommer att vara tillgänglig i framtiden som gör att du kan tillhandahålla dina egna certifikat för kryptering av dessa SSL-anslutningar.
+> [!NOTE]
+> För närvarande är alla webbläsares HTTPS/443-anslutningar till instrument panelerna Grafana och Kibana och från Azure Data CLI till datakontrollants-API: et SSL-krypterat med självsignerade certifikat.  En funktion kommer att vara tillgänglig i framtiden som gör att du kan tillhandahålla dina egna certifikat för kryptering av dessa SSL-anslutningar.
 
 Anslutning från Azure Data Studio och Azure Data CLI till Kubernetes-API-servern använder Kubernetes-autentisering och kryptering som du har upprättat.  Varje användare som använder Azure Data Studio och Azure Data CLI måste ha en autentiserad anslutning till Kubernetes-API: et för att utföra många av de åtgärder som rör Azure Arc-aktiverade data tjänster.

@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273608"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -102,7 +102,7 @@ Följande är en sammanfattning av sidorna i guiden Express installation, autent
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| E.t. |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
+| Saknas |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut till AD DS |Lokala Active Directory autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar AD DS-anslutningsprogrammet i Active Directory och beviljar behörigheter till det. Det här skapade kontot används för att läsa och skriva katalog information under synkroniseringen.</li> |
 
@@ -115,11 +115,11 @@ Med installationen av anpassade inställningar får du fler alternativ och alter
 
 Följande är en sammanfattning av sidorna för anpassade installations guider, autentiseringsuppgifterna som samlas in och vad de används för.
 
-![Snabb installation](./media/reference-connect-accounts-permissions/customize.png)
+![Skärm bild som visar sidor med anpassad installations guide.](./media/reference-connect-accounts-permissions/customize.png)
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| E.t. |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
+| Saknas |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
 | Installera Synchronization Services, tjänst konto alternativ |Autentiseringsuppgifter för AD eller lokalt användar konto |Användare, behörigheter beviljas av installations guiden |Om administratören anger ett konto används det här kontot som tjänst konto för synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut dina kataloger |Lokala Active Directory autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna beror på vilka funktioner du aktiverar och hur du hittar dem i skapa AD DS-anslutnings kontot |Det här kontot används för att läsa och skriva katalog information under synkroniseringen. |
@@ -175,7 +175,7 @@ Om du använder anpassade inställningar ansvarar du för att skapa kontot innan
 ### <a name="adsync-service-account"></a>ADSync-tjänstkonto
 Synkroniseringstjänsten kan köras under olika konton. Den kan köras under ett **virtuellt tjänst konto** (VSA), ett **grupphanterat tjänst konto** (gMSA/SMSA) eller ett vanligt användar konto. De alternativ som stöds har ändrats med 2017 april-versionen av Connect när du gör en ny installation. Om du uppgraderar från en tidigare version av Azure AD Connect är dessa ytterligare alternativ inte tillgängliga.
 
-| Typ av konto | Installations alternativ | Beskrivning |
+| Typ av konto | Installations alternativ | Description |
 | --- | --- | --- |
 | [Virtuellt tjänst konto](#virtual-service-account) | Express och anpassad, 2017 april och senare | Detta är det alternativ som används för alla Express installationer, förutom för installationer på en domänkontrollant. För anpassad är det standard alternativet om inte ett annat alternativ används. |
 | [Grupphanterat tjänstkonto](#group-managed-service-account) | Anpassad, 2017 april och senare | Om du använder en fjärran sluten SQL Server rekommenderar vi att du använder ett grupphanterat tjänst konto. |
@@ -208,7 +208,7 @@ Förklaring:
 #### <a name="virtual-service-account"></a>Virtuellt tjänst konto
 Ett virtuellt tjänst konto är en särskild typ av konto som inte har ett lösen ord och som hanteras av Windows.
 
-![ATTRIBUTET](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![Skärm bild som visar det virtuella tjänst kontot (VSA).](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 VSA är avsedd att användas med scenarier där Synkroniseringsmotorn och SQL finns på samma server. Om du använder fjärr-SQL rekommenderar vi att du använder ett grupphanterat tjänst konto i stället.
 
@@ -241,7 +241,7 @@ Kontot beviljas också behörigheter till filer, register nycklar och andra obje
 ### <a name="azure-ad-connector-account"></a>Azure AD Connector-konto
 Ett konto i Azure AD skapas för Sync-tjänstens användning. Detta konto kan identifieras med dess visnings namn.
 
-![AD-konto](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Skärm bild som visar Azure AD-kontot.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 Namnet på den server som kontot används på kan identifieras i den andra delen av användar namnet. I bilden är Server namnet DC1. Om du har mellanlagrings servrar har varje server ett eget konto.
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71678977f899b910a97dbb552233f36ca5a51f26
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273151"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Skapa datakontrollant i Azure Data Studio
 
@@ -42,7 +42,7 @@ Följ dessa steg om du vill skapa en Azure Arc-dataenhet med hjälp av distribut
 9. Ange ett namn för data styrenheten och för det namn område som data styrenheten ska skapas i.  
 
 > [!NOTE]
-> Om namn området redan finns kommer det att användas om namn området inte redan innehåller andra Kubernetes-objekt – poddar osv.  Om namn området inte finns skapas ett försök att skapa namn området.  Att skapa ett namn område i ett Kubernetes-kluster kräver administratörs behörighet för Kubernetes-kluster.  Om du inte har administratörs behörighet för Kubernetes kan du be din Kubernetes-kluster administratör att utföra de första stegen i artikeln [skapa en datakontrollant med Kubernetes-Native-verktyg](./create-data-controller-using-k8s-native-tools.md) som måste utföras av en Kubernetes-administratör innan du slutför den här guiden.
+> Om namn området redan finns kommer det att användas om namn området inte redan innehåller andra Kubernetes-objekt – poddar osv.  Om namn området inte finns skapas ett försök att skapa namn området.  Att skapa ett namn område i ett Kubernetes-kluster kräver administratörs behörighet för Kubernetes-kluster.  Om du inte har administratörs behörighet för Kubernetes kan du be din Kubernetes-kluster administratör att utföra de första stegen i artikeln [skapa en datakontrollant med Kubernetes-Native-verktyg](./create-data-controller-using-kubernetes-native-tools.md) som måste utföras av en Kubernetes-administratör innan du slutför den här guiden.
 
 > [!NOTE]
 > Obs! data styrenheten och namn områdets namn kommer att användas för att skapa en anpassad resurs i Kubernetes-klustret så att de måste följa [namn konventionerna för Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).

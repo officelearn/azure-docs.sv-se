@@ -3,12 +3,12 @@ title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648567"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334182"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -108,7 +108,13 @@ Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](..
 
 För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera inställningar utvärderas i den virtuella datorn och du måste visa information om varje inställning. Om du till exempel granskar en lista över lösen ords principer och bara en av dem har status _inkompatibel_, behöver du veta vilka principer för lösen ord som inte är kompatibla och varför.
 
-Du kanske inte har behörighet att logga in på den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn är _icke-kompatibel_.
+Du kanske inte har behörighet att logga in på den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn inte är _kompatibel_.
+
+## <a name="compliance-details-for-resource-provider-modes"></a>Information om efterlevnad för resurs leverantörs lägen
+
+För tilldelningar med ett [resurs leverantörs läge](../concepts/definition-structure.md#resource-manager-modes)väljer du den _icke-kompatibla_ resursen för att öppna en djupare vy. Under fliken **komponent efterlevnad** finns ytterligare information som är speciell för resurs leverantörens läge på den tilldelade principen som visar den _icke-kompatibla_ **komponenten** och **komponent-ID: t**.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Skärm bild av fliken efterlevnad för komponenter och efterlevnad för en resurs leverantörs läge tilldelning." border="false":::
 
 ### <a name="azure-portal"></a>Azure Portal
 

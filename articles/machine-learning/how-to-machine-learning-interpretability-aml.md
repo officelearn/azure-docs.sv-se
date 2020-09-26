@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333842"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Använd tolknings paketet till att förklara ML-modeller & förutsägelser i python (för hands version)
 
@@ -42,10 +42,9 @@ Mer information om vilka tolknings tekniker och maskin inlärnings modeller som 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generera funktions prioritets värde på din personliga dator 
 I följande exempel visas hur du använder tolknings paketet på din personliga dator utan att kontakta Azure-tjänster.
 
-1. Installera `azureml-interpret` och `azureml-contrib-interpret` paket.
+1. Installera `azureml-interpret`-paketet.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Träna en exempel modell i en lokal Jupyter-anteckningsbok.
@@ -239,15 +238,14 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
 * Använd `ExplanationClient` i fjärrkörning för att överföra tolknings kontexten.
 * Ladda ned kontexten senare i en lokal miljö.
 
-1. Installera `azureml-interpret` och `azureml-contrib-interpret` paket.
+1. Installera `azureml-interpret`-paketet.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Till exempel `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -280,7 +278,7 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
 1. Hämta förklaringen i den lokala Jupyter-anteckningsboken.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -304,7 +302,7 @@ När du har laddat ned förklaringarna i din lokala Jupyter-anteckningsbok kan d
 
 I följande områden finns en övergripande vy av den tränade modellen tillsammans med dess förutsägelser och förklaringar.
 
-|Basera|Beskrivning|
+|Basera|Description|
 |----|-----------|
 |Data utforskning| Visar en översikt över data uppsättningen tillsammans med förutsägelse värden.|
 |Global prioritet|Sammanställer funktions värden för enskilda Datapoints för att Visa modellens övergripande viktigaste K (konfigurerbara K) viktiga funktioner. Hjälper till att förstå den underliggande modellens övergripande beteende.|
@@ -318,7 +316,7 @@ I följande områden finns en övergripande vy av den tränade modellen tillsamm
 
 Du kan läsa in prioritets kurvan för enskilda funktioner för alla data punkter genom att klicka på någon av de enskilda data punkterna i de övergripande områdena.
 
-|Basera|Beskrivning|
+|Basera|Description|
 |----|-----------|
 |Lokal prioritet|Visar de viktigaste K (konfigurerbara K) viktiga funktioner för en enskild förutsägelse. Hjälper till att illustrera den underliggande modellens lokala beteende på en viss data punkt.|
 |Perturbation-utforskning (vad händer om-analys)|Tillåter ändringar av funktions värden för den valda data punkten och observerar resulterande ändringar i förutsägelse värde.|
@@ -332,29 +330,12 @@ Du kan läsa in prioritets kurvan för enskilda funktioner för alla data punkte
 
 [![ICE-observationer på visualiserings instrument panelen](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Innan Jupyter-kärnan startar, se till att du aktiverar widgets tillägg för visualiserings instrument panelen.
-
-* Jupyter Notebooks
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 Använd följande kod för att läsa in visualiserings instrument panelen.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualisering i Azure Machine Learning Studio
@@ -370,7 +351,7 @@ Följ någon av dessa sökvägar för att få åtkomst till instrument panelen f
   1. Välj ett särskilt experiment för att visa alla körningar i experimentet.
   1. Välj en körning och sedan fliken **förklaringar** till instrument panelen förklarings visualisering.
 
-   [![Lokal funktions prioritet för visualiserings instrument panel](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Instrument panelens lokala funktions betydelse i AzureML Studio i experiment](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Fönstret **modeller**
   1. Om du har registrerat din ursprungliga modell genom att följa stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), kan du välja **modeller** i det vänstra fönstret för att visa den.

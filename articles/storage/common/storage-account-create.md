@@ -1,27 +1,27 @@
 ---
 title: skapar ett lagringskonto
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar ett lagrings konto med hjälp av Azure Portal, Azure PowerShell eller Azure CLI. Ett Azure Storage-konto tillhandahåller ett unikt namn område i Microsoft Azure för att lagra och komma åt dina data.
+description: Lär dig att skapa ett lagrings konto för att lagra blobar, filer, köer och tabeller. Ett Azure Storage-konto tillhandahåller ett unikt namn område i Microsoft Azure för att läsa och skriva data.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333587"
 ---
-# <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
+# <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Ett Azure Storage-konto innehåller alla dina Azure Storage data objekt: blobbar, filer, köer, tabeller och diskar. Lagrings kontot tillhandahåller ett unikt namn område för dina Azure Storage data som är tillgängliga från var som helst i världen via HTTP eller HTTPS. Data i ditt Azure Storage-konto är tåliga och mycket tillgängliga, säkra och enorma skalbara.
 
-I den här instruktions artikeln lär du dig att skapa ett lagrings konto med hjälp av [Azure Portal](https://portal.azure.com/), [Azure POWERSHELL](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)eller en [Azure Resource Manager-mall](../../azure-resource-manager/management/overview.md).  
+I den här instruktions artikeln lär du dig att skapa ett lagrings konto med hjälp av [Azure Portal](https://portal.azure.com/), [Azure POWERSHELL](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure)eller en [Azure Resource Manager-mall](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Knappen startar ett interaktivt gränssnitt som du kan använda för att köra s
 
 ### <a name="install-the-cli-locally"></a>Installera CLI lokalt
 
-Du kan även installera och använda Azure CLI lokalt. Den här instruktions artikeln kräver att du kör Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+Du kan även installera och använda Azure CLI lokalt. Exemplen i den här artikeln kräver Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 # <a name="template"></a>[Mall](#tab/template)
 
@@ -98,17 +98,15 @@ az login
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+Saknas
 
 ---
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Nu är du redo att skapa ett lagrings konto.
-
 Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. Den här artikeln visar hur du skapar en ny resurs grupp.
 
-Ett **v2-lagringskonto för generell användning** ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer, tabeller och diskar. De steg som beskrivs här skapar ett allmänt-syfte v2-lagrings konto, men stegen för att skapa en typ av lagrings konto liknar varandra.
+Ett **v2-lagringskonto för generell användning** ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer, tabeller och diskar. De steg som beskrivs här skapar ett allmänt-syfte v2-lagrings konto, men stegen för att skapa en typ av lagrings konto liknar varandra. Mer information om typer av lagringskonton och andra inställningar för lagringskonto finns i [översikten över Azure-lagringskonton](storage-account-overview.md).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -186,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du ta med `--enable-hierarchical-namespace true` i den här listan över parametrar. 
+> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du ta med `--enable-hierarchical-namespace true` i den här listan över parametrar.
 
 Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikeringsalternativ, ersätter du det önskade värdet i tabellen nedan för **SKU** -parametern.
 
@@ -230,8 +228,6 @@ Information om hur du ändrar den här mallen eller skapar nya finns i:
 - [Fler exempel på mallar för lagrings konton](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
-Mer information om tillgängliga replikeringsalternativ finns i [Storage replication options](storage-redundancy.md) (Alternativ för lagringsreplikering).
 
 ## <a name="delete-a-storage-account"></a>Ta bort ett lagringskonto
 
@@ -287,26 +283,6 @@ Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot o
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktions artikeln har du skapat ett standard lagrings konto för generell användning v2. Om du vill lära dig hur du laddar upp och laddar ned blobar till och från ditt lagrings konto fortsätter du till något av snabb starterna för Blob Storage.
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Arbeta med blobar med PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Arbeta med blobar med Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
-
-# <a name="template"></a>[Mall](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Översikt över lagrings konto](storage-account-overview.md)
+- [Uppgradera till ett V2-lagringskonto för generell användning](storage-account-upgrade.md)
+- [Flytta ett Azure Storage-konto till en annan region](storage-account-move.md)

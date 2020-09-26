@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297954"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -38,7 +38,8 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 
 **v 2.0** innehåller följande uppdatering:
--   [Klient biblioteken](quickstarts/client-library.md) för net, python, Java och Java Script har angett allmän tillgänglighet. 
+
+- [Klient biblioteken](quickstarts/client-library.md) för net, python, Java och Java Script har angett allmän tillgänglighet. 
 
 
 **Nya exempel** finns på GitHub. 
@@ -176,4 +177,8 @@ JSON-Svaren för alla API-anrop har nya format. Vissa nycklar och värden har la
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .
+Slutför en [snabb start för klient bibliotek](quickstarts/client-library.md) för att komma igång med att skriva en app för formulär bearbetning med formulär tolken på valfritt språk.
+
+## <a name="see-also"></a>Se även
+
+* [Vad är formigenkänning?](./overview.md)

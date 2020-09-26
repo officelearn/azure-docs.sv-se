@@ -3,14 +3,14 @@ title: Ge program åtkomst till andra Azure-resurser
 description: I den här artikeln förklaras hur du beviljar åtkomst till hanterade identiteter Service Fabric program till andra Azure-resurser som stöder Azure Active Directory-baserad autentisering.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 638176ca2665146a64fb7a6bd83253eba3434a7f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a1d963c49f9522000028b00c138b2e5731a9ccca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333638"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Bevilja en Service Fabric programmets hanterade identitets åtkomst till Azure-resurser (förhands granskning)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Bevilja åtkomst till Azure-resurser Service Fabric programmets hanterade identitet
 
 Innan programmet kan använda den hanterade identiteten för att komma åt andra resurser måste behörigheter beviljas till den identiteten på den skyddade Azure-resursen som används. Att bevilja behörigheter är vanligt vis en hanterings åtgärd på "kontroll planet" i Azure-tjänsten som äger den skyddade resursen som dirigerats via Azure Resource Manager, vilket tvingar fram en tillgänglig rollbaserad åtkomst kontroll.
 

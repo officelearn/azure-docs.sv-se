@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311078"
+ms.locfileid: "91355864"
 ---
 # <a name="secure-a-daemon-application"></a>Skydda ett daemon-program
 
@@ -122,7 +122,7 @@ Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldel
 2. **Lägg till** en roll tilldelning på fliken **roll tilldelningar** . 
 
     > [!div class="mx-imgBorder"]
-    > ![Lägg till rolltilldelning](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Skärm bild som visar de sammanslagnings tilldelningar som har marker ATS.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Välj en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare**. Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn** eller hanterad identitet med användaren tilldelad hanterad identitet **hanterad**identitet  /  **System assigned Managed identity**. Välj huvud konto. Välj sedan **Spara**.
 

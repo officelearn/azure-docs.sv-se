@@ -3,12 +3,12 @@ title: Replikera Azure Stack virtuella datorer till Azure med Azure Site Recover
 description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure Stack virtuella datorer med tjänsten Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564317"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333723"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera virtuella Azure Stack-datorer till Azure
 
@@ -164,13 +164,13 @@ Konfigurera Configuration Server-datorn, registrera den i valvet och identifiera
 1. Klicka på **Förbered infrastruktur**  >  **källa**.
 2. I **Förbered källa** klickar du på **+Konfigurationsserver**.
 
-    ![Konfigurera källan](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Skärm bild av dialog rutan + konfigurations server med meddelandet "Klicka på + konfigurations server i kommando fältet ovan för att konfigurera en...".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. I **Lägg till Server**kontrollerar du att **konfigurations servern** visas i **Server typ**.
 5. Hämta installations filen Site Recovery Unified setup.
 6. Ladda ned valvregistreringsnyckeln. Du behöver registrerings nyckeln när du kör enhetlig installation. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
-    ![Konfigurera källan](./media/azure-stack-site-recovery/set-source2.png)
+    ![Skärm bild av dialog rutan Lägg till server med Server typ inställd på konfigurations servern och nedladdnings knappen för valv registrerings nyckeln markerat.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Kör Azure Site Recovery enhetlig installation

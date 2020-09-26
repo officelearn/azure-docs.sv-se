@@ -3,12 +3,12 @@ title: Undanta diskar från replikering med Azure Site Recovery
 description: Så här undantar du diskar från replikering till Azure med Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333672"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exkludera diskar från haveri beredskap
 
@@ -207,7 +207,7 @@ DB-Disk3 | Disk3 | F:\ | Användardata 2
 
 Inställningarna för fil växlings filen på den virtuella käll datorn är följande:
 
-![Inställningar för växlingsfiler på den virtuella källdatorn](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Skärm bild av dialog rutan virtuellt minne med linjen D: enhet [växlings enhets volym] markerad som visar växlings filens storlek (MB) på 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Vi aktiverar replikering för den virtuella datorn.
 2. Vi undantar DB-Disk1 från replikering.
@@ -260,12 +260,12 @@ DB-Disk3 | Disk3 | F:\ | Användardata 2
 
 Inställningarna för växlings fil på den virtuella Azure-datorn är följande:
 
-![Inställningar för växlingsfiler på den virtuella Azure-datorn](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Skärm bild av dialog rutan virtuellt minne med C: enhets linjen markerad med inställningen för växlings fil storlek för "system Managed".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om rikt linjer för den tillfälliga lagrings disken:
     - [Lär dig mer om](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) att använda SSD i virtuella Azure-datorer för att lagra SQL Server tempdb och buffertpooltillägget
-    - [Granska](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) prestanda metod tips för SQL Server i virtuella Azure-datorer.
+    - [Granska ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) prestanda metod tips för SQL Server i virtuella Azure-datorer.
 - När du har konfigurerat och fått igång distributionen kan du [läsa mer](failover-failback-overview.md) om olika typer av redundansväxlingar.

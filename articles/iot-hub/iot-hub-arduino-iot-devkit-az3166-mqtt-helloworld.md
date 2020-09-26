@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: a3a8c065c226d1cc94d79b44d16f288fab205a56
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 09ea3ceb15c9b175b8366bf3ac57a61e468ab72a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356034"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-Server
 
@@ -55,7 +55,7 @@ Expandera exempel avsnittet för vänster **ARDUINO** , bläddra till **exempel 
 
 Typ `Ctrl+P` (MacOS: `Cmd+P` ) som ska köras `task device-upload` . När uppladdningen är klar startar DevKit om och kör skissen.
 
-![enhet – Ladda upp](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+![Skärm bild som visar ett kommando tolks fönster som laddar upp och kör Arduino-skissen.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
 > Du kan få fel meddelandet "Error: AZ3166: unknowed Package". Det här felet uppstår när tavla-paketets index inte har uppdaterats på rätt sätt. För att lösa det här felet, se [avsnittet utveckling i vanliga frågor och svar om IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -64,15 +64,15 @@ Typ `Ctrl+P` (MacOS: `Cmd+P` ) som ska köras `task device-upload` . När upplad
 
 I VS Code följer du stegen nedan för att öppna och konfigurera den seriella övervakaren:
 
-1. Klicka på `COM[X]` ordet i statusfältet för att ange rätt com-port med `STMicroelectronics` : ![ set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. Klicka på `COM[X]` ordet i statusfältet för att ange rätt COM-port med `STMicroelectronics` : ![ skärm bild som visar Visual Studio Code med COM8 S T Micro Electronics valt.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. Klicka på Power plugg-ikonen i statusfältet för att öppna den seriella övervakaren: ![ serie övervakaren](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. Klicka på ikonen för Power-plugin-programmet i statusfältet för att öppna den seriella övervakaren: ![ skärm bilden visar versions sammanfattningen och ikonen för ström kontakten i statusfältet.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. I statusfältet klickar du på det tal som representerar överföringshastigheten och ställer in det på `115200` : ![ set-baud-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. I statusfältet klickar du på det tal som representerar överföringshastigheten och ställer in det på `115200` : ![ skärm bilden visar hur överföringshastigheten visas i Visual Studio Code.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
 I den seriella övervakaren visas alla meddelanden som skickas av exempel ritningen. Skissen ansluter DevKit till Wi-Fi. När Wi-Fi-anslutningen har slutförts skickar skissen ett meddelande till MQTT-koordinatorn. Efter det skickar exemplet upprepade gånger två "iot.eclipse.org"-meddelanden med QoS 0 och QoS 1.
 
-![serie utdata](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![Skärm bild visar den seriella övervakaren som visar de meddelanden som skickas av skissen.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 

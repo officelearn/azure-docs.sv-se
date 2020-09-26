@@ -1,6 +1,6 @@
 ---
 title: Transformera data med U-SQL-skript – Azure
-description: Lär dig hur du bearbetar eller transformerar data genom att köra U-SQL-skript på Azure Data Lake Analytics Compute service.
+description: Lär dig hur du bearbetar eller transformerar data genom att köra U-SQL-skript på Azure Data Lake Analytics Compute service-version 1.
 services: data-factory
 documentationcenter: ''
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: a4ae575984badb2b03f72a77aaf580012a1fc002
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 17e5b5eaea90b5f67ad91f0b09a51b2f1aeffd68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322623"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -48,9 +48,9 @@ Följande tabell innehåller beskrivningar av de allmänna egenskaper som använ
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **bastyp** |Egenskapen Type ska anges till: **AzureDataLakeAnalytics**. |Ja |
-| **Konto** |Azure Data Lake Analytics konto namn. |Ja |
-| **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nej |
+| **bastyp** |Egenskapen Type ska anges till: **AzureDataLakeAnalytics**. |Yes |
+| **Konto** |Azure Data Lake Analytics konto namn. |Yes |
+| **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |No |
 | **subscriptionId** |ID för Azure-prenumeration |Nej (om inget anges används prenumerationen på data fabriken). |
 | **resourceGroupName** |Azure-resursgruppsnamn |Nej (om inget värde anges används resurs gruppen för data fabriken). |
 
@@ -64,9 +64,9 @@ Använd tjänstens huvud namns autentisering genom att ange följande egenskaper
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Ange programmets klient-ID. | Ja |
-| **servicePrincipalKey** | Ange programmets nyckel. | Ja |
-| **tenant** | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
+| **servicePrincipalId** | Ange programmets klient-ID. | Yes |
+| **servicePrincipalKey** | Ange programmets nyckel. | Yes |
+| **tenant** | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Yes |
 
 **Exempel: autentisering av tjänstens huvud namn**
 ```json
@@ -92,8 +92,8 @@ Du kan också använda autentisering med användarens autentiseringsuppgifter f�
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| **auktoriseringsregeln** | Klicka på knappen **auktorisera** i Data Factory redigeraren och ange autentiseringsuppgifterna som tilldelar URL: en automatiskt genererad auktorisering till den här egenskapen. | Ja |
-| **sessionId** | OAuth-sessions-ID från OAuth-auktoriseringsbegäran. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory redigeraren. | Ja |
+| **auktoriseringsregeln** | Klicka på knappen **auktorisera** i Data Factory redigeraren och ange autentiseringsuppgifterna som tilldelar URL: en automatiskt genererad auktorisering till den här egenskapen. | Yes |
+| **sessionId** | OAuth-sessions-ID från OAuth-auktoriseringsbegäran. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory redigeraren. | Yes |
 
 **Exempel: autentisering med användar behörighet**
 ```json
@@ -208,16 +208,16 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 
 | Egenskap            | Beskrivning                              | Krävs                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| typ                | Egenskapen Type måste anges till **DataLakeAnalyticsU-SQL**. | Ja                                      |
-| linkedServiceName   | Referens till Azure Data Lake Analytics som registrerats som en länkad tjänst i Data Factory | Ja                                      |
+| typ                | Egenskapen Type måste anges till **DataLakeAnalyticsU-SQL**. | Yes                                      |
+| linkedServiceName   | Referens till Azure Data Lake Analytics som registrerats som en länkad tjänst i Data Factory | Yes                                      |
 | scriptPath          | Sökväg till mapp som innehåller U-SQL-skriptet. Filens namn är Skift läges känsligt. | Nej (om du använder skript)                   |
 | scriptLinkedService | Länkad tjänst som länkar det lagrings utrymme som innehåller skriptet till data fabriken | Nej (om du använder skript)                   |
 | skript              | Ange infogat skript i stället för att ange scriptPath och scriptLinkedService. Till exempel: `"script": "CREATE DATABASE test"`. | Nej (om du använder scriptPath och scriptLinkedService) |
-| degreeOfParallelism | Det maximala antalet noder som används samtidigt för att köra jobbet. | Nej                                       |
-| prioritet            | Bestämmer vilka jobb som inte är i kö som ska väljas för att köras först. Ju lägre siffra, desto högre prioritet. | Nej                                       |
-| parametrar          | Parametrar för U-SQL-skriptet          | Nej                                       |
-| runtimeVersion      | Körnings version av U-SQL-motorn som ska användas | Nej                                       |
-| compilationMode     | <p>Compiler-läge för U-SQL. Måste vara något av följande värden:</p> <ul><li>**Semantisk:** Utför endast semantiska kontroller och nödvändiga Sanity-kontroller.</li><li>**Fullständig:** Genomför fullständig kompilering, inklusive syntaxkontroll, optimering, kodgenerering, osv.</li><li>**Enkel:** Utför fullständig kompilering med TargetType-inställningen till en enda.</li></ul><p>Om du inte anger något värde för den här egenskapen, fastställer servern det optimala kompilerings läget. </p> | Nej                                       |
+| degreeOfParallelism | Det maximala antalet noder som används samtidigt för att köra jobbet. | No                                       |
+| prioritet            | Bestämmer vilka jobb som inte är i kö som ska väljas för att köras först. Ju lägre siffra, desto högre prioritet. | No                                       |
+| parametrar          | Parametrar för U-SQL-skriptet          | No                                       |
+| runtimeVersion      | Körnings version av U-SQL-motorn som ska användas | No                                       |
+| compilationMode     | <p>Compiler-läge för U-SQL. Måste vara något av följande värden:</p> <ul><li>**Semantisk:** Utför endast semantiska kontroller och nödvändiga Sanity-kontroller.</li><li>**Fullständig:** Genomför fullständig kompilering, inklusive syntaxkontroll, optimering, kodgenerering, osv.</li><li>**Enkel:** Utför fullständig kompilering med TargetType-inställningen till en enda.</li></ul><p>Om du inte anger något värde för den här egenskapen, fastställer servern det optimala kompilerings läget. </p> | No                                       |
 
 Se [SearchLogProcessing.txt skript definition](#sample-u-sql-script) för skript definitionen. 
 

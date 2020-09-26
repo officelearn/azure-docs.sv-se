@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: kör python-skriptet Hello World'
+title: 'Självstudie: kör en "Hello World!" Python-skript'
 titleSuffix: Azure Machine Learning
-description: Del 2 av Azure ML kom igång-serien visar hur du skickar ett trivialt "Hello World" Python-skript till molnet.
+description: Del 2 i serien Azure Machine Learning get-started visar hur du skickar en trivial "Hello World!" Python-skript till molnet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,39 +11,38 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 52a9932db4fc261b8f3d740a316af3e852559a32
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320497"
+ms.locfileid: "91372552"
 ---
-# <a name="tutorial-run-hello-world-python-script-part-2-of-4"></a>Självstudie: kör "Hello World" Python-skript (del 2 av 4)
+# <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Självstudie: kör en "Hello World!" Python-skript (del 2 av 4)
 
-I den här självstudien får du lära dig hur du använder Azure Machine Learning python SDK för att skicka och köra ett python-"Hello World"-skript.
+I den här självstudien får du lära dig hur du använder Azure Machine Learning SDK för python för att skicka och köra en python "Hello World!" över.
 
-Den här självstudien är **del två i en själv studie serie i fyra delar** där du får lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade Machine Learning-uppgifter i Azure. Den här självstudien bygger på det arbete som du slutförde i [själv studie kursen, del 1: Konfigurera din lokala dator för Azure Machine Learning](
-tutorial-1st-experiment-sdk-setup-local.md).
+Den här självstudien är *del 2 i en själv studie serie i fyra delar* där du får lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade Machine Learning-uppgifter i Azure. Den här självstudien bygger på det arbete som du avslutade i [del 1: Konfigurera din lokala dator för Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
 
-I den här självstudien kommer du att:
+I de här självstudierna får du:
 
 > [!div class="checklist"]
-> * Skapa och kör ett "Hello World" Python-skript lokalt
-> * Skapa ett python-kontroll skript för att skicka "Hello World" till Azure Machine Learning
-> * Förstå Azure Machine Learning koncept i kontroll skriptet
-> * Skicka och kör Hello World
-> * Visa dina kod utdata i molnet
+> * Skapa och kör en "Hello World!" Python-skript lokalt.
+> * Skapa ett python-kontroll skript för att skicka "Hello World!" att Azure Machine Learning.
+> * Förstå Azure Machine Learning begreppen i kontroll skriptet.
+> * Skicka in och kör "Hello World!" över.
+> * Visa kodens utdata i molnet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Slutför [installations programmet för den lokala datorn i del 1 av installations programmet](tutorial-1st-experiment-sdk-setup-local.md) om du inte redan har en Azure Machine Learning arbets yta.
+- Slut för ande av [del 1](tutorial-1st-experiment-sdk-setup-local.md) om du inte redan har en Azure Machine Learning-arbetsyta.
 - Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.
-- Lokal utvecklings miljö. Detta omfattar men är inte begränsat till Visual Studio Code, Jupyter eller pycharm med.
-- Python (version 3.5-3.7).
+- Lokal utvecklings miljö, till exempel Visual Studio Code, Jupyter eller pycharm med.
+- Python (version 3,5 till 3,7).
 
 ## <a name="create-and-run-a-python-script-locally"></a>Skapa och köra ett Python-skript lokalt
 
-Skapa en ny `src` under katalog som heter under `tutorial` katalogen för att lagra kod som du vill köra i ett Azure Machine Learning beräknings kluster. I under `src` katalogen skapar du `hello.py` python-skriptet:
+Skapa en ny `src` under katalog som heter under `tutorial` katalogen för att lagra kod som du vill köra i ett Azure Machine Learning beräknings kluster. `src`Skapa python-skriptet i under katalogen `hello.py` :
 
 ```python
 # src/hello.py
@@ -64,7 +63,7 @@ tutorial
 
 ### <a name="test-your-script-locally"></a>Testa ditt skript lokalt
 
-Du kan köra din kod lokalt, som har fördelen med interaktiv fel sökning av kod, genom att använda din favorit-IDE eller via en Terminal:
+Du kan köra din kod lokalt genom att använda din favorit-IDE eller Terminal. Att köra kod lokalt har fördelen med interaktiv fel sökning av kod.
 
 ```bash
 cd <path/to/tutorial>
@@ -73,9 +72,9 @@ python ./src/hello.py
 
 ## <a name="create-a-control-script"></a>Skapa ett kontroll skript
 
-Med ett *kontroll skript* kan du köra `hello.py` skriptet i molnet.  Med kontroll skriptet kan du styra hur och var din maskin inlärnings kod ska köras.  
+Med ett *kontroll skript* kan du köra `hello.py` skriptet i molnet. Du använder kontroll skriptet för att styra hur och var din maskin inlärnings kod ska köras.  
 
-I själv studie katalogen skapar du en ny python-fil med namnet `03-run-hello.py` och kopierar och klistrar in koden nedan i filen:
+I själv studie katalogen skapar du en ny python-fil med namnet `03-run-hello.py` och kopierar/klistrar in följande kod i filen:
 
 ```python
 # tutorial/03-run-hello.py
@@ -116,7 +115,7 @@ Här är en beskrivning av hur kontroll skriptet fungerar:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) radbryter `hello.py` koden och skickar den till din arbets yta. Som namnet antyder kan du använda den här klassen för att _Konfigurera_ hur du vill att _skriptet_ ska _köras_ i Azure Machine Learning. Anger också vilka beräknings mål som skriptet ska köras på.  I den här koden är målet det beräknings kluster som du skapade i [installations guiden](tutorial-1st-experiment-sdk-setup-local.md)för.
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) radbryter `hello.py` koden och skickar den till din arbets yta. Som namnet antyder kan du använda den här klassen för att _Konfigurera_ hur du vill att _skriptet_ ska _köras_ i Azure Machine Learning. Det anger också vilka beräknings mål som skriptet ska köras på. I den här koden är målet det beräknings kluster som du skapade i [installations guiden](tutorial-1st-experiment-sdk-setup-local.md)för.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -124,7 +123,7 @@ Här är en beskrivning av hur kontroll skriptet fungerar:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Skickar ditt skript. Den här sändningen kallas för en [körning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  En körning kapslar in en enskild körning av koden. Använd en körning för att övervaka skript förloppet, avbilda utdata, analysera resultaten, visualisera mått med mera.
+       Skickar ditt skript. Den här sändningen kallas för en [körning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). En körning kapslar in en enskild körning av koden. Använd en körning för att övervaka skript förloppet, avbilda utdata, analysera resultaten, visualisera mått med mera.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -132,23 +131,23 @@ Här är en beskrivning av hur kontroll skriptet fungerar:
       `aml_url = run.get_portal_url()` 
    :::column-end:::
    :::column span="2":::
-        `run`Objektet ger en referens till körningen av koden. Övervaka förloppet från Azure Machine Learning Studio med den URL som skrivs ut från python-skriptet.  
+        `run`Objektet ger en referens till körningen av koden. Övervakar förloppet från Azure Machine Learning Studio med den URL som skrivs ut från python-skriptet.  
    :::column-end:::
 :::row-end:::
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a>Skicka in och kör din kod i molnet
 
-Kör ditt kontroll skript, som i sin tur körs i det `hello.py` beräknings kluster som du skapade i [installations guiden](tutorial-1st-experiment-sdk-setup-local.md)för.
+Kör ditt kontroll skript, som i sin tur körs `hello.py` på det beräknings kluster som du skapade i [installations guiden](tutorial-1st-experiment-sdk-setup-local.md)för.
 
 ```bash
 python 03-run-hello.py
 ```
 
-## <a name="monitor-your-code-in-the-cloud-using-studio"></a>Övervaka din kod i molnet med hjälp av Studio
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Övervaka din kod i molnet med hjälp av Studio
 
-Utdata kommer att innehålla en länk till Azure Machine Learning Studio som ser ut ungefär så här: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
+Utdata kommer att innehålla en länk till Studio som ser ut ungefär så här: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
 
-Följ länken och navigera till fliken **utdata + loggar** . Där kan du se en fil `70_driver_log.txt` så här:
+Följ länken och gå till fliken **utdata + loggar** . Där kan du se en `70_driver_log.txt` fil som ser ut så här:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.
@@ -174,11 +173,11 @@ Följ länken och navigera till fliken **utdata + loggar** . Där kan du se en f
 
 På rad 8 visas "Hello World!" utdataparametrar.
 
-`70_driver_log.txt`Filen innehåller standard resultatet från en körning. Den här filen kan vara användbar vid fel sökning av fjärrkörning i molnet.
+`70_driver_log.txt`Filen innehåller standard resultatet från en körning. Den här filen kan vara användbar när du felsöker fjärrkörningar i molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien tog du ett enkelt "Hello World"-skript och körde det på Azure. Du har sett hur du ansluter till din Azure Machine Learning arbets yta, skapar ett experiment och skickar in din `hello.py` kod till molnet.
+I den här självstudien tog du en enkel "Hello World!" skript och körde det på Azure. Du har sett hur du ansluter till din Azure Machine Learning arbets yta, skapar ett experiment och skickar in din `hello.py` kod till molnet.
 
 I nästa själv studie kurs bygger du på de här problemen genom att köra något mer intressant än `print("Hello world!")` .
 
@@ -186,4 +185,4 @@ I nästa själv studie kurs bygger du på de här problemen genom att köra någ
 > [Självstudie: Träna en modell](tutorial-1st-experiment-sdk-train.md)
 
 >[!NOTE] 
-> Kom ihåg att [rensa dina resurser](tutorial-1st-experiment-bring-data.md#clean-up-resources) om du vill slutföra själv studie serien här och inte förloppet till nästa steg.
+> Kom ihåg att [rensa dina resurser](tutorial-1st-experiment-bring-data.md#clean-up-resources)om du vill slutföra själv studie serien här och inte förloppet till nästa steg.

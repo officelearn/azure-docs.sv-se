@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Använd dina egna data'
 titleSuffix: Azure Machine Learning
-description: Del 4 i Azure ML kom igång-serien visar hur du kan använda dina egna data i en fjärran sluten utbildning.
+description: Del 4 i Azure Machine Learning kom igång-serien visar hur du kan använda dina egna data i en fjärran sluten utbildning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,46 +11,46 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 876ba76655572979a1d831a1ca07e5f3871a3283
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946648"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372585"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Självstudie: Använd dina egna data (del 4 av 4)
 
 Den här självstudien visar hur du laddar upp och använder dina egna data för att träna maskin inlärnings modeller i Azure Machine Learning.
 
-Den här självstudien är **del fyra i en själv studie serie i fyra delar** där du får lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade Machine Learning-uppgifter i Azure. Den här självstudien bygger på det arbete som du avslutade i [del 1: konfiguration](tutorial-1st-experiment-sdk-setup-local.md), [del 2: kör "Hello World"](tutorial-1st-experiment-hello-world.md)och [del 3: träna en modell](tutorial-1st-experiment-sdk-train.md).
+Den här självstudien är *del 4 i en själv studie serie i fyra delar* där du får lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade Machine Learning-uppgifter i Azure. Den här självstudien bygger på det arbete som du avslutade i [del 1: konfiguration](tutorial-1st-experiment-sdk-setup-local.md), [del 2: kör "Hello World!"](tutorial-1st-experiment-hello-world.md)och [del 3: träna en modell](tutorial-1st-experiment-sdk-train.md).
 
-I [del 3: träna en modell](tutorial-1st-experiment-sdk-train.md)hämtades data med hjälp av den inbyggda `torchvision.datasets.CIFAR10` metoden i PyTorch-API: et. I många fall kommer du dock att vilja använda dina egna data i en fjärran sluten utbildning. Den här artikeln visar arbets flödet som du kan använda för att arbeta med dina egna data i Azure Machine Learning.
+I [del 3: träna en modell](tutorial-1st-experiment-sdk-train.md)har data hämtats via den inbyggda `torchvision.datasets.CIFAR10` metoden i PyTorch-API: et. I många fall vill du dock använda dina egna data i en fjärran sluten utbildning. Den här artikeln visar det arbets flöde som du kan använda för att arbeta med dina egna data i Azure Machine Learning.
 
 I den här kursen får du:
 
 > [!div class="checklist"]
-> * Konfigurera utbildnings skript för att använda data i en lokal katalog
-> * Testa utbildnings skriptet lokalt
-> * Ladda upp data till Azure
-> * Skapa kontroll skript
-> * Förstå de nya Azure Machine Learning begreppen (skicka parametrar, data uppsättningar, data lager)
-> * Skicka in och kör ditt utbildnings skript
-> * Visa dina kod utdata i molnet
+> * Konfigurera ett utbildnings skript för att använda data i en lokal katalog.
+> * Testa utbildnings skriptet lokalt.
+> * Ladda upp data till Azure.
+> * Skapa ett kontroll skript.
+> * Förstå de nya Azure Machine Learning begreppen (skicka parametrar, data uppsättningar, data lager).
+> * Skicka in och kör ditt utbildnings skript.
+> * Visa kodens utdata i molnet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Slutför [del 3](tutorial-1st-experiment-sdk-train.md) av serien.
+* Slut för ande av [del 3](tutorial-1st-experiment-sdk-train.md) av serien.
 * Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.
-* Lokal utvecklings miljö. Detta omfattar men är inte begränsat till Visual Studio Code, Jupyter eller pycharm med.
-* Python (version 3.5-3.7).
+* Lokal utvecklings miljö, till exempel Visual Studio Code, Jupyter eller pycharm med.
+* Python (version 3,5 till 3,7).
 
 ## <a name="adjust-the-training-script"></a>Justera övnings skriptet
-Nu har du ditt utbildnings skript (självstudie/src/träna. py) som körs i Azure Machine Learning och kan övervaka modell prestanda. Låt oss parametrize övnings skriptet genom att introducera argument. Genom att använda argument kan du enkelt jämföra olika hyperparmeters.
+Nu har du ditt utbildnings skript (självstudie/src/träna. py) som körs i Azure Machine Learning och du kan övervaka modell prestanda. Låt oss Parameterisera övnings skriptet genom att introducera argument. Genom att använda argument kan du enkelt jämföra olika grundparametrar.
 
-Nu är vårt utbildnings skript inställt på att ladda ned CIFAR10-datauppsättningen på varje körning. Python-koden nedan har justerats för att läsa data från en katalog.
+Vårt utbildnings skript har nu ställts in för att ladda ned CIFAR10-datauppsättningen på varje körning. Följande python-kod har justerats för att läsa data från en katalog.
 
 >[!NOTE] 
-> Användningen av `argparse` för att parametize skriptet.
+> Användningen av `argparse` parameterizes-skriptet.
 
 ```python
 # tutorial/src/train.py
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
 ### <a name="understanding-the-code-changes"></a>Förstå kod ändringarna
 
-Den kod som används i `train.py` har använt `argparse` biblioteket för att konfigurera `data_path` , `learning_rate` , och `momentum` .
+Koden i `train.py` har använt `argparse` biblioteket för att konfigurera `data_path` , `learning_rate` och `momentum` .
 
 ```python
 # .... other code
@@ -184,10 +184,10 @@ Du undviker att ladda ned CIFAR10-datauppsättningen genom att skicka in en loka
 
 ## <a name="upload-the-data-to-azure"></a>Ladda upp data till Azure
 
-För att kunna köra det här skriptet i Azure Machine Learning måste du göra dina utbildnings data tillgängliga i Azure. Din Azure Machine Learning-arbetsyta levereras med ett _standard_ - **datalager** – ett Azure Blob Storage-konto – som du kan använda för att lagra dina tränings data.
+Om du vill köra skriptet i Azure Machine Learning måste du göra dina utbildnings data tillgängliga i Azure. Din Azure Machine Learning-arbetsyta levereras med ett _standard_ data lager. Det här är ett Azure Blob Storage-konto där du kan lagra utbildnings data.
 
 >[!NOTE] 
-> Med Azure Machine Learning kan du ansluta andra molnbaserade data lager som lagrar dina data. Mer information finns i [data lager dokumentation](./concept-data.md).  
+> Med Azure Machine Learning kan du ansluta andra molnbaserade data lager som lagrar dina data. Mer information finns i dokumentationen för [data lager](./concept-data.md).  
 
 Skapa ett nytt python-kontroll skript `05-upload-data.py` som anropas i `tutorial` katalogen:
 
@@ -199,12 +199,12 @@ datastore = ws.get_default_datastore()
 datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=True)
 ```
 
-`target_path`Anger sökvägen till data lagret där CIFAR10-data ska överföras.
+`target_path`Värdet anger sökvägen till data lagret där CIFAR10-data ska överföras.
 
 >[!TIP] 
-> Även om du använder Azure Machine Learning för att överföra data kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda upp Ad hoc-filer. Om du behöver ett ETL-verktyg kan [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) användas för att mata in dina data i Azure.
+> När du använder Azure Machine Learning för att överföra data kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda upp Ad hoc-filer. Om du behöver ett ETL-verktyg kan du använda [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) för att mata in dina data i Azure.
 
-Kör python-filen för att överföra data (Obs: uppladdningen ska vara snabb, mindre än 60 sekunder.)
+Kör python-filen för att överföra data. (Uppladdningen ska vara snabb, mindre än 60 sekunder.)
 
 ```bash
 python 05-upload-data.py
@@ -264,14 +264,14 @@ if __name__ == "__main__":
 
 ### <a name="understand-the-code-changes"></a>Förstå kod ändringarna
 
-Kontroll skriptet liknar det som [ingår i del 3 i den här serien](tutorial-1st-experiment-sdk-train.md) med följande nya rader:
+Kontroll skriptet liknar det som finns i [del 3 i den här serien](tutorial-1st-experiment-sdk-train.md), med följande nya rader:
 
 :::row:::
    :::column span="":::
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      En [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) används för att referera till de data som du överförde till Azure Blob Store. Data uppsättningar är ett abstraktions lager ovanpå dina data som är utformade för att förbättra tillförlitligheten och tillförlitligheten.
+      En [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) används för att referera till de data som du överförde till Azure Blob Storage. Data uppsättningar är ett abstraktions lager ovanpå dina data som är utformade för att förbättra tillförlitligheten och tillförlitligheten.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -279,11 +279,11 @@ Kontroll skriptet liknar det som [ingår i del 3 i den här serien](tutorial-1st
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) har ändrats för att innehålla en lista över argument som ska skickas till `train.py` . `dataset.as_named_input('input').as_mount()`Argumentet innebär att katalogen som anges kommer att _monteras_ på beräknings målet.
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) har ändrats för att innehålla en lista över argument som ska skickas till `train.py` . `dataset.as_named_input('input').as_mount()`Argumentet innebär att den angivna katalogen kommer att _monteras_ på beräknings målet.
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-run-to-azure-machine-learning"></a>Skicka kör till Azure Machine Learning
+## <a name="submit-the-run-to-azure-machine-learning"></a>Skicka in körningen till Azure Machine Learning
 
 Skicka nu om körningen för att använda den nya konfigurationen:
 
@@ -291,11 +291,11 @@ Skicka nu om körningen för att använda den nya konfigurationen:
 python 06-run-pytorch-data.py
 ```
 
-Då skrivs en URL till experimentet i Azure Machine Learning Studio. Om du navigerar till länken kommer du att kunna se din kod som körs.
+I den här koden skrivs en URL ut till experimentet i Azure Machine Learning Studio. Om du går till länken kan du se din kod som körs.
 
-### <a name="inspect-the-70_driver_log-log-file"></a>Granska 70_driver_log logg filen
+### <a name="inspect-the-log-file"></a>Granska logg filen
 
-I Azure Machine Learning Studio navigerar du till experimentet (genom att klicka på URL-utdata från cellen ovan) följt av **utdata + loggar**. Klicka på 70_driver_log.txt-filen – du bör se följande utdata:
+I Studio går du till experimentet-körningen (genom att välja föregående URL-utdata) följt av **utdata + loggar**. Välj `70_driver_log.txt` filen. Du bör se följande utdata:
 
 ```txt
 Processing 'input'.
@@ -331,8 +331,8 @@ LIST FILES IN DATA PATH...
 
 Information
 
-1. Azure Machine Learning har monterat BLOB Store till beräknings klustret automatiskt åt dig.
-2. Det ``dataset.as_named_input('input').as_mount()`` som används i kontroll skriptet matchar monterings punkten
+- Azure Machine Learning har monterat Blob Storage till beräknings klustret automatiskt åt dig.
+- Det som ``dataset.as_named_input('input').as_mount()`` används i kontroll skriptet matchar monterings punkten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -342,10 +342,10 @@ Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbe
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien såg vi hur du laddar upp data till Azure med hjälp av en `Datastore` . Data lagret hanteras som moln lagring för din arbets yta, vilket ger dig en beständig och flexibel plats för att skydda dina data.
+I den här självstudien såg vi hur du laddar upp data till Azure med hjälp av `Datastore` . Data lagret hanteras som moln lagring för din arbets yta, vilket ger dig en beständig och flexibel plats för att skydda dina data.
 
-Du har sett hur du ändrar ditt utbildnings skript för att acceptera en data Sök väg via kommando raden. Genom att använda en `Dataset` kan du montera en katalog till fjärrkörningen. 
+Du har sett hur du ändrar ditt utbildnings skript för att acceptera en data Sök väg via kommando raden. Genom `Dataset` att använda, kunde du montera en katalog till fjärrkörningen. 
 
 Nu när du har en modell kan du lära dig:
 
-* [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md)
+* [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).

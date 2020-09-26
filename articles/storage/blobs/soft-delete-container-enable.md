@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280308"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Aktivera och hantera mjuk borttagning för behållare (förhands granskning)
 
@@ -93,7 +93,7 @@ Följ dessa steg om du vill visa mjuka, borttagna behållare i Azure Portal:
 Du kan återställa en mjuk, borttagen behållare och dess innehåll inom kvarhållningsperioden. Följ dessa steg om du vill återställa en mjuk borttagnings behållare i Azure Portal:
 
 1. Navigera till ditt lagrings konto i Azure Portal och Visa listan över dina behållare.
-1. Visa snabb menyn för den behållare som du vill ta bort och välj **ångra borttagning** på menyn.
+1. Visa snabb menyn för den behållare som du vill återställa och välj **ångra borttagning** på menyn.
 
     :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Skärm bild som visar hur du återställer en mjuk borttagnings behållare i Azure Portal":::
 

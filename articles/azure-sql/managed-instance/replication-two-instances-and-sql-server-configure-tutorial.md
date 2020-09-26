@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283198"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,7 +85,7 @@ Skapa en virtuell SQL Server virtuell dator med hjälp av [Azure Portal](https:/
 - Namn: `sql-vm-sub`
 - Bild: SQL Server 2016 eller mer
 - Resurs grupp: samma som den hanterade instansen
-- Virtuellt nätverk:`sql-vm-sub-vnet`
+- Virtuellt nätverk: `sql-vm-sub-vnet`
 
 Mer information om hur du distribuerar en SQL Server VM till Azure finns i [snabb start: skapa en SQL Server VM](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
@@ -146,7 +146,7 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 ### <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **skapa en resurs** för att skapa en ny Azure-resurs.
 1. Sök `private dns zone` på Azure Marketplace.
 1. Välj den **privat DNS zon** resurs som publicerats av Microsoft och välj sedan **skapa** för att skapa DNS-zonen.
@@ -184,11 +184,11 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot.
 
-Kopiera sökvägen till fil resursen i formatet:`\\storage-account-name.file.core.windows.net\file-share-name`
+Kopiera sökvägen till fil resursen i formatet: `\\storage-account-name.file.core.windows.net\file-share-name`
 
 Exempel: `\\replstorage.file.core.windows.net\replshare`
 
-Kopiera anslutnings strängen för lagrings åtkomst nyckeln i formatet:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Kopiera anslutnings strängen för lagrings åtkomst nyckeln i formatet: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Exempel: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
@@ -377,8 +377,8 @@ Detta beror förmodligen på att port 445 är stängd i antingen Azure-brandväg
 
 Om du använder ett snedstreck i stället för omvänt snedstreck i fil resursens fil Sök väg kan detta fel uppstå.
   
-  - Detta är OK:`\\replstorage.file.core.windows.net\replshare`
-  - Detta kan orsaka ett OS 55-fel:`'\\replstorage.file.core.windows.net/replshare'`
+  - Detta är OK: `\\replstorage.file.core.windows.net\replshare`
+  - Detta kan orsaka ett OS 55-fel: `'\\replstorage.file.core.windows.net/replshare'`
 
 ### <a name="could-not-connect-to-subscriber"></a>Det gick inte att ansluta till prenumeranten
 

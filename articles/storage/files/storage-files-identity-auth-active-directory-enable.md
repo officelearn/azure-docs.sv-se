@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64cad731998fefb2cfa694314e42f0dfb629eb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322078"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Översikt – lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
@@ -24,7 +24,7 @@ Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [
 
 - AD DS-identiteter som används för Azure Files lokal AD DS-autentisering måste synkroniseras med Azure AD. Hash-synkronisering av lösen ord är valfritt. 
 - Stöder Azure-filresurser som hanteras av Azure File Sync.
-- Stöder Kerberos-autentisering med AD med RC4-HMAC och AES 256-kryptering. AES 128 Kerberos-kryptering stöds inte ännu.
+- Stöder Kerberos-autentisering med AD med RC4-HMAC och [AES 256-kryptering](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). AES 128 Kerberos-kryptering stöds inte ännu.
 - Stöder enkel inloggning.
 - Stöds endast på klienter som kör på OS-versioner som är nyare än Windows 7 eller Windows Server 2008 R2.
 - Stöds endast mot den AD-skog som lagrings kontot är registrerat på. Du kan bara komma åt Azure-filresurser med AD DS-autentiseringsuppgifter från en enda skog som standard. Om du behöver åtkomst till Azure-filresursen från en annan skog kontrollerar du att rätt skogs förtroende har kon figurer ATS. mer information finns i [vanliga frågor och svar](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) .

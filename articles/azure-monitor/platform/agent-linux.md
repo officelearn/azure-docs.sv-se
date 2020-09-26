@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294537"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics agent på Linux-datorer
 Den här artikeln innehåller information om hur du installerar Log Analytics-agenten på Linux-datorer med följande metoder:
@@ -81,7 +81,7 @@ Andra härdnings-och anpassnings metoder stöds inte eller planeras inte för OM
 
 I följande tabell visas de paket som krävs för [Linux-distributioner som stöds](#supported-operating-systems) av-agenten som agenten ska installeras på.
 
-|Nödvändigt paket |Beskrivning |Lägsta version |
+|Nödvändigt paket |Description |Lägsta version |
 |-----------------|------------|----------------|
 |Glibc |    GNU C-bibliotek | 2.5-12 
 |Openssl    | OpenSSL-bibliotek | 1.0. x eller 1.1. x |
@@ -102,10 +102,10 @@ Log Analytics agenten för Linux består av flera paket. Versions filen innehål
 
 **Paket** | **Version** | **Beskrivning**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | Log Analytics agent för Linux
+omsagent | 1.13.9 | Log Analytics agent för Linux
 omsconfig | 1.1.1 | Konfigurations agent för Log Analytics agent
-OMI | 1.6.3 | Open Management Infrastructure (OMI) – en Lightweight CIM-server. *Observera att OMI kräver rot åtkomst för att köra ett cron-jobb som krävs för att tjänsten ska fungera*
-SCX | 1.6.3 | OMI CIM-providers för prestanda mått för operativ system
+OMI | 1.6.4 | Open Management Infrastructure (OMI) – en Lightweight CIM-server. *Observera att OMI kräver rot åtkomst för att köra ett cron-jobb som krävs för att tjänsten ska fungera*
+SCX | 1.6.4 | OMI CIM-providers för prestanda mått för operativ system
 Apache-cimprov | 1.0.1 | Apache HTTP server Performance Monitoring Provider för OMI. Installeras endast om Apache HTTP-servern identifieras.
 MySQL-cimprov | 1.0.1 | Provider för prestanda övervakning av MySQL-server för OMI. Installeras endast om MySQL/MariaDB-servern har identifierats.
 Docker-cimprov | 1.0.0 | Docker-Provider för OMI. Installeras endast om Docker har identifierats.

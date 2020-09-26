@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c8868cd6f5c50b84f263155518ee553145afcfa9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a25f28b19e0f00830fd0290ff0296c317b9a5ed9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371768"
 ---
 **Data insamlings volym och kvarhållning** 
 
@@ -70,20 +70,30 @@ Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som 
 
 När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den i genom att öppna en support förfrågan. 
 
-Om du vill få ett meddelande på approching eller nått gränsen för inläsnings volym på din arbets yta skapar du en [logg aviserings regel](../articles/azure-monitor/platform/alerts-log.md) med hjälp av följande fråga med aviserings logik Base om antalet resultat som är högre än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
+Om du vill få ett meddelande när du närmar dig eller når antalet inmatnings volymer på arbets ytan skapar du en [logg aviserings regel](../articles/azure-monitor/platform/alerts-log.md) med hjälp av följande fråga med aviserings logik Base på antalet resultat som är högre än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
 
-Inläsnings volymens hastighet nådde 80% av tröskelvärdet:
+Inmatnings volymens hastighet överskrider tröskelvärdet
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
 ```
 
-Inläsnings volymens hastighet nådde tröskel:
+Inmatnings volym hastighet över 80% av tröskelvärdet
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
+```
+
+Inmatnings volym hastighet över 70% av tröskelvärdet
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
 ```
 
 >[!NOTE]

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294876"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införande av hybrid identitet
 I den här uppgiften definierar du strategin för att införa Hybrid identiteter för din hybrid identitets lösning som uppfyller de affärs krav som diskuterades i:

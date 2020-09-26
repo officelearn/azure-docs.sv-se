@@ -3,12 +3,12 @@ title: Azure Service Bus geo-haveri beredskap | Microsoft Docs
 description: Hur du använder geografiska regioner för att redundansväxla och utföra haveri beredskap i Azure Service Bus
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372531"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geo-haveri beredskap
 
@@ -117,7 +117,7 @@ I [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master/s
 - Steg för att aktivera geo-katastrof återställning via PowerShell eller CLI.
 - [Skicka och ta emot](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) från det aktuella primära eller sekundära namn området med hjälp av aliaset.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Tänk på följande när du är i åtanke med den här versionen:
 
@@ -149,7 +149,7 @@ Om du försöker skapa en koppling mellan ett primärt namn område med en priva
 > [!NOTE]
 > När du försöker koppla det primära namn området till en privat slut punkt och det sekundära namn området, kontrollerar validerings processen endast om det finns en privat slut punkt i det sekundära namn området. Den kontrollerar inte om slut punkten fungerar eller kommer att fungera efter en redundansväxling. Det är ditt ansvar att se till att det sekundära namn området med privat slut punkt fungerar som förväntat efter redundansväxlingen.
 >
-> Om du vill testa att de privata slut punkts konfigurationerna är identiska skickar du en [Get](/rest/api/servicebus/queues/get) Queues-begäran till det sekundära namn området utanför det virtuella nätverket och kontrollerar att du får ett fel meddelande från tjänsten.
+> Om du vill testa att de privata slut punkts konfigurationerna är identiska skickar du en [Get](/rest/api/servicebus/stable/queues/get) Queues-begäran till det sekundära namn området utanför det virtuella nätverket och kontrollerar att du får ett fel meddelande från tjänsten.
 
 ### <a name="existing-pairings"></a>Befintliga länkningar
 Om ihopparningen mellan det primära och sekundära namn området redan finns, kommer privat slut punkt att skapas på det primära namn området att Miss pare ras. Lös problemet genom att skapa en privat slut punkt på det sekundära namn området och skapa sedan en för det primära namn området.
@@ -168,7 +168,7 @@ Anta att du har två virtuella nätverk: VNET-1, VNET-2 och dessa primära och a
 ![Privata slut punkter och virtuella nätverk](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
 
 
-Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Service Bus namn område. Beakta följande scenarier: 
+Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Service Bus namn område. Föreställ dig följande scenarier: 
 
 **Redundans för program:** Här finns programmet inte i VNET-1, men kommer att flyttas till VNET-2. Eftersom både privata slut punkter har kon figurer ATS på både VNET-1 och VNET-2 för både primär och sekundär namnrymd, fungerar programmet bara. 
 
@@ -179,7 +179,7 @@ Fördelen med den här metoden är att redundansväxlingen kan ske i program lag
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [REST API referens](/rest/api/servicebus/disasterrecoveryconfigs)för geo-haveri återställning här.
+- Se [REST API referens](/rest/api/servicebus/stable/disasterrecoveryconfigs)för geo-haveri återställning här.
 - Kör återställnings exemplet för geo-haveri [på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
 - Se det geo-katastrof återställnings [exempel som skickar meddelanden till ett alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 

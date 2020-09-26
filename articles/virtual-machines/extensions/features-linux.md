@@ -1,6 +1,6 @@
 ---
 title: Azure VM-tillägg och-funktioner för Linux
-description: Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de erbjuder eller förbättrar.
+description: Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer i Linux, grupperade efter vad de erbjuder eller förbättrar.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336130"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
@@ -105,7 +105,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
@@ -231,7 +231,7 @@ Utgivare gör uppdateringar tillgängliga för regioner vid olika tidpunkter, s�
 
 #### <a name="agent-updates"></a>Agent uppdateringar
 
-Linux VM-agenten innehåller *etablerings agent kod* och *tillägg hanterings kod* i ett paket som inte kan skiljas åt. Du kan inaktivera *etablerings agenten* när du vill etablera i Azure med Cloud-init. Information om hur du gör detta finns i [använda Cloud-Init](../linux/using-cloud-init.md).
+Linux VM-agenten innehåller *etablerings agent kod* och *tillägg hanterings kod*  i ett paket som inte kan skiljas åt. Du kan inaktivera *etablerings agenten* när du vill etablera i Azure med Cloud-init. Information om hur du gör detta finns i [använda Cloud-Init](../linux/using-cloud-init.md).
 
 Versioner av agenterna som stöds kan använda automatiska uppdateringar. Den enda kod som kan uppdateras är *tilläggs hanterings koden*, inte etablerings koden. *Etablerings agent koden* körs en gång.
 
@@ -403,7 +403,7 @@ Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 
 ## <a name="common-vm-extension-reference"></a>Vanlig referens för VM-tillägg
 
-| Tilläggs namn | Beskrivning | Mer information |
+| Tilläggs namn | Description | Mer information |
 | --- | --- | --- |
 | Anpassat skript tillägg för Linux |Kör skript mot en virtuell Azure-dator |[Anpassat skript tillägg för Linux](custom-script-linux.md) |
 | VM Access-tillägg |Få åtkomst till en virtuell Azure-dator |[VM Access-tillägg](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

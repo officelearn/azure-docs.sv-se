@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0b80c2f125e7eddaa427b75e3e0fe2aff6c679be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531801"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334335"
 ---
 # <a name="json-format-in-azure-data-factory"></a>JSON-format i Azure Data Factory
 
@@ -217,6 +217,7 @@ I tabellen nedan visas de egenskaper som stöds av en JSON-källa. Du kan redige
 | Har kommentarer | Välj **innehåller kommentarer** om JSON-data har C eller C++-format kommentar | nej | `true` eller `false` | Kommentarer |
 | Enkelt citat tecken | Läser JSON-kolumner som inte omges av citat tecken | nej | `true` eller `false` | singleQuoted |
 | Omvänt snedstreck Escaped | Välj **omvänt snedstreck Escaped** om omvända snedstreck används för att undanta tecken i JSON-data | nej | `true` eller `false` | backslashEscape |
+| Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
 
 ### <a name="source-format-options"></a>Käll format alternativ
 

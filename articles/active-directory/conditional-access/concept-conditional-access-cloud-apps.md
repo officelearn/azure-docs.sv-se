@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2512602b0c8c00c696253a708af13278bc513a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602072"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258752"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
@@ -31,9 +31,9 @@ Molnappar eller åtgärder är en nyckel signal i en princip för villkorlig åt
 
 Många av de befintliga Microsoft Cloud-programmen ingår i listan över program som du kan välja bland. 
 
-Administratörer kan tilldela en princip för villkorlig åtkomst till följande molnappar från Microsoft. Vissa appar som Office 365 (för hands version) och Microsoft Azure hantering inkluderar flera relaterade underordnade appar eller tjänster. Följande lista är inte fullständig och kan komma att ändras.
+Administratörer kan tilldela en princip för villkorlig åtkomst till följande molnappar från Microsoft. Vissa appar som Office 365 och Microsoft Azure hantering inkluderar flera relaterade underordnade appar eller tjänster. Följande lista är inte fullständig och kan komma att ändras.
 
-- [Office 365 (för hands version)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
 - [Azure SQL Database och Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
@@ -67,15 +67,15 @@ Administratörer kan tilldela en princip för villkorlig åtkomst till följande
 - Virtuellt privat nätverk (VPN)
 - Windows Defender ATP
 
-### <a name="office-365-preview"></a>Office 365 (för hands version)
+### <a name="office-365"></a>Office 365
 
 Microsoft 365 tillhandahåller molnbaserade produktivitets-och samarbets tjänster som Exchange, SharePoint och Microsoft Teams. Microsoft 365 Cloud Services är djupt integrerade för att säkerställa smidiga och samarbets upplevelser. Den här integrationen kan orsaka förvirring när du skapar principer eftersom vissa appar, till exempel Microsoft Teams, har beroenden för andra som SharePoint eller Exchange.
 
-Office 365-appen (för hands version) gör det möjligt att rikta dessa tjänster på samma gång. Vi rekommenderar att du använder den nya Office 365-appen (för hands version), i stället för att rikta in enskilda molnappar för att undvika problem med [tjänst beroenden](service-dependencies.md). Att rikta in sig på den här gruppen med program bidrar till att undvika problem som kan uppstå på grund av inkonsekventa principer och beroenden.
+Office 365-appen gör det möjligt att rikta dessa tjänster på samma gång. Vi rekommenderar att du använder den nya Office 365-appen, i stället för att rikta in enskilda molnappar för att undvika problem med [tjänst beroenden](service-dependencies.md). Att rikta in sig på den här gruppen med program bidrar till att undvika problem som kan uppstå på grund av inkonsekventa principer och beroenden.
 
-Administratörer kan välja att undanta vissa appar från en princip om de vill genom att inkludera Office 365-appen (för hands version) och utesluta de enskilda appar som de väljer i principen.
+Administratörer kan välja att undanta vissa appar från en princip om de vill genom att inkludera Office 365-appen och utesluta de enskilda appar som de väljer i principen.
 
-Viktiga program som ingår i klient programmet för Office 365 (för hands version):
+Viktiga program som ingår i Office 365-klient programmet:
 
    - Microsoft Flow
    - Microsoft Forms

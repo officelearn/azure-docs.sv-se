@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: så här visar du väg riktningar med Microsoft Azure Maps Route service och kart kontroll'
-description: Lär dig hur du visar väg riktningar med hjälp av Microsoft Azure mappar Route service och kart kontroll.
+title: 'Självstudie: hitta en väg till en plats | Microsoft Azure Maps'
+description: Själv studie kurs om hur du hittar en väg till en orienterings punkt. Se hur du ställer in adress koordinater och skickar frågor till tjänsten Azure Maps Route för vägbeskrivning till punkten.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321721"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Självstudie: så här visar du väg riktningar med Azure Maps Route service och kart kontroll
 
@@ -218,7 +218,7 @@ Det här avsnittet visar hur du använder API: et för Azure Maps väg riktninga
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure kart kontroll och Route service":::
 
-    Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## <a name="next-steps"></a>Nästa steg
 

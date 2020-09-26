@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4667b810e4d3d5f13e13572e2420880da5a8a0b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931632"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332397"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exempel: Använd funktionen för storskalig skalning
 
@@ -31,7 +31,7 @@ Exemplen skrivs i C# med hjälp av klient biblioteket för Azure Cognitive Servi
 
 ## <a name="step-1-initialize-the-client-object"></a>Steg 1: initiera klient objekt
 
-När du använder klient biblioteket ansikte skickas prenumerations nyckeln och prenumerations slut punkten in via FaceClient-klassens konstruktor. Ett exempel:
+När du använder klient biblioteket ansikte skickas prenumerations nyckeln och prenumerations slut punkten in via FaceClient-klassens konstruktor. Exempel:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -260,7 +260,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-Mer information om data hantering och identifierings-relaterade implementeringar finns i [lägga till ansikten](how-to-add-faces.md) och [identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md).
+Mer information om data hantering och identifierings-relaterade implementeringar finns i [lägga till ansikten](how-to-add-faces.md).
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -271,7 +271,7 @@ I den här guiden har du lärt dig hur du migrerar den befintliga PersonGroup-el
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ en instruktions guide för att lära dig hur du lägger till ansikten i en PersonGroup eller kör identifierings åtgärden på en PersonGroup.
+Följ en instruktions guide för att lära dig hur du lägger till ansikten i en PersonGroup eller skriver ett skript för att utföra identifierings åtgärden på en PersonGroup.
 
 - [Lägg till ansikten](how-to-add-faces.md)
-- [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)
+- [Snabb start för ansikts klient bibliotek](../Quickstarts/client-libraries.md)

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 9aa5eb54d79d98627697c51ee7dcb16a44fccb60
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053216"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258529"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -71,7 +71,7 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 
 ### <a name="header-claims"></a>Huvud anspråk
 
-|Begär | Format | Beskrivning |
+|Begär | Format | Description |
 |--------|--------|-------------|
 | `typ` | Sträng-Always-JWT | Anger att token är en JWT.|
 | `nonce` | Sträng | En unik identifierare som används för att skydda mot repetitions attacker med token. Din resurs kan registrera det här värdet för att skydda mot uppspelningar. |
@@ -81,7 +81,7 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 
 ### <a name="payload-claims"></a>Nytto Last anspråk
 
-| Begär | Format | Beskrivning |
+| Begär | Format | Description |
 |-----|--------|-------------|
 | `aud` | Sträng, en app-ID-URI | Identifierar den avsedda mottagaren för token. I ID-token är mål gruppen appens program-ID som tilldelats din app i Azure Portal. Din app bör validera det här värdet och avvisa token om värdet inte matchar. |
 | `iss` | Sträng, en STS-URI | Identifierar säkerhetstokentjänst som konstruerar och returnerar token och Azure AD-klienten där användaren autentiserades. Om token som utfärdas är en v 2.0-token (se `ver` anspråket) avslutas URI: n `/v2.0` . GUID som anger att användaren är en konsument användare från en Microsoft-konto `9188040d-6c67-4c5b-b112-36a304b66dad` . Din app ska använda en GUID-del av anspråket för att begränsa den uppsättning innehavare som kan logga in på appen, om tillämpligt. |
@@ -139,7 +139,7 @@ Du kan använda den `BulkCreateGroups.ps1` som finns i mappen skript för att [S
 
 Följande anspråk kommer att ingå i v 1.0-token om det är tillämpligt, men inte ingår i v 2.0-token som standard. Om du använder v 2.0 och behöver någon av dessa anspråk kan du begära dem med [valfria anspråk](active-directory-optional-claims.md).
 
-| Begär | Format | Beskrivning |
+| Begär | Format | Description |
 |-----|--------|-------------|
 | `ipaddr`| Sträng | IP-adressen som användaren autentiseras från. |
 | `onprem_sid`| Sträng, i [sid-format](/windows/desktop/SecAuthZ/sid-components) | I de fall där användaren har en lokal autentisering, ger detta anspråk sitt SID. Du kan använda `onprem_sid` för auktorisering i äldre program.|
@@ -266,9 +266,17 @@ Uppdaterings-token kan återkallas av servern på grund av en ändring av autent
 | Administratören återkallar alla uppdateringstoken för en användare [via PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
 | Enkel utloggning ([v 1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v 2.0](v2-protocols-oidc.md#single-sign-out) ) på webben | Revoked | Förblir Alive | Revoked | Förblir Alive | Förblir Alive |
 
+#### <a name="non-password-based"></a>Icke-lösenordsbaserad
+
+En *icke-lösenordsbaserad* inloggning är en där användaren inte skrev något lösen ord för att hämta den. Exempel på icke-lösenordsbaserad inloggning är:
+
+- Använda din ansikte med Windows Hello
+- FIDO2-nyckel
+- SMS
+- Röst
+- PIN-KOD 
+
 > [!NOTE]
-> En "icke-lösenords-baserad" inloggning är en där användaren inte skrev något lösen ord för att hämta det. Du kan till exempel använda din ansikte med Windows Hello, en FIDO2-nyckel eller en PIN-kod.
->
 > Primära uppdateringstoken (PRT) i Windows 10 åtskiljs utifrån autentiseringsuppgifterna. Till exempel har Windows Hello och lösen ordet sina respektive PRTs, isolerade från varandra. När en användare loggar in med en hälsnings information (PIN-kod eller biometrik) och sedan ändrar lösen ordet, kommer lösen ordsbaserade PRT som hämtades tidigare att återkallas. Om du loggar in igen med ett lösen ord avverifierar du det gamla PRT och begär ett nytt.
 >
 > Uppdateringstoken är inte ogiltiga eller återkallade när de används för att hämta en ny åtkomsttoken och en uppdateringstoken.  Appen bör dock ta bort den gamla en så fort den används och ersätta den med den nya, eftersom den nya token har en ny förfallo tid. 

@@ -3,12 +3,12 @@ title: Distribuera resurser med PowerShell och mall
 description: Använd Azure Resource Manager och Azure PowerShell för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: ef2ff71430f0dcaca660666bb9a6c015c923da3f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: e47de54558962215fe3be78f5b9c45c8d46c54a3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372450"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Distribuera resurser med ARM-mallar och Azure PowerShell
 
@@ -52,7 +52,7 @@ Beroende på distributionens omfattning använder du olika kommandon.
 
 I exemplen i den här artikeln används resurs grupps distributioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en mall för att distribuera. Om du inte redan har ett kan du hämta och spara en exempel-mall från lagrings platsen för Azure snabb starts [mal len](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . Det lokala fil namnet som används i den här artikeln **c:\MyTemplates\azuredeploy.jspå**.
 
@@ -124,7 +124,7 @@ I föregående exempel krävs en offentligt tillgänglig URI för mallen som fun
 
 ## <a name="deploy-template-spec"></a>Specifikation för att distribuera mall
 
-I stället för att distribuera en lokal mall eller en fjärran sluten mall kan du skapa en [mall-specifikation](template-specs.md). Mallen specifikation är en resurs i din Azure-prenumeration som innehåller en ARM-mall. Det gör det enkelt att på ett säkert sätt dela mallen med användare i din organisation. Du använder rollbaserad åtkomst kontroll (RBAC) för att ge åtkomst till mallen specifikation. Den här funktionen är för närvarande en för hands version.
+I stället för att distribuera en lokal mall eller en fjärran sluten mall kan du skapa en [mall-specifikation](template-specs.md). Mallen specifikation är en resurs i din Azure-prenumeration som innehåller en ARM-mall. Det gör det enkelt att på ett säkert sätt dela mallen med användare i din organisation. Du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att ge åtkomst till mallen specifikation. Den här funktionen är för närvarande en för hands version.
 
 I följande exempel visas hur du skapar och distribuerar en mall-specifikation. De här kommandona är bara tillgängliga om du har [registrerat dig för för hands versionen](https://aka.ms/templateSpecOnboarding).
 

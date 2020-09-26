@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c9595d2fa4479d84b166874f9f13e43dc494f32a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1b88e5928d276b58339cb0266505295808bc7a7c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335491"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Skala en webbapp manuellt med Azure PowerShell
 
@@ -39,10 +39,11 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. |
+| [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | Ändrar en App Service plans konfiguration. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Skapar en webbapp. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Ändrar konfigurationen för en webbapp. |
 

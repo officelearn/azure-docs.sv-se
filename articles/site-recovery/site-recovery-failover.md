@@ -4,12 +4,12 @@ description: Så här växlar du över virtuella datorer/fysiska servrar till Az
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317896"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Köra en redundans från en lokal plats till Azure
 
@@ -46,7 +46,7 @@ Kör återställnings planens redundans på följande sätt:
 1. I Site Recovery-valvet väljer du **återställnings planer**  >  *recoveryplan_name*.
 2. Klicka på **redundans**.
 
-    ![Skärm bild som visar fönstret ADRP med redundans valt från menyn mer.](./media/site-recovery-failover/Failover.png)
+    ![Skärm bild från Azure Site Recovery som visar ADRP-fönstret med redundans valt från menyn mer.](./media/site-recovery-failover/Failover.png)
 
 3. **Failover**  >  Lämna standard**riktningen i redundansväxlingen**om du replikerar till Azure.
 4. I **redundans**väljer du en **återställnings punkt** att redundansväxla.
@@ -81,7 +81,7 @@ Du kan köra en planerad redundansväxling för virtuella Hyper-V-datorer.
 
 Det finns ett antal jobb som är kopplade till redundans.
 
-![Redundans](./media/site-recovery-failover/FailoverJob.png)
+![Skärm bild av sidan jobb som visar en lista med jobb med grupp 1: Start (1) expanderad i kolumnen namn. Raden för SQLServer-jobbet är markerad.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Krav kontroll**: säkerställer att alla villkor som krävs för redundans är uppfyllda.
 - **Redundans**: bearbetar data så att en virtuell Azure-dator kan skapas från den. Om du har valt den **senaste** återställnings punkten skapas en återställnings punkt utifrån de data som har skickats till tjänsten.

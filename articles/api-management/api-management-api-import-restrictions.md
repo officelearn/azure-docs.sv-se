@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335508"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API-importbegränsningar och kända problem
 
@@ -34,15 +34,15 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 ### <a name="general"></a><a name="open-api-general"> </a>Allmänt
 
 -   Obligatoriska parametrar i både sökväg och fråga måste ha unika namn. (I OpenAPI måste parameter namnet bara vara unikt inom en plats, till exempel sökväg, fråga, rubrik. Men i API Management tillåter vi att åtgärder diskrimineras av både sökväg och frågeparametrar (som OpenAPI inte stöder). Därför kräver vi att parameter namn är unika inom hela URL-mallen.)
--   `\$ref`pekare kan inte referera till externa filer.
--   `x-ms-paths`och `x-servers` är de enda tillägg som stöds.
+-   `\$ref` pekare kan inte referera till externa filer.
+-   `x-ms-paths` och `x-servers` är de enda tillägg som stöds.
 -   Anpassade tillägg ignoreras vid import och sparas eller bevaras inte för export.
--   `Recursion`-API Management har inte stöd för definierade definitioner rekursivt (t. ex. scheman som refererar till sig själva).
+-   `Recursion` -API Management har inte stöd för definierade definitioner rekursivt (t. ex. scheman som refererar till sig själva).
 -   Käll filens URL (om tillgänglig) används för relativa server-URL: er.
 -   Säkerhets definitioner ignoreras.
 -   Infogade schema definitioner för API-åtgärder stöds inte. Schema definitioner definieras i API-omfånget och kan refereras till i API-åtgärder för begäran eller svars omfattningar.
 -   En definierad URL-parameter måste vara en del av URL-mallen.
--   `Produces`nyckelord, som beskriver MIME-typer som returneras av ett API, stöds inte. 
+-   `Produces` nyckelord, som beskriver MIME-typer som returneras av ett API, stöds inte. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>Openapi version 2
 
@@ -51,13 +51,17 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>Openapi version 3
 
 -   Om många `servers` anges försöker API Management välja den första HTTPS-URL: en. Om det inte finns några HTTPs-URL: er – den första HTTP-URL: en. Om det inte finns några HTTP-URL: er måste serverns URL vara tom.
--   `Examples`stöds inte, men `example` är.
+-   `Examples` stöds inte, men `example` är.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI-funktioner för import, uppdatering och export
 
+### <a name="general"></a><a name="open-import-export-general"> </a>Allmänt
+
+-   API-definitioner som exporteras från API Management-tjänsten är främst avsedda för program som är externa för att API Management tjänster som behöver anropa API: n som finns i API Management tjänsten. Exporterade API-definitioner är inte avsedda att importeras igen till samma eller en annan API Management-tjänst. Information om konfigurations hantering av API-defiitions över olika tjänster/envionments finns i dokumentationen om hur du använder API Management tjänst med git. 
+
 ### <a name="add-new-api-via-openapi-import"></a>Lägg till nytt API via OpenAPI-import
 
-För varje åtgärd som hittas i OpenAPI-dokumentet skapas en ny åtgärd med Azures resurs namn och visnings namn som har angetts till respektive `operationId` `summary` . `operationId`värdet normaliseras enligt reglerna som beskrivs nedan. `summary`värdet importeras som det är och längden är begränsad till 300 tecken.
+För varje åtgärd som hittas i OpenAPI-dokumentet skapas en ny åtgärd med Azures resurs namn och visnings namn som har angetts till respektive `operationId` `summary` . `operationId` värdet normaliseras enligt reglerna som beskrivs nedan. `summary` värdet importeras som det är och längden är begränsad till 300 tecken.
 
 Om `operationId` inte har angetts (det vill säga, `null` eller är tomt), genereras värdet för Azure Resource Name genom att kombinera http-metod och Sök vägs mal len, till exempel `get-foo` .
 
@@ -86,7 +90,7 @@ Normaliserings regler för operationId
 
 - Konvertera till gemener.
 - Ersätt varje sekvens av icke-alfanumeriska tecken med ett enda streck, till exempel, omvandlas `GET-/foo/{bar}?buzz={quix}` till `get-foo-bar-buzz-quix-` .
-- Trimma streck på båda sidor, till exempel, `get-foo-bar-buzz-quix-` blir`get-foo-bar-buzz-quix`
+- Trimma streck på båda sidor, till exempel, `get-foo-bar-buzz-quix-` blir `get-foo-bar-buzz-quix`
 - Trunkera för att passa 76 tecken, fyra tecken mindre än den maximala gränsen för ett resurs namn.
 - Använd återstående fyra tecken för dedupliceringens suffix, om det behövs, i form av `-1, -2, ..., -999` .
 

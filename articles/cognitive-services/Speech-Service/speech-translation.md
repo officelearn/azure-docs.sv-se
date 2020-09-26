@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tal Översättning
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401222"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359808"
 ---
 # <a name="what-is-speech-translation"></a>Vad är talöversättning?
 
@@ -63,5 +63,5 @@ Om dina program, verktyg eller produkter använder [Translator Speech API](https
 ## <a name="next-steps"></a>Nästa steg
 
 * Slutför [snabb](get-started-speech-translation.md) starten för tal omvandling
-* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+* [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)
 * [Hämta tal-SDK](speech-sdk.md)

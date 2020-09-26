@@ -17,21 +17,21 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319885"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Använda kopplingar med Azure AD Connect Sync-Service Manager
 
-![Synkronisera Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Skärm bild som visar synkroniseringen Service Manager.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 Fliken anslutningar används för att hantera alla system som Synkroniseringsmotorn är ansluten till.
 
 ## <a name="connector-actions"></a>Kopplings åtgärder
-| Åtgärd | Kommentar |
+| Action | Kommentar |
 | --- | --- |
 | Skapa |Använd inte. Använd installations guiden för att ansluta till ytterligare AD-skogar. |
 | Egenskaper |Används för domän-och OU-filtrering. |
@@ -47,7 +47,7 @@ Fliken anslutningar används för att hantera alla system som Synkroniseringsmot
 
 ### <a name="delete"></a>Ta bort
 Åtgärden ta bort används för två olika saker.  
-![Synkronisera Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Skärm bild som visar fönstret "ta bort koppling" med alternativet "ta bort endast kopplings utrymme" markerat.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 Alternativet **ta bort anslutnings utrymme tar bara** bort alla data, men behåll konfigurationen.
 
@@ -58,17 +58,17 @@ Båda alternativen synkroniserar alla objekt och uppdaterar metaversum-objekten.
 ### <a name="configure-run-profiles"></a>Konfigurera körnings profiler
 Med det här alternativet kan du se de körnings profiler som kon figurer ATS för en anslutning.
 
-![Synkronisera Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Skärm bild som visar fönstret "Konfigurera körnings profiler" med "delta import" markerat.](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Sök efter anslutnings utrymme
 Åtgärden Sök kopplings utrymme är användbar för att hitta objekt och felsöka data problem.
 
-![Synkronisera Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Skärm bild som visar fönstret "Sök kopplings utrymme".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Börja med att välja ett **omfång**. Du kan söka baserat på data (RDN, DN, ankare, under träd) eller tillstånd för objektet (alla andra alternativ).  
-![Synkronisera Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Skärm bild som visar den nedrullningsbara menyn "omfång".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Om du till exempel gör en under träds ökning får du alla objekt i en ORGANISATIONSENHET.  
-![Synkronisera Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Skärm bild som visar ett exempel på en "under träd"-sökning.](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Från det här rutnätet kan du välja ett objekt, välja **Egenskaper**och [följa det](tshoot-connect-object-not-syncing.md) från källans kopplings utrymme, via metaversum och till mål kopplings utrymmet.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Ändra AD DS-kontolösenordet

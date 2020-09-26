@@ -1,18 +1,18 @@
 ---
 title: Konfigurera DNS-vidarebefordran för Azure Files | Microsoft Docs
-description: En översikt över nätverks alternativ för Azure Files.
+description: Lär dig hur du konfigurerar DNS-vidarebefordran för Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509973"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320276"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurera DNS-vidarebefordring för Azure Files
 Med Azure Files kan du skapa privata slut punkter för lagrings kontona som innehåller dina fil resurser. Även om det är användbart för många olika program är privata slut punkter särskilt användbara för att ansluta till dina Azure-filresurser från ditt lokala nätverk med hjälp av en VPN-eller ExpressRoute-anslutning med privat peering. 
@@ -110,7 +110,7 @@ New-AzDnsForwarder `
 
 Du kanske också tycker att det är användbart/nödvändigt att tillhandahålla flera ytterligare parametrar:
 
-| Parameternamn | Typ | Beskrivning |
+| Parameternamn | Typ | Description |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Som standard kommer DNS-servrarna att distribueras till samma resurs grupp som det virtuella nätverket. Om du inte vill använda den här parametern kan du välja en alternativ resurs grupp som du vill distribuera till. |
 | `DnsForwarderRootName` | `string` | Som standard har DNS-servrarna som distribueras i Azure namn `DnsFwder-*` , där asterisken fylls med en iterator. Den här parametern ändrar roten för det namnet (t. ex. `DnsFwder` ). |
@@ -152,6 +152,6 @@ Test-NetConnection -ComputerName storageaccount.file.core.windows.net -CommonTCP
 ```
 
 ## <a name="see-also"></a>Se även
-- [Planera för distribution av Azure Files](storage-files-planning.md)
+- [Planera för en Azure Files-distribution](storage-files-planning.md)
 - [Azure Files nätverks överväganden](storage-files-networking-overview.md)
 - [Konfigurera Azure Files nätverks slut punkter](storage-files-networking-endpoints.md)

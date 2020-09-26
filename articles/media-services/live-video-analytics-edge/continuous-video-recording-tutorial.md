@@ -3,12 +3,12 @@ title: Kontinuerlig video inspelning till molnet och uppspelningen från Cloud-s
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att kontinuerligt spela in video i molnet och strömma någon del av videon med hjälp av Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a5cb857dcd5f457a68b947d2ece5d78c158e78f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566812"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336487"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: kontinuerlig video inspelning till molnet och uppspelningen från molnet
 
@@ -33,7 +33,7 @@ Läs de här artiklarna innan du börjar:
 * [Media Graph-begrepp](media-graph-concept.md) 
 * [Scenarier för kontinuerlig video inspelning](continuous-video-recording-concept.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Krav för den här självstudien är:
 
@@ -66,7 +66,7 @@ Som det beskrivs i artikeln om [begrepp för medie diagram](media-graph-concept.
 
 I den här självstudien använder du en Edge-modul som skapats med hjälp av [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) för att simulera en RTSP-kamera. I medie grafen använder du en RTSP- [källnod](media-graph-concept.md#rtsp-source) för att hämta Live-flödet och skicka videon till [till gångs mottagarens nod](media-graph-concept.md#asset-sink), som registrerar videon till en till gång.
 
-## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
 
 Innan du börjar bör du kontrol lera att du har slutfört den tredje punkten i [krav](#prerequisites). När resurs installations skriptet har slutförts väljer du klammerparenteserna för att exponera mappstrukturen. Du ser några filer som skapats under katalogen ~/clouddrive/lva-Sample.
 
@@ -164,7 +164,7 @@ När du använder live video analys i IoT Edge-modulen för att spela in direktu
 1. Under noden **GraphTopologySet** redigerar du följande:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Se sedan till att värdet för **topologyName** matchar värdet för egenskapen **Name** i föregående graf-topologi under **GraphInstanceSet** -och **GraphTopologyDelete** -noderna:
+1. Under noden **GraphInstanceSet** kontrollerar du sedan att värdet för **topologyName** matchar värdet för egenskapen **Name** i föregående graf-topologi:
 
     `"topologyName" : "CVRToAMSAsset"`  
 1. Öppna [topologin](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) i en webbläsare och titta på assetNamePattern. För att se till att du har en till gång med ett unikt namn kanske du vill ändra graf-instansnamnet i operations.jspå filen (från standardvärdet för Sample-Graph-1).

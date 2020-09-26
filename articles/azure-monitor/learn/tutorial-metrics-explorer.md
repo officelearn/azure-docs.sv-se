@@ -1,17 +1,17 @@
 ---
 title: Självstudie – Skapa ett mått diagram i Azure Monitor
-description: Lär dig hur du skapar ditt första mått diagram med Azure Metrics Explorer.
+description: Lär dig hur du skapar ett mått diagram med Azure Metrics Explorer.
 author: bwren
 ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 72f90918afa275e56528016539ecb2eec93d5db0
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317216"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Självstudie: skapa ett mått diagram i Azure Monitor
 Mått Utforskaren är en funktion i Azure Monitor i Azure Portal som gör att du kan skapa diagram från metriska värden, visuellt korrelera trender och undersöka toppar och DIP i metriska värden. Använd Mät Utforskaren för att undersöka hälsan och användningen av dina Azure-resurser eller för att rita diagram från anpassade mått. 

@@ -1,18 +1,18 @@
 ---
 title: Azure File Sync nätverks överväganden | Microsoft Docs
-description: En översikt över nätverks alternativ för Azure File Sync.
+description: Lär dig hur du konfigurerar nätverk att använda Azure File Sync för att cachelagra filer lokalt.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512563"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267796"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure File Sync nätverks överväganden
 Du kan ansluta till en Azure-filresurs på två sätt:
@@ -60,7 +60,7 @@ Om du använder Azure File Sync i Azure, även om det är en annan region, kan d
 Om du använder Azure File Sync lokalt kan du använda API: et för service tag för att hämta vissa IP-adressintervall för brand väggens lista över tillåtna. Det finns två metoder för att hämta den här informationen:
 
 - Den aktuella listan över IP-adressintervall för alla tjänster som stöder service taggar för Azure-tjänster publiceras varje vecka på Microsoft Download Center i form av ett JSON-dokument. Varje Azure-moln har sitt eget JSON-dokument med de IP-adressintervall som är relevanta för det molnet:
-    - [Azure, offentlig](https://www.microsoft.com/download/details.aspx?id=56519)
+    - [Offentlig Azure-](https://www.microsoft.com/download/details.aspx?id=56519)
     - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)
     - [Azure Kina](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)
@@ -142,7 +142,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Om du kör samma kommando från en lokal plats ser du att samma lagrings konto namn matchar den offentliga IP-adressen för lagrings kontot i stället. `storageaccount.file.core.windows.net`är en CNAME-post för `storageaccount.privatelink.file.core.windows.net` , vilket i sin tur är en CNAME-post för Azure Storage-kluster som är värd för lagrings kontot:
+Om du kör samma kommando från en lokal plats ser du att samma lagrings konto namn matchar den offentliga IP-adressen för lagrings kontot i stället. `storageaccount.file.core.windows.net` är en CNAME-post för `storageaccount.privatelink.file.core.windows.net` , vilket i sin tur är en CNAME-post för Azure Storage-kluster som är värd för lagrings kontot:
 
 ```Output
 Name                              Type   TTL   Section    NameHost

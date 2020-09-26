@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 7d1d7f9759fc8e2826da6232981eb3a389576c07
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: b0957219308dfaab2d375fb7c23926a13c745344
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314682"
 ---
-# <a name="monitor-metrics-azure-database-for-postgresql---flexible-server"></a>Övervaka mått Azure Database for PostgreSQL – flexibel Server
+# <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Övervaka mått på Azure Database for PostgreSQL-flexibel Server
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL-flexibel Server är i för hands version
@@ -27,8 +27,9 @@ Azure Database for PostgreSQL tillhandahåller olika mått som ger inblick i fun
 Följande mått är tillgängliga för PostgreSQL-flexibla Server:
 
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
+| active_connections | Aktiva anslutningar | Antal | Antalet anslutningar till servern. | 
 | backup_storage_used | Lagring av säkerhets kopior som används | Byte | Mängden lagring av säkerhets kopior som används. Det här måttet representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopie perioden som angetts för servern. Säkerhets kopierings frekvensen är hanterad av tjänsten. För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet. |
 | connections_failed | Misslyckade anslutningar | Antal | Misslyckade anslutningar. |
 | connections_succeeded | Lyckade anslutningar | Antal | Lyckade anslutningar. |

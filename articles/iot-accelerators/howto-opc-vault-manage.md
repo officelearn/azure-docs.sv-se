@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71203650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281923"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Hantera certifikat tjänsten för OPC-valvet
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 I den här artikeln förklaras de administrativa uppgifterna för certifikat hanterings tjänsten för OPC Vault i Azure. Den innehåller information om hur du förnyar certifikat från certifikat utfärdare, hur du förnyar listan över återkallade certifikat (CRL) och hur du beviljar och återkallar användar åtkomst.
 
@@ -63,9 +66,9 @@ Du hanterar användar roller för mikrotjänsten OPC Vault i Azure AD Enterprise
 
 Som standard kan en autentiserad användare i klienten logga in i tjänsten som en läsare. Högre privilegierade roller kräver manuell hantering i Azure Portal eller med hjälp av PowerShell.
 
-### <a name="add-user"></a>Lägga till användare
+### <a name="add-user"></a>Lägg till användare
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 2. Gå till **Azure Active Directory**  >  **företags program**.
 3. Välj registreringen av OPC Vault mikrotjänst (som standard `resourceGroupName-service` ).
 4. Gå till **användare och grupper**.
@@ -77,7 +80,7 @@ Som standard kan en autentiserad användare i klienten logga in i tjänsten som 
 
 ### <a name="remove-user"></a>Ta bort användare
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 2. Gå till **Azure Active Directory**  >  **företags program**.
 3. Välj registreringen av OPC Vault mikrotjänst (som standard `resourceGroupName-service` ).
 4. Gå till **användare och grupper**.
@@ -92,7 +95,7 @@ Som standard har tjänst identiteten endast begränsade behörigheter att komma 
 
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>För en god kännare-roll måste följande behörigheter läggas till i Key Vault
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 2. Gå till OPC-valvet `resourceGroupName` som används under distributionen.
 3. Gå till Key Vault `resourceGroupName-xxxxx` .
 4. Gå till **åtkomst principer**.
@@ -106,7 +109,7 @@ Som standard har tjänst identiteten endast begränsade behörigheter att komma 
 
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>För en administratörs roll måste följande behörigheter läggas till i Key Vault
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 2. Gå till OPC-valvet `resourceGroupName` som används under distributionen.
 3. Gå till Key Vault `resourceGroupName-xxxxx` .
 4. Gå till **åtkomst principer**.
@@ -120,7 +123,7 @@ Som standard har tjänst identiteten endast begränsade behörigheter att komma 
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Ta bort princip för användar åtkomst från Azure Key Vault
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 2. Gå till OPC-valvet `resourceGroupName` som används under distributionen.
 3. Gå till Key Vault `resourceGroupName-xxxxx` .
 4. Gå till **åtkomst principer**.

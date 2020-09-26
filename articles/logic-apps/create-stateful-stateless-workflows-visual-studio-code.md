@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: abb6f8bcaa3b8e356bea00185702bc0ae783e071
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/25/2020
+ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270271"
+ms.locfileid: "91370988"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Skapa tillstånds känsliga eller tillstånds lösa arbets flöden i Visual Studio Code med tillägget Azure Logic Apps (förhands granskning)
 
@@ -72,11 +72,11 @@ Med tillägget Azure Logic Apps (förhands granskning) får du till gång till m
 
 * *Tillståndslös*
 
-  Skapa tillstånds lösa Logic Apps när du inte behöver spara, granska eller referera till data från tidigare händelser. Dessa Logic Apps behåller både indata och utdata för varje åtgärd och deras arbets flödes tillstånd endast i minnet, i stället för att överföra den här informationen till extern lagring. Därför har tillstånds lösa logiska appar kortare körningar som vanligt vis inte är längre än 5 minuter, snabbare prestanda med snabbare svars tider, högre data flöde och minskade drifts kostnader eftersom körnings informationen och historiken inte lagras i extern lagring. Men om eller när avbrott inträffar återställs inte avbrutna körningar automatiskt, så att anroparen måste skicka om avbrutna körningar manuellt. För enklare fel sökning kan du [Aktivera körnings historik](#run-history) för tillstånds lösa Logic Apps.
+  Skapa tillstånds lösa Logic Apps när du inte behöver spara, granska eller referera till data från tidigare händelser i extern lagring för senare granskning. Dessa Logic Apps behåller både indata och utdata för varje åtgärd och deras arbets flödes tillstånd endast i minnet, i stället för att överföra den här informationen till extern lagring. Därför har tillstånds lösa logiska appar kortare körningar som vanligt vis inte är längre än 5 minuter, snabbare prestanda med snabbare svars tider, högre data flöde och minskade drifts kostnader eftersom körnings informationen och historiken inte lagras i extern lagring. Men om eller när avbrott inträffar återställs inte avbrutna körningar automatiskt, så att anroparen måste skicka om avbrutna körningar manuellt. Dessa Logi Kap par kan bara köras synkront och för enklare fel sökning kan du [Aktivera körnings historik](#run-history), vilket påverkar prestanda.
 
   Tillstånds lösa arbets flöden stöder för närvarande endast åtgärder för [hanterade anslutningar](../connectors/apis-list.md#managed-api-connectors), inte utlösare. Starta arbets flödet genom att välja den [inbyggda begäran, Event Hubs eller Service Bus utlösare](../connectors/apis-list.md#built-ins). Mer information om utlösare, åtgärder och anslutningar som inte stöds finns i [funktioner som inte stöds](#unsupported).
 
-För skillnader i hur kapslade Logic Apps fungerar mellan tillstånds känsliga och tillstånds lösa Logic Apps, se [kapslade beteende skillnader mellan tillstånds känsliga och tillstånds lösa Logic Apps](#nested-behavior).
+Information om hur kapslade Logic Apps beter sig annorlunda mellan tillstånds känsliga och tillstånds lösa Logic Apps finns i [kapslade beteende skillnader mellan tillstånds känsliga och tillstånds lösa Logic Apps](#nested-behavior).
 
 <a name="pricing-model"></a>
 
@@ -918,7 +918,7 @@ Med hjälp av [verktyget .net Core kommando rads gränssnitt (CLI)](/dotnet/core
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>Kapslade beteende skillnader mellan tillstånds känsliga och tillstånds lösa Logic Apps
 
-Du kan [skapa ett Logic app-arbetsflöde som kan anropas](../logic-apps/logic-apps-http-endpoint.md) från andra Logic app-arbetsflöden genom att använda [begär](../connectors/connectors-native-reqres.md) ande utlösare, [http-webhook](../connectors/connectors-native-webhook.md) -utlösare eller hanterade kopplings utlösare som har [typen ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) och kan ta emot https
+Du kan [skapa ett Logic app-arbetsflöde som kan anropas](../logic-apps/logic-apps-http-endpoint.md) från andra Logic app-arbetsflöden som finns i samma **Logic app-resurs (förhands granskning)** genom att använda [begär](../connectors/connectors-native-reqres.md) ande utlösare, [http-webhook](../connectors/connectors-native-webhook.md) eller hanterade anslutnings utlösare som har [typen ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) och kan ta emot HTTPS-begäranden
 
 Här följer beteende mönster som kapslade Logic app-arbetsflöden kan följa efter att ett överordnat arbets flöde anropar ett underordnat arbets flöde
 
@@ -930,7 +930,7 @@ Här följer beteende mönster som kapslade Logic app-arbetsflöden kan följa e
 
   Underordnade bekräftar anropet genom att omedelbart returnera ett `202 ACCEPTED` svar och den överordnade åtgärden fortsätter till nästa åtgärd utan att vänta på resultatet från den underordnade. I stället får den överordnade resultatet när den underordnade har körts. Underordnade tillstånds känsliga arbets flöden som inte innehåller någon svars åtgärd följer alltid synkront mönster. För underordnade tillstånds känsliga arbets flöden finns körnings historiken som du kan granska.
 
-  Om du vill aktivera det här beteendet anger du egenskapen till i arbets flödets JSON-definition `OperationOptions` `DisableAsyncPattern` . Mer information finns i [utlösare och åtgärds typer – åtgärds alternativ](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Om du vill aktivera det här beteendet anger du egenskapen till i arbets flödets JSON-definition `operationOptions` `DisableAsyncPattern` . Mer information finns i [utlösare och åtgärds typer – åtgärds alternativ](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Utlös och vänta
 
@@ -966,7 +966,9 @@ Dessa funktioner är inte tillgängliga eller stöds inte för den här offentli
 
 * Det går inte att skapa den nya **Logic app-resursen (för hands version)** på MacOS.
 
-* Anpassade anslutningar, webhook-baserade utlösare och den glidande fönster utlösaren stöds inte i den här för hands versionen. För tillstånds lösa Logic app-arbetsflöden kan du bara lägga till åtgärder för [hanterade anslutningar](../connectors/apis-list.md#managed-api-connectors), inte utlösare. Starta arbets flödet genom att använda den [inbyggda begäran, Event Hubs eller Service Bus utlösare](../connectors/apis-list.md#built-ins).
+* Starta arbets flödet med hjälp av [begäran, http, Event Hubs eller Service Bus utlösare](../connectors/apis-list.md). För närvarande kan [företags anslutningar](../connectors/apis-list.md#enterprise-connectors), [lokala datagatewayer](../connectors/apis-list.md#on-premises-connectors), webhook-baserade utlösare, glidning fönster utlösare, [anpassade anslutningar](../connectors/apis-list.md#custom-apis-and-connectors), integrations konton, deras artefakter och [deras anslutningar](../connectors/apis-list.md#integration-account-connectors) inte hanteras i den här för hands versionen. Funktionen "anropa en Azure Function" är inte tillgänglig, så nu använder du HTTP- *åtgärden* för att anropa URL: en för Azure-funktionen.
+
+  Tillstånds lösa Logic app-arbetsflöden kan bara använda åtgärder för [hanterade anslutningar](../connectors/apis-list.md#managed-api-connectors), inte utlösare. Förutom de tidigare angivna utlösarna kan tillstånds känsliga arbets flöden använda både utlösare och åtgärder för hanterade anslutningar.
 
 * Du kan distribuera den nya **Logic app (för hands version)** -resurs typen enbart till en [Premium-eller App Service värd plan i Azure](#publish-azure) eller till en [Docker-behållare](#deploy-docker)och inte [integrerings tjänst miljöer (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Förbruknings** värd planer stöds inte eller är inte tillgängliga för distribution av den här resurs typen.
 

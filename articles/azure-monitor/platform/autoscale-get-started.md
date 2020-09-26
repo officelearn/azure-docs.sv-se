@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37b1bad397e6170e2a7992a0a9671d6ca9c25ef
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f784ce9eb4c465c83bea28e05e7f423e0b55c947
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294258"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -119,7 +119,7 @@ När du skalar ut till flera instanser kan App Service utföra hälso kontroller
 
 ### <a name="health-check-path"></a>Hälso kontroll Sök väg
 
-Sökvägen måste svara inom två minuter med en status kod mellan 200 och 299 (inklusive). Om sökvägen inte svarar inom två minuter eller returnerar en status kod utanför intervallet, betraktas instansen som "ej felfri". Hälso kontrollen integreras med App Service funktioner för autentisering och auktorisering, systemet når slut punkten även om dessa secuity-funktioner är aktiverade. Om du använder ett eget autentiseringspaket måste sökvägen till hälso kontrollen tillåta anonym åtkomst. Om platsen har HTTP**S** aktive rad kommer Healthcheck att nå http-slutpunkten först och sedan följer 307 HTTP-omdirigering till https-slutpunkten.
+Sökvägen måste svara inom två minuter med en status kod mellan 200 och 299 (inklusive). Om sökvägen inte svarar inom två minuter eller returnerar en status kod utanför intervallet, betraktas instansen som "ej felfri". Hälso kontrollen integreras med App Service funktioner för autentisering och auktorisering, systemet når slut punkten även om dessa secuity-funktioner är aktiverade. Om du använder ett eget autentiseringspaket måste sökvägen till hälso kontrollen tillåta anonym åtkomst. Om webbplatsen bara har HTTP**s**– aktive rad skickas Healthcheck-begäran via http**s**.
 
 Hälso kontroll Sök vägen bör kontrol lera de kritiska komponenterna i ditt program. Om ditt program till exempel är beroende av en databas och ett meddelande system bör hälso kontrollens slut punkt ansluta till dessa komponenter. Om programmet inte kan ansluta till en kritisk komponent, ska sökvägen returnera en svars kod på 500 nivå för att indikera att appen inte är felfri.
 

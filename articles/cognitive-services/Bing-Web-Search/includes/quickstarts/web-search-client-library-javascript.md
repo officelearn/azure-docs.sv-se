@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e4db45385c95bc39cea58511115eba25461cf6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298462"
+ms.locfileid: "91376296"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node.js program. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
@@ -46,11 +46,11 @@ Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
     npm init
     ```
 
-1. Nu installerar vi några Azure-moduler och lägger till dem i `package.json`:
+1. Nu ska vi installera några Azure-moduler och lägga till dem i `package.json` :
 
     ```console
-    npm install --save azure-cognitiveservices-websearch
-    npm install --save ms-rest-azure
+    npm install --save @azure/cognitiveservices-websearch
+    npm install --save @azure/ms-rest-azure-js
     ```
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Skapa ett projekt och deklarera nödvändiga moduler
@@ -60,13 +60,13 @@ I samma katalog som din `package.json` skapar du ett nytt Node.js-projekt med hj
 Kopiera den här koden till projektet. Den läser in de moduler som installerades i föregående avsnitt.
 
 ```javascript
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+const WebSearchAPIClient = require('@azure/cognitiveservices-websearch');
 ```
 
 ## <a name="instantiate-the-client"></a>Instansiera klienten
 
-Den här koden instansierar en klient och använder modulen `azure-cognitiveservices-websearch`. Se till att du anger en giltig prenumerationsnyckel för ditt Azure-konto innan du fortsätter.
+Den här koden instansierar en klient och använder modulen `@azure/cognitiveservices-websearch`. Se till att du anger en giltig prenumerationsnyckel för ditt Azure-konto innan du fortsätter.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');

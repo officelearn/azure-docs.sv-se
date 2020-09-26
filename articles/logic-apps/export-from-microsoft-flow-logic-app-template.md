@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269564"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportera flöden från Power Automate och distribuera till Azure Logic Apps
 
@@ -96,7 +96,7 @@ Mer information finns i [öka upp till Azure Logic Apps](https://flow.microsoft.
 
    1. Expandera det steget för varje steg som kräver en auktoriserad anslutning och välj **Lägg till ny**.
 
-      ![Lägg till ny anslutning](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Skärm bild som visar knappen "Lägg till ny" markerad i fönstret för Outlook-anslutningar.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Logga in på varje tjänst eller ange de autentiseringsuppgifter som krävs för att auktorisera anslutningen.
 

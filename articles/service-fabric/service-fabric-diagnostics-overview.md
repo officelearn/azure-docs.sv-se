@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357139"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervakning och diagnostik för Azure Service Fabric
 
@@ -39,7 +39,7 @@ Service Fabric tillhandahåller en omfattande uppsättning händelser från ruta
 
 * EventStore – EventStore är en funktion som erbjuds av plattformen som tillhandahåller Service Fabric plattforms händelser som är tillgängliga i Service Fabric Explorer och via REST API. Du kan se en Snapshot-vy över vad som händer i ditt kluster för varje entitet, t. ex. Node, service, program och fråga baserat på händelsens tidpunkt. Du kan också läsa mer om EventStore i EventStore- [översikten](service-fabric-diagnostics-eventstore.md).    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![Skärm bild som visar fliken händelser i fönstret noder flera händelser, inklusive en NodeDown-händelse.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 Den angivna diagnostiken är i form av en omfattande uppsättning händelser i rutan. Dessa [Service Fabric händelser](service-fabric-diagnostics-events.md) illustrerar åtgärder som utförs av plattformen på olika entiteter, till exempel noder, program, tjänster, partitioner osv. I det sista scenariot ovan skulle plattformen generera en händelse, om en nod skulle gå ned, `NodeDown` och du kan få ett meddelande direkt från det övervaknings verktyg du väljer. Andra vanliga exempel är `ApplicationUpgradeRollbackStarted` eller `PartitionReconfigured` under en redundansväxling. **Samma händelser är tillgängliga i både Windows-och Linux-kluster.**
 

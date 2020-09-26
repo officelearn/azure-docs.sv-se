@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
-ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359519"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Uppgradera virtuell Azure-dator med SLES 12 till SLES 15 SP1
 
@@ -30,7 +30,7 @@ Den aktuella SLES-versionen måste vara SLES 12 SP4 eller 12 SP5 innan du kan fo
 
 ![Skärm bilden om uppgraderings Sök väg som stöds](./media/linux-upgrade-suse-15sp1/upgrade-path.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Planera migreringen enligt fönstret godkänt stillestånds tid. Detta beror på att den virtuella datorn startar om under migreringen.
 - Ta en fullständig säkerhets kopia av den virtuella datorn innan migreringen.
@@ -66,11 +66,11 @@ Den aktuella SLES-versionen måste vara SLES 12 SP4 eller 12 SP5 innan du kan fo
 
 6. Gå till [Azure Portal](https://portal.azure.com), Välj den virtuella datorn och välj sedan **seriell konsol**. Du kommer att se att systemet slutar vid start: starta om systemet. Den här processen bör ta cirka 15-45 minuter. För virtuella datorer i generation 2 kan det vara fastnat på skärmen "starta om: starta om systemet". I det här fallet väntar du i 45 minuter. Om den fortfarande inte fortskrider längre går du till sidan **Översikt** på den virtuella datorn i Azure Portal, stoppar den virtuella datorn och startar sedan om den.
 
-     ![Skärm bilden om meddelanden i serie konsolen](./media/linux-upgrade-suse-15sp1/reboot-message.png)
+     ![Skärm bilden om meddelanden i serie konsolen.](./media/linux-upgrade-suse-15sp1/reboot-message.png)
 
 8. När systemet har startats om med en ny kernel visas följande meddelande.
 
-     ![Skärm bilden om meddelanden i serie konsolen](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![Skärm bilden om meddelanden i serie konsolen när systemet har startats om med den nya kerneln.](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. Kontrol lera kernel-och OS-versionen för att kontrol lera om systemet har uppgraderats.
 
     ```
@@ -85,4 +85,4 @@ Du kan använda någon av följande metoder för att kontrol lera generationens 
 - Kör kommandot i SLES-terminalen `dmidecode | grep -i hyper` . Om det är en generation v1 VM, returneras inga utdata. För generationer v2-VM: ar visas följande utdata:
 
      ![Skärm bilden om utdata för virtuella datorer i generation 2](./media/linux-upgrade-suse-15sp1/output-gen2.png)
-- I [Azure Portal](https://portal.azure.com)går du till **Egenskaper** för den virtuella datorn och kontrollerar sedan fältet **VM-generation** .
+- I [Azure Portal](https://portal.azure.com)går du till **Egenskaper**  för den virtuella datorn och kontrollerar sedan fältet **VM-generation** .

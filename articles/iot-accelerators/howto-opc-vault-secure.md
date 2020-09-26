@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e95edf21b7d6dce29b31220533269439fac120e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281971"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Använd certifikat hanterings tjänsten för OPC Vault
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Den här artikeln förklarar hur du registrerar program och hur du utfärdar signerade program certifikat för OPC UA-enheter.
 

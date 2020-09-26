@@ -3,13 +3,13 @@ title: Azure Application Insights åsidosätter standard-SDK-slutpunkter
 description: Ändra standard Azure Monitor Application Insights SDK-slutpunkter för regioner som Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions, devx-track-javascript
-ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: references_regions, devx-track-js
+ms.openlocfilehash: d6cea9044cd4898480fcc30532a05e6c8a407012
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373138"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333298"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
 
@@ -79,7 +79,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 För Azure Functions rekommenderar vi nu att du använder [anslutnings strängar](./sdk-connection-string.md?tabs=net) som anges i funktionens program inställningar. Om du vill komma åt program inställningar för din funktion från rutan funktioner väljer du **Inställningar**  >  **konfiguration**  >  **program inställningar**. 
 
-Namn: `APPLICATIONINSIGHTS_CONNECTION_STRING` värde:`Connection String Value`
+Namn: `APPLICATIONINSIGHTS_CONNECTION_STRING` värde: `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

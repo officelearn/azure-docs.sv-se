@@ -15,7 +15,7 @@
       items:
         - name: Skapa en Service Bus-kö
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -90,6 +90,8 @@
       href: service-bus-throttling.md
     - name: Säkerhet
       items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Autentisering och auktorisering
           href: service-bus-authentication-and-authorization.md
           items:

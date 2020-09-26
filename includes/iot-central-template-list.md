@@ -8,19 +8,18 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 2eda1fc8595962849b6a24cc272f6604d0be9175
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 182296793b46f1900744bf629625906b2d6e9b2a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377426"
 ---
 **Programmallar**
 
 | Mall                 | Name        | Beskrivning |
 | ------------------------ | ----------- | ----------- |
 | IOTC – PnP – för hands version         | Anpassat program | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
-| IOTC – standard             | Anpassat program (bakåtkompatibelt) | Skapar ett tomt äldre program som du kan fylla i med dina egna enhets mallar och enheter.
 | IOTC – villkor           | In-Store Analytics – villkors övervakning | Skapar ett program för att ansluta och övervaka en lagrings miljö. |
 | IOTC – förbrukning         | Övervakning av vatten förbrukning | Skapar ett program för att övervaka och kontrol lera vatten flödet. |
 | IOTC – distribution        | Digital distributions Center | Skapar ett program för att förbättra lagrets uteffekts effektivitet genom att digitalisera viktiga till gångar och åtgärder. |
@@ -28,6 +27,7 @@ ms.locfileid: "82744548"
 | IOTC – logistik           | Ansluten logistik | Skapar ett program för att spåra dina leveranser i real tid via luft, vatten och mark med plats-och villkors övervakning. |
 | IOTC-mätare               | Analys av smart mätare | Skapar ett program för att övervaka energi förbrukning, nätverks status och identifiera trender för att förbättra kund support och hantering av Smart avläsning.  |
 | IOTC-MFC                 | Micro-uppfyllelse Center | Skapar ett program för att ansluta och hantera ett helt automatiserat utförande Center. |
+| IOTC-Video-Analytics – om  | Videoanalys – objekt- och rörelseidentifiering | Använd kameror som en sensor i intelligent video analys lösningar som drivs av Azure IoT Edge, AI och Azure Media Services. |
 | IOTC – patient             | Kontinuerlig övervakning av patienter | Skapar ett program för att utöka patient vården, minska återtagandet och hantera sjukdomar. |
 | IOTC-Power               | Sol energi övervakning | Skapar ett program för att övervaka sol panel status och utveckling av energi produktion. |
 | IOTC-kvalitet             | Övervakning av vatten kvalitet | Skapar ett program för att digitalt övervaka vatten kvaliteten. |

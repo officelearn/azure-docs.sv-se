@@ -1,16 +1,18 @@
 ---
 title: 'Snabb start: skapa avsikt med REST-API: er – LUIS'
 description: I den här REST API snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 977348fcaf0cabf92268d71282222e1652321fac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d03ebc1ec5730f1905ce1ee5b9c484312f5aeee1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316357"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Snabb start: skapa avsikt med REST API: er
 

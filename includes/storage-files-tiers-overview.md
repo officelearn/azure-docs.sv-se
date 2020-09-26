@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376307"
 ---
 Azure Files erbjuder fyra olika nivåer av lagring, Premium, transaktion optimerad, frekvent och låg frekvent så att du kan skräddarsy dina resurser efter prestanda-och pris krav för ditt scenario:
 
@@ -26,4 +26,5 @@ Premium-filresurser är bara tillgängliga i en etablerad fakturerings modell. M
 
 Frekventa och häftiga fil resurser är tillgängliga i alla offentliga Azure-och Azure Government regioner. Transaktions optimerade fil resurser är tillgängliga i alla Azure-regioner, inklusive Azure Kina och Azure Germany-regioner.
 
-Information om hur du distribuerar en frekvent eller svag fil resurs finns i [skapa en frekvent eller låg frekvent fil resurs](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> Du kan flytta fil resurser mellan nivåer inom GPv2 lagrings konto typer (transaktion optimerad, frekvent och låg frekvent). Delnings åtgärder mellan nivåer medför transaktioner: om du flyttar från en Hotter-nivå till en låg frekvent nivå kommer den avbilds nivå som är låg för varje fil i resursen, medan en flytt från en låg frekvent nivå till en Hotter-nivå kommer att medföra den låg frekventa transaktions avgiften för varje fil resursen.

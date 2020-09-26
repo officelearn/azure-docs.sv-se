@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370887"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -53,7 +53,7 @@ När du har identifierat Flask halsen för ditt data flöde kan du använda föl
 
 Fliken **Optimize** innehåller inställningar för att konfigurera partitionerings schema för Spark-klustret. Den här fliken finns i varje omvandling av data flöde och anger om du vill partitionera om data **efter** att omvandlingen har slutförts. Genom att justera partitionering får du kontroll över distributionen av dina data över Compute-noder och optimeringar av data lokaler som kan ha både positiva och negativa effekter på dina övergripande data flödes prestanda.
 
-![Optimera](media/data-flow/optimize.png "Optimera")
+![Skärm bild som visar fliken optimering, som innehåller partitionsalternativ, partitionstyper och antalet partitioner.](media/data-flow/optimize.png)
 
 Som standard är *Använd aktuell partitionering* markerad, vilket instruerar Azure Data Factory att behålla den aktuella utdata-partitionering av omvandlingen. Eftersom ompartitionering av data tar tid rekommenderas *Använd nuvarande partitionering* i de flesta fall. Scenarier där du kanske vill partitionera om dina data är efter AGG regeringar och kopplingar som påtagligt snedställer data eller när du använder käll partitionering på en SQL-databas.
 
@@ -80,7 +80,7 @@ Det dynamiska intervallet använder Spark-dynamiska intervall baserat på de kol
 
 Bygg ett uttryck som ger ett fast intervall för värden i dina partitionerade data kolumner. För att undvika separering av partitionen bör du ha en god förståelse för dina data innan du använder det här alternativet. De värden som du anger för uttrycket används som en del av en partitions funktion. Du kan ange antalet fysiska partitioner.
 
-### <a name="key"></a>Tangent
+### <a name="key"></a>Nyckel
 
 Om du har en god förståelse för data kardinalitet kan nyckel partitionering vara en god strategi. Med nyckel partitionering skapas partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
 

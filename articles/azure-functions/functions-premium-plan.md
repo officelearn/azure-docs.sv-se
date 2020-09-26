@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145765"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372229"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -141,13 +141,15 @@ Se den fullständiga regionala tillgängligheten för funktioner här: [Azure.co
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australien, centrala| 20 | Inte tillgängligt |
-|Australien, centrala 2| 20 | Inte tillgängligt |
+|Australien, centrala| 100 | Inte tillgängligt |
+|Australien, centrala 2| 100 | Inte tillgängligt |
 |Australien, östra| 100 | 20 |
 |Australien, sydöstra | 100 | 20 |
-|Brasilien, södra| 60 | 20 |
+|Brasilien, södra| 100 | 20 |
 |Kanada, centrala| 100 | 20 |
 |Central US| 100 | 20 |
+|Kina, östra 2| 100 | 20 |
+|Kina, norra 2| 100 | 20 |
 |Asien, östra| 100 | 20 |
 |East US | 100 | 20 |
 |USA, östra 2| 100 | 20 |
@@ -156,17 +158,24 @@ Se den fullständiga regionala tillgängligheten för funktioner här: [Azure.co
 |Japan, östra| 100 | 20 |
 |Japan, västra| 100 | 20 |
 |Sydkorea, centrala| 100 | 20 |
+|Sydkorea, södra| Inte tillgängligt | 20 |
 |USA, norra centrala| 100 | 20 |
 |Norra Europa| 100 | 20 |
-|Östra Norge| 20 | 20 |
+|Östra Norge| 100 | 20 |
 |USA, södra centrala| 100 | 20 |
 |Indien, södra | 100 | Inte tillgängligt |
 |Sydostasien| 100 | 20 |
+|Schweiz, norra| 100 | Inte tillgängligt |
+|Schweiz, västra| 100 | Inte tillgängligt |
 |Storbritannien, södra| 100 | 20 |
 |Storbritannien, västra| 100 | 20 |
+|USGov Arizona| 100 | 20 |
+|USGov Virginia| 100 | 20 |
+|USNat, öst| 100 | Inte tillgängligt |
+|USNat väst| 100 | Inte tillgängligt |
 |Europa, västra| 100 | 20 |
 |Indien, västra| 100 | 20 |
-|USA, västra centrala| 20 | 20 |
+|USA, västra centrala| 100 | 20 |
 |USA, västra| 100 | 20 |
 |USA, västra 2| 100 | 20 |
 

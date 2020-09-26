@@ -3,12 +3,12 @@ title: Skapa & distribuera resurs grupps projekt i Visual Studio
 description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt och distribuera resurserna till Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372654"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
@@ -41,7 +41,7 @@ I det här avsnittet skapar du ett Azure-resurs grupps projekt med en mall för 
 
     Eftersom du har valt webbappens mall visas följande filer:
 
-   | Filnamn | Beskrivning |
+   | Filnamn | Description |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Ett PowerShell-skript som kör PowerShell-kommandon för distribution till Azure Resource Manager. Visual Studio använder PowerShell-skriptet för att distribuera mallen. |
    | WebSite.jspå |Resource Manager-mallen som definierar infrastrukturen som du vill distribuera till Azure, och de parametrar som du kan ange under distributionen. Den definierar även beroendena mellan resurserna så att resurserna distribueras i rätt ordning av Resource Manager. |
@@ -370,7 +370,7 @@ Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-
 
    ![Anpassad instrumentpanel](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-Du kan hantera åtkomsten till instrumentpanelen med hjälp av RBAC-grupper. Du kan också anpassa instrumentpanelens utseende när den har distribuerats. Om du däremot distribuerar om resursgruppen återställs instrumentpanelen till sitt ursprungsläge i mallen. Mer information om hur du skapar instrumentpaneler finns i [Skapa Azure-instrumentpaneler programmässigt](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+Du kan hantera åtkomst till instrument panelen med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Du kan också anpassa instrumentpanelens utseende när den har distribuerats. Om du däremot distribuerar om resursgruppen återställs instrumentpanelen till sitt ursprungsläge i mallen. Mer information om hur du skapar instrumentpaneler finns i [Skapa Azure-instrumentpaneler programmässigt](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

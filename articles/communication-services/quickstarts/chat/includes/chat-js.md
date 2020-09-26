@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a50f09dd52ccf4d35fd3803967898a4a25e3299f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376884"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar ska du se till att:
@@ -90,6 +90,8 @@ Skapa en fil i projektets rot Katalog som kallas **client.js** som innehåller p
 ### <a name="create-a-chat-client"></a>Skapa en Chat-klient
 
 Om du vill skapa en chatt-klient i din webbapp använder du SIP-slutpunkten för kommunikation och den åtkomsttoken som genererades som en del av de nödvändiga stegen. Med token för användar åtkomst kan du skapa klient program som direkt autentiserar till Azure Communication Services. När du har genererat dessa token på servern skickar du tillbaka dem till en klient enhet. Du måste använda- `AzureCommunicationUserCredential` klassen från `Common client library` för att skicka token till din Chat-klient.
+
+Skapa en **client.js** -fil i projektets rot Katalog. Vi använder den här filen för att lägga till chatt-funktioner med hjälp av klient biblioteket för Azure Communication Chat för Java Script.
 
 ```JavaScript
 

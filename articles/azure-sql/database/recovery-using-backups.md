@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357020"
+ms.locfileid: "91371787"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Återställa med hjälp av automatiska databas säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,7 +196,7 @@ Ett PowerShell-skript som visar hur du utför geo-återställning för en hanter
 Du kan inte utföra en tidpunkts återställning på en geo-sekundär databas. Du kan bara göra det på en primär databas. Detaljerad information om hur du använder geo-återställning för att återställa från ett avbrott finns i [återställa från ett avbrott](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Geo-återställning är den mest grundläggande katastrof återställnings lösningen som finns i SQL Database och SQL-hanterad instans. Den förlitar sig på automatiskt skapade geo-replikerade säkerhets kopior med ett återställnings punkt mål (återställnings punkt mål) som är lika med 1 timme och en beräknad återställnings tid på upp till 12 Det garanterar inte att mål regionen har kapaciteten att återställa dina databaser efter ett regionalt avbrott, eftersom en kraftig ökning av efter frågan är sannolik. Om programmet använder relativt små databaser och inte är kritiskt för verksamheten, är geo-Restore en lämplig lösning för katastrof återställning. 
+> Geo-återställning är den mest grundläggande katastrof återställnings lösningen som finns i SQL Database och SQL-hanterad instans. Den förlitar sig på automatiskt skapade geo-replikerade säkerhets kopieringar med en återställnings punkt mål på upp till 1 timme och en beräknad återställnings tid på upp till 12 timmar. Det garanterar inte att mål regionen har kapaciteten att återställa dina databaser efter ett regionalt avbrott, eftersom en kraftig ökning av efter frågan är sannolik. Om programmet använder relativt små databaser och inte är kritiskt för verksamheten, är geo-Restore en lämplig lösning för katastrof återställning. 
 >
 > För verksamhets kritiska program som kräver stora databaser och som måste garantera affärs kontinuitet, använder du [grupper för automatisk redundans](auto-failover-group-overview.md). Det erbjuder ett mycket lägre drift-och återställnings mål och kapaciteten är alltid garanterad. 
 >

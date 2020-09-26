@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361865"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassiska lagrings resurser
 Den här artikeln innehåller en fel söknings vägledning när något av följande fel uppstår vid försök att ta bort det klassiska Azure-lagrings kontot, behållaren eller *. VHD-sidans BLOB-fil. 
@@ -36,7 +36,7 @@ En "disk"-resurs används för att montera en *. VHD Page-BLOB-fil till en virtu
 
 1. Ta bort den klassiska virtuella datorn.
 2. Om kryss rutan "diskar" är markerad är **disk lånet** (visas i avbildningen ovan) som är kopplat till sidans blob *. VHD bruten. Den faktiska Page blob *. VHD-filen finns kvar i lagrings kontot.
-![Skärm bild av portalen med fel fönstret för den virtuella datorn (klassisk) "ta bort" öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+![Skärm bild som visar en dialog ruta för att bekräfta borttagningen av en virtuell dator.](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. När disk lånet bryts kan du ta bort själva sid blobben. Du kan ta bort ett lagrings konto eller en behållare när alla resurser i "disk" är tillgängliga i dem.
 
@@ -52,7 +52,7 @@ Användaren går till det klassiska lagrings kontot på [Azure Portal](https://p
 
 Med disk (ar) anslutna till en virtuell dator
 
-![Skärm bild av portalen med fel fönstret för den virtuella datorn (klassisk) "ta bort" öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
+![Skärm bild som visar ett meddelande som förklarar varför det inte går att ta bort ett lagrings konto.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
 
 
 Med disk (ar) "unattached" till en virtuell dator
@@ -93,12 +93,12 @@ När du har tagit bort den virtuella Azure-datorn försöker användaren ta bort
 På portalen kan det finnas två upplevelser beroende på listan över blobbar som har marker ATS för borttagning.
 
 1. Om endast "lånade" blobbar är markerade visas inte knappen Ta bort.
-![Skärm bild av portalen med fönstret lista med behållarens BLOB öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
+![Skärm bild av portalen, med list rutan behållare BLOB öppen och endast lånade blobbar har valts.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
 
 
 2. Om du väljer en blandning av "lånade" och "tillgängliga" blobbar visas knappen Ta bort. Men åtgärden ta bort lämnar sid-blobarna, som har ett disk lån. 
-![Skärm bild av portalen med fönstret lista med behållarens BLOB "List" öppen ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
- ![ skärm bild av portalen, där det valda BLOB-fönstret för borttagning är öppet](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+![Skärm bild av portalen med list rutan behållare BLOB öppen och både lånade och tillgängliga blobbar har valts. ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+ ![ Skärm bild av portalen med det valda BLOB-fönstret "ta bort" öppet](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Om användaren väljer att ta bort med hjälp av PowerShell, leder det till följande fel. 
@@ -114,10 +114,10 @@ Om användaren väljer att ta bort med hjälp av PowerShell, leder det till föl
 Följ de här stegen på Azure Portal:
 1.  Navigera till [Azure Portal](https://portal.azure.com).
 2.  Navigera till diskarna (klassisk). 
-3.  Klicka på fliken diskar. ![ Skärm bild av portalen med fönstret lista med behållarens BLOB öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Klicka på fliken diskar. ![ Skärm bild som visar Azure Portal med diskar (klassisk) valda och ett klassiskt disk namn och lagrings konto.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Välj din datadisk och klicka sedan på Ta bort disk.
- ![Skärm bild av portalen med fönstret lista med behållarens BLOB öppen](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
+ ![Skärm bild som visar Azure Portal med diskar (klassisk) vald, med en datadisk vald och alternativet att ta bort.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
  
 5.  Gör om borttagnings åtgärden som tidigare misslyckades.
 6.  Det går inte att ta bort ett lagrings konto eller en behållare så länge den har en enda disk.

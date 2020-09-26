@@ -5,15 +5,16 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: include
 ms.date: 08/25/2019
 ms.author: erhopf
-ms.openlocfilehash: eafc782f6244b73df1511466af07adad9bb4301d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 6a212cd931153574eb8a931c7394d39108852bef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055995"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377051"
 ---
 > [!IMPORTANT]
 > Gå till Azure-portalen. Om den Personanpassare-resurs som du skapade i avsnittet **krav** har distribuerats, klickar du på knappen **gå till resurs** under **Nästa steg**. Du hittar din nyckel och slut punkt i resursens **nyckel och slut punkts** sida under **resurs hantering**. 

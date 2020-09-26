@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 85a54ce7c8b3beea102fad7c3adb58f92c8574dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372603"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -56,7 +56,7 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
 1. Välj **data källa**och välj typ av data källa. Det kan vara HTTP eller data lager.
 
-    Om du väljer data lager kan du välja befintliga data lager som redan har registrerats på din Azure Machine Learning-arbetsyta eller skapa ett nytt data lager. Definiera sedan sökvägen till de data som ska importeras i data lagret. Du kan enkelt bläddra i sökvägen genom att klicka på **Bläddra sökväg** ![ import-data-sökväg](media/module/import-data-path.png)
+    Om du väljer data lager kan du välja befintliga data lager som redan har registrerats på din Azure Machine Learning-arbetsyta eller skapa ett nytt data lager. Definiera sedan sökvägen till de data som ska importeras i data lagret. Du kan enkelt bläddra i sökvägen genom att klicka på **Bläddra** bana- ![ skärm bild visas länken bläddra bana som öppnar dialog rutan Sök vägs val.](media/module/import-data-path.png)
 
 1. Välj förhands gransknings schema för att filtrera de kolumner som du vill inkludera. Du kan också definiera avancerade inställningar som avgränsare i tolknings alternativ.
 

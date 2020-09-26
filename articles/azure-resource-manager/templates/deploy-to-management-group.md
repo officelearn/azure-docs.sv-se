@@ -3,12 +3,12 @@ title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 23f86d7d0b7e1f882cf3fb74adc484e0fe47db87
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284830"
+ms.locfileid: "91372433"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
@@ -32,7 +32,7 @@ Använd följande för Azure-principer:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [reparationer](/azure/templates/microsoft.policyinsights/remediations)
 
-Använd följande för rollbaserad åtkomst kontroll:
+För rollbaserad åtkomst kontroll i Azure (Azure RBAC) använder du:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)

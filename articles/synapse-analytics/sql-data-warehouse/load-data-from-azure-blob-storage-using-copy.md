@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371532"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Självstudie: Läs in New York Taxidata-datauppsättningen
 
@@ -91,7 +91,7 @@ Följ de här stegen för att skapa en tom databas.
 
 11. Välj **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
   
-     ![avisering](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![Skärm bild som visar Azure Portal med fönstret meddelanden öppna med pågående distribution.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
@@ -149,7 +149,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Servernamn    | Fullständigt kvalificerat servernamn            | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
     | Autentisering | SQL Server-autentisering                  | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
     | Inloggning          | Serveradministratörskontot                   | Detta är det konto som du angav när du skapade servern. |
-    | lösenordsinställning       | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | Lösenord       | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 

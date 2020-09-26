@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315498"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team data science-processen i praktiken: använda Azure Synapse Analytics
 I den här självstudien vägleder vi dig genom att skapa och distribuera en maskin inlärnings modell med Azure Synapse Analytics för en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. Den binära klassificerings modellen är konstruerad för att förutsäga om ett tips är betalt för en resa.  I modeller ingår klassificering av multiklass (oavsett om det finns ett tips) och regression (fördelningen för de belopp som betalas).
@@ -117,7 +117,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Skapa en Azure Machine Learning arbets yta under din Azure-prenumeration.** Instruktioner finns i [skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md).
+**Skapa en Azure Machine Learning arbets yta under din Azure-prenumeration.** Instruktioner finns i [skapa en Azure Machine Learning-arbetsyta](../classic/create-workspace.md).
 
 ## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>Läs in data i Azure Synapse Analytics
 Öppna en kommando konsol för Windows PowerShell. Kör följande PowerShell-kommandon för att ladda ned exempel-SQL-skriptfilerna som vi delar med dig på GitHub till en lokal katalog som du anger med parametern *-DestDir*. Du kan ändra värdet för parametern *-DestDir* till valfri lokal katalog. IF *-DestDir* inte finns kommer att skapas av PowerShell-skriptet.
@@ -941,9 +941,9 @@ Vi är nu redo att gå vidare till modell utveckling och modell distribution i [
 2. **Klassificering**av flera klasser: för att förutsäga det tips som betalas, enligt de tidigare definierade klasserna.
 3. **Regressions uppgift**: för att förutsäga hur mycket tips du betalar för en resa.
 
-Om du vill påbörja modelleringen av modellering loggar du in på arbets ytan **Azure Machine Learning (klassisk)** . Om du ännu inte har skapat en Machine Learning-arbetsyta, se [skapa en Azure Machine Learning Studio (klassisk)-arbets yta](../studio/create-workspace.md).
+Om du vill påbörja modelleringen av modellering loggar du in på arbets ytan **Azure Machine Learning (klassisk)** . Om du ännu inte har skapat en Machine Learning-arbetsyta, se [skapa en Azure Machine Learning Studio (klassisk)-arbets yta](../classic/create-workspace.md).
 
-1. För att komma igång med Azure Machine Learning, se [Vad är Azure Machine Learning Studio (klassisk)?](../studio/what-is-ml-studio.md)
+1. För att komma igång med Azure Machine Learning, se [Vad är Azure Machine Learning Studio (klassisk)?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Logga in på [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net).
 3. På Start sidan för Machine Learning Studio (klassisk) finns en mängd information, videor, självstudier, länkar till modulerna referens och andra resurser. Mer information om Azure Machine Learning finns i [Azure Machine Learning dokumentations Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -983,7 +983,7 @@ Ett exempel på ett binära klassificerings experiment som läser data direkt fr
 >
 
 ## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Distribuera modeller i Azure Machine Learning
-När modellen är klar kan du enkelt distribuera den som en webb tjänst direkt från experimentet. Mer information om hur du distribuerar Azure ML-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
+När modellen är klar kan du enkelt distribuera den som en webb tjänst direkt från experimentet. Mer information om hur du distribuerar Azure ML-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../classic/deploy-a-machine-learning-web-service.md).
 
 Om du vill distribuera en ny webb tjänst måste du:
 

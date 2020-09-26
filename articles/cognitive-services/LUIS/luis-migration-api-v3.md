@@ -1,15 +1,17 @@
 ---
 title: 'Förutsägelse slut punkt ändringar i v3-API: et'
 description: 'Slut punkten v3-API: er för fråga förutsägelse har ändrats. Använd den här guiden för att lära dig hur du migrerar till API: er för version 3-slutpunkt.'
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e4567eea02b3b7db9514f4e03c7f7f36496449b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610888"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309445"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
@@ -39,14 +41,14 @@ V3 gjorde följande ändringar som en del av över gången till GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Namn på mätbar enhets nyckel från `units` till`unit`
+    * Namn på mätbar enhets nyckel från `units` till `unit`
 
 * Begär ande text JSON-ändring:
-    * från `preferExternalEntities` till`preferExternalEntities`
+    * från `preferExternalEntities` till `preferExternalEntities`
     * valfri `score` parameter för externa entiteter
 
 * JSON-ändringar för svars text:
-    * `normalizedQuery`bort
+    * `normalizedQuery` bort
 
 ## <a name="suggested-adoption-strategy"></a>Föreslagen införande strategi
 
@@ -77,7 +79,7 @@ API: et förutsägelser är inte längre i minst 9 månader efter för hands ver
 
 Om du vill fråga efter version måste du först [publicera via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) med `"directVersionPublish":true` . Fråga slut punkten som refererar till versions-ID: t i stället för plats namnet.
 
-|Giltiga värden för`SLOT-NAME`|
+|Giltiga värden för `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|

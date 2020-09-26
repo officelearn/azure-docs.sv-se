@@ -4,12 +4,12 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb1a6f351cdf129611949049f762fe51cac4b16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377383"
 ---
 Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Med de här 25 000 kostnads fria e-postmeddelandena får du till gång till avancerad rapportering och analys och [alla API: er][all APIs] (webb, SMTP, evenemang, analys och annat). Information om ytterligare tjänster från SendGrid finns på sidan om [SendGrid-lösningar][SendGrid Solutions].
 
@@ -17,64 +17,64 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 1. Logga in på [Azure-portalen][Azure portal].
 2. På Azure Portal-menyn eller start sidan väljer du **skapa en resurs**.
 
-    ![command-bar-new][command-bar-new]
+    ![Skärm bild av Azure Portal menyn med alternativet Skapa en resurs valt.][command-bar-new]
 3. Sök efter och välj **SendGrid**.
 
-    ![sendgrid-store][sendgrid-store]
+    ![Skärm bild av skärmen Azure Portal Marketplace som visar "SendGr" i rutan Sök och SendGrid som valts i Sök resultaten.][sendgrid-store]
 4. Fyll i registreringsformuläret och välj **Skapa**.
 
-    ![sendgrid-create][sendgrid-create]
+    ![Skärm bild av dialog rutan skapa ett nytt SendGrid-konto med fälten namn, lösen ord, prenumeration och resurs grupp ifylld.][sendgrid-create]
 5. Ange ett **namn** som ska identifiera SendGrid-tjänsten i dina Azure-inställningar. Namnet måste vara mellan 1 och 100 tecken långt och får bara innehålla alfanumeriska tecken, bindestreck, punkter och understreck. Namnet måste vara unikt i listan med de objekt du prenumererar på i Azure Store.
 6. Ange och bekräfta ett **lösenord**.
 7. Välj din **prenumeration**.
 8. Skapa en ny **resursgrupp** eller välj en befintlig.
 9. I avsnittet **Prisnivå** väljer du den SendGrid-plan som du vill registrera dig för.
 
-    ![sendgrid-pricing][sendgrid-pricing]
+    ![Skärm bild av dialog rutan skapa ett nytt SendGrid-konto med avsnittet Välj pris nivå öppnat och den kostnads fria pris nivån som valts.][sendgrid-pricing]
 10. Ange en **kampanjkod** om du har en.
-11. Ange dina **kontaktuppgifter**.
+11. Ange din **kontakt information**.
 12. Läs igenom och godkänn de **juridiska villkoren**.
 13. När du har bekräftat ditt köp ser du att **distributionen lyckades** och att ditt konto visas.
 
-    ![all-resources][all-resources]
+    ![Skärm bild av sidan SendGrid-konton som visar det nya kontot ContosoSendGrid.][all-resources]
 
     När du har slutfört köpet och klickar på knappen **Hantera** för att starta processen med e-postverifiering så får du ett e-postmeddelande från SendGrid där du uppmanas att verifiera ditt konto. Om du inte får det här e-postmeddelandet eller om du har problem med att verifiera ditt konto kan du läsa vanliga frågor och svar.
 
-    ![manage][manage]
+    ![Skärm bild av ContosoSendGrid-konto sidan med knappen Hantera markerad.][manage]
 
     **Du kan bara skicka upp till 100 e-postmeddelanden per dag innan du har verifierat ditt konto.**
 
     Om du vill byta prenumerationsavtal eller visa kontaktinställningarna för SendGrid klickar du på namnet på SendGrid-tjänsten så att instrumentpanelen för SendGrid Marketplace öppnas.
 
-    ![inställningar][settings]
+    ![Skärm bild som visar att inställnings sidan för ContosoSendGrid-kontot är öppen genom att välja alla inställningar från ContosoSendGrid konto sidan.][settings]
 
     Om du vill skicka ett e-postmeddelande med SendGrid måste du ange din API-nyckel.
 
 ### <a name="to-find-your-sendgrid-api-key"></a>Så här hittar du din SendGrid API-nyckel
 1. Klicka på **Hantera**.
 
-    ![manage][manage]
+    ![Skärm bild av ContosoSendGrid-konto sidan med knappen Hantera markerad.][manage]
 2. Välj **Inställningar** på instrumentpanelen för SendGrid sedan **API Keys** (API-nycklar) på menyn till vänster.
 
-    ![api-keys][api-keys]
+    ![Skärm bild av SendGrid-instrumentpanelen med list rutan inställningar öppnade och API-nycklar valda.][api-keys]
 
 3. Klicka på **skapa API-nyckel**.
 
-    ![general-api-key][general-api-key]
+    ![Skärm bild av skärmen med API-nycklar med knappen Skapa API-nyckel vald.][general-api-key]
 4. Ange minst **Name of this key** (Den här nyckelns namn), ge fullständig åtkomst till **Mail Send** (Skicka e-post) och välj **Spara**.
 
-    ![access][access]
+    ![Skärm bild av skärmen Lägg till en ny allmän API-nyckel med e-post Skicka uppsättning till fullständig åtkomst, schemalagda sändningar har angetts till ingen åtkomst och knappen Spara har marker ATS.][access]
 5. Din API-nyckel visas nu en enda gång. Se till att förvara den säkert.
 
 ### <a name="to-find-your-sendgrid-credentials"></a>Så här hittar du dina inloggningsuppgifter för SendGrid API
 1. Om du klickar på nyckelikonen så visas ditt **användarnamn**.
 
-    ![key][key]
+    ! Skärm bild av ContosoSendGrid-konto sidan med nyckel ikonen markerad.] [nyckel]
 2. Lösenordet är det du valde vid installationen. Om du vill ändra det så kan du välja **Ändra lösenord** eller **Återställ lösenord**.
 
 Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta kommer att omdirigeras till SendGrid-instrumentpanelen.
 
-![manage][manage]
+![Skärm bild av ContosoSendGrid-konto sidan med knappen Hantera markerad.][manage]
 
 Mer information om hur du skickar e-post via SendGrid finns i [Översikt över e-post-API][Email API Overview].
 
@@ -90,7 +90,7 @@ Mer information om hur du skickar e-post via SendGrid finns i [Översikt över e
 [api-keys]: ./media/sendgrid-sign-up/api-keys.png
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
-[key]: ./media/sendgrid-sign-up/key.png
+[knapp]: ./media/sendgrid-sign-up/key.png
 
 <!--Links-->
 

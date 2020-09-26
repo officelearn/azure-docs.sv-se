@@ -3,12 +3,12 @@ title: Åtgärder för kontroll plan och data plan
 description: Beskriver skillnaden mellan kontroll planet och data Plans åtgärder. Kontroll Plans åtgärder hanteras av Azure Resource Manager. Data Plans åtgärder hanteras av en tjänst.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: a0575c37c80417d9859ef36366dc9f26cdb4dbe4
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039108"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371277"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Azure kontroll plan och data plan
 
@@ -41,7 +41,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Azure Resource Manager hanterar alla kontroll Plans begär Anden. Den tillämpar automatiskt de Azure-funktioner som du har implementerat för att hantera dina resurser, till exempel:
 
-* [Rollbaserad Access Control i Azure (RBAC)](../../role-based-access-control/overview.md)
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Hanterings lås](lock-resources.md)
 * [Aktivitetsloggar](view-activity-logs.md)

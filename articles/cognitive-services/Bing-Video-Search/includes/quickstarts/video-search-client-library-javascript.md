@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: da45a404c52551e27ffc84d2a0c3e1d08f817593
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fa1ecb24649d9355e6104bff8add5430fdd64c3c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328757"
+ms.locfileid: "91376666"
 ---
 Använd den här snabb starten för att börja söka efter nyheter med Videosökning i Bing klient bibliotek för Java Script. Även om Videosökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Den innehåller fler kommentarer och funktioner.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Node.js](https://www.nodejs.org/)
-
-Så här konfigurerar du ett konsol program med hjälp av Videosökning i Bing klient biblioteket:
-* Kör `npm install ms-rest-azure` i utvecklingsmiljön.
-* Kör `npm install azure-cognitiveservices-videosearch` i utvecklingsmiljön.
+* Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
+* [Videosökning I Bing SDK för Java Script](https://www.npmjs.com/package/@azure/cognitiveservices-videosearch)
+     *  Installera genom att köra `npm install @azure/cognitiveservices-videosearch`
+* `CognitiveServicesCredentials`Klassen från `@azure/ms-rest-azure-js` paketet för att autentisera klienten.
+     * Installera genom att köra `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -33,8 +33,8 @@ Så här konfigurerar du ett konsol program med hjälp av Videosökning i Bing k
 1. Skapa en ny JavaScript-fil i din favorit-IDE eller-redigerare och Lägg till en `require()` instruktion för videosökning i Bing klient bibliotek och `CognitiveServicesCredentials` modul. Skapa en variabel för din prenumerationsnyckel. 
     
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-    const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+    const VideoSearchAPIClient = require('@azure/cognitiveservices-videosearch');
     ```
 
 2. Skapa en instans av `CognitiveServicesCredentials` med din nyckel. Använda den sedan för att skapa en instans av videosökningsklienten.

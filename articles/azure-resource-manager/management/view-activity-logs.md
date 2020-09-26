@@ -3,12 +3,12 @@ title: Visa Azures aktivitets loggar för att övervaka resurser
 description: Använd aktivitets loggarna om du vill granska användar åtgärder och fel. Visar Azure Portal PowerShell, Azure CLI och REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371600"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visa aktivitets loggar för att övervaka åtgärder på resurser
 
@@ -20,7 +20,7 @@ Via aktivitetsloggarna kan du fastställa:
 * åtgärdens status
 * värdena för andra egenskaper som kan hjälpa dig att undersöka åtgärden
 
-Aktivitetsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) för dina resurser. Det omfattar inte läsåtgärder (GET). En lista över resurs åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs.
+Aktivitetsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) för dina resurser. Det omfattar inte läsåtgärder (GET). En lista över resurs åtgärder finns i [Azure Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs.
 
 Aktivitetsloggar behålls i 90 dagar. Du kan fråga efter alla datumintervall förutsatt att startdatumet inte är mer än 90 dagar bakåt i tiden.
 
@@ -195,4 +195,4 @@ REST-åtgärderna för att arbeta med aktivitetsloggen ingår i [Insights REST A
 * Om du vill visa mer information om ändringarna i dina program från infrastruktur lagret hela vägen till program distribution, se [Använd program ändrings analys i Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Mer information om kommandon för att Visa distributions åtgärder finns i [Visa distributions åtgärder](../templates/deployment-history.md).
 * Information om hur du förhindrar borttagningar av en resurs för alla användare finns i [låsa resurser med Azure Resource Manager](lock-resources.md).
-* Om du vill se en lista över tillgängliga åtgärder för varje Microsoft Azure Resource Manager-Provider, se [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md)
+* Om du vill se en lista över tillgängliga åtgärder för varje Microsoft Azure Resource Manager-Provider, se [Azure Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md)

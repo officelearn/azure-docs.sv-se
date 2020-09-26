@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030087"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314938"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-storskalig (citus)
 
@@ -35,7 +35,7 @@ För nuvarande prissättning för lagring av säkerhets kopior, se [prissättnin
 I Azure Database for PostgreSQL skapar återställer ett citus-kluster ett nytt kluster från de ursprungliga nodernas säkerhets kopior. 
 
 > [!IMPORTANT]
->Du kan bara återställa det storskaliga klustret i samma prenumeration och resurs grupp, och med ett annat kluster namn.
+>Du kan bara återställa skalnings klustret (citus) i samma prenumeration och resurs grupp, och med ett annat kluster namn.
 
 
 > [!IMPORTANT]

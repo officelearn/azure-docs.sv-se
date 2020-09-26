@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 658aaf018dd4c231b9bc9fc8c6dda78b2a6f05c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93037d1e1c56e280458a91ae5723502bff27995b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377353"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för Android.
 
@@ -19,12 +19,10 @@ I den här snabb starten får du lära dig hur du startar ett samtal med Azure C
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio)för att skapa ett Android-program.
-- En [token för användar åtkomst](../../access-tokens.md) för Azure Communication Service.
 - En distribuerad kommunikations tjänst resurs. [Skapa en kommunikations tjänst resurs](../../create-communication-resource.md).
-
+- En [token för användar åtkomst](../../access-tokens.md) för Azure Communication Service.
 
 ## <a name="setting-up"></a>Konfigurera
-
 
 ### <a name="create-an-android-app-with-an-empty-activity"></a>Skapa en Android-app med en tom aktivitet
 
@@ -126,7 +124,7 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### <a name="setup-the-layout-for-the-app"></a>Konfigurera appens layout
+### <a name="set-up-the-layout-for-the-app"></a>Konfigurera layouten för appen
 
 Två indata krävs: en text inmatning för ID för inbjudan och en knapp för att placera anropet. Dessa kan läggas till via designern eller genom att redigera XML-layouten. Skapa en knapp med ID `call_button` och text inmatat för `callee_id` . Navigera till ( `app/src/main/res/layout/activity_main.xml` ) och ersätt innehållet i filen med följande:
 
@@ -269,7 +267,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Skapa en agent från åtkomsttoken för användare
 
-Med användartoken kan en autentiserad anrops agent instansieras. Vanligt vis skapas denna token från en tjänst med en autentisering som är specifik för programmet. Mer information om användar åtkomst-token finns i hand boken för [användar åtkomst-token](../../access-tokens.md) . För snabb starten ersätter du `<User_Access_Token>` med en användartoken som skapats för Azure Communication Service-resursen.
+Med användartoken kan en autentiserad anrops agent instansieras. Vanligt vis skapas denna token från en tjänst med en autentisering som är specifik för programmet. Mer information om åtkomsttoken för användar åtkomst finns i hand boken för [användar åtkomst-token](../../access-tokens.md) . För snabb starten ersätter du `<User_Access_Token>` med en användartoken som skapats för Azure Communication Service-resursen.
 
 ```java
 
@@ -316,3 +314,7 @@ private void startCall() {
 Nu kan du starta appen med hjälp av knappen "kör app" i verktygsfältet (Shift + F10). Kontrol lera att du kan placera samtal genom att anropa `8:echo123` . Ett förregistrerat meddelande spelas upp och upprepar tillbaka ditt meddelande till dig.
 
 :::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Skärm bild som visar det färdiga programmet.":::
+
+## <a name="sample-code"></a>Exempelkod
+
+Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)

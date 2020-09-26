@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: a6925ef8f72615cc3868c8b5cd4ea030ed3c3c40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63879350eba897cfe5a793309e5129323fe8bbde
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278079"
+ms.locfileid: "91372382"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducera distribution av hälso integration till Azure Deployment Manager (offentlig för hands version)
 
@@ -41,7 +41,7 @@ Flödet för att få installations programmet med Azure Deployment Managers häl
     1. Autentiseringsinformation. För närvarande stöds inte autentisering med API-nyckel format. För Azure Monitor ska autentiseringstypen anges som – "RolloutIdentity" eftersom den användare som tilldelats hanterad identitet som används för distribution av Azure Deployment Manager är i Azure Monitor.
     1. [HTTP-statuskod](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) eller reguljära uttryck som definierar ett felfritt svar. Observera att du kan ange reguljära uttryck som alla måste matcha för att svaret ska anses vara felfritt, eller så kan du ange uttryck som måste matchas för att svaret ska anses vara felfritt. Båda metoderna stöds.
 
-    Följande JSON är ett exempel på hur du integrerar Azure Monitor med Azure Deployment Manager som utnyttjar RolloutIdentity och fastställer hälso kontroll om en distribution fortsätter om det inte finns några aviseringar. Den enda Azure Monitor-API: n som stöds [– Hämta alla](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+    Följande JSON är ett exempel på hur du integrerar Azure Monitor med Azure Deployment Manager som utnyttjar RolloutIdentity och fastställer hälso kontroll om en distribution fortsätter om det inte finns några aviseringar. Den enda Azure Monitor-API: n som stöds [– Hämta alla](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {

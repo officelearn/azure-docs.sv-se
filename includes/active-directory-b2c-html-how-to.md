@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80117049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377279"
 ---
 ## <a name="use-custom-page-content"></a>Använd anpassat sid innehåll
 
@@ -46,7 +46,7 @@ I stället för att skapa ett anpassat sid innehåll från grunden kan du anpass
 
 I följande tabell visas standard sid innehållet som tillhandahålls av Azure AD B2C. Hämta filerna och Använd dem som utgångs punkt för att skapa egna anpassade sidor.
 
-| Standard sida | Beskrivning | ID för innehålls definition<br/>(endast anpassad princip) |
+| Standard sida | Description | ID för innehålls definition<br/>(endast anpassad princip) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida**. Den här sidan visas när ett undantag eller ett fel påträffas. | *API. error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Själv kontrollerad sida**. Använd den här filen som ett anpassat sid innehåll för registrerings sidan för ett socialt konto, en registrerings sida för lokalt konto, en inloggnings sida för lokalt konto, lösen ords återställning med mera. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. | *API. localaccountsignin*, *API. localaccountsignup*, *API. localaccountpasswordreset*, *API. selfasserted* |
@@ -165,9 +165,9 @@ Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra f
 
 Verifiera att du är redo genom att utföra följande steg:
 
-1. Upprepa steget Konfigurera CORS. För **tillåtna ursprung**anger du`https://www.test-cors.org`
+1. Upprepa steget Konfigurera CORS. För **tillåtna ursprung**anger du `https://www.test-cors.org`
 1. Navigera till [www.test-CORS.org](https://www.test-cors.org/) 
-1. I rutan **Fjärradress** klistrar du in URL: en för HTML-filen. Till exempel, `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. I rutan **Fjärradress** klistrar du in URL: en för HTML-filen. Till exempel `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Välj **skicka begäran**.
     Resultatet bör vara `XHR status: 200` . 
     Kontrol lera att CORS-inställningarna är korrekta om du får ett fel meddelande. Du kan också behöva rensa webbläsarens cacheminne eller öppna en privat webbläsarsession genom att trycka på CTRL + SKIFT + P.

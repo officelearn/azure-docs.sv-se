@@ -1,14 +1,16 @@
 ---
 title: Användbart exempel yttranden – LUIS
 description: Yttranden är indata från användaren som appen behöver tolka. Samla in fraser som du tror att användarna kommer att ange. Inkludera yttranden som betyder samma sak, men som har utformats annorlunda i ord-längd och ord placering.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316400"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
 
@@ -103,7 +105,7 @@ Interpunktion är en separat token i LUIS. En uttryck som innehåller en period 
 
 Om interpunktion inte är normaliserad ignorerar LUIS inte skiljetecken som standard eftersom vissa klient program kan placera signifikans på dessa märken. Se till att ditt exempel yttranden använder både skiljetecken och ingen interpunktion för att båda formaten ska returnera samma relativa resultat.
 
-Se till att modellen hanterar skiljetecken antingen i exemplet yttranden (med och utan interpunktion) eller i [mönstren](luis-concept-patterns.md) där det är enklare att ignorera interpunktion med den särskilda syntaxen:`I am applying for the {Job} position[.]`
+Se till att modellen hanterar skiljetecken antingen i exemplet yttranden (med och utan interpunktion) eller i [mönstren](luis-concept-patterns.md) där det är enklare att ignorera interpunktion med den särskilda syntaxen: `I am applying for the {Job} position[.]`
 
 Om interpunktionen inte har någon specifik betydelse i klient programmet, bör du överväga att [Ignorera interpunktion](#utterance-normalization) genom normalisera interpunktion.
 

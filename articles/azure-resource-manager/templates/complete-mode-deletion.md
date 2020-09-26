@@ -3,12 +3,12 @@ title: Borttagning i complete-läget
 description: Visar hur resurs typer hanterar fullständig borttagning av läge i Azure Resource Manager mallar.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: e288d3af080a96616026e94ac7be352a7684c181
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327671"
+ms.locfileid: "91372469"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -1502,11 +1502,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | arbetsytor | Yes |
-> | arbets ytor/codeJobs | No |
 > | arbets ytor/beräkningar | No |
 > | arbets ytor/eventGridFilters | No |
-> | arbets ytor/inferenceEndpoints | Yes |
-> | arbets ytor/inferenceEndpoints/distributioner | Yes |
 > | arbets ytor/linkedServices | No |
 
 ## <a name="microsoftmaintenance"></a>Microsoft. Maintenance

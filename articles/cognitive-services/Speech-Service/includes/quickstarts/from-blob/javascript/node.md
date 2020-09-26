@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: f480419bb25f3fe8d49c6b4af4a5d1873e286b58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4d3db2c10c3fd989ac9737e242e3d6eda517a55f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324797"
+ms.locfileid: "91377339"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -18,7 +18,7 @@ Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-javascript)
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="create-a-new-js-file"></a>Skapa en ny JS-fil

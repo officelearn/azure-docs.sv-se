@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 65f6c239f34775efff6a2ea2e399064a7702606a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664659"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376829"
 ---
 ![Dokumentation om Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -85,3 +85,9 @@ Mått som hjälper till att diagnostisera disk-i/o-capping:
 - **Data disk bandbredd förbrukad procent** – den procent andel som beräknas av data disk data flödet som slutförts via data flödet för den allokerade datadisken. Om den här mängden är på 100% blir ditt program i/o-gräns från data diskens bandbredds gräns.
 - **Förbrukad procent** andel av OS-diskar – den procent andel som beräknats av OS-disken IOPS som har slutförts via den etablerade OS-disken IOPS. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från din OS-disks IOPS-gräns.
 - **Förbrukad procent** andel av operativ system diskar – den procent andel som beräknats av OS-dataflödet som slutförts via det ALLOKERAde OS-dataflöde Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från din OS-disks bandbredds gräns.
+
+Mått som hjälper till att diagnostisera VM-IO-capping:
+- **VM cachelagrad IOPS förbrukad procent** – den procent andel som beräknats av den totala IOPS som slutförts via den maximala IOPS-gränsen för virtuella datorer. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns cachelagrade IOPs-gräns.
+- **VM cachelagrad bandbredd i procent** – den procent andel som beräknas av det totala disk data flödet som slutförts via det maximala data flödet för cachelagrade virtuella datorer. Om den här mängden är på 100% blir ditt program i/o-gräns från den virtuella datorns cachelagrade bandbredds gräns.
+- **VM Uncached IOPS förbrukad procent** – den procent andel som beräknats av den totala IOPS på en virtuell dator som har slutförts via den maximala IOPS-gränsen på den virtuella datorn. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns ej cachelagrade IOPs-gräns.
+- **Virtuell dator i cacheminnet för förbrukad bandbredd** i procent – den procent andel som beräknas av den totala disk data flödet på en virtuell dator som har slutförts via det högsta allokerade virtuella dator data flödet. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns ej cachelagrade bandbredds gräns.

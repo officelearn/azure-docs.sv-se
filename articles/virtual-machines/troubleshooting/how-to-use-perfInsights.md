@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361355"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Så här använder du PerfInsights i Azure
 
@@ -118,12 +118,12 @@ Information om virtuella Windows-datorer, diskar eller lagringspooler konfigurat
 | SQL Server-konfiguration          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Spårning av prestanda diagnoser *  | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Spårning av prestanda räknare * *      |                            |                                    | Ja                      |                      | Ja                  |
-| Spårning av SMB-räknare * *              |                            |                                    |                          | Ja                  |                      |
+| Spårning av SMB-räknare * *              |                            |                                    |                          | Yes                  |                      |
 | Spårning av SQL Server räknare * *       |                            |                                    | Ja                      |                      | Ja                  |
-| XPerf-spårning                       |                            |                                    |                          |                      | Ja                  |
-| StorPort-spårning                    |                            |                                    |                          |                      | Ja                  |
+| XPerf-spårning                       |                            |                                    |                          |                      | Yes                  |
+| StorPort-spårning                    |                            |                                    |                          |                      | Yes                  |
 | Nätverks spårning                     |                            |                                    |                          | Ja                  | Ja                  |
-| Diskspd benchmark-spårning * * *       |                            | Ja                                |                          |                      |                      |
+| Diskspd benchmark-spårning * * *       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Spårning av prestanda diagnostik (*)
@@ -259,8 +259,8 @@ I **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip- ** filen kan du
 
 Välj fliken **resultat** .
 
-![Skärm bild av PerfInsights Report ](media/how-to-use-perfInsights/pi-finding-tab.png)
- ![ skärm bild av PerfInsights-rapport](media/how-to-use-perfInsights/pi-findings.png)
+![Skärm bild av fliken Översikt i PerfInsights-rapporten. ](media/how-to-use-perfInsights/pi-finding-tab.png)
+ ![ Skärm bild av fliken lagring i PerfInsights-rapporten.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Avgöranden kategoriserade som höga är kända problem som kan orsaka prestanda problem. Resultat som kategoriseras som medel representerar icke-optimala konfigurationer som inte nödvändigt vis orsakar prestanda problem. Resultat som kategoriseras som låg är endast informativa rapporter.

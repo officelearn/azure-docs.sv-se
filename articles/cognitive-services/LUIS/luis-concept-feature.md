@@ -1,14 +1,16 @@
 ---
 title: Funktioner för maskin inlärning med LUIS
 description: Lägg till funktioner i en språk modell för att ge tips om hur du identifierar indatatyper som du vill etikettera eller klassificera.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075160"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372032"
 ---
 # <a name="machine-learning-features"></a>Funktioner för maskin inlärning
 
@@ -20,12 +22,10 @@ En funktion kan beskrivas som en funktion, t. ex. f (x) = y. I exemplet uttryck,
 
 ## <a name="types-of-features"></a>Typer av funktioner
 
-LUIS stöder både fras listor och modeller som funktioner:
+Funktioner är en nödvändig del av schema designen. LUIS stöder både fras listor och modeller som funktioner:
 
-* Funktionen fras lista 
+* Funktionen fras lista
 * Modell (avsikt eller entitet) som en funktion
-
-Funktioner bör anses vara en nödvändig del av schema designen.
 
 ## <a name="find-features-in-your-example-utterances"></a>Hitta funktioner i ditt exempel yttranden
 
@@ -43,32 +43,6 @@ Ta reda på om texten, eftersom den särskiljer en trait, måste:
 * Matcha ett exakt ord eller en fras: Överväg att lägga till en entitet för reguljära uttryck eller en lista entitet som en funktion i entiteten eller avsikten.
 * Matcha ett välkänt koncept som datum, tider eller personers namn: Använd en fördefinierad entitet som funktion till entiteten eller avsikten.
 * Lär dig nya exempel över tid: Använd en fras lista med några exempel på konceptet som funktion för entiteten eller avsikten.
-
-## <a name="combine-features"></a>Kombinera funktioner
-
-Du kan använda mer än en funktion för att beskriva en trait eller ett begrepp. En gemensam koppling är att använda en fras List funktion och en entitetstyp som ofta används som en funktion:
-
- * fördefinierad entitet
- * reguljär – uttrycks enhet
- * lista entitet
-
-### <a name="ticket-booking-entity-example"></a>Exempel på biljett boknings entitet
-
-Som ett första exempel bör du överväga en app för att boka en flygning med ett flyg boknings syfte och en entitet för biljett bokning.
-
-Entiteten för biljett bokning är en enhet för maskin inlärning för flyg destinationen. Använd två funktioner för att hjälpa till att extrahera platsen:
-
-* En fras lista med relevanta ord, till exempel, **plan**, **flyg**, **reservation**eller **biljett**
-* En fördefinierad **geographyV2** -entitet som en funktion i entiteten
-
-### <a name="pizza-entity-example"></a>Exempel på pizza-entitet
-
-Ett annat exempel är att fundera på en app för att beställa en pizza som har en Create-pizza-order-avsikt och en pizza-entitet.
-
-Pizza-entiteten är en maskin inlärnings enhet för pizza-informationen. Om du vill hjälpa till att extrahera informationen använder du två funktioner för att:
-
-* En fras lista över relevanta ord, till exempel **ost**, **crust**, **pepperoni**eller **ananas**
-* En fördefinierad **nummer** enhet som en funktion i entiteten
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>Skapa en fras lista för ett koncept
 
@@ -176,12 +150,12 @@ Du fortsätter med exemplet på leverans adressen:
 
 Leverans adress (enheten har lärts)
 
- * Gatu nummer (underentitet) 
- * Gatuadress (underentitet) 
- * Gatu namn (underentitet) 
- * Ort (underentitet) 
- * Delstat eller provins (underentitet) 
- * Land/region (underentitet) 
+ * Gatu nummer (underentitet)
+ * Gatuadress (underentitet)
+ * Gatu namn (underentitet)
+ * Ort (underentitet)
+ * Delstat eller provins (underentitet)
+ * Land/region (underentitet)
  * Post nummer (underentitet)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Nödvändig funktion med fördefinierade entiteter
@@ -217,6 +191,59 @@ Den vanligaste användningen är att använda en funktion för en specifik model
 Den vanligaste användningen av en global funktion är att lägga till en ytterligare ord lista i appen. Om dina kunder till exempel använder ett primärt språk, men förväntar sig att kunna använda ett annat språk inom samma uttryck, kan du lägga till en funktion som innehåller ord från det sekundära språket.
 
 Eftersom användaren förväntar sig att använda det sekundära språket för alla syften eller enheter, lägger du till ord från det sekundära språket till fras listan. Konfigurera fras listan som en global funktion.
+
+## <a name="combine-features-for-added-benefit"></a>Kombinera funktioner för extra förmån
+
+Du kan använda mer än en funktion för att beskriva en trait eller ett begrepp. En gemensam koppling är att använda:
+
+* En fras List funktion: du kan använda flera fras listor som funktioner till samma modell.
+* En modell som funktion: [fördefinierad entitet](luis-reference-prebuilt-entities.md), [entitet för reguljära uttryck](reference-entity-regular-expression.md), [lista entitet](reference-entity-list.md). 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Exempel: enhets funktioner för biljett bokning för en rese app  
+
+Som ett grundläggande exempel bör du överväga en app för att boka en flygning med ett flyg boknings _syfte_ och en _entitet_för biljett bokning. Entiteten biljett bokning samlar in information för att boka en flyg Plans biljett i ett boknings system. 
+
+Machine Learning-entiteten för biljett bok har två underentiteter som du kan använda för att avbilda ursprung och mål. Funktionerna måste läggas till i varje underentitet, inte entiteten på den översta nivån.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Ticketbooking entitets schema":::
+
+Entiteten för biljett bokning är en enhet för maskin inlärning med underentiteter, inklusive _ursprung_ och _mål_. Dessa underentiteter indikerar en geografisk plats. För att hjälpa till att extrahera platserna och skilja mellan _ursprung_ och _mål_bör varje underentitet ha funktioner.
+
+|Typ|Underentitet för ursprung |Underentitet för mål|
+|--|--|--|
+|Modell som en funktion|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) -fördefinierad entitet|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) -fördefinierad entitet|
+|Fras lista|**Ursprungs ord**: `start at` , `begin from` , `leave`|**Mål ord**: `to` , `arrive` , `land at` , `go` , `going` , `stay``heading`|
+|Fras lista|Flyg plats koder – samma lista för både ursprung och mål|Flyg plats koder – samma lista för både ursprung och mål|
+|Fras lista|Flyg plats namn – samma lista för både ursprung och mål|Flyg plats koder – samma lista för både ursprung och mål|
+
+Om du förväntar dig att användare använder flyg plats koder och flyg plats namn, än LUIS bör ha fras listor som använder båda typerna av fraser. Flyg plats koderna kan vara vanligare med text som anges i en chattrobot medan flyg plats namn kan vara vanligare med talade konversationer som till exempel ett tal med chattrobot.
+
+Matchande information om funktionerna returneras bara för modeller, inte för fras listor eftersom endast modeller returneras i förutsägelse-JSON.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>Biljett boknings märkning i avsikten
+
+När du har skapat enheten för maskin inlärning måste du lägga till exempel yttranden i ett avsikts syfte och namnge den överordnade entiteten och alla underentiteter.
+
+I exempel på biljett boknings exempel kan du namnge exemplet yttranden i avsikt med `TicketBooking` entiteten och eventuella underentiteter i texten.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Etikett exempel yttranden":::
+
+### <a name="example-pizza-ordering-app"></a>Exempel: pizza order app
+
+I ett andra exempel bör du överväga en app för en pizza restaurang, som tar emot pizza-beställningar, inklusive information om typen av pizza som någon beställer. Varje detalj i pizza bör extraheras, om möjligt, för att slutföra bearbetningen av ordern.
+
+Enheten för maskin inlärning i det här exemplet är mer komplex med kapslade underentiteter, fras listor, fördefinierade entiteter och anpassade entiteter.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Pizza ordning för enhets schema":::
+
+I det här exemplet används funktioner på underenhets nivå och underordnad för underentitets nivå. Vilken nivå får vilken typ av fras lista eller modell som en funktion är en viktig del av din enhets design.
+
+Även om underentiteter kan ha många fras listor som funktioner som hjälper till att identifiera entiteten har varje underentitet bara en modell som funktion. I den här [pizza-appen](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)är dessa modeller främst listor.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Pizza order avsikt med etiketterat exempel yttranden":::
+
+Det märkta exemplet yttranden visas på ett sätt för att visa hur entiteterna är kapslade. 
+
 
 ## <a name="best-practices"></a>Bästa praxis
 

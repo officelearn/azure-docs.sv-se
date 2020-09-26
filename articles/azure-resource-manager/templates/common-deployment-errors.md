@@ -4,12 +4,12 @@ description: Beskriver hur du löser vanliga fel när du distribuerar resurser t
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372246"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga fel i Azure-distributioner med Azure Resource Manager
 
@@ -34,6 +34,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | DeploymentNameLengthLimitExceeded | Distributions namnen är begränsade till 64 tecken.  | |
 | DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte innehåller den information du behöver för att lösa problemet. Se fel informationen för en felkod som innehåller mer information. | [Hitta felkod](#find-error-code) |
 | DeploymentQuotaExceeded | Om du når gränsen på 800-distributioner per resurs grupp tar du bort distributioner från den historik som inte längre behövs. | [Lös fel när antalet distributioner överskrider 800](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | Förenkla din mall för att minska storleken. | [Lös fel i mal Lav Tor lek](error-job-size-exceeded.md) |
 | DnsRecordInUse | DNS-postens namn måste vara unikt. Ange ett annat namn. | |
 | ImageNotFound | Kontrol lera inställningarna för VM-avbildningar. |  |
 | InUseSubnetCannotBeDeleted | Du kan få det här felet när du försöker uppdatera en resurs, och begäran bearbetas genom att ta bort och skapa resursen. Se till att du anger alla värden som inte har ändrats. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | InvalidSubscriptionRegistrationState | Registrera din prenumeration med resurs leverantören. | [Lös registrering](error-register-resource-provider.md) |
 | InvalidTemplate | Kontrol lera din malls syntax för fel. | [Lös Ogiltig mall](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Förenkla din mall för att minska storleken. | [Lös fel i mal Lav Tor lek](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Kontrol lera om ditt konto tillhör samma klient organisation som den resurs grupp som du distribuerar till. | |
 | LinkedInvalidPropertyId | Resurs-ID: t för en resurs löses inte korrekt. Kontrol lera att du anger alla obligatoriska värden för resurs-ID, inklusive prenumerations-ID, resurs gruppens namn, resurs typ, överordnat resurs namn (vid behov) och resurs namn. | |
 | LocationRequired | Ange en plats för resursen. | [Ange en plats](resource-location.md) |
@@ -88,7 +90,7 @@ Det finns två typer av fel som du kan få:
 
 Valideringsfel uppstår från scenarier som kan fastställas före distributionen. De innehåller syntaxfel i mallen eller försöker distribuera resurser som skulle överskrida prenumerationskvoterna. Distributionsfel uppstår från förhållanden som inträffar under distributionsprocessen. De omfattar försök att få åtkomst till en resurs som distribueras parallellt.
 
-Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i [aktivitets loggen](../management/view-activity-logs.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
+Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i [aktivitetsloggen](../management/view-activity-logs.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
 
 ### <a name="validation-errors"></a>Verifierings fel
 

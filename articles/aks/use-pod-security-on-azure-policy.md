@@ -5,21 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299161"
+ms.locfileid: "91368863"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Skydda poddar med Azure Policy
 
 För att förbättra säkerheten för ditt AKS-kluster kan du kontrol lera vilka funktioner poddar beviljas och om allt körs mot företagets policy. Den här åtkomsten definieras via inbyggda principer som tillhandahålls av [Azure policy-tillägget för AKS][kubernetes-policy-reference]. Genom att tillhandahålla ytterligare kontroll över säkerhets aspekterna av din POD-specifikation, som rot privilegier, möjliggör striktare säkerhets kontroll och insyn i vad som distribueras i klustret. Om en POD inte uppfyller de villkor som anges i principen kan Azure Policy förhindra att Pod startar eller flaggar en överträdelse. Den här artikeln visar hur du använder Azure Policy för att begränsa distributionen av poddar i AKS.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-
-> [!IMPORTANT]
-> Allmän tillgänglighet (GA) för Azure Policy på AKS lanseras aktivt i alla regioner. Den förväntade globala färdig ställningen för GA-versionen är 9/29/2020. Användning i regioner utan GA-versionen kräver förhands gransknings registrerings steg. Detta kommer dock att uppdateras automatiskt till GA-versionen när det är tillgängligt i regionen.
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 

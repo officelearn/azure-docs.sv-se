@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 06d9ea895607332c8de25176376d52987ceed7a1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317233"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Utgående bindningar för Azure Queue Storage för Azure Functions
 
@@ -315,7 +315,7 @@ Den parameter som är associerad med `QueueOutput` anteckningen skrivs som [en \
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Queue` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `queue` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste anges till `out` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -365,7 +365,7 @@ Objektet utgående kö är tillgängligt via `context.bindings.<NAME>` där `<NA
 
 # <a name="python"></a>[Python](#tab/python)
 
-Det finns två alternativ för att placera ett Event Hub-meddelande från en funktion:
+Det finns två alternativ för att placera ett Queue-meddelande från en funktion:
 
 - **RETUR värde**: ange `name` egenskapen i *function.jspå* till `$return` . Med den här konfigurationen sparas funktionens retur värde som ett kö lagrings meddelande.
 
@@ -373,11 +373,11 @@ Det finns två alternativ för att placera ett Event Hub-meddelande från en fun
 
 # <a name="java"></a>[Java](#tab/java)
 
-Det finns två alternativ för att mata ut ett Event Hub-meddelande från en funktion med hjälp av [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) -anteckningen:
+Det finns två alternativ för att placera ett Queue-meddelande från en funktion med hjälp av [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) -anteckningen:
 
-- **RETUR värde**: genom att använda anteckningen i själva funktionen sparas returvärdet för funktionen som ett Event Hub-meddelande.
+- **RETUR värde**: genom att använda anteckningen i själva funktionen sparas returvärdet för funktionen som ett Queue-meddelande.
 
-- **Tvingande**: om du uttryckligen vill ange ett värde för meddelandet använder du anteckningen på en specifik parameter av typen [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , där `T` är en POJO eller en ursprunglig Java-typ. Med den här konfigurationen `setValue` kvarstår värdet som ett Event Hub-meddelande när du skickar ett värde till metoden.
+- **Tvingande**: om du uttryckligen vill ange ett värde för meddelandet använder du anteckningen på en specifik parameter av typen [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , där `T` är en POJO eller en ursprunglig Java-typ. Med den här konfigurationen behåller ett värde till- `setValue` metoden värdet som ett Queue-meddelande.
 
 ---
 
@@ -413,7 +413,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Standardvärde | Description |
 |---------|---------|---------|
 |maxPollingInterval|00:00:01|Det maximala intervallet mellan Queue-avsökningar. Minimum är 00:00:00.100 (100 MS) och ökar till 00:01:00 (1 min).  I 1. x är data typen millisekunder och i 2. x och högre är det ett TimeSpan.|
 |visibilityTimeout|00:00:00|Tidsintervall mellan återförsök vid bearbetning av ett meddelande Miss lyckas. |

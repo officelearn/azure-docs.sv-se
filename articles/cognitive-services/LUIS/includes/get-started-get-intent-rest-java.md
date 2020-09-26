@@ -5,19 +5,20 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: de3c7b46c048ff5575f3e9890b3c736ed7c71a61
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 65568132a3684112006c8267e46ce95b7c5acfcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316378"
 ---
 [Referens dokumentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-predict-with-rest/Predict.java)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) eller din favorit-IDE
@@ -48,17 +49,17 @@ Använd Java för att fråga efter [förutsägelse slut punkten](https://aka.ms/
     |--|--|
     |`YOUR-APP-ID`|Ditt app-ID. Finns på LUIS-portalen, sidan program inställningar för din app.
     |`YOUR-PREDICTION-KEY`|Din nyckel för att förutsäga 32-tecknen. Finns på LUIS-portalen, sidan Azure-resurser för din app.
-    |`YOUR-PREDICTION-ENDPOINT`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Exempelvis `https://westus.api.cognitive.microsoft.com/`.|
+    |`YOUR-PREDICTION-ENDPOINT`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Till exempel `https://westus.api.cognitive.microsoft.com/`.|
 
 1. Kompilera Java-programmet från kommando raden.
 
-    * Använd följande kommando om du använder Windows:`javac -cp ";lib/*" Predict.java`
-    * Om du använder macOS eller Linux använder du följande kommando:`javac -cp ":lib/*" Predict.java`
+    * Använd följande kommando om du använder Windows: `javac -cp ";lib/*" Predict.java`
+    * Om du använder macOS eller Linux använder du följande kommando: `javac -cp ":lib/*" Predict.java`
 
 1. Kör Java-programmet från kommando raden:
 
-    * Använd följande kommando om du använder Windows:`java -cp ";lib/*" Predict`
-    * Om du använder macOS eller Linux använder du följande kommando:`java -cp ":lib/*" Predict`
+    * Använd följande kommando om du använder Windows: `java -cp ";lib/*" Predict`
+    * Om du använder macOS eller Linux använder du följande kommando: `java -cp ":lib/*" Predict`
 
 1. Granska det förutsägelse svar som returneras som JSON:
 

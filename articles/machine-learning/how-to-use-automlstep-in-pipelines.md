@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6b239ab14437083b74f4501eabb588e929152431
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 960440b1c9a35aa9be33cd36945f9df3d800cc41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315204"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 
@@ -41,7 +41,7 @@ Det bästa sättet att flytta data _till_ en ml-pipeline är med `Dataset` objek
 
 
 > [!TIP]
-> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klasser  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) och [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  Dessa klasser är [experimentella](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) för hands versions funktioner och kan ändras när som helst.
+> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klasser  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) och [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  Dessa klasser är [experimentella](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) för hands versions funktioner och kan ändras när som helst.
 
 `AutoMLStep`Konfigureras via ett- `AutoMLConfig` objekt. `AutoMLConfig` är en flexibel klass som beskrivs i [Konfigurera automatiserade ml-experiment i python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -270,7 +270,7 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 I kodfragmentet ovan skapas en högkvalitativ `PipelineOutputTabularDataset` `PipelineOutputFileDataset` åtgärd från utmatningen av steget data förberedelse.
 
 > [!TIP]
-> Den offentliga för hands versions klassen [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) innehåller metoden [read_delimited_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py#&preserve-view=trueread-delimited-files-include-path-false--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none--path-glob-none--set-column-types-none-) som konverterar en `OutputFileDatasetConfig` till en [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) för förbrukning i AutoML-körningar.
+> Den offentliga för hands versions klassen [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) innehåller metoden [read_delimited_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true#&preserve-view=trueread-delimited-files-include-path-false--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none--path-glob-none--set-column-types-none-) som konverterar en `OutputFileDatasetConfig` till en [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) för förbrukning i AutoML-körningar.
 
 Ett annat alternativ är att använda `Dataset` objekt som registrerats i arbets ytan:
 

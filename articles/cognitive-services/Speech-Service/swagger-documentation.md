@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77430813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363196"
 ---
 # <a name="swagger-documentation"></a>Dokumentation om Swagger
 
@@ -32,7 +32,7 @@ Du måste ange Swagger till samma region som din röst tjänst prenumeration. Du
 
 1. Gå till https://editor.swagger.io
 2. Klicka på **Arkiv**och sedan på **Importera**
-3. Ange Swagger-URL inklusive regionen för din prenumeration på tal tjänsten`https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. Ange Swagger-URL inklusive regionen för din prenumeration på tal tjänsten `https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. Klicka på **generera klient** och välj python
 5. Spara klient biblioteket
 
@@ -47,4 +47,4 @@ Du kan använda python-biblioteket som du genererade med [tal tjänst exemplen p
 ## <a name="next-steps"></a>Nästa steg
 
 * [Tal tjänst exempel på GitHub](https://aka.ms/csspeech/samples).
-* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+* [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)

@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363111"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure Firewall med Azure Standard Load Balancer
 
 Du kan integrera en Azure-brandvägg i ett virtuellt nätverk med en Azure-Standard Load Balancer (antingen offentlig eller intern). 
 
-Den föredragna designen är att integrera en intern belastningsutjämnare med din Azure-brandvägg, eftersom det här är en mycket enklare design. Du kan använda en offentlig belastningsutjämnare om du redan har en distribution och vill hålla den på plats. Du måste dock vara medveten om ett problem med asymmetrisk routning som kan bryta funktioner med det offentliga scenariot för belastnings utjämning.
+Den rekommenderade designen är att integrera en intern lastbalanserare med Azure Firewall eftersom det är en mycket enklare design. Du kan använda en offentlig lastbalanserare om du redan har en sådan distribuerad och vill behålla den. Du måste dock vara medveten om ett problem med asymmetrisk routning som kan få scenariot med den offentliga lastbalanseraren att sluta fungera.
 
 Mer information om Azure Load Balancer finns i [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -64,6 +64,10 @@ Med en intern belastningsutjämnare distribueras belastningsutjämnaren med en p
 Det finns inget problem med asymmetrisk routning i det här scenariot. Inkommande paket kommer till brand väggens offentliga IP-adress, översätts till belastningsutjämnarens privata IP-adress och återgår sedan till brand väggens privata IP-adress med samma retur Sök väg.
 
 Så du kan distribuera det här scenariot på liknande sätt som i det offentliga scenariot för belastnings utjämning, men utan att behöva använda den offentliga brand väggens värd väg för IP-adresser.
+
+>[!NOTE]
+>De virtuella datorerna i backend-poolen har ingen utgående Internet anslutning med den här konfigurationen. </br> Mer information om hur du tillhandahåller utgående anslutningar finns i: </br> **[Utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Alternativ för att tillhandahålla anslutning: </br> **[Konfiguration för lastbalanserare med ”endast utgående”](../load-balancer/egress-only.md)** </br> [**Vad är Virtual Network NAT?**](../virtual-network/nat-overview.md)
+
 
 ## <a name="additional-security"></a>Ytterligare säkerhet
 

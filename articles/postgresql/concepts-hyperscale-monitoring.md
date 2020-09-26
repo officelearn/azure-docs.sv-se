@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314818"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Övervaka och finjustera Azure Database for PostgreSQL-storskalig (citus)
 
@@ -28,11 +28,11 @@ Förutom att visa diagram över måtten kan du konfigurera aviseringar. Steg fö
 
 De här måtten är tillgängliga för citus-noder (storskalig):
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
 |active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
-|IOPS|IOPS|Antal|Se [IOPS-definitionen](../virtual-machines/premium-storage-performance.md#iops) och [storskalig data flöde](concepts-hyperscale-configuration-options.md)|
+|IOPS|IOPS|Antal|Se data flödet för [IOPS-definition](../virtual-machines/premium-storage-performance.md#iops) och [storskalig (citus)](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
 |network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
 |network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77565586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363162"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
 
@@ -147,7 +147,7 @@ Använd ditt Azure Storage-konto som värd för den nya filen för inbyggd progr
 
 1. När uppladdningen är klar startas IoT DevKit-enheten om. När omstarten är klar visar skärmen för IoT DevKit **FW version: 1.0.0** och att den söker efter ny inbyggd programvara:
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![Fotografi visar den DevKit enheten med den inbyggda program varan och söker efter ny inbyggd program vara.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Skapa en enhetskonfiguration
 
@@ -237,7 +237,7 @@ I det här avsnittet skapar och kör du en distribution som tillämpar enhetskon
 
     ![Skapa distribution](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
-    Klicka på **Använd**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
+    Klicka på **Applicera**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
 
     * **Riktade** visar antalet enheter i enhetsgruppen.
     * **Tillämpade** visar antalet enheter som uppdaterades med konfigurationsinnehållet.
@@ -248,23 +248,23 @@ I det här avsnittet skapar och kör du en distribution som tillämpar enhetskon
 
 Efter några minuter hämtar IoT DevKit informationen om den nya inbyggda programvara och börjar ladda ned den till enheten:
 
-![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![Fotografi visar den DevKit enheten med den nya versionen av inbyggd program vara.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 Beroende på nätverkets hastighet kan nedladdningen ta några minuter. När den inbyggda programvaran har laddats ned kontrollerar enheten filstorleken och CRC-värdet. Skärmen på MXChip visar **passed** (lyckades) om verifieringen lyckas.
 
-![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![Fotografi visar den DevKit enheten med den inbyggda program varan och godkändes för verifieringen lyckades.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 Om kontrollen lyckas startas enheten om. Du ser en nedräkning från **5** till **0** innan omstarten sker.
 
-![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![Fotografi visar u T DevKit-enheten som förbereder omstart.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 Efter omstarten uppgraderar IoT DevKit-startprogrammet den inbyggda programvaran till den nya versionen. Uppgraderingen kan ta flera sekunder. I det här stadiet är RGB-LED i enheten röd och skärmen är tom.
 
-![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![Fotografi visar den I o T DevKit-enhet som utför uppgraderingen. Det finns ingen visning, men det finns ett R G B L E-sken Röd.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 När omstarten är klar körs IoT DevKit-enheten nu version 1.0.1 av den inbyggda programvaran.
 
-![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![Fotografi visar den DevKit enheten med den nya versionen av inbyggd program vara.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 På sidan **Distributioner** klickar du på en distribution för att se status för dina enheter allt eftersom de uppdateras. Du kan se statusen för varje enhet i enhetsgruppen och de anpassade mått som du har definierat.
 

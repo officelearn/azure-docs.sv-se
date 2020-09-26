@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1bbb410b3aac7d1e30db075003eb30ec27b11a38
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926594"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363230"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Skydda privata DNS-zoner och-poster
 
@@ -102,9 +102,9 @@ Behörigheter tillämpas på post uppsättnings nivån.  Användaren beviljas ko
 
 Du kan konfigurera RBAC-behörigheter för post uppsättnings nivåer via Azure Portal med hjälp av **Access Control (IAM)** på sidan post uppsättning:
 
-![Post uppsättnings nivå RBAC via Azure Portal](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![Skärm bild som visar knappen Access Control (I A M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![Post uppsättnings nivå RBAC via Azure Portal](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![Skärm bild som visar Access Control med Lägg till roll tilldelning markerad.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 Det går även att bevilja RBAC-behörigheter för post uppsättnings nivåer [med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -164,8 +164,8 @@ I följande exempel visas en anpassad roll definition för hantering av CNAME-po
 
 Egenskapen åtgärder definierar följande DNS-/regionsspecifika behörigheter:
 
-* `Microsoft.Network/privateDnsZones/CNAME/*`ger fullständig kontroll över CNAME-poster
-* `Microsoft.Network/privateDNSZones/read`ger behörighet att läsa DNS-privata zoner, men inte att ändra dem, så att du kan se i vilken zon som CNAME skapas.
+* `Microsoft.Network/privateDnsZones/CNAME/*` ger fullständig kontroll över CNAME-poster
+* `Microsoft.Network/privateDNSZones/read` ger behörighet att läsa DNS-privata zoner, men inte att ändra dem, så att du kan se i vilken zon som CNAME skapas.
 
 > [!NOTE]
 > Att använda en anpassad Azure-roll för att förhindra borttagning av post uppsättningar samtidigt som de fortfarande kan uppdateras är inte en effektiv kontroll. Det förhindrar att post uppsättningar tas bort, men den förhindrar inte att de ändras.  Tillåtna ändringar omfattar att lägga till och ta bort poster från post uppsättningen, inklusive att ta bort alla poster för att lämna en tom post uppsättning. Detta har samma resultat som när du tar bort post uppsättningen från en DNS-matchning.

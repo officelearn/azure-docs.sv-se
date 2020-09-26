@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84047568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362622"
 ---
 # <a name="elastic-database-tools-glossary"></a>Ord lista för Elastic Database tools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ Här är en representation av **shardade** -databaser med en och flera innehavar
 
 **Shard Map Manager**: ett hanterings objekt och data lager som innehåller Shard-karta, Shard-platser och mappningar för en eller flera Shard uppsättningar.
 
-![Mappningar][2]
+![Diagram visar en Shard kart hanterare som är kopplad till shardmaps_global, shards_global och shard_mappings_global.][2]
 
 ## <a name="verbs"></a>Verb
 **Horisontell skalning**: funktionen för att skala ut (eller i) en samling av Shards genom att lägga till eller ta bort Shards till en Shard-karta, som du ser nedan.

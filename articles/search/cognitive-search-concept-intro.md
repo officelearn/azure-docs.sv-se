@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363145"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>AI-anrikning i Azure Kognitiv sökning
 
@@ -69,7 +69,7 @@ I början av pipelinen har du ostrukturerad text eller innehåll som inte är te
 
 ![Dokument sprickors fas](./media/cognitive-search-intro/document-cracking-phase-blowup.png "dokument sprickor")
 
- Källor som stöds är Azure Blob Storage, Azure Table Storage, Azure SQL Database och Azure Cosmos DB. Textbaserat innehåll kan extraheras från följande filtyper: PDF-filer, Word-, PowerPoint-och CSV-filer. En fullständig lista finns i [format som stöds](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Indexeringen tar tid så att den börjar med en liten, representativ data uppsättning och sedan skapar den stegvis i takt med att din lösning är vuxen.
+ Källor som stöds är Azure Blob Storage, Azure Table Storage, Azure SQL Database och Azure Cosmos DB. Textbaserat innehåll kan extraheras från följande filtyper: PDF-filer, Word-, PowerPoint-och CSV-filer. En fullständig lista finns i [format som stöds](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Indexeringen tar tid så att den börjar med en liten, representativ data uppsättning och sedan skapar den stegvis i takt med att din lösning är vuxen.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Steg 2: kognitiva kunskaper och anriknings fas
 
@@ -123,4 +123,4 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 + [Självstudie: Lär dig mer om API: er för AI-anrikning](cognitive-search-tutorial-blob.md)
 + [Knowledge Store](knowledge-store-concept-intro.md)
 + [Skapa ett kunskaps lager i REST](knowledge-store-create-rest.md)
-+ [Felsökningstips](cognitive-search-concept-troubleshooting.md)
++ [Fel söknings tips](cognitive-search-concept-troubleshooting.md)

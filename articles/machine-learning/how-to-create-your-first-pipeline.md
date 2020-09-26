@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 15e1af35def6a3cb6ffaf5df2db53326fba60bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 641f6de00f641f52db4f0b1e799d02397d01989d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315668"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -24,7 +24,7 @@ ms.locfileid: "90883069"
 
 I den här artikeln får du lära dig hur du skapar och kör en [pipeline för maskin inlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Använd **ml-pipelines** för att skapa ett arbets flöde som häftar samman olika ml-faser. Publicera sedan den pipelinen för senare åtkomst eller dela med andra. Spåra ML-pipelines för att se hur din modell presterar i verkligheten och för att identifiera data drift. ML-pipelines är idealiska för scenarier med batch-poäng, med hjälp av olika beräkningar, återanvända steg i stället för att köra om dem, samt dela ML-arbetsflöden med andra.
 
-Även om du kan använda en annan typ av pipeline som kallas för en [Azure-pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) för CI/CD-automatisering av ml-aktiviteter, lagras inte den typen av pipelines i din arbets yta. [Jämför dessa olika pipeliner](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Även om du kan använda en annan typ av pipeline som kallas för en [Azure-pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml&preserve-view=true) för CI/CD-automatisering av ml-aktiviteter, lagras inte den typen av pipelines i din arbets yta. [Jämför dessa olika pipeliner](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md). 
 
@@ -56,7 +56,7 @@ Skapa de resurser som krävs för att köra en ML-pipeline:
 * Konfigurera ett `Dataset` objekt så att det pekar på beständiga data som finns i, eller är tillgängliga i, ett data lager. Konfigurera ett `PipelineData` objekt för temporära data som skickas mellan pipeline-steg. 
 
     > [!TIP]
-    > En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klassen  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  Den här klassen är en [experimentell](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) förhands gransknings funktion och kan ändras när som helst.
+    > En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klassen  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  Den här klassen är en [experimentell](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) förhands gransknings funktion och kan ändras när som helst.
 
 * Konfigurera [beräknings målen](concept-azure-machine-learning-architecture.md#compute-targets) som dina pipeline-steg ska köras på.
 
@@ -85,7 +85,7 @@ Stegen förbrukar vanligt vis data och producerar utdata. Ett steg kan skapa dat
 Det bästa sättet att tillhandahålla data till en pipeline är ett [data uppsättnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) objekt. `Dataset`Objektet pekar på data som finns i eller kan nås från ett data lager eller en webb-URL. `Dataset`Klassen är abstrakt, så du kommer att skapa en instans av antingen en `FileDataset` (som refererar till en eller flera filer) eller en `TabularDataset` som skapats av från en eller flera filer med avgränsade kolumner med data.
 
 
-Du skapar en `Dataset` med metoder som [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) eller [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
+Du skapar en `Dataset` med metoder som [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-files-path--validate-true-) eller [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py&preserve-view=true#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.core import Dataset
@@ -239,7 +239,7 @@ Ovanstående kod liknar den för steget förberedelse av data. Inlärnings koden
 När du har definierat stegen skapar du pipelinen med hjälp av några eller samtliga av dessa steg.
 
 > [!NOTE]
-> Ingen fil eller några data överförs till Azure Machine Learning när du definierar stegen eller skapar pipelinen. Filerna laddas upp när du anropar [experiment. Submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
+> Ingen fil eller några data överförs till Azure Machine Learning när du definierar stegen eller skapar pipelinen. Filerna laddas upp när du anropar [experiment. Submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-).
 
 ```python
 # list of steps to run (`compare_step` definition not shown)
@@ -269,7 +269,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-Sedan hämtar du data uppsättningen i din pipeline med hjälp av ord listan [Kör. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueinput-datasets) .
+Sedan hämtar du data uppsättningen i din pipeline med hjälp av ord listan [Kör. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueinput-datasets) .
 
 ```python
 # iris_train.py

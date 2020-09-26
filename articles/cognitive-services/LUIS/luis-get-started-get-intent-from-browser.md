@@ -1,20 +1,22 @@
 ---
 title: 'Snabb start: fråga efter förutsägelse med webb läsar LUIS'
 description: I den här snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text i en webbläsare.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246003"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316281"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Snabb start: fråga förutsägelse körning med användar text
 
 Om du vill förstå vad som returneras från en LUIS-slutpunkt för förutsägelser kan du granska resultatet i en webbläsare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna skicka frågor till en offentlig app:
 

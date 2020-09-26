@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280478"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Utföra en tidpunkts återställning på block BLOB-data
 
@@ -54,9 +54,7 @@ Följande bild visar ett lagrings konto som har kon figurer ATS för återställ
 
 Om du vill konfigurera tidpunkts återställning med PowerShell installerar du först [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.6.0 eller senare. Anropa sedan kommandot enable-AzStorageBlobRestorePolicy för att aktivera återställning av tidpunkter för lagrings kontot.
 
-I följande exempel aktive ras mjuk borttagning och ställer in lagrings perioden för mjuk borttagning, aktiverar ändrings flöde och aktiverar sedan återställning vid tidpunkter. Använd Azure Portal eller en Azure Resource Manager mall för att aktivera BLOB-versioner innan du kör exemplet.
-
-Kom ihåg att ersätta värdena i vinkelparenteser med dina egna värden när du kör exemplet:
+I följande exempel aktive ras mjuk borttagning och ställer in lagrings perioden för mjuk borttagning, aktiverar ändrings flöde och versions hantering och aktiverar sedan återställning vid tidpunkter.    Kom ihåg att ersätta värdena i vinkelparenteser med dina egna värden när du kör exemplet:
 
 ```powershell
 # Sign in to your Azure account.
@@ -71,10 +69,11 @@ Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
 
-# Enable change feed.
+# Enable change feed and versioning.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
 # Enable point-in-time restore with a retention period of 7 days.
 # The retention period for point-in-time restore must be at least
@@ -250,5 +249,5 @@ Om du vill köra återställnings åtgärden synkront och blockera vid körning 
 
 - [Återställning av tidpunkter för block-blobar](point-in-time-restore-overview.md)
 - [Mjuk borttagning](soft-delete-overview.md)
-- [Ändra feed](storage-blob-change-feed.md)
+- [Ändringsfeed](storage-blob-change-feed.md)
 - [BLOB-versioner](versioning-overview.md)

@@ -1,18 +1,18 @@
 ---
 title: Ladda ned Azure Virtual wide global eller hubb-baserade VPN-profiler | Microsoft Docs
-description: Lär dig mer om det virtuella WAN-nätverket med automatisk skalbar anslutning från gren till gren, tillgängliga regioner och partner.
+description: Lär dig hur Azure Virtual WAN erbjuder två typer av anslutningar för fjärran vändare och hur du hämtar en profil.
 services: virtual-wan
 author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 4/20/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: d0fc2f608617ca00fea8b9ed5c4b874c65940263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d5c4ba0f1f55119d1ec38296e67ae3e90c52650
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064802"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313730"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Ladda ned en global eller hubb-baserad profil för användares VPN-klienter
 

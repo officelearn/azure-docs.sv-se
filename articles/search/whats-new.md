@@ -8,20 +8,18 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c6cb08f8236ab6164a71b710656951203be3d19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314581"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
 Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
-## <a name="feature-announcements-in-2020"></a>Funktions meddelanden i 2020
-
-### <a name="september-2020"></a>September 2020
+## <a name="september-2020"></a>September 2020
 
 Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan RBAC-behörigheter för att ge identiteten skrivskyddade behörigheter till Azure Data källor. Du kan också välja funktionen [undantag för betrodda tjänster](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ.
 
@@ -34,13 +32,13 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 | [Hanterings REST API (2020-08-01-för hands version)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Lägger till delad privat länk resurs för Azure Functions och Azure SQL för MySQL-databaser. | Offentlig för hands version. |
 | [Hantering .NET SDK 4,0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Azure SDK-uppdatering för hanterings-SDK, riktad REST API version 2020-08-01. | Allmänt tillgänglig. |
 
-### <a name="august-2020"></a>Augusti 2020
+## <a name="august-2020"></a>Augusti 2020
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
 | [dubbel kryptering](search-security-overview.md#encryption) | Säkerhet | Aktivera Double Encryption på lagrings nivån genom att konfigurera CMK-kryptering (Customer Managed Key) för nya Sök tjänster. Skapa en ny tjänst, [Konfigurera och Använd Kundhanterade nycklar](search-security-manage-encryption-keys.md) för index eller synonyma kartor och dra nytta av dubbel kryptering över det innehållet. | Allmänt tillgänglig på alla Sök tjänster som skapats efter den 1 augusti 2020 i dessa regioner: västra USA 2, östra USA, södra centrala USA, US Gov, Virginia, US Gov, Arizona. Använd portalen, hanterings REST API: er eller SDK: er för att skapa tjänsten. |
 
-### <a name="july-2020"></a>Juli 2020
+## <a name="july-2020"></a>Juli 2020
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
@@ -48,7 +46,7 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 | [azure.search.docklient bibliotek för uments](/python/api/overview/azure/search-documents-readme)  | Azure SDK för Python| Python-klientcertifikat som publicerats av Azure SDK-teamet och som utformats för konsekvens med andra python-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [paketet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) från pypi. |
 | [@azure/search-documents klient bibliotek](/javascript/api/overview/azure/search-documents-readme)  | Azure SDK för Java Script | JavaScript-klientcertifikat som publicerats av Azure SDK-teamet och som har utformats för konsekvens med andra Java Script-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [ @azure/search-documents paketet](https://www.npmjs.com/package/@azure/search-documents) från NPM. |
 
-### <a name="june-2020"></a>Juni 2020
+## <a name="june-2020"></a>Juni 2020
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
@@ -57,7 +55,7 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 | [**Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Söka i data | Ny algoritm för rankning av relevans används automatiskt för alla nya Sök tjänster som skapats efter den 15 juli. För tjänster som skapats tidigare kan du välja att ange `similarity` egenskapen för index fält. | Allmänt tillgänglig. </br> Använd [Search REST API 2020-06-30](/rest/api/searchservice/) eller senare, eller REST API 2019-05-06. |
 | **executionEnvironment** | Säkerhet (indexerare) | Ange uttryckligen konfigurations egenskapen för indexerare för `private` att tvinga alla anslutningar till externa data källor över en privat slut punkt. Gäller endast för Sök tjänster som utnyttjar Azures privata länk. | Allmänt tillgänglig. </br> Använd [sök REST API 2020-06-30](/rest/api/searchservice/) för att ange den här allmänna konfigurations parametern. |
 
-### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
+## <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
@@ -68,21 +66,21 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 | [**parametern SessionID-fråga**](index-similarity-and-scoring.md), [scoringStatistics = global parameter](index-similarity-and-scoring.md#scoring-statistics) | Fråga (relevans) | Lägg till sessionID i en fråga för att upprätta en session för att beräkna Sök resultat, med scoringStatistics = global för att samla in resultat från alla Shards, för mer konsekventa Sök Resultat beräkningar. | Allmänt tillgänglig. </br> Använd [Search REST API 2020-06-30](/rest/api/searchservice/) eller senare, eller REST API 2019-05-06. |
 | [**featuresMode (för hands version)**](index-similarity-and-scoring.md#featuresMode-param) | Söka i data | Lägg till den här Frågeparametern om du vill visa mer information: per fält likhets poäng, per fält term frekvens och per fält antal unika tokens matchade. Du kan använda dessa data punkter i anpassade bedömnings algoritmer. Ett exempel som visar den här funktionen finns i [Lägg till Machine Learning (LearnToRank) för att söka efter relevans](https://github.com/Azure-Samples/search-ranking-tutorial). | Offentlig för hands version. </br> Använd [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
 
-### <a name="march-2020"></a>Mars 2020
+## <a name="march-2020"></a>Mars 2020
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
 | [**Intern BLOB-mjuk borttagning (förhands granskning)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexerare | En Azure Blob Storage-indexerare i Azure Kognitiv sökning identifierar blobbar som är i ett mjukt borttaget tillstånd och tar bort motsvarande Sök dokument under indexeringen. | Offentlig för hands version. </br> Använd [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) och REST API 2019-05-06 – för hands version med kör indexeraren mot en Azure Blob-datakälla som har inbyggd "mjuk borttagning" aktive rad. |
 | [**Hanterings REST API (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | Ny stabil REST API för att skapa och hantera en Sök tjänst. Lägger till stöd för IP-brandvägg och privat länk | Allmänt tillgänglig. |
 
-### <a name="february-2020"></a>Februari 2020
+## <a name="february-2020"></a>Februari 2020
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
 | [**PII-identifiering (förhands granskning)**](cognitive-search-skill-pii-detection.md) | AI-berikning | En ny kognitiv kunskap som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt. | Offentlig för hands version. </br> Använd portalen eller [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
 | [**Sökning efter anpassade entiteter (för hands version)**](cognitive-search-skill-custom-entity-lookup.md )| AI-berikning | En ny kognitiv färdighet som söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att hitta matchningar som liknar varandra men inte exakt. | Offentlig för hands version. </br> Använd portalen eller [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
 
-### <a name="january-2020"></a>Januari 2020
+## <a name="january-2020"></a>Januari 2020
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
@@ -90,7 +88,7 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 | [**IP-regler för Inbound brand Väggs stöd (för hands version)**](service-configure-firewall.md) | Säkerhet | Begränsa åtkomsten till en Sök tjänst slut punkt till vissa IP-adresser. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Den här förhands gransknings funktionen är tillgänglig i valda regioner. |  Offentlig för hands version med API-version = 2019-10 01 – för hands version.  |
 | [**Privat Azure-länk för en privat Sök slut punkt (för hands version)**](service-create-private-endpoint.md) | Säkerhet| Skärma en Sök tjänst från det offentliga Internet genom att köra den som en privat länk resurs som endast är tillgänglig för klient program och andra Azure-tjänster i samma virtuella nätverk. | Offentlig för hands version med API-version = 2019-10 01 – för hands version.  |
 
-## <a name="feature-announcements-in-2019"></a>Funktions meddelanden i 2019
+## <a name="features-in-2019"></a>Funktioner i 2019
 
 ### <a name="december-2019"></a>December 2019
 

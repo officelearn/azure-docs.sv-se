@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359621"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -543,11 +543,11 @@ Eftersom olika versioner av ett operativ system eller DBMS har olika korrigering
 Du kan använda olika steg för att skapa en privat avbildning för Linux än att skapa en för Windows.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > För att förbereda en Windows-avbildning som du kan använda för att distribuera flera virtuella datorer, måste Windows-inställningarna (t. ex. Windows SID och värdnamn) vara abstrakta eller generaliserade på den lokala virtuella datorn. Du kan använda [Sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) för att göra detta.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > För att förbereda en Linux-avbildning som du kan använda för att distribuera flera virtuella datorer, måste vissa Linux-inställningar vara abstrakta eller generaliserade på den lokala virtuella datorn. Du kan använda `waagent -deprovision`  för att göra detta. Mer information finns i [avbilda en virtuell Linux-dator som körs på Azure][virtual-machines-linux-capture-image] och [användar handboken för Azure Linux-agenten][virtual-machines-linux-agent-user-guide-command-line-options].
 >
@@ -683,11 +683,11 @@ I det här scenariot installeras **inte** VM-agenten automatiskt under distribut
 Mer information om Azure VM-agenten finns i följande resurser.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > [Översikt över Azure Virtual Machine agent][virtual-machines-windows-agent-user-guide]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > [Användarguide för Azure Linux-agenten][virtual-machines-linux-agent-user-guide]
 >
@@ -1309,7 +1309,7 @@ Om några av infrastruktur data inte levereras korrekt enligt beskrivningen i [b
 > [!NOTE]
 > Det finns två versioner av VM-tillägget. Det här kapitlet beskriver standard tillägget för virtuell dator. Om du har installerat det nya VM-tillägget går du [till kapitlet felsöka det nya Azure-tillägget för SAP][deployment-guide-5.3-new].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Prestanda räknare för Azure visas inte alls
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows-logotyp.][Logo_Windows] Prestanda räknare för Azure visas inte alls
 
 Windows-tjänsten AzureEnhancedMonitoring samlar in prestanda mått i Azure. Om tjänsten inte har installerats på rätt sätt eller om den inte körs på den virtuella datorn kan inga prestanda mått samlas in.
 
@@ -1350,13 +1350,13 @@ AzureEnhancedMonitoring Windows-tjänsten finns och är aktive rad, men det går
 
 Konfigurationen är felaktig. Starta om Azure-tillägget för SAP på den virtuella datorn enligt beskrivningen i [Konfigurera Azure-tillägget för SAP][deployment-guide-4.5].
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Vissa prestanda räknare för Azure saknas
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Windows-logotyp.][Logo_Windows] Vissa prestanda räknare för Azure saknas
 
 Windows-tjänsten AzureEnhancedMonitoring samlar in prestanda mått i Azure. Tjänsten hämtar data från flera källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure-diagnostik. Lagrings räknare används för att logga in på lagrings prenumerations nivån.
 
 Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet kör du `Set-AzVMAEMExtension` konfigurations skriptet igen. Du kan behöva vänta en timme eftersom Storage Analytics-eller Diagnostics-räknare kanske inte skapas direkt efter att de har Aktiver ATS. Om problemet kvarstår öppnar du ett SAP-kund support meddelande på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Prestanda räknare för Azure visas inte alls
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux-logotyp.][Logo_Linux] Prestanda räknare för Azure visas inte alls
 
 Prestanda mått i Azure samlas in av en daemon. Om daemon inte körs kan inga prestanda mått samlas in.
 
@@ -1389,7 +1389,7 @@ Om du kör azperfli.exe som beskrivits tidigare kan du få ett resultat som ange
 Meddelandena orsakas av att standard Managed Disks inte levererar de API: er som används av SAP-tillägget för SAP för att kontrol lera statistik för standard Azure Storages kontona. Detta är inte en angelägenhets risk. Anledningen till att samla in data för standard Disklagring-konton gjorde begränsning av indata och utdata som har inträffat ofta. De hanterade diskarna förhindrar sådan begränsning genom att begränsa antalet diskar i ett lagrings konto. Därför är det inte viktigt att inte ha denna typ av data.
 
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Vissa prestanda räknare för Azure saknas
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Linux-logotyp.][Logo_Linux] Vissa prestanda räknare för Azure saknas
 
 Prestanda mått i Azure samlas in av en daemon, som hämtar data från flera olika källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure-diagnostik. Lagrings räknare kommer från loggarna i din lagrings prenumeration.
 
@@ -1402,7 +1402,7 @@ Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet kör du `
 > [!NOTE]
 > Det finns två versioner av VM-tillägget. I det här kapitlet beskrivs det nya VM-tillägget. Om du har installerat standard tillägget för virtuell dator kan du läsa mer i avsnittet [Felsöka Azure-tillägget för SAP][deployment-guide-5.3].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Prestanda räknare för Azure visas inte alls
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows-logotyp.][Logo_Windows] Prestanda räknare för Azure visas inte alls
 
 AzureEnhancedMonitoring-processen samlar in prestanda mått i Azure. Om processen inte körs på den virtuella datorn kan inga prestanda mått samlas in.
 
@@ -1416,13 +1416,13 @@ Installations katalogen C: \\ paket plugin-program \\ \\ Microsoft. AzureCAT. Az
 
 Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som beskrivits tidigare). Du kan behöva starta om datorn eller installera VM-tillägget igen.
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Vissa prestanda räknare för Azure saknas
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Windows-logotyp.][Logo_Windows] Vissa prestanda räknare för Azure saknas
 
 AzureEnhancedMonitoring Windows-processen samlar in prestanda mått i Azure. Processen hämtar data från flera källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure Monitor.
 
 Om fel sökning med hjälp av SAP NOTE [1999351] inte löser problemet öppnar du ett SAP kund support meddelande på komponenten BC-op-NT-AZR för Windows eller BC-op-LNX-AZR för en virtuell Linux-dator. Anslut logg filen C: \\ packages plugin-program \\ \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; version>\\logapp.txt till incidenten.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Prestanda räknare för Azure visas inte alls
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux-logotyp.][Logo_Linux] Prestanda räknare för Azure visas inte alls
 
 Prestanda mått i Azure samlas in av en daemon. Om daemon inte körs kan inga prestanda mått samlas in.
 
@@ -1436,7 +1436,7 @@ Katalogen \\ var \\ lib- \\ waagent saknar \\ under katalog för Azure-tillägge
 
 Tillägget är inte installerat. Ta reda på om detta är ett proxy-problem (som beskrivits tidigare). Du kan behöva starta om datorn och/eller installera VM-tillägget igen.
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Vissa prestanda räknare för Azure saknas
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Linux-logotyp.][Logo_Linux] Vissa prestanda räknare för Azure saknas
 
 Prestanda mått i Azure samlas in av en daemon, som hämtar data från flera olika källor. Vissa konfigurations data samlas in lokalt och vissa prestanda mått läses från Azure Monitor.
 

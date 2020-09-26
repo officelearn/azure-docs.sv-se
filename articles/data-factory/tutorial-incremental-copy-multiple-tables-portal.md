@@ -1,6 +1,6 @@
 ---
 title: Kopiera flera tabeller stegvis med Azure Portal
-description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server databas till en databas i Azure SQL Database.
+description: I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i en SQL Server databas till en databas i Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 83c29740bd535d9508e5458a66fc8592500ceaf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85251166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320985"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Läs in data stegvis från flera tabeller i SQL Server till en databas i Azure SQL Database med hjälp av Azure Portal
 

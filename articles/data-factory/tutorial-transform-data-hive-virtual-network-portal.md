@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 52fba5064d656158a53ba71fec194cfa4f360df5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86083091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360301"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transformera data i Azure Virtual Network att använda Hive-aktivitet i Azure Data Factory med hjälp av Azure Portal
 
@@ -233,7 +233,7 @@ Observera följande punkter:
         ![Skriptargument](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Om du vill publicera artefakter till Data Factory klickar du på **Publicera**.
 
-    ![Publicera](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![Skärm bild som visar alternativet att publicera till en Data Factory.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 

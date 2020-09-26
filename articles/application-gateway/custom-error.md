@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 953be98de855162127fd8b8b8273fe9817668db7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ff3e9db4dcfe0bedc348323dbbddd1e66124fc5d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360165"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Skapa Application Gateway anpassade fel sidor
 
@@ -48,7 +48,7 @@ När du har angett en felsida laddar programgatewayen ned den från lagrings-BLO
 
 1. Navigera till Application Gateway i portalen och välj en Programgateway.
 
-    ![AG-översikt](media/custom-error/ag-overview.png)
+    ![Skärm bild som visar översikts sidan för en Application Gateway.](media/custom-error/ag-overview.png)
 2. Klicka på **lyssnare** och navigera till en viss lyssnare där du vill ange en felsida.
 
     ![Application Gateway lyssnare](media/custom-error/ag-listener.png)

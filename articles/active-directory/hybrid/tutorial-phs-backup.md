@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313101"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Självstudie: Konfigurera PHS som säkerhets kopiering för AD FS i Azure AD Connect
 
@@ -72,9 +72,9 @@ Nu ska vi visa hur du byter till synkronisering av lösenordshash. Innan du bör
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Gå till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klient.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
-   ![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Skärm bild som visar ett klart meddelande när du testar inloggningen. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>Växla tillbaka till federationen
 Nu visar vi dig hur du växlar tillbaka till federationen.  Gör detta genom att göra följande:
@@ -91,7 +91,7 @@ Nu visar vi dig hur du växlar tillbaka till federationen.  Gör detta genom att
 10. När konfigurationen är klar klickar du på **Nästa**.
 ![Konfigurera](media/tutorial-phs-backup/backup4.png)</br>
 11. På skärmen **Verifiera Federations anslutning** klickar du på **Verifiera**.  Du kan behöva konfigurera DNS-poster (Lägg till A-och AAAA-poster) för att det ska kunna slutföras.
-![Verifiera](media/tutorial-phs-backup/backup5.png)</br>
+![Skärm bild som visar skärmen verifiera Federations anslutningar och knappen verifiera.](media/tutorial-phs-backup/backup5.png)</br>
 12. Klicka på **Avsluta**.
 
 ## <a name="reset-the-ad-fs-and-azure-trust"></a>Återställa AD FS och Azure-förtroende
@@ -106,9 +106,9 @@ Nu måste vi återställa förtroendet mellan AD FS och Azure.
 6.  På skärmen **Anslut till AD FS** anger du användar namn och lösen ord för contoso\Administrator och klickar på **Nästa.**
 7.  I fönstret **certifikat** klickar du på **Nästa**.
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
+## <a name="test-signing-in-with-a-user"></a>Testa att logga in med en användare
 
-1.  Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Gå till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
 ![Verifiera](media/tutorial-password-hash-sync/verify1.png)
 
@@ -119,4 +119,4 @@ Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att
 
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)
-- [Hash-synkronisering av lösen ord](how-to-connect-password-hash-synchronization.md)
+- [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md)

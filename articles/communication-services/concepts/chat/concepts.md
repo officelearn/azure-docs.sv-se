@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292480"
 ---
-# <a name="chat-concepts"></a>Chatt-koncept
+# <a name="chat-concepts"></a>Chattbegrepp
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -28,7 +28,7 @@ Se [Översikt över kommunikations tjänstens klient bibliotek](./sdk-features.m
 
 Chat-konversationer sker inom chatt-trådar. En chatt-tråd kan innehålla många meddelanden och många användare. Varje meddelande tillhör en enda tråd och en användare kan vara en del av en eller flera trådar. 
 
-Varje användare i chatten kallas för en medlem. Du kan ha upp till 250 medlemmar i en chatt-tråd. Endast tråd medlemmar kan skicka och ta emot meddelanden eller lägga till/ta bort medlemmar i en chatt-tråd. Den största tillåtna meddelande storleken är ungefär 28KB. Kommunikations tjänster lagrar chatten tills du kör en borttagnings åtgärd på chatt-tråden. Du kan hämta alla meddelanden i en chatt-tråd med hjälp av `List/Get Messages` åtgärden.
+Varje användare i chatten kallas för en medlem. Du kan ha upp till 250 medlemmar i en chatt-tråd. Endast tråd medlemmar kan skicka och ta emot meddelanden eller lägga till/ta bort medlemmar i en chatt-tråd. Den största tillåtna meddelande storleken är ungefär 28KB. Du kan hämta alla meddelanden i en chatt-tråd med hjälp av `List/Get Messages` åtgärden. Kommunikations tjänsterna lagrar chatten tills du kör en borttagnings åtgärd i chatten eller meddelandet, eller tills inga medlemmar återstår i chatt-tråden där det är överblivna och bearbetas för borttagning.   
 
 För chatt-trådar med fler än 20 medlemmar inaktive ras Läs kvitton och skriv indikator funktioner. 
 

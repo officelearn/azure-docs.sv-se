@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aca072a9e659d242dec9dd45a12f9568d419599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124433"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330646"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Lägga till en Chi2test-chatt i en kunskaps bas
 
@@ -72,7 +72,7 @@ Om du vill visa metadata väljer du **visnings alternativ** i verktygsfältet oc
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Lägg till fler frågor och svar om CHI2TEST
 Du kan lägga till ett nytt QnA-par för CHI2TEST som inte finns i den fördefinierade data uppsättningen. Se till att du inte duplicerar ett QnA-par som redan ingår i uppsättningen CHI2TEST. När du lägger till nya QnA i CHI2TEST läggs den till i din **redigerings** källa. För att se till att rangordningen förstår att detta är CHI2TEST, Lägg till nyckel/värde-paret "redaktionell: ChitChat", som visas i följande bild:
 
-![! [Lägg till CHI2TEST kring] (.. /Media/qnamaker-How-to-Chit-Chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+:::image type="content" source="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png" alt-text="Lägg till CHI2TEST kring" lightbox="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png":::
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Ta bort CHI2TEST från en befintlig KB
 Välj din KB och gå till sidan **Inställningar** . Din aktuella CHI2TEST-Chat-källa visas som en fil med det valda personliga namnet. Du kan ta bort den som en käll fil.

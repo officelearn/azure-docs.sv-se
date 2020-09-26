@@ -5,13 +5,13 @@ services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
-ms.date: 07/16/2020
-ms.openlocfilehash: b9d1e3319aaaafded44d25c91720a0d72dcb86f3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.date: 09/16/2020
+ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292769"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Snabb start: skapa en Azure blockchain service-medlem med en ARM-mall
 
@@ -49,14 +49,16 @@ Azure-resurser som definierats i mallen:
     --------|------------
     Prenumeration | Välj den Azure-prenumeration som du vill använda för din tjänst. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | Skapa ett nytt resurs grupp namn eller Välj en befintlig från din prenumeration.
-    Plats | Välj en plats där du vill skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats. Tillgängliga platser för distributionen är *westeurope, öster, Sydostasien, westeurope, europanorra, westus2*och *japanöstra*. Funktioner kanske inte är tillgängliga i vissa regioner. Azure blockchain Data Manager finns i följande Azure-regioner: USA, östra och Västeuropa.
-    Medlemsnamn | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
+    Region | Välj en region för att skapa resurs gruppen. Alla medlemmar i konsortiet måste finnas på samma plats. Tillgängliga platser för distributionen är *westeurope, öster, Sydostasien, westeurope, europanorra, westus2*och *japanöstra*. Funktioner kanske inte är tillgängliga i vissa regioner. Azure blockchain Data Manager finns i följande Azure-regioner: USA, östra och Västeuropa.
+    BC-medlems namn | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
     Namn på konsortium | Ange ett unikt namn. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
-    Medlems lösen ord | Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
-    SKU-nivå | Pris nivån för den nya tjänsten. Välj mellan **standard** -och **Basic** -nivåer. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer. Du bör också använda *standard* nivån om du använder blockchain Data Manager eller när du skickar en stor mängd privata transaktioner. Det finns inte stöd för att ändra pris nivån mellan Basic och standard när medlems skapande har skapats.
-    SKU-namn | Nodens konfiguration och kostnad för den nya tjänsten.
+    Medlems lösen ord | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
+    Konto lösen ord för konsortiets hantering | Konto lösen ordet för konsortiet används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Den används för hantering av konsortier.
+    SKU-nivå | Pris nivån för den nya tjänsten. Välj mellan **standard** -och **Basic** -nivåer. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer. Använd även *standard* -nivån om du använder blockchain Data Manager eller skickar en stor mängd privata transaktioner. Det finns inte stöd för att ändra pris nivån mellan Basic och standard när medlems skapande har skapats.
+    SKU-namn | Nodens konfiguration och kostnad för den nya tjänsten. Använd **B0** för Basic och **S0** för standard.
+    Plats | Välj en plats där du vill skapa medlemmen. Som standard används resurs gruppens plats `[resourceGroup().location]` . Alla medlemmar i konsortiet måste finnas på samma plats. Tillgängliga platser för distributionen är *westeurope, öster, Sydostasien, westeurope, europanorra, westus2*och *japanöstra*. Funktioner kanske inte är tillgängliga i vissa regioner. Azure blockchain Data Manager finns i följande Azure-regioner: USA, östra och Västeuropa.
 
-1. Välj **köp** för att distribuera mallen.
+1. Välj **Granska + skapa** för att verifiera och distribuera mallen.
 
   Azure Portal används här för att distribuera mallen. Du kan också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../../azure-resource-manager/templates/deploy-powershell.md).
 

@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: tal till text, tal till text program
-ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359944"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
@@ -58,5 +58,5 @@ Batch-avskrift är en uppsättning REST API åtgärder som gör det möjligt att
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+- [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)
 - [Hämta tal-SDK](speech-sdk.md)

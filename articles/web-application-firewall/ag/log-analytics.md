@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: 22273cf23e48de62d99a8c149ae3e2b1c05db3af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 733a9af589718e9abe8736491023003744428cd6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361052"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Använd Log Analytics för att undersöka Application Gateway Länkar för brand vägg för webbaserade program (WAF)
 
@@ -79,7 +79,7 @@ AzureDiagnostics
 
 När du har skapat en fråga kan du lägga till den på din instrument panel.  Välj **Fäst vid instrument panelen** längst upp till höger i Log Analytics-arbetsytan. Med föregående fyra frågor fästa på en exempel instrument panel, är det här data som du kan se snabbt:
 
-![Instrumentpanel](../media/log-analytics/dashboard.png)
+![Skärm bild som visar en Azure-instrumentpanel där du kan lägga till din fråga.](../media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

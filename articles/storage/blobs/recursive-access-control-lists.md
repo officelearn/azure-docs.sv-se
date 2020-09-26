@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71c470bd1bb71b55d6643ac6305a054f1c934948
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229047"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280376"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ange åtkomst kontrol listor (ACL) rekursivt för Azure Data Lake Storage Gen2
 
@@ -55,7 +55,7 @@ Installera de nödvändiga biblioteken.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Information om hur du uppgraderar din version av PowerShell finns i [uppgradera befintliga Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Information om hur du uppgraderar din version av PowerShell finns i [uppgradera befintliga Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
 3. Installera den senaste versionen av PowershellGet-modulen.
 
@@ -71,7 +71,7 @@ Installera de nödvändiga biblioteken.
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Mer information om hur du installerar PowerShell-moduler finns i [installera modulen Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Mer information om hur du installerar PowerShell-moduler finns i [installera modulen Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -148,7 +148,7 @@ Följande tabell visar var och en av de roller som stöds och deras inställning
 
 |Roll|Inställnings funktion för ACL|
 |--|--|
-|[Storage BLOB data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Alla kataloger och filer i kontot.|
+|[Storage Blob Data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Alla kataloger och filer i kontot.|
 |[Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Endast kataloger och filer som ägs av säkerhets objekt.|
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Alternativ 2: få behörighet genom att använda lagrings konto nyckeln
@@ -178,7 +178,7 @@ Hämta ett klient-ID, en klient hemlighet och ett klient-ID. Information om hur 
 
 |Roll|Inställnings funktion för ACL|
 |--|--|
-|[Storage BLOB data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Alla kataloger och filer i kontot.|
+|[Storage Blob Data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Alla kataloger och filer i kontot.|
 |[Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Endast kataloger och filer som ägs av säkerhets objekt.|
 
 I det här exemplet skapas en [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) -instans med hjälp av ett klient-ID, en klient hemlighet och ett klient-ID.  
@@ -233,7 +233,7 @@ I det här exemplet skapas en **DataLakeServiceClient** -instans med hjälp av e
 
 |Roll|Inställnings funktion för ACL|
 |--|--|
-|[Storage BLOB data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Alla kataloger och filer i kontot.|
+|[Storage Blob Data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Alla kataloger och filer i kontot.|
 |[Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Endast kataloger och filer som ägs av säkerhets objekt.|
 
 ```python
@@ -279,7 +279,9 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>Ange en ACL rekursivt
 
-Du kan ange ACL: erna rekursivt.  
+När du *anger* en ACL **ersätter** du hela ACL: en med alla poster. Om du vill ändra behörighets nivån för ett säkerhets objekt eller lägga till ett nytt säkerhets objekt i ACL utan att påverka andra befintliga poster, bör du *Uppdatera* ACL i stället. Information om hur du uppdaterar en ACL i stället för att ersätta den finns i avsnittet [Uppdatera en ACL rekursivt](#update-an-acl-recursively) i den här artikeln.   
+
+Det här avsnittet innehåller exempel på hur du ställer in en ACL 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -367,13 +369,17 @@ def set_permission_recursively():
 
 ## <a name="update-an-acl-recursively"></a>Uppdatera en ACL rekursivt
 
-Du kan uppdatera en befintlig ACL rekursivt.
+När du *uppdaterar* en ACL ändrar du ACL i stället för att ersätta ACL: en. Du kan till exempel lägga till ett nytt säkerhets objekt till ACL utan att påverka andra säkerhets objekt som listas i åtkomst kontrol listan.  Information om hur du ersätter ACL i stället för att uppdatera den finns i avsnittet [Ange en ACL rekursivt](#set-an-acl-recursively) i den här artikeln. 
+
+Om du vill uppdatera en ACL skapar du ett nytt ACL-objekt med ACL-posten som du vill uppdatera och använder sedan objektet i Update ACL-åtgärden. Hämta inte den befintliga ACL: en och ange bara ACL-poster som ska uppdateras.
+
+Det här avsnittet innehåller exempel på hur du uppdaterar en ACL.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Uppdatera en ACL rekursivt med hjälp av cmdleten  **Update-AzDataLakeGen2AclRecursive** . 
 
-Det här exemplet uppdaterar en ACL-post med Skriv behörighet.
+Det här exemplet uppdaterar en ACL-post med Skriv behörighet. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -445,7 +451,9 @@ def update_permission_recursively():
 
 ## <a name="remove-acl-entries-recursively"></a>Ta bort ACL-poster rekursivt
 
-Du kan ta bort en eller flera ACL-poster rekursivt.
+Du kan ta bort en eller flera ACL-poster rekursivt. Om du vill ta bort en ACL-post skapar du ett nytt ACL-objekt för ACL-posten som ska tas bort och använder sedan objektet i ta bort ACL-åtgärd. Hämta inte den befintliga ACL: en och ange bara ACL-poster som ska tas bort. 
+
+Det här avsnittet innehåller exempel på hur du tar bort en ACL.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

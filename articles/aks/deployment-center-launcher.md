@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360845"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Distributions Center för Azure-Kubernetes
 
@@ -54,7 +54,7 @@ I de här självstudierna får du:
 
 1. Välj AKS-klustret och välj sedan **Deployment Center (för hands version)** på det vänstra bladet. Välj **Kom igång**.
 
-   ![inställningar](media/deployment-center-launcher/settings.png)
+   ![Skärm bild som visar Azure Portal med en pil som pekar på distributions Center.](media/deployment-center-launcher/settings.png)
 
 1. Välj plats för koden och välj **Nästa**. Välj sedan en av de databaser som stöds för närvarande: **[Azure databaser](/azure/devops/repos/index?view=azure-devops)** eller **GitHub**.
 
@@ -66,7 +66,7 @@ I de här självstudierna får du:
 
     - **GitHub**: auktorisera och välj lagrings plats för ditt GitHub-konto.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![Animering visar en process i GitHub för att välja GitHub som källa och sedan välja din lagrings plats.](media/deployment-center-launcher/github.gif)
 
 
 1. Distributions Center analyserar lagrings platsen och identifierar din Dockerfile. Om du vill uppdatera Dockerfile kan du redigera det identifierade port numret.
@@ -75,7 +75,7 @@ I de här självstudierna får du:
 
     Om lagrings platsen inte innehåller Dockerfile, visar systemet ett meddelande för att genomföra ett.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![Skärm bild som visar distributions Center med ett meddelande det gick inte att hitta Dockerfile i lagrings platsen.](media/deployment-center-launcher/dockerfile.png)
 
 1. Välj ett befintligt behållar register eller skapa ett, och välj sedan **Slutför**. Pipelinen skapas automatiskt och köar en version i Azure- [pipeliner](/azure/devops/pipelines/index?view=azure-devops).
 
@@ -87,7 +87,7 @@ I de här självstudierna får du:
 
 1. Du ser de slutförda loggarna när distributionen är klar.
 
-    ![Loggar](media/deployment-center-launcher/logs.png)
+    ![Skärm bild som visar distributions Center med version 1 markerad med en grön bock markerings ikon.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Granska CI-pipelinen
 

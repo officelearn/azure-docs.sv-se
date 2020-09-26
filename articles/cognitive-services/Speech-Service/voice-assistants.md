@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 18a9de8a2eaa2364e89e831db8dab5cbbb061c10
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360947"
 ---
 # <a name="what-is-a-voice-assistant"></a>Vad är röstassistent?
 
@@ -27,7 +27,7 @@ Röst assistent tjänsten ger snabb, tillförlitlig interaktion mellan en enhet 
 
 Det första steget för att skapa en röst assistent är att bestämma vad det ska göra. Tal tjänsten innehåller flera, kompletterande lösningar för att utforma dina assistenters interaktioner. Du kan lägga till röst-och röst funktioner i din flexibla och mångsidiga robot som skapats med hjälp av Azure Bot Service med den [direkta rad igenkännings](direct-line-speech.md) kanalen, eller använda enklast för att redigera en app med [anpassade kommandon](custom-commands.md) för scenarier med röst kommandon.
 
-| Om du vill... | Överväg sedan... | Till exempel... |
+| Om du vill... | Överväg sedan... | Till exempel … |
 |-------------------|------------------|----------------|
 |Öppen konversation med robust kompetens integrering och fullständig distributions kontroll | Azure Bot Service robot med [direkt linje tal](direct-line-speech.md) kanal | <ul><li>"Jag måste gå till Seattle"</li><li>"Vilken typ av pizza kan jag beställa?"</li></ul>
 |Röst kommando eller enkla samorienterade konversationer med förenklad redigering och värd tjänster | [Anpassade kommandon](custom-commands.md) | <ul><li>"Sätt på overhead-ljus"</li><li>"Gör 5 grader till varma"</li><li>Andra exempel [finns här](https://speech.microsoft.com/customcommands)</li></ul>
@@ -81,7 +81,7 @@ Röst assistenter som skapats med Azure Speech Services kan använda alla anpass
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+* [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)
 * [Läs mer om anpassade kommandon](custom-commands.md)
 * [Läs mer om direkt linje tal](direct-line-speech.md)
 * [Hämta tal-SDK](speech-sdk.md)

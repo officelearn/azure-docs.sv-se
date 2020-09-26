@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Konfigurera Tvingad tunnel trafik-plats-till-plats-anslutningar: klassisk'
-description: Omdirigera eller tvinga all Internet-baserad trafik tillbaka till din lokala plats.
+description: Lär dig hur du konfigurerar Tvingad tunnel trafik för virtuella nätverk som skapats med den klassiska distributions modellen.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313543"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurera framtvingad tunneling med den klassiska distributionsmodellen
 

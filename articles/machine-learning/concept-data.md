@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651165"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359689"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 
@@ -48,7 +48,7 @@ När du är redo att använda data i din molnbaserade lagrings lösning rekommen
 
 Följande diagram innehåller en visuell demonstration av detta rekommenderade arbets flöde.
 
-![Data-Concept-diagram](./media/concept-data/data-concept-diagram.svg)
+![Diagrammet visar den Azure Storage tjänsten som flödar till ett data lager, som flödar till en data uppsättning. Data uppsättningen flödar in i modell träning, som flödar till data drift, som flödar tillbaka till data uppsättningen.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>Datalager
 

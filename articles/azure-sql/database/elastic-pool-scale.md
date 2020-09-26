@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
-ms.date: 7/31/2020
-ms.openlocfilehash: d8055c89af8adcb88a2055e617e27c030e05d5ae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: sstein
+ms.date: 09/16/2020
+ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504389"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330714"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala elastiska pool resurser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,12 +44,12 @@ Att ändra tjänst nivå eller beräknings storlek för en elastisk pool följer
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Svars tid för ändring av tjänst nivå eller skalning av beräknings storlek
 
-Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräknings storleken för en enskild databas eller elastisk pool är parameterstyrda enligt följande:
+Beräknad svars tid för att ändra tjänst nivån, skala beräknings storleken för en enskild databas eller elastisk pool, flytta en databas i/från en elastisk pool eller flytta en databas mellan elastiska pooler är parameterstyrda enligt följande:
 
-|Tjänstenivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|Hyperskala
+|Tjänstnivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|Hyperskala
 |:---|:---|:---|:---|:---|
 |**Enkel databas, </br> Standard (S0-S1)**|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt mindre än 5 minuter|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
-|**Basic elastisk pool, </br> Standard (S2-S12), </br> generell användning enskild databas eller elastisk pool**|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt mindre än 5 minuter|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
+|**Basic elastisk pool, </br> Standard (S2-S12), </br> generell användning enskild databas eller elastisk pool**|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;För enskilda databaser, konstant svars tid oberoende av använt utrymme</br>&bull;&nbsp;Normalt är mindre än 5 minuter för enskilda databaser</br>&bull;&nbsp;För elastiska pooler, i proportion till antalet databaser|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
 |**Premium-eller Affärskritisk enkel databas eller elastisk pool**|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
 |**Hyperskala**|Saknas|Saknas|Saknas|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt, mindre än 2 minuter|
 
@@ -57,7 +57,7 @@ Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräk
 >
 > - Om du ändrar tjänst nivån eller skalnings beräkning för en elastisk pool, bör summering av utrymmet som används i alla databaser i poolen användas för att beräkna uppskattningen.
 > - Om du flyttar en databas till/från en elastisk pool, påverkar endast det utrymme som används av databasen svars tiden, inte det utrymme som används av den elastiska poolen.
-> - För standard-och Generell användning elastiska pooler kommer svars tiden för att flytta en databas in i/ut ur en elastisk pool eller mellan elastiska pooler att vara proportionerlig till databasens storlek om den elastiska poolen använder en Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction))-lagring. Ta reda på om en pool använder PFS-lagring genom att köra följande fråga i kontexten för en databas i poolen. Om värdet i kolumnen flervärdesattribut är `PremiumFileStorage` , använder poolen PFS-lagring.
+> - För standard-och Generell användning elastiska pooler kommer svars tiden för att flytta en databas in i/ut ur en elastisk pool eller mellan elastiska pooler att vara proportionerlig till databasens storlek om den elastiska poolen använder en Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction))-lagring. Ta reda på om en pool använder PFS-lagring genom att köra följande fråga i kontexten för en databas i poolen. Om värdet i kolumnen flervärdesattribut är `PremiumFileStorage` eller `PremiumFileStorage-ZRS` , använder poolen PFS-lagring.
 
 ```sql
 SELECT s.file_id,

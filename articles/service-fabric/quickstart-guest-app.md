@@ -3,13 +3,13 @@ title: Distribuera en befintlig app snabbt till ett kluster
 description: Använda en Azure Service Fabric-kluster som värd för ett befintligt Node.js-program med Visual Studio.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 29278faa80340d17e9ed9093dd5f432fd24a3a2d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314291"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
@@ -42,7 +42,7 @@ Du kan skapa alla typer av Service Fabric-tjänster från nästa dialogruta. Fö
 
 Namnge tjänsten **MyGuestService** och ange önskade alternativ till höger som följande värden:
 
-| Inställningen                   | Värde |
+| Inställning                   | Värde |
 | ------------------------- | ------ |
 | Kodpaketmapp       | _&lt;mappen med Node.js-appen&gt;_ |
 | Kodpaketbeteende     | Kopiera innehållet i mappen till projektet |
@@ -116,7 +116,7 @@ När tjänsten har publicerats kan du testa den i en webbläsare.
 
 Först öppna Azure-portalen och sök efter Service Fabric-tjänsten.
 
-Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från egenskapen _Klientanslutningsslutpunkt_. Exempelvis `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från egenskapen _Klientanslutningsslutpunkt_. Till exempel `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Bladet Service fabric-översikt på Azure portal][overview]
 

@@ -1,5 +1,5 @@
 ---
-title: Lägga till, ta bort och lista användare i en administrativ enhet (för hands version) – Azure Active Directory | Microsoft Docs
+title: Lägga till, ta bort och lista användare i en administrativ enhet – Azure Active Directory | Microsoft Docs
 description: Hantera användare och deras roll behörigheter i en administrativ enhet i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9b76ac103b873026dce3d3f8f92e54dc3afc14c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 37e1ac36df35fabb9709cfecadcfb0e7330df5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265138"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Lägga till och hantera användare i en administrativ enhet i Azure Active Directory
 
@@ -35,11 +35,11 @@ Du kan tilldela användare till administrativa enheter på två sätt.
 
 1. Enskild tilldelning
 
-    1. Du kan gå till Azure AD i portalen och välja användare och välja den användare som ska tilldelas en administrativ enhet. Du kan sedan välja administrativa enheter i den vänstra panelen. Användaren kan tilldelas en eller flera administrativa enheter genom att klicka på tilldela till administrativ enhet och välja de administrativa enheter där användaren ska tilldelas.
+    1. Du kan gå till Azure AD i portalen och välja användare och välja den användare som ska tilldelas en administrativ enhet. Du kan sedan välja administrativa enheter i den vänstra panelen. Användaren kan tilldelas en eller flera administrativa enheter genom att klicka på * * tilldela till administrativ enhet och välja de administrativa enheter där användaren ska tilldelas.
 
        ![Välj Lägg till och ange sedan ett namn för den administrativa enheten](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. Du kan gå till Azure AD i portalen och välja administrativa enheter i den vänstra rutan och sedan välja den administrativa enhet där användarna ska tilldelas. Välj alla användare i den vänstra rutan och välj sedan Lägg till medlem. Du kan sedan gå vidare och välja en eller flera användare som ska tilldelas den administrativa enheten från den högra rutan.
+    1. Du kan gå till Azure AD i portalen och välja administrativa enheter i den vänstra rutan och sedan välja den administrativa enhet där användarna ska tilldelas. Välj **alla användare** och välj sedan **Lägg till medlem**. Du kan sedan gå vidare och välja en eller flera användare som ska tilldelas den administrativa enheten från den högra rutan.
 
         ![Välj en administrativ enhet och välj sedan Lägg till medlem](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -82,13 +82,15 @@ Exempel:
 
 ### <a name="azure-portal"></a>Azure Portal
 
-I Azure Portal kan du öppna en användar profil genom att gå till Azure AD >-användare. Klicka på användaren för att öppna användarens profil.
+I Azure Portal kan du öppna en användar profil genom att:
 
-![Öppna en användar profil i Azure Active Directory](./media/roles-admin-units-add-manage-users/user-profile-admin-units.png)
+1. Öppna **Azure AD**-  >  **användare**.
 
-Välj **administrativa enheter** i den vänstra panelen för att se listan över administrativa enheter där användaren har tilldelats.
+1. Välj användaren för att öppna användarens profil.
 
-![Lista de administrativa enheterna för en användare](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
+1. Välj **administrativa enheter** om du vill se en lista över administrativa enheter där användaren har tilldelats.
+
+   ![Lista de administrativa enheterna för en användare](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

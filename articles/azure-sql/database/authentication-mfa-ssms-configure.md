@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: b1dbd66e34790599020233c5b1249593a4c0472d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8f72b9e9dfc2aa35960f9f81219a4c8973e2fe5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442657"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277940"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor Authentication för SQL Server Management Studio och Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -40,22 +40,22 @@ Följande steg visar hur du ansluter med den senaste SSMS.
 
 1. Om du vill ansluta med Universal Authentication går du till dialog rutan **Anslut till Server** i SQL Server Management Studio (SSMS) och väljer **Active Directory-Universal med MFA-stöd**. (Om du ser **Active Directory Universal Authentication** får du inte den senaste versionen av SSMS.)
 
-   ![1mfa – Universal-Connect](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
+   ![Skärm bild av fliken anslutnings egenskaper i dialog rutan Anslut till server i s M S. "min databas" har marker ATS i list rutan Anslut till databas.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 2. Fyll i rutan **användar namn** med Azure Active Directory autentiseringsuppgifter i formatet `user_name@domain.com` .
 
-   ![1mfa – Universal-Connect-User](./media/authentication-mfa-ssms-configure/1mfa-universal-connect-user.png)
+   ![Skärm bild av inställningarna för dialog rutan Anslut till Server för Server typ, Server namn, autentisering och användar namn.](./media/authentication-mfa-ssms-configure/1mfa-universal-connect-user.png)
 3. Om du ansluter som en gäst användare behöver du inte längre fylla i fältet AD-domännamn eller klient-ID för gäst användare eftersom SSMS 18. x eller senare identifierar det automatiskt. Mer information finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).
 
-   ![MFA-No-Tenant-SSMS](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
+   ![Skärm bild av fliken anslutnings egenskaper i dialog rutan Anslut till server i s M S. "min databas" har marker ATS i list rutan Anslut till databas.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
 
    Men om du ansluter som en gäst användare som använder SSMS 17. x eller äldre, måste du klicka på **alternativ**och i dialog rutan **anslutnings egenskaper** och fylla i rutan **AD-domännamn eller klient-ID** .
 
-   ![MFA-Tenant-SSMS](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
+   ![Skärm bild av fliken anslutnings egenskaper i dialog rutan Anslut till server i n s. alternativet AD-domännamn eller klient-ID är ifyllt.](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
 4. Välj **alternativ** och ange databasen i dialog rutan **alternativ** . (Om den anslutna användaren är gäst användare (d.v.s. joe@outlook.com ) måste du markera kryss rutan och lägga till det aktuella AD-domännamnet eller klient-ID som en del av alternativen. Se [Universal Authentication with SQL Database och Azure Synapse Analytics (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md). Klicka sedan på **Anslut**.  
 5. När dialog rutan **Logga in på ditt konto** visas anger du Azure Active Directory identitetens konto och lösen ord. Inget lösen ord krävs om en användare är en del av en domän som är federerad med Azure AD.
 
-   ![2mfa – logga in](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
+   ![Skärm bild av dialog rutan logga in till ditt konto för Azure SQL Database och informations lagret. Kontot och lösen ordet fylls i.](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
 
    > [!NOTE]
    > För Universal Authentication med ett konto som inte kräver MFA ansluter du nu. Fortsätt med följande steg för användare som behöver MFA:
@@ -63,14 +63,14 @@ Följande steg visar hur du ansluter med den senaste SSMS.
 
 6. Dialog rutor för två MFA-inställningar kan visas. Denna tids åtgärd beror på inställningen MFA-administratör och kan därför vara valfri. För en MFA-aktiverad domän är det här steget ibland fördefinierat (till exempel kräver domänen att användare använder smartkort och PIN-kod).
 
-   ![3mfa – installation](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
+   ![Skärm bild av dialog rutan logga in på ditt konto för Azure SQL Database och informations lagret med en uppräknings funktion för att ställa in ytterligare säkerhets verifiering.](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
   
 7. I dialog rutan andra möjliga en gång kan du välja information om autentiseringsmetoden. De möjliga alternativen konfigureras av administratören.
 
-   ![4mfa-verifiera-1](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
+   ![Skärm bild av dialog rutan ytterligare säkerhets verifiering med alternativ för att välja och konfigurera en autentiseringsmetod.](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
 8. Azure Active Directory skickar bekräftelse informationen till dig. När du tar emot verifierings koden anger du den i rutan **Ange verifierings kod** och klickar på **Logga**in.
 
-   ![5mfa-verifiera-2](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
+   ![Skärm bild av dialog rutan logga in på ditt konto för Azure SQL Database och informations lagret med en uppräknings enhet för att ange en verifierings kod.](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
 
 När verifieringen är klar, antas SSMS-anslutningar normalt giltiga autentiseringsuppgifter och brand Väggs åtkomst.
 

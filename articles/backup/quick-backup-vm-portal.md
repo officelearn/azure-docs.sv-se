@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328791"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 
@@ -83,7 +83,7 @@ Om du fortsätter med en själv studie kurs om säkerhets kopiering som förklar
 6. Välj din resursgrupp i listan. Om skapade en virtuell dator med exempelkommandona i snabbstarten heter resursgruppen *myResourceGroup*.
 7. Välj **Ta bort resursgrupp**. Ange namnet på resursgruppen och välj sedan **Ta bort** för att bekräfta.
 
-    ![Ta bort resursgruppen från Azure Portal](./media/quick-backup-vm-portal/delete-resource-group.png)
+    ![Ta bort resursgruppen från Azure Portal](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 2d2234ec333746c6f1da59346bdb74247deb616c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569030"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327965"
 ---
 # <a name="about-virtual-wan-pricing"></a>Om priser för virtuella WAN-nätverk
 
@@ -30,7 +30,7 @@ Varje tjänst i det virtuella WAN-nätverket priss ätts. Därför är det inte 
 
 ### <a name="what-is-a-scale-unit"></a><a name="scale-unit"></a>Vad är en skalnings enhet?
 
-En **skalnings enhet** tillhandahåller enheten för sammanställd kapacitet för plats-till-plats (S2S), punkt-till-plats (P2s) och EXPRESSROUTE (er) i en virtuell hubb. Ett exempel:
+En **skalnings enhet** tillhandahåller enheten för sammanställd kapacitet för plats-till-plats (S2S), punkt-till-plats (P2s) och EXPRESSROUTE (er) i en virtuell hubb. Exempel:
 
 * **1 S2S VPN-skalnings enhet** innebär en total kapacitet på 500 Mbit/s VPN-gateway (dubbla instanser distribueras för återhämtning) i en virtuell hubb kostnad $0.361/timme.
 * **1 er skalnings enhets enhet** innebär totalt 2 Gbit/s återställnings-gateway i virtuell hubb kostnad $0.42/timme.
@@ -38,7 +38,7 @@ En **skalnings enhet** tillhandahåller enheten för sammanställd kapacitet fö
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>Vad är en anslutnings enhet?
 
-En **anslutnings enhet** gäller för alla lokala/icke-Microsoft-slutpunkter som ansluter till Azure-gatewayer. För plats-till-plats-VPN innebär detta grenar. För användares VPN (punkt-till-plats) innebär detta att fjärran vändare. För ExpressRoute innebär detta att ExpressRoute-krets anslutningar.<br>Ett exempel:
+En **anslutnings enhet** gäller för alla lokala/icke-Microsoft-slutpunkter som ansluter till Azure-gatewayer. För plats-till-plats-VPN innebär detta grenar. För användares VPN (punkt-till-plats) innebär detta att fjärran vändare. För ExpressRoute innebär detta att ExpressRoute-krets anslutningar.<br>Exempel:
 
 * En förgrenings anslutning som ansluter till Azure VPN i en virtuell hubb kostar $0,05/timme. Därför kostar 100 förgrenings anslutningar som ansluter till en virtuell Azure-hubb $0,05 * 100/timme.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
-ms.openlocfilehash: ec7fc5cec7d8ba63d9a628c3ede978818a2c3012
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 14229af9766f6604e71713f835935d43f6c7fcc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330153"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -30,7 +30,7 @@ För modell utbildning i produktions klass använder du ett [Azure Machine Learn
 
 En beräknings instans är en fullständigt hanterad molnbaserad arbets station som är optimerad för din Machine Learning Development-miljö. Det ger följande fördelar:
 
-|Viktiga fördelar|Beskrivning|
+|Viktiga fördelar|Description|
 |----|----|
 |Produktivitet|Du kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i Azure Machine Learning Studio:<br/>– Jupyter<br/>- JupyterLab<br/>-RStudio (för hands version)<br/>Compute-instansen är helt integrerad med Azure Machine Learning-arbetsyta och Studio. Du kan dela antecknings böcker och data med andra data forskare på arbets ytan. Du kan också ställa in VS Code-fjärrutveckling med [SSH](how-to-set-up-vs-code-remote.md) |
 |Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Autoetablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Stöd för virtuella nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst<br/>TLS 1,2 aktiverat |
@@ -69,7 +69,7 @@ De här verktygen och miljöerna är installerade på beräknings instansen:
 |Anaconda Python||
 |Jupyter och tillägg||
 |Jupyterlab och tillägg||
-[Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>från PyPI|Innehåller de flesta av de azureml extra paketen.  Om du vill se hela listan [öppnar du ett terminalfönster på beräknings instansen](how-to-run-jupyter-notebooks.md#terminal) och kör <br/> `conda list -n azureml_py36 azureml*` |
+[Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>från PyPI|Innehåller de flesta av de azureml extra paketen.  Om du vill se hela listan [öppnar du ett terminalfönster på beräknings instansen](how-to-run-jupyter-notebooks.md#terminal) och kör <br/> `conda list -n azureml_py36 azureml*` |
 |Andra PyPI-paket|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda-paket|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Djup inlärnings paket|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -91,6 +91,30 @@ Eller så kan du komma åt ett terminalfönster på något av följande sätt:
 * Jupyter Lab: Välj panelen **Terminal** under den **andra** rubriken på fliken Start.
 * Jupyter: Välj **ny>Terminal** överst till höger på fliken filer.
 * SSH till datorn.  Installera sedan python-paket i **Python 3,6-azureml-** miljön.  Installera R-paket i **R** -miljön.
+
+### <a name="add-new-kernels"></a>Lägg till nya kärnor
+
+Så här lägger du till en ny Jupyter-kernel till beräknings instansen:
+
+1. Skapa en ny terminal från fönstret Jupyter, JupyterLab eller från antecknings böcker eller SSH till beräknings instansen
+2. Använd terminalfönstret för att skapa en ny miljö.  Koden nedan skapar till exempel `newenv` :
+    ```shell
+    conda create --name newenv
+    ```
+3. Aktivera miljön.  Till exempel när du har skapat `newenv` :
+
+    ```shell
+    conda activate newenv
+    ```
+4. Installera pip-och ipykernel-paketet i den nya miljön och skapa en kernel för det Conda-avsnittet
+
+    ```shell
+    conda install pip
+    conda install ipykernel
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+Alla [tillgängliga Jupyter-kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) kan installeras.
 
 ## <a name="accessing-files"></a>Komma åt filer
 
@@ -136,7 +160,7 @@ De här åtgärderna kan styras av RBAC:
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/stoppa/åtgärd*
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/omstart/åtgärd*
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>Skapa en beräknings instans
+### <a name="create-a-compute-instance"></a><a name="create"></a>Skapa en beräkningsinstans
 
 I arbets ytan i Azure Machine Learning Studio [skapar du en ny beräknings instans](how-to-create-attach-compute-studio.md#compute-instance) från antingen **Compute** -avsnittet eller i avsnittet **antecknings böcker** när du är redo att köra en av dina antecknings böcker. 
 
@@ -153,7 +177,7 @@ De dedikerade kärnorna per region per VM-tullkvot och den totala regionala kvot
 ### <a name="create-on-behalf-of-preview"></a>Skapa på uppdrag av (för hands version)
 
 Som administratör kan du skapa en beräknings instans på uppdrag av en data expert och tilldela den instansen till dem med:
-* [Azure Resource Manager mall](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes).  Information om hur du hittar TenantID och ObjectID som behövs i den här mallen finns i [hitta ID-objekt-ID: n för konfiguration av autentisering](../healthcare-apis/find-identity-object-ids.md).  Du kan också hitta dessa värden i Azure Active Directory-portalen.
+* [Azure Resource Manager mall](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Information om hur du hittar TenantID och ObjectID som behövs i den här mallen finns i [hitta ID-objekt-ID: n för konfiguration av autentisering](../healthcare-apis/find-identity-object-ids.md).  Du kan också hitta dessa värden i Azure Active Directory-portalen.
 * REST-API
 
 Data expert som du skapar beräknings instansen för behöver följande RBAC-behörigheter: 

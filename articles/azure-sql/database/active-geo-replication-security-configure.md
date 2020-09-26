@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3699191229a53735a62235cf8688cdfab9335339
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e9724462dc5f94908a1071f7039b20cca1c97e69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963656"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330796"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ I den här artikeln beskrivs autentiseringskrav för att konfigurera och kontrol
 
 ## <a name="disaster-recovery-with-contained-users"></a>Haveri beredskap med inneslutna användare
 
-Till skillnad från traditionella användare, som måste mappas till inloggningar i huvud databasen, hanteras en innesluten användare fullständigt av själva databasen. Detta har två fördelar. I katastrof återställnings scenariot kan användarna fortsätta att ansluta till den nya primära databasen eller databasen återskapas med geo-återställning utan ytterligare konfiguration, eftersom databasen hanterar användarna. Det finns även potentiella skalbarhet och prestanda för delar av den här konfigurationen från ett inloggnings perspektiv. Mer information finns i [Oberoende databasanvändare – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx).
+Till skillnad från traditionella användare, som måste mappas till inloggningar i huvud databasen, hanteras en innesluten användare fullständigt av själva databasen. Detta har två fördelar. I katastrof återställnings scenariot kan användarna fortsätta att ansluta till den nya primära databasen eller databasen återskapas med geo-återställning utan ytterligare konfiguration, eftersom databasen hanterar användarna. Det finns även potentiella skalbarhet och prestanda för delar av den här konfigurationen från ett inloggnings perspektiv. Mer information finns i [Användare av oberoende databas – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx).
 
 Den främsta kompromissen är att hanteringen av haveri beredskap i stor skala är mer utmanande. Om du har flera databaser som använder samma inloggning, kan det vara en negation av fördelarna med inneslutna användare om du behåller de autentiseringsuppgifter som finns i befintliga användare i flera databaser. Principen för lösen ords rotation kräver till exempel att ändringar görs konsekvent i flera databaser i stället för att ändra lösen ordet till inloggningen en gång i huvud databasen. Om du har flera databaser som använder samma användar namn och lösen ord rekommenderar vi inte att du använder inkluderade användare.
 

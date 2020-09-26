@@ -6,19 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: da79556b466e3511845724e969c76477ad2ba0a8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 83f144c06c23f3ab5507e3561be4a12350e20a42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423022"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329694"
 ---
 # <a name="protected-content"></a>Skyddat innehåll #
 
 Azure Media Player stöder för närvarande AES-128-bitars krypterat innehåll och gemensamt krypterat innehåll (via PlayReady och Widevine) eller krypterat innehåll via FairPlay. För att kunna spela upp skyddat innehåll korrekt måste du tala om Azure Media Player `protectionInfo` . Den här informationen finns per källa och kan läggas till direkt i `<source>` taggen via `data-setup` .  Du kan också lägga till `protectionInfo` direkt som en parameter om du anger källan dynamiskt.
 
-`protectionInfo`accepterar ett JSON-objekt och inkluderar:
+`protectionInfo` accepterar ett JSON-objekt och inkluderar:
 
 - `type`: `AES` eller `PlayReady` eller `Widevine``FairPlay`
 - `certificateUrl`: det här ska vara en direkt länk till ditt värdbaserade FairPlay-certifikat

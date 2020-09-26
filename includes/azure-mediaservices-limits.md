@@ -2,14 +2,14 @@
 author: rothja
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329675"
 ---
 >[!NOTE]
 >För resurser som inte har åtgärd ATS öppnar du ett support ärende för att be om en ökning av kvoterna. Skapa inte ytterligare Azure Media Services konton i ett försök att få högre gränser.
@@ -29,7 +29,7 @@ ms.locfileid: "85838752"
 | Program i körningstillstånd per kanal |3|
 | Slut punkter för direkt uppspelning som har stoppats eller körts per Media Services konto|2|
 | Strömningsenheter per slutpunkt för direktuppspelning |10 |
-| Lagringskonton | 1 000<sup>5</sup> (fast) |
+| Lagringskonton | 100<sup>5</sup> (fast) |
 | Principer | 1 000 000<sup>6</sup> |
 | Filstorlek| I vissa fall finns det en gräns för maximal fil storlek som stöds för bearbetning i Media Services. <sup>7</sup> |
 

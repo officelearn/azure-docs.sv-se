@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7f7bc16658733a7200d29fae22d96a2157b73065
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292140"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrera SQL Server Integration Services-paket till en hanterad Azure SQL-instans
 Om du använder SQL Server Integration Services (SSIS) och vill migrera dina SSIS-projekt/-paket från käll-SSISDB som är värd för SQL Server till målet SSISDB som finns i en hanterad Azure SQL-instans kan du använda Azure Database Migration Service.
@@ -132,7 +132,7 @@ När en instans av tjänsten har skapats letar du reda på den i Azure Portal, �
 
 1. På skärmen **information om migrerings mål** anger du anslutnings information för målet.
 
-     ![Information om mål](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
+     ![Målinformation](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
 
 2. Välj **Spara**.
 

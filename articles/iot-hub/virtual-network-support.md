@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281258"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -236,7 +236,7 @@ Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett ku
 
 4. På resurs sidan för IoT Hub navigerar du till fliken **fil uppladdning** .
 
-5. På sidan som visas väljer du den behållare som du tänker använda i blob-lagringen, konfigurerar **inställningarna för fil meddelanden**, **SAS TTL**, standard- **TTL**och maximalt antal **leveranser** som önskas. Välj **identitets baserad** som **Autentiseringstyp** för lagrings slut punkten. Klicka på knappen **Skapa**.
+5. På sidan som visas väljer du den behållare som du tänker använda i blob-lagringen, konfigurerar **inställningarna för fil meddelanden**, **SAS TTL**, standard- **TTL**och maximalt antal **leveranser** som önskas. Välj **identitets baserad** som **Autentiseringstyp** för lagrings slut punkten. Klicka på knappen **Skapa**. Om du får ett fel i det här steget ska du tillfälligt ange ditt lagrings konto för att tillåta åtkomst från **alla nätverk**och sedan försöka igen. Du kan konfigurera brand väggen på lagrings kontot när fil överförings konfigurationen har slutförts.
 
 Nu har din lagrings slut punkt för fil uppladdning kon figurer ATS för att använda navets tilldelade identitet och har behörighet att komma åt lagrings resursen trots dess brand Väggs begränsningar.
 

@@ -4,15 +4,15 @@ description: Använd Azure PowerShell hantera dina Azure Cosmos-konton, database
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d17d7e03c1a0fff642edbac912e596ecb030706d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fa3d044bbbce2a8c85f01517b918ffc57c10c759
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316213"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
@@ -46,22 +46,24 @@ Följande avsnitt visar hur du hanterar Azure Cosmos-kontot, inklusive:
 * [Utlös en manuell redundansväxling för ett Azure Cosmos-konto](#trigger-manual-failover)
 * [Visa en lista över resurs lås för ett Azure Cosmos DB konto](#list-account-locks)
 
-### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Skapa ett Azure Cosmos-konto
+### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a> Skapa ett Azure Cosmos-konto
 
 Det här kommandot skapar ett Azure Cosmos DB Database-konto med [flera regioner][distribute-data-globally], [Automatisk redundans](how-to-manage-database-account.md#automatic-failover) och avbindad-föråldrad [konsekvens princip](consistency-levels.md).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
-$locations = @("West US 2", "East US 2")
 $accountName = "mycosmosaccount"
 $apiKind = "Sql"
 $consistencyLevel = "BoundedStaleness"
 $maxStalenessInterval = 300
 $maxStalenessPrefix = 100000
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
 
 New-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
-    -Location $locations `
+    -LocationObject $locations `
     -Name $accountName `
     -ApiKind $apiKind `
     -EnableAutomaticFailover:$true `
@@ -70,15 +72,15 @@ New-AzCosmosDBAccount `
     -MaxStalenessPrefix $maxStalenessPrefix
 ```
 
-* `$resourceGroupName`Den Azure-resurs grupp som Cosmos-kontot ska distribueras till. Det måste redan finnas.
-* `$locations`Regionerna för databas kontot, från och med Skriv regionen och ordnas efter redundans.
-* `$accountName`Namnet på Azure Cosmos-kontot. Måste vara unik, gemener, innehålla enbart alfanumeriska tecken och-tecken, och mellan 3 och 31 tecken.
-* `$apiKind`Den typ av Cosmos-konto som ska skapas. Mer information finns i [API: er i Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
+* `$resourceGroupName` Den Azure-resurs grupp som Cosmos-kontot ska distribueras till. Det måste redan finnas.
+* `$locations` Regionerna för databas kontot, regionen med `FailoverPriority 0` är Skriv regionen.
+* `$accountName` Namnet på Azure Cosmos-kontot. Måste vara unik, gemener, innehålla enbart alfanumeriska tecken och-tecken, och mellan 3 och 31 tecken.
+* `$apiKind` Den typ av Cosmos-konto som ska skapas. Mer information finns i [API: er i Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
 * `$consistencyPolicy`, `$maxStalenessInterval` , och `$maxStalenessPrefix` standard konsekvens nivån och inställningarna för Azure Cosmos-kontot. Mer information finns i [konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
 
 Azure Cosmos-konton kan konfigureras med IP-brandvägg, Virtual Network tjänst slut punkter och privata slut punkter. Information om hur du konfigurerar IP-brandväggen för Azure Cosmos DB finns i [Konfigurera IP-](how-to-configure-firewall.md)brandvägg. Information om hur du aktiverar tjänstens slut punkter för Azure Cosmos DB finns i [Konfigurera åtkomst från virtuella nätverk](how-to-configure-vnet-service-endpoint.md). Information om hur du aktiverar privata slut punkter för Azure Cosmos DB finns i [Konfigurera åtkomst från privata slut punkter](how-to-configure-private-endpoints.md).
 
-### <a name="list-all-azure-cosmos-accounts-in-a-resource-group"></a><a id="list-accounts"></a>Lista alla Azure Cosmos-konton i en resurs grupp
+### <a name="list-all-azure-cosmos-accounts-in-a-resource-group"></a><a id="list-accounts"></a> Lista alla Azure Cosmos-konton i en resurs grupp
 
 Det här kommandot visar alla Azure Cosmos-konton i en resurs grupp.
 
@@ -88,7 +90,7 @@ $resourceGroupName = "myResourceGroup"
 Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName
 ```
 
-### <a name="get-the-properties-of-an-azure-cosmos-account"></a><a id="get-account"></a>Hämta egenskaperna för ett Azure Cosmos-konto
+### <a name="get-the-properties-of-an-azure-cosmos-account"></a><a id="get-account"></a> Hämta egenskaperna för ett Azure Cosmos-konto
 
 Med det här kommandot kan du hämta egenskaperna för ett befintligt Azure Cosmos-konto.
 
@@ -99,7 +101,7 @@ $accountName = "mycosmosaccount"
 Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName -Name $accountName
 ```
 
-### <a name="update-an-azure-cosmos-account"></a><a id="update-account"></a>Uppdatera ett Azure Cosmos-konto
+### <a name="update-an-azure-cosmos-account"></a><a id="update-account"></a> Uppdatera ett Azure Cosmos-konto
 
 Med det här kommandot kan du uppdatera Azure Cosmos DB databas konto egenskaper. De egenskaper som kan uppdateras är följande:
 
@@ -117,33 +119,33 @@ Med det här kommandot kan du uppdatera Azure Cosmos DB databas konto egenskaper
 ```azurepowershell-interactive
 # Create account with two regions
 $resourceGroupName = "myResourceGroup"
-$locations = @("West US 2", "East US 2")
 $accountName = "mycosmosaccount"
 $apiKind = "Sql"
 $consistencyLevel = "Session"
 $enableAutomaticFailover = $true
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
 
 # Create the Cosmos DB account
 New-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
-    -Location $locations `
+    -LocationObject $locations `
     -Name $accountName `
     -ApiKind $apiKind `
     -EnableAutomaticFailover:$enableAutomaticFailover `
     -DefaultConsistencyLevel $consistencyLevel
 
 # Add a region to the account
-$locations2 = @("West US 2", "East US 2", "South Central US")
-$locationObjects2 = @()
-$i = 0
-ForEach ($location in $locations2) {
-    $locationObjects2 += @{ locationName = "$location"; failoverPriority = $i++ }
-}
+$locationObject2 = @()
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "South Central US" -FailoverPriority 2 -IsZoneRedundant 0
 
 Update-AzCosmosDBAccountRegion `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
-    -LocationObject $locationObjects2
+    -LocationObject $locationObject2
 
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
@@ -151,23 +153,20 @@ Write-Host "When region was added, press any key to continue."
 $HOST.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | OUT-NULL
 $HOST.UI.RawUI.Flushinputbuffer()
 
-# Remove a region from the account
-$locations3 = @("West US 2", "South Central US")
-$locationObjects3 = @()
-$i = 0
-ForEach ($location in $locations3) {
-    $locationObjects3 += @{ locationName = "$location"; failoverPriority = $i++ }
-}
+# Remove West US region from the account
+$locationObject3 = @()
+$locationObject3 += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locationObject3 += New-AzCosmosDBLocationObject -LocationName "South Central US" -FailoverPriority 1 -IsZoneRedundant 0
 
 Update-AzCosmosDBAccountRegion `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
-    -LocationObject $locationObjects3
+    -LocationObject $locationObject3
 
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
-### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-master"></a>Aktivera flera Skriv regioner för ett Azure Cosmos-konto
+### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-master"></a> Aktivera flera Skriv regioner för ett Azure Cosmos-konto
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -189,7 +188,7 @@ Update-AzCosmosDBAccount `
     -EnableMultipleWriteLocations:$enableMultiMaster
 ```
 
-### <a name="delete-an-azure-cosmos-account"></a><a id="delete-account"></a>Ta bort ett Azure Cosmos-konto
+### <a name="delete-an-azure-cosmos-account"></a><a id="delete-account"></a> Ta bort ett Azure Cosmos-konto
 
 Det här kommandot tar bort ett befintligt Azure Cosmos-konto.
 
@@ -203,7 +202,7 @@ Remove-AzCosmosDBAccount `
     -PassThru:$true
 ```
 
-### <a name="update-tags-of-an-azure-cosmos-account"></a><a id="update-tags"></a>Uppdatera taggar för ett Azure Cosmos-konto
+### <a name="update-tags-of-an-azure-cosmos-account"></a><a id="update-tags"></a> Uppdatera taggar för ett Azure Cosmos-konto
 
 Det här kommandot anger [Azures resurs Taggar][azure-resource-tags] för ett Azure Cosmos-konto. Taggar kan ställas in både vid skapande av konto `New-AzCosmosDBAccount` och vid uppdatering av kontot med hjälp av `Update-AzCosmosDBAccount` .
 
@@ -218,7 +217,7 @@ Update-AzCosmosDBAccount `
     -Tag $tags
 ```
 
-### <a name="list-account-keys"></a><a id="list-keys"></a>Lista konto nycklar
+### <a name="list-account-keys"></a><a id="list-keys"></a> Lista konto nycklar
 
 När du skapar ett Azure Cosmos-konto genererar tjänsten två huvud åtkomst nycklar som kan användas för autentisering när Azure Cosmos-kontot nås. Skrivskyddade nycklar för att autentisera skrivskyddade åtgärder skapas också.
 Genom att tillhandahålla två åtkomst nycklar kan Azure Cosmos DB skapa och rotera en nyckel i taget utan avbrott i ditt Azure Cosmos-konto.
@@ -234,7 +233,7 @@ Get-AzCosmosDBAccountKey `
     -Type "Keys"
 ```
 
-### <a name="list-connection-strings"></a><a id="list-connection-strings"></a>Lista anslutnings strängar
+### <a name="list-connection-strings"></a><a id="list-connection-strings"></a> Lista anslutnings strängar
 
 Följande kommando hämtar anslutnings strängar för att ansluta appar till Cosmos DB-kontot.
 
@@ -248,7 +247,7 @@ Get-AzCosmosDBAccountKey `
     -Type "ConnectionStrings"
 ```
 
-### <a name="regenerate-account-keys"></a><a id="regenerate-keys"></a>Återskapa konto nycklar
+### <a name="regenerate-account-keys"></a><a id="regenerate-keys"></a> Återskapa konto nycklar
 
 Åtkomst nycklar till ett Azure Cosmos-konto bör återskapas regelbundet för att hålla anslutningarna säkra. Ett primärt och sekundärt åtkomst nycklar tilldelas till kontot. Detta gör att klienter kan upprätthålla åtkomst medan en nyckel i taget återskapas.
 Det finns fyra typer av nycklar för ett Azure Cosmos-konto (primär, sekundär, PrimaryReadonly och SecondaryReadonly)
@@ -264,7 +263,7 @@ New-AzCosmosDBAccountKey `
     -KeyKind $keyKind
 ```
 
-### <a name="enable-automatic-failover"></a><a id="enable-automatic-failover"></a>Aktivera automatisk redundans
+### <a name="enable-automatic-failover"></a><a id="enable-automatic-failover"></a> Aktivera automatisk redundans
 
 Följande kommando anger ett Cosmos DB-konto att redundansväxla automatiskt till den sekundära regionen om den primära regionen blir otillgänglig.
 
@@ -288,7 +287,7 @@ Update-AzCosmosDBAccount `
     -EnableAutomaticFailover:$enableAutomaticFailover
 ```
 
-### <a name="modify-failover-priority"></a><a id="modify-failover-priority"></a>Ändra prioritet för redundans
+### <a name="modify-failover-priority"></a><a id="modify-failover-priority"></a> Ändra prioritet för redundans
 
 För konton som har kon figurer ATS med automatisk redundans kan du ändra i vilken ordning Cosmos ska befordra sekundära repliker till primär om den primära blir otillgänglig.
 
@@ -308,7 +307,7 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
-### <a name="trigger-manual-failover"></a><a id="trigger-manual-failover"></a>Utlös manuell redundans
+### <a name="trigger-manual-failover"></a><a id="trigger-manual-failover"></a> Utlös manuell redundans
 
 För konton som kon figurer ATS med manuell redundans kan du redundansväxla och befordra valfri sekundär replik till primär genom att ändra till `failoverPriority=0` . Den här åtgärden kan användas för att starta en haveri beredskap för att testa haveri beredskaps planeringen.
 
@@ -328,7 +327,7 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
-### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a>Visa en lista över resurs lås för ett Azure Cosmos DB konto
+### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a> Visa en lista över resurs lås för ett Azure Cosmos DB konto
 
 Resurs lås kan placeras på Azure Cosmos DB resurser, inklusive databaser och samlingar. Exemplet nedan visar hur du visar en lista över alla Azure-resurs lås på ett Azure Cosmos DB-konto.
 

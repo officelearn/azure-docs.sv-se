@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 29190cee748db17caee32497de5512bee736bae0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 603628e24d7ccdffeafea392ab56aa7e47781a37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296492"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 
@@ -66,7 +66,7 @@ Var måste dina data vara för bearbetning eller modellering?
 Procedurer och resurser för att mata in eller läsa in data i en mängd olika lagrings-och bearbetnings miljöer finns i:
 
 * [Läs in data i lagringsmiljöer för analys](ingest-data.md)
-* [Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor](../studio/import-data.md)
+* [Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor](../classic/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>Måste data flyttas enligt ett reguljärt schema eller ändras under migreringen?
 
@@ -108,7 +108,7 @@ Dessa frågor är viktiga för att planera lagrings-och bearbetnings miljöer. D
 
 Ta den Azure Machine Learning Studio (klassiska) miljön till exempel:
 
-* En lista över de data format och typer som stöds av Azure Machine Learning Studio finns i avsnittet [data format och data typer som stöds](../studio/import-data.md#supported-data-formats-and-data-types) .
+* En lista över de data format och typer som stöds av Azure Machine Learning Studio finns i avsnittet [data format och data typer som stöds](../classic/import-data.md#supported-data-formats-and-data-types) .
 * Information om begränsningarna för andra Azure-tjänster som används i analys processen finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Data kvalitets frågor: utforskning och för bearbetning
@@ -146,7 +146,7 @@ Det finns många alternativ för språk, utvecklings miljöer och verktyg. Tänk
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Vilka verktyg bör du använda för data analys?
 
 * [Microsoft Azure PowerShell](/powershell/azure/) – ett skript språk som används för att administrera dina Azure-resurser i ett skript språk
-* [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
+* [Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 * [Revolution analys](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools för Visual Studio](https://aka.ms/ptvsdocs)

@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med Azure Data Box för DPM och MABS
 description: Du kan använda Azure Data Box för att dirigera inledande säkerhets kopierings data offline från DPM och MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271502"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline med Azure Data Box för DPM och MABS (för hands version)
 
@@ -110,7 +110,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Överför första säkerhets kopierings data till Azure Data Box enheter
 
-1. På DPM/MABS-servern följer du stegen för att [skapa en ny skydds grupp](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Om du lägger till ett onlineskydd-skydd i den befintliga skydds gruppen högerklickar du på den befintliga skydds gruppen och väljer **Lägg till onlineskydd** och börja från **steg 8**.
+1. På DPM/MABS-servern följer du stegen för att [skapa en ny skydds grupp](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Om du lägger till ett onlineskydd-skydd i den befintliga skydds gruppen högerklickar du på den befintliga skydds gruppen och väljer **Lägg till onlineskydd** och börja från **steg 8**.
 2. På sidan **Välj grupp medlemmar** anger du de datorer och källor som du vill säkerhetskopiera.
 3. På sidan **Välj data skydds metod** anger du hur du vill hantera kortsiktig och långsiktig säkerhets kopiering. Se till att du väljer **Jag vill ha onlineskydd.**
 

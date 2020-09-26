@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907418"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295744"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Skapa användare i Azure Database for PostgreSQL-storskalig (citus)
 
@@ -28,7 +28,7 @@ PostgreSQL-motorn använder [roller](https://www.postgresql.org/docs/current/sql
 * `postgres`
 * `citus`
 
-Eftersom den här storleken är en hanterad PaaS-tjänst kan endast Microsoft logga in med `postgres` superanvändar rollen. För begränsad administrativ åtkomst tillhandahåller skalnings `citus` rollen.
+Eftersom den storskaliga (citus) är en hanterad PaaS-tjänst kan endast Microsoft logga in med `postgres` superanvändar rollen. För begränsad administrativ åtkomst tillhandahåller skalning (citus) `citus` rollen.
 
 Behörigheter för `citus` rollen:
 
@@ -46,7 +46,7 @@ I synnerhet `citus` har rollen vissa begränsningar:
 
 Som nämnts `citus` saknar administratörs kontot behörighet att skapa ytterligare användare. Använd Azure Portal-gränssnittet om du vill lägga till en användare.
 
-1. Gå till sidan **roller** för din skalnings Server grupp och klicka på **+ Lägg till**:
+1. Gå till sidan **roller** för din citus-servergrupp och klicka på **+ Lägg till**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Sidan roller":::
 
@@ -75,7 +75,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Ta bort en användar roll eller ändra deras lösen ord
 
-Om du vill uppdatera en användare går du till sidan **roller** för din skalnings Server grupp och klickar på ellipserna **...** bredvid användaren. Ellipserna öppnar en meny för att ta bort användaren eller återställa lösen ordet.
+Om du vill uppdatera en användare går du till sidan **roller** för Server gruppen för citus-servern och klickar på ellipserna **...** bredvid användaren. Ellipserna öppnar en meny för att ta bort användaren eller återställa lösen ordet.
 
    :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Redigera en roll":::
 

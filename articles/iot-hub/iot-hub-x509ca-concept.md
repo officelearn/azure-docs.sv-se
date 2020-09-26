@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019911"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308120"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Konceptuell förståelse för X. 509 CA-certifikat i IoT-branschen
 
@@ -87,7 +87,7 @@ Uppladdnings processen för X. 509 certifikat utfärdare är bara att ladda upp 
 
 ### <a name="proof-of-possession-of-the-certificate"></a>Certifikatets besittnings bevis
 
-X. 509-CA-certifikatet, precis som alla digitala certifikat, är offentlig information som är mottaglig för avlyssning. På så sätt kan en avlyssning fånga ett certifikat och försöka överföra det som ett eget. I vårt exempel vill IoT Hub se till att CA-certifikatets företags-X-överföring verkligen tillhör företags-X. Det gör det genom att göra det svårt för företags-X att bevisa att de faktiskt besitter certifikatet genom ett [pop-flöde (proof-of-Drive)](https://tools.ietf.org/html/rfc5280#section-3.1). Det huvudsakliga flödet är IoT Hub att generera ett slumptal som ska signeras av företags-X med hjälp av den privata nyckeln. Om bästa praxis för företags-X följde PKI och skyddar sin privata nyckel, skulle det bara finnas plats för att svara på korrekt utmaning. IoT Hub fortsätter att registrera X. 509 CA-certifikatet på ett framgångs rik svars bevis.
+X. 509-CA-certifikatet, precis som alla digitala certifikat, är offentlig information som är mottaglig för avlyssning. På så sätt kan en avlyssning fånga ett certifikat och försöka överföra det som ett eget. I vårt exempel vill IoT Hub se till att CA-certifikatets företags-X-överföring verkligen tillhör företags-X. Det gör det genom att utmana företags-X för att bevisa att de faktiskt besitter certifikatet genom ett [pop-flöde (proof-of-Drive)](https://tools.ietf.org/html/rfc5280#section-3.1). Det huvudsakliga flödet är IoT Hub att generera ett slumptal som ska signeras av företags-X med hjälp av den privata nyckeln. Om bästa praxis för företags-X följde PKI och skyddar sin privata nyckel, skulle det bara finnas plats för att svara på korrekt utmaning. IoT Hub fortsätter att registrera X. 509 CA-certifikatet på ett framgångs rik svars bevis.
 
 Ett lyckat svar på en utmanings utmaning från IoT Hub Slutför 509 CA-registrering.
 

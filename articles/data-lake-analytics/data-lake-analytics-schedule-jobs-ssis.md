@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: ac747b87cf1a0f2d7c85d05975a31f953bfa5aae
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a5c7b9fb6a3431534d743f1ebd0b21f1da9fab7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318712"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Schemalägg U-SQL-jobb med SQL Server Integration Services (SSIS)
 
@@ -56,7 +56,7 @@ Följ stegen nedan för att konfigurera anslutningen mellan Azure Data Lake Stor
 
 I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system aktivitet**, ett **förgrunds sling-behållare** och en **Azure Data Lake Analytics uppgift** i behållaren för förgrunds slingor. Med åtgärden Azure Data Lake Store fil system kan du hämta U-SQL-filer i ditt ADLS-konto till en tillfällig mapp. Den förgrunds sling-behållaren och Azure Data Lake Analytics aktiviteten hjälper till att skicka varje U-SQL-fil under den tillfälliga mappen till Azure Data Lake Analytics-kontot som ett U-SQL-jobb.
 
-![Använd U-SQL-filer i Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Diagram som visar en Azure Data Lake Store fil system aktivitet som läggs till i en behållare för förgrunds slingor.](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Konfigurera Azure Data Lake Store fil system aktivitet
 
@@ -77,7 +77,7 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
 
 3. Ange **filer** under **uppräknings konfiguration** så att `*.usql` loop-behållaren bara fångar filerna som slutar med `.usql` .
 
-    ![Konfigurera behållare för förgrunds slingor](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    ![Skärm bild som visar förgrunds slingan med "samling" vald och konfigurations avsnitten uppräknare och uppräknare är markerade.](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
 4. På sidan **variabel mappningar** lägger du till en användardefinierad variabel för att hämta fil namnet för varje U-SQL-fil. Ange **indexet** till 0 för att hämta fil namnet. I det här exemplet definierar du en variabel som kallas `User::FileName` . Den här variabeln används för att dynamiskt hämta U-SQL skript fil anslutning och ange U-SQL-jobbnamn i Azure Data Lake Analytics aktiviteten.
 
@@ -94,7 +94,7 @@ I SSIS-paketets designvy lägger du till en **Azure Data Lake Store fil system a
    1. Välj **\<New Connection...>** i FileConnection-inställningen.
    2. Ange **användnings typ** till en **befintlig fil**och ange **filen** till en befintlig fils sökväg.
 
-       ![Konfigurera behållare för förgrunds slingor](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Skärm bild som visar fil anslutnings hanterarens redigerare med "befintlig fil" vald för "användnings typ".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. I vyn **anslutnings hanterare** högerklickar du på fil anslutningen som skapats just nu och väljer **Egenskaper**.
 

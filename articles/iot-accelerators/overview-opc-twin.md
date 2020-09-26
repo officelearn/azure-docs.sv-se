@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 169a3149a2d8d02d486bc126071b17e9a4f7ed72
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9825e5e85c8da27b0f3fc2b9d78fcc9ca3513389
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281702"
 ---
 # <a name="what-is-opc-twin"></a>Vad är OPC?
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 OPC garn består av mikrotjänster som använder Azure IoT Edge och IoT Hub för att ansluta molnet och fabriks nätverket. OPC dubbla ger identifiering, registrering och fjärrkontroll av industriella enheter via REST-API: er. OPC fläta kräver inte en OPC-SDK (Unified Architecture), är programmerings språk oberoende och kan ingå i ett Server lös arbets flöde. I den här artikeln beskrivs flera OPCs dubbla användnings fall.
 
@@ -41,5 +44,4 @@ OPCs dubbla kan användas med program som skrivits i programmeringsspråk via RE
 
 Nu när du har lärt dig om OPC och dess användnings områden är det föreslagna nästa steg:
 
-> [!div class="nextstepaction"]
-> [Vad är OPC-valv](overview-opc-vault.md)
+[Vad är OPC-valv](overview-opc-vault.md)

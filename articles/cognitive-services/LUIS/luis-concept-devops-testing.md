@@ -1,14 +1,16 @@
 ---
 title: Testa för DevOps för LUIS-appar
 description: Testa din Language Understanding-app (LUIS) i en DevOps-miljö.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 2556d2e904aff720bc02e4c7d58bf5a72af4d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316553"
 ---
 # <a name="testing-for-luis-devops"></a>Testa för LUIS-DevOps
 
@@ -40,7 +42,7 @@ När du skriver en uppsättning tester måste du för varje test definiera:
 * Förväntad avsikt
 * Förväntade entiteter.
 
-Använd LUIS [batch File-syntax](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-syntax-template-for-intents-with-entities) för att definiera en grupp av tester i en JSON-formaterad fil. Till exempel:
+Använd LUIS [batch File-syntax](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-syntax-template-for-intents-with-entities) för att definiera en grupp av tester i en JSON-formaterad fil. Exempel:
 
 ```JSON
 [

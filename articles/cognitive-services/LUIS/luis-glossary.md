@@ -1,14 +1,16 @@
 ---
 title: Ord lista – LUIS
 description: Ord listan förklarar termer som du kan stöta på när du arbetar med LUIS-API-tjänsten.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836419"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309497"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
 Ord listan Language Understanding (LUIS) förklarar termer som du kan stöta på när du arbetar med LUIS-tjänsten.
@@ -107,7 +109,7 @@ Se även:
 
 En beskrivning är den term som tidigare användes för en Machine Learning- [funktion](#features).
 
-## <a name="domain"></a>Domain
+## <a name="domain"></a>Domän
 
 I LUIS-kontexten är en domän ett kunskaps området. Din domän är speciell för ditt scenario. Olika domäner använder specifika språk och termer som har betydelse i domänens kontext. Om du t. ex. skapar ett program för att spela musik, skulle ditt program ha villkor och språk som är specifika för musik – ord som "sång, spår, album, sång texter," på sidan ", artist". Exempel på domäner finns i [fördefinierade domäner](#prebuilt-domain).
 
@@ -309,7 +311,7 @@ För **engelska**är en token ett kontinuerligt intervall (inga blank steg eller
 |--|--|--|
 |`Dog`|1|Ett enstaka ord utan skiljetecken eller blank steg.|
 |`RMT33W`|1|Ett post lokaliserings nummer. Det kan bestå av siffror och bokstäver, men det finns inga skiljetecken.|
-|`425-555-5555`|5|Ett telefonnummer. Varje skiljetecken är en token så att det blir `425-555-5555` 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`425-555-5555`|5|Ett telefonnummer. Varje skiljetecken är en token så att det blir  `425-555-5555` 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
 ## <a name="train"></a>Träna

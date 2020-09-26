@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b4e74d5db2d1454360370c05d75cdf826875143
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317437"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudie: Konfigurera DocuSign för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i Doc
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 *   En Azure Active Directory-klient.
 *   En aktive rad DocuSign-prenumeration med enkel inloggning.
@@ -63,9 +63,9 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 1. Välj din instans av DocuSign och välj sedan fliken **etablering** .
 
-1. Ställ in **etablerings läget** på **automatiskt**. 
+1. Ange **Etableringsläge** som **Automatiskt**. 
 
-    ![etablerings](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Skärm bild av fliken etablering för DocuSign i Azure Portal. Etablerings läget är inställt på automatiskt och administratörens användar namn, lösen ord och test anslutning är markerat.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
    
@@ -96,6 +96,6 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](docusign-tutorial.md)

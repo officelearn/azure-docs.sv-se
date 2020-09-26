@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318275"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -58,7 +58,7 @@ if spec is None:
 > Om din pipeline innehåller flera köra Python-skript moduler som behöver paket som inte finns i den förinstallerade listan, installerar du paketen i varje modul.
 
 ## <a name="upload-files"></a>Ladda upp filer
-EXECUTE Python-skript module stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-).
+EXECUTE Python-skript module stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
 
 I följande exempel visas hur du laddar upp en avbildnings fil i modulen kör Python-skript:
 

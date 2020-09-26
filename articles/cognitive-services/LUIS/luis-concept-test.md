@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccd732c644cf0a5641099a9731f65dd7b03bf374
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73486683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316417"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testa exempel yttranden i LUIS
 
 Testning är en process för att tillhandahålla exempel yttranden till LUIS och få svar på LUIS-identifierade avsikter och entiteter. 
 
-Du kan testa LUIS interaktivt, en uttryck i taget, eller ange en av yttranden. Vid testning kan du jämföra den aktuella aktiva modellens förutsägelse svar på den publicerade modellens förutsägelse svar. 
+Du kan testa LUIS interaktivt, en uttryck i taget, eller ange en uppsättning yttranden. Vid testning kan du jämföra den aktuella aktiva modellens förutsägelse svar på den publicerade modellens förutsägelse svar. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -43,7 +43,7 @@ Du kan testa att använda [slut punkten](luis-glossary.md#endpoint) med högst t
 All slut punkts testning räknas mot din användnings kvot. 
 
 ## <a name="do-not-log-tests"></a>Logga inte tester
-Kom ihåg att använda `logging=false` frågesträngen om du testar mot en slut punkt och inte vill att uttryck ska loggas.
+Kom ihåg att använda frågesträngen om du testar mot en slut punkt och inte vill att uttryck ska loggas `logging=false` .
 
 ## <a name="where-to-find-utterances"></a>Var du hittar yttranden
 LUIS lagrar alla loggade yttranden i fråge loggen som är tillgängliga för hämtning på LUIS-portalen på sidan **Apps** , samt Luis [redigerings-API: er](https://go.microsoft.com/fwlink/?linkid=2092087). 

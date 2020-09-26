@@ -3,12 +3,12 @@ title: Använd Azure Service Bus Explorer för att utföra data åtgärder på S
 description: Den här artikeln innehåller information om hur du använder den portalbaserade Azure Service Bus Explorer för att få åtkomst till Azure Service Bus data.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295608"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Använd Service Bus Explorer för att utföra data åtgärder på Service Bus (förhands granskning)
 
@@ -28,7 +28,7 @@ Azure Service Bus Explorer utökar Portal funktionerna utöver hanterings åtgä
 > Verktyget Azure Service Bus Explorer är ***inte*** community-verktyget som ägs av oss [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda verktyget Service Bus Explorer måste du etablera ett Azure Service Bus-namnområde. 
 
@@ -104,7 +104,7 @@ Ta emot ett meddelande från en kö (eller dess obeställbara meddelanden kön-u
 
 När mottagnings åtgärden lyckas visas meddelande informationen i rutnätet enligt nedan. Du kan välja meddelandet från rutnätet för att visa dess information.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Skärm bild av fönstret köer i Azure Service Bus Explorer med meddelande information som visas för ett aktivt meddelande som väljs i kön.":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Granska ett meddelande från en kö
@@ -156,7 +156,7 @@ Precis som med en kö kan ***Receive*** -åtgärden utföras mot en prenumeratio
 
 När Receive-åtgärden lyckas visas det mottagna meddelandet i rutnätet enligt nedan. Klicka på meddelandet för att visa information om meddelandet.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Skärm bild av fliken ta emot i Azure Service Bus Explorer med meddelande information som visas för ett aktivt meddelande som har tagits emot.":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Granska ett meddelande från en prenumeration
 
@@ -181,7 +181,7 @@ När gransknings åtgärden har slutförts visas upp till 32 meddelanden i rutn�
 > Eftersom Peek inte är en destruktiv åtgärd tas **inte** meddelandet bort från kön.
 >
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
    * Läs mer om Service Bus [köer](service-bus-queues-topics-subscriptions.md#queues) och [ämnen](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)
    * Läs mer om hur [du skapar Service Bus köer via Azure Portal](service-bus-quickstart-portal.md)

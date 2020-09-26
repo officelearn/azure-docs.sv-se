@@ -4,17 +4,17 @@ description: Azure Security benchmark v2 till gångs hantering
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ba010c0dd3384af895c68d980fcae788c2d6d45a
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318032"
 ---
-# <a name="security-control-asset-management"></a>Säkerhets kontroll: till gångs hantering
+# <a name="security-control-v2-asset-management"></a>Säkerhets kontroll v2: till gångs hantering
 
 Till gångs hantering omfattar kontroller för att säkerställa ökad säkerhet och styrning över Azure-resurser. Detta inkluderar rekommendationer om behörigheter för säkerhets personal, säkerhets åtkomst till till gångs inventering och hantering av godkännanden för tjänster och resurser (inventering, spårning och rätt).
 
@@ -22,7 +22,7 @@ Till gångs hantering omfattar kontroller för att säkerställa ökad säkerhet
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| AM-1 | 1,1, 1,2, 1,3, 1,4, 9,1, 12,1 | CM – 7, CM-8, CM-11, EM-5 |
+| AM-1 | 1,1, 1,2 | CM – 8, PM-5 |
 
 Se till att säkerhets teamen beviljas säkerhets läsar behörigheter i din Azure-klient och prenumerationer så att de kan övervaka säkerhets risker med hjälp av Azure Security Center. 
 
@@ -38,7 +38,7 @@ Obs: ytterligare behörigheter kan krävas för att få insyn i arbets belastnin
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -48,7 +48,7 @@ Obs: ytterligare behörigheter kan krävas för att få insyn i arbets belastnin
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| AM-2 | 1.5 | CM – 8, PM-5 |
+| AM-2 | 1,1, 1,2, 1,4, 1,5, 9,1, 12,1 | CM – 8, PM-5 |
 
 Se till att säkerhets teamen har åtkomst till en kontinuerligt uppdaterad inventering av till gångar på Azure. Säkerhets teamen behöver ofta den här inventeringen för att utvärdera organisationens potentiella exponering för nya risker och som informerar om löpande säkerhets förbättringar. 
 
@@ -64,7 +64,7 @@ Organisera till gångar logiskt enligt organisationens taxonomi med hjälp av ta
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -86,7 +86,7 @@ Använd Azure Policy för att granska och begränsa vilka tjänster som använda
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Hantering av säkerhetskompatibilitet](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -106,7 +106,7 @@ Ta bort Azure-resurser när de inte längre behövs.
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -126,7 +126,7 @@ Använd villkorlig åtkomst för Azure AD för att begränsa användarnas möjli
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -136,7 +136,7 @@ Använd villkorlig åtkomst för Azure AD för att begränsa användarnas möjli
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| AM-6 | 2,6 | AC-3, CM-7, CM-8, CM-10, CM-11 |
+| AM-6 | 2,6, 2,7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
 Se till att endast auktoriserad program vara körs och att all obehörig program vara blockeras från att köras på Azure Virtual Machines.
 
@@ -156,7 +156,7 @@ Du kan också använda en lösning från tredje part för att identifiera och id
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

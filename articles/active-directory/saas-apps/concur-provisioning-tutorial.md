@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 678b7571d54c8938c163801a584ad813c6e5963f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317454"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Concur för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i Con
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 *   En Azure Active Directory-klient.
 *   En aktive rad Concur-prenumeration med enkel inloggning.
@@ -94,9 +94,9 @@ Av följande skäl bör den här åtgärden inte utföras med den profil som de 
 
 8. Välj din instans av Concur och välj sedan fliken **etablering** .
 
-9. Ställ in **etablerings läget** på **automatiskt**. 
+9. Ange **Etableringsläge** som **Automatiskt**. 
  
-    ![etablerings](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Skärm bild av fliken etablering för Concur i Azure Portal. Etablerings läget är inställt på automatiskt och knappen Testa anslutning är markerat.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Under avsnittet **admin-autentiseringsuppgifter** anger du **användar namn** och **lösen ord** för Concur-administratören.
 
@@ -118,7 +118,7 @@ Nu kan du skapa ett test konto. Vänta i upp till 20 minuter för att kontrol le
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](concur-tutorial.md)
 

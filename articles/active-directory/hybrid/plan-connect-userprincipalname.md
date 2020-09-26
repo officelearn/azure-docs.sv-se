@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317599"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
 
@@ -25,7 +25,7 @@ Attributvärdet UserPrincipalName är Azure AD-användarnamnet för användar ko
 ## <a name="upn-terminology"></a>UPN-terminologi
 Följande terminologi används i den här artikeln:
 
-|Period|Beskrivning|
+|Term|Beskrivning|
 |-----|-----|
 |Första domän|Standard domänen (onmicrosoft.com) i Azure AD-klienten. Till exempel contoso.onmicrosoft.com.|
 |Microsoft Online E-mail routing-adress (MOERA)|Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD-domänen som ett &lt; smek namn för &gt;&#64;&lt; inledande domän &gt; .|
@@ -54,7 +54,7 @@ Alternativt inloggnings-ID kan du konfigurera en inloggnings upplevelse där anv
 
 Om du vill aktivera alternativt inloggnings-ID med Azure AD behövs inga ytterligare konfigurations steg när du använder Azure AD Connect. Alternativ-ID kan konfigureras i guiden. Se inloggnings konfigurationen i Azure AD för användarna under avsnittet Synkronisera. Under List rutan **användarens huvud namn** väljer du attributet för alternativt inloggnings-ID.
 
-![Overifierade domäner](./media/plan-connect-userprincipalname/altloginid.png)  
+![Skärm bild som visar en lista över användarens huvud namn där du väljer attributet alternativt inloggnings-ID.](./media/plan-connect-userprincipalname/altloginid.png)  
 
 Mer information finns i [Konfigurera alternativt inloggnings-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) och [inloggnings konfiguration för Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 

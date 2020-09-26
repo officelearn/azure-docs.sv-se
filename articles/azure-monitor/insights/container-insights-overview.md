@@ -2,13 +2,13 @@
 title: Översikt över Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs Azure Monitor för behållare som övervakar AKS container Insights-lösning och det värde den ger genom att övervaka hälso tillståndet för dina AKS-kluster och Container Instances i Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 85adae1b79609f13be6bb73eb4e57000beda6d77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/08/2020
+ms.openlocfilehash: 215427adc38ebd554ca7ac650ec65a05f5a781e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317165"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Översikt över Azure Monitor för containrar
 
@@ -17,11 +17,11 @@ Azure Monitor för behållare är en funktion som har utformats för att överva
 - Managed Kubernetes kluster som finns i [Azure Kubernetes service (AKS)](../../aks/intro-kubernetes.md)
 - Självhanterade Kubernetes-kluster som finns i Azure med hjälp av [AKS-motorn](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
-- Självhanterade Kubernetes-kluster som finns på [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) eller lokalt
+- Självhanterade Kubernetes-kluster som finns på [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) eller lokalt
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc Enabled-Kubernetes](../../azure-arc/kubernetes/overview.md) (för hands version)
 
-Azure Monitor for containers stöder kluster som kör operativ systemet Linux och Windows Server 2019.
+Azure Monitor for containers stöder kluster som kör operativ systemet Linux och Windows Server 2019. De behållar körningar som stöds är Docker, Moby och alla CRI-kompatibla kör som CRI-O och container.
 
 Övervakning av behållare är avgörande, särskilt när du kör ett produktions kluster, i skala med flera program.
 
@@ -40,7 +40,7 @@ Azure Monitor för behållare ger en omfattande övervaknings upplevelse som anv
 * Förstå klustrets beteende i genomsnitt och tyngsta belastningar. Den här kunskapen kan hjälpa dig att identifiera kapacitets behov och fastställa den maximala belastning som klustret kan hantera.
 * Konfigurera aviseringar för att proaktivt meddela dig eller registrera den när processor-och minnes användning på noder eller behållare överskrider tröskelvärdena, eller när en hälso tillstånds ändring sker i klustret vid en infrastruktur eller noders hälso insamling.
 * Integrera med [Prometheus](https://prometheus.io/docs/introduction/overview/) för att visa program-och arbets belastnings mått som samlas in från noder och Kubernetes med hjälp av [frågor](container-insights-log-search.md) för att skapa anpassade aviseringar, instrument paneler och detaljerad analys.
-* Övervaka arbets belastningar för behållare [som distribueras till AKS-motorn](https://github.com/Azure/aks-engine) lokalt och [AKS-motorn på Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Övervaka arbets belastningar för behållare [som distribueras till AKS-motorn](https://github.com/Azure/aks-engine) lokalt och [AKS-motorn på Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true).
 * Övervaka arbets belastningar [för behållare som distribueras till Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]

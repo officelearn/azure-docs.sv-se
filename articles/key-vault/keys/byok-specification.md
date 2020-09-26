@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84199002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315787"
 ---
 # <a name="bring-your-own-key-specification"></a>Specifikation för Bring your own key
 
@@ -31,7 +31,7 @@ Följande är kraven:
 
 ## <a name="terminology"></a>Terminologi
 
-|Nyckel namn|Nyckel typ|Ursprung|Beskrivning|
+|Nyckel namn|Nyckel typ|Ursprung|Description|
 |---|---|---|---|
 |Nyckel utbytes nyckel (KEK)|RSA|Azure Key Vault HSM|Ett HSM-baserat RSA-nyckelpar som genererats i Azure Key Vault
 Rad brytnings nyckel|AES|Vendor HSM|En [beständig] AES-nyckel genererad av HSM on-lokal
@@ -119,7 +119,7 @@ Om CKM_RSA_AES_KEY_WRAP_PAD används skulle JSON-serialiseringen av överföring
 
 ```
 
-* barn = nyckel identifierare för KEK. För Key Vault nycklar ser det ut så här:https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
+* barn = nyckel identifierare för KEK. För Key Vault nycklar ser det ut så här: https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
 * alg = algoritm. 
 * dir = Direct-läge, d.v.s. det hänvisade barnet används för att direkt skydda chiffertexten som är en korrekt representation av CKM_RSA_AES_KEY_WRAP
 * Generator = ett informations fält som anger namn och version för BYOK-verktyget och källans HSM-tillverkare och modell. Den här informationen är avsedd att användas vid fel sökning och support.
@@ -159,19 +159,7 @@ Begärandetext:
 värdet "key_hsm" är hela innehållet i KeyTransferPackage-ContosoFirstHSMkey. BYOK kodat i base64-format.
 
 ## <a name="references"></a>Referenser
-
-### <a name="azure-key-vault-rest-api"></a>REST API för Azure Key Vault
-
-* [Skapa nyckel](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
-* [Hämta nyckel (nyckelattribut och endast offentlig nyckel)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
-* [Importera nyckel](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
-
-
-### <a name="azure-cli-commands"></a>Azure CLI-kommandon
-* [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
-* [Hämta AZ för nyckel valv](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
-* [AZ nyckel för nyckel valv import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
-
+- [Utvecklarguide för Key Vault](../general/developers-guide.md)
 
 ## <a name="next-steps"></a>Nästa steg
 * Steg-för-steg-BYOK-instruktioner: [Importera HSM-skyddade nycklar till Key Vault (BYOK)](hsm-protected-keys-byok.md)

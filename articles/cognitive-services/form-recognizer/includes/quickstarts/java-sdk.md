@@ -1,21 +1,21 @@
 ---
 title: 'Snabb start: formulär tolkens klient bibliotek för Java'
-description: I den här snabb starten kommer du igång med formulär tolkens klient bibliotek för Java.
+description: Använd formulär tolkens klient bibliotek för Java för att skapa en app för bearbetning av formulär som extraherar nyckel/värde-par och tabell data från dina anpassade dokument.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 30c486ccb7bf3b7d537cd1ed3475a8dadc5b4f6d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4632c5cb12b6d3c2a1b8d4baebf37e9237704591
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89326233"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318940"
 ---
 > [!IMPORTANT]
 > * Formulär igenkännings-SDK: n är riktad mot v 2.0 från tolk tjänsten.
@@ -23,7 +23,7 @@ ms.locfileid: "89326233"
 
 [Referens dokumentation](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  [Paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Exempel](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../../build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
@@ -132,7 +132,8 @@ Med formulär tolken kan du skapa två olika klient typer. Det första `FormReco
 - Hantera modeller som skapats i ditt konto.
 - Kopiera en anpassad modell från en formulär igenkännings resurs till en annan.
 
-Observera att modeller också kan tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Modeller kan också tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -172,7 +173,7 @@ Nästa kodblock använder klient objekt för att anropa metoder för var och en 
 
 Du måste också lägga till referenser till URL: erna för din utbildning och testa data.
 
-* Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+* Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Om du vill få en URL för ett formulär att testa kan du använda ovanstående steg för att hämta SAS-URL: en för ett enskilt dokument i Blob Storage. Eller ta med URL: en för ett dokument som finns på annan plats.
 * Använd metoden ovan för att hämta URL: en för en kvitto bild.
 
@@ -241,7 +242,7 @@ Det returnerade värdet är en samling **FormPage** -objekt: en för varje sida 
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Get form content...
@@ -354,7 +355,7 @@ Nästa kodblock upprepas genom de enskilda objekt som identifierats vid inlevera
 }
 ```
 
-### <a name="output"></a>Resultat 
+### <a name="output"></a>Utdata 
 
 ```console
 Analyze receipt...
@@ -421,7 +422,7 @@ Slutligen returnerar den här metoden det unika ID: t för modellen.
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Train Model with training data...
@@ -480,7 +481,7 @@ Den returnerade **CustomFormModel** anger de fält som modellen kan extrahera, t
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Train Model with training data...
@@ -536,7 +537,7 @@ Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje i
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Analyze PDF form...
@@ -575,7 +576,7 @@ Följande kod block kontrollerar hur många modeller som du har sparat i ditt fo
         accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
 ```
 
-#### <a name="output"></a>Resultat 
+#### <a name="output"></a>Utdata 
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
@@ -611,7 +612,7 @@ Följande kodblock visar de aktuella modellerna i ditt konto och skriver ut info
     });
 ```
 
-#### <a name="output"></a>Resultat 
+#### <a name="output"></a>Utdata 
 
 Det här svaret har trunkerats för läsbarhet.
 

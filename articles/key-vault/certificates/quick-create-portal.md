@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a2c1b39f5688b4fc544e5456666ccb8b4801517
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281058"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Snabb start: Ange och hämta ett certifikat från Azure Key Vault med hjälp av Azure Portal
 
 Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabb starten skapar du ett nyckel valv och använder det för att lagra ett certifikat. Mer information om nyckelvalv finns i [översikten](../general/overview.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -45,7 +45,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 Anteckna de två egenskaperna som visas nedan:
 
 * **Valv namn**: i exemplet är detta **exempel-valv**. Du kommer att använda det här namnet i senare steg.
-* **Valvets URI**: I det här exemplet är det https://example-vault.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
+* **Valvets URI**: I det här exemplet är det `https://example-vault.vault.azure.net/`. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
 
@@ -65,7 +65,7 @@ Om du vill lägga till ett certifikat i valvet behöver du bara göra några ytt
 
 När du har fått ett meddelande om att certifikatet har skapats kan du klicka på det i listan. Du ser då vissa av egenskaperna. Om du klickar på den aktuella versionen så kan du se värdet du angav i föregående steg.
 
-![Certifikat egenskaper](../media/certificates/quick-create-portal/current-version-hidden.png)
+![Certifikategenskaper](../media/certificates/quick-create-portal/current-version-hidden.png)
 
 ## <a name="export-certificate-from-key-vault"></a>Exportera certifikat från Key Vault
 Genom att klicka på knappen Ladda ned i CER-format eller ladda ned i PFX/PEM format kan du hämta certifikatet. 

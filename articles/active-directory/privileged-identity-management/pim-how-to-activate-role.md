@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317546"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktivera mina Azure AD-roller i PIM
 
@@ -40,7 +40,7 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 
 # <a name="new-version"></a>[Ny version](#tab/new)
 
-## <a name="activate-a-role"></a>Aktivera en roll
+## <a name="activate-a-role-for-new-version"></a>Aktivera en roll för ny version
 
 När du behöver anta en Azure AD-roll kan du begära aktivering genom att öppna **Mina roller** i Privileged Identity Management.
 
@@ -80,7 +80,7 @@ När du behöver anta en Azure AD-roll kan du begära aktivering genom att öppn
 
     ![Begäran om aktivering väntar på godkännande](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Visa status för dina begär Anden
+## <a name="view-the-status-of-your-requests-for-new-version"></a>Visa status för dina begär Anden för ny version
 
 Du kan visa statusen för väntande begär Anden att aktivera.
 
@@ -92,7 +92,7 @@ Du kan visa statusen för väntande begär Anden att aktivera.
 
 1. Bläddra till höger för att visa kolumnen **status för begäran** .
 
-## <a name="cancel-a-pending-request"></a>Avbryt en väntande begäran
+## <a name="cancel-a-pending-request-for-new-version"></a>Avbryt en väntande begäran om ny version
 
 Om du inte behöver aktivera en roll som kräver godkännande kan du när som helst avbryta en väntande begäran.
 
@@ -106,7 +106,7 @@ Om du inte behöver aktivera en roll som kräver godkännande kan du när som he
 
    ![Listan Mina begär Anden med avbrotts åtgärd markerad](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot-for-new-version"></a>Felsöka för ny version
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 

@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 265bc1bb86c7fe8424656aa9adb30ddbe847e6fc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985654"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318608"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Vad är Azure Stack Edge Pro R?
 
-Azure Stack Edge Pro R är en maskinvaru-som-tjänst-lösning. Microsoft levererar en hållbar, robust, Server klass, gräns enhet för över nätverks data överföringen till Azure. Enheterna är utrustade med en GPU (Graphic Processing Unit) är optimerade för AI-, analys-och Server lös data behandling. De robusta enheterna är lämpliga för användning i de svåraste miljöerna.
+Azure Stack Edge Pro R är robust, Edge Computing-enhet utformad för användning i tuffa miljöer. Azure Stack Edge Pro R levereras som en lösning för maskin vara som en tjänst. Microsoft levererar en molnbaserad enhet som fungerar som nätverks lagrings-gateway och har en inbyggd GPU (Graphic Processing Unit) som aktiverar accelererad AI-inferencing.
 
 Den här artikeln innehåller en översikt över Azure Stack Edge Pro R-lösningen, viktiga funktioner och scenarier där du kan distribuera den här enheten.
 
@@ -28,14 +28,13 @@ Azure Stack Edge Pro R har följande funktioner:
 
 |Funktion |Beskrivning  |
 |---------|---------|
-|Robust maskin vara| Robust Server klass maskin vara utformad för svåra miljöer. Enheten är portabel i en 2-persons bärväska. |
+|Robust maskin vara| Robust Server klass maskin vara utformad för svåra miljöer. Enheten ingår i ett flyttbart överförings fall. |
 |Molnbaserad hantering     |Enhet och tjänst hanteras via Azure Portal.|
 |Edge Compute-arbetsbelastningar   |Möjliggör analys, bearbetning och filtrering av data. Stöder virtuella datorer och arbets belastningar i behållare.|
 |Accelererad AI-inferencing| Aktiverat av en NVIDIA T4-GPU.|
-|Höga prestanda | Beräkning och data överföringar med höga prestanda.|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet. Lokal cache på enheten används för snabb åtkomst till de senast använda filerna.|
 |Frånkopplat läge| Enhet och tjänst kan hanteras alternativt via Azure Stack hubb. Distribuera, kör, hantera program i offlineläge. <br> Frånkopplat läge stöder scenarier med offlineuppladdning.|
-|Protokoll som stöds     |Stöd för standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [system krav för Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
+|Fil överförings protokoll som stöds     |Stöd för standard-SMB-, NFS-och REST-protokoll för data inmatning. <br> Mer information om versioner som stöds finns i [system krav för Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
 |Dubbel kryptering    | Med hjälp av Självkrypterande enheter får du det första krypterings lagret. VPN tillhandahåller det andra krypterings lagret. BitLocker-stöd för lokal kryptering av data och säker data överföring till molnet via *https* .|
 |Bandbredds begränsning| Begränsa bandbredds användningen under hög belastnings tider.|
@@ -61,13 +60,13 @@ Här följer de olika scenarier där Azure Stack Edge Pro R kan användas för s
 
 Azure Stack Edge Pro R-lösningen består av en Azure Stack gräns resurs, Azure Stack Edge Pro R robust, fysisk enhet och ett lokalt webb gränssnitt.
 
-- **Azure Stack Edge Pro r fysisk enhet** – Azure Stack Edge Pro r är en 1-nods enhet som kan konfigureras för att skicka data till Azure. Enheten är en 1U-server med ett robust hölje som tillhandahålls av Microsoft. Om du vill kan servern vara tillgänglig med en UPS-enhet (även 1U).
+- **Azure Stack Edge Pro R fysisk enhet** – en beräknings-och lagrings enhet med 1 nod som finns i ett robust överförings fall. En valfri avbrotts fri elkälla (UPS) är också tillgänglig.
 
     ![Azure Stack Edge Pro R 1 – nod enhet](media/azure-stack-edge-j-series-overview/device-image-1.png)
 
 - **Azure Stack Edge-resurs** – en resurs i Azure Portal som låter dig hantera en robust, Azure Stack Edge Pro R-enhet från ett webb gränssnitt som du kan komma åt från olika geografiska platser. Använd Azure Stack Edge-resursen för att skapa och hantera resurser, Visa och hantera enheter och aviseringar och hantera resurser.  
 
-- **Azure Stack Edge Pro r Local Web UI** – Använd det lokala webb gränssnittet för inledande enhets konfiguration för att köra diagnostik, stänga av och starta om Azure Stack Edge Pro R-enheten, Visa kopierings loggar och kontakta Microsoft Support för att skicka en tjänstbegäran.
+- **Azure Stack Edge Pro R Local Web UI** – ett webbläsarbaserat lokalt användar gränssnitt på din Azure Stack Edge Pro r-enhet som främst är avsedd för den inledande konfigurationen av enheten. Använd det lokala webb gränssnittet även för att köra diagnostik, stänga av och starta om Azure Stack Edge Pro-enhet, Visa kopierings loggar och kontakta Microsoft Support för att skicka en tjänstbegäran.
 
 
 ## <a name="region-availability"></a>Regional tillgänglighet
@@ -75,6 +74,8 @@ Azure Stack Edge Pro R-lösningen består av en Azure Stack gräns resurs, Azure
 Azure Stack Edge Pro R fysisk enhet, Azure-resurs och mål lagrings konto som du överför data till, behöver inte alla finnas i samma region.
 
 - **Resurs tillgänglighet** – för en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig går du till [Azure-produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+
+- **Enhets tillgänglighet** – för en lista över alla länder där Azure Stack Edge Pro r-enheten är tillgänglig går du till avsnittet **tillgänglighet** på fliken **Azure Stack Edge Pro R** för [Azure Stack Edge Pro r-prissättning](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR).
 
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagrings kontona lagrar Azure Stack Edge Pro R-data bör ligga nära den plats där enheten befinner sig för optimala prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda.
 

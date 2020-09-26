@@ -1,16 +1,16 @@
 ---
 title: Skapa din första tåliga funktion i Azure Functions med PowerShell
-description: Skapa och publicera en beständig Azure-funktion med hjälp av Visual Studio Code.
+description: Skapa och publicera en Azure-beständig funktion i PowerShell med Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 11ae695a898e011fd287730d894394eff013a0ca
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88273407"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317267"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>Skapa din första tåliga funktion i PowerShell
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du använder Azure Functions-tillägge
 
 ![Köra beständiga funktioner i Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 

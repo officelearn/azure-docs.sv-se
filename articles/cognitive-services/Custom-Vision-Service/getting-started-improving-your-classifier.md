@@ -10,12 +10,13 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: a77d3d5c1225fdd85e27db20cdae23e0c77a5e28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73718540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271366"
 ---
 # <a name="how-to-improve-your-classifier"></a>Förbättra din klassificerare
 
@@ -65,7 +66,7 @@ Du kan åtgärda det här problemet genom att inkludera en mängd olika avbildni
 
     ![Bild av storleks exempel](./media/getting-started-improving-your-classifier/size.png)
 
-* __Kamera vinkel:__ Ange bilder tagna med olika kamera vinklar. Alternativt, om alla dina foton måste tas med fasta kameror (till exempel övervaknings kameror), måste du tilldela en annan etikett till varje objekt som utförs regelbundet för att undvika överanpassning&mdash;av orelaterade objekt (till exempel lampposts) som nyckel funktion.
+* __Kamera vinkel:__ Ange bilder tagna med olika kamera vinklar. Alternativt, om alla dina foton måste tas med fasta kameror (till exempel övervaknings kameror), måste du tilldela en annan etikett till varje objekt som utförs regelbundet för att undvika överanpassning av &mdash; orelaterade objekt (till exempel lampposts) som nyckel funktion.
 
     ![Bild av vinkel exempel](./media/getting-started-improving-your-classifier/angle.png)
 

@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 450d0675f81f161e68a207fbe0460c68fcafef29
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318287"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service (DPS) är en hjälp tjänst för IoT Hub som möjliggör Zero-Touch och just-in-Time-etablering till rätt IoT Hub utan mänsklig inblandning. DPS möjliggör etablering av miljon tals enheter på ett säkert och skalbart sätt.
@@ -123,7 +123,9 @@ DPS automatiserar enhets etablering med Azure IoT Hub. Läs mer om [IoT Hub](htt
 
 ## <a name="next-steps"></a>Nästa steg
 Nu har du en översikt över etablering av IoT-enheter i Azure. Nästa steg är att testa ett IoT-scenario från slutpunkt till slutpunkt.
-> [!div class="nextstepaction"]
-> [Konfigurera IoT Hub Device Provisioning service med Azure Portal](quick-setup-auto-provision.md) 
->  [Skapa och etablera en simulerad enhet](quick-create-simulated-device.md) 
->  [Konfigurera enhet för etablering](tutorial-set-up-device.md)
+
+[Konfigurera IoT Hub Device Provisioning Service med Azure Portal](quick-setup-auto-provision.md)
+
+[Skapa och etablera en simulerad enhet](quick-create-simulated-device.md)
+
+[Konfigurera enhet för etablering](tutorial-set-up-device.md)

@@ -1,14 +1,16 @@
 ---
 title: Design med modeller – LUIS
 description: Språk förståelse tillhandahåller flera olika typer av modeller. Vissa modeller kan användas på fler än ett sätt.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 576ba945018d13db9cd24888f3c41a2215857694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683928"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316519"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design med avsikts-och enhets modeller
 
@@ -24,7 +26,7 @@ LUIS-metoden för dator undervisning gör att du enkelt kan lära dig begrepp ti
 
 <a name="v3-authoring-model-decomposition"></a>
 
-## <a name="intents-classify-utterances"></a>Avsikter klassificera yttranden
+## <a name="intents-classify-utterances"></a>Avsikter – klassificera talindata
 
 En avsikt klassificerar exempel yttranden för att lära LUIS om avsikten. Exempel på yttranden i ett avsikts sätt används som positiva exempel på uttryck. Samma yttranden används som negativa exempel i alla andra syften.
 
@@ -34,7 +36,7 @@ Följande uttryck är ett **positivt exempel** för `OrderBook` avsikten och ett
 
 `Buy the top-rated book on bot architecture.`
 
-## <a name="entities-extract-data"></a>Enheter extraherar data
+## <a name="entities-extract-data"></a>Entiteter – extrahera data
 
 En entitet representerar en data enhet som du vill extrahera från uttryck. En enhet för maskin inlärning är en enhet på den översta nivån som innehåller underentiteter, som också är maskin inlärnings enheter.
 

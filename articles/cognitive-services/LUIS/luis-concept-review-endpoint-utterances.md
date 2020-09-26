@@ -1,14 +1,16 @@
 ---
 title: Granska användarens uttryck-LUIS
 description: Med aktiva inlärnings yttranden för gransknings slut punkten för korrekt avsikt och entitet. LUIS väljer slut punkt yttranden den är osäker på.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82f228d5e6f801539c549e16faea371782ad4b59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80546858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316451"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Begrepp för att aktivera aktiv inlärning genom att granska slut punkts yttranden
 Active Learning är en av tre strategier för att förbättra förutsägelse noggrannhet och det enklaste att implementera. Med aktiva inlärnings yttranden för gransknings slut punkten för korrekt avsikt och entitet. LUIS väljer slut punkt yttranden den är osäker på.
@@ -35,7 +37,7 @@ Använd yttranden-API: et **[ta bort omärkta](https://westus.dev.cognitive.micr
 
 ## <a name="enable-active-learning"></a>Aktivera aktiv inlärning
 
-Om du vill aktivera aktiv inlärning måste du logga användar frågor. Detta åstadkommer du genom att anropa [slut punkts frågan](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) med parametern `log=true` QueryString och värdet.
+Om du vill aktivera aktiv inlärning måste du logga användar frågor. Detta åstadkommer du genom att anropa [slut punkts frågan](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) med `log=true` parametern QueryString och värdet.
 
 ## <a name="next-steps"></a>Nästa steg
 

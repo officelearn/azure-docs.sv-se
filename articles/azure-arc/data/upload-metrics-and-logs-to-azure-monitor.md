@@ -1,5 +1,5 @@
 ---
-title: Överför resurs inventering, användnings data, mått och loggar till Azure Monitor
+title: Ladda upp användnings data, mått och loggar till Azure Monitor
 description: Överför resurs inventering, användnings data, mått och loggar till Azure Monitor
 services: azure-arc
 ms.service: azure-arc
@@ -9,25 +9,59 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ac6ffd2b5bf48079db6a0cd261dbe2535e1821ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941556"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317284"
 ---
-# <a name="upload-resource-inventory-usage-data-metrics-and-logs-to-azure-monitor"></a>Överför resurs inventering, användnings data, mått och loggar till Azure Monitor
+# <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Ladda upp användnings data, mått och loggar till Azure Monitor
 
-Med Azure Arc Data Services kan du *överföra dina* mått och loggar till Azure Monitor så att du kan samla in och analysera mått, loggar, generera aviseringar, skicka meddelanden eller utlösa automatiserade åtgärder. Genom att skicka dina data till Azure Monitor kan du också lagra övervakning och logga data från en webbplats och i stor skala som möjliggör långsiktig lagring av data för avancerad analys.  Om du har flera platser som har Azure Arc Data Services kan du använda Azure Monitor som en central plats för att samla in alla dina loggar och mått på dina webbplatser.
+Övervakning är en av de många inbyggda funktioner som Azure Arc-aktiverade data tjänster ger. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+## <a name="upload-usage-data"></a>Ladda upp användnings data
 
-## <a name="before-you-begin"></a>Innan du börjar
+Användnings information som inventering och Resursanvändning kan laddas upp till Azure på följande två sätt:
+
+1. Exportera användnings data med hjälp av ```azdata export``` kommandot enligt följande:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #run the export command
+   azdata arc dc export --type usage --path usage.json
+   ```
+   Det här kommandot skapar en `usage.json` fil med alla Azure Arc-aktiverade data resurser, till exempel SQL-hanterade instanser och postgresql storskaliga instanser osv. som skapas på data styrenheten.
+
+2. Överför användnings data med ```azdata upload``` kommandot
+
+   > [!NOTE]
+   > Vänta minst 24 timmar efter att du har skapat data styrenheten för Azure-bågen innan du kör överföringen
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #run the upload command
+   azdata arc dc upload --path usage.json
+   ```
+
+## <a name="upload-metrics-and-logs"></a>Ladda upp mått och loggar
+
+Med Azure Arc Data Services kan du överföra dina mått och loggar till Azure Monitor så att du kan samla in och analysera mått, loggar, generera aviseringar, skicka meddelanden eller utlösa automatiserade åtgärder. 
+
+Genom att skicka dina data till Azure Monitor kan du också lagra övervakning och logga data från andra platser och på enorma skala för långsiktig lagring av data för avancerad analys.
+
+Om du har flera webbplatser som har Azure Arc Data Services kan du använda Azure Monitor som en central plats för att samla in alla dina loggar och mått på dina webbplatser.
+
+### <a name="before-you-begin"></a>Innan du börjar
 
 Det finns några konfigurations steg som krävs för att göra det möjligt att ladda upp loggar och mått:
 
-1) Skapa ett huvud namn för tjänsten/Azure Active Directory, inklusive att skapa en klient åtkomst hemlighet och tilldela tjänstens huvud namn till rollen övervakning av mått utfärdare för den eller de prenumerationer som databas instans resurserna finns i.
-2) Skapa en Log Analytics-arbetsyta och hämta nycklarna och ange informationen i miljövariabler.
+1. Skapa ett huvud namn för tjänsten/Azure Active Directory, inklusive att skapa en klient åtkomst hemlighet och tilldela tjänstens huvud namn till rollen övervakning av mått utfärdare för den eller de prenumerationer som databas instans resurserna finns i.
+2. Skapa en Log Analytics-arbetsyta och hämta nycklarna och ange informationen i miljövariabler.
 
 Det första objektet krävs för att ladda upp mått och det andra krävs för att ladda upp loggar.
 
@@ -51,7 +85,7 @@ az ad sp create-for-rbac --name <a name you choose>
 
 Exempel på utdata:
 
-```console
+```output
 "appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
 "displayName": "azure-arc-metrics",
 "name": "http://azure-arc-metrics",
@@ -59,36 +93,47 @@ Exempel på utdata:
 "tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
 ```
 
-Spara appId-och klient värden i en miljö variabel för senare användning:
+Spara appId-och klient värden i en miljö variabel för senare användning. 
 
-```console
-#PowerShell
+Följ det här exemplet för att spara appId-och klient värden med PowerShell:
 
+```powershell
 $Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
 $Env:SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
 $Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-#Linux/macOS
-
-export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-#Example (using Linux):
-export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
-export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
-export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
 ```
+
+I Linux eller macOS kan du också spara appId-och klient värden med det här exemplet:
+
+   ```console
+   export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+
+   #Example (using Linux):
+   export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
+   export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
+   export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
+   ```
 
 Kör det här kommandot för att tilldela tjänstens huvud namn till rollen "övervaknings mått Publisher" i prenumerationen där dina databas instans resurser finns:
 
+
+> [!NOTE]
+> Du måste använda dubbla citat tecken för roll namn när du kör från en Windows-miljö.
+
+
 ```console
-az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
 az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
 
 #Example:
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Monitoring Metrics Publisher' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 #az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+
+#On Windows environment
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Contributor" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 ```
 
 Exempel på utdata:
@@ -96,12 +141,12 @@ Exempel på utdata:
 ```console
 {
   "canDelegate": null,
-  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
+  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
   "name": "f82b7dc6-17bd-4e78-93a1-3fb733b9d123",
   "principalId": "5901025f-0353-4e33-aeb1-d814dbc5d123",
   "principalType": "ServicePrincipal",
-  "roleDefinitionId": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
-  "scope": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123",
+  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
+  "scope": "/subscriptions/<Subscription ID>",
   "type": "Microsoft.Authorization/roleAssignments"
 }
 ```
@@ -114,19 +159,19 @@ Kör sedan dessa kommandon för att skapa en Log Analytics arbets yta och ange �
 > Hoppa över det här steget om du redan har en arbets yta.
 
 ```console
-az monitor log-analytics workspace create --resource-group <resource group name> --name <some name you choose>
+az monitor log-analytics workspace create --resource-group <resource group name> --workspace-name <some name you choose>
 
 #Example:
-#az monitor log-analytics workspace create --resource-group MyResourceGroup --name MyLogsWorkpace
+#az monitor log-analytics workspace create --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Exempel på utdata:
 
-```console
+```output
 {
   "customerId": "d6abb435-2626-4df1-b887-445fe44a4123",
   "eTag": null,
-  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
   "location": "eastus",
   "name": "user-logworkspace",
   "portalUrl": null,
@@ -162,7 +207,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 Det här kommandot skriver ut de åtkomst nycklar som krävs för att ansluta till din Log Analytics-arbetsyta:
 
 ```console
-az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --name MyLogsWorkpace
+az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Exempel på utdata:
@@ -222,23 +267,59 @@ echo $SPN_AUTHORITY
 
 ## <a name="upload-metrics-to-azure-monitor"></a>Ladda upp mått till Azure Monitor
 
-Om du vill överföra mått för dina Azure SQL-hanterade instanser och Azure Database for PostgreSQL storskaliga Server grupper kör du följande CLI-kommandon:
+Om du vill överföra mått för Azure Arc-aktiverade SQL-hanterade instanser och Azure Arc-aktiverade PostgreSQL för storskaliga Server grupper kör du följande CLI-kommandon:
 
-Med den här åtgärden exporteras alla mått till den angivna filen:
+1. Exportera alla mått till den angivna filen:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #export the metrics
+   azdata arc dc export --type metrics --path metrics.json
+   ```
+
+2. Ladda upp mått till Azure Monitor:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #upload the metrics
+   azdata arc dc upload --path metrics.json
+   ```
+
+   >[!NOTE]
+   >Vänta minst 30 minuter efter att de Azure Arc-aktiverade data instanserna har skapats för den första överföringen
+   >
+   >Se till att `upload` måtten omedelbart efter `export` Azure Monitor bara accepterar mått under de senaste 30 minuterna. [Läs mer](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
+
+
+Om du ser några fel som indikerar att "det inte går att hämta mått" under exporten, kontrollerar du om data insamling har angetts till ```true``` genom att köra följande kommando:
 
 ```console
-azdata arc dc export -t metrics --path metrics.json
+azdata arc dc config show
 ```
 
-Detta laddar upp mått till Azure Monitor:
+och titta under avsnittet "säkerhet"
 
-```console
-azdata arc dc upload --path metrics.json
+```output
+ "security": {
+      "allowDumps": true,
+      "allowNodeMetricsCollection": true,
+      "allowPodMetricsCollection": true,
+      "allowRunAsRoot": false
+    },
 ```
+
+Kontrol lera om- `allowNodeMetricsCollection` och- `allowPodMetricsCollection` egenskaperna har angetts till `true` .
 
 ## <a name="view-the-metrics-in-the-portal"></a>Visa måtten i portalen
 
-När dina mått har laddats upp bör du kunna visualisera dem från Azure-portalen.
+När dina mått har överförts kan du visa dem från Azure Portal.
+> [!NOTE]
+> Observera att det kan ta några minuter innan de överförda data bearbetas innan du kan visa måtten i portalen.
+
 
 Om du vill visa dina mått i portalen använder du den här länken för att öppna portalen: <https://portal.azure.com> Sök sedan efter din databas instans efter namn i Sök fältet:
 
@@ -255,19 +336,27 @@ Välj det mått som du vill visualisera (du kan också välja flera):
 
 ## <a name="upload-logs-to-azure-monitor"></a>Ladda upp loggar till Azure Monitor
 
- Om du vill ladda upp loggar för dina Azure SQL-hanterade instanser och Azure Database for PostgreSQL storskaliga Server grupper kör du följande CLI-kommandon –
+ Om du vill ladda upp loggar för Azure Arc-aktiverade SQL-hanterade instanser och AzureArc-aktiverade PostgreSQL för storskaliga Server grupper kör du följande CLI-kommandon –
 
-Med den här åtgärden exporteras alla loggar till den angivna filen:
+1. Exportera alla loggar till den angivna filen:
 
-```console
-azdata arc dc export -t logs --path logs.json
-```
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
 
-Loggar överförs till en arbets yta i Azure Monitor Log Analytics:
+   #export the logs
+   azdata arc dc export --type logs --path logs.json
+   ```
 
-```console
-azdata arc dc upload --path logs.json
-```
+2. Ladda upp loggar till en Azure Monitor Log Analytics-arbetsyta:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #Upload the logs
+   azdata arc dc upload --path logs.json
+   ```
 
 ## <a name="view-your-logs-in-azure-portal"></a>Visa dina loggar i Azure Portal
 
@@ -276,18 +365,18 @@ När loggarna har laddats upp kan du köra fråga på dem med hjälp av loggfrå
 1. Öppna Azure Portal och Sök sedan efter din arbets yta efter namn i Sök fältet längst upp och välj sedan den
 2. Klicka på Loggar i den vänstra panelen
 3. Klicka på kom igång (eller klicka på länkarna på sidan Komma igång om du vill veta mer om att Log Analytics om du är nybörjare)
-4. Följ själv studie kursen för att lära dig mer om Log Analytics om du är första gången
+4. Följ själv studie kursen för att lära dig mer om Log Analytics om det är första gången du använder Log Analytics
 5. Expandera Anpassade loggar längst ned i listan över tabeller så visas en tabell med namnet sql_instance_logs_CL.
 6. Klicka på ögonikonen bredvid tabellnamnet
 7. Klicka på knappen Visa i frågeredigeraren
-8. Nu har du en fråga i frågeredigeraren som visar de senaste 10 händelserna i loggen
+8. Nu har du en fråga i Frågeredigeraren som visar de senaste 10 händelserna i loggen
 9. Härifrån kan du experimentera med att köra frågor mot loggarna med frågeredigeraren, ange aviseringar med mera.
 
-## <a name="automating-metrics-and-logs-uploads-optional"></a>Automatisera mått och loggar uppladdningar (valfritt)
+## <a name="automating-uploads-optional"></a>Automatisera uppladdningar (valfritt)
 
-Om du kontinuerligt vill överföra mått och loggar kan du skapa ett skript och köra det på en timer med några minuters mellanrum.  Nedan visas ett exempel på hur du automatiserar uppladdningar med hjälp av ett Linux-gränssnitts skript.
+Om du vill överföra mått och loggar regelbundet kan du skapa ett skript och köra det på en timer med några minuters mellanrum. Nedan visas ett exempel på hur du automatiserar uppladdningar med hjälp av ett Linux-gränssnitts skript.
 
-I din favorit text/kod redigerare lägger du till följande i skript innehållet i filen och sparar som en körbar skript fil, till exempel. sh (Linux/Mac) eller. cmd,. bat,. ps1.
+I din favorit text/kod redigerare lägger du till följande skript i filen och sparar som en körbar skript fil, till exempel. sh (Linux/Mac) eller. cmd,. bat,. ps1.
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force
@@ -300,10 +389,24 @@ Skapa skript filens körbara fil
 chmod +x myuploadscript.sh
 ```
 
-Kör skriptet var 2: e minut:
+Kör skriptet var 20: e minut:
 
 ```console
-watch -n 120 ./myuploadscript.sh
+watch -n 1200 ./myuploadscript.sh
 ```
 
 Du kan också använda en jobbschemaläggaren som cron eller Schemaläggaren för Windows eller en Orchestrator som Ansible, Puppet eller chef.
+
+## <a name="general-guidance-on-exporting-and-uploading-usage-metrics"></a>Allmänna rikt linjer för att exportera och ladda upp användning, mått
+
+Åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) i Azure Arc-aktiverade data tjänster loggas för fakturerings-och övervaknings syfte. Det finns bakgrunds tjänster som övervakar för dessa CRUD-åtgärder och beräknar förbrukningen på lämpligt sätt. Den faktiska beräkningen av användning eller förbrukning sker enligt schema och görs i bakgrunden. 
+
+Under för hands versionen sker den här processen natt. Den allmänna vägledningen är att bara överföra användningen en gång per dag. När användnings informationen exporteras och överförs flera gånger under samma 24-timmarsperiod, uppdateras bara resurs lagret i Azure Portal, men inte resursanvändningen.
+
+För att ladda upp mått accepterar Azure Monitor bara de senaste 30 minuterna data ([Läs mer](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). Rikt linjerna för att ladda upp mått är att överföra måtten direkt efter att du har skapat export filen så att du kan visa hela data uppsättningen i Azure Portal. Om du till exempel exporterade måtten till 2:00 PM och körde kommandot upload på 2:50 PM. Eftersom Azure Monitor bara accepterar data under de senaste 30 minuterna, kanske du inte ser några data i portalen. 
+
+## <a name="next-steps"></a>Nästa steg
+
+[Ladda upp fakturerings data till Azure och visa dem i Azure Portal](view-billing-data-in-azure.md)
+
+[Visa resursen Azure Arc data Controller i Azure Portal](view-data-controller-in-azure-portal.md)

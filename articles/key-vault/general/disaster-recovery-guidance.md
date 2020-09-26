@@ -1,6 +1,6 @@
 ---
-title: Vad du gör om ett avbrott i Azure-tjänsten påverkar Azure Key Vault-Azure Key Vault | Microsoft Docs
-description: Lär dig vad som händer i ett Azure-tjänst avbrott påverkar Azure Key Vault.
+title: Azure Key Vault tillgänglighet och redundans – Azure Key Vault | Microsoft Docs
+description: Läs mer om hur du Azure Key Vault tillgänglighet och redundans.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 27d8d4de308fe7cf6e6f36dd33f33bb73c495073
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6ccd127a35ea0d6a135a4b345297988cfdd8015b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315821"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Tillgänglighet och redundans för Azure Key Vault
 

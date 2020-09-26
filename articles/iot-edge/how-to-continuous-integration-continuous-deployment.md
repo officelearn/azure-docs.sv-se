@@ -3,17 +3,17 @@ title: Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edg
 description: Konfigurera kontinuerlig integrering och kontinuerlig distribution med YAML-Azure IoT Edge med Azure DevOps, Azure-pipelines
 author: shizn
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b68e354099a0038e1b418d6973eca2c774aed94
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281634"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge enheter
 
@@ -38,7 +38,7 @@ Om inget annat anges utforskar procedurerna i den här artikeln inte alla funkti
 * [Miljövariabler](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
 * [Variabler för utdata](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav). I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**.
 * En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md). I den här artikeln har vi skapat en lösning i vårt lagrings lager som kallas **IoTEdgeSolution**, som har koden för en modul med namnet **filtermodule**.

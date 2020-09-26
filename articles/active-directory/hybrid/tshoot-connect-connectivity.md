@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317520"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker anslutnings problem. De här problemen visas förmodligen i en miljö med en proxyserver.
@@ -44,7 +44,7 @@ Proxyservern måste också ha de webb adresser som krävs öppna. Den officiella
 
 I dessa URL: er är följande tabell det absoluta minimala alternativet för att kunna ansluta till Azure AD. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösen ord eller Azure AD Connect Health. Den dokumenteras här för att hjälpa till med fel sökning av den inledande konfigurationen.
 
-| URL | Port | Beskrivning |
+| URL | Port | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*. verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
@@ -85,7 +85,7 @@ Du kan kontrol lera om den Azure AD Connect servern har faktisk anslutning till 
 
 PowerShell använder konfigurationen i machine.config för att kontakta proxyn. Inställningarna i winhttp/netsh bör inte påverka dessa cmdletar.
 
-Om proxyservern har kon figurer ATS korrekt ska du få statusen lyckades: ![ proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Om proxyservern har kon figurer ATS korrekt bör du få status: ![ skärm bild som visar statusen slutförd när proxyservern har kon figurer ATS korrekt.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 Om du **inte kan ansluta till fjärrservern**försöker PowerShell att göra ett direkt anrop utan att använda proxyn eller så är DNS inte korrekt konfigurerat. Kontrol lera att **machine.config** -filen är korrekt konfigurerad.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)

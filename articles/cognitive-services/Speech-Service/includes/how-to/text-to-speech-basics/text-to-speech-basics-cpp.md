@@ -4,28 +4,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: c5d954cc2bdda0b1fcb67801fa948e1f56fb0364
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665ee16d71612ac79607b4a173979847e5e115af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80986242"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332459"
 ---
-## <a name="prerequisites"></a>Krav
+I den här snabb starten lär du dig vanliga design mönster för att skapa text till tal-Sammanfattning med hjälp av tal-SDK. Du börjar med att utföra grundläggande konfiguration och syntes och går vidare till mer avancerade exempel för anpassad program utveckling, inklusive:
 
-Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
+* Få svar som minnes strömmar
+* Anpassa samplings frekvens och bit hastighet för utdata
+* Skicka syntes begär Anden med SSML (tal syntes Markup Language)
+* Använda neurala-röster
+
+## <a name="skip-to-samples-on-github"></a>Hoppa till exempel på GitHub
+
+Om du vill hoppa över direkt till exempel kod, se [snabb starts exemplen för C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/text-to-speech) på GitHub.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
 Innan du kan göra något måste du installera talet SDK. Använd följande instruktioner, beroende på plattform:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp" target="_blank">Linux<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp" target="_blank">macOS<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp" target="_blank">Aktivitets<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp" target="_blank">Linux <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp" target="_blank">macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp" target="_blank">Aktivitets <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## <a name="import-dependencies"></a>Importera beroenden
 
-Om du vill köra exemplen i den här artikeln inkluderar du följande `using` import-och-instruktioner överst i skriptet.
+Om du vill köra exemplen i den här artikeln inkluderar du följande import-och- `using` instruktioner överst i skriptet.
 
 ```cpp
 #include <iostream>
@@ -40,12 +51,12 @@ using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)en. Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
 
 > [!NOTE]
 > Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig):
+Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) :
 
 * Med en prenumeration: skicka i en nyckel och tillhör ande region.
 * Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
@@ -76,7 +87,7 @@ void synthesizeSpeech()
 
 ## <a name="synthesize-speech-to-a-file"></a>Syntetisera tal till en fil
 
-Därefter skapar du ett [`SpeechSynthesizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer) -objekt som kör text till tal-konverteringar och-utdata till högtalare, filer eller andra utgående strömmar. Det [`SpeechSynthesizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer) accepterar som param- [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) objektet som skapades i föregående steg och ett [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) objekt som anger hur resultat ska hanteras.
+Därefter skapar du ett [`SpeechSynthesizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer) -objekt som kör text till tal-konverteringar och-utdata till högtalare, filer eller andra utgående strömmar. Det [`SpeechSynthesizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer) accepterar som param [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) -objektet som skapades i föregående steg och ett [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) objekt som anger hur resultat ska hanteras.
 
 Starta genom att skapa en `AudioConfig` för att automatiskt skriva utdata till en `.wav` fil med hjälp av `FromWavFileOutput()` funktionen.
 
@@ -88,7 +99,7 @@ void synthesizeSpeech()
 }
 ```
 
-Sedan instansierar du `SpeechSynthesizer`ett, skickar `config` ditt objekt och `audioConfig` objektet som parametrar. Sedan är det lika enkelt att köra tal syntes och skrivning till en fil som att `SpeakTextAsync()` köra med en text sträng.
+Sedan instansierar `SpeechSynthesizer` du ett, skickar ditt `config` objekt och `audioConfig` objektet som parametrar. Sedan är det lika enkelt att köra tal syntes och skrivning till en fil som att köra `SpeakTextAsync()` med en text sträng.
 
 ```cpp
 void synthesizeSpeech() 
@@ -104,7 +115,7 @@ Kör programmet och en syntetisk `.wav` fil skrivs till den plats som du har ang
 
 ## <a name="synthesize-to-speaker-output"></a>Syntetisera till talare-utdata
 
-I vissa fall kanske du vill direkt mata ut syntetiskt tal direkt till en talare. Det gör du genom att utelämna `AudioConfig` paramn när du `SpeechSynthesizer` skapar i exemplet ovan. Dessa utdata till den aktuella aktiva utmatnings enheten.
+I vissa fall kanske du vill direkt mata ut syntetiskt tal direkt till en talare. Det gör du genom att utelämna `AudioConfig` paramn när du skapar `SpeechSynthesizer` i exemplet ovan. Dessa utdata till den aktuella aktiva utmatnings enheten.
 
 ```cpp
 void synthesizeSpeech() 
@@ -123,12 +134,12 @@ För många scenarier i tal program utveckling behöver du förmodligen resulter
 * Integrera resultatet med andra API: er eller tjänster.
 * Ändra ljud data, skriv anpassade `.wav` rubriker osv.
 
-Det är enkelt att göra den här ändringen från föregående exempel. Ta först bort `AudioConfig`, eftersom du kommer att hantera utmatnings beteendet manuellt från den här punkten och därefter för ökad kontroll. Pass `NULL` sedan efter `AudioConfig` i `SpeechSynthesizer` konstruktorn. 
+Det är enkelt att göra den här ändringen från föregående exempel. Ta först bort `AudioConfig` , eftersom du kommer att hantera utmatnings beteendet manuellt från den här punkten och därefter för ökad kontroll. Pass sedan `NULL` efter `AudioConfig` i `SpeechSynthesizer` konstruktorn. 
 
 > [!NOTE]
-> Att `NULL` skicka till `AudioConfig`, i stället för att utesluta det som i exemplet ovan, spelar inte upp ljudet som standard på den aktuella aktiva utmatnings enheten.
+> `NULL`Att skicka till `AudioConfig` , i stället för att utesluta det som i exemplet ovan, spelar inte upp ljudet som standard på den aktuella aktiva utmatnings enheten.
 
-Den här gången sparar du resultatet i en [`SpeechSynthesisResult`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesisresult) variabel. `GetAudioData` Get-filen returnerar `byte []` en av utdata. Du kan arbeta med detta `byte []` manuellt, eller så kan du använda [`AudioDataStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) -klassen för att hantera minnes minnes minnes strömmar. I det här exemplet använder du `AudioDataStream.FromResult()` den statiska funktionen för att hämta en ström från resultatet.
+Den här gången sparar du resultatet i en [`SpeechSynthesisResult`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesisresult) variabel. Get-filen `GetAudioData` returnerar en `byte []` av utdata. Du kan arbeta med detta `byte []` manuellt, eller så kan du använda- [`AudioDataStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) klassen för att hantera minnes minnes minnes strömmar. I det här exemplet använder du den `AudioDataStream.FromResult()` statiska funktionen för att hämta en ström från resultatet.
 
 ```cpp
 void synthesizeSpeech() 
@@ -151,11 +162,11 @@ I följande avsnitt visas hur du anpassar attribut för ljud uppspelning, inklus
 * Samplings frekvens
 * Bitdjup
 
-Om du vill ändra ljud formatet använder du `SetSpeechSynthesisOutputFormat()` funktionen på `SpeechConfig` objektet. Den här funktionen förväntar `enum` sig [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat)en typ som du kan använda för att välja utdataformatet. Se referens dokumenten för en [lista över tillgängliga ljud format](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat) .
+Om du vill ändra ljud formatet använder du `SetSpeechSynthesisOutputFormat()` funktionen på `SpeechConfig` objektet. Den här funktionen förväntar sig en `enum` typ [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat) som du kan använda för att välja utdataformatet. Se referens dokumenten för en [lista över tillgängliga ljud format](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat) .
 
 Det finns olika alternativ för olika filtyper beroende på dina krav. Observera att RAW-format, t `Raw24Khz16BitMonoPcm` . ex., inte innehåller ljud rubriker enligt definitionen. Använd RAW-format endast när du vet att den underordnade implementeringen kan avkoda en RAW-Bitstream, eller om du planerar att skapa rubriker manuellt baserat på bitdjup, samplings frekvens, antal kanaler osv.
 
-I det här exemplet anger du ett RIFF-format `Riff24Khz16BitMonoPcm` med hög åter givning genom `SpeechSynthesisOutputFormat` att ange `SpeechConfig` på-objektet. Som liknar exemplet i föregående avsnitt, använder [`AudioDataStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) du för att hämta en minnes intern ström i resultatet och sedan skriva den till en fil.
+I det här exemplet anger du ett RIFF-format med hög åter givning `Riff24Khz16BitMonoPcm` genom att ange `SpeechSynthesisOutputFormat` på- `SpeechConfig` objektet. Som liknar exemplet i föregående avsnitt, använder du [`AudioDataStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) för att hämta en minnes intern ström i resultatet och sedan skriva den till en fil.
 
 ```cpp
 void synthesizeSpeech() 
@@ -178,7 +189,7 @@ Om du kör programmet igen skrivs en `.wav` fil till den angivna sökvägen.
 Med SSML (Speech syntes Markup Language) kan du finjustera bredden, uttal, tal igenkänning, volym och fler text till tal-utdata genom att skicka in dina begär Anden från ett XML-schema. I det här avsnittet visas några praktiska exempel på användnings exempel, men en mer detaljerad guide finns i [artikeln SSML instruktion](../../../speech-synthesis-markup.md).
 
 Om du vill börja använda SSML för anpassning gör du en enkel ändring som byter rösten.
-Börja med att skapa en ny XML-fil för SSML-konfigurationen i rot katalogen för projektet i det `ssml.xml`här exemplet. Rot elementet är alltid `<speak>`och rad brytnings texten i ett `<voice>` element gör att du kan ändra rösten med hjälp `name` av param. Det här exemplet ändrar rösten till en amerikansk engelska (UK) röst. Observera att den här rösten är en **standard** röst, som har olika priser och tillgänglighet än **neurala** röster. Se den [fullständiga listan](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) över **standard** röster som stöds.
+Börja med att skapa en ny XML-fil för SSML-konfigurationen i rot katalogen för projektet i det här exemplet `ssml.xml` . Rot elementet är alltid `<speak>` och rad brytnings texten i ett `<voice>` element gör att du kan ändra rösten med hjälp av `name` param. Det här exemplet ändrar rösten till en amerikansk engelska (UK) röst. Observera att den här rösten är en **standard** röst, som har olika priser och tillgänglighet än **neurala** röster. Se den [fullständiga listan](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) över **standard** röster som stöds.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -188,7 +199,7 @@ Börja med att skapa en ny XML-fil för SSML-konfigurationen i rot katalogen fö
 </speak>
 ```
 
-Sedan måste du ändra begäran om tal syntes för att referera till XML-filen. Begäran är i huvudsak samma, men i stället för att använda `SpeakTextAsync()` funktionen används `SpeakSsmlAsync()`. Den här funktionen förväntar sig en XML-sträng, så du måste först läsa in SSML-konfigurationen som en sträng. Härifrån är resultat-objektet exakt detsamma som i föregående exempel.
+Sedan måste du ändra begäran om tal syntes för att referera till XML-filen. Begäran är i huvudsak samma, men i stället för att använda `SpeakTextAsync()` funktionen används `SpeakSsmlAsync()` . Den här funktionen förväntar sig en XML-sträng, så du måste först läsa in SSML-konfigurationen som en sträng. Härifrån är resultat-objektet exakt detsamma som i föregående exempel.
 
 ```cpp
 void synthesizeSpeech() 
@@ -210,7 +221,7 @@ void synthesizeSpeech()
 }
 ```
 
-Utdata fungerar, men det finns några enkla ytterligare ändringar som du kan göra för att hjälpa dem att bli mer naturliga. Den övergripande tal hastigheten är lite för snabb, så vi lägger till en `<prosody>` tagg och minskar hastigheten till **90%** av standard priset. Dessutom är pausen efter det att kommatecken i meningen är lite för kort och inte naturligt. Du kan åtgärda det här problemet genom `<break>` att lägga till en tagg för att skjuta upp talet och ange tids parametern till **200ms**. Kör sammanfattningen igen för att se hur dessa anpassningar påverkar utdata.
+Utdata fungerar, men det finns några enkla ytterligare ändringar som du kan göra för att hjälpa dem att bli mer naturliga. Den övergripande tal hastigheten är lite för snabb, så vi lägger till en `<prosody>` tagg och minskar hastigheten till **90%** av standard priset. Dessutom är pausen efter det att kommatecken i meningen är lite för kort och inte naturligt. Du kan åtgärda det här problemet genom att lägga till en `<break>` tagg för att skjuta upp talet och ange tids parametern till **200ms**. Kör sammanfattningen igen för att se hur dessa anpassningar påverkar utdata.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -226,7 +237,7 @@ Utdata fungerar, men det finns några enkla ytterligare ändringar som du kan g�
 
 Neurala-röster är tal syntes-algoritmer som drivs av djup neurala nätverk. När du använder en neurala-röst är syntetiskt tal nästan lätt att skilja från de mänskliga inspelningarna. Med den humana naturliga prosody och tydligare utsättande av ord, minskar neurala-röster avsevärt lyssnings utmattning när användarna interagerar med AI-system.
 
-Om du vill växla till en neurala röst ändrar `name` du till ett av [röst alternativen för neurala](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Lägg sedan till ett XML-namnområde `mstts`för och Radbryt texten i `<mstts:express-as>` taggen. Använd `style` param för att anpassa tal formatet. Det här exemplet `cheerful`använder, men försök att ställa `customerservice` in `chat` det på eller för att se skillnaden i tal formatet.
+Om du vill växla till en neurala röst ändrar `name` du till ett av [röst alternativen för neurala](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Lägg sedan till ett XML-namnområde för `mstts` och Radbryt texten i `<mstts:express-as>` taggen. Använd `style` param för att anpassa tal formatet. Det här exemplet använder `cheerful` , men försök att ställa in det på `customerservice` eller `chat` för att se skillnaden i tal formatet.
 
 > [!IMPORTANT]
 > Neurala-röster stöds **bara** för tal resurser som skapats i regionerna *östra USA*, Asien, sydöstra *och Västeuropa.* *South East Asia*

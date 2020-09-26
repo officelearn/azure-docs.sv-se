@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: 9454cb83d535d97a3dd95cd9f5d0636769797d08
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308426"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
@@ -98,7 +98,7 @@ __Obs__: innan du fortsätter måste du kontrol lera att du har lagt till Spark-
     |Parametrar|`-s SECONDARYS_STORAGE_URL`|
     |Beständiga|ja|
 
-    * `SECONDARYS_STORAGE_URL`är URL: en till standard lagrings platsen för Spark-sidan. Parameter exempel:`-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+    * `SECONDARYS_STORAGE_URL` är URL: en till standard lagrings platsen för Spark-sidan. Parameter exempel: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
 
 2.  Använd skript åtgärd i Spark-klustret för att tillämpa ändringarna med följande överväganden:
@@ -107,7 +107,7 @@ __Obs__: innan du fortsätter måste du kontrol lera att du har lagt till Spark-
     |---|---|
     |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |Node-typ (er)|Head, Worker, Zookeeper|
-    |Parametrar|`-s "SPARK-CRON-SCHEDULE"`(valfritt) `-h "HBASE-CRON-SCHEDULE"` valfritt|
+    |Parametrar|`-s "SPARK-CRON-SCHEDULE"` (valfritt) `-h "HBASE-CRON-SCHEDULE"` valfritt|
     |Beständiga|ja|
 
 
@@ -162,8 +162,8 @@ I följande tabell listas exempelvis två versioner och motsvarande kommandon so
 
     |Spark-version| HDI HBase-version  | SHC-version    |  Kommando  |
     | :-----------:| :----------: | :-----------: |:----------- |
-    |      2.1    | HDI 3,6 (HBase 1,1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2.4    | HDI 4,0 (HBase 2,0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    |      2.1    | HDI 3,6 (HBase 1,1) | 1.1.1-2.1-s_2.11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2,4    | HDI 4,0 (HBase 2,0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
 2. Behåll den här Spark Shell-instansen öppen och fortsätt att [definiera en katalog och fråga](#define-a-catalog-and-query). Om du inte hittar den jar v7 som motsvarar dina versioner i SHC Core-lagringsplatsen fortsätter du att läsa. 
 

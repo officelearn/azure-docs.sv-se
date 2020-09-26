@@ -3,33 +3,24 @@ title: Ansluta till Windows Virtual Desktop Windows 10 eller 7 – Azure
 description: Hur du ansluter till virtuella Windows-datorer med hjälp av Windows Skriv bords klienten.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287346"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ansluta med Windows-skrivbordsklienten
 
-> Gäller för: Windows 7, Windows 10 och Windows 10 IoT Enterprise
+> Gäller för: Windows 10, Windows 10 IoT Enterprise och Windows 7
 
 >[!IMPORTANT]
 >Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
-Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Windows 7, Windows 10 och Windows 10 IoT Enterprise med Windows Skriv bords klienten. Klienten har inte stöd för Window 8 eller Windows 8,1.
-
->[!NOTE]
->Windows-klienten får automatiskt standard Windows Virtual Desktop (klassisk). Men om klienten upptäcker att användaren också har Azure Resource Manager resurser lägger den automatiskt till resurserna eller meddelar användaren om att de är tillgängliga.
-
-> [!IMPORTANT]
-> Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).
-
-> [!IMPORTANT]
-> Windows Virtual Desktop stöder för närvarande inte fjärr skrivbords klienten från Windows Store.
+Du kan komma åt Windows virtuella Skriv bords resurser på enheter med Windows 10, Windows 10 IoT Enterprise och Windows 7 med Windows-skrivbordet. Klienten har inte stöd för Window 8 eller Windows 8,1.
 
 ## <a name="install-the-windows-desktop-client"></a>Installera Windows Desktop-klienten
 
@@ -43,6 +34,9 @@ Du kan installera klienten för den aktuella användaren, som inte kräver admin
 
 När du har installerat kan klienten startas från Start-menyn genom att söka efter **fjärr skrivbord**.
 
+> [!IMPORTANT]
+> Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).
+
 ## <a name="subscribe-to-a-workspace"></a>Prenumerera på en arbets yta
 
 Du kan prenumerera på en arbets yta på två sätt. Klienten kan försöka identifiera de resurser som är tillgängliga från ditt arbets-eller skol konto eller så kan du ange webb adressen direkt där dina resurser finns i de fall där klienten inte kan hitta dem. När du prenumererar på en arbets yta kan du starta resurser med någon av följande metoder:
@@ -55,6 +49,9 @@ Du kan prenumerera på en arbets yta på två sätt. Klienten kan försöka iden
 1. Välj **Prenumerera**på klientens huvud sida.
 2. Logga in med ditt användar konto när du uppmanas till det.
 3. Resurserna kommer att visas i anslutnings Center och grupperas efter arbets yta.
+
+>[!NOTE]
+>Windows-klienten får automatiskt standard Windows Virtual Desktop (klassisk). Men om klienten upptäcker att användaren också har Azure Resource Manager resurser lägger den automatiskt till resurserna eller meddelar användaren om att de är tillgängliga.
 
 ### <a name="subscribe-with-a-url"></a>Prenumerera med en URL
 

@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 07/31/2020
-ms.openlocfilehash: 39869e74fcb3e8f3deae1273721093f3f85e8d78
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: ''
+ms.date: 09/16/2020
+ms.openlocfilehash: 41760eb91d2a8406d4deb52cd8e247731239e2b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309871"
 ---
-# <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
+# <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databasresurser i Azure SQL Database
 
 Den här artikeln beskriver hur du skalar beräknings-och lagrings resurserna som är tillgängliga för en Azure SQL Database i den allokerade beräknings nivån. Alternativt tillhandahåller Server lös beräknings [nivån](serverless-tier-overview.md) beräkning av autoskalning och räkningar per sekund för beräkning som används.
 
-När du först har valt antalet virtuella kärnor eller DTU: er kan du skala upp eller ned en enkel databas dynamiskt baserat på den faktiska upplevelsen med hjälp av [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+När du först har valt antalet virtuella kärnor eller DTU: er kan du skala upp eller ned en enkel databas dynamiskt baserat på den faktiska upplevelsen med hjälp av [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Följande video visar dynamiskt ändring av tjänst nivå och beräknings storlek för att öka tillgänglig DTU: er för en enskild databas.
 
@@ -50,17 +50,17 @@ Att ändra tjänst nivå eller beräknings storlek i huvudsak inbegriper tjänst
 
 Beräknad svars tid för att ändra tjänst nivån, skala beräknings storleken för en enskild databas eller elastisk pool, flytta en databas i/från en elastisk pool eller flytta en databas mellan elastiska pooler är parameterstyrda enligt följande:
 
-|Tjänstenivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|Hyperskala
+|Tjänstnivå|Enkel databas,</br>Standard (S0-S1)|Basic elastisk pool,</br>Standard (S2-S12) </br>Generell användning enskild databas eller elastisk pool|Premium-eller Affärskritisk enkel databas eller elastisk pool|Hyperskala
 |:---|:---|:---|:---|:---|
 |**Enkel databas, </br> Standard (S0-S1)**|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt mindre än 5 minuter|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
-|**Basic elastisk pool, </br> Standard (S2-S12), </br> generell användning enskild databas eller elastisk pool**|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt mindre än 5 minuter|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
+|**Basic elastisk pool, </br> Standard (S2-S12), </br> generell användning enskild databas eller elastisk pool**|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;&nbsp;För enskilda databaser, konstant svars tid oberoende av använt utrymme</br>&bull;&nbsp;Normalt är mindre än 5 minuter för enskilda databaser</br>&bull;&nbsp;För elastiska pooler, i proportion till antalet databaser|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
 |**Premium-eller Affärskritisk enkel databas eller elastisk pool**|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|&bull;En &nbsp; latens som är proportionell till databas utrymmet som används på grund av data kopiering</br>&bull;&nbsp;Normalt är mindre än 1 minut per GB använt utrymme|
 |**Hyperskala**|Saknas|Saknas|Saknas|&bull;&nbsp;Tidssvars tid för konstant som är oberoende av använt utrymme</br>&bull;&nbsp;Normalt, mindre än 2 minuter|
 
 > [!NOTE]
 > Dessutom, för standard (S2-S12) och Generell användning databaser, kommer svars tiden för att flytta en databas in i och ut ur en elastisk pool eller mellan elastiska pooler att vara proportionerlig till databasens storlek om databasen använder sig av tjänsten Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)).
 >
-> Du kan ta reda på om en databas använder PFS-lagring genom att köra följande fråga i databasens kontext. Om värdet i kolumnen flervärdesattribut är `PremiumFileStorage` använder databasen PFS-lagring.
+> Du kan ta reda på om en databas använder PFS-lagring genom att köra följande fråga i databasens kontext. Om värdet i kolumnen flervärdesattribut är `PremiumFileStorage` eller `PremiumFileStorage-ZRS` , använder databasen PFS-lagring.
  
 ```sql
 SELECT s.file_id,
@@ -122,9 +122,9 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 ### <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
 - Lagrings utrymmet kan tillhandahållas till max storleks gränsen för data lagring med steg om 1 GB. Det minsta konfigurerbara data lagrings utrymmet är 1 GB. Se dokumentations sidor för resurs gränser för [enskilda databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md) för data lagring Max storleks gränser i varje tjänst mål.
-- Data lagring för en enskild databas kan tillhandahållas genom att öka eller minska dess Max storlek med hjälp av [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). Om värdet för maximal storlek anges i byte, måste det vara en multipel av 1 GB (1073741824 byte).
+- Data lagring för en enskild databas kan tillhandahållas genom att öka eller minska dess Max storlek med hjälp av [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). Om värdet för maximal storlek anges i byte, måste det vara en multipel av 1 GB (1073741824 byte).
 - Mängden data som kan lagras i datafilerna för en databas begränsas av den konfigurerade maximala storleken för data lagring. Förutom lagringen allokerar Azure SQL Database automatiskt 30% mer lagrings utrymme som ska användas för transaktions loggen.
-- Azure SQL Database allokerar automatiskt 32 GB per vCore för `tempdb` databasen. `tempdb`finns på den lokala SSD-lagringen på alla tjänst nivåer.
+- Azure SQL Database allokerar automatiskt 32 GB per vCore för `tempdb` databasen. `tempdb` finns på den lokala SSD-lagringen på alla tjänst nivåer.
 - Priset för lagring för en enskild databas eller en elastisk pool är summan av data lagrings-och transaktions logg lagrings belopp multiplicerat med tjänst nivåns lagrings enhets pris. Kostnaden för `tempdb` ingår i priset. Mer information om lagrings priset finns [Azure SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 ### <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 
 - DTU-priset för en enskild databas omfattar en viss mängd lagring utan extra kostnad. Extra lagring utöver den mängd som ingår kan tillhandahållas för ytterligare kostnad upp till den maximala storleks gränsen i steg om 250 GB upp till 1 TB och sedan i steg om 256 GB utöver 1 TB. För inkluderade lagrings mängder och Max storleks gränser, se [enskild databas: lagrings storlekar och beräknings storlekar](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Extra lagrings utrymme för en enskild databas kan tillhandahållas genom att öka Max storleken med Azure Portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [POWERSHELL](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Extra lagrings utrymme för en enskild databas kan tillhandahållas genom att öka Max storleken med Azure Portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [POWERSHELL](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Priset för extra lagring för en enskild databas är det extra lagrings beloppet multiplicerat med det extra lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [Azure SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

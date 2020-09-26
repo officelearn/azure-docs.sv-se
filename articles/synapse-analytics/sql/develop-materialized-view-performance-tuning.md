@@ -1,6 +1,6 @@
 ---
 title: Prestandajustering med materialiserade vyer
-description: Rekommendationer och överväganden som du bör känna till när du använder materialiserade vyer för att förbättra din frågas prestanda.
+description: Rekommendationer och överväganden för materialiserade vyer för att förbättra din frågas prestanda.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495700"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289046"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestandajustering med materialiserade vyer
 
@@ -29,9 +29,9 @@ En standardvy beräknar data varje gång som vyn används.  Det finns inga data 
 
 En materialiserad vy för beräkning, lager och underhåll av data i SQL-poolen precis som en tabell.  Det behövs ingen omberäkning varje gången en materialiserad vy används.  Det är anledningen till att frågor som använder alla eller en delmängd av data i materialiserade vyer kan få snabbare prestanda.  Även bättre, frågor kan använda en materialiserad vy utan att hänvisa till den, så du behöver inte ändra program koden.  
 
-De flesta standard kraven för standardvyn gäller fortfarande för en materialiserad vy. Mer information om syntaxen för materialiserad vy och andra krav finns i [skapa materialiserad vy som Välj](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+De flesta standard kraven för standardvyn gäller fortfarande för en materialiserad vy. Mer information om syntaxen för materialiserad vy och andra krav finns i [skapa materialiserad vy som Välj](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-| Jämförelse                     | Vy                                         | Materialiserad vy
+| Jämförelse                     | Visa                                         | Materialiserad vy
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
 |Visa definition                 | Lagras i Azure Data Warehouse.              | Lagras i Azure Data Warehouse.
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i Azure Data Warehouse när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
@@ -55,8 +55,8 @@ En korrekt utformad materialiserad vy ger följande fördelar:
 Jämfört med andra data lager leverantörer ger de materialiserade vyerna som implementeras i SQL-poolen även följande ytterligare fördelar:
 
 - Automatisk och synkron data uppdatering med data ändringar i bas tabeller. Ingen användar åtgärd krävs.
-- Brett stöd för mängd funktioner. Se [skapa materialiserad vy som Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
-- Support för fråga-Specific materialiserad View-rekommendation.  Se [förklaring (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Brett stöd för mängd funktioner. Se [skapa materialiserad vy som Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Support för fråga-Specific materialiserad View-rekommendation.  Se [förklaring (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Vanliga scenarier  
 
@@ -117,7 +117,7 @@ Alternativ för att minska antalet materialiserade vyer:
 
 - Ta bort de materialiserade vyerna som har låg användning eller som inte längre behövs.  En inaktive rad materialiserad vy underhålls inte, men den kostar fortfarande lagrings kostnaden.  
 
-- Kombinera materialiserade vyer som skapats på samma eller liknande bas tabeller även om deras data inte överlappar varandra.  Att kombinera materialiserade vyer kan resultera i en större vy än summan av de separata vyerna, men vyn underhålls kostnader bör minska.  Ett exempel:
+- Kombinera materialiserade vyer som skapats på samma eller liknande bas tabeller även om deras data inte överlappar varandra.  Att kombinera materialiserade vyer kan resultera i en större vy än summan av de separata vyerna, men vyn underhålls kostnader bör minska.  Exempel:
 
 ```sql
 -- Query 1 would benefit from having a materialized view created with this SELECT statement
@@ -143,13 +143,17 @@ Data lager optimeringen kan automatiskt använda distribuerade materialiserade v
 
 **Övervaka materialiserade vyer**
 
-En materialiserad vy lagras i informations lagret, precis som en tabell med grupperat columnstore-index (CCI).  Om du läser data från en materialiserad vy, så genomsöker indexet och tillämpar ändringarna från delta Store.  När antalet rader i delta-lagret är för högt kan det ta längre tid än att fråga bas tabellerna när du löser en fråga från en materialiserad vy.  För att undvika prestanda försämring av frågor, är det en bra idé att köra [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att övervaka vyns overhead_ratio (total_rows/base_view_row).  Om overhead_ratio är för hög, kan du överväga att återskapa den materialiserade vyn så att alla rader i delta-arkivet flyttas till columnstore-indexet.  
+En materialiserad vy lagras i informations lagret, precis som en tabell med grupperat columnstore-index (CCI).  Om du läser data från en materialiserad vy, så genomsöker indexet och tillämpar ändringarna från delta Store.  När antalet rader i delta-lagret är för högt kan det ta längre tid än att fråga bas tabellerna när du löser en fråga från en materialiserad vy.  
+
+För att undvika prestanda försämring av frågor, är det en bra idé att köra [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) för att övervaka vyns overhead_ratio (total_rows/base_view_row).  Om overhead_ratio är för hög, kan du överväga att återskapa den materialiserade vyn så att alla rader i delta-arkivet flyttas till columnstore-indexet.  
 
 **Materialiserad vy och resultat uppsättnings-cachelagring**
 
 Dessa två funktioner introduceras i SQL-poolen runt samma tid för prestanda justering av frågor. Cachelagring av resultat uppsättningar används för att uppnå hög samtidighet och snabba svars tider från upprepade frågor mot statiska data.  
 
-För att kunna använda det cachelagrade resultatet måste formen för den begär ande frågan i cachen matcha med den fråga som skapade cacheminnet.  Dessutom måste det cachelagrade resultatet gälla för hela frågan.  Materialiserade vyer tillåter data ändringar i bas tabellerna.  Data i materialiserade vyer kan tillämpas på en del av en fråga.  Detta stöd tillåter att samma materialiserade vyer används av olika frågor som delar en del beräkning för snabbare prestanda.
+För att kunna använda det cachelagrade resultatet måste formen för den begär ande frågan i cachen matcha med den fråga som skapade cacheminnet.  Dessutom måste det cachelagrade resultatet gälla för hela frågan.  
+
+Materialiserade vyer tillåter data ändringar i bas tabellerna.  Data i materialiserade vyer kan tillämpas på en del av en fråga.  Detta stöd tillåter att samma materialiserade vyer används av olika frågor som delar en del beräkning för snabbare prestanda.
 
 ## <a name="example"></a>Exempel
 
@@ -352,7 +356,7 @@ GROUP BY c_customer_id
 
 ```
 
-Kontrol lera körnings planen för den ursprungliga frågan igen.  Nu har antalet kopplingar ändrats från 17 till 5 och det finns ingen blandning längre.  Klicka på ikonen filter åtgärd i planen. Dess utmatnings lista visar data läses från de materialiserade vyerna i stället för bas tabeller.  
+Kontrol lera körnings planen för den ursprungliga frågan igen.  Nu har antalet kopplingar ändrats från 17 till 5 och det finns ingen blandning längre.  Välj ikonen filter åtgärd i planen. Dess utmatnings lista visar data läses från de materialiserade vyerna i stället för bas tabeller.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/develop-materialized-view-performance-tuning/output-list.png)
 

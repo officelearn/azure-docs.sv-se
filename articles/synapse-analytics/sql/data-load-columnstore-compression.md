@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 25ab7d275957aff03ad76bf2e946a98fc6cd8821
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032970"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289284"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximera radgrupps-kvalitet för columnstore-indexets prestanda
 
@@ -26,7 +26,7 @@ Radgrupps-kvaliteten bestäms av antalet rader i en radgrupps. Att öka det till
 
 Eftersom ett columnstore-index skannar en tabell genom att söka igenom kolumn segmenten i enskilda högkvalitativa, ökar antalet rader i varje radgrupps, vilket ökar frågans prestanda. När högkvalitativa har ett stort antal rader förbättrar data komprimeringen vilket innebär att det finns mindre data att läsa från disken.
 
-Mer information om högkvalitativa finns i [instruktions guide för columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Mer information om högkvalitativa finns i [instruktions guide för columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Mål storlek för högkvalitativa
 
@@ -34,15 +34,15 @@ För bästa prestanda för frågor är målet att maximera antalet rader per rad
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Högkvalitativa kan bli putsad under komprimering
 
-Ibland finns det inte tillräckligt med minne för att komprimera alla rader som har angetts för varje radgrupps under en återuppbyggnad av Mass inläsning eller columnstore-index. När det finns minnes belastning trimmar columnstore-index de radgrupps storlekarna så att komprimeringen kan utföras.
+Det finns ibland inte tillräckligt med minne för att komprimera alla rader som har angetts för varje radgrupps under en återuppbyggnad av Mass inläsning eller columnstore-index. När det finns minnes belastning trimmar columnstore-index de radgrupps storlekarna så att komprimeringen kan utföras.
 
 Om det inte finns tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupps genereras ett fel.
 
-Mer information om Mass inläsning finns i [Mass inläsning till ett grupperat columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk ).
+Mer information om Mass inläsning finns i [Mass inläsning till ett grupperat columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Så här övervakar du radgrupps-kvalitet
 
-DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) innehåller den visnings definition som matchar SQL DB) som visar användbar information, till exempel antalet rader i högkvalitativa och orsaken till trimningen om det har beskurits. Du kan skapa följande vy som ett praktiskt sätt att fråga denna DMV för att få information om radgrupps trimning.
+DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) innehåller den visnings definition som matchar SQL DB) som visar användbar information, till exempel antalet rader i högkvalitativa och orsaken till trimningen om det har beskurits. Du kan skapa följande vy som ett praktiskt sätt att fråga denna DMV för att få information om radgrupps trimning.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -77,14 +77,15 @@ Trim_reason_desc anger om radgrupps har trimmats (trim_reason_desc = NO_TRIM bet
 
 ## <a name="how-to-estimate-memory-requirements"></a>Beräkna minnes krav
 
-Det maximala minne som krävs för att komprimera en radgrupps är ungefär
+Det maximala minne som krävs för att komprimera en radgrupps är ungefär så här:
 
 - 72 MB +
 - \#rader \* \# kolumner \* 8 byte +
 - \#rader \* \# korta-sträng-kolumner \* 32 byte +
 - \#långa sträng kolumner \* 16 MB för komprimerings ord lista
 
-där korta strängar använder sträng data typer för <= 32 byte och Long-String-columns använder sträng data typer på > 32 byte.
+> [!NOTE]
+> Där korta strängar använder sträng data typer för <= 32 byte och Long-String-columns använder sträng data typer på > 32 byte.
 
 Långa strängar komprimeras med en komprimerings metod som är utformad för komprimering av text. Den här komprimerings metoden använder en *ord lista* för att lagra text mönster. Den maximala storleken för en ord lista är 16 MB. Det finns bara en ord lista för varje lång sträng kolumn i radgrupps.
 

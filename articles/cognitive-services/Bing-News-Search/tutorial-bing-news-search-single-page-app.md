@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-javascript
-ms.openlocfilehash: 2391b63cbc0539b9c2e505e8cf531aeb78eb9bfd
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec2018, devx-track-js
+ms.openlocfilehash: 225ab3a8ab03c507132bdfcb176aeeb706d6b115
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304057"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: skapa en webbapp med en sida
 
@@ -323,7 +323,7 @@ function renderResults(items) {
 ```
 API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
-|Relation|Beskrivning|
+|Relation|Description|
 |-|-|
 |`pivotSuggestions`|Frågor som ersätter ett pivotord i den ursprungliga sökningen med ett annat. Om du till exempel söker efter ”röda blommor” kan ett pivotord vara ”röda”, och ett pivotförslag kan vara ”gula blommor”.|
 |`queryExpansions`|Frågor som begränsar den ursprungliga sökningen genom att lägga till fler termer. Om du exempelvis söker efter ”Microsoft Surface” kan en frågeexpansion vara ”Microsoft Surface Pro”.|

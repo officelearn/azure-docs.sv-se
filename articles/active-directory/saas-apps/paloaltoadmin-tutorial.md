@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/17/2020
+ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: d8a4a4360265cabc179c8cd41d0a33a0575f55a6
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 73b7b57aad43eea8e8d592d437185ca5c7e8a666
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855035"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Självstudie: Azure Active Directory integrering med Palo-nätverk – admin UI
 
@@ -26,9 +26,6 @@ Integreringen av Palo Alto Networks – Admin UI med Azure AD medför följande 
 * Du kan styra vem som har åtkomst till Palo Alto Networks – Admin UI från Azure AD.
 * Du kan konfigurera inställningar så att dina användare automatiskt loggas in i Palo Alto Networks – Admin UI (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
-
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,13 +40,12 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 * Palo Alto Networks – Admin UI stöder **SP**-initierad enkel inloggning
 * Palo Alto Networks – Admin UI stöder **JIT**-etablering (Just In Time)
-* När du har konfigurerat Palo-nätverk – admin-ANVÄNDARGRÄNSSNITTET kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Lägga till Palo Alto Networks – Admin UI från galleriet
 
 För att konfigurera integreringen av Palo Alto Networks – Admin UI med Azure AD måste du lägga till Palo Alto Networks – Admin UI från galleriet i din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. Logga in på Azure Portal med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
@@ -57,10 +53,11 @@ För att konfigurera integreringen av Palo Alto Networks – Admin UI med Azure 
 1. Välj **Palo-nätverk – admin-gränssnittet** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Konfigurera och testa Azure AD SSO
+
 I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Palo-nätverk-admin-användar gränssnitt baserat på en test användare som kallas **B. Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Palo Alto Networks – Admin UI upprättas.
 
-För att konfigurera och testa enkel inloggning i Azure AD med Palo Alto Networks – Admin UI måste du utföra följande uppgifter:
+Utför följande steg för att konfigurera och testa enkel inloggning i Azure AD med Palo-nätverk – admin UI:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
@@ -69,23 +66,15 @@ För att konfigurera och testa enkel inloggning i Azure AD med Palo Alto Network
     * **[Skapa Palo-nätverk – administratörs användar gränssnitt test användare](#create-palo-alto-networks---admin-ui-test-user)** -om du vill ha en motsvarighet till B. Simon i Palo-nätverk – admin-användar gränssnitt som är länkat till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-För att konfigurera enkel inloggning i Azure AD med Palo Alto Networks – Admin UI måste du utföra följande steg:
+1. I Azure Portal går du till sidan **Palo-nätverk-admin UI** application integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-1. Välj **Enkel inloggning** på sidan för programintegrering av **Palo Alto Networks – Admin UI** på [Azure-portalen](https://portal.azure.com/).
-
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
-
-1. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
@@ -133,11 +122,6 @@ För att konfigurera enkel inloggning i Azure AD med Palo Alto Networks – Admi
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -158,18 +142,12 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
 1. Välj **Palo Alto Networks – Admin UI** i programlistan.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
-
-   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
-
-    ![Länken Lägg till användare](common/add-assign-user.png)
-
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har kon figurer ATS för den här appen ser du rollen "standard åtkomst" vald.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-### <a name="configure-palo-alto-networks---admin-ui-sso"></a>Konfigurera Palo-nätverk – admin UI SSO
+## <a name="configure-palo-alto-networks---admin-ui-sso"></a>Konfigurera Palo-nätverk – admin UI SSO
 
 1. Öppna Palo Alto Networks-brandväggens administratörsgränssnitt som administratör i ett nytt fönster.
 
@@ -258,20 +236,17 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 Palo Alto Networks – Admin UI stöder JIT-etablering (Just-In-Time) Om en användare inte redan finns skapas den automatiskt i systemet efter en lyckad autentisering. Ingen åtgärd krävs av dig för att skapa användaren.
 
-### <a name="test-sso"></a>Testa SSO
+## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning med följande alternativ. 
 
-När du klickar på panelen för Palo Alto Networks – Admin UI på åtkomstpanelen bör du loggas in automatiskt i programmet för Palo Alto Networks – Admin UI som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Klicka på **testa det här programmet** i Azure Portal. Detta omdirigeras till Palo--nätverk – inloggnings-URL för admin UI där du kan starta inloggnings flödet. 
 
-## <a name="additional-resources"></a>Ytterligare resurser
+2. Gå till Palo-nätverk – inloggnings-URL för admin UI direkt och starta inloggnings flödet därifrån.
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Palo-nätverk-admin UI på åtkomst panelen, bör du loggas in automatiskt till Palo-ProNetworks-admin-ANVÄNDARGRÄNSSNITTET som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Efterföljande moment
 
-- [Testa Palo-nätverk – admin UI med Azure AD](https://aad.portal.azure.com/)
-
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+När du har konfigurerat Palo-nätverk – admin-ANVÄNDARGRÄNSSNITTET kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

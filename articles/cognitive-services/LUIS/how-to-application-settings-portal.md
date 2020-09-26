@@ -1,14 +1,16 @@
 ---
 title: Programinställningar
 description: Konfigurera program-och versions inställningarna i LUIS-portalen, till exempel uttryck normalisering och app privacy.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/17/2020
-ms.openlocfilehash: c1d5572c3eeb71ec0631a03444d08da46d0a0106
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0a07e423b5307934938727cd8ccc475989e04362
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653222"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309633"
 ---
 # <a name="application-and-version-settings"></a>Program-och versions inställningar
 
@@ -42,4 +44,4 @@ Om du vill ändra en inställning väljer du växlings knappen på sidan.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Samar beta](luis-how-to-collaborate.md) med andra författare
-* [Publiceringinställningar](luis-how-to-publish-app.md#configuring-publish-settings)
+* [Publiceringsinställningar](luis-how-to-publish-app.md#configuring-publish-settings)

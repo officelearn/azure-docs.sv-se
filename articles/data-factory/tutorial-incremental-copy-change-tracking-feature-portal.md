@@ -1,6 +1,6 @@
 ---
 title: Kopiera data stegvis med Ändringsspårning med hjälp av Azure Portal
-description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en SQL Server databas till en databas i Azure SQL Database.
+description: I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data baserat på ändrings spårnings information i käll databasen i Azure SQL Database till en Azure Blob Storage.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 919eef113b1a44b84aacf306426ac4f82baa2423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86085828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321092"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage med hjälp av ändrings spårnings information med hjälp av Azure Portal
 
@@ -360,7 +360,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Skapa en pipeline för deltakopian
 I det här steget skapar du en pipeline med följande aktiviteter och kör den med jämna mellanrum. **Lookupaktiviteterna** hämtar den nya och gamla SYS_CHANGE_VERSION från Azure SQL Database och skickar den till kopieringsaktiviteten. **Kopieringsaktiviteten** kopierar infogade/uppdaterade/borttagna data mellan de två SYS_CHANGE_VERSION-värdena från Azure SQL Database till Azure Blob Storage. Den **lagrade proceduraktivitetsuppdateringarna** uppdaterar värdet för SYS_CHANGE_VERSION för nästa pipelinekörning.
 
-1. I Data Factory användar gränssnitt växlar du till fliken **redigera** . Klicka på **+ (plus)** i det vänstra fönstret och klicka på **pipeline**.
+1. I Data Factory användar gränssnitt växlar du till fliken **Redigera** . Klicka på **+ (plus)** i det vänstra fönstret och klicka på **pipeline**.
 
     ![Meny för ny pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. En ny flik öppnas för inställningar för pipelinen. Du kan också se pipelinen i trädvyn. I fönstret **Egenskaper** ändrar du pipelinenamnet till **IncrementalCopyPipeline**.

@@ -12,12 +12,12 @@ ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1d196ea33eafbfae0d9db68588c0adb131a383f4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2ebba2bb957a1c05fd591181f0a784ed778c6c57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91001089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333383"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Behörigheter för företags program för anpassade roller i Azure Active Directory
 
@@ -119,7 +119,7 @@ För att delegera möjlighet att auktorisera program åtkomst för etablering. E
 
 ## <a name="full-list-of-permissions"></a>Fullständig lista över behörigheter
 
-Behörighet | Beskrivning
+Behörighet | Description
 ---------- | -----------
 Microsoft. Directory/applicationPolicies/allProperties/Read | Läs alla egenskaper för användnings principer.
 Microsoft. Directory/applicationPolicies/allProperties/Update | Uppdatera alla egenskaper för användnings principer.
@@ -138,7 +138,6 @@ Microsoft. Directory/Service princip ALS/appRoleAssignedTo/Read | Läs roll till
 Microsoft. Directory/Service princip ALS/appRoleAssignedTo/Update | Uppdatera roll tilldelningar för tjänstens huvud namn.
 Microsoft. Directory/Service princip ALS/appRoleAssignments/Read | Läs roll tilldelningar tilldelade till tjänstens huvud namn.
 Microsoft. Directory/Service princip ALS/målgrupp/uppdatera | Uppdatera mål egenskaper för tjänstens huvud namn.
-Microsoft. Directory/Service princip ALS/Authentication/Read |  
 Microsoft. Directory/Service princip ALS/Authentication/Update | Uppdatera autentiserings egenskaper för tjänstens huvud namn.
 Microsoft. Directory/Service princip ALS/Basic/Update | Uppdatera grundläggande egenskaper för tjänstens huvud namn.
 Microsoft. Directory/Service princip ALS/Create | Skapa tjänstens huvud namn.

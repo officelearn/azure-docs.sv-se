@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b0547ba25f6534593a0a016ebfa5cbe4d2be2e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331020"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Hämta anslutnings slut punkter och form anslutnings strängar för din ARC-aktiverad PostgreSQL-Server grupp
 
@@ -77,7 +77,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - Lösen ordet för den _postgresql_ -användare som anges i slut punkten med namnet "_postgresql instance_ är det lösen ord som du valde när du skapade Server gruppen.
+> - Lösen ordet för den _postgres_ -användare som anges i slut punkten med namnet "_postgresql instance_" är det lösen ord som du valde när du distribuerar Server gruppen.
 > - Om azdata: lånet som är kopplat till anslutningen varar cirka 10 timmar. Efter det måste du ansluta igen. Om lånet har upphört att gälla får du följande fel meddelande när du försöker köra ett kommando med azdata (annat än azdata-inloggning): _fel: (401)_ 
 >  _Orsak: otillåtna_ 
 >  _HTTP-svarshuvuden: HTTPHeaderDict ({Date: "Sun, 06 sep 2020 16:58:38 GMT, Content-Length: ' 0 ', ' www-autentisera ': '_ 

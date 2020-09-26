@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02c669439c54f34afb4212949b20f6793784103
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359433"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Säkerhets kopiering och återställning av OS för typ II SKU: er av revision 3-stämplar
 
@@ -69,7 +69,7 @@ Följande kommando visar återställningen av en fil */etc/fstabfrom* säkerhets
 
 Följande skärm bild visar återställningen av en fullständig säkerhets kopia:
 
-![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![Skärm bild som visar ett kommando tolks fönster med Restore.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
 ## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Hur du installerar bakre verktyget och ändrar konfigurationen? 
 
@@ -86,7 +86,7 @@ Använd följande kommando för **RHEL** -operativ system:
 ```
 #yum install rear -y
 ```
-Om du vill konfigurera bakre verktyget måste du uppdatera parametrarna **OUTPUT_URL** och **BACKUP_URL** i *filen/etc/Rear/Local.conf*.
+Om du vill konfigurera bakre verktyget måste du uppdatera parametrarna **OUTPUT_URL**  och **BACKUP_URL**  i *filen/etc/Rear/Local.conf*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Följande skärm bild visar återställningen av en fullständig säkerhets kopia: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Följande skärm bild visar en fullständig säkerhets kopiering: ![ skärm bild som visar ett kommando tolks fönster med återställningen med hjälp av bakre verktyget.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

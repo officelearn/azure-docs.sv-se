@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333264"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Felsöka SDK-inläsnings fel för JavaScript-webbappar
 
@@ -30,7 +30,7 @@ Undantags felet för SDK-inläsningen skapas och rapporteras av JavaScript-kodfr
 
 Stack informationen innehåller grundläggande information med URL: erna som används av slutanvändaren.
 
-| Namn                      | Beskrivning                                                                                                  |
+| Name                      | Beskrivning                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN- &nbsp; slutpunkt&gt; | Den URL som användes (och misslyckades) för att hämta SDK: n.                                                      |
 | &lt;Hjälp &nbsp; länk&gt;    | En URL som länkar till fel söknings dokumentation (den här sidan).                                              |
@@ -115,7 +115,7 @@ Om du fortfarande ser ett JavaScript-undantag i SDK-skriptet när du använder d
 
 Om undantaget försvinner orsakas problemet troligt vis av ett typ matchnings fel eller ett oväntat värde. Börja lägga till dina konfigurations alternativ tillbaka en i taget och testa tills undantaget inträffar igen. Kontrol lera sedan dokumentationen för objektet som orsakar problemet. Om dokumentationen är oklar eller om du behöver hjälp kan du ange [ett problem på GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues).
 
-Om konfigurationen tidigare har distribuerats och fungerat, men precis börjat rapportera detta undantag, kan det vara ett problem med en nyligen distribuerad version, kontrol lera om den påverkar endast en liten uppsättning användare/webbläsare och antingen fil-eller [GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) eller [skapa ett nytt support ärende](https://azure.microsoft.com/support/create-ticket/).
+Om konfigurationen tidigare har distribuerats och fungerat, men precis börjat rapportera detta undantag, kan det vara ett problem med en nyligen distribuerad version, kontrol lera om den påverkar endast en liten uppsättning användare/webbläsare och antingen fil-eller [GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) eller  [skapa ett nytt support ärende](https://azure.microsoft.com/support/create-ticket/).
 
 ### <a name="enable-console-debugging"></a>Aktivera fel sökning av konsol
 

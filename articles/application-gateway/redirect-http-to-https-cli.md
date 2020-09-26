@@ -1,19 +1,19 @@
 ---
 title: Omdirigering av HTTP till HTTPS med CLI
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du skapar en Programgateway och lägger till ett certifikat för TLS-avslutning med hjälp av Azure CLI.
+description: Lär dig hur du skapar en HTTP-till-HTTPS-omdirigering och lägger till ett certifikat för TLS-avslutning med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/15/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331037"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med HTTP till HTTPS-omdirigering med hjälp av Azure CLI
 
@@ -223,13 +223,6 @@ Om du använde ett självsignerat certifikat och vill acceptera säkerhetsvarnin
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Skapa ett självsignerat certifikat
-> * Konfigurera ett nätverk
-> * Skapa en programgateway med certifikatet
-> * Lägg till en regel för avlyssning och omdirigering
-> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
+- [Skapa en Application Gateway med intern omdirigering med Azure CLI](redirect-internal-site-cli.md)
 
 

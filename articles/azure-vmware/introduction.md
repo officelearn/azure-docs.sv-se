@@ -3,14 +3,14 @@ title: Introduktion
 description: Lär dig om funktionerna och fördelarna med Azure VMware-lösningen för att distribuera och hantera VMware-baserade arbets belastningar i Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c01f7a21b4a7c46469c3b6a63b0c426715da896d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005062"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332805"
 ---
-# <a name="what-is-azure-vmware-solution-preview"></a>Vad är för hands versionen av Azure VMware-lösningen?
+# <a name="what-is-azure-vmware-solution"></a>Vad är Azure VMware Solution?
 
 Med Azure VMware-lösningen får du privata moln i Azure. De privata molnen innehåller vSphere-kluster som bygger på dedikerad Azure-infrastruktur. Du kan skala ut privata molnkluster från 3 till 16 värdar och ha flera kluster i samma privata moln. Alla privata moln är etablerade med vCenter Server, virtuellt San, vSphere och NSX-T. Du kan migrera arbetsbelastningar från din lokala miljö, skapa och distribuera nya virtuella datorer och använda Azure-tjänster från dina privata moln.
 
@@ -28,9 +28,7 @@ Nya privata moln distribueras via Azure Portal eller Azure CLI.
 
 ## <a name="networking"></a>Nätverk
 
-När ett privat moln distribueras skapas privata nätverk för hantering, etablering och vMotion. Dessa privata nätverk används för åtkomst till vCenter-och NSX-hanteraren och för vMotion eller distribution av virtuella datorer. Alla privata nätverk är tillgängliga från ett VNet i Azure eller från lokala miljöer. ExpressRoute Global Reach används för att ansluta privata moln till lokala miljöer och den här anslutningen kräver ett VNet med en ExpressRoute-krets i din prenumeration.
-
-Åtkomst till Internet-och Azure-tjänster tillhandahålls när ett privat moln distribueras. Åtkomsten tillhandahålls så att virtuella datorer i produktions arbets belastnings nätverk kan använda Azure eller Internetbaserade tjänster. Internet åtkomst är inaktive rad som standard för nya privata moln och kan aktive ras eller inaktive ras när som helst.
+[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
 
 Mer information om nätverk och anslutningar finns i artikeln om [nätverks begrepp](concepts-networking.md) .
 
@@ -46,7 +44,7 @@ Vanliga uppgraderingar av Azure VMware-lösningen privat moln och VMware-program
 
 ## <a name="monitoring-your-private-cloud"></a>Övervaka ditt privata moln
 
-Du kan använda [loggar i Azure Monitor](../azure-monitor/overview.md) för att samla in loggar på dina virtuella datorer som körs i ditt privata moln i Azure VMware-lösningen. Du kan [Hämta och installera MMA-agenten](../azure-monitor/platform/log-analytics-agent.md#installation-options) på virtuella Linux-och Windows-datorer som körs i dina privata moln i Azure VMware-lösningen med samma frågor som du kör på dina lokala virtuella datorer. Du kan köra samma frågor som du brukar köra på dina virtuella datorer på samma sätt. Mer information om hur du skapar frågor finns i [så här skriver du frågor](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+När Azure VMware-lösningen har distribuerats i din prenumeration genereras [Azure Monitor loggar](../azure-monitor/overview.md) automatiskt. Dessutom kan du samla in loggar på var och en av dina virtuella datorer i ditt privata moln. Du kan [Ladda ned och installera MMA-agenten](../azure-monitor/platform/log-analytics-agent.md#installation-options) på virtuella Linux-och Windows-datorer som körs i dina privata moln för VMware-lösningar i Azure, samt aktivera [tillägget Azure Diagnostics](../azure-monitor/platform/diagnostics-extension-overview.md). Du kan till och med köra samma frågor som du brukar köra på dina virtuella datorer. Mer information om hur du skapar frågor finns i [så här skriver du frågor](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). Övervaknings mönster i Azure VMware-lösningen liknar Azure Virtual Machines inom IaaS-plattformen. Mer information och instruktioner finns i [övervaka virtuella Azure-datorer med Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

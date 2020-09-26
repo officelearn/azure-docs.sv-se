@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354827"
 ---
 # <a name="eventstore-overview"></a>Översikt över EventStore
 
@@ -26,7 +26,7 @@ EventStore är en tillstånds känslig Service Fabric tjänst som upprätthålle
 * Bekräfta att hanterings åtgärder som du vidtar i klustret bearbetas korrekt
 * Få en "ögonblicks bild" av hur Service Fabric interagerar med en viss entitet
 
-![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
+![Skärm bild som visar fliken händelser i fönstret noder flera händelser, inklusive en NodeDown-händelse.](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 Om du vill se en fullständig lista över händelser som är tillgängliga i EventStore, se [Service Fabric händelser](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -36,15 +36,15 @@ Om du vill se en fullständig lista över händelser som är tillgängliga i Eve
 EventStore-tjänsten kan frågas efter händelser som är tillgängliga för varje entitet och entitetstyp i klustret. Det innebär att du kan fråga efter händelser på följande nivåer:
 * Kluster: händelser som är speciella för själva klustret (t. ex. kluster uppgradering)
 * Noder: alla händelser på radnivå
-* Node: händelser som är speciella för en nod, identifieras av`nodeName`
+* Node: händelser som är speciella för en nod, identifieras av `nodeName`
 * Program: alla händelser på program nivå
-* Program: händelser som är specifika för ett program som identifieras av`applicationId`
+* Program: händelser som är specifika för ett program som identifieras av `applicationId`
 * Tjänster: händelser från alla tjänster i klustren
-* Tjänst: händelser från en angiven tjänst som identifieras av`serviceId`
+* Tjänst: händelser från en angiven tjänst som identifieras av `serviceId`
 * Partitioner: händelser från alla partitioner
-* Partition: händelser från en speciell partition som identifieras av`partitionId`
-* Partitions repliker: händelser från alla repliker/instanser inom en speciell partition som identifieras av`partitionId`
-* Partitions replik: händelser från en speciell replik/instans som identifieras av `replicaId` och`partitionId`
+* Partition: händelser från en speciell partition som identifieras av `partitionId`
+* Partitions repliker: händelser från alla repliker/instanser inom en speciell partition som identifieras av `partitionId`
+* Partitions replik: händelser från en speciell replik/instans som identifieras av `replicaId` och `partitionId`
 
 Läs mer om API-kontrollen i [EVENTSTORE API-referensen](/rest/api/servicefabric/sfclient-index-eventsstore).
 

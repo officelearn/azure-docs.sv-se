@@ -6,13 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3ae9a787586a4d3f7c27353aca37326be32448
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 67bcd6fbf04cb92deaae034d289990dfec309fe6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280019"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON-och Avro-data i Azure Stream Analytics
 
@@ -127,7 +127,7 @@ Resultatet är:
 
 |DeviceID|SensorName|Alertmessage som|
 |-|-|-|
-|12345|Fuktighet|Varning: sensor över tröskelvärdet|
+|12345|Luftfuktighet|Varning: sensor över tröskelvärdet|
 
 ### <a name="convert-record-fields-into-separate-events"></a>Konvertera post fält till separata händelser
 
@@ -149,7 +149,7 @@ Resultatet är:
 |DeviceID|SensorName|Alertmessage som|
 |-|-|-|
 |12345|Temperatur|80|
-|12345|Fuktighet|70|
+|12345|Luftfuktighet|70|
 |12345|CustomSensor01|5|
 |12345|CustomSensor02|99|
 |12345|SensorMetadata|[objekt objekt]|

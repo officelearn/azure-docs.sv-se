@@ -1,6 +1,6 @@
 ---
 title: Azure SignalR service utan snabb start – python
-description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
+description: En snabb start för att använda Azure SignalR service och Azure Functions för att skapa ett chattrum med python.
 author: anthonychu
 ms.service: signalr
 ms.devlang: python
@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
-ms.openlocfilehash: d7d893d3de5541bf1108a9182dfee6ad995e061b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 24985a006390977c89c4eedc23084a9856272eba
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050615"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355658"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -57,7 +57,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. Markera och kopiera den primära anslutningssträngen.
 
-    ![Skapa SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![Markera och kopiera den primära anslutningssträngen.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. I kod redigeraren öppnar du mappen *src/Chat/python* i den klonade lagrings platsen.
 

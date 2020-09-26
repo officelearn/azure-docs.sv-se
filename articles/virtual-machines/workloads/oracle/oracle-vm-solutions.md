@@ -3,7 +3,7 @@ title: Oracle-lösningar på virtuella Azure-datorer | Microsoft Docs
 description: Lär dig mer om konfigurationer som stöds och begränsningar för avbildningar av virtuella Oracle-datorer på Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rgardler
+author: dbakevlar
 manager: ''
 tags: azure-resource-management
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
-ms.author: rogardle
-ms.openlocfilehash: c22c5fa9c1a1680734a8cf5d8f4079e8c7b5c5f7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: kegorman
+ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723424"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331377"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 

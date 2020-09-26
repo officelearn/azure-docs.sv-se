@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 76c0f4f021646b4cbf1a09559e085176353a4a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312914"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudie: Konfigurera box för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg som du måste utföra i box och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till box.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -91,19 +91,19 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 3. Välj din instans av rutan och välj sedan fliken **etablering** .
 
-4. Ställ in **etablerings läget** på **automatiskt**. 
+4. Ange **Etableringsläge** som **Automatiskt**. 
 
-    ![etablerings](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Skärm bild av fliken etablering för Box i Azure Portal. Etablerings läget är inställt på automatiskt och auktorisera är markerat i admin-autentiseringsuppgifter.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Under avsnittet **admin credentials** klickar du på **auktorisera** för att öppna dialog rutan inloggning i ett nytt webbläsarfönster.
 
 6. Ange de autentiseringsuppgifter som krävs på sidan **Logga in för att ge åtkomst till Box** och klicka sedan på **auktorisera**. 
    
-    ![Aktivera automatisk användar etablering](./media/box-userprovisioning-tutorial/IC769546.png "Aktivera automatisk användar etablering")
+    ![Skärm bild av inloggningen för att ge åtkomst till en box-skärm, som visar post för e-post och lösen ord och knappen auktorisera.](./media/box-userprovisioning-tutorial/IC769546.png "Aktivera automatisk användar etablering")
 
 7. Klicka på **Tillåt åtkomst till rutan** om du vill auktorisera åtgärden och återgå till Azure Portal. 
    
-    ![Aktivera automatisk användar etablering](./media/box-userprovisioning-tutorial/IC769549.png "Aktivera automatisk användar etablering")
+    ![Skärm bild av skärmen auktorisera åtkomst i box, som visar ett för klar ande meddelande och knappen bevilja åtkomst till box.](./media/box-userprovisioning-tutorial/IC769549.png "Aktivera automatisk användar etablering")
 
 8. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din box-app. Om anslutningen Miss lyckas, se till att ditt Box-konto har team administratörs behörighet och försök att använda steget **"auktorisera"** igen.
 
@@ -130,6 +130,6 @@ I din box-klient visas synkroniserade användare under **hanterade användare** 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](box-tutorial.md)

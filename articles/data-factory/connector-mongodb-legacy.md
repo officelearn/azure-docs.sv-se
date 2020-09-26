@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från MongoDB med hjälp av äldre
-description: Lär dig hur du kopierar data från Mongo DB till mottagar data lager med stöd för en kopierings aktivitet i en Azure Data Factory pipeline.
+description: Lär dig hur du kopierar data från Mongo DB till mottagar data lager med stöd för en kopierings aktivitet i en äldre Azure Data Factory pipeline.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331989"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiera data från MongoDB med Azure Data Factory (bakåtkompatibelt)
 
@@ -39,7 +39,7 @@ Mer specifikt stöder denna MongoDB-anslutning:
 - MongoDB- **versionerna 2,4, 2,6, 3,0, 3,2, 3,4 och 3,6**.
 - Kopiera data med **Basic** eller **Anonym** autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -55,13 +55,13 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten MongoDB:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Egenskapen Type måste anges till: **MongoDB** |Ja |
-| server |IP-adressen eller värd namnet för MongoDB-servern. |Ja |
+| typ |Egenskapen Type måste anges till: **MongoDB** |Yes |
+| server |IP-adressen eller värd namnet för MongoDB-servern. |Yes |
 | port |TCP-port som MongoDB-servern använder för att lyssna efter klient anslutningar. |Nej (standard är 27017) |
-| Databas |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Ja |
+| Databas |Namnet på MongoDB-databasen som du vill komma åt. |Yes |
+| authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Yes |
 | användarnamn |Användar konto för åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
 | password |Lösenordet för användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Nej. För grundläggande autentisering är standardvärdet att använda administratörs kontot och den databas som anges med egenskapen databaseName. |
@@ -98,10 +98,10 @@ Följande egenskaper stöds för den länkade tjänsten MongoDB:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). Följande egenskaper stöds för MongoDB-datauppsättning:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **MongoDbCollection** | Ja |
-| Samling |Namnet på samlingen i MongoDB-databasen. |Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **MongoDbCollection** | Yes |
+| Samling |Namnet på samlingen i MongoDB-databasen. |Yes |
 
 **Exempel:**
 
@@ -129,9 +129,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MongoDbSource** | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MongoDbSource** | Yes |
 | DocumentDB |Använd den anpassade SQL-92-frågan för att läsa data. Exempel: Välj * från tabellen tabell. |Nej (om "samlings namn" i dataset har angetts) |
 
 **Exempel:**
@@ -167,7 +167,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 ```
 
 > [!TIP]
-> När du anger SQL-frågan ska du tänka på DateTime-formatet. Till exempel: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` eller för att använda parameter`SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
+> När du anger SQL-frågan ska du tänka på DateTime-formatet. Till exempel: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` eller för att använda parameter `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
 
 ## <a name="schema-by-data-factory"></a>Schema efter Data Factory
 
@@ -208,14 +208,14 @@ Virtuella tabeller refererar till datan i den verkliga tabellen, vilket gör att
 
 Till exempel är ExampleTable här en MongoDB-tabell med en kolumn med en matris med objekt i varje cell – fakturor och en kolumn med en matris av skalära typer – klassificeringar.
 
-| _id | Kundnamn | Fakturor | Service nivå | Klassificeringar |
+| _id | Kundnamn | Fakturor | Servicenivå | Klassificeringar |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123", item: "toaster", Price: "456", Discount: "0,2"}, {invoice_id: "124", item: "ugn", pris: "1235", rabatt: "0,2"}] |Silver |[5, 6] |
 | 2222 |XYZ |[{invoice_id: "135", item: "kyl skåp", Price: "12543", Discount: "0,0"}] |Guld |[1, 2] |
 
 Driv rutinen skulle generera flera virtuella tabeller som representerar den här enskilda tabellen. Den första virtuella tabellen är bas tabellen med namnet "ExampleTable", som visas i exemplet. Bas tabellen innehåller alla data i den ursprungliga tabellen, men data från matriserna har utelämnats och expanderats i de virtuella tabellerna.
 
-| _id | Kundnamn | Service nivå |
+| _id | Kundnamn | Servicenivå |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
 | 2222 |XYZ |Guld |
@@ -232,7 +232,7 @@ Följande tabeller visar de virtuella tabeller som representerar de ursprungliga
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0,2 |
 | 1111 |1 |124 |ugnen |1235 |0,2 |
-| 2222 |0 |135 |kyl skåp |12543 |0.0 |
+| 2222 |0 |135 |kyl skåp |12543 |0,0 |
 
 **Tabell ExampleTable_Ratings:**
 

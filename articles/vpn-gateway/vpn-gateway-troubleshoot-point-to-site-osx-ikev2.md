@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359332"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Felsöka punkt-till-plats-VPN-anslutningar från Mac OS X VPN-klienter
 
@@ -34,7 +34,7 @@ Den här artikeln hjälper dig att felsöka problem med punkt-till-plats-anslutn
 4. Det **lokala ID: t** ska vara samma som för klient certifikatets **ämne** .
 5. Klicka på **autentiseringsinställningar** för att öppna sidan autentiseringsinställningar.
 
-   ![Autentiseringsinställningar](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Skärm bild som visar dialog rutan autentiseringsinställningar med certifikat valt.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Kontrol lera att **certifikatet** är markerat i list rutan.
 7. Klicka på knappen **Välj** och kontrol lera att rätt certifikat har valts. Spara ändringarna genom att klicka på **OK** .
 
@@ -48,7 +48,7 @@ Den här artikeln hjälper dig att felsöka problem med punkt-till-plats-anslutn
 4. **Lokalt ID** kan vara tomt.
 5. Klicka på knappen **autentiseringsinställningar** och kontrol lera att "username" är markerat i list rutan.
 
-   ![Autentiseringsinställningar](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
+   ![Skärm bild som visar dialog rutan autentiseringsinställningar med användar namnet valt.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Kontrol lera att rätt autentiseringsuppgifter har angetts.
 
 ## <a name="additional-steps"></a><a name="additional"></a>Ytterligare steg

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ef879806555634598d5de999bcd9fc01c050d60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904838"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314563"
 ---
 # <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -117,21 +117,21 @@ När du planerar åtkomstkontroll med rollbaserad åtkomst (RBAC) för Security 
 En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. I Security Center kan du definiera principer för dina Azure-prenumerationer, som kan skräddarsys efter arbetsbelastningstyp eller datakänslighet.
 
 Security Center-principer innehåller följande komponenter:
-- [Datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agentetablering och datainsamlingsinställningar.
-- [Säkerhets princip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure policy](../governance/policy/overview.md) som avgör vilka kontroller som övervakas och rekommenderas av Security Center, eller Använd Azure policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer över hanterings grupper.
-- [E-postmeddelanden](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): säkerhetskontakter och inställningar för meddelanden.
-- [Pris nivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): med eller utan Azure Defender som avgör vilka Security Center funktioner som är tillgängliga för resurser i området (kan anges för prenumerationer, resurs grupper och arbets ytor).
+- [Datainsamling](security-center-enable-data-collection.md): agentetablering och datainsamlingsinställningar.
+- [Säkerhets princip](tutorial-security-policy.md): en [Azure policy](../governance/policy/overview.md) som avgör vilka kontroller som övervakas och rekommenderas av Security Center, eller Använd Azure policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer över hanterings grupper.
+- [E-postmeddelanden](security-center-provide-security-contact-details.md): säkerhetskontakter och inställningar för meddelanden.
+- [Pris nivå](security-center-pricing.md): med eller utan Azure Defender som avgör vilka Security Center funktioner som är tillgängliga för resurser i området (kan anges för prenumerationer, resurs grupper och arbets ytor).
 
 > [!NOTE]
-> Om du anger en säkerhetskontakt säkerställer du att Azure kan nå rätt person i organisationen om en säkerhetsincident inträffar. Mer information om hur du aktiverar den här rekommendationen finns i [Lägga till kontaktuppgifter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
+> Om du anger en säkerhetskontakt säkerställer du att Azure kan nå rätt person i organisationen om en säkerhetsincident inträffar. Mer information om hur du aktiverar den här rekommendationen finns i [Lägga till kontaktuppgifter i Azure Security Center](security-center-provide-security-contact-details.md).
 
 ### <a name="security-policies-definitions-and-recommendations"></a>Säkerhetsprincipdefinitioner och rekommendationer
 Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. Du kan redigera principen i Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer i hanteringsgrupper (som kan motsvara hela organisationen, en affärsenhet osv.) och övervaka efterlevnad av dessa principer i dessa omfattningar.
 
-Innan du börjar konfigurera säkerhetsprinciper går du igenom de olika [säkerhetsrekommendationerna](https://docs.microsoft.com/azure/security-center/security-center-recommendations) och avgör om dessa principer passar dina olika prenumerationer och resursgrupper. Det är också viktigt att förstå vilka åtgärder som vidtas för att hantera säkerhetsrekommendationer och vem i din organisation är ansvarig för att övervaka nya rekommendationer och vidta nödvändiga åtgärder.
+Innan du börjar konfigurera säkerhetsprinciper går du igenom de olika [säkerhetsrekommendationerna](security-center-recommendations.md) och avgör om dessa principer passar dina olika prenumerationer och resursgrupper. Det är också viktigt att förstå vilka åtgärder som vidtas för att hantera säkerhetsrekommendationer och vem i din organisation är ansvarig för att övervaka nya rekommendationer och vidta nödvändiga åtgärder.
 
 ## <a name="data-collection-and-storage"></a>Datainsamling och datalagring
-Azure Security Center använder Log Analytics agent – det här är samma agent som används av Azure Monitor tjänsten – för att samla in säkerhets data från dina virtuella datorer. [Data som samlas in](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) från den här agenten kommer att lagras i dina Log Analytics-arbetsytor.
+Azure Security Center använder Log Analytics agent – det här är samma agent som används av Azure Monitor tjänsten – för att samla in säkerhets data från dina virtuella datorer. [Data som samlas in](security-center-enable-data-collection.md) från den här agenten kommer att lagras i dina Log Analytics-arbetsytor.
 
 ### <a name="agent"></a>Agent
 
@@ -189,9 +189,9 @@ Du bör också regelbundet övervaka befintliga resurser för konfigurations än
 
 ### <a name="hardening-access-and-applications"></a>Härdning av åtkomst och program
 
-Som en del av dina säkerhetsåtgärder bör du även vidta förebyggande åtgärder för att begränsa åtkomsten till virtuella datorer och kontrollera programmen som körs på virtuella datorer. Genom att låsa inkommande trafik till dina virtuella Azure-datorer minskar du exponeringen för attacker och samtidigt ger du enkel anslutningsåtkomst till virtuella datorer när det behövs. Använd [just-in-Time-](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) funktionen för VM-åtkomst för att skärpa åtkomsten till dina virtuella datorer.
+Som en del av dina säkerhetsåtgärder bör du även vidta förebyggande åtgärder för att begränsa åtkomsten till virtuella datorer och kontrollera programmen som körs på virtuella datorer. Genom att låsa inkommande trafik till dina virtuella Azure-datorer minskar du exponeringen för attacker och samtidigt ger du enkel anslutningsåtkomst till virtuella datorer när det behövs. Använd [just-in-Time-](security-center-just-in-time.md) funktionen för åtkomst till virtuella datorer för att förstärka åtkomsten till dina virtuella datorer.
 
-Du kan använda [anpassningsbara program kontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) för att begränsa vilka program som kan köras på dina virtuella datorer som finns i Azure. Bland andra förmåner hjälper detta till att förstärka dina virtuella datorer mot skadlig kod. Med hjälp av maskin inlärning analyserar Security Center processer som körs i den virtuella datorn så att du kan skapa List regler.
+Du kan använda [anpassningsbara program kontroller](security-center-adaptive-application.md) för att begränsa vilka program som kan köras på dina virtuella datorer som finns i Azure. Bland andra förmåner hjälper detta till att förstärka dina virtuella datorer mot skadlig kod. Med hjälp av maskin inlärning analyserar Security Center processer som körs i den virtuella datorn så att du kan skapa List regler.
 
 
 ## <a name="incident-response"></a>Incidenthantering

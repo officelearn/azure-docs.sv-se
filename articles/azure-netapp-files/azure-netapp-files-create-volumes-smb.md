@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988335"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325716"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -255,7 +255,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
         Ett volym namn måste vara unikt inom varje pool för kapacitet. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.   
 
-        Du kan inte använda `default` som volym namn.
+        Du kan inte använda `default` eller `bin` som volym namn.
 
     * **Pool för kapacitet**  
         Ange den pool där du vill att volymen ska skapas.
@@ -264,6 +264,11 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
         Ange mängden logisk lagring som tilldelas till volymen.  
 
         Fältet **Tillgänglig kvot** visar mängden outnyttjat utrymme i kapacitetspoolen, som du kan använda för att skapa en ny volym. Storleken på den nya volymen får inte överskrida den tillgängliga kvoten.  
+
+    * **Data flöde (MiB/S)**   
+        Om volymen har skapats i en manuell pool för QoS-kapacitet anger du det data flöde som du vill använda för volymen.   
+
+        Om volymen skapas i en pool med automatisk QoS-kapacitet är värdet som visas i det här fältet (kvot x service nivåns data flöde).   
 
     * **Virtuellt nätverk**  
         Ange det virtuella Azure-nätverk (VNet) som du vill ha åtkomst till volymen från.  

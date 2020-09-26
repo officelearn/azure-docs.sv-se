@@ -1,6 +1,6 @@
 ---
 title: Uppgradera Windows Server/System Center VMM 2012 R2 till Windows Server 2016 – Azure Site Recovery
-description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure Stack virtuella datorer med tjänsten Azure Site Recovery.
+description: Lär dig hur du uppgraderar Windows Server 2012 R2-värdar & SCVMM 2012 R2 som är konfigurerade med Azure Site Recovery, till Windows Server 2016 & SCVMM 2016.
 services: site-recovery
 author: Sharmistha-Rai
 manager: gaggupta
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
-ms.openlocfilehash: 82e178d37074b22cd170d6b2478525dd2ea7ddf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250079"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Uppgradera Windows Server Server/System Center 2012 R2 VMM till Windows Server/VMM 2016 
 

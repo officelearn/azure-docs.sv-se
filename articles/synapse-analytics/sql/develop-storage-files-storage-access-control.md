@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: b3df83bc68cfa1952238b792fceffe57c0dc0ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288944"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
 
@@ -49,11 +49,11 @@ En användare som har loggat in på en SQL-resurs på begäran måste ha behöri
 Du kan få en SAS-token genom att gå till **Azure Portal-> lagrings konto-> signatur för delad åtkomst-> konfigurera behörigheter – > generera SAS och anslutnings sträng.**
 
 > [!IMPORTANT]
-> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL på begäran måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Till exempel:
+> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL på begäran måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Exempel:
 >
 > SAS-token:? sa = 2018-03-28&SS = bfqt&SRT = SCO&SP = rwdlacup&se = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&sig = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
-Du måste skapa en databas-eller Server begränsad autentiseringsuppgift för att aktivera åtkomst med SAS-token.
+Om du vill aktivera åtkomst med hjälp av en SAS-token måste du skapa en databas-eller Server begränsad autentiseringsuppgift 
 
 ### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
@@ -87,7 +87,7 @@ Du kan använda följande kombinationer av auktoriserings-och Azure Storage type
 | [Hanterad identitet](?tabs=managed-identity#supported-storage-authorization-types) | Stöds      | Stöds        | Stöds     |
 | [Användar identitet](?tabs=user-identity#supported-storage-authorization-types)    | Stöds\*      | Stöds\*        | Stöds\*     |
 
-\*SAS-token och Azure AD-identitet kan användas för att få åtkomst till en lagrings enhet som inte skyddas med brand väggen.
+\* SAS-token och Azure AD-identitet kan användas för att få åtkomst till lagring som inte skyddas med brand väggen.
 
 > [!IMPORTANT]
 > Vid åtkomst till lagring som skyddas med brand väggen kan endast hanterad identitet användas. Du måste [tillåta betrodda Microsoft-tjänster... Ange](../../storage/common/storage-network-security.md#trusted-microsoft-services) och [tilldela uttryckligen en Azure-roll](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den Azure-roll som tilldelats den hanterade identiteten.
@@ -119,7 +119,7 @@ För att säkerställa en smidig Azure AD-direktautentisering har alla användar
 
 ## <a name="server-scoped-credential"></a>Autentiseringsuppgifter för Server omfång
 
-Autentiseringsuppgifter för Server omfång används när SQL login-anrop `OPENROWSET` fungerar utan `DATA_SOURCE` att läsa filer på vissa lagrings konton. Namnet på serverns begränsade autentiseringsuppgifter **måste** matcha URL: en för Azure Storage. Du lägger till en autentiseringsuppgift genom att köra [skapa autentiseringsuppgifter](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Du måste ange ett namn argument för AUTENTISERINGSUPPGIFTER. Den måste matcha antingen en del av sökvägen eller hela sökvägen till data i lagringen (se nedan).
+Autentiseringsuppgifter för Server omfång används när SQL login-anrop `OPENROWSET` fungerar utan `DATA_SOURCE` att läsa filer på vissa lagrings konton. Namnet på serverns begränsade autentiseringsuppgifter **måste** matcha URL: en för Azure Storage. Du lägger till en autentiseringsuppgift genom att köra [skapa autentiseringsuppgifter](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Du måste ange ett namn argument för AUTENTISERINGSUPPGIFTER. Den måste matcha antingen en del av sökvägen eller hela sökvägen till data i lagringen (se nedan).
 
 > [!NOTE]
 > `FOR CRYPTOGRAPHIC PROVIDER`Argumentet stöds inte.
@@ -155,7 +155,7 @@ GO
 
 ### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
-Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktionen för att få åtkomst till alla filer i Azure Storage med hjälp av arbets ytans hanterade identitet.
+Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktionen för att få åtkomst till alla filer i Azure Storage med hjälp av arbets ytans hanterade identiteter.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
@@ -170,7 +170,7 @@ Databasens begränsade autentiseringsuppgifter krävs inte för att tillåta åt
 
 ## <a name="database-scoped-credential"></a>Autentiseringsuppgifter för databas omfattning
 
-Autentiseringsuppgifter för databasens omfattning används när en huvud anrops `OPENROWSET` funktion med `DATA_SOURCE` eller väljer data från [extern tabell](develop-tables-external-tables.md) som inte kommer åt offentliga filer. Den databasbaserade autentiseringsuppgiften behöver inte matcha namnet på lagrings kontot eftersom det används explicit i DATA källan som definierar lagrings platsen.
+Autentiseringsuppgifter för databasens omfattning används när en huvud anrops `OPENROWSET` funktion med `DATA_SOURCE` eller väljer data från [extern tabell](develop-tables-external-tables.md) som inte kommer åt offentliga filer. Databasens begränsade autentiseringsuppgifter behöver inte matcha namnet på lagrings kontot. Den används explicit i DATA källan som definierar lagrings platsen.
 
 Autentiseringsuppgifter för databasens omfång ger åtkomst till Azure Storage med följande autentiseringstyper:
 
@@ -309,7 +309,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet',
 
 ```
 
-Databas användaren kan läsa innehållet i filerna från data källan med hjälp av en [extern tabell](develop-tables-external-tables.md) eller en [OpenRowSet](develop-openrowset.md) -funktion som refererar till data källan:
+Databas användaren kan läsa innehållet i filerna från data källan med hjälp av en [extern tabell](develop-tables-external-tables.md) eller en [OpenRowSet](develop-openrowset.md)  -funktion som refererar till data källan:
 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;

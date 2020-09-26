@@ -3,13 +3,13 @@ title: 'Översikt över API: er för Azure Relay Node | Microsoft Docs'
 description: Den här artikeln innehåller en översikt över Node.js API för tjänsten Azure Relay. Det visar också hur du använder Hyco-WS-Node-paketet.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 67d818a95d63b3097f81f799a287fb4c48a1cfb7
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386256"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263495"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Översikt över API för relä Hybridanslutningar Node
 
@@ -48,10 +48,10 @@ var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 
 Skapar en giltig Azure Relay lyssnar-URI för Hybrid anslutning för det angivna namn området och sökvägen. Denna URI kan sedan användas med relä versionen av klassen WebSocketServer.
 
-- `namespaceName`(obligatoriskt) – det domän-kvalificerade namnet på Azure Relay namn området som ska användas.
-- `path`(obligatoriskt) – namnet på en befintlig Azure Relay hybrid anslutning i det namn området.
-- `token`(valfritt) – en tidigare utfärdad Relay-åtkomsttoken som är inbäddad i lyssnar-URI: n (se följande exempel).
-- `id`(valfritt) – ett spårnings-ID som gör det möjligt att spåra begär Anden från slut punkt till slut punkt.
+- `namespaceName` (obligatoriskt) – det domän-kvalificerade namnet på Azure Relay namn området som ska användas.
+- `path` (obligatoriskt) – namnet på en befintlig Azure Relay hybrid anslutning i det namn området.
+- `token` (valfritt) – en tidigare utfärdad Relay-åtkomsttoken som är inbäddad i lyssnar-URI: n (se följande exempel).
+- `id` (valfritt) – ett spårnings-ID som gör det möjligt att spåra begär Anden från slut punkt till slut punkt.
 
 `token`Värdet är valfritt och bör endast användas när det inte går att skicka HTTP-huvuden tillsammans med WebSocket-handskakning, som är fallet med W3C WebSocket-stacken.                  
 
@@ -64,10 +64,10 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 
 Skapar en giltig Azure Relay hybrid anslutning som skickar URI för det angivna namn området och sökvägen. Denna URI kan användas med valfri WebSocket-klient.
 
-- `namespaceName`(obligatoriskt) – det domän-kvalificerade namnet på Azure Relay namn området som ska användas.
-- `path`(obligatoriskt) – namnet på en befintlig Azure Relay hybrid anslutning i det namn området.
-- `token`(valfritt) – en tidigare utfärdad Relay-åtkomsttoken som är inbäddad i sändnings-URI (se följande exempel).
-- `id`(valfritt) – ett spårnings-ID som gör det möjligt att spåra begär Anden från slut punkt till slut punkt.
+- `namespaceName` (obligatoriskt) – det domän-kvalificerade namnet på Azure Relay namn området som ska användas.
+- `path` (obligatoriskt) – namnet på en befintlig Azure Relay hybrid anslutning i det namn området.
+- `token` (valfritt) – en tidigare utfärdad Relay-åtkomsttoken som är inbäddad i sändnings-URI (se följande exempel).
+- `id` (valfritt) – ett spårnings-ID som gör det möjligt att spåra begär Anden från slut punkt till slut punkt.
 
 `token`Värdet är valfritt och bör endast användas när det inte går att skicka HTTP-huvuden tillsammans med WebSocket-handskakning, som är fallet med W3C WebSocket-stacken.                   
 
@@ -80,10 +80,10 @@ var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 Skapar en Azure Relay signatur för signatur för delad åtkomst (SAS) för den angivna mål-URI: n, SAS-regeln och SAS-regelsamlingen som är giltig för det angivna antalet sekunder eller en timme från det aktuella omedelbart om argumentet förfallo datum utelämnas.
 
-- `uri`(krävs) – den URI för vilken token ska utfärdas. URI: n är normaliserad att använda HTTP-schemat och information om frågesträngen tas bort.
-- `ruleName`(obligatoriskt) – SAS-regelsamlingen för antingen entiteten som representeras av angiven URI eller för namn området som representeras av URI-värdservern.
-- `key`(obligatoriskt) – giltig nyckel för SAS-regeln. 
-- `expirationSeconds`(valfritt) – antalet sekunder tills den genererade token ska upphöra att gälla. Om inget värde anges är standardvärdet 1 timme (3600).
+- `uri` (krävs) – den URI för vilken token ska utfärdas. URI: n är normaliserad att använda HTTP-schemat och information om frågesträngen tas bort.
+- `ruleName` (obligatoriskt) – SAS-regelsamlingen för antingen entiteten som representeras av angiven URI eller för namn området som representeras av URI-värdservern.
+- `key` (obligatoriskt) – giltig nyckel för SAS-regeln. 
+- `expirationSeconds` (valfritt) – antalet sekunder tills den genererade token ska upphöra att gälla. Om inget värde anges är standardvärdet 1 timme (3600).
 
 Utfärdad token ger de rättigheter som är associerade med den angivna SAS-regeln för angiven varaktighet.
 
@@ -118,12 +118,12 @@ var wss = new server(
 
 Argument för konstruktorn:
 
-- `server`(obligatoriskt) – den fullständigt kvalificerade URI: n för ett hybrid anslutnings namn som du vill lyssna på, vanligt vis konstruerad med hjälp av WebSocket. createRelayListenUri ().
-- `token`(obligatoriskt) – det här argumentet innehåller antingen en tidigare Utfärdad token-sträng eller en callback-funktion som kan anropas för att hämta en sådan token-sträng. Alternativet motringning är att föredra, eftersom det möjliggör förnyelse av token.
+- `server` (obligatoriskt) – den fullständigt kvalificerade URI: n för ett hybrid anslutnings namn som du vill lyssna på, vanligt vis konstruerad med hjälp av WebSocket. createRelayListenUri ().
+- `token` (obligatoriskt) – det här argumentet innehåller antingen en tidigare Utfärdad token-sträng eller en callback-funktion som kan anropas för att hämta en sådan token-sträng. Alternativet motringning är att föredra, eftersom det möjliggör förnyelse av token.
 
 #### <a name="events"></a>Händelser
 
-`RelayedServer`instanser genererar tre händelser som gör att du kan hantera inkommande begär Anden, upprätta anslutningar och identifiera fel villkor. Du måste prenumerera på `connect` händelsen för att hantera meddelanden. 
+`RelayedServer` instanser genererar tre händelser som gör att du kan hantera inkommande begär Anden, upprätta anslutningar och identifiera fel villkor. Du måste prenumerera på `connect` händelsen för att hantera meddelanden. 
 
 ##### <a name="headers"></a>sidhuvud
 

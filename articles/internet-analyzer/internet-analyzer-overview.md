@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73501948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360896"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>Vad är Internet Analyzer? (Förhandsversion)
 
@@ -38,11 +38,11 @@ Under för hands versionen är följande förkonfigurerade slut punkter tillgän
 * **Azure-regioner**
     * Brasilien, södra
     * Indien, centrala
-    * USA, centrala
+    * Central US
     * Asien, östra
-    * USA, östra
+    * East US
     * Japan, västra
-    * Europa, norra
+    * Norra Europa
     * Sydafrika, norra
     * Sydostasien 
     * Förenade Arabemiraten, norra
@@ -90,7 +90,7 @@ Om du vill använda Internet Analyzer konfigurerar du en Internet Analyzer-resur
 
 När en användare besöker webb programmet väljer JavaScript-klienten två slut punkter för att mäta över alla konfigurerade tester. För varje slut punkt utför klienten ett _kallt_ och _varmt_ mått. _Kall_ mätningen medför ytterligare svars tid bredvid den rena nätverks fördröjningen mellan användaren och slut punkten, till exempel DNS-matchning, TCP-anslutningens hand SKAKNING och SSL/TLS-förhandling. Den _varma_ mätningen följer precis efter att _kall_ mätningen är klar och drar nytta av moderna webbläsares beständiga hantering av TCP-anslutningar för att få ett korrekt mått på svars tiden från slut punkt till slut punkt. När det stöds av användarens webbläsare används API: t för W3C-resursens tids inställning för korrekt mätnings tid. För närvarande används endast mått för varm fördröjning för analys.
 
-![Arkitektur](./media/ia-overview/architecture.png)
+![I diagrammet visas en slutanvändare som ansluter till en program server med-klienten Embedded och de två slut punkterna på Internet från flera alternativ. Användaren överför mätningar till Internet Analyzer.](./media/ia-overview/architecture.png)
 
 
 ## <a name="scorecards"></a>Styrkort 

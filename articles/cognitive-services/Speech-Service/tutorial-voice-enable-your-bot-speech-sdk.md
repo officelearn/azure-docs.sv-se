@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2806ce18cc9febfdf15d48052d301da48b3c226f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360964"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -158,7 +158,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 4. När projektet har lästs in trycker du på <kbd>F5</kbd> för att skapa och köra projektet.
 5. En webbläsare startas och du ser en skärm som liknar detta.
     > [!div class="mx-imgBorder"]
-    > [![Echobot – localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot körs på localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
+    > [![Skärm bild som visar EchoBot-sidan med meddelandet din robot är klar!](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot körs på localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### <a name="test-the-bot-sample-with-the-bot-framework-emulator"></a>Testa robot-exemplet med bot Framework-emulatorn
 
@@ -167,14 +167,14 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
    * **Fil**  ->  **Öppna bot**.
-3. Ange URL: en för din robot. Ett exempel:
+3. Ange URL: en för din robot. Exempel:
 
    ```
    http://localhost:3978/api/messages
    ```
    och tryck på "Anslut".
 4. Roboten bör vara i hälsning med "Hej och Välkommen!" som meddelande. Skriv ett textmeddelande och bekräfta att du får svar från roboten.
-5. Detta är vad ett utbyte av kommunikation med en ECHO bot-instans kan se ut så här: [ ![bot-Framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework-emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
+5. Detta är vad ett utbyte av kommunikation med en ECHO bot-instans kan se ut så här: [ ![skärm bild som visar bot Framework-emulatorn.](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework-emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Distribuera din robot till en Azure App Service
 
@@ -478,7 +478,7 @@ Om du inte kommer att fortsätta använda eko-roboten som distribuerats i den h�
 * Distribuera till en [Azure-region som stöder NEURALA TTS-röster med hög kvalitet](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Priser som är kopplade till kanal för direkt linje tal:
   * [Priser för bot service](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Tjänst för taligenkänning](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Tal tjänst](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Skapa och distribuera din egen röst aktive rad bot:
   * Bygg en bot [Framework-robot](https://dev.botframework.com/). Registrera dig med [direkt kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) och [Anpassa din robot för röst](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Utforska befintliga [bot Framework-lösningar](https://microsoft.github.io/botframework-solutions/index): bygga en [virtuell assistent](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) och [utöka den till direkt linje tal](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

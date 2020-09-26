@@ -3,12 +3,12 @@ title: Video analys i real tid för IoT Edge viktig information – Azure
 description: Det här avsnittet innehåller viktig information om real tids analys av IoT Edge-versioner, förbättringar, fel korrigeringar och kända problem.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e33a62891f9503a4f2ff907585316c3737c876e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250478"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Viktig information om live video analys i IoT Edge
 
@@ -36,7 +36,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ### <a name="module-updates"></a>Uppdatera modul
 
-* En ny Graph- [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) är tillgänglig för integrering med [modulen för spatial analys](spatial-analysis-tutorial.md)(för hands version) från Cognitive Services.
+* En ny [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md) -nod, som är tillgänglig för integrering med modulen för [spatial analys](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview)(för hands version) från Cognitive Services.
 * Stöd har lagts till för Linux ARM64-enheter – Använd [manuella steg](deploy-iot-edge-device.md) för att distribuera till sådana enheter.
 
 ### <a name="documentation-updates"></a>Dokumentationsuppdateringar

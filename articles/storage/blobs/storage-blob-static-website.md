@@ -8,13 +8,13 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.custom: devx-track-js
+ms.openlocfilehash: 27ea88ad4d349d6a7aedd4e1e3bc8dc804683292
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89486866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326090"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hantering av statisk webbplats i Azure Storage
 
@@ -49,7 +49,7 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 > * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Azure PowerShell-modul](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> * [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Visual Studio Code-tillägg](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 

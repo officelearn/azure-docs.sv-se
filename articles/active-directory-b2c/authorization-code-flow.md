@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dd94811baddba3a40910b3a0c68eb4e1b2744b0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 157f01008636c61d95d479c396cf82d833b3b44d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201250"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259670"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2,0 Authorization Code Flow i Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ```
 
 
-| Parameter | Obligatoriskt? | Beskrivning |
+| Parameter | Obligatoriskt? | Description |
 | --- | --- | --- |
 |innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
 | politik | Obligatorisk | Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in` , `b2c_1_sign_up` , eller `b2c_1_edit_profile` . |
@@ -63,6 +63,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_mode |Rekommenderas |Den metod som du använder för att skicka den resulterande auktoriseringskod tillbaka till din app. Det kan vara `query` , `form_post` eller `fragment` . |
 | state |Rekommenderas |Ett värde som ingår i begäran som kan vara en sträng med innehåll som du vill använda. Normalt används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en webbplats. Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel sidan användaren var på eller det användar flöde som kördes. |
 | visas |Valfritt |Typ av användar interaktion som krävs. För närvarande är det enda giltiga värdet `login` , vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. Enkel inloggning träder inte i kraft. |
+| code_challenge  | Valfritt | Används för att skydda auktoriseringskod-bidrag via bevis nyckel för Code Exchange (PKCE). Krävs om ingår `code_challenge_method` . Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | Valfritt | Den metod som används för att koda `code_verifier` för `code_challenge` parametern. Kan vara något av följande värden:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Om det utesluts, `code_challenge` antas vara oformaterad text om `code_challenge` ingår. Azure AD B2C stöder både `plain` och `S256` . Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Nu uppmanas användaren att slutföra användar flödets arbets flöde. Detta kan innebära att användaren anger sitt användar namn och lösen ord, loggar in med en social identitet, registrerar sig för katalogen eller något annat antal steg. Användar åtgärder är beroende av hur användar flödet definieras.
 
@@ -110,7 +112,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parameter | Obligatoriskt? | Beskrivning |
+| Parameter | Obligatoriskt? | Description |
 | --- | --- | --- |
 |innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
 |politik| Obligatorisk| Det användar flöde som användes för att hämta auktoriseringskod. Du kan inte använda ett annat användar flöde i denna begäran. |
@@ -120,6 +122,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | omfång |Rekommenderas |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access`Omfånget indikerar att appen behöver en uppdateringstoken för att få åtkomst till resurser med lång livs längd.  Du kan också använda `openid` omfånget för att begära en ID-token från Azure AD B2C. |
 | kod |Obligatorisk |Den auktoriseringskod som du förvärvade i den första delen av flödet. |
 | redirect_uri |Obligatorisk |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
+| code_verifier | Valfritt | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Ett lyckat token-svar ser ut så här:
 
@@ -176,7 +179,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parameter | Obligatoriskt? | Beskrivning |
+| Parameter | Obligatoriskt? | Description |
 | --- | --- | --- |
 |innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
 |politik |Obligatorisk |Det användar flöde som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda ett annat användar flöde i denna begäran. |

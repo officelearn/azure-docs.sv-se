@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360981"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets
 Du kan skala in och skala ut i Virtual Machine Scale Sets baserat på prestanda mätnings trösklar, med ett återkommande schema eller med ett visst datum. Du kan också konfigurera e-post-och webhook-meddelanden för skalnings åtgärder. Den här genom gången visar ett exempel på hur du konfigurerar alla dessa objekt med en Resource Manager-mall i en skalnings uppsättning för virtuella datorer.
@@ -36,7 +36,7 @@ I den här genom gången använder vi [Azure Resource Explorer](https://resource
 
 3. Nu kan du lägga till fler profiler och regler baserat på schemat eller särskilda krav. Vi skapar en inställning för autoskalning med tre profiler. Om du vill förstå profiler och regler i autoskalning bör du gå igenom [metod tipsen för autoskalning](autoscale-best-practices.md).  
 
-    | Profiler & regler | Beskrivning |
+    | Profiler & regler | Description |
     |--- | --- |
     | **Profil** |**Prestanda/mått baserat** |
     | Regel |Antal Service Bus Queue-meddelande > x |
@@ -63,7 +63,7 @@ I den här genom gången använder vi [Azure Resource Explorer](https://resource
 
 6. Klicka på Redigera. **Ersätt** elementet "profiler" i inställningen för autoskalning med följande konfiguration:
 
-    ![filer](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![Skärm bilden visar profil elementet.](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -234,7 +234,7 @@ I den här genom gången använder vi [Azure Resource Explorer](https://resource
 
 Du har uppdaterat en inställning för autoskalning på en skalnings uppsättning för virtuella datorer som innehåller flera skalnings profiler och skalnings meddelanden.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Använd dessa länkar om du vill veta mer om autoskalning.
 
 [Felsöka autoskalning med Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

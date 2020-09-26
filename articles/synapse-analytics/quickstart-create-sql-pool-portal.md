@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 768b559ddaf7364726cb26a34d12f357d4126426
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.reviewer: jrasnick
+ms.openlocfilehash: c89bd01cb2e6947df5ed192d66e0dbae08cf66d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260639"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Snabb start: skapa en Synapse SQL-pool (för hands version) med hjälp av Azure Portal
 
@@ -24,7 +24,7 @@ I den här snabb starten får du lära dig hur du skapar en SQL-pool på en Syna
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse-arbetsyta](./quickstart-create-workspace.md)
@@ -56,7 +56,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
     > [!IMPORTANT]
     > Observera att det finns vissa begränsningar för de namn som SQL-pooler kan använda. Namn får inte innehålla specialtecken, måste bestå av högst 15 tecken, får inte innehålla reserverade ord och vara unika i arbets ytan.
 
-3. Välj **Nästa: ytterligare inställningar**.
+3. Välj **Nästa: Ytterligare inställningar**.
 4. Välj **ingen** för att etablera SQL-poolen utan data. Lämna standard sorteringen markerad.
 ![Fliken Skapa flöde för SQL-pool – ytterligare inställningar.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 

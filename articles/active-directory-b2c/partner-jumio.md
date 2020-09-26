@@ -11,24 +11,24 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 36a402669f8af465a1cedbf1585e16c972b18015
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293123"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259279"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Jumio med Azure Active Directory B2C
 
 I den här självstudien ger vi vägledning om hur du integrerar Azure Active Directory B2C (Azure AD B2C) med [Jumio](https://www.jumio.com/). Jumio är en tjänst för ID-verifiering som möjliggör verifiering av automatiserat ID i real tid för att skydda kund information.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-- En [Azure AD B2C klient](https://review.docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
+- En [Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) som är länkad till din Azure-prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -46,7 +46,7 @@ I följande arkitektur diagram visas implementeringen.
 
 ![Diagram över arkitekturen i en Azure AD B2C-integrering med Jumio.](./media/partner-jumio/jumio-architecture-diagram.png)
 
-|Steg | Beskrivning |
+|Steg | Description |
 |:-----| :-----------|
 | 1. | Användaren kommer till en sida för att antingen logga in eller registrera dig för att skapa ett konto. Azure AD B2C samlar in användarattribut.
 | 2. | Azure AD B2C anropar API: t i mitten och passerar användar attributen.

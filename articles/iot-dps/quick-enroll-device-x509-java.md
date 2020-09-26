@@ -1,5 +1,5 @@
 ---
-title: Registrera X. 509-enheter på Azure Device Provisioning-tjänsten med Java
+title: Snabb start – registrera X. 509-enheter på Azure Device Provisioning-tjänsten med Java
 description: Den här snabbstarten använder både gruppregistreringar och enskilda registreringar. I den här snabb starten registrerar du X. 509-enheter i Azure-IoT Hub Device Provisioning Service (DPS) med Java.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 1d1b4e2573519fbd033121763d3e7fe6b071f075
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 924cf1e1b5bc155bfdbd2f5f766c5459d599fed5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276194"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Java
 
@@ -22,7 +22,7 @@ ms.locfileid: "87327029"
 
 I den här snabb starten använder du Java för att program mässigt registrera en grupp av X. 509 simulerade enheter till Azure-IoT Hub Device Provisioning Service. Enheter registreras för en etablerings tjänst instans genom att skapa en registrerings grupp eller en enskild registrering. Den här snabb starten visar hur du skapar båda typerna av registreringar med hjälp av Java-tjänst-SDK och ett Java-exempelprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -203,7 +203,7 @@ Om du planerar att utforska Java-tjänsteexemplet ska du inte rensa upp resurser
 
 1. Stäng utdatafönstret för Java-exemplet på datorn.
 1. Stäng _X509 Cert Generator_-fönstret på datorn.
-1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Markera KRYSS rutan bredvid *grupp namnet* för de X. 509-enheter som du har registrerat med hjälp av den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.  
+1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Markera kryss rutan bredvid *grupp namnet* för de X. 509-enheter som du har registrerat med hjälp av den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.  
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabb starten har du registrerat en simulerad grupp med X. 509-enheter för enhets etablerings tjänsten. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 

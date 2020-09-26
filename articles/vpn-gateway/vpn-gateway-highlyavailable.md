@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 3f5fd8433f8de4dab39a73e889a71c4b262dc924
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 48756b43e64576a5dd38467bb1dd97e91c168a06
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360862"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning
 Den här artikeln ger en översikt över konfigurationsalternativen för anslutning på flera platser och VNet-till-VNet-anslutning med Azure VPN-gateways.
@@ -20,7 +20,7 @@ Den här artikeln ger en översikt över konfigurationsalternativen för anslutn
 ## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Om Azure VPN-gateway-redundans
 Varje Azure VPN-gateway består av två instanser i en aktiv-standby-konfiguration. När det utförs ett planerat underhåll (eller uppstår ett oplanerat avbrott) för en aktiv instans tar standby-instansen över (redundans) automatiskt och S2S VPN- eller VNet-till-VNet-anslutningarna återupptas. Växlingen mellan instanserna orsakar ett kort avbrott. Vid ett planerat underhåll återställs anslutningen inom 10 till 15 sekunder. Vid ett oplanerat avbrott tar det lite längre tid att återställa anslutningen. Det kan ta ungefär en minut eller en och en halv minut i värsta fall. När det gäller P2S VPN-klientanslutningar till gatewayen kopplas P2S-anslutningarna från och användarna måste ansluta på nytt från klientdatorerna.
 
-![Aktiv-standby](./media/vpn-gateway-highlyavailable/active-standby.png)
+![Diagram visar en lokal plats med privata I P-undernät och lokalt V P N ansluten till en aktiv Azure V P N-Gateway för att ansluta till undernät som finns i Azure, med en tillgänglig standby-Gateway.](./media/vpn-gateway-highlyavailable/active-standby.png)
 
 ## <a name="highly-available-cross-premises-connectivity"></a>Anslutning med hög tillgänglighet på flera platser
 Det finns ett par alternativ för att få bättre tillgänglighet för anslutningar på flera platser:
@@ -49,7 +49,7 @@ I den här konfigurationen är Azure VPN-gatewayen fortfarande i aktiv-standby-l
 ### <a name="active-active-azure-vpn-gateway"></a>Aktiv-aktiv Azure VPN gateway
 Nu kan du skapa en Azure VPN-gateway i en aktiv-aktiv-konfiguration, där båda instanserna av de virtuella datorernas gateway etablerar S2S VPN-tunnlar till din lokala VPN-enhet enligt följande diagram:
 
-![Aktiv-aktiv](./media/vpn-gateway-highlyavailable/active-active.png)
+![Diagram visar en lokal plats med privata I P-undernät och lokalt V P N ansluten till två aktiva Azure V P N-Gateway för att ansluta till undernät som finns i Azure.](./media/vpn-gateway-highlyavailable/active-active.png)
 
 I den här konfigurationen har varje Azure-gatewayinstans en unik offentlig IP-adress, och varje instans etablerar en IPsec/IKE S2S VPN-tunnel till den lokala VPN-enhet som du har angett i din lokala nätverksgateway och anslutning. Observera att båda VPN-tunnlarna tillhör samma anslutning. Du måste ändå konfigurera din lokala VPN-enhet för att godkänna eller etablera S2S VPN-tunnlar till de två offentliga IP-adresserna för Azure VPN-gatewayen.
 
@@ -71,7 +71,7 @@ För den här topologin krävs två lokala nätverksgateways och två anslutning
 ## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>Anslutningar mellan virtuella nätverk med hög tillgänglighet via Azure VPN Gateway
 Samma aktiv-aktiv-konfiguration gäller även för Azure VNet-till-VNet-anslutningar. Du kan skapa aktiv-aktiv VPN-gateways för de båda virtuella nätverken och koppla samman dem för att skapa samma anslutningar med ett helt nät med 4 tunnlar mellan två VNets, enligt diagrammet nedan:
 
-![VNet-till-VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![Diagram visar två Azure-regioner som är värdar för privata I P-undernät och två Azure V P N-gatewayer som de två virtuella platserna ansluter till.](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
 Detta garanterar att det alltid finns ett tunnelpar mellan de två virtuella nätverken för planerade underhållshändelser, och det ger också ökad tillgänglighet. Trots att samma topologi för anslutning på flera platser kräver två anslutningar behöver VNet-till-VNet-topologin ovan bara en anslutning för varje gateway. Dessutom är BGP valfritt, om det inte krävs överföringsroutning över VNet-till-VNet-anslutningen.
 

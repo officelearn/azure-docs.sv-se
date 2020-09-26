@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852301"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360777"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt genom att använda Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,11 +59,11 @@ Följande egenskaper stöds för den REST-länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen **Type** måste anges till **RestService**. | Ja |
-| url | Bas-URL: en för REST-tjänsten. | Ja |
-| enableServerCertificateValidation | Huruvida TLS/SSL-certifikat på Server sidan ska verifieras vid anslutning till slut punkten. | Nej<br /> (Standardvärdet är **Sant**) |
-| authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal**och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
-| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
+| typ | Egenskapen **Type** måste anges till **RestService**. | Yes |
+| url | Bas-URL: en för REST-tjänsten. | Yes |
+| enableServerCertificateValidation | Huruvida TLS/SSL-certifikat på Server sidan ska verifieras vid anslutning till slut punkten. | No<br /> (Standardvärdet är **Sant**) |
+| authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal**och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Yes |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |No |
 
 ### <a name="use-basic-authentication"></a>Använd grundläggande autentisering
 
@@ -71,8 +71,8 @@ Ange egenskapen **authenticationType** som **Basic**. Förutom de allmänna egen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| userName | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
-| password | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Yes |
+| password | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Exempel**
 
@@ -104,11 +104,11 @@ Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| tenant | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
-| aadResourceId | Ange den AAD-resurs som du begär auktorisering för, till exempel `https://management.core.windows.net` .| Ja |
-| azureCloudType | För tjänstens huvud namns autentisering anger du vilken typ av Azure-moln miljö som ditt AAD-program är registrerat på. <br/> Tillåtna värden är **AzurePublic**, **AzureChina**, **azureusgovernment eller**och **AzureGermany**. Som standard används data fabrikens moln miljö. | Nej |
+| servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Yes |
+| servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Yes |
+| aadResourceId | Ange den AAD-resurs som du begär auktorisering för, till exempel `https://management.core.windows.net` .| Yes |
+| azureCloudType | För tjänstens huvud namns autentisering anger du vilken typ av Azure-moln miljö som ditt AAD-program är registrerat på. <br/> Tillåtna värden är **AzurePublic**, **AzureChina**, **azureusgovernment eller**och **AzureGermany**. Som standard används data fabrikens moln miljö. | No |
 
 **Exempel**
 
@@ -136,13 +136,13 @@ Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de
 }
 ```
 
-### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Använda hanterade identiteter för Azure-resurser-autentisering
+### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Använda hanterade identiteter för Azure-resurser-autentisering
 
 Ange egenskapen **authenticationType** till **ManagedServiceIdentity**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| aadResourceId | Ange den AAD-resurs som du begär auktorisering för, till exempel `https://management.core.windows.net` .| Ja |
+| aadResourceId | Ange den AAD-resurs som du begär auktorisering för, till exempel `https://management.core.windows.net` .| Yes |
 
 **Exempel**
 
@@ -174,8 +174,8 @@ Följande egenskaper stöds för att kopiera data från REST:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens **typ** -egenskap måste anges till **RestResource**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]` . | Nej |
+| typ | Data uppsättningens **typ** -egenskap måste anges till **RestResource**. | Yes |
+| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]` . | No |
 
 Om du har angett `requestMethod` , `additionalHeaders` `requestBody` och `paginationRules` i data uppsättning, stöds den fortfarande som den är, men du rekommenderas att använda den nya modellen i aktivitets källan.
 
@@ -210,13 +210,13 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **RestSource**. | Ja |
-| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
-| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| requestBody | Bröd texten för HTTP-begäran. | Nej |
-| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | Nej |
-| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |
-| requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  Nej |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **RestSource**. | Yes |
+| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | No |
+| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | No |
+| requestBody | Bröd texten för HTTP-begäran. | No |
+| paginationRules | Sid brytnings regler för att skapa nästa sida begär Anden. Mer information finns i avsnittet om [sid brytnings stöd](#pagination-support) . | No |
+| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | No |
+| requestInterval | Vänte tiden innan begäran skickas för nästa sida. Standardvärdet är **00:00:01** |  No |
 
 >[!NOTE]
 >REST Connector ignorerar alla "Accept"-huvud som anges i `additionalHeaders` . Eftersom REST Connector endast stöder svar i JSON genererar den automatiskt ett huvud av `Accept: application/json` .
@@ -310,7 +310,7 @@ Denna generiska REST-anslutning har stöd för följande sid brytnings mönster:
 
 **Nycklar som stöds** i sid brytnings regler:
 
-| Nyckel | Beskrivning |
+| Nyckel | Description |
 |:--- |:--- |
 | AbsoluteUrl | Anger den URL som utfärdar nästa begäran. Det kan **antingen vara en absolut URL eller en relativ URL**. |
 | QueryParameters. *request_query_parameter* ELLER QueryParameters ["request_query_parameter"] | "request_query_parameter" är användardefinierad, som refererar till ett parameter namn för en fråga i nästa HTTP-begärande-URL. |
@@ -404,13 +404,13 @@ Mallen definierar två parametrar:
 3. Välj **Använd den här mallen**.
     ![Använd den här mallen](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Du ser pipelinen som skapades på det sätt som visas i följande exempel: ![ pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Du ser pipelinen som skapades på det sätt som visas i följande exempel:  ![ skärm bilden visar pipelinen som skapats från mallen.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Välj **webb** aktivitet. I **Inställningar**anger du motsvarande **URL**, **metod**, **rubriker**och **brödtext** för att hämta OAuth Bearer-token från inloggnings-API: t för den tjänst som du vill kopiera data från. Plats hållaren i mallen visar ett exempel på Azure Active Directory (AAD) OAuth. Obs!-autentisering med AAD stöds internt av REST Connector. här är bara ett exempel på ett OAuth-flöde. 
 
     | Egenskap | Beskrivning |
     |:--- |:--- |:--- |
-    | URL |Ange URL: en som OAuth Bearer-token ska hämtas från. i exemplet här är det t. ex.https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Ange URL: en som OAuth Bearer-token ska hämtas från. i exemplet här är det t. ex. https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metod | HTTP-metoden. Tillåtna värden är **post** och **Get**. | 
     | Sidhuvuden | Rubriken är användardefinierad, som refererar till ett rubrik namn i HTTP-begäran. | 
     | Brödtext | Bröd texten för HTTP-begäran. | 

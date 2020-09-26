@@ -4,17 +4,17 @@ description: Den här snabb starten visar hur du använder webb verktygen för a
 services: synapse-analytics
 author: euangMS
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260775"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
 
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du skapar en Apache Spark pool (f
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)
@@ -49,7 +49,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 4. I fönstret **Egenskaper** anger du ett namn för antecknings boken.
 5. Klicka på **publicera**i verktygsfältet.
 6. Om det bara finns en Apache Spark pool i din arbets yta, är den markerad som standard. Använd List rutan för att välja rätt Apache Spark pool om ingen är markerad.
-7. Klicka på **Lägg till kod**. Standard språket är `Pyspark` . Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra.
+7. Klicka på **Lägg till kod**. Standard språket är `Pyspark` . Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra. Andra språk som stöds är Scala och .NET för Spark.
 8. Därefter skapar du ett enkelt Spark DataFrame-objekt som du kan ändra. I det här fallet skapar du den från kod. Det finns tre rader och tre kolumner:
 
    ```python

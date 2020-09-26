@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360760"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -27,12 +27,12 @@ Du kan använda REST-API: er för batch-avskrift för att anropa följande metod
 |    Batch-avskrifts åtgärd                                             |    Metod    |    REST API-anrop                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    Skapar en ny avskrift.                                              |    POST      |    speechtotext/v 3.0/avskrifter            |
-|    Hämtar en lista över avskrifter för den autentiserade prenumerationen.    |    GET       |    speechtotext/v 3.0/avskrifter            |
-|    Hämtar en lista över språk som stöds för offline-avskrifter.              |    GET       |    speechtotext/v 3.0/avskrifter/språk    |
+|    Hämtar en lista över avskrifter för den autentiserade prenumerationen.    |    HÄMTA       |    speechtotext/v 3.0/avskrifter            |
+|    Hämtar en lista över språk som stöds för offline-avskrifter.              |    HÄMTA       |    speechtotext/v 3.0/avskrifter/språk    |
 |    Uppdaterar föränderligt-informationen för avskriften som identifieras av dess ID.    |    9.0a     |    speechtotext/v 3.0/avskrifter/{ID}       |
 |    Tar bort den angivna avskrifts uppgiften.                                 |    DELETE    |    speechtotext/v 3.0/avskrifter/{ID}       |
-|    Hämtar avskriften som identifieras av det angivna ID: t.                        |    GET       |    speechtotext/v 3.0/avskrifter/{ID}       |
-|    Hämtar resultat filen för avskriften som identifieras av det angivna ID: t.    |    GET       |    speechtotext/v 3.0/avskrifter/{ID}/filer |
+|    Hämtar avskriften som identifieras av det angivna ID: t.                        |    HÄMTA       |    speechtotext/v 3.0/avskrifter/{ID}       |
+|    Hämtar resultat filen för avskriften som identifieras av det angivna ID: t.    |    HÄMTA       |    speechtotext/v 3.0/avskrifter/{ID}/filer |
 
 Du kan granska och testa det detaljerade API: et, som är tillgängligt som ett [Swagger-dokument](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
@@ -41,9 +41,9 @@ Detta API kräver inte anpassade slut punkter och saknar samtidiga krav.
 Jobb för batch-avskrifter schemaläggs enligt bästa prestanda.
 Det går inte att beräkna när ett jobb ska ändras till körnings tillstånd, men det bör ske inom några minuter under normal system belastning. När den är i körnings tillstånd sker avskriften snabbare än uppspelnings hastigheten för ljud körningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](get-started.md).
+Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
 > En standard prenumeration (S0) för tal tjänst krävs för att använda batch-avskriftering. Kostnads fria prenumerations nycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

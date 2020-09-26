@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081323"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360811"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -175,7 +175,7 @@ På sidan för att **komma igång** med Data Factory väljer du **skapa pipeline
 
       ![Konfiguration av Logic app](media/load-sap-bw-data/logic-app-config.png)
 
-      1. Gå till Azure Portal. Välj en ny **Logic Apps** tjänst. Välj **+ Tom Logic app** för att gå till **Logic Apps designer**.
+      1. Gå till Azure-portalen. Välj en ny **Logic Apps** tjänst. Välj **+ Tom Logic app** för att gå till **Logic Apps designer**.
 
       2. Skapa en utlösare av **när en HTTP-begäran tas emot**. Ange texten för HTTP-begäran enligt följande:
 
@@ -217,7 +217,7 @@ Om du behöver både historisk kopiering och stegvis kopiering eller endast steg
 
    Du kan öka antalet parallella SAP-arbetsprocesser för DTP:
 
-   ![Create-SAP-BW-OHD-Delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![Skärm bilden visar inställningar för parallell bearbetning där du kan välja antalet parallella processer för D T P.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Schemalägg DTP i process kedjor.
 

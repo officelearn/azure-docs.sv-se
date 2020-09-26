@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 141b19ca73c3465e59d8c94a3bdc3657d0900b8d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 413d1f787a39a5a79b94fa06b49436b49337d286
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325597"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Skapa en NFS-volym för Azure NetApp Files
 
@@ -62,7 +62,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 
         Ett volym namn måste vara unikt inom varje pool för kapacitet. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.   
 
-        Du kan inte använda `default` som volym namn.
+        Du kan inte använda `default` eller `bin` som volym namn.
 
     * **Pool för kapacitet**  
         Ange den pool där du vill att volymen ska skapas.
@@ -71,6 +71,11 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
         Ange mängden logisk lagring som tilldelas till volymen.  
 
         Fältet **Tillgänglig kvot** visar mängden outnyttjat utrymme i kapacitetspoolen, som du kan använda för att skapa en ny volym. Storleken på den nya volymen får inte överskrida den tillgängliga kvoten.  
+
+    * **Data flöde (MiB/S)**   
+        Om volymen har skapats i en manuell pool för QoS-kapacitet anger du det data flöde som du vill använda för volymen.   
+
+        Om volymen skapas i en pool med automatisk QoS-kapacitet är värdet som visas i det här fältet (kvot x service nivåns data flöde).   
 
     * **Virtuellt nätverk**  
         Ange det virtuella Azure-nätverk (VNet) som du vill ha åtkomst till volymen från.  

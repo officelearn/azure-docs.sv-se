@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e4b96092107e3411f33411f1044fd7cc839f132
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 98fc8b23369f961ca023832430d47c8868e42158
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260673"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Lathund-blad för Azure Synapse Analytics
 
@@ -26,17 +26,17 @@ Azure Synapse Analytics lathund-bladet hjälper dig genom de grundläggande begr
 
 En **Synapse-arbetsyta** är en skydds bara samarbets gränser för att utföra molnbaserad företags analys i Azure. En arbets yta distribueras i en angiven region och har ett associerat ADLS Gen2-konto och fil system (för lagring av temporära data). En arbets yta är under en resurs grupp.
 
-I en arbets yta kan du utföra analyser med SQL och Apache Spark. Resurser som är tillgängliga för SQL och Spark Analytics är indelade i **pooler**. Det finns tre typer av pooler.
-* **SQL-pooler**. Dessa ger **dedikerad** SQL Analytics-kapacitet.
-* **SQL-pool på begäran**. Varje arbets yta har exakt en SQL-pool på begäran. Detta ger SQL Analytics-kapacitet på **Server** nivå per fråga.
-* **Spark-pooler**. Dessa ger Spark Analytics-kapacitet.
+I en arbets yta kan du utföra analyser med SQL och Apache Spark. Resurser som är tillgängliga för SQL och Spark Analytics är indelade i SQL-och Spark- **pooler**. 
+
+## <a name="synapse-sql"></a>Synapse SQL
+**SYNAPSE SQL** är möjligheten att utföra T-SQL-baserad analys i Synapse-arbetsytan. Synapse SQL har två förbruknings modeller: dedikerade och Server lös.  För den dedikerade modellen använder du dedikerade **SQL-pooler**. En arbets yta kan ha nubmer av dessa pooler. Om du vill använda en server lös modell använder du den serverbaserade SQL-poolen med namnet "SQL på begäran". Varje arbets yta har en av dessa pooler.
+
+## <a name="apache-spark-for-synapse"></a>Apache Spark för Synapse
+Om du vill använda Spark Analytics skapar du och använder **Spark-pooler** på din Synapse-arbetsyta.
+
 ## <a name="terminology"></a>Terminologi
-| Period                         | Definition      |
+| Term                         | Definition      |
 |:---                                 |:---                 |
-| **Synapse-arbetsyta** | En skydds bara samarbets gränser för att utföra molnbaserad företags analys i Azure. En arbets yta distribueras i en angiven region och har ett associerat ADLS Gen2-konto och fil system (för lagring av temporära data). En arbets yta är under en resurs grupp. |
-| **Synapse SQL**   | Kör analyser med pooler eller med funktioner på begäran.  |
-| **SQL-pool**   | 0-till-N SQL-etablerade resurser med motsvarande databaser kan distribueras i en arbets yta. Varje SQL-pool har en associerad databas. En SQL-pool kan skalas, pausas och återupptas manuellt eller automatiskt. En SQL-pool kan skalas från 100 DWU upp till 30 000 DWU.       |
-| **SQL på begäran**   | Distribuerat data bearbetnings system som skapats för storskaliga data som gör att du kan köra T-SQL-frågor över data i data Lake. Den är Server lös så du behöver inte hantera infrastrukturen.       |
 |**Apache Spark för Synapse** | Spark-körning som används i en spark-pool. Den aktuella versionen som stöds är Spark 2,4 med python 3.6.1, Scala 2.11.12, .NET support för Apache Spark 0,5 och delta Lake 0,3.  | 
 | **Apache Spark pool**  | 0-till-N Spark-etablerade resurser med motsvarande databaser kan distribueras i en arbets yta. En spark-pool kan pausas automatiskt, återupptas och skalas.  |
 | **Spark-program**  |   Det består av en driv rutins process och en uppsättning utförar processer. Ett Spark-program körs på en spark-pool.            |

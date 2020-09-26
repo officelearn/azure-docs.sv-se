@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 92f1b722e39083463fd7fa57fdf8508c2c4084cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326651"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -66,131 +66,10 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 | **Lägsta körnings tid som stöds**|[JDK 8](/java/azure/jdk/?view=azure-java-stable) | 
 | **Azure Cosmos DB workshops och labb** |[Start sida för Cosmos DB workshops](https://aka.ms/cosmosworkshop)
 
-## <a name="release-history"></a>Versions historik
+[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
 
-### <a name="450-beta1-unreleased"></a>4.5.0 – beta. 1 (frisläppt)
-
-### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Fast RequestTimeoutException vid aktivering av `netty-tcnative-boringssl` beroende.
-* Problem med fast minnes läcka `Delete` åtgärder i `GATEWAY` läge.
-* Fast en läcka i `CosmosClient` instansiering när slut punkts-URI: n är ogiltig.
-* Förbättrad `CPU History` diagnostik.
-
-### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Åtgärdat problem med `GROUP BY` fråga, där det bara returnerade en sida.
-* Fast användar agent sträng format som följer rikt linjerna för central SDK.
-* Utökad diagnostikinformation för att inkludera diagnostik för frågeuttryck.
-
-### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
-#### <a name="new-features"></a>Nya funktioner
-* Uppdaterad version av reaktor Core-bibliotek till `3.3.8.RELEASE` . 
-* Uppdaterad version av reaktor-nett bibliotek till `0.9.10.RELEASE` . 
-* Uppdaterade den uppdelade biblioteks versionen till `4.1.51.Final` . 
-* Nya Överlagrings-API: er har lagts till `upsertItem` i `partitionKey` . 
-* Stöd för öppen telemetri har lagts till. 
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Ett problem har åtgärd ATS där SSLException erhålls vid annullering av förfrågningar i GATEWAY-läge.
-* Princip för omförsök för fasta resurser för att köra lagrade procedurer.
-* Åtgärdat problem där SDK låser sig i fel SÖKNINGs läge på logg nivå. 
-* Fasta Periodiska toppar i svars tid i direkt läge. 
-* Fast problem med initierings tiden för den högsta klienten. 
-* Fel i fast http-proxy vid anpassning av klienten med direkt läge och gateway-läge. 
-* Fast potentiell NPE i användare skickar null-alternativ. 
-* Lade till timeUnit `requestLatency` i i diagnostik-strängen.
-* En dubblett av en URI-sträng togs bort från diagnostik strängen. 
-* Fast diagnostik-sträng i korrekt JSON-format för punkt åtgärder.
-* Åtgärdat problem med `.single()` operatör som gör att reaktor kedjan kan inblåsas i händelse av ett undantag som inte hittades. 
-
-### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
-#### <a name="new-features"></a>Nya funktioner
-* Skript loggning har Aktiver ATS för `CosmosStoredProcedureRequestOptions` .
-* Standardvärdet har uppdaterats `DirectConnectionConfig` `idleEndpointTimeout` till 1H och standardvärdet `connectTimeout` 5 SEK.
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Ett fast problem där `GatewayConnectionConfig` `idleConnectionTimeout` ignorerades `DirectConnectionConfig` `idleConnectionTimeout` .
-* Fasta `responseContinuationTokenLimitInKb` Get-och set-API: er i `CosmosQueryRequestOptions` .
-* Ett problem har åtgärd ATS i frågan och ändra feed när samlingen återskapas med samma namn.
-* Åtgärdat problem med högsta fråga som utlöser ClassCastException.
-* Åtgärdat problem med order by-fråga utlöser NullPointerException.
-* Fast problem vid hantering av avbrutna begär anden i direkt läge `onErrorDropped` som orsakar att reaktor anropas. 
-
-### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
-#### <a name="new-features"></a>Nya funktioner
-* Stöd har lagts till för `GROUP BY` frågan.
-* Ökat standardvärdet för maxConnectionsPerEndpoint till 130 i DirectConnectionConfig.
-* Ökat standardvärdet för maxRequestsPerConnection till 30 i DirectConnectionConfig.
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Fasta problem med order by-fråga returnerar dubbla resultat när de återupptas med hjälp av fortsättnings-token. 
-* Korrigerade problem med värde fråga returnerar null-värden för nästlat objekt.
-* Åtgärdat undantag för null-pekare i Request Manager i RntbdClientChannelPool.
-
-### <a name="401-2020-06-10"></a>4.0.1 (2020-06-10)
-#### <a name="new-features"></a>Nya funktioner
-* Har bytt namn `QueryRequestOptions` till `CosmosQueryRequestOptions` .
-* Uppdaterat `ChangeFeedProcessorBuilder` till Builder-mönster.
-* Uppdaterat `CosmosPermissionProperties` med nya behållar namn och underordnade resurs-API: er.
-* Fler exempel & berikade dokument lades till `CosmosClientBuilder` . 
-* Uppdaterade `CosmosDatabase`  &  `CosmosContainer` API: er med throughputProperties för autoskalning/autopilot-stöd. 
-* Har bytt namn `CosmosClientException` till `CosmosException` . 
-* Ersatts `AccessCondition`  &  `AccessConditionType` av `ifMatchETag()`  &  `ifNoneMatchETag()` API: er. 
-* Sammanfogade alla `Cosmos*AsyncResponse`  &  `CosmosResponse` typer till en enda `CosmosResponse` typ.
-* Har bytt namn `CosmosResponseDiagnostics` till `CosmosDiagnostics` .  
-* Omsluten `FeedResponseDiagnostics` `CosmosDiagnostics` . 
-* `jackson`Beroende av Azure-cosmos & förlitar sig på Azure-Core. 
-* Ersatt `CosmosKeyCredential` av `AzureKeyCredential` typ. 
-* `ProxyOptions`API: er har lagts till i `GatewayConnectionConfig` . 
-* SDK har uppdaterats för att använda `Instant` typ i stället för `OffsetDateTime` . 
-* Ny Enum-typ har lagts till `OperationKind` . 
-* Har bytt namn `FeedOptions` till `QueryRequestOptions` . 
-* `getETag()`  &  `getTimestamp()` API: er har lagts till i `Cosmos*Properties` typerna. 
-* Information har lagts till `userAgent` i `CosmosException`  &  `CosmosDiagnostics` . 
-* Ett nytt rad avstånd har uppdaterats `Diagnostics` till rad i systemet. 
-* `readAll*`API: er har tagits bort, Använd fråga Markera alla API: er i stället.
-* `ChangeFeedProcessor`API för uppskattnings fördröjning har lagts till.   
-* Har lagt till stöd för autoskalning/autopilot-genomflöde i SDK.  
-* Ersatt `ConnectionPolicy` med nya anslutnings konfigurationer. Exponerade `DirectConnectionConfig`  &  `GatewayConnectionConfig` API: er via `CosmosClientBuilder` för direktanslutna & Gateway mode-anslutnings konfigurationer.
-* Flyttad `JsonSerializable`  &  `Resource` till implementerings paketet. 
-* API har lagts `contentResponseOnWriteEnabled` till för CosmosClientBuilder, vilket inaktiverar fullständigt svars innehåll vid Skriv åtgärder.
-* Exponerade `getETag()` API: er för svars typer.
-* Flyttad `CosmosAuthorizationTokenResolver` till implementering. 
-* API har bytt namn `preferredLocations`  &  `multipleWriteLocations` till `preferredRegions`  &  `multipleWriteRegions` . 
-* Uppdaterat `reactor-core` till 3.3.5. release, `reactor-netty` till 0.9.7. release & `netty` till 4.1.49. Finale-versioner. 
-* Stöd har lagts till `analyticalStoreTimeToLive` i SDK.     
-* `CosmosClientException` utökar `AzureException` . 
-* API: er har tagits bort `maxItemCount`  &  `requestContinuationToken` från `FeedOptions` i stället med `byPage()` API: er `CosmosPagedFlux`  &  `CosmosPagedIterable` .
-* Infört `CosmosPermissionProperties` på offentlig yta för `Permission` API: er.
-* Den borttagna `SqlParameterList` typen & ersatts av `List`
-* Fast flera minnes läckor i direkt TCP-klient. 
-* Stöd har lagts till för `DISTINCT` frågor. 
-* Externa beroenden har tagits bort `fasterxml.uuid, guava, commons-io, commons-collection4, commons-text` .  
-* Flyttad `CosmosPagedFlux`  &  `CosmosPagedIterable` till `utils` paket. 
-* Uppdaterad nettning till 4.1.45. slutlig & projekt reaktor till 3.3.3 version.
-* Uppdaterade offentliga rest-kontrakt till `Final` klasser.
-* Stöd har lagts till för avancerad diagnostik för punkt åtgärder.
-* Paketet har uppdaterats till `com.azure.cosmos`
-* `models`Paket för modell/rest-avtal har lagts till
-* Paket har lagts till `utils` för `CosmosPagedFlux`  &  `CosmosPagedIterable` typer. 
-* Uppdaterade offentliga API: er som ska användas i `Duration` SDK.
-* Alla rest-kontrakt har lagts till i `models` paketet.
-* `RetryOptions` har bytt namn till `ThrottlingRetryOptions` .
-* `CosmosPagedFlux`  &  `CosmosPagedIterable` Sid brytnings typer har lagts till för API: er för frågor. 
-* Stöd har lagts till för delning av TransportClient över flera instanser av CosmosClients med hjälp av ett nytt API i `CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
-* Optimering av frågor genom att ta bort dubbel serialisering/deserialisering. 
-* Optimeringar av svars rubriker genom att ta bort onödig kopiering och tillbaka. 
-* Optimerad `ByteBuffer` serialisering/deserialisering genom att ta bort mellanliggande strängars instansiering.
-
-#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
-* Undantag för fast ConnectionPolicy `toString()` null-pekare.
-* Fast problem vid parsning av frågeresultat i händelse av frågor om värde ordning. 
-* Problem med fast socket läcker med direkt TCP-klient.
-* Åtgärdat `orderByQuery` med fel i fortsättnings-token.
-* `ChangeFeedProcessor` fel korrigering för hantering av partition delas & när partitionen inte hittas.
-* `ChangeFeedProcessor` fel korrigering vid synkronisering av låne uppdateringar mellan olika trådar.
-* Fast konkurrens tillstånd `ArrayIndexOutOfBound` som orsakar undantag i StoreReader
-
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+## <a name="faq"></a>Vanliga frågor
+[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)] 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.

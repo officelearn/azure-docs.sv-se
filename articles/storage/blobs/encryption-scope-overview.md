@@ -4,17 +4,17 @@ description: Krypterings omfång ger möjlighet att hantera kryptering på nivå
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 041b0bf57f57fd8ddd74c8330888d75e31aacc83
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996405"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326124"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Krypterings omfång för Blob Storage (för hands version)
 
@@ -22,7 +22,7 @@ Krypterings omfång ger möjlighet att hantera kryptering på nivån för behål
 
 Som standard krypteras ett lagrings konto med en nyckel som är begränsad till hela lagrings kontot. Med en krypterings omfattning kan du ange att en eller flera behållare krypteras med en nyckel som endast är begränsad till dessa behållare.
 
-Du kan välja att använda antingen Microsoft-hanterade nycklar eller Kundhanterade nycklar som lagras i Azure Key Vault eller Key Vault-hanterad maskin säkerhets modell (HSM) (för hands version) för att skydda och kontrol lera åtkomsten till nyckeln som krypterar dina data. Olika krypterings omfång på samma lagrings konto kan använda antingen Microsoft-hanterade eller kund hanterade nycklar.
+Du kan välja att använda antingen Microsoft-hanterade nycklar eller Kundhanterade nycklar som lagras i Azure Key Vault för att skydda och kontrol lera åtkomsten till nyckeln som krypterar dina data. Olika krypterings omfång på samma lagrings konto kan använda antingen Microsoft-hanterade eller kund hanterade nycklar.
 
 När du har skapat ett krypterings omfång kan du ange att krypterings omfång på en begäran om att skapa en behållare eller en blob. Mer information om hur du skapar en krypterings omfattning finns i [skapa och hantera krypterings omfattningar (för hands version)](encryption-scope-manage.md).
 
@@ -50,7 +50,7 @@ När du inaktiverar en krypterings omfattning kommer eventuella efterföljande L
 
 När en krypterings omfattning är inaktive rad debiteras du inte längre. Inaktivera eventuella krypterings områden som inte behövs för att undvika onödiga kostnader.
 
-Om krypterings omfattningen är skyddad med Kundhanterade nycklar kan du också ta bort den tillhör ande nyckeln i Key Vault eller Managed HSM för att inaktivera krypterings omfånget. Tänk på att Kundhanterade nycklar skyddas av mjuk borttagnings-och rensnings skydd i Key Vault eller hanterad HSM, och att en borttagen nyckel omfattas av det beteende som definierats för dessa egenskaper. Mer information finns i något av följande avsnitt i Azure Key Vault-dokumentationen:
+Om krypterings omfattningen är skyddad med Kundhanterade nycklar kan du också ta bort den tillhör ande nyckeln i nyckel valvet för att inaktivera krypterings omfånget. Tänk på att Kundhanterade nycklar skyddas av mjuk borttagnings-och rensnings skydd i nyckel valvet, och en borttagen nyckel omfattas av det beteende som definierats för dessa egenskaper. Mer information finns i något av följande avsnitt i Azure Key Vault-dokumentationen:
 
 - [Använda mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [Använda mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md)

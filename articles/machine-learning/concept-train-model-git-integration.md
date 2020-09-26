@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275973"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Git-integrering för Azure Machine Learning
 
@@ -35,13 +35,95 @@ Vi rekommenderar att du klonar lagrings platsen till din användar katalog så a
 
 Du kan klona en git-lagringsplats som du kan autentisera till (GitHub, Azure databaser, BitBucket osv.)
 
-En guide om hur du använder git CLI hittar du [här.](https://guides.github.com/introduction/git-handbook/)
+Mer information om kloning finns i guiden om [hur du använder git CLI](https://guides.github.com/introduction/git-handbook/).
+
+## <a name="authenticate-your-git-account-with-ssh"></a>Autentisera ditt git-konto med SSH
+### <a name="generate-a-new-ssh-key"></a>Generera en ny SSH-nyckel
+1) [Öppna terminalfönstret](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) på fliken Azure Machine Learning antecknings bok.
+
+2) Klistra in texten nedan och ersätt den med din e-postadress.
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+Detta skapar en ny SSH-nyckel med hjälp av det tillhandahållna e-postmeddelandet som en etikett.
+
+```
+> Generating public/private rsa key pair.
+```
+
+3) När du uppmanas att ange en fil där du vill spara nyckeln trycker du på RETUR. Detta godkänner standard platsen för filen.
+
+4) Kontrol lera att standard platsen är '/Home/azureuser/.ssh ' och tryck på RETUR. Ange annars platsen '/Home/azureuser/.ssh '.
+
+> [!TIP]
+> Se till att SSH-nyckeln sparas i "/Home/azureuser/.ssh". Filen som sparas i beräknings instansen är bara tillgänglig för instansens ägare
+
+```
+> Enter a file in which to save the key (/home/azureuser/.ssh/id_rsa): [Press enter]
+```
+
+5) Skriv en säker lösen fras i prompten. Vi rekommenderar att du lägger till en lösen fras i SSH-nyckeln för ytterligare säkerhet
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
+
+### <a name="add-the-public-key-to-git-account"></a>Lägg till den offentliga nyckeln till git-kontot
+1) Kopiera innehållet i den offentliga nyckel filen i terminalfönstret. Om du har bytt namn på nyckeln ersätter du id_rsa. pub med fil namnet för den offentliga nyckeln.
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+> [!TIP]
+> **Kopiera och klistra in i Terminal**
+> * Windows: `Ctrl-Insert` för att kopiera och använda `Ctrl-Shift-v` eller `Shift-Insert` Klistra in.
+> * Mac OS: `Cmd-c` för att kopiera och `Cmd-v` Klistra in.
+> * FireFox/IE kanske inte stöder urklipps behörigheter korrekt.
+
+2) Markera och kopiera nyckel utdata i Urklipp.
+
++ [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
++ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
+
++ [Azure-DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Starta i **steg 2**.
+
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Starta i **steg 4**.
+
+### <a name="clone-the-git-repository-with-ssh"></a>Klona git-lagringsplatsen med SSH
+
+1) Kopiera SSH git-klonings-URL: en från git-lagrings platsen.
+
+2) Klistra in URL: en i `git clone` kommandot nedan för att använda din SSH git lagrings platsen-URL. Detta ser ut ungefär så här:
+
+```bash
+git clone git@example.com:GitUser/azureml-example.git
+Cloning into 'azureml-example'...
+```
+
+Ett svar visas som:
+
+```bash
+The authenticity of host 'example.com (192.30.255.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of known hosts.
+```
+
+SSH kan visa serverns SSH-finger avtryck och be dig verifiera den. Kontrol lera att finger avtrycket som visas matchar ett av finger avtryck på sidan offentliga SSH-nycklar.
+
+SSH visar det här finger avtrycket när det ansluter till en okänd värd för att skydda dig från [man-in-the-middle-attacker](https://technet.microsoft.com/library/cc959354.aspx). När du godkänner värdens finger avtryck kommer SSH inte att fråga dig igen om inte finger avtrycket ändras.
+
+3) När du tillfrågas om du vill fortsätta ansluta skriver du `yes` . Git kommer att klona lagrings platsen och konfigurera den ursprungliga fjärrdatorn för att ansluta med SSH för framtida git-kommandon.
 
 ## <a name="track-code-that-comes-from-git-repositories"></a>Spåra kod som kommer från git-databaser
 
 När du skickar en utbildning som körs från python SDK eller Machine Learning CLI överförs filerna som behövs för att träna modellen till din arbets yta. Om `git` kommandot är tillgängligt i utvecklings miljön använder överförings processen för att kontrol lera om filerna är lagrade i en git-lagringsplats. I så fall, överförs information från git-lagringsplatsen också som en del av övnings körningen. Den här informationen lagras i följande egenskaper för övnings körningen:
 
-| Egenskap | Git-kommando som används för att hämta värdet | Beskrivning |
+| Egenskap | Git-kommando som används för att hämta värdet | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | Den URI som din lagrings plats har kopierats från. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | Den URI som din lagrings plats har kopierats från. |
@@ -110,7 +192,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Mer information finns i referens dokumentationen för [AZ ml-körning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest) .
+Mer information finns i referens dokumentationen för [AZ ml-körning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) .
 
 ## <a name="next-steps"></a>Nästa steg
 

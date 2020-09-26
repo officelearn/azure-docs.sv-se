@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f539786de589dbab3a191a5343ba315349533447
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360998"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst operativ systemets mått till Azure Monitor mått lagrets klassiska Cloud Services 
 
@@ -173,7 +173,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 1. Gå till Azure-portalen. 
 
-   ![Mått Azure Portal](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   ![Skärm bild som visar Azure Portal med övervakare och sedan mått som valts.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
 2. På den vänstra menyn väljer du **övervaka.**
 
@@ -187,7 +187,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 Du kan använda funktionerna för dimensions filtrering och delning för att visa den totala mängden minne som används av en speciell roll eller roll instans. 
 
- ![Mått Azure Portal](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ ![Skärm bilden visar Mät data.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

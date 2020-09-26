@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 1d2fffabba3615394bdf96ed487177bf21f3ecec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da9f3e2b6b8936c74e20a226b606082fb3e0d3ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263172"
 ---
-# <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Verifiera den inbyggda brand väggen för Azure SQL Managed instance
+# <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Kontrollera den inbyggda brandväggen i Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 De [obligatoriska inkommande säkerhets reglerna](connectivity-architecture-overview.md#mandatory-inbound-security-rules) för Azure SQL Managed instance kräver att hanterings portarna 9000, 9003, 1438, 1440 och 1452 är öppna från **vilken källa som helst** i nätverks säkerhets gruppen (NSG) som skyddar SQL-hanterad instans. Även om dessa portar är öppna på NSG-nivån, skyddas de på nätverks nivå av den inbyggda brand väggen.

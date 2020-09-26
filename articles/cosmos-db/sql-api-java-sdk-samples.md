@@ -5,15 +5,15 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/20/2020
+ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 4f61dcfa37547fe46a582a4a7ebb28ac68fe6c74
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 66677a80c2b58a87bc4a9312570d88a5f735cd72
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326719"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4-exempel
 
@@ -21,6 +21,7 @@ ms.locfileid: "87308686"
 > * [.NET v2 SDK-exempel](sql-api-dotnet-samples.md)
 > * [.NET v3 SDK-exempel](sql-api-dotnet-v3sdk-samples.md)
 > * [Exempel för Java v4 SDK](sql-api-java-sdk-samples.md)
+> * [Exempel på våren data v3 SDK](sql-api-spring-data-sdk-samples.md)
 > * [Node.js-exempel](sql-api-nodejs-samples.md)
 > * [Python-exempel](sql-api-python-samples.md)
 > * [Azure-kodexempelgalleri](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

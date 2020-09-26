@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369101"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudie: läsa in data till Azure Synapse Analytics SQL-pool
 
@@ -34,7 +34,7 @@ I den här självstudien används PolyBase för att läsa in informations lagret
 > * Generera ett års data i tabellerna för datumdimension och säljfakta
 > * Skapa statistik på nyligen inlästa data
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -58,20 +58,20 @@ Följ de här stegen för att skapa en tom SQL-pool.
 
 1. Fyll i avsnittet **projekt information** med följande information:
 
-   | Inställningen | Exempel | Beskrivning |
+   | Inställning | Exempel | Beskrivning |
    | ------- | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
 1. Ange ett namn för SQL-poolen under **information om SQL-pooler**. Välj sedan antingen en befintlig server i list rutan eller Välj **Skapa ny** under **Server** inställningar för att skapa en ny server. Fyll i formuläret med följande information:
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     | ------- | --------------- | ----------- |
     |**SQL-poolnamn**|SampleDW| För giltiga databas namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+    | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa server](./media/load-data-wideworldimportersdw/create-database-server.png)
 
@@ -83,7 +83,7 @@ Följ de här stegen för att skapa en tom SQL-pool.
 
 1. Välj **Granska + skapa** för att granska inställningarna och välj sedan **skapa** för att skapa ditt informations lager. Du kan övervaka förloppet genom att öppna sidan **distribution** pågår från menyn **meddelanden** .
 
-     ![avisering](./media/load-data-wideworldimportersdw/notification.png)
+     ![Skärm bild som visar meddelanden med pågående distribution.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
@@ -100,7 +100,7 @@ Azure Synapse Analytics-tjänsten skapar en brand vägg på server nivå som fö
 1. Välj servernamnet.
     ![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Välj **Visa brand Väggs inställningar**. Sidan **brand Väggs inställningar** för servern öppnas.
+1. Välj **Visa brandväggsinställningar**. Sidan **brand Väggs inställningar** för servern öppnas.
 
     ![serverinställningar](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -129,13 +129,13 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-    | Inställningen      | Föreslaget värde | Beskrivning |
+    | Inställning      | Föreslaget värde | Beskrivning |
     | ------------ | --------------- | ----------- |
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | Servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.Database.Windows.net** ett fullständigt kvalificerat Server namn. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](./media/load-data-wideworldimportersdw/connect-to-server.png)
 

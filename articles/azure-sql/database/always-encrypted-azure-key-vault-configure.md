@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa60d6127a42f0118df152e5b3081751c595dbcf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087972"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362639"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
 
@@ -183,7 +183,7 @@ Du kan kryptera kolumnerna nu eller spara ett PowerShell-skript för att köra s
 
 Kontrol lera att inställningarna är korrekta och klicka på **Slutför** för att slutföra installationen av Always Encrypted.
 
-![Sammanfattning](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![Skärm bild som visar sidan resultat med aktiviteter som har marker ATS som slutförda.](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Verifiera guidens åtgärder
 
@@ -606,7 +606,7 @@ När databasen har kon figurer ATS för att använda Always Encrypted kanske du 
 ## <a name="related-information"></a>Relaterad information
 
 - [Always Encrypted (klient utveckling)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Transparent datakryptering](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Transparent data kryptering](https://msdn.microsoft.com/library/bb934049.aspx)
 - [SQL Server kryptering](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Always Encrypted guiden](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Always Encrypted blogg](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

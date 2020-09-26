@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: a4834ece4741b14981c08721e28bf528cab1da89
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368897"
 ---
 # <a name="using-openfaas-on-aks"></a>Använda OpenFaaS på AKS
 
 [OpenFaaS][open-faas] är ett ramverk för att skapa Server funktioner med hjälp av behållare. Som ett projekt med öppen källkod har det fått stor skala i communityn. Det här dokumentet innehåller information om hur du installerar och använder OpenFaas i ett AKS-kluster (Azure Kubernetes service).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra stegen i den här artikeln behöver du följande.
 
@@ -134,7 +134,7 @@ Nu när OpenFaaS fungerar skapar du en funktion med hjälp av OpenFaas-portalen.
 
 Klicka på **distribuera ny funktion** och Sök efter **figlet**. Välj funktionen figlet och klicka på **distribuera**.
 
-![Figlet](media/container-service-serverless/figlet.png)
+![Skärm bild som visar dialog rutan distribuera en ny funktion med texten figlet på Sök raden.](media/container-service-serverless/figlet.png)
 
 Använd sväng för att anropa funktionen. Ersätt IP-adressen i följande exempel med den för din OpenFaas-Gateway.
 

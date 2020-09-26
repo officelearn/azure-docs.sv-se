@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: edbe202350b0912372aad822c8530c5f79c76384
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254834"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363213"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklarkonton med Azure Active Directory i Azure API Management
 
 Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för användare från Azure Active Directory (Azure AD). Den här guiden visar också hur du hanterar grupper med Azure AD-användare genom att lägga till externa grupper som innehåller användarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 - Importera och publicera en Azure API Management-instans. Mer information finns i [import och publicering](import-and-publish.md).
@@ -34,7 +34,7 @@ Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för a
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera Developer-konton med hjälp av Azure AD
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
-2. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
+2. Välj ![Pil-ikon.](./media/api-management-howto-aad/arrow.png).
 3. Skriv **API** i sökrutan.
 4. Välj **API Management tjänster**.
 5. Välj API Management-tjänstinstansen.
@@ -103,7 +103,7 @@ När du har lagt till en extern Azure AD-grupp kan du granska och konfigurera de
  
 Användare från den konfigurerade Azure AD-instansen kan nu logga in på Developer-portalen. De kan visa och prenumerera på grupper som de har synlighet för.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>Utvecklings Portal – Lägg till Azure AD-konto-autentisering
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a> Utvecklings Portal – Lägg till Azure AD-konto-autentisering
 
 I Developer-portalen är det möjligt att logga in med AAD med **inloggnings knappen: OAuth-** widgeten. Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
 

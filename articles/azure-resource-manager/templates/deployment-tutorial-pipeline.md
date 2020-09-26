@@ -4,12 +4,12 @@ description: Lär dig hur du kontinuerligt skapar, testar och distribuerar Azure
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892685"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333245"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
 
@@ -180,7 +180,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
     * **Distributions läge**: Välj **stegvis**.
     * **Distributions namn**: ange **DeployPipelineTemplate**. Välj **Avancerat** innan du kan se **distributions namnet**.
 
-    ![Steg för Azure Resource Manager Azure DevOps Azure-pipeline](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![Skärm bild som visar distributions sidan för ARM-mallen med obligatoriska värden angivna.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Välj **Lägg till**.
 
@@ -188,7 +188,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
     YML-filen skall likna följande:
 
-    ![Azure Resource Manager Azure DevOps Azure pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![Skärm bild som visar sidan Granska med den nya pipeline-titeln granska din pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Välj **Spara och kör**.
 1. I fönstret **Spara och köra** väljer du **Spara och kör** igen. En kopia av YAML-filen sparas i den anslutna lagrings platsen. Du kan se YAML-filen genom att bläddra till din lagrings plats.
@@ -198,7 +198,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Öppna resurs gruppen. Namnet är det du angav i YAML-filen för pipelinen.  Du ska se ett lagrings konto som skapats.  Lagrings kontots namn börjar med **Store**.
 1. Välj lagrings kontots namn för att öppna det.
 1. Välj **Egenskaper**. Observera att **replikeringen** är **lokalt REDUNDANT lagring (LRS)**.

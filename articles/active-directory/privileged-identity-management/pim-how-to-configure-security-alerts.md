@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258e05b135195004fec628936bb458ea8f1dc7b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419996"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331322"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurera säkerhets aviseringar för Azure AD-roller i Privileged Identity Management
 
@@ -52,7 +52,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Användare som har tilldelats privilegierade roller som de inte behöver ökar risken för angrepp. Det är också enklare för angripare att befinna sig i konton som inte används aktivt. |
 | **Så här löser du?** | Granska användarna i listan och ta bort dem från privilegierade roller som de inte behöver. |
 | **Prevention (Skydd)** | Tilldela endast privilegierade roller till användare som har en affärs motivering. </br>Schemalägg vanliga [åtkomst granskningar](pim-how-to-start-security-review.md) för att kontrol lera att användarna fortfarande behöver åtkomst. |
@@ -64,7 +64,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Utan Multi-Factor Authentication kan komprometterade användare aktivera privilegierade roller. |
 | **Så här löser du?** | Granska listan över roller och [Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för varje roll. |
 | **Prevention (Skydd)** | [KRÄV MFA](pim-how-to-change-default-settings.md) för varje roll.  |
@@ -74,7 +74,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Den aktuella Azure AD-organisationen har inte Azure AD Premium P2. |
 | **Så här löser du?** | Läs mer om [Azure AD-versioner](../fundamentals/active-directory-whatis.md). Uppgradera till Azure AD Premium P2. |
 
@@ -103,43 +103,43 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Global administratör är den högsta privilegierade rollen. Om en global administratör komprometteras får angriparen åtkomst till alla deras behörigheter, vilket innebär att hela systemet är utsatt för risk. |
 | **Så här löser du?** | Granska användarna i listan och ta bort alla som inte absolut behöver rollen som global administratör. </br>Tilldela de här användarna lägre privilegierade roller i stället. |
 | **Prevention (Skydd)** | Tilldela användare den minst privilegierade rollen som de behöver. |
 | **Åtgärd som åtgärdar åtgärder i portalen** | Tar bort kontot från deras privilegierade roller. |
-| **Utlösare** | Utlöses om två olika villkor uppfylls och du kan konfigurera båda. Först måste du uppnå ett visst tröskelvärde för globala administratörer. För det andra måste en viss procent andel av dina totala roll tilldelningar vara globala administratörer. Om du bara uppfyller en av dessa mått visas inte aviseringen. |
-| **Minsta antal globala administratörer** | Den här inställningen anger antalet globala administratörer, från 2 till 100, som du anser vara för få för din Azure AD-organisation. |
+| **Utlösare** | Utlöses om två olika villkor uppfylls och du kan konfigurera båda. Först måste du komma åt ett visst tröskelvärde för globala administratörs roll tilldelningar. För det andra måste en viss procent andel av dina totala roll tilldelningar vara globala administratörer. Om du bara uppfyller en av dessa mått visas inte aviseringen. |
+| **Minsta antal globala administratörer** | Den här inställningen anger antalet globala administratörs roll tilldelningar, från 2 till 100, som du anser vara för få för din Azure AD-organisation. |
 | **Procent andel globala administratörer** | Den här inställningen anger den lägsta procent andelen av administratörer som är globala administratörer, från 0 till 100% under vilka du inte vill att din Azure AD-organisation ska vara DIP. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Roller aktive ras för ofta
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Flera aktiveringar till samma privilegierade roll av samma användare är ett tecken på ett angrepp. |
 | **Så här löser du?** | Granska användarna i listan och kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för deras privilegierade roll är tillräckligt lång för att de ska kunna utföra sina uppgifter. |
 | **Prevention (Skydd)** | Kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för privilegierade roller är tillräckligt lång för att användarna ska kunna utföra sina uppgifter.</br>[Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för privilegierade roller som har konton som delas av flera administratörer. |
-| **Åtgärd som åtgärdar åtgärder i portalen** | E.t. |
+| **Åtgärd som åtgärdar åtgärder i portalen** | Saknas |
 | **Utlösare** | Utlöses om en användare aktiverar samma privilegierade roll flera gånger inom en angiven period. Du kan konfigurera både tids perioden och antalet aktiveringar. |
 | **Tidsram för aktiverings förnyelse** | Den här inställningen anger i dagar, timmar, minuter och sekund den tids period som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal aktiverings förnyelser** | Den här inställningen anger antalet aktiveringar från 2 till 100, där du vill bli meddelad inom den tidsram som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller skriva ett tal i text rutan. |
 
-## <a name="configure-security-alert-settings"></a>Konfigurera säkerhets aviserings inställningar
+## <a name="customize-security-alert-settings"></a>Anpassa säkerhets aviserings inställningar
 
-Gå till **Inställningar**på sidan aviseringar.
+På sidan **aviseringar** väljer du **Inställningar**.
 
 ![Sidan aviseringar med markerade inställningar](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 Anpassa inställningarna för de olika aviseringarna så att de fungerar med dina miljö-och säkerhets mål.
 
-![Inställnings sida för en avisering för att aktivera och konfigurera inställningar](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Inställnings sida för en avisering för att aktivera och konfigurera inställningar](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
-![Azure AD-roller – aviserings fönstret visar aviseringar och allvarlighets grad](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD-roller – aviserings fönstret visar avisering och allvarlighets grad](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>Säkerhetsaviseringar
+## <a name="security-alert-details"></a>Utförlig information om säkerhetsaviseringar
 
 I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, tillsammans med hur du åtgärdar och förhindrar. Allvarlighets graden har följande betydelse:
 
@@ -151,7 +151,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Användare som har tilldelats privilegierade roller som de inte behöver ökar risken för angrepp. Det är också enklare för angripare att befinna sig i konton som inte används aktivt. |
 | **Så här löser du?** | Granska användarna i listan och ta bort dem från privilegierade roller som de inte behöver. |
 | **Prevention (Skydd)** | Tilldela endast privilegierade roller till användare som har en affärs motivering. </br>Schemalägg vanliga [åtkomst granskningar](pim-how-to-start-security-review.md) för att kontrol lera att användarna fortfarande behöver åtkomst. |
@@ -163,7 +163,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Utan Multi-Factor Authentication kan komprometterade användare aktivera privilegierade roller. |
 | **Så här löser du?** | Granska listan över roller och [Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för varje roll. |
 | **Prevention (Skydd)** | [KRÄV MFA](pim-how-to-change-default-settings.md) för varje roll.  |
@@ -173,7 +173,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Den aktuella Azure AD-organisationen har inte Azure AD Premium P2. |
 | **Så här löser du?** | Läs mer om [Azure AD-versioner](../fundamentals/active-directory-whatis.md). Uppgradera till Azure AD Premium P2. |
 
@@ -202,7 +202,7 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Global administratör är den högsta privilegierade rollen. Om en global administratör komprometteras får angriparen åtkomst till alla deras behörigheter, vilket innebär att hela systemet är utsatt för risk. |
 | **Så här löser du?** | Granska användarna i listan och ta bort alla som inte absolut behöver rollen som global administratör. </br>Tilldela de här användarna lägre privilegierade roller i stället. |
 | **Prevention (Skydd)** | Tilldela användare den minst privilegierade rollen som de behöver. |
@@ -215,11 +215,11 @@ I det här avsnittet visas alla säkerhets aviseringar för Azure AD-roller, til
 
 | | |
 | --- | --- |
-| **Allvarlighetsgrad** | Lågt |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Flera aktiveringar till samma privilegierade roll av samma användare är ett tecken på ett angrepp. |
 | **Så här löser du?** | Granska användarna i listan och kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för deras privilegierade roll är tillräckligt lång för att de ska kunna utföra sina uppgifter. |
 | **Prevention (Skydd)** | Kontrol lera att [aktiverings tiden](pim-how-to-change-default-settings.md) för privilegierade roller är tillräckligt lång för att användarna ska kunna utföra sina uppgifter.</br>[Kräv Multi-Factor Authentication](pim-how-to-change-default-settings.md) för privilegierade roller som har konton som delas av flera administratörer. |
-| **Åtgärd som åtgärdar åtgärder i portalen** | E.t. |
+| **Åtgärd som åtgärdar åtgärder i portalen** | Saknas |
 | **Utlösare** | Utlöses om en användare aktiverar samma privilegierade roll flera gånger inom en angiven period. Du kan konfigurera både tids perioden och antalet aktiveringar. |
 | **Tidsram för aktiverings förnyelse** | Den här inställningen anger i dagar, timmar, minuter och sekund den tids period som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal aktiverings förnyelser** | Den här inställningen anger antalet aktiveringar från 2 till 100, där du vill bli meddelad inom den tidsram som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller skriva ett tal i text rutan. |

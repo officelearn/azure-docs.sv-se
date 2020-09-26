@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c588e1db7cbf35d2a5192805674f88905599e8e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333332"
 ---
 # <a name="read-and-write-spatial-data"></a>Läsa och skriva rumsliga data
 
@@ -41,7 +41,7 @@ När du läser en komprimerad fil, antingen som en zip-eller KMZ, kommer den att
 
 Resultatet från funktionen Read är ett `SpatialDataSet` objekt. Det här objektet utökar FeatureCollection-klassen för polyjson. Det kan enkelt skickas till ett `DataSource` as-är att återge dess funktioner på en karta. `SpatialDataSet`Innehåller inte bara funktions information, men den kan även innehålla KML-Språköverlägg, bearbeta mått och annan information som beskrivs i följande tabell.
 
-| Egenskapsnamn | Typ | Beskrivning | 
+| Egenskapsnamn | Typ | Description | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Avgränsnings ruta för alla data i data uppsättningen. |
 | `features` | `Feature[]` | Interjson-funktioner i data uppsättningen. |
@@ -160,38 +160,31 @@ GML är en spatial XML-filspecifikation som ofta används som ett tillägg till 
 - EPSG: 4269, EPSG: 4283, EPSG: 4258, EPSG: 4308, EPSG: 4230, EPSG: 4272, EPSG: 4271, EPSG: 4267, EPSG: 4608, EPSG: 4674 kan eventuellt ha en liten marginal på fel.
 - EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="more-resources"></a>Fler resurser
 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
-> [!div class="nextstepaction"]
-> [atlas.io-statiska funktioner](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[atlas.io-statiska funktioner](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-> [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
+[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-> [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
+[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-> [!div class="nextstepaction"]
-> [Atlas. io. OGC. well-funktioner](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[Atlas. io. OGC. well-funktioner](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+
+[Ansluta till en WFS-tjänst](spatial-io-connect-wfs-service.md)
+
+[Använda kärnåtgärder](spatial-io-core-operations.md)
+
+[Information om dataformat som stöds](spatial-io-supported-data-format-details.md)
+
+
+## <a name="next-steps"></a>Nästa steg
 
 Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 
-> [!div class="nextstepaction"]
-> [Lägga till ett OGC-kartskikt](spatial-io-add-ogc-map-layer.md)
-
-> [!div class="nextstepaction"]
-> [Ansluta till en WFS-tjänst](spatial-io-connect-wfs-service.md)
-
-> [!div class="nextstepaction"]
-> [Använda kärnåtgärder](spatial-io-core-operations.md)
-
-> [!div class="nextstepaction"]
-> [Information om dataformat som stöds](spatial-io-supported-data-format-details.md)
+[Lägga till ett OGC-kartskikt](spatial-io-add-ogc-map-layer.md)

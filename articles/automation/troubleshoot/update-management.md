@@ -2,15 +2,15 @@
 title: Felsöka Azure Automation Uppdateringshantering problem
 description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation Uppdateringshantering.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359247"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
@@ -65,9 +65,9 @@ När en ersatt uppdatering blir 100 procent inte tillämplig, bör du ändra god
 
 1. I Automation-kontot väljer du **uppdateringshantering** för att Visa dator status. Se [Visa uppdaterings bedömningar](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Kontrol lera den ersatta uppdateringen för att se till att den är 100 procent inte tillämplig. 
+2. Kontrol lera den ersatta uppdateringen för att se till att den är 100 procent inte tillämplig.
 
-3. Markera uppdateringen som nekad om du inte har någon fråga om uppdateringen. 
+3. Markera uppdateringen som nekad om du inte har någon fråga om uppdateringen.
 
 4. Välj **datorer** och tvinga en ny sökning efter kompatibilitet i kolumnen **efterlevnad** . Se [Hantera uppdateringar för virtuella datorer](../update-management/update-mgmt-manage-updates-for-vm.md).
 
@@ -112,9 +112,9 @@ Det här problemet kan orsakas av lokala konfigurations problem eller av en fela
    | summarize by Computer, Solutions
    ```
 
-4. Om du inte ser datorn i frågeresultatet har den nyligen checkats in. Det finns förmodligen ett lokalt konfigurations problem och du bör [installera om agenten](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. Om du inte ser datorn i frågeresultatet har den nyligen checkats in. Det finns förmodligen ett lokalt konfigurations problem och du bör [installera om agenten](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Om din dator visas i frågeresultatet kontrollerar du om det finns problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../update-management/update-mgmt-scope-configuration.md) avgör vilka datorer som har kon figurer ats för uppdateringshantering. 
+5. Om din dator visas i frågeresultatet kontrollerar du om det finns problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../update-management/update-mgmt-scope-configuration.md) avgör vilka datorer som har kon figurer ats för uppdateringshantering.
 
 6. Om datorn visas på arbets ytan men inte i Uppdateringshantering måste du konfigurera omfattnings konfigurationen så att den passar datorn. Information om hur du gör detta finns i [Aktivera datorer i arbets ytan](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -180,7 +180,7 @@ Om din prenumeration inte har kon figurer ATS för Automation Resource Provider 
 
 1. I [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)går du till listan över Azure-tjänster.
 
-2. Välj **alla tjänster**och välj sedan **prenumerationer** i gruppen allmän tjänst. 
+2. Välj **alla tjänster**och välj sedan **prenumerationer** i gruppen allmän tjänst.
 
 3. Hitta den prenumeration som definierats i omfånget för din distribution.
 
@@ -251,7 +251,7 @@ Följ stegen nedan för att ta reda på om dina frågor fungerar som de ska.
     | project id, location, name, tags
     ```
 
-2. Kontrol lera om de datorer som du söker efter finns med i frågeresultatet. 
+2. Kontrol lera om de datorer som du söker efter finns med i frågeresultatet.
 
 3. Om datorerna inte finns med i listan beror det förmodligen på ett problem med det filter som har valts i den dynamiska gruppen. Justera grupp konfigurationen efter behov.
 
@@ -325,7 +325,7 @@ Om du använder en klonad bild har olika dator namn samma käll dator-ID. Om så
 
 3. Kör `Restart-Service HealthService` för att starta om hälso tillstånds tjänsten. Den här åtgärden återskapar nyckeln och genererar en ny UUID.
 
-4. Om den här metoden inte fungerar kör du Sysprep på avbildningen först och installerar sedan MMA.
+4. Om den här metoden inte fungerar kör du Sysprep på avbildningen först och installerar sedan Log Analytics agent för Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Scenario: du får ett länkat prenumerations fel när du skapar en uppdaterings distribution för datorer i en annan Azure-klient
 
@@ -343,7 +343,7 @@ Det här felet uppstår när du skapar en uppdaterings distribution med virtuell
 
 ### <a name="resolution"></a>Lösning
 
-Använd följande lösning för att få de här objekten schemalagda. Du kan använda cmdleten [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) med `ForUpdateConfiguration` parametern för att skapa ett schema. Använd sedan cmdleten [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) och skicka datorerna i den andra klienten till- `NonAzureComputer` parametern. I följande exempel visas hur du gör detta:
+Använd följande lösning för att få de här objekten schemalagda. Du kan använda cmdleten [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) med `ForUpdateConfiguration` parametern för att skapa ett schema. Använd sedan cmdleten [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) och skicka datorerna i den andra klienten till- `NonAzureComputer` parametern. I följande exempel visas hur du gör detta:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +386,15 @@ Felet kan uppstå på grund av någon av följande orsaker:
 * Datorn finns inte längre.
 * Datorn är inaktive rad och kan inte kontaktas.
 * Datorn har ett problem med nätverks anslutningen och det går därför inte att komma åt hybrid Worker på datorn.
-* En uppdatering har gjorts till MMA som ändrade käll dator-ID: t.
+* En uppdatering har gjorts till den Log Analytics agenten som ändrade käll dator-ID: t.
 * Uppdaterings körningen begränsades om du träffar gränsen på 200 samtidiga jobb i ett Automation-konto. Varje distribution betraktas som ett jobb, och varje dator i en uppdaterings distribution räknas som ett jobb. Alla andra automatiserings jobb eller uppdaterings distributioner som körs i ditt Automation-konto räknas mot gränsen för samtidiga jobb.
 
 ### <a name="resolution"></a>Lösning
 
 Använd [dynamiska grupper](../update-management/update-mgmt-groups.md) för dina uppdaterings distributioner när det är tillämpligt. Dessutom kan du utföra följande steg.
 
-1. Kontrol lera att datorn fortfarande finns och att den kan kontaktas. 
-2. Om datorn inte finns redigerar du distributionen och tar bort datorn.
-3. Se avsnittet [nätverks planering](../update-management/update-mgmt-overview.md#ports) för en lista över portar och adresser som krävs för uppdateringshantering och kontrol lera att datorn uppfyller dessa krav.
-4. Kontrol lera anslutningen till Hybrid Runbook Worker med hjälp av Hybrid Runbook Worker agent-felsökaren. Mer information om fel sökaren finns i [Felsöka problem med uppdaterings agenten](update-agent-issues.md).
-5. Kör följande fråga i Log Analytics för att hitta datorer i din miljö där käll datorns ID har ändrats. Leta efter datorer som har samma `Computer` värde men ett annat `SourceComputerId` värde.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. När du hittar berörda datorer redigerar du de uppdaterings distributioner som är riktade mot dessa datorer och tar sedan bort och läser dem så att `SourceComputerId` de motsvarar rätt värde.
+1. Kontrol lera att datorn eller servern uppfyller [kraven](../update-management/update-mgmt-overview.md#client-requirements).
+2. Kontrol lera anslutningen till Hybrid Runbook Worker med hjälp av Hybrid Runbook Worker agent-felsökaren. Mer information om fel sökaren finns i [Felsöka problem med uppdaterings agenten](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scenario: uppdateringar installeras utan distribution
 
@@ -466,7 +457,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>Orsak
 
-En proxy, gateway eller brand vägg kan blockera nätverkskommunikation. 
+En proxy, gateway eller brand vägg kan blockera nätverkskommunikation.
 
 ### <a name="resolution"></a>Lösning
 

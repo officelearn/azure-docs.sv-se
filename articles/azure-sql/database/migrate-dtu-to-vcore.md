@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333162"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrera Azure SQL Database från den DTU-baserade modellen till den vCore-baserade modellen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -130,7 +130,7 @@ Mappnings frågan returnerar följande resultat (vissa kolumner visas inte för 
 
 |dtu_logical_cpus|dtu_hardware_gen|dtu_memory_per_core_gb|Gen4_vcores|Gen4_memory_per_core_gb|Gen5_vcores|Gen5_memory_per_core_gb|
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
-|0.25|Gen4|0,42|0,250|7|0,425|5,05|
+|0,25|Gen4|0,42|0,250|7|0,425|5,05|
 
 Vi ser att DTU-databasen motsvarar 0,25 logiska processorer (virtuella kärnor), med 0,42 GB minne per vCore och använder Gen4 maskin vara. De minsta vCore-tjänst målen i Gen4-och Gen5-maskin varu generationer, **GP_Gen4_1** och **GP_Gen5_2**, ger fler beräknings resurser än Standard-S0-databasen, så en direkt matchning är inte möjlig. Eftersom Gen4 maskin vara inaktive [ras är](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)alternativet **GP_Gen5_2** lämpligt. Om arbets belastningen passar bra för [Server](serverless-tier-overview.md) lös beräknings nivån är **GP_S_Gen5_1** dessutom en närmare motsvarighet.
 
@@ -150,7 +150,7 @@ Mappnings frågan returnerar följande resultat (vissa kolumner visas inte för 
 
 |dtu_logical_cpus|dtu_hardware_gen|dtu_memory_per_core_gb|Gen4_vcores|Gen4_memory_per_core_gb|Gen5_vcores|Gen5_memory_per_core_gb|
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
-|4.00|Gen5|5,40|2,800|7|4,000|5,05|
+|4,00|Gen5|5,40|2,800|7|4,000|5,05|
 
 Vi ser att den elastiska DTU-poolen har 4 logiska processorer (virtuella kärnor), med 5,4 GB minne per vCore och använder Gen5 maskin vara. Den direkta matchningen i vCore-modellen är en **GP_Gen5_4** elastisk pool. Detta tjänst mål har dock stöd för högst 200 databaser per pool, medan den elastiska poolen på Basic 200 eDTU stöder upp till 500-databaser. Om den elastiska poolen som ska migreras har fler än 200 databaser måste det matchande vCore-tjänst målet vara **GP_Gen5_6**, som har stöd för upp till 500-databaser.
 
@@ -168,13 +168,13 @@ Följande tabell innehåller vägledning för olika scenarier för migrering:
 |Aktuell tjänst nivå|Mål tjänst nivå|Typ av migrering|Användaråtgärder|
 |---|---|---|---|
 |Standard|Generellt syfte|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek enligt beskrivningen ovan|
-|Premium|Verksamhets kritisk|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek enligt beskrivningen ovan|
-|Standard|Verksamhets kritisk|Uppgradera|Måste migrera sekundär första|
-|Verksamhets kritisk|Standard|Nedgradera|Måste migrera primär första|
+|Premium|Affärskritisk|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek enligt beskrivningen ovan|
+|Standard|Affärskritisk|Uppgradera|Måste migrera sekundär första|
+|Affärskritisk|Standard|Nedgradera|Måste migrera primär första|
 |Premium|Generellt syfte|Nedgradera|Måste migrera primär första|
 |Generellt syfte|Premium|Uppgradera|Måste migrera sekundär första|
-|Verksamhets kritisk|Generellt syfte|Nedgradera|Måste migrera primär första|
-|Generellt syfte|Verksamhets kritisk|Uppgradera|Måste migrera sekundär första|
+|Affärskritisk|Generellt syfte|Nedgradera|Måste migrera primär första|
+|Generellt syfte|Affärskritisk|Uppgradera|Måste migrera sekundär första|
 ||||
 
 ## <a name="migrate-failover-groups"></a>Migrera redundansväxla grupper

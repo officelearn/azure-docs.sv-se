@@ -3,12 +3,12 @@ title: Hantera säkerhets kopior av Azure-filresurser med Azure CLI
 description: Lär dig hur du använder Azure CLI för att hantera och övervaka Azure-filresurser som har säkerhetskopierats av Azure Backup.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 6b2a0b81793bcd7b5ca9fa2c4e4748d63daceadd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 44c095d58e2da5a74985ce216268aab15922ed1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538623"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332754"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Hantera säkerhets kopior av Azure-filresurser med Azure CLI
 
@@ -16,7 +16,7 @@ Azure CLI innehåller en kommando rads upplevelse för att hantera Azure-resurse
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du vill installera och använda CLI lokalt måste du köra Azure CLI-version 2.0.18 eller senare. Kör `az --version` för att hitta CLI-versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du vill installera och använda CLI lokalt måste du köra Azure CLI-version 2.0.18 eller senare. Kör `az --version` för att hitta CLI-versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,7 +29,7 @@ Den här artikeln förutsätter att du redan har en Azure-filresurs som har säk
 
 ## <a name="monitor-jobs"></a>Övervaka jobb
 
-När du utlöser säkerhets kopierings-eller återställnings åtgärder skapar säkerhets kopierings tjänsten ett jobb för spårning. Om du vill övervaka slutförda eller pågående jobb använder du cmdleten [AZ backup Job List](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) . Med CLI kan du också [pausa ett pågående jobb](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) eller [vänta tills ett jobb har slutförts](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
+När du utlöser säkerhets kopierings-eller återställnings åtgärder skapar säkerhets kopierings tjänsten ett jobb för spårning. Om du vill övervaka slutförda eller pågående jobb använder du cmdleten [AZ backup Job List](/cli/azure/backup/job#az-backup-job-list) . Med CLI kan du också [pausa ett pågående jobb](/cli/azure/backup/job#az-backup-job-stop) eller [vänta tills ett jobb har slutförts](/cli/azure/backup/job#az-backup-job-wait).
 
 I följande exempel visas status för säkerhets kopierings jobb för *azurefilesvault* Recovery Services-valvet:
 
@@ -94,13 +94,13 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 
 ## <a name="modify-policy"></a>Ändra princip
 
-Du kan ändra en säkerhets kopierings princip för att ändra säkerhets kopierings frekvens eller kvarhållningsintervall genom att använda [AZ säkerhets kopierings princip](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-set-policy).
+Du kan ändra en säkerhets kopierings princip för att ändra säkerhets kopierings frekvens eller kvarhållningsintervall genom att använda [AZ säkerhets kopierings princip](/cli/azure/backup/item#az-backup-item-set-policy).
 
 Definiera följande parametrar för att ändra principen:
 
-* **--container-Name**: namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Name**: namnet på den fil resurs som du vill ändra principen för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
-* **--princip namn**: namnet på den säkerhets kopierings princip som du vill ange för din fil resurs. Du kan använda [AZ säkerhets kopierings princip lista](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-list) för att visa alla principer för ditt valv.
+* **--container-Name**: namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
+* **--Name**: namnet på den fil resurs som du vill ändra principen för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](/cli/azure/backup/item#az-backup-item-list) .
+* **--princip namn**: namnet på den säkerhets kopierings princip som du vill ange för din fil resurs. Du kan använda [AZ säkerhets kopierings princip lista](/cli/azure/backup/policy#az-backup-policy-list) för att visa alla principer för ditt valv.
 
 I följande exempel anges *schedule2* säkerhets kopierings policy för *migreringsåtgärden* -filresursen i *afsaccount* Storage-kontot.
 
@@ -123,7 +123,7 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-Namnattributet **i** utdata motsvarar namnet på jobbet som skapas av säkerhets kopierings tjänsten för din ändrings princip åtgärd. Om du vill spåra jobbets status använder du [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Namnattributet **i** utdata motsvarar namnet på jobbet som skapas av säkerhets kopierings tjänsten för din ändrings princip åtgärd. Om du vill spåra jobbets status använder du [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="stop-protection-on-a-file-share"></a>Avbryta skyddet av en filresurs
 
@@ -136,12 +136,12 @@ Det kan finnas en kostnad som är kopplad till att lämna återställnings punkt
 
 Definiera följande parametrar för att stoppa skyddet av fil resursen:
 
-* **--container-Name**: namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--objekt namn**: namnet på den fil resurs som du vill stoppa skyddet för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--container-Name**: namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
+* **--objekt namn**: namnet på den fil resurs som du vill stoppa skyddet för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](/cli/azure/backup/item#az-backup-item-list) .
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Stoppa skyddet och behåll återställnings punkter
 
-Om du vill stoppa skyddet och behålla data använder du [AZ backup Protection Disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
+Om du vill stoppa skyddet och behålla data använder du [AZ backup Protection Disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet.
 
 I följande exempel stoppas skyddet för *migreringsåtgärden* -filresursen men alla återställnings punkter bevaras.
 
@@ -164,11 +164,11 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-Namnattributet **i** utdata motsvarar namnet på jobbet som skapats av säkerhets kopierings tjänsten för åtgärden stoppa skydd. Om du vill spåra jobbets status använder du [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Namnattributet **i** utdata motsvarar namnet på jobbet som skapats av säkerhets kopierings tjänsten för åtgärden stoppa skydd. Om du vill spåra jobbets status använder du [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ### <a name="stop-protection-without-retaining-recovery-points"></a>Stoppa skyddet utan att behålla återställnings punkter
 
-Om du vill stoppa skyddet utan att behålla återställnings punkter använder du [säkerhets kopierings skydd inaktivera](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet med alternativet **ta bort-säkerhets kopierings data** inställt på **Sant**.
+Om du vill stoppa skyddet utan att behålla återställnings punkter använder du [säkerhets kopierings skydd inaktivera](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet med alternativet **ta bort-säkerhets kopierings data** inställt på **Sant**.
 
 I följande exempel stoppas skyddet av *migreringsåtgärden* -filresursen utan att återställnings punkterna bevaras.
 
@@ -191,11 +191,11 @@ Om du har stoppat skyddet för en Azure-filresurs men behåller återställnings
 
 Definiera följande parametrar för att återuppta skyddet av fil resursen:
 
-* **--container-Name**: namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--objekt namn**: namnet på den fil resurs som du vill återuppta skyddet för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--container-Name**: namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
+* **--objekt namn**: namnet på den fil resurs som du vill återuppta skyddet för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](/cli/azure/backup/item#az-backup-item-list) .
 * **--princip namn**: namnet på den säkerhets kopierings princip för vilken du vill återuppta skyddet av fil resursen.
 
-I följande exempel används cmdleten [AZ backup Protection Resume](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) för att återuppta skyddet av fil resursen *migreringsåtgärden* med hjälp av *schedule1* säkerhets kopierings princip.
+I följande exempel används cmdleten [AZ backup Protection Resume](/cli/azure/backup/protection#az-backup-protection-resume) för att återuppta skyddet av fil resursen *migreringsåtgärden* med hjälp av *schedule1* säkerhets kopierings princip.
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --policy-name schedule2 --out table
@@ -216,15 +216,15 @@ Name                                  ResourceGroup
 75115ab0-43b0-4065-8698-55022a234b7f  azurefiles
 ```
 
-Namnattributet **i** utdata motsvarar namnet på jobbet som skapats av säkerhets kopierings tjänsten för åtgärden återuppta skydd. Om du vill spåra jobbets status använder du [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Namnattributet **i** utdata motsvarar namnet på jobbet som skapats av säkerhets kopierings tjänsten för åtgärden återuppta skydd. Om du vill spåra jobbets status använder du [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="unregister-a-storage-account"></a>Avregistrera ett lagrings konto
 
 Om du vill skydda dina fil resurser i ett visst lagrings konto med hjälp av ett annat Recovery Services-valv måste du först [sluta skydda alla fil resurser](#stop-protection-on-a-file-share) i det lagrings kontot. Avregistrera sedan kontot från Recovery Services-valvet som används för skydd.
 
-Du måste ange ett behållar namn för att avregistrera lagrings kontot. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+Du måste ange ett behållar namn för att avregistrera lagrings kontot. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
 
-I följande exempel avregistreras lagrings kontot för *afsaccount* från *azurefilesvault* med hjälp av cmdleten [AZ backup deregister](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-unregister) .
+I följande exempel avregistreras lagrings kontot för *afsaccount* från *azurefilesvault* med hjälp av cmdleten [AZ backup deregister](/cli/azure/backup/container#az-backup-container-unregister) .
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --out table

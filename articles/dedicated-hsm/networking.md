@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359162"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM-nätverk
 
@@ -66,7 +66,7 @@ Ett plats-till-plats-virtuellt privat nätverk möjliggör säker kommunikation 
 
 En typisk distributions arkitektur för dedikerad HSM kommer att starta med ett enda virtuellt nätverk och motsvarande undernät där HSM-enheterna skapas och tillhandahålls. Inom samma region kan det vara bra att ha ytterligare virtuella nätverk och undernät för program komponenter som använder dedikerad HSM. För att aktivera kommunikation mellan dessa nätverk använder vi Virtual Network-peering.
 
-### <a name="virtual-network-peering"></a>Virtuell nätverkspeering
+### <a name="virtual-network-peering"></a>Peering för virtuella nätverk
 
 Om det finns flera virtuella nätverk i en region som behöver åtkomst till var and ras resurser, kan Virtual Network peering användas för att skapa säkra kommunikations kanaler mellan dem.  Peering av virtuella nätverk ger inte bara säker kommunikation utan garanterar också en låg latens och anslutningar med hög bandbredd mellan resurserna i Azure.
 
@@ -83,7 +83,7 @@ För globalt distribuerade program eller för regionala failover-scenarier med h
 > [!NOTE]
 > Global VNet-peering är inte tillgänglig i scenarier mellan olika regioner med dedikerade HSM: er just nu och VPN-gatewayen bör användas i stället. 
 
-![globalt-VNet](media/networking/global-vnet.png)
+![Diagrammet visar två regioner anslutna med två V P N-gatewayer. Varje region innehåller peer-kopplat virtuella nätverk.](media/networking/global-vnet.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

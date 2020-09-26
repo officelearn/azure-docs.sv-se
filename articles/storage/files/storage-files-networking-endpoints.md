@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure Files nätverks slut punkter | Microsoft Docs
-description: En översikt över nätverks alternativ för Azure Files.
+description: Lär dig hur du konfigurerar Azure-filnätverkets slut punkter.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a38528e32061f57e3239ef4be26cdd437f4f8746
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4e08c74e1fbc3da1ed11d6a2f7faeb26780d2a37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078600"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333553"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurera Azure Files nätverks slut punkter
 
@@ -27,7 +27,7 @@ Den här artikeln fokuserar på hur du konfigurerar ett lagrings kontos slut pun
 
 Vi rekommenderar att du läser [Azure Files nätverks överväganden](storage-files-networking-overview.md) innan du läser den här guiden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den här artikeln förutsätter att du redan har skapat en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - I den här artikeln förutsätts att du redan har skapat en Azure-filresurs i ett lagrings konto som du vill ansluta till lokalt. Information om hur du skapar en Azure-filresurs finns i [skapa en Azure-fil resurs](storage-how-to-create-file-share.md).

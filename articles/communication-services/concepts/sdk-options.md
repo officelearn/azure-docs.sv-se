@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f39aa76e4bd2ce3d298e555f56b09d0218ef0862
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d5637be547b28c231ef757b5dd4355692dab88f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318831"
 ---
-# <a name="client-libraries-and-rest-apis"></a>Klient bibliotek och REST-API: er
+# <a name="client-libraries-and-rest-apis"></a>Klientbibliotek och REST-API:er
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -28,7 +28,7 @@ Azure Communication Services-funktionerna organiseras konceptuellt i sex område
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Öppna            | Azure. ResourceManager.-kommunikation | Etablera och hantera resurser för kommunikations tjänster             |
 | Common                 | REST | Öppna               | Azure. Communication. common          | Tillhandahåller bas typer för andra klient bibliotek |
-| Administration         | REST |                | Azure. Communication. administration  | Hantera användare, åtkomsttoken och telefonnummer, allokera standard-kompatibla STUN och omvandla servrar |
+| Administration         | REST | Öppna               | Azure. Communication. administration  | Hantera användare, åtkomsttoken och telefonnummer, allokera standard-kompatibla STUN och omvandla servrar |
 | Chatt                   | REST med tillverkarspecifik signalering | Öppna med varnings paket med stängd källa    | Azure. Communication. Chat            | Lägg till text baserad chatt i real tid i dina program  |
 | SMS                    | REST | Öppna              | Azure. Communication. SMS             | Skicka och ta emot SMS-meddelanden |
 | Sänder                | Tillverkarspecifik transport | Stängda |Azure. Communication. Call         | Använd röst, video, skärm delning och andra funktioner för data kommunikation i real tid          |

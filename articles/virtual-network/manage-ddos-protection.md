@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 73036ba1a72d657fd07a826bbee8651781f70e9b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 706379649b47846b5c020dc76493a98e346c4a8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931972"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317692"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection standard med hjälp av Azure Portal
 
 Lär dig hur du aktiverar och inaktiverar DDoS-skydd (distributed denial of Service) och använder telemetri för att minimera en DDoS-attack med Azure DDoS Protection standard. DDoS Protection standard skyddar Azure-resurser, till exempel virtuella datorer, belastningsutjämnare och programgatewayer som har tilldelats en [offentlig Azure-IP-adress](virtual-network-public-ip-address.md) . Mer information om DDoS Protection standard och dess funktioner finns i [DDoS Protection standard översikt](ddos-protection-overview.md).
 
-Innan du slutför några steg i den här självstudien loggar du in på Azure Portal på https://portal.azure.com med ett konto som tilldelats rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions).
+Innan du slutför några steg i den här självstudien loggar du in på Azure Portal på https://portal.azure.com med ett konto som tilldelats rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder som anges i [behörigheter](#permissions-and-restrictions).
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -191,7 +191,7 @@ Med anslutnings åtgärder för attackering kan du granska förlorad trafik, vid
     - **Arkivera till ett lagrings konto**: data skrivs till ett Azure Storage-konto. Mer information om det här alternativet finns i [arkivera resurs loggar](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Strömma till en Event Hub**: tillåter att en logg mottagare hämtar loggar med hjälp av en Azure Event Hub. Event Hub möjliggör integrering med Splunk eller andra SIEM-system. Mer information om det här alternativet finns i [strömma resurs loggar till en Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Skicka till Log Analytics**: skriver loggar till tjänsten Azure Monitor. Mer information om det här alternativet finns [i samla in loggar för användning i Azure Monitor loggar](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-1. Om du vill visa flödes loggar data i Azure Analytics-instrumentpanelen kan du importera exempel instrument panelen från https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+1. Om du vill visa flödes logg data i Azure Analytics-arbetsboken kan du importera exempel instrument panelen från https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
 
 Flödes loggar har följande fält: 
 - Käll-IP-adress
@@ -225,11 +225,11 @@ Om du vill visa aviseringarna öppnar du **Security Center** i Azure Portal. Und
 
 Aviseringarna inkluderar allmän information om den offentliga IP-adressen som är under attack, geo-och hot information och åtgärder.
 
-## <a name="permissions"></a>Behörigheter
+## <a name="permissions-and-restrictions"></a>Behörigheter och begränsningar
 
 För att kunna arbeta med DDoS-skydds planer måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                            | Namn                                     |
+| Action                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft. Network/ddosProtectionPlans/Read        | Läs en DDoS skydds plan              |
 | Microsoft. Network/ddosProtectionPlans/Write       | Skapa eller uppdatera en DDoS-skydds plan  |
@@ -237,6 +237,9 @@ För att kunna arbeta med DDoS-skydds planer måste ditt konto tilldelas rollen 
 | Microsoft. Network/ddosProtectionPlans/JOIN/åtgärd | Delta i en DDoS skydds plan              |
 
 För att aktivera DDoS-skydd för ett virtuellt nätverk måste ditt konto också tilldelas lämpliga [åtgärder för virtuella nätverk](manage-virtual-network.md#permissions).
+
+### <a name="azure-policy"></a>Azure Policy
+För kunder som har olika prenumerationer och som vill se till att en enda plan för Azure DDoS Protection standard distribueras över sin klient för kostnads kontroll, kan du använda Azure Policy för att [begränsa skapandet av Azure DDoS Protection standard-planer](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Den här principen blockerar skapandet av eventuella DDoS planer, om inte prenumerationen tidigare har marker ATS som ett undantag. Den här principen visar också en lista över alla prenumerationer som har en DDoS-plan distribuerad men bör inte markeras som inkompatibel. 
 
 ## <a name="next-steps"></a>Nästa steg
 

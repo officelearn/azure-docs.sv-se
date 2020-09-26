@@ -1,17 +1,17 @@
 ---
 title: Microsoft Threat Modeling Tool version 10/16/2019 – Azure
-description: Dokumentera viktig information för verktyget Threat Modeling
+description: Dokumenterar viktig information om versions 7.1.61015.1 för Threat Models Tool.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 10/16/2019
-ms.openlocfilehash: 410da29d8c119111d1ec9b4e60bf8fb1ca661f70
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e45d1347993611130d1bb5036ad4638210c15517
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317947"
 ---
 # <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Threat Modeling Tool, uppdaterad version 7.1.61015.1 – 2019-10-16
 

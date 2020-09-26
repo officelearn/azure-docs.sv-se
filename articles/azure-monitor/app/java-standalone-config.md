@@ -4,12 +4,12 @@ description: Kod för program prestanda övervakning för Java-program som körs
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371311"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
 
@@ -49,7 +49,18 @@ Detta är obligatoriskt. Du kan hitta din anslutnings sträng i Application Insi
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights anslutnings sträng":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 Du kan också ange anslutnings strängen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+
+Om du inte anger anslutnings strängen inaktive ras Java-agenten.
 
 ## <a name="cloud-role-name"></a>Namn på moln roll
 
@@ -93,7 +104,7 @@ Du kan också ställa in moln Rolls instansen med hjälp av miljövariabeln `APP
 
 Application Insights Java 3,0 Preview samlar automatiskt in program loggning via log4j, logback och Java. util. logging.
 
-Som standard kommer den att fånga all loggning som utförs på `WARN` nivån eller över.
+Som standard kommer den att fånga all loggning som utförs på `INFO` nivån eller över.
 
 Om du vill ändra detta tröskelvärde:
 
@@ -103,13 +114,15 @@ Om du vill ändra detta tröskelvärde:
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+Du kan också ange loggnings tröskeln med hjälp av miljövariabeln `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
 
 Dessa är giltiga `threshold` värden som du kan ange i `ApplicationInsights.json` filen och hur de motsvarar loggnings nivåer över olika loggnings ramverk:
 
@@ -136,9 +149,9 @@ Om du har några JMX-mått som du är intresse rad av att fånga:
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
@@ -150,6 +163,10 @@ Om du har några JMX-mått som du är intresse rad av att fånga:
   }
 }
 ```
+
+Du kan också ange JMX mått med hjälp av miljövariabeln `APPLICATIONINSIGHTS_JMX_METRICS` .
+
+Detta miljö variabel innehåll måste vara JSON-data som matchar ovanstående struktur, t. ex. `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (inklusive mått från våren Boot-motstånd)
 
@@ -214,6 +231,8 @@ Här är ett exempel på hur du ställer in samplingen på **10% av alla transak
   }
 }
 ```
+
+Du kan också ange samplings procenten med hjälp av miljövariabeln `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
 
 ## <a name="http-proxy"></a>HTTP-proxy
 

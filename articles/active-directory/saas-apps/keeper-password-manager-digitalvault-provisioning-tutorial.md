@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a9ca77a059625ace13e6798e3fde84f11f3fe1db
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 26f12b18e2199fb45e6eb94f2a136d2af2b1576c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317607"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Självstudie: Konfigurera lösen ords hanteraren för & Digital Vault för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i lösen ords hanteraren i & Digital Vault och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper för att hålla lösen ords hanteraren & digitalt valv.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -80,7 +80,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Konfigurera automatisk användar etablering för Keepr Password Manager & Digital Vault i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -88,13 +88,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Keeper Password Manager & Digital Vault-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
 5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för lösen ords hanteraren i lösen ordet & Digital Vault konto enligt beskrivningen i steg 6.
 
@@ -120,7 +120,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-postmeddelande](common/provisioning-notification-email.png)
+    ![E-postavisering](common/provisioning-notification-email.png)
 
 9. Klicka på **Spara**.
 
@@ -140,19 +140,19 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Attribut för behållar grupp](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
-14. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Om du vill aktivera Azure AD Provisioning-tjänsten för Keepr Password Manager & Digital Vault ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
 16. Definiera de användare och/eller grupper som du vill etablera för att behålla lösen ords hanteraren & digitala valvet genom att välja önskade värden i **området** **Inställningar** .
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 17. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på lösen ords hanteraren för lösen ord & digitalt valv.
 
@@ -165,10 +165,10 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 

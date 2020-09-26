@@ -3,15 +3,15 @@ title: Diagnostisera problem i Windows Virtual Desktop – Azure
 description: Så här använder du funktionen Windows Virtual Desktop Diagnostics för att diagnosticera problem.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 70676bd1a07acdfcbba071a906b390ed66d70074
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279866"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identifiera och diagnostisera problem med virtuella Windows-datorer
 
@@ -24,10 +24,10 @@ Anslutningar som inte når Windows Virtual Desktop visas inte i diagnostiska res
 
 ## <a name="common-error-scenarios"></a>Vanliga felscenarier
 
-Fel scenarier kategoriseras internt till tjänsten och externa till Windows Virtual Desktop.
+WVDErrors-tabellen spårar fel i alla aktivitets typer. Kolumnen "ServiceError" innehåller en ytterligare flagga som marker ATS med antingen "true" eller "false". Den här flaggan visar om felet är relaterat till tjänsten.
 
-* Internt problem: anger scenarier som inte kan åtgärdas av kunden och som måste lösas som ett support ärende. När du ger feedback via [Tech-communityn i Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)kan du ta med korrelations-ID: t och den ungefärliga tids ramen för när problemet uppstod.
-* Externt problem: relatera till scenarier som kan begränsas av kunden. Dessa är externa för virtuella Windows-datorer.
+* Om värdet är "sant" kanske tjänst teamet redan har undersökt det här problemet. Om detta påverkar användar upplevelsen och ett stort antal gånger visas, rekommenderar vi att du skickar ett support ärende för det virtuella Windows-skrivbordet.
+* Om värdet är "false" kan detta vara en felaktig konfiguration som du kan åtgärda själv. Fel meddelandet kan ge dig en uppfattning om var du ska börja.
 
 I följande tabell visas vanliga fel som dina administratörer kan köra i.
 
@@ -46,7 +46,7 @@ I följande tabell visas vanliga fel som dina administratörer kan köra i.
 |Det gick inte att ta bort tilldelningen av användaren från program gruppen|Det gick inte att avpublicera en app-grupp för en användare. Kontrol lera om användaren är tillgänglig i Azure AD. Kontrol lera om användaren är en del av en användar grupp som app-gruppen publiceras till. |
 |Ett fel uppstod vid hämtning av tillgängliga platser |Kontrol lera platsen för den virtuella datorn som används i guiden skapa värdbaserad pool. Om avbildningen inte är tillgänglig på den platsen lägger du till avbildningen på den platsen eller väljer en annan VM-plats. |
 
-### <a name="external-connection-error-codes"></a>Fel koder för extern anslutning
+### <a name="connection-error-codes"></a>Anslutnings fel koder
 
 |Numerisk kod|Felkod|Föreslagen lösning|
 |---|---|---|

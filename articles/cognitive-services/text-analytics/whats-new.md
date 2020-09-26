@@ -10,16 +10,40 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930918"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271179"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
 API för textanalys uppdateras regelbundet. Den här artikeln innehåller information om nya versioner och funktioner för att hålla dig uppdaterad med den senaste utvecklingen.
+
+## <a name="september-2020"></a>September 2020
+
+### <a name="general-api-updates"></a>Allmänna API-uppdateringar
+
+* Version av en ny URL för den offentliga för hands versionen av Textanalys v 3.1 som stöder uppdateringar av följande namngivna enhets igenkänning v3-slut punkter: 
+    * `/pii` slut punkten innehåller nu den nya `redactedText` egenskapen i svars-JSON där identifierade PII-enheter i indatamängden ersätts av ett `*` för varje tecken i dessa entiteter.
+    * `/linking` slut punkten innehåller nu `bingID` egenskapen i svars-JSON för länkade entiteter.
+* Följande Textanalys för hands version av API-slutpunkter har dragits tillbaka den 4 september 2020:
+    * v 2.1 – för hands version
+    * v3.0-förhandsversion
+    * v 3.0 – för hands version. 1
+    
+> [!div class="nextstepaction"]
+> [Läs mer om API för textanalys v 3.1 – för hands version. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+
+### <a name="text-analytics-for-health-container-updates"></a>Textanalys för uppdateringar av hälso container
+
+Följande uppdateringar gäller endast september-versionen av Textanalys för hälso container.
+* En ny behållar avbildning med tagg `1.1.013530001-amd64-preview` med den nya modell versionen `2020-09-03` har släppts till containerpreview-lagringsplatsen. 
+* Den här modell versionen ger förbättringar av enhets igenkänning, förkortnings identifiering och tids fördröjnings förbättringar.
+
+> [!div class="nextstepaction"]
+> [Läs mer om Textanalys för hälsa](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>Augusti 2020
 
@@ -31,7 +55,7 @@ API för textanalys uppdateras regelbundet. Den här artikeln innehåller inform
 * Ett HTTP 400-fel kommer nu att returneras för v3 API-begäranden som överskrider [gränserna](concepts/data-limits.md)för publicerade data. 
 * Slut punkter som returnerar en förskjutning stöder nu den valfria `stringIndexType` parametern, som justerar de returnerade `offset` och `length` värdena så att de matchar ett [sträng index schema](concepts/text-offsets.md)som stöds.
 
-### <a name="text-analytics-for-health-container-august-updates"></a>Textanalys för hälso tillstånds behållare augusti uppdateringar
+### <a name="text-analytics-for-health-container-updates"></a>Textanalys för uppdateringar av hälso container
 
 Följande uppdateringar gäller endast augusti-versionen av Textanalys endast för hälso container.
 

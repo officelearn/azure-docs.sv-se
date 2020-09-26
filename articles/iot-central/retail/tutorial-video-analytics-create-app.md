@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: c7ddff70d24fe87380c4bf1439811042418ac76a
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369577"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Självstudie: skapa ett program för video analys – identifiering av objekt och motion i Azure IoT Central
 
@@ -119,7 +119,7 @@ Senare i den här självstudien när du konfigurerar IoT Edge Gateway, behöver 
 
 I avsnittet **Administration** väljer **du ditt program** och noterar **programmets URL** och **program-ID: t** i *scratchpad.txt* -filen:
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administration":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Skärm bild som visar fönstret Administration på en video analys sida med programmet U R L och program I D markerat.":::
 
 Välj **API-token** och generera en ny token med namnet **LVAEdgeToken** för **operatörs** rollen:
 
@@ -245,7 +245,7 @@ Navigera till mappen *lva-Configuration* och välj *deployment.amd64.jspå* mani
 
 I enhets mal len för **lva Edge-Gateway** under **moduler/lva Edge Gateway module**väljer du **relationer**. Välj **+ Lägg till relation** och Lägg till följande två relationer:
 
-|Visningsnamn               |Namn          |Mål |
+|Visningsnamn               |Name          |Mål |
 |-------------------------- |------------- |------ |
 |LVA kant rörelse detektor   |Använd standard   |LVA Edge motion detektor-enhet |
 |LVA kant objekts detektor   |Använd standard   |LVA Edge objekt detektor enhet |

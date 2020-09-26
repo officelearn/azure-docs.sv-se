@@ -7,14 +7,14 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 182b4f262361db001dcb6d47bf3e8f2aac6bc9b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307559"
 ---
-# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera katastrof återställning för virtuella Azure-datorer med hjälp av Azure PowerShell
+# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell
 
 I den här artikeln får du se hur du konfigurerar och testar haveri beredskap för virtuella Azure-datorer med hjälp av Azure PowerShell.
 
@@ -40,7 +40,7 @@ Lär dig att:
 
 Innan du börjar:
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
-- Granska [kraven för stöd](azure-to-azure-support-matrix.md) för alla komponenter.
+- Granska [support kraven](azure-to-azure-support-matrix.md) för alla komponenter.
 - Du har Azure PowerShell- `Az` modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Logga in på din Microsoft Azure prenumeration
@@ -623,7 +623,7 @@ När skyddet har slutförts kan du växla över i omvänd riktning, västra USA 
 Du kan inaktivera replikering med `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdleten.
 
 ```azurepowershell
-Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
 ## <a name="next-steps"></a>Nästa steg

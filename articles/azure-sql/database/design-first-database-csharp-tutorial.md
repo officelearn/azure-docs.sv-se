@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: 3cf73816b89d0a89ff8066fe45ceaece60c230b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe4bcb10db33c6f68abeb779e668726fc1a59345
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321738"
+ms.locfileid: "91360250"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Självstudie: utforma en Relations databas i Azure SQL Database C&#x23; och ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -82,7 +82,7 @@ Följ de här stegen för att skapa en tom databas.
 
 9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-   ![avisering](./media/design-first-database-csharp-tutorial/notification.png)
+   ![Skärm bild som visar meddelanden i Azure Portal med pågående distribution.](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Skapa en IP-brandväggsregel på servernivå
 

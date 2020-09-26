@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5cf1181c41af1edc752205f4477f18b78680f484
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 66e0ac622479d38d2e2a3cbf499bb7900251571d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81254027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359399"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -80,7 +80,7 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
 4. I listan med anpassade domäner väljer du den anpassade domänen som du vill aktivera HTTPS för.
 
-    ![Lista med anpassade domäner](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![Skärm bild som visar sidan anpassad domän med alternativet att använda ett eget certifikat.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     Sidan **Anpassad domän** visas.
 

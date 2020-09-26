@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 6922ab2aac8529da8ba55a98f465e3c0e3123b53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5542ca2f50152e7588f32e9ac8717f691fdb4d63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376914"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -80,11 +80,11 @@ Resursen för kommunikations tjänster måste konfigureras för att tillåta PST
 
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callClient.call([userCallee, pstnCallee], placeCallOptions);
+const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>Placera ett 1:1-anrop med video kameran
+### <a name="place-a-11-call-with-video-camera"></a>Placera ett 1:1-samtal med video kameran
 > [!WARNING]
 > Det kan för närvarande inte finnas fler än en utgående lokal video ström.
 Om du vill placera ett video samtal måste du räkna upp lokala kameror med deviceManager- `getCameraList` API: et.
@@ -95,7 +95,7 @@ const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callClient.call(['acsUserId'], placeCallOptions);
+const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
@@ -104,7 +104,7 @@ Om du vill starta ett nytt grupp anrop eller ansluta ett pågående grupp anrop 
 ```js
 
 const context = { groupId: <GUID>}
-const call = callClient.join(context);
+const call = callAgent.join(context);
 
 ```
 
@@ -113,19 +113,19 @@ const call = callClient.join(context);
 Du kan komma åt anrops egenskaper och utföra olika åtgärder under ett anrop för att hantera inställningar som rör video och ljud.
 
 ### <a name="call-properties"></a>Anrops egenskaper
-* Hämta det unika ID: t för det här anropet.
+* Hämta unikt ID (sträng) för det här anropet.
 ```js
 
 const callId: string = call.id;
 
 ```
 
-* Om du vill veta mer om andra deltagare i anropet kan du granska `remoteParticipant` samlingen på `call` instansen.
+* Om du vill veta mer om andra deltagare i anropet kan du granska `remoteParticipant` samlingen på `call` instansen. Matrisen innehåller List `RemoteParticipant` objekt
 ```js
-const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+const remoteParticipants = call.remoteParticipants;
 ```
 
-* Anroparens identitet om samtalet är inkommande.
+* Anroparens identitet om samtalet är inkommande. Identiteten är en av `Identifier` typerna
 ```js
 
 const callerIdentity = call.callerIdentity;
@@ -135,7 +135,7 @@ const callerIdentity = call.callerIdentity;
 * Hämta status för anropet.
 ```js
 
-const callState: CallState = call.state;
+const callState = call.state;
 
 ```
 Detta returnerar en sträng som representerar det aktuella status för ett anrop:
@@ -153,35 +153,34 @@ Detta returnerar en sträng som representerar det aktuella status för ett anrop
 * Om du vill se varför ett angivet samtal avslutades, kontrollerar du `callEndReason` egenskapen.
 ```js
 
-const callEndReason: CallEndReason = call.callEndReason;
+const callEndReason = call.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Om du vill veta om det aktuella anropet är ett inkommande samtal kontrollerar du att `isIncoming` egenskapen returneras `Boolean` .
+```js
+const isIncoming = call.isIncoming;
+```
+
+*  Om du vill kontrol lera om den aktuella mikrofonen är avstängd, kontrollerar du att `muted` egenskapen returneras `Boolean` .
+```js
+
+const muted = call.isMicrophoneMuted;
 
 ```
 
-* Om du vill veta om det aktuella anropet är ett inkommande samtal kontrollerar du `isIncoming` egenskapen
+* Om du vill se om skärm delnings strömmen skickas från en specifik slut punkt, kontrollerar du att `isScreenSharingOn` egenskapen returneras `Boolean` .
 ```js
 
-const isIncoming: boolean = call.isIncoming;
+const isScreenSharingOn = call.isScreenSharingOn;
 
 ```
 
-*  Kontrol lera om den aktuella mikrofonen är avstängd genom att kontrol lera `muted` egenskapen:
+* Om du vill kontrol lera aktiva video strömmar kontrollerar du att `localVideoStreams` samlingen innehåller `LocalVideoStream` objekt
 ```js
 
-const muted: boolean = call.isMicrophoneMuted;
-
-```
-
-* Om du vill se om skärm delnings strömmen skickas från en specifik slut punkt, kontrollerar du `isScreenSharingOn` egenskapen:
-```js
-
-const isScreenSharingOn: boolean = call.isScreenSharingOn;
-
-```
-
-* Om du vill kontrol lera aktiva video strömmar kontrollerar du `localVideoStreams` samlingen:
-```js
-
-const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+const localVideoStreams = call.localVideoStreams;
 
 ```
 
@@ -194,7 +193,7 @@ Om du vill stänga av eller stänga av den lokala slut punkten kan du använda d
 //mute local device 
 await call.mute();
 
-//unmute device 
+//unmute local device 
 await call.unmute();
 
 ```
@@ -206,7 +205,7 @@ Om du vill starta en video måste du räkna upp kameror med hjälp av `getCamera
 
 
 ```js
-const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
+const localVideoStream = new LocalVideoStream(videoDeviceInfo);
 await call.startVideo(localVideoStream);
 
 ```
@@ -254,49 +253,49 @@ Fjärran sluten part har en uppsättning egenskaper och samlingar som är associ
 * Hämta ID: t för den här fjärran deltagaren.
 Identiteten är en av Identifier-typerna:
 ```js
-
-const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier;
-
+const identifier = remoteParticipant.identifier;
+//It can be one of:
+// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
+// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
 
 * Hämta tillstånd för denna fjärran sluten deltagare.
 ```js
 
-const state: RemoteParticipantState = remoteParticipant.state;
+const state = remoteParticipant.state;
 ```
 Tillstånd kan vara en av
 * Passiv-initial status
 * ' Connect ' – över gångs tillstånd medan deltagare ansluter till anropet
 * Ansluten – deltagaren är ansluten till anropet
 * Hold '-deltagare är stoppad
-* "EarlyMedia"-meddelandet spelas innan deltagaren ansluts till anropet
+* ' EarlyMedia ' – meddelandet spelas upp innan deltagaren ansluts till anropet
 * ' Frånkopplad ' – slutligt tillstånd-deltagare är frånkopplat från anropet
 
 Om du vill veta varför deltagaren lämnade anropet, kontrollerar du `callEndReason` egenskapen:
 ```js
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+const callEndReason = remoteParticipant.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Om du vill kontrol lera om den här fjärrparten är avstängd eller inte, kontrollerar `isMuted` du att egenskapen returneras `Boolean`
+```js
+const isMuted = remoteParticipant.isMuted;
+```
+
+* Om du vill kontrol lera om den här fjärrdeltagaren pratar eller inte, kontrollerar `isSpeaking` du att egenskapen returneras `Boolean`
+```js
+
+const isSpeaking = remoteParticipant.isSpeaking;
 
 ```
 
-* Om du vill kontrol lera om den här fjärrparten är avstängd eller inte kontrollerar du `isMuted` egenskapen:
+* Om du vill kontrol lera alla video strömmar som en viss deltagare skickar i det här anropet markerar `videoStreams` du samlingen, den innehåller `RemoteVideoStream` objekt
 ```js
 
-const isMuted: boolean = remoteParticipant.isMuted;
-
-```
-
-* För att kontrol lera om den här fjärrparten är intalad eller inte, kontrollerar du `isSpeaking` egenskapen:
-```js
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking;
-
-```
-
-* Om du vill kontrol lera alla video strömmar som en viss deltagare skickar i det här anropet, kontrol lera `videoStreams` insamling:
-```js
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 
 ```
 
@@ -312,7 +311,6 @@ const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
-
 ```
 
 ### <a name="remove-participant-from-a-call"></a>Ta bort deltagare från ett samtal
@@ -333,7 +331,6 @@ await call.removeParticipant(pstnIdentifier);
 För att visa en lista över video strömmar och skärm delnings strömmar av fjärranslutna deltagare, inspektera `videoStreams` samlingarna:
 
 ```js
-
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```

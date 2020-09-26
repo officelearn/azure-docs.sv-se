@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 051361860a6a2d9ad70aa81e313857ec86cacfb4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 266ad613a4966b26fc4a6ddffbb7b4196aa937b1
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827054"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372110"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Hantera Azure-resurser med hjälp av Azure Portal
 
@@ -114,7 +114,7 @@ Du kan välja ikonen fäst i det övre högra hörnet i graferna för att fästa
 
 ## <a name="manage-access-to-resources"></a>Hantera åtkomst till resurser
 
-[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

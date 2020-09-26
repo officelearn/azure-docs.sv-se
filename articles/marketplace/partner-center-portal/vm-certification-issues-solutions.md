@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296458"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problem och lösningar under certifiering av virtuella datorer 
 
@@ -21,7 +21,7 @@ När du publicerar avbildningen av den virtuella datorn (VM) till Azure Marketpl
 I den här artikeln beskrivs vanliga fel meddelanden under publicering av VM-avbildningar, tillsammans med relaterade lösningar.
 
 > [!NOTE]
-> Kontakta [supporten för partner Center](https://partner.microsoft.com/support/v2/?stage=1)om du har frågor eller feedback om förbättringar.
+> Om du har frågor eller feedback om förbättringar kan du kontakta [Support för partner Center](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="approved-base-image"></a>Godkänd bas avbildning
 
@@ -33,6 +33,9 @@ Felet uppstår när du använder en bas avbildning som tillhör en annan utgivar
 
 - [Linux-avbildningar](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows-avbildningar](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Om du använder en Linux-avbildningsfil som inte tas från Marketplace kan du förskjuta den första partitionen med 2048 KB. På så sätt kan du använda det oformaterade utrymmet för att lägga till ny fakturerings information och låta Azure fortsätta att publicera den virtuella datorn på Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Problem med VM-tillägg
 
@@ -104,7 +107,7 @@ I följande tabell visas de Linux-testfall där Toolkit körs. Test verifiering 
 |6|OpenSSL-version|OpenSSL-versionen ska vara v 0.9.8 eller senare.|
 |7|Python-version|Python version 2,6 eller senare rekommenderas starkt.|
 |8|Klientens Alive-intervall|Ange ClientAliveInterval till 180. Det kan ställas in från 30 till 235 på programmets behov. Om du aktiverar SSH för dina slutanvändare måste det här värdet anges som förklarat.|
-|9|OS-arkitektur|Endast 64-bitars operativsystem stöds.|
+|9|Operativsystemarkitektur|Endast 64-bitars operativsystem stöds.|
 |10|Automatisk uppdatering|Anger om automatisk uppdatering av Linux-Agent är aktiverat.|
 
 ### <a name="common-errors-found-while-executing-previous-test-cases"></a>Vanliga fel som påträffades vid körning av tidigare test fall
@@ -124,7 +127,7 @@ I följande tabell visas de Windows-testfall där verktygs uppsättningen ska k�
 
 |Scenario |Testfall|Beskrivning|
 |---|---|---|---|
-|1|OS-arkitektur|Azure stöder endast 64-bitars operativ system.|
+|1|Operativsystemarkitektur|Azure stöder endast 64-bitars operativ system.|
 |2|Användar konto beroende|Program körningen bör inte vara beroende av administratörs kontot.|
 |3|Redundanskluster|Funktionen kluster för växling vid fel i Windows Server stöds inte ännu. Programmet bör inte vara beroende av den här funktionen.|
 |4|IPV6|IPv6 stöds ännu inte i Azure-miljön. Programmet bör inte vara beroende av den här funktionen.|
@@ -270,9 +273,12 @@ I följande tabell finns några problem som kan uppstå när du hämtar den virt
 |6|Villkorlig HTTP-rubrik|SAS-webbadressen är ogiltig.|Hämta rätt SAS-URL.|
 |7|Ogiltigt VHD-namn|Kontrol lera om det finns specialtecken, till exempel ett procent tecken (%) eller citat tecken (") finns i VHD-namnet.|Byt namn på VHD-filen genom att ta bort specialtecknen.|
 
-## <a name="first-1-mb-partition"></a>Första 1 MB-partitionen
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>Första MB (2048 KB) partition (endast för Linux)
 
-När du skickar den virtuella hård disken måste du se till att den första 1 MB-partitionen i den virtuella hård disken är tom. Annars Miss kommer begäran.
+När du skickar den virtuella hård disken måste du se till att den första 2048 KB av den virtuella hård disken är tom. Annars kommer din begäran att Miss Missing *.
+
+>[!NOTE]
+>* För vissa särskilda bilder, till exempel de som skapats ovanpå Azure Windows Base-avbildningar som tagits från Azure Marketplace, kontrollerar vi om det finns en fakturerings etikett och ignorerar MB-partitionen om fakturerings tag gen är närvarande och matchar våra interna tillgängliga värden.
 
 ## <a name="default-credentials"></a>Standardautentiseringsuppgifter
 

@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281889"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Kör OPC Vault Certificate Management-tjänsten på ett säkert sätt
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Den här artikeln förklarar hur du kör OPC-valvet för certifikat hantering på ett säkert sätt i Azure och granskar andra säkerhets rikt linjer för att tänka på.
 

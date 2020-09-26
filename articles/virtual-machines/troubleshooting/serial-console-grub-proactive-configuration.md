@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831370"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360556"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Att se till att du har åtkomst till GRUB och SysRq kan spara mycket tid
 
@@ -57,9 +57,9 @@ Med Azures serie konsol kan du interagera med din virtuella Linux-dator som om d
 
 Du kan ändra många konfigurationsfiler, inklusive hur kerneln ska starta. 
 
-De mer erfarna Linux/UNIX sys-administratörer kommer att uppskatta de **enskilda användare** och **nöd lägen** som är tillgängliga via Azures serie konsol för att göra disk växling och virtuell dator borttagning för många återställnings scenarier redundanta.
+De mer erfarna Linux/UNIX sys-administratörer kommer att uppskatta de **enskilda användare** och  **nöd lägen** som är tillgängliga via Azures serie konsol för att göra disk växling och virtuell dator borttagning för många återställnings scenarier redundanta.
 
-Återställnings metoden beror på problemet, till exempel om ett förlorat eller fel placerat lösen ord kan återställas via Azure Portal alternativ-> **Återställ lösen ord**. Funktionen **Återställ lösen ord** kallas för ett tillägg och kommunicerar med Linux-gästens agent.
+Återställnings metoden beror på problemet, till exempel om ett förlorat eller fel placerat lösen ord kan återställas via Azure Portal alternativ->  **Återställ lösen ord**. Funktionen **Återställ lösen ord** kallas för ett tillägg och kommunicerar med Linux-gästens agent.
 
 Andra tillägg som anpassade skript är tillgängliga men de här alternativen kräver att Linux- **waagent** är upp och i ett felfritt tillstånd som inte alltid är fallet.
 
@@ -117,7 +117,7 @@ Konfigurera kernel-parametern dynamiskt
 
 Om du inte har **rot** åtkomst eller om sudo är bruten är det inte möjligt att konfigurera SysRq från en Shell-prompt.
 
-Du kan aktivera SysRq i det här scenariot med hjälp av Azure Portal. Den här metoden kan vara fördelaktig om filen **sudoers. d/waagent** har blivit bruten eller har tagits bort.
+Du kan aktivera SysRq i det här scenariot med hjälp av Azure Portal. Den här metoden kan vara fördelaktig om filen  **sudoers. d/waagent** har blivit bruten eller har tagits bort.
 
 Med hjälp av kommandot Azure Portal åtgärder-> Kör kommando > RunShellScript, måste waagent-processen vara felfri. sedan kan du mata in det här kommandot för att aktivera SysRq
 
@@ -210,11 +210,11 @@ Avbryta start processen och komma åt GRUB-menyn
 
 Välj avancerade alternativ för Ubuntu och tryck på RETUR
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![Skärm bild som visar Seriell konsol med avancerade alternativ för Ubuntu valda.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Välj den rad som visar *(återställnings läge)* tryck inte på RETUR men tryck på "e"
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![Skärm bild som visar Seriell konsol med en version av återställnings läge vald.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Leta upp den rad som laddar kärnan och ersätt den sista parametern **nomodeset** med destination som **console = ttyS0**
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Skärm bild som visar Seriell konsol med det ändrade värdet.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Tryck på **CTRL-x** för att starta och läsa in kärnan.
 Om alla går bra ser du dessa ytterligare alternativ, som kan hjälpa dig att utföra andra återställnings alternativ
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Skärm bild som visar Seriell konsol på återställnings menyn, som erbjuder ytterligare återställnings alternativ.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Konfiguration av Red Hat-GRUB
@@ -335,13 +335,13 @@ terminal --timeout=5 serial console
 ```
 
 
-Den sista raden *Terminal – timeout = 5 i serie konsolen* ökar **grub** -tids gränsen ytterligare genom att lägga till ett meddelande om 5 sekunder som visar **Tryck på valfri tangent för att fortsätta.**
+Den sista raden  *Terminal – timeout = 5 i serie konsolen* ökar **grub** -tids gränsen ytterligare genom att lägga till ett meddelande om 5 sekunder som visar **Tryck på valfri tangent för att fortsätta.**
 
-![RH6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Skärm bild som visar en-konsol med utdata.](./media/virtual-machines-serial-console/rh6-1.png)
 
 GRUB-menyn ska visas på skärmen för den konfigurerade tids gränsen = 15 utan att du behöver trycka på ESC. Se till att klicka i-konsolen i webbläsaren för att aktivera menyn och välja önskad kernel
 
-![RH6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Skärm bild som visar en-konsol med två Linux-alternativ.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>SuSE
 
@@ -405,18 +405,18 @@ Du får åtkomst till ett gränssnitt utan att behöva ange ett lösen ord. Seda
 När du har åtkomst till GRUB kan du avbryta initierings processen som den här interaktionen är användbar för många återställnings procedurer.
 Om du inte har rot lösen ordet och en enskild användare kräver att du har ett rot lösen ord, kan du starta kärnan och ersätta programmet init med en bash-prompt – detta avbrott kan uppnås genom att lägga till init =/bin/bash på kernel-startlinjen
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Skärm bild som visar en-konsol med den uppdaterade start raden.](./media/virtual-machines-serial-console/bash1.png)
 
 Montera om/(root) fil system RW med kommandot
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Skärm bild som visar en-konsol med en ny monterings åtgärd.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Nu kan du utföra ändringar i rot lösen ordet eller många andra ändringar i Linux-konfigurationen
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Skärm bild som visar en-konsol där du kan ändra rot lösen ord och annan konfiguration.](./media/virtual-machines-serial-console/bash3.png)
 
 Starta om den virtuella datorn med 
 

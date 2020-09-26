@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371226"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Säker åtkomst till lokala API: er med Azure AD-programproxy
 
@@ -38,12 +38,12 @@ Azure AD-programproxy bildar lösningens stamnät, arbetar som en offentlig slut
 
 Eftersom Azure AD-programproxy-autentisering och-auktorisering bygger på Azure AD kan du använda villkorlig åtkomst för Azure AD för att se till att endast betrodda enheter kan komma åt API: er som publicerats via programproxy. Använd Azure AD Join eller Azure AD hybrid anslutet för Station ära datorer och Intune Hanterat för enheter. Du kan också dra nytta av Azure Active Directory Premium funktioner som Azure Multi-Factor Authentication och datorn inlärnings skydd för [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här genom gången behöver du:
 
 - Administratörs åtkomst till en Azure-katalog med ett konto som kan skapa och registrera appar
-- Exempel webb-API och interna klient program från[https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
+- Exempel webb-API och interna klient program från [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
 
 ## <a name="publish-the-api-through-application-proxy"></a>Publicera API: t via Application Proxy
 
@@ -185,7 +185,7 @@ Om du vill konfigurera den interna appen så att den ansluter till Azure Active 
 
 När du har konfigurerat parametrarna skapar och kör du den inbyggda appen. När du väljer knappen **Logga in** kan du använda appen för att logga in och sedan Visa skärmen lyckades för att bekräfta att den har anslutits till SecretAPI.
 
-![Klart](./media/application-proxy-secure-api-access/success.png)
+![Skärm bild som visar en meddelande hemlighet A P Jag lyckades och en OK-knapp.](./media/application-proxy-secure-api-access/success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

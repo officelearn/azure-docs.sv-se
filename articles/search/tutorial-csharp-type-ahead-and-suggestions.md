@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 1afeca4f627236c5172dd07a44751015c16d2f58
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 27437ae1db0ff3a205108638670b058eaaea04bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462030"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280733"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Självstudie: Lägg till komplettera automatiskt och förslag med hjälp av .NET SDK
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Lägg till komplettera automatiskt
 > * Kombinera autokomplettering och förslag
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien är en del av en serie och bygger på det växlings projekt som skapats i [C#-självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md).
 

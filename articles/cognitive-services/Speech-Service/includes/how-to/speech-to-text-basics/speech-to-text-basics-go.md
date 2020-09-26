@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: 02c105d60438026e0d8822d9818c998481f89e09
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7cebceed534531849e46e527e470bfc41b03348a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327098"
+ms.locfileid: "91376756"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -19,7 +19,7 @@ Om du vill hoppa över direkt till exempel kod, se [snabb starts exempel för go
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
+Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 

@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317318"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Självstudie: använda funktions flaggor i en ASP.NET Core app
 
@@ -174,7 +174,7 @@ public enum MyFeatureFlags
 
 ## <a name="feature-flag-checks"></a>Funktions flagga kontrollerar
 
-Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Ett exempel:
+Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Exempel:
 
 ```csharp
 IFeatureManager featureManager;
@@ -230,6 +230,12 @@ public IActionResult Index()
 När en MVC-styrenhet eller-åtgärd blockeras eftersom kontroll funktions flaggan är *inaktive rad*, `IDisabledFeaturesHandler` anropas ett registrerat gränssnitt. Standard `IDisabledFeaturesHandler` gränssnittet returnerar en 404 status kod till klienten utan svars text.
 
 ## <a name="mvc-views"></a>MVC-vyer
+
+Öppna *_ViewImports. cshtml* i katalogen *vyer* och Lägg till hjälp för Feature Manager-tagg:
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
 
 I MVC-vyer kan du använda en `<feature>` tagg för att återge innehåll baserat på om en funktions flagga är aktive rad:
 

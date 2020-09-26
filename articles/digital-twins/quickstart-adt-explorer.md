@@ -1,20 +1,20 @@
 ---
-title: Utforska ett exempelscenario
+title: Snabb start – utforska ett exempel scenario
 titleSuffix: Azure Digital Twins
-description: Använd ADT Explorer-exemplet för att visualisera och utforska ett i förväg skapat scenario.
+description: Snabb start – Använd ADT Explorer-exemplet för att visualisera och utforska ett i förväg skapat scenario.
 author: baanders
 ms.author: baanders
-ms.date: 8/12/2020
+ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d91ae0f3db9ad3637043f9eb7472539d8aba2c8d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372620"
 ---
-# <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Utforska ett exempel på Azure Digitals sammanflätade scenario med ADT Explorer
+# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
 Med Azure Digitals dubbla, kan du skapa och interagera med Live-modeller i dina verkliga miljöer. Det gör du genom att utforma enskilda element som **digitala**delar och sedan ansluta dem till ett kunskaps **diagram** som kan svara på direktsända händelser och frågas efter information.
 
@@ -29,15 +29,17 @@ Snabb starten innehåller följande viktiga steg:
 
 Det exempel diagram som du kommer att arbeta med representerar en byggnad med två golv och två rum. Diagrammet kommer att se ut så här:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet Floor1 är kopplad till en cirkel med etiketten Room1. en cirkel med etiketten Floor0 är kopplad till en cirkel med etiketten Room0. Floor1 och Floor0 är inte anslutna.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet "Floor1" är kopplad till en cirkel med etiketten "Room1". en cirkel med etiketten "Floor0" är kopplad till en cirkel med etiketten "Room0". ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att slutföra den här snabb starten. Om du inte redan har en, kan du **[skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** nu.
 
-Innan du startar snabb starten måste du också hämta två exempel:
-* Exempel programmet för **ADT Explorer** . Det här exemplet innehåller den huvud-app som du använder i snabb starten för att läsa in och utforska ett Azure Digital-scenario. Om du vill hämta appen navigerar du hit: [Azure Digitals-ADT (Azure Digitals flätas)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**ADT_Explorer.zip**_.
-* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot, navigera här: [Azure Digitals dubbla exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**Azure_Digital_Twins_samples.zip**_.
+Du behöver också **Node.js** på din dator. Du kan hämta den senaste versionen på den här länken: [Node.js](https://nodejs.org/).
+
+Slutligen måste du också ladda ned två exempel som ska användas under snabb starten:
+* Exempel programmet för **ADT Explorer** . Det här exemplet innehåller den huvud-app som du använder i snabb starten för att läsa in och utforska ett Azure Digital-scenario. Om du vill hämta appen navigerar du hit: [Azure Digitals-ADT (Azure Digitals flätas)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_. Zippa upp mappen och extrahera filerna.
+* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot, navigera här: [Azure Digitals dubbla exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator eftersom den laddar ned en. ZIP-mapp på din dator som **Azure_Digital_Twins_samples.zip**. Zippa upp mappen och extrahera filerna.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurera Azure Digital-och ADT Explorer
 
@@ -47,7 +49,7 @@ Du kan också konfigurera behörigheter för ADT Explorer att köras på din dat
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Konfigurera Azure Digitals dubbla instanser
 
-Det enklaste sättet att konfigurera en instans och den nödvändiga autentiseringen är att köra ett skript exempel för automatiserad distribution. Följ instruktionerna i [*instruktion: Konfigurera en instans och autentisering (skript)*](how-to-set-up-instance-scripted.md). Anvisningarna innehåller också anvisningar för att kontrol lera att du har slutfört varje steg och att du är redo att gå vidare till att använda den nya instansen.
+Börja med att konfigurera en digital Azure-instans och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
 
 I den här snabb starten behöver du följande värden från när du konfigurerar din instans. Om du behöver samla in värdena igen använder du länkarna nedan till motsvarande avsnitt i installations artikeln för att hitta dem i [Azure Portal](https://portal.azure.com).
 * Azure Digitals dubbla instans **_värd namn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
@@ -67,6 +69,8 @@ Fyll i konfigurations informationen på följande sätt:
 * **Omdirigera URI: er**: Lägg till en omdirigerings-URI för *http://localhost:3000* .
 * **Implicit beviljande**: Markera kryss *rutan för åtkomsttoken*.
 
+Tryck på *Konfigurera* för att avsluta.
+
 :::row:::
     :::column:::
         :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Sidan Konfigurera plattformar, och markerar den information som beskrivs ovan":::
@@ -75,17 +79,15 @@ Fyll i konfigurations informationen på följande sätt:
     :::column-end:::
 :::row-end:::
 
-Tryck på *Konfigurera* för att avsluta.
+Nu har du en webb konfiguration som är konfigurerad som ADT Explorer kommer att använda. Fliken autentisering i Azure Portal bör avspegla detta. När du har verifierat avsnitten nedan trycker du på *Spara*.
 
-Nu har du en webb konfiguration som är konfigurerad som ADT Explorer kommer att använda. Fliken autentisering i Azure Portal bör avspegla detta.
-
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Azure Portal sidan i Autentiseringsinformationen för en app-registrering. Det finns fokus runt ett webb plattforms avsnitt med en omdirigerings-URI http://localhost:3000 och implicit beviljande som aktive ras för åtkomsttoken":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Azure Portal sidan i Autentiseringsinformationen för en app-registrering. Det finns fokus runt ett webb plattforms avsnitt med en omdirigerings-URI http://localhost:3000 och implicit beviljande som aktive ras för åtkomsttoken. Knappen Spara markeras också.":::
 
 ### <a name="run-and-configure-adt-explorer"></a>Köra och konfigurera ADT Explorer
 
 Kör sedan ADT Explorer-programmet och konfigurera det för din Azure Digital-instansen.
 
-Navigera till den hämtade _**ADT_Explorer.zip**_ -mappen och packa upp den. Öppna en kommando tolk på mappens plats *ADT_explorer/client/src*.
+Navigera till mappen hämtade och zippade _**Azure_Digital_Twins__ADT__explorer**_ . Öppna en kommando tolk på mappens plats *Azure_Digital_Twins__ADT__explorer/client/src*.
 
 Kör `npm install` för att ladda ned alla nödvändiga beroenden.
 
@@ -95,7 +97,7 @@ Efter några sekunder öppnas ett webbläsarfönster och appen visas i webbläsa
 
 :::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
-Tryck på knappen *Logga in* överst i fönstret för att konfigurera ADT Explorer så att den fungerar med den instans som du har konfigurerat. 
+Tryck på knappen *Logga in* överst i fönstret (visas i bilden nedan) för att konfigurera ADT Explorer att fungera med den instans som du har konfigurerat. 
 
 :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer markerar ikonen Logga in längst upp i fönstret. Ikonen visar en enkel Silhouette av en person som har en Silhouette av en nyckel." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
@@ -116,7 +118,7 @@ Om du ser en *behörighet som begärs* i popup-fönstret från Microsoft, bevilj
 
 Därefter ska du importera exempel scenariot och grafen till ADT Explorer.
 
-Exempel scenariot finns i den hämtade  _**Azure_Digital_Twins_samples.zip**_ -mappen, så du bör navigera till och zippa upp mappen nu.
+Exempel scenariot finns i den hämtade och zippade  _**Azure_Digital_Twins_samples**_ -mappen, så du bör navigera till mappen nu.
 
 ### <a name="models"></a>Modeller
 
@@ -144,7 +146,7 @@ I rutan *modell* visas trycker du på ikonen *Ladda upp en modell* .
 3. Följ dialog rutan för att be dig att logga in på ditt Azure-konto.
 
 >[!NOTE]
->Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="fel när modeller hämtades: ClientAuthError: det gick inte att öppna popup-fönstret. Detta kan inträffa om du använder IE eller om popup-fönster blockeras i webbläsaren. med knappen Stäng längst ned" border="false"::: 
+>Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="fel när modeller hämtades: ClientAuthError: det gick inte att öppna popup-fönstret. Detta kan inträffa om du använder IE eller om popup-fönster blockeras i webbläsaren. "med knappen Stäng längst ned" border="false"::: 
 > Försök inaktivera blockering av popup-fönster eller använda en annan webbläsare.
 
 ADT Explorer kommer nu att ladda upp de här projektfilerna till din Azure Digital-instansen. De bör visas i rutan *modell* och visar sina egna namn och fullständiga modell-ID: n. Du kan klicka på *Visa modell* informations bubblor för att se DTDL-koden bakom dem.
@@ -195,7 +197,7 @@ ADT Explorer kommer nu att använda den överförda filen för att skapa de beg�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 49 dubbla importer. 50 relationer har importer ATS." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 49 dubbla importer. 50 relationer har importer ATS. "" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -213,7 +215,7 @@ Det här kör standard frågan för att välja och Visa alla digitala dubbla. AD
 
 Nu kan du se det överförda diagrammet i exempel scenariot:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av rutan diagramvy med en dubbel graf inuti. En cirkel med namnet floor1 är kopplad till en cirkel med etiketten room1. en cirkel med etiketten floor0 är kopplad till en cirkel med etiketten room0.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av rutan diagramvy med en dubbel graf inuti. En cirkel med namnet "floor1" är kopplad till en cirkel med etiketten "room1". en cirkel med etiketten "floor0" är kopplad till en cirkel med etiketten "room0".":::
 
 Cirklarna (graf "Nodes") representerar digitala dubbla och linjerna representerar relationer. Du kommer att se att *Floor0* -den dubbla innehåller *Room0*och att *Floor1* -filen innehåller *Room1*.
 
@@ -227,7 +229,7 @@ Här följer egenskaperna för *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Markera i rutan egenskaps Utforskaren som visar egenskaper för Room0, inklusive (bland annat) ett $dtId fält för Room0, ett temperatur fält på 70 och ett fuktighets fält på 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Markera i rutan "egenskaps Utforskaren" som visar egenskaper för Room0, inklusive (bland annat) ett $dtId fält för "Room0", ett temperatur fält på 70 och ett fuktighets fält på 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -239,7 +241,7 @@ Här följer egenskaperna för *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Markera i rutan egenskaps Utforskaren som visar egenskaper för Room1, inklusive (bland annat) ett $dtId fält för Room1, ett temperatur fält på 80 och ett fuktighets fält på 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Markera i rutan "egenskaps Utforskaren" som visar egenskaper för Room1, inklusive (bland annat) ett $dtId fält för "Room1", ett temperatur fält på 80 och ett fuktighets fält på 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -278,7 +280,7 @@ Egenskaperna i den här listan kan redige ras. Välj temperatur svärdet **70** 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Rutan egenskaps Utforskaren som visar egenskaper för Room0. Temperatur svärdet är en redigerings bar ruta som visar 76 och det finns en markering runt ikonen Spara." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Rutan "egenskaps Utforskaren" som visar egenskaper för Room0. Temperatur svärdet är en redigerings bar ruta som visar 76 och det finns en markering runt ikonen Spara." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -319,7 +321,7 @@ Om du planerar att fortsätta med självstudierna för Azure Digitals dubbla, ka
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Slutligen tar du bort de exempel mappar för Project som du laddade ned till din lokala dator (_**ADT_Explorer.zip**_ och _**Azure_Digital_Twins_samples.zip**_).
+Slutligen tar du bort de exempel mappar för Project som du laddade ned till din lokala dator (_**Azure_Digital_Twins__ADT__explorer**_ och _**Azure_Digital_Twins_samples**_). Du kanske måste ta bort både zippade och zippade versioner.
 
 ## <a name="next-steps"></a>Nästa steg 
 

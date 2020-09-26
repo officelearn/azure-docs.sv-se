@@ -3,18 +3,18 @@ title: Installera VMware-HCX
 description: Konfigurera VMware HCX-lösningen för ditt privata moln i Azure VMware-lösningen
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: cdeffa41db5aac597d8dfcf3a735cbeb7f0d8a8e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356561"
+ms.locfileid: "91370852"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
 I den här artikeln går vi igenom procedurerna för att konfigurera VMWare HCX-lösningen för ditt privata moln i Azure VMWare-lösningen. HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds.
 
-HCX Advanced, standard-installationen stöder upp till tre plats anslutningar (lokalt eller molnet till molnet). Om fler än tre plats anslutningar krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support, som för närvarande är en för hands version. HCX Enterprise ger ytterligare avgifter för kunder efter allmän tillgänglighet (GA) men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, standard-installationen stöder upp till tre plats anslutningar (lokalt eller molnet till molnet). Om fler än tre plats anslutningar eller HCX [Enterprise-funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support, som för närvarande är en för hands version. HCX EE är tillgängligt med AVS som en förhands gransknings funktion/tjänst. Medan HCX EE för AVS är i för hands version är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När HCX EE-tjänsten är GA får du ett meddelande om 30 dagar på att faktureringen kommer att växlas. Du kan också välja att stänga av eller välja bort tjänsten.
 
 
 Noggrant granska [innan du börjar](#before-you-begin), [program versions krav](#software-version-requirements)och [förutsättningar](#prerequisites) först. 
@@ -63,17 +63,15 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
 * Lokala HCX IX-och NE-enheter ska kunna uppnå vCenter-och ESXi-infrastruktur.
 
-* För att distribuera WAN Interconnect-installationen, förutom det/22 CIDR-SDDC som används för distribution av i Azure Portal, kräver HCX ett/29-block. Se till att planera detta krav i din nätverks planering.
+* För att distribuera WAN Interconnect-installationen har specifika CIDR-intervall redan allokerats från den angivna kunden \ 22 för att skapa ett privat moln.
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Distribuera VMware HCX-ägg lokalt
 
 1. Logga in på Azure VMware Solution HCX Manager på `https://x.x.x.9` port 443 med **cloudadmin** -användarautentiseringsuppgifter och gå sedan till **support**.
 
-1. Välj nedladdnings länken för VMware HCX-filen för ägg. 
+1. Välj nedladdnings länken för den VMware HCX-fil som ska distribueras till vCenter.
 
-1. Logga in på Azure VMware-lösningen SDDC vCenter och välj **HCX**.
-   
-1. Gå till den lokala vCenter och välj en OVF-mall för att distribuera till din lokala vCenter.  
+1. Gå till den lokala vCenter och välj den nyligen hämtade OVF-mallen för att distribuera till din lokala vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Gå sedan till den lokala vCenter och välj en OVF-mall för att distribuera till din lokala vCenter.":::
 

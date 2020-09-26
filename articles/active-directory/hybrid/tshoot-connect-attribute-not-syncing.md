@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a6df1347eab57a6971fe2e39c0a55869c8f23939
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317495"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Felsöka ett attribut som inte synkroniseras i Azure AD Connect
 
@@ -67,7 +67,7 @@ Innan du undersöker synkroniseringsproblem, ska vi förstå **Azure AD Connect*
 
 * Dubbelklicka på **Active Directory koppling** för att visa attribut för **kopplings utrymme** . Klicka på knappen **Förhandsgranska** i följande dialog ruta och klicka på knappen **generera förhands granskning** .
 
-  ![Attribut för kopplings utrymme](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![Skärm bild som visar skärmen för objekt egenskaper för kopplings utrymme med knappen förhands granskning markerad.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
 * Klicka på **flödet importera attribut**, detta visar indata-attribut från **Active Directory kopplings utrymme** till **metaversum**. I kolumnen **Synkronisera regel** visas vilken **Synkroniseringsregel** som bidragit till attributet. I kolumnen **data källa** visas attributen från **anslutnings utrymmet**. I kolumnen **metaversum** visas attributen i **metaversum**. Du kan söka efter attributet som inte synkroniseras här. Om du inte hittar attributet här mappas det inte och du måste skapa en ny anpassad **Synkroniseringsregel** för att mappa attributet.
 
@@ -75,7 +75,7 @@ Innan du undersöker synkroniseringsproblem, ska vi förstå **Azure AD Connect*
 
 * Klicka på **flödet exportera attribut** i det vänstra fönstret för att visa **metaversum** tillbaka till **Active Directory anslutnings utrymme** med **regler för utgående synkronisering**.
 
-  ![Attribut för kopplings utrymme](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![Skärm bild som visar metaversum från tillbaka till Active Directory anslutnings utrymme med regler för utgående synkronisering.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
 * På samma sätt kan du Visa **Azure Active Directory kopplings utrymmes** objekt och kan generera **förhands granskningen** för att visa ett attributarkiv från **metaversum** till **anslutnings utrymmet** och vice versa, på det här sättet kan du undersöka varför ett attribut inte synkroniseras.
 

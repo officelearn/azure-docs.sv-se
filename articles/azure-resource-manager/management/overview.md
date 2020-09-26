@@ -4,12 +4,12 @@ description: Beskriver hur du använder Azure Resource Manager för distribution
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372280"
 ---
 # <a name="what-is-azure-resource-manager"></a>Vad är Azure Resource Manager?
 
@@ -49,7 +49,7 @@ Med Resource Manager kan du:
 
 * Definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 
-* Använd åtkomst kontroll för alla tjänster eftersom rollbaserad Access Control (RBAC) är inbyggt integrerat i hanterings plattformen.
+* Använd åtkomst kontroll för alla tjänster eftersom Azure-rollbaserad åtkomst kontroll (Azure RBAC) är inbyggt integrerat i hanterings plattformen.
 
 * Använd taggar för resurser för att logiskt organisera alla resurser i din prenumeration.
 
@@ -83,7 +83,7 @@ Det finns några viktiga faktorer att tänka på när du definierar en resursgru
 
    Om resurs gruppens region är tillfälligt otillgänglig, kan du inte uppdatera resurser i resurs gruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. Mer information om hur du skapar pålitliga program finns i [utforma pålitliga Azure-program](/azure/architecture/checklist/resiliency-per-service).
 
-* En resursgrupp kan användas för att definiera omfattningen av åtkomstkontrollen för administrativa åtgärder. Om du vill hantera en resurs grupp kan du tilldela [Azure-principer](../../governance/policy/overview.md), RBAC- [roller](../../role-based-access-control/role-assignments-portal.md)eller [resurs lås](lock-resources.md).
+* En resursgrupp kan användas för att definiera omfattningen av åtkomstkontrollen för administrativa åtgärder. Om du vill hantera en resurs grupp kan du tilldela [Azure-principer](../../governance/policy/overview.md), Azure- [roller](../../role-based-access-control/role-assignments-portal.md)eller [resurs lås](lock-resources.md).
 
 * Du kan [använda Taggar](tag-resources.md) i en resurs grupp. Resurserna i resurs gruppen ärver inte taggarna.
 

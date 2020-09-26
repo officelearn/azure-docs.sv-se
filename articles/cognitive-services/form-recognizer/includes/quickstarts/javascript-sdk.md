@@ -1,21 +1,21 @@
 ---
 title: 'Snabb start: formulär tolkens klient bibliotek för Java Script'
-description: I den här snabb starten kommer du igång med formulär tolkens klient bibliotek för Java Script.
+description: Använd formulär tolkens klient bibliotek för Java Script för att skapa en app för formulär bearbetning som extraherar nyckel/värde-par och tabell data från dina anpassade dokument.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: cc72fa9e05dd25ef2d63f126f0fbb45841cb799c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: af6ca27236649ef915bbb52853fc0c34e29fb800
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318935"
 ---
 > [!IMPORTANT]
 > * Formulär igenkännings-SDK: n är riktad mot v 2.0 från tolk tjänsten.
@@ -84,7 +84,9 @@ Med formulär tolken kan du skapa två olika klient typer. Det första `FormReco
 * Hantera modeller som skapats i ditt konto.
 * Kopiera en anpassad modell från en formulär igenkännings resurs till en annan.
 
-Observera att modeller också kan tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Modeller kan också tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -114,12 +116,12 @@ const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(a
 const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
-## <a name="assets-for-testing"></a>Till gångar för testning
+## <a name="get-assets-for-testing"></a>Få till gångar för testning
 
 Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentation](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) och [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 Du måste också lägga till referenser till URL: erna för din utbildning och testa data.
-* Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+* Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Använd exemplen från och kvitto bilder som ingår i exemplen nedan (även tillgängligt på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) eller så kan du använda ovanstående steg för att hämta SAS-URL: en för ett enskilt dokument i Blob Storage. 
 
 > [!NOTE]
@@ -156,7 +158,7 @@ recognizeContent().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Page 1: width 8.5 and height 11 with unit inch
@@ -228,7 +230,7 @@ recognizeReceipt().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 status: notStarted
@@ -302,7 +304,7 @@ trainModel().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 Detta är utdata för en modell som är utbildad med de utbildnings data som är tillgängliga från [python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training). Det här exemplet på utdata har trunkerats för läsbarhet.
 
@@ -388,7 +390,7 @@ trainModelLabels().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultat 
+### <a name="output"></a>Utdata 
 
 Detta är utdata för en modell som är utbildad med de utbildnings data som är tillgängliga från [python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training). Det här exemplet på utdata har trunkerats för läsbarhet.
 
@@ -471,7 +473,7 @@ recognizeCustom().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 status: notStarted
@@ -535,7 +537,7 @@ listModels().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 model 0:
@@ -586,7 +588,7 @@ async function listModelIds(){
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
@@ -615,7 +617,7 @@ listModelsByPage().catch((err) => {
 });
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
@@ -639,7 +641,7 @@ Du kan också ta bort en modell från ditt konto genom att referera till dess ID
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted

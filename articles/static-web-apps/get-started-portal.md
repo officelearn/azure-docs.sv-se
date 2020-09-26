@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280578"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Snabb start: skapa din första statiska webbapp i Azure Portal
 
@@ -37,9 +37,9 @@ Nu när du har skapat databasen kan du skapa en statisk webbapp från Azure Port
 1. Välj **statisk Web Apps (förhands granskning)**
 1. Välj **Skapa**
 
-På fliken _grundläggande_ börjar du med att konfigurera din nya app och länka den till en GitHub-lagringsplats.
+I avsnittet _grundläggande_ börjar du med att konfigurera din nya app och länka den till en GitHub-lagringsplats.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Fliken Grundläggande":::
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Avsnittet grundläggande":::
 
 1. Välj din _Azure-prenumeration_
 1. Välj eller skapa en ny _resurs grupp_

@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2020
 ms.author: trbye
-ms.openlocfilehash: 2e6be94a7fc83c6da8bf7a46fde6ea0f5ef7c764
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9365b4bbf6e6fb37156b6e9f24b923591945ea52
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377158"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Skapa en Azure tal-resurs](../../../../overview.md#try-the-speech-service-for-free)
 > * [Skapa ett LUIS-program och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 

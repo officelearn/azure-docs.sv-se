@@ -2,13 +2,13 @@
 title: System avsnitt i Azure Event Grid
 description: Beskriver system avsnitt i Azure Event Grid.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/24/2020
+ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297291"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>System avsnitt i Azure Event Grid
 Ett system avsnitt i Event Grid representerar en eller flera händelser som publicerats av Azure-tjänster som Azure Storage och Azure-Event Hubs. Ett system ämne kan till exempel representera **alla BLOB-händelser** eller bara **BLOB-skapade** och **borttagna BLOB** -händelser som har publicerats för ett **särskilt lagrings konto**. I det här exemplet, när en BLOB överförs till lagrings kontot, publicerar Azure Storages tjänsten en **BLOB-skapad** händelse i avsnittet system i Event Grid, som sedan vidarebefordrar händelsen till ämnes [prenumeranter](event-handlers.md) som tar emot och bearbetar händelsen. 
@@ -22,6 +22,7 @@ Här är den aktuella listan över Azure-tjänster som har stöd för att skapa 
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)

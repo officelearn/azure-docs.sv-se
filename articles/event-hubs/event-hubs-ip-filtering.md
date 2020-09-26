@@ -3,12 +3,12 @@ title: Regler för Azure Event Hubs-brandvägg | Microsoft Docs
 description: Använd brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: fbf3e67cdde43dbe3d5e02cd4b044d5473f409ac
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab7f835187a33b5e4d95c160831337172a5ed74e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185136"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318542"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa IP-adresser eller intervall
 Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -43,7 +43,7 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandv�
 
     Om du väljer alternativet **alla nätverk** , godkänner händelsehubben anslutningar från alla IP-adresser (med hjälp av åtkomst nyckeln). Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
-    ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Skärm bild som visar sidan "brand väggar och virtuella nätverk" med alternativet "alla nätverk" markerat.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Om du vill begränsa åtkomsten till vissa IP-adresser kontrollerar du att alternativet **valda nätverk** är markerat. I avsnittet **brand vägg** följer du dessa steg:
     1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
     2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
@@ -77,7 +77,7 @@ Mallparametrar:
 > ```json
 > "defaultAction": "Allow"
 > ```
-> till
+> på
 > ```json
 > "defaultAction": "Deny"
 > ```

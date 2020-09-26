@@ -4,17 +4,17 @@ description: Säkerhet för Azure Security benchmark v2-slutpunkt
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059384"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280631"
 ---
-# <a name="security-control-endpoint-security"></a>Säkerhets kontroll: slut punkts säkerhet
+# <a name="security-control-v2-endpoint-security"></a>Säkerhets kontroll v2: slut punkts säkerhet
 
 Slut punkts säkerhet täcker kontroller i slut punkts identifiering och-svar. Detta inkluderar användning av slut punkts identifiering och-svar (EDR) och skydd mot skadlig kod för slut punkter i Azure-miljöer.
 
@@ -36,7 +36,7 @@ Microsoft Defender Avancerat skydd tillhandahåller EDR-funktioner som en del av
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -64,7 +64,7 @@ Microsoft Antimalware för Azure Cloud Services är standard skyddet mot skadlig
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -88,7 +88,7 @@ Följ rekommendationerna i Azure Security Center: "Compute &amp; Apps" för att 
 
 **Ansvar**: kund
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security)
 

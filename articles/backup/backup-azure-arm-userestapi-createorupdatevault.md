@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera säkerhets kopierings-o
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271604"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services Vault med REST API
 
@@ -23,7 +23,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Skapa en begäran
 
-Parametern krävs för *att du ska kunna skapa en begäran* `{subscription-id}` . Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med `api-version` parametern. I den här artikeln används `api-version=2016-06-01` .
+Parametern krävs för *att du ska kunna skapa en begäran* `{subscription-id}` . Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli). Du definierar en `{resourceGroupName}` och `{vaultName}` för dina resurser, tillsammans med `api-version` parametern. I den här artikeln används `api-version=2016-06-01` .
 
 Följande huvuden krävs:
 
@@ -38,7 +38,7 @@ Mer information om hur du skapar begäran finns i [komponenter i en REST API beg
 
 Följande vanliga definitioner används för att bygga en begär ande text:
 
-|Namn  |Krävs  |Typ  |Beskrivning  |
+|Name  |Krävs  |Typ  |Description  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
 |location     |  true       |Sträng         |   Resurs plats      |
@@ -66,7 +66,7 @@ Följande exempel text används för att skapa ett valv i "västra USA". Ange pl
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera ett Recovery Services-valv:
 
-|Namn  |Typ  |Beskrivning  |
+|Namn  |Typ  |Description  |
 |---------|---------|---------|
 |200 OK     |   [Valv](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 har skapats     | [Valv](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Skapad      |

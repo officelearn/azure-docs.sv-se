@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318100"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Skapa ett Azure Remote Rendering-konto
 
@@ -57,7 +57,7 @@ Värdena för **`arrAccountId`** och **`arrAccountKey`** finns i portalen enligt
 
 ![Prenumerations filter](./media/azure-subscription-filter.png)
 
-Genom att klicka på ditt konto får du till gång till den här skärmen, som visar **konto-ID: t** omedelbart:
+Genom att klicka på ditt konto får du till gång till den här skärmen, som visar  **konto-ID: t** omedelbart:
 
 ![ID för Azure-konto](./media/azure-account-id.png)
 
@@ -83,7 +83,7 @@ Nu förutsätts det att du har ett lagrings konto. Navigera till lagrings kontot
 
  Klicka på knappen **Lägg till** i panelen Lägg till en roll tilldelning för att lägga till den första rollen:
 
-![IAM för lagrings konto](./media/azure-add-role-assignment.png)
+![Lagrings konto IAM Lägg till roll tilldelning](./media/azure-add-role-assignment.png)
 
 * Den första rollen som ska tilldelas är **ägare** som visas i skärm bilden ovan.
 * Välj **fjärrstyrt konto** från List rutan **tilldela åtkomst till** .
@@ -95,11 +95,13 @@ Nu förutsätts det att du har ett lagrings konto. Navigera till lagrings kontot
 Upprepa att lägga till nya roller två gånger för respektive val i list rutan **roll** :
 
 * **Lagringskontodeltagare**
-* **Storage BLOB data-deltagare**
+* **Storage Blob Data-deltagare**
 
 De andra List rutorna väljs som i det första steget.
 
 Om du har lagt till alla tre roller har ditt Azure Remote rendering-konto åtkomst till ditt lagrings konto med systemtilldelade tjänst identiteter.
+> [!IMPORTANT]
+> Azure Role-tilldelningar cachelagras av Azure Storage, så det kan finnas en fördröjning på upp till 30 minuter mellan när du beviljar åtkomst till ditt konto för fjärrrendering och när det kan användas för åtkomst till ditt lagrings konto. Mer information finns i [dokumentationen för roll bas åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) .
 
 ## <a name="next-steps"></a>Nästa steg
 

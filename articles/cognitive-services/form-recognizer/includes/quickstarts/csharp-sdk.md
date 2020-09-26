@@ -1,20 +1,20 @@
 ---
 title: 'Snabb start: formulär tolkens klient bibliotek för .NET'
-description: I den här snabb starten kommer du igång med formulär tolkens klient bibliotek för .NET.
+description: Använd formulär tolkens klient bibliotek för .NET för att skapa en app för bearbetning av formulär som extraherar nyckel/värde-par och tabell data från dina anpassade dokument.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.openlocfilehash: f924347b99d270ac97da5f6d6f4edf7a13efacee
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fc7b435d3abdd2e04f8beabf35b7ed337c5ff68b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89449626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318926"
 ---
 > [!IMPORTANT]
 > * Formulär igenkännings-SDK: n är riktad mot v 2.0 från tolk tjänsten.
@@ -22,7 +22,7 @@ ms.locfileid: "89449626"
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer)  |  [Exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services).
 * En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../../build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
@@ -105,7 +105,8 @@ Med formulär tolken kan du skapa två olika klient typer. Det första `FormReco
 
 Se exempel för att [träna en modell](#train-a-custom-model) och [Hantera anpassade modeller](#manage-custom-models).
 
-Observera att modeller också kan tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Modeller kan också tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -138,13 +139,13 @@ static private FormRecognizerClient AuthenticateClient(){
 }
 ```
 
-## <a name="assets-for-testing"></a>Till gångar för testning 
+## <a name="get-assets-for-testing"></a>Få till gångar för testning 
 
 Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentation](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) och [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 Du måste också lägga till referenser till URL: erna för din utbildning och testa data.
 
-* Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+* Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Använd exemplen från och kvitto bilder som ingår i exemplen nedan (även tillgängligt på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) eller så kan du använda ovanstående steg för att hämta SAS-URL: en för ett enskilt dokument i Blob Storage. 
 
 > [!NOTE]
@@ -196,7 +197,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Form Page 1 has 18 lines.
@@ -333,7 +334,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat 
+### <a name="output"></a>Utdata 
 
 ```console
 Form Page 1 has 18 lines.
@@ -443,7 +444,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 Det här svaret har trunkerats för läsbarhet.
 
@@ -544,7 +545,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 Det här svaret har trunkerats för läsbarhet.
 
@@ -621,6 +622,19 @@ static async Task RecognizeContentCustomModel()
             Console.WriteLine($"    Value: '{field.ValueData.Text}");
             Console.WriteLine($"    Confidence: '{field.Confidence}");
         }
+        Console.WriteLine("Table data:");
+        foreach (FormPage page in form.Pages.Values)
+        {
+            for (int i = 0; i < page.Tables.Count; i++)
+            {
+                FormTable table = page.Tables[i];
+                Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+                foreach (FormTableCell cell in table.Cells)
+                {
+                    Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains {(cell.IsHeader ? "header" : "text")}: '{cell.Text}'");
+                }
+            }
+        }
     }
 }
 ```
@@ -635,7 +649,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 Det här svaret har trunkerats för läsbarhet.
 
@@ -723,7 +737,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat 
+### <a name="output"></a>Utdata 
 
 ```console
 Account has 20 models.
@@ -761,7 +775,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat 
+### <a name="output"></a>Utdata 
 
 Det här svaret har trunkerats för läsbarhet.
 
@@ -822,7 +836,7 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="output"></a>Resultat 
+### <a name="output"></a>Utdata 
 
 Det här svaret har trunkerats för läsbarhet.
 

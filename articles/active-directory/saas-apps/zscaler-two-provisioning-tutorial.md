@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bea34b2a8b8827b709cc637c0a33132477419a83
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3cd69876eb5fa18d9763bd7f89233d7608384ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545748"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317556"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler två för automatisk användar etablering
 
@@ -119,7 +119,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler två i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler två för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
 
-    ![Mappningar för attribut](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
+    ![Skärm bild av avsnittet attribut mappningar med sju mappningar som visas.](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
 
 12. I avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper till ZscalerTwo**:
 
@@ -127,7 +127,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 13. Granska gruppattributen som synkroniseras från Azure AD till Zscaler två i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Zscaler två för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
 
-    ![Mappningar för attribut](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
+    ![Skärm bild av avsnittet attribut mappningar med tre mappningar som visas.](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Information om hur du konfigurerar omfångs filter finns i anvisningarna i [kursen omfångs filter](./../active-directory-saas-scoping-filters.md).
 
@@ -150,11 +150,11 @@ Information om hur du läser etablerings loggarna i Azure AD finns i [rapporteri
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../active-directory-saas-provisioning-reporting.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-two-provisioning-tutorial/tutorial-general-01.png

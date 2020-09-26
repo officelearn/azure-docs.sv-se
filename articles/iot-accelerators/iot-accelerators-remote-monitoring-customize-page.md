@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8101c01762749c2ceb085516936fa0c421fdb5f3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: e585bc52121943102522f8c44291a4f9453d6214
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318406"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad sida i webb gränssnittet för webb gränssnittet för fjärrövervakning av Solution Accelerator
 
@@ -155,7 +155,7 @@ Du kan också ansluta din lokala kopia av webb gränssnittet till den fjärrstyr
 
 1. Distribuera en **grundläggande** instans av Solution Accelerator med **PC** cli. Anteckna namnet på distributionen och de autentiseringsuppgifter som du har angett för den virtuella datorn. Mer information finns i [distribuera med CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att aktivera SSH-åtkomst till den virtuella dator som är värd för mikrotjänsterna i din lösning. Ett exempel:
+1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att aktivera SSH-åtkomst till den virtuella dator som är värd för mikrotjänsterna i din lösning. Exempel:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -163,7 +163,7 @@ Du kan också ansluta din lokala kopia av webb gränssnittet till den fjärrstyr
 
     Du bör bara aktivera SSH-åtkomst vid testning och utveckling. Om du aktiverar SSH [bör du inaktivera det igen så snart som möjligt](../security/fundamentals/network-best-practices.md).
 
-1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Ett exempel:
+1. Använd Azure Portal eller [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Exempel:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

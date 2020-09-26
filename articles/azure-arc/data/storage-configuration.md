@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317335"
 ---
 # <a name="storage-configuration"></a>Storage-konfiguration
 
@@ -151,10 +151,11 @@ Viktiga faktorer att tänka på när du väljer en lagrings klass för datakontr
 
 - Du **måste** använda en fjärran sluten, delad lagrings klass för att säkerställa data hållbarheten och så att om en POD eller nod översätts som när Pod har säkerhetskopierats kan den ansluta igen till den permanenta volymen.
 - Data som skrivs till Controller SQL-instansen, Metrics DB och logs DB är vanligt vis ganska låga och inte känsliga för svars tider, vilket innebär att Ultra-snabba prestanda lagring inte är kritiskt. Om du har användare som ofta använder Grafana-och Kibana-gränssnitten och du har ett stort antal databas instanser kan användarna få möjlighet att snabbare utföra lagringen.
-- Den lagrings kapacitet som krävs är en variabel med antalet databas instanser som du har distribuerat eftersom loggar och mått samlas in för varje databas instans. Data bevaras i loggarna och måtten DB i 2 veckor innan de rensas. Att göra: hur mycket lagrings utrymme som krävs per DB-instans?
+- Den lagrings kapacitet som krävs är en variabel med antalet databas instanser som du har distribuerat eftersom loggar och mått samlas in för varje databas instans. Data bevaras i loggarna och måtten DB i 2 veckor innan de rensas. 
 - Att ändra lagrings klassens post distribution är mycket svårt, inte dokumenterat och stöds inte. Se till att välja lagrings klassen korrekt vid distributions tiden.
 
-> **Obs:** Om ingen lagrings klass anges används standard lagrings klassen. Det kan bara finnas en standard lagrings klass per Kubernetes-kluster. Du kan [ändra standard lagrings klass](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> Om ingen lagrings klass anges används standard lagrings klassen. Det kan bara finnas en standard lagrings klass per Kubernetes-kluster. Du kan [ändra standard lagrings klass](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### <a name="database-instance-storage-configuration"></a>Konfiguration av databas instans lagring
 
@@ -162,7 +163,8 @@ Varje databas instans har data, loggar och säkerhets kopierings beständiga vol
 
 När du skapar en instans med `azdata arc sql mi create` eller- `azdata arc postgres server create` kommandon finns det två parametrar som kan användas för att ange lagrings klasser:
 
-> **Obs:** Några av dessa parametrar är under utveckling och kommer att bli tillgängliga på `azdata arc sql mi create` och `azdata arc postgres server create` i kommande versioner.
+> [!NOTE]
+> Några av dessa parametrar är under utveckling och kommer att bli tillgängliga på `azdata arc sql mi create` och `azdata arc postgres server create` i kommande versioner.
 
 |Parameter namn, kort namn|Används för|
 |---|---|
@@ -173,14 +175,14 @@ När du skapar en instans med `azdata arc sql mi create` eller- `azdata arc post
 
 I tabellen nedan visas en lista över Sök vägarna i den Azure SQL Managed instance-behållare som är mappad till den permanenta volymen för data och loggar:
 
-|Parameter namn, kort namn|Sökväg inuti MSSQL – Miaa container|Beskrivning|
+|Parameter namn, kort namn|Sökväg inuti MSSQL – Miaa container|Description|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt|Innehåller kataloger för MSSQL-installationen och andra system processer. MSSQL-katalogen innehåller standard data (inklusive transaktions loggar), fel logg & säkerhets kopierings kataloger|
 |`--storage-class-logs`, `-scl`|/var/log|Innehåller kataloger som lagrar konsol utdata (STDERR, STDOUT), annan loggnings information för processer i behållaren|
 
 I tabellen nedan visas en lista över Sök vägarna inuti PostgreSQL-instansen som är mappad till den permanenta volymen för data och loggar:
 
-|Parameter namn, kort namn|Sökväg inuti postgres-behållare|Beskrivning|
+|Parameter namn, kort namn|Sökväg inuti postgres-behållare|Description|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt/postgresql|Innehåller data-och logg kataloger för postgres-installationen|
 |`--storage-class-logs`, `-scl`|/var/log|Innehåller kataloger som lagrar konsol utdata (STDERR, STDOUT), annan loggnings information för processer i behållaren|
@@ -208,7 +210,7 @@ Varje Pod som innehåller tillstånds känsliga data använder två permanenta v
 |Resurstyp|Antal tillstånds känsliga poddar|Antal beständiga volymer som krävs|
 |---|---|---|
 |Data Controller|4 ( `control` , `controldb` , `logsdb` , `metricsdb` )|4 * 2 = 8|
-|Azure SQL-hanterad instans|1|2|
+|Hanterad Azure SQL-instans|1|2|
 |Azure Database for PostgreSQL instans|1| 2|
 |Azure PostgreSQL-storskalig|1 + w (W = antal arbetare)|2 * (1 + W)|
 
@@ -217,7 +219,7 @@ Tabellen nedan visar det totala antalet permanenta volymer som krävs för en ex
 |Resurstyp|Antal instanser|Antal beständiga volymer som krävs|
 |---|---|---|
 |Data Controller|1|4 * 2 = 8|
-|Azure SQL-hanterad instans|5|5 * 2 = 10|
+|Hanterad Azure SQL-instans|5|5 * 2 = 10|
 |Azure Database for PostgreSQL instans|5| 5 * 2 = 10|
 |Azure PostgreSQL-storskalig|2 (antal arbetare = 4 per instans)|2 * 2 * (1 + 4) = 20|
 |***Totalt antal beständiga volymer***||8 + 10 + 10 + 20 = 48|

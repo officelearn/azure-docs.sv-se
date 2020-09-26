@@ -3,12 +3,12 @@ title: Stöd för Hyper-V-utvärdering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318185"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Stöd mat ris för Hyper-V-utvärdering
 
@@ -23,7 +23,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 --- | ---
 **Utvärderings gränser** | Du kan identifiera och utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda [Azure Migrate-projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Förutom virtuella Hyper-V-datorer kan ett projekt inkludera virtuella VMware-datorer och fysiska servrar, upp till utvärderings gränserna för var och en.
-**Identifiering** | Azure Migrates apparaten kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/><br/> Enheten kan ansluta till upp till 300 Hyper-V-värdar.
+**Identifikation** | Azure Migrates apparaten kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/><br/> Enheten kan ansluta till upp till 300 Hyper-V-värdar.
 **Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering för en grupp.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
@@ -46,7 +46,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 | :----------------------------- | :------------------- |
 | **Operativsystem** | Alla operativ system kan utvärderas för migrering.  |
 | **Integration Services**       | [Integrerings tjänsterna för Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) måste köras på de virtuella datorer som du bedömer, för att kunna avbilda information om operativ systemet. |
-
+| **Storage** | Lokal disk, DAS, JBOD, lagrings utrymmen, CSV, SMB. De lagrings enheter för Hyper-V-värden som VHD/VHDX lagras på stöds. <br/> Virtuella IDE-och SCSI-styrenheter stöds| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
 

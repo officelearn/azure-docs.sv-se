@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296152"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
@@ -27,12 +27,12 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 > * Kör en fullständig migrering till Azure.
 
 > [!NOTE]
-> Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. 
+> Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien [granskar](./agent-based-migration-architecture.md) du VMware agent-baserad migrering.
 
@@ -50,12 +50,12 @@ Slutför uppgifterna i tabellen för att förbereda Azure för agent-baserad mig
 Om du inte har ett Azure Migrate-projekt måste du kontrol lera behörigheterna för att skapa ett.
 
 
-1. Öppna prenumerationen i Azure Portal och välj **åtkomst kontroll (IAM)**.
+1. I Azure-portalen öppnar du prenumerationen och väljer **Åtkomstkontroll (IAM)** .
 2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.
 3. Kontrol lera att du har behörighet som **deltagare** eller **ägare** .
 
-    - Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration.
-    - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
+    - Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen.
+    - Om du inte är prenumerationens ägare kan du be ägaren tilldela dig rollen.
     
 ### <a name="assign-azure-account-permissions"></a>Tilldela behörigheter för Azure-konto
 
@@ -213,7 +213,7 @@ När du har hämtat OVF-mallen importerar du den till VMware för att skapa repl
 1. I VMware vSphere klient konsolen aktiverar du den virtuella datorn. Den virtuella datorn startas med en Windows Server 2016-installation.
 2. Godkänn licensavtalet och ange ett administratörslösenord.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör med hjälp av administratörs lösen ordet. Första gången du loggar in startas installations verktyget för replikeringstjänsten (Azure Site Recovery konfigurations verktyget) inom några sekunder.
-5. Ange ett namn som ska användas för att registrera enheten med Server migrering. Klicka sedan på **Nästa**.
+5. Ange ett namn som ska användas för att registrera enheten med Server migrering. Klicka på **Nästa**.
 6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.
 7. Vänta tills verktyget har slutfört registreringen av en Azure AD-App för att identifiera installationen. Enheten startas om.
 1. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt om några sekunder.
@@ -252,7 +252,7 @@ Välj virtuella datorer för migrering.
 
 1. I Azure Migrate Project >- **servrar** **Azure Migrate: Server-migrering**klickar du på **Replikera**.
 
-    ![Replikera virtuella datorer](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Skärm bild av skärmen servrar i Azure Migrate. Knappen replikera är markerad i Azure Migrate: Server-migrering under Migreringsverktyg.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. I **Replikera** > **Källinställningar** > **Är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere**.
 3. I **lokal**installation väljer du namnet på Azure Migrate-installationen som du konfigurerar.
@@ -260,7 +260,7 @@ Välj virtuella datorer för migrering.
 5. I **processerver**väljer du namnet på replikerings enheten.
 6. I **autentiseringsuppgifter för gäst**anger du det administratörs konto för den virtuella datorn som ska användas för push-installation av mobilitets tjänsten. Klicka sedan på **Nästa: virtuella datorer**.
 
-    ![Replikera virtuella datorer](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Skärm bild av fliken käll inställningar på sidan replikera. Fältet gäst autentiseringsuppgifter är markerat och värdet är inställt på VM-admin-Account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. I **Virtual Machines**väljer du de datorer som du vill replikera.
 
@@ -281,8 +281,8 @@ Välj virtuella datorer för migrering.
     
 13. I **Azure Hybrid-förmån**:
 
-    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
-    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
+    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka på **Nästa**.
+    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka på **Nästa**.
 
 14. I **Compute**granskar du VM-namn, storlek, OS-disktyp och tillgänglighets konfiguration (om det valts i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
@@ -291,7 +291,7 @@ Välj virtuella datorer för migrering.
     - **Tillgänglighets zon**: Ange den tillgänglighets zon som ska användas.
     - **Tillgänglighets uppsättning**: Ange den tillgänglighets uppsättning som ska användas.
 
-15. I **diskar**anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka sedan på **Nästa**.
+15. I **diskar**anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka på **Nästa**.
     - Du kan undanta diskar från replikering.
     - Om du undantar diskar kommer de inte att synas i den virtuella Azure-datorn efter migreringen. 
 

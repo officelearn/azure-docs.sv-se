@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369730"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -229,7 +229,7 @@ Användar kontot måste ha *ägar* -eller *deltagar* behörighet för Azure-pren
 
 Kunder kan få lösningar från den kommersiella Marketplace på 141 platser runtom i världen.
 
-Om du vill granska listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](partner-center-portal/tax-details-paid-transactions.md).
+Om du vill granska listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>Vilka valutor stöds med den kommersiella marknads platsen?
 
@@ -274,32 +274,32 @@ Kunderna faktureras vanligt vis per månad för alla inköp i föregående faktu
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>Hur ofta får jag inbetalningar för försäljning via den kommersiella marknads platsen?
 
-Utbetalningar sker varje månad. Mer information om betalnings scheman hittar du genom att söka efter dina kommande utbetalningar i Partner Center och hur vi hanterar kund icke-betalningar, se [information om utbetalnings princip](partner-center-portal/payout-policy-details.md).
+Utbetalningar sker varje månad. Mer information om betalnings scheman hittar du genom att söka efter dina kommande utbetalningar i Partner Center och hur vi hanterar kund icke-betalningar, se [information om utbetalnings princip](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).
 
 - För transaktioner där kunden använde en Enterprise-avtal utfärdas utbetalningar i nästa utbetalnings cykel 30 dagar efter kund faktura. 
 - För transaktioner där kunden använde ett kredit kort, finns det en ytterligare 30-dagars depositions-period när vi har fått betalning för att säkerställa att kapital är klart och det inte finns några åter betalningar eller misstänkta bedrägerier.
 
 Utbetalningar utfärdas bara när försäljning har uppnått ett minsta kombinerat värde på $50,00.
 
-Mer information finns i avsnittet om [betalnings trösklar, metoder och tids ramar](partner-center-portal/payment-thresholds-methods-timeframes.md).
+Mer information finns i avsnittet om [betalnings trösklar, metoder och tids ramar](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context).
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>I vilka länder/regioner hanteras skatter åt mig?
 
 Kunder kan hitta lösningar från den kommersiella marknaden runtom i världen och vi hanterar skatter på många platser. 
 
-Om du vill granska den fullständiga listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](partner-center-portal/tax-details-paid-transactions.md).
+Om du vill granska den fullständiga listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>Var kan jag hitta utbetalnings rapportering för den kommersiella marknads platsen?
 
 I Partner Center kan en användare med *ägare* eller *finansiell deltagar* behörighet Visa utbetalnings rapportering. Dessa användare kan komma åt rapporter längst upp till höger genom att välja ikonen som visar en hand som innehåller en faktura.
 
-Mer information finns i [utbetalnings rapportering](partner-center-portal/payout-summary.md).
+Mer information finns i [utbetalnings instruktioner](/partner-center/payout-statement?context=/azure/marketplace/context/context).
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>Hur gör jag för att konfigurera min utbetalnings metod och mål?
 
 Med partner Center kan användare med *ägar* behörighet skapa utbetalnings konto och skatte formulär. Användarna kan göra detta genom att välja knappen **Inställningar** (kugg hjuls ikonen) längst upp till höger.
 
-Mer information finns i [utbetalnings konto och skatte formulär](partner-center-portal/set-up-your-payout-account-tax-forms.md).
+Mer information finns i [Konfigurera ditt utbetalnings konto och skatte formulär](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context).
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Finns det avkastning och åter betalningar som stöds med den kommersiella marknads platsen?
 
@@ -340,7 +340,7 @@ Information om Microsoft administrations Center finns i [hantera program prenume
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Var kan jag läsa om Azure Government och Azure Government Marketplace?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
-- [Säkerhetscenter](https://www.microsoft.com/trust-center)
+- [Microsoft Säkerhetscenter](https://www.microsoft.com/trust-center)
 - [Dokumentation om Azure Government](../azure-government/index.yml)
 - [Azure Government Marketplace](../azure-government/documentation-government-manage-marketplace.md)
 - [Azure Government efterlevnad](../azure-government/documentation-government-plan-compliance.md)

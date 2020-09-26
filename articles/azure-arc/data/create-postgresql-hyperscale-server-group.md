@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e845136c4fed5a3d2e6863fdab0aa9f70fb30b5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317352"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skapa en Azure Arc-aktiverad PostgreSQL-Server grupp
 
@@ -59,7 +59,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 Implementera det här steget innan du går vidare till nästa steg. Om du vill distribuera PostgreSQL-storskalig Server grupp till Red Hat OpenShift i ett annat projekt än standardvärdet, måste du köra följande kommandon mot klustret för att uppdatera säkerhets begränsningarna. Det här kommandot ger de behörigheter som krävs för de tjänst konton som ska köra din PostgreSQL-Server grupp för storskalig skalning. SCC- **_SCC_** (Security context constraint) är den som du lade till när du distribuerade data styrenheten för Azure-bågen.
 
 ```console
-oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
 _**Server-Group-name** är namnet på den server grupp som du skapar under nästa steg._
@@ -72,7 +72,7 @@ Nu kan du implementera nästa steg.
 Om du vill skapa en Azure Database for PostgreSQL storskalig Server grupp på Azure-bågen, använder du följande kommando:
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
@@ -80,25 +80,14 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > [!NOTE]
 > - **Det finns andra tillgängliga kommando rads parametrar.  Se den fullständiga listan med alternativ genom att köra `azdata arc postgres server create --help` .**
-> - I för hands versionen måste du ange en lagrings klass för säkerhets kopior (_--Storage-Class-backups-SCB_) när du skapar en Server grupp för att kunna säkerhetskopiera och återställa.
+> - Lagrings klassen som används för säkerhets kopieringar (_--Storage-Class-backup-SCB_) är standardvärdet för datakontrollantens data lagrings klass om den inte anges.
 > - Enheten som godkändes av parametrarna--Volume-* är en Kubernetes Resource Quantity (ett heltal följt av något av dessa SI-värde (T. ex. G, M, m) eller deras effekt av två motsvarigheter (TI, GI, mi, KI)).
-> - Namn får innehålla högst 10 tecken och överensstämmer med DNS-namn konventioner.
+> - Namn måste bestå av högst 12 tecken och överensstämmer med DNS-namn konventioner.
 > - Du uppmanas att ange lösen ordet för den administrativa _postgres_ -standard användaren.  Du kan hoppa över den interaktiva prompten genom att ställa in `AZDATA_PASSWORD` sessionens miljö variabel innan du kör kommandot CREATE.
-> - Om du har distribuerat datakontrollanten med AZDATA_USERNAME och AZDATA_PASSWORD i samma terminalserversession, används värdena för AZDATA_USERNAME och AZDATA_PASSWORD för att distribuera PostgreSQL-gruppen för den storskaliga Server gruppen. Namnet på standard administratörs användaren för PostgreSQL-storskalig databas motor är _postgresql_ och kan inte ändras nu.
+> - Om du har distribuerat data styrenheten med AZDATA_USERNAME och AZDATA_PASSWORD sessionens miljövariabler i samma terminalserversession, används värdena för AZDATA_PASSWORD för att distribuera PostgreSQL-Server gruppen. Om du föredrar att använda ett annat lösen ord, antingen (1) uppdatera värdet för AZDATA_PASSWORD eller (2) ta bort AZDATA_PASSWORD-miljövariabeln eller ta bort dess värde uppmanas att ange ett lösen ord interaktivt när du skapar en Server grupp.
+> - Namnet på standard administratörs användaren för PostgreSQL-storskalig databas motor är _postgres_ och kan inte ändras nu.
 > - Att skapa en PostgreSQL-Server grupp för den storskaliga servern registrerar inte omedelbart resurser i Azure. Som en del av processen för att överföra [resurs lager](upload-metrics-and-logs-to-azure-monitor.md)  -eller [användnings data](view-billing-data-in-azure.md) till Azure skapas resurserna i Azure och du kan se dina resurser i Azure Portal.
-> - Det går inte att ändra parametern--port vid denna tidpunkt.
-> - Om du inte har en standard lagrings klass i Kubernetes-klustret, måste du använda parametern--metadataStorageClass för att ange en. Om du inte gör det leder det till att kommandot CREATE inte fungerar. Om du vill kontrol lera att du har en standard lagrings klass som har deklarerats i Kubernetes-klustret Rung du följande kommando: 
->
->   ```console
->   kubectl get sc
->   ```
->
-> - Om lagrings klassen har kon figurer ATS som standard lagrings klass visas **(standard)** och läggs till i namnet på lagrings klassen. Exempel:
->
->   ```output
->   NAME                       PROVISIONER                        AGE
->   local-storage (default)    kubernetes.io/no-provisioner       4d18h
->   ```
+
 
 
 ## <a name="list-your-azure-database-for-postgresql-server-groups-created-in-your-arc-setup"></a>Visa en lista över Azure Database for PostgreSQL Server grupper som skapats i din ARC-konfiguration

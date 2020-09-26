@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 255f4e28cf4f3ed3f6e99afa0333989a2afffd95
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311724"
+ms.locfileid: "91369628"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Själv studie kurs: Distribuera en django-webbapp med PostgreSQL i Azure App Service
 
@@ -188,15 +188,13 @@ Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 - Skapa App Service-appen om den inte finns.
 - Aktivera standard loggning för appen om den inte redan är aktive rad.
 - Ladda upp lagrings platsen med hjälp av ZIP-distribution med build Automation aktiverat.
+- Cachelagra vanliga parametrar, till exempel namnet på resurs gruppen och App Service plan, i filen *. Azure/config*. Därför behöver du inte ange samma parameter med senare kommandon. Om du till exempel vill distribuera om appen när du har gjort ändringar kan du bara köra `az webapp up` igen utan parametrar. Kommandon som kommer från CLI-tillägg, till exempel, `az postgres up` används inte för närvarande, vilket är anledningen till att du måste ange resurs gruppen och platsen här med den inledande användningen av `az webapp up` .
 
 Vid lyckad distribution genererar kommandot JSON-utdata som i följande exempel:
 
 ![Exempel på AZS webapp-utdata](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!TIP]
-> Många Azure CLI-kommandon cachelagrar vanliga parametrar, till exempel namnet på resurs gruppen och App Service plan, i filen *. Azure/config*. Därför behöver du inte ange samma parameter med senare kommandon. Om du till exempel vill distribuera om appen när du har gjort ändringar kan du bara köra `az webapp up` igen utan parametrar. Kommandon som kommer från CLI-tillägg, till exempel, `az postgres up` används inte för närvarande, vilket är anledningen till att du måste ange resurs gruppen och platsen här med `az webapp up` .
 
 > [!NOTE]
 > Om du försöker besöka appens URL-adress påträffas felet "DisallowedHost at/". Det här felet beror på att du ännu inte har konfigurerat appen för att använda de produktions inställningar som beskrivs ovan, vilket du gör i följande avsnitt.
@@ -253,6 +251,8 @@ Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database m
     ```
     
 1. `createsuperuser`Kommandot efterfrågar behörigheter för superanvändare. I den här självstudien använder du standard användar namnet `root` , trycker på **RETUR** för e-postadressen för att lämna den tom och anger `Pollsdb1` lösen ordet.
+
+1. Om du ser ett fel som databasen är låst, se till att du körde `az webapp settings` kommandot i föregående avsnitt. Utan de här inställningarna kan inte Migrate-kommandot kommunicera med databasen, vilket resulterar i felet.
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
     

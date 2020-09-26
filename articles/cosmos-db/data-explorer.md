@@ -4,14 +4,14 @@ description: Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261893"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318814"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeta med data med hjälp av Azure Cosmos Explorer 
 
@@ -39,7 +39,7 @@ Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att
 
    **Läs** – när du delar den skrivskyddade URL: en med andra användare kan de se databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot. Om du till exempel vill dela resultatet av en fråga med dina grupp medlemmar som inte har åtkomst till Azure Portal eller ditt Azure Cosmos DB-konto kan du ange dem med denna URL.
 
-   Välj den typ av åtkomst du vill öppna kontot med och klicka på **Öppna**. När du har öppnat Utforskaren är det samma sak som du hade med fliken Datautforskaren i Azure Portal.   
+   Välj den typ av åtkomst du vill öppna kontot med och klicka på **Öppna**. När du har öppnat Utforskaren är det samma sak som du hade med fliken Datautforskaren i Azure Portal.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Öppna Azure Cosmos DB Explorer":::
 
@@ -49,7 +49,10 @@ För närvarande är den **Öppna hel skärms** upplevelsen som gör att du kan 
 
 För närvarande stöds inte visning av dokument som innehåller ett UUID i Datautforskaren. Detta påverkar inte inläsning av samlingar, endast enskilda dokument eller frågor som innehåller dessa dokument. För att kunna visa och hantera dessa dokument bör användarna fortsätta att använda verktyget som ursprungligen användes för att skapa dessa dokument.
 
+Kunder som tar emot HTTP-401-fel kan bero på otillräckliga RBAC-behörigheter för kundens Azure-konto, särskilt om kontot har en anpassad RBAC-roll. Alla anpassade roller måste ha `Microsoft.DocumentDB/databaseAccounts/listKeys/*` åtgärd för att kunna använda datautforskaren om du loggar in med sina Azure Active Directory autentiseringsuppgifter.
+
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har lärt dig hur du kommer igång med Azure Cosmos DB Explorer för att hantera dina data, kan du göra följande:
 
 * Börja definiera [frågor](sql-api-query-reference.md) med SQL-syntax och utför [Server sidans programmering](stored-procedures-triggers-udfs.md) genom att använda lagrade procedurer, UDF: er, utlösare. 

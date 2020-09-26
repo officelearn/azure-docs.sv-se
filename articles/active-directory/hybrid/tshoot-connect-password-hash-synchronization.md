@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317573"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Felsöka synkronisering av lösenordshash med Azure AD Connect-synkronisering
 
@@ -120,7 +120,7 @@ Varje lokal Active Directory-anslutning har sin egen kanal för synkronisering a
 
 Om det AD DS-konto som används av den lokala Active Directory-anslutningen för att synkronisera hashar för lösen ord inte har rätt behörigheter returneras följande fel:
 
-![Felaktig autentiseringsuppgift](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Skärm bild som visar felet som returneras om AD DS-kontot har ett felaktigt användar namn eller lösen ord.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>Felaktigt användar namn eller lösen ord för AD DS-konto
 
@@ -235,7 +235,7 @@ Så här felsöker du problem där inga lösen ord synkroniseras för en använd
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -338,11 +338,11 @@ Du kan enkelt Felsöka problem med hash-synkronisering av lösen ord genom att g
 
     i. Klicka på **metaversum objekt egenskaper** för att visa en lista över användarattribut.  
 
-    ![Metaversum-information](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Skärm bild som visar en lista med användarattribut för metaversum-objektets egenskaper.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Kontrol lera att det inte finns något **cloudFiltered** -attribut. Se till att domänautentiseringsuppgifter (domainFQDN och domainNetBios) har de förväntade värdena.
 
-    j. Klicka på fliken **anslutningar** . se till att du ser kopplingar till både lokala Active Directory och Azure AD.
+    j. Klicka på fliken **anslutningar** . Se till att du ser anslutningar till både lokala Active Directory och Azure AD.
 
     ![Metaversum-information](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 

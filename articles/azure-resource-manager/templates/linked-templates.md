@@ -3,12 +3,12 @@ title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager mall för att skapa en lösning för modulär mall. Visar hur du skickar parameter värden, anger en parameter fil och dynamiskt skapade URL: er.'
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369322"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använda länkade och nästlade mallar vid distribution av Azure-resurser
 
@@ -369,7 +369,7 @@ Du kan inte använda både infogade parametrar och en länk till en parameter fi
 
 ## <a name="template-specs"></a>Mallspecifikationer
 
-I stället för att underhålla de länkade mallarna på en tillgänglig slut punkt kan du skapa en [mall-specifikation](template-specs.md) som paketerar huvud mal len och dess länkade mallar i en enda enhet som du kan distribuera. Mallens specifikation är en resurs i din Azure-prenumeration. Det gör det enkelt att på ett säkert sätt dela mallen med användare i din organisation. Du använder rollbaserad åtkomst kontroll (RBAC) för att ge åtkomst till mallen specifikation. Den här funktionen är för närvarande en för hands version.
+I stället för att underhålla de länkade mallarna på en tillgänglig slut punkt kan du skapa en [mall-specifikation](template-specs.md) som paketerar huvud mal len och dess länkade mallar i en enda enhet som du kan distribuera. Mallens specifikation är en resurs i din Azure-prenumeration. Det gör det enkelt att på ett säkert sätt dela mallen med användare i din organisation. Du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att ge åtkomst till mallen specifikation. Den här funktionen är för närvarande en för hands version.
 
 Mer information finns i:
 
@@ -731,7 +731,7 @@ Parameter filen kan också begränsas till åtkomst via en SAS-token.
 För närvarande kan du inte länka till en mall i ett lagrings konto som ligger bakom en [Azure Storage brand vägg](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> I stället för att skydda din länkade mall med en SAS-token kan du skapa en [mall-specifikation](template-specs.md). I retemplate-specifikationen lagras huvud mal len och de länkade mallarna som en resurs i din Azure-prenumeration. Du använder RBAC för att bevilja åtkomst till användare som behöver distribuera mallen.
+> I stället för att skydda din länkade mall med en SAS-token kan du skapa en [mall-specifikation](template-specs.md). I retemplate-specifikationen lagras huvud mal len och de länkade mallarna som en resurs i din Azure-prenumeration. Du använder Azure RBAC för att bevilja åtkomst till användare som behöver distribuera mallen.
 
 I följande exempel visas hur du skickar en SAS-token vid länkning till en mall:
 
@@ -799,7 +799,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 I följande exempel visas vanliga användnings områden för länkade mallar.
 
-|Huvud mal len  |Länkad mall |Beskrivning  |
+|Huvud mal len  |Länkad mall |Description  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar en sträng från den länkade mallen. |
 |[Load Balancer med offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar den offentliga IP-adressen från den länkade mallen och anger värdet i belastningsutjämnaren. |

@@ -3,12 +3,12 @@ title: Lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbe7257b577f0526e0d34c13e0102305e58cc656
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322469"
+ms.locfileid: "91370002"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Förstå Azure Policy för Kubernetes-kluster
 
@@ -85,9 +85,6 @@ Följande rekommendation gäller endast för AKS och Azure Policy-tillägget:
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installera Azure Policy tillägg för AKS
 
 Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste din prenumeration aktivera resurs leverantörerna **Microsoft. container service** och **Microsoft. PolicyInsights** .
-
-> [!IMPORTANT]
-> Allmän tillgänglighet (GA) för Azure Policy på AKS lanseras aktivt i alla regioner. Den förväntade globala färdig ställningen för GA-versionen är 9/29/2020. Användning i regioner utan GA-versionen kräver förhands gransknings registrerings steg. Detta kommer dock att uppdateras automatiskt till GA-versionen när det är tillgängligt i regionen.
 
 1. Du behöver Azure CLI-versionen 2.12.0 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 

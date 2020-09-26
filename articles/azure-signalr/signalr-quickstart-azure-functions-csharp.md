@@ -6,14 +6,14 @@ ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 03/04/2019
+ms.date: 09/25/2020
 ms.author: zhshang
-ms.openlocfilehash: 02a9ed6b0e11aeb4f50b145cff6c747f09f1c2bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: be26fdafe0a8a52669fe41fd5514c808f10df745
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294044"
+ms.locfileid: "91369135"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med hjälp av C\#
 
@@ -21,11 +21,11 @@ Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt pr
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 Du kan också köra den här självstudien på kommando raden (macOS, Windows eller Linux) med hjälp av [Azure Functions Core tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), [.net Core SDK](https://dotnet.microsoft.com/download)och din favorit kod redigerare.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Om du inte har en Azure-prenumeration kan du [skapa en kostnads fri](https://azure.microsoft.com/free/dotnet) innan du börjar.
 
 [Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
 
@@ -55,13 +55,13 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. Markera och kopiera den primära anslutningssträngen.
 
-1. Tillbaka i Visual Studio, i Solution Explorer, byter du namn på *local.settings.sample.json* till *local.settings.json*.
+1. I Visual Studio- **Solution Explorer**byter du namn på *local.settings.sample.js* till *local.settings.js*.
 
-1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
+1. I *local.settings.json* klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Öppna **Functions.cs**. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
+1. Öppna *Functions.cs*. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
 
-    - **GetSignalRInfo** – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
+    - **GetSignalRInfo** – använder den `SignalRConnectionInfo` angivna bindningen för att generera och returnera giltig anslutnings information.
     - **SendMessage** – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
 
 1. Använd något av följande alternativ för att starta Azure Function-appen lokalt.

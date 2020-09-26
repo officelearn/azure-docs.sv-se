@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 1d651f3136b096eae957f0271e33cd11b1fb5571
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317862"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partitionering av anpassad BLOB-utdata
 
@@ -25,7 +25,7 @@ Anpassade fält eller indatavärden förbättrar underordnade data bearbetnings-
 
 ### <a name="partition-key-options"></a>Partitionsalternativ
 
-Partitionsnyckel eller kolumn namn som används för att partitionera indata kan innehålla alfanumeriska tecken med bindestreck, under streck och blank steg. Det går inte att använda kapslade fält som partitionsnyckel om de inte används tillsammans med alias. Partitionsnyckel måste vara NVARCHAR (MAX).
+Partitionsnyckel eller kolumn namn som används för att partitionera indata kan innehålla alfanumeriska tecken med bindestreck, under streck och blank steg. Det går inte att använda kapslade fält som partitionsnyckel om de inte används tillsammans med alias. Partitionsnyckel måste vara NVARCHAR (MAX), BIGINT, FLOAT eller BIT (1,2 kompatibilitetsnivå eller högre). Mer information finns i [Azure Stream Analytics data typer](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exempel
 
@@ -71,7 +71,7 @@ Med anpassade mönster för DateTime-sökväg kan du ange ett utdataformat som �
 
 Följande format-token kan användas separat eller i kombination för att uppnå anpassade DateTime-format:
 
-|Format specificerare   |Beskrivning   |Resultat i exempel tid 2018-01-02T10:06:08|
+|Format specificerare   |Description   |Resultat i exempel tid 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datetime: åååå}|Året som ett fyrsiffrigt tal|2018|
 |{datetime: MM}|Månad från 01 till 12|01|

@@ -8,18 +8,18 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8b6c3608165ed592cc2f0daf475226c9d35de012
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358838"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter
 
 I den här självstudien får du lära dig hur du använder [Azures spatiala ankare](../overview.md) för att skapa ankare under en session och sedan söker efter dem, på samma enhet eller på en annan. Samma ankare kan också finnas på flera enheter på samma plats och samtidigt.
 
-![Bevarande](./media/persistence.gif)
+![Animeringen visar Azures avstånds ankare som skapats med en mobil enhet och som används med en annan enhet under loppet av dagar.](./media/persistence.gif)
 
 Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en app som kan distribueras till två eller fler enheter. Azure Spatial Anchors som skapats av en instans kan delas till de andra.
 

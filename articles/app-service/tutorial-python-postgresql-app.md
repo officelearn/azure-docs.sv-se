@@ -3,7 +3,7 @@ title: 'Självstudie: Distribuera en python django-app med postgres'
 description: Skapa en python-webbapp med en PostgreSQL-databas och distribuera den till Azure. I självstudien används django-ramverket och appen finns på Azure App Service på Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/22/2020
+ms.date: 09/22/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 368a87d1054e4a5ad12fa1e8c78bcde39f76ee63
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 255f4e28cf4f3ed3f6e99afa0333989a2afffd95
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311724"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Själv studie kurs: Distribuera en django-webbapp med PostgreSQL i Azure App Service
 
@@ -27,7 +27,7 @@ I den här självstudien använder du Azure CLI för att utföra följande uppgi
 > [!div class="checklist"]
 > * Konfigurera din första miljö med python och Azure CLI
 > * Skapa en Azure Database for PostgreSQL databas
-> * Distribuera kod till Azure App Service och ansluta till postgres
+> * Distribuera kod till Azure App Service och ansluta till PostgreSQL
 > * Uppdatera din kod och distribuera om
 > * Visa diagnostikloggar
 > * Hantera webbappen i Azure Portal
@@ -91,7 +91,7 @@ Klona exempel lagrings platsen:
 git clone https://github.com/Azure-Samples/djangoapp
 ```
 
-Gå sedan till mappen:
+Navigera sedan till mappen:
 
 ```terminal
 cd djangoapp
@@ -107,14 +107,14 @@ Packa upp ZIP-filen i en mapp med namnet *djangoapp*.
 
 ---
 
-Djangoapp-exemplet innehåller den data drivna django avsöknings appen som du får genom att följa de [första django-apparna](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) i Django-dokumentationen. Den färdiga appen tillhandahålls här för din bekvämlighet.
+Djangoapp-exemplet innehåller den data drivna django avsöknings appen som du får genom att följa de [första django-apparna](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) i Django-dokumentationen. Den färdiga appen tillhandahålls här för din bekvämlighet.
 
 Exemplet ändras också till att köras i en produktions miljö som App Service:
 
 - Produktions inställningarna finns i filen *azuresite/productation. py* . Utvecklings information finns i *azuresite/Settings. py*.
 - Appen använder produktions inställningar när `DJANGO_ENV` miljövariabeln är inställd på "produktion". Du skapar den här miljövariabeln senare i självstudien tillsammans med andra som används för PostgreSQL-databas konfigurationen.
 
-Dessa ändringar är specifika för att konfigurera django för att köras i alla produktions miljöer och är inte särskilt App Service. Mer information finns i [Check lista för django-distribution](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
+Dessa ändringar är specifika för att konfigurera django för att köras i alla produktions miljöer och är inte särskilt App Service. Mer information finns i [Check lista för django-distribution](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/).
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -137,7 +137,7 @@ Skapa sedan postgres-databasen i Azure med [`az postgres up`](/cli/azure/ext/db-
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-- Ersätt *\<postgres-server-name>* med ett namn som är unikt för alla Azure (Server slut punkten är `https://\<postgres-server-name>.postgres.database.azure.com` ). Ett utmärkt mönster är att använda en kombination av ditt företags namn och ett annat unikt värde.
+- Ersätt *\<postgres-server-name>* med ett namn som är unikt för alla Azure (Server slut punkten är `https://<postgres-server-name>.postgres.database.azure.com` ). Ett utmärkt mönster är att använda en kombination av ditt företags namn och ett annat unikt värde.
 - För *\<admin-username>* och *\<admin-password>* anger du autentiseringsuppgifter för att skapa en administratörs användare för den här postgres-servern.
 - [Pris nivån](../postgresql/concepts-pricing-tiers.md) B_Gen5_1 (Basic, Gen5, 1 kärna) som används här är den minst dyra. För produktions databaser utelämnar du `--sku-name` argumentet för att använda GP_Gen5_2-nivån (generell användning, generation 5, 2 kärnor) i stället.
 
@@ -167,7 +167,7 @@ I det här avsnittet skapar du app Host i App Service app, ansluter den här app
 
 ### <a name="create-the-app-service-app"></a>Skapa appen App Service
 
-I terminalen kontrollerar du att du befinner dig i lagrings platsen ( `djangoapp` ) som innehåller appens kod.
+I terminalen ser du till att du befinner dig i *djangoapp* -lagringsplatsen som innehåller appens kod.
 
 Skapa en App Service app (värd processen) med [`az webapp up`](/cli/azure/webapp#az-webapp-up) kommandot:
 
@@ -177,7 +177,7 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 <!-- without --sku creates PremiumV2 plan -->
 
 - För `--location` argumentet använder du samma plats som du gjorde för databasen i föregående avsnitt.
-- Ersätt *\<app-name>* med ett unikt namn i alla Azure (Server slut punkten är `https://\<app-name>.azurewebsites.net` ). Tillåtna tecken för *\<app-name>* är `A` - `Z` , `0` - `9` och `-` . Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
+- Ersätt *\<app-name>* med ett unikt namn i alla Azure (Server slut punkten är `https://<app-name>.azurewebsites.net` ). Tillåtna tecken för *\<app-name>* är `A` - `Z` , `0` - `9` och `-` . Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
 
 Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 
@@ -208,11 +208,11 @@ Med koden nu distribuerad till App Service är nästa steg att ansluta appen til
 App-koden förväntar sig att hitta databas information i ett antal miljövariabler. Om du vill ange miljövariabler i App Service skapar du "appinställningar" med kommandot [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) .
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>@<postgres-server-name>" DBPASS="<password>"
 ```
 
 - Ersätt *\<postgres-server-name>* med det namn som du använde tidigare med `az postgres up` kommandot.
-- Ersätt *\<username>* och *\<password>* med de autentiseringsuppgifter som kommandot också genererat för dig.
+- Ersätt *\<username>* och *\<password>* med de autentiseringsuppgifter som kommandot också genererat för dig. `DBUSER`Argumentet måste ha formatet `<username>@<postgres-server-name>` .
 - Resurs gruppen och App-namnet hämtas från de cachelagrade värdena i *Azure/config-* filen.
 - Kommandot skapar inställningar med namnet `DJANGO_ENV` ,,, `DBHOST` `DBNAME` `DBUSER` och `DBPASS` som förväntat av appens kod.
 - I python-koden får du åtkomst till de här inställningarna som miljövariabler med uttryck som `os.environ.get('DJANGO_ENV')` . Mer information finns i [Access Environment-variabler](configure-language-python.md#access-environment-variables).
@@ -223,19 +223,31 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 
 Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database matchar de som beskrivs i din kod.
 
-1. Öppna en SSH-session i webbläsaren genom att gå till *https:// \<app-name> . scm.azurewebsites.net/webssh/Host* och logga in med dina autentiseringsuppgifter för Azure-kontot (inte databas serverns autentiseringsuppgifter).
+1. Öppna en SSH-session i webbläsaren genom att gå till följande URL och logga in med dina autentiseringsuppgifter för Azure-kontot (inte databas serverns autentiseringsuppgifter).
+
+    ```
+    https://<app-name>.scm.azurewebsites.net/webssh/host
+    ```
+
+    Ersätt `<app-name>` med det namn som användes tidigare i `az webapp up` kommandot.
+
+    På macOS och Linux kan du också ansluta till en SSH-session med [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) kommandot.
 
 1. Kör följande kommandon i SSH-sessionen (du kan klistra in kommandon med **CTRL** + **Shift** + **V**):
 
     ```bash
+    # Change to the folder where the app code is deployed
     cd site/wwwroot
     
     # Activate default virtual environment in App Service container
     source /antenv/bin/activate
+
     # Install packages
     pip install -r requirements.txt
+
     # Run database migrations
     python manage.py migrate
+
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
@@ -246,11 +258,11 @@ Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database m
     
 ### <a name="create-a-poll-question-in-the-app"></a>Skapa en avsöknings fråga i appen
 
-1. Öppna webb adressen *http: \/ / \<app-name> . azurewebsites.net*i en webbläsare. Appen ska visa meddelandet "inga avsökningar är tillgängliga" eftersom det inte finns några speciella avsökningar än i databasen.
+1. Öppna webb adressen i en webbläsare `http://<app-name>.azurewebsites.net` . Appen ska visa meddelandet "inga avsökningar är tillgängliga" eftersom det inte finns några speciella avsökningar än i databasen.
 
-1. Bläddra till *http: \/ / \<app-name> . azurewebsites.net/admin*. Logga in med behörigheter för superanvändare från föregående avsnitt ( `root` och `Pollsdb1` ). Under **avsökningar**väljer du **Lägg till** bredvid **frågor** och skapar en avsöknings fråga med några val.
+1. Gå till `http://<app-name>.azurewebsites.net/admin`. Logga in med behörigheter för superanvändare från föregående avsnitt ( `root` och `Pollsdb1` ). Under **avsökningar**väljer du **Lägg till** bredvid **frågor** och skapar en avsöknings fråga med några val.
 
-1. Bläddra igen till *http: \/ / \<app-name> . azurewebsites.net/* för att bekräfta att frågorna nu visas för användaren. Besvara frågor som du vill skapa vissa data i databasen.
+1. Bläddra igen för `http://<app-name>.azurewebsites.net` att bekräfta att frågorna nu visas för användaren. Besvara frågor som du vill skapa vissa data i databasen.
 
 **Grattis!** Du kör en python django-webbapp i Azure App Service för Linux med en aktiv postgres-databas.
 
@@ -326,9 +338,9 @@ När webbappen har lästs in är django-utvecklings servern den lokala appens UR
 
 Testa appen lokalt med följande steg:
 
-1. Gå till *http: \/ /localhost: 8000* i en webbläsare, som ska visa meddelandet "det finns inga avsökningar". 
+1. Gå till `http://localhost:8000` i en webbläsare, som visar meddelandet "det finns inga avsökningar". 
 
-1. Gå till *http: \/ /localhost: 8000/admin* och logga in med administratörs användaren som du skapade tidigare. Under **avsökningar**väljer du **Lägg till** bredvid **frågor** och skapar en avsöknings fråga med några val. 
+1. Gå till `http:///localhost:8000/admin` och logga in med administratörs användaren som du skapade tidigare. Under **avsökningar**väljer du **Lägg till** bredvid **frågor** och skapar en avsöknings fråga med några val. 
 
 1. Gå till *http: \/ /localhost: 8000* igen och besvara frågan för att testa appen. 
 
@@ -376,7 +388,7 @@ Det här kommandot använder parametrarna som är cachelagrade i *. Azure/config
 
 Eftersom du har gjort ändringar i data modellen måste du köra om migreringen av databasen i App Service.
 
-Öppna en SSH-session igen i webbläsaren genom att gå till *https:// \<app-name> . scm.azurewebsites.net/webssh/Host*. Kör sedan följande kommandon:
+Öppna en SSH-session igen i webbläsaren genom att gå till `https://<app-name>.scm.azurewebsites.net/webssh/host` . Kör sedan följande kommandon:
 
 ```
 cd site/wwwroot
@@ -391,7 +403,7 @@ python manage.py migrate
 
 ### <a name="review-app-in-production"></a>Granska appen i produktion
 
-Bläddra till *http: \/ / \<app-name> . azurewebsites.net* och testa appen igen i produktion. (Eftersom du bara har ändrat längden på ett databas fält är ändringen bara märkbart om du försöker ange ett längre svar när du skapar en fråga.)
+Bläddra till `http://<app-name>.azurewebsites.net` och testa appen igen i produktion. (Eftersom du bara har ändrat längden på ett databas fält är ändringen bara märkbart om du försöker ange ett längre svar när du skapar en fråga.)
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -412,7 +424,7 @@ Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
 > [!NOTE]
-> Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
+> Du kan även granska loggfilerna från din webbläsare via `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 >
 > `az webapp up` aktiverar standard loggning för dig. Av prestanda skäl stänger den här loggningen av sig själv efter en stund, men inaktive ras varje gång du kör `az webapp up` igen. Kör följande kommando för att aktivera det manuellt:
 >
@@ -437,10 +449,12 @@ Som standard visar portalen appens **översikts** sida, som ger en allmän prest
 Om du vill behålla appen eller fortsätta till nästa självstudie kan du gå vidare till [Nästa steg](#next-steps). Annars kan du ta bort resurs gruppen som du skapar för den här självstudien för att undvika löpande kostnader:
 
 ```azurecli
-az group delete
+az group delete --no-wait
 ```
 
 Kommandot använder resurs grupps namnet cachelagrat i *. Azure/config-* filen. Genom att ta bort resurs gruppen frigör och tar du även bort alla resurser som finns i den.
+
+Det kan ta en stund att ta bort alla resurser. `--no-wait`Argumentet tillåter att kommandot returnerar omedelbart.
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 

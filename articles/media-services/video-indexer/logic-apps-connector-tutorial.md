@@ -7,13 +7,13 @@ ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/01/2020
-ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: 99f3c2c05117fb537527f2a2bcb52f0f9843385a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329643"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
 
@@ -21,7 +21,7 @@ Azure Media Services [video Indexer v2 REST API](https://api-portal.videoindexer
 
 För att förenkla integrationen stöder vi [Logic Apps](https://azure.microsoft.com/services/logic-apps/)   och [automatiserade](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)   anslutningar som är kompatibla med vårt API. Du kan använda kopplingarna för att konfigurera anpassade arbets flöden för att effektivt indexera och extrahera insikter från en stor mängd video-och ljudfiler, utan att behöva skriva en enda rad kod. Genom att använda kopplingarna för din integrering får du dessutom bättre insyn i arbets flödets hälso tillstånd och ett enkelt sätt att felsöka det.  
 
-För att hjälpa dig att komma igång snabbt med Video Indexer-kopplingar kommer vi att göra en genom gång av ett exempel på en Logic app och en automatiserad automatiserad lösning som du kan konfigurera. I den här självstudien visas hur du konfigurerar flöden med Logic Apps.
+För att hjälpa dig att komma igång snabbt med Video Indexer-kopplingar kommer vi att göra en genom gång av ett exempel på en Logic app och en automatiserad automatiserad lösning som du kan konfigurera. I den här självstudien visas hur du konfigurerar flöden med Logic Apps. Redaktörerna och funktionerna är dock nästan identiska i båda lösningarna, och därför är diagrammen och förklaringarna tillämpliga både för Logic Apps och energi automatisering.
 
 Scenariot "Ladda upp och indexera videon automatiskt" som beskrivs i den här självstudien består av två olika flöden som fungerar tillsammans. 
 * Det första flödet utlöses när en BLOB läggs till eller ändras i ett Azure Storage konto. Den nya filen överförs till Video Indexer med en återanrops-URL för att skicka ett meddelande när indexerings åtgärden har slutförts. 
@@ -53,7 +53,12 @@ Om du vill konfigurera det första flödet måste du ange din Video Indexer API-
 
 ![Anslutningsnamn och API-nyckel](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-När du har anslutit till Azure Storage och Video Indexer konton letar du reda på och väljer utlösaren "när en BLOB läggs till eller ändras" i **Logic Apps designer**. Välj den behållare som du vill placera videofilerna i. 
+> [!TIP]
+> Om du tidigare har anslutit ett Video Indexer-eller lagrings konto i Logic Apps, är anslutnings informationen lagrad och du kommer att ansluta automatiskt. Du kan redigera anslutningen genom att klicka på **ändra anslutning** längst ned i varje åtgärd.
+
+När du har anslutit till Azure Storage och Video Indexer konton letar du reda på och väljer utlösaren "när en BLOB läggs till eller ändras" i **Logic Apps designer**.
+
+Välj den behållare som du vill placera videofilerna i. 
 
 ![Skärm bild som visar dialog rutan när en BLOB läggs till eller ändras där du kan välja en behållare.](./media/logic-apps-connector-tutorial/container.png)
 

@@ -3,12 +3,12 @@ title: Konfigurera inställningar för Autostart för en virtuell dator i Azure 
 description: Lär dig hur du konfigurerar inställningar för Autostart för virtuella datorer i ett labb. Med den här inställningen kan virtuella datorer i labbet startas automatiskt enligt ett schema.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328490"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Virtuella datorer för automatisk start av labb  
 Med Azure DevTest Labs kan du konfigurera virtuella datorer i labbet så att de startas och stängs av automatiskt baserat på ett schema. Information om hur du konfigurerar inställningar för automatisk avstängning finns i [Hantera principer för automatisk avstängning för ett labb i Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
@@ -21,7 +21,7 @@ Den här artikeln visar hur du konfigurerar Autostart-principen för ett labb.
 1. Gå till start sidan för ditt labb. 
 2. Välj **konfiguration och principer** på den vänstra menyn. 
 
-    ![Menyn konfiguration och principer](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
+    ![Skärm bild som visar menyn "konfiguration och principer" i DevTest-labbet.](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
 3. Utför följande steg på sidan **konfiguration och principer** :
     
     1. Välj **på** för att **tillåta att virtuella datorer schemaläggs för automatisk start** för att aktivera funktionen för automatisk start för det här labbet. 

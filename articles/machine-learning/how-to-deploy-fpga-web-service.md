@@ -1,127 +1,86 @@
 ---
-title: Vad är FPGA – distribuera
+title: Distribuera ML-modeller till FPGAs
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du distribuerar en webb tjänst med en modell som körs på en FPGA med Azure Machine Learning för svars tids härledning med liten låg latens.
+description: Lär dig mer om Field-programmerbara grind mat ris. Du kan distribuera en webb tjänst på en FPGA med Azure Machine Learning för att få en härledning på ultralåg latens.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
-ms.date: 06/03/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 7637cc911ea2fbb950a18c2c8d91f5c3eaf02c23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, contperfq2, devx-track-python
+ms.openlocfilehash: 5d7956b5538b272454f3f55bcda84188c946e978
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328436"
 ---
-# <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Vad är FPGA (Field-programmerbara grind mat ris) och hur du distribuerar
+# <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Distribuera ML-modeller till Field-programmerbara grind mat ris (FPGAs) med Azure Machine Learning 
 
+I den här artikeln får du lära dig mer om FPGAs och hur du distribuerar dina ML-modeller till en Azure-FPGA med hjälp av [python-paketet för maskin accelererade modeller](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true) från [Azure Machine Learning](overview-what-is-azure-ml.md).
 
-
-Den här artikeln innehåller en introduktion till Field-programmerbara grind mat ris (FPGA) och visar hur du distribuerar dina modeller med [Azure Machine Learning](overview-what-is-azure-ml.md) till en Azure-FPGA.
-
-## <a name="what-are-fpgas"></a>Vad är FPGAs
-
+## <a name="what-are-fpgas"></a>Vad är FPGAs?
 En FPGA innehåller en matris med programmerbara logiska block och en hierarki med omkonfigurerbara anslutningar. Med samkopplingarna kan dessa block konfigureras på olika sätt efter tillverkningen. Jämfört med andra kretsar ger FPGAs en kombination av programmering och prestanda. 
+
+FPGAs gör det möjligt att uppnå låg latens för real tids härledning (eller modell poängsättning). Asynkrona begär Anden (batching) behövs inte. Satsvis kompilering kan orsaka svars tider eftersom mer data behöver bearbetas. Implementeringar av bearbetnings enheter för neurala kräver inte batchbearbetning. svars tiden kan därför vara många gånger lägre jämfört med processor-och GPU-processorer.
+
+Du kan konfigurera om FPGAs för olika typer av Machine Learning-modeller. Den här flexibiliteten gör det enklare att påskynda program baserat på den optimala numeriska precisions-och minnes modellen som används. Eftersom FPGAs kan konfigureras om kan du hålla dig uppdaterad med kraven för att snabbt ändra AI-algoritmer.
 
 ![Diagram över Azure Machine Learning FPGA-jämförelse](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processor| Förkortning |Beskrivning|
+|Processor| Förkortning |Description|
 |---|:-------:|------|
 |Programspecifika integrerade kretsar|ASICs|Anpassade kretsar, som Googles TensorFlow processor Units (TPU), ger högsta möjliga effektivitet. De kan inte konfigureras om när dina behov ändras.|
 |Fält-programmerbara grind mat ris|FPGA:er|FPGAs, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs. De är också flexibla och Omkonfigurerade över tid, för att implementera ny logik.|
 |Enheter för grafik bearbetning|GPU: er|Ett populärt alternativ för AI-beräkningar. GPU: er erbjuder parallella bearbetnings funktioner, vilket gör det snabbare vid bild åter givning än CPU: er.|
 |Enheter för central bearbetning|Processorer|Allmänna processorer, vars prestanda inte är idealisk för grafik-och video bearbetning.|
 
+## <a name="fpga-support-in-azure"></a>FPGA-stöd i Azure
 
-FPGAs gör det möjligt att uppnå låg latens för real tids härledning (eller modell poängsättning). Asynkrona begär Anden (batching) behövs inte. Satsvis kompilering kan orsaka svars tider eftersom mer data behöver bearbetas. Implementeringar av bearbetnings enheter för neurala kräver inte batchbearbetning. svars tiden kan därför vara många gånger lägre jämfört med processor-och GPU-processorer.
-
-Du kan konfigurera om FPGAs för olika typer av Machine Learning-modeller. Den här flexibiliteten gör det enklare att påskynda program baserat på den optimala numeriska precisions-och minnes modellen som används. Eftersom FPGAs kan konfigureras om kan du hålla dig uppdaterad med kraven för att snabbt ändra AI-algoritmer.
-
-### <a name="fpga-support-in-azure"></a>FPGA-stöd i Azure
-
-Microsoft Azure är världens största moln investering i FPGAs. Microsoft använder FPGAs för DNN-utvärdering, Bing search-rangordning och SDN-acceleration (Software Defined Networking) för att minska svars tiden, samtidigt som processorer frigörs för andra uppgifter.
+Microsoft Azure är världens största moln investering i FPGAs. Microsoft använder FPGAs för DNN-utvärdering (djup neurala Networks), Bing search-rangordning och SDN-acceleration (Software Defined Networking) för att minska svars tiden, samtidigt som processorer frigörs för andra uppgifter.
 
 FPGAs på Azure baseras på Intel: s FPGA-enheter, som data forskare och utvecklare använder för att påskynda AI-beräkningar i real tid. Den här FPGA-aktiverade arkitekturen ger prestanda, flexibilitet och skalbarhet och är tillgänglig i Azure.
 
-Azure FPGAs är integrerade med Azure Machine Learning. Azure kan parallellisera förtränade djup neurala Networks (DNN) över FPGAs för att skala ut din tjänst. Hyperoptimerade kan vara förtränad, som en djup upplärda för överförings Inlärning eller finjusteras med uppdaterade vikter.
+Azure FPGAs är integrerade med Azure Machine Learning. Azure kan parallellisera förtränade DNN över FPGAs för att skala ut din tjänst. Hyperoptimerade kan vara förtränad, som en djup upplärda för överförings Inlärning eller finjusteras med uppdaterade vikter.
 
-FPGAs på Azure stöder:
-
-+ Bild klassificering och tolknings scenarier
-+ TensorFlow-distribution (kräver Tensorflow 1. x)
-+ Intel FPGA-maskinvara
-
-Dessa DNN-modeller är för närvarande tillgängliga:
-
-  - ResNet 50
-  - ResNet 152
-  - DenseNet – 121
-  - VGG-16
-  - SSD-VGG
-
-  
-FPGAs är tillgängliga i dessa Azure-regioner:
-  - East US
-  - Sydostasien
-  - Europa, västra
-  - USA, västra 2
+|Scenarier & konfigurationer på Azure|DNN-modeller som stöds|Regional support|
+|--------------------------|--------------------|----------------|
+|+ Bild klassificering och igenkännings scenarier<br/>+ TensorFlow-distribution (kräver Tensorflow 1. x)<br/>+ Intel FPGA-maskinvara|– ResNet 50<br/>– ResNet 152<br/>-DenseNet-121<br/>-VGG-16<br/>-SSD-VGG|– Östra USA<br/>-Sydostasien<br/>– Västeuropa<br/>– Västra USA 2|
 
 För att optimera svars tid och data flöde bör klienten som skickar data till FPGA-modellen vara i någon av regionerna ovan (den som du distribuerade modellen till).
 
-**PBS-serien med virtuella Azure-datorer** innehåller Intel Arria 10-FPGAs. Den visas som "standard PBS Family virtuella processorer" när du kontrollerar din Azure-kvot tilldelning. Den virtuella datorn PB6 har sex virtuella processorer och en FPGA och tillhandahålls automatiskt av Azure ML som en del av distributionen av en modell till en FPGA. Den används endast med Azure ML och det går inte att köra godtyckliga bitstreams. Du kommer till exempel inte att kunna blinka FPGA med bitstreams för att göra kryptering, kodning osv.
-
+**PBS-serien med virtuella Azure-datorer** innehåller Intel Arria 10-FPGAs. Den visas som "standard PBS Family virtuella processorer" när du kontrollerar din Azure-kvot tilldelning. Den virtuella PB6-datorn har sex virtuella processorer och en FPGA. PB6 VM tillhandahålls automatiskt genom Azure Machine Learning under modell distributionen till en FPGA. Den används endast med Azure ML och det går inte att köra godtyckliga bitstreams. Du kommer till exempel inte att kunna blinka FPGA med bitstreams för att göra kryptering, kodning osv.
 
 ## <a name="deploy-models-on-fpgas"></a>Distribuera modeller på FPGAs
 
-Du kan distribuera en modell som en webb tjänst på FPGAs med [Azure Machine Learning maskinvaruaccelererade modeller](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). Om du använder FPGAs får du en utgångs punkt för extremt låg latens, även med en enda batchstorlek. Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för förutsägelse, oftast på produktions data.
-
-Att distribuera en modell till en FPGA omfattar följande steg:
-
-1. Definiera TensorFlow-modellen
-1. Konvertera modellen till ONNX
-1. Distribuera modellen till molnet eller en gräns enhet
-1. Använda den distribuerade modellen
+Du kan distribuera en modell som en webb tjänst på FPGAs med [Azure Machine Learning maskinvaruaccelererade modeller](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). Om du använder FPGAs får du en utgångs punkt för extremt låg latens, även med en enda batchstorlek. 
 
 I det här exemplet skapar du en TensorFlow-graf för att Förbearbeta indatabilden, gör den till en upplärda med ResNet 50 på en FPGA och kör sedan funktionerna via en klassificerare som har tränats på ImageNet data uppsättningen. Sedan distribueras modellen till ett AKS-kluster.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har ett konto måste du skapa ett konto enligt principen [betala per](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) användning (kostnads fria Azure-konton är inte berättigade till FPGA-kvot).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- FPGA-kvot. Använd Azure CLI för att kontrol lera om du har en kvot:
+- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett konto där [du betalar per](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) användning (kostnads fria Azure-konton är inte berättigade till FPGA-kvot).
+
+- En Azure Machine Learning arbets yta och Azure Machine Learning SDK för python installerat, enligt beskrivningen i [skapa en arbets yta](how-to-manage-workspace.md).
+ 
+- Paketet med maskin varu accelererade modeller:  `pip install --upgrade azureml-accel-models[cpu]`    
+    
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+
+- FPGA-kvot. Skicka en [begäran om kvot](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u)eller kör detta CLI-kommando för att kontrol lera kvoten: 
 
     ```azurecli-interactive
     az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
+   Kontrol lera att du har minst 6 virtuella processorer under __CurrentValue__ som returneras.  
 
-    Kommandot returnerar text som liknar följande:
+### <a name="define-the-tensorflow-model"></a>Definiera TensorFlow-modellen
 
-    ```text
-    CurrentValue    Limit    LocalName
-    --------------  -------  -------------------------
-    0               6        Standard PBS Family vCPUs
-    ```
-
-    Se till att du har minst 6 virtuella processorer under __CurrentValue__.
-
-    Om du inte har någon kvot skickar du en förfrågan till [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI) .
-
-- En Azure Machine Learning-arbetsyta och Azure Machine Learning SDK för python är installerat. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
- 
-- Python SDK för maskin accelererade modeller:
-
-    ```bash
-    pip install --upgrade azureml-accel-models[cpu]
-    ```
-### <a name="1-define-the-tensorflow-model"></a>1. definiera TensorFlow-modellen
-
-Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) för att skapa en tjänst definition. En tjänst definition är en fil som beskriver en pipeline med grafer (indata, upplärda och klassificerare) baserat på TensorFlow. Distributions kommandot komprimerar automatiskt definitionen och diagrammen i en ZIP-fil och överför ZIP till Azure Blob Storage. DNN har redan distribuerats för att köras på FPGA.
+Börja med att använda [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) för att skapa en tjänst definition. En tjänst definition är en fil som beskriver en pipeline med grafer (indata, upplärda och klassificerare) baserat på TensorFlow. Kommandot Deployment komprimerar definitionen och graferna till en ZIP-fil och överför ZIP till Azure Blob Storage. DNN har redan distribuerats för att köras på FPGA.
 
 1. Läs in Azure Machine Learning arbets yta
 
@@ -147,7 +106,7 @@ Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/pyth
    print(image_tensors.shape)
    ```
 
-1. Läs in upplärda. Initiera modellen och ladda ned en TensorFlow-kontrollpunkt för quantized-versionen av ResNet50 som ska användas som upplärda.  Du kan ersätta "QuantizedResnet50" i kodfragmentet nedan med genom att importera andra djup neurala-nätverk:
+1. Läs in upplärda. Initiera modellen och ladda ned en TensorFlow-kontrollpunkt för quantized-versionen av ResNet50 som ska användas som upplärda.  Ersätt "QuantizedResnet50" i kodfragmentet för att importera andra djup neurala-nätverk:
 
    - QuantizedResnet152
    - QuantizedVgg16
@@ -163,7 +122,7 @@ Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/pyth
    print(feature_tensor.shape)
    ```
 
-1. Lägg till en klassificerare. Den här klassificeraren har tränats in på ImageNet-datauppsättningen.  Exempel på hur du överför utbildning och utbildning dina anpassade vikter finns i uppsättningen med [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks).
+1. Lägg till en klassificerare. Den här klassificeraren tränades på ImageNet-data uppsättningen.
 
    ```python
    classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -184,7 +143,7 @@ Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/pyth
                                   outputs={'output_alias': classifier_output})
    ```
 
-1. Spara indata och utmatnings nivåer. De inmatnings-och utmatnings nivåer som skapades under förbehandlings-och klassificerings stegen krävs för modell konvertering och-härledning.
+1. Spara indata och utmatnings nivåer **när du använder dem för modell konverterings-och härlednings begär Anden**. 
 
    ```python
    input_tensors = in_images.name
@@ -194,10 +153,7 @@ Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/pyth
    print(output_tensors)
    ```
 
-   > [!IMPORTANT]
-   > Spara inställningarna för indata och utdata eftersom du behöver dem för modell konverterings-och härlednings begär Anden.
-
-   Tillgängliga modeller och motsvarande standardlayouter för klassificeraren visas nedan, vilket är vad du skulle använda för att få en härledning om du använde standard klassificeraren.
+   Följande modeller är tillgängliga med sina klassificerare output-nivåer för att få en härledning om du använder standard klassificeraren.
 
    + Resnet50, QuantizedResnet50
      ```python
@@ -220,9 +176,9 @@ Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/pyth
      output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
      ```
 
-### <a name="2-convert-the-model"></a>2. konvertera modellen
+### <a name="convert-the-model-to-the-open-neural-network-exchange-format-onnx"></a>Konvertera modellen till Open neurala Network Exchange format (ONNX)
 
-Innan du distribuerar modellen till FPGAs måste du konvertera den till ONNX format.
+Innan du kan distribuera till FPGAs konverterar du modellen till [ONNX](https://onnx.ai/) -formatet.
 
 1. [Registrera](concept-model-management-and-deployment.md) modellen med hjälp av SDK med zip-filen i Azure Blob Storage. Genom att lägga till taggar och andra metadata om modellen kan du hålla koll på dina utbildade modeller.
 
@@ -248,7 +204,7 @@ Innan du distribuerar modellen till FPGAs måste du konvertera den till ONNX for
          registered_model.version, sep='\t')
    ```
 
-1. Konvertera TensorFlow-diagrammet till Open neurala Network Exchange-formatet ([ONNX](https://onnx.ai/)).  Du måste ange namnen på indata-och utdataström och dessa namn används av klienten när du använder webb tjänsten.
+1. Konvertera TensorFlow-diagrammet till ONNX-formatet.  Du måste ange namnen på indata-och utdataström, så att klienten kan använda dem när du använder webb tjänsten.
 
    ```python
    from azureml.accel import AccelOnnxConverter
@@ -265,9 +221,9 @@ Innan du distribuerar modellen till FPGAs måste du konvertera den till ONNX for
          converted_model.id, converted_model.created_time, '\n')
    ```
 
-### <a name="3-containerize-and-deploy-the-model"></a>3. Använd och distribuera modellen
+### <a name="containerize-and-deploy-the-model"></a>Använd och distribuera modellen
 
-Skapa Docker-avbildning från den konverterade modellen och alla beroenden.  Docker-avbildningen kan sedan distribueras och instansieras.  Distributions mål som stöds är AKS i molnet eller en gräns enhet, till exempel [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Du kan också lägga till taggar och beskrivningar för din registrerade Docker-avbildning.
+Skapa sedan en Docker-avbildning från den konverterade modellen och alla beroenden.  Docker-avbildningen kan sedan distribueras och instansieras.  Distributions mål som stöds är Azure Kubernetes service (AKS) i molnet eller en gräns enhet som [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Du kan också lägga till taggar och beskrivningar för din registrerade Docker-avbildning.
 
    ```python
    from azureml.core.image import Image
@@ -292,9 +248,9 @@ Skapa Docker-avbildning från den konverterade modellen och alla beroenden.  Doc
            i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
    ```
 
-#### <a name="deploy-to-aks-cluster"></a>Distribuera till AKS-kluster
+#### <a name="deploy-to-an-azure-kubernetes-service-cluster"></a>Distribuera till ett Azure Kubernetes service-kluster
 
-1. Om du vill distribuera din modell som en storskalig produktions webb tjänst använder du Azure Kubernetes service (AKS). Du kan skapa en ny med hjälp av Azure Machine Learning SDK, CLI eller [Azure Machine Learning Studio](https://ml.azure.com).
+1. Använd AKS om du vill distribuera din modell som en storskalig produktions webb tjänst. Du kan skapa en ny med hjälp av Azure Machine Learning SDK, CLI eller [Azure Machine Learning Studio](https://ml.azure.com).
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
@@ -344,13 +300,15 @@ Skapa Docker-avbildning från den konverterade modellen och alla beroenden.  Doc
 Alla [Azure Data Box Edge enheter](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
 ) innehåller en FPGA för att köra modellen.  Endast en modell kan köras på FPGA i taget.  Om du vill köra en annan modell distribuerar du bara en ny behållare. Du hittar anvisningar och exempel kod i [det här Azure-exemplet](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
-### <a name="4-consume-the-deployed-model"></a>4. använda den distribuerade modellen
+### <a name="consume-the-deployed-model"></a>Använda den distribuerade modellen
 
-Docker-avbildningen stöder gRPC och TensorFlow-ANROPet "predict".  Använd exempel klienten för att anropa Docker-avbildningen för att hämta förutsägelser från modellen.  Exempel på klient kod är tillgänglig:
+Använd slutligen exempel klienten för att anropa Docker-avbildningen för att hämta förutsägelser från modellen.  Exempel på klient kod är tillgänglig:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
 - [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
-Om du vill använda TensorFlow-servar kan du [Hämta en exempel klient](https://www.tensorflow.org/serving/setup).
+Docker-avbildningen stöder gRPC och TensorFlow-ANROPet "predict".
+
+Du kan också hämta en exempel klient för TensorFlow-servar.
 
 ```python
 # Using the grpc client in Azure ML Accelerated Models SDK package
@@ -389,9 +347,9 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## <a name="clean-up-resources"></a>Rensa resurser
+### <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort webb tjänsten, avbildningen och modellen (måste utföras i den här ordningen eftersom det finns beroenden).
+Du undviker onödiga kostnader genom att rensa dina resurser **i följande ordning**: webb tjänsten och sedan bild och sedan modellen.
 
 ```python
 aks_service.delete()
@@ -403,12 +361,12 @@ converted_model.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla ut dessa bärbara datorer, videor och Bloggar:
++ Lär dig hur du [skyddar ditt webb tjänst](how-to-secure-web-service.md) dokument.
 
-+ Flera [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/accelerated-models)
-+ Information om hur du skyddar dina FPGA-webbtjänster finns i dokumentet om [säker webb tjänst](how-to-secure-web-service.md) .
 + [Storskalig maskin vara: ML i skala ovanpå Azure + FPGA: build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
-+ [I det Microsoft FPGA-baserade konfigurerings bara molnet (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
-+ [Project-Brainwave för real tids AI: projektets start sida](https://www.microsoft.com/research/project/project-brainwave/)
+
++ [Microsoft FPGA-baserat konfigurerbart moln (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
+
++ [Project Brainwave för AI i real tid](https://www.microsoft.com/research/project/project-brainwave/)
+
 + [Automatiskt optiskt kontroll system](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
-+ [Mappning av land omslag](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)

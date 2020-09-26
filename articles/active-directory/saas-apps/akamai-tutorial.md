@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: fbec82e25424fd5220aa992cf2dd0e8449e6a0a4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329609"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Akamai
 
@@ -101,7 +101,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 Alla inställningar som anges nedan är desamma för **integrerings scenario 1** och **Scenario 2**. För **integrerings scenario 2** måste du konfigurera enskilda IDP i Akamai-EAA och URL-egenskapen måste ändras så att den pekar på programmets URL.
 
-![Viktigt](./media/header-akamai-tutorial/important.png)
+![Skärm bild av fliken Allmänt för AZURESSO-SP i Akamai Enterprise Application Access. URL-fältet för autentiserings konfiguration är markerat.](./media/header-akamai-tutorial/important.png)
 
 ## <a name="adding-akamai-from-the-gallery"></a>Lägga till Akamai från galleriet
 
@@ -198,11 +198,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Logga in på **Akamai Enterprise Application Access** Console.
 1. I **Akamais EAA-konsolen**väljer du **identitets**  >  **identitets leverantörer** och klickar på **Lägg till identitetsprovider**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure01.png)
+    ![Skärm bild av fönstret Akamai i EAA-konsolens identitets leverantörer. Välj identitets leverantörer på menyn identitet och välj Lägg till identitets leverantör.](./media/header-akamai-tutorial/configure01.png)
 
 1. Utför följande steg på sidan **Skapa ny identitetsprovider** :
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure02.png)
+    ![Skärm bild av dialog rutan skapa nya identitets leverantörer i Akamai EAA-konsolen.](./media/header-akamai-tutorial/configure02.png)
 
     a. Ange det **unika namnet**.
 
@@ -218,7 +218,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. **Akamai-moln zon** – Välj lämplig moln zon.
 1. **Certifikat validering** -kontrol lera Akamai-dokumentationen (valfritt)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure03.png)
+    ![Skärm bild av fliken Allmänt i Akamai i EAA-konsolen med inställningar för identitets spärr, Akamai Cloud Zone och certifikat validering.](./media/header-akamai-tutorial/configure03.png)
 
 ### <a name="authentication-configuration"></a>Konfiguration av autentisering
 
@@ -227,37 +227,37 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 3. Signera SAML-begäran: standardvärdet är avmarkerat.
 4. Lägg till programmet i Azure AD-konsolen för IDP metadata-fil.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure04.png)
+    ![Skärm bild av Akamai i EAA-konsolen som visar inställningar för URL, utloggnings-URL, signera SAML-begäran och IDP-metadatafil.](./media/header-akamai-tutorial/configure04.png)
 
 ### <a name="session-settings"></a>Sessionsinställningar
 
 Lämna inställningarna som standard.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/sessionsettings.png)
+![Skärm bild av dialog rutan inställningar för Akamai i EAA-konsolen.](./media/header-akamai-tutorial/sessionsettings.png)
 
 ### <a name="directories"></a>Kataloger
 
 Hoppa över katalog konfigurationen.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/directories.png)
+![Skärm bild av fliken Akamai i EAA-konsolen.](./media/header-akamai-tutorial/directories.png)
 
 ### <a name="customization-ui"></a>Anpassnings gränssnitt
 
 Du kan lägga till anpassning till IDP.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/customizationui.png)
+![Skärm bild av fliken anpassning av Akamai i EAA-konsolen med inställningar för anpassa användar gränssnitt, språk inställningar och teman.](./media/header-akamai-tutorial/customizationui.png)
 
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
 Hoppa över avancerade inställningar/Se Akamai-dokumentationen för mer information.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/advancesettings.png)
+![Skärm bild av fliken Avancerade inställningar i Akamai i EAA-konsolen med inställningar för EAA-klient, Avancerat och OIDC till SAML-bryggning.](./media/header-akamai-tutorial/advancesettings.png)
 
 ### <a name="deployment"></a>Distribution
 
 1. Klicka på distribuera identitets leverantör.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/deployment.png)
+    ![Skärm bild av fliken distribution av Akamai-EAA-konsolen som visar knappen för att distribuera indrags leverantören.](./media/header-akamai-tutorial/deployment.png)
 
 2. Verifiera att distributionen lyckades
 
@@ -267,115 +267,115 @@ Akamai-huvudbaserad autentisering
 
 1. Välj **anpassat HTTP-** formulär guiden Lägg till program.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure05.png)
+    ![Skärm bild av guiden Lägg till program i Akamai i EAA-konsolen visas CustomHTTP som anges i avsnittet åtkomst till appar.](./media/header-akamai-tutorial/configure05.png)
 
 2. Ange **program namn** och **Beskrivning**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure06.png)
+    ![Skärm bild av dialog rutan anpassad HTTP-app med inställningar för program namn och beskrivning.](./media/header-akamai-tutorial/configure06.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure07.png)
+    ![Skärm bild av fliken Allmänt i Akamais EAA-konsolen med allmänna inställningar för MYHEADERAPP.](./media/header-akamai-tutorial/configure07.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure08.png)
+    ![Skärm bild av Akamai EAA-konsolen med inställningar för certifikat och plats.](./media/header-akamai-tutorial/configure08.png)
 
 #### <a name="authentication"></a>Autentisering
 
 1. Välj fliken **autentisering** .
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure09.png)
+    ![Skärm bild av Akamai EAA-konsolen med fliken autentisering vald.](./media/header-akamai-tutorial/configure09.png)
 
 2. Tilldela **identitets leverantören**
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure10.png)
+    ![Skärm bild av fliken Akamai i EAA-konsolen för MYHEADERAPP som visar identitets leverantören som är inställd på Azure AD SSO.](./media/header-akamai-tutorial/configure10.png)
 
 #### <a name="services"></a>Tjänster
 
 Klicka på Spara och gå till autentisering.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/configure11.png)
+![Skärm bild av fliken Akamai i EAA-konsolen för MYHEADERAPP som visar knappen Spara och gå till AdvancedSettings i det nedre högra hörnet.](./media/header-akamai-tutorial/configure11.png)
 
 #### <a name="advanced-settings"></a>Avancerade inställningar
 
 1. Under **kundens HTTP-rubriker**anger du attributet **CustomerHeader** och **SAML**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure12.png)
+    ![Skärm bild av fliken Avancerade inställningar för Akamai i EAA-konsolen som visar fältet SSO protokollförd URL markerat under autentisering.](./media/header-akamai-tutorial/configure12.png)
 
 1. Klicka på **Spara och gå till distributions** knapp.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure13.png)
+    ![Skärm bild av fliken Avancerade inställningar för Akamai i EAA-konsolen som visar knappen Spara och gå till distribution i det nedre högra hörnet.](./media/header-akamai-tutorial/configure13.png)
 
 #### <a name="deploy-the-application"></a>Distribuera programmet
 
 1. Klicka på knappen för att **distribuera program** .
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure14.png)
+    ![Skärm bild av fliken distribution av Akamai-EAA-konsolen som visar knappen distribuera program.](./media/header-akamai-tutorial/configure14.png)
 
 1. Verifiera att programmet har distribuerats.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure15.png)
+    ![Skärm bild av fliken distribution av Akamai i EAA-konsolen som visar programmets status meddelande: "programmet har distribuerats".](./media/header-akamai-tutorial/configure15.png)
 
 1. Slut användar upplevelse.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser01.png)
+    ![Skärm bild av den öppna skärmen för myapps.microsoft.com med en bakgrunds bild och en inloggnings dialog ruta.](./media/header-akamai-tutorial/enduser01.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser02.png)
+    ![Skärm bild som visar en del av ett Apps-fönster med ikoner för tillägg, HRWEB, Akamai-CorpApps, utgifter, grupper och åtkomst granskningar. ](./media/header-akamai-tutorial/enduser02.png)
 
 1. Villkorlig åtkomst.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess01.png)
+    ![Skärm bild av meddelandet: Godkänn inloggnings förfrågan. Vi har skickat ett meddelande till din mobila enhet. Fortsätt genom att svara.](./media/header-akamai-tutorial/conditionalaccess01.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess02.png)
+    ![Skärm bild av en program skärm som visar en ikon för MyHeaderApp.](./media/header-akamai-tutorial/conditionalaccess02.png)
 
 #### <a name="remote-desktop"></a>Fjärrskrivbord
 
 1. Välj **RDP** i guiden Lägg till program.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure16.png)
+    ![Skärm bild av guiden Lägg till program i Akamai i EAA-konsolen som visar RDP i listan med appar i avsnittet åtkomst appar.](./media/header-akamai-tutorial/configure16.png)
 
 1. Ange **program namn** och **Beskrivning**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure17.png)
+    ![Skärm bild av dialog rutan för RDP-appar som visar inställningar för program namn och beskrivning.](./media/header-akamai-tutorial/configure17.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure18.png)
+    ![Skärm bild av fliken Allmänt i Akamais EAA-konsolen med program identitets inställningar för SECRETRDPAPP.](./media/header-akamai-tutorial/configure18.png)
 
 1. Ange den anslutning som ska betjäna detta.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure19.png)
+    ![Skärm bild av Akamai EAA-konsolen med inställningar för certifikat och plats. Associerade kopplingar är inställt på USWST-CON1.](./media/header-akamai-tutorial/configure19.png)
 
 #### <a name="authentication"></a>Autentisering
 
 Klicka på **Spara och gå till tjänster**.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/configure20.png)
+![Skärm bild av fliken Akamai i EAA-konsolen för SECRETRDPAPP som visar knappen Spara och gå till tjänster visas i det nedre högra hörnet.](./media/header-akamai-tutorial/configure20.png)
 
 #### <a name="services"></a>Tjänster
 
 Klicka på **Spara och gå till avancerade inställningar**.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/configure21.png)
+![Skärm bild av fliken Akamai i EAA-konsolen för SECRETRDPAPP som visar knappen Spara och gå till AdvancedSettings i det nedre högra hörnet.](./media/header-akamai-tutorial/configure21.png)
 
 #### <a name="advanced-settings"></a>Avancerade inställningar
 
 1. Klicka på **Spara och gå till distribution**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure22.png)
+    ![Skärm bild av fliken Avancerade inställningar för Akamai i EAA-konsolen för SECRETRDPAPP som visar inställningarna för fjärr skrivbords konfiguration.](./media/header-akamai-tutorial/configure22.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure23.png)
+    ![Skärm bild av fliken Avancerade inställningar för Akamai i EAA-konsolen för SECRETRDPAPP som visar inställningarna för konfiguration av autentisering och hälso kontroll.](./media/header-akamai-tutorial/configure23.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure24.png)
+    ![Skärm bild av inställningarna för anpassade HTTP-huvuden för Akamai i EAA-konsolen för SECRETRDPAPP med knappen Spara och gå till distribution i det nedre högra hörnet.](./media/header-akamai-tutorial/configure24.png)
 
 1. Slut användar upplevelse
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser03.png)
+    ![Skärm bild av ett myapps.microsoft.com-fönster med en bakgrunds bild och en inloggnings dialog ruta.](./media/header-akamai-tutorial/enduser03.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser02.png)
+    ![Skärm bild av myapps.microsoft.com apps-fönstret med ikoner för tillägg, HRWEB, Akamai-CorpApps, utgifter, grupper och åtkomst granskningar.](./media/header-akamai-tutorial/enduser02.png)
 
 1. Villkorlig åtkomst
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![Skärm bild av meddelandet för villkorlig åtkomst: Godkänn inloggnings förfrågan. Vi har skickat ett meddelande till din mobila enhet. Fortsätt genom att svara.](./media/header-akamai-tutorial/conditionalaccess04.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess05.png)
+    ![Skärm bild av en program skärm som visar ikoner för MyHeaderApp och SecretRDPApp.](./media/header-akamai-tutorial/conditionalaccess05.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess06.png)
+    ![Skärm bild av Windows Server 2012 RS-skärm som visar allmänna användar ikoner. Ikonerna för administratör, user0 och Användare1 visar att de är inloggade.](./media/header-akamai-tutorial/conditionalaccess06.png)
 
 1. Du kan också ange URL: en för RDP-programmet direkt.
 
@@ -383,15 +383,15 @@ Klicka på **Spara och gå till avancerade inställningar**.
 
 1. Gå till Lägg till program och välj **SSH**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure25.png)
+    ![Skärm bild av guiden Lägg till program i Akamai i EAA-konsolen som visar SSH som visas bland apparna i avsnittet åtkomst appar.](./media/header-akamai-tutorial/configure25.png)
 
 1. Ange **program namn** och **Beskrivning**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure26.png)
+    ![Skärm bild av dialog rutan SSH app som visar inställningar för program namn och beskrivning.](./media/header-akamai-tutorial/configure26.png)
 
 1. Konfigurera program identitet.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure27.png)
+    ![Skärm bild av fliken Allmänt i Akamais EAA-konsolen med program identitets inställningar för SSH-SECURE.](./media/header-akamai-tutorial/configure27.png)
 
     a. Ange namn/beskrivning.
 
@@ -407,43 +407,43 @@ Klicka på **Spara och gå till avancerade inställningar**.
 
 Klicka på **Spara och gå till tjänster**.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/configure28.png)
+![Skärm bild av fliken Akamai i EAA-konsolen för SSH-SECURE som visar knappen Spara och gå till tjänster finns i det nedre högra hörnet.](./media/header-akamai-tutorial/configure28.png)
 
 #### <a name="services"></a>Tjänster
 
 Klicka på **Spara och gå till avancerade inställningar**.
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/configure29.png)
+![Skärm bild av fliken Akamai i EAA-konsolen för SSH-SECURE som visar knappen Spara och gå till AdvancedSettings i det nedre högra hörnet.](./media/header-akamai-tutorial/configure29.png)
 
 #### <a name="advanced-settings"></a>Avancerade inställningar
 
 Klicka på Spara och gå till distribution
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/configure30.png)
+![Skärm bild av fliken Avancerade inställningar för Akamai i EAA-konsolen för SSH-SECURE som visar inställningarna för konfiguration av autentisering och hälso kontroll.](./media/header-akamai-tutorial/configure30.png)
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/configure31.png)
+![Skärm bild av inställningarna för anpassade HTTP-huvuden för Akamai i EAA-konsolen för SSH-SECURE med knappen Spara och gå till distribution i det nedre högra hörnet.](./media/header-akamai-tutorial/configure31.png)
 
 #### <a name="deployment"></a>Distribution
 
 1. Klicka på **distribuera program**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure32.png)
+    ![Skärm bild av fliken distribution av Akamai i EAA-konsolen för SSH-SECURE som visar knappen distribuera program.](./media/header-akamai-tutorial/configure32.png)
 
 1. Slut användar upplevelse
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser03.png)
+    ![Skärm bild av dialog rutan logga in i ett myapps.microsoft.com-fönster.](./media/header-akamai-tutorial/enduser03.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser04.png)
+    ![Skärm bild av fönstret appar för myapps.microsoft.com som visar ikoner för tillägg, HRWEB, Akamai-CorpApps, utgifter, grupper och åtkomst granskningar.](./media/header-akamai-tutorial/enduser04.png)
 
 1. Villkorlig åtkomst
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![Skärm bild som visar meddelandet: Godkänn inloggnings förfrågan. Vi har skickat ett meddelande till din mobila enhet. Fortsätt genom att svara.](./media/header-akamai-tutorial/conditionalaccess04.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess07.png)
+    ![Skärm bild av en program skärm som visar ikoner för MyHeaderApp, SSH Secure och SecretRDPApp.](./media/header-akamai-tutorial/conditionalaccess07.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess08.png)
+    ![Skärm bild av ett kommando fönster för ssh-secure-go.akamai-access.com som visar en lösen ords prompt.](./media/header-akamai-tutorial/conditionalaccess08.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess09.png)
+    ![Skärm bild av ett kommando fönster för ssh-secure-go.akamai-access.com som visar information om programmet och som visar en kommando tolk.](./media/header-akamai-tutorial/conditionalaccess09.png)
 
 ### <a name="kerberos-authentication"></a>Kerberos-autentisering
 
@@ -451,54 +451,54 @@ I exemplet nedan kommer vi att publicera en intern webb server <code>http://frp-
 
 #### <a name="general-tab"></a>Fliken Allmänt
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/generaltab.png)
+![Skärm bild av fliken Allmänt i Akamai i EAA-konsolen för MYKERBOROSAPP.](./media/header-akamai-tutorial/generaltab.png)
 
 #### <a name="authentication-tab"></a>Fliken Autentisering
 
 Tilldela identitets leverantören
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/authenticationtab.png)
+![Skärm bild av fliken Akamai i EAA-konsolen för MYKERBOROSAPP som visar att identitetsprovider har angetts till Azure AD SSO.](./media/header-akamai-tutorial/authenticationtab.png)
 
 #### <a name="services-tab"></a>Fliken tjänster
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/servicestab.png)
+![Skärm bild av fliken Akamai i EAA-konsolen för MYKERBOROSAPP.](./media/header-akamai-tutorial/servicestab.png)
 
 #### <a name="advanced-settings"></a>Avancerade inställningar
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/advancesettings02.png)
+![Skärm bild av fliken Avancerade inställningar i Akamai i EAA-konsolen för MYKERBOROSAPP som visar inställningar för relaterade program och autentisering.](./media/header-akamai-tutorial/advancesettings02.png)
 
 > [!NOTE]
 > SPN för webb servern har SPN@Domain formatet t `HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE` . ex.: för den här demon. Lämna kvar resten av inställningarna till standard.
 
 #### <a name="deployment-tab"></a>Fliken distribution
 
-![Konfigurera Akamai](./media/header-akamai-tutorial/deploymenttab.png)
+![Skärm bild av fliken distribution av Akamai-EAA-konsolen för MYKERBOROSAPP som visar knappen distribuera program.](./media/header-akamai-tutorial/deploymenttab.png)
 
 #### <a name="adding-directory"></a>Lägger till katalog
 
 1. Välj **AD** i list rutan.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure33.png)
+    ![Skärm bild av fönstret Akamais fönstret i EAA-konsol med en dialog ruta för att skapa ny katalog med AD valt i list rutan för katalog typ.](./media/header-akamai-tutorial/configure33.png)
 
 1. Ange nödvändiga data.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/configure34.png)
+    ![Skärm bild av SUPERDEMOLIVE-fönstret för Akamai i EAA-konsolen med inställningar för mappning av DirectoryName, katalog tjänst, anslutning och attribut.](./media/header-akamai-tutorial/configure34.png)
 
 1. Verifiera skapandet av katalogen.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/directorydomain.png)
+    ![Skärm bild av fönstret Akamais EAA-konsol kataloger som visar att katalogen superdemo. Live har lagts till.](./media/header-akamai-tutorial/directorydomain.png)
 
 1. Lägg till de grupper/organisationsenheter som behöver åtkomst.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/addgroup.png)
+    ![Skärm bild av inställningarna för katalogen superdemo. live. Ikonen som du väljer för att lägga till grupper eller organisationsenheter är markerad.](./media/header-akamai-tutorial/addgroup.png)
 
 1. I listan nedan kallas gruppen EAAGroup och har en medlem.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/eaagroup.png)
+    ![Skärm bild av Akamaia EAA-konsol grupper i SUPERDEMOLIVE DIRECTORY-fönstret. EAAGroup med 1 användare visas under grupper.](./media/header-akamai-tutorial/eaagroup.png)
 
 1. Lägg till katalogen i identitets leverantören genom att klicka på **identitets**  >  **identitets leverantörer** och på fliken **kataloger** och klicka på **tilldela katalog**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/assigndirectory.png)
+    ![Skärm bild av fliken Akamai i EAA-konsolen för Azure AD SSO, som visar superdemo. live i listan över för närvarande tilldelade kataloger.](./media/header-akamai-tutorial/assigndirectory.png)
 
 ### <a name="configure-kcd-delegation-for-eaa-walkthrough"></a>Konfigurera KCD delegering för EAA-genom gång
 
@@ -506,14 +506,14 @@ Tilldela identitets leverantören
 
 1. I exemplet ska vi använda ett konto som heter **EAADelegation**. Du kan göra detta med hjälp av **Active Directory användare och dator** fästning.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/assigndirectory.png)
+    ![Skärm bild av fliken Akamai i EAA-konsolen för Azure AD SSO. Katalogen superdemo. live visas under för tillfället tilldelade kataloger.](./media/header-akamai-tutorial/assigndirectory.png)
 
     > [!NOTE]
     > Användar namnet måste vara i ett särskilt format baserat på **identitets spärrens namn**. Från bild 1 ser vi att det är **corpapps.login.go.Akamai-Access.com**
 
 1. Användarens inloggnings namn blir:`HTTP/corpapps.login.go.akamai-access.com`
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/eaadelegation.png)
+    ![Skärm bild som visar EAADelegation-egenskaper med förnamnet inställt på "EAADelegation" och användarens inloggnings namn angivet till HTTP/corpapps. Logi. go. Akamai-Access. com.](./media/header-akamai-tutorial/eaadelegation.png)
 
 #### <a name="step-2-configure-the-spn-for-this-account"></a>Steg 2: Konfigurera SPN för det här kontot
 
@@ -521,13 +521,13 @@ Tilldela identitets leverantören
 
 2. Setspn-s **http/corpapps. Logi. go. Akamai-Access. com eaadelegation**
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/spn.png)
+    ![Skärm bild av en administratörs kommando tolk som visar resultatet av kommandot Setspn-s http/corpapps. Logi. go. Akamai-Access. com eaadelegation.](./media/header-akamai-tutorial/spn.png)
 
 #### <a name="step-3-configure-delegation"></a>Steg 3: Konfigurera delegering
 
 1. Klicka på fliken delegering för EAADelegation-kontot.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/spn.png)
+    ![Skärm bild av en administratörs kommando tolk som visar kommandot för att konfigurera SPN.](./media/header-akamai-tutorial/spn.png)
 
     * Ange Använd valfritt autentiseringsprotokoll
     * Klicka på Lägg till och Lägg till app pool-kontot för Kerberos-webbplatsen. Den bör automatiskt matcha till rätt SPN om den är korrekt konfigurerad.
@@ -551,35 +551,35 @@ Tilldela identitets leverantören
 
 1. Ktpass/out EAADemo. keytab/Princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live /mapuser eaadelegation@superdemo.live /pass RANDOMPASS/crypto alla ptype KRB5_NT_PRINCIPAL
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/administrator.png)
+    ![Skärm bild av en administratörs kommando tolk som visar resultatet av kommandot för att skapa en Keytab-fil för AKAMAI-EAA.](./media/header-akamai-tutorial/administrator.png)
 
 #### <a name="step-5-import-keytab-in-the-akamai-eaa-console"></a>Steg 5: importera Keytab i AKAMAIs EAA-konsolen
 
 1. Klicka på fliken **system**-  >  **tabbar**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/keytabs.png)
+    ![Skärm bild av Akamai EAA-konsolen som visar de flikar som väljs på system menyn.](./media/header-akamai-tutorial/keytabs.png)
 
 1. I Keytab-typen väljer du **Kerberos-delegering**.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/keytabdelegation.png)
+    ![Skärm bild av Akamai-EAAKEYTAB för EAA-konsolen med Keytab-inställningarna. Keytab-typen är inställt på Kerberos-delegering.](./media/header-akamai-tutorial/keytabdelegation.png)
 
 1. Se till att Keytab visas som distribuerad och verifierad.
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/keytabs02.png)
+    ![Skärm bild av skärmen med Akamai i EAA-konsolen som visar EAA-Keytab som "Keytab distribuerad och verifierad".](./media/header-akamai-tutorial/keytabs02.png)
 
 1. Användarupplevelse
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser03.png)
+    ![Skärm bild av inloggnings dialog rutan på myapps.microsoft.com. ](./media/header-akamai-tutorial/enduser03.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/enduser04.png)
+    ![Skärm bild av fönstret appar för myapps.microsoft.com som visar ikoner för appar.](./media/header-akamai-tutorial/enduser04.png)
 
 1. Villkorlig åtkomst
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![Skärm bild som visar meddelandet Godkänn inloggnings förfrågan. meddelandet.](./media/header-akamai-tutorial/conditionalaccess04.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess10.png)
+    ![Skärm bild av en program skärm som visar ikoner för MyHeaderApp, SSH Secure, SecretRDPApp och myKerberosApp.](./media/header-akamai-tutorial/conditionalaccess10.png)
 
-    ![Konfigurera Akamai](./media/header-akamai-tutorial/conditionalaccess11.png)
+    ![Skärm bild av välkomst skärmen för myKerberosApp. Meddelandet "Välkommen superdemo\user1" visas över en bakgrunds bild.](./media/header-akamai-tutorial/conditionalaccess11.png)
 
 ### <a name="create-akamai-test-user"></a>Skapa Akamai test användare
 
@@ -595,7 +595,7 @@ När du klickar på panelen Akamai på åtkomst panelen, bör du loggas in autom
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

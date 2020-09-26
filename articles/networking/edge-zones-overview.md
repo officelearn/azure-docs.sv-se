@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329598"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Om för hands versionen av Azure Edge Zone
 
@@ -74,7 +74,7 @@ Typiska användnings fall är:
 
 Gräns zoner kommer att erbjudas i partnerskap med följande operatorer:
 
-- PÅ&T (Atlanta, Borås och Los Angeles) 
+- PÅ&T (Atlanta, Borås och Los Angeles)
 
 ISV: er som arbetar med optimerade och skalbara program anslutna till 5G-nätverk kan nu använda den nya Los Angeles Preview-platsen för Azure Edge Zones med&T när du skapar och experimenterar med extremt låga latens, mobila och anslutna scenarier. Registrera dig för det tidiga programmet för att dra nytta av säker anslutning med hög bandbredd.
 
@@ -86,9 +86,9 @@ ISV: er som arbetar med optimerade och skalbara program anslutna till 5G-nätver
 
 Azures privata gräns zoner är små tillägg till Azure som placeras lokalt. Azure Private Edge Zone baseras på [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) -plattformen. Den ger låg latens åtkomst till data behandling och lagrings tjänster som har distribuerats lokalt. Med den privata Edge-zonen kan du också distribuera program från ISV: er och virtualiserade nätverksfunktioner (VNFs) som [Azure-hanterade program](https://azure.microsoft.com/services/managed-applications/) tillsammans med virtuella datorer och behållare lokalt. Dessa VNFs kan omfatta mobila paket kärnor, routrar, brand väggar och SD-WAN-enheter. Azure Private Edge Zone levereras med en molnbaserad Orchestration-lösning som gör att du kan hantera livscykler för VNFs och program från Azure Portal.
 
-Med Azure Private Edge Zone kan du utveckla och distribuera program lokalt genom att använda samma välkända verktyg som du använder för att skapa och distribuera program i Azure. 
+Med Azure Private Edge Zone kan du utveckla och distribuera program lokalt genom att använda samma välkända verktyg som du använder för att skapa och distribuera program i Azure.
 
-Du kan också: 
+Du kan också:
 
 - Kör privata mobila nätverk (privat LTE, privat 5G).
 - Implementera säkerhets funktioner som brand väggar.
@@ -113,6 +113,7 @@ Vi har ett omfattande eko system med VNF-leverantörer, ISV: er och MSP-partner 
 ##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Virtualiserad, utvEPCad paket kärna () för mobila nätverk
 
 - [Bekräftade nätverk](https://www.affirmednetworks.com/)
+- [Celona](https://www.celona.io/azure-edge)
 - [Druid-programvara](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
 - [Mavenir](https://mavenir.com/)
@@ -121,12 +122,15 @@ Vi har ett omfattande eko system med VNF-leverantörer, ISV: er och MSP-partner 
 
 ##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Mobila radio partners
 
+- [Celona](https://www.celona.io/azure-edge)
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
 ##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>SD – WAN-leverantörer
 
+- [128 Technology](https://www.128technology.com/)
 - [Netfound](https://netfoundry.io/)
 - [Nuage-nätverk från Nokia](https://www.nuagenetworks.net/)
+- [Versa till nätverk](https://www.versa-networks.com/)
 - [VMware SD-WAN med Velocloud](https://www.velocloud.com/)
 
 ##### <a name="router-vendors"></a><a name="router-vendors"></a>Router-leverantörer
@@ -158,10 +162,10 @@ Vi har ett omfattande eko system med VNF-leverantörer, ISV: er och MSP-partner 
 
 ![Privat mobilt nätverk i privata gräns zoner](./media/edge-zones-overview/mobile-networks.png "Privat mobilt nätverk i privata gräns zoner")
 
-Nu kan du distribuera ett privat mobilt nätverk i privata gräns zoner. Privata mobila nätverk möjliggör extremt låg latens, hög kapacitet och det pålitliga och säkra trådlösa nätverk som krävs för affärs kritiska program. 
+Nu kan du distribuera ett privat mobilt nätverk i privata gräns zoner. Privata mobila nätverk möjliggör extremt låg latens, hög kapacitet och det pålitliga och säkra trådlösa nätverk som krävs för affärs kritiska program.
 
-Privata mobila nätverk kan aktivera scenarier som: 
-- Kommando och kontroll över automatiserade guidade bilar (AGVs) i lager. 
+Privata mobila nätverk kan aktivera scenarier som:
+- Kommando och kontroll över automatiserade guidade bilar (AGVs) i lager.
 - Kommunikation i real tid mellan robots i smarta fabriker.
 - Utöknings bara verklighet och Virtual verklighet Edge-program.
 
@@ -174,7 +178,7 @@ Microsoft tillhandahåller ett eko system för partner som kan hjälpa dig med a
 #### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD – WAN i privata gräns zoner
 
 ![SD – WAN i privata gräns zoner](./media/edge-zones-overview/sd-wan.png "SD – WAN i privata gräns zoner")
- 
+
 SD – WAN gör att du kan skapa WAN-nätverk (Wide Area Network) i företags klass som har följande fördelar:
 
 - Ökad bandbredd
@@ -183,7 +187,7 @@ SD – WAN gör att du kan skapa WAN-nätverk (Wide Area Network) i företags kl
 - Tillförlitlighet
 - Principhantering
 - Omfattande nätverks synlighet
-    
+
 SD-WAN ger sömlös anslutning till filial kontor som dirigeras från redundanta centrala styrenheter till lägre ägande kostnad.
 Med SD-WAN i privata gräns zoner kan du flytta från en CAPEX modell till en SaaS-modell (Software-as-a-Service) för att minska IT-budgetarna. Du kan använda ditt val av SD-WAN-partner, Orchestrator eller Controller för att aktivera nya tjänster och sprida dem i hela nätverket direkt.
 

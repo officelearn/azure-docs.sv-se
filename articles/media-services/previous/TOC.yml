@@ -115,8 +115,6 @@
     - name: Koda innehåll
       href: media-services-encode-asset.md
       items:
-        - name: Jämför kodare
-          href: media-services-compare-encoders.md
         - name: Hantera hastighet och samtidighet för kodningen
           href: media-services-manage-encoding-speed.md
         - name: Media Encoder Standard (MES)
@@ -205,20 +203,6 @@
                   href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
                 - name: 'H264, enkel bithastighet, låg kvalitet, SD för Android'
                   href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
-        - name: Arbetsflöde för Media Encoder Premium
-          items:
-            - name: Arbetsflödesformat och codecs för Media Encoder Premium
-              href: media-services-premium-workflow-encoder-formats.md
-            - name: Koda med Media Encoder Premium-arbetsflöde
-              items:
-                - name: Arbetsflöde för Media Encoder Premium
-                  href: media-services-encode-with-premium-workflow.md
-                - name: Självstudier för arbetsflödet för Media Encoder Premium
-                  href: media-services-media-encoder-premium-workflow-tutorials.md
-                - name: Skapa avancerade arbetsflöden för kodning med Workflow Designer
-                  href: media-services-workflow-designer.md
-                - name: Premium-arbetsflöde med flera indatafiler
-                  href: media-services-media-encoder-premium-workflow-multiplefilesinput.md
         - name: Skapa en uppgift som genererar fMP4-segment
           href: media-services-generate-fmp4-chunks.md
         - name: Mediebearbetare

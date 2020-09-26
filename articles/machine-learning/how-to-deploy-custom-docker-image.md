@@ -5,31 +5,28 @@ description: Lär dig hur du använder en anpassad Docker-bas avbildning när du
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
+ms.author: sagopal
+author: saachigopal
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f69ba6e1c5fdfc04fac6fed8487b246f9af72fa2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ea8b100e8a690cf4f400dda02f2a58b6500d5f31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328453"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 
-
 Lär dig hur du använder en anpassad Docker-bas avbildning när du distribuerar utbildade modeller med Azure Machine Learning.
 
-När du distribuerar en utbildad modell till en webb tjänst eller IoT Edge enhet skapas ett paket som innehåller en webb server för att hantera inkommande begär Anden.
+Azure Machine Learning kommer att använda en Standards bas Docker-avbildning om ingen anges. Du kan hitta den angivna Docker-avbildningen som används med `azureml.core.runconfig.DEFAULT_CPU_IMAGE` . Du kan också använda Azure Machine Learning __miljöer__ för att välja en enskild bas avbildning eller använda en anpassad som du anger.
 
-Azure Machine Learning tillhandahåller en standard Docker-bas avbildning så att du inte behöver oroa dig för att skapa en. Du kan också använda Azure Machine Learning __miljöer__ för att välja en enskild bas avbildning eller använda en anpassad som du anger.
+En bas avbildning används som start punkt när en avbildning skapas för en distribution. Det tillhandahåller underliggande operativ system och komponenter. Distributions processen lägger sedan till ytterligare komponenter, till exempel din modell, Conda-miljö och andra till gångar, till avbildningen.
 
-En bas avbildning används som start punkt när en avbildning skapas för en distribution. Det tillhandahåller underliggande operativ system och komponenter. Distributions processen lägger sedan till ytterligare komponenter, till exempel din modell, Conda-miljö och andra till gångar, till avbildningen innan du distribuerar den.
-
-Normalt skapar du en anpassad bas avbildning när du vill använda Docker för att hantera dina beroenden, bibehålla bättre kontroll över komponent versioner eller spara tid under distributionen. Du kanske till exempel vill standardisera en speciell version av python, Conda eller andra komponenter. Du kanske också vill installera program vara som krävs av din modell, där installations processen tar lång tid. Installation av program varan när du skapar bas avbildningen innebär att du inte behöver installera den för varje distribution.
+Normalt skapar du en anpassad bas avbildning när du vill använda Docker för att hantera dina beroenden, bibehålla bättre kontroll över komponent versioner eller spara tid under distributionen. Du kanske också vill installera program vara som krävs av din modell, där installations processen tar lång tid. Installation av program varan när du skapar bas avbildningen innebär att du inte behöver installera den för varje distribution.
 
 > [!IMPORTANT]
 > När du distribuerar en modell kan du inte åsidosätta kärn komponenter som webb server eller IoT Edge-komponenter. Dessa komponenter tillhandahåller en känd arbets miljö som testas och stöds av Microsoft.
@@ -46,7 +43,7 @@ Det här dokumentet är uppdelat i två delar:
 
 * En Azure Machine Learning arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * En [Azure Container Registry](/azure/container-registry) eller ett annat Docker-register som är tillgängligt på Internet.
 * Stegen i det här dokumentet förutsätter att du är van vid att skapa och använda ett __konfigurations objekt för konfigurations__ objekt som en del av modell distributionen. Mer information finns i [var du distribuerar och hur](how-to-deploy-and-where.md).
@@ -62,8 +59,6 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
     > [!WARNING]
     > Azure Container Registry för din arbets yta __skapas första gången du tränar eller distribuerar en modell__ med hjälp av arbets ytan. Om du har skapat en ny arbets yta, men inte tränat eller skapat någon modell, så finns det inga Azure Container Registry för arbets ytan.
 
-    Information om hur du hämtar namnet på Azure Container Registry för din arbets yta finns i avsnittet [Hämta container Registry-namn](#getname) i den här artikeln.
-
     När du använder avbildningar som lagras i ett __fristående behållar register__måste du konfigurera ett huvud namn för tjänsten som har minst Läs behörighet. Du anger sedan tjänstens huvud namns-ID (username) och lösen ord för alla som använder avbildningar från registret. Undantaget är om du gör att behållar registret är offentligt tillgängligt.
 
     Information om hur du skapar en privat Azure Container Registry finns i [skapa ett privat container Registry](/azure/container-registry/container-registry-get-started-azure-cli).
@@ -72,12 +67,29 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
 
 * Azure Container Registry-och avbildnings information: Ange avbildnings namnet för alla som behöver använda det. En bild `myimage` som heter, lagrad i ett register med namnet `myregistry` , refereras till som `myregistry.azurecr.io/myimage` när du använder avbildningen för modell distribution
 
-* Avbildnings krav: Azure Machine Learning endast stöder Docker-avbildningar som tillhandahåller följande program vara:
+### <a name="image-requirements"></a>Avbildningskrav
 
-    * Ubuntu 16,04 eller senare.
-    * Conda 4.5. # eller senare.
-    * Python 3.5. #, 3.6. # eller 3.7. #.
+Azure Machine Learning stöder endast Docker-avbildningar som tillhandahåller följande program vara:
+* Ubuntu 16,04 eller senare.
+* Conda 4.5. # eller senare.
+* Python 3.5 +.
 
+Om du vill använda data uppsättningar måste du installera paketet libsäkring-dev. Se också till att installera alla användar utrymmes paket som du kan behöva.
+
+Azure ML upprätthåller en uppsättning processor-och GPU-grundavbildningar som publiceras till Microsoft Container Registry som du kan använda (eller referens) i stället för att skapa en egen anpassad avbildning. Om du vill se Dockerfiles för dessa avbildningar kan du läsa mer i [Azure/azureml-containers GitHub-](https://github.com/Azure/AzureML-Containers) lagringsplatsen.
+
+För GPU-avbildningar erbjuder Azure ML för närvarande både cuda9 och cuda10 Base-avbildningar. De viktigaste beroendena som är installerade i de här bas avbildningarna är:
+
+| Beroenden | IntelMPI-CPU | OpenMPI-CPU | IntelMPI GPU | OpenMPI GPU |
+| --- | --- | --- | --- | --- |
+| miniconda | = = 4.5.11 | = = 4.5.11 | = = 4.5.11 | = = 4.5.11 |
+| MPI | intelmpi = = 2018.3.222 |openmpi = = 3.1.2 |intelmpi = = 2018.3.222| openmpi = = 3.1.2 |
+| CUDA | - | - | 9.0/10.0 | 9.0/10.0/10.1 |
+| cudnn | - | - | 7.4/7.5 | 7.4/7.5 |
+| nccl | - | - | 2,4 | 2,4 |
+| git | 2.7.4 | 2.7.4 | 2.7.4 | 2.7.4 |
+
+CPU-avbildningarna skapas från Ubuntu 16.04. GPU-avbildningarna för cuda9 är byggda från NVIDIA/CUDA: 9.0-cudnn7-devel-Ubuntu 16.04. GPU-avbildningarna för cuda10 är byggda från NVIDIA/CUDA: 10.0-cudnn7-devel-Ubuntu 16.04.
 <a id="getname"></a>
 
 ### <a name="get-container-registry-information"></a>Hämta information om container registret
@@ -117,7 +129,7 @@ Om du redan har tränat eller distribuerat modeller med hjälp av Azure Machine 
 
 ### <a name="build-a-custom-base-image"></a>Bygg en anpassad bas avbildning
 
-Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildning i din Azure Container Registry.
+Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildning i din Azure Container Registry. Exempel-dockerfiles finns i [Azure/azureml-containers](https://github.com/Azure/AzureML-Containers) GitHub lagrings platsen).
 
 1. Skapa en ny textfil med namnet `Dockerfile` och Använd följande text som innehåll:
 
@@ -131,11 +143,12 @@ Stegen i det här avsnittet beskriver hur du skapar en anpassad Docker-avbildnin
 
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
+    ENV DEBIAN_FRONTEND=noninteractive
 
     RUN apt-get update --fix-missing && \
         apt-get install -y wget bzip2 && \
-        apt-get install -y fuse \
-        apt-get clean && \
+        apt-get install -y fuse && \
+        apt-get clean -y && \
         rm -rf /var/lib/apt/lists/*
 
     RUN useradd --create-home dockeruser
@@ -200,13 +213,13 @@ Om du vill använda en anpassad avbildning behöver du följande information:
 
 Microsoft tillhandahåller flera Docker-avbildningar på en offentligt tillgänglig lagrings plats som kan användas med stegen i det här avsnittet:
 
-| Bild | Beskrivning |
+| Bild | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Kärn avbildning för Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Innehåller ONNX runtime för CPU inferencing |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Innehåller ONNX Runtime och CUDA för GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Innehåller ONNX Runtime och TensorRT för GPU |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Innehåller ONNX Runtime och Open för utformning av Intel <sup></sup> vision Accelerator baserat på Movidius<sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm` | Innehåller ONNX Runtime och Open för utformning av Intel <sup></sup> vision Accelerator baserat på Movidius<sup>TM</sup> MyriadX VPUs |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Innehåller ONNX Runtime och Open för Intel <sup></sup> Movidius<sup>TM</sup> USB-käppar |
 
 Mer information om ONNX för körnings bas avbildningar finns i [avsnittet ONNX runtime Dockerfile](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) i GitHub lagrings platsen.
@@ -338,4 +351,4 @@ Mer information om hur du distribuerar en modell med hjälp av ML CLI finns i av
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [var du distribuerar och hur](how-to-deploy-and-where.md).
-* Lär dig hur du [tränar och distribuerar maskin inlärnings modeller med Azure-pipeliner](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).
+* Lär dig hur du [tränar och distribuerar maskin inlärnings modeller med Azure-pipeliner](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops&preserve-view=true).

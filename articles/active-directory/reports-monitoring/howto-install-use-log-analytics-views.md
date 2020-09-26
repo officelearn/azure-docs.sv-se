@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56eee39a9e99e9d6752d1b4f6eb7182043ff14d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358907"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installera och Använd Log Analytics-vyerna för Azure Active Directory
 
@@ -31,7 +31,7 @@ I vyerna Azure Active Directory Log Analytics kan du analysera och söka i Azure
 * Gransknings loggar: [aktivitets rapporten gransknings loggar](concept-audit-logs.md) ger dig till gång till historiken för alla uppgifter som utförs i din klient organisation.
 * Inloggnings loggar: med [rapporten inloggnings aktivitet](concept-sign-ins.md)kan du bestämma vem som utförde de uppgifter som rapporteras i gransknings loggarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Log Analytics-vyerna behöver du:
 
@@ -56,7 +56,7 @@ Om du vill använda Log Analytics-vyerna behöver du:
 
 3. Välj någon av dessa vyer för att hoppa till de enskilda rapporterna. Du kan också ställa in aviseringar på någon av rapport parametrarna. Vi kan till exempel ställa in en avisering för varje gång ett inloggnings fel uppstår. Om du vill göra detta väljer du först vyn **inloggnings händelser** , väljer **Logga in fel över tid** och väljer sedan **analys** för att öppna sidan information med den faktiska frågan bakom rapporten. 
 
-    ![Information](./media/howto-install-use-log-analytics-views/details.png)
+    ![Skärm bild som visar sidan med analys information som har frågan för rapporten.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Välj **Ange avisering**och välj sedan **när den anpassade loggs ökningen är &lt; logiskt odefinierad &gt; ** under avsnittet **aviserings villkor** . Eftersom vi vill Avisera när det finns ett inloggnings fel anger du **tröskelvärdet** för standard varnings logiken till **1** och väljer sedan **klart**. 

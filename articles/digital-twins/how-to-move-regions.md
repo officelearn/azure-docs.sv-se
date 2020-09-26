@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328504"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Flytta en digital Azure-instans till en annan Azure-region
 
@@ -30,7 +30,7 @@ Den här processen omfattar följande steg:
     - Länka anslutna resurser på nytt.
 4. Rensa käll resurser: ta bort ursprunglig instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du försöker återskapa din Azure Digital-instansen är det en bra idé att gå igenom komponenterna i den ursprungliga instansen och få en tydlig uppfattning om alla delar som måste återskapas.
 
@@ -113,7 +113,7 @@ Sedan slutför du "flytta"-instansen genom att skapa en ny instans i mål region
 
 ### <a name="create-a-new-instance"></a>Skapa en ny instans
 
-Börja **med att skapa en ny instans av Azure Digitals dubbla i mål regionen**. Det gör du genom att följa stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md), och hålla dessa pekare i åtanke:
+Börja **med att skapa en ny instans av Azure Digitals dubbla i mål regionen**. Det gör du genom att följa stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md), och hålla dessa pekare i åtanke:
 * Du kan behålla samma namn för den nya instansen **om** den finns i en annan resurs grupp. Om du behöver använda samma resurs grupp som innehåller den ursprungliga instansen måste den nya instansen ha sitt eget distinkta namn.
 * Ange den nya mål regionen när du uppmanas att ange en plats.
 * Du **behöver inte** återskapa registreringen av appen. Din nya instans kan återanvända samma app-registrering som du redan har.
@@ -168,7 +168,7 @@ ADT Explorer laddar nu upp dina modeller och diagram (inklusive de dubbla och re
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 2 importerade modeller. 4 dubbla importer. 2 relationer har importer ATS." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 2 importerade modeller. 4 dubbla importer. 2 relationer har importer ATS. "" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::

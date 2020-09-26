@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370920"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mappa data flöden i Azure Data Factory
 
@@ -61,7 +61,7 @@ Den första fliken i varje omvandlings konfigurations fönster innehåller inst�
 
 Fliken **Optimize** innehåller inställningar för att konfigurera partitionerings scheman. Mer information om hur du optimerar dina data flöden finns i [prestanda guiden för att mappa data flödet](concepts-data-flow-performance.md).
 
-![Optimera](media/data-flow/optimize.png "Optimera")
+![Skärm bild som visar fliken optimering, som innehåller partitionsalternativ, partitionstyper och antalet partitioner.](media/data-flow/optimize.png)
 
 #### <a name="inspect"></a>Allmänt
 

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 99f3c2c05117fb537527f2a2bcb52f0f9843385a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 41dddd677b2060c6d5d605867adde3eb27a9a5eb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329643"
+ms.locfileid: "91369866"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
 
@@ -54,7 +54,7 @@ Om du vill konfigurera det första flödet måste du ange din Video Indexer API-
 ![Anslutningsnamn och API-nyckel](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
 > [!TIP]
-> Om du tidigare har anslutit ett Video Indexer-eller lagrings konto i Logic Apps, är anslutnings informationen lagrad och du kommer att ansluta automatiskt. Du kan redigera anslutningen genom att klicka på **ändra anslutning** längst ned i varje åtgärd.
+> Om du tidigare anslöt ett Azure Storage-konto eller Video Indexer-konto till en Logic-app, lagras anslutnings informationen och du kommer att ansluta automatiskt. <br/>Du kan redigera anslutningen genom att klicka på **ändra anslutning** längst ned i en Azure Storage (lagrings fönstret) eller video Indexer (Player-fönstret) åtgärd.
 
 När du har anslutit till Azure Storage och Video Indexer konton letar du reda på och väljer utlösaren "när en BLOB läggs till eller ändras" i **Logic Apps designer**.
 
@@ -80,7 +80,7 @@ Du lämnar återanrops-URL: en tom för tillfället. Du lägger bara till den n�
 
 Du kan använda standardvärdet för de andra parametrarna eller ange dem efter dina behov. 
 
-Klicka på Spara och låt oss gå vidare till konfigurera det andra flödet för att extrahera insikterna när överföringen och indexeringen har slutförts. 
+Klicka på **Spara**och låt oss fortsätta att konfigurera det andra flödet för att extrahera insikterna när överföringen och indexeringen har slutförts. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>Konfigurera den andra Flow-JSON-extraktionen  
 

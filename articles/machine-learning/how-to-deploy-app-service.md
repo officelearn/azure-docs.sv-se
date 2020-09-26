@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7c98bfe4adb9cbbcc1009c530ba875511ea9ec01
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fd7ba2eeddb3eddd98f97bda1a26c69c2cfa77c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905117"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315311"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
@@ -40,7 +40,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
     > [!IMPORTANT]
@@ -101,7 +101,7 @@ Mer information om konfiguration av konfiguration finns i [Distribuera modeller 
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
+Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
 > Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att den `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).

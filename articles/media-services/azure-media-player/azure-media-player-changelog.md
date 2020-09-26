@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432666"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315090"
 ---
-# <a name="changelog"></a>Ändringslogg #
+# <a name="changelog"></a>Ändringslogg
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (officiell uppdatering september 21 2020)
+
+### <a name="features-236"></a>Funktioner 2.3.6
+
+Stöd för att lägga till ljudstöd för azureHtml5JS-teknik (tank streck) har stöd för sen start av direkt avskrifts stöd språk ändring i direkt skriftering
+
+### <a name="bug-fixes-236"></a>Fel korrigeringar 2.3.6
+
+När du använder "playsinline" i HLS-uppspelningar på Apple-enheter, kan du klicka på "LIVE"-knappen för att starta om bilden av en AMP-bild ibland orsakar ett undantag. knappen volym saknas när du skulle spela upp HLS FairPlay [Accessibility] knapp beskrivningar som inte har definierats för knappar när tangent bordet används [Hjälpmedel] ljus styrkas förhållandet är mindre än 1.3:1 för förlopps indikatorn [Hjälpmedel] tangent bords fokus är ibland inte tillbaka till knappen video kvalitet [Hjälpmedel]-kontrollerna syns inte i videon skärm, vilket hindrar skärm läsaren från att hitta dem
+
+### <a name="changes-236"></a>Ändringar 2.3.6
+
+Returnera meningsfulla fel leverans fel för att anropa program
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (officiell uppdatering juni 1 2020)
 
@@ -182,7 +196,7 @@ ms.locfileid: "87432666"
 - [Fel korrigering] AMP [Firefox] avslutad händelse utlöses inte på Firefox och Chrome när Live-programmet stoppas
 - [Fel korrigering] AMP Kontroller som visas efter setsource, även när kontroller har angetts till falskt i alternativ för spelare
 
-### <a name="changes"></a>Något ###
+### <a name="changes"></a>Ändringar ###
 
 - Ändrade [Direkt textning] API-namnet för CEA-textning har ändrats från 608 till 708. Mer information finns i [Inställningar för CEA708-textning](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 

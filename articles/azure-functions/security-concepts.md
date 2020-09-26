@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e48991788307a47d0e01a7921e0c94d77ddcd5ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294758"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -128,6 +128,8 @@ Som standard lagrar du anslutnings strängar och hemligheter som används av din
 Till exempel kräver varje Function-app ett associerat lagrings konto som används av körnings miljön. Som standard lagras anslutningen till det här lagrings kontot i en program inställning med namnet `AzureWebJobsStorage` .
 
 App-inställningar och anslutnings strängar lagras krypterade i Azure. De dekrypteras bara innan de matas in i appens process minne när appen startas. Krypterings nycklarna roteras regelbundet. Om du hellre vill hantera den säkra lagringen av dina hemligheter bör du i stället ange referenser till Azure Key Vault. 
+
+Du kan också kryptera inställningar som standard i local.settings.jsi filen när du utvecklar funktioner på den lokala datorn. Mer information finns i `IsEncrypted` egenskapen i den [lokala inställnings filen](functions-run-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Key Vault referenser
 

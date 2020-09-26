@@ -4,16 +4,16 @@ description: Lär dig hur du skapar en mall som ska användas med Azure Image Bu
 author: danielsollondon
 ms.author: danis
 ms.date: 08/13/2020
-ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.topic: reference
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307287"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -96,7 +96,7 @@ Som standard kommer bild verktyget inte att ändra bildens storlek, den kommer a
 ```
 
 ## <a name="vnetconfig"></a>vnetConfig
-Om du inte anger några VNET-egenskaper skapas en egen VNET-, offentlig IP-och NSG-avbildnings verktyg. Den offentliga IP-adressen används för tjänsten för att kommunicera med den virtuella datorn, men om du inte vill att en offentlig IP-adress ska ha åtkomst till dina befintliga VNET-resurser, till exempel konfigurations servrar (DSC, chef, Puppet, Ansible), fil resurser osv., kan du ange ett VNET. Mer information finns i dokumentationen för [nätverket](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder), detta är valfritt.
+Om du inte anger några VNET-egenskaper skapas en egen VNET-, offentlig IP-och NSG-avbildnings verktyg. Den offentliga IP-adressen används för tjänsten för att kommunicera med den virtuella datorn, men om du inte vill att en offentlig IP-adress ska ha åtkomst till dina befintliga VNET-resurser, till exempel konfigurations servrar (DSC, chef, Puppet, Ansible), fil resurser osv., kan du ange ett VNET. Mer information finns i dokumentationen för [nätverket](image-builder-networking.md), detta är valfritt.
 
 ```json
     "vnetConfig": {
@@ -120,7 +120,7 @@ Mer information finns i [definiera resurs beroenden](../../azure-resource-manage
 
 ## <a name="identity"></a>Identitet
 
-Krävs – för att Image Builder ska ha behörighet att läsa/skriva bilder kan du läsa in skript från Azure Storage du måste skapa en Azure User-tilldelad identitet som har behörighet till de enskilda resurserna. Mer information om hur Image Builder-behörigheter fungerar och relevanta steg finns i [dokumentationen](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+Krävs – för att Image Builder ska ha behörighet att läsa/skriva bilder kan du läsa in skript från Azure Storage du måste skapa en Azure User-tilldelad identitet som har behörighet till de enskilda resurserna. Mer information om hur Image Builder-behörigheter fungerar och relevanta steg finns i [dokumentationen](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -233,7 +233,7 @@ Som standard körs Image Builder i 240 minuter. Efter det kommer timeout och sto
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-Om du inte anger något värde för buildTimeoutInMinutes, eller om du anger värdet 0, används standardvärdet. Du kan öka eller minska värdet, upp till maximalt 960mins (16hrs). För Windows rekommenderar vi inte att du anger det här under 60 minuter. Om du upptäcker att du når tids gränsen granskar du [loggarna](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)för att se om anpassnings steget väntar på något som indata från användaren. 
+Om du inte anger något värde för buildTimeoutInMinutes, eller om du anger värdet 0, används standardvärdet. Du kan öka eller minska värdet, upp till maximalt 960mins (16hrs). För Windows rekommenderar vi inte att du anger det här under 60 minuter. Om du upptäcker att du når tids gränsen granskar du [loggarna](image-builder-troubleshoot.md#customization-log)för att se om anpassnings steget väntar på något som indata från användaren. 
 
 Om du upptäcker att du behöver mer tid för att anpassningarna ska slutföras, ställer du in den på det du tycker att du behöver, med lite extra kostnad. Men Ställ inte in den för hög eftersom du kanske måste vänta tills den är tids gräns innan du ser ett fel. 
 
@@ -481,7 +481,7 @@ Om du vill åsidosätta kommandona använder du PowerShell-eller Shell-skript pr
 * Windows: c:\DeprovisioningScript.ps1
 * Linux:/tmp/DeprovisioningScript.sh
 
-Image Builder läser dessa kommandon, de skrivs ut till AIB-loggarna, anpassning. log. Se [fel sökning](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) för insamling av loggar.
+Image Builder läser dessa kommandon, de skrivs ut till AIB-loggarna, anpassning. log. Se [fel sökning](image-builder-troubleshoot.md#customization-log) för insamling av loggar.
  
 ## <a name="properties-distribute"></a>Egenskaper: Distribuera
 
@@ -658,7 +658,7 @@ az resource invoke-action \
 ### <a name="cancelling-an-image-build"></a>Avbryta en avbildnings version
 Om du kör en avbildning som du tror är felaktig, väntar på indata från användaren eller om du tycker att det inte kommer att slutföras korrekt, kan du avbryta versionen.
 
-Versionen kan avbrytas när som helst. Om distributions fasen har startats kan du fortfarande avbryta, men du måste rensa alla avbildningar som inte är klara. Kommandot Cancel väntar inte på att Avbryt ska slutföras, övervaka `lastrunstatus.runstate` för att avbryta förloppet med dessa status [kommandon](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status).
+Versionen kan avbrytas när som helst. Om distributions fasen har startats kan du fortfarande avbryta, men du måste rensa alla avbildningar som inte är klara. Kommandot Cancel väntar inte på att Avbryt ska slutföras, övervaka `lastrunstatus.runstate` för att avbryta förloppet med dessa status [kommandon](image-builder-troubleshoot.md#customization-log).
 
 
 Exempel på `cancel` kommandon:

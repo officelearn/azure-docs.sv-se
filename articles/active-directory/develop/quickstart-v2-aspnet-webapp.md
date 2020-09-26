@@ -1,5 +1,5 @@
 ---
-title: Lägga till Microsoft Identity Platform-inloggning i en ASP.NET-webbapp | Azure
+title: Lägg till inloggning med Microsoft i en ASP.NET-webbapp | Azure
 description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET-webbapp med OpenID Connect.
 services: active-directory
 author: jmprieur
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 97a040ec166894197520b2e3a6dfc720262b7f1c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
+ms.openlocfilehash: ada6e36e03f326ab3161306b0f5da2e097e57e0c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369679"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET-webbapp loggar in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans.  (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -156,7 +156,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Var  | Beskrivning |
+> |Var  | Description |
 > |---------|---------|
 > | `ClientId`     | Program-ID från appen som registrerats i Azure-portalen |
 > | `Authority`    | STS-slutpunkten för autentisering av användaren. Vanligtvis `https://login.microsoftonline.com/{tenant}/v2.0` för offentligt moln, där {tenant} är namnet på din klientorganisation, ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |

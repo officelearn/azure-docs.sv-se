@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 1126c218f8e80b7d89183746890a3fae1357d29d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: f38006e83be47142a6d7a6db25eefb3daccd0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307593"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-flexibel Server
 
@@ -33,6 +33,8 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > [!div class="mx-tableFixed"]
 > | **Anknytning**| **Tilläggsversion** | **Beskrivning** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Används för att parsa en adress till komponent element. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Exempel på adress Standardiserare för data uppsättning|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1,2             | funktioner för att verifiera Relations integritet|
 > |[hinna](https://www.postgresql.org/docs/12/bloom.html)                    | 1,0             | anslutnings metod för blomma – signatur-filbaserat index|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | stöd för indexering av vanliga data typer i GIN|
@@ -61,7 +63,11 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1,2             | Visa lås information på radnivå|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Visa statistik på tuple nivå|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1,0             | PL/pgSQL Procedure language|
-> |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometri, geografi och raster avstånds typer och funktioner|
+> |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS Geometry, geografi |
+> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS raster typer och funktioner| 
+> |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | PostGIS SFCGAL-funktioner|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | PostGIS Tiger-kod och omvänd landskod|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | Spatiala typer och funktioner för PostGIS-topologi|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1,0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1,2             | information om SSL-certifikat|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1,0             |  TABLESAMPLE-metod som accepterar antalet rader som en gräns|
@@ -76,6 +82,8 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > [!div class="mx-tableFixed"]
 > | **Anknytning**| **Tilläggsversion** | **Beskrivning** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Används för att parsa en adress till komponent element. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exempel på adress Standardiserare för data uppsättning|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1,1             | funktioner för att verifiera Relations integritet|
 > |[hinna](https://www.postgresql.org/docs/11/bloom.html)                    | 1,0             | anslutnings metod för blomma – signatur-filbaserat index|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | stöd för indexering av vanliga data typer i GIN|
@@ -105,6 +113,9 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Visa statistik på tuple nivå|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | PL/pgSQL Procedure language|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometri, geografi och raster avstånds typer och funktioner|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS SFCGAL-funktioner|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS Tiger-kod och omvänd landskod|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Spatiala typer och funktioner för PostGIS-topologi|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1,0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1,2             | information om SSL-certifikat|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1,0             | funktioner som ändrar hela tabeller, inklusive kors|
@@ -114,9 +125,21 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > |[UUID – ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1,1             | generera globalt unika identifierare (UUID)|
 
 
+## <a name="dblink-and-postgres_fdw"></a>dbLink och postgres_fdw
+med [dbLink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) och [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) kan du ansluta från en postgresql-server till en annan, eller till en annan databas på samma server. Den sändande servern måste tillåta utgående anslutningar till den mottagande servern. Den mottagande servern måste tillåta anslutningar från den sändande servern.
+
+Vi rekommenderar att du distribuerar dina servrar med [VNet-integrering](concepts-networking.md) om du planerar att använda dessa två tillägg. Som standard möjliggör VNet-integrering anslutningar mellan servrar i VNET. Du kan också välja att använda [VNet-nätverks säkerhets grupper](../../virtual-network/manage-network-security-group.md) för att anpassa åtkomst.
+
+
 ## <a name="pg_prewarm"></a>pg_prewarm
 
 Pg_prewarm-tillägget läser in relations data i cacheminnet. Att förvärma cacheminnet innebär att dina frågor har bättre svars tider vid första körningen efter en omstart. De automatiska för inaktiverade funktionerna är för närvarande inte tillgängliga i Azure Database for PostgreSQL-flexibel Server.
+
+## <a name="pg_stat_statements"></a>pg_stat_statements
+[Pg_stat_statements-tillägget](https://www.postgresql.org/docs/current/pgstatstatements.html) är förinstallerat på varje Azure Database for PostgreSQL flexibel Server för att ge dig ett sätt att spåra körnings statistik över SQL-uttryck.
+Inställningen `pg_stat_statements.track` , som styr vilka instruktioner som räknas av tillägget, är standardvärdet `top` , vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all` . Den här inställningen kan konfigureras som en server parameter.
+
+Det uppstår en kompromiss mellan information om körningen pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på `none` . Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 
 
 ## <a name="next-steps"></a>Nästa steg

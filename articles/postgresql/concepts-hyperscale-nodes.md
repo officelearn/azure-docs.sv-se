@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/28/2019
-ms.openlocfilehash: a02583825f4a1ef15992aa2307e7f666d5abeaba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b3eda2c8de8319552f32938f20ff98af0e0a49fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314835"
 ---
 # <a name="nodes-and-tables-in-azure-database-for-postgresql--hyperscale-citus"></a>Noder och tabeller i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -24,7 +24,7 @@ Den storskaliga (citus) värd typen tillåter Azure Database for PostgreSQL serv
 
 Varje server grupp har en koordinator-nod och flera arbetare. Programmen skickar sina frågor till koordinator-noden, som vidarebefordrar dem till relevanta arbetare och ackumulerar sina resultat. Program kan inte ansluta direkt till arbets tagarna.
 
-Med storskalig (citus) kan databas administratören *distribuera* tabeller och lagra olika rader på olika arbetsnoder. Distribuerade tabeller är nyckeln till storskalig prestanda. Det går inte att distribuera tabeller helt och hållet på koordinator-noden och kan inte dra nytta av parallellitet mellan datorer.
+Med storskalig (citus) kan databas administratören *distribuera* tabeller och lagra olika rader på olika arbetsnoder. Distribuerade tabeller är citus-prestanda (Key to Scale). Det går inte att distribuera tabeller helt och hållet på koordinator-noden och kan inte dra nytta av parallellitet mellan datorer.
 
 För varje fråga i distribuerade tabeller dirigerar koordinatorn antingen den till en enda arbetsnoden, eller parallelizes den över flera beroende på om de data som krävs finns på en enda nod eller flera. Koordinatorn bestämmer vad som ska göras vid konsultering av metadata tabeller. De här tabellerna spårar DNS-namn och hälsa för arbetsnoder och data fördelningen mellan noderna.
 

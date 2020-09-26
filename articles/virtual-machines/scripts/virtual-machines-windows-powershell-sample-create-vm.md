@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell skript exempel – skapa en fullständigt konfigurerad virtuell Windows-dator
-description: Azure PowerShell-skriptexempel – Skapa en virtuell Windows-dator
+description: Azure PowerShell skript exempel – skapa en fullständigt konfigurerad virtuell Windows-dator.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 4f7e638a307a4b76e0bf448160356971cc0e608b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 03d2c7ad65e2c19828c809732efbf684b47de8fd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307049"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Skapa en fullständigt konfigurerad virtuell dator med PowerShell
 
@@ -47,7 +47,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |

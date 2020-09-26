@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d26179ab82f29ce8f937f5b444463c1308d92047
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-js
+ms.openlocfilehash: 24bfbf4199671da497844444a57e566e66eb8c90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308239"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>Självstudie: ansluta en exempel-IoT Plug and Play förhandsgranska flera komponent enhets program för att IoT Hub (Node.js)
 

@@ -5,15 +5,15 @@ description: Lär dig hur du konfigurerar brand Väggs principer för webb progr
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 340b184ac56d4734431b154ec647e5e7af19ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267337"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurera WAF-principer per webbplats med hjälp av Azure PowerShell
 
@@ -25,14 +25,13 @@ Genom att tillämpa WAF-principer på en lyssnare kan du konfigurera WAF-instäl
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en WAF-princip
-> * Skapa en programgateway med WAF aktiverat
-> * Tillämpa WAF-principen globalt, per webbplats och per-URI (för hands version)
-> * Skapa en VM-skalningsuppsättning
-> * Skapa ett lagringskonto och konfigurera diagnostik
-> * Testa programgatewayen
+* Konfigurera nätverket
+* Skapa en WAF-princip
+* Skapa en programgateway med WAF aktiverat
+* Tillämpa WAF-principen globalt, per webbplats och per-URI (för hands version)
+* Skapa en VM-skalningsuppsättning
+* Skapa ett lagringskonto och konfigurera diagnostik
+* Testa programgatewayen
 
 ![Exempel på brandvägg för webbaserade program](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

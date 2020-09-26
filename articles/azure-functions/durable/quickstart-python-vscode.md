@@ -1,16 +1,16 @@
 ---
 title: Skapa din första tåliga funktion i Azure med python
-description: Skapa och publicera en beständig Azure-funktion med hjälp av Visual Studio Code.
+description: Skapa och publicera en Azure-beständig funktion i python med Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: c9ca6d52bd71683344115004ec17a981b03f0a24
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85199218"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294883"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Skapa din första varaktiga funktion i python
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du använder Azure Functions-tillägge
 
 ![Köra beständiga funktioner i Azure](./media/quickstart-python-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -48,12 +48,12 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj ett språk för ditt projekt för Function-appen | Python | Skapa ett lokalt python Functions-projekt. |
     | Välj en version | Azure Functions v3 | Du ser bara det här alternativet när kärn verktygen inte redan har installerats. I det här fallet installeras kärn verktyg första gången du kör appen. |
     | Python-version | Python 3,6, 3,7 eller 3,8 | VS Code kommer att skapa en virtuell miljö med den version du väljer. |
-    | Välj en mall för projektets första funktion | Hoppa över nu | |
+    | Välj en mall för projektets första funktion | Hoppa över så länge | |
     | Välj hur du vill öppna projektet | Öppna i aktuellt fönster | Öppnar VS-kod i den mapp som du har valt. |
 
 Visual Studio Code installerar Azure Functions Core Tools, om det behövs. Det skapar också ett app-projekt i en mapp. Det här projektet innehåller [host.js](../functions-host-json.md) och [local.settings.jsi](../functions-run-local.md#local-settings-file) konfigurationsfiler.
@@ -111,7 +111,7 @@ Du använder en mall för att skapa en hållbar funktions kod i projektet.
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en mall för din funktion | Durable Functions Orchestrator | Skapa ett Durable Functions Orchestration |
     | Ange ett funktions namn | HelloOrchestrator | Namnet på den varaktiga funktionen |
@@ -126,7 +126,7 @@ Sedan lägger du till funktionen refererad `Hello` aktivitet.
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en mall för din funktion | Durable Functions aktivitet | Skapa en aktivitets funktion |
     | Ange ett funktions namn | Hello | Namn på din aktivitets funktion |
@@ -141,11 +141,11 @@ Slutligen lägger du till en HTTP-utlöst funktion som startar dirigeringen.
 
 1. Ange följande information i instruktionerna nedan:
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en mall för din funktion | Durable Functions HTTP-startstarter | Skapa en HTTP-startfunktion |
     | Ange ett funktions namn | DurableFunctionsHttpStart | Namn på din aktivitets funktion |
-    | Auktorisationsnivå | Anonym | I demonstrations syfte tillåter du att funktionen anropas utan autentisering |
+    | Auktoriseringsnivå | Anonym | I demonstrations syfte tillåter du att funktionen anropas utan autentisering |
 
 Du har lagt till en HTTP-utlöst funktion som startar ett dirigering. Öppna *DurableFunctionsHttpStart/ \_ \_ init__. py* för att se att det används `client.start_new` för att starta en ny dirigering. Sedan använder den `client.create_check_status_response` för att returnera ett HTTP-svar som innehåller URL: er som kan användas för att övervaka och hantera den nya dirigeringen.
 
@@ -166,7 +166,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
 1. Följ instruktionerna och ange följande information för att skapa ett nytt lagrings konto i Azure.
 
-    | Uppmaning | Värde | Beskrivning |
+    | Prompt | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en prenumeration | *namnet på din prenumeration* | Välj din Azure-prenumeration |
     | Välj ett lagrings konto | Skapa ett nytt lagringskonto |  |
@@ -213,7 +213,7 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:`http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
 
 2. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. Du bör få samma statussvar som förut när du använder den publicerade appen.
 

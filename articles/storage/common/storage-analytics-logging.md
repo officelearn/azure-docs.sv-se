@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 7010e47dd9272ce620f8e057fbfb36e1fd5b26c9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280036"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage Analytics-loggning
 
@@ -206,7 +206,7 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Log
 
 Mer information om hur du hämtar vissa filer finns i [Hämta vissa filer](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
-När du har hämtat dina loggdata kan du se logg posterna i filerna. Loggfilerna använder ett avgränsat text format som många logg läsnings verktyg kan tolka, inklusive Microsoft Message Analyzer (mer information finns i hand boken [övervakning, diagnostisering och fel sökning Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering och AD söker efter innehållet i dina loggfiler. Mer information om logg fils format och innehåll för lagrings loggning finns i [Lagringsanalys logg format](/rest/api/storageservices/storage-analytics-log-format) och [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+När du har hämtat dina loggdata kan du se logg posterna i filerna. Loggfilerna använder ett avgränsat text format som många logg läsnings verktyg kan parsa (mer information finns i hand boken [övervakning, diagnostisering och fel sökning Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering och AD söker efter innehållet i dina loggfiler. Mer information om logg fils format och innehåll för lagrings loggning finns i [Lagringsanalys logg format](/rest/api/storageservices/storage-analytics-log-format) och [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Nästa steg
 

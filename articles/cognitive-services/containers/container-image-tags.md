@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5d2ff25762f28c19b6d389a779fb455de3c84f3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a24433389e738bf5d0ecb7ecac6bf369c8ba183
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253776"
+ms.locfileid: "91369492"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Avbildnings taggar för Azure Cognitive Services container
 
@@ -1131,22 +1131,22 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | Bildtaggar                                  | Kommentarer                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
-| `1.1.0-amd64-de-de-katjaneural-preview`     | Behållar avbildning med `de-DE` språket och `de-DE-KatjaNeural` rösten.     |
-| `1.1.0-amd64-en-au-natashaneural-preview`   | Behållar avbildning med `en-AU` språket och `en-AU-NatashaNeural` rösten.   |
-| `1.1.0-amd64-en-ca-claraneural-preview`     | Behållar avbildning med `en-CA` språket och `en-CA-ClaraNeural` rösten.     |
-| `1.1.0-amd64-en-gb-libbyneural-preview`     | Behållar avbildning med `en-GB` språket och `en-GB-LibbyNeural` rösten.     |
-| `1.1.0-amd64-en-gb-mianeural-preview`       | Behållar avbildning med `en-GB` språket och `en-GB-MiaNeural` rösten.       |
-| `1.1.0-amd64-en-us-arianeural-preview`      | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
-| `1.1.0-amd64-en-us-guyneural-preview`       | Behållar avbildning med `en-US` språket och `en-US-GuyNeural` rösten.       |
-| `1.1.0-amd64-es-es-elviraneural-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-ElviraNeural` rösten.    |
-| `1.1.0-amd64-es-mx-dalianeural-preview`     | Behållar avbildning med `es-MX` språket och `es-MX-DaliaNeural` rösten.     |
-| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Behållar avbildning med `fr-CA` språket och `fr-CA-SylvieNeural` rösten.    |
-| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Behållar avbildning med `fr-FR` språket och `fr-FR-DeniseNeural` rösten.    |
-| `1.1.0-amd64-it-it-elsaneural-preview`      | Behållar avbildning med `it-IT` språket och `it-IT-ElsaNeural` rösten.      |
-| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Behållar avbildning med `ja-JP` språket och `ja-JP-NanamiNeural` rösten.    |
-| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Behållar avbildning med `ko-KR` språket och `ko-KR-SunHiNeural` rösten.     |
-| `1.1.0-amd64-pt-br-franciscaneural-preview` | Behållar avbildning med `pt-BR` språket och `pt-BR-FranciscaNeural` rösten. |
-| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Behållar avbildning med `zh-CN` språket och `zh-CN-XiaoxiaoNeural` rösten.  |
+| `1.2.0-amd64-de-de-katjaneural-preview`     | Behållar avbildning med `de-DE` språket och `de-DE-KatjaNeural` rösten.     |
+| `1.2.0-amd64-en-au-natashaneural-preview`   | Behållar avbildning med `en-AU` språket och `en-AU-NatashaNeural` rösten.   |
+| `1.2.0-amd64-en-ca-claraneural-preview`     | Behållar avbildning med `en-CA` språket och `en-CA-ClaraNeural` rösten.     |
+| `1.2.0-amd64-en-gb-libbyneural-preview`     | Behållar avbildning med `en-GB` språket och `en-GB-LibbyNeural` rösten.     |
+| `1.2.0-amd64-en-gb-mianeural-preview`       | Behållar avbildning med `en-GB` språket och `en-GB-MiaNeural` rösten.       |
+| `1.2.0-amd64-en-us-arianeural-preview`      | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
+| `1.2.0-amd64-en-us-guyneural-preview`       | Behållar avbildning med `en-US` språket och `en-US-GuyNeural` rösten.       |
+| `1.2.0-amd64-es-es-elviraneural-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-ElviraNeural` rösten.    |
+| `1.2.0-amd64-es-mx-dalianeural-preview`     | Behållar avbildning med `es-MX` språket och `es-MX-DaliaNeural` rösten.     |
+| `1.2.0-amd64-fr-ca-sylvieneural-preview`    | Behållar avbildning med `fr-CA` språket och `fr-CA-SylvieNeural` rösten.    |
+| `1.2.0-amd64-fr-fr-deniseneural-preview`    | Behållar avbildning med `fr-FR` språket och `fr-FR-DeniseNeural` rösten.    |
+| `1.2.0-amd64-it-it-elsaneural-preview`      | Behållar avbildning med `it-IT` språket och `it-IT-ElsaNeural` rösten.      |
+| `1.2.0-amd64-ja-jp-nanamineural-preview`    | Behållar avbildning med `ja-JP` språket och `ja-JP-NanamiNeural` rösten.    |
+| `1.2.0-amd64-ko-kr-sunhineural-preview`     | Behållar avbildning med `ko-KR` språket och `ko-KR-SunHiNeural` rösten.     |
+| `1.2.0-amd64-pt-br-franciscaneural-preview` | Behållar avbildning med `pt-BR` språket och `pt-BR-FranciscaNeural` rösten. |
+| `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Behållar avbildning med `zh-CN` språket och `zh-CN-XiaoxiaoNeural` rösten.  |
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 

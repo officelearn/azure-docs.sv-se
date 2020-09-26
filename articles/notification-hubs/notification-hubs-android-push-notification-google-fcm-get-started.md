@@ -1,6 +1,6 @@
 ---
 title: Skicka push-meddelanden till Android med Azure Notification Hubs och Firebase SDK version 0,6 | Microsoft Docs
-description: I den här självstudien får du lära dig hur du använder Azure Notification Hubs och Google Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter.
+description: I den här självstudien får du lära dig hur du använder Azure Notification Hubs och Google Firebase Cloud Messaging för att skicka push-meddelanden till Android-enheter (version 0,6).
 services: notification-hubs
 documentationcenter: android
 keywords: push-meddelanden, push-meddelande, push-meddelande för android, fcm, firebase cloud messaging
@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 3b32a61dcf8dfe403a44af236afad830472d1b8d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268833"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Självstudie: skicka push-meddelanden till Android-enheter med Firebase SDK version 0,6
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Anslut din app till hubben.
 > * Testa appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/). 
 

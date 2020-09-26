@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4279da10de92bc8bf9cd564eaae02db2fef76a64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942040"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307814"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Skapa och hantera Azure Database for MySQL flexibla Server brand Väggs regler med hjälp av Azure CLI
 
@@ -33,17 +33,17 @@ I den här artikeln fokuserar vi på att skapa MySQL-server med **offentlig åtk
 
 Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också öppna Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Välj **Kopiera** för att kopiera kod blocken, klistra in den i Cloud Shell och välj **RETUR** för att köra den.
 
-Om du föredrar att installera och använda CLI lokalt kräver den här snabb starten Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du föredrar att installera och använda CLI lokalt kräver den här snabb starten Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste logga in på ditt konto med kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) . Observera egenskapen **ID** som refererar till **prenumerations-ID** för ditt Azure-konto.
+Du måste logga in på ditt konto med kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) . Observera egenskapen **ID** som refererar till **prenumerations-ID** för ditt Azure-konto.
 
 ```azurecli-interactive
 az login
 ```
 
-Välj den aktuella prenumerationen under ditt konto med kommandot [AZ Account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) . Anteckna **ID-** värdet från **AZ inloggnings** -utdata som ska användas som värde för argumentet **prenumeration** i kommandot. Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Använd [AZ Account List](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)för att hämta alla prenumerationer.
+Välj den aktuella prenumerationen under ditt konto med kommandot [AZ Account set](https://docs.microsoft.com/cli/azure/account#az-account-set) . Anteckna **ID-** värdet från **AZ inloggnings** -utdata som ska användas som värde för argumentet **prenumeration** i kommandot. Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Använd [AZ Account List](https://docs.microsoft.com/cli/azure/account#az-account-list)för att hämta alla prenumerationer.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 
 Du kan använda `az mysql flexible-server --public access` kommandot för att skapa en flexibel server med *offentlig åtkomst (tillåtna IP-adresser)* och konfigurera brand Väggs reglerna när du skapar en flexibel Server. Du kan använda växeln **--Public-Access** för att tillhandahålla tillåtna IP-adresser som kan ansluta till servern. Du kan ange en eller flera IP-adresser som ska ingå i listan över tillåtna IP-adresser. IP-adressintervall måste vara streck åtskilda och innehåller inga blank steg. Det finns olika alternativ för att skapa en flexibel server med CLI som visas i exemplet nedan.
 
-Läs mer i referens dokumentationen för Azure CLI <!--FIXME --> en fullständig lista över konfigurerbara CLI-parametrar. I nedanstående kommandon kan du till exempel välja resurs gruppen.
+I [referens dokumentationen](/cli/azure/mysql/flexible-server) för Azure CLI hittar du en fullständig lista över KONFIGURERBARa CLI-parametrar. I nedanstående kommandon kan du till exempel välja resurs gruppen.
 
 - Skapa en flexibel server med offentlig åtkomst och Lägg till klientens IP-adress för att få åtkomst till servern
     ```azurecli-interactive
@@ -95,7 +95,7 @@ Kommandon
 - **Visa**: Visa information om en flexibel Server brand Väggs regel.
 - **ta bort**: ta bort en flexibel Server brand Väggs regel.
 
-Läs mer i referens dokumentationen för Azure CLI <!--FIXME --> en fullständig lista över konfigurerbara CLI-parametrar. I nedanstående kommandon kan du till exempel välja resurs gruppen.
+I [referens dokumentationen](/cli/azure/mysql/flexible-server) för Azure CLI hittar du en fullständig lista över KONFIGURERBARa CLI-parametrar. I nedanstående kommandon kan du till exempel välja resurs gruppen.
 
 ### <a name="create-a-firewall-rule"></a>Skapa en brandväggsregel
 Använd `az mysql flexible-server firewall-rule create` kommandot för att skapa en ny brand Väggs regel på servern.

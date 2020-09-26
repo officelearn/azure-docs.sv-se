@@ -1,18 +1,18 @@
 ---
 title: Samordna virtuella Linux-datorer
-description: Lär dig mer om hur samplaceringen av Azure VM-resurser kan förbättra svars tiden.
+description: Läs mer om hur samplacerade Azure VM-resurser för Linux kan förbättra svars tiden.
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 000c8c8955314060ae9bdedb96b086a509fb3e96
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6bf01f4da6ce96b413c87b81c14a998603cebd6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279731"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Samplacera resurser för förbättrad svars tid
+# <a name="co-locate-resources-for-improved-latency"></a>Samplacera resurser för förbättrad svarstid
 
 När du distribuerar ditt program i Azure skapar spridnings instanser över regioner eller tillgänglighets zoner nätverks fördröjning, vilket kan påverka programmets övergripande prestanda. 
 

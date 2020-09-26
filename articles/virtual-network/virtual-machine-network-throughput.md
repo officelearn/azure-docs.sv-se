@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 4fed883c8fa92df77af432e1e4a4b3acca72a0d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361321"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Nätverks bandbredd för virtuell dator
 
@@ -64,7 +64,7 @@ Idag stöder Azure Networking stack 250 000 totala nätverks flöden med höga p
 
 Mått är tillgängliga i [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) för att spåra antalet nätverks flöden och takten för skapande av flödet på den virtuella datorn eller VMSS-instanser.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Skärm bild som visar sidan mått för Azure Monitor med ett linje diagram och summor för inkommande och utgående flöden.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 Etablerings takten och termins taxan för anslutning kan också påverka nätverks prestanda som upprättande av anslutningar och avsluta delar CPU med paket bearbetnings rutiner. Vi rekommenderar att du benchmark-arbetsbelastningar mot förväntade trafik mönster och skalar ut arbets belastningar på lämpligt sätt för att matcha dina prestanda behov. 
 

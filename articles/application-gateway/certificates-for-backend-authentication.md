@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 64f2abd2a42fb15b994803a48b97679ee8927233
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362720"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Skapa certifikat för att tillåta Server delen med Azure Application Gateway
 
@@ -25,7 +25,7 @@ I den här artikeln kan du se hur du:
 - Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)
 - Exportera ett betrott rot certifikat från ett Server dels certifikat (för v2-SKU)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett befintligt Server dels certifikat krävs för att generera de autentiseringscertifikat eller betrodda rot certifikat som krävs för att tillåta Server dels instanser med Application Gateway. Server dels certifikatet kan vara detsamma som TLS/SSL-certifikatet eller ett annat för ytterligare säkerhet. Application Gateway ger dig ingen mekanism för att skapa eller köpa ett TLS/SSL-certifikat. I test syfte kan du skapa ett självsignerat certifikat men du bör inte använda det för produktions arbets belastningar. 
 
@@ -37,7 +37,7 @@ Exportera filen offentlig Key. cer från TLS/SSL-certifikatet (inte den privata 
 
 1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**. Leta upp certifikatet, vanligt vis i "certificates-Current User\Personal\Certificates" och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas. Om du inte kan hitta certifikatet under aktuell User\Personal\Certificates, kan du av misstag ha öppnat "certifikat-lokal dator" i stället för "certifikat – aktuell användare"). Om du vill öppna certifikat hanteraren i aktuell användar omfattning med PowerShell skriver du *certmgr* i konsol fönstret.
 
-   ![Exportera](./media/certificates-for-backend-authentication/export.png)
+   ![Skärm bild som visar certifikat hanteraren med certifikat som valts och en snabb meny med alla aktiviteter och sedan Exportera markerade.](./media/certificates-for-backend-authentication/export.png)
 
 2. Klicka på **Nästa** i guiden.
 
@@ -53,19 +53,19 @@ Exportera filen offentlig Key. cer från TLS/SSL-certifikatet (inte den privata 
 
 5. För **fil som ska exporteras** **bläddrar** du till den plats som du vill exportera certifikatet till. För **Filnamn** anger du ett namn för certifikatfilen. Klicka sedan på **Nästa**.
 
-   ![Bläddra](./media/certificates-for-backend-authentication/browse.png)
+   ![Skärm bild som visar guiden Exportera certifikat där du anger en fil som ska exporteras.](./media/certificates-for-backend-authentication/browse.png)
 
 6. Klicka på **Slutför** för att exportera certifikatet.
 
-   ![Slutför](./media/certificates-for-backend-authentication/finish.png)
+   ![Skärm bild som visar guiden Exportera certifikat när du har slutfört fil exporten.](./media/certificates-for-backend-authentication/finish.png)
 
 7. Ditt certifikat har exporter ATS.
 
-   ![Klart](./media/certificates-for-backend-authentication/success.png)
+   ![Skärm bild som visar guiden Exportera certifikat med ett meddelande som visar att meddelandet lyckades.](./media/certificates-for-backend-authentication/success.png)
 
    Det exporterade certifikatet ser ut ungefär så här:
 
-   ![Exporterar](./media/certificates-for-backend-authentication/exported.png)
+   ![Skärm bild som visar en certifikat symbol.](./media/certificates-for-backend-authentication/exported.png)
 
 8. Om du öppnar det exporterade certifikatet med hjälp av anteckningar ser du något som liknar det här exemplet. Avsnittet i blått innehåller den information som överförs till Application Gateway. Om du öppnar ditt certifikat med anteckningar och det inte ser ut ungefär så här betyder det vanligt vis att du inte exporterade det med hjälp av Base-64-kodad X. 509 (. CER-format. Dessutom, om du vill använda en annan text redigerare, vet du att vissa redigerare kan introducera oavsiktlig formatering i bakgrunden. Detta kan skapa problem när du överför texten från det här certifikatet till Azure.
 

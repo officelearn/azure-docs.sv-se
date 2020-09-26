@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362679"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Komma igång med Azure Maps Power BI visuella objektet
 
-<Token>**gäller för:** ![ Ja ](media/power-bi-visual/yes.png) Power BI-tjänst för ***konsumenter*** ![ ja ](media/power-bi-visual/yes.png) Power BI-tjänst för designers & utvecklare ![ Ja ](media/power-bi-visual/yes.png) Power BI Desktop ![ no ](media/power-bi-visual/no.png) kräver Pro eller Premium-licens</Token>
+<Token>**gäller för:** ![ Grön bock markering. ](media/power-bi-visual/yes.png) Power BI-tjänst för ***konsumenter*** ![ grön bock markering. ](media/power-bi-visual/yes.png) Power BI-tjänst för designers & utvecklare ![ grön bock markering. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X som anger Nej. ](media/power-bi-visual/no.png) Kräver Pro-eller Premium-licens </Token>
 
 Den här artikeln visar hur du använder Microsoft Azure Maps-visualisering för Power BI.
 
@@ -133,9 +133,9 @@ Det Azure Maps visuella objektet är tillgängligt i följande tjänster och pro
 | Power BI Desktop                         | Ja          |
 | Power BI-tjänsten (app.powerbi.com)       | Ja          |
 | Power BI Mobile-appar             | Ja          |
-| Power BI Publicera på webben                  | Inga           |
+| Power BI Publicera på webben                  | Nej           |
 | Power BI Embedded                        | Nej           |
-| Power BI-tjänstinbäddning (PowerBI.com) | Ja          |
+| Power BI-tjänstinbäddning (PowerBI.com) | Yes          |
 
 Stöd för ytterligare Power BI tjänster/appar kommer att läggas till i framtida uppdateringar.
 

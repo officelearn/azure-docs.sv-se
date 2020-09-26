@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8391202e991c240b03bd79b947c1c3c6dcc9afd7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659353"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362545"
 ---
 # <a name="configure-rules"></a>Konfigurera regler
 
@@ -33,7 +33,7 @@ Villkoren är vilka regler som utlöses på. När du lägger till flera villkor 
 
 I följande skärm bild kontrollerar villkoren när temperaturen är större än 70 &deg; F och att fuktigheten är mindre än 10. När båda dessa instruktioner är uppfyllda utvärderas regeln till sant och utlöser en åtgärd.
 
-![Villkor](media/howto-configure-rules/conditions.png)
+![Skärm bild som visar en kyl skåps övervakare med villkor som anges för temperatur och fuktighet.](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>Använd en moln egenskap i ett värde fält
 

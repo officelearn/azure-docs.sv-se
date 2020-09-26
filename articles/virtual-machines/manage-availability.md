@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4dc3e128ac1c611a8527c3044bfac566edc24c74
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe89b58f71b14b211863fd46ba523e8c866764f1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91346953"
+ms.locfileid: "91361797"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Hantera tillgängligheten för virtuella Linux-datorer
 
@@ -36,7 +36,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 
 * Använd Availabiilty-zoner för att skydda från data Center problem
 * Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans
-* Använd Managed disks för virtuella datorer i en tillgänglighets uppsättning]
+* Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning
 * Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer
 * Konfigurera varje programnivå i separata tillgänglighetsuppsättningar
 * Kombinera en belastningsutjämnare med tillgänglighets zoner eller uppsättningar

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 8917343175dd5ed8f82c1929683de98034323163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8548e6c4c3e2b31d9fb16273bcc441ca38127831
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321925"
+ms.locfileid: "91361831"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Självstudie: Konfigurera PureCloud av gener för automatisk användar etablering
 
@@ -88,7 +88,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** måste du skriva in din PureCloud av generad API-URL och OAuth-token i fälten för **klient-URL** och **hemlig token** . API-URL: en är strukturerad som `{{API Url}}/api/v2/scim/v2` med hjälp av API-URL: en för din PureCloud-region från [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till PureCloud av gener. Om anslutningen Miss lyckas kontrollerar du att PureCloud-kontot har administratörs behörighet och försöker igen.
 
-    ![etablerings](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

@@ -1,6 +1,6 @@
 ---
 title: Kopiera en tabell stegvis med Azure Portal
-description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
+description: I den här självstudien skapar du en Azure Data Factory med en pipeline som läser in delta data från en tabell i Azure SQL Database till Azure Blob Storage.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86082666"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320922"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage med hjälp av Azure Portal
 
@@ -349,7 +349,7 @@ PersonID | Name | LastModifytime
 
 ## <a name="trigger-another-pipeline-run"></a>Utlös ytterligare en pipelinekörning
 
-1. Växla till fliken **redigera** . Klicka på pipelinen i trädvyn om den inte är öppen i designern.
+1. Växla till fliken **Redigera** . Klicka på pipelinen i trädvyn om den inte är öppen i designern.
 
 2. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**.
 

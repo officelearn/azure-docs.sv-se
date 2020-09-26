@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 8033e64924b5faa1cfdc9c04cdd8711850185dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333026"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Data Sync-agent för SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,7 +48,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 Om du vill konfigurera DataSync-agenten så att du kan synkronisera data med en eller flera SQL Server-databaser, se [lägga till en SQL Server-databas](sql-data-sync-sql-server-configure.md#add-on-prem).
 
-## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a>Vanliga frågor och svar om Data Sync-agent
+## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a> Vanliga frågor och svar om Data Sync-agent
 
 ### <a name="why-do-i-need-a-client-agent"></a>Varför behöver jag en klient agent
 
@@ -80,7 +80,7 @@ Om du vill köra den lokala agenten från en annan dator än den för närvarand
 4. Vänta medan klient agenten laddar ned listan över lokala databaser som har registrerats tidigare.
 5. Ange autentiseringsuppgifter för databasen för alla databaser som visas som oåtkomliga. Dessa databaser måste kunna kontaktas från den nya dator där agenten är installerad.
 
-## <a name="troubleshoot-data-sync-agent-issues"></a><a name="agent-tshoot"></a>Felsöka problem med Data Sync-agenten
+## <a name="troubleshoot-data-sync-agent-issues"></a><a name="agent-tshoot"></a> Felsöka problem med Data Sync-agenten
 
 - [Installationen, avinstallationen eller reparationen av klient agenten Miss lyckas](#agent-install)
 
@@ -96,18 +96,18 @@ Om du vill köra den lokala agenten från en annan dator än den för närvarand
 
 - [Den lokala Sync-appen kan inte ansluta till den lokala synkroniseringstjänsten](#agent-connect)
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>Installationen, avinstallationen eller reparationen av klient agenten Miss lyckas
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a> Installationen, avinstallationen eller reparationen av klient agenten Miss lyckas
 
 - **Orsak**. Många scenarier kan orsaka detta fel. Ta reda på orsaken till felet genom att titta på loggarna.
 
 - **Lösning**. Om du vill hitta den speciella orsaken till felet genererar du och tittar på Windows Installer loggar. Du kan aktivera loggning vid en kommando tolk. Om den nedladdade installations filen t. ex. `SQLDataSyncAgent-2.0-x86-ENU.msi` genererar och undersöker loggfiler med hjälp av följande kommando rader:
 
-  - För-installationer:`msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-  - För avinstallationer:`msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - För-installationer: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - För avinstallationer: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Du kan också aktivera loggning för alla installationer som utförs av Windows Installer. I Microsoft Knowledge Base-artikeln [så här aktiverar du Windows Installer loggning](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) ger en lösning med ett klick för att aktivera loggning för Windows Installer. Den innehåller också platsen för loggarna.
 
-### <a name="the-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a><a name="agent-uninstall"></a>Klient agenten fungerar inte när jag avbryter avinstallationen
+### <a name="the-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a><a name="agent-uninstall"></a> Klient agenten fungerar inte när jag avbryter avinstallationen
 
 Klient agenten fungerar inte, även när du har avbrutit avinstallationen.
 
@@ -118,7 +118,7 @@ Klient agenten fungerar inte, även när du har avbrutit avinstallationen.
     -   Använd Services. msc för att ange autentiseringsuppgifterna för klient agenten igen.
     -   Avinstallera den här klient agenten och installera sedan en ny. Hämta och installera den senaste klient agenten från [Download Center](https://www.microsoft.com/download/details.aspx?id=27693).
 
-### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a>Min databas visas inte i agent listan
+### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a> Min databas visas inte i agent listan
 
 När du försöker lägga till en befintlig SQL Server-databas i en Sync-grupp visas inte databasen i listan över agenter.
 
@@ -137,7 +137,7 @@ Dessa scenarier kan orsaka det här problemet:
 
     Den lokala agenten hämtar bara listan över associerade databaser när Agent nyckeln först skickas. Det går inte att hämta listan över associerade databaser för efterföljande agent nyckels under sändningar. Databaser som registreras under en agent flyttning visas inte i den ursprungliga agent instansen.
 
-### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a>Klient agenten startar inte (fel 1069)
+### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a> Klient agenten startar inte (fel 1069)
 
 Du upptäcker att agenten inte körs på en dator som är värd för SQL Server. När du försöker starta agenten manuellt visas en dialog ruta som visar meddelandet "fel 1069: tjänsten startades inte på grund av ett inloggnings fel."
 
@@ -161,7 +161,7 @@ Du upptäcker att agenten inte körs på en dator som är värd för SQL Server.
   1. I fönstret **tjänster** högerklickar du på tjänsten **SQL Data Sync agent** och klickar sedan på **Starta**.
   1. Stäng fönstret **tjänster** .
 
-### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a>Jag kan inte skicka Agent nyckeln
+### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a> Jag kan inte skicka Agent nyckeln
 
 När du har skapat eller återskapat en nyckel för en agent försöker du skicka nyckeln via SqlAzureDataSyncAgent-programmet. Det gick inte att slutföra överföringen.
 
@@ -197,7 +197,7 @@ När du har skapat eller återskapat en nyckel för en agent försöker du skick
   1. Välj **OK**.
   1. Stäng programmet.
 
-### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a>Det går inte att ta bort klient agenten från portalen om den associerade lokala databasen inte kan kontaktas
+### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a> Det går inte att ta bort klient agenten från portalen om den associerade lokala databasen inte kan kontaktas
 
 Om en lokal slut punkt (dvs. en databas) som har registrerats med en SQL Data Sync klient agent blir otillgänglig kan klient agenten inte tas bort.
 
@@ -208,7 +208,7 @@ Om en lokal slut punkt (dvs. en databas) som har registrerats med en SQL Data Sy
 > [!NOTE]
 > Om Sync metadata-tabeller är kvar efter en "tvångs borttagning" använder `deprovisioningutil.exe` du för att rensa dem.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>Den lokala Sync-appen kan inte ansluta till den lokala synkroniseringstjänsten
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a> Den lokala Sync-appen kan inte ansluta till den lokala synkroniseringstjänsten
 
 - **Lösning**. Prova följande steg:
 

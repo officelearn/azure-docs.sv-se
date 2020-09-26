@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 060bb9dcdd504846c76ab4c782b2857fdddfa394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354810"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion i Service Fabric för att dynamiskt skala dina tjänster baserat på den belastning som tjänsterna rapporterar, eller baserat på deras användning av resurser. Automatisk skalning ger bra elastiskhet och möjliggör etablering av ytterligare instanser eller partitioner för din tjänst på begäran. Hela processen för automatisk skalning automatiseras och är transparent, och när du har konfigurerat dina principer på en tjänst behöver du inte heller manuella skalnings åtgärder på service nivå. Automatisk skalning kan aktive ras antingen när tjänsten skapas, eller när som helst genom att uppdatera tjänsten.
@@ -51,7 +51,7 @@ Den enda mekanismen som kan användas med den här utlösaren är PartitionInsta
 * _Maximalt antal instanser_ definierar den övre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kommer tjänsten inte att skalas ut, oavsett belastningen. Det går att utelämna denna gräns genom att ange värdet-1 och i så fall kommer tjänsten att skalas ut så mycket som möjligt (gränsen är antalet noder som är tillgängliga i klustret).
 * _Lägsta instans antal_ definierar den nedre gränsen för skalning. Om antalet instanser av partitionen når den här gränsen kommer tjänsten inte att skalas i oberoende av belastningen.
 
-## <a name="setting-auto-scaling-policy"></a>Ange princip för automatisk skalning
+## <a name="setting-auto-scaling-policy-for-instance-based-scaling"></a>Ange princip för automatisk skalning för instans baserad skalning
 
 ### <a name="using-application-manifest"></a>Använda applikations manifest
 ``` xml
@@ -133,7 +133,7 @@ Samma som med en mekanism som använder skalning genom att lägga till eller ta 
 > [!WARNING] 
 > När AddRemoveIncrementalNamedPartitionScalingMechanism används med tillstånds känsliga tjänster, kommer Service Fabric att lägga till eller ta bort partitioner **utan meddelande eller varning**. Ompartitionering av data utförs inte när skalnings metoden utlöses. I händelse av en skalbar åtgärd är nya partitioner tomma och i händelse av skalning i drift, tas **partitionen bort tillsammans med alla data som den innehåller**.
 
-## <a name="setting-auto-scaling-policy"></a>Ange princip för automatisk skalning
+## <a name="setting-auto-scaling-policy-for-partition-based-scaling"></a>Ange princip för automatisk skalning för partition baserad skalning
 
 ### <a name="using-application-manifest"></a>Använda applikations manifest
 ``` xml

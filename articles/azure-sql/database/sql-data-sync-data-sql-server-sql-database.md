@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080702"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332972"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -115,7 +115,7 @@ Data Sync använder INSERT-, Update-och Delete-utlösare för att spåra ändrin
 
 Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan också påverka databasens prestanda.
 
-## <a name="requirements-and-limitations"></a><a name="sync-req-lim"></a>Krav och begränsningar
+## <a name="requirements-and-limitations"></a><a name="sync-req-lim"></a> Krav och begränsningar
 
 ### <a name="general-requirements"></a>Allmänna krav
 
@@ -149,7 +149,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 
 #### <a name="unsupported-column-types"></a>Kolumn typer som inte stöds
 
-Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Till exempel:
+Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Exempel:
 
 - Beräknade kolumner.
 - Systemgenererade kolumner för temporala tabeller.
@@ -250,7 +250,7 @@ Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar
 - [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](../../sql-database/sql-database-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Övervaka och felsöka
+### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 

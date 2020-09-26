@@ -1,6 +1,6 @@
 ---
 title: Linux-tillägg för VM-ögonblicksbild för Azure Backup
-description: Ta tillämpnings programmets konsekventa säkerhets kopiering av den virtuella datorn från Azure Backup med tillägget för ögonblicks bild
+description: Ta programkonsekvent säkerhets kopiering av den virtuella datorn från Azure Backup med hjälp av Linux-tillägget för VM-ögonblicksbild.
 services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhkotturu
@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: d0ad54c19749d670f9ab753e1e6d8eb130475ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe50388e2fc21c28ca1f04035cc7c725e4f87ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79415126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275055"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Linux-tillägg för VM-ögonblicksbild för Azure Backup
 
@@ -25,7 +25,7 @@ Azure Backup ger stöd för säkerhets kopiering av arbets belastningar från lo
 
 VMSnapshot-tillägget visas endast i Azure Portal för icke-hanterade virtuella datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 En lista över operativ system som stöds finns i [operativ system som stöds av Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -64,7 +64,7 @@ Följande JSON visar schemat för ögonblicks bilds tillägget för den virtuell
 
 | Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | sträng |
 | commandStartTimeUTCTicks | 6.36458 e + 17 | sträng |
 | locale | sv-se | sträng |
@@ -93,7 +93,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

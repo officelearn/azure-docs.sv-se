@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/29/2019
-ms.openlocfilehash: 81e3547dbd86c840baed8e044a84afd3b63f5be5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321602"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Spara kostnader för resurser med reserverad kapacitet – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -58,7 +58,7 @@ Anta till exempel att du kör ett allmänt syfte, Gen5 – 16 vCore elastisk poo
     |Distributions typ|Den SQL-resurs typ som du vill köpa reservationen för.|
     |Prestanda nivå|Tjänst nivån för databaserna eller hanterade instanser. |
     |Term        |Ett år eller tre år.|
-    |Kvantitet    |Mängden data bearbetnings resurser som köps i kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra flera databaser med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, anger du kvantiteten som 16 för att maximera förmånen för alla databaser. |
+    |Quantity    |Mängden data bearbetnings resurser som köps i kapacitets reservationen. Antalet är ett antal virtuella kärnor i den valda Azure-regionen och prestanda nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra flera databaser med den totala beräknings kapaciteten för Gen5 16 virtuella kärnor i regionen USA, östra, anger du kvantiteten som 16 för att maximera förmånen för alla databaser. |
 
 1. Granska kostnaden för kapacitets reservationen i avsnittet **kostnader** .
 1. Välj **Köp**.

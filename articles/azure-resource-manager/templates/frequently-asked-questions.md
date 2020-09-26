@@ -2,15 +2,15 @@
 title: ARM-mall vanliga frågor och svar
 description: Vanliga frågor och svar om Azure Resource Manager mallar.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333128"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Vanliga frågor om ARM-mallar
 
@@ -88,7 +88,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 * **Jag har hört att du arbetar med ett nytt språk för mallar. Var hittar jag mer information?**
 
-  Om du vill veta mer om det nya mall språket registrerar du dig [för meddelanden](https://aka.ms/armLangUpdates).
+  För att förhandsgranska det nya språket, se [projekt bicep-lagringsplatsen](https://github.com/Azure/bicep). [Registrera dig för meddelanden för](https://aka.ms/armLangUpdates)att hålla dig informerad om det nya språket.
 
 * **Finns det någon plan för att stödja att skapa mallar i YAML?**
 
@@ -118,7 +118,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 * **Kan mall-specifikationer delas mellan prenumerationer?**
 
-  Ja, de kan användas över prenumerationer så länge användaren har Läs behörighet till specifikationen mall. det går inte att använda mall-specifikationer mellan klienter.
+  Ja, de kan användas över prenumerationer så länge användaren har Läs behörighet till specifikationen för mallen. Det går inte att använda mall-specifikationer mellan klienter.
 
 ## <a name="scripts-in-templates"></a>Skript i mallar
 
@@ -154,7 +154,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 * **När jag använder vad som händer, ser jag ändringar i egenskaper som inte finns i min mall. Förväntas "brus"?**
 
-  Vad-om är en för hands version. Vi arbetar på att minska bruset. Du hjälper oss att förbättra genom att skicka in problem i vår GitHub-lagrings platsen här:https://aka.ms/WhatIfIssues
+  Vad-om är en för hands version. Vi arbetar på att minska bruset. Du hjälper oss att förbättra genom att skicka in problem i vår GitHub-lagrings platsen här: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Mall-visualiserare
 

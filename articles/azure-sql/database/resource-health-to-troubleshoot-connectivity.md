@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8be537fd28adce45b7fc106cc3798688ee4c54ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321585"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Använd Resource Health för att felsöka anslutningar för Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,11 +35,11 @@ Resource Health fastställer hälso tillståndet för din SQL-resurs genom att u
 
 Statusen **tillgänglig** innebär att Resource Health inte har identifierat inloggnings fel på grund av systemfel på SQL-resursen.
 
-![Tillgänglig](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-available.jpg)
+![Tillgängligt](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-available.jpg)
 
 ### <a name="degraded"></a>Degraderad
 
-Statusen **försämrad** innebär att Resource Health har identifierat en majoritet av lyckade inloggningar, men vissa fel. Detta är de flesta sannolika tillfälliga inloggnings fel. För att minska effekten av anslutnings problem som orsakas av tillfälliga inloggnings fel, implementera [logik för omförsök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) i koden.
+Statusen **Degraderad** innebär att Resource Health har identifierat mestadels lyckade inloggningar, men också några misslyckade. Detta är de flesta sannolika tillfälliga inloggnings fel. För att minska effekten av anslutnings problem som orsakas av tillfälliga inloggnings fel, implementera [logik för omförsök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) i koden.
 
 ![Degraderad](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 
@@ -47,7 +47,7 @@ Statusen **försämrad** innebär att Resource Health har identifierat en majori
 
 Statusen **otillgänglig** innebär att Resource Health har identifierat konsekventa inloggnings försök till din SQL-resurs. Kontakta supporten om resursen är i detta tillstånd under en längre tid.
 
-![Inte tillgänglig](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
+![Ej tillgänglig](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
 ### <a name="unknown"></a>Okänt
 

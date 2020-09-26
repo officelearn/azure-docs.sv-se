@@ -4,13 +4,13 @@ description: Lär dig mer om de steg som krävs för att uppgradera din Azure Mo
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: caaf5469eace891f2996a565af183b411ad1d740
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333349"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrera till arbets ytans baserade Application Insights resurser
 
@@ -34,12 +34,11 @@ Med arbets ytans baserade Application Insights kan du dra nytta av alla de senas
 
 När du migrerar till en arbets yta-baserad resurs överförs inga data från den klassiska resursens lagring till den nya arbets ytan-baserade lagringen. Om du väljer att migrera kommer i stället att ändra den plats där nya data skrivs till en Log Analytics-arbetsyta samtidigt som åtkomsten till dina klassiska resurs data bevaras. 
 
-Dina klassiska resurs data behålls och omfattas av inställningarna för kvarhållning vid den tidpunkt då den skrevs in. Alla nya data inmatnings flyttning kommer att omfattas av inställningarna för kvarhållning av den associerade Log Analytics-arbetsytan. 
-
+Dina klassiska resurs data behålls och omfattas av inställningarna för kvarhållning på den klassiska Application Insights-resursen. Alla nya data inmatnings flyttning kommer att omfattas av [inställningarna för kvarhållning](../platform/manage-cost-storage.md#change-the-data-retention-period) av den associerade Log Analytics-arbetsytan, som också har stöd för [olika bevarande inställningar efter datatyp](../platform/manage-cost-storage.md#retention-by-data-type).
 Migreringsprocessen är **permanent och kan inte ångras**. När du migrerar en resurs till arbets ytans baserade Application Insights är det alltid en arbets ytans-baserade resurs. När du migrerar kan du dock ändra mål arbets ytan så ofta som det behövs. 
 
 > [!NOTE]
-> Data inmatning och kvarhållning för arbets ytans baserade Application Insights resurser faktureras via arbets ytan Log Analytics där data finns. [Läs mer]( ./pricing.md#workspace-based-application-insights) om fakturering för arbets ytans baserade Application Insights-resurser. (De klassiska Application Insightsde resurs data som inmatats innan migreringen fortsätter att falla under Application Insights kvarhållning/prissättning under den tid som data behålls.) 
+> Data inmatning och kvarhållning för arbets ytans baserade Application Insights resurser [faktureras via arbets ytan Log Analytics](../platform/manage-cost-storage.md) där data finns. Om du har valt data kvarhållning som är större än 90 dagar på data som matas in i den klassiska Application Insights-resursen före migreringen, kommer datakvarhållning fortsätta att debiteras genom den Application Insights resursen. [Läs mer]( ./pricing.md#workspace-based-application-insights) om fakturering för arbets ytans baserade Application Insights-resurser.
 
 Om du inte behöver migrera en befintlig resurs och istället vill skapa en ny arbets yta-baserad Application Insights resurs använder du [guiden skapa arbets yta](create-workspace-resource.md).
 

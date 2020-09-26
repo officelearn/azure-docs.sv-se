@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: e6763633ce27c537f1384e8e51020d44132c0377
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 49fb77b4efbbecb306a0650cb17097b43e5153ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309157"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Modell version i API för textanalys
 
@@ -44,7 +44,8 @@ Du hittar information om uppdateringarna för de här modellerna i [Vad är nytt
 
 | Slutpunkt                        | Etikett för container avbildning                     | Modell version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`               | `1.1.013150001-amd64-preview` eller senaste | `2020-07-24`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview` eller senaste          | `2020-09-03`  |
+| `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
@@ -53,5 +54,5 @@ Du hittar information om uppdateringarna för de här modellerna i [Vad är nytt
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över Textanalys](../overview.md)
-* [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Igenkänning av enhet](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)

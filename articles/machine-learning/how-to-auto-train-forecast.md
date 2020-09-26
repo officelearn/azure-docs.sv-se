@@ -10,27 +10,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 982c7a41f1e05c34ddf0fbae9f944df4a4d08fa5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296781"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
 
 I den här artikeln får du lära dig hur du konfigurerar och tränar en uppskattnings Regressions modell i Time-serien med hjälp av automatisk maskin inlärning, AutoML, i [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
+Det gör du på följande sätt: 
+
+> [!div class="checklist"]
+> * Förbereda data för tids serie modellering.
+> * Konfigurera vissa parametrar för tids serier i ett [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objekt.
+> * Köra förutsägelser med Time Series-data.
+
 En låg kod upplevelse finns i [självstudien: prognostisera efter frågan med automatiserad maskin inlärning](tutorial-automated-ml-forecast.md) för ett exempel på en uppskattning av tids serier med hjälp av automatisk maskin inlärning i [Azure Machine Learning Studio](https://ml.azure.com/).
 
 Till skillnad från klassiska Time Series-metoder i automatiserade ML, är tidigare tids serie värden "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. Den här metoden omfattar flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. Eftersom flera faktorer kan påverka en prognos justeras den här metoden korrekt med verkliga prognos scenarier. Till exempel, när försäljnings prognoser används, interaktioner över historiska trender, utbytes pris och pris alla gemensamt styr försäljnings resultatet. 
-
-I följande exempel visas hur du:
-
-* Förbereda data för tids serie modellering
-* Konfigurera angivna parametrar för tids serier i ett [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objekt
-* Köra förutsägelser med Time Series-data
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -118,52 +119,20 @@ automl_config = AutoMLConfig(task='forecasting',
 Lär dig mer om hur AutoML använder kors validering för att [förhindra överanpassning av modeller](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Konfigurationen för en prognos modell liknar installationen av en standard Regressions modell, men vissa funktionalisering-steg och konfigurations alternativ finns specifikt för Time Series-data. 
 
-### <a name="featurization-steps"></a>Funktionalisering-steg
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Konfigurationen för en prognos modell liknar installationen av en standard Regressions modell, men vissa modeller, konfigurations alternativ och funktionalisering-steg finns specifikt för Time-seriens data. 
 
-I varje automatiserad maskin inlärnings experiment tillämpas automatiska skalnings-och normaliserings metoder på dina data som standard. Dessa metoder är typer av **funktionalisering** som hjälper *vissa* algoritmer som är känsliga för funktioner i olika skalor. Lär dig mer om standard stegen i funktionalisering i [funktionalisering i AutoML](how-to-configure-auto-features.md#automatic-featurization)
+### <a name="supported-models"></a>Modeller som stöds
+Automatisk maskin inlärning försöker automatiskt med olika modeller och algoritmer som en del av processen för att skapa och justera modeller. Som användare behöver du inte ange algoritmen. För prognostisering av experiment är både interna Time-Series-och djup inlärnings modeller en del av rekommendations systemet. I följande tabell sammanfattas den här del mängden av modeller. 
 
-Följande steg utförs dock bara för `forecasting` aktivitets typer:
+>[!Tip]
+> Traditionella Regressions modeller testas också som en del av rekommendations systemet för att förutse experiment. Se [tabellen modell som stöds](how-to-configure-auto-train.md#supported-models) för den fullständiga listan över modeller. 
 
-* Identifiera exempel frekvensen för tids serier (till exempel varje timme, varje dag, varje vecka) och skapa nya poster för frånvaro tids punkter för att göra serien kontinuerlig.
-* Ange värden som saknas i målet (via Forward-Fill) och funktions kolumner (med kolumn värden i median)
-* Skapa funktioner baserade på Time Series-identifierare för att aktivera fasta effekter i olika serier
-* Skapa tidsbaserade funktioner för att hjälpa till med utbildnings säsongs mönster
-* Koda kategoriska-variabler till numeriska kvantiteter
-
-För att få en översikt över vilka funktioner som skapas som ett resultat av de här stegen, se [funktionalisering Transparency](how-to-configure-auto-features.md#featurization-transparency)
-
-> [!NOTE]
-> Automatiserade funktionalisering-steg för Machine Learning (funktions normalisering, hantering av data som saknas, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma funktionalisering-steg som tillämpades under träningen på dina indata automatiskt.
-
-#### <a name="customize-featurization"></a>Anpassa funktionalisering
-
-Du kan också välja att anpassa dina funktionalisering-inställningar för att säkerställa att de data och funktioner som används för att träna din ML-modell leder till relevanta förutsägelser. 
-
-Anpassningar som stöds för `forecasting` uppgifter är:
-
-|Anpassning|Definition|
-|--|--|
-|**Uppdatering av kolumn syfte**|Åsidosätt den automatiska identifierade funktions typen för den angivna kolumnen.|
-|**Transformering av parameter uppdatering** |Uppdatera parametrarna för den angivna transformeraren. Stöder för närvarande *imputerade* (fill_value och median).|
-|**Släpp kolumner** |Anger kolumner som ska släppas från att bearbetas.|
-
-Om du vill anpassa featurizations med SDK anger du `"featurization": FeaturizationConfig` i- `AutoMLConfig` objektet. Läs mer om [anpassade featurizations](how-to-configure-auto-features.md#customize-featurization).
-
-```python
-featurization_config = FeaturizationConfig()
-# `logQuantity` is a leaky feature, so we remove it.
-featurization_config.drop_columns = ['logQuantitity']
-# Force the CPWVOL5 feature to be of numeric type.
-featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
-# Fill missing values in the target column, Quantity, with zeroes.
-featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
-# Fill mising values in the `INCOME` column with median value.
-featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
-```
-
-Om du använder Azure Machine Learning Studio för experimentet läser du så [här anpassar du funktionalisering i Studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Modeller| Description | Fördelar
+----|----|---
+Prophet (för hands version)|Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Om du vill utnyttja den här modellen installerar du den lokalt med `pip install fbprophet` . | Korrekt & snabb, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie.
+Auto-ARIMA (för hands version)|Autoregressiva Integrated glidande medelvärde (ARIMA) fungerar bäst när data är Station ära. Det innebär att dess statistiska egenskaper, t. ex. medelvärdet och var Ian sen är konstant över hela uppsättningen. Om du till exempel vänder en mynt är sannolikheten för att du får 50%, oavsett om du vänder idag, imorgon eller nästa år.| Perfekt för univariate-serien, eftersom de tidigare värdena används för att förutsäga framtida värden.
+ForecastTCN (för hands version)| ForecastTCN är en neurala-nätverks modell som är utformad för att ta itu med de mest krävande prognos uppgifterna, vilket fångar icke-linjära lokala och globala trender i dina data samt relationer mellan tids serier.|Kan använda komplexa trender i dina data och skalas enkelt till största av data uppsättningar.
 
 ### <a name="configuration-settings"></a>Konfigurationsinställningar
 
@@ -221,6 +190,51 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="featurization-steps"></a>Funktionalisering-steg
+
+I varje automatiserad maskin inlärnings experiment tillämpas automatiska skalnings-och normaliserings metoder på dina data som standard. Dessa metoder är typer av **funktionalisering** som hjälper *vissa* algoritmer som är känsliga för funktioner i olika skalor. Lär dig mer om standard stegen i funktionalisering i [funktionalisering i AutoML](how-to-configure-auto-features.md#automatic-featurization)
+
+Följande steg utförs dock bara för `forecasting` aktivitets typer:
+
+* Identifiera exempel frekvensen för tids serier (till exempel varje timme, varje dag, varje vecka) och skapa nya poster för frånvaro tids punkter för att göra serien kontinuerlig.
+* Ange värden som saknas i målet (via Forward-Fill) och funktions kolumner (med kolumn värden i median)
+* Skapa funktioner baserade på Time Series-identifierare för att aktivera fasta effekter i olika serier
+* Skapa tidsbaserade funktioner för att hjälpa till med utbildnings säsongs mönster
+* Koda kategoriska-variabler till numeriska kvantiteter
+
+För att få en översikt över vilka funktioner som skapas som ett resultat av de här stegen, se [funktionalisering Transparency](how-to-configure-auto-features.md#featurization-transparency)
+
+> [!NOTE]
+> Automatiserade funktionalisering-steg för Machine Learning (funktions normalisering, hantering av data som saknas, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma funktionalisering-steg som tillämpades under träningen på dina indata automatiskt.
+
+#### <a name="customize-featurization"></a>Anpassa funktionalisering
+
+Du kan också välja att anpassa dina funktionalisering-inställningar för att säkerställa att de data och funktioner som används för att träna din ML-modell leder till relevanta förutsägelser. 
+
+Anpassningar som stöds för `forecasting` uppgifter är:
+
+|Anpassning|Definition|
+|--|--|
+|**Uppdatering av kolumn syfte**|Åsidosätt den automatiska identifierade funktions typen för den angivna kolumnen.|
+|**Transformering av parameter uppdatering** |Uppdatera parametrarna för den angivna transformeraren. Stöder för närvarande *imputerade* (fill_value och median).|
+|**Släpp kolumner** |Anger kolumner som ska släppas från att bearbetas.|
+
+Om du vill anpassa featurizations med SDK anger du `"featurization": FeaturizationConfig` i- `AutoMLConfig` objektet. Läs mer om [anpassade featurizations](how-to-configure-auto-features.md#customize-featurization).
+
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
+Om du använder Azure Machine Learning Studio för experimentet läser du så [här anpassar du funktionalisering i Studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
 ## <a name="optional-configurations"></a>Valfria konfigurationer
 
 Ytterligare valfria konfigurationer är tillgängliga för prognostisering av uppgifter, t. ex. aktivering av djup inlärning och att ange en rullande åtgärds fönster agg regering. 
@@ -250,17 +264,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Om du vill aktivera DNN för ett AutoML-experiment som skapats i Azure Machine Learning Studio kan du läsa [uppgifts typ inställningarna i Studio instruktion](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-
-Med automatisk ML får användare både interna Time-och djup inlärnings modeller som en del av rekommendations systemet. 
-
-Modeller| Beskrivning | Fördelar
-----|----|---
-Prophet (för hands version)|Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Om du vill utnyttja den här modellen installerar du den lokalt med `pip install fbprophet` . | Korrekt & snabb, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie.
-Auto-ARIMA (för hands version)|Autoregressiva Integrated glidande medelvärde (ARIMA) fungerar bäst när data är Station ära. Det innebär att dess statistiska egenskaper, t. ex. medelvärdet och var Ian sen är konstant över hela uppsättningen. Om du till exempel vänder en mynt är sannolikheten för att du får 50%, oavsett om du vänder idag, imorgon eller nästa år.| Perfekt för univariate-serien, eftersom de tidigare värdena används för att förutsäga framtida värden.
-ForecastTCN (för hands version)| ForecastTCN är en neurala-nätverks modell som är utformad för att ta itu med de mest krävande prognos uppgifterna, vilket fångar icke-linjära lokala och globala trender i dina data samt relationer mellan tids serier.|Kan använda komplexa trender i dina data och skalas enkelt till största av data uppsättningar.
-
 Visa [Notebook Production Forecasting-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) för ett detaljerat kod exempel som utnyttjar hyperoptimerade.
-
 
 ### <a name="target-rolling-window-aggregation"></a>Samling av rullande fönster i mål
 Ofta är den bästa informationen som en prognosare kan ha är det senaste värdet för målet.  Med mål för rullande fönster kan du lägga till en rullande agg regering av data värden som funktioner. Att skapa och använda dessa ytterligare funktioner som extra sammanhangsbaserade data hjälper till att uppnå en bättre noggrannhet i träna-modellen.
@@ -283,7 +287,7 @@ experiment = Experiment(ws, "forecasting_example")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
-
+ 
 ## <a name="forecasting-with-best-model"></a>Prognosticering med bästa modell
 
 Använd den bästa modellen iterationer för att beräkna prognos värden för data uppsättningen test.

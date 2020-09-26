@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: hitta och Visa vägar för olika rese lägen med Microsoft Azure Maps'
-description: Lär dig hur du använder Azure Maps för att hitta och Visa vägar för olika rese lägen.
+title: 'Självstudie: Sök efter flera vägar i färd läge | Microsoft Azure Maps'
+description: Själv studie kurs om hur du använder Azure Maps för att hitta vägar för specifika rese lägen till intressanta punkter. Se hur du visar flera vägar på Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085067"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321755"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta och Visa vägar för olika färd sätt med hjälp av Azure Maps
 
@@ -160,11 +160,13 @@ I den här självstudien beräknas och renderas två vägar på kartan. Den för
 
     ```
 
+
     I kart kontrollens `ready` händelse hanterare skapas en data källa som lagrar vägen från början till slut. [Uttryck](data-driven-style-expressions-web-sdk.md) används för att hämta linje bredd och färg från egenskaper på väg linje funktionen. För att se till att flödes linjen inte visar väg etiketterna har vi skickat en andra parameter med värdet `'labels'` .
 
     Därefter skapas ett symbol lager som är kopplat till data källan. Det här lagret anger hur start-och slut punkterna återges. Uttryck har lagts till för att hämta ikon bilden och text etiketts information från egenskaper för varje punkt objekt. Mer information om uttryck finns i [uttryck för data drivna format](data-driven-style-expressions-web-sdk.md).
 
 2. Ange start punkten som ett fiktivt företag i Seattle som heter Fabrikam, och slut punkten som ett Microsoft Office.  `ready`Lägg till följande kod i kart kontrollens händelse hanterare.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -279,7 +281,11 @@ Det här avsnittet visar hur du använder tjänsten Azure Maps Route för att f�
 
     Truck-vägen visas med en tjock blå linje. Car-vägen visas med en tunn lila linje. Bilen går över Lake Washington via I-90 och passerar tunnlar under bostads områden. Eftersom tunnlarna ligger nära bostads områden är farligt avfall Last begränsat. Truck-vägen, som anger en `USHazmatClass2` Last typ, dirigeras för att använda en annan väg.
 
-    Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+
+Du kan också [använda data drivna format uttryck](data-driven-style-expressions-web-sdk.md)
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

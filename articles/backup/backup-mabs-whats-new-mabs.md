@@ -3,12 +3,12 @@ title: Nyheter i Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server ger dig förbättrade säkerhets kopierings funktioner för att skydda virtuella datorer, filer och mappar, arbets belastningar med mera.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182147"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332771"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Vad är nytt i Microsoft Azure Backup Server (MABS)
 
@@ -23,7 +23,7 @@ Microsoft Azure Backup Server (MABS) version 3 UR1 är den senaste uppdateringen
 
 MABS v2 introducerade [modern backup Storage](backup-mabs-add-storage.md) (MB), vilket förbättrar lagrings användningen och prestanda. MB använder ReFS som underliggande fil system och har utformats för att användas med hybrid lagring, till exempel nivå lagring.
 
-För att uppnå skalning och prestanda från MB rekommenderar vi att du använder en liten procent andel (4% av det totala lagrings utrymmet) för Flash Storage (SSD) med MABS v3-UR1 som en nivå volym i kombination med DPM HDD-lagring. MABS v3-UR1 med skiktat lagring ger 50-70% snabbare säkerhets kopieringar. Mer information om hur du konfigurerar lagring på lagrings nivå hittar du i DPM-artikeln [Konfigurera MB med Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) .
+För att uppnå skalning och prestanda från MB rekommenderar vi att du använder en liten procent andel (4% av det totala lagrings utrymmet) för Flash Storage (SSD) med MABS v3-UR1 som en nivå volym i kombination med DPM HDD-lagring. MABS v3-UR1 med skiktat lagring ger 50-70% snabbare säkerhets kopieringar. Mer information om hur du konfigurerar lagring på lagrings nivå hittar du i DPM-artikeln [Konfigurera MB med Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) .
 
 ### <a name="support-for-refs-volumes"></a>Stöd för ReFS-volymer
 

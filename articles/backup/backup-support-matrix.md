@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332720"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -39,6 +39,7 @@ I följande tabell beskrivs funktionerna i Recovery Services-valv:
 **Flytta valv** | Du kan [Flytta valv](./backup-azure-move-recovery-services-vault.md) mellan prenumerationer eller mellan resurs grupper i samma prenumeration. Det finns dock inte stöd för att flytta valv mellan regioner.
 **Flytta data mellan valv** | Det finns inte stöd för att flytta säkerhetskopierade data mellan valv.
 **Ändra lagrings typ för valv** | Du kan ändra typen av lagrings replik (antingen Geo-redundant lagring eller lokalt redundant lagring) för ett valv innan säkerhets kopiorna lagras. När säkerhetskopiering börjar i valvet går det inte att ändra replikeringstypen.
+**Zonredundant lagring (ZRS)** | Tillgängligt i regionerna Storbritannien, södra (UKS) och Asien, sydöstra (SEA).
 
 ## <a name="on-premises-backup-support"></a>Stöd för lokal säkerhetskopiering
 
@@ -150,9 +151,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner och suveräna moln.  |
-| SQL-/SAP HANA | Yes                                                          | Alla offentliga Azure-regioner och suveräna moln.             |
+| SQL-/SAP HANA | Yes                                                          | Västra USA 2 (WUS2), västra centrala USA (WCUS), Kanada, centrala (CNC), Kanada, östra (CNE), USA, östra (EUS), västra USA (WUS), Östra Japan (JPE), Östra Japan (JPE) |
 | MARS-agent/lokalt  | No                                                           | Saknas               |
-| DATABASSERVER                    | No                                                           | Saknas               |
+| AFS (Azure-filresurser)                 | No                                                           | Saknas               |
 
 ## <a name="next-steps"></a>Nästa steg
 

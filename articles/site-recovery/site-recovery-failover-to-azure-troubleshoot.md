@@ -9,14 +9,14 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 39a92dbdc0bdcd0fdd2bb06efe3fbd4bfe33069d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2ab52120e2a5db6648caac61f0228cb0be7e67b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355048"
 ---
-# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid misslyckade virtuella VMware-datorer eller fysiska datorer till Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid redundansväxling av virtuell VMware-dator eller fysisk dator till Azure
 
 Du kan få ett av följande fel när du gör en redundansväxling av en virtuell dator till Azure. Om du vill felsöka använder du de steg som beskrivs för varje fel tillstånd.
 
@@ -84,8 +84,8 @@ Detaljerad information om hur du felsöker SSH-problem finns i vår dokumentatio
 
 Om knappen **Anslut** på den misslyckade virtuella datorn i Azure är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
 
-1. Gå till **virtuella dator**  >  **nätverk**, klicka på namnet på det nödvändiga nätverks gränssnittet.  ![nätverks gränssnitt](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigera till **IP-konfigurationer**och klicka sedan på fältet namn för obligatorisk IP-konfiguration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. Gå till **virtuella dator**  >  **nätverk**, klicka på namnet på det nödvändiga nätverks gränssnittet.  ![Skärm bild som visar sidan nätverk för en virtuell dator med det angivna nätverks gränssnitts namnet.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navigera till **IP-konfigurationer**och klicka sedan på fältet namn för obligatorisk IP-konfiguration. ![Skärm bild som visar sidan I P-konfigurationer för nätverks gränssnittet med namnet I P-konfigurationen valt.](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Om du vill aktivera offentlig IP-adress klickar du på **Aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Klicka på **Konfigurera nödvändiga inställningar**  >  **Skapa ny**. ![Skapa ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Ange namnet på den offentliga adressen, Välj standard alternativen för **SKU** och **tilldelning**och klicka sedan på **OK**.

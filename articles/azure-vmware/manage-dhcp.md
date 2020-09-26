@@ -3,12 +3,12 @@ title: Så här skapar och hanterar du DHCP
 description: Den här artikeln beskriver hur du hanterar DHCP i Azure VMware-lösningen.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332839"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Så här skapar och hanterar du DHCP i Azure VMWare-lösning
 
@@ -24,7 +24,7 @@ Från NSX Manager går du till fliken **nätverk** och väljer **DHCP** under **
 
 ### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Anslut DHCP-server till nivån-1 Gateway.
 
-1. Välj Gateway för **nivå 1**, Välj gatewayen och välj **Redigera**
+1. Välj **nivå 1-gatewayer**, gatewayen och välj sedan **Redigera**
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Välj den gateway som ska användas" border="true":::
 
@@ -56,7 +56,7 @@ När du har skapat din DHCP-server måste du lägga till nätverks segment i den
 
 ## <a name="create-dhcp-relay-service"></a>Skapa DHCP Relay service
 
-1. I fönstret NSX-T väljer du fliken **nätverk** och under **IP-hantering**väljer du **DHCP**. Välj **Lägg till Server**. Välj DHCP-relä för **Server typ** och ange Server namn och IP-adress för relä servern. Välj **Spara** för att spara ändringarna.
+1. I fönstret NXT-T väljer du fliken **nätverk** och under **IP-hantering**väljer du **DHCP**. Välj **Lägg till Server**. Välj DHCP-relä för **Server typ** och ange Server namn och IP-adress för relä servern. Välj **Spara** för att spara ändringarna.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Skapa DHCP-relä Server" border="true":::
 

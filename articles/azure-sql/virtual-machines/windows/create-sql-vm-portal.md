@@ -7,19 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652025"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332924"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Använda Azure Portal för att etablera en virtuell Windows-dator med SQL Server
 
@@ -69,7 +69,7 @@ Ange följande information på fliken **grundläggande** :
   ![Prenumeration](./media/create-sql-vm-portal/basics-project-details.png)
 
   > [!NOTE]
-  > En ny resursgrupp är praktiskt om du bara testar eller lär dig om SQL Server-distributioner i Azure. När du är klar med testet tar du bort resursgruppen. När du gör det tas den virtuella datorn och alla resurser som associeras med resursgruppen bort automatiskt. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../../active-directory-b2c/overview.md).
+  > En ny resursgrupp är praktiskt om du bara testar eller lär dig om SQL Server-distributioner i Azure. När du är klar med testet tar du bort resursgruppen. När du gör det tas den virtuella datorn och alla resurser som associeras med resursgruppen bort automatiskt. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../../../active-directory-b2c/overview.md).
 
 
 * Under **instans information**:
@@ -80,12 +80,12 @@ Ange följande information på fliken **grundläggande** :
     1. I listan **avbildning** väljer du _gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016_.  
     1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](performance-guidelines-best-practices.md).
 
-    ![Instans information](./media/create-sql-vm-portal/basics-instance-details.png)
+    ![Instansinformation](./media/create-sql-vm-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > Den uppskattade månadskostnaden som visas på sidan **Välj en storlek** omfattar inte SQL Server-licenskostnaden. Den här uppskattningen är endast kostnaden för den virtuella datorn. För Express-och Developer-utgåvorna av SQL Server är denna uppskattning den totala beräknade kostnaden. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. Se även [pris vägledningen för SQL Server virtuella Azure-datorer](pricing-guidance.md) och [storlekar för virtuella datorer](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Under **administratörs konto**anger du ett användar namn och lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+* Under **administratörs konto**anger du ett användar namn och lösen ord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Administratörskonto](./media/create-sql-vm-portal/basics-administrator-account.png)
 
@@ -115,7 +115,7 @@ Konfigurera nätverks alternativen på fliken **nätverk** .
 
 * Skapa ett nytt **virtuellt nätverk** eller Använd ett befintligt virtuellt nätverk för SQL Server VM. Ange även ett **undernät** . 
 
-* Under **nätverkskort nätverks säkerhets grupp**väljer du antingen en grundläggande säkerhets grupp eller en avancerad säkerhets grupp. Om du väljer alternativet grundläggande kan du välja inkommande portar för SQL Server VM som har samma värden som har kon figurer ATS på fliken **grundläggande** . om du väljer alternativet Avancerat kan du välja en befintlig nätverks säkerhets grupp eller skapa en ny. 
+* Under **nätverkskort nätverks säkerhets grupp**väljer du antingen en grundläggande säkerhets grupp eller en avancerad säkerhets grupp. Om du väljer alternativet grundläggande kan du välja inkommande portar för SQL Server VM som har samma värden som har kon figurer ATS på fliken **grundläggande** . Genom att välja alternativet Avancerat kan du välja en befintlig nätverks säkerhets grupp eller skapa en ny. 
 
 * Du kan göra andra ändringar i nätverks inställningarna eller behålla standardvärdena.
 
@@ -138,13 +138,13 @@ Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **S
 - [Anslutning](#connectivity)
 - [Autentisering](#authentication)
 - [Azure Key Vault-integrering](#azure-key-vault-integration)
-- [Lagrings konfiguration](#storage-configuration)
+- [Storage-konfiguration](#storage-configuration)
 - [Automatiserad uppdatering](#automated-patching)
 - [Automatisk säkerhets kopiering](#automated-backup)
 - [Machine Learning Services](#machine-learning-services)
 
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 
 Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här genom gången väljer du **offentlig (Internet)** för att tillåta att anslutningar SQL Server från datorer eller tjänster på Internet. När det här alternativet är markerat konfigurerar Azure automatiskt brand väggen och nätverks säkerhets gruppen för att tillåta trafik på den valda porten.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node.js'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
+description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing och Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6a78c2ae4145a65739d5db56a70dca498d7d6a82
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: b61427f39f508413e33ce67f90bfecb8ac202e1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332652"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node.js
 
@@ -75,7 +75,7 @@ Följ den här snabb starten om du vill lära dig att ringa till API för automa
     }
     ```
 
- 1. I samma funktion använder du biblioteket för begäran för att skicka din fråga till API: et. `response_handler`definieras i nästa avsnitt.
+ 1. I samma funktion använder du biblioteket för begäran för att skicka din fråga till API: et. `response_handler` definieras i nästa avsnitt.
     
     ```javascript
         //...

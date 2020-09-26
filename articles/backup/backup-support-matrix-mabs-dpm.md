@@ -3,12 +3,12 @@ title: MABS & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332703"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -24,7 +24,7 @@ MABS baseras på System Center DPM och innehåller liknande funktioner med någr
 
 - Ingen System Center-licens krävs för att köra MABS.
 - Azure tillhandahåller långsiktig lagring för säkerhets kopiering för både MABS och DPM. Dessutom tillåter DPM att du säkerhetskopierar data för långsiktig lagring på band. MABS tillhandahåller inte den här funktionen.
-- [Du kan säkerhetskopiera en primär DPM-server med en Secondary DPM server](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). Den sekundära servern skyddar den primära serverns databas och datakällreplikerna som lagras på den primära servern. Om den primära servern slutar fungera kan den sekundära servern ta över och fortsätta skydda arbetsbelastningarna som skyddas av den primära servern tills den primära servern är tillgänglig igen.  MABS tillhandahåller inte den här funktionen.
+- [Du kan säkerhetskopiera en primär DPM-server med en Secondary DPM server](/system-center/dpm/back-up-the-dpm-server). Den sekundära servern skyddar den primära serverns databas och datakällreplikerna som lagras på den primära servern. Om den primära servern slutar fungera kan den sekundära servern ta över och fortsätta skydda arbetsbelastningarna som skyddas av den primära servern tills den primära servern är tillgänglig igen.  MABS tillhandahåller inte den här funktionen.
 
 Du hämtar MABS från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). Den kan köras lokalt eller på en virtuell Azure-dator.
 
@@ -146,7 +146,7 @@ Mer information finns i krav för [ExpressRoute-routning](../expressroute/expres
 
 Anslutning till Azure Backups tjänsten krävs för att säkerhets kopieringarna ska fungera korrekt och Azure-prenumerationen ska vara aktiv. I följande tabell visas beteendet om dessa två saker inte inträffar.
 
-**MABS till Azure** | **Prenumeration** | **Säkerhetskopiera/återställa**
+**MABS till Azure** | **Prenumeration** | **Säkerhetskopiering/återställning**
 --- | --- | ---
 Ansluten | Aktiv | Säkerhetskopiera till DPM/MABS disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställ från disk.<br/><br/> Återställ från Azure.
 Ansluten | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Om prenumerationen har upphört att gälla kan du återställa från disk eller Azure.<br/><br/> Om prenumerationen är inaktive rad kan du inte återställa från disk eller Azure. Azures återställnings punkter tas bort.
@@ -158,7 +158,7 @@ Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhe
 |Krav |Information |
 |---------|---------|
 |Domän    | DPM/MABS-servern måste vara i en Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012-domän.        |
-|Domänförtroende   |  DPM/MABS har stöd för data skydd mellan skogar, förutsatt att du etablerar ett dubbelriktat förtroende på skogs nivå mellan separata skogar.   <BR><BR>   DPM/MABS kan skydda servrar och arbets stationer mellan domäner inom en skog som har en dubbelriktad förtroende relation med DPM/MABS-Server domänen. Information om hur du skyddar datorer i arbets grupper eller ej betrodda domäner finns i [säkerhetskopiera och återställa arbets belastningar i arbets grupper och obetrodda domäner.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+|Domänförtroende   |  DPM/MABS har stöd för data skydd mellan skogar, förutsatt att du etablerar ett dubbelriktat förtroende på skogs nivå mellan separata skogar.   <BR><BR>   DPM/MABS kan skydda servrar och arbets stationer mellan domäner inom en skog som har en dubbelriktad förtroende relation med DPM/MABS-Server domänen. Information om hur du skyddar datorer i arbets grupper eller ej betrodda domäner finns i [säkerhetskopiera och återställa arbets belastningar i arbets grupper och obetrodda domäner.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Stöd för DPM/MABS-lagring
 
@@ -185,7 +185,7 @@ Information om de olika servrar och arbets belastningar som du kan skydda med Az
 
 ## <a name="supported-backups-to-dpm"></a>Säkerhets kopior som stöds för DPM
 
-Information om de olika servrar och arbets belastningar som du kan skydda med Data Protection Manager finns i artikeln [vad kan DPM säkerhetskopiera?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Information om de olika servrar och arbets belastningar som du kan skydda med Data Protection Manager finns i artikeln [vad kan DPM säkerhetskopiera?](/system-center/dpm/dpm-protection-matrix).
 
 - Klustrade arbets belastningar som säkerhets kopie ras av DPM/MABS bör vara i samma domän som DPM/MABS eller i en underordnad/betrodd domän.
 - Du kan använda NTLM/certifikatautentisering för att säkerhetskopiera data i ej betrodda domäner eller arbets grupper.

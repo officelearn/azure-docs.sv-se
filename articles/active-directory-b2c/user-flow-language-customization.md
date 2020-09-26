@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d378e1526d5b253853fd306c8a1b7a8982436b8d
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115903"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355101"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Språk anpassning i Azure Active Directory B2C
 
@@ -105,7 +105,7 @@ Ersätt `<ExtensionAttributeValue>` med den nya strängen som ska visas.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Ange en lista med värden med hjälp av LocalizedCollections
 
-Om du vill ange en uppsättning värden för svar måste du skapa ett- `LocalizedCollections` attribut. `LocalizedCollections`är en matris med `Name` och `Value` par. Ordningen för objekten visas i den ordning som de visas. Använd följande format för att lägga till `LocalizedCollections` :
+Om du vill ange en uppsättning värden för svar måste du skapa ett- `LocalizedCollections` attribut. `LocalizedCollections` är en matris med `Name` och `Value` par. Ordningen för objekten visas i den ordning som de visas. Använd följande format för att lägga till `LocalizedCollections` :
 
 ```json
 {
@@ -129,9 +129,9 @@ Om du vill ange en uppsättning värden för svar måste du skapa ett- `Localize
 }
 ```
 
-* `ElementId`är det användar-attribut som det här `LocalizedCollections` attributet är ett svar på.
-* `Name`är värdet som visas för användaren.
-* `Value`är vad som returneras i anspråket när det här alternativet är markerat.
+* `ElementId` är det användar-attribut som det här `LocalizedCollections` attributet är ett svar på.
+* `Name` är värdet som visas för användaren.
+* `Value` är vad som returneras i anspråket när det här alternativet är markerat.
 
 ### <a name="upload-your-changes"></a>Överför dina ändringar
 
@@ -204,56 +204,56 @@ Azure AD B2C har stöd för följande språk. Användar flödes språk tillhanda
 
 | Språk              | Språkkod | Användarflöden         | MFA-meddelanden  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
-| Arabiska                | bakre            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Bulgariska             | Bulgarien            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Bangla                | bn            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Katalanska               | onlinecertifikatutfärdare            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Tjeckiska                 | östasiatisk            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Danska                | da            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Tyska                | de            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Grekiska                 | El            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Engelska               | en            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Spanska               | ES            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Estniska              | ge            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Baskiska                | gemenskaps            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Finska               | fi            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Franska                | fr            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Galiciska              | huvud            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Gujarati              | gu            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Hebreiska                | producenten            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Hindi                 | Hej            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Kroatiska              | tim            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Ungerska             | HU            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Indonesiska            | id            | ![Nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Italienska               | it            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Japanska              | ja            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Kazakiska                | kk            | ![Nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Kannada               | 5,0            | ![ja](./media/user-flow-language-customization/yes.png) | ![Nej](./media/user-flow-language-customization/no.png) |
-| Koreanska                | Ko            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Litauiska            | långsiktiga            | ![Nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Lettiska               | LV            | ![Nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Malayalam             | ml            | ![ja](./media/user-flow-language-customization/yes.png) | ![Nej](./media/user-flow-language-customization/no.png) |
-| Marathi               | Mr            | ![ja](./media/user-flow-language-customization/yes.png) | ![Nej](./media/user-flow-language-customization/no.png) |
-| Malajiska                 | millisekund            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Norska bokmål      | Anm            | ![ja](./media/user-flow-language-customization/yes.png) | ![Nej](./media/user-flow-language-customization/no.png) |
-| Nederländska                 | nl            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Norska             | nej            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Punjabi               | PA            | ![ja](./media/user-flow-language-customization/yes.png) | ![Nej](./media/user-flow-language-customization/no.png) |
-| Polska                | pl            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Portugisiska – Brasilien   | pt-br         | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Portugisiska – Portugal | pt-pt         | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Rumänska              | ro            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Ryska               | ru            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Slovakiska                | sk            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Slovenska             | SL            | ![Nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Serbiska (kyrillisk)    | SR-cryl-CS    | ![Nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Serbiska (latinsk)       | SR-latn-CS    | ![Nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Svenska               | sv            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Tamilska                 | layout            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Telugu                | &            | ![ja](./media/user-flow-language-customization/yes.png) | ![nej](./media/user-flow-language-customization/no.png) |
-| Thailändska                  | i:te            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Turkiska               | TR            | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Ukrainska             | Storbritannien            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Vietnamesiska            | Vi            | ![nej](./media/user-flow-language-customization/no.png) | ![ja](./media/user-flow-language-customization/yes.png) |
-| Kinesiska (förenklad)  | zh-hans       | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
-| Kinesiska (traditionell) | zh-Hant       | ![yes](./media/user-flow-language-customization/yes.png) | ![yes](./media/user-flow-language-customization/yes.png) |
+| Arabiska                | bakre            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Bulgariska             | Bulgarien            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Bangla                | bn            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Katalanska               | onlinecertifikatutfärdare            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Tjeckiska                 | östasiatisk            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Danska                | da            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Tyska                | de            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Grekiska                 | El            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Engelska               | en            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Spanska               | es            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Estniska              | ge            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Baskiska                | gemenskaps            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Finska               | fi            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Franska                | fr            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Galiciska              | huvud            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Gujarati              | gu            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Hebreiska                | producenten            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Hindi                 | Hej            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Kroatiska              | tim            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Ungerska             | HU            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Indonesiska            | id            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Italienska               | it            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Japanska              | ja            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Kazakiska                | kk            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Kannada               | 5,0            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Koreanska                | Ko            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Litauiska            | lt            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Lettiska               | LV            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Malayalam             | ml            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Marathi               | Mr            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Malajiska                 | millisekund            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Norska bokmål      | Anm            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Nederländska                 | nl            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Norska             | nej            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Punjabi               | PA            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Polska                | pl            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Portugisiska – Brasilien   | pt-br         | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Portugisiska – Portugal | pt-pt         | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Rumänska              | ro            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Ryska               | ru            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Slovakiska                | sk            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Slovenska             | SL            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Serbiska (kyrillisk)    | SR-cryl-CS    | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Serbiska (latinsk)       | SR-latn-CS    | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Svenska               | sv            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Tamilska                 | layout            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Telugu                | &            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![X som anger Nej.](./media/user-flow-language-customization/no.png) |
+| Thailändska                  | i:te            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Turkiska               | TR            | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Ukrainska             | Storbritannien            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Vietnamesiska            | Vi            | ![X som anger Nej.](./media/user-flow-language-customization/no.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Kinesiska (förenklad)  | zh-hans       | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |
+| Kinesiska (traditionell) | zh-Hant       | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) | ![Grön bock markering.](./media/user-flow-language-customization/yes.png) |

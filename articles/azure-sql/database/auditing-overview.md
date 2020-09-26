@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333196"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -82,7 +82,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
   > [!NOTE]
   > Det går inte att aktivera granskning på en pausad Synapse SQL-pool. Om du vill aktivera granskning avbryter du Synapse SQL-poolen. Läs mer om [SQL-poolen Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Navigera till **granskning** under säkerhets rubriken i **SQL Database** eller **SQL Server** -fönstret.
 3. Om du vill konfigurera en server gransknings princip kan du välja länken **Visa Server inställningar** på sidan databas granskning. Du kan sedan Visa eller ändra server gransknings inställningarna. Server gransknings principer gäller för alla befintliga och nyligen skapade databaser på den här servern.
 
@@ -119,7 +119,7 @@ Om du vill konfigurera att skriva gransknings loggar till en Log Analytics arbet
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Mer information om arbets ytor i Azure Monitor loggar finns i [utforma distribution av Azure Monitors loggar](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+Mer information om Azure Monitor Log Analytics arbets ytan finns i [utforma distributioner av Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Granska till Event Hub-målet
 
@@ -150,7 +150,7 @@ Om du väljer att skriva gransknings loggar till Azure Monitor loggar:
     ![Log Analytics säkerhets insikter](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Du kan också få åtkomst till gransknings loggarna från Log Analytics bladet. Öppna arbets ytan Log Analytics och klicka på **loggar**under **Allmänt** . Du kan börja med en enkel fråga, till exempel: *Sök efter "SQLSecurityAuditEvents"* för att Visa gransknings loggarna.
-    Härifrån kan du också använda [Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md) för att köra avancerade sökningar på dina Gransknings logg data. Med Azure Monitor loggar får du operativa insikter i real tid med integrerad sökning och anpassade instrument paneler för att enkelt analysera miljon tals poster över alla dina arbets belastningar och servrar. Mer värdefull information om Azure Monitor loggar Sök språk och-kommandon finns i [Sök referens för Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md).
+    Härifrån kan du också använda [Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md)  för att köra avancerade sökningar på dina Gransknings logg data. Med Azure Monitor loggar får du operativa insikter i real tid med integrerad sökning och anpassade instrument paneler för att enkelt analysera miljon tals poster över alla dina arbets belastningar och servrar. Mer värdefull information om Azure Monitor loggar Sök språk och-kommandon finns i [Sök referens för Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md).
 
 Om du väljer att skriva gransknings loggar till Händelsehubben:
 
@@ -169,7 +169,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
   - Du kan visa vissa datum genom att klicka på **filter** överst på sidan **gransknings poster** .
   - Du kan växla mellan gransknings poster som har skapats av *Server gransknings principen* och *databas gransknings principen* genom att växla **gransknings källa**.
-  - Du kan bara visa SQL-injektering relaterade gransknings poster genom att markera kryss rutan **Visa endast gransknings poster för SQL-injektering** .
+  - Du kan bara visa SQL-injektering relaterade gransknings poster genom att markera kryss rutan  **Visa endast gransknings poster för SQL-injektering** .
 
        ![Navigeringsfönster]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 

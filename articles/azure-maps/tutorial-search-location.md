@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Sök efter närliggande platser på en karta | Microsoft Azure Maps'
-description: Lär dig hur du söker efter orienterings punkter på en karta. Se hur du använder Azure Maps Web SDK för att lägga till Sök funktioner och interaktiva popup-rutor i en karta.
+description: Själv studie kurs om hur du söker efter intressanta punkter på en karta. Se hur du använder Azure Maps Web SDK för att lägga till Sök funktioner och interaktiva popup-rutor i en karta.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 6ed463cbda3ceb560f907529dc8de54a772932ea
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085084"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321704"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
@@ -26,44 +26,14 @@ Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sed
 > * Skapa en ny webbsida med API:n för kartkontroll
 > * Använda Maps-söktjänsten för att hitta orienteringspunkter i närheten
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure-portalen](https://portal.azure.com).
+## <a name="prerequisites"></a>Förutsättningar
 
 <a id="createaccount"></a>
-
-## <a name="create-an-account-with-azure-maps"></a>Skapa ett konto med Azure Maps
-
-Skapa ett nytt Maps-konto med följande steg:
-
-1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
-2. Skriv **Maps** i rutan *Sök på Marketplace*.
-3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
-4. Ange följande värden på sidan **Skapa Maps-konto**:
-    * Den *Prenumeration* som ska användas för det här kontot.
-    * Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
-    * *Namn* för ditt nya konto.
-    * *Pris nivån* för det här kontot.
-    * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
-    * Klicka på knappen **Skapa**.
-
-![Skapa Azure Maps konto i Azure Portal](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## <a name="get-the-primary-key-for-your-account"></a>Hitta primärnyckeln för ditt konto
-
-När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll. Vi rekommenderar att du använder ditt kontos primär nyckel som prenumerations nyckel när du anropar Azure Maps Services.
-
-1. Öppna ditt Maps-konto i portalen.
-2. I avsnittet Inställningar väljer du **autentisering**.
-3. Kopiera **Primärnyckel** till Urklipp. Spara den lokalt för senare användning i den här självstudien.
-
-![Hämta primär nyckel i Azure Portal](./media/tutorial-search-location/get-key.png)
-
-Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+2. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -275,21 +245,9 @@ Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökr
 
     ![Azure Kartkontroll och Search Service](./media/tutorial-search-location/popup-map.png)
 
+Klicka [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)om du vill visa den fullständiga koden för den här självstudien. Klicka [här](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest) om du vill visa Live-exemplet
+
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Skapa ett konto med Azure Maps
-> * Hitta primärnyckeln för ditt konto
-> * Skapa ny webbsida med API:et Kartkontroll
-> * Använda Search Service för att hitta orienteringspunkter i närheten
-
-> [!div class="nextstepaction"]
-> [Visa fullständig käll kod](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-> [!div class="nextstepaction"]
-> [Visa Live-exempel](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Nästa självstudie demonstrerar hur du visar en väg mellan två platser.
 

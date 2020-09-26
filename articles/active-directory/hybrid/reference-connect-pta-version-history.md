@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 854931273ffebd653615a44dbfa9ce1b846655c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333434"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD-direktautentisering: versions historik 
  
@@ -56,15 +56,10 @@ Här är relaterade ämnen:
 ### <a name="release-status"></a>Versionsstatus 
 1/31/2018: har släppts för nedladdning  
 ### <a name="fixed-issues"></a>Åtgärdade problem 
-
 - En bugg har åtgärd ATS som orsakade minnes läckor i agenten. 
 - Den Azure Service Bus versionen har uppdaterats, vilket innehåller en fel korrigering för anslutnings-timeout-problem. 
- 
-## <a name="154050"></a>1.5.405.0 
-### <a name="release-status"></a>Versionsstatus 
-11/26/2017: har släppts för nedladdning  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
-- Stöd har lagts till för WebSocket-baserade anslutningar mellan agenten och Azure AD-tjänster för att förbättra anslutnings återhämtning 
+- Stöd har lagts till för WebSocket-baserade anslutningar mellan agenten och Azure AD-tjänster för att förbättra anslutnings återhämtning
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Versionsstatus 

@@ -1,34 +1,34 @@
 ---
-title: Sök över innehåll i Azure Blob Storage
+title: Konfigurera en BLOB-indexerare
 titleSuffix: Azure Cognitive Search
-description: Lär dig att indexera dokument i Azure Blob Storage och extrahera text från dokument med Azure Kognitiv sökning.
+description: Konfigurera en Azure Blob-indexerare för att automatisera indexering av BLOB-innehåll för fullständiga texts öknings åtgärder i Azure Kognitiv sökning.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 9fccd731cee5044b36de9a0dba4a408a9a5b9a49
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328300"
+ms.locfileid: "91355286"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
+# <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Så här konfigurerar du en BLOB-indexerare i Azure Kognitiv sökning
 
-Den här artikeln visar hur du använder Azure Kognitiv sökning för att indexera dokument (till exempel PDF-filer, Microsoft Office dokument och flera andra vanliga format) som lagras i Azure Blob Storage. Först förklarar det grunderna för att ställa in och konfigurera en BLOB-indexerare. Sedan ger den en djupare utforskning av beteenden och scenarier som du sannolikt kommer att stöta på.
+Den här artikeln visar hur du använder Azure Kognitiv sökning för att indexera textbaserade dokument (till exempel PDF-filer, Microsoft Office dokument och flera andra vanliga format) som lagras i Azure Blob Storage. Först förklarar det grunderna för att ställa in och konfigurera en BLOB-indexerare. Sedan ger den en djupare utforskning av beteenden och scenarier som du sannolikt kommer att stöta på.
 
 <a name="SupportedFormats"></a>
 
-## <a name="supported-document-formats"></a>Dokumentformat som stöds
+## <a name="supported-formats"></a>Format som stöds
+
 BLOB-indexeraren kan extrahera text från följande dokument format:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>Konfigurera BLOB-indexering
+## <a name="set-up-blob-indexing"></a>Konfigurera BLOB-indexering
 Du kan konfigurera en Azure Blob Storage-indexerare med hjälp av:
 
 * [Azure-portalen](https://ms.portal.azure.com)
@@ -130,7 +130,7 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Hur Azure Kognitiv sökning indexerar blobbar
+## <a name="how-blobs-are-indexed"></a>Hur blobbar indexeras
 
 Beroende på [indexerings konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexeraren bara indexera lagrings-metadata (användbart när du bara bryr dig om metadata och behöver inte indexera innehållet i blobbar), lagrings-och innehålls metadata, eller både metadata och text innehåll. Som standard extraherar indexeraren både metadata och innehåll.
 
@@ -170,7 +170,7 @@ I Azure Kognitiv sökning identifierar dokument nyckeln ett dokument unikt. Varj
 
 Du bör noga överväga vilka extraherade fält som ska mappas till nyckel fältet för ditt index. Kandidater är:
 
-* ** \_ lagrings \_ namn för metadata** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av `base64Encode` [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) för det syftet).
+* ** \_ lagrings \_ namn för metadata** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av `base64Encode` [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](/dotnet/api/system.web.httpserverutility.urltokenencode) för det syftet).
 * ** \_ lagrings \_ Sök väg för metadata** – genom att använda den fullständiga sökvägen ser du till att sökvägen är unik, men sökvägen innehåller definitivt `/` [ogiltiga tecken i en dokument nyckel](/rest/api/searchservice/naming-rules).  Som ovan kan du välja att koda nycklar med hjälp av `base64Encode` [funktionen](search-indexer-field-mappings.md#base64EncodeFunction).
 * Om inget av alternativen ovan fungerar kan du lägga till en anpassad metadata-egenskap till Blobbarna. Det här alternativet kräver dock att BLOB-uppladdnings processen lägger till denna metadata-egenskap till alla blobbar. Eftersom nyckeln är en obligatorisk egenskap, kommer alla blobar som inte har denna egenskap att kunna indexeras.
 
@@ -231,10 +231,12 @@ Det finns tillfällen när du behöver använda en kodad version av ett fält so
     }
 ```
 <a name="WhichBlobsAreIndexed"></a>
-## <a name="controlling-which-blobs-are-indexed"></a>Styra vilka blobbar som indexeras
+## <a name="index-by-file-type"></a>Index efter filtyp
+
 Du kan kontrol lera vilka blobbar som är indexerade och vilka som hoppas över.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexera enbart blobbar med vissa fil namns tillägg
+### <a name="include-blobs-having-specific-file-extensions"></a>Inkludera blobbar med vissa fil namns tillägg
+
 Du kan bara indexera blobbar med de fil namns tillägg som du anger med hjälp av `indexedFileNameExtensions` konfigurations parametern indexerare. Värdet är en sträng som innehåller en kommaavgränsad lista med fil namns tillägg (med en inledande punkt). Om du till exempel bara vill indexera. PDF och. DOCX-blobbar gör du följande:
 
 ```http
@@ -248,7 +250,8 @@ Du kan bara indexera blobbar med de fil namns tillägg som du anger med hjälp a
     }
 ```
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>Uteslut blobbar med vissa fil namns tillägg
+### <a name="exclude-blobs-having-specific-file-extensions"></a>Uteslut blobbar med vissa fil namns tillägg
+
 Du kan exkludera blobbar med vissa fil namns tillägg från indexering med hjälp av `excludedFileNameExtensions` konfigurations parametern. Värdet är en sträng som innehåller en kommaavgränsad lista med fil namns tillägg (med en inledande punkt). Om du till exempel vill indexera alla blobbar förutom de med. PNG och. JPEG-tillägg gör du följande:
 
 ```http
@@ -265,7 +268,7 @@ Du kan exkludera blobbar med vissa fil namns tillägg från indexering med hjäl
 Om både `indexedFileNameExtensions` och `excludedFileNameExtensions` -parametrarna finns, tittar Azure kognitiv sökning först på `indexedFileNameExtensions` , sedan på `excludedFileNameExtensions` . Det innebär att om samma fil namns tillägg finns i båda listorna, kommer det att undantas från indexering.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Kontrol lera vilka delar av blobben som indexeras
+## <a name="index-parts-of-a-blob"></a>Index delar av en BLOB
 
 Du kan styra vilka delar av blobbar som indexeras med hjälp av `dataToExtract` konfigurations parametern. Det kan ha följande värden:
 
@@ -296,7 +299,8 @@ De konfigurations parametrar som beskrivs ovan gäller för alla blobbar. Ibland
 | AzureSearch_SkipContent |värdet |Detta motsvarar den `"dataToExtract" : "allMetadata"` inställning som beskrivs [ovan](#PartsOfBlobToIndex) begränsad till en viss blob. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>Hantera fel
+
+## <a name="handle-errors"></a>Hantera fel
 
 Som standard stoppas BLOB-indexeraren så snart den påträffar en blob med en innehålls typ som inte stöds (till exempel en bild). Du kan naturligtvis använda `excludedFileNameExtensions` parametern för att hoppa över vissa innehålls typer. Du kan dock behöva indexera blobbar utan att känna till alla möjliga innehålls typer i förväg. Om du vill fortsätta indexera när en innehålls typ som inte stöds har påträffats ställer du in `failOnUnsupportedContentType` konfigurations parametern på `false` :
 
@@ -466,7 +470,7 @@ Som standard `UTF-8` antas kodningen. Om du vill ange en annan kodning använder
 ## <a name="content-type-specific-metadata-properties"></a>Egenskaper för innehålls typ-/regionsspecifika metadata
 I följande tabell sammanfattas bearbetningen för varje dokument format och de metadata-egenskaper som har extraherats av Azure Kognitiv sökning beskrivs.
 
-| Dokument format/innehålls typ | Egenskaper för speciella metadata för innehålls typ | Bearbetnings information |
+| Dokument format/innehålls typ | Extraherade metadata | Bearbetnings information |
 | --- | --- | --- |
 | HTML (text/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Remsa HTML-kod och extrahera text |
 | PDF (program/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Extrahera text, inklusive inbäddade dokument (exklusive bilder) |

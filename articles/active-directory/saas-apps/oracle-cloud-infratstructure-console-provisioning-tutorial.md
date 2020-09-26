@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7efe58081604708ff090d28f7274c738406c5007
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 665e4870619751bbda062473d0c2549b26352d94
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255931"
+ms.locfileid: "91361610"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en Oracle Cloud Infrastructure-konsol för automatisk användar etablering
 
@@ -108,7 +108,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** , skriver du in **klient webb adressen** i formatet `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Till exempel `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Oracle Cloud Infrastructure-konsolen. Om anslutningen Miss lyckas ser du till att du har administratörs behörighet för ditt konto för Oracle Cloud Infrastructure-konsolen och försöker igen.
 
-    ![etablerings](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

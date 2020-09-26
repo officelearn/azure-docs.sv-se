@@ -1,15 +1,17 @@
 ---
 title: 'Självstudie: Language Understanding bot C# v4'
 description: Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Roboten har skapats med bot Framework version 4 och Azure Web App bot-tjänsten.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 820cdeb692dffbf80a0e85c9d3dd86b703a4cae3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316434"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i C #
 
@@ -320,12 +322,12 @@ Starta bot i Visual Studio 2019. Ett webbläsarfönster öppnas med webbappsrobo
 
 1. I bot-emulatorn anger `Book a flight from Seattle to Berlin tomorrow` du och får samma svar för den grundläggande roboten som du fick i **testet i Web Chat** i ett tidigare avsnitt.
 
-    [![Grundläggande robot svar i emulatorn](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![Skärm bild som visar bot Framework-emulatorn med ett grundläggande robot svar.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Välj **Ja**. Roboten svarar med en sammanfattning av dess åtgärder.
 1. Från loggen för bot-emulatorn väljer du den rad som innehåller `<- trace LuisV3 Trace` . Detta visar JSON-svaret från LUIS för avsikten och entiteten i uttryck.
 
-    [![Grundläggande robot svar i emulatorn](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Skärm bild som visar ett grundläggande robot svar med LuisV3-spåret markerat och JSON-svaret markerat.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 

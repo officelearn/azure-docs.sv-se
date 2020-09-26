@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/14/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7031bc0398e77dc308f9c08180338975831b411e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8934e1344ff2d7df97c3854f4e025f19fb37f1e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321959"
+ms.locfileid: "91361627"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Självstudie: konfigurera nya Relic efter organisation för automatisk användar etablering
 
@@ -97,7 +97,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** , inmatat `https://scim-provisioning.service.newrelic.com/scim/v2` i klient-URL. Mata in SCIM-autentiseringstoken som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till nya Relic. Om anslutningen Miss lyckas kontrollerar du att det nya Relic-kontot har administratörs behörighet och försöker igen.
 
-    ![etablerings](./media/new-relic-by-organization-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/new-relic-by-organization-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

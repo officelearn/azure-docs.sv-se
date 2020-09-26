@@ -2,13 +2,13 @@
 title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 09/23/2020
+ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317097"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -53,7 +53,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | tjänst/certifikat | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/diagnostik | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/grupper | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | tjänst/grupper/användare | grupp | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/grupper/användare | group | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst-Identityprovider | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/loggar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/meddelanden | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
@@ -61,9 +61,9 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | tjänst-openidConnectProviders | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/principer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/produkter | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | service/produkter/API: er | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | tjänst/produkter/grupper | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | service/produkter/Taggar | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/API: er | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/produkter/grupper | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/Taggar | product | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/egenskaper | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/prenumerationer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | service/Taggar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
@@ -174,8 +174,8 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | gallerier/avbildningar/versioner | image | 32-bitars heltal | Siffror och punkter. |
 > | images | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
 > | snapshots | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
-> | virtualMachines | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
-> | virtualMachineScaleSets | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
+> | virtualMachines | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Det går inte att använda blank steg eller följande tecken:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
+> | virtualMachineScaleSets | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Det går inte att använda blank steg eller följande tecken:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
 
 > [!NOTE]
 > Virtuella Azure-datorer har två distinkta namn: resurs namn och värdnamn. När du skapar en virtuell dator i portalen används samma värde för båda namnen. Begränsningarna i föregående tabell är för värd namnet. Det faktiska resursnamnet kan innehålla upp till 64 tecken.
@@ -543,7 +543,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
+> | lösningar | arbetsyta | Saknas | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 
@@ -557,14 +557,14 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | workspaceCollections | regionen | 3–63 | Alfanumeriska tecken och bindestreck.<br><br>Får inte börja med bindestreck. Det går inte att använda efterföljande bindestreck. |
+> | workspaceCollections | region | 3–63 | Alfanumeriska tecken och bindestreck.<br><br>Får inte börja med bindestreck. Det går inte att använda efterföljande bindestreck. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | kapaciteter | regionen | 3–63 | Små bokstäver eller siffror<br><br>Börja med gemener. |
+> | kapaciteter | region | 3–63 | Små bokstäver eller siffror<br><br>Börja med gemener. |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
 
@@ -617,7 +617,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | kluster | regionen | 4-23 | Små bokstäver, siffror och bindestreck.<br><br>Börja med gemener. Slutar med bokstav eller siffra i gemener. |
+> | kluster | region | 4-23 | Små bokstäver, siffror och bindestreck.<br><br>Börja med gemener. Slutar med bokstav eller siffra i gemener. |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 

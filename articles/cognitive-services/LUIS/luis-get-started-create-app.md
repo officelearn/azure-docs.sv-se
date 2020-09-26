@@ -1,14 +1,16 @@
 ---
 title: 'Snabb start: skapa app-LUIS'
 description: Den här snabb starten visar hur du skapar en LUIS-app som använder den färdiga domänen `HomeAutomation` för att aktivera och inaktivera lampor och apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/05/2020
-ms.openlocfilehash: cefa9d5995f876ef3f07cc32324e747125e9cbf7
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701256"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316501"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
@@ -27,7 +29,7 @@ Du kan skapa och hantera dina appar på **Mina appar**.
 1. Välj **engelska** som kultur.
 1. Ange en valfri beskrivning.
 1. Välj inte en förutsägelse resurs om du inte redan har skapat resursen. Om du vill använda appens förutsägelse slut punkt (mellanlagring eller produktion) måste du tilldela en förutsägelse resurs.
-1. Välj **Done** (Klar).
+1. Välj **Klar**.
 
     LUIS skapar appen.
 

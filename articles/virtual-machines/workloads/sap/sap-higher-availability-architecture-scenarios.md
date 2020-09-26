@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361644"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Använd en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för ett SAP-system
 
@@ -210,7 +210,7 @@ ms.locfileid: "86134535"
 
 > Det här avsnittet gäller för:
 >
-> ![Windows][Logo_Windows] Windows och ![Linux][Logo_Linux] Linux
+> ![Windows-logotyp.][Logo_Windows] Windows och ![Linux-logotyp.][Logo_Linux] Linux
 >
 
 Om du väljer att inte använda funktioner som Windows Server Failover Clustering (WSFC) eller pacemaker på Linux (stöds för närvarande endast för SUSE Linux Enterprise Server [SLES] 12 och senare), används den virtuella Azure-datorn. Det skyddar SAP-system mot planerad och oplanerad stillestånds tid för Azures fysiska server infrastruktur och den övergripande, underliggande Azure-plattformen.

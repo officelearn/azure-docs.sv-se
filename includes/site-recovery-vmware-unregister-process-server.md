@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bff9457220efbb6a6b318550a5b2dd9af4ae230f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361405"
 ---
 Följ anvisningarna för dina särskilda omständigheter.
 
@@ -35,7 +35,7 @@ Använd bara de här stegen om det inte finns något sätt att återskapa den da
     - S. Nej: process serverns serie nummer.
     - IP/namn: IP-adressen och namnet på den dator som kör processervern.
     - Pulsslag: senaste pulsslag från processervern.
-    ![Avregistrera-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+    ! [Skärm bild som visar en text i klartext om dina processervern och texten Välj en av de ovanstående servrarna för avregistrering. (Media/Site-Recovery – VMware-unregister-process-Server/Unregister-cmd.PNG)
 
 4. Ange serie numret för den processerver som du vill avregistrera.
 5. När du avregistrerar en processerver tas all information bort från systemet och meddelandet visas: det **gick inte att registrera Server namnet> (Server-IP-adress)**

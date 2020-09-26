@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: ef87a1c7163825fcee8f4a27408719839d8a6d43
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361587"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LinkedIn Sales Navigator för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i Lin
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
 * En LinkedIn Sales Navigator-klient 
@@ -71,12 +71,12 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
     > [!NOTE]
     > När tilldela licenser inte är aktiverat innebär det att endast användar data synkroniseras.
 
-    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
+    ![Skärm bild som visar de globala inställningarna för LinkedIn-konto Center.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
     > [!NOTE]
     > När autolicense-tilldelning har Aktiver ATS måste du anteckna program instansen och licens typen. Licenser tilldelas för första och första gången tills alla licenser har vidtagits.
 
-    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
+    ![Skärm bild som visar konfigurations sidan för S C I M.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
 5. Klicka på **generera token**. Du bör se att din åtkomsttoken visas under fältet **åtkomsttoken** .
 
@@ -88,9 +88,9 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
 
 9. Välj din instans av LinkedIn Sales Navigator och välj fliken **etablering** .
 
-10. Ställ in **etablerings läget** på **automatiskt**.
+10. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
+    ![Skärm bild som visar sidan LinkedIn-höjning.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
 11. Fyll i följande fält under **admin-autentiseringsuppgifter** :
 
@@ -106,7 +106,7 @@ Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företag
 
 14. I avsnittet **mappningar för attribut** granskar du de användar-och Gruppattribut som ska synkroniseras från Azure AD till LinkedIn Sales Navigator. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha användar konton och grupper i LinkedIn Sales Navigator för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
 
-    ![LinkedIn Sales Navigator-etablering](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
+    ![Skärm bild som visar mappningar, inklusive mappningar av attribut.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
 15. Om du vill aktivera Azure AD Provisioning-tjänsten för LinkedIn Sales Navigator ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
@@ -118,5 +118,5 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

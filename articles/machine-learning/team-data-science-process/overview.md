@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362239"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är team data science-processen?
 
@@ -51,7 +51,7 @@ Livs cykeln beskriver de viktigaste faserna som projekt vanligt vis körs, ofta 
 
 Här är en visuell representation av **livs cykeln för team data science process**. 
 
-![TDSP – Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
+![Diagrammet visar livs cykeln för data vetenskap, inklusive affärs förståelse, data hämtning/förståelse, modellering och distribution.](./media/overview/tdsp-lifecycle2.png) 
 
 De mål, uppgifter och dokumentations artefakter för varje steg i livs cykeln i TDSP beskrivs i avsnittet om [team data science process Lifecycle](lifecycle.md) . Dessa uppgifter och artefakter är kopplade till projekt roller:
 

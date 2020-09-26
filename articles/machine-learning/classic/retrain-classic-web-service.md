@@ -9,16 +9,16 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: dfc959984147d89ca5bfe68ed103a89b22f75501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347186"
+ms.locfileid: "91362324"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Omträna och distribuera en klassisk Studio (klassisk) webb tjänst
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Grön bock markering. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassiskt) ![ X som anger Nej.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Retraining Machine Learning-modeller är ett sätt att se till att de håller sig noggrann och utifrån de mest relevanta data som finns tillgängliga. I den här artikeln visas hur du återskapar en klassisk Studio (klassisk) webb tjänst. En guide om hur du återskapar en ny Studio-webbtjänst (klassisk) finns i [den här instruktions artikeln.](retrain-machine-learning-model.md)

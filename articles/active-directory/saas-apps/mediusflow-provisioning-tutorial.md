@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 03fa13e31724110e2b832cf490af325b8b570807
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312303"
+ms.locfileid: "91360624"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MediusFlow för automatisk användar etablering
 
@@ -143,7 +143,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** kan du mata in klient webb adressen som hämtades tidigare i **klient-URL: en**. Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till MediusFlow. Om anslutningen Miss lyckas kontrollerar du att MediusFlow-kontot har administratörs behörighet och försöker igen.
 
-      ![etablerings](./media/mediusflow-provisioning-tutorial/provisioning.png)
+      ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

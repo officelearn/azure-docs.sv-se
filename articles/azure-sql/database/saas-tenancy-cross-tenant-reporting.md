@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361780"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Rapportering mellan klienter med hjälp av distribuerade frågor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Så här granskar du definitionen av vyn *platser* :
 
 1. Expandera **Object Explorer** **contosoconcerthall**-  >  **vyer**i Object Explorer:
 
-   ![vyer](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Skärm bild som visar innehållet i vyer-noden, inklusive fyra typer av platser d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Högerklicka på **dbo. Platser**.
 3. Välj **skript visning som**  >  **skapa till**  >  **nytt Frågeredigeraren**

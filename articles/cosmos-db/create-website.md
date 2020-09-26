@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5038d9968e37b956774d1c5f8abdb14865422e8b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362018"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service med en webbapp från GitHub med en Azure Resource Manager mall
 
@@ -27,7 +27,7 @@ Resource Manager-mallar är relativt flexibla och gör det möjligt att skapa ko
 
 Den resulterande distributionen har ett fullständigt fungerande webb program som kan ansluta till Azure Cosmos DB utan att behöva klippa ut och klistra in Azure Cosmos DBs slut punkts-URL eller autentiseringsinställningar från Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!TIP]
 > Även om den här självstudien inte antar tidigare erfarenhet med Azure Resource Manager mallar eller JSON, bör du ändra de refererade mallarna eller distributions alternativen och sedan krävs kunskap om var och en av dessa områden.
@@ -98,7 +98,7 @@ Det krävs tre element för att det ska fungera.
 
 Först måste programmet begära Cosmos DB slut punkt och nyckel i `Startup` -klassen i ASP.NET MVC-webbappen. [Cosmos DB att göra-exemplet](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) kan köras lokalt där du kan ange anslutnings informationen till appsettings.jspå. När den distribueras distribueras dock den här filen med appen. Om dessa rader i rött inte kan komma åt inställningarna från appsettings.jspå, kommer den att försöka från program inställningarna i Azure App Service.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Start":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Skärm bild som visar en metod med flera String-variabler som är markerade i rött, inklusive databaseName, containerName, konto och nyckel.":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Använda särskilda funktioner för Azure-resurs hantering
 

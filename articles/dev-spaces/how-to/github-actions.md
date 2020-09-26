@@ -6,13 +6,13 @@ ms.topic: conceptual
 description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med hjälp av GitHub-åtgärder och Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5e3417f16791b71d53a0eec9263532219c779440
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-js
+ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212502"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316111"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
 
@@ -51,7 +51,7 @@ Spara *namnet* -värdet från utdata eftersom det används i ett senare steg.
 
 ## <a name="create-a-service-principal-for-authentication"></a>Skapa ett huvud namn för tjänsten för autentisering
 
-Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Till exempel:
+Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Exempel:
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -149,7 +149,7 @@ git push origin bike-images
 
 När push-åtgärden är klar navigerar du till din förgrenade lagrings plats på GitHub för att skapa en pull-begäran med *huvud* grenen i din förgrenade lagrings plats som bas gren jämfört med grenen *cykel-images* .
 
-När din pull-begäran har öppnats navigerar du till fliken *åtgärder* . kontrol lera att en ny åtgärd har startats och att tjänsten *Bikes* skapas.
+När din pull-begäran har öppnats går du till fliken *åtgärder* . Verifiera att en ny åtgärd har börjat och bygger tjänsten *Bikes* .
 
 ## <a name="view-the-child-space-with-your-changes"></a>Visa det underordnade utrymmet med dina ändringar
 

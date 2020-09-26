@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280988"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -291,12 +291,12 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **ModuleErrors (ingen modul med namnet)**: om du kör i ModuleErrors när du skickar experiment i Azure ml, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet installerar Azure ML paketet i den miljö som används för att köra din utbildning. 
 
-    Om du använder [uppskattningar](concept-azure-machine-learning-architecture.md#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file` eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parametern. Om du har ett eget Azure ML-miljö objekt som du vill åsidosätta standard avbildningen som används av uppskattaren kan du ange den miljön via- `environment` parametern för den uppskattade konstruktorn.
+    Om du använder uppskattningar för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages` parameter i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file` eller lista alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file` parametern. Om du har ett eget Azure ML-miljö objekt som du vill åsidosätta standard avbildningen som används av uppskattaren kan du ange den miljön via- `environment` parametern för den uppskattade konstruktorn.
 
     Azure ML tillhandahåller också branschspecifika uppskattningar för TensorFlow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att de viktigaste Ramverks beroendena är installerade för din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
  
     Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
-    De Ramverks-/regionsspecifika beroendena visas i respektive Framework-dokumentation – [kedjar](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
+    De Ramverks-/regionsspecifika beroendena visas i respektive Framework-dokumentation – [kedjar](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks).
 
     > [!Note]
     > Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
@@ -305,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod har stängts av**: i de flesta fall, om du stöter på "AbortedError: Horovod har stängts av" det här undantaget innebär det ett underliggande undantag i en av de processer som orsakade att Horovod stängdes. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna kallas `70_driver_logs` . I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enklare att skilja loggarna åt. Om du vill hitta det exakta fel som orsakade Horovod stänger du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
 
-* **Körning eller experimentering**: experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via "arkivera experiment"-knappen. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
+* **Körning eller experimentering**: experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via "arkivera experiment"-knappen. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
 
     Permanent borttagning av enskilda experiment eller körningar stöds inte för närvarande. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).
 
@@ -320,7 +320,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
-* Den **senaste uppgraderingen av AutoML-beroenden till nyare versioner kommer att brytas compatibilitity**: från och med version 1.13.0 av SDK kommer modeller inte att läsas in i äldre SDK: er på grund av inkompatibilitet mellan de äldre versioner som vi har fäst i våra tidigare paket och de nyare versionerna som vi fäster nu. Du får ett fel meddelande som:
+* **Den senaste uppgraderingen av AutoML-beroenden till nyare versioner kommer att vara en ny kompatibilitet**: från och med version 1.13.0 av SDK, läses inte modeller in i äldre SDK: er på grund av inkompatibilitet mellan de äldre versioner som vi har fäst i våra tidigare paket och de nyare versionerna som vi fäster nu. Du får ett fel meddelande som:
   * Modulen hittades inte: t. ex. `No module named 'sklearn.decomposition._truncated_svd` ,
   * Import fel: t. ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
   * Fel i attribut: t. ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -340,7 +340,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **Prognosticering R2-poängen är alltid noll**: det här problemet uppstår om de angivna tränings data har tids serier som innehåller samma värde för de sista `n_cv_splits`  +  `forecasting_horizon` data punkterna. Om det här mönstret förväntas i din tids serie kan du byta det primära måttet till normaliserat genomsnitts fel i roten.
+* **Prognosticering R2-poängen är alltid noll**: det här problemet uppstår om de angivna tränings data har tids serier som innehåller samma värde för de sista `n_cv_splits`  +  `forecasting_horizon` data punkterna. Om det här mönstret förväntas i din tids serie kan du växla det primära måttet till normaliserat rot genomsnitts fel i roten.
  
 * **TensorFlow**: från och med version 1.5.0 av SDK installerar automatiserad Machine Learning inte TensorFlow-modeller som standard. Installera TensorFlow och Använd det med dina automatiserade ML-experiment genom att installera TensorFlow = = 1.12.0 via CondaDependecies. 
  
@@ -366,7 +366,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     * Se till att Conda 64-bit är installerad, i stället för 32-bitars genom att köra `conda info` kommandot. `platform`Ska vara `win-64` för Windows eller `osx-64` Mac.
     * Se till att Conda 4.4.10 eller senare är installerat. Du kan kontrol lera versionen med kommandot `conda -V` . Om du har installerat en tidigare version kan du uppdatera den med hjälp av kommandot: `conda update conda` .
     * Linux `gcc: error trying to exec 'cc1plus'`
-      *  Om `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` felet uppstår installerar du build Essentials med kommandot nnan `sudo apt-get install build-essential` .
+      *  Om `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` felet uppstår installerar du build Essentials med hjälp av kommandot `sudo apt-get install build-essential` .
       * Skicka ett nytt namn som den första parametern till automl_setup för att skapa en ny Conda-miljö. Visa befintliga Conda-miljöer med `conda env list` och ta bort dem med `conda env remove -n <environmentname>` .
       
 * **automl_setup_linux. sh Miss lyckas**: om automl_setup_linus. sh Miss lyckas på Ubuntu Linux med felet: `unable to execute 'gcc': No such file or directory`-
@@ -376,7 +376,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   4. Kör `automl_setup_linux.sh` igen
 
 * **konfiguration. ipynb Miss lyckas**:
-  * För lokala Conda bör du först se till att automl_setup har susccessfully körs.
+  * För lokala Conda kontrollerar du först att automl_setup har körts.
   * Kontrol lera att subscription_id är korrekt. Hitta subscription_id i Azure Portal genom att välja alla tjänster och sedan prenumerationer. Tecknen "<" och ">" ska inte tas med i subscription_id svärdet. Har till exempel `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` det giltiga formatet.
   * Se till att deltagar-eller ägar åtkomst till prenumerationen.
   * Kontrol lera att regionen är en av de regioner som stöds:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` `southcentralus` .
@@ -390,15 +390,15 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   3. Om en ny prenumeration, resurs grupp, arbets yta eller region används, se till att du kör `configuration.ipynb` antecknings boken igen. Att ändra config.jsdirekt fungerar bara om arbets ytan redan finns i den angivna resurs gruppen under den angivna prenumerationen.
   4. Ändra arbets ytan, resurs gruppen eller prenumerationen om du vill ändra region. `Workspace.create` kommer inte att skapa eller uppdatera en arbets yta om den redan finns, även om den angivna regionen är annorlunda.
   
-* **Exempel på antecknings bok Miss lyckas**: om en exempel antecknings bok Miss lyckas med ett fel som för PERT, metod eller bibliotek inte finns:
-  * Se till att correctcorrect-kärnan har marker ATS i antecknings boken Jupyter. Kerneln visas i det övre högra hörnet på antecknings sidan. Standardvärdet är azure_automl. Observera att kärnan sparas som en del av antecknings boken. Så om du växlar till en ny Conda-miljö måste du välja den nya kerneln i antecknings boken.
+* **Exempel på antecknings bok Miss lyckas**: om en exempel antecknings bok Miss lyckas med ett fel där egenskapen, metoden eller biblioteket inte finns:
+  * Kontrol lera att rätt kernel har valts i Jupyter Notebook. Kerneln visas i det övre högra hörnet på antecknings sidan. Standardvärdet är azure_automl. Observera att kärnan sparas som en del av antecknings boken. Så om du växlar till en ny Conda-miljö måste du välja den nya kerneln i antecknings boken.
       * För Azure Notebooks bör det vara python 3,6. 
-      * För lokala Conda-miljöer bör det vara det Conda envioronment-namn som du angav i automl_setup.
+      * För lokala Conda-miljöer bör det vara namnet på den Conda-miljö som du angav i automl_setup.
   * Se till att antecknings boken är för den SDK-version som du använder. Du kan kontrol lera SDK-versionen genom att köra `azureml.core.VERSION` i en Jupyter Notebook-cell. Du kan hämta tidigare versioner av exempel antecknings böckerna från GitHub genom att klicka på `Branch` knappen, välja `Tags` fliken och sedan välja versionen.
 
 * **Numpy-importen Miss lyckas i Windows**: vissa Windows-miljöer ser ett fel vid inläsning av numpy med den senaste python-versionen 3.6.8. Om du ser det här problemet kan du prova med python version 3.6.7.
 
-* **Numpy-importen Miss lyckas**: kontrol lera tensorflow-versionen i den automatiserade ml Conda-miljön. Versioner som stöds är < 1,13. Avinstallera tensorflow från miljön om versionen är >= 1,13 du kan kontrol lera versionen av tensorflow och avinstallera enligt följande:
+* **Numpy-importen Miss lyckas**: kontrol lera TensorFlow-versionen i den automatiserade ml Conda-miljön. Versioner som stöds är < 1,13. Avinstallera TensorFlow från miljön om versionen är >= 1,13 du kan kontrol lera versionen av TensorFlow och avinstallera enligt följande:
   1. Starta ett kommando gränssnitt, aktivera Conda-miljön där automatiserade ml-paket är installerade.
   2. Ange `pip freeze` och leta efter `tensorflow` , om den hittas, ska den version som visas vara < 1,13
   3. Om den listade versionen inte är en version som stöds går du till `pip uninstall tensorflow` kommando tolken och anger y för bekräftelse.

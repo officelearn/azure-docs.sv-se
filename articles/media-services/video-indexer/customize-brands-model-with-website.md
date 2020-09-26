@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361242"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Anpassa en varumärke modell med Video Indexer webbplats
 
@@ -42,7 +42,7 @@ Du har möjlighet att ange om du vill att märken från Bing-databasen ska ident
 
 3. Om du vill redigera varumärken väljer du fliken **varumärken** .
 
-    ![Anpassa varumärkes-modellen i Video Indexer](./media/customize-brand-model/customize-brand-model.png)
+    ![Skärm bild som visar fliken varumärken i dialog rutan anpassning av innehålls modell.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Markera alternativet **Visa varumärken som föreslås av Bing** om du vill att video Indexer ska identifiera varumärken som föreslås av Bing – lämna alternativet avmarkerat om du inte vill det.
 
@@ -54,7 +54,7 @@ Avsnittet **Inkludera varumärken** representerar anpassade varumärken som du v
 
 1. Välj **+ Lägg till varumärke**.
 
-    ![Anpassa varumärkes-modellen i Video Indexer](./media/customize-brand-model/add-brand.png)
+    ![Skärm bild som visar dialog rutan inkludera märken där du kan lägga till varumärken.](./media/customize-brand-model/add-brand.png)
 
     Ange ett namn (obligatoriskt), kategori (valfritt), beskrivning (valfritt) och referens-URL (valfritt).
     Kategori fältet är avsett att hjälpa dig att tagga dina varumärken. Det här fältet visas som märkes *taggar* när du använder video Indexer-API: er. Till exempel kan märket "Azure" märkas eller kategoriseras som "moln".

@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361916"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Självstudie: Konfigurera Log Analytics-guiden
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Skapa en anpassad arbets bok med snabb starts mal len
 > * Lägg till en fråga till en befintlig arbetsboksmall
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration med minst en P1-licensierad administratör. Om du inte har någon Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 
@@ -72,7 +72,7 @@ Att konfigurera en Log Analytics-arbetsyta består av två huvud steg:
 
 3. Klicka på **Lägg till**på sidan Log Analytics-arbetsytor.
 
-    ![Lägg till](./media/tutorial-log-analytics-wizard/add.png)
+    ![Skärm bild som visar knappen Lägg till på sidan Log Analytics-arbetsytor.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  Utför följande steg på sidan **skapa Log Analytics arbets yta** :
 
@@ -260,7 +260,7 @@ Den här proceduren visar hur du skickar aviseringar när BreakGlass-kontot anv�
 
 14. Utför följande steg på sidan **skapa åtgärds grupp** :
 
-    ![Instans information](./media/tutorial-log-analytics-wizard/instance-details.png)
+    ![Instansinformation](./media/tutorial-log-analytics-wizard/instance-details.png)
 
     1. Skriv **min åtgärds grupp**i text rutan **Åtgärds grupp namn** .
 
@@ -305,7 +305,7 @@ Den här proceduren visar hur du skapar en ny arbets bok med hjälp av snabb sta
 
 3. I avsnittet **övervakning** klickar du på **arbets böcker**.
 
-    ![Arbetsböcker](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Skärm bild som visar övervakning på Azure Portal-menyn med arbets böcker markerade.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. I avsnittet **snabb start** klickar du på **Tom**.
 
@@ -357,7 +357,7 @@ Den här proceduren visar hur du lägger till en fråga till en befintlig arbets
 
 3. I avsnittet **övervakning** klickar du på **arbets böcker**.
 
-    ![Arbetsböcker](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Skärm bild som visar övervakning på menyn med arbets böcker markerade.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. I avsnittet **villkorlig åtkomst** klickar du på **villkorlig åtkomst insikter och rapportering**.
 

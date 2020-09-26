@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc503213169f909850460edf5e50ed3f1b34fbe2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 52964c906df7a96685c8eb80c1d23ef9a9efc6e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288604"
+ms.locfileid: "91361848"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Använd Multi-Factor AAD-autentisering med Synapse SQL (SSMS-stöd för MFA)
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs skillnaderna mellan olika autentiseringsalternativ 
 
 För alla funktioner som beskrivs i den här artikeln använder du minst juli 2017, version 17,2.  Dialog rutan senaste anslutning bör se ut ungefär som på följande bild:
 
-![1mfa – Universal-Connect](./media/mfa-authentication/1mfa-universal-connect.png "Slutför rutan användar namn.")  
+![Skärm bild som visar dialog rutan Anslut till server där du kan välja ett server namn och autentiserings alternativ.](./media/mfa-authentication/1mfa-universal-connect.png "Slutför rutan användar namn.")  
 
 ## <a name="the-five-authentication-options"></a>De fem alternativen för autentisering  
 
@@ -63,7 +63,7 @@ Om du vill ange parametern (från och med SSMS version 17,2) går du till dialog
 
 Kontrol lera rutan **AD-domännamn eller klient-ID** och tillhandahålla autentiserings utfärdare, till exempel domän namnet (**CONTOSOTEST.ONMICROSOFT.com**) eller GUID för klient-ID: t.  
 
-   ![MFA-Tenant-SSMS](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![Skärm bild som visar Anslut till server på fliken anslutnings egenskaper med angivna värden.](./media/mfa-authentication/mfa-tenant-ssms.png)
 
 Om du kör SSMS 18. x eller senare behövs inte längre AD-domännamnet eller klient-ID: t för gäst användare eftersom 18. x eller senare identifierar det automatiskt.
 

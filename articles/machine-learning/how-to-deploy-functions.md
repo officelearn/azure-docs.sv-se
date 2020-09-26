@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: b386c058a2795402cc60fddf6c187b57aec2185e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 133c885f29ceff0b8c4764507a80df5ee24cf4a1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328402"
+ms.locfileid: "91361735"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskin inlärnings modell till Azure Functions (för hands version)
 
@@ -120,7 +120,7 @@ När `show_output=True` visas utdata från Docker-build-processen. När processe
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<myacr>` med det värde som returnerades tidigare från `package.location` : 
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<myacr>` med det värde som returnerades tidigare från `blob.location` : 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>

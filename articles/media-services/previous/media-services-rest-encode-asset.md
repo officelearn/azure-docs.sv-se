@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d2e7be89b3319445a69d5b91990e9888cccd484a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0bff0c6b3ef7934188b548bd06c35d83b323fde
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359607"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Så här kodar du en till gång genom att använda Media Encoder Standard
 
@@ -101,7 +101,7 @@ I följande exempel visas hur du ställer in attributet assetName:
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## <a name="considerations"></a>Överväganden
+### <a name="considerations"></a>Överväganden
 * TaskBody-egenskaper måste använda literal XML för att definiera antalet indata eller utgående till gångar som används av aktiviteten. Uppgifts artikeln innehåller XML-schema definitionen för XML-koden.
 * I TaskBody-definitionen måste varje inre värde för `<inputAsset>` och `<outputAsset>` anges som JobInputAsset (värde) eller JobOutputAsset (värde).
 * En aktivitet kan ha flera utmatnings till gångar. En JobOutputAsset (x) kan bara användas en gång som utdata för en aktivitet i ett jobb.

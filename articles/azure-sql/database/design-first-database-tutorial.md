@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
-ms.openlocfilehash: b56dd81cd0cdc5d9a6917b0bf43c3fceeff63c4a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84216548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362171"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i Azure SQL Database med SSMS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -92,7 +92,7 @@ Följ de här stegen för att skapa en tom databas.
 
 9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-   ![avisering](./media/design-first-database-tutorial/notification.png)
+   ![Skärm bild som visar menyn meddelanden med pågående distribution.](./media/design-first-database-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Skapa en IP-brandväggsregel på servernivå
 

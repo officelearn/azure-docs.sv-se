@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361695"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsoft Commercial Marketplace
 
@@ -21,7 +21,7 @@ Microsoft erbjuder ett standard kontrakt för Microsofts kommersiella marknads p
 Villkoret för ett erbjudande definieras när du skapar erbjudandet i Partner Center. Du kan välja att använda standard kontraktet för Microsofts kommersiella marknads plats i stället för att tillhandahålla egna allmänna villkor.
 
 >[!Note]
->När du har publicerat ett erbjudande med hjälp av standard avtalet för Microsofts kommersiella marknads plats kan du inte använda dina egna anpassade villkor. Det är ett "eller"-scenario. Du erbjuder antingen din lösning enligt standard avtalet *eller* dina egna villkor. Om du vill ändra villkoren i standard kontraktet kan du göra det via standard kontrakts ändringar.
+>När du har publicerat ett erbjudande med hjälp av standard avtalet för Microsofts kommersiella marknads plats kan du inte använda dina egna anpassade villkor. Du erbjuder antingen din lösning enligt standard avtalet *eller* dina egna villkor. Anpassade villkor definieras på erbjudande nivån och tillämpas på alla planer. Skriv anpassade villkor på sidan **Egenskaper** för ditt erbjudande i Partner Center. Om du vill ändra villkoren i standard kontraktet kan du göra det via standard kontrakts ändringar.
 
 ## <a name="standard-contract-amendments"></a>Standard kontrakts ändringar
 

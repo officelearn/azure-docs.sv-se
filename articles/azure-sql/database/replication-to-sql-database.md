@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324155"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362137"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikering till Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,12 +54,12 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 
 | Replikering | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja | 
-| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
-| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nej | Nej|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nej | Nej|
-| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Ja|
-| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nej | Nej|
+| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Yes | 
+| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Yes|
+| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Inga | Inga|
+| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Inga | Inga|
+| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Inga | Ja|
+| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Inga | Inga|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -78,7 +78,7 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 
 ## <a name="replication-architecture"></a>Arkitektur för replikering  
 
-![replikering till SQL-databas](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![Diagrammet visar replikeringens arkitektur med Azure SQL Database, som innehåller flera prenumerations kluster i olika regioner och lokala virtuella Azure-datorer, som innehåller en utgivare, Logread körbar fil och distributions program som ansluter till fjärranslutna kluster.](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Scenarier  
 

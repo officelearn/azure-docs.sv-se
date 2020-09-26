@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80293952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361372"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-anslutning för Azure
 
@@ -129,7 +129,7 @@ I din SAP LaMa Azure Connector-konfiguration väljer du Använd hanterad identit
 * Etikett: Välj ett namn för anslutnings instansen
 * Användar namn: program-ID för tjänstens huvud namn eller ID för den användare som tilldelats den virtuella datorns identitet. Mer information finns i [använda en system-eller användare som tilldelats identiteter]
 * Lösen ord: tjänstens huvud nyckel/lösen ord. Du kan lämna fältet tomt om du använder en system-eller användare som tilldelats identiteten.
-* URL: Behåll standard`https://management.azure.com/`
+* URL: Behåll standard `https://management.azure.com/`
 * Övervaknings intervall (sekunder): måste vara minst 300
 * Använd hanterad identitet: SAP LaMa kan använda en system-eller användare som tilldelats identitet för att autentisera mot Azure-API: et. Se kapitlet [använda en hanterad identitet för att få åtkomst till Azure-API: et](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) i den här hand boken.
 * Prenumerations-ID: ID för Azure-prenumeration
@@ -260,14 +260,14 @@ I exemplen nedan förutsätter vi att du installerar SAP HANA med system-ID HN1 
 
 Innan du startar SAP Software Provisioning Manager (SWPM) måste du montera IP-adressen för det virtuella värd namnet för ASCS. Det rekommenderade sättet är att använda sapacext. Om du monterar IP-adressen med hjälp av sapacext måste du montera om IP-adressen efter en omstart.
 
-![Linux][Logo_Linux] Linux
+![Linux-logotyp.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows-logotyp.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -276,7 +276,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Kör SWPM och Använd *ah1-ASCs* för *värd namnet för ASCs-instansen*.
 
-![Linux ][Logo_Linux] Linux  
+![Linux-logotyp.][Logo_Linux] Linux  
 Lägg till följande profil parameter i SAP host agent-profilen som finns på/usr/SAP/hostctrl/exe/host_profile. Mer information finns i SAP NOTE [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -387,14 +387,14 @@ Kör databas instans installationen av SWPM på den virtuella program Server dat
 
 Innan du startar SAP Software Provisioning Manager (SWPM) måste du montera IP-adressen för program serverns virtuella värdnamn. Det rekommenderade sättet är att använda sapacext. Om du monterar IP-adressen med hjälp av sapacext måste du montera om IP-adressen efter en omstart.
 
-![Linux][Logo_Linux] Linux
+![Linux-logotyp.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows-logotyp.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

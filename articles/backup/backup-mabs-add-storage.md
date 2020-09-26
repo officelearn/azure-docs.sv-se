@@ -3,12 +3,12 @@ title: Använda Modern Backup Storage med Azure Backup Server
 description: Lär dig mer om de nya funktionerna i Azure Backup Server. Den här artikeln beskriver hur du uppgraderar installationen av säkerhets kopierings servern.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378244"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292905"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 
@@ -18,7 +18,7 @@ Azure Backup Server v2 och senare har stöd för Modern Backup Storage som ger l
 > Om du vill använda Modern Backup Storage måste du köra backup server v2 eller v3 på Windows Server 2016 eller v3 på Windows Server 2019.
 > Om du kör backup server v2 på en tidigare version av Windows Server kan Azure Backup Server inte dra nytta av Modern Backup Storage. I stället skyddas arbets belastningar på samma sätt som med säkerhets kopierings servern v1. Mer information finns i [matrisen](backup-mabs-protection-matrix.md)för säkerhets kopiering av Server versions skydd.
 >
-> För att uppnå förbättrade prestanda för säkerhets kopiering rekommenderar vi att du distribuerar MABS v3 med skiktad lagring på Windows Server 2019. Se DPM-artikeln "[Konfigurera MB med Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" för steg för att konfigurera skiktat lagrings utrymme.
+> För att uppnå förbättrade prestanda för säkerhets kopiering rekommenderar vi att du distribuerar MABS v3 med skiktad lagring på Windows Server 2019. Se DPM-artikeln "[Konfigurera MB med Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage)" för steg för att konfigurera skiktat lagrings utrymme.
 
 ## <a name="volumes-in-backup-server"></a>Volymer i säkerhets kopierings Server
 

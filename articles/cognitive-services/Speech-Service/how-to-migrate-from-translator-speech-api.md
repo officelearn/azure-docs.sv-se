@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362069"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från Translator Speech API till tal tjänsten
 
@@ -61,7 +61,7 @@ Om du eller din organisation har program som är i utvecklings-eller produktions
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prova röst tjänsten kostnads fritt](get-started.md)
+* [Prova röst tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free)
 * [Snabb start: identifiera tal i en UWP-app med hjälp av talet SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Se även

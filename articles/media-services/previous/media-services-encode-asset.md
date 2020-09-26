@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: c98d265f2d21c1e16ca787d4055eb4c2b1a89133
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281022"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Översikt över Azure on-demand Media Encoder
 
@@ -36,12 +36,11 @@ Media Services tillhandahåller en dynamisk paketering som gör att du kan lever
 
 När ditt Media Services-konto skapas, läggs en **standard** slut punkt för direkt uppspelning till på ditt konto i **stoppat** tillstånd. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. Faktureringen av slut punkter för direkt uppspelning sker när slut punkten är i ett **körnings** tillstånd.
 
-Media Services stöder följande kodare på begäran som beskrivs i den här artikeln:
+Media Services stöder följande kodare på begäran:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Arbetsflöde för Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Den här artikeln ger en kort översikt över medier för medie kodare på begäran och innehåller länkar till artiklar som ger mer detaljerad information. Avsnittet innehåller också jämförelse av kodare.
+Den här artikeln ger en kort översikt över media-kodare på begäran och länkar till artiklar med mer detaljerad information.
 
 Som standard kan varje Media Services konto ha en aktiv kodnings aktivitet i taget. Du kan reservera kodnings enheter som gör att du kan köra flera kodnings aktiviteter samtidigt, en för varje encoding-reserverad enhet som du köper. Mer information finns i [skala kodnings enheter](media-services-scale-media-processing-overview.md).
 
@@ -72,15 +71,6 @@ Mer information finns i [så här skapar du överlägg med Media Encoder Standar
 
 ### <a name="see-also"></a>Se även
 [Media Services blogg](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
-
-## <a name="media-encoder-premium-workflow"></a>Arbetsflöde för Media Encoder Premium
-### <a name="overview"></a>Översikt
-[Vi presenterar Premium encoding i Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
-
-### <a name="how-to-use"></a>Använd så här
-Media Encoder Premium Workflow konfigureras med komplexa arbets flöden. Du kan skapa och uppdatera arbetsflödes filer med hjälp av [arbetsflödesdesigner](media-services-workflow-designer.md) -verktyget.
-
-[Så här använder du Premium encoding i Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Kända problem
 Om din indata-video inte innehåller dold textning innehåller utmatnings till gången fortfarande en tom TTML-fil.

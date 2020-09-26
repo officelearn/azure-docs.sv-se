@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: bb010ea7262de4498d25250845eebaec8606c707
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b45c7fcbc4e3c0eda4f2e8d3eb21a81428dee39d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327994"
+ms.locfileid: "91361253"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zapier för automatisk användar etablering
 
@@ -95,7 +95,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** , skriver du in din Zapier- **klient-URL och en** **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Zapier. Om anslutningen Miss lyckas kontrollerar du att Zapier-kontot har administratörs behörighet och försöker igen.
 
-   ![etablerings](./media/zapier-provisioning-tutorial/provisioning.png)
+   ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/zapier-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

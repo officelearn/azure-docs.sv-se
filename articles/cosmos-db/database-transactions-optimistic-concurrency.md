@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74806532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355395"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
 
@@ -53,9 +53,9 @@ Med optimistisk concurrency-kontroll kan du förhindra förlorade uppdateringar 
 
 Samtidiga uppdateringar av ett objekt underkastas OCC av protokoll skiktet för Azure Cosmos DB. Azure Cosmos Database säkerställer att versions versionen av det objekt som du uppdaterar (eller tar bort) är samma som versionen av objektet i Azure Cosmos-behållaren. Detta garanterar att dina skrivningar är skyddade från att skrivas över av misstag av andras skrivningar och tvärtom. I en miljö med flera användare skyddar den optimistisk samtidighets kontrollen dig från att oavsiktligt ta bort eller uppdatera fel version av ett objekt. Därför skyddas objekt mot Infamous "förlorad uppdatering" eller "förlorad borttagning".
 
-Alla objekt som lagras i en Azure Cosmos-behållare har en systemdefinierad `_etag` egenskap. Värdet för `_etag` genereras automatiskt och uppdateras av servern varje gång objektet uppdateras. `_etag`kan användas med klientens `if-match` begär ande huvud för att tillåta att servern bestämmer om ett objekt kan uppdateras villkorligt. Värdet för `if-match` rubriken matchar värdet på `_etag` på servern, objektet uppdateras sedan. Om värdet för `if-match` begär ande rubriken inte längre är aktuellt, avvisar servern åtgärden med svarsmeddelandet "HTTP 412-förhands fel". Klienten kan sedan återskapa objektet för att hämta den aktuella versionen av objektet på servern eller åsidosätta versionen av objektet på servern med ett eget `_etag` värde för objektet. `_etag`Kan dessutom användas med `if-none-match` rubriken för att avgöra om en återhämtning av en resurs behövs.
+Alla objekt som lagras i en Azure Cosmos-behållare har en systemdefinierad `_etag` egenskap. Värdet för `_etag` genereras automatiskt och uppdateras av servern varje gång objektet uppdateras. `_etag` kan användas med klientens `if-match` begär ande huvud för att tillåta att servern bestämmer om ett objekt kan uppdateras villkorligt. Värdet för `if-match` rubriken matchar värdet på `_etag` på servern, objektet uppdateras sedan. Om värdet för `if-match` begär ande rubriken inte längre är aktuellt, avvisar servern åtgärden med svarsmeddelandet "HTTP 412-förhands fel". Klienten kan sedan återskapa objektet för att hämta den aktuella versionen av objektet på servern eller åsidosätta versionen av objektet på servern med ett eget `_etag` värde för objektet. `_etag`Kan dessutom användas med `if-none-match` rubriken för att avgöra om en återhämtning av en resurs behövs.
 
-Objektets `_etag` värde ändras varje gång objektet uppdateras. För att ersätta objekt åtgärder `if-match` måste uttryckligen uttryckas som en del av begär ande alternativen. Ett exempel finns i exempel koden i [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`värden kontrol leras implicit för alla skrivna objekt som vidrörs av den lagrade proceduren. Om en konflikt upptäcks återställer den lagrade proceduren transaktionen och genererar ett undantag. Med den här metoden tillämpas alla eller inga skrivningar inom den lagrade proceduren på ett atomict sätt. Detta är en signal till programmet att tillämpa uppdateringar på nytt och försöka utföra den ursprungliga klientbegäran igen.
+Objektets `_etag` värde ändras varje gång objektet uppdateras. För att ersätta objekt åtgärder `if-match` måste uttryckligen uttryckas som en del av begär ande alternativen. Ett exempel finns i exempel koden i [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L676-L772). `_etag` värden kontrol leras implicit för alla skrivna objekt som vidrörs av den lagrade proceduren. Om en konflikt upptäcks återställer den lagrade proceduren transaktionen och genererar ett undantag. Med den här metoden tillämpas alla eller inga skrivningar inom den lagrade proceduren på ett atomict sätt. Detta är en signal till programmet att tillämpa uppdateringar på nytt och försöka utföra den ursprungliga klientbegäran igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

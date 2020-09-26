@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74976731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316077"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Självstudie: Konfigurera moln resurser för enhets etablering med IoT Hub Device Provisioning Service
 
@@ -21,15 +21,15 @@ Den här självstudien visar hur du konfigurerar molnet för en automatisk enhet
 
 > [!div class="checklist"]
 > * Använd Azure-portalen för att skapa en IoT Hub Device Provisioning-tjänst och hämta ID-omfånget
-> * Skapa en IoT Hub
+> * Skapa en IoT-hubb
 > * Länka IoT-hubben till Device Provisioning-tjänsten
 > * Ange allokeringsprincip för enhetsetableringstjänsten
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="prerequisites"></a>Förutsättningar
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Skapa en Device Provisioning-tjänstinstans och hämta ID-omfång
 
@@ -58,7 +58,7 @@ Följ de här stegen för att skapa en ny Device Provisioning-tjänstinstans.
 
 7. Kopiera även **Tjänstslutpunkten** värde för senare användning. 
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -116,7 +116,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Använd Azure-portalen för att skapa en IoT Hub Device Provisioning-tjänst och hämta ID-omfånget
-> * Skapa en IoT Hub
+> * Skapa en IoT-hubb
 > * Länka IoT-hubben till Device Provisioning-tjänsten
 > * Ange allokeringsprincip för enhetsetableringstjänsten
 

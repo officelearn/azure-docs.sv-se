@@ -1,22 +1,22 @@
 ---
 title: Välj distributions kolumner – storskalig (citus)-Azure Database for PostgreSQL
-description: Lär dig hur du väljer distributions kolumner i vanliga storskaliga scenarier i Azure Database for PostgreSQL.
+description: Lär dig hur du väljer distributions kolumner i vanliga scenarier i Azure Database for PostgreSQL-storskalig (citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314920"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
 
-Att välja varje tabells distributions kolumn är en av de viktigaste modell beslut som du gör. Azure Database for PostgreSQL – citus) lagrar rader i Shards baserat på värdet för radernas distributions kolumn.
+Att välja distributionskolumn för varje tabell är ett av de viktigaste besluten om modellering. Azure Database for PostgreSQL – citus) lagrar rader i Shards baserat på värdet för radernas distributions kolumn.
 
 Rätt alternativ grupper relaterade data tillsammans på samma fysiska noder, vilket gör att frågor snabbt och lägger till stöd för alla SQL-funktioner. Ett felaktigt val gör att systemet körs långsamt och inte stöder alla SQL-funktioner på noderna.
 

@@ -4,12 +4,12 @@ description: Anpassa en C# .NET-webbapp med en personanpassa-slinga för att ge 
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 59881a749676f4f5408c1ffc87b3bcf75c512e1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316230"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Självstudie: Lägg till en Personanpassare till en .NET-webbapp
 
@@ -254,7 +254,7 @@ Skapa och kör HttpRequestFeaturesExample med någon av följande metoder:
 Via en webbläsare kan du skicka en rang-begäran och en belönings förfrågan och se deras svar, samt de funktioner för HTTP-begäranden som har extraherats från din miljö.
 
 > [!div class="mx-imgBorder"]
-> ![Skapa och kör HTTPRequestFeaturesExample-projektet. Ett webbläsarfönster öppnas för att visa programmet för en enda sida.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Skärm bild som visar ett exempel på funktionen HTTP-förfrågan i en webbläsare.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## <a name="demonstrate-the-personalizer-loop"></a>Demonstrera den personliga slingan
 
@@ -267,7 +267,7 @@ Via en webbläsare kan du skicka en rang-begäran och en belönings förfrågan 
 1. Ange belöning svärdet och välj sedan knappen **Skicka belönings förfrågan** . Om du inte ändrar belöning svärdet skickar klient programmet alltid värdet för `1` till-personanpassa.
 
     > [!div class="mx-imgBorder"]
-    > ![Skapa och kör HTTPRequestFeaturesExample-projektet. Ett webbläsarfönster öppnas för att visa programmet för en enda sida.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Skärm bild som visar avsnittet om belönings förfrågan.](./media/tutorial-web-app/reward-score-api-call.png)
 
     För ditt eget framtida program kan genereringen av belönings poängen inträffa efter att du samlat in information från användarens beteende på klienten, tillsammans med affärs logik på servern.
 

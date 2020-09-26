@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 08bbe1000d457cc4f4d6b655051ec640d4dcecf4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362120"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
@@ -90,7 +90,7 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
 5. Fyll i följande fält för CNAME-posten:
 
-    ![CNAME entry (CNAME-post)](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![Skärm bild som visar namn poster för C med typ, värd, pekar på och T T L-värden för en tillfällig cdnverify-underdomän.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - Type (Typ): Använd det förvalda värdet *CNAME*.
 
@@ -104,7 +104,7 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
  
     CNAME-posten läggs till i tabellen med DNS-poster.
 
-    ![Tabell med DNS-poster](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![Skärm bild som visar att namn posten C har lagts till i tabellen D N S-poster för en tillfällig under domän i cdnverify.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>Associera den anpassade domänen med CDN-slutpunkten
@@ -188,7 +188,7 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
 5. Fyll i fälten för CNAME-posten:
 
-    ![CNAME entry (CNAME-post)](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![Skärm bild som visar namn poster för C med typ, värd, pekar på och T T L-värden för en permanent anpassad domän.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Type (Typ): Använd det förvalda värdet *CNAME*.
 
@@ -202,7 +202,7 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
  
     CNAME-posten läggs till i tabellen med DNS-poster.
 
-    ![Tabell med DNS-poster](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![Skärm bild som visar att namn posten C har lagts till i tabellen D N S-poster för en permanent anpassad domän.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. Om du har en CNAME-post för underdomänen cdnverify väljer du pennikonen bredvid den och sedan papperskorgsikonen.
 

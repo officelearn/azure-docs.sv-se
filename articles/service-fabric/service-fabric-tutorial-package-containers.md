@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8cab2e3490703cbf955ed1ed5c6e753a3ccfc753
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361440"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudie: Paketera och distribuera containers som en Service Fabric-app med Yeoman
 
@@ -278,7 +278,7 @@ Använd installationsskriptet som medföljer i katalogen **TestContainer** för 
 
 Öppna en webbläsare och gå till klustrets URL – till exempel http:/containertestcluster.eastus.cloudapp.azure.com:80 för att ansluta till det program som körs \/ . Röstningsprogrammet ska visas i webbläsaren.
 
-![röstningsapp][votingapp]
+![Skärm bild som visar Azure röstnings app med knappar för katter, hundar och återställning och total summor.][votingapp]
 
 ## <a name="clean-up"></a>Rensa
 

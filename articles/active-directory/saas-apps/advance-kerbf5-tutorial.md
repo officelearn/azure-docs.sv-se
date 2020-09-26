@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Azure Active Directory integration med enkel inloggning med F5 | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och F5.
+description: I den här artikeln får du lära dig de steg som du måste utföra för att integrera F5 med Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306216"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory (AD) integrering med enkel inloggning (SSO) med F5
 
@@ -39,8 +39,9 @@ För att komma igång behöver du följande objekt:
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* F5 stöder **SP-och IDP** -INITIERAd SSO
-* F5 SSO kan konfigureras på tre olika sätt.
+F5 stöder **SP-och IDP** -initierad SSO.
+
+F5 SSO kan konfigureras på tre olika sätt:
 
 - [Konfigurera enkel inloggning med F5 för avancerat Kerberos-program](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
@@ -302,7 +303,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 | eb46b6b6. session. SAML. Last. responseIssueInstant | `<ID>` |
 | eb46b6b6. session. SAML. Last. responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6. session. SAML. Last. result | 1 |
-| eb46b6b6. session. SAML. Last. samlVersion | 2.0 |
+| eb46b6b6. session. SAML. Last. samlVersion | 2,0 |
 | eb46b6b6. session. SAML. Last. sessionIndex | `<TENANT ID>` |
 | eb46b6b6. session. SAML. Last. statusValue | urn: Oasis: namn: TC: SAML: 2.0: status: lyckad |
 | eb46b6b6. session. SAML. Last. subjectConfirmDataNotOnOrAfter | `<ID>` |
@@ -325,7 +326,7 @@ När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,6 +1,6 @@
 ---
 title: SAP HANA skala ut med vänte läge med Azure NetApp Files på SLES | Microsoft Docs
-description: Hög tillgänglighets guide för SAP NetWeaver på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program
+description: Lär dig hur du distribuerar ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: adc57b213a177e227fe446a4dd24e53dea1cd2fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314070"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server 
 
@@ -106,10 +106,10 @@ Azure NetApp-volymerna finns i separata undernät, [delegerade till Azure NetApp
 
 I den här exempel konfigurationen är under näten:  
 
-  - `client`10.23.0.0/24  
-  - `storage`10.23.2.0/24  
-  - `hana`10.23.3.0/24  
-  - `anf`10.23.1.0/26  
+  - `client` 10.23.0.0/24  
+  - `storage` 10.23.2.0/24  
+  - `hana` 10.23.3.0/24  
+  - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Konfigurera Azure NetApp Files-infrastrukturen 
 
@@ -149,7 +149,7 @@ Följande instruktioner förutsätter att du redan har distribuerat ditt [virtue
    
    I det här exemplet använde vi en separat Azure NetApp Files volym för varje HANA-data och logg volym. För en mer kostnads optimerad konfiguration på mindre eller icke-produktiva system är det möjligt att placera alla data monteringar och alla loggar monteras på en enda volym.  
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 
 När du skapar din Azure NetApp Files för SAP-NetWeaver på SUSE hög tillgänglighets arkitektur måste du tänka på följande viktiga överväganden:
 
@@ -236,7 +236,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
 3. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `storage` virtuella nätverkets undernät (i det här exemplet **hanadb1-Storage**, **hanadb2-Storage**och **hanadb3-Storage**).  
 
-4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana` virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
+4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana`  virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
 
 5. Koppla de nyligen skapade virtuella nätverks gränssnitten till motsvarande virtuella datorer genom att utföra följande steg:  
 
@@ -250,7 +250,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
     
     e. Välj **Spara**. 
  
-    f. Upprepa steg b till e för de återstående virtuella datorerna (i vårt exempel **hanadb2** och **hanadb3**).
+    f. Upprepa steg b till e för de återstående virtuella datorerna (i vårt exempel  **hanadb2** och **hanadb3**).
  
     ex. Lämna kvar de virtuella datorerna i stoppat tillstånd för tillfället. Därefter aktiverar vi [accelererat nätverk](../../../virtual-network/create-vm-accelerated-networking-cli.md) för alla nyligen anslutna nätverks gränssnitt.  
 
@@ -561,7 +561,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
      * För **kommaavgränsade värdnamn som ska läggas till**: ange **hanadb2, hanadb3**
      * För **rot användar namn** [root]: Tryck på RETUR för att acceptera standardvärdet
      * För **rot användar lösen ord**: Ange rot användarens lösen ord
-     * För roller för värd hanadb2: ange **1** (för arbetare)
+     * För roller för värd hanadb2: ange **1**  (för arbetare)
      * För **värd växlings gruppen** för värd hanadb2 [standard]: Tryck på RETUR för att acceptera standardvärdet
      * För **lagrings partitions nummer** för värd-hanadb2 [<<assign automatically>>]: Tryck på RETUR för att acceptera standardvärdet
      * För **arbets grupp** för värd hanadb2 [standard]: Tryck på RETUR för att acceptera standardvärdet

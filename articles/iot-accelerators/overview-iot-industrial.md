@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c474b57533cb6165ce7fe77defccd4cb7042b06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3df10c9d7630e9db76994e8e508f30adb986e0d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82189930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281821"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Vad är industriella IoT (IIoT)
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 IIoT är den industriella Sakernas Internet. IIoT förbättrar bransch effektiviteten genom program varan för IoT i tillverknings branschen. 
 
@@ -49,5 +52,4 @@ OPC-valvet är en implementering av OPC UA global Discovery Server (GDS) som kan
 
 Nu när du har haft en introduktion till den industriella IoT-komponenten och dess komponenter, här är det föreslagna nästa steg:
 
-> [!div class="nextstepaction"]
-> [Vad är OPC-tvilling](overview-opc-twin.md)
+[Vad är OPC-tvilling](overview-opc-twin.md)

@@ -3,12 +3,12 @@ title: Logg aviseringar från Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du skapar anpassade logg aviseringar för minnes-och processor användning från Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294554"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Så här skapar du logg aviseringar från Azure Monitor för behållare
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Skapa en varningsregel
 
-Det här avsnittet beskriver hur du skapar en mått mätnings aviserings regel med hjälp av prestanda data från Azure Monitor för behållare. Du kan använda den här grundläggande processen med en mängd olika logg frågor för att få aviseringar om olika prestanda räknare. Använd en av logg Sök frågorna som tillhandahölls tidigare för att börja med. Information om hur du skapar med en ARM-mall finns i [exempel på att skapa en övning med Azure-resurs mal len](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Det här avsnittet beskriver hur du skapar en mått mätnings aviserings regel med hjälp av prestanda data från Azure Monitor för behållare. Du kan använda den här grundläggande processen med en mängd olika logg frågor för att få aviseringar om olika prestanda räknare. Använd en av logg Sök frågorna som tillhandahölls tidigare för att börja med. Information om hur du skapar med en ARM-mall finns i exempel på hur du skapar [logg aviseringar med hjälp av Azure Resource Template](../platform/alerts-log-create-templates.md)
 
 >[!NOTE]
 >Följande procedur för att skapa en aviserings regel för användning av container resurser kräver att du växlar till en ny logg aviserings-API enligt beskrivningen i [switch API-inställningar för logg aviseringar](../platform/alerts-log-api-switch.md).

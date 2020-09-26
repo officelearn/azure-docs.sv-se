@@ -4,12 +4,12 @@ description: 'Självstudie: beskriver hur du använder Azure Event Grid och Even
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270567"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [Event Hubs och event Grid integrations exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med event Grid för att sömlöst migrera insamlade Event Hubs data från Blob Storage till en Azure Synapse Analytics (tidigare SQL Data Warehouse).
@@ -34,7 +34,7 @@ I den här självstudien gör du följande:
 > * Kör appen som skickar data till händelsehubben.
 > * Visar migrerade data i informationslagret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -66,7 +66,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
 4. Om du i Cloud Shell ser ett alternativ för att välja mellan **Bash** och **PowerShell**, väljer du **Bash**. 
 5. Om du använder Cloud Shell för första gången, skapar du ett lagringskonto genom att välja **Skapa lagring**. Det måste finnas ett Azure-lagringskonto i Azure Cloud Shell för att vissa filer ska kunna lagras. 
 
-    ![Skapa lagring för Cloud Shell](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    ![Skärm bild som visar dialog rutan "du har ingen lagrings monterad" med knappen "skapa lagring" vald.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Vänta tills Cloud Shell har initierats. 
 
     ![Skapa lagring för Cloud Shell](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -209,7 +209,7 @@ Skapa en tabell i informationslagret genom att köra skriptet [CreateDataWarehou
    ![Publicera funktionsapp](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. Om du ser följande skärm väljer du **Starta**. 
 
-   ![Knappen Starta publicering](media/event-grid-event-hubs-integration/start-publish-button.png) 
+   ![Skärm bild som visar Visual Studios med knappen "starta" i publicerings avsnittet.](media/event-grid-event-hubs-integration/start-publish-button.png) 
 5. I dialog rutan **publicera** väljer du **Azure** for **target**och **sedan nästa**. 
 
    ![Knappen Starta publicering](media/event-grid-event-hubs-integration/publish-select-azure.png)

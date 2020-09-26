@@ -1,6 +1,6 @@
 ---
 title: Virtuella Azure-datorer med hög tillgänglighet för SAP NetWeaver | Microsoft Docs
-description: Guide med hög tillgänglighet för SAP NetWeaver på Azure Virtual Machines
+description: I den här artikeln får du lära dig mer om Azure Virtual Machines hög tillgänglighet för SAP NetWeaver.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a0ac9ab349cfe8bef8e33d3f533bc5942e6323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6591f23a0a29b477ab921791ab0dd53c070325a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77623831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313989"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver
 

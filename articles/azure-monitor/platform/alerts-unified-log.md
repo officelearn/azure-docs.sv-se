@@ -1,174 +1,212 @@
 ---
 title: Logg aviseringar i Azure Monitor
-description: Utlös e-post, meddelanden, anropa webb adresser för webbplatser (Webhooks) eller automatisering när de analytiska frågevillkor som du anger är uppfyllda för Azure-aviseringar.
+description: Utlös e-post, meddelanden, anropa webb adresser för webbplatser (Webhooks) eller automatisering när det logg frågevillkor som du anger är uppfyllt
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 1d3b3215fe05ef2f57805b5df2b441f360f45df2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322354"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294146"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
-Logg aviseringar är en av de aviserings typer som stöds i [Azure-aviseringar](./alerts-overview.md). Logg aviseringar gör att användarna kan använda Azure Analytics-plattformen som grund för aviseringar.
+## <a name="overview"></a>Översikt
 
-Logg aviseringen består av loggs öknings regler som skapats för [Azure Monitor loggar](../log-query/get-started-portal.md) eller [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Mer information om användningen finns i [Skapa logg aviseringar i Azure](./alerts-log.md)
+Logg aviseringar är en av de aviserings typer som stöds i [Azure-aviseringar](./alerts-overview.md). Logg aviseringar gör att användare kan använda en [Log Analytics](../log-query/get-started-portal.md) fråga för att utvärdera resurser loggar varje uppsättnings frekvens och utlösa en avisering baserat på resultaten. Regler kan utlösa en eller flera åtgärder med hjälp av [Åtgärds grupper](./action-groups.md).
 
 > [!NOTE]
-> Populära loggdata från [Azure Monitor-loggar](../log-query/get-started-portal.md) är nu även tillgängliga på mått plattformen i Azure Monitor. Mer information finns i [Metric-aviseringar för loggar](./alerts-metric-logs.md)
+> Loggdata från en [Log Analytics arbets yta](../log-query/get-started-portal.md) kan skickas till Azure Monitor Metrics-lagret. Mått aviseringar har [olika beteende](alerts-metric-overview.md), vilket kan vara mer önskvärt beroende på vilka data du arbetar med. Information om vad och hur du kan skicka loggar till mått finns i [mått avisering för loggar](alerts-metric-logs.md).
 
+> [!NOTE]
+> Det finns för närvarande inga ytterligare avgifter för API-versionen `2020-05-01-preview` och resursbaserade logg aviseringar.  Prissättningen för funktioner som finns i förhands granskning kommer att meddelas i framtiden och ett meddelande som visas innan faktureringen påbörjas. Om du väljer att fortsätta använda nya API-versioner och resursbaserade logg aviseringar efter meddelande perioden debiteras du enligt tillämplig taxa.
 
-## <a name="log-search-alert-rule---definition-and-types"></a>Loggs ökning-aviserings regel – definition och typer
+## <a name="prerequisites"></a>Förutsättningar
 
-Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angivna loggfrågor med jämna mellanrum.  Om resultatet av loggfrågan matchar särskilda villkor skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [Åtgärdsgrupper](./action-groups.md). [Azure Monitoring Contributor](./roles-permissions-security.md) -rollen för att skapa, ändra och uppdatera logg aviseringar kan krävas. tillsammans med åtkomst & frågekörning för analys mål i varnings regeln eller varnings frågan. Om användaren som skapar inte har åtkomst till alla analys mål i varnings regeln eller varnings frågan, kan det hända att regeln inte skapas eller att logg aviserings regeln körs med partiella resultat.
+Logg aviseringar kör frågor om Log Analytics data. Först ska du börja [samla in loggdata](resource-logs.md) och skicka frågor till loggdata. Du kan använda [avsnittet exempel på aviserings frågor](../log-query/saved-queries.md) i Log Analytics för att förstå vad du kan identifiera eller [komma igång med att skriva en egen fråga](../log-query/get-started-portal.md).
 
-Logg Sök regler definieras av följande information:
+[Azure Monitoring Contributor](./roles-permissions-security.md) är en gemensam roll som behövs för att skapa, ändra och uppdatera logg aviseringar. Du måste också ha åtkomst till & frågans körnings rättigheter för resurs loggarna. Partiell åtkomst till resurs loggar kan inte utföra frågor eller returnera ofullständiga resultat. [Läs mer om hur du konfigurerar logg aviseringar i Azure](./alerts-log.md).
 
-- **Logg fråga**.  Den fråga som körs varje gång varningsregeln utlöses.  Posterna som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Analytics-frågan kan vara avsedd för en speciell Log Analytics arbets yta eller Application Insights app och till och med sträcka sig över [flera Log Analytics och Application Insights resurser](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) förutsatt att användaren har åtkomst och behörighet till alla resurser. 
-    > [!IMPORTANT]
-    > [frågor om kors resurser](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) i logg aviseringar för Application Insights-och logg aviseringar för [Log Analytics som kon figurer ATS med scheduledQueryRules-API: et](./alerts-log-api-switch.md) .
+> [!NOTE]
+> Logg aviseringar för Log Analytics som används för att hanteras med hjälp av den äldre [Log Analytics varnings-API: et](api-alerts.md). [Läs mer om att växla till det aktuella ScheduledQueryRules-API: et](alerts-log-api-switch.md).
 
-    Vissa analys kommandon och kombinationer är inkompatibla med användning i logg aviseringar. Mer information finns [i Logga varnings frågor i Azure Monitor](./alerts-log-query.md).
+## <a name="query-evaluation-definition"></a>Utvärderings definition för fråga
 
-- **Tids period**.  Anger tidsintervallet för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet för den aktuella tiden. Tids perioden begränsar de data som hämtas för logg frågan för att förhindra missbruk och kringgår eventuella tids kommandon (t. ex. sedan) som används i logg frågan. <br>*Om tids perioden till exempel är inställd på 60 minuter och frågan körs med 1:15 PM, returneras endast poster som skapats mellan 12:15 PM och 1:15 PM för att köra logg frågor. Nu om logg frågan använder Time-kommandot som sedan kör (7d), skulle logg frågan endast köras för data mellan 12:15 och 1:15 PM, som om data bara finns för de senaste 60 minuterna. Och inte för sju dagars data som anges i logg frågan.*
+Villkors definitionen för loggs öknings regler börjar från:
 
-- **Frekvens**.  Anger hur ofta frågan ska köras. Kan vara ett värde mellan 5 minuter och 24 timmar. Måste vara lika med eller mindre än tids perioden.  Om värdet är större än tids perioden, riskerar du att poster saknas.<br>*Ta till exempel en tids period på 30 minuter och en frekvens på 60 minuter.  Om frågan körs vid 1:00 returneras poster mellan 12:30 och 1:00 PM.  Nästa gång frågan skulle köras är 2:00 när den skulle returnera poster mellan 1:30 och 2:00.  Poster som skapats mellan 1:00 och 1:30 utvärderas aldrig.*
+- Vilken fråga ska köras?
+- Hur använder du resultaten?
 
-- **Tröskel**.  Resultaten av loggs ökningen utvärderas för att avgöra om en avisering ska skapas.  Tröskelvärdet skiljer sig för de olika typerna av loggs öknings aviserings regler.
+I följande avsnitt beskrivs olika parametrar som du kan använda för att ställa in ovanstående logik.
 
-Logg Sök regler är den för [Azure Monitor loggar](../log-query/get-started-portal.md) eller [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events)kan vara av två typer. Var och en av dessa typer beskrivs i detalj i de avsnitt som följer.
+### <a name="log-query"></a>Logg fråga
+Den [Log Analytics](../log-query/get-started-portal.md) -fråga som används för att utvärdera regeln. Resultaten som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Frågan kan begränsas till:
 
-- **[Antal resultat](#number-of-results-alert-rules)**. En enda avisering skapas när antalet poster som returneras av loggs ökningen överskrider ett angivet tal.
-- **[Mått mått](#metric-measurement-alert-rules)**.  Avisering som skapats för varje objekt i resultatet av loggs ökningen med värden som överskrider det angivna tröskelvärdet.
+- En speciell resurs, till exempel en virtuell dator.
+- En resurs vid skalning, till exempel en prenumeration eller resurs grupp.
+- Flera resurser som använder [frågor över flera resurser](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+ 
+> [!IMPORTANT]
+> Aviserings frågor har begränsningar för att säkerställa optimala prestanda och relevansen för resultaten. [Läs mer här](./alerts-log-query.md).
 
-Skillnaderna mellan aviserings regel typer är följande.
+> [!IMPORTANT]
+> Resurs oberoende och [kors resurs fråga](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) stöds bara med den aktuella scheduledQueryRules-API: et. Om du använder det äldre [Log Analytics varnings-API: et](api-alerts.md)måste du växla. [Läs mer om att växla](./alerts-log-api-switch.md)
 
-- *Antal resultat* varnings regler skapar alltid en enda avisering, medan varnings regeln för *mått mätning* skapar en avisering för varje objekt som överskrider tröskelvärdet.
-- *Antal resultat* varnings regler skapa en avisering när tröskelvärdet överskrids en gång. Varnings regler för *mått mätning* kan skapa en avisering när tröskelvärdet överskrids ett visst antal gånger under ett visst tidsintervall.
+#### <a name="query-time-range"></a>Tidsintervall för fråga
 
-### <a name="number-of-results-alert-rules"></a>Antal aviserings regler för resultat
+Tidsintervallet anges i regel villkors definitionen. I arbets ytor och Application Insights kallas den **period**. I alla andra resurs typer kallas det för att **åsidosätta tidsintervallet för frågor**.
 
-**Antal resultat** varnings regler skapa en enda avisering när antalet poster som returneras av Sök frågan överskrider det angivna tröskelvärdet. Den här typen av varnings regel är idealisk för att arbeta med händelser som Windows-händelseloggar, syslog, WebApp-svar och anpassade loggar.  Du kanske vill skapa en avisering när en viss fel händelse skapas, eller när flera fel händelser skapas inom en viss tids period.
+Precis som i Log Analytics begränsar tidsintervallet frågedata till det angivna intervallet. Även om kommandot **sedan** används i frågan, kommer tidsintervallet att gälla.
 
-**Tröskelvärde**: tröskelvärdet för ett antal resultat varnings regler är större än eller lika med ett visst värde.  Om antalet poster som returneras av loggs ökningen matchar det här kriteriet skapas en avisering.
+En fråga skannar till exempel 60 minuter, när tidsintervallet är 60 minuter, även om texten innehåller **sedan sedan (1d)**. Tidsintervallet och tids filtreringen för frågan måste matcha. I exempel fallet kan det **Period**  /  vara förväntat att ändra**tidsintervallet** för tids perioden för tids perioden till en dag.
 
-Om du vill varna vid en enskild händelse anger du antalet resultat till större än 0 och söker efter förekomsten av en enskild händelse som skapades sedan frågan senast kördes. Vissa program kan logga ett tillfälligt fel som inte behöver utlösa en avisering.  Programmet kan till exempel försöka utföra processen som skapade fel händelsen och sedan lyckas nästa gång.  I det här fallet kanske du inte vill skapa en avisering om inte flera händelser skapas inom en viss tids period.  
+### <a name="measure"></a>Mått
 
-I vissa fall kanske du vill skapa en avisering om en händelse saknas.  En process kan till exempel Logga vanliga händelser för att indikera att den fungerar som den ska.  Om den inte loggar en av dessa händelser inom en viss tids period, ska en avisering skapas.  I detta fall anger du tröskelvärdet till **mindre än 1**.
+Logg aviseringar förvandlas till numeriska värden som kan utvärderas. Du kan mäta två olika saker:
 
-#### <a name="example-of-number-of-records-type-log-alert"></a>Exempel på antal poster typ logg avisering
+#### <a name="count-of-the-results-table-rows"></a>Antal rader i resultat tabellen
 
-Tänk dig ett scenario där du vill veta när den webbaserade appen ger svar på användare med kod 500 (det är) internt Server fel. Du skapar en varnings regel med följande information:  
+Antal resultat är standard måttet. Idealisk för att arbeta med händelser som Windows-händelseloggar, syslog, program undantag. Utlöses när logg poster sker eller inte inträffar i fönstret utvärderad tid.
 
-- **Fråga:** begär Anden | där resultCode = = "500"<br>
-- **Tids period:** 30 minuter<br>
-- **Aviserings frekvens:** fem minuter<br>
-- **Tröskel värde:** Större än 0<br>
+Logg aviseringar fungerar bäst när du försöker identifiera data i loggen. Det fungerar mindre bra när du försöker identifiera avsaknad av data i loggarna. Till exempel avisering om pulsslag för virtuella datorer.
 
-Aviseringen kör sedan frågan var 5: e minut, med 30 minuters data, för att leta efter poster där resultat koden var 500. Om även en sådan post hittas utlöses aviseringen och den åtgärd som har kon figurer ATS utlöses.
+För arbets ytor och Application Insights anropas det **baserat på** med urvals **antalet resultat**. I alla andra resurs typer kallas det **mått** med markerings **tabell rader**.
 
-### <a name="metric-measurement-alert-rules"></a>Aviserings regler för mått mätning
+> [!NOTE]
+> Eftersom loggar är halv strukturerade data är de mycket mer latenta än måttet, men du kan stöta på fel vid försök att identifiera brist på data i loggarna och du bör överväga att använda [mått varningar](alerts-metric-overview.md). Du kan skicka data till mått lagret från loggar med hjälp av [mått aviseringar för loggar](alerts-metric-logs.md).
 
-Varnings regler för **mått mätning** skapa en avisering för varje objekt i en fråga med ett värde som överskrider ett angivet tröskelvärde och angivet utlösnings villkor. Till skillnad från **antalet resultat** aviserings regler fungerar **mått mätnings** aviserings reglerna när Analytics-resultatet innehåller en tids serie. De har följande distinkta skillnader jämfört med **antalet resultat** varnings regler.
+##### <a name="example-of-results-table-rows-count-use-case"></a>Exempel på resultat tabell rader antal användnings fall
 
-- **Mängd funktion**: bestämmer beräkningen som utförs och eventuellt ett numeriskt fält som ska aggregeras.  **Count ()** returnerar till exempel antalet poster i frågan, **AVG (CounterValue)** returnerar medelvärdet för fältet CounterValue över intervallet. Mängd funktionen i frågan måste vara namngiven/anropad: AggregatedValue och ange ett numeriskt värde. 
+Du vill veta när ditt program svarar med felkoden 500 (internt Server fel). Du skapar en varnings regel med följande information:
 
-- **Grupp fält**: en post med ett aggregerat värde skapas för varje instans av det här fältet och en avisering kan genereras för varje instans.  Om du till exempel vill generera en avisering för varje dator använder du **datorn**. Om det finns flera grupp fält angivna i varnings frågan, kan användaren ange vilket fält som ska användas för att sortera resultaten med hjälp av parametern **agg regerings på** (metricColumn)
+- **Frågeterm** 
 
-    > [!NOTE]
-    > Alternativet *aggregera på* (metricColumn) är tillgängligt för mått måtts typ logg aviseringar för Application Insights-och logg aviseringar för [Log Analytics som kon figurer ATS med scheduledQueryRules-API: et](./alerts-log-api-switch.md) .
+```Kusto
+requests
+| where resultCode == "500"
+```
 
-- **Interval**: definierar det tidsintervall under vilket data aggregeras.  Om du till exempel har angett **fem minuter**skapas en post för varje instans av grupp fältet som sammanställs med 5 minuters intervall under den angivna tids perioden för aviseringen.
+- **Tids period:** 15 minuter
+- **Aviserings frekvens:** 15 minuter
+- **Tröskel värde:** Större än 0
 
-    > [!NOTE]
-    > Bin-funktionen måste användas i Query för att ange intervall. Som bin () kan resultera i ojämna tidsintervaller – aviseringen kommer automatiskt att konvertera bin-kommandot till bin_at kommando med lämplig tid vid körning, för att säkerställa resultat med en fast punkt. Mått mått typen för logg avisering är utformad för att fungera med frågor som har upp till tre instanser av bin ()-kommandot
-    
-- **Tröskel**: tröskelvärdet för varnings regler för mått mätning definieras av ett sammanställt värde och ett antal överträdelser.  Om någon data punkt i loggs ökningen överstiger detta värde, betraktas den som en överträdelse.  Om antalet överträdelser av ett objekt i resultatet överskrider det angivna värdet, skapas en avisering för objektet.
+Sedan övervakar aviserings regler för förfrågningar som slutar med 500-felkoden. Frågan körs var 15: e minut under de senaste 15 minuterna. Om även en post hittas utlöses aviseringen och de åtgärder som har kon figurer ATS utlöses.
 
-Felaktig konfiguration av alternativet *aggregera på* eller *metricColumn* kan orsaka att varnings regler inaktive ras. Mer information finns i [fel sökning när varnings regeln för mått mått är felaktig](./alerts-troubleshoot-log.md#metric-measurement-alert-rule-is-incorrect).
+#### <a name="calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value"></a>Beräkning av mått baserat på en numerisk kolumn (till exempel värde för processor räknare)
 
-#### <a name="example-of-metric-measurement-type-log-alert"></a>Exempel på mått för mått typ logg avisering
+För arbets ytor och Application Insights, anropas det **baserat på** med val **mått mått**. I alla andra resurs typer kallas det **mått** med val av ett tal kolumn namn.
 
-Tänk dig ett scenario där du ville ha en avisering om en dator har överskridit processor användningen på 90% tre gånger över 30 minuter.  Du skapar en varnings regel med följande information:  
+### <a name="aggregation-type"></a>Sammansättningstyp
 
-- **Fråga:** Prestanda | där ObjectName = = "processor" och CounterName = = "% processor tid" | sammanfatta AggregatedValue = AVG (CounterValue) per bin (TimeGenerated, 5 m), dator<br>
-- **Tids period:** 30 minuter<br>
-- **Aviserings frekvens:** fem minuter<br>
-- **Aviserings logik – villkor & tröskel:** Större än 90<br>
-- **Grupp fält (mängd-på):** Persondator
-- **Utlös avisering baserat på:** Totalt antal överträdelser större än 2<br>
+Beräkningen som görs på flera poster för att aggregera dem till ett numeriskt värde. Exempel:
+- **Count** returnerar antalet poster i frågan
+- **Medelvärde** returnerar medelvärdet för mått kolumnen [**agg regerings granularitet**](#aggregation-granularity) definierad.
 
-Frågan skulle skapa ett genomsnitts värde för varje dator med 5 minuters intervall.  Den här frågan körs var 5: e minut för data som samlas in under de senaste 30 minuterna. Eftersom det grupp fält (aggregerat) som valts är kolumn "dator", är AggregatedValue delat för olika värden för "dator" och den genomsnittliga processor belastningen för varje dator bestäms för en tid-behållare på 5 minuter.  Exempel frågans resultat för (t) tre datorer är som nedan.
+I arbets ytor och Application Insights stöds det bara i mått mått typen **mått** . Frågeresultatet måste innehålla en kolumn med namnet AggregatedValue som anger ett numeriskt värde efter en användardefinierad agg regering. I alla andra resurs typer väljs **agg regerings typ** från fältet med det namnet.
 
+### <a name="aggregation-granularity"></a>Agg regerings kornig het
 
-|TimeGenerated [UTC] |Dator  |AggregatedValue  |
-|---------|---------|---------|
-|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
-|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
-|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
-|...     |   ...      |    ...     |
-|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
-|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
-|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+Anger det intervall som används för att aggregera flera poster till ett numeriskt värde. Om du till exempel har angett **5 minuter**grupperas poster efter 5-minuters intervall med hjälp av den angivna **agg regerings typen** .
 
-Om frågeresultatet skulle ritas, visas det som.
+I arbets ytor och Application Insights stöds det bara i mått mått typen **mått** . Frågeresultatet måste innehålla [bin ()](/azure/kusto/query/binfunction) som anger intervall i frågeresultatet. I alla andra resurs typer kallas fältet som styr den här inställningen **agg regerings precision**.
 
-![Exempel på frågeresultat](media/alerts-unified-log/metrics-measurement-sample-graph.png)
+> [!NOTE]
+> Som [bin ()](/azure/kusto/query/binfunction) kan resultera i ojämna tidsintervall, konverterar aviserings tjänsten automatiskt [bin ()](/azure/kusto/query/binfunction) -funktionen till [bin_at ()](/azure/kusto/query/binatfunction) -funktionen med lämplig tid vid körning för att säkerställa resultat med en fast punkt.
 
-I det här exemplet ser vi på lager platser om 5 minuter för var och en av de tre datorerna – genomsnittlig processor användning som beräknas för 5 minuter. Tröskelvärdet på 90 blir överträtt av SRV01 endast en gång på 1:25 bin. I jämförelse är SRV02 överskrider 90-tröskeln på 1:10, 1:15 och 1:25 lager platser. medan srv03 överskrider 90 tröskelvärdet vid 1:10, 1:15, 1:20 och 1:30.
-Eftersom aviseringen har kon figurer ATS för att utlösa baserat på totala överträdelser är fler än två, ser vi att SRV02 och srv03 endast uppfyller kriterierna. Därför skapas separata aviseringar för SRV02 och srv03 eftersom de orsakade tröskelvärdet på 90% två gånger över flera olika tidpunkter.  Om *Utlösar-aviseringen baserat på:* parametern har kon figurer ATS för alternativet för *kontinuerliga överträdelser* , skulle en avisering **endast** utlösas för srv03 eftersom den har överskridit tröskelvärdet under tre på varandra följande tidpunkts lager platser från 1:10 till 1:20. Och **inte** för SRV02, eftersom det strider mot tröskelvärdet för två på varandra följande tids lager platser från 1:10 till 1:15.
+### <a name="split-by-alert-dimensions"></a>Dela efter aviserings dimensioner
 
-## <a name="log-search-alert-rule---firing-and-state"></a>Loggs ökning, varnings regel – utlösare och tillstånd
+Dela upp aviseringar efter siffer-eller sträng kolumner i separata aviseringar genom att gruppera i unika kombinationer. När du skapar resurs drivna aviseringar i skala (prenumeration eller resurs gruppens omfång), kan du dela med kolumnen Azure Resource ID. Delning i kolumnen Azure Resource ID ändrar målet för aviseringen till den angivna resursen.
 
-Loggs ökning varnings regler fungerar bara på den logik som du skapar i frågan. Varnings systemet har inte någon annan kontext för systemets tillstånd, din avsikt eller rotor saken underförstådda av frågan. Därför kallas logg aviseringar som tillstånds lösa. Villkoren utvärderas som "TRUE" eller "FALSe" varje gången de körs.  En avisering aktive ras varje stund som utvärderingen av aviserings villkoret är "sant", oavsett om den har utlösts tidigare.    
+I arbets ytor och Application Insights stöds det bara i mått mått typen **mått** . Fältet kallas **agg regering på**. Det är begränsat till tre kolumner. Om du har fler än tre grupper av kolumner i frågan kan det leda till oväntade resultat. I alla andra resurs typer konfigureras den i avsnittet **dela efter dimensioner** i villkoret (begränsat till sex delningar).
 
-Nu ska vi se hur det fungerar i praktiken med ett praktiskt exempel. Anta att vi har en logg varnings regel som heter *contoso-log-Alert*, som är konfigurerad som i [exemplet för antalet resultat typ logg avisering](#example-of-number-of-records-type-log-alert). Villkoret är en anpassad aviserings fråga som har utformats för att söka efter 500 resultat kod i loggar. Om det finns mer än en resultat kod för 500 i loggarna, är villkoret för aviseringen sant. 
+#### <a name="example-of-splitting-by-alert-dimensions"></a>Exempel på delning av aviserings dimensioner
 
-I varje intervall nedan utvärderar Azure-aviseringar villkoret för *contoso-logg-aviseringen*.
+Du vill till exempel övervaka fel för flera virtuella datorer som kör webbplatsen/appen i en speciell resurs grupp. Du kan göra det med en logg aviserings regel på följande sätt:
 
+- **Frågeterm** 
 
-| Tid    | Antal poster som returneras av logg Sök frågan | Evalution för logg villkor | Resultat 
+    ```Kusto
+    // Reported errors
+    union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+    | where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+    ```
+
+    När du använder arbets ytor och Application Insights med **mått mätar** aviserings logik måste den här raden läggas till i frågetexten:
+
+    ```Kusto
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+- **Kolumn för resurs-ID:** _ResourceId (delning per resurs-ID-kolumn i varnings regler är bara tillgänglig för prenumerationer och resurs grupper för närvarande)
+- **Dimensioner/aggregerade på:**
+  - Computer = VM1, VM2 (filtrerings värden i varnings regel definitionen är för närvarande inte tillgängligt för arbets ytor och Application Insights. Filtrera efter frågetext.)
+- **Tids period:** 15 minuter
+- **Aviserings frekvens:** 15 minuter
+- **Tröskel värde:** Större än 0
+
+Den här regeln övervakar om en virtuell dator har fel händelser under de senaste 15 minuterna. Varje virtuell dator övervakas separat och kommer att utlösa åtgärder individuellt.
+
+> [!NOTE]
+> Det finns endast en uppdelning av varnings dimensioner för det aktuella scheduledQueryRules-API: et. Om du använder det äldre [Log Analytics varnings-API: et](api-alerts.md)måste du växla. [Läs mer om att växla](./alerts-log-api-switch.md). Resurs-centrisk avisering i skala stöds bara i API-versionen `2020-05-01-preview` och senare.
+
+## <a name="alert-logic-definition"></a>Definition av aviserings logik
+
+När du har definierat frågan som ska köras och utvärderingen av resultaten måste du definiera aviserings logiken och när du ska starta åtgärder. I följande avsnitt beskrivs olika parametrar som du kan använda:
+
+### <a name="threshold-and-operator"></a>Tröskel och operatör
+
+Frågeresultatet omvandlas till ett tal som jämförs med tröskelvärdet och operatorn.
+
+### <a name="frequency"></a>Frequency
+
+Intervallet då frågan körs. Kan ställas in på 5 minuter till en dag. Måste vara lika med eller mindre än [frågans tidsintervall](#query-time-range) för att inte sakna logg poster.
+
+Om du till exempel ställer in tids perioden på 30 minuter och frekvensen till 1 timme.  Om frågan körs vid 00:00 returneras poster mellan 23:30 och 00:00. Nästa gången frågan skulle köras är 01:00 som returnerar poster mellan 00:30 och 01:00. Poster som skapats mellan 00:00 och 00:30 utvärderas aldrig.
+
+### <a name="number-of-violations-to-trigger-alert"></a>Antal överträdelser att utlösa avisering
+
+Du kan ange utvärderings perioden för aviseringar och antalet problem som krävs för att utlösa en avisering. Gör att du bättre kan definiera en effekt tid för att utlösa en avisering. 
+
+Om din regel [**agg regerings granularitet**](#aggregation-granularity) exempelvis definieras som 5 minuter kan du bara utlösa en avisering om tre fel (15 minuter) av den senaste timmen inträffade. Den här inställningen definieras av din program företags princip.
+
+## <a name="state-and-resolving-alerts"></a>Tillstånd och lösning av aviseringar
+
+Logg aviseringar är tillstånds lösa. Aviseringar som utlöses varje gången villkoret uppfylls, även om det har Aktiver ATS tidigare. Utlösta aviseringar löses inte. Du kan [Markera aviseringen som stängd](alerts-managing-alert-states.md). Du kan också inaktivera åtgärder för att förhindra att de utlöses under en period efter att en varnings regel har Aktiver ATS.
+
+I arbets ytor och Application Insights kallas det **Ignorera aviseringar**. I alla andra resurs typer kallas det att **stänga av åtgärder**. 
+
+Se följande exempel på aviserings utvärdering:
+
+| Tid    | Utvärdering av logg villkor | Resultat 
 | ------- | ----------| ----------| ------- 
-| 1:05 PM | 0 poster | 0 är inte > 0 så falskt |  Aviseringen utlöses inte. Inga åtgärder har anropats.
-| 1:10 PM | 2 poster | 2 > 0 så sant  | Aviserings Utlös och åtgärds grupper anropas. Aviserings tillstånd aktivt.
-| 1:15 PM | 5 poster | 5 > 0 så sant  | Aviserings Utlös och åtgärds grupper anropas. Aviserings tillstånd aktivt.
-| 1:20 PM | 0 poster | 0 är inte > 0 så falskt |  Aviseringen utlöses inte. Inga åtgärder har anropats. Aviserings tillstånd kvar aktivt.
-
-Använd föregående fall som exempel:
-
-Vid 1:15 PM kan Azure-aviseringar inte avgöra om de underliggande problemen visas vid 1:10 kvar och om posterna är net New-Failure eller upprepade fel vid 1:10PM. Frågan som tillhandahålls av användaren kanske inte tar hänsyn till tidigare poster och systemet känner inte igen. Azures aviserings system är skapat för fel på varnings sidan och utlöser aviseringen och de associerade åtgärderna på 1:15 PM. 
-
-Vid 1:20 PM när noll poster visas med 500 resultat kod kan Azure-aviseringar inte vara säker på att orsak till 500 resultat kod som visas på 1:10 PM och 1:15 PM nu har lösts. Det vet inte om 500-fel problemen inträffar av samma orsaker igen. Det innebär att *contoso-log-Alert* inte ändras till **löst** i Azures aviserings instrument panel och/eller att meddelanden inte skickas ut som anger att aviseringen har lösts. Endast du, som förstår det exakta villkoret eller orsaken till att logiken är inbäddad i analys frågan, kan [Markera aviseringen som stängd](alerts-managing-alert-states.md) vid behov.
+| 00:05 | FALSE | Aviseringen utlöses inte. Inga åtgärder har anropats.
+| 00:10 | TRUE  | Aviserings Utlös och åtgärds grupper anropas. Nytt aviserings tillstånd aktivt.
+| 00:15 | TRUE  | Aviserings Utlös och åtgärds grupper anropas. Nytt aviserings tillstånd aktivt.
+| 00:20 | FALSE | Aviseringen utlöses inte. Inga åtgärder har anropats. Status för tidigare-aviseringar är aktiva.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Priser och fakturering av logg aviseringar
 
-Prissättningen som gäller för logg aviseringar anges på sidan för [Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/) . I Azure-räkningar visas logg aviseringar som typ `microsoft.insights/scheduledqueryrules` med:
+Pris information finns på [sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/). Logg aviseringar visas under Resource Provider `microsoft.insights/scheduledqueryrules` med:
 
-- Logg aviseringar på Application Insights visas med exakt varnings namn tillsammans med resurs grupps-och aviserings egenskaper
-- Logga aviseringar på Log Analytics visas med ett exakt varnings namn tillsammans med resurs grupps-och aviserings egenskaper. När du skapar med [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules)
-
-Det [äldre Log Analytics API: t](./api-alerts.md) har varnings åtgärder och scheman som en del av Log Analytics sparade sökningar och inte rätt [Azure-resurser](../../azure-resource-manager/management/overview.md). Det innebär att du kan aktivera fakturering för sådana äldre logg aviseringar som skapats för Log Analytics att använda Azure Portal **utan** [att växla till nytt API](./alerts-log-api-switch.md) eller via [äldre Log Analytics API](./api-alerts.md) – dolda pseudo-aviserings regler skapas på `microsoft.insights/scheduledqueryrules` för fakturering i Azure. De dolda egenskaperna för att skapa en dold pseudo-avisering för fakturering på `microsoft.insights/scheduledqueryrules` som visas `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resurs gruppens och aviserings egenskaper.
+- Logga aviseringar på Application Insights visas med exakt resurs namn tillsammans med resurs grupps-och aviserings egenskaper.
+- Logga aviseringar på Log Analytics visas med exakt resurs namn tillsammans med resurs grupps-och aviserings egenskaper. När du skapar med [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules).
+- Logg aviseringar som skapats från [äldre Log Analytics API](./api-alerts.md) spårar inte [Azure-resurser](../../azure-resource-manager/management/overview.md) och har inte tvingande unika resurs namn. De här aviseringarna skapas fortfarande på `microsoft.insights/scheduledqueryrules` som dolda resurser som har den här resurs namns strukturen `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Logg aviseringar på äldre API visas med ovanstående dolda resurs namn tillsammans med resurs grupps-och aviserings egenskaper.
 
 > [!NOTE]
-> Om ogiltiga tecken, t. ex `<, >, %, &, \, ?, /` . finns, ersätts de med `_` i namnet på den dolda pseudo-aviserings regeln och därför också på Azure-fakturan.
+> Resurs tecken som inte stöds, som `<, >, %, &, \, ?, /` ersätts med `_` i dolda resurs namn och detta visas även i fakturerings informationen.
 
-För att ta bort de dolda scheduleQueryRules-resurser som har skapats för fakturering av aviserings regler med hjälp av [äldre Log Analytics-API](api-alerts.md)kan användaren göra något av följande:
-
-- Antingen kan användaren [byta API-inställning för aviserings reglerna på Log Analytics arbets ytan](./alerts-log-api-switch.md) och utan att förlora sina varnings regler eller övervaka över gången till Azure Resource Manager kompatibla [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules). Eliminerar därmed behovet av att göra dolda aviserings regler för att fakturera.
-- Eller om användaren inte vill växla API-inställningen måste användaren **ta bort** det ursprungliga schemat och aviserings åtgärden med hjälp av [äldre Log Analytics-API](api-alerts.md) eller ta bort [Azure Portal den ursprungliga logg varnings regeln](./alerts-log.md#view--manage-log-alerts-in-azure-portal)
-
-För de dolda scheduleQueryRules-resurser som har skapats för fakturering av aviserings regler med hjälp av [äldre Log Analytics-API](api-alerts.md), kommer eventuella ändringar som sker som det inte går att utföra. Som `microsoft.insights/scheduledqueryrules` typ av pseudo-regler är det syftet att fakturera aviserings reglerna som skapats med [äldre Log Analytics-API](api-alerts.md). Eventuella ändringar av varnings regeln bör utföras med hjälp av [äldre Log Analytics-API](api-alerts.md) (eller)-användare kan [byta API-inställning för aviserings reglerna](./alerts-log-api-switch.md) för att använda [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules) i stället.
+> [!NOTE]
+> Logg aviseringar för Log Analytics som används för att hanteras med hjälp av äldre [Log Analytics aviserings-API](api-alerts.md) och äldre mallar för [Log Analytics sparade sökningar och aviseringar](../insights/solutions.md). [Läs mer om att växla till det aktuella ScheduledQueryRules-API: et](alerts-log-api-switch.md). En varnings regel hantering bör utföras med hjälp av [äldre Log Analytics-API](api-alerts.md) tills du bestämmer dig för att växla och du kan inte använda de dolda resurserna.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om att [skapa i logg aviseringar i Azure](./alerts-log.md).
 * Förstå [webhookar i logg aviseringar i Azure](alerts-log-webhook.md).
 * Lär dig mer om [Azure-aviseringar](./alerts-overview.md).
-* Läs mer om [Application Insights](../log-query/log-query-overview.md).
 * Läs mer om [Log Analytics](../log-query/log-query-overview.md).
 

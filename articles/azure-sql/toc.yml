@@ -1210,6 +1210,8 @@
           href: database/database-import-export-hang.md
     - name: Tjänstuppdateringar
       items:
+        - name: SSL-rotcertifikatet upphör att gälla
+          href: updates/ssl-root-certificate-expiring.md
         - name: Uppdateringar av IP-adress för gateway
           href: database/gateway-migration.md
         - name: Regelbundna underhållsaktiviteter

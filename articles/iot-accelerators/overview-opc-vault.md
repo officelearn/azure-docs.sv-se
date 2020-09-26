@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66a322d4f60d9553a68207136ae609c1f9b50dbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 715ed204e28d6260c28fa099b40fc78aa12de44d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73826204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281549"
 ---
 # <a name="what-is-opc-vault"></a>Vad är OPC Vault?
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 OPC-valvet är en mikrotjänst som kan konfigurera, registrera och hantera certifikat livs cykeln för OPC UA-Server och klient program i molnet. I den här artikeln beskrivs de enkla användnings fallen i OPC Vault.
 
@@ -35,5 +38,4 @@ Följande diagram illustrerar den kompletta OPC Vault-arkitekturen.
 
 Nu när du har lärt dig om OPC-valvet och dess användning, är här det föreslagna nästa steg:
 
-> [!div class="nextstepaction"]
-> [Arkitektur för OPC Vault](overview-opc-vault-architecture.md)
+[Arkitektur för OPC Vault](overview-opc-vault-architecture.md)

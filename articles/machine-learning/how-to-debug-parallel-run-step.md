@@ -10,13 +10,13 @@ ms.custom: troubleshooting
 ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/16/2020
-ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315583"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Felsöka ParallelRunStep
 
@@ -35,13 +35,17 @@ Logg filen innehåller till exempel `70_driver_log.txt` information från den ko
 
 På grund av den distribuerade typen av ParallelRunStep-jobb finns det loggar från flera olika källor. Två konsoliderade filer skapas dock som tillhandahåller information på hög nivå:
 
-- `~/logs/overview.txt`: Den här filen innehåller en information på hög nivå om antalet mini-batchar (även kallade aktiviteter) som skapats hittills och antalet mini-batchar som bearbetats hittills. I det här slutet visas resultatet av jobbet. Om jobbet misslyckades visas fel meddelandet och var du ska starta fel sökningen.
+- `~/logs/job_progress_overview.txt`: Den här filen innehåller en information på hög nivå om antalet mini-batchar (även kallade aktiviteter) som skapats hittills och antalet mini-batchar som bearbetats hittills. I det här slutet visas resultatet av jobbet. Om jobbet misslyckades visas fel meddelandet och var du ska starta fel sökningen.
 
-- `~/logs/sys/master.txt`: Den här filen ger huvudnoden (kallas även Orchestrator) vyn för jobbet som körs. Innehåller skapande av aktiviteter, förlopps övervakning, körnings resultat.
+- `~/logs/sys/master_role.txt`: Den här filen ger huvudnoden (kallas även Orchestrator) vyn för jobbet som körs. Innehåller skapande av aktiviteter, förlopps övervakning, körnings resultat.
 
 Loggar som genereras från ett Entry-skript med hjälp av EntryScript-och Print-instruktioner finns i följande filer:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: De här filerna är loggarna som skrivs från entry_script med hjälp av EntryScript-hjälpen. Innehåller också ett Skriv uttryck (STDOUT) från entry_script.
+- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: De här filerna är loggarna som skrivs från entry_script med hjälp av EntryScript-hjälpen.
+
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: De här filerna är loggarna från STDOUT (t. ex. utskrifts uttryck) för entry_script.
+
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: De här filerna är loggarna från stderr av entry_script.
 
 En kortfattad förståelse för fel i skriptet finns i:
 
@@ -49,17 +53,17 @@ En kortfattad förståelse för fel i skriptet finns i:
 
 För mer information om fel i skriptet, finns det:
 
-- `~/logs/user/error/`: Innehåller alla fel som har utlösts och fullständiga stack spårningar ordnade efter nod.
+- `~/logs/user/error/`: Innehåller fullständiga stack-spår för undantag som genereras vid inläsning och körning av Entry-skript.
 
 När du behöver en fullständig förståelse för hur varje nod kör Poäng skriptet kan du titta på de enskilda process loggarna för varje nod. Process loggarna finns i `sys/node` mappen grupperade efter arbetsnoder:
 
-- `~/logs/sys/node/<node_name>.txt`: Den här filen innehåller detaljerad information om varje mini-batch när den hämtas eller slutförs av en anställd. För varje mini-batch innehåller den här filen:
+- `~/logs/sys/node/<ip_address>/<process_name>.txt`: Den här filen innehåller detaljerad information om varje mini-batch när den hämtas eller slutförs av en anställd. För varje mini-batch innehåller den här filen:
 
     - IP-adressen och PID för arbets processen. 
     - Det totala antalet objekt, antalet behandlade objekt och antalet misslyckade objekt.
     - Tid för start tid, varaktighet, bearbetnings tid och körnings metod.
 
-Du kan också hitta information om resursanvändningen för processerna för varje arbets tagare. Den här informationen är i CSV-format och finns på `~/logs/sys/perf/overview.csv` . Information om varje process finns tillgänglig under `~logs/sys/processes.csv` .
+Du kan också hitta information om resursanvändningen för processerna för varje arbets tagare. Den här informationen är i CSV-format och finns på `~/logs/sys/perf/<ip_address>/node_resource_usage.csv` . Information om varje process finns tillgänglig under `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Hur gör jag för att logg från mitt användar skript från en fjärran sluten kontext?
 ParallelRunStep kan köra flera processer på en nod baserat på process_count_per_node. För att kunna organisera loggar från varje process på noden och kombinera print-och log-uttryck, rekommenderar vi att du använder ParallelRunStep-loggning som visas nedan. Du får en loggare från EntryScript och gör loggarna visas i **loggarna/mappen användare** i portalen.
@@ -112,6 +116,28 @@ parser.add_argument('--labels_dir', dest="labels_dir", required=True)
 args, _ = parser.parse_known_args()
 
 labels_path = args.labels_dir
+```
+
+### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>Hur använder jag indata-datauppsättningar med autentisering av tjänstens huvud namn?
+
+Användaren kan skicka indata-datauppsättningar med autentisering av tjänstens huvud namn som används i arbets ytan. Om du använder sådan data uppsättning i ParallelRunStep måste data uppsättningen registreras för att kunna konstruera ParallelRunStep-konfigurationen.
+
+```python
+service_principal = ServicePrincipalAuthentication(
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
+ 
+ws = Workspace(
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
+    auth=service_principal
+    )
+ 
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Nästa steg

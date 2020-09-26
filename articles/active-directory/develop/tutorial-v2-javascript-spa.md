@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 71516104ce5711f716b6af9d37ba96b431749fa3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118203"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256832"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
@@ -41,7 +41,7 @@ Det exempel program som skapats av den här guiden gör det möjligt för ett Ja
 
 I den här guiden används följande bibliotek:
 
-|Bibliotek|Beskrivning|
+|Bibliotek|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script|
 
@@ -275,7 +275,7 @@ Registrera ditt program på **Azure Active Directory**innan du fortsätter med a
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 1. I avsnittet **omdirigerings-URI** väljer du **webb** plattformen i list rutan och anger sedan värdet till den program-URL som är baserad på din webb server.
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 1. Den här snabbstarten kräver att [flödet för implicit beviljande](v2-oauth2-implicit-grant-flow.md) aktiveras. I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
 1. I **Avancerade inställningar**, under **implicit tilldelning**, markerar du kryss rutorna **ID-token** och **åtkomst-token** . ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
@@ -426,7 +426,7 @@ När du anropar *acquireTokenPopup* öppnas ett popup-fönster (eller *acquireTo
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-`acquireTokenSilent`Metoden hanterar hämtning av token och förnyelsen utan några åtgärder från användaren. När `loginPopup` (eller `loginRedirect` ) körs för första gången `acquireTokenSilent` är metoden ofta använd för att hämta tokens som används för att komma åt skyddade resurser för efterföljande anrop. (Anrop till begäran eller förnya token görs i bakgrunden.) `acquireTokenSilent`kan Miss lyckas i vissa fall. Användarens lösen ord kan till exempel ha upphört att gälla. Ditt program kan hantera detta undantag på två sätt:
+`acquireTokenSilent`Metoden hanterar hämtning av token och förnyelsen utan några åtgärder från användaren. När `loginPopup` (eller `loginRedirect` ) körs för första gången `acquireTokenSilent` är metoden ofta använd för att hämta tokens som används för att komma åt skyddade resurser för efterföljande anrop. (Anrop till begäran eller förnya token görs i bakgrunden.) `acquireTokenSilent` kan Miss lyckas i vissa fall. Användarens lösen ord kan till exempel ha upphört att gälla. Ditt program kan hantera detta undantag på två sätt:
 
 1. Gör ett anrop `acquireTokenPopup` direkt, vilket utlöser en användar inloggnings meddelande. Det här mönstret används ofta i online-program där det inte finns något oautentiserat innehåll i programmet som är tillgängligt för användaren. I det exempel som genereras av den här guidade installationen används det här mönstret.
 

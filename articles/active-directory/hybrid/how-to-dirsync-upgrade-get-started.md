@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e31f5e6afb3b586cd8eb20db8d1ca34e95de86cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa45294de4ef644c20ef66b7163706dca9759d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313424"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Uppgradera från DirSync
 Azure AD Connect är efterföljaren till DirSync. I det här avsnittet lär du dig hur du kan uppgradera från DirSync på olika sätt. Stegen fungerar inte om du ska uppgradera från en annan version av Azure AD Connect eller från Azure AD Sync.
@@ -100,10 +100,10 @@ Ytterligare steg krävs om:
    * Om du använder SQL Server Express och har färre än 50 000 objekt visas följande skärm:  
      ![Analysen är klar och du kan uppgradera från DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * Om du använder en fullständig SQL Server för DirSync kan du få se den här sidan i stället:  
-     ![Analysen är klar och du kan uppgradera från DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
+     ![skärm bild som visar den befintliga SQL Database-servern som används.](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
      Informationen om den befintliga SQL Server-databasservern som används av DirSync visas. Gör relevanta justeringar om det behövs. Klicka på **Nästa** när du vill fortsätta med installationen.
    * Om du har fler än 50 000 objekt kan se du få se den här skärmen i stället:  
-     ![Analysen är klar och du kan uppgradera från DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+     ![Skärm bild som visar skärmen som visas när du har fler än 50 000 objekt att uppgradera.](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      Om du vill fortsätta med en uppgradering på plats klickar du på kryssrutan bredvid det här meddelandet: **Fortsätt att uppgradera DirSync på den här datorn.**
      Om du vill utföra en [parallell distribution](#parallel-deployment) i stället exporterar du DirSync-konfigurationsinställningarna och flyttar konfigurationen till den nya servern.
 5. Ange lösenordet för det konto som du för närvarande använder för att ansluta till Azure AD. Det här måste vara det konto som för närvarande används av DirSync.  
@@ -140,7 +140,7 @@ Om du har färre än 50 000 objekt, men ändå vill utföra en parallell distri
 4. Kör följande kommando från installationsplatsen för Azure AD Connect (som standard C:\Program Files\Microsoft Azure Active Directory Connect): `AzureADConnect.exe /ForceExport`.
 5. Klicka på knappen **Exportera inställningar**. När du installerar Azure AD Connect på en separat server migreras dessa inställningar från din aktuella DirSync till den nya Azure AD Connect-installationen.
 
-![Analysen är klar](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
+![Skärm bild som visar alternativet Exportera inställningar för att migrera dina inställningar till den nya Azure AD Connect-installationen.](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
 När inställningarna har exporterats kan du avsluta Azure AD Connect-guiden på DirSync-servern. Fortsätt med nästa steg om du vill installera Azure AD Connect på en separat server.
 
@@ -152,14 +152,14 @@ När du installerar Azure AD Connect på en ny server antas det att du vill utf�
 3. Öppna en kommandotolk.
 4. Kör följande kommando från installationsplatsen för Azure AD Connect (som standard C:\Program Files\Microsoft Azure Active Directory Connect): `AzureADConnect.exe /migrate`.
    Installationsguiden för Azure AD Connect startar och följande skärm visas:  
-   ![Ange dina autentiseringsuppgifter för Azure AD](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
+   ![Skärm bild som visar var du kan importera inställnings filen när du uppgraderar.](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. Välj inställningsfilen som exporterades från DirSync-installationen.
 6. Konfigurera eventuella avancerade alternativ, inklusive:
    * En anpassad installationsplats för Azure AD Connect.
    * En befintlig instans av SQL Server (SQL Server 2012 Express installeras som standard av Azure AD Connect). Använd inte samma databasinstans som DirSync-servern.
    * Ett tjänstkonto som används för att ansluta till SQL Server (om SQL Server-databasen är en fjärrplats måste det här kontot vara ett domäntjänstkonto).
      Följande alternativ visas på skärmen:  
-     ![Ange dina autentiseringsuppgifter för Azure AD](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
+     ![Skärm bild som visar avancerade konfigurations alternativ för att uppgradera från DirSync.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Klicka på **Nästa**.
 8. På sidan **Klart att konfigurera** lämnar du kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** markerad. Nu är servern i [mellanlagringsläge](how-to-connect-sync-staging-server.md) och ändringarna exporteras inte till Azure AD.
 9. Klicka på **Installera**.
@@ -204,7 +204,7 @@ Du bör se följande:
 * Välj **Konfigurera mellanlagringsläge**.
 * Inaktivera mellanlagring genom att avmarkera kryssrutan **Aktivera mellanlagringsläge**.
 
-![Ange dina autentiseringsuppgifter för Azure AD](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
+![Skärm bild som visar alternativet för att aktivera mellanlagrings läge.](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
 
 * Klicka på knappen **Nästa**
 * Klicka på knappen **Installera** på bekräftelsesidan.

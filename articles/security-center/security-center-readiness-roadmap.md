@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314495"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center beredskaps översikt
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
@@ -29,8 +29,8 @@ Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mo
 Använd följande resurser för att komma igång med Security Center.
 
 Artiklar
-- [Introduktion till Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Snabbstartsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introduktion till Azure Security Center](security-center-introduction.md)
+- [Snabbstartsguide för Azure Security Center](security-center-get-started.md)
 
 Video
 - [Snabb introduktionsvideo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -42,7 +42,7 @@ För att få ut mesta möjliga av Security Center är det viktigt att veta hur o
 
 Med följande resurser får du hjälp under planerings- och driftprocesserna.
 
-- [Planerings- och bruksanvisning för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Registrering av datorer till Security Center

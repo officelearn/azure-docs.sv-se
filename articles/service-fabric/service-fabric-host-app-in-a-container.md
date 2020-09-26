@@ -3,12 +3,12 @@ title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4ef696156b6386c7aa1a027dcc61c988ba4692a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314308"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra containrar i Windows 10.
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 2. Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel.  Starta Visual Studio som **administratör** och öppna filen [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Tryck på F5 för att felsöka och köra programmet.
 
-   ![Fabrikam-webbexempel][fabrikam-web-page]
+   ![Skärm bild av start sidan för Fabrikam fiber CallCenter-programmet som körs på den lokala värden. På sidan visas en instrument panel med en lista med support samtal.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>Använd programmet med en container
 
@@ -233,9 +233,9 @@ Nu när programmet är klart kan du distribuera det till klustret i Azure direkt
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Ett exempel är `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
+Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
-![Fabrikam-webbexempel][fabrikam-web-page-deployed]
+![Skärm bild av start sidan för Fabrikam fiber CallCenter-programmet som körs på azure.com. På sidan visas en instrument panel med en lista med support samtal.][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Konfigurera kontinuerlig integrering och distribution (CI/CD) med ett Service Fabric-kluster
 

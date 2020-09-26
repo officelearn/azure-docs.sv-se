@@ -11,12 +11,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c87a965c96920ea2ce90dae0333147338c99018a
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f02ec2220827fbec8c981ab3a1859d633675a6f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313271"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudie: integrera en enda AD-skog med direktautentisering (PTA)
 
@@ -188,7 +188,7 @@ Nu ska vi skapa en Azure AD-klientorganisation så att vi kan synkronisera våra
 2. Välj **plus-ikonen (+)** och sök efter **Azure Active Directory**.
 3. Välj **Azure Active Directory** i sökresultatet.
 4. Välj **Skapa**.</br>
-![Skapa](media/tutorial-password-hash-sync/create1.png)</br>
+![Skärm bild som visar hur du skapar en Azure AD-klient.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **Skapa**. Detta skapar din katalog.
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
@@ -196,10 +196,10 @@ Nu ska vi skapa en Azure AD-klientorganisation så att vi kan synkronisera våra
 Nu när vi har en Azure AD-klientorganisation ska vi skapa ett globalt administratörskonto.  Det här kontot används för att skapa ett Azure AD-anslutningsappkonto under Azure AD Connect-installationen.  Azure AD-anslutningsappkontot används för att skriva information till Azure AD.   Skapa kontot för den globala administratören genom att göra följande.
 
 1.  Under **Hantera** väljer du **Användare**.</br>
-![Skapa](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Skärm bild som visar det användar alternativ som marker ATS i avsnittet hantera där du skapar en global administratör i Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Välj **Alla användare** och sedan **+ Ny användare**.
 3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klientorganisationen. Du bör även ändra **katalogrollen** till **Global administratör.** Du kan dessutom visa det tillfälliga lösenordet. När du är klar väljer du **Skapa**.</br>
-![Skapa](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Skärm bild som visar knappen Skapa som du väljer när du skapar en global administratör i Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. När det här har slutförts öppnar du en ny webbläsare och loggar in på myapps.microsoft.com med hjälp av det nya globala administratörskontot och det tillfälliga lösenordet.
 5. Ändra lösenordet för den globala administratören till något som du kommer ihåg.
 
@@ -209,12 +209,12 @@ Nu när vi har en klientorganisation och en global administratör behöver vi l�
 1. När du är i [Azure-portalen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) igen ska du stänga bladet **Alla användare**.
 2. Till vänster väljer du **Anpassade domännamn**.
 3. Välj **Lägg till anpassad domän**.</br>
-![Anpassad](media/tutorial-federation/custom1.png)</br>
+![Skärm bild som visar knappen Lägg till anpassad domän markerad.](media/tutorial-federation/custom1.png)</br>
 4. På **Anpassade domännamn** anger du namnet på din anpassade domän i rutan och klickar sedan på **Lägg till domän**.
 5. På skärmen för anpassat domännamn får du antingen TXT- eller MX-information.  Den här informationen måste läggas till i DNS-informationen för domänregistratorn under din domän.  Du behöver gå till din domänregistrator. Ange antingen TXT- eller MX-informationen i DNS-inställningarna för din domän.  Detta gör att Azure kan verifiera din domän.  Det kan ta upp till 24 timmar för Azure att verifiera den.  Mer information finns i dokumentationen om att [lägga till en anpassad domän](../../active-directory/fundamentals/add-custom-domain.md).</br>
-![Anpassad](media/tutorial-federation/custom2.png)</br>
+![Skärm bild som visar var du lägger till TXT-eller MX-informationen.](media/tutorial-federation/custom2.png)</br>
 6. För att säkerställa att den har verifierats klickar du på knappen Verifiera.</br>
-![Anpassad](media/tutorial-federation/custom3.png)</br>
+![Skärm bild som visar ett klart verifierings meddelande när du har valt verifiera.](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Ladda ned och installera Azure AD Connect
 Nu är det dags att ladda ned och installera Azure AD Connect.  När det har installerats kör vi snabbinstallationen.  Gör följande:
@@ -251,7 +251,7 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Gå till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
    ![Verifiera](media/tutorial-password-hash-sync/verify1.png)
 

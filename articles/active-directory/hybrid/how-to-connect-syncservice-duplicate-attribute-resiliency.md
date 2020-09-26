@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662400"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313322"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Återhämtning av duplicerat attribut är en funktion i Azure Active Directory som eliminerar friktion som orsakas av **userPrincipalName** och SMTP- **proxyAddress** konflikter vid körning av ett av Microsofts verktyg för synkronisering.
@@ -124,7 +124,7 @@ Om du vill göra en bred Strängs sökning använder du flaggan **-searchString*
 ## <a name="microsoft-365-admin-center"></a>Administrationscenter för Microsoft 365
 Du kan visa synkroniseringsfel i Microsoft 365 administrations centret. Rapporten i Microsoft 365 administrations Center visar bara **användar** objekt som innehåller dessa fel. Den visar inte information om konflikter mellan **grupper** och **kontakter**.
 
-![Aktiva användare](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Aktiva användare")
+![Skärm bild som visar fel i katalogens synkroniseringsfel i Microsoft 365 administrations centret.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Aktiva användare")
 
 Instruktioner för hur du visar synkroniseringsfel i Microsoft 365 administrations Center finns i [identifiera katalogs synkroniseringsfel i Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
@@ -132,7 +132,7 @@ Instruktioner för hur du visar synkroniseringsfel i Microsoft 365 administratio
 När ett objekt med en duplicerad attribut-konflikt hanteras med den här nya funktionen inkluderas en avisering i e-postmeddelandet för standard-ID-synkronisering som skickas till den tekniska meddelande kontakten för klient organisationen. Det finns dock en viktig förändring i detta beteende. Tidigare skulle information om en konflikt i ett duplicerat attribut inkluderas i varje efterföljande fel rapport tills konflikten har lösts. Med det här nya beteendet visas fel meddelandet för en specifik konflikt bara en gång – vid tidpunkten då det motstridiga attributet är i karantän.
 
 Här är ett exempel på hur e-postmeddelandet ser ut för en ProxyAddress-konflikt:  
-    ![Aktiva användare](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktiva användare")  
+    ![Skärm bild som visar ett exempel på ett e-postmeddelande om en ProxyAddress-konflikt.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktiva användare")  
 
 ## <a name="resolving-conflicts"></a>Lösa konflikter
 Fel sökning av strategi-och lösnings taktiker för dessa fel bör inte skilja sig från hur duplicerade attributändringar hanterades tidigare. Den enda skillnaden är att timer-aktiviteten sveper genom klienten på tjänst sidan för att automatiskt lägga till attributet i fråga till rätt objekt när konflikten har lösts.

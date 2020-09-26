@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919020"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360675"
 ---
 # <a name="custom-keyword-basics"></a>Grundläggande anpassade nyckelord
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig grunderna i att arbeta med anpassade nycke
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Stegen i den här artikeln kräver en tal prenumeration och talet SDK. Om du inte redan har en prenumeration kan du [prova röst tjänsten kostnads fritt](get-started.md). Information om hur du hämtar SDK finns i [installations guiden](quickstarts/setup-platform.md) för din plattform.
+Stegen i den här artikeln kräver en tal prenumeration och talet SDK. Om du inte redan har en prenumeration kan du [prova röst tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free). Information om hur du hämtar SDK finns i [installations guiden](quickstarts/setup-platform.md) för din plattform.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Skapa ett nyckelord i tal Studio
 

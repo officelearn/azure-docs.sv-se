@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4ab403ebafbf078accd2ee2256c0c5bb69548e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360360"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
 
@@ -249,7 +249,7 @@ SAP hög tillgänglighet i Azure kan delas upp i tre typer:
 
 * **Hög tillgänglighet för SAP-program**: 
 
-    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Till exempel:
+    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
     * Redundanta SAP-programservrar.
     * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -267,7 +267,7 @@ Basen för beräkningen är 30 dagar per månad eller 43 200 minuter. En drift t
 
 (Tillgänglighets tjänst #1/100) * (tillgänglighets tjänst #2/100) * (tillgänglighets tjänst #3/100) \* ...
 
-Till exempel:
+Exempel:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 eller en övergripande tillgänglighet på 99,75%.
 
@@ -320,7 +320,7 @@ Mer information finns i [Azure Storage replikering][azure-storage-redundancy].
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 Managed Disks är en resurs typ i Azure Resource Manager som rekommenderas att användas i stället för virtuella hård diskar (VHD) som lagras i Azure Storage-konton. Hanterade diskar justeras automatiskt med en Azures tillgänglighets uppsättning för den virtuella dator som de är kopplade till. De ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den.
 
-Mer information finns i [Översikt över Azure Managed disks][azure-storage-managed-disks-overview].
+Mer information finns i  [Översikt över Azure Managed disks][azure-storage-managed-disks-overview].
 
 Vi rekommenderar att du använder Managed disks eftersom de fören klar distributionen och hanteringen av dina virtuella datorer.
 
@@ -332,9 +332,9 @@ Om du väljer att inte använda funktioner som WSFC eller pacemaker på Linux (s
 
 Mer information om den här metoden finns i [använda Azure Infrastructure VM restart för att uppnå högre tillgänglighet för SAP-systemet][sap-higher-availability].
 
-## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Hög tillgänglighet för SAP-program i Azure IaaS
+## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Hög tillgänglighet för SAP-program i Azure IaaS
 
-För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Till exempel:
+För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
   * Redundanta SAP-programservrar.
   * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
@@ -344,7 +344,7 @@ I nästa avsnitt beskrivs hur du uppnår hög tillgänglighet för alla tre vikt
 
 > Det här avsnittet gäller för:
 >
-> ![Windows][Logo_Windows] Windows och ![Linux][Logo_Linux] Linux
+> ![Windows-logotyp.][Logo_Windows] Windows och ![Linux-logotyp.][Logo_Linux] Linux
 >
 
 Du behöver vanligt vis ingen specifik lösning för hög tillgänglighet för SAP-programservern och dialog instanser. Du uppnår hög tillgänglighet genom redundans och du konfigurerar flera dialog instanser i olika instanser av virtuella Azure-datorer. Du bör ha minst två SAP-programinstanser installerade i två instanser av Azure Virtual Machines.
@@ -382,7 +382,7 @@ Mer information finns i avsnittet [tillgänglighets uppsättningar][planning-gui
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Hög tillgänglighets arkitektur för en SAP ASCS/SCS-instans i Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 
 Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instansen. Lösningen har två varianter:
@@ -395,7 +395,7 @@ Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instansen. Lösnin
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Hög tillgänglighets arkitektur för en SAP ASCS/SCS-instans på Linux
 
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 > 
 > Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av SLES Cluster Framework finns i [hög tillgänglighet för SAP-NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program][sap-suse-ascs-ha]. För alternativ HA-arkitektur på SLES, som inte kräver hög tillgänglig NFS, se [hög tillgänglighets guide för SAP NetWeaver på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program][sap-suse-ascs-ha-anf].
 
@@ -404,7 +404,7 @@ Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>SAP NetWeaver multi-SID-konfiguration för en klustrad SAP-ASCS/SCS-instans
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 > 
 > Multi-SID stöds med WSFC, med fil resurs och delad disk.
 > 
@@ -414,7 +414,7 @@ Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat 
 
 * [SAP ASCS/SCS-instans multi-SID hög tillgänglighet för Windows Server-redundanskluster och delad disk][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 > 
 > Multi-SID-klustring stöds på Linux pacemaker-kluster för SAP ASCS/ERS, begränsat till **fem** SAP-sid i samma kluster.
 > Mer information om arkitektur med hög tillgänglighet för flera SID i Linux finns i:

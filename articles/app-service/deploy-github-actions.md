@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 54e4ce409eb9f2a6bedd7861b3e268311f886b49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962578"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273253"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -24,12 +24,28 @@ ms.locfileid: "88962578"
 
 Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 
+## <a name="use-the-deployment-center"></a>Använda distributions Center
+
+Du kan snabbt komma igång med GitHub-åtgärder med hjälp av App Service Deployment Center. Detta genererar automatiskt en arbets flödes fil baserat på din programs tack och skickar den till din GitHub-lagringsplats i rätt katalog.
+
+1. Navigera till din webapp i Azure Portal
+1. Klicka på **Deployment Center** på vänster sida
+1. Under **kontinuerlig distribution (CI/CD)** väljer du **GitHub**
+1. Välj sedan **GitHub-åtgärder**
+1. Använd List rutorna för att välja din GitHub-lagringsplats, gren och programs tack
+    - Om den valda grenen är skyddad kan du fortfarande fortsätta att lägga till arbets flödes filen. Se till att granska dina gren skydd innan du fortsätter.
+1. På den sista skärmen kan du granska dina val och förhandsgranska arbets flödes filen som ska allokeras till lagrings platsen. Om inställningarna är korrekta klickar du på **Slutför**
+
+Detta kommer att spara arbets flödes filen på lagrings platsen. Arbets flödet som används för att skapa och distribuera din app startar omedelbart.
+
+## <a name="add-the-workflow-manually"></a>Lägg till arbets flödet manuellt
+
 För ett Azure App Service-arbetsflöde har filen tre delar:
 
-|Section  |Aktiviteter  |
+|Avsnitt  |Uppgifter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
-|**Konstruktion** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
+|**Skapa** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
 |**Distribuera** | 1. distribuera webbappen. |
 
 ## <a name="generate-deployment-credentials"></a>Generera autentiseringsuppgifter för distribution

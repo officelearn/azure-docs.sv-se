@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 6af23aba28ce3cda9982878ed08ec515aa25633a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7f2824f4dcacb26d8941f51db6129aea0bb5f915
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273287"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
 
@@ -25,10 +25,10 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett arbets flöde för Azure App Service container har filen tre delar:
 
-|Section  |Aktiviteter  |
+|Avsnitt  |Uppgifter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
-|**Konstruktion** | 1. Konfigurera miljön. <br /> 2. Bygg behållar avbildningen. |
+|**Skapa** | 1. Konfigurera miljön. <br /> 2. Bygg behållar avbildningen. |
 |**Distribuera** | 1. distribuera behållar avbildningen. |
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
@@ -110,7 +110,7 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Distribuera till en App Service-behållare
 
-Om du vill distribuera avbildningen till en anpassad behållare i App Service använder du `azure/webapps-container-deploy@v1` åtgärden. Den här åtgärden har fem parametrar:
+Om du vill distribuera avbildningen till en anpassad behållare i App Service använder du `azure/webapps-container-deploy@v2` åtgärden. Den här åtgärden har fem parametrar:
 
 | **Parameter**  | **Förklaring**  |
 |---------|---------|
@@ -150,7 +150,7 @@ jobs:
         docker build . -t contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }} 
       
-    - uses: azure/webapps-container-deploy@v1
+    - uses: azure/webapps-container-deploy@v2
       with:
         app-name: 'node-rnc'
         images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6ce2966d7e91bd0fc6a23ad2605316da4e2342e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310364"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps inbyggda kart format som stöds
 
@@ -134,5 +134,4 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 
 Lär dig mer om hur du anger ett kart format i Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Välj ett kartformat](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Välj ett kartformat](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

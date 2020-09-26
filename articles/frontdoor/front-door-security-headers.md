@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Lägg till säkerhets rubriker med regel motor – Azure-front dörr'
-description: Den här artikeln lär dig hur du konfigurerar ett säkerhets huvud via regel motorn på Azures front dörr
+description: I den här självstudien får du lära dig hur du konfigurerar ett säkerhets huvud via regel motorn på Azures front dörr
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 204a7676fd03466929fc67a0879ff28e0318d21d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085252"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270057"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Självstudie: Lägg till säkerhets rubriker med regel motor
 

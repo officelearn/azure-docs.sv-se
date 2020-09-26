@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/24/2020
+ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 9eff9b5356f3201f151cc959a96b070d2afaa267
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283468"
+ms.locfileid: "91376991"
 ---
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure Portal:
 
@@ -27,7 +27,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 1. Ange fältet **Kontotyp** till *Storage v2 (General-Purpose v2)*.
 1. Ange hur lagrings kontot ska replikeras. Standard alternativet för replikering är *Read-Access Geo-redundant lagring (RA-GRS)*. Mer information om tillgängliga replikeringsalternativ finns [Azure Storage redundans](../articles/storage/common/storage-redundancy.md).
 1. Ange åtkomst nivå för blobbar i lagrings kontot. Standard nivån är *varm*. Mer information om BLOB Access-nivåer finns i frekventa, låg frekventa [och arkivera åtkomst nivåer för blobbar](../articles/storage/blobs/storage-blob-storage-tiers.md).
-1. Om du vill använda [Azure Data Lake Storage](/services/storage/data-lake-storage/)väljer du fliken **Avancerat** och sedan ange **hierarkiskt namn område** till **aktive rad**.
+1. Om du vill använda Azure Data Lake Storage väljer du fliken **Avancerat** och sedan ange **hierarkiskt namn område** till **aktive rad**. Mer information finns i [Azure Data Lake Storage Gen2 introduktion](../articles/storage/blobs/data-lake-storage-introduction.md)
 1. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
 1. Välj **Skapa**.
 

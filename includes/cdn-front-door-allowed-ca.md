@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 9397c5f075c1d6653920d19766d5d6a740294ec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68d0459153fbdb34216c1313f70e292119b93a7c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67330770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269818"
 ---
 Följande ca: er tillåts när du skapar ett eget certifikat:
 
@@ -23,6 +23,7 @@ Följande ca: er tillåts när du skapar ett eget certifikat:
 - AMN: CA 02
 - Ameroot
 - APCA-DM3P
+- Atos TrustedRoot 2011
 - Rot certifikat utfärdare för autopilot
 - Baltimore CyberTrust-rot
 - Klass 3 offentlig primär certifikat utfärdare
@@ -52,8 +53,12 @@ Följande ca: er tillåts när du skapar ett eget certifikat:
 - GlobalSign rot certifikat utfärdare
 - Go-Daddy rot certifikat utfärdare-G2
 - Go Daddy Secure Certificate Authority-G2
+- Vi ska kryptera auktoritets x3
 - QuoVadis root CA2 G3
 - RapidSSL RSA CA 2018
+- RootCA1 för säkerhets kommunikation
+- RootCA2 för säkerhets kommunikation
+- RootCA3 för säkerhets kommunikation
 - Symantec klass 3 EV SSL CA-G3
 - Symantec klass 3 säker server CA-G4
 - Symantec Enterprise Mobile root för Microsoft

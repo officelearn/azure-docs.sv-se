@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: b789cd423d2260ce709a02ffb3ac5ea500997609
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941364"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372161"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender för SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -39,7 +39,7 @@ Mer information om priser för Azure Defender för SQL finns på [sidan med Azur
 
 Följande steg hjälper dig att komma igång med Azure Defender.
 
-## <a name="1-enable-azure-defender"></a>1. Aktivera Azure Defender
+## <a name="enable-azure-defender"></a>Aktivera Azure Defender
 
 Azure Defender kan nås via [Azure Portal](https://portal.azure.com). Aktivera Azure Defender genom att gå till **Security Center** under **säkerhets** rubriken för servern eller den hanterade instansen.
 
@@ -48,15 +48,15 @@ Azure Defender kan nås via [Azure Portal](https://portal.azure.com). Aktivera A
 >
 > Kostnaden för Azure Defender är anpassad till Azure Security Center standard pris per nod, där en nod är hela servern eller en hanterad instans. Du betalar därför bara en gång för att skydda alla databaser på servern eller den hanterade instansen med Azure Defender. Du kan prova Azure Defender ut från början med en kostnads fri utvärderings version.
 
-## <a name="2-start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. börja spåra sårbarheter och undersöka hot aviseringar
+## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>Börja spåra sårbarheter och undersöka hot varningar
 
 Klicka på kortet för **sårbarhets bedömning** för att visa och hantera sårbarhets genomsökningar och rapporter och för att spåra din säkerhets datasekretesstandarder. Om säkerhets aviseringar har mottagits klickar du på kortet **Avancerat skydd** för att visa information om aviseringarna och visa en konsol IDE rad rapport om alla aviseringar i din Azure-prenumeration via sidan Azure Security Center säkerhets aviseringar.
 
-## <a name="3-manage-azure-defender-settings"></a>3. Hantera Azure Defender-inställningar
+## <a name="manage-azure-defender-settings"></a>Hantera Azure Defender-inställningar
 
 Om du vill visa och hantera Azure Defender-inställningar går du till **Security Center** under **säkerhets** rubriken för servern eller den hanterade instansen. På den här sidan kan du aktivera eller inaktivera Azure Defender och ändra inställningarna för sårbarhets bedömning och Avancerat skydd för hela servern eller den hanterade instansen.
 
-## <a name="4-manage-azure-defender-settings-for-a-database"></a>4. Hantera Azure Defender-inställningar för en databas
+## <a name="manage-azure-defender-settings-for-a-database"></a>Hantera Azure Defender-inställningar för en databas
 
 Om du vill åsidosätta Azure Defender-inställningarna för en viss databas markerar du kryss rutan **Aktivera Azure Defender för SQL på databas nivå** . Använd bara det här alternativet om du har ett särskilt krav för att ta emot separata varningar om Avancerat skydd eller sårbarhets bedömning för den enskilda databasen, i stället för de aviseringar och resultat som tagits emot för alla databaser på servern eller den hanterade instansen.
 

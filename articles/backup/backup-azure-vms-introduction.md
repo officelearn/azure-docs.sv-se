@@ -3,12 +3,12 @@ title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: I den här artikeln lär du dig hur tjänsten Azure Backup säkerhetskopierar virtuella Azure-datorer och hur du följer bästa praxis.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014651"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371515"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
@@ -105,6 +105,13 @@ Dessa vanliga scenarier kan påverka den totala säkerhets kopierings tiden:
 - **Fragmenterade diskar:** Säkerhets kopierings åtgärder går snabbare när disk ändringar är sammanhängande. Om ändringar sprids ut och fragmenteras på en disk går säkerhets kopieringen långsammare.
 - **Disk omsättning:** Om skyddade diskar som genomgår en stegvis säkerhets kopiering har en daglig omsättning på över 200 GB, kan säkerhets kopieringen ta lång tid (mer än åtta timmar) att slutföra.
 - **Säkerhets kopierings versioner:** Den senaste versionen av backup (kallas snabb återställnings version) använder en mer optimerad process än jämförelse av kontroll summa för att identifiera ändringar. Men om du använder omedelbar återställning och har tagit bort en ögonblicks bild av säkerhets kopia växlar säkerhets kopian till jämförelse av kontroll summa. I det här fallet kommer säkerhets kopieringen att överskrida 24 timmar (eller misslyckande).
+
+### <a name="restore-performance"></a>Återställa prestanda
+
+Dessa vanliga scenarier kan påverka den totala återställnings tiden:
+
+- Den totala återställnings tiden beror på antalet in-/utdata-åtgärder per sekund (IOPS) och data flödet för lagrings kontot.
+- Den totala återställnings tiden kan påverkas om mål lagrings kontot har lästs in med andra program Läs-och skriv åtgärder. Om du vill förbättra återställnings åtgärden väljer du ett lagrings konto som inte har lästs in med andra program data.
 
 ## <a name="best-practices"></a>Bästa praxis
 

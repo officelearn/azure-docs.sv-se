@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 098c0a85dc6c0fac8b78f344c4c8559b168b9114
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749850"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371345"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Hanterade identiteter i Azure HDInsight
 
@@ -27,7 +27,7 @@ Det finns två typer av hanterade identiteter: användare tilldelade och tilldel
 
 I Azure HDInsight kan hanterade identiteter endast användas av HDInsight-tjänsten för interna komponenter. Det finns för närvarande ingen metod som stöds för att generera åtkomsttoken med hjälp av hanterade identiteter som är installerade på HDInsight-klusternoder för åtkomst till externa tjänster. För vissa Azure-tjänster som Compute VM: ar implementeras hanterade identiteter med en slut punkt som du kan använda för att hämta åtkomsttoken. Den här slut punkten är för närvarande inte tillgänglig i HDInsight-noder.
 
-Om du behöver starta dina program för att undvika att placera hemligheter/lösen ord i analys jobben (t. ex. SCALA-jobb) kan du distrubte dina egna certifikat till klusternoderna med hjälp av skript åtgärder och sedan använda certifikatet för att erhålla en åtkomsttoken (till exempel för att komma åt Azure-nyckel valvet).
+Om du behöver starta dina program för att undvika att placera hemligheter/lösen ord i analys jobben (t. ex. SCALA-jobb) kan du distribuera dina egna certifikat till klusternoderna med skript åtgärder och sedan använda certifikatet för att hämta en åtkomsttoken (till exempel för att få åtkomst till Azure-nyckel valvet).
 
 ## <a name="create-a-managed-identity"></a>Skapa en hanterad identitet
 
@@ -48,7 +48,16 @@ Hanterade identiteter används i Azure HDInsight i flera scenarier. Se relaterad
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kundhanterad nyckeldiskkryptering](disk-encryption.md)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+HDInsight förnyar automatiskt certifikaten för de hanterade identiteter som du använder för dessa scenarier. Det finns dock en begränsning när flera olika hanterade identiteter används för tids krävande kluster, men certifikat förnyelsen kanske inte fungerar som förväntat för alla hanterade identiteter. Om du planerar att använda tids krävande kluster (t. ex. mer än 60 dagar) rekommenderar vi att du använder samma hanterade identitet för alla scenarier ovan. 
+
+Om du redan har skapat ett långvarigt kluster med flera olika hanterade identiteter och körs på något av följande problem:
+ * I ESP-kluster börjar kluster tjänster inte att fungera eller skalas upp och andra åtgärder startar inte med autentiseringsfel.
+ * I ESP-kluster, vid ändring av AAD-DS LDAPs-certifikat, uppdateras LDAPs-certifikatet inte automatiskt, och därför kan inte LDAP-synkronisering och automatisk skalning av UPS starta.
+ * MSI-åtkomst till ADLS Gen2 start fungerar inte.
+ * Det går inte att rotera krypterings nycklar i CMK-scenariot.
+sedan bör du tilldela de roller och behörigheter som krävs för ovanstående scenarier till alla de hanterade identiteter som används i klustret. Om du till exempel har använt olika hanterade identiteter för ADLS Gen2-och ESP-kluster, ska båda av dem ha rollerna "lagring av BLOB-dataägare" och "HDInsight Domain Services-deltagare" kopplade till dem för att undvika att köra de här problemen.
+
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Vad händer om jag tar bort den hanterade identiteten när klustret har skapats?
 

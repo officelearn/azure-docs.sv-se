@@ -3,12 +3,12 @@ title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284767"
+ms.locfileid: "91372399"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
@@ -24,7 +24,7 @@ Använd följande för Azure-principer:
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-Använd följande för rollbaserad åtkomst kontroll:
+För rollbaserad åtkomst kontroll i Azure (Azure RBAC) använder du:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 

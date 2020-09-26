@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 85804e0f9293ec2e63aa319854e9559da11c8be1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a20708c5564075c24eb031a39292b020a2ecc00
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371328"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Så här använder du FreeBSD Packet filter för att skapa en säker brand vägg i Azure
 Den här artikeln beskriver hur du distribuerar en NAT-brandvägg med hjälp av FreeBSD-filter genom Azure Resource Manager mall för vanliga webb server scenarier.
@@ -25,7 +25,7 @@ PF (paket filter, även skrivet PF) är ett BSD-paket med tillstånds känsligt 
 Om du är intresse rad av att skapa en säker brand vägg i molnet för dina webb servrar, kan du börja med att sätta igång. Du kan också använda skripten som används i den här Azure Resource Manager-mallen för att ställa in nätverk sto pol Ogin.
 Azure Resource Manager-mallen konfigurerar en virtuell FreeBSD-dator som utför NAT-/Redirection med hjälp av PF och två FreeBSD virtuella datorer med Nginx-webbservern installerad och konfigurerad. Förutom att utföra NAT för de två webb servrar som utgående trafik, fångar NAT/omdirigering av den virtuella datorn HTTP-förfrågningar och dirigerar dem till de två webb servrarna i resursallokering. VNet använder det privata icke-flyttbara IP-adressutrymmet 10.0.0.2/24 och du kan ändra parametrarna för mallen. Azure Resource Manager-mallen definierar också en routningstabell för hela VNet, som är en samling enskilda vägar som används för att åsidosätta Azures standard vägar baserat på mål-IP-adressen. 
 
-![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
+![Diagrammet visar en offentlig I P-adress på en NAT-instans som omdirigeras av Round-Robin-metoden till två virtuella server dels datorer som är värdar för nginx-webbservrar.](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Distribuera via Azure CLI
 Du behöver det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index). Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas ett resurs grupps namn `myResourceGroup` på `West US` platsen.

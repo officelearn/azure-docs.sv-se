@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334690"
+ms.locfileid: "91371685"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare 
 
@@ -44,7 +44,7 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 | Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.7.0 |
 | Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.7.0 |
 | Tal Språkidentifiering | Identifiera det språk som talas i ljudfiler. | 1,0 |
-| Neurala text till tal | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. | 1.1.0 |
+| Neurala text till tal | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. | 1.2.0 |
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
@@ -245,7 +245,7 @@ Alla Taggar, förutom `latest` i, är i följande format och är Skift läges k�
 Följande tagg är ett exempel på formatet:
 
 ```
-1.1.0-amd64-en-us-arianeural-preview
+1.2.0-amd64-en-us-arianeural-preview
 ```
 
 För alla språk som stöds och motsvarande röster i **neurala text till tal** -behållaren, se [neurala text till tal-bildtaggar](../containers/container-image-tags.md#neural-text-to-speech).

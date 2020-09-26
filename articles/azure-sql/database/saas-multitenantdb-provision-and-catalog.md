@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4413a987af7a4802366556fb86c0c55e7b401776
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356810"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Etablera och katalogisera nya klienter i ett SaaS-program med shardade för flera innehavare Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -169,7 +169,7 @@ För att förstå hur Wingtip-appen implementerar ny klient etablering i en dela
 
 4. När skript körningen stoppas vid Bryt punkten trycker du på **F11** för att stega in i koden.
 
-   ![felsökning](./media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![Skärm bild som visar Windows PowerShell ISE med fel söknings menyn öppen och steget är markerat.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Spåra skript körningen med hjälp av meny alternativen för **fel sökning** , **F10** och **F11**, för att gå över eller till anropade funktioner.
 
@@ -237,7 +237,7 @@ En fullständig lista över klienter och motsvarande databas för var och en fin
 - Klient namnet lagras i tabellen klient organisationer.
 - Databas namnet lagras i Shard hanterings tabeller.
 
-1. I SQL Server Management Studio (SSMS) ansluter du till klient servern i **katalogen-MT. \<USER\> . Database.Windows.net**, med login = **Developer**och Password = **P \@ ssword1**
+1. I SQL Server Management Studio (SSMS) ansluter du till klient servern på **katalogen – MT. \<USER\> .. database.windows.net**, med login = **Developer**och Password **= \@ P ssword1**
 
     ![Dialog ruta för SSMS-anslutning](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

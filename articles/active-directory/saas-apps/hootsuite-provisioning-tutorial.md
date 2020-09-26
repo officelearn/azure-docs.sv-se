@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: a67d61c5a7c8861b1e4462586e1e4dca9149ab4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c040c6d5b8eb4041db3ffaaab58657a9f9c7da
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305468"
+ms.locfileid: "91358074"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera HootSuite för automatisk användar etablering
 
@@ -88,7 +88,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin credentials** , inmatat `https://platform.hootsuite.com/scim/v2` i klient-URL. Mata in det långsiktiga hemliga token-värdet som hämtades tidigare i **steg 2**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till HootSuite. Om anslutningen Miss lyckas kontrollerar du att HootSuite-kontot har administratörs behörighet och försöker igen.
 
-    ![etablerings](./media/hootsuite-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

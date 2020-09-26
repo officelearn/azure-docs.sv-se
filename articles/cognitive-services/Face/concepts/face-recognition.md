@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73743073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323030"
 ---
 # <a name="face-recognition-concepts"></a>Koncept för ansikts igenkänning
 
@@ -45,7 +45,7 @@ Det här avsnittet beskriver hur de fyra igenkännings åtgärderna använder da
 
 [Sök liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) -åtgärden tar ett ansikts-ID från DetectedFace eller PersistedFace och antingen en FaceList eller en matris med andra ansikts-ID: n. Med en FaceList returneras en mindre FaceList av ansikten som liknar den aktuella ytan. Med en matris med ansikts-ID: n returnerar den ungefär en mindre matris.
 
-### <a name="group"></a>Grupp
+### <a name="group"></a>Group
 
 [Grupp](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) åtgärden tar en matris med utvalda ansikts-ID: n från DetectedFace eller PersistedFace och returnerar samma ID grupperade i flera mindre matriser. Varje "Groups"-matris innehåller ansikts-ID: n som ser likadana ut. En enskild "messyGroup"-matris innehåller ansikts-ID: n för vilka inga likheter hittades.
 
@@ -69,6 +69,6 @@ Använd följande tips för att se till att dina angivna bilder ger de mest exak
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med koncepten för ansikts igenkänning kan du lära dig hur du skriver ett skript som identifierar ansikten mot en utbildad PersonGroup.
+Nu när du är bekant med koncepten för ansikts igenkänning kan du skriva ett skript som identifierar ansikten mot en utbildad PersonGroup.
 
-* [Identifiera ansikten i bilder](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Snabb start för ansikts klient bibliotek](../Quickstarts/client-libraries.md)

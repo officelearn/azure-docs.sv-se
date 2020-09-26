@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488136"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356204"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Begär enhetsanslutningshändelser från Azure IoT Hub med hjälp av Azure Cosmos DB
 
@@ -227,13 +227,13 @@ I ditt Logic app-arbetsflöde kan villkor hjälpa dig att köra vissa åtgärder
 
 5. Välj **Lägg till ny parameter**. I list rutan som visas markerar du kryss rutorna bredvid **partitionsnyckel** och **Parametrar för den lagrade proceduren**. Klicka sedan på någon annan på skärmen. Det lägger till ett fält för partitionerings nyckel värde och ett fält för parametrar för den lagrade proceduren.
 
-   ![Fyll i Logic app-åtgärd](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Skärm bild som visar ett objekt för att köra lagrade procedurer med Lägg till ny parameter valt.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Ange värdet och parametrarna för partitionsnyckel som visas nedan. Se till att du anger hakparenteser och dubbla citat tecken enligt vad som visas. Du kanske måste klicka på **Lägg till dynamiskt innehåll** för att få giltiga värden som du kan använda här.
 
-   ![Fyll i Logic app-åtgärd](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Skärm bild som visar ett kör lagrat procedur objekt med angivna parametrar.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Överst i fönstret där **det står,** under **Välj utdata från föregående steg**, kontrollerar **du att den är markerad** .
+7. Överst i fönstret där **det står,** under **Välj utdata från föregående steg**, kontrollerar  **du att den är markerad** .
 
    ![Fyll i Logic app för – varje](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 

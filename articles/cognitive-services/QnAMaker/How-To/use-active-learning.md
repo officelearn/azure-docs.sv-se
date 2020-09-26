@@ -1,14 +1,14 @@
 ---
 title: Använda aktiv utbildning med kunskaps bas – QnA Maker
-description: Förbättra kvaliteten på din kunskaps bas med aktiv inlärning. Granska, acceptera eller avvisa, Lägg till utan att ta bort eller ändra befintliga frågor.
+description: Lär dig att förbättra kvaliteten på din kunskaps bas med aktiv inlärning. Granska, acceptera eller avvisa, Lägg till utan att ta bort eller ändra befintliga frågor.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 004ee9d4cced0116831718b1601d5d510dea5a4d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32dfe6a274889181410ab5f800ac595ee81c148c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298153"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -49,4 +49,4 @@ Aktiv inlärning är inaktiverat som standard. Aktivera det om du vill se föres
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en kunskapsbas](./manage-knowledge-bases.md)
+> [Skapa en kunskaps bas](./manage-knowledge-bases.md)

@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 02d1cde7ab48aa951c47cfbfea29c90c3f53f768
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271655"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 
@@ -24,7 +24,7 @@ För att kunna registrera DPM-servern med Azure Backup måste du installera den 
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att använda Microsoft Azure Backup för att skydda arbets belastningar har uppfyllts. Följande krav är uppfyllda:
 
@@ -38,8 +38,8 @@ Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-intro
 
 Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
-1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Installera agenten på Exchange-servern genom att välja **hanterings > agenter > installera** i DPM-administratörskonsol. Se [Installera DPM-skyddsagenten](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) för detaljerade anvisningar.
+1. Kontrol lera att brand väggarna är korrekt konfigurerade. Se [Konfigurera brand Väggs undantag för agenten](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Installera agenten på Exchange-servern genom att välja **hanterings > agenter > installera** i DPM-administratörskonsol. Se [Installera DPM-skyddsagenten](/system-center/dpm/deploy-dpm-protection-agent) för detaljerade anvisningar.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Skapa en skydds grupp för Exchange-servern
 

@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356357"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -27,7 +27,7 @@ I den här självstudien kommer du att:
 > * utlösa en inskalningsåtgärd och se antalet förekomster minska
 > * Rensa dina resurser
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -46,7 +46,7 @@ Dina resurser bör etableras på några minuter. Använd webbappen och motsvaran
 1. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har lästs in väljer du fliken **Autoskalning**.
 2. Här visas en lista med de resurser i din prenumeration som har stöd för automatisk skalning. Identifiera den App Service-plan du skapade tidigare i självstudien och klicka på den.
 
-    ![Navigera till inställningarna för automatisk skalning](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Skärm bild som visar Azure Portal med bildskärm och sedan autoskalning markerat.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. Klicka på knappen **Aktivera autoskalning** i autoskalningsinställningarna.
 
@@ -59,7 +59,7 @@ I följande steg får du hjälp att fylla autoskalningsskärmen så att den ser 
 2. Se till att **Skalningsläge** är inställt på ”Skala till ett specifikt antal instanser” i standardprofilen.
 3. Ange antalet instanser till **1**. Den här inställningen garanterar att när inga andra profiler är aktiva återställer standardprofilen instansantalet till 1.
 
-   ![Navigera till inställningarna för automatisk skalning](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Skärm bild som visar sidan för autoskalning med ett namn som har angetts för inställningen.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Skapa profil för upprepning
@@ -90,7 +90,7 @@ I följande steg får du hjälp att fylla autoskalningsskärmen så att den ser 
 
 6. Sätt **Åtgärd** till Öka antal med, **Antal instanser** till 1 och **Nedkylningstid** till 5 minuter.
 
-7. Klicka på knappen **Lägg till**.
+7. Klicka på knappen **Lägg till** .
 
 Den här regeln säkerställer att om din webbapp tar emot fler än 10 förfrågningar inom 5 minuter eller mindre så läggs ytterligare en instans till i din App Service-plan för att hantera belastningen.
 
@@ -111,7 +111,7 @@ Vi rekommenderar att du alltid använder en inskalningsregel tillsammans med en 
 
 6. Sätt **Åtgärd** till Minska antal med, **Antal instanser** till 1 och **Nedkylningstid** till 5 minuter.
 
-7. Klicka på knappen **Lägg till**.
+7. Klicka på knappen **Lägg till** .
 
     ![Skapa en inskalningsregel](./media/tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 

@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du hanterar säkerhe
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3051eb9a6f0c395f8ec06d92d6501296ec39c768
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 22ff95fe5261a839927aa6ad8123ba370710f178
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007306"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323098"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: hantera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -39,7 +39,7 @@ Med Azure CLI är det enkelt att hantera en SAP HANA databas som körs på en vi
 
 ## <a name="monitor-backup-and-restore-jobs"></a>Övervaka säkerhets kopierings-och återställnings jobb
 
-Om du vill övervaka slutförda eller pågående jobb (säkerhets kopiering eller återställning) använder du cmdleten [AZ backup Job List](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) . Med CLI kan du också [pausa ett pågående jobb](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) eller [vänta tills ett jobb har slutförts](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
+Om du vill övervaka slutförda eller pågående jobb (säkerhets kopiering eller återställning) använder du cmdleten [AZ backup Job List](/cli/azure/backup/job#az-backup-job-list) . Med CLI kan du också [pausa ett pågående jobb](/cli/azure/backup/job#az-backup-job-stop) eller [vänta tills ett jobb har slutförts](/cli/azure/backup/job#az-backup-job-wait).
 
 ```azurecli-interactive
 az backup job list --resource-group saphanaResourceGroup \
@@ -60,7 +60,7 @@ F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   hxe [hx
 
 ## <a name="change-policy"></a>Ändra princip
 
-Om du vill ändra principen underliggande SAP HANA säkerhets kopierings konfiguration använder du cmdleten [AZ backup princip set](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-set) . Namn parametern i den här cmdleten refererar till det säkerhets kopierings objekt vars princip vi vill ändra. I den här självstudien kommer vi att ersätta principen för vår SAP HANA Database *saphanadatabase; hxe; hxe* med en ny princip *newsaphanaPolicy*. Nya principer kan skapas med hjälp av [AZ säkerhets kopierings princip skapa](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet.
+Om du vill ändra principen underliggande SAP HANA säkerhets kopierings konfiguration använder du cmdleten [AZ backup princip set](/cli/azure/backup/policy#az-backup-policy-set) . Namn parametern i den här cmdleten refererar till det säkerhets kopierings objekt vars princip vi vill ändra. I den här självstudien kommer vi att ersätta principen för vår SAP HANA Database *saphanadatabase; hxe; hxe* med en ny princip *newsaphanaPolicy*. Nya principer kan skapas med hjälp av [AZ säkerhets kopierings princip skapa](/cli/azure/backup/policy#az-backup-policy-create) cmdlet.
 
 ```azurecli-interactive
 az backup item set policy --resource-group saphanaResourceGroup \
@@ -82,7 +82,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 [När du registrerar en SAP HANA-instans med ett Recovery Services-valv](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) identifieras automatiskt alla databaser på den här instansen.
 
-I de fall då nya databaser läggs till i SAP HANA-instansen senare, använder du cmdleten [AZ backup protectable-item Initialize](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) . Den här cmdleten identifierar de nya databaserna som lagts till.
+I de fall då nya databaser läggs till i SAP HANA-instansen senare, använder du cmdleten [AZ backup protectable-item Initialize](/cli/azure/backup/protectable-item#az-backup-protectable-item-initialize) . Den här cmdleten identifierar de nya databaserna som lagts till.
 
 ```azurecli-interactive
 az backup protectable-item initialize --resource-group saphanaResourceGroup \
@@ -91,7 +91,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Använd sedan cmdleten [AZ backup Protected-item List](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) för att visa en lista över alla databaser som har identifierats på din SAP HANA-instans. Den här listan utesluter dock de databaser där säkerhets kopiering redan har kon figurer ATS. När databasen som ska säkerhets kopie ras identifieras, se  [Aktivera säkerhets kopiering på SAP HANA databas](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Använd sedan cmdleten [AZ backup Protected-item List](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) för att visa en lista över alla databaser som har identifierats på din SAP HANA-instans. Den här listan utesluter dock de databaser där säkerhets kopiering redan har kon figurer ATS. När databasen som ska säkerhets kopie ras identifieras, se  [Aktivera säkerhets kopiering på SAP HANA databas](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -127,7 +127,7 @@ Nu ska vi titta på var och en av metoderna för att stoppa skyddet i mer detalj
 
 ### <a name="stop-protection-with-retain-data"></a>Avbryt skyddet med kvarhållning av data
 
-Om du vill stoppa skyddet med kvarhållna data använder du [AZ backup Protection Disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
+Om du vill stoppa skyddet med kvarhållna data använder du [AZ backup Protection Disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet.
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -146,11 +146,11 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-Om du vill kontrol lera status för den här åtgärden använder du [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Om du vill kontrol lera status för den här åtgärden använder du [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ### <a name="stop-protection-without-retain-data"></a>Stoppa skydd utan att behålla data
 
-Om du vill stoppa skyddet utan att behålla data använder du [AZ backup Protection Disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
+Om du vill stoppa skyddet utan att behålla data använder du [AZ backup Protection Disable](/cli/azure/backup/protection#az-backup-protection-disable) cmdlet.
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -170,13 +170,13 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-Om du vill kontrol lera status för den här åtgärden använder du [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Om du vill kontrol lera status för den här åtgärden använder du [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="resume-protection"></a>Återuppta skydd
 
 När du slutar skydda SAP HANA databasen med Behåll data kan du senare återuppta skyddet. Om du inte behåller säkerhetskopierade data kan du inte återuppta skyddet.
 
-Om du vill återuppta skyddet använder du cmdleten [AZ backup Protection Resume](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) .
+Om du vill återuppta skyddet använder du cmdleten [AZ backup Protection Resume](/cli/azure/backup/protection#az-backup-protection-resume) .
 
 ```azurecli-interactive
 az backup protection resume --resource-group saphanaResourceGroup \
@@ -194,7 +194,7 @@ Name                                  ResourceGroup
 b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
 ```
 
-Om du vill kontrol lera status för den här åtgärden använder du [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Om du vill kontrol lera status för den här åtgärden använder du [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="next-steps"></a>Nästa steg
 

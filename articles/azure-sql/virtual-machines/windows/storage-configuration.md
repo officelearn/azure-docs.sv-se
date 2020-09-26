@@ -7,17 +7,17 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272029"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ I det här avsnittet beskrivs hur Azure konfigurerar lagring för dina SQL Serve
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda de automatiserade konfigurations inställningarna för lagring måste den virtuella datorn ha följande egenskaper:
 
@@ -140,7 +140,7 @@ Azure använder följande inställningar för att skapa lagringspoolen på SQL S
 
 I följande tabell beskrivs de tre tillgängliga alternativen för arbets belastnings typer och deras motsvarande optimeringar:
 
-| Arbets belastnings typ | Beskrivning | Optimeringar |
+| Arbets belastnings typ | Description | Optimeringar |
 | --- | --- | --- |
 | **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inget |
 | **Transaktionell bearbetning** |Optimerar lagringen för traditionella databas OLTP-arbetsbelastningar |Spårnings flagga 1117<br/>Spårnings flagga 1118 |

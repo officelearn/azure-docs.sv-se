@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357224"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -106,7 +106,7 @@ Du kan också använda Service Fabric Explorer för att skapa program instanser 
 ## <a name="event-store"></a>Händelse lager
 EventStore är en funktion som erbjuds av plattformen som tillhandahåller Service Fabric plattforms händelser som är tillgängliga i Service Fabric Explorer och via REST API. Du kan se en Snapshot-vy över vad som händer i ditt kluster för varje entitet, t. ex. Node, service, program och fråga baserat på händelsens tidpunkt. Du kan också läsa mer om EventStore i EventStore- [översikten](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Skärm bild som visar fönstret noder där händelser har valts.][sfx-eventstore]
 
 >[!NOTE]
 >Från och med Service Fabric version 6,4. EventStore är inte aktiverat som standard och måste aktive ras i Resource Manager-mallen

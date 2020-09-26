@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 16f2bc2cc22fa38ece78b4a07298235abd7d629d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 16d0a4ea2353778b16803bd9b92a7f8af6e4ba88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325920"
 ---
 # <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: använda Packer för att skapa avbildningar av virtuella datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distribution och operativ system version. Avbildningar kan omfatta förinstallerade program och konfigurationer. Azure Marketplace innehåller många första och tredje parts avbildningar för de flesta vanliga operativ system och program miljöer, eller så kan du skapa egna anpassade avbildningar som är anpassade efter dina behov. Den här artikeln beskriver [hur du använder verktyget med](https://www.packer.io/) öppen källkod för att definiera och skapa anpassade avbildningar i Azure.
@@ -103,7 +103,7 @@ Skapa en fil med namnet *windows.jspå* och klistra in följande innehåll. Ange
         "task": "Image deployment"
     },
 
-    "location": "East US",
+    "build_resource_group_name": "myPackerGroup",
     "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{

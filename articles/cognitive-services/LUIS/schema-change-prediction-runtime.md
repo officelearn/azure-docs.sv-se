@@ -1,14 +1,16 @@
 ---
 title: Utöka app vid körning – LUIS
 description: ''
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: c0f9d71f5d89d73d9cdce2a2f646859d8eba3adc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2608fb01ece81f555aae2f3d4a2e4a05cfc90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322809"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>Utöka appen vid förutsägelse körning
 
@@ -34,7 +36,7 @@ Externa entiteter är en del av v3-redigerings-API: et. Läs mer om att [migrera
 
 ### <a name="entity-already-exists-in-app"></a>Enheten finns redan i appen
 
-Värdet `entityName` för den externa entiteten som skickades i slut punkts förfrågan efter inläggs meddelande måste redan finnas i den utbildade och publicerade appen när begäran görs. Typen av entitet spelar ingen roll, men alla typer stöds.
+Värdet för `entityName` den externa entiteten som skickades i slut punkts förfrågan efter inläggs meddelande måste redan finnas i den utbildade och publicerade appen när begäran görs. Typen av entitet spelar ingen roll, men alla typer stöds.
 
 ### <a name="first-turn-in-conversation"></a>Första inaktive samtal
 
@@ -66,7 +68,7 @@ Nästa användarens uttryck i Chat-roboten använder en mer vagt-period:
 
 `Send him a calendar reminder for the party.`
 
-I den här konversationen använder `him` uttryck som en referens till. `Hazem` Chatten i POST texten kan mappas `him` till enhet svärdet som extraheras från den första uttryck. `Hazem`
+I den här konversationen använder uttryck `him` som en referens till `Hazem` . Chatten i POST texten kan mappas `him` till enhet svärdet som extraheras från den första uttryck `Hazem` .
 
 ```json
     "externalEntities": [
@@ -86,9 +88,9 @@ I förutsägelse svaret ingår den externa entiteten, med alla andra förväntad
 
 ### <a name="override-existing-model-predictions"></a>Åsidosätt befintliga modell förutsägelser
 
-Egenskapen `preferExternalEntities` Options anger att om användaren skickar en extern entitet som överlappar med en förväntad entitet med samma namn, väljer Luis den enhet som har skickats eller entiteten som finns i modellen.
+`preferExternalEntities`Egenskapen Options anger att om användaren skickar en extern entitet som överlappar med en förväntad entitet med samma namn, väljer Luis den enhet som har skickats eller entiteten som finns i modellen.
 
-Anta till exempel frågan `today I'm free`. LUIS identifierar `today` som en datetimeV2 med följande svar:
+Anta till exempel frågan `today I'm free` . LUIS identifierar `today` som en datetimeV2 med följande svar:
 
 ```JSON
 "datetimeV2": [
@@ -117,7 +119,7 @@ Om användaren skickar den externa entiteten:
 }
 ```
 
-Om `preferExternalEntities` är inställt `false`på, returnerar Luis ett svar som om den externa entiteten inte skickades.
+Om `preferExternalEntities` är inställt på `false` , returnerar Luis ett svar som om den externa entiteten inte skickades.
 
 ```JSON
 "datetimeV2": [
@@ -133,7 +135,7 @@ Om `preferExternalEntities` är inställt `false`på, returnerar Luis ett svar s
 ]
 ```
 
-Om `preferExternalEntities` är inställt `true`på, returnerar Luis ett svar, inklusive:
+Om `preferExternalEntities` är inställt på `true` , returnerar Luis ett svar, inklusive:
 
 ```JSON
 "datetimeV2": [
@@ -151,7 +153,7 @@ Den _valfria_ `resolution` egenskapen returneras i förutsägelse svaret, så at
 
 Det primära syftet är att utöka fördefinierade entiteter, men den är inte begränsad till den typen av enhet.
 
-`resolution` Egenskapen kan vara ett tal, en sträng, ett objekt eller en matris:
+`resolution`Egenskapen kan vara ett tal, en sträng, ett objekt eller en matris:
 
 * Kontoret
 * {"text": "värde"}
@@ -173,7 +175,7 @@ List entiteten kan vara tom i LUIS-appen, men den måste finnas. List-entiteten 
 
 ### <a name="dynamic-list-json-request-body"></a>Brödtext för dynamisk lista JSON-begäran
 
-Skicka i följande JSON-brödtext för att lägga till en ny under lista med synonymer till listan och Förutsäg List entiteten för texten, `LUIS`med `POST` frågan förutsägelse-begäran:
+Skicka i följande JSON-brödtext för att lägga till en ny under lista med synonymer till listan och Förutsäg List entiteten för texten, `LUIS` med `POST` frågan förutsägelse-begäran:
 
 ```JSON
 {

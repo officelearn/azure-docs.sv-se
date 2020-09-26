@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357649"
 ---
 # <a name="what-is-direct-line-speech"></a>Vad är Direct Line Speech?
 
@@ -27,7 +27,7 @@ Direkt linje tal ger högsta möjliga anpassnings-och riktigt ambitiös för rö
 
 ## <a name="getting-started-with-direct-line-speech"></a>Komma igång med direkt linje tal
 
-De första stegen för att skapa en röst assistent med direkt linje tal är att [Hämta en tal prenumerations nyckel](get-started.md), skapa en ny robot som är associerad med den prenumerationen och ansluta bot till den direkta linjens tal kanal.
+De första stegen för att skapa en röst assistent med direkt linje tal är att [Hämta en tal prenumerations nyckel](overview.md#try-the-speech-service-for-free), skapa en ny robot som är associerad med den prenumerationen och ansluta bot till den direkta linjens tal kanal.
 
    ![Konceptuellt diagram över det direkta linje flödet för dirigering av tal Orchestration-tjänsten](media/voice-assistants/overview-directlinespeech.png "Tal kanal flödet")
 
@@ -64,7 +64,7 @@ Direkt linje tal och dess tillhör ande funktioner för röst assistenter är et
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+* [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)
 * [Hämta tal-SDK](speech-sdk.md)
 * [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Hämta lösningen för virtuella assistenter och företags mallar](https://github.com/Microsoft/AI)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3ceaa357150fe0c4d26eeedc6821761d2eb00106
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905658"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357972"
 ---
 # <a name="import-soap-api"></a>Importera SOAP API
 
@@ -45,7 +45,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 3. I **WSDL-specifikationen**, anger du URL:en till ditt SOAP API.
 4. Alternativknappen **SOAP-direkt** är markerad som standard. Med det här valet, kommer API:t att visas som SOAP. Kunden måste använda SOAP-regler. Om du vill ”restify” API:et, följer du stegen i [Importera ett SOAP API och konvertera det till REST](restify-soap-api.md).
 
-    ![Direkt](./media/import-soap-api/pass-through.png)
+    ![Skärm bild som visar dialog rutan skapa från W S D L där du kan ange en W S D L-specifikation.](./media/import-soap-api/pass-through.png)
 5. Tryck tabb.
 
     Följande fält fyllas i med informationen från SOAP API:t: visningsnamn, namn, beskrivning.

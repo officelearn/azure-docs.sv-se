@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358040"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Självstudie: Konfigurera fysiskt baserat åter givnings material i Maya
 
@@ -79,7 +79,7 @@ I Maya är indelnings processen enkel.
 1. I dialog rutan **duplicera specialalternativ** väljer du **instans** alternativet för **geometri typ** . 
 1. Välj **duplicera Special**.
 
-   ![Instans](media/instancing.jpg)
+   ![Skärm bild som visar ett Maya-fönster med dialog rutan duplicerade alternativ för Special alternativ öppen och duplicerat Special är markerat.](media/instancing.jpg)
 
 Den här åtgärden skapar en instans av objektet. Du kan flytta, rotera eller skala den oberoende av dess överordnade och andra instanser av den överordnade. 
 

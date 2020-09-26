@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b2763372cc63637f73610e1936e3ea54a4524e7d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356612"
 ---
 # <a name="what-is-a-keyword"></a>Vad är ett nyckelord?
 
@@ -61,6 +61,6 @@ Att skapa ett effektivt nyckelord är viktigt för att se till att enheten komme
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+* [Hämta en prenumerations nyckel för Speech service kostnads fritt](overview.md#try-the-speech-service-for-free)
 * [Hämta tal-SDK](speech-sdk.md)
 * [Lär dig mer om röst assistenter](voice-assistants.md)

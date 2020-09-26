@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356893"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Utveckla ARM-mallar för moln konsekvens
 
@@ -487,7 +487,7 @@ Om du vill hämta en lista över tillgängliga VM-avbildningar på en plats kör
 az vm image list -all
 ```
 
-Du kan hämta samma lista med Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och ange den plats som du vill använda med `-Location` parametern. Ett exempel:
+Du kan hämta samma lista med Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och ange den plats som du vill använda med `-Location` parametern. Exempel:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -590,7 +590,7 @@ Om du vill hämta en lista över de VM-tillägg som är tillgängliga för en sp
 az vm extension image list --location myLocation
 ```
 
-Du kan också köra cmdleten Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och använda `-Location` för att ange platsen för den virtuella dator avbildningen. Ett exempel:
+Du kan också köra cmdleten Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och använda `-Location` för att ange platsen för den virtuella dator avbildningen. Exempel:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -655,7 +655,7 @@ Det är en utmaning att hålla reda på alla relaterade inställningar, funktion
 
 Följande bild visar ett typiskt exempel på en utvecklings process för ett team som använder en Integrated Development Environment (IDE). På olika steg i tids linjen körs olika test typer. Här arbetar två utvecklare med samma lösning, men det här scenariot gäller även för en enda utvecklare eller ett stort team. Varje utvecklare skapar vanligt vis en lokal kopia av en central lagrings plats, vilket gör att var och en kan arbeta med den lokala kopian utan att påverka de andra som kanske arbetar på samma filer.
 
-![Arbetsflöde](./media/templates-cloud-consistency/workflow.png)
+![Diagram visar två uppsättningar av enhets test och integrations test parallellt på lokal I D E, som sammanfogas i utvecklings flödet C i/C D till enhets test, sedan integrations test, sedan testar distribution och sedan distribution.](./media/templates-cloud-consistency/workflow.png)
 
 Tänk på följande tips för testning och automatisering:
 

@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella datorer i Azure VMware-lösningen med Azure B
 description: Konfigurera din Azure VMware-lösning för att säkerhetskopiera virtuella datorer med hjälp av Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b37f909fc8199975eb399fe5ca28ebb53ab2789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cba224de3d8b223ebcc1ac4d2d8d569275b4e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272255"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella datorer i Azure VMware-lösningen med Azure Backup Server
 
@@ -105,9 +105,9 @@ VMware 6,7 och tidigare hade TLS aktiverat som kommunikations protokoll.
 
 1. Högerklicka på TLS. REG-filen och välj **sammanfoga** eller **Öppna** för att lägga till inställningarna i registret.
 
-## <a name="add-the-provisioning-ip-address-for-azure-vmware-solution-esxi-hosts-on-azure-backup-server"></a>Lägg till etablerings-IP-adressen för Azure VMware-lösningen ESXi-värdar på Azure Backup Server
+## <a name="add-the-provisioning-ip-address"></a>Lägg till IP-adressen för etablering 
 
-I för hands versionen löser Azure VMware-lösningen inte ESX-värden från den virtuella dator som distribueras i det virtuella nätverket. Du måste utföra ytterligare steg för att lägga till värd fil posten på den Azure Backup Server virtuella datorn.
+Azure VMware-lösningen löser inte ESX-värden från den virtuella datorn som distribueras i det virtuella nätverket. Du måste utföra ytterligare steg för att lägga till värd fil posten på den virtuella datorn Azure Backup Server.
 
 ### <a name="identify-the-ip-address-for-esxi-hosts"></a>Identifiera IP-adressen för ESXi-värdar
 
@@ -144,7 +144,7 @@ I för hands versionen löser Azure VMware-lösningen inte ESX-värden från den
 
 1. I dialog rutan **Hantera autentiseringsuppgifter** väljer du **Lägg till**.
 
-   ![Dialog rutan Azure Backup Server Hantera autentiseringsuppgifter](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+   ![I dialog rutan Hantera autentiseringsuppgifter väljer du Lägg till.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
 1. I dialog rutan **Lägg till autentiseringsuppgift** anger du ett namn och en beskrivning för den nya autentiseringsuppgiften. Ange det användar namn och lösen ord som du har definierat på VMware-servern.
 
@@ -155,7 +155,7 @@ I för hands versionen löser Azure VMware-lösningen inte ESX-värden från den
 
 1. Välj **Lägg** till för att lägga till den nya autentiseringsuppgiften.
 
-   ![Dialog rutan Azure Backup Server Hantera autentiseringsuppgifter](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![Skärm bild som visar dialog rutan Azure Backup Server Hantera autentiseringsuppgifter med nya autentiseringsuppgifter som visas.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Lägg till vCenter-servern i Azure Backup Server
 
@@ -192,7 +192,10 @@ I för hands versionen löser Azure VMware-lösningen inte ESX-värden från den
 
    ![Sidan Slutför](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Du bör se vCenter-servern som visas under **produktions server** med typen som **VMware-Server** och **agent status** som **OK**. Om du ser **agent status** som **okänd**väljer du **Uppdatera**.
+   Du bör se vCenter-servern som visas under **produktions server** med typen som **VMware-Server** och **agent status** som **OK**. 
+
+   >[!TIP]
+   >Om du ser **agent status** som **okänd**väljer du **Uppdatera**.
 
 ## <a name="configure-a-protection-group"></a>Konfigurera en skydds grupp
 
@@ -300,7 +303,7 @@ I Azure Backup Server Administratörskonsol finns det två sätt att hitta åter
 
 1. Välj vyn **återställning** i Azure Backup Server administratörskonsol. 
 
-1. Använd fönstret **Bläddra** , bläddra eller filtrera för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter i rutan **återställnings punkter för** .
+1. I rutan **Bläddra** bläddrar eller filtrerar du för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter.
 
    ![Tillgängliga återställnings punkter](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -317,12 +320,13 @@ I Azure Backup Server Administratörskonsol finns det två sätt att hitta åter
 
    ![Återställnings guiden, sidan Granska val av återställning](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-1. Välj **Nästa** för att gå till skärmen **Ange återställnings alternativ** . Välj **Nästa** igen för att gå till skärmen **Välj återställnings typ** . 
+1. Välj **Nästa** för att gå till skärmen **Ange återställnings alternativ** . 
+1. Välj **Nästa** igen för att gå till skärmen **Välj återställnings typ** . 
 
    > [!NOTE]
    > VMware-arbetsbelastningar stöder inte aktivering av begränsning av nätverks bandbredd.
 
-1. På sidan **Välj återställnings typ** väljer du om du vill återställa till den ursprungliga instansen eller en ny plats. Välj sedan **Nästa**.
+1. På sidan **Välj återställnings typ** väljer du Återställ till den ursprungliga instansen eller en ny plats och väljer sedan **Nästa**.
 
    - Om du väljer **Återställ till ursprunglig instans**behöver du inte göra några fler val i guiden. Data för den ursprungliga instansen används.
    - Om du väljer **Återställ som virtuell dator på en värd**anger du informationen för **ESXi-värden**, **resurspool**, **mappar**och **sökväg**på skärmen **Ange mål** .
@@ -342,7 +346,7 @@ Du kan återställa enskilda filer från en skyddad VM-återställnings punkt. D
 
 1. Välj vyn **återställning** i Azure Backup Server administratörskonsol.
 
-1. Använd fönstret **Bläddra** , bläddra eller filtrera för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter i rutan **återställnings punkter för** .
+1. I rutan **Bläddra** bläddrar eller filtrerar du för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter.
 
    ![Tillgängliga återställnings punkter](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 

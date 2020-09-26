@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356374"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB ändra feed för att visualisera data analyser i real tid
 
@@ -54,7 +54,7 @@ Följande diagram representerar det data flöde och de komponenter som ingår i 
 
 7. **Power BI:** Power BI används för att visualisera data som skickas av Azure Stream Analytics. Du kan bygga en instrument panel för att se hur måtten ändras i real tid.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Microsoft .NET Framework 4.7.1 eller senare
 
@@ -157,7 +157,7 @@ När ett nytt dokument skapas, eller om ett aktuellt dokument ändras i en Cosmo
    * Ersätt texten **ditt samlings namn här** med namnet på din samling. Om du har följt tidigare instruktioner är namnet på din samling changefeedlabcollection.  
    * Ersätt texten som **ditt leasing avtals samlings namn här** med namnet på din låne samling. Om du har följt tidigare instruktioner är namnet på din leasing uppsättning **lån**.  
    * Överst i Visual Studio ser du till att rutan Start projekt till vänster om den gröna pilen står **ChangeFeedFunction**.  
-   * Välj **Starta** överst på sidan för att köra programmet  
+   * Välj **Starta**  överst på sidan för att köra programmet  
    * Du kan bekräfta att funktionen körs när-konsol programmet säger att "jobb värden har startats".
 
 ## <a name="insert-data-into-azure-cosmos-db"></a>Infoga data i Azure Cosmos DB 
@@ -315,7 +315,7 @@ Power BI är en uppsättning verktyg för företagsanalys för att analysera och
 
    Så här ser ett exempel på en instrument panel ut med följande diagram:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualiseringar":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Skärm bild som visar ett exempel på en instrument panel med diagram som heter genomsnitts pris för objekt per åtgärd, unika besökare, intäkter och topp 5 objekt som köpts.":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Valfritt: visualisera med en E-handelswebbplats
 

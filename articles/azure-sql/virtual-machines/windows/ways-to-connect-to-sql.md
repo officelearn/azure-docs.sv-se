@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aa0fdddbf31cadad55582f4d45c8e536ce74acd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26052441d19abb6a0c423a3b3d6f6c2d21478814
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667441"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272069"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server virtuell dator på Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -91,7 +91,7 @@ Förutsatt att du har konfigurerat DNS i det virtuella nätverket kan du ansluta
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a name="change-sql-connectivity-settings"></a><a id="change"></a>Ändra inställningar för SQL-anslutning
+## <a name="change-sql-connectivity-settings"></a><a id="change"></a> Ändra inställningar för SQL-anslutning
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -111,7 +111,7 @@ Du kan ändra anslutnings inställningarna för den SQL Server virtuella datorn 
 
    ![Uppdaterings meddelande för virtuell SQL-dator](./media/ways-to-connect-to-sql/sql-vm-updating-notification.png)
 
-## <a name="enable-tcpip-for-developer-and-express-editions"></a><a id="manualtcp"></a>Aktivera TCP/IP för utvecklare och Express-utgåvor
+## <a name="enable-tcpip-for-developer-and-express-editions"></a><a id="manualtcp"></a> Aktivera TCP/IP för utvecklare och Express-utgåvor
 
 När du ändrar SQL Server anslutnings inställningar aktiverar Azure inte automatiskt TCP/IP-protokollet för SQL Server Developer och Express-versioner. I anvisningarna nedan förklaras hur du aktiverar TCP/IP manuellt så att du kan fjärransluta via IP-adress.
 
@@ -129,7 +129,7 @@ Följande steg visar hur du skapar en valfri DNS-etikett för din virtuella Azur
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a name="manual-configuration-and-troubleshooting"></a><a id="manual"></a>Manuell konfiguration och fel sökning
+## <a name="manual-configuration-and-troubleshooting"></a><a id="manual"></a> Manuell konfiguration och fel sökning
 
 Även om portalen tillhandahåller alternativ för att automatiskt konfigurera anslutning, är det bra att veta hur du konfigurerar anslutningen manuellt. Att förstå kraven kan också under lätta fel sökning.
 

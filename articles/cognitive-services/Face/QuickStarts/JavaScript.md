@@ -5,18 +5,18 @@ description: I den här snabbstarten identifierar du ansikten med hjälp av Ansi
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 00b77b913f300f3a02c56553f8fc0f7fa349dcaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6992b6abb8ab54d5f08903f1b1393111bbd78c09
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323013"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Snabbstart: Identifiera ansikten i en bild med REST API och JavaScript
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357020"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Återställa med hjälp av automatiska databas säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,13 +91,13 @@ Du kan återställa en enskild databas eller instans databas till en tidpunkt fr
 
 Om du vill återställa en databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt för säkerhets kopiering som en ny databas ska skapas från.
 
-  ![Skärm bild av alternativ för databas återställning](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Skärm bild av databas återställnings alternativ för SQL Database.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>SQL-hanterad instans
 
 Om du vill återställa en hanterad instans databas till en tidpunkt genom att använda Azure Portal öppnar du sidan databas översikt och väljer **Återställ** i verktygsfältet. Välj den säkerhets kopierings punkt för tidpunkt från vilken en ny databas ska skapas.
 
-  ![Skärm bild av alternativ för databas återställning](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Skärm bild av databas återställnings alternativ för SQL-hanterad instans.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > För att program mässigt återställa en databas från en säkerhets kopia, se [program mässigt utföra återställning med automatiska säkerhets kopieringar](recovery-using-backups.md).
@@ -261,7 +261,7 @@ Automatiska säkerhets kopieringar skyddar dina databaser från användar-och pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över affärs kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- [Översikt över affärskontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - [SQL Database automatiserade säkerhets kopieringar](automated-backups-overview.md)
 - [Långsiktig kvarhållning](long-term-retention-overview.md)
 - Mer information om snabbare återställnings alternativ finns i [Active geo-replikering](active-geo-replication-overview.md) eller [grupper för automatisk redundans](auto-failover-group-overview.md).

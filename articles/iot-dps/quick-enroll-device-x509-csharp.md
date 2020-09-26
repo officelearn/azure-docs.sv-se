@@ -1,5 +1,5 @@
 ---
-title: 'Registrera X. 509-enheten i Azure Device Provisioning-tjänsten med C #'
+title: 'Snabb start – registrera X. 509-enhet på Azure Device Provisioning-tjänsten med C #'
 description: Den här snabbstarten använder gruppregistreringar. I den här snabb starten registrerar du X. 509-enheter till Azure-IoT Hub Device Provisioning Service (DPS) med C#.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 89d98cdf6f635cab3b85462adf5c6695f7c4482e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d8d6c9e2276b2368e09cdb0697a37e34dcf487b5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330272"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av C#
 

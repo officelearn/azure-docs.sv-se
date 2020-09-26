@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: fa78ab00e337ee6f2a42e23a2899d79a09a7ea3d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a1bd93931f8a94f598952b28fc3db23d33e5783f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904987"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329779"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Flytta data till och mellan olika steg i ML-pipelinen (Python)
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du kan:
 - Skapa nya `Dataset` objekt `PipelineData` som du vill behålla
 
 > [!TIP]
-> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg och spara dina data efter att pipeline-körningar är tillgängliga i de offentliga för hands klasserna  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) och [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  Dessa klasser är [experimentella](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) för hands versions funktioner och kan ändras när som helst.
+> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg och spara dina data efter att pipeline-körningar är tillgängliga i de offentliga för hands klasserna  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) och [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  Dessa klasser är [experimentella](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) för hands versions funktioner och kan ändras när som helst.
 
 
 ## <a name="prerequisites"></a>Förutsättningar

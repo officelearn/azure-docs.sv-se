@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086995"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330459"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -55,7 +55,7 @@ Genom att kontrol lera [Portal måtten](monitor-accounts.md) kan du avgöra om d
 
 ## <a name="common-error-status-codes"></a>Vanliga fel status koder <a id="error-codes"></a>
 
-| Statuskod | Beskrivning | 
+| Statuskod | Description | 
 |----------|-------------|
 | 400 | Felaktig begäran (beror på fel meddelandet)| 
 | 401 | [Inte auktoriserad](troubleshoot-unauthorized.md) | 
@@ -109,6 +109,8 @@ Den här fördröjningen kan ha flera orsaker:
 
     > [!NOTE]
     > För bättre prestanda rekommenderar vi Windows 64-bitars värd bearbetning. SQL-SDK: n innehåller en intern ServiceInterop.dll för att analysera och optimera frågor lokalt. ServiceInterop.dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds där ServiceInterop.dll inte är tillgänglig, kommer ett ytterligare nätverks anrop att göras till gatewayen för att hämta den optimerade frågan.
+
+Om du stöter på följande fel: `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:` och använder Windows, bör du uppgradera till den senaste versionen av Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 

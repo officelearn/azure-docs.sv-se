@@ -1,24 +1,27 @@
 ---
 title: Djup inlärning eller Machine Learning
-titleSuffix: Azure
-description: Lär dig hur djup inlärningen rör maskin inlärning och artificiell intelligens. Djup inlärning används i scenarier som bedrägeri identifiering, röst & ansikts igenkänning, sentiment analys och tids serie prognoser.
+titleSuffix: Azure Machine Learning
+description: Lär dig hur djup inlärningen är relaterad till Machine Learning och AI. I Azure Machine Learning använder du djup inlärnings modeller för bedrägeri identifiering, objekt identifiering och mycket annat.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330136"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>Djup inlärning eller Machine Learning
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Djup inlärning jämfört med Machine Learning i Azure Machine Learning
 
-Den här artikeln hjälper dig att jämföra djup inlärningen jämfört med Machine Learning. Du lär dig hur de två begreppen jämför och hur de passar in i den bredare kategorin av artificiell intelligens. Artikeln beskriver också hur djup inlärning kan tillämpas på verkliga scenarier, till exempel bedrägeri identifiering, röst-och ansikts igenkänning, sentiment analys och tids serie prognoser.
+Den här artikeln beskriver djup inlärning och maskin inlärning och hur de passar in i den bredare kategorin av artificiell intelligens. Lär dig mer om djup inlärnings lösningar som du kan bygga på Azure Machine Learning, till exempel bedrägeri identifiering, röst-och ansikts igenkänning, sentiment analys och tids serie prognoser.
+
+Vägledning om hur du väljer algoritmer för dina lösningar finns i [lathund-bladet Machine Learning algorithm](algorithm-cheat-sheet.md).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Djup inlärning, maskin inlärning och AI
 
@@ -37,7 +40,7 @@ Den här artikeln hjälper dig att jämföra djup inlärningen jämfört med Mac
 
 - **Artificiell intelligens (AI)** är en teknik som gör det möjligt för datorer att efterlikna mänsklig intelligens. Den innehåller Machine Learning. 
  
-Det är viktigt att förstå förhållandet mellan AI, maskin inlärning och djup inlärning. Machine Learning är ett sätt att få artificiell intelligens. Genom att använda maskin inlärnings-och djup inlärnings tekniker kan du skapa dator system och program som utför uppgifter som ofta är associerade med mänsklig intelligens. Dessa uppgifter omfattar bild igenkänning, tal igenkänning och språk översättning.
+Genom att använda maskin inlärnings-och djup inlärnings tekniker kan du skapa dator system och program som utför uppgifter som ofta är associerade med mänsklig intelligens. Dessa uppgifter omfattar bild igenkänning, tal igenkänning och språk översättning.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Tekniker för djup inlärning jämfört med Machine Learning 
 
@@ -58,7 +61,7 @@ I följande tabell jämförs de två metoderna i detalj:
 
 På grund av den artificiella neurala nätverks strukturen, är djup inlärningen perfekt vid identifiering av mönster i ostrukturerade data som bilder, ljud, video och text. Av den anledningen kan djup inlärningen snabbt omvandla många branscher, inklusive hälso vård, energi, ekonomi och transport. Dessa branscher håller nu på att se till att traditionella affärs processer bevaras. 
 
-Några av de vanligaste programmen för djup inlärning beskrivs i följande stycken.
+Några av de vanligaste programmen för djup inlärning beskrivs i följande stycken. I Azure Machine Learning kan du använda en modell från du skapar från ett ramverk med öppen källkod eller skapa modellen med hjälp av de verktyg som tillhandahålls.
 
 ### <a name="named-entity-recognition"></a>Identifiering av namngivna enheter
 
@@ -69,6 +72,8 @@ Identifiering av namngivna enheter är en djup inlärnings metod som tar en del 
 Djup inlärning har tillämpats i många olika användnings fall för objekt identifiering. Objekt identifiering består av två delar: bild klassificering och avbildnings lokalisering. Bild _klassificeringen_ identifierar avbildningens objekt, till exempel bilar eller personer. Avbildnings _lokalisering_ tillhandahåller den speciella platsen för dessa objekt. 
 
 Objekt identifiering används redan i branscher som spel, detalj handel, turism och självdrivande bilar.
+
+Lär dig hur du använder en bild klassificerings modell från ett ramverk med öppen källkod i Azure Machine Learning: [klassificera bilder med hjälp av en Pytorch modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generering av bild text
 
@@ -87,6 +92,8 @@ Med rätt data omvandling kan ett neurala-nätverk förstå text-, ljud-och visu
 Text analys som bygger på djup inlärnings metoder innebär analys av stora mängder text data (till exempel medicinska dokument eller utgifts kvitton), igenkänning av mönster och skapande av strukturerad och kortfattad information från IT.
 
 Företag använder djup inlärning för att utföra text analyser för att identifiera insider handel och efterlevnad med myndighets bestämmelser. Ett annat vanligt exempel är försäkrings bedrägerier: text analys har ofta använts för att analysera stora mängder dokument för att identifiera sannolikheten för ett försäkrings anspråk som bedrägerier. 
+
+Lär dig hur du använder en TensorFlow-modell i Azure Machine Learning: [klassificera handskrivna siffror med hjälp av en TensorFlow-modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Artificiell neurala-nätverk
 
@@ -110,14 +117,8 @@ Ett (convolutional neurala-nätverk är ett särskilt effektivt artificiellt neu
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar visas hur du använder djup inlärnings teknik i [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
-
-- [Klassificera handskrivna siffror med hjälp av en TensorFlow-modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+I följande artiklar visas fler alternativ för att använda djup inlärnings modeller med öppen källkod i [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
 
 - [Klassificera handskrivna siffror med en TensorFlow-uppskattning och keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Klassificera bilder med hjälp av en Pytorch-modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
 - [Klassificera handskrivna siffror med hjälp av en kedje modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-Använd också lathund-mallen [Machine Learning algorithm](algorithm-cheat-sheet.md) för att välja algoritmer för din modell.

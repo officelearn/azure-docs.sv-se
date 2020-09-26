@@ -1,5 +1,5 @@
 ---
-title: Registrera X. 509-enheter på Azure Device Provisioning-tjänsten med hjälp av Node.js
+title: Snabb start – registrera X. 509-enheter på Azure Device Provisioning-tjänsten med hjälp av Node.js
 description: Den här snabbstarten använder gruppregistreringar. I den här snabb starten registrerar du X. 509-enheter till Azure-IoT Hub Device Provisioning Service (DPS) med hjälp av Node.js service SDK
 author: wesmc7777
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0f6d18aa0ce4576db1618d17d8fb3866101f87b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: e1a7bb40e952f0437f0f8c168c48dc1d48b8cf94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330238"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Node.js
 
@@ -146,7 +146,7 @@ En registreringsgrupp kontrollerar åtkomst till etableringstjänsten för enhet
 Om du planerar att utforska Node.js-tjänsteexempel ska du inte rensa resurserna som skapades i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla Azure-resurser som skapats i den här snabb starten.
  
 1. Stäng utdatafönstret för Node.js på datorn.
-2. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Markera KRYSS rutan bredvid *grupp namnet* för de X. 509-enheter som du har registrerat med hjälp av den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.    
+2. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Markera kryss rutan bredvid *grupp namnet* för de X. 509-enheter som du har registrerat med hjälp av den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.    
 3. Från enhets etablerings tjänsten i Azure Portal väljer du **certifikat**, väljer det certifikat som du laddade upp för den här snabb starten och klickar på knappen **ta bort** högst upp i fönstret **certifikat information** .  
  
 ## <a name="next-steps"></a>Nästa steg

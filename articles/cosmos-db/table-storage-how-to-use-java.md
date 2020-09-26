@@ -1,6 +1,6 @@
 ---
 title: Använd Azure Table Storage eller Azure Cosmos DB Tabell-API från Java
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Tabell-API från Java.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: e28770bae9f845ae8f5edd3b67bc55175392052a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d50f3015be4ce12d5980fde7d039d87ef06da164
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330476"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Java
 
@@ -286,7 +286,7 @@ Några saker att tänka på när du använder batchåtgärder:
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
 
-Om du vill fråga en tabell efter entiteter i en partition kan du använda en `TableQuery` . Anropa `TableQuery.from` för att skapa en fråga för en viss tabell som returnerar en angiven resultat typ. I följande kod anges ett filter för entiteter där partitionsnyckeln är ”Smith”. `TableQuery.generateFilterCondition`är en hjälp metod för att skapa filter för frågor. Anropa `where` den referens som returnerades av `TableQuery.from` metoden för att tillämpa filtret på frågan. När frågan körs med ett anrop till `execute` på `CloudTable` objektet returneras en `Iterator` med `CustomerEntity` resultat typen angiven. Du kan sedan använda den som `Iterator` returneras i en "förgrunds" slinga för att använda resultaten. Med den här koden skrivs fälten för varje entitet i frågeresultatet ut till konsolen.
+Om du vill fråga en tabell efter entiteter i en partition kan du använda en `TableQuery` . Anropa `TableQuery.from` för att skapa en fråga för en viss tabell som returnerar en angiven resultat typ. I följande kod anges ett filter för entiteter där partitionsnyckeln är ”Smith”. `TableQuery.generateFilterCondition` är en hjälp metod för att skapa filter för frågor. Anropa `where` den referens som returnerades av `TableQuery.from` metoden för att tillämpa filtret på frågan. När frågan körs med ett anrop till `execute` på `CloudTable` objektet returneras en `Iterator` med `CustomerEntity` resultat typen angiven. Du kan sedan använda den som `Iterator` returneras i en "förgrunds" slinga för att använda resultaten. Med den här koden skrivs fälten för varje entitet i frågeresultatet ut till konsolen.
 
 ```java
 try

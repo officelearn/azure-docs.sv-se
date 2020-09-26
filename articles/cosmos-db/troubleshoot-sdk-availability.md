@@ -3,17 +3,17 @@ title: 'Diagnostisera och Felsök tillgängligheten för Azure Cosmos SDK: er i 
 description: Lär dig allt om tillgänglighets beteendet i Azure Cosmos SDK när du arbetar i flera regionala miljöer.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0c717aca88095df05fc7927f3c3d6e2d481925d2
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 8dd7ced2dfcfd3c555555d6f0a197623bd8726f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90709112"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330442"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostisera och Felsök tillgängligheten för Azure Cosmos SDK: er i multiregionala miljöer
 
@@ -24,15 +24,35 @@ Alla Azure Cosmos SDK: er ger dig möjlighet att anpassa de nationella inställn
 * Egenskapen [ConnectionPolicy. PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) i .NET v2 SDK.
 * Egenskaperna [CosmosClientOptions. ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) eller [CosmosClientOptions. ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) i .net v3 SDK.
 * Metoden [CosmosClientBuilder. preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) i Java v4 SDK.
-* Parametern [CosmosClient. preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) i python SDK.
+* Parametern [CosmosClient. preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) i Node SDK.
+* Parametern [CosmosClientOptions. ConnectionPolicy. preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) i JS SDK.
 
-För enstaka Skriv regions konton kommer alla Skriv åtgärder alltid att gå till Skriv regionen, så listan över önskade regioner gäller endast för Läs åtgärder. För flera Skriv regions konton påverkar inställnings listan Läs-och skriv åtgärder.
+När du anger den regionala inställningen ansluter klienten till en region som anges i följande tabell:
 
-Om du inte anger någon önskad region definieras den regionala prioritetsordningen av [list ordningen Azure Cosmos DB region](distribute-data-globally.md).
+|Kontotyp |Läsningar |Skrivningar |
+|------------------------|--|--|
+| Enskild Skriv region | Önskad region | Primär region  |
+| Flera Skriv regioner | Önskad region | Önskad region  |
 
-När något av följande inträffar visar klienten som använder Azure Cosmos SDK loggar och innehåller information om återförsöket som en del av den **diagnostiska informationen om åtgärden**.
+Om du inte anger någon önskad region:
 
-## <a name="removing-a-region-from-the-account"></a><a id="remove region"></a>Ta bort en region från kontot
+|Kontotyp |Läsningar |Skrivningar |
+|------------------------|--|--|
+| Enskild Skriv region | Primär region | Primär region |
+| Flera Skriv regioner | Primär region  | Primär region  |
+
+> [!NOTE]
+> Primär region syftar på den första regionen i [Azure Cosmos-kontots region lista](distribute-data-globally.md)
+
+När något av följande inträffar visar klienten som använder Azure Cosmos SDK loggar och innehåller information om återförsöket som en del av **åtgärdens diagnostiska information**:
+
+* Egenskapen *RequestDiagnosticsString* i svar i .NET v2 SDK.
+* Egenskapen *diagnostik* för svar och undantag i .net v3 SDK.
+* Metoden *getDiagnostics ()* i svar och undantag i Java v4 SDK.
+
+För en omfattande information om SLA-garantier under dessa händelser, se [service avtal för tillgänglighet](high-availability.md#slas-for-availability).
+
+## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>Ta bort en region från kontot
 
 När du tar bort en region från ett Azure Cosmos-konto kommer alla SDK-klienter som använder kontot att identifiera regions borttagningen via en server dels svars kod. Klienten markerar sedan den regionala slut punkten som otillgänglig. Klienten försöker utföra den aktuella åtgärden igen och alla framtida åtgärder dirigeras permanent till nästa region i prioritetsordning.
 
@@ -40,7 +60,7 @@ När du tar bort en region från ett Azure Cosmos-konto kommer alla SDK-klienter
 
 Var 5: e minut läser Azure Cosmos SDK-klienten konto konfigurationen och uppdaterar de regioner som den är medveten om.
 
-Om du tar bort en region och senare lägger till den igen till kontot, kommer SDK att gå tillbaka till att använda den här regionen permanent om den tillagda regionen har en högre prioritet. När regionen har identifierats dirigeras alla framtida begär anden till den.
+Om du tar bort en region och senare lägger till den i kontot igen, om den tillagda regionen har en högre regional prioritetsordning i SDK-konfigurationen än den aktuella anslutna regionen, kommer SDK att växla tillbaka till att använda den här regionen permanent. När regionen har identifierats dirigeras alla framtida begär anden till den.
 
 Om du konfigurerar klienten för att helst ansluta till en region som Azure Cosmos-kontot inte har, ignoreras den önskade regionen. Om du lägger till den regionen senare identifierar klienten den och kommer att växla permanent till den regionen.
 
@@ -50,7 +70,7 @@ Om du initierar en redundansväxling av den aktuella Skriv regionen kommer näst
 
 ## <a name="regional-outage"></a>Regionalt avbrott
 
-Om kontot är en enda Skriv region och det regionala avbrottet inträffar under en Skriv åtgärd, liknar beteendet en [manuell redundansväxling](#manual-failover-single-region). För Läs begär Anden eller konton för flera Skriv regioner liknar beteendet att [ta bort en region](#remove region).
+Om kontot är en enda Skriv region och det regionala avbrottet inträffar under en Skriv åtgärd, liknar beteendet en [manuell redundansväxling](#manual-failover-single-region). För Läs begär Anden eller konton för flera Skriv regioner liknar beteendet att [ta bort en region](#remove-region).
 
 ## <a name="session-consistency-guarantees"></a>Konsekvens garanti för sessioner
 
@@ -64,6 +84,7 @@ Om användaren har konfigurerat en lista över önskade regioner med mer än en 
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Granska [tillgänglighets service avtal](high-availability.md#slas-for-availability).
 * Använd den senaste [.NET SDK: n](sql-api-sdk-dotnet-standard.md)
 * Använd den senaste [Java SDK: n](sql-api-sdk-java-v4.md)
 * Använd den senaste [python SDK: n](sql-api-sdk-python.md)

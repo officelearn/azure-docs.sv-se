@@ -6,20 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 8366c5b7a05b35891bcf87e446229357a5511359
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6949b2265e1b22d924b67d0d46e5b2f2bf9c23ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330408"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med en PersistentVolume på din Azure Stack Edge Pro-enhet
 
 Den här artikeln visar hur du distribuerar ett tillstånds känsligt program med en instans i Kubernetes med en PersistentVolume (PV) och en distribution. Distributionen använder `kubectl` kommandon i ett befintligt Kubernetes-kluster och distribuerar MySQL-programmet. 
 
 Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge Pro-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
+
+Azure Stack Edge Pro stöder också körning av Azure SQL Edge-behållare och dessa kan distribueras på ett liknande sätt som beskrivs här för MySQL. Mer information finns i [Azure SQL Edge](../azure-sql-edge/overview.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361774"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Förstå skillnaderna mellan NoSQL och Relations databaser
 
@@ -29,7 +29,7 @@ I dessa scenarier kan [distribuerade databaser](https://en.wikipedia.org/wiki/Di
 
 Om dina transaktions volymer når extrema nivåer, till exempel många tusentals transaktioner per sekund, bör du överväga en distribuerad NoSQL-databas. Överväg Azure Cosmos DB för maximal effektivitet, enkel underhåll och minskad ägande kostnad.
 
-:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Serverdel" border="false":::
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Backend" border="false":::
 
 ## <a name="hierarchical-data"></a>Hierarkiska data
 
@@ -49,7 +49,7 @@ Olika former av "nätverks"-databaser pågick under den tid då Relations databa
 
 Om du upprätthåller ett komplext nätverk av relationer i databasen kanske du vill överväga en graf-databas som [Azure Cosmos DB Gremlin-API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) för att hantera dessa data.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Graph":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Databas diagrammet visar flera anställda och avdelningar som är anslutna till varandra.":::
 
 Azure Cosmos DB är en databas tjänst för flera modeller som erbjuder en API-projektion för alla större NoSQL modell typer; Kolumn – familj, dokument, graf och nyckel värde. API-skikten [Gremlin (graf)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) och SQL (Core) Document är helt driftskompatibla. Detta har fördelar för att växla mellan olika modeller på programmerings nivå. Diagram lager kan frågas i termer av både komplexa nätverks bläddringskontroll och transaktioner som modelleras som dokument poster i samma butik.
 

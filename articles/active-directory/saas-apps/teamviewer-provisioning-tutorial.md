@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: e3814c753a182ce11d9062a665adc137f80c206f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1363ccfcf20312fb7273526349e27e8f424b6b41
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255646"
+ms.locfileid: "91361559"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Självstudie: Konfigurera TeamViewer för automatisk användar etablering
 
@@ -99,7 +99,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin-autentiseringsuppgifter** anger `ttps://webapi.teamviewer.com/scim/v2`  du i fältet för **placerings-URL** och anger den skript-token som skapades tidigare i den **hemliga token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till TeamViewer. Om anslutningen Miss lyckas kontrollerar du att TeamViewer-kontot har administratörs behörighet och försöker igen.
 
-    ![etablerings](./media/teamViewer-provisioning-tutorial/provisioning.png)
+    ![Skärm bild som visar dialog rutan admin-autentiseringsuppgifter där du kan ange din klient U R L och hemlig token.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
 6. I fältet **E-postavisering** anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etableringsfel. Markera sedan kryssrutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 

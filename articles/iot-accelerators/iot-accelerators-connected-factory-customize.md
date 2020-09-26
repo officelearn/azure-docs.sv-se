@@ -9,14 +9,17 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67080490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290730"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur den anslutna fabriks lösningen visar data från OPC UA-servrar
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Den anslutna fabriks lösningen sammanställer och visar data från OPC UA-servrar som är anslutna till lösningen. Du kan bläddra och skicka kommandon till OPC UA-servrar i din lösning. Mer information om OPC UA finns i [vanliga frågor och svar om ansluten fabrik](iot-accelerators-faq-cf.md).
 
@@ -75,7 +78,7 @@ När du är klar med att göra ändringar i **ContosoTopologyDescription.js** fi
 
 **Azure-IoT-Connected-Factory-** databasen innehåller ett **build.ps1** PowerShell-skript som du kan använda för att återskapa och distribuera lösningen.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Läs mer om den anslutna fabriks lösnings acceleratorn genom att läsa följande artiklar:
 

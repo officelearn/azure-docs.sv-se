@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362086"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Taligenkänning i Bing till tal tjänsten
 
@@ -50,7 +50,7 @@ Tal tjänsten liknar Taligenkänning i Bing, med följande skillnader.
 | Igenkänning av tal avsikt | Kräver separat LUIS-API-anrop | Integrerad (med SDK) | Du kan använda en LUIS-nyckel med tal tjänsten. |
 | Enkel avsikts igenkänning | : heavy_minus_sign: | :heavy_check_mark: |
 | Batch-avskrift av långa ljudfiler | : heavy_minus_sign: | :heavy_check_mark: |
-| Igenkänningsläge | Manuell via slut punkts-URI | Automatisk | Igenkännings läget är inte tillgängligt i tal tjänsten. |
+| Igenkänningsläge | Manuell via slut punkts-URI | Automatiskt | Igenkännings läget är inte tillgängligt i tal tjänsten. |
 | Slut punkts plats | Global | Regional | Regionala slut punkter förbättrar svars tiden. |
 | REST API:er | :heavy_check_mark: | :heavy_check_mark: | Tal service REST-API: er är kompatibla med Taligenkänning i Bing (annan slut punkt). REST-API: er stöder text-till-tal och begränsade tal-till-text-funktioner. |
 | WebSockets-protokoll | :heavy_check_mark: | :heavy_check_mark: | Tal service WebSockets-API: t är kompatibelt med Taligenkänning i Bing (annan slut punkt). Migrera till tal-SDK om möjligt, för att förenkla koden. |
@@ -87,7 +87,7 @@ För tal service, SDK och API-stöd går du till [support Sidan](support.md)för
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prova röst tjänsten kostnads fritt](get-started.md)
+* [Prova röst tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free)
 * [Snabb start: identifiera tal i en UWP-app med hjälp av talet SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Se även

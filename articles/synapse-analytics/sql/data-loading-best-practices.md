@@ -11,24 +11,24 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fe847dfa24e618d2e837943309475f0a436d3a44
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289239"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Regelverk för inläsning av data för datalagerhantering
 
-Rekommendationer och prestanda optimeringar för att läsa in data
+I den här artikeln hittar du rekommendationer och prestanda optimeringar för att läsa in data.
 
 ## <a name="prepare-data-in-azure-storage"></a>Förbereda data i Azure Storage
 
-Minska svarstiden genom att samplacera ditt lagringsskikt och datalager.
+Du kan minimera svars tiden genom att samplacera ditt lagrings lager och ditt informations lager.
 
 När du exporterar data till ett ORC-filformat kan du råka ut för ”slut på minne”-fel i Java när det finns kolumner med mycket text. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
 
-PolyBase kan inte läsa in rader med data som överstiger 1 000 000 byte. När du placerar data i textfiler i Azure Blob Storage eller Azure Data Lake Store måste dessa data vara mindre än 1 000 000 byte. Den här begränsningen av byte gäller oavsett tabellschemat.
+PolyBase kan inte läsa in rader som har mer än 1 000 000 byte data. När du placerar data i textfiler i Azure Blob Storage eller Azure Data Lake Store måste dessa data vara mindre än 1 000 000 byte. Den här begränsningen av byte gäller oavsett tabellschemat.
 
 Alla filformat har olika prestandaegenskaper. Den snabbaste inläsningen får du om du använder komprimerade avgränsade textfiler. Skillnaden i prestanda mellan UTF-8 och UTF-16 är minimal.
 
@@ -64,7 +64,7 @@ Kör inläsningar under statiska i stället för dynamiska resursklasser. Att an
 
 ## <a name="allow-multiple-users-to-load"></a>Tillåt att flera användare läser in
 
-Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Inläsning med [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) kräver kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
+Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Inläsning med [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) kräver kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
 Anta att du har följande databasscheman: schema_A för avdelning A och schema_B för avdelning B. Då låter du användare_A och användare_B vara användare för PolyBase-inläsning i avdelning A respektive avdelning B. Båda har beviljats kontrollbehörigheter till databasen. De som skapat schema_A och B låser nu deras scheman med DENY:
 
@@ -83,14 +83,14 @@ För att uppnå högsta inläsningshastighet vid flytt av data till en informati
 
 ## <a name="load-to-a-columnstore-index"></a>Läs in till ett columnstore-index
 
-Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i högkvalitativa radgrupper. För bästa komprimerings- och indexeffektivitet behöver kolumnlagringsindexet komprimera högst 1 048 576 rader till varje radgrupp. Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala komprimeringsgraden. Detta påverkar i sin tur frågeprestanda. Mer detaljer finns i [Minnesoptimering för kolumnlagring](data-load-columnstore-compression.md).
+Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i högkvalitativa radgrupper. För bästa komprimerings- och indexeffektivitet behöver kolumnlagringsindexet komprimera högst 1 048 576 rader till varje radgrupp. Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala komprimeringsgraden. Detta påverkar frågans prestanda. Mer detaljer finns i [Minnesoptimering för kolumnlagring](data-load-columnstore-compression.md).
 
 - För att säkerställa att inläsningsanvändaren har tillräckligt med minne för att uppnå maximal komprimeringsgrad ska du använda inläsningsanvändare som är medlemmar i en mellanstor eller stor resursklass.
-- Läs in tillräckligt med rader för att helt fylla de nya radgrupperna. Under en massinläsning komprimeras var 1 048 576:e rad direkt till columnstore som en fullständig radgrupp. Belastningar med färre än 102 400 rader skickar raderna till deltastore där raderna förvaras i ett b-trädindex. Om du läser in för få rader kan alla rader hamna i deltalagringen och inte bli komprimerade direkt i kolumnlagringsformatet.
+- Läs in tillräckligt med rader för att helt fylla de nya radgrupperna. Vid en Mass inläsning komprimeras varje 1 048 576-rad direkt till columnstore-filen som en fullständig radgrupps. Belastningar med färre än 102 400 rader skickar raderna till deltastore där raderna förvaras i ett b-trädindex. Om du läser in för få rader kan alla rader hamna i deltalagringen och inte bli komprimerade direkt i kolumnlagringsformatet.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SQLBulkCopy API eller BCP
 
-Som nämnts tidigare ger inläsning med PolyBase det högsta data flödet med Synapse SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy-API (eller BCP) bör du fundera på att öka batchstorleken för bättre data flöde – en bra tumregel är en batchstorlek mellan 100 000 och 1 miljon rader.
+Som nämnts tidigare ger inläsning med PolyBase det högsta data flödet med Synapse SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy-API: et (eller BCP), bör du överväga att öka batchstorleken för bättre data flöde – en bra tumregel är en batchstorlek mellan 100 000 och 1 miljon rader.
 
 ## <a name="manage-loading-failures"></a>Hantera inläsnings problem
 
@@ -100,13 +100,13 @@ Du kan åtgärda de ändrade posterna genom att se till att definitionerna för 
 
 ## <a name="insert-data-into-a-production-table"></a>Infoga data i en produktions tabell
 
-En engångsinläsning i en liten tabell med en [INSERT-instruktion](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) eller till och med en regelbunden inläsning på nytt av en sökning kan fungera tillräckligt bra för dina behov med en instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Enskilda infogningar är emellertid inte lika effektiva som en massinläsning.
+En engångsinläsning i en liten tabell med en [INSERT-instruktion](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) eller till och med en regelbunden inläsning på nytt av en sökning kan fungera tillräckligt bra för dina behov med en instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Singleton-infogningar är dock inte lika effektiva som att utföra en Mass inläsning.
 
 Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera dem så att du kan infoga dem med en massinläsning.  Utveckla dina processer så att enskilda infogningar bifogas i en fil och skapa sedan en annan process som regelbundet läser in filen.
 
 ## <a name="create-statistics-after-the-load"></a>Skapa statistik efter inläsningen
 
-För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  Detta kan göras manuellt eller så kan du aktivera [statistik för automatisk skapande](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+För att förbättra prestanda för frågor är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen, eller att större ändringar har inträffat i data. Skapa statistik kan göras manuellt eller så kan du aktivera [statistik för automatisk skapande](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 En detaljerad förklaring av statistik finns i [Statistik](develop-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik på fem kolumner i Customer_Speeds tabellen.
 
@@ -124,7 +124,7 @@ Det är en bra säkerhetsrutin att regelbundet ändra åtkomstnyckeln till din B
 
 Så här roterar du Azure Storage-kontonycklar:
 
-För varje lagringskonto vars nyckel har ändrats utfärdar du [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+För varje lagringskonto vars nyckel har ändrats utfärdar du [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Exempel:
 

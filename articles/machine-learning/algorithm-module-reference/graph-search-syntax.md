@@ -1,5 +1,5 @@
 ---
-title: Frågans syntax för Graph-sökning
+title: Syntax för sökfråga i Graph
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder Sök-frågesyntaxen för att söka efter noder i Pipeline-diagram.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290508"
 ---
-# <a name="graph-search-query-syntax"></a>Frågans syntax för Graph-sökning
+# <a name="graph-search-query-syntax"></a>Syntax för sökfråga i Graph
 
 I den här artikeln får du lära dig mer om syntaxen för att söka i grafen i Azure Machine Learning. Med hjälp av diagram Sök funktionen kan du söka efter en nod med hjälp av dess namn och egenskaper. 
 
@@ -49,7 +49,7 @@ I Graph search används en enkel texts ökning med hjälp av funktionen för ful
  
 - Matchning med jokertecken: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Du kan inte starta en Lucene-fråga med ett "*"-Character.
@@ -59,7 +59,7 @@ I Graph search används en enkel texts ökning med hjälp av funktionen för ful
  
 Filter frågor använder följande mönster:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 Du kan använda följande Node-egenskaper som nycklar:

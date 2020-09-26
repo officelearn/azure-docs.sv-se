@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362256"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 
@@ -132,7 +132,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Valfritt Visa ytterligare konfigurations inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
-    Ytterligare konfigurationer|Beskrivning
+    Ytterligare konfigurationer|Description
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#primary-metric).
     Förklara bästa modell | Välj om du vill aktivera eller inaktivera för att visa förklaringar för den rekommenderade bästa modellen. <br> Den här funktionen är för närvarande inte tillgänglig för [vissa algoritmer för Prognosticering](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
@@ -143,7 +143,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Valfritt Visa funktionalisering-inställningar: om du väljer att aktivera **Automatisk funktionalisering** i formuläret för **ytterligare konfigurations inställningar** tillämpas standard funktionalisering-teknikerna. I **Visa funktionalisering-inställningar** kan du ändra dessa standardvärden och anpassa dem efter behov. Lär dig hur du [anpassar featurizations](#customize-featurization). 
 
-    ![Aktivitets typ formulär för Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Skärm bild som visar dialog rutan Välj typ av aktivitet med inställningarna för Visa funktionalisering som har anropats.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## <a name="customize-featurization"></a>Anpassa funktionalisering
 
@@ -199,7 +199,7 @@ Automatiserad ML hjälper dig att distribuera modellen utan att skriva kod:
     Fält| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
-    Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
+    Description| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
     Typ av beräkning| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)*.
     Namn på beräkning| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
     Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.

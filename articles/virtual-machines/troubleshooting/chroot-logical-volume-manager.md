@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361474"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Felsöka en virtuell Linux-dator när det inte finns någon åtkomst till Azures serie konsol och disklayouten använder LVM (Logical Volume Manager)
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Kommandon kan användas för att installera, ta bort och uppdatera program vara. Felsök virtuella datorer för att åtgärda fel.
 
 
-Kör kommandot lsblk och/Rescue är nu/och/Rescue/Boot/Boot ![ chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Kör kommandot lsblk och/Rescue är nu/och/Rescue/boot är/boot ![ skärm bild visar ett konsol fönster med kommandot l s BLK och dess utmatnings träd.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Utför korrigeringar
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *genom gång*
 
 **Grep** -kommandot visar de kärnor som **grub. cfg** är medvetna om.
-![Kernels](./media/chroot-logical-volume-manager/kernels.png)
+![Skärm bild visar ett konsol fönster som visar resultatet av en grep-sökning för kernels.](./media/chroot-logical-volume-manager/kernels.png)
 
 **grub2 – editenv** visar vilken kernel som ska läsas in vid nästa start- ![ kernel standard](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ Kör kommandot **LVS** för att kontrol lera vilka **LVS** som är tillgängliga
 
 Avsluta **chroot** -miljön och montera den nödvändiga **LV**
 
-![Avancerat](./media/chroot-logical-volume-manager/advanced.png)
+![Skärm bild som visar ett-konsol fönster med kommandot l v s och sedan monterar en L V.](./media/chroot-logical-volume-manager/advanced.png)
 
 Öppna nu **chroot** -miljön igen genom att köra
 

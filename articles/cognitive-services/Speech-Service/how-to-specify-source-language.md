@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 820e0b78b986a8836e173513e1508641ac450333
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1b134fd3d09eeda340e7323638a36b68336242c2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282937"
+ms.locfileid: "91362035"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Ange käll språk för tal till text
 
@@ -27,20 +27,20 @@ I den här artikeln får du lära dig hur du anger käll språket för ljud inda
 
 ## <a name="how-to-specify-source-language-in-c"></a>Ange käll språk i C #
 
-I det här exemplet tillhandahålls käll språket explicit som en parameter med hjälp av `SpeechRecognizer` konstruktionen.
+I följande exempel anges käll språket explicit som en parameter med hjälp av `SpeechRecognizer` konstruktionen.
 
 ```csharp
 var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-I det här exemplet anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
+I följande exempel anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
 var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-I det här exemplet tillhandahålls käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
+I följande exempel anges käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -57,20 +57,20 @@ var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioC
 
 ## <a name="how-to-specify-source-language-in-c"></a>Ange käll språk i C++
 
-I det här exemplet tillhandahålls käll språket explicit som en parameter med `FromConfig` metoden.
+I följande exempel anges käll språket explicit som en parameter med hjälp av `FromConfig` metoden.
 
 ```C++
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, "de-DE", audioConfig);
 ```
 
-I det här exemplet anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter till `FromConfig` när du skapar `recognizer` .
+I följande exempel anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter till `FromConfig` när du skapar `recognizer` .
 
 ```C++
 auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE");
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-I det här exemplet tillhandahålls käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . `sourceLanguageConfig`Skickas som en parameter till `FromConfig` när du skapar `recognizer` .
+I följande exempel anges käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . `sourceLanguageConfig`Skickas som en parameter till `FromConfig` när du skapar `recognizer` .
 
 ```C++
 auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -86,20 +86,20 @@ auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfi
 
 ## <a name="how-to-specify-source-language-in-java"></a>Ange käll språk i Java
 
-I det här exemplet anges käll språket explicit när du skapar en ny `SpeechRecognizer` .
+I följande exempel anges käll språket explicit när du skapar en ny `SpeechRecognizer` .
 
 ```Java
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-I det här exemplet anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter när du skapar en ny `SpeechRecognizer` .
+I följande exempel anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter när du skapar en ny `SpeechRecognizer` .
 
 ```Java
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE");
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-I det här exemplet tillhandahålls käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter när du skapar en ny `SpeechRecognizer` .
+I följande exempel anges käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . Sedan skickas den `sourceLanguageConfig` som en parameter när du skapar en ny `SpeechRecognizer` .
 
 ```Java
 SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -115,14 +115,14 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 
 ## <a name="how-to-specify-source-language-in-python"></a>Ange käll språk i python
 
-I det här exemplet tillhandahålls käll språket explicit som en parameter med hjälp av `SpeechRecognizer` konstruktionen.
+I följande exempel anges käll språket explicit som en parameter med hjälp av `SpeechRecognizer` konstruktionen.
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, language="de-DE", audio_config=audio_config)
 ```
 
-I det här exemplet anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `SourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
+I följande exempel anges käll språket med hjälp av `SourceLanguageConfig` . Sedan skickas den `SourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE")
@@ -130,7 +130,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
 
-I det här exemplet tillhandahålls käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . Sedan skickas den `SourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
+I följande exempel anges käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig` . Sedan skickas den `SourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruera.
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE", "The Endpoint ID for your custom model.")
@@ -139,7 +139,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 ```
 
 >[!Note]
-> `speech_recognition_language` och `endpoint_id` egenskaper är inaktuella från `SpeechConfig` klassen i python. Användningen av dessa egenskaper rekommenderas inte och bör inte användas när du skapar en `SpeechRecognizer` .
+> `speech_recognition_language` och `endpoint_id` egenskaper är inaktuella från `SpeechConfig` klassen i python. Användningen av dessa egenskaper rekommenderas inte, och de bör inte användas för att skapa en `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -167,14 +167,14 @@ speechConfig.endpointId = "The Endpoint ID for your custom model.";
 
 ## <a name="how-to-specify-source-language-in-objective-c"></a>Ange käll språk i mål-C
 
-I det här exemplet tillhandahålls käll språket explicit som en parameter med hjälp av `SPXSpeechRecognizer` konstruktionen.
+I följande exempel anges käll språket explicit som en parameter med hjälp av `SPXSpeechRecognizer` konstruktionen.
 
 ```Objective-C
 SPXSpeechRecognizer* speechRecognizer = \
     [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"de-DE" audioConfiguration:audioConfig];
 ```
 
-I det här exemplet anges käll språket med hjälp av `SPXSourceLanguageConfiguration` . Sedan skickas den `SPXSourceLanguageConfiguration` som en parameter för att `SPXSpeechRecognizer` konstruera.
+I följande exempel anges käll språket med hjälp av `SPXSourceLanguageConfiguration` . Sedan skickas den `SPXSourceLanguageConfiguration` som en parameter för att `SPXSpeechRecognizer` konstruera.
 
 ```Objective-C
 SPXSourceLanguageConfiguration* sourceLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"de-DE"];
@@ -183,7 +183,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
                                                                               audioConfiguration:audioConfig];
 ```
 
-I det här exemplet tillhandahålls käll språket och den anpassade slut punkten med hjälp av `SPXSourceLanguageConfiguration` . Sedan skickas den `SPXSourceLanguageConfiguration` som en parameter för att `SPXSpeechRecognizer` konstruera.
+I följande exempel anges käll språket och den anpassade slut punkten med hjälp av `SPXSourceLanguageConfiguration` . Sedan skickas den `SPXSourceLanguageConfiguration` som en parameter för att `SPXSpeechRecognizer` konstruera.
 
 ```Objective-C
 SPXSourceLanguageConfiguration* sourceLanguageConfig = \
@@ -195,7 +195,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 ```
 
 >[!Note]
-> `speechRecognitionLanguage` och `endpointId` egenskaper är inaktuella från `SPXSpeechConfiguration` klassen i mål-C. Användningen av dessa egenskaper rekommenderas inte och bör inte användas när du skapar en `SPXSpeechRecognizer` .
+> `speechRecognitionLanguage` och `endpointId` egenskaper är inaktuella från `SPXSpeechConfiguration` klassen i mål-C. Användningen av dessa egenskaper rekommenderas inte, och de bör inte användas för att skapa en `SPXSpeechRecognizer` .
 
 ::: zone-end
 

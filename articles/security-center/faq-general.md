@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783222"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301456"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – allmänna frågor om Azure Security Center
 
@@ -70,7 +70,6 @@ Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser.
 Endast rekommendationer som är aktiverade i säkerhets principer visas här.
 
 
-
 ## <a name="what-triggers-a-security-alert"></a>Vad utlöser en säkerhets avisering?
 Azure Security Center samlar automatiskt in, analyserar och säkrar loggdata från dina Azure-resurser, nätverket och partner lösningar som program mot skadlig kod och brand väggar. Om hot upptäcks skapas en säkerhetsavisering. Exempel på hot:
 
@@ -78,10 +77,6 @@ Azure Security Center samlar automatiskt in, analyserar och säkrar loggdata fr�
 * Avancerad skadlig kod har identifierats med Windows fel rapportering
 * nyckelsökningsangrepp mot virtuella datorer
 * Säkerhets aviseringar från integrerade partner säkerhets lösningar som program mot skadlig kod eller brand väggar för webb program
-
-
-## <a name="why-did-secure-score-values-change"></a>Varför har säkra Poäng värden ändrats? <a name="secure-score-faq"></a>
-Från och med februari 2019 har Security Center justerat poängen för några få rekommendationer, så att det bättre passar deras allvarlighets grad. Till följd av den här ändringen kan det uppstå ändringar i övergripande säkra Poäng värden.  Mer information om säkra Poäng finns [i förbättrade säkra poäng i Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Vad är skillnaden mellan hot som upptäckts och aviserats av Microsoft Security Response Center jämfört med Azure Security Center?

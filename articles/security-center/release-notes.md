@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cb35cdf217d497b612dee12aedb869b0583e464
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 556177b0f3eb156f5b128995cb81555aa77bc8d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289913"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -288,7 +288,7 @@ Säkerhets standarder tillhandahåller förkonfigurerade säkerhets inställning
 
 Security Center har nu en säkerhets rekommendation när den identifierar en Azure-prenumeration utan säkerhets inställningar som är aktiverade. Fram till nu rekommenderar Security Center att du aktiverar Multi-Factor Authentication med villkorlig åtkomst, som är en del av Azure Active Directory (AD) Premium-licensen. För kunder som använder Azure AD kostnads fri rekommenderar vi nu att du aktiverar säkerhets inställningar. 
 
-Vårt mål är att uppmuntra fler kunder att skydda sina moln miljöer med MFA och minimera en av de högsta riskerna som också är mest påverkan av dina [säkra Poäng](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Vårt mål är att uppmuntra fler kunder att skydda sina moln miljöer med MFA och minimera en av de högsta riskerna som också är mest påverkan av dina [säkra Poäng](secure-score-security-controls.md).
 
 Läs mer om [säkerhets inställningar](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -429,7 +429,7 @@ Rekommendationerna omfattar även snabb korrigerings funktionen.
 
 Läs mer om var och en av dessa på [referens sidan för säkerhets rekommendationer](recommendations-reference.md).
 
-Läs mer om [skydd av hot i Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+Läs mer om [skydd av hot i Azure Security Center](azure-defender.md).
 
 
 
@@ -442,13 +442,13 @@ För att förbättra skärpan och vägledningen avseende Azure Security Center b
 
 Läs mer om Security Center behållar säkerhet i följande artiklar:
 
-- [Översikt över Security Center behållar säkerhetsfunktioner](https://docs.microsoft.com/azure/security-center/container-security)
-- [Information om integreringen med Azure Container Registry](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
-- [Information om integrering med Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
-- [Anvisningar – söka igenom dina register och torka Docker-värdarna](https://docs.microsoft.com/azure/security-center/monitor-container-security)
-- [Säkerhets aviseringar från hot Protection-funktionerna i Azure Kubernetes service-kluster](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
-- [Säkerhets aviseringar från hot Protection-funktionerna i Azure Kubernetes service-värdar](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
-- [Säkerhets rekommendationer för behållare](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+- [Översikt över Security Center behållar säkerhetsfunktioner](container-security.md)
+- [Information om integreringen med Azure Container Registry](defender-for-container-registries-introduction.md)
+- [Information om integrering med Azure Kubernetes-tjänsten](defender-for-kubernetes-introduction.md)
+- [Anvisningar – söka igenom dina register och torka Docker-värdarna](container-security.md)
+- [Säkerhets aviseringar från hot Protection-funktionerna i Azure Kubernetes service-kluster](alerts-reference.md#alerts-akscluster)
+- [Säkerhets aviseringar från hot Protection-funktionerna i Azure Kubernetes service-värdar](alerts-reference.md#alerts-containerhost)
+- [Säkerhets rekommendationer för behållare](recommendations-reference.md#recs-containers)
 
 
 
@@ -537,10 +537,9 @@ Rekommendationerna innehåller också snabb korrigerings funktionen som hjälper
 
 Läs mer om de här två nya rekommendationerna i tabellen med [rekommendationer för beräkning och appar](recommendations-reference.md#recs-computeapp) .
 
-Läs mer om hur Azure Security Center använder agenten i [Vad är Log Analytics agenten?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent).
+Läs mer om hur Azure Security Center använder agenten i [Vad är Log Analytics agenten?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
-Läs mer om [tillägg för Azure Arc-datorer](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
-
+Läs mer om [tillägg för Azure Arc-datorer](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 
 ### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Nya principer för att skapa kontinuerliga konfigurationer för export och automatisering av arbets flöden i skala
@@ -597,7 +596,7 @@ Du hittar principerna i Azure policy:
 | [Avancerat skydd bör vara aktiverat på Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
 |                                                                                                                                                                                                                                                                       |                                      |
 
-Läs mer om [skydd av hot i Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+Läs mer om [skydd av hot i Azure Security Center](azure-defender.md).
 
 
 
@@ -721,7 +720,7 @@ Lär dig mer om [att förbättra dina anpassade rekommendationer med detaljerad 
 
 ### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Analys funktioner för krasch dumpning migrera till fil lös attack identifiering 
 
-Vi integrerar Windows Crash dump Analysis-identifieringen (CDA) i en [fil med filbaserad attack identifiering](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). Med filbaserad attack identifierings analys får du förbättrade versioner av följande säkerhets aviseringar för Windows-datorer: kod inmatning identifierad, maskerad Windows-modul identifierad, shellcode identifierad och misstänkt kod segment identifierat.
+Vi integrerar Windows Crash dump Analysis-identifieringen (CDA) i en [fil med filbaserad attack identifiering](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). Med filbaserad attack identifierings analys får du förbättrade versioner av följande säkerhets aviseringar för Windows-datorer: kod inmatning identifierad, maskerad Windows-modul identifierad, shellcode identifierad och misstänkt kod segment identifierat.
 
 Några av fördelarna med den här över gången:
 

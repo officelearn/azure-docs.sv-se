@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: högtalar igenkänning, röst biometry
-ms.openlocfilehash: dd77de482289037764eb6c442502ef71cc594729
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cfb16d95c0de7fabb7e939e53903f0a611f749e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326991"
+ms.locfileid: "91362562"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Kom igång med Talarigenkänning
 
@@ -31,7 +31,7 @@ En övergripande överblick över tal igenkännings koncept finns i [översikts]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](get-started.md).
+Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
 > Talarigenkänning stöds för närvarande *bara* i Azure tal-resurser som skapats i `westus` regionen.

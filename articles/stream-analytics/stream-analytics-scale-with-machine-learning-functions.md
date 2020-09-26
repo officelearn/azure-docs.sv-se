@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0cc70f5bf994e03088511a0d10796746a434bd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037417"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300317"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skala ditt Stream Analytics jobb med Azure Machine Learning Studio (klassiska) funktioner
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du effektivt skalar Azure Stream Analytics jobb 
 
 En Machine Learning funktion i Stream Analytics kan användas som ett vanligt funktions anrop i Stream Analytics frågespråket. I bakgrunden är dessa funktions anrop faktiskt Azure Machine Learning webb tjänst begär Anden.
 
-Du kan förbättra data flödet för Machine Learning webb tjänst begär Anden genom att "Gruppera" flera rader tillsammans i samma API-anrop för webb tjänsten. Den här grupperingen kallas för en mini-batch. Mer information finns i [Azure Machine Learning Studio (klassiska) webb tjänster](../machine-learning/studio/consume-web-services.md). Stöd för Azure Machine Learning Studio (klassisk) i Stream Analytics är en för hands version.
+Du kan förbättra data flödet för Machine Learning webb tjänst begär Anden genom att "Gruppera" flera rader tillsammans i samma API-anrop för webb tjänsten. Den här grupperingen kallas för en mini-batch. Mer information finns i [Azure Machine Learning Studio (klassiska) webb tjänster](../machine-learning/classic/consume-web-services.md). Stöd för Azure Machine Learning Studio (klassisk) i Stream Analytics är en för hands version.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Konfigurera ett Stream Analytics jobb med Machine Learning funktioner
 
@@ -58,7 +58,7 @@ I allmänhet, ***b*** för batchstorlek, ***L*** för webb tjänstens svars tid 
 
 Du kan också konfigurera "maximalt antal samtidiga anrop" i Machine Learning-webbtjänsten. Vi rekommenderar att du anger den här parametern till det maximala värdet (200 för närvarande).
 
-Mer information om den här inställningen finns i [artikeln om skalning för Machine Learning-webbtjänster](../machine-learning/studio/create-endpoint.md).
+Mer information om den här inställningen finns i [artikeln om skalning för Machine Learning-webbtjänster](../machine-learning/classic/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Exempel – Attitydanalys
 I följande exempel finns ett Stream Analytics jobb med sentiment Analysis Machine Learning-funktionen som beskrivs i [själv studie kursen Stream Analytics Machine Learning integration](stream-analytics-machine-learning-integration-tutorial.md).
@@ -110,7 +110,7 @@ Nedan visas en tabell för data flödet för Stream Analytics jobb för olika SU
 | **3 SUs** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **6 SUs** |2 500 |5 000 |20 000 |30 000 |50 000 |
 | **12 SUs** |5 000 |10 000 |40 000 |60 000 |100 000 |
-| **18 SUs** |7 500 |15 000 |60 000 |90 000 |150 000 |
+| **18 SUs** |7 500 |15 000 |60 000 |90 000 |150 000 |
 | **24 SUs** |10 000 |20 000 |80 000 |120 000 |200 000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50 000 |200 000 |300 000 |500 000 |

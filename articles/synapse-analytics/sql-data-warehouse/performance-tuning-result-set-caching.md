@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378533"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362273"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar
 
@@ -56,11 +56,11 @@ WHERE request_id  = <'request_id'>;
 
 Här är ett exempel på utdata för en fråga som körs med mellanlagring av resultat uppsättning inaktive rad.
 
-![Fråga – steg-med-RSC-inaktive rad](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Skärm bild som visar frågeresultat, inklusive plats typ och kommando.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 Här är ett exempel på utdata för en fråga som körs med cachelagring av resultat uppsättningar aktiverat.
 
-![Fråga – steg-för-RSC-aktiverat](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![Skärm bild som visar frågeresultaten med kommandot valt * från [D W ResultCache D b] dot d b o som anropas.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>När cachelagrade resultat används
 

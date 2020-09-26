@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-azurepowershell
 ms.date: 02/05/2018
-ms.openlocfilehash: 63c1ad3c0e5c675c42c7eb3ee84dade8f38ae8cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5e999e50818ab6374ce09dd6920cb5dc3dabc82
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91346252"
+ms.locfileid: "91362443"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Distribuera Azure Machine Learning Studio-arbetsytan (klassisk) med Azure Resource Manager
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Genom att använda en mall för Azure Resource Manager distribution sparar du tid genom att ge dig ett skalbart sätt att distribuera sammankopplade komponenter med en mekanism för validering och återförsök. Om du vill konfigurera Azure Machine Learning Studio (klassiska) arbets ytor, till exempel, måste du först konfigurera ett Azure Storage-konto och sedan distribuera din arbets yta. Föreställ dig att göra detta manuellt för hundratals arbets ytor. Ett enklare alternativ är att använda en Azure Resource Manager mall för att distribuera en Studio (klassisk) arbets yta och alla dess beroenden. Den här artikeln vägleder dig genom den här processen steg för steg. En bra översikt över Azure Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
 

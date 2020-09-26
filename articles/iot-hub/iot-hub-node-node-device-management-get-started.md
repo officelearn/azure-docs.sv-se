@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 45637a093361a177de880788bb7eda69f365dad2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: cfc0fa45c08f917b2e0b4a0b055e801173a4ba39
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420812"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252025"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Kom igång med enhets hantering (Node.js)
 
@@ -42,7 +42,7 @@ I slutet av den här självstudien har du två Node.js-konsol program:
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -145,7 +145,7 @@ I det här avsnittet får du:
     });
     ```
 
-8. Spara och Stäng **dmpatterns_getstarted_device.jss** filen.
+8. Spara och Stäng **dmpatterns_getstarted_device.jss ** filen.
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), enligt förslag i artikeln, [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
@@ -243,7 +243,7 @@ I det här avsnittet skapar du en Node.js-konsolsession som initierar en fjärro
     setInterval(queryTwinLastReboot, 2000);
     ```
 
-9. Spara och Stäng **dmpatterns_getstarted_service.jss** filen.
+9. Spara och Stäng **dmpatterns_getstarted_service.jss ** filen.
 
 ## <a name="run-the-apps"></a>Kör apparna
 

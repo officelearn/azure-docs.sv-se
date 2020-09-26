@@ -3,12 +3,12 @@ title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 83bf00710346193a89b59c6a72a0e4840dd5abfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291035"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -605,12 +605,17 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exempel: Hämta händelser relaterade till icke-kompatibla virtuella nätverks resurser som inträffat efter ett visst datum.
+Exempel: Hämta händelser relaterade till icke-kompatibla virtuella nätverks resurser som inträffat efter ett visst datum, konvertera till ett CSV-objekt och exportera till en fil.
 
 ```azurepowershell-interactive
-PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+$policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2020-09-19'
+$policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
+```
 
-Timestamp                  : 5/19/2018 5:18:53 AM
+Utdata från `$policyEvents` objektet ser ut ungefär så här:
+
+```output
+Timestamp                  : 9/19/2020 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Network/virtualNetworks/RG-Tags-vnet
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -642,7 +647,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Om du har en [Log Analytics-arbetsyta](../../../azure-monitor/log-query/log-query-overview.md) med `AzureActivity` från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderings cykeln med hjälp av enkla Kusto-frågor och `AzureActivity` tabellen. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
+Om du har en [Log Analytics-arbetsyta](../../../azure-monitor/log-query/log-query-overview.md) med `AzureActivity` från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderingen av nya och uppdaterade resurser med hjälp av enkla Kusto-frågor och `AzureActivity` tabellen. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Skärm bild av Azure Monitor loggar som visar Azure Policy åtgärder i tabellen AzureActivity." border="false":::
 

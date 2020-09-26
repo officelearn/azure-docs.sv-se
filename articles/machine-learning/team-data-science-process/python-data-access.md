@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361508"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhands granskningen av Microsoft Azure Machine Learning python-klientprogrammet kan ge säker åtkomst till dina Azure Machine Learning data uppsättningar från en lokal python-miljö och möjliggör skapande och hantering av data uppsättningar i en arbets yta.
@@ -38,7 +38,7 @@ Det har ett beroende av följande paket:
 
 * autentiseringsbegäran
 * python – dateutil
-* pandas
+* Pandas
 
 Vi rekommenderar att du använder en python-distribution som [Anaconda](https://www.anaconda.com/) eller [Canopy](https://store.enthought.com/downloads/), som medföljer python, ipython och de tre paket som anges ovan installerade. Även om IPython inte är absolut nödvändigt är det en bra miljö för att manipulera och visualisera data interaktivt.
 
@@ -71,7 +71,7 @@ Kodfragmenten som tillhandahålls av Azure Machine Learning Studio (klassisk) f�
 
 Av säkerhets skäl är funktionen för kodfragment bara tillgänglig för användare som har rollen som **ägare** till arbets ytan. Din roll visas i Azure Machine Learning Studio (klassisk) på sidan **användare** under **Inställningar**.
 
-![Säkerhet][security]
+![Skärm bilden visar inställningarna på sidan användare i Azure Machine Learning Studio.][security]
 
 Om rollen inte har angetts som **ägare**kan du antingen begära att bli inbjuden till en ägare eller be ägaren av arbets ytan att förse dig med kodfragmentet.
 
@@ -92,7 +92,7 @@ Tokens hanteras på sidan **AUTHORIZATION tokens** under **Inställningar**. Du 
 2. Välj den data uppsättning som du vill ha åtkomst till. Du kan välja någon av data uppsättningarna från listan **mina data uppsättningar** eller från listan **samples** .
 3. Klicka på **generera data åtkomst kod**i det nedre verktygsfältet. Om data har ett format som inte är kompatibelt med python-klient biblioteket är den här knappen inaktive rad.
    
-    ![Datauppsättningar][datasets]
+    ![Skärm bild som visar data uppsättningar med koden generera DATA åtkomst.][datasets]
 4. Välj kodfragmentet i fönstret som visas och kopiera det till Urklipp.
    
     ![Knappen generera kod för data åtkomst][dataset-access-code]
@@ -348,7 +348,7 @@ print(ws.datasets['existing dataset'].name)    # IndexError
 
 `data_type_id`Parametrarna och `name` `description` är valfria och standardvärdet för deras tidigare värde. `dataframe`Parametern krävs alltid.
 
-Om dina data redan är serialiserade använder du `update_from_raw_data` i stället för `update_from_dataframe` . Om du bara skickar i `raw_data` stället för `dataframe` fungerar det på ett liknande sätt.
+Om dina data redan är serialiserade använder du `update_from_raw_data` i stället för `update_from_dataframe` . Om du bara skickar i `raw_data` stället för  `dataframe` fungerar det på ett liknande sätt.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

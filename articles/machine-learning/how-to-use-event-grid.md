@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 7b1030c816bff5b50c0c47a16fa5f1812bb16b15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250835"
+ms.locfileid: "91362524"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser (förhands granskning)
 
@@ -126,7 +126,7 @@ Azure Event Grid gör det möjligt för kunderna att bygga ut de sammankopplade 
 
 1. Välj slut punkten att publicera händelsen till. I följande skärm bild är __Event Hub__ den valda slut punkten:
 
-    ![händelse hanterare](./media/how-to-use-event-grid/select-event-handler.png)
+    ![Skärm bild som visar fönstret Skapa händelse prenumeration med Välj Händelsehubben öppen.](./media/how-to-use-event-grid/select-event-handler.png)
 
 När du har bekräftat ditt val klickar du på __skapa__. Efter konfigurationen skickas de här händelserna till din slut punkt.
 
@@ -164,15 +164,15 @@ Använd [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) för at
 
 1. Gå till arbets ytan Azure Machine Learning i Azure Portal och välj fliken händelser i det vänstra fältet. Härifrån väljer du __Logic Apps__. 
 
-    ![Select-Logic-app](./media/how-to-use-event-grid/select-logic-ap.png)
+    ![Skärm bild som visar sidan för Machine Learning arbets ytans händelser med Logic Apps.](./media/how-to-use-event-grid/select-logic-ap.png)
 
 1. Logga in på Logic app UI och välj Machine Learning tjänst som typ av ämne. 
 
-    ![ämne – typ](./media/how-to-use-event-grid/select-topic-type.png)
+    ![Skärm bild som visar dialog rutan när en resurs händelse inträffar med Machine Learning valt som en resurs typ.](./media/how-to-use-event-grid/select-topic-type.png)
 
 1. Välj vilken eller vilka händelser som ska meddelas för. Till exempel visas följande skärm bild __RunCompleted__.
 
-    ![Select-Event-Run-Complete](./media/how-to-use-event-grid/select-event-runcomplete.png)
+    ![Skärm bild som visar dialog rutan när en resurs händelse inträffar med en händelse typ vald.](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
 1. Du kan använda filtrerings metoden i avsnittet ovan eller lägga till filter för att endast utlösa Logic-appen på en delmängd av händelse typerna. I följande skärm bild används ett __prefix filter__ för __/datadriftID/Runs/__ .
 
@@ -180,15 +180,15 @@ Använd [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) för at
 
 1. Lägg sedan till ett steg för att använda den här händelsen och Sök efter e-post. Det finns flera olika e-postkonton som du kan använda för att ta emot händelser. Du kan också konfigurera villkor för när en e-postavisering ska skickas.
 
-    ![e-post – åtgärd](./media/how-to-use-event-grid/select-email-action.png)
+    ![Skärm bild som visar dialog rutan Välj en åtgärd med e-post som anges i Sök raden.](./media/how-to-use-event-grid/select-email-action.png)
 
 1. Välj __Skicka ett e-postmeddelande__ och fyll i parametrarna. I ämnet kan du inkludera __händelse typen__ och __ämnet__ för att filtrera händelser. Du kan också ta med en länk till sidan arbets yta för körningar i meddelande texten. 
 
-    ![Konfigurera – e-post](./media/how-to-use-event-grid/configure-email-body.png)
+    ![Skärm bild som visar dialog rutan Skicka ett e-postmeddelande med ämne och händelse typ som har lagts till i ämnes raden i listan till höger.](./media/how-to-use-event-grid/configure-email-body.png)
 
 1. Om du vill spara den här åtgärden väljer du **Spara som** i det vänstra hörnet på sidan. I det högra fältet som visas bekräftar du att åtgärden har skapats.
 
-    ![bekräfta – Logic-app-skapa](./media/how-to-use-event-grid/confirm-logic-app-create.png)
+    ![Skärm bild som visar knapparna Spara som och skapa i Logic Apps designer.](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
 ### <a name="example-data-drift-triggers-retraining"></a>Exempel: omskolning av data utlösare
@@ -204,7 +204,7 @@ Innan du börjar utför du följande åtgärder:
 
 I det här exemplet används en enkel Data Factory pipeline för att kopiera filer till ett BLOB-lager och köra en publicerad Machine Learning-pipeline. Mer information om det här scenariot finns i så här konfigurerar du ett [Machine Learning steg i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
 
-![ADF – mlpipeline](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
+![Skärm bild som visar utbildnings pipelinen i fabriks resurser med kopiera fil1-matnings-och Pipeline1-körning.](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
 1. Börja med att skapa Logic app. Gå till [Azure Portal](https://portal.azure.com), sök efter Logic Apps och välj Skapa.
 
@@ -212,31 +212,31 @@ I det här exemplet används en enkel Data Factory pipeline för att kopiera fil
 
 1. Fyll i den begärda informationen. För att förenkla upplevelsen kan du använda samma prenumeration och resurs grupp som Azure Data Factory pipeline och Azure Machine Learning arbets yta.
 
-    ![Konfigurera-Logic-app-ADF](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
+    ![Skärm bild som visar fönstret för att skapa logiska appar.](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
 1. När du har skapat Logic-appen väljer du __när en Event Grid resurs händelse inträffar__. 
 
-    ![Select-eventgrid-trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
+    ![Skärm bild som visar Logic Apps designern med start med vanliga utlösnings alternativ, inklusive när en Event Grid resurs händelse inträffar.](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
 1. Logga in och fyll i informationen om händelsen. Ange __resurs namnet__ till arbets ytans namn. Ange __händelse typen__ till __DatasetDriftDetected__.
 
-    ![Logga in – Lägg till händelse](./media/how-to-use-event-grid/login-and-add-event.png)
+    ![Skärm bild som visar när en resurs händelse inträffar med ett händelse typs objekt valt.](./media/how-to-use-event-grid/login-and-add-event.png)
 
 1. Lägg till ett nytt steg och Sök efter __Azure Data Factory__. Välj __skapa en pipeline-körning__. 
 
-    ![Create-ADF-pipeline-Run](./media/how-to-use-event-grid/create-adfpipeline-run.png)
+    ![Skärm bild som visar fönstret Välj en åtgärd med skapa en pipeline-körning vald.](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
 1. Logga in och ange den publicerade Azure Data Factory pipelinen som ska köras.
 
-    ![Ange-adfpipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
+    ![Skärm bild som visar fönstret Skapa en pipeline-körning med olika värden.](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. Spara och skapa Logic-appen med knappen **Spara** längst upp till vänster på sidan. Om du vill visa din app går du till din arbets yta i [Azure Portal](https://portal.azure.com) och klickar på **händelser**.
 
-    ![Visa-logicapp-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
+    ![Skärm bild som visar händelser med den markerade Logic-appen.](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
 Nu utlöses Data Factory-pipelinen när en avvikelse inträffar. Visa information om data körnings-och maskin inlärnings pipelinen på den [nya arbets ytans Portal](https://ml.azure.com). 
 
-![Visa-arbets yta](./media/how-to-use-event-grid/view-in-workspace.png)
+![Skärm bild som visar pipelines slut punkter.](./media/how-to-use-event-grid/view-in-workspace.png)
 
 ### <a name="example-deploy-a-model-based-on-tags"></a>Exempel: Distribuera en modell baserat på Taggar
 

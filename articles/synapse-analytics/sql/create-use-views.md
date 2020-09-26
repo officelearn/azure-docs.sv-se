@@ -8,19 +8,19 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 79206ffb51b41c3d7e671bb37353548b47190f6b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: f91611ab3c75a96f13ab84312ca0b2157e69af0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289318"
 ---
 # <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd vyer i SQL på begäran (för hands version) med Azure Synapse Analytics
 
 I det här avsnittet får du lära dig hur du skapar och använder vyer för att packa upp SQL on-demand-frågor (för hands version). Med vyer kan du återanvända dessa frågor. Vyer behövs också om du vill använda verktyg, till exempel Power BI, tillsammans med SQL på begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att skapa en databas där vyn kommer att skapas och initiera de objekt som behövs för att autentisera i Azure Storage genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) på den databasen. Alla frågor i den här artikeln utförs i exempel databasen.
 

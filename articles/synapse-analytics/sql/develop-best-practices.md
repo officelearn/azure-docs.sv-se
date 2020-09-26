@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d38029284a05ce3b8f9e9af96d3f632e874f874c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: fe00d7f107911e2245041419c20f86e2e32a0480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289267"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Bästa metoder för utveckling för Synapse SQL
 I den här artikeln beskrivs vägledning och bästa praxis när du utvecklar din lösning för data lager. 
@@ -35,15 +35,15 @@ Du kanske till exempel vill uppdatera datum kolumner, där nya värden kan lägg
 > [!NOTE]
 > Du får störst nytta genom att ha statistik över kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner som finns i GROUP BY.
 
-Se även [Hantera tabell statistik](develop-tables-statistics.md), [skapa statistik](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Se även [Hantera tabell statistik](develop-tables-statistics.md), [skapa statistik](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="hash-distribute-large-tables"></a>Hash-distribuera stora tabeller
 
-Tabeller distribueras som standard med resursallokering (Round Robin).  Detta gör det enkelt för användarna att börja skapa tabeller utan att behöva bestämma hur deras tabeller ska distribueras.  Round Robin-tabeller kan fungera tillräckligt för vissa arbets belastningar. Men i de flesta fall kommer en distributions kolumn att fungera mycket bättre.  
+Tabeller distribueras som standard med resursallokering (Round Robin). Den här funktionen gör det enkelt för användarna att börja skapa tabeller utan att behöva bestämma hur deras tabeller ska distribueras.  Round Robin-tabeller kan fungera tillräckligt för vissa arbets belastningar. Men i de flesta fall kommer en distributions kolumn att fungera mycket bättre.  
 
 Det vanligaste exemplet på när en tabell som distribueras med en kolumn presterar avsevärt mycket bättre än en resursallokeringstabell är när två stora faktatabeller kopplas.  
 
-Om du till exempel har en tabell med order, som distribueras med order_id och en transaktions tabell, som också distribueras med order_id, och du ansluter tabellen Order till tabellen transaktioner på order_id, blir den här frågan en direkt fråga. 
+Om du till exempel har en tabell med order som distribuerats av order_id och en transaktions tabell, som också distribueras av order_id, och du ansluter tabellen Order till tabellen transaktioner på order_id, blir den här frågan en direkt fråga. 
 
 Det innebär att vi eliminerar åtgärder för data förflyttning.  Färre steg innebär en snabbare fråga.  Mindre dataflyttning gör också att frågor körs snabbare.
 
@@ -52,7 +52,7 @@ Det innebär att vi eliminerar åtgärder för data förflyttning.  Färre steg 
 
 Se följande länkar om du vill ha mer information om hur du väljer en distributions kolumn kan förbättra prestanda samt definiera en distribuerad tabell i WITH-satsen i instruktionen CREATE TABLEs.
 
-Se även [tabell översikt](develop-tables-overview.md), [tabell distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [val av tabell distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)och [CREATE TABLE som Välj](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Se även [tabell översikt](develop-tables-overview.md), [tabell distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [val av tabell distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)och [CREATE TABLE som Välj](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Överpartitionera inte
 När du partitionerar data kan det vara effektivt att underhålla dina data genom att byta partitionering eller optimera genomsökningar med hjälp av partition Eli minering, så att för många partitioner kan sakta ned dina frågor.  Ofta är en partitionerings strategi för hög granularitet som fungerar bra på SQL Server kanske inte fungerar bra på SQL-poolen.  
@@ -81,17 +81,17 @@ Ett annat sätt att eliminera återställningar är att använda åtgärder med 
 
 Till exempel kan du, i stället för att köra en DELETE-instruktion för att ta bort alla rader i en tabell där order_date var i oktober 2001, partitionera dina data månadsvis och sedan byta ut partitionen med data mot en tom partition från en annan tabell (se ALTER TABLE-exemplen).  
 
-För opartitionerade tabeller bör du överväga att använda en CTAS för att skriva de data som du vill behålla i en tabell i stället för att använda DELETE.  Om en CTAS tar lika lång tid är det en mycket säkrare åtgärd att köra eftersom den har minimal transaktionsloggning och kan avbrytas snabbt om det behövs.
+För opartitionerade tabeller bör du överväga att använda en CTAS för att skriva de data som du vill behålla i en tabell i stället för att använda ta bort.  Om en CTAS tar samma tids period, är det en mycket säkrare åtgärd att köra eftersom den har minimal transaktions loggning och kan avbrytas snabbt om det behövs.
 
-Se även [förstå transaktioner](develop-transactions.md), [optimera transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [tabell partitionering](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [truncate Table](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [ändra tabell](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)och [Skapa tabell som Select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Se även [förstå transaktioner](develop-transactions.md), [optimera transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [tabell partitionering](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [truncate Table](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [ändra tabell](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)och [Skapa tabell som Select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="use-the-smallest-possible-column-size"></a>Använda minsta möjliga kolumnstorlek
 
-När du definierar din DDL kan du förbättra frågeprestanda genom att använda den minsta datatypen som stöder dina data.  Detta är särskilt viktigt för CHAR- och VARCHAR-kolumner.  
+När du definierar DDL: en med den minsta data typen som kommer att ge stöd för dina data förbättras frågans prestanda. Den här åtgärden är särskilt viktig för kolumnerna CHAR och VARCHAR.  
 
-Om det längsta värdet i en kolumn är 25 tecken definierar du kolumnen som VARCHAR(25).  Undvik att definiera alla teckenkolumner med en stor standardlängd.  Definiera också kolumner som VARCHAR när det är allt som krävs i stället för att använda NVARCHAR.
+Om det längsta värdet i en kolumn är 25 tecken definierar du kolumnen som VARCHAR(25).  Undvik att definiera alla teckenkolumner med en stor standardlängd.  Definiera också kolumner som VARCHAR om det är allt som behövs i stället för att använda NVARCHAR.
 
-Se även [tabell översikt](develop-tables-overview.md), [tabell data typer](develop-tables-data-types.md)och [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Se även [tabell översikt](develop-tables-overview.md), [tabell data typer](develop-tables-data-types.md)och [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Optimera grupperade columnstore-tabeller
 
@@ -108,19 +108,19 @@ Eftersom columnstore-tabeller vanligt vis inte skickar data till ett komprimerat
 > [!TIP]
 > För tabeller med färre än 60 000 000 rader är det inte säkert att ett columnstore-index är den optimala lösningen.  
 
-Om du partitionerar data bör du dessutom tänka på att varje partition måste innehålla 1 miljon rader för att kunna dra nytta av ett grupperat columnstore-index.  Om en tabell har 100 partitioner måste den ha minst 6 000 000 000 rader för att kunna dra nytta av ett lager för grupperade kolumner (60-distributioner *100 partitioner* 1 000 000 rader).  
+Om du partitionerar dina data måste du dessutom tänka på att varje partition måste ha 1 000 000 rader för att dra nytta av ett grupperat columnstore-index.  Om en tabell har 100 partitioner måste den ha minst 6 000 000 000 rader för att kunna dra nytta av ett lager för grupperade kolumner (60-distributioner *100 partitioner* 1 000 000 rader).  
 
 Om din tabell inte har 6 000 000 000 rader kan du antingen minska antalet partitioner eller överväga att använda en heap-tabell i stället.  Det kan också vara värt att experimentera för att se om bättre prestanda kan uppnås med hjälp av en heap-tabell med sekundära index i stället för en columnstore-tabell.
 
 När du kör frågor mot en columnstore-tabell körs frågorna snabbare om du bara väljer de kolumner som du behöver.  
 
-Se även [tabell index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [columnstore-index, guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [Återskapa columnstore-index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
+Se även [tabell index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [columnstore-index, guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [Återskapa columnstore-index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
 ## <a name="sql-on-demand-development-best-practices"></a>Metod tips för utveckling av SQL på begäran
 
 ### <a name="general-considerations"></a>Generella saker att tänka på
 
-Med SQL på begäran kan du söka efter filer i dina Azure Storage-konton. Den har inte funktioner för lokal lagring eller inmatning, vilket innebär att alla filer som fråge målen är externa för SQL på begäran. Det innebär att allting som rör läsning av filer från lagring kan påverka frågans prestanda.
+Med SQL på begäran kan du söka efter filer i dina Azure Storage-konton. Den har inte funktioner för lokal lagring eller inmatning, vilket innebär att alla filer som fråge målen är externa för SQL på begäran. Allt som rör läsning av filer från lagring kan därför påverka frågans prestanda.
 
 ### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Samplacera Azure Storage konto och SQL på begäran
 
@@ -166,7 +166,7 @@ När CETAS genererar Parquet-filer skapas statistik automatiskt när den första
 
 ### <a name="next-steps"></a>Nästa steg
 
-Om du behöver information som inte anges i den här artikeln använder du "Sök efter dokument" på vänster sida av den här sidan för att söka i alla dokument i SQL-poolen.  [Sidan Microsoft Q&en fråga för SQL-poolen](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
+Om du behöver information som inte anges i den här artikeln använder du funktionen **Sök efter dokument** till vänster på den här sidan för att söka i alla dokument i SQL-poolen.  [Sidan Microsoft Q&en fråga för SQL-poolen](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
 
 Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor på Stack Overflow, har vi också en [Azure SQL-pool Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

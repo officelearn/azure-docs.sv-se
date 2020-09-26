@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cd80f0b2a5e2ad1fd4c2cff73728d57a2beafc7e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361525"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analys av flera klienter med extraherade data – en-klient-app
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ I den här guiden får du lära du dig hur man:
 > - Fråga Analytics-databasen.
 > - Använd Power BI för data visualisering för att markera trender i klient data och ge rekommendationer för förbättringar.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![Diagrammet visar en översikt över arkitekturen som används för den här artikeln.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Analys mönster för offline-klient
 
@@ -65,7 +65,7 @@ Att förstå hur varje klient använder tjänsten används för att utforska alt
 
 ## <a name="setup"></a>Installation
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
@@ -138,7 +138,7 @@ Varje jobb extraherar data och publicerar dem i Analytics Store. Det finns ett s
 4. Tryck på F5 för att köra skriptet som skapar och kör jobbet som extraherar biljetter och kund data från varje klient databas. Jobbet sparar data i Analytics Store.
 5. Fråga TicketsRawData-tabellen i tenantanalytics-databasen för att säkerställa att tabellen fylls med biljett information från alla klienter.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![Skärm bild som visar ExtractTickets-databasen med TicketsRawData d b o valt i Object Explorer.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Upprepa föregående steg, förutom den här gången Ersätt **\ExtractTickets.SQL** med **\ExtractVenuesEvents.SQL** i steg 2.
 
@@ -177,7 +177,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
 5. Välj **databas** i den vänstra rutan och ange sedan användar namn = *utvecklare*och ange Password = *P \@ ssword1*. Klicka på **Anslut**.  
 
-    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![Skärm bild som visar dialog rutan SQL Server databas där du kan ange ett användar namn och ett lösen ord.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. I **navigerings** fönstret, under Analytics-databasen, väljer du stjärn schema tabeller: fact_Tickets, dim_Events, dim_Venues, dim_Customers och dim_Dates. Välj sedan **load**. 
 
@@ -185,13 +185,13 @@ Grattis! Du har läst in data i Power BI. Nu kan du börja utforska intressanta 
 
 Du börjar genom att analysera biljett försäljnings data för att se variationen i användning på platserna. Välj följande alternativ i Power BI för att rita ett stapeldiagram med det totala antalet biljetter som sålts av varje plats. På grund av slumpmässig variation i biljett generatorn kan resultatet skilja sig.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![Skärm bild som visar en effekt på Power B I visualisering och kontroller för data visualiseringen på höger sida.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Föregående område bekräftar att antalet biljetter som säljs av varje plats varierar. Platser som säljer fler biljetter använder tjänsten mer kraftigt än platser som säljer färre biljetter. Det kan finnas en möjlighet att skräddarsy resurs tilldelningen efter olika klient behov.
 
 Du kan analysera data ytterligare för att se hur biljett försäljningen varierar över tid. Välj följande alternativ i Power BI för att rita upp det totala antalet biljetter som säljs varje dag under en period på 60 dagar.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![Skärm bild som visar Power B I-visualiseringen med rubriken biljett Sälj distribution respektive försäljnings dag.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 Föregående diagram visar att biljett försäljnings insamling för vissa platser. Dessa toppar förstärker tanken att vissa platser kan använda system resurser oproportionerligt. Så långt finns det inga uppenbara mönster i när topparna inträffar.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Välj följande visualiserings alternativ för att rita upp procentuella biljetter som säljs av varje plats för att fastställa deras relativa framgång.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![Skärm bild som visar effekt B I visualiseringen med rubriken Genomsnittligt antal biljetter som sålts av varje plats.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 Föregående område visar att även om de flesta platser säljer över 80% av deras biljetter, är det kämpar att fylla mer än hälften av platserna. Experimentera med bra värden och välj högsta eller lägsta procent andel biljetter som säljs för varje plats.
 

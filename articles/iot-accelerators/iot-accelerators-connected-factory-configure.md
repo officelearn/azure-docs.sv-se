@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820117"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290695"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Konfigurera den anslutna fabriks lösnings acceleratorn
+
+> [!IMPORTANT]
+> Medan vi uppdaterar den här artikeln kan du läsa mer i [Azures industriella IoT](https://azure.github.io/Industrial-IoT/) .
 
 Den anslutna fabriks lösnings acceleratorn visar en simulerad instrument panel för ett fiktivt företag contoso. Det här företaget har fabriker på flera globala platser globalt.
 
@@ -109,13 +112,13 @@ De gemensamma egenskaperna för  `<global_configuration>` , `<factory_configura
 
   Identifierar noden topologi unikt.
 
-`<factory_configuration>`har en egenskap:
+`<factory_configuration>` har en egenskap:
 
 * **Plats** (typ `<location_definition>` )
 
   Anger var fabriken finns.
 
-`<station_configuration>`har egenskaper:
+`<station_configuration>` har egenskaper:
 
 * **OpcUri** (typ sträng)
 
@@ -124,7 +127,7 @@ De gemensamma egenskaperna för  `<global_configuration>` , `<factory_configura
 
 * **OpcNodes**, som är en matris med OPC UA-noder (typ `<opc_node_description>` )
 
-`<location_definition>`har egenskaper:
+`<location_definition>` har egenskaper:
 
 * **Ort** (typ sträng)
 
@@ -142,7 +145,7 @@ De gemensamma egenskaperna för  `<global_configuration>` , `<factory_configura
 
   Longitud för platsen
 
-`<performance_definition>`har egenskaper:
+`<performance_definition>` har egenskaper:
 
 * **Minimum** (typ Double)
 
@@ -188,7 +191,7 @@ De gemensamma egenskaperna för  `<global_configuration>` , `<factory_configura
   * **CallOpcMethod**: Node-informationen och PARAMETRARNA för OPC UA-metoden som anropar formatet "nodeId of Parent Node, nodeId of metoden to Call, URI: n för OPC UA-Server."
   * **Openwebb sida**: URL: en som ska visas i webbläsarfönstret.
 
-`<opc_node_description>`innehåller information om OPC UA-noder i en station (OPC UA-Server). Noder som inte representerar några befintliga OPC UA-noder, men som används som lagring i beräknings logiken för den anslutna fabriken är också giltiga. Den har följande egenskaper:
+`<opc_node_description>` innehåller information om OPC UA-noder i en station (OPC UA-Server). Noder som inte representerar några befintliga OPC UA-noder, men som används som lagring i beräknings logiken för den anslutna fabriken är också giltiga. Den har följande egenskaper:
 
 * **NodeID** (typ sträng)
 
@@ -267,7 +270,7 @@ Egenskaperna i den här kategorin definierar det visuella utseendet på den ansl
 * Name
 * Beskrivning
 * Bild
-* Location
+* Plats
 * Enheter
 * Synliga
 

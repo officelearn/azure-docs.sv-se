@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9402b1d38457c979f00d05f56b8ed45d2d37dfca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9b3353d3ba1af572b118001691e38af497f6f1fd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290049"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB-data med hjälp av en indexerare i Azure Cognitive Search 
 
@@ -72,9 +72,11 @@ På sidan **data källa** måste källan vara **Cosmos DB**, med följande speci
 
 + **Namn** är namnet på objektet i data källan. När du har skapat kan du välja den för andra arbets belastningar.
 
-+ **Cosmos DB konto** ska vara den primära eller sekundära anslutnings strängen från Cosmos dB med följande format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` .
-    + För version 3,2 och version 3,6 **MongoDB Collections** använder du följande format för Cosmos DB-kontot i Azure Portal: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
-    + Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller**för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.
++ **Cosmos DB konto** ska vara i något av följande format:
+    1. Den primära eller sekundära anslutnings strängen från Cosmos DB med följande format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` .
+        + För version 3,2 och version 3,6 **MongoDB Collections** använder du följande format för Cosmos DB-kontot i Azure Portal: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
+        + Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller**för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.
+    1.  En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).
 
 + **Databasen** är en befintlig databas från kontot. 
 
@@ -183,7 +185,7 @@ Bröd texten i begäran innehåller definitionen av data källan, som ska inneh�
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**bastyp**| Krävs. Måste vara `cosmosdb` . |
-|**klientautentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB anslutnings sträng.<br/><br/>För **SQL-samlingar**är anslutnings strängar i följande format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>För version 3,2 och version 3,6 **MongoDB Collections** använder du följande format för anslutnings strängen: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller**för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
+|**klientautentiseringsuppgifter** | Krävs. Måste antingen följa Cosmos DB anslutningens sträng format eller ett format för hanterad identitets anslutnings sträng.<br/><br/>För **SQL-samlingar**kan anslutnings strängar följa något av följande format: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).<br/><br/>För version 3,2 och version 3,6 **MongoDB samlingar** används något av följande format för anslutnings strängen: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>En anslutnings sträng för hanterad identitet med följande format som inte innehåller någon konto nyckel: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Om du vill använda det här anslutnings sträng formatet följer du anvisningarna för att konfigurera [en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet](search-howto-managed-identities-cosmos-db.md).<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av **Gremlin-diagram och Cassandra-tabeller**för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
 | **container** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
 | **dataChangeDetectionPolicy** | Rekommenderas. Se avsnittet [Indexera ändrade dokument](#DataChangeDetectionPolicy) .|
 |**dataDeletionDetectionPolicy** | Valfritt. Se avsnittet [Indexera borttagna dokument](#DataDeletionDetectionPolicy) .|

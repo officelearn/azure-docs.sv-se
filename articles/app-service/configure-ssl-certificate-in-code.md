@@ -2,15 +2,15 @@
 title: Använd ett TLS/SSL-certifikat i kod
 description: Lär dig hur du använder klient certifikat i din kod. Autentisera med fjär resurser med ett klient certifikat eller kör kryptografiska uppgifter med dem.
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962136"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311826"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Använd ett TLS/SSL-certifikat i koden i Azure App Service
 
@@ -107,29 +107,6 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 
 För språk som inte stöder eller som inte erbjuder stöd för Windows certifikat Arkiv, se [Läs in certifikat från fil](#load-certificate-from-file).
 
-## <a name="load-certificate-in-linux-apps"></a>Läs in certifikat i Linux-appar
-
-`WEBSITE_LOAD_CERTIFICATES`Appinställningar gör de angivna certifikaten tillgängliga för dina Linux-värdbaserade appar (inklusive anpassade behållar appar) som filer. Filerna finns under följande kataloger:
-
-- Privata certifikat – `/var/ssl/private` ( `.p12` filer)
-- Offentliga certifikat – `/var/ssl/certs` ( `.der` filer)
-
-Certifikat fil namnen är tumavtrycken. Följande C#-kod visar hur du läser in ett offentligt certifikat i en Linux-app.
-
-```csharp
-using System;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-
-...
-var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
-var cert = new X509Certificate2(bytes);
-
-// Use the loaded certificate
-```
-
-Information om hur du läser in ett TLS/SSL-certifikat från en fil i Node.js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
-
 ## <a name="load-certificate-from-file"></a>Läs in certifikat från fil
 
 Om du behöver läsa in en certifikat fil som du överför manuellt är det bättre att ladda upp certifikatet med [FTPS](deploy-ftp.md) i stället för [git](deploy-local-git.md), till exempel. Du bör behålla känsliga data som ett privat certifikat från käll kontroll.
@@ -152,6 +129,39 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+Information om hur du läser in ett TLS/SSL-certifikat från en fil i Node.js, PHP, python, Java eller ruby finns i dokumentationen för respektive språk eller webb plattform.
+
+## <a name="load-certificate-in-linuxwindows-containers"></a>Läs in certifikat i Linux/Windows-behållare
+
+`WEBSITE_LOAD_CERTIFICATES`Appinställningar gör de angivna certifikaten tillgängliga för dina Windows-eller Linux container-appar (inklusive inbyggda Linux-behållare) som filer. Filerna finns under följande kataloger:
+
+| Container plattform | Offentliga certifikat | Privata certifikat |
+| - | - | - |
+| Windows-container | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
+| Linux-container | `/var/ssl/certs` | `/var/ssl/private` |
+
+Certifikat fil namnen är tumavtrycken. 
+
+> [!NOTE]
+> App Service mata in certifikat Sök vägar i Windows-behållare som följande miljövariabler `WEBSITE_PRIVATE_CERTS_PATH` , `WEBSITE_INTERMEDIATE_CERTS_PATH` , `WEBSITE_PUBLIC_CERTS_PATH` och `WEBSITE_ROOT_CERTS_PATH` . Det är bättre att referera till certifikat Sök vägen med miljövariablerna i stället för att hårdkoda certifikat Sök vägen, om certifikat Sök vägarna ändras i framtiden.
+>
+
+Dessutom laddar [Windows Server Core-behållare](configure-custom-container.md#supported-parent-images) certifikaten till certifikat arkivet automatiskt i **LocalMachine\My**. Om du vill läsa in certifikaten följer du samma mönster som [inläsnings certifikat i Windows-appar](#load-certificate-in-windows-apps). För Windows nano-baserade behållare använder du de fil Sök vägar som anges ovan för att [läsa in certifikatet direkt från filen](#load-certificate-from-file).
+
+Följande C#-kod visar hur du läser in ett offentligt certifikat i en Linux-app.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate

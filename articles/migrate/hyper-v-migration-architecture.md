@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74185885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362205"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Hur fungerar Hyper-V-replikering?
 
@@ -30,7 +30,7 @@ Migrering av Azure Migrate Server är ett verktyg för att migrera lokala arbets
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
-![Arkitektur](./media/hyper-v-replication-architecture/architecture.png)
+![Diagrammet visar ett Hyper-V-nätverk med en H T T P S-datakanal till Microsoft Azure, med information som förklaras i en tabell.](./media/hyper-v-replication-architecture/architecture.png)
 
 
 

@@ -6,14 +6,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361491"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer/fysiska servrar
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurationsservern för haveriberedskap för virtuella VMWare-datorer/fysiska servrar
 
 Du konfigurerar en lokal konfigurations server när du använder [Azure Site Recovery](site-recovery-overview.md) för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure. Konfigurations servern samordnar kommunikationen mellan lokala VMware och Azure och hanterar datareplikering. I den här artikeln sammanfattas vanliga aktiviteter för att hantera konfigurations servern när den har distribuerats.
 
@@ -71,7 +71,7 @@ Om du missade att lägga till autentiseringsuppgifter under OVF-distributionen a
 
 1. När du har [loggat in](#access-configuration-server)väljer du **Hantera autentiseringsuppgifter för virtuella datorer**.
 2. Klicka på **Lägg till autentiseringsuppgifter för virtuell dator**.
-    ![Lägg till mobilitet – autentiseringsuppgifter](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Skärm bild som visar fönstret Hantera autentiseringsuppgifter för virtuell dator med länken Lägg till autentiseringsuppgifter för virtuell dator.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Ange de nya autentiseringsuppgifterna och klicka på **Lägg till**.
 
 Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool.exe.
@@ -164,7 +164,7 @@ Du kan registrera om konfigurations servern i samma valv om du behöver. Om du h
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurations servern
 
-Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdateringar kan tillämpas för upp till N-4-versioner. Ett exempel:
+Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdateringar kan tillämpas för upp till N-4-versioner. Exempel:
 
 - Om du kör 9,7, 9,8, 9,9 eller 9,10 kan du uppgradera direkt till 9,11.
 - Om du kör 9,6 eller tidigare och du vill uppgradera till 9,11 måste du först uppgradera till version 9,7. före 9,11.

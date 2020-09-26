@@ -3,13 +3,13 @@ title: Skapa en .NET-app på Service Fabric i Azure
 description: I den här självstudien får du se hur du skapar ett program med en ASP.NET Core-klientdel och en tillförlitlig serverdel med en tillståndskänslig tjänst, och hur du distribuerar programmet till ett kluster.
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 847bd2e30977c5a14f8294f6709cbd6d376a8211
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: mvc, devx-track-js, devx-track-csharp
+ms.openlocfilehash: e9014f2f5e4d0149d1b0c37c9dbf007358242189
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326379"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera en app med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 

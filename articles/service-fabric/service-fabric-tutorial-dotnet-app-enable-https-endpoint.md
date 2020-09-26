@@ -4,12 +4,12 @@ description: I den här självstudien lär du dig hur du lägger till en HTTPS-s
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326243"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
@@ -36,7 +36,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -354,7 +354,7 @@ I Solution Explorer väljer du **röstnings** programmet och anger egenskapen f�
 
 Spara alla filer och tryck på F5 för att köra programmet lokalt.  När programmet har distribuerats öppnas en webbläsare till https: \/ /localhost: 443. Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 
-![Röstningsprogrammet][image2]
+![Skärm bild av Service Fabric röstning exempel app som körs i ett webbläsarfönster med URL: en https://localhost/ .][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Installera certifikatet på klusternoder
 
@@ -371,7 +371,7 @@ Sedan installerar du certifikatet på fjärrklustret med hjälp av [de här angi
 > [!Warning]
 > Ett självsignerat certifikat räcker för utveckling och testning. För produktionsprogram ska du använda ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority) istället för ett självsignerat certifikat.
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Öppna port 443 i Azure-lastbalanseraren
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Öppna port 443 i Azure Load Balancer och Virtual Network
 
 Öppna port 443 i lastbalanseraren om den inte redan är öppen.
 
@@ -396,13 +396,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+Gör samma sak för det associerade virtuella nätverket.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>Distribuera appen till Azure
 
 Spara alla filer, växla från Debug till Release och tryck på F6 för att bygga om programmet.  Högerklicka på **Voting** i Solution Explorer och välj **Publicera**. Välj klustrets slutpunkt för anslutning som du skapade i [Distribuera ett program till ett kluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), eller välj ett annat kluster.  Klicka på **Publicera** så att programmet publiceras till fjärrklustret.
 
 När programmet distribuerats öppnar du en webbläsare och går till `https://mycluster.region.cloudapp.azure.com:443` (uppdatera webbadressen med klustrets slutpunkt för anslutning). Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 
-![Röstningsprogrammet][image3]
+![Skärm bild av Service Fabric röstning exempel app som körs i ett webbläsarfönster med URL: en https://mycluster.region.cloudapp.azure.com:443 .][image3]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,22 +3,23 @@ title: Skydda poddar med Azure Policy i Azure Kubernetes service (AKS)
 description: Lär dig hur du skyddar poddar med Azure Policy på Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440884"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299161"
 ---
-# <a name="secure-pods-with-azure-policy-preview"></a>Skydda poddar med Azure Policy (för hands version)
+# <a name="secure-pods-with-azure-policy"></a>Skydda poddar med Azure Policy
 
 För att förbättra säkerheten för ditt AKS-kluster kan du kontrol lera vilka funktioner poddar beviljas och om allt körs mot företagets policy. Den här åtkomsten definieras via inbyggda principer som tillhandahålls av [Azure policy-tillägget för AKS][kubernetes-policy-reference]. Genom att tillhandahålla ytterligare kontroll över säkerhets aspekterna av din POD-specifikation, som rot privilegier, möjliggör striktare säkerhets kontroll och insyn i vad som distribueras i klustret. Om en POD inte uppfyller de villkor som anges i principen kan Azure Policy förhindra att Pod startar eller flaggar en överträdelse. Den här artikeln visar hur du använder Azure Policy för att begränsa distributionen av poddar i AKS.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## <a name="before-you-begin"></a>Innan du börjar
+
+> [!IMPORTANT]
+> Allmän tillgänglighet (GA) för Azure Policy på AKS lanseras aktivt i alla regioner. Den förväntade globala färdig ställningen för GA-versionen är 9/29/2020. Användning i regioner utan GA-versionen kräver förhands gransknings registrerings steg. Detta kommer dock att uppdateras automatiskt till GA-versionen när det är tillgängligt i regionen.
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
@@ -26,14 +27,13 @@ Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du beh
 
 För att skydda AKS-poddar via Azure Policy måste du installera Azure Policy-tillägget för AKS i ett AKS-kluster. Följ de här [stegen för att installera Azure policy-tillägget](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
 
-Det här dokumentet förutsätter att du har följande som distribueras i den genom gång som är länkad ovan.
+Det här dokumentet förutsätter att du har följande, som distribueras i den genom gång som är länkad ovan.
 
 * Registrera `Microsoft.ContainerService` och- `Microsoft.PolicyInsights` resurs leverantörer med `az provider register`
-* Registrerat `AKS-AzurePolicyAutoApprove` funktions flagga för förhands granskning med `az feature register`
-* Azure CLI installerat med `aks-preview` tilläggs versionen 0.4.53 eller senare
-* Ett AKS-kluster i en version som stöds av 1,15 eller senare installerat med Azure Policy-tillägget
+* Azure CLI 2,12 eller senare
+* Ett AKS-kluster i en version av 1,15 eller senare installerat med Azure Policy-tillägget
 
-## <a name="overview-of-securing-pods-with-azure-policy-for-aks-preview"></a>Översikt över att skydda poddar med Azure Policy för AKS (för hands version)
+## <a name="overview-of-securing-pods-with-azure-policy-for-aks"></a>Översikt över att skydda poddar med Azure Policy för AKS
 
 >[!NOTE]
 > Det här dokumentet innehåller information om hur du använder Azure Policy för att skydda poddar, vilket är efterföljaren till [funktionen Kubernetes Pod säkerhets princip i för hands versionen](use-pod-security-policies.md).
@@ -45,27 +45,55 @@ I ett AKS-kluster används en åtkomst kontroll för att avlyssna begär anden t
 
 Tidigare har funktionen [Pod säkerhets princip (för hands version)](use-pod-security-policies.md) Aktiver ATS via Kubernetes-projektet för att begränsa vilka poddar som kan distribueras.
 
-Genom att använda Azure Policy-tillägget kan ett AKS-kluster använda inbyggda Azure-principer som skyddar poddar och andra Kubernetes-resurser som liknar Pod säkerhets princip tidigare. Azure Policy-tillägget för AKS installerar en hanterad instans av [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), en verifierar en styrenhet för åtkomst kontroll. Azure Policy för Kubernetes bygger på öppna policy-agenten med öppen källkod som förlitar sig på [Rego policy-språket](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
+Genom att använda Azure Policy-tillägget kan ett AKS-kluster använda inbyggda Azure-principer, vilket skyddar poddar och andra Kubernetes-resurser som liknar Pod-säkerhetsprincipen tidigare. Azure Policy-tillägget för AKS installerar en hanterad instans av [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), en verifierar en styrenhet för åtkomst kontroll. Azure Policy för Kubernetes bygger på öppna policy-agenten med öppen källkod, som förlitar sig på [Rego policy-språket](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 
 Det här dokumentet innehåller information om hur du använder Azure Policy för att skydda poddar i ett AKS-kluster och hur du kan migrera från Pod säkerhets principer (för hands version).
 
 ## <a name="limitations"></a>Begränsningar
 
-* Under för hands versionen kan en gräns på 200 poddar med 20 Azure Policy för Kubernetes-principer köras i ett enda kluster.
-* [Vissa system namn rymder](#namespace-exclusion) som innehåller AKS-hanterade poddar undantas från princip utvärderingen.
-* Windows-poddar [har inte stöd för säkerhets kontexter](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods), och därför gäller många Azure-principer bara för Linux-poddar, till exempel otillåtna rot behörigheter, som inte kan eskaleras i Windows-poddar.
-* Pod-säkerhetsprincipen och Azure Policy-tillägget för AKS kan inte både aktive ras. Om du installerar Azure Policy-tillägget i ett kluster med säkerhets principen Pod aktive rad inaktiverar du säkerhets principen för Pod med [följande instruktioner](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+Följande allmänna begränsningar gäller för Azure Policy-tillägget för Kubernetes-kluster:
+
+- Azure Policy-tillägg för Kubernetes stöds på Kubernetes version **1,14** eller senare.
+- Azure Policy-tillägg för Kubernetes kan bara distribueras till Linux-nodkonfigurationer
+- Endast inbyggda princip definitioner stöds
+- Maximalt antal icke-kompatibla poster per princip per kluster: **500**
+- Maximalt antal icke-kompatibla poster per prenumeration: **1 000 000**
+- Installationer av Gatekeeper utanför Azure Policy-tillägget stöds inte. Avinstallera alla komponenter som installeras av en tidigare Gatekeeper-installation innan du aktiverar Azure Policy-tillägget.
+- [Orsaker till att inkompatibilitet](../governance/policy/how-to/determine-non-compliance.md#compliance-reasons) inte är tillgängligt för detta [resurs leverantörs läge](../governance/policy/concepts/definition-structure.md#resource-provider-modes)
+
+Följande begränsningar gäller endast för Azure Policy-tillägget för AKS:
+
+- [AKS Pod-säkerhetsprincipen (för hands version)](use-pod-security-policies.md) och Azure policy-tillägget för AKS kan inte både aktive ras. 
+- Namn områden som undantas automatiskt av Azure Policy tillägg för utvärdering: _Kube-system_, _Gatekeeper-system_och _AKS-Periscope_.
+
+### <a name="recommendations"></a>Rekommendationer
+
+Följande är allmänna rekommendationer för att använda Azure Policy-tillägget:
+
+- Azure Policy tillägget kräver 3 Gatekeeper-komponenter för att köra: 1 audit Pod och 2 webhook Pod-repliker. Dessa komponenter förbrukar mer resurser som antalet Kubernetes-resurser och princip tilldelningar ökar i klustret som kräver gransknings-och tvångs åtgärder.
+
+  - För mindre än 500 poddar i ett enda kluster med högst 20 begränsningar: 2 virtuella processorer och 350 MB minne per komponent.
+  - För över 500 poddar i ett enda kluster med högst 40 begränsningar: 3 virtuella processorer och 600 MB minne per komponent.
+
+Följande rekommendation gäller endast för AKS och Azure Policy-tillägget:
+
+- Använd systemnode-poolen med en `CriticalAddonsOnly` utsmak för att schemalägga Gatekeeper-poddar. Mer information finns i [använda system Node Pools](use-system-pools.md#system-and-user-node-pools).
+- Skydda utgående trafik från AKS-kluster. Mer information finns i [kontroll av utgående trafik för klusternoder](limit-egress-traffic.md).
+- Om klustret har `aad-pod-identity` Aktiver ATS ändrar NMI-poddar noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här konfigurationen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder `aad-pod-identity` . AzurePodIdentityException CRD kan konfigureras för att informera om `aad-pod-identity` att förfrågningar till slut punkten för metadata från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI. Systemets poddar med `kubernetes.azure.com/managedby: aks` etikett i _Kube-systemets_ namnrymd ska undantas i `aad-pod-identity` genom att konfigurera AzurePodIdentityException-CRD. Mer information finns i [inaktivera AAD-Pod-Identity för en specifik POD eller ett program](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  Om du vill konfigurera ett undantag installerar du [yaml MIC-Exception](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
+
+Azure Policy-tillägget kräver att processor-och minnes resurser körs. Dessa krav ökar när storleken på ett kluster ökar. Se [Azure Policy rekommendationer][policy-recommendations] för att få allmän vägledning om hur du använder Azure policy-tillägget.
 
 ## <a name="azure-policies-to-secure-kubernetes-pods"></a>Azure-principer för att skydda Kubernetes-poddar
 
 När du har installerat Azure Policy-tillägget tillämpas inga principer som standard.
 
-Det finns elva (11) inbyggda enskilda Azure-principer och två (2) inbyggda initiativ som specifikt skyddar poddar i ett AKS-kluster.
+Det finns 11 inbyggda enskilda Azure-principer och två inbyggda initiativ som särskilt skyddar poddar i ett AKS-kluster.
 Varje princip kan anpassas med en funktion. En fullständig lista över [AKS-principer och deras effekter som stöds finns här][policy-samples]. Läs mer om [Azure policy effekter](../governance/policy/concepts/effects.md).
 
-Azure-principer kan tillämpas på hanterings gruppen, prenumerations-eller resurs grupps nivån. När du tilldelar en princip på resurs grupps nivå ser du till att mål AKS klustrets resurs grupp har valts inom omfånget för principen. Varje kluster i det tilldelade omfånget med Azure Policy tillägget installerat är inom omfånget för principen.
+Azure-principer kan tillämpas på hanterings grupp, prenumeration eller resurs grupps nivå. När du tilldelar en princip på resurs grupps nivå ser du till att mål AKS klustrets resurs grupp har valts inom omfånget för principen. Varje kluster i det tilldelade omfånget med Azure Policy tillägget installerat är inom omfånget för principen.
 
-Om du använder [Pod säkerhets princip (förhands granskning)](use-pod-security-policies.md)lär du dig hur du [migrerar till Azure policy och om andra beteende skillnader](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+Om du använder [Pod säkerhets princip (förhands granskning) ](use-pod-security-policies.md)lär du dig hur du [migrerar till Azure policy och om andra beteende skillnader](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 ### <a name="built-in-policy-initiatives"></a>Inbyggda princip initiativ
 
@@ -83,8 +111,8 @@ Båda de inbyggda initiativen skapas från definitioner som används i [Pod säk
 |Begränsa användningen av värd fil systemet|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Ja | Ja
 |Begränsa Linux-funktioner till [standard uppsättningen](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Ja | Ja
 |Begränsa användningen av definierade volym typer|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Ja – tillåtna volym typer är `configMap` ,,, `emptyDir` `projected` `downwardAPI` , `persistentVolumeClaim`|
-|Eskalering av privilegier till rot|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Ja |
-|Begränsa behållarens användar-och grupp-ID|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Ja|
+|Eskalering av privilegier till rot|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
+|Begränsa behållarens användar-och grupp-ID|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes|
 |Begränsa tilldelningen av en FSGroup som äger Pod-volymer|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Ja – tillåtna regler är `runAsUser: mustRunAsNonRoot` , `supplementalGroup: mustRunAs 1:65536` , `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` .  |
 |Kräver seccomp-profil|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Ja, allowedProfiles är * `docker/default` eller `runtime/default` |
 
@@ -98,7 +126,7 @@ Det finns ytterligare Azure-principer som kan tillämpas på ett och samma plats
 |---|---|---|---|
 |Definiera AppArmor-profilen som används av behållare|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | Valfritt | Valfritt |
 |Tillåt monteringar som inte är skrivskyddade|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | Valfritt | Valfritt |
-|Begränsa till vissa FlexVolume-drivrutiner|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Valfritt – Använd om du bara vill begränsa FlexVolume-drivrutiner, men inte andra som anges av "begränsa användningen av definierade volym typer" | Ej tillämpligt – det begränsade initiativet inkluderar "begränsa användningen av definierade volym typer" som inte tillåter alla FlexVolume-drivrutiner |
+|Begränsa till vissa FlexVolume-drivrutiner|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Valfritt – Använd om du bara vill begränsa FlexVolume-drivrutiner, men inte andra som anges av "begränsa användningen av definierade volym typer" | Ej tillämpligt – det begränsade initiativet inkluderar "begränsa användningen av definierade volym typer", vilket inte tillåter alla FlexVolume-drivrutiner |
 
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>Inbyggda principer för hanterade AKS-kluster stöds inte
 
@@ -132,7 +160,7 @@ AKS kräver att system poddar körs på ett kluster för att tillhandahålla kri
 1. Azure-båg
 1. AKS – Periscope
 
-Ytterligare anpassade namn områden kan undantas från utvärdering vid skapande, uppdatering och granskning. Detta bör användas om du har specialiserade poddar som körs i ett sanktionerat namn område och vill undvika att utlösa gransknings överträdelser.
+Ytterligare anpassade namn områden kan undantas från utvärdering vid skapande, uppdatering och granskning. Dessa undantag ska användas om du har specialiserade poddar som körs i ett sanktionerat namn område och vill undvika att utlösa gransknings överträdelser.
 
 ## <a name="apply-the-baseline-initiative"></a>Använd bas linje initiativ
 
@@ -292,7 +320,7 @@ Nedan visas en sammanfattning av funktions förändringar mellan Pod säkerhets 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visar hur du använder en Azure-princip som begränsar privilegie rad poddar från att distribueras för att förhindra användning av privilegie rad åtkomst. Det finns många principer som kan tillämpas, till exempel sådana som begränsar användningen av volymer. Mer information om tillgängliga alternativ finns i [referens dokumenten Azure policy for Kubernetes][kubernetes-policy-reference].
+Den här artikeln visar hur du använder en Azure-princip som begränsar privilegie rad poddar från att distribueras för att förhindra användning av privilegie rad åtkomst. Det finns många principer som kan tillämpas, till exempel principer som begränsar användningen av volymer. Mer information om tillgängliga alternativ finns i [referens dokumenten Azure policy for Kubernetes][kubernetes-policy-reference].
 
 Mer information om hur du begränsar Pod nätverks trafik finns i [skydda trafik mellan poddar med hjälp av nätverks principer i AKS][network-policies].
 
@@ -304,8 +332,12 @@ Mer information om hur du begränsar Pod nätverks trafik finns i [skydda trafik
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[aad-pod-identity]: https://github.com/Azure/aad-pod-identity
+[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
 
 <!-- LINKS - internal -->
+[policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
+[policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-samples]: policy-samples.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md

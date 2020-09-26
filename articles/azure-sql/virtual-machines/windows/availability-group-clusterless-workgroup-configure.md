@@ -8,17 +8,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298844"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighets grupp för arbets gruppen 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "85955513"
 I den här artikeln beskrivs de steg som krävs för att skapa ett Active Directory domän oberoende kluster med en tillgänglighets grupp som alltid är tillgänglig. Detta kallas även för ett arbets grupps kluster. Den här artikeln fokuserar på de steg som är relevanta för att förbereda och konfigurera gruppen för arbets grupper och tillgänglighet, och ord listas över steg som beskrivs i andra artiklar, till exempel hur du skapar klustret eller distribuerar tillgänglighets gruppen. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera en tillgänglighets grupp för arbets grupper behöver du följande:
 - Minst två virtuella datorer med Windows Server 2016 (eller högre) som kör SQL Server 2016 (eller högre), distribueras till samma tillgänglighets uppsättning eller olika tillgänglighets zoner med statiska IP-adresser. 

@@ -3,12 +3,12 @@ title: Konfigurera ett klassrumslabb med Azure Lab Services | Microsoft Docs
 description: I den här självstudien använder du Azure Lab Services för att skapa ett klass rums labb med virtuella datorer som används av studenter i din klass.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445142"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336742"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -37,7 +37,7 @@ I det här steget skapar du ett labb för din klass i Azure.
 2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
 3. Välj **nytt labb**. 
     
-    ![Skapa ett klassrumslabb](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Skärm bild som visar "Azure Lab Services" med knappen "nytt labb" valt.](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. Utför följande i fönstret **Nytt labb**: 
     1. Ange ett **namn** på labbet och välj **Nästa**.  
 
@@ -90,7 +90,7 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
 
 1. Växla till sidan **scheman** och välj **Lägg till schemalagd händelse** i verktygsfältet. 
 
-    ![Knappen Lägg till schema på sidan scheman](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Skärm bild som visar knappen "Lägg till schemalagd händelse" på sidan "scheman".](./media/how-to-create-schedules/add-schedule-button.png)
 2. Utför följande steg på sidan **Lägg till schemalagd händelse** :
     1. Bekräfta att **standard** är valt **händelse typ**.  
     2. Välj **start datum** för klassen. 

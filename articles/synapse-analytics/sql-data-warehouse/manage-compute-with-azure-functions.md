@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 11cb0c30a1a6ed70cca82e494fcec73936975f39
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442230"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259959"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Använda Azure Functions för att hantera beräknings resurser i Azure Synapse Analytics SQL-poolen
 
@@ -124,10 +124,10 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600
+   // Scale the SQL pool instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
-       "ServiceLevelObjective": "DW600"
+       "ServiceLevelObjective": "DW600c"
    }
    ```
 
@@ -137,33 +137,33 @@ Det här avsnittet visar kortfattat vad som krävs för att få en mer komplex s
 
 ### <a name="example-1"></a>Exempel 1
 
-Daglig uppskalning till DW600 kl. 08.00 och nedskalning till DW200 kl. 20.00.
+Dags att skala upp till 8.00 på DW600c och skala ned till DW200c.
 
 | Funktion  | Schema     | Åtgärd                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
-| Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
+| Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-2"></a>Exempel 2
 
-Dags att skala upp på 8.00 till DW1000, skala ned en gång till DW600 vid 4pm och skala ned på 10pm till DW200 kl.
+Dags att skala upp på 8.00 till DW1000c, skala ned en gång till DW600 vid 4pm och skala ned på 10pm till DW200c.
 
 | Funktion  | Schema     | Åtgärd                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
-| Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
+| Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-3"></a>Exempel 3
 
-Uppskalning till DW1000 kl. 08.00, nedskalning till DW600 kl. 16.00 under arbetsveckans alla dagar. Pausas fredagar kl. 23.00, återupptas kl. 07.00 på måndag morgon.
+Skala upp på 8.00 till DW1000c, skala ned en gång till DW600c vid 4pm på vardagarna. Pausas fredagar kl. 23.00, återupptas kl. 07.00 på måndag morgon.
 
 | Funktion  | Schema       | Åtgärd                                |
 | :-------- | :------------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
+| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
 | Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
-| Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
+| Function4 | 0 0 7 * * 1    | `var operation = {"operationType": "ResumeDw"}` |
 
 ## <a name="next-steps"></a>Nästa steg
 

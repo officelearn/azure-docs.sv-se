@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336453"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellerings steg för processens livs cykel för team data vetenskap
 
@@ -45,7 +45,7 @@ Det finns tre huvudsakliga uppgifter i det här steget:
   * **Modell träning**: Leta upp den modell som svarar på frågan noggrant genom att jämföra deras framgång.
   * Ta reda på om din modell är **lämplig för produktion.**
 
-### <a name="feature-engineering"></a>Funktionstekniker
+### <a name="feature-engineering"></a>Funktionsframställning
 Funktions teknik inbegriper inkludering, agg regering och omvandling av obehandlade variabler för att skapa de funktioner som används i analysen. Om du vill veta mer om vad som driver en modell måste du förstå hur funktionerna relaterar till varandra och hur algoritmerna för maskin inlärning är att använda dessa funktioner. 
 
 Det här steget kräver en kreativ kombination av domän expert kunskaper och de insikter som hämtats från data utforsknings steget. Funktions teknik är en balanserings åtgärd för att hitta och inkludera informativa variabler, men samtidigt försöker du undvika för många orelaterade variabler. Informativa variabler ger bättre resultat. orelaterade variabler introducerar onödigt brus i modellen. Du måste också generera dessa funktioner för alla nya data som erhålls under poängsättningen. Därför kan generationens funktioner bara vara beroende av data som är tillgängliga vid tidpunkten för poängsättningen. 
@@ -53,7 +53,7 @@ Det här steget kräver en kreativ kombination av domän expert kunskaper och de
 Teknisk vägledning om funktions teknik när du använder olika Azure-datatekniker finns i [funktions teknik i processen för data vetenskap](create-features.md). 
 
 ### <a name="model-training"></a>Modellträning
-Det finns många tillgängliga modellvariabler beroende på vilken typ av fråga du försöker svara på. Anvisningar om hur du väljer algoritmer finns i [så här väljer du algoritmer för Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Även om den här artikeln använder Azure Machine Learning, är den vägledning som är användbar för alla Machine Learning-projekt. 
+Det finns många tillgängliga modellvariabler beroende på vilken typ av fråga du försöker svara på. Anvisningar om hur du väljer algoritmer finns i [så här väljer du algoritmer för Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Även om den här artikeln använder Azure Machine Learning, är den vägledning som är användbar för alla Machine Learning-projekt. 
 
 Processen för modell träning innehåller följande steg: 
 

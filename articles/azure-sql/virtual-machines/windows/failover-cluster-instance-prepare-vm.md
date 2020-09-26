@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 7e62e414182d95a445f37c1c97cdef8aff6a587a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272510"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Förbereda virtuella datorer för en FCI (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du förbereder virtuella Azure-datorer (VM) att 
 
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 - En Microsoft Azure-prenumeration. Kom igång [kostnads fritt](https://azure.microsoft.com/free/). 
 - En Windows-domän på virtuella Azure-datorer eller ett lokalt Data Center som utökats till Azure med länkning av virtuella nätverk.
@@ -88,7 +88,7 @@ När du har avregistrerat dig från resurs leverantören kan du avinstallera SQL
 1. Om du använder någon av de SQL Server-baserade avbildningarna av virtuella datorer tar du bort SQL Server-instansen:
 
    1. I **program och funktioner**högerklickar du på **Microsoft SQL Server 201_ (64-bitars)** och väljer **Avinstallera/ändra**.
-   1. Välj **Ta bort**.
+   1. Välj **ta bort**.
    1. Välj standard instansen.
    1. Ta bort alla funktioner under **databas motor tjänster**. Ta inte bort något under **Delade funktioner**. Du ser något som liknar följande skärm bild:
 
@@ -105,7 +105,7 @@ Om du använder en [belastningsutjämnare](hadr-vnn-azure-load-balancer-configur
 
 Den här tabellen innehåller information om de portar som du kan behöva öppna, beroende på din FCI-konfiguration: 
 
-   | Syfte | Port | Obs!
+   | Syfte | Port | Kommentarer
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Normal port för standard instanser av SQL Server. Om du använde en avbildning från galleriet öppnas porten automatiskt. </br> </br> **Används av**: alla FCI-konfigurationer. |
    | Hälsoavsökning | TCP 59999 | Alla öppna TCP-portar. Konfigurera belastnings utjämningens [hälso avsökning](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) och klustret för att använda den här porten. </br> </br> **Används av**: FCI med Load Balancer. |

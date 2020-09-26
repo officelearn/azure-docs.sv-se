@@ -1,6 +1,6 @@
 ---
 title: Apache Spark Core-begrepp
-description: Den här artikeln innehåller en introduktion till Apache Spark i Azure Synapse Analytics och de olika begreppen.
+description: Introduktion till Apache Spark i Azure Synapse Analytics och de olika begreppen.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 806f4dff49e9650dba073721109e7d54a18ecbbe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260146"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark i Azure Synapse Analytics core-koncept
 
@@ -24,7 +24,7 @@ Med Azure Synapse kan du enkelt skapa och konfigurera Spark-funktioner i Azure. 
 
 ## <a name="spark-pools-preview"></a>Spark-pooler (för hands version)
 
-En spark-pool (för hands version) skapas i Azure Portal. Det är definitionen av en spark-pool som, när den instansieras, används för att skapa en spark-instans som bearbetar data. När en spark-pool skapas, finns den bara som metadata. inga resurser förbrukas, körs eller debiteras för. En spark-pool har en serie egenskaper som styr egenskaperna för en spark-instans. dessa egenskaper inkluderar, men är inte begränsade till namn, storlek, skalnings beteende, Time to Live.
+En spark-pool (för hands version) skapas i Azure Portal. Det är definitionen av en spark-pool som, när den instansieras, används för att skapa en spark-instans som bearbetar data. När en spark-pool skapas, finns den bara som metadata och inga resurser förbrukas, körs eller debiteras för. En spark-pool har en serie egenskaper som styr egenskaperna för en spark-instans. Dessa egenskaper omfattar men är inte begränsade till namn, storlek, skalnings beteende, Time to Live.
 
 Eftersom det inte finns några dollar-eller resurs kostnader kopplade till att skapa Spark-pooler, kan alla siffror skapas med valfritt antal olika konfigurationer. Behörigheter kan också tillämpas på Spark-pooler som gör det möjligt för användare endast att ha åtkomst till vissa och inte andra.
 
@@ -36,7 +36,7 @@ Du kan läsa hur du skapar en spark-pool och ser alla deras egenskaper här [kom
 
 Spark-instanser skapas när du ansluter till en spark-pool, skapar en session och kör ett jobb. Eftersom flera användare kan ha åtkomst till en enda Spark-pool skapas en ny Spark-instans för varje användare som ansluter. 
 
-När du skickar ett andra jobb, och om det finns kapacitet i poolen, har den befintliga Spark-instansen också kapacitet och den befintliga instansen bearbetar jobbet. om inte och det finns kapacitet på Poolnivå skapas en ny Spark-instans.
+När du skickar ett andra jobb, om det finns kapacitet i poolen, har den befintliga Spark-instansen också kapacitet. Sedan bearbetar den befintliga instansen jobbet. Annars, om kapaciteten är tillgänglig på Poolnivå, skapas en ny Spark-instans.
 
 ## <a name="examples"></a>Exempel
 

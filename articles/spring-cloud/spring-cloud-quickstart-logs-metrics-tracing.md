@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 96a97b9b141d434f201da4c7e36f6715186a652e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326260"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Snabb start: övervaka Azure våren Cloud-appar med loggar, mått och spårning
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Gå till **tjänsten | Sidan översikt** och välj **loggar** i avsnittet **övervakning** . Välj **Kör** på en av exempel frågorna för Azure våren Cloud.
+1. I Azure Portal går du till **tjänsten | Sidan översikt** och välj **loggar** i avsnittet **övervakning** . Välj **Kör** på en av exempel frågorna för Azure våren Cloud.
 
    [![Loggar Analytics-post ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,7 +75,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>Mått
 
-1. I Azure Portal går du till **tjänsten | Sidan översikt** och välj **mått** i avsnittet **övervakning** . Lägg till ditt första mått genom att välja `system.cpu.usage` för **mått** och `Avg` för **agg regering** för att se tids linjen för total CPU-användning.
+1. I Azure Portal går du till **tjänsten | Sidan översikt** och välj **mått** i avsnittet **övervakning** . Lägg till ditt första mått genom att välja ett av .NET-måtten under **prestanda (.net)** eller **begär (.net)** i list rutan **mått** och `Avg` för **agg regering** att Visa tids linjen för det måttet.
 
    [![Mått poster – Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     

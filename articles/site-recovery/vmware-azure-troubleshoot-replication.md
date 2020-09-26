@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135373"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336213"
 ---
-# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsök problem med replikering för virtuella VMware-datorer och fysiska servrar
+# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
 Den här artikeln beskriver några vanliga problem och specifika fel som du kan stöta på när du replikerar lokala virtuella VMware-datorer och fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md).
 
@@ -192,6 +192,24 @@ Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Aut
         - VSS-tjänst
         - Azure Site Recovery VSS-Provider
         - VDS-tjänst
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>Fel-ID 95001-otillräckliga behörigheter hittades
+
+Det här felet uppstår när du försöker aktivera replikering och programmapparna inte har tillräcklig behörighet.
+
+**Korrigera**: Lös problemet genom att kontrol lera att IUSR-användaren har ägar rollen för alla nedanstående mappar –
+
+- *C\ProgramData\Microsoft Azure Site Recovery\private*
+- Installations katalogen. Om installations katalogen till exempel är F Drive, anger du rätt behörighet till-
+    - *F:\Program-filer (x86) \Microsoft Azure Site Recovery\home\svsystems*
+- Mappen *\pushinstallsvc* i installations katalogen. Om installations katalogen till exempel är F Drive, anger du rätt behörighet till-
+    - *F:\Program-filer (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc*
+- Mappen *\Etc* i installations katalogen. Om installations katalogen till exempel är F Drive, anger du rätt behörighet till-
+    - *F:\Program-filer (x86) \Microsoft Azure Site Recovery\home\svsystems\etc*
+- *C:\Temp*
+- *C:\thirdparty\php5nts*
+- Alla objekt under sökvägen nedan –
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>Nästa steg
 

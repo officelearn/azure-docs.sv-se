@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 80d444e9887a3aaa48262ccf59350b0108d7d709
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Självstudie: Azure Active Directory integrering med RStudio Connect
 
@@ -126,7 +126,7 @@ Utför följande steg för att konfigurera enkel inloggning med RStudio Connect 
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurera RStudio Connect enkel inloggning
 
-Om du vill konfigurera enkel inloggning på för **RStudio Connect**måste du använda **URL: en för appens federationens metadata** och den **Server adress** som används ovan. Detta görs i RStudio Connect-konfigurationsfilen på `/etc/rstudio-connect.rstudio-connect.gcfg` .
+Om du vill konfigurera enkel inloggning på för **RStudio Connect**måste du använda **URL: en för appens federationens metadata** och den **Server adress** som används ovan. Detta görs i RStudio Connect-konfigurationsfilen på `/etc/rstudio-connect/rstudio-connect.gcfg` .
 
 Detta är ett exempel på en konfigurations fil:
 
@@ -221,7 +221,7 @@ När du klickar på RStudio Connect-panelen på åtkomst panelen, bör du loggas
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

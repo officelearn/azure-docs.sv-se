@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 16d40c334d51a66df4a4d2d56e2fa2379dda3726
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f44ebc3885fe57d68756d908c4b392cd43b0366f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326209"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Snabb start: etablera Azure våren Cloud service
 
@@ -158,23 +158,9 @@ I följande procedur används Azure CLI-tillägget för att etablera en instans 
 ---
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Hoppa över det här steget om du tänker fortsätta till nästa snabb start i den här serien.
-
-I den här snabb starten skapade du Azure-resurser som kommer fortsätta att debiteras om de finns kvar i din prenumeration. Om du inte tänker fortsätta till nästa snabb start och du inte förväntar dig att behöva dessa resurser i framtiden, tar du bort resurs gruppen med hjälp av portalen eller genom att köra följande kommando i Cloud Shell:
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-I den här snabb starten anger du också standard resurs grupps namnet. Om du inte tänker fortsätta med nästa snabb start tar du bort standardvärdet genom att köra följande CLI-kommando:
-
-```azurecli
-az configure --defaults group=
-```
-
 ## <a name="next-steps"></a>Nästa steg
+
+I den här snabb starten skapade du Azure-resurser som kommer fortsätta att debiteras om de finns kvar i din prenumeration. Om du inte tänker fortsätta till nästa snabb start, se [Rensa resurser](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Annars går du vidare till nästa snabb start:
 
 > [!div class="nextstepaction"]
 > [Konfigurera konfigurationsserver](spring-cloud-quickstart-setup-config-server.md)

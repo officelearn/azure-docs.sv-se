@@ -1,30 +1,21 @@
 ---
 title: Montera en Azure-filresurs via SMB med macOS | Microsoft Docs
 description: Lär dig hur du monterar en Azure-filresurs via SMB med macOS med hjälp av Finder eller Terminal. Azure Files är Microsofts lättanvända filsystem i molnet.
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/19/2017
-ms.author: renash
+ms.date: 09/23/2020
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2cddf8a7d3dbc7abcc25fb76aba8a0af1790fe4d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326073"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montera en Azure-filresurs via SMB med macOS
-[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras med SMB-3 protokollet, som är branschstandard, av macOS El Capitan 10.11+. Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS: med hjälp av användargränssnittet Finder och med terminalen.
-
-> [!Note]  
-> Innan du monterar en Azure-filresurs via SMB rekommenderar vi att du inaktiverar signering av SMB-paket. Om du inte gör det kan det orsaka sämre prestanda när du får åtkomst till Azure-filresursen från macOS. SMB-anslutningen krypteras så att det inte påverkar din anslutnings säkerhet. Från terminalen används följande kommandon för att inaktivera signering av SMB-paket, vilket beskrivs i den här [Apple Support-artikeln om hur du inaktiverar signering av SMB-paket](https://support.apple.com/HT205926):  
->    ```
->    sudo -s
->    echo "[default]" >> /etc/nsmb.conf
->    echo "signing_required=no" >> /etc/nsmb.conf
->    exit
->    ```
+[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras med standard protokollet SMB 3 av macOS med hög Sierra 10.13 +. Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS: med hjälp av användargränssnittet Finder och med terminalen.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Krav för att montera en Azure-filresurs på macOS
 * **Lagrings konto namn**: om du vill montera en Azure-filresurs behöver du namnet på lagrings kontot.
@@ -46,10 +37,10 @@ ms.locfileid: "88034455"
     ![En ögonblicksbild av en monterad Azure-filresurs](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>Montera en Azure-filresurs via Terminal
-1. Ersätt `<storage-account-name>` med namnet på ditt lagringskonto. Ange lagringskontonyckeln som lösenord när du uppmanas att ange lösenord. 
+1. Ersätt  `<storage-account-name>` , `<storage-account-key>` och `<share-name>`   med lämpliga värden för din miljö.
 
     ```
-    mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
+    open smb://<storage-account-name>:<storage-account-key>@<storage-account-name>.file.core.windows.net/<share-name>
     ```
 
 2. **Använd Azure-filresursen som du vill**: Azure-filresursen monteras på den monterings punkt som anges av föregående kommando.  
@@ -57,9 +48,4 @@ ms.locfileid: "88034455"
     ![En ögonblicksbild av den monterade Azure-filresursen](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Files finns på följande länkar.
-
-* [Apple Support-artikel – Så här ansluter du med fildelning på din Mac.](https://support.apple.com/HT204445)
-* [Vanliga frågor och svar](../storage-files-faq.md)
-* [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Felsökning i Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+* [Ansluta din Mac till delade datorer och servrar – Apple-support](https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/mac)

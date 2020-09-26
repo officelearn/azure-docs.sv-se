@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3f1c7fb08c3dcaa078de8f1ee0b90409289cfb43
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336011"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Utöka operativsystemenheten för en virtuell dator
 
@@ -30,7 +30,7 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
 - För att migrera en fysisk dator eller virtuell dator från en lokal dator till en större operativ system enhet.
 
 > [!IMPORTANT]
-> Att ändra storlek på operativ system disken för en virtuell Azure-dator kräver att den virtuella datorn frigörs.
+> Att ändra storlek på ett operativ system eller en data disk på en virtuell Azure-dator kräver att den virtuella datorn frigörs.
 >
 > När du har expanderat diskarna måste du [expandera volymen i operativ systemet](#expand-the-volume-within-the-os) för att dra nytta av den större disken.
 > 

@@ -4,19 +4,22 @@ description: Lär dig hur du konfigurerar en privat Azure-länk för att få åt
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334437"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
 Med hjälp av en privat Azure-länk kan du ansluta till ett Azure Cosmos-konto via en privat slut punkt. Den privata slut punkten är en uppsättning privata IP-adresser i ett undernät i det virtuella nätverket. Du kan sedan begränsa åtkomsten till ett Azure Cosmos-konto via privata IP-adresser. När en privat länk kombineras med begränsade NSG-principer bidrar den till att minska risken för data exfiltrering. Mer information om privata slut punkter finns i artikeln [Azure Private Link](../private-link/private-link-overview.md) .
+
+> [!NOTE]
+> Den privata länken förhindrar inte att dina Azure Cosmos-slutpunkter löses av en offentlig DNS. Filtrering av inkommande begär Anden sker på program nivå, inte på transport-eller nätverks nivå.
 
 Med privat länk kan användarna få åtkomst till ett Azure Cosmos-konto inifrån det virtuella nätverket eller från ett peer-kopplat virtuellt nätverk. Resurser som är mappade till privat länk är också tillgängliga lokalt via privat peering via VPN eller Azure ExpressRoute. 
 
@@ -36,42 +39,42 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 
 1. I fönstret **skapa en privat slut punkt – grundläggande** anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj en resursgrupp.|
-    | **Instans information** |  |
+    | **Instansinformation** |  |
     | Name | Ange ett namn för din privata slut punkt. Om det här namnet tas skapar du ett unikt. |
     |Region| Välj den region där du vill distribuera privat länk. Skapa den privata slut punkten på samma plats som det virtuella nätverket finns på.|
     |||
 1. Välj **Nästa: resurs**.
 1. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj **Anslut till en Azure-resurs i min katalog**. <br/><br/> Du kan sedan välja en av dina resurser för att konfigurera en privat länk. Eller så kan du ansluta till någon annans resurs genom att använda ett resurs-ID eller alias som de har delat med dig.|
     | Prenumeration| Välj din prenumeration. |
     | Resurstyp | Välj **Microsoft. AzureCosmosDB/databaseAccounts**. |
     | Resurs |Välj ditt Azure Cosmos-konto. |
-    |Mål under resurs |Välj den Azure Cosmos DB API-typ som du vill mappa. Standardvärdet är bara ett alternativ för SQL-, MongoDB-och Cassandra-API: er. För Gremlin-och tabell-API: er kan du också välja **SQL** eftersom dessa API: er är kompatibla med SQL-API: et. |
+    |Målunderresurs |Välj den Azure Cosmos DB API-typ som du vill mappa. Standardvärdet är bara ett alternativ för SQL-, MongoDB-och Cassandra-API: er. För Gremlin-och tabell-API: er kan du också välja **SQL** eftersom dessa API: er är kompatibla med SQL-API: et. |
     |||
 
 1. Välj **Nästa: konfiguration**.
 1. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |**Nätverk**| |
     | Virtuellt nätverk| Välj ditt virtuella nätverk. |
     | Undernät | Välj ditt undernät. |
     |**Privat DNS-integrering**||
     |Integrera med privat DNS-zon |Välj **Ja**. <br><br/> För att kunna ansluta privat med din privata slut punkt behöver du en DNS-post. Vi rekommenderar att du integrerar din privata slut punkt med en privat DNS-zon. Du kan också använda dina egna DNS-servrar eller skapa DNS-poster med hjälp av värd filerna på dina virtuella datorer. |
-    |Privat DNS zon |Välj **privatelink.documents.Azure.com**. <br><br/> Den privata DNS-zonen fastställs automatiskt. Du kan inte ändra den med hjälp av Azure Portal.|
+    |Privat DNS-zon |Välj **privatelink.documents.Azure.com**. <br><br/> Den privata DNS-zonen fastställs automatiskt. Du kan inte ändra den med hjälp av Azure Portal.|
     |||
 
 1. Välj **Granska + skapa**. På sidan **Granska + skapa** verifierar Azure konfigurationen.
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 När du har godkänt en privat länk för ett Azure Cosmos-Azure Portal konto är alternativet **alla nätverk** i rutan **brand vägg och virtuella nätverk** inte tillgängligt.
 
@@ -84,8 +87,8 @@ Följande tabell visar mappningen mellan olika Azure Cosmos-kontos API-typer, un
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
 |Gremlin     |  SQL       |  privatelink.documents.azure.com    |
-|Tabeller    |    Tabeller     |   privatelink.table.cosmos.azure.com    |
-|Tabeller     |   SQL      |  privatelink.documents.azure.com    |
+|Tabell    |    Tabell     |   privatelink.table.cosmos.azure.com    |
+|Tabell     |   SQL      |  privatelink.documents.azure.com    |
 
 ### <a name="fetch-the-private-ip-addresses"></a>Hämta de privata IP-adresserna
 
@@ -399,7 +402,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Ett exempel:
+I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Exempel:
 
 * Ett Gremlin-API-konto kan nås från både Gremlin-och SQL-API-konton.
 * Ett Tabell-API konto kan nås från både tabell-och SQL-API-konton.
@@ -627,7 +630,18 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blockera offentlig nätverks åtkomst när kontot skapas
 
-Som det beskrivs i föregående avsnitt, och om vissa brand Väggs regler har angetts, gör ett Azure Cosmos-konto tillgängligt via enbart privata slut punkter genom att lägga till en privat slut punkt. Det innebär att Azure Cosmos-kontot kan nås från offentlig trafik när det har skapats och innan en privat slut punkt läggs till. För att säkerställa att åtkomsten till det offentliga nätverket är inaktive rad även innan du skapar privata slut punkter, kan du ställa in `publicNetworkAccess` flaggan på `Disabled` när kontot skapas. Se [denna Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) för ett exempel som visar hur du använder den här flaggan.
+Som det beskrivs i föregående avsnitt, och om vissa brand Väggs regler har angetts, gör ett Azure Cosmos-konto tillgängligt via enbart privata slut punkter genom att lägga till en privat slut punkt. Det innebär att Azure Cosmos-kontot kan nås från offentlig trafik när det har skapats och innan en privat slut punkt läggs till. För att säkerställa att åtkomsten till det offentliga nätverket är inaktive rad även innan du skapar privata slut punkter, kan du ställa in `publicNetworkAccess` flaggan på `Disabled` när kontot skapas. Observera att den här flaggan prioriteras över alla IP-eller virtuella nätverks regler. all offentlig och virtuell nätverks trafik blockeras när flaggan är inställd på `Disabled` , även om käll-IP-adressen eller det virtuella nätverket tillåts i brand Väggs konfigurationen.
+
+Se [denna Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) för ett exempel som visar hur du använder den här flaggan.
+
+## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Lägga till privata slut punkter till ett befintligt Cosmos-konto utan drift avbrott
+
+Att lägga till en privat slut punkt till ett befintligt konto resulterar som standard i ett kort stillestånd på cirka 5 minuter. Följ anvisningarna nedan för att undvika den här stillestånds tiden:
+
+1. Lägg till IP-eller virtuella nätverks regler i brand Väggs konfigurationen för att uttryckligen tillåta klient anslutningar.
+1. Vänta i 10 minuter och se till att konfigurations uppdateringen tillämpas.
+1. Konfigurera din nya privata slut punkt.
+1. Ta bort brand Väggs reglerna som anges i steg 1.
 
 ## <a name="port-range-when-using-direct-mode"></a>Port intervall när Direct-läge används
 
@@ -635,7 +649,7 @@ När du använder en privat länk med ett Azure Cosmos-konto via en anslutning i
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Uppdatera en privat slut punkt när du lägger till eller tar bort en region
 
-Om du lägger till eller tar bort regioner i ett Azure Cosmos-konto måste du lägga till eller ta bort DNS-poster för det kontot. När regionerna har lagts till eller tagits bort kan du uppdatera under nätets privata DNS-zon så att den återspeglar de tillagda eller borttagna DNS-posterna och deras motsvarande privata IP-adresser.
+Om du inte använder en privat DNS-zon grupp måste du lägga till eller ta bort DNS-poster för det kontot för att lägga till eller ta bort regioner i ett Azure Cosmos-konto. När regionerna har lagts till eller tagits bort kan du uppdatera under nätets privata DNS-zon så att den återspeglar de tillagda eller borttagna DNS-posterna och deras motsvarande privata IP-adresser.
 
 Anta till exempel att du distribuerar ett Azure Cosmos-konto i tre regioner: "västra USA", "Central USA" och "Västeuropa". När du skapar en privat slut punkt för ditt konto reserveras fyra privata IP-adresser i under nätet. Det finns en IP-adress för var och en av de tre regionerna och det finns en IP-adress för global/region-oberoende-slutpunkten.
 
@@ -659,7 +673,7 @@ Följande begränsningar gäller när du använder en privat länk med ett Azure
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Begränsningar för integrering av privata DNS-zoner
 
-DNS-poster i den privata DNS-zonen tas inte bort automatiskt när du tar bort en privat slut punkt eller tar bort en region från Azure Cosmos-kontot. Du måste ta bort DNS-posterna manuellt innan:
+Om du inte använder en privat DNS-replikeringsgrupp tas DNS-poster i den privata DNS-zonen inte bort automatiskt när du tar bort en privat slut punkt eller tar bort en region från Azure Cosmos-kontot. Du måste ta bort DNS-posterna manuellt innan:
 
 * Lägger till en ny privat slutpunkt som är länkad till den här privata DNS-zonen.
 * Lägga till en ny region i alla databas konton som har privata slut punkter länkade till den här privata DNS-zonen.

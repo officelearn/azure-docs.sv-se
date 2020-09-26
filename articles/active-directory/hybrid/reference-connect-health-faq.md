@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299773"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (Azure AD) Connect Health. Vanliga frågor och svar om hur du använder tjänsten, inklusive fakturerings modellen, funktioner, begränsningar och support.
@@ -70,10 +70,10 @@ Azure AD Connect Health stöds inte i Tyskland-molnet, förutom [rapport funktio
 
 | Roller | Funktioner | Stöds i tyskt moln |
 | ------ | --------------- | --- |
-| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | Inga |
-|  | Fel rapport för synkronisering | Ja |
-| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | Inga |
-| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | Inga |
+| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | No |
+|  | Fel rapport för synkronisering | Yes |
+| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | No |
+| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | No |
 
 Konfigurera [installations kravet](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) enligt detta för att säkerställa att agent anslutningen för Connect Health för synkronisering är korrekt.
 
@@ -128,6 +128,10 @@ När du tar bort en agent från en server tas inte servern bort automatiskt frå
 Du kan skapa en ny avbildning av en server eller skapa en ny server med samma information (till exempel dator namn). Om du inte har tagit bort den redan registrerade servern från Azure AD Connect Health-portalen och du har installerat agenten på den nya servern kan du se två poster med samma namn.
 
 Ta i så fall bort posten som tillhör den äldre servern manuellt. Data för den här servern måste vara inaktuella.
+
+**F: kan jag installera Azure AD Connect hälso agenten på Windows Server Core?**
+
+Nej.  Det finns inte stöd för installation på Server Core.
 
 ## <a name="health-agent-registration-and-data-freshness"></a>Registrering och data aktualitet för hälso agenten
 
@@ -198,6 +202,7 @@ Använd PowerShell-cmdleten <i>Get-ADFSProperties-AuditLevel</i> för att säker
 
 **F: När blir agent certifikatet automatiskt förnyat innan det upphör att gälla?**
 Agent certifieringen kommer att förnyas automatiskt **6 månader** innan dess förfallo datum. Om den inte förnyas bör du kontrol lera att agentens nätverks anslutning är stabil. Du kan även lösa problemet genom att starta om Agent tjänsterna eller uppdatera till den senaste versionen.
+
 
 
 ## <a name="related-links"></a>Relaterade länkar

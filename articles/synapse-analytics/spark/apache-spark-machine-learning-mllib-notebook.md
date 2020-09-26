@@ -4,17 +4,17 @@ description: Lär dig hur du använder Apache Spark MLlib för att skapa en app 
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 2b641075a45db29c07b96c1934d4540f4c3292dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719350"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259993"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Bygg en Machine Learning-app med Apache Spark MLlib och Azure Synapse Analytics
 
@@ -96,7 +96,7 @@ Eftersom rå data är i ett Parquet-format kan du använda Spark-kontexten för 
     display(sampled_taxi_df)
     ```
 
-4. Beroende på storleken på data uppsättningens storlek och ditt behov av att experimentera eller köra antecknings boken kan det vara lämpligt att cachelagra data uppsättningen lokalt i arbets ytan. Det finns tre sätt att utföra explicit cachelagring:
+4. Beroende på storleken på den genererade data uppsättningen och du behöver experimentera eller köra den bärbara datorn kan det vara lämpligt att cachelagra data uppsättningen lokalt i arbets ytan. Det finns tre sätt att utföra explicit cachelagring:
 
    - Spara dataframe lokalt som en fil
    - Spara dataframe som en temporär tabell eller vy
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Skapa en logistik Regressions modell
 
-Den sista uppgiften är att konvertera etiketterade data till ett format som kan analyseras av Logistisk regression. Indata till en logistik Regressions algoritm måste vara en uppsättning med *etikett funktions vektor par*, där *funktions vektorn* är en Vector med tal som representerar ingångs punkten. Därför måste vi konvertera kategoriska-kolumnerna till siffror. `trafficTimeBins` `weekdayString` Kolumnerna och måste konverteras till heltals representationer. Det finns flera metoder för att utföra konverteringen, men metoden som tas i det här exemplet är *OneHotEncoding*, ett vanligt tillvägagångs sätt.
+Den sista uppgiften är att konvertera etiketterade data till ett format som kan analyseras av Logistisk regression. Indata till en logistik Regressions algoritm måste vara en uppsättning med *etikett funktions vektor par*, där *funktions vektorn* är en Vector med tal som representerar ingångs punkten. Därför måste vi konvertera kategoriska-kolumnerna till siffror. `trafficTimeBins` `weekdayString` Kolumnerna och behöver konverteras till heltals representationer. Det finns flera metoder för att utföra konverteringen, men metoden som tas i det här exemplet är *OneHotEncoding*, ett vanligt tillvägagångs sätt.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -206,7 +206,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-Detta resulterar i en ny dataframe med alla kolumner i rätt format för att träna en modell.
+Den här åtgärden resulterar i en ny dataframe med alla kolumner i rätt format för att träna en modell.
 
 ## <a name="train-a-logistic-regression-model"></a>Träna en logistik Regressions modell
 

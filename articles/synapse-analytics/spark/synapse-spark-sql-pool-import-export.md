@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259926"
 ---
 # <a name="introduction"></a>Introduktion
 
@@ -30,7 +30,7 @@ Azure Synapse Apache Spark-poolen till Synapse SQL Connector är en implementeri
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autentisering i Azure Synapse Analytics
 
-Autentisering mellan system sker sömlöst i Azure Synapse Analytics. Det finns en token-tjänst som ansluter med Azure Active Directory för att hämta säkerhetstoken som ska användas vid åtkomst till lagrings kontot eller data lager servern.
+Autentisering mellan system sker sömlöst i Azure Synapse Analytics. Token-tjänsten ansluter med Azure Active Directory för att få säkerhetstoken som ska användas vid åtkomst till lagrings kontot eller data lager servern.
 
 Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutnings-API: et så länge AAD-auth är konfigurerat på lagrings kontot och på data lager servern. Annars kan SQL-autentisering anges. Mer information finns i [användnings](#usage) avsnittet.
 
@@ -65,7 +65,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 ## <a name="usage"></a>Användning
 
-Import instruktionerna krävs inte, de är i förväg importerade för den bärbara datorn.
+Import instruktionerna är inte obligatoriska, de är redan importerade för den bärbara datorn.
 
 ### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Överföra data till eller från en SQL-pool som är kopplad till arbets ytan
 
@@ -91,14 +91,14 @@ Ovanstående API fungerar både för interna (hanterade) och externa tabeller i 
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-Skriv-API: et skapar tabellen i SQL-poolen och sedan anropar PolyBase för att läsa in data.  Tabellen får inte finnas i SQL-poolen eller så returneras ett fel som anger att det redan finns ett objekt med namnet.
+Skriv-API: et skapar tabellen i SQL-poolen och sedan anropar PolyBase för att läsa in data.  Tabellen får inte finnas i SQL-poolen eller så returneras ett fel som anger att det redan finns ett objekt med namnet...
 
 TableType-värden
 
 - Konstanter. intern hanterad tabell i SQL-pool
 - Konstanter. extern extern tabell i SQL-pool
 
-Hanterad tabell för SQL-pool
+SQL-pool-hanterad tabell
 
 ```scala
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Extern SQL-pool
 
-Om du vill skriva till en extern SQL-pool måste en extern DATA källa och ett externt fil FORMAT finnas i SQL-poolen.  Mer information finns i [skapa en extern data källa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [externa fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i SQL-poolen.  Nedan visas exempel på hur du skapar en extern data källa och externa fil format i SQL-poolen.
+Om du vill skriva till en extern SQL-pool måste en extern DATA källa och ett externt fil FORMAT finnas i SQL-poolen.  Mer information finns i [skapa en extern data källa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) och [externa fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i SQL-poolen.  Nedan visas exempel på hur du skapar en extern data källa och externa fil format i SQL-poolen.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

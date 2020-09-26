@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef04be1891eac35577a5f4cb18d5b83b8d0f301
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 6dba592417ca07d1858a7942b162b4dfa6a85680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274001"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägg till Google som en identitets leverantör för B2B-gäst användare
 
@@ -78,10 +78,10 @@ Börja med att skapa ett nytt projekt i Google Developer-konsolen för att hämt
 
 11. Under **program typ**väljer du **webb program** och ger programmet ett lämpligt namn, till exempel "Azure AD B2B", och anger följande URI: er under **behöriga omdirigerings-URI: er**:
     - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(där `<directory id>` är ditt katalog-ID)
+    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(där `<tenant id>` är ditt klient-ID)
    
     > [!NOTE]
-    > Om du vill hitta ditt katalog-ID går du till https://portal.azure.com och väljer **egenskaper** under **Azure Active Directory**och kopierar **katalog-ID: t**.
+    > Du hittar klient-ID: t genom att gå till https://portal.azure.com och under **Azure Active Directory**välja **Egenskaper** och kopiera **klient-ID: t**.
 
     ![Skärm bild som visar avsnittet behöriga omdirigerings-URI: er](media/google-federation/google-create-oauth-client-id.png)
 

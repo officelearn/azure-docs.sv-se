@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 697e0f7031e55cd924352fe1e1fdbd480f8e411b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4773c6e65a1b12ea95d76e28a5855e449a212d9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334471"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Händelse hantering i Azure Communication Services
 
@@ -36,9 +36,9 @@ Azure Communication Services avger följande händelse typer:
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft. Communication. SMSReceived                         | Publicerad när ett SMS tas emot av ett telefonnummer som är associerat med kommunikations tjänsten. |
 | Microsoft. Communication. SMSDeliveryReportReceived           | Publicerad när en leverans rapport tas emot för ett SMS som skickas av kommunikations tjänsten.     |
-| Microsoft. Communication. ChatMessageReceived                 | Publicerad när ett meddelande tas emot för en användare i en chatt-tråd som hon är medlem i.        |
-| Microsoft. Communication. ChatMessageEdited                   | Publicerad när ett meddelande redige ras i en chatt-tråd som användaren är medlem i.                |
-| Microsoft. Communication. ChatMessageDeleted                  | Publicerad när ett meddelande tas bort i en chatt-tråd som användaren är medlem i.               |
+| Microsoft. Communication. ChatMessageReceived *                | Publicerad när ett meddelande tas emot för en användare i en chatt-tråd som hon är medlem i.        |
+| Microsoft. Communication. ChatMessageEdited *                   | Publicerad när ett meddelande redige ras i en chatt-tråd som användaren är medlem i.                |
+| Microsoft. Communication. ChatMessageDeleted *                  | Publicerad när ett meddelande tas bort i en chatt-tråd som användaren är medlem i.               |
 | Microsoft. Communication. ChatThreadCreatedWithUser           | Publiceras när användaren läggs till som medlem vid tidpunkten för skapandet av en chatt-tråd.           |
 | Microsoft. Communication. ChatThreadWithUserDeleted           | Publicerad när en chatt-tråd tas bort som användaren är medlem i.                           |
 | Microsoft. Communication. ChatThreadPropertiesUpdatedPerUser  | Publiceras när en chatts tråds egenskaper uppdateras som användaren är medlem i.              |
@@ -46,6 +46,8 @@ Azure Communication Services avger följande händelse typer:
 | Microsoft. Communication. ChatMemberRemovedFromThreadWithUser | Publicerad när användaren tas bort från en chatt.                                         |
 
 Du kan använda Azure Portal eller Azure CLI för att prenumerera på händelser som skickas av kommunikations tjänst resursen. Kom igång med att hantera händelser genom att titta på [hur du hanterar SMS-händelser i kommunikations tjänster](../quickstarts/telephony-sms/handle-sms-events.md)
+
+* Se till att du anger "avsändar namn" i ditt "Skicka meddelande"-API-anrop för de här händelserna för att utlöses.
 
 ## <a name="event-subjects"></a>Händelse ämnen
 

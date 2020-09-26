@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358295"
 ---
-# <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestandan genom att komprimera filer i Azure CDN
+# <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filer i Azure CDN
 Fil komprimering är en enkel och effektiv metod för att förbättra fil överförings hastigheten och öka sid inläsnings prestandan genom att minska fil storleken innan den skickas från servern. Fil komprimering kan minska bandbredds kostnaderna och ge användarna ett mer svars upplevelser.
 
 Det finns två sätt att aktivera fil komprimering på:
@@ -53,12 +53,12 @@ Nivåerna standard och Premium CDN ger samma komprimerings funktioner, men anvä
     Sidan CDN-slutpunkt öppnas.
 2. Välj **komprimering**.
 
-    ![Val av CDN-komprimering](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![Skärm bild som visar en slut punkt med komprimering valt på menyn Portal.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     Sidan komprimering öppnas.
 3. Välj **på** för att aktivera komprimering.
 
-    ![Komprimerings alternativ för CDN-filen](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![Skärm bild som visar aktivering av komprimering.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Använd standard-MIME-typerna eller ändra listan genom att lägga till eller ta bort MIME-typer.
 
    > [!TIP]
@@ -149,7 +149,7 @@ I följande tabeller beskrivs Azure CDN komprimerings beteende för varje scenar
 | Okomprimerade |Inte cachelagrad |Okomprimerade | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Komprimering är aktiverat och filen är tillgänglig för komprimering
-| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svar på klienten | Obs! |
+| Klientens begärda format (via Accept-Encoding-huvud) | Cachelagrat fil format | CDN-svar på klienten | Kommentarer |
 | --- | --- | --- | --- |
 | Komprimerade |Komprimerade |Komprimerade |CDN-omkodningar mellan format som stöds. |
 | Komprimerade |Okomprimerade |Komprimerade |CDN utför en komprimering. |

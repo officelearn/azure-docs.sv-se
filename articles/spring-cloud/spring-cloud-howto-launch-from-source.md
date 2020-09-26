@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a95ec76c63a35c29b061c2fddff67a28e0f8f553
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ee64343a040f4ed3288f8c4addb64c1ef2437cc1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883659"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326192"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Så här startar du ditt våren Cloud-program från käll koden
 
@@ -101,13 +101,13 @@ Om du vill distribuera från en JAR-version som bygger på din lokala dator mås
 Distribuera fat-JAR till en aktiv distribution
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 Distribuera fat-JAR till en speciell distribution
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-built-jar>
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 ### <a name="deploy-from-source-code"></a>Distribuera från käll kod

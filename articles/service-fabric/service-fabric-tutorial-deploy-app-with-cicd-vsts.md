@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du ställer in konti
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 302ad1dcfaa93564d70fab739726787ef09c79df
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a26cfaca466e01b154c65b27895f3004f6320e5d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326345"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
@@ -65,11 +65,11 @@ Skapa en ny lokal git-lagrings platsen för projektet genom att välja **Lägg t
 
 I vyn för **Push-överföring ** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
 
-![Push-överföring med Git-lagringsplats][push-git-repo]
+![Skärm bild av fönstret team Explorer-synkronisering i Visual Studio. Knappen publicera till git-lagrings platsen är markerad under push to Azure DevOps.][push-git-repo]
 
 Verifiera din e-postadress och välj ditt konto i listrutan **Azure DevOps-domän**. Skriv in lagringsplatsens namn och välj **Publicera lagringsplats**.
 
-![Push-överföring med Git-lagringsplats][publish-code]
+![Skärm bild av inställningarna för att skicka till Azure-DevOps med knappen e-post, konto, lagrings namn och publicerings plats markerad.][publish-code]
 
 När du publicerar lagringsplatsen skapas ett nytt projekt i ditt konto med samma namn som den lokala lagringsplatsen. Om du vill skapa lagringsplatsen i ett befintligt projekt klickar du på **Avancerat** bredvid **namnet på databasen** och väljer ett projekt. Du kan visa koden på webben genom att välja alternativet för att **visa på webben**.
 
@@ -155,7 +155,7 @@ Om du vill kontrollera förloppet för bygget kan du byta till fliken **Builds**
 
 Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170815.3.
 
-![Service Fabric Explorer][sfx1]
+![Skärm bild av röstnings appen i Service Fabric Explorer som körs i ett webbläsarfönster. App-versionen "1.0.0.20170815.3" är markerad.][sfx1]
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 
@@ -163,11 +163,11 @@ Göra kodändringar i programmet.  Spara och genomföra ändringarna via de här
 
 När programuppgraderingen påbörjas kan du visa uppgraderingsförloppet i Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Skärm bild av röstnings appen i Service Fabric Explorer. Status meddelandet "uppgradera" och meddelandet "uppgradering pågår" är markerat.][sfx2]
 
 Programuppgraderingen kan ta flera minuter. När uppgraderingen har slutförts kör programmet nästa version.  I det här exemplet 1.0.0.20170815.4.
 
-![Service Fabric Explorer][sfx3]
+![Skärm bild av röstnings appen i Service Fabric Explorer som körs i ett webbläsarfönster. Den uppdaterade program versionen "1.0.0.20170815.4" är markerad.][sfx3]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,14 +1,14 @@
 ---
 title: Registrera en kund i Azure Lighthouse
 description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483804"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336555"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Registrera en kund i Azure Lighthouse
 
@@ -19,7 +19,7 @@ Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera e
 
 Du kan upprepa onboarding-processen för flera kunder. När en användare med rätt behörighet loggar in till din hanterings klient kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder, utan att behöva logga in på varje enskild kund klient.
 
-Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Du måste utföra den här associationen i din tjänst leverantörs klient. Vi rekommenderar att du skapar ett tjänst huvud konto i din klient som är associerat med ditt MPN-ID och sedan inkluderar tjänstens huvud namn varje gång du registrerar en kund. Mer information finns i [Länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser](partner-earned-credit.md).
+Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Du måste utföra den här associationen i din tjänst leverantörs klient. Vi rekommenderar att du skapar ett tjänst huvud konto i din klient som är associerat med ditt MPN-ID och sedan inkluderar tjänstens huvud namn varje gång du registrerar en kund. Mer information finns i [länka ditt partner-ID för att aktivera intjänad partner kredit på delegerade resurser.
 
 > [!NOTE]
 > Kunder kan också publiceras på Azure-Lighthouse när de köper ett hanterat tjänst erbjudande (offentligt eller privat) som du [publicerar på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med erbjudanden som publicerats på Azure Marketplace.
@@ -33,9 +33,6 @@ För att kunna publicera en kunds klient måste den ha en aktiv Azure-prenumerat
 - Klient-ID för tjänst leverantörens klient organisation (där du kommer att hantera kundens resurser)
 - Klient-ID för kundens klient organisation (som kommer att ha resurser som hanteras av tjänst leverantören)
 - Prenumerations-ID: na för varje specifik prenumeration i kundens klient organisation som ska hanteras av tjänst leverantören (eller som innehåller de resurs grupper som ska hanteras av tjänst leverantören).
-
-> [!NOTE]
-> Även om du bara vill publicera en eller flera resurs grupper i en prenumeration, måste du utföra distributionen på prenumerations nivå, så att du behöver prenumerations-ID: t.
 
 Om du inte redan har dessa ID-värden kan du hämta dem på något av följande sätt. Se till att du använder de här exakta värdena i distributionen.
 
@@ -128,6 +125,11 @@ För att publicera kunden måste du skapa en [Azure Resource Manager](../../azur
 
 Onboarding-processen kräver en Azure Resource Manager-mall (tillhandahålls i våra [exempel lagrings platsen](https://github.com/Azure/Azure-Lighthouse-samples/)) och en motsvarande parameter fil som du ändrar för att matcha konfigurationen och definiera dina auktoriseringar.
 
+> [!IMPORTANT]
+> Processen som beskrivs här kräver en separat distribution för varje prenumeration som registreras, även om du registrerar prenumerationer i samma kund klient organisation. Separata distributioner krävs också om du registrerar flera resurs grupper inom olika prenumerationer i samma kund klient organisation. Att registrera flera resurs grupper i en enda prenumeration kan dock göras i en distribution.
+>
+> Separata distributioner krävs också för att flera erbjudanden ska tillämpas på samma prenumeration (eller resurs grupper inom en prenumeration). Varje erbjudande som tillämpas måste använda en annan **mspOfferName**.
+
 Vilken mall du väljer beror på om du registrerar en hel prenumeration, en resurs grupp eller flera resurs grupper i en prenumeration. Vi tillhandahåller också en mall som kan användas för kunder som har köpt ett hanterat tjänst erbjudande som du har publicerat på Azure Marketplace, om du föredrar att publicera deras prenumerationer på det här sättet.
 
 |För att publicera detta  |Använd den här Azure Resource Manager mallen  |Och ändra den här parameter filen |
@@ -137,10 +139,8 @@ Vilken mall du väljer beror på om du registrerar en hel prenumeration, en resu
 |Flera resursgrupper i en prenumeration   |[multipleRgDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Prenumeration (när du använder ett erbjudande som publicerats på Azure Marketplace)   |[marketplaceDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> Processen som beskrivs här kräver en separat distribution för varje prenumeration som registreras, även om du registrerar prenumerationer i samma kund klient organisation. Separata distributioner krävs också om du registrerar flera resurs grupper inom olika prenumerationer i samma kund klient organisation. Att registrera flera resurs grupper i en enda prenumeration kan dock göras i en distribution.
->
-> Separata distributioner krävs också för att flera erbjudanden ska tillämpas på samma prenumeration (eller resurs grupper inom en prenumeration). Varje erbjudande som tillämpas måste använda en annan **mspOfferName**.
+> [!TIP]
+> Även om du inte kan publicera en hel hanterings grupp i en distribution kan du [distribuera en princip på hanterings grupps nivå](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). Principen kontrollerar om varje prenumeration i hanterings gruppen har delegerats till den angivna hanterings klienten, och om den inte skapas skapas tilldelningen utifrån de värden du anger.
 
 I följande exempel visas en ändrad **delegatedResourceManagement.parameters.jspå** en fil som kan användas för att publicera en prenumeration. Resurs gruppens parameter-filer (som finns i mappen [RG-delegerad-resurs hantering](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) ) liknar varandra, men innehåller även en **rgName** -parameter för att identifiera de enskilda resurs grupper som ska publiceras.
 

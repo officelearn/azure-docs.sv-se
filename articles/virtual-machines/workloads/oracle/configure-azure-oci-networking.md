@@ -2,7 +2,7 @@
 title: Anslut Azure ExpressRoute med Oracle Cloud Infrastructure | Microsoft Docs
 description: Anslut Azure-ExpressRoute med OCI-FastConnect (Oracle Cloud Infrastructure) för att aktivera Oracle-programlösningar mellan moln
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 95f1f7b42b88baaab6d89192f226ca67962544fb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f5f3f4edccc6d23b8041051028273559bcffecd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325937"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt anslutning mellan Azure och Oracle Cloud Infrastructure  
 
@@ -36,7 +36,7 @@ Följande bild visar en översikt över sammanlänkningen:
 
 ![Nätverks anslutning mellan moln](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du vill upprätta en anslutning mellan Azure och OCI måste du ha en aktiv Azure-prenumeration och ett aktivt OCI-innehav.
 

@@ -4,20 +4,20 @@ titleSuffix: Azure Kubernetes Service
 description: Lär dig att dynamiskt skapa en permanent volym med Azure-diskar i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/21/2020
+ms.openlocfilehash: fd2bc698a107599dccf8f142b0d318400b40aaf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299331"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en permanent volym med Azure-diskar i Azure Kubernetes service (AKS) dynamiskt
 
 En beständig volym representerar en lagrings enhet som har etablerats för användning med Kubernetes poddar. En permanent volym kan användas av en eller flera poddar och kan vara dynamiskt eller statiskt etablerad. Den här artikeln visar hur du dynamiskt skapar permanenta volymer med Azure disks för användning av en enda Pod i ett Azure Kubernetes service-kluster (AKS).
 
 > [!NOTE]
-> Det går bara att montera en Azure-disk med *åtkomst läges* typen *ReadWriteOnce*, vilket gör att den endast är tillgänglig för en enda Pod i AKS. Om du behöver dela en permanent volym över flera poddar, använder du [Azure Files][azure-files-pvc].
+> Det går bara att montera en Azure-disk med *åtkomst läges* typen *ReadWriteOnce*, vilket gör den tillgänglig för en nod i AKS. Om du behöver dela en permanent volym över flera noder använder du [Azure Files][azure-files-pvc].
 
 Mer information om Kubernetes-volymer finns i [lagrings alternativ för program i AKS][concepts-storage].
 

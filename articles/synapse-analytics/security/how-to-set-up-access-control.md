@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260163"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställningen | Exempelvärde | Description |
+|Inställning | Exempelvärde | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -97,8 +97,8 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
 
 - Öppna Azure-portalen
 - Navigera till WS1
-- Under **Inställningar**klickar du på **SQL Active Directory admin**
-- Klicka på **Ange administratör** och välj WS1 \_ SQLAdmins
+- Under **Inställningar**väljer du **SQL Active Directory admin**
+- Välj **Ange administratör** och välj WS1 \_ SQLAdmins
 
 ## <a name="step-6-maintain-access-control"></a>STEG 6: Behåll åtkomst kontroll
 
@@ -123,8 +123,9 @@ Användare i varje roll behöver utföra följande steg:
 
 > [!NOTE]
 > [1] om du vill skapa SQL-eller Spark-pooler måste användaren ha minst deltagar rollen i Synapse-arbetsytan.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Vissa steg kan inte avsiktligt tillåtas beroende på rollen.
 > - Tänk på att vissa uppgifter kan Miss lyckas om inte säkerheten har kon figurer ATS fullständigt. Dessa uppgifter anges i tabellen.
 
@@ -140,7 +141,7 @@ Din arbets yta är nu helt konfigurerad och säker.
 
 Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan vara dolda eller inaktiverade om en användare inte har tilldelats roller som ger lämplig åtkomst. I följande tabell sammanfattas effekterna på Synapse Studio.
 
-| Aktivitet | Arbets ytans administratörer | Spark-administratörer | SQL-administratörer |
+| Uppgift | Arbets ytans administratörer | Spark-administratörer | SQL-administratörer |
 | --- | --- | --- | --- |
 | Öppna Synapse Studio | JA | JA | JA |
 | Visa Home Hub | JA | JA | JA |

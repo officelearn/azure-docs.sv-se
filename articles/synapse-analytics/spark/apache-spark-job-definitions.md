@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 787e9efa8ef11a83b63719cad51f9b26e055620d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562351"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260282"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Självstudie: skapa Apache Spark jobb definition i Synapse Studio
 
@@ -47,11 +47,11 @@ I det här avsnittet skapar du en Apache Spark jobb definition för PySpark (pyt
 
      ![Exempelfiler](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Klicka **Data**på   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **WORDCOUNT.py**   och **shakespeare.txt** i ADLS Gen2 fil systemet. 
+3. Välj **Data**   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **WORDCOUNT.py**   och **shakespeare.txt** i ADLS Gen2 fil systemet. 
 
      ![överför python-fil](./media/apache-spark-job-definitions/upload-python-file.png)
 
-4. Klicka på **utveckla** hubb, klicka på ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. 
+4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. 
 
      ![Skapa ny definition för python](./media/apache-spark-job-definitions/create-new-definition.png)
 
@@ -75,7 +75,7 @@ I det här avsnittet skapar du en Apache Spark jobb definition för PySpark (pyt
 
      ![Ange värdet för Spark-jobbets definition för python](./media/apache-spark-job-definitions/create-py-definition.png)
 
-7. Klicka på **publicera** för att spara Apache Spark jobb definitionen.
+7. Välj **publicera** för att spara Apache Spark jobb definitionen.
 
      ![publicera py-definition](./media/apache-spark-job-definitions/publish-py-definition.png)
 
@@ -89,11 +89,11 @@ I det här avsnittet skapar du en Apache Spark jobb definition för Apache Spark
  
      ![Scala för exempel filer](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Klicka på **data**   ->  **länkade**   ->  **Azure Data Lake Storage Gen2**och ladda upp **WORDCOUNT. jar**   och **shakespeare.txt** i ADLS Gen2 fil systemet.
+ 3. Välj **Data**   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **WORDCOUNT. jar**   och **shakespeare.txt** i ADLS Gen2 fil systemet.
  
      ![Förbered Scala-struktur](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Klicka på **utveckla** hubb, klicka på ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
+ 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
 
  5. Välj **Spark (Scala)** i list rutan språk i den Apache Spark jobb definitionens huvud fönster.
 
@@ -116,7 +116,7 @@ I det här avsnittet skapar du en Apache Spark jobb definition för Apache Spark
 
      ![Ange värdet för Spark-jobbets definition för Scala](./media/apache-spark-job-definitions/create-scala-definition.png)
 
- 7. Klicka på **publicera** för att spara Apache Spark jobb definitionen.
+ 7. Välj **publicera** för att spara Apache Spark jobb definitionen.
 
       ![publicera Scala-definition](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
@@ -129,11 +129,11 @@ I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (
 
      ![exempel på dotNet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Klicka **Data**på   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **wordcount.zip**   och **shakespeare.txt** i ADLS Gen2 fil systemet.
+ 3. Välj **Data**   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **wordcount.zip**   och **shakespeare.txt** i ADLS Gen2 fil systemet.
  
      ![Förbered dotNet-struktur](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Klicka på **utveckla** hubb, klicka på ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
+ 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
 
  5. Välj **.net Spark (C#/f #)** från List rutan språk i fönstret för Apache Spark jobb definitions huvud.
 
@@ -156,7 +156,7 @@ I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (
 
      ![Ange värdet för Spark-jobbets definition för dotNET](./media/apache-spark-job-definitions/create-dotnet-definition.png)
 
- 7. Klicka på **publicera** för att spara Apache Spark jobb definitionen.
+ 7. Välj **publicera** för att spara Apache Spark jobb definitionen.
 
       ![publicera dotNet-definition](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
@@ -165,29 +165,29 @@ I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (
 När du har skapat en Apache Spark jobb definition kan du skicka den till en Apache Spark-pool. Se till att du är **ägare till Storage BLOB-data** för det ADLS Gen2-filsystem som du vill arbeta med. Om du inte gör det måste du lägga till behörigheten manuellt.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>Scenario 1: skicka Apache Spark jobb definition
- 1. Öppna fönstret Apache Spark jobb definition genom att klicka på det.
+ 1. Öppna fönstret Apache Spark jobb definition genom att markera det.
 
       ![Öppna Spark jobb definition för att skicka in ](./media/apache-spark-job-definitions/open-spark-definition.png)
 
- 2. Klicka på knappen **Skicka** för att skicka projektet till den valda Apache Spark poolen. Du kan klicka på fliken **Spark Monitoring URL** om du vill se LogQuery för det Apache Spark programmet.
+ 2. Klicka på knappen **Skicka** för att skicka projektet till den valda Apache Spark poolen. Du kan välja **Spark Monitoring URL** -fliken för att se LogQuery i Apache Spark-programmet.
 
-    ![Klicka på knappen Skicka för att skicka Spark-jobbet definition](./media/apache-spark-job-definitions/submit-spark-definition.png)
+    ![Skicka Spark-jobb genom att klicka på Skicka knapp](./media/apache-spark-job-definitions/submit-spark-definition.png)
 
     ![Dialog rutan för Spark-sändning](./media/apache-spark-job-definitions/submit-definition-result.png)
 
 ### <a name="scenario-2-view-apache-spark-job-running-progress"></a>Scenario 2: Visa Apache Spark jobb som kör förlopp
 
- 1. Klicka på **övervaka**och välj alternativet **Apache Spark program** . Du kan hitta det skickade Apache Spark programmet.
+ 1. Välj **övervaka**och välj alternativet **Apache Spark program** . Du kan hitta det skickade Apache Spark programmet.
 
      ![Visa Spark-program](./media/apache-spark-job-definitions/view-spark-application.png)
 
- 2. Klicka sedan på ett Apache Spark program visas fönstret **SparkJobDefinition** Job. Du kan visa jobb körnings förloppet härifrån.
+ 2. Välj sedan ett Apache Spark program visas fönstret **SparkJobDefinition** Job. Du kan visa jobb körnings förloppet härifrån.
      
      ![Visa Spark Application LogQuery](./media/apache-spark-job-definitions/view-job-log-query.png)
 
 ### <a name="scenario-3-check-output-file"></a>Scenario 3: kontrol lera utdatafilen
 
- 1. Klicka på **data**  ->  **länkade**  ->  **Azure Data Lake Storage Gen2** (hozhaobdbj), öppna mappen **result** som du skapade tidigare. du kan gå till mappen result och kontrol lera om utdata har genererats.
+ 1. Välj **Data**  ->  **länkade**data  ->  **Azure Data Lake Storage Gen2** (hozhaobdbj), öppna mappen **result** som du skapade tidigare. du kan gå till mappen result och kontrol lera om utdata har genererats.
 
      ![Visa utdatafil](./media/apache-spark-job-definitions/view-output-file.png)
 
@@ -197,7 +197,7 @@ I det här avsnittet lägger du till en Apache Spark jobb definition i pipeline.
 
  1. Öppna en befintlig Apache Spark jobb definition.
 
- 2. Klicka på ikonen längst upp till höger i Apache Spark jobb definition, Välj **befintlig pipeline**eller **ny pipeline**. Mer information hittar du på pipeline-sidan.
+ 2. Välj ikonen längst upp till höger i Apache Spark jobb definition, Välj **befintlig pipeline**eller **ny pipeline**. Mer information hittar du på pipeline-sidan.
 
      ![Lägg till i pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
@@ -205,5 +205,5 @@ I det här avsnittet lägger du till en Apache Spark jobb definition i pipeline.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudien visar hur du använder Azure Synapse Studio för att skapa Apache Spark jobb definitioner och sedan skickar dem till en Apache Spark pool. Nu kan du använda Azure Synapse Studio för att skapa Power BI data uppsättningar och hantera Power BI data.
+Nu kan du använda Azure Synapse Studio för att skapa Power BI data uppsättningar och hantera Power BI data. Gå vidare till den [länkade en Power BI arbets yta till en artikel i Synapse-arbetsytan](../quickstart-power-bi.md) om du vill veta mer. 
 

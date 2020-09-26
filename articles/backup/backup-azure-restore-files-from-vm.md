@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292973"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -302,17 +302,17 @@ Skriptet kräver också python-och bash-komponenter för att kunna köra och ans
 Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det finns åtkomst till:
 
 - `download.microsoft.com`
-- URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Services valvet finns)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (För offentliga Azure-regioner)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (För Azure Kina-21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (För Azure amerikanska myndigheter)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (För Azure Germany)
+- URL: er för återställnings tjänsten (GEO-NAME refererar till den region där Recovery Services valvet finns)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (För offentliga Azure-regioner)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (För Azure Kina-21Vianet)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (För Azure amerikanska myndigheter)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (För Azure Germany)
 - Utgående portar 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
-> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. Exempel: det nedladdade skript namnet börjar med \' VMName \' \_ \' \' -namnet _ \' GUID \' , som *ContosoVM_wcus_12345678*
-> - URL: en skulle vara <https://pod01-rec2.wcus.backup.windowsazure.com> "
+> Skript filen som du laddade ned i steg 5 [ovan](#mount-the-volume-and-copy-files) kommer att ha **geo-namnet** i namnet på filen. Använd detta **geo-namn** för att fylla i URL: en. Det nedladdade skript namnet kommer att börja med: \' VMName- \' \_ \' attributnamnet \' _ \' GUID \' .<br><br>
+> Om exempelvis skriptets fil namn är *ContosoVM_wcus_12345678*, är **geo-namnet** *wcus* och URL: en skulle vara:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 För Linux kräver skriptet "Open-iSCSI"-och ' lshw '-komponenter för att ansluta till återställnings punkten. Om komponenterna inte finns på den dator där skriptet körs, ställer skriptet efter behörighet att installera komponenterna. Ange medgivande för att installera de nödvändiga komponenterna.

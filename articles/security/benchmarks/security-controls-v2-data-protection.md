@@ -4,17 +4,17 @@ description: Azure Security benchmark v2 data skydd
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e377c6669b1db96f549958173aded4f29bae6713
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059381"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314325"
 ---
-# <a name="security-control-data-protection"></a>Säkerhets kontroll: data skydd
+# <a name="security-control-v2-data-protection"></a>Säkerhets kontroll v2: data skydd
 
 Data skydd täcker kontroll av data skydd i vila, under överföring och via auktoriserade åtkomst metoder. Detta omfattar identifiering, klassificering, skydd och övervakning av känsliga data till gångar med hjälp av åtkomst kontroll, kryptering och loggning i Azure.
 
@@ -22,7 +22,7 @@ Data skydd täcker kontroll av data skydd i vila, under överföring och via auk
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| DP-1 | 14,5, 14,7 | SI-4, SC-28 |
+| DP-1 | 13,1, 14,5, 14,7 | SC-28 |
 
 Identifiera, klassificera och märk känsliga data så att du kan utforma lämpliga kontroller för att se till att känslig information lagras, bearbetas och överförs säkert av organisationens teknik system. 
 
@@ -36,7 +36,7 @@ Du kan använda Azure SQL-Information Protection för att hjälpa till med klass
 
 **Ansvars område**: delat
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -62,7 +62,7 @@ För den underliggande plattformen, som hanteras av Microsoft, behandlar Microso
 
 **Ansvars område**: delat
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -90,9 +90,9 @@ Om det krävs för att förhindra data förlust skydd (DLP) kan du använda en v
 
 **Ansvars område**: delat
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Säkerhetsåtgärdscenter](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Säkerhetsåtgärder](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [Program säkerhet och DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -118,7 +118,7 @@ Som standard tillhandahåller Azure kryptering för data i överföring mellan A
 
 **Ansvars område**: delat
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -148,7 +148,7 @@ Azure tillhandahåller kryptering för data i vila som standard. För mycket kä
 
 **Ansvars område**: delat
 
-**Kund säkerhets intressenter**:
+**Kund säkerhets intressenter** ([Läs mer](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Säkerhetsarkitektur](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

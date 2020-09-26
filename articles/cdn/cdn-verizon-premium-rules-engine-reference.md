@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83872506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362588"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN från Verizon Premium-regel motor referens
 
@@ -28,7 +28,7 @@ Regel motorn är utformad för att vara den slutliga behörigheten för hur viss
 - Lagra anpassade logg data.
 ## <a name="key-concepts"></a>Viktiga begrepp
 Viktiga begrepp för att ställa in regel motor beskrivs nedan.
-### <a name="draft"></a>Utkast
+### <a name="draft"></a>Draft
 Ett utkast till en princip består av en eller flera regler som är avsedda att identifiera begär Anden och den uppsättning åtgärder som ska tillämpas på dem. Ett utkast är ett pågående arbete som tillåter frekventa konfigurations uppdateringar utan att påverka plats trafiken. När ett utkast är klart att slutföras, ska det konverteras till en skrivskyddad princip.
 
 ### <a name="rule"></a>Regel
@@ -41,9 +41,9 @@ Det består av:
 - En uppsättning funktioner som definierar hur CDN ska hantera ovanstående begär Anden.
 Dessa element identifieras i följande bild.
 
-![Arbets flöde för princip distribution](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![Skärm bild med etiketter visar villkors uttrycket, matchningen och funktionerna i en regel.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
-### <a name="policy"></a>Princip
+### <a name="policy"></a>Policy
 En princip som består av en uppsättning skrivskyddade regler innebär att:
 
 - Skapa, lagra och hantera flera varianter av reglerna.
@@ -67,7 +67,7 @@ Det arbets flöde genom vilket en princip kan tillämpas på antingen produktion
 
 ![Arbets flöde för princip distribution](./media/cdn-verizon-premium-rules-engine-reference/policy-deployment-workflow.png)
 
-|Steg |Beskrivning |
+|Steg |Description |
 |---------|---------|
 |[Skapa utkast](https://docs.vdms.com/cdn/index.html#HRE/AdministeringDraftsandRules.htm#Create)    |    Ett utkast består av en uppsättning regler som definierar hur begär Anden för ditt innehåll ska hanteras av CDN.     |
 |Lås utkast   |     När ett utkast har slutförts bör det låsas och konverteras till en skrivskyddad princip.    |
@@ -93,9 +93,9 @@ En procent symbol används för att indikera URL-kodning (till exempel `%20` ).
 
 Text som tolkas som ett jokertecken tilldelar ytterligare en mening till specialtecken. I följande tabell beskrivs hur följande tecken uppsättning tolkas:
 
-Tecken | Beskrivning
+Tecken | Description
 ----------|------------
-\ | Ett omvänt snedstreck används för att undanta de tecken som anges i den här tabellen. Ett omvänt snedstreck måste anges direkt före det specialtecken som ska undantas.<br/>Följande syntax kan till exempel undanta en asterisk:`\*`
+\ | Ett omvänt snedstreck används för att undanta de tecken som anges i den här tabellen. Ett omvänt snedstreck måste anges direkt före det specialtecken som ska undantas.<br/>Följande syntax kan till exempel undanta en asterisk: `\*`
 % | En procent symbol används för att indikera URL-kodning (till exempel `%20` ).
 \* | En asterisk är ett jokertecken som representerar ett eller flera tecken.
 Space | Ett blank steg anger att ett matchnings villkor kan uppfyllas av något av de angivna värdena eller mönstren.
@@ -105,9 +105,9 @@ värde | Ett enkelt citat har ingen särskild betydelse. En uppsättning enkla c
 
 Reguljära uttryck definierar ett mönster som genomsöks i ett text värde. Reguljär uttrycks notation definierar olika betydelser för olika symboler. I följande tabell visas hur specialtecken behandlas av matchnings villkor och funktioner som stöder reguljära uttryck.
 
-Specialtecken | Beskrivning
+Specialtecken | Description
 ------------------|------------
-\ | Ett omvänt snedstreck utvärderar det tecken som följer, vilket gör att tecken behandlas som ett litteralt värde i stället för dess reguljära uttryck. Följande syntax kan till exempel undanta en asterisk:`\*`
+\ | Ett omvänt snedstreck utvärderar det tecken som följer, vilket gör att tecken behandlas som ett litteralt värde i stället för dess reguljära uttryck. Följande syntax kan till exempel undanta en asterisk: `\*`
 % | Innebörden av en procent symbol beror på dess användning.<br/><br/> `%{HTTPVariable}`: Den här syntaxen identifierar en HTTP-variabel.<br/>`%{HTTPVariable%Pattern}`: Den här syntaxen använder en procent symbol för att identifiera en HTTP-variabel och som avgränsare.<br />`\%`: Med en procents symbol kan det användas som ett litteralt värde eller för att indikera URL-kodning (till exempel `\%20` ).
 \* | En asterisk tillåter att föregående tecken matchas noll eller flera gånger.
 Space | Ett blank stegs tecken behandlas vanligt vis som ett tecken.
@@ -119,7 +119,7 @@ Matcha villkor och funktioner som stöder reguljära uttryck accepterar mönster
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Regelmotor – matchningsvillkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regel motor matchnings villkor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Regelmotor – villkorliga uttryck](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Regelmotor – funktioner](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Åsidosätt HTTP-beteende med regel motorn](cdn-verizon-premium-rules-engine.md)

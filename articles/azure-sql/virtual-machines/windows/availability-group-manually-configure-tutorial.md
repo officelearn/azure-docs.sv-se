@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360930"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Självstudie: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt
 
@@ -33,7 +33,7 @@ Diagrammet visar vad du skapar i självstudien.
 
 ![Tillgänglighetsgrupp](./media/availability-group-manually-configure-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Självstudien förutsätter att du har en grundläggande förståelse för SQL Server Always on-tillgänglighetsgrupper. Om du behöver mer information, se [Översikt över Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -41,13 +41,13 @@ I följande tabell visas de krav som du måste utföra innan du påbörjar den h
 
 | Krav |Beskrivning |
 |----- |----- |----- |
-|![Kvadratiska ](./media/availability-group-manually-configure-tutorial/square.png) **två SQL Server instanser**    | – I en Azures tillgänglighets uppsättning <br/> -I en enda domän <br/> – När funktionen kluster för växling vid fel har installerats |
-|![Kvadratisk ](./media/availability-group-manually-configure-tutorial/square.png) **Windows Server**    | Fil resurs för kluster vittne |  
-|![Kvadratiskt ](./media/availability-group-manually-configure-tutorial/square.png) **SQL Server tjänst konto**    | Domänkonto |
-|![Kvadratiskt ](./media/availability-group-manually-configure-tutorial/square.png) **SQL Server Agent tjänst konto**    | Domänkonto |  
-|![Öppna fyrkantiga ](./media/availability-group-manually-configure-tutorial/square.png) **brand Väggs portar**    | -SQL Server: **1433** för standard instans <br/> -Slut punkt för databas spegling: **5022** eller valfri tillgänglig port <br/> -Tillgänglighets grupp belastnings utjämning IP-adress hälso avsökning: **59999** eller valfri tillgänglig port <br/> -Kluster kärn belastnings utjämning IP-adress hälso avsökning: **58888** eller valfri tillgänglig port |
-|![Kvadratiskt ](./media/availability-group-manually-configure-tutorial/square.png) **Lägg till kluster funktion för växling vid fel**    | Båda SQL Server instanser kräver den här funktionen |
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Domän konto** för kvadratisk installation    | – Lokal administratör på varje SQL Server <br/> – Medlem i den fasta Server rollen SQL Server Sysadmin för varje instans av SQL Server  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Två SQL Server instanser** | – I en Azures tillgänglighets uppsättning <br/> -I en enda domän <br/> – När funktionen kluster för växling vid fel har installerats |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | Fil resurs för kluster vittne |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server tjänst konto** | Domänkonto |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server Agent tjänst konto** | Domänkonto |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Brand Väggs portar öppna** | -SQL Server: **1433** för standard instans <br/> -Slut punkt för databas spegling: **5022** eller valfri tillgänglig port <br/> -Tillgänglighets grupp belastnings utjämning IP-adress hälso avsökning: **59999** eller valfri tillgänglig port <br/> -Kluster kärn belastnings utjämning IP-adress hälso avsökning: **58888** eller valfri tillgänglig port |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Lägg till funktionen kluster för växling vid fel** | Båda SQL Server instanser kräver den här funktionen |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Installations domän konto** | – Lokal administratör på varje SQL Server <br/> – Medlem i den fasta Server rollen SQL Server Sysadmin för varje instans av SQL Server  |
 
 
 Innan du påbörjar själv studie kursen måste du [slutföra förutsättningarna för att skapa Always on-tillgänglighetsgrupper i Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Om dessa krav redan har slutförts kan du gå till [skapa kluster](#CreateCluster).
@@ -109,7 +109,7 @@ Lägg till den andra SQL Server i klustret.
 
 1. I **guiden Lägg till nod**väljer du **Nästa**. På sidan **Välj servrar** lägger du till den andra SQL Server. Skriv in Server namnet i **Ange server namn** och välj sedan **Lägg till**. När du är färdig väljer du **Nästa**.
 
-1. På sidan **validerings varning** väljer du **Nej** (i ett produktions scenario ska du utföra verifierings testen). Välj sedan **Nästa**.
+1. På sidan **validerings varning** väljer du **Nej** (i ett produktions scenario ska du utföra verifierings testen). Välj **Nästa**.
 
 8. På sidan **bekräftelse** om du använder lagrings utrymmen avmarkerar du kryss rutan **Lägg till alla tillgängliga lagrings enheter i klustret.**
 
@@ -234,7 +234,7 @@ Repeat these steps on the second SQL Server.
 7. I **Object Explorer**högerklickar du på **databaser** och väljer **ny databas**.
 8. I **databas namn**skriver du **MyDB1**och väljer sedan **OK**.
 
-### <a name="create-a-backup-share"></a><a name="backupshare"></a>Skapa en säkerhets kopierings resurs
+### <a name="create-a-backup-share"></a><a name="backupshare"></a> Skapa en säkerhets kopierings resurs
 
 1. Välj **verktyg**på den första SQL Server i **Serverhanteraren**. Öppna **dator hantering**.
 
@@ -370,7 +370,7 @@ En belastningsutjämnare i Azure kan vara antingen en Standard Load Balancer ell
 1. Välj **Skapa**.
 1. Konfigurera följande parametrar för belastningsutjämnaren.
 
-   | Inställningen | Fält |
+   | Inställning | Fält |
    | --- | --- |
    | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |
@@ -414,7 +414,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
 
 1. Ange lyssnar hälso avsökningen enligt följande:
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
@@ -430,7 +430,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
 
 1. Ange reglerna för belastnings utjämning för lyssnare enligt följande.
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
    | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
@@ -438,7 +438,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
    | **Port** | Använd porten för tillgänglighets gruppens lyssnare | 1433 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 1433 |
    | **Avsökning** |Det namn som du har angett för avsökningen | SQLAlwaysOnEndPointProbe |
-   | **Beständig session** | Nedrullningsbar listruta | **Inga** |
+   | **Beständig session** | Nedrullningsbar listruta | **Ingen** |
    | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 
@@ -458,7 +458,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. Ange hälso avsökningen för WSFC-klustrets kärn IP-adress enligt följande:
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
@@ -472,7 +472,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. Ange belastnings Utjämnings reglerna för klustrets kärn IP-adress enligt följande.
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
    | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
@@ -480,7 +480,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
    | **Port** | Använd porten för klustrets IP-adress. Det här är en tillgänglig port som inte används för avsöknings porten för lyssnaren. | 58888 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 58888 |
    | **Avsökning** |Det namn som du har angett för avsökningen | WSFCEndPointProbe |
-   | **Beständig session** | Nedrullningsbar listruta | **Inga** |
+   | **Beständig session** | Nedrullningsbar listruta | **Ingen** |
    | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 
@@ -490,7 +490,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. Välj **OK** för att ange belastnings Utjämnings regler.
 
-## <a name="configure-the-listener"></a><a name="configure-listener"></a>Konfigurera lyssnaren
+## <a name="configure-the-listener"></a><a name="configure-listener"></a> Konfigurera lyssnaren
 
 Nästa sak är att konfigurera en lyssnare för tillgänglighets grupp i redundansklustret.
 

@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331207"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planera en Azure Active Directory rapportering och övervakning av distribution
 
@@ -91,7 +91,7 @@ Din aktuella infrastruktur och dina befintliga principer kommer att driva din de
 
 ## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Planera en distribution av Azure AD-rapportering och övervakning
 
-Rapportering och övervakning används för att uppfylla dina affärs behov, få insikter om användnings mönster och t öka dina organisationers säkerhets position.
+Rapportering och övervakning används för att uppfylla dina affärs behov, få insikter om användnings mönster och öka din organisations säkerhets position.
 
 ### <a name="business-use-cases"></a>Användnings fall för företag
 
@@ -102,7 +102,7 @@ Rapportering och övervakning används för att uppfylla dina affärs behov, få
 |Område |Beskrivning |
 |-|-|
 |Kvarhållning| **Logg kvarhållning på mer än 30 dagar**. På grund av juridiska krav eller affärs krav krävs det att lagra gransknings loggar och logga in loggar för Azure AD längre än 30 dagar. |
-|Analys| **Loggarna måste vara**sökbara. De lagrade loggarna måste vara sökbara med analys verktyg. |
+|Analytics| **Loggarna måste vara**sökbara. De lagrade loggarna måste vara sökbara med analys verktyg. |
 | Operational Insights| **Insikter för olika team**. Behovet av att ge åtkomst till olika användare för att få Operational Insights, till exempel program användning, inloggnings fel, självbetjänings användning, trender osv. |
 | Säkerhets insikter| **Insikter för olika team**. Behovet av att ge åtkomst till olika användare för att få Operational Insights, till exempel program användning, inloggnings fel, självbetjänings användning, trender osv. |
 | Integrering i SIEM-system      | **Siem-integrering**. Behovet av att integrera och strömma Azure AD-inloggnings loggar och gransknings loggar till befintliga SIEM-system. |

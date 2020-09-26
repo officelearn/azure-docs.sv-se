@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360879"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen
 
@@ -31,7 +31,7 @@ När du [växlar över](site-recovery-failover.md) virtuella Azure-datorer från
 
 1. I **valv**  >  **replikerade objekt**högerklickar du på den misslyckade virtuella datorn och väljer **sedan skydda igen**. Skydds riktningen bör visas från sekundär till primär.
 
-   ![Skydda](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Skärm bild som visar en virtuell dator med en snabb meny med ny skydd valt.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Granska resurs grupp, nätverk, lagring och tillgänglighets uppsättningar. Klicka sedan på **OK**. Om det finns några resurser som marker ATS som nya, skapas de som en del av återställnings processen.
 1. Återskydds jobbet dirigerar mål platsen med den senaste informationen. När jobbet har slutförts sker delta-replikering. Sedan kan du växla tillbaka till den primära platsen. Du kan välja det lagrings konto eller det nätverk som du vill använda vid återaktivering med hjälp av alternativet Anpassa.
@@ -44,7 +44,7 @@ Du kan anpassa följande egenskaper för den virtuella mål datorn under skyddet
 
 ![Anpassa](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Egenskap |Anteckningar  |
+|Egenskap |Kommentarer  |
 |---------|---------|
 |Mål resurs grupp | Ändra mål resurs gruppen som den virtuella datorn skapas i. Som en del av återskyddet tas den virtuella mål datorn bort. Du kan välja en ny resurs grupp under vilken du vill skapa den virtuella datorn efter redundansväxlingen. |
 |Virtuellt mål nätverk | Det går inte att ändra mål nätverket under återskydds jobbet. Om du vill ändra nätverket gör du om nätverks mappningen. |

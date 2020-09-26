@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313170"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudie: integrera en enda AD-skog med Password hash Sync (PHS)
 
@@ -184,7 +184,7 @@ Nu ska vi skapa en Azure AD-klientorganisation så att vi kan synkronisera våra
 2. Välj **plus-ikonen (+)** och sök efter **Azure Active Directory**.
 3. Välj **Azure Active Directory** i sökresultatet.
 4. Välj **Skapa**.</br>
-![Skapa](media/tutorial-password-hash-sync/create1.png)</br>
+![Skärm bild som visar hur du skapar en Azure AD-klient.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **Skapa**. Detta skapar din katalog.
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
@@ -192,10 +192,10 @@ Nu ska vi skapa en Azure AD-klientorganisation så att vi kan synkronisera våra
 Nu när vi har en Azure AD-klientorganisation ska vi skapa ett globalt administratörskonto.  Det här kontot används för att skapa ett Azure AD-anslutningsappkonto under Azure AD Connect-installationen.  Azure AD-anslutningsappkontot används för att skriva information till Azure AD.   Skapa kontot för den globala administratören genom att göra följande.
 
 1.  Under **Hantera** väljer du **Användare**.</br>
-![Skapa](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Skärm bild som visar det användar alternativ som marker ATS i avsnittet hantera där du skapar en global administratör i Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Välj **Alla användare** och sedan **+ Ny användare**.
 3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klientorganisationen. Du bör även ändra **katalogrollen** till **Global administratör.** Du kan dessutom visa det tillfälliga lösenordet. När du är klar väljer du **Skapa**.</br>
-![Skapa](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Skärm bild som visar knappen Skapa som du väljer när du skapar en global administratör i Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. När det här har slutförts öppnar du en ny webbläsare och loggar in på myapps.microsoft.com med hjälp av det nya globala administratörskontot och det tillfälliga lösenordet.
 5. Ändra lösenordet för den globala administratören till något som du kommer ihåg.
 
@@ -206,7 +206,7 @@ Nu är det dags att ladda ned och installera Azure AD Connect.  När det har ins
 2. Navigera till och dubbelklicka på **AzureADConnect.msi**.
 3. På välkomstskärmen markerar du kryssrutan för att acceptera licensvillkoren och klickar sedan på **Fortsätt**.  
 4. På skärmen Standardinställningar klickar du på **Använd standardinställningar**.</br>  
-![Skapa](media/tutorial-password-hash-sync/express1.png)</br>
+![Skärm bild som visar skärmen för Express inställningar och knappen Använd Express-inställningar.](media/tutorial-password-hash-sync/express1.png)</br>
 5. På sidan Anslut till Azure AD anger du användarnamnet och lösenordet för en global administratör för Azure AD. Klicka på **Nästa**.  
 6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Klicka på **Nästa**.  
 7. Klicka på **Installera** på skärmen Klart att konfigurera.
@@ -226,7 +226,7 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Gå till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
    ![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
 

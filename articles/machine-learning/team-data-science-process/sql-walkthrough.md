@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027485"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331904"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team data vetenskaps processen i praktiken: använda SQL Server
 I den här självstudien går vi igenom processen för att skapa och distribuera en maskin inlärnings modell med SQL Server och en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. I proceduren följer ett standard arbets flöde för data vetenskap: mata in och utforska data, ingenjörs funktioner för att under lätta inlärningen och sedan bygga och distribuera en modell.
@@ -83,14 +83,14 @@ I den här självstudien demonstrerar vi parallell Mass import av data till en S
 Så här konfigurerar du din Azure Data Science-miljö:
 
 1. [Skapa ett lagringskonto](../../storage/common/storage-account-create.md)
-2. [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md)
+2. [Skapa en Azure Machine Learning-arbetsyta](../classic/create-workspace.md)
 3. [Etablera en data science Virtual Machine](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)som tillhandahåller en SQL Server och en IPython Notebook-Server.
    
    > [!NOTE]
    > Exempel skripten och IPython antecknings böcker laddas ned till den virtuella datorn för data vetenskap under installationen. När skriptet för VM-installationen har slutförts kommer exemplen att finnas i den virtuella datorns dokument bibliotek:  
    > 
-   > * Exempel skript:`C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Exempel på IPython Notebooks:`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > * Exempel skript: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Exempel på IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   där `<user_name>` är den virtuella datorns Windows-inloggningsnamn. Vi kommer att referera till exempel-mapparna som **exempel skript** och **IPython Notebook-exempel**.
    > 
    > 
@@ -175,8 +175,8 @@ I det här avsnittet ska vi spara den slutliga frågan för att extrahera och sa
 
 En snabb kontroll av antalet rader och kolumner i tabellerna som är ifyllda tidigare med hjälp av parallell Mass import,
 
-- Rapport antal rader i tabell nyctaxi_trip utan tabells ökning:`SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
-- Rapport antal kolumner i tabell nyctaxi_trip:`SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
+- Rapport antal rader i tabell nyctaxi_trip utan tabells ökning: `SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
+- Rapport antal kolumner i tabell nyctaxi_trip: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Undersökning: rese distribution per Medallion
 I det här exemplet identifieras Medallion (taxi-nummer) med mer än 100 resor inom en viss tids period. Frågan skulle dra nytta av den partitionerade tabell åtkomsten eftersom den har ett villkor för det partition schema som användes vid **upphämtnings \_ datum**. Vid frågor till den fullständiga data uppsättningen används även den partitionerade tabellen och/eller index genomsökningen.
@@ -626,9 +626,9 @@ Vi är nu redo att gå vidare till modell utveckling och modell distribution i [
 3. Regressions uppgift: för att förutsäga hur mycket tips du betalar för en resa.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Skapa modeller i Azure Machine Learning
-Börja modelleringen genom att logga in på din Azure Machine Learning-arbetsyta. Om du ännu inte har skapat en Machine Learning-arbetsyta, se [skapa en Azure Machine Learning arbets yta](../studio/create-workspace.md).
+Börja modelleringen genom att logga in på din Azure Machine Learning-arbetsyta. Om du ännu inte har skapat en Machine Learning-arbetsyta, se [skapa en Azure Machine Learning arbets yta](../classic/create-workspace.md).
 
-1. För att komma igång med Azure Machine Learning, se [Vad är Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. För att komma igång med Azure Machine Learning, se [Vad är Azure Machine Learning Studio?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Logga in på [Azure Machine Learning Studio](https://studio.azureml.net).
 3. På Start sidan för Studio får du en mängd information, videor, självstudier, länkar till modulerna referens och andra resurser. Mer information om Azure Machine Learning finns i [Azure Machine Learning dokumentations Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -651,7 +651,7 @@ I den här övningen har vi redan utforskat och bearbetat data i SQL Server, och
    
     ![Azure Machine Learning importera data][17]
 2. Välj **Azure SQL Database** som **data källa** i panelen **Egenskaper** .
-3. Ange databasens DNS-namn i fältet **databas server namn** . Formatering`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Ange databasens DNS-namn i fältet **databas server namn** . Formatering `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Ange **databas namnet** i motsvarande fält.
 5. Ange **SQL-användarnamnet** i **serverns användar konto namn**och **lösen** ordet i **serverns användar konto lösen ord**.
 7. I redigerings text områden för **databas fråga** klistrar du in frågan som extraherar de nödvändiga databas fälten (inklusive alla beräknade fält som etiketterna) och nedåt exempel data till önskad exempel storlek.
@@ -668,7 +668,7 @@ Ett exempel på ett binära klassificerings experiment som läser data direkt fr
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Distribuera modeller i Azure Machine Learning
-När modellen är klar kan du enkelt distribuera den som en webb tjänst direkt från experimentet. Mer information om hur du distribuerar Azure Machine Learning-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
+När modellen är klar kan du enkelt distribuera den som en webb tjänst direkt från experimentet. Mer information om hur du distribuerar Azure Machine Learning-webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](../classic/deploy-a-machine-learning-web-service.md).
 
 Om du vill distribuera en ny webb tjänst måste du:
 
@@ -697,9 +697,9 @@ I den här själv studie kursen har du skapat en Azure Data Science-miljö som a
 Den här exempel genom gången och dess tillhör ande skript och IPython-anteckningsböcker delas av Microsoft under MIT-licensen. Se LICENSE.txt-filen i katalogen i exempel koden på GitHub för mer information.
 
 ### <a name="references"></a>Referenser
-• [Andrés MONROY NYC taxi TRIPs Download Page](https://www.andresmh.com/nyctaxitrips/)  
-• [Folier av NYCs taxi uppgifter från Christer Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC taxi och limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Andrés MONROY NYC taxi TRIPs Download Page](https://www.andresmh.com/nyctaxitrips/)  
+•    [Folier av NYCs taxi uppgifter från Christer Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [NYC taxi och limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

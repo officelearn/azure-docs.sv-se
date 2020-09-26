@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 953648f5cf83d5ffd22683ba0ce02335a637f18a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 4312864d692d8f9027accfa2dff2b94df41d8bd3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327431"
 ---
 Använd den här snabb starten för att göra din första avbildnings sökning med hjälp av Bildsökning i Bing klient biblioteket, som är en omslutning för API: et och innehåller samma funktioner. Den här enkla JavaScript-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 

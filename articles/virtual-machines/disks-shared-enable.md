@@ -4,16 +4,16 @@ description: Konfigurera en Azure-hanterad disk med delade diskar så att du kan
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 447380c7aed7e765695ea5389f0b3f2973a16b0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328147"
 ---
 # <a name="enable-shared-disk"></a>Aktivera delad disk
 
@@ -147,7 +147,7 @@ Innan du använder följande mall ersätter du,,,,,, `[parameters('dataDiskName'
 När du har distribuerat en delad disk med `maxShares>1` kan du montera disken till en eller flera av dina virtuella datorer.
 
 > [!NOTE]
-> Om du distribuerar en Ultra disk måste du kontrol lera att den uppfyller de nödvändiga kraven. Mer information finns i avsnittet [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) eller [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) i artikeln Ultra disk.
+> Om du distribuerar en Ultra disk måste du kontrol lera att den uppfyller de nödvändiga kraven. Mer information finns i [använda Azure Ultra disks](disks-enable-ultra-ssd.md) .
 
 ```azurepowershell-interactive
 

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript, cog-serv-seo-aug-2020
+ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
 ms.author: diberry
-ms.openlocfilehash: b961bb0598a1f6e9cdc7b4df27af50e7af1d9d81
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: d3e4a95845f499e74c9e10fb5a6ff72c9f2f80a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327305"
 ---
 Använd Language Understanding (LUIS) klient biblioteken för Node.js för att:
 
@@ -26,7 +26,7 @@ Använd Language Understanding (LUIS) klient biblioteken för Node.js för att:
 
 [Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)  |   [Redigera](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) och [förutsäga](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) bibliotekets käll kod | [Redigera](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring) och [förutsäga](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) NPM | [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/sdk-3x/index.js)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js](https://nodejs.org)
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
@@ -188,7 +188,7 @@ Skapande metoder för entiteter ingår i [modell](https://docs.microsoft.com/jav
 
 Entitetens skapande kod skapar en enhet för maskin inlärning med underentiteter och funktioner som tillämpas på `Quantity` underentiteterna.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="En del skärm bild från portalen som visar att entiteten har skapats, en enhet för maskin inlärning med underentiteter och funktioner som används i underentiteterna kvantitet.":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="En del skärm bild från portalen som visar att entiteten har skapats, en enhet för maskin inlärning med underentiteter och funktioner som används i underentiteterna "kvantitet".":::
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 

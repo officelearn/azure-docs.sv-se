@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983486"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326592"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -28,7 +28,7 @@ I den här artikeln ska du använda [Azure Portal](https://portal.azure.com) fö
 Om du inte har en Azure-prenumeration kan du **skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** innan du börjar.
 Logga in på [Azure Portal](https://portal.azure.com) med det här kontot. 
 
-Resten av det här avsnittet beskriver hur du gör följande:
+Du måste också utföra följande objekt som en del av den nödvändiga installationen. Resten av det här avsnittet beskriver hur du gör följande:
 - Konfigurera en digital Azure-instans
 - Hämta klient hemlighet för app-registrering
 - Lägg till en digital delad
@@ -37,9 +37,9 @@ Resten av det här avsnittet beskriver hur du gör följande:
 
 Om du vill ansluta en Azure Digitals-instans till Logic Apps i den här artikeln måste du redan har konfigurerat **Azure Digital-instansen** . 
 
-Om du behöver konfigurera en ny instans nu är det enklaste sättet att köra ett skript exempel för automatisk distribution. Följ instruktionerna i [*How-to: Konfigurera en instans och autentisering (skript)*](how-to-set-up-instance-scripted.md) för att konfigurera en ny instans och nödvändig Azure AD-App-registrering. Anvisningarna innehåller också anvisningar för att kontrol lera att du har slutfört varje steg och att du är redo att gå vidare till att använda den nya instansen.
+Börja med att konfigurera en digital Azure-instans och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
 
-I den här självstudien behöver du följande värden från när du konfigurerar din instans. Om du behöver samla in värdena igen använder du länkarna nedan till motsvarande avsnitt i installations artikeln för att hitta dem i [Azure Portal](https://portal.azure.com).
+I den här självstudien behöver du flera värden från när du konfigurerar din instans. Om du behöver samla in värdena igen använder du länkarna nedan till motsvarande avsnitt i installations artikeln för att hitta dem i [Azure Portal](https://portal.azure.com).
 * Azure Digitals dubbla instans **_värd namn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * ID för Azure AD App Registration- **_program (klient)_** ([Sök i portalen](how-to-set-up-instance-portal.md#collect-important-values))
 * ID för Azure AD App Registration **_-katalogen (klient)_** ([Sök i portalen](how-to-set-up-instance-portal.md#collect-important-values))
@@ -160,13 +160,13 @@ Nu är du färdig med att konfigurera en anpassad anslutning som kan komma åt A
 
 Därefter skapar du en Logic-app som använder din nya anslutning för att automatisera Azure Digitals dubbla uppdateringar.
 
-Gå till sidan Logi Kap par [(förbrukning)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) i Azure Portal (du kan använda den här länken eller leta efter den i portalens Sök fält). Tryck på knappen *Lägg till* för att skapa en logisk app.
+I [Azure Portal](https://portal.azure.com)kan du söka efter logi Kap *par i* portalens Sök fält. Om du väljer det ska du gå till sidan *Logic Apps* . Tryck på knappen *skapa logisk app* för att skapa en ny Logic app.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Sidan Logic Apps (förbrukning) i Azure Portal. Tryck på knappen Lägg till":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Sidan Logic Apps i Azure Portal. Tryck på knappen Lägg till":::
 
-På sidan Logi Kap par *(förbrukning)* som följer anger du din prenumeration, resurs grupp. Välj också ett namn för din Logic app och välj plats.
+På sidan *Logic app* som följer anger du din prenumeration och resurs grupp. Välj också ett namn för din Logic app och välj distributions plats.
 
-Välj _Granska + skapa_ .
+Tryck på knappen _Granska + skapa_ .
 
 Då kommer du till fliken *Granska + skapa* där du kan granska informationen och trycka på *skapa* längst ned för att skapa din resurs.
 

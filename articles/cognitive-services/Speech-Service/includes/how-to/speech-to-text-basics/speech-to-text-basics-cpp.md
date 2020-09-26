@@ -4,14 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: ff171dfce0bcbb04ec017a8d5e3310cf3162e8e2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a44be1fd9d9dc5fdebd36f9044ae948b918c07c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327120"
 ---
-## <a name="prerequisites"></a>Krav
+En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
+
+## <a name="skip-to-samples-on-github"></a>Hoppa till exempel på GitHub
+
+Om du vill hoppa över direkt till exempel kod, se [snabb starts exemplen för C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows) på GitHub.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 

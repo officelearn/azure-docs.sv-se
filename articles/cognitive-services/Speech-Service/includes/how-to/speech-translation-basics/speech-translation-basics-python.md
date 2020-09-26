@@ -4,14 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: e83536042df1cebb1bb22d6c18d99ae4c3d87873
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: cb7bb9ef70451cece9dde88a7325fe652026b230
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326951"
 ---
-## <a name="prerequisites"></a>Krav
+En av de viktigaste funktionerna i tal tjänsten är möjligheten att identifiera mänskligt tal och översätta den till andra språk. I den här snabb starten lär du dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativ tal översättning. Den här snabb starten behandlar ämnen, inklusive:
+
+* Översättning av tal till text
+* Översätta tal till flera mål språk
+* Utföra direkt tal-till-tal-Översättning
+
+## <a name="skip-to-samples-on-github"></a>Hoppa till exempel på GitHub
+
+Om du vill hoppa över direkt till exempel kod, se [exempel på python-snabb starts exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python) på GitHub.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 

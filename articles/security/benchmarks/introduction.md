@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328266"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduktion till Azure Security benchmark
 
@@ -23,8 +23,8 @@ Microsoft har upptäckt att användning av *säkerhets mått för säkerhet* kan
 
 Azures säkerhets benchmark innehåller en samling med högkvalitativa säkerhets rekommendationer som du kan använda för att skydda de tjänster som du använder i Azure:
 
-- Säkerhets kontroller: de här rekommendationerna är allmänt tillgängliga i din Azure-klient och Azure-tjänster. Varje rekommendation identifierar en lista över intressenter som vanligt vis ingår i planering, godkännande eller implementering av benchmark. 
-- Tjänste bas linjer: dessa gäller för enskilda Azure-tjänster för att tillhandahålla rekommendationer för den tjänstens säkerhets konfiguration.
+- **Säkerhets kontroller**: de här rekommendationerna är allmänt tillgängliga i din Azure-klient och Azure-tjänster. Varje rekommendation identifierar en lista över intressenter som vanligt vis ingår i planering, godkännande eller implementering av benchmark. 
+- **Tjänste bas linjer**: dessa gäller för enskilda Azure-tjänster för att tillhandahålla rekommendationer för den tjänstens säkerhets konfiguration.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementera Azures säkerhets benchmark
 - **Planera** implementeringen av din Azure-säkerhet genom att granska [dokumentationen](overview.md) för företags kontrollerna och de tjänstspecifika bas linjerna för att planera kontroll ramverket och hur det mappas till vägledning som CIS (kontroll v 7.1) och NIST (SP800-53).
@@ -46,7 +46,7 @@ Azures säkerhets benchmark används ofta för att åtgärda de vanliga utmaning
 Termerna "kontroll", "benchmark" och "bas linje" används ofta i Azures säkerhets benchmark-dokumentation och det är viktigt att förstå hur Azure använder dessa villkor.
 
 
-| Period | Beskrivning | Exempel |
+| Term | Beskrivning | Exempel |
 |--|--|--|
 | Kontroll | En kontroll är en övergripande beskrivning av en funktion eller aktivitet som behöver åtgärdas och som inte är särskilt för en teknik eller implementering. | Data skydd är en av säkerhets kontrollerna. Den här kontrollen innehåller vissa åtgärder som måste åtgärdas för att säkerställa att data skyddas. |
 | Benchmark | Ett riktmärke innehåller säkerhets rekommendationer för en speciell teknik, till exempel Azure. Rekommendationerna kategoriseras med den kontroll som de tillhör. | Azures säkerhets benchmark omfattar de säkerhets rekommendationer som är aktuella för Azure-plattformen |

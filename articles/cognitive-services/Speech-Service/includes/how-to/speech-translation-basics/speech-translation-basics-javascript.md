@@ -4,14 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
 ms.author: v-demjoh
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6fe89e36685a2db0bf7b570ab6e7150bacf34857
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 9e1e81c70e21022364e52698f96213c01b452da4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326932"
 ---
+En av de viktigaste funktionerna i tal tjänsten är möjligheten att identifiera mänskligt tal och översätta den till andra språk. I den här snabb starten lär du dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativ tal översättning. Den här snabb starten behandlar ämnen, inklusive:
+
+* Översättning av tal till text
+* Översätta tal till flera mål språk
+* Utföra direkt tal-till-tal-Översättning
+
+## <a name="skip-to-samples-on-github"></a>Hoppa till exempel på GitHub
+
+Om du vill hoppa över direkt till exempel kod kan du läsa [snabb starts exemplen för Java Script](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node) på GitHub.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
@@ -19,9 +29,9 @@ Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
 Innan du kan göra något måste du installera <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK för Java Script <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Använd följande instruktioner, beroende på plattform:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js<span 
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Webbläsare<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Webbläsare <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Beroende på mål miljön använder du dessutom något av följande:
 

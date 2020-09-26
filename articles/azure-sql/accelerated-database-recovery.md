@@ -9,19 +9,28 @@ ms.devlang: ''
 ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327637"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Accelererad databas återställning i Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Accelererad databas återställning (ADR)** är en SQL Server databas motor funktion som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner genom SQL Server att omkonstruera återställnings processen för databas motorn. ADR är för närvarande tillgänglig för Azure SQL Database, Azure SQL-hanterad instans, SQL Server på Azure VM och databaser i Azure Synapse Analytics (för närvarande i för hands version). De främsta fördelarna med ADR är:
+**Accelererad databas återställning (ADR)** är en SQL Server databas motor funktion som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner genom SQL Server att omkonstruera återställnings processen för databas motorn. 
+
+ADR är för närvarande tillgängligt för Azure SQL Database, Azure SQL-hanterad instans, databaser i Azure Synapse Analytics (för närvarande i för hands version) och SQL Server på virtuella Azure-datorer som börjar med SQL Server 2019. 
+
+> [!NOTE] 
+> ADR är aktiverat som standard i Azure SQL Database och Azure SQL-hanterad instans och det finns inte stöd för att inaktivera ADR för någon produkt. 
+
+## <a name="overview"></a>Översikt
+
+De främsta fördelarna med ADR är:
 
 - **Snabb och konsekvent databas återställning**
 

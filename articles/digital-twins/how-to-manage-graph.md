@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326549"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
 Hjärtat i Azure Digitals flätas är det [dubbla diagrammet](concepts-twins-graph.md) som representerar hela miljön. Den dubbla grafen består av enskilda digitala dubbla anslutningar via **relationer**.
 
-När du har en fungerande [Azure Digital-instansen](how-to-set-up-instance-scripted.md) och har konfigurerat [autentiserings](how-to-authenticate-client.md) kod i din klient app, kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md) för att skapa, ändra och ta bort digitala dubbla och deras relationer i en digital Azure-instans. Du kan också använda [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md).
+När du har en fungerande [Azure Digital-instansen](how-to-set-up-instance-portal.md) och har konfigurerat [autentiserings](how-to-authenticate-client.md) kod i din klient app, kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md) för att skapa, ändra och ta bort digitala dubbla och deras relationer i en digital Azure-instans. Du kan också använda [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md).
 
 Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet. information om hur du arbetar med enskilda digitala dubbla, finns i [*så här gör du: hantera digitala dubbla*](how-to-manage-twin.md).
 
@@ -63,6 +63,14 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 ```
 
 Mer information om hjälp klassen `BasicRelationship` finns i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
+
+### <a name="create-multiple-relationships-between-twins"></a>Skapa flera relationer mellan dubbla
+
+Det finns ingen begränsning för antalet relationer som du kan ha mellan två dubbla, och du kan ha så många relationer som du vill. 
+
+Det innebär att du kan uttrycka flera olika typer av relationer mellan två dubblas samtidigt. Till exempel kan *dubbla a* ha både en *lagrad* *relation och en* relation med *dubbla B*.
+
+Du kan till och med skapa flera instanser av samma typ av relation mellan samma två dubbla, om du vill. I det här exemplet innebär det att *dubbla A* kan ha två distinkta *lagrade* relationer med *dubbla B*.
 
 ## <a name="list-relationships"></a>List relationer
 

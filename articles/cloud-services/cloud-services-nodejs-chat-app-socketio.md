@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f3c19e77739ac8dbc503e51408b9b7830a8b5aa5
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: devx-track-js
+ms.openlocfilehash: a3f661aa31511c5f1cf35d2e3c0429af6ab0c997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327535"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bygg ett Node.js chatt-program med Socket.IO på en moln tjänst i Azure
 
@@ -72,7 +72,7 @@ För det här projektet kommer vi att använda chatt-exemplet från [socket.io G
    ![Explorer, som visar innehållet i exemplen i \\ Chat-katalogen som extraherats från arkivet][chat-contents]
 
    De markerade objekten i skärm bilden ovan är filerna som kopieras från **exemplen i \\ Chat** -katalogen
-3. I katalogen **C: \\ Node \\ ChatApp \\ WorkerRole1** tar du bort **server.js** -filen och byter sedan namn på **app.js** filen till **server.js**. Detta tar bort standard **server.jss** filen som skapades tidigare av cmdleten **Add-AzureNodeWorkerRole** och ersätter den med program filen från Chat-exemplet.
+3. I katalogen **C: \\ Node \\ ChatApp \\ WorkerRole1** tar du bort **server.js** -filen och byter sedan namn på **app.js** filen till **server.js**. Detta tar bort standard **server.jss ** filen som skapades tidigare av cmdleten **Add-AzureNodeWorkerRole** och ersätter den med program filen från Chat-exemplet.
 
 ### <a name="modify-serverjs-and-install-modules"></a>Ändra Server.js och installera moduler
 Innan du testar programmet i Azure-emulatorn måste vi göra några mindre ändringar. Utför följande steg i server.js-filen:
@@ -139,7 +139,7 @@ När du har sparat ändringarna i **server.js**använder du följande steg för 
     PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
     ```
 
-5. Använd cmdleten **Publish-AzureServiceProject** om du vill distribuera programmet till Azure. Till exempel:
+5. Använd cmdleten **Publish-AzureServiceProject** om du vill distribuera programmet till Azure. Exempel:
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch

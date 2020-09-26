@@ -4,15 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fced9206bfd7d33ab4d9e911f92f12ec4b2aa99c
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.custom: devx-track-js
+ms.openlocfilehash: 5caa9fab2d61fec5519cb40e8b49fdf7e5a20d64
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327076"
 ---
-## <a name="prerequisites"></a>Krav
+En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
+
+## <a name="skip-to-samples-on-github"></a>Hoppa till exempel på GitHub
+
+Om du vill hoppa över direkt till exempel kod kan du läsa [snabb starts exemplen för Java Script](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node) på GitHub.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 

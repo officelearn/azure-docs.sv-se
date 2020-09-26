@@ -3,12 +3,12 @@ title: 'Självstudie: använda Azure Event Grid för att automatisera storleks �
 description: 'Självstudie: Azure Event Grid kan utlösa vid BLOB-uppladdningar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86105820"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326617"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid
 
@@ -20,11 +20,11 @@ Du kan använda Azure CLI och Azure-portalen till att lägga till funktionen fö
 
 # <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
-![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Skärm bild som visar en publicerad webbapp i en webbläsare för \. net V12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Skärm bild som visar en publicerad webbapp i en webbläsare för \. net v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -301,7 +301,7 @@ Klicka på regionen **Upload photos** (Ladda upp foton) för att välja och ladd
 
 Observera att när den överförda bilden försvinner visas en kopia av den uppladdade bilden i karusellen för **genererade miniatyrer** . Den här bildens storlek ändrades av funktionen. Därefter lades den till i containern med *miniatyrer* och laddades ned av webbklienten.
 
-![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Skärm bild som visar en publicerad webbapp med namnet "ImageResizer" i en webbläsare för \. net V12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 

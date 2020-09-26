@@ -2,15 +2,15 @@
 title: Aktivera Azure Automation Uppdateringshantering från en virtuell Azure-dator
 description: Den här artikeln beskriver hur du aktiverar Uppdateringshantering från en virtuell Azure-dator.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 27832190125840e367edbfb2db8e4134f98b192d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dead4649635bebd9f73f79937dea1d24565f273e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327820"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Aktivera Uppdateringshantering från en virtuell Azure-dator
 
@@ -35,13 +35,15 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj den virtuella dator som du vill aktivera Uppdateringshantering för. Virtuella datorer kan finnas i vilken region som helst, oavsett platsen för ditt Automation-konto. Du
 
-3. På sidan virtuell dator under **åtgärder**väljer du **uppdateringshantering**.
+3. Välj **gäst + värd uppdateringar**under **åtgärder**på sidan VM.
+
+    ![Välj gäst + värd uppdateringar från vänster fönster](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. Du måste ha `Microsoft.OperationalInsights/workspaces/read` behörighet för att avgöra om den virtuella datorn är aktive rad för en arbets yta. Mer information om ytterligare behörigheter som krävs finns i [behörigheter som krävs för att aktivera datorer](../automation-role-based-access-control.md#feature-setup-permissions). Information om hur du aktiverar flera datorer samtidigt finns i [aktivera uppdateringshantering från ett Automation-konto](update-mgmt-enable-automation-account.md).
 
-5. Välj Log Analytics arbets yta och Automation-konto och klicka på **Aktivera** för att aktivera uppdateringshantering. När du har aktiverat Uppdateringshantering kan det ta ungefär 15 minuter innan du kan visa uppdaterings utvärderingen från den virtuella datorn.
+5. På sidan Aktivera Uppdateringshantering väljer du Log Analytics arbets yta och Automation-konto och klickar på **Aktivera** för att aktivera uppdateringshantering. När du har aktiverat Uppdateringshantering kan det ta ungefär 15 minuter innan du kan visa uppdaterings utvärderingen från den virtuella datorn.
 
-    ![Aktivera uppdateringshantering](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Aktivera uppdateringshantering](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

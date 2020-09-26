@@ -4,16 +4,16 @@ description: Lär dig mer om prestanda nivåer för hanterade diskar, samt hur d
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3d6b243ab517f3663f779d01569acf3d46ad8411
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328130"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Prestanda nivåer för Managed disks (för hands version)
 
@@ -21,7 +21,9 @@ Azure-disklagring erbjuder för närvarande inbyggda funktioner för burst-över
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-När du först distribuerar eller etablerar en disk, anges bas linje prestanda nivån för den disken baserat på den allokerade disk storleken. Du kan välja en högre prestanda nivå för att möta högre efter frågan och när prestandan inte längre krävs kan du gå tillbaka till den första bas linje prestanda nivån. Om du till exempel etablerar en P10-disk (128 GiB), anges din bas linje prestanda nivå som P10 (500 IOPS och 100 MB/s). Du kan uppdatera nivån så att den matchar prestandan för P50 (7500 IOPS och 250 MB/s) utan att öka disk storleken och återgå till P10 när den högre prestandan inte längre behövs.
+När du först distribuerar eller etablerar en disk, anges bas linje prestanda nivån för den disken baserat på den allokerade disk storleken. Du kan välja en högre prestanda nivå för att möta högre efter frågan och när prestandan inte längre krävs kan du gå tillbaka till den första bas linje prestanda nivån.
+
+Dina fakturerings ändringar när nivån ändras. Om du till exempel etablerar en P10-disk (128 GiB), anges din bas linje prestanda nivå som P10 (500 IOPS och 100 MB/s) och du debiteras enligt P10-priset. Du kan uppdatera nivån så att den matchar prestandan för P50 (7500 IOPS och 250 MB/s) utan att öka disk storleken, då du debiteras enligt P50-priset. När den högre prestandan inte längre behövs kan du gå tillbaka till P10-nivån så kommer disken att faktureras igen enligt P10-priset.
 
 | Diskstorlek | Bas linje prestanda nivå | Kan uppgraderas till |
 |----------------|-----|-------------------------------------|
@@ -35,75 +37,68 @@ När du först distribuerar eller etablerar en disk, anges bas linje prestanda n
 | 512 GiB | P20 | P30, P40, P50 |
 | 1 TiB | P30 | P40, P50 |
 | 2 TiB | P40 | P50 |
-| 4 TiB | P50 | Ingen |
+| 4 TiB | P50 | Inget |
 | 8 TiB | p60 |  P70, P80 |
 | 16 TiB | P70 | P80 |
-| 32 TiB | P80 | Ingen |
+| 32 TiB | P80 | Inget |
+
+Information om fakturering finns i [priser för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="restrictions"></a>Begränsningar
 
 - Stöds för närvarande endast för Premium-SSD.
 - Diskarna måste vara frånkopplade från en virtuell dator som körs innan du ändrar nivåer.
 - Användningen av prestanda nivåerna P60, P70 och P80 är begränsad till diskar på 4096 GiB eller mer.
+- Prestanda nivån disks kan bara ändras en gång var 24: e timme.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
 Att justera prestanda nivån för en hanterad disk är för närvarande bara tillgänglig för Premium-SSD i följande regioner:
 
 - USA, västra centrala 
-- Östra 2 USA 
-- Västeuropa
-- Östra Australien 
-- Sydöstra Australien 
-- Indien, södra
 
-## <a name="createupdate-a-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Skapa/uppdatera en datadisk med en högre nivå än bas linje nivån
+## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Skapa en tom datadisk med en högre nivå än bas linje nivån
 
-1. Skapa en tom datadisk med en högre nivå än bas linje nivån eller uppdatera nivån på en disk som är högre än bas linje nivån med hjälp av exempel mal len [CreateUpdateDataDiskWithTier.jspå](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json)
+```azurecli
+subscriptionId=<yourSubscriptionIDHere>
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+diskSize=<yourDiskSizeHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
 
-     ```cli
-     subscriptionId=<yourSubscriptionIDHere>
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     diskSize=<yourDiskSizeHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az login
-    
-     az account set --subscription $subscriptionId
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
-     ```
+az login
 
-1. Bekräfta nivån på disken
+az account set --subscription $subscriptionId
 
-    ```cli
-    az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS --size-gb $diskSize --tier $performanceTier
+```
+## <a name="create-an-os-disk-with-a-tier-higher-than-the-baseline-tier-from-an-azure-marketplace-image"></a>Skapa en OS-disk med en högre nivå än bas linje nivån från en Azure Marketplace-avbildning
 
-## <a name="createupdate-an-os-disk-with-a-tier-higher-than-the-baseline-tier"></a>Skapa/uppdatera en OS-disk med en högre nivå än bas linje nivån
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
+image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
-1. Skapa en OS-disk från en Marketplace-avbildning eller uppdatera nivån på en operativ system disk som är högre än bas linje nivån med hjälp av exempel mal len [CreateUpdateOSDiskWithTier.jspå](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
+az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
+```
+     
+## <a name="update-the-tier-of-a-disk"></a>Uppdatera nivån på en disk
 
-     ```cli
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
-     ```
- 
- 1. Bekräfta nivån på disken
- 
-     ```cli
-     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+
+az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```
+## <a name="show-the-tier-of-a-disk"></a>Visa nivån för en disk
+
+```azurecli
+az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

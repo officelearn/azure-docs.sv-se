@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499440"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328113"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>För hands version: skapa en virtuell Windows-dator med Azure Image Builder med PowerShell
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du kan skapa en anpassad Windows-avbildning med hjä
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -271,7 +271,7 @@ I bakgrunden skapar Image Builder också en resurs grupp för mellanlagring i di
 
 Om tjänsten rapporterar ett problem under överföringen av avbildnings konfigurations mal len:
 
-- Se [fel sökning av fel i Azure VM Image build (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Se [fel sökning av fel i Azure VM Image build (AIB)](../linux/image-builder-troubleshoot.md).
 - Ta bort mallen med hjälp av följande exempel innan du försöker igen.
 
 ```azurepowershell-interactive
@@ -288,7 +288,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Vänta tills Bygg processen för avbildningen har slutförts. Det här steget kan ta upp till en timme.
 
-Om du stöter på fel kan du läsa [fel sökning av problem med Azure VM Image build (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Om du stöter på fel kan du läsa [fel sökning av problem med Azure VM Image build (AIB)](../linux/image-builder-troubleshoot.md).
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 

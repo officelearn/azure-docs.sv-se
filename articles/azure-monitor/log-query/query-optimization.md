@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327722"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -98,18 +98,34 @@ Följande frågor ger till exempel exakt samma resultat, men den andra är mer e
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+I vissa fall skapas den utvärderade kolumnen implicit av processen som bearbetar enine eftersom filtreringen inte bara görs i fältet:
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Använd effektiva agg regerings kommandon och dimensioner i sammanfatta och delta
 
@@ -279,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-När ovanstående inte tillåter att du använder under frågor, är en annan metod att tipsa till frågesyntaxen om att det finns en enda data källa som används i var och en av dem med hjälp av [funktionen materialisera ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Detta är användbart när käll informationen kommer från en funktion som används flera gånger i frågan.
+När ovanstående inte tillåter att du använder under frågor, är en annan metod att tipsa till frågesyntaxen om att det finns en enda data källa som används i var och en av dem med hjälp av [funktionen materialisera ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Detta är användbart när käll informationen kommer från en funktion som används flera gånger i frågan. Materialisera är effektivt när utdata från under frågan är mycket mindre än indata. Frågemotor kommer att cachelagra och återanvända utdata i alla förekomster.
 
 
 

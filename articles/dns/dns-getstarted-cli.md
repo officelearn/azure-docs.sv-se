@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a15209351f95e44c7cf10993513e03ba35b53d27
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a08a3bb8e01d827b806dae269b65569cb415404d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358618"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snabbstart: Skapa en Azure DNS-zon och post med Azure CLI
 
@@ -92,7 +92,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
    Du bör se något som liknar följande skärm:
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![Skärm bild som visar ett kommando tolks fönster med ett n s lookup-kommando och-värden för Server, adress, namn och adress.](media/dns-getstarted-portal/nslookup.PNG)
 
 Värd namnet **www \. contoso. xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
 

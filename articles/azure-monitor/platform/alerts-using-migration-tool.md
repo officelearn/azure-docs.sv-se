@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852131"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358669"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Använd verktyget för frivillig migrering för att migrera dina klassiska aviserings regler
 
@@ -49,7 +49,7 @@ Följ dessa steg om du vill utlösa migreringen av dina klassiska varnings regle
 
 1. Välj **migrera till nya regler** för att gå till landnings sidan för migrering. Den här sidan visar en lista över alla dina prenumerationer och deras migrerings status:
 
-    ![migration-vilplan](media/alerts-migration/migration-landing.png "Migrera regler")
+    ![Skärm bild som visar sidan Migrera aviserings regler.](media/alerts-migration/migration-landing.png "Migrera regler")
 
     Alla prenumerationer som kan migreras med hjälp av verktyget markeras som **redo för migrering**.
 
@@ -60,7 +60,7 @@ Följ dessa steg om du vill utlösa migreringen av dina klassiska varnings regle
 
     Den resulterande sidan visar information om klassiska aviserings regler som kommer att migreras för en prenumeration i taget. Du kan också välja **Hämta migrerings information för den här prenumerationen** om du vill ha mer information i CSV-format.
 
-    ![migrering – för hands version](media/alerts-migration/migration-preview.png "Förhandsgranska migrering")
+    ![Skärm bild som visar sidan Migrera aviserings regler med en länk för att hämta information om migreringen för den här prenumerationen och du kan ange e-post för migrerings avisering.](media/alerts-migration/migration-preview.png "Förhandsgranska migrering")
 
 1. Ange en eller flera e-postadresser som ska meddelas om migreringens status. Du får ett e-postmeddelande när migreringen är klar eller om någon åtgärd krävs från dig.
 
@@ -69,7 +69,7 @@ Följ dessa steg om du vill utlösa migreringen av dina klassiska varnings regle
     > [!IMPORTANT]
     > När du har initierat migreringen för en prenumeration kan du inte redigera eller skapa klassiska aviserings regler för den prenumerationen. Den här begränsningen garanterar att inga ändringar i de klassiska varnings reglerna går förlorade under migreringen till de nya reglerna. Även om du inte kan ändra de klassiska varnings reglerna fortsätter de fortfarande att köras och för att tillhandahålla aviseringar tills de har migrerats. När migreringen har slutförts för din prenumeration kan du inte längre använda de klassiska varnings reglerna.
 
-    ![migrering – bekräfta](media/alerts-migration/migration-confirm.png "Bekräfta start migrering")
+    ![Skärm bild som visar ett meddelande om migreringen, inklusive viktig information med länkar för att lära dig mer innan du fortsätter.](media/alerts-migration/migration-confirm.png "Bekräfta start migrering")
 
 1. När migreringen är klar, eller om en åtgärd krävs från dig, får du ett e-postmeddelande till de adresser som du angav tidigare. Du kan också kontrol lera statusen regelbundet på sidan migration vilplan i portalen.
 

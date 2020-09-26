@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327569"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,13 +65,13 @@ Om den högsta kvarhållningsperioden för kvarhållning av säkerhets kopior f�
 
 |                                              | Geo-replikering | Redundansgrupper  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Automatisk redundans**                          |     Nej          |      Ja         |
-| **Redundansväxla flera databaser samtidigt**  |     Nej          |      Ja         |
-| **Användaren måste uppdatera anslutnings strängen efter redundansväxlingen**      |     Ja         |      Nej          |
-| **Stöd för SQL-hanterad instans**                   |     Nej          |      Ja         |
-| **Kan finnas i samma region som primär**             |     Ja         |      Nej          |
-| **Flera repliker**                            |     Ja         |      Nej          |
-| **Stöder Read-Scale**                          |     Ja         |      Ja         |
+| **Automatisk redundans**                          |     Inga          |      Ja         |
+| **Redundansväxla flera databaser samtidigt**  |     Inga          |      Ja         |
+| **Användaren måste uppdatera anslutningssträngen efter redundansväxlingen**      |     Ja         |      Inga          |
+| **Stöd för SQL Managed Instance**                   |     Inga          |      Ja         |
+| **Kan vara i samma region som den primära**             |     Ja         |      Inga          |
+| **Flera repliker**                            |     Ja         |      Inga          |
+| **Stöd för lässkalning**                          |     Ja         |      Ja         |
 
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Återställ en databas till den befintliga servern

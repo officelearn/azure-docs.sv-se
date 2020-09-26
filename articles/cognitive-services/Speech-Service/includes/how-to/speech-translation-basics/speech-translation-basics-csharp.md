@@ -5,13 +5,23 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1042383e285780f5ee9297b1c87615bbdd2fe1b6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f3f84a13100fc14c6c75fbfcc3e14ada75dc5b52
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326948"
 ---
+En av de viktigaste funktionerna i tal tjänsten är möjligheten att identifiera mänskligt tal och översätta den till andra språk. I den här snabb starten lär du dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativ tal översättning. Den här snabb starten behandlar ämnen, inklusive:
+
+* Översättning av tal till text
+* Översätta tal till flera mål språk
+* Utföra direkt tal-till-tal-Översättning
+
+## <a name="skip-to-samples-on-github"></a>Hoppa till exempel på GitHub
+
+Om du vill hoppa över direkt till exempel kod, se [snabb starts exemplen för C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/translate-speech-to-text) på GitHub.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).

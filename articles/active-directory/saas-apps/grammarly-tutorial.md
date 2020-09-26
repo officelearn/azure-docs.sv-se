@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 29778d872541ea251a46affcccd0e2befbd9003d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 989e3f4a285d44128bba1c9811aebcb76b8c0220
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327977"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med grammatik
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig att integrera grammatik med Azure Act
 * Gör det möjligt för användarna att logga in automatiskt för att grammatika med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -81,16 +81,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
 
-1. Program som använder grammatiskt förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
-
-    ![image](common/default-attributes.png)
-
-1. Utöver vad som anges förväntar sig grammatiskt program att fler attribut skickas tillbaka i SAML-svar, som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+1. Programmet grammatik förväntar sig SAML-intyg i ett särskilt format. Dessa attribut har också fyllts i i förväg, men du kan granska dem enligt dina krav.
     
     | Name |  Källattribut|
     | -------------- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
+    | EmailAddress | User. PrincipalName|
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -126,7 +123,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-grammarly-sso"></a>Konfigurera grammatiskt SSO
 
-Om du vill konfigurera enkel inloggning på ett **grammatiskt** sätt måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [stöd för grammatik](mailto:support@grammarly.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel **inloggning på ett**ögonblick måste du kopiera **inloggnings-URL: en**, **Azure AD-identifieraren**och det hämtade **certifikatet (base64)** till panelen för tyst administratör. [Lär dig hur](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
 
 ### <a name="create-grammarly-test-user"></a>Skapa grammatik Test användare
 

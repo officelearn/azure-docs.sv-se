@@ -2,20 +2,20 @@
 title: Dataplacering
 description: Data placering och information om Azure Arc-aktiverade servrar.
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8b4b8171bd7133e52928a5227c488bd6234ce686
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 73acb07b8caa3c1368c936463f04969c29d37985
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327773"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Azure Arc-aktiverade servrar: data placering
 
 I den här artikeln beskrivs begreppet data placering och hur det gäller Azure Arc-aktiverade servrar.
 
-Azure Arc-aktiverade servrar **[finns i](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** **USA, Europa eller Asien och Stillahavsområdet**.
+Azure Arc-aktiverade servrar **[finns i](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** **USA, Europa, Storbritannien eller Asien och Stillahavsområdet**.
 
 ## <a name="data-residency"></a>Dataplacering
 

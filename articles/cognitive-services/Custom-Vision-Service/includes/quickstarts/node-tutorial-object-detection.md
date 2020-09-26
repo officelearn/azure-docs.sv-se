@@ -3,13 +3,13 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 15c88bed39c58b21464a7b97e54c80752a2552f8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.custom: devx-track-js
+ms.openlocfilehash: b0dc5553828b9dd31b297df076857332e9cbd881
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327465"
 ---
 Den här guiden innehåller instruktioner och exempel kod som hjälper dig att komma igång med Custom Vision klient biblioteket för Node.js för att skapa en modell för objekt identifiering. Du skapar ett projekt, lägger till taggar, tränar projektet och använder projektets förutsäga slut punkts-URL för att program mässigt testa det. Använd det här exemplet som mall för att skapa en egen bild igenkännings app.
 

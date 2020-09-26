@@ -2,15 +2,17 @@
 title: Använda redigerings-och körnings nycklar – LUIS
 description: Första gången du använder Language Understanding (LUIS) behöver du inte skapa någon redigerings nyckel. När du tänker publicera appen måste du använda din runtime-slutpunkt för att skapa och tilldela appen körnings nyckel.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99f73399c410641be352111302b1d4999d1ebc1b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327229"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -27,9 +29,9 @@ LUIS tillåter tre typer av Azure-resurser och en icke-Azure-resurs:
 
 |Resurs|Syfte|Kognitiv tjänst `kind`|Kognitiv tjänst `type`|
 |--|--|--|--|
-|Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-azure-portal) om du tänker redigera Luis Apps programtically eller från Luis-portalen. Du måste först [migrera ditt Luis-konto](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) för att kunna länka dina Azure authroring-resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). <br><br> Det finns en nivå avialable för LUIS Authoring-resursen:<br> * **F0 Authoring-resurs** som ger dig 1 miljon kostnads fria redigerings transaktioner och 1000 kostnads fria förutsägelse slut punkter per månad. |`LUIS.Authoring`|`Cognitive Services`|
-|Förutsägelse resurs| När du har publicerat ditt LUIS-program använder du förutsägelse resurs/nyckel för att fråga förutsägelse slut punkts begär Anden. Skapa en LUIS förutsägelse resurs innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigeringen eller start resursen. <br><br> Det finns två nivåer avialble för förutsägelse resursen:<br> * **F0 förutsägelse resurs** som ger dig 10 000 kostnads fri förutsägelse slut punkt begär Anden varje månad<br> * **S0 förutsägelse resurs** som är den betalda nivån. [Läs mer om pris information](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Start/utvärderings resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. Detta skapas av standardvärde om du väljer alternativet Start resurs när du först registrerar TP-LUIS. Start nyckeln kommer dock att bli föråldrad och alla LUIS-användare kommer att behöva [migrera sina konton](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) och länka sina Luis-program till en redigerings resurs. Den här resursen ger dig inte behörighet för rollbaserad åtkomst kontroll som till redigerings resursen. <br><br> Precis som för att skapa resurser ger start resursen dig 1 miljon av de kostnads fria redigerings transaktionerna och 1000 kostnads fria förutsägelse slut punkts begär Anden.|-|Inte en Azure-resurs|
+|Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) om du tänker redigera Luis Apps programtically eller från Luis-portalen. Du måste först [migrera ditt Luis-konto](luis-migration-authoring.md#what-is-migration) för att kunna länka dina Azure authroring-resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). <br><br> Det finns en nivå avialable för LUIS Authoring-resursen:<br> * **Kostnads fri F0 Authoring-resurs** som ger dig 1 miljon kostnads fria redigerings transaktioner och 1000 kostnads fria utvärderings slut punkt förfrågningar varje månad. |`LUIS.Authoring`|`Cognitive Services`|
+|Förutsägelse resurs| När du har publicerat ditt LUIS-program använder du förutsägelse resurs/nyckel för att fråga förutsägelse slut punkts begär Anden. Skapa en LUIS förutsägelse resurs innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigeringen eller start resursen. <br><br> Det finns två nivåer avialble för förutsägelse resursen:<br> * **Kostnads fri F0 förutsägelse resurs** som ger dig 10 000 kostnads fri förutsägelse slut punkt begär Anden varje månad<br> * **Standard S0 förutsägelse resurs** som är den betalda nivån. [Läs mer om pris information](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Start/utvärderings resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. Detta skapas av standardvärde om du väljer alternativet Start resurs när du först registrerar TP-LUIS. Start nyckeln kommer dock att bli föråldrad och alla LUIS-användare kommer att behöva [migrera sina konton](luis-migration-authoring.md#what-is-migration) och länka sina Luis-program till en redigerings resurs. Den här resursen ger dig inte behörighet för rollbaserad åtkomst kontroll som till redigerings resursen. <br><br> Precis som för att skapa resurser ger start resursen 1 miljon utan att skapa transaktioner och 1000 kostnads fria test slut punkts begär Anden.|-|Inte en Azure-resurs|
 |[Resurs nyckel för multi-service för kognitiva tjänster](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Slut punkts begär Anden för förfrågan som delas med LUIS och andra Cognitive Services som stöds.|`CognitiveServices`|`Cognitive Services`|
 
 
@@ -125,7 +127,7 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Åtkomst för att fråga förutsägelse slut punkten styrs av en inställning på sidan **program information** i avsnittet **Hantera** .
 
-|[Privat slutpunkt](#runtime-security-for-private-apps)|[Offentlig slutpunkt](#runtime-security-for-public-apps)|
+|[Privat slut punkt](#runtime-security-for-private-apps)|[Offentlig slutpunkt](#runtime-security-for-public-apps)|
 |:--|:--|
 |Tillgängligt för ägare och deltagare|Tillgängligt för ägare, deltagare och någon annan som känner till app-ID|
 
@@ -252,7 +254,7 @@ I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automati
 
     Detta POST-API kräver följande inställningar:
 
-    |Typ|Inställningen|Värde|
+    |Typ|Inställning|Värde|
     |--|--|--|
     |Sidhuvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
     |Sidhuvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|

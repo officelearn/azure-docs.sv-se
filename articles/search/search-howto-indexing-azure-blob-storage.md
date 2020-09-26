@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9caa377ebcdff5b0ae379f1b0b8269dac5b8f499
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328300"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -73,6 +73,7 @@ Mer information om API för att skapa DataSource finns i [skapa data källa](/re
 
 Du kan ange autentiseringsuppgifter för BLOB-behållaren på något av följande sätt:
 
+- **Anslutnings sträng för hanterad identitet**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` den här anslutnings strängen kräver ingen konto nyckel, men du måste följa instruktionerna för [att konfigurera en anslutning till ett Azure Storage konto med hjälp av en hanterad identitet](search-howto-managed-identities-storage.md).
 - **Anslutnings sträng för lagrings konto med fullständig åtkomst**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` du kan hämta anslutnings strängen från Azure Portal genom att gå till bladet lagrings konto > inställningar > nycklar (för klassiska lagrings konton) eller inställningar > åtkomst nycklar (för Azure Resource Manager lagrings konton).
 - Anslutnings sträng för **signatur för delad åtkomst för lagrings konto** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS ska ha listan och Läs behörigheter för behållare och objekt (blobbar i detta fall).
 -  **Signatur för delad åtkomst till container**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS ska ha list-och Läs behörighet för behållaren.
@@ -322,7 +323,7 @@ Azure Kognitiv sökning begränsar storleken på blobbar som indexeras. De här 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 ```
 
-Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` `maxFailedItemsPerBatch` parametrarna och för konfigurationen till önskade värden. Ett exempel:
+Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` `maxFailedItemsPerBatch` parametrarna och för konfigurationen till önskade värden. Exempel:
 
 ```http
     {

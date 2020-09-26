@@ -1,18 +1,18 @@
 ---
 title: Skapa och exportera certifikat för användares VPN-anslutningar | Azure Virtual WAN
-description: Skapa ett självsignerat rot certifikat, exportera den offentliga nyckeln och generera klient certifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016.
+description: Skapa ett självsignerat rot certifikat, exportera den offentliga nyckeln och generera klient certifikat för användares VPN-anslutningar med hjälp av PowerShell på Windows 10 eller Windows Server 2016.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: a5361df9e9cfc9f5d299d494ed634dcaaaf2e707
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2205f170ee846d4db94db7f524a1c424cfbc8f7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328046"
 ---
 # <a name="generate-and-export-certificates-for-user-vpn-connections"></a>Skapa och exportera certifikat för användares VPN-anslutningar
 

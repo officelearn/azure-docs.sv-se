@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82608821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327946"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Självstudie: skapa en WAF-princip på Azure CDN med hjälp av Azure Portal
 
@@ -36,7 +36,7 @@ Börja med att skapa en grundläggande WAF-princip med en hanterad standard rege
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**>söker efter **WAF**>väljer **brand vägg för webbaserade program** > väljer **skapa**.
 2. På fliken **grundläggande** på sidan **skapa en WAF-princip** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Granska + skapa**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Princip för            |Välj Azure CDN (för hands version).|
     | Prenumeration            |Välj prenumerations namnet på din front dörr.|
@@ -47,7 +47,7 @@ Börja med att skapa en grundläggande WAF-princip med en hanterad standard rege
 
 3. På fliken **Association** på sidan **skapa en WAF-princip** väljer du **Lägg till CDN-slutpunkt**, anger följande inställningar och väljer sedan **Lägg till**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | CDN-profil              | Välj ditt CDN-profil namn.|
     | Slutpunkt           | Välj namnet på slut punkten och välj sedan **Lägg till**.|
@@ -72,17 +72,22 @@ Om du vill skapa en anpassad regel väljer du **Lägg till anpassad regel** unde
 
 Följande skärm bild visar en anpassad matchnings regel för att blockera en begäran om frågesträngen innehåller värdet **blockme**.
 
-![Ändra WAF princip läge](../media/waf-cdn-create-portal/custommatch.png)
+![Lägg till anpassad matchnings regel](../media/waf-cdn-create-portal/custommatch.png)
 
 Hastighets begränsnings regler kräver två ytterligare fält: **hastighets begränsningens varaktighet** och **hastighets begränsnings tröskeln (begär Anden)** som visas i följande exempel:
 
-![Ändra WAF princip läge](../media/waf-cdn-create-portal/customrate.png)
+![Lägg till hastighets begränsnings regel](../media/waf-cdn-create-portal/customrate.png)
 
 ### <a name="default-rule-set-drs"></a>Standard regel uppsättning (DRS)
 
 Standard regel uppsättningen för Azure Managed är aktive rad som standard. Om du vill inaktivera en enskild regel i en regel grupp expanderar du reglerna inom den regel gruppen, markerar kryss rutan framför regel numret och väljer **inaktivera** på fliken ovan. Om du vill ändra åtgärds typer för enskilda regler i regel uppsättningen markerar du kryss rutan framför regel numret och väljer sedan fliken **ändra åtgärd** ovan.
 
  ![Ändra WAF regel uppsättning](../media/waf-cdn-create-portal/managed2.png)
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort resurs gruppen och alla relaterade resurser när de inte längre behövs.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

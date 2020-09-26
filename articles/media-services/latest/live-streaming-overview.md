@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23898969f254063ee9e5385fee577661871ccf45
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328351"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -60,7 +60,7 @@ Dynamisk filtrering används för att styra antalet spår, format, bit hastighet
 
 ### <a name="pass-through"></a>Direkt
 
-![direkt](./media/live-streaming/pass-through.svg)
+![Diagram som visar hur video-och ljud strömmar från en direkt sändnings händelse matas in och bearbetas.](./media/live-streaming/pass-through.svg)
 
 När du använder direkt **sändnings evenemang**förlitar du dig på din lokala Live-kodare för att generera en video ström med flera bit hastigheter och skicka den som bidrags flödet till Live-händelsen (med hjälp av RTMP eller fragmenterad MP4-inmatnings protokoll). Live-händelsen bevarar sedan genom inkommande video strömmar till den dynamiska Paketeraren (slut punkt för direkt uppspelning) utan ytterligare kodning. En sådan direkt sändnings händelse är optimerad för långvariga Live-händelser eller linjär direkt uppspelning med 24x365. 
 

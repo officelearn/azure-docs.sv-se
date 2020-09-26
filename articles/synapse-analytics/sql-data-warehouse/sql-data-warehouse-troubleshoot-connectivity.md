@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362188"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Felsöka anslutnings problem i Synapse SQL-pool
 
@@ -34,13 +34,14 @@ Status för SQL-poolen visas här. Om tjänsten inte visas som **tillgänglig**k
 
 Om din resurs hälsa visar att instansen av SQL-poolen har pausats eller skalas, följer du anvisningarna för att återuppta instansen.
 
-![Tjänsten har pausats ](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Ytterligare information om Resource Health finns här.
+![Skärm bild som visar en instans av SQL Data Warehouse som är pausad eller skalning.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Mer information om Resource Health hittar du här.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Kontrollera om tjänsten är pausad eller håller på att skalas om
 
 Kontrol lera portalen för att se om din instans av SQL-poolen är pausad eller skalning.
 
-![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Skärm bild som visar hur du kontrollerar om ett informations lager har pausats.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 Om du ser att tjänsten har pausats eller skalas kan du kontrol lera att den inte finns under ditt underhålls schema. I portalen för *Översikt över*SQL-poolen visas schemat för valt underhåll.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361542"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Fel och varningar vid ritningskonvertering
 
@@ -35,9 +35,9 @@ Konverterings tjänsten kan inte skapa en kart funktion från en ogiltig entitet
 
 * De två bilderna nedan visar exempel på egna överlappande polygoner.
 
-     ![Exempel på en själv överlappande polygon](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Exempel på en själv överlappande polygon, till exempel en.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Exempel på en själv överlappande polygon](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Exempel på en egen överlappande polygon, till exempel två.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Nedan visas en bild som visar en icke-stängd polylinje. Anta att lagret endast stöder stängd geometri.
 
@@ -225,7 +225,7 @@ En **partiallyOverlappingUnit** -varning inträffar när ritningen innehåller e
 
 #### <a name="example-scenarios-partiallyoverlappingunit"></a>*Exempel scenarier partiallyOverlappingUnit*
 
-I följande bild markeras den överlappande enheten i rött. `UNIT110`och ignoreras `HALLWAY` .
+I följande bild markeras den överlappande enheten i rött. `UNIT110` och ignoreras `HALLWAY` .
 
 ![Exempel på överlappande enheter](./media/drawing-conversion-error-codes/partially-overlapping-unit.png)
 
@@ -350,7 +350,7 @@ En **dwgError** när ritnings paketet innehåller ett problem med en eller flera
 Om du vill åtgärda en **dwgError**kan du kontrol _manifest.js_ lera att:
 
 * Alla DWG-filer i ditt ZIP-arkiv är giltiga AutoCAD DWG-format ritningar, öppna var och en i AutoCAD. Ta bort eller åtgärda alla ogiltiga ritningar.
-* Listan med DWG-filer i _manifest.jspå_ matchar DWG-filerna i zip-arkivet.
+* Listan med DWG-filer i _manifest.jspå_  matchar DWG-filerna i zip-arkivet.
 
 ## <a name="manifest-errors"></a>Manifest fel
 
@@ -392,7 +392,7 @@ Kontrol lera att manifestet innehåller alla obligatoriska egenskaper för att �
 
 Om du vill åtgärda ett **missingManifest** -fel bekräftar du att arkivet har en fil med namnet _manifest.jspå_ rot nivån i zip-arkivet.
 
-### <a name="conflict"></a>**konflikt**
+### <a name="conflict"></a>**uppstod**
 
 #### <a name="description-for-conflict"></a>*Beskrivning av konflikt*
 

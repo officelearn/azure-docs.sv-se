@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure AD SSO-integrering med FortiGate SSL VPN'
-description: I den här självstudien får du lära dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FortiGate SSL VPN.
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med FortiGate SSL VPN | Microsoft Docs'
+description: Lär dig de steg du behöver utföra för att integrera FortiGate SSL VPN med Azure Active Directory (Azure AD).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe92218d6bb20274e916089c15df8c1f44c4fd6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331135"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med FortiGate SSL VPN
 
@@ -94,16 +94,29 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
     > [!NOTE]
     > Dessa värden är bara mönster. Du måste använda den faktiska **inloggnings-URL: en**, **identifierare**, **svars-URL**och **en utloggnings-URL**. Kontakta [Fortigate för SSL VPN-klienten](mailto:tac_amer@fortinet.com) för att få de faktiska värdena. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. FortiGate SSL-VPN förväntar sig att SAML-intygen ska vara i ett särskilt format. Därför måste du lägga till anpassade mappningar för attribut i konfigurationen för SAML-token. Den här skärm bilden visar standardattributen:
+1. FortiGate SSL VPN-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen. I följande skärmbild visas listan över standardattribut.
 
     ![Skärm bild som visar standardattributen.](common/default-attributes.png)
 
-1. FortiGate SSL VPN förväntar sig också få fler attribut att skickas tillbaka i SAML-svaret. Dessa attribut visas i följande tabell. De har också fyllts i i förväg, men du kan granska dem och ta hänsyn till dina krav.
-    
-    | Name |  Källattribut|
-    | ------------ | --------- |
-    | användarnamn | user.userprincipalname |
-    | group | användare. grupper |
+1. De två ytterligare anspråk som krävs av FortiGate SSL VPN visas i följande tabell. Namnen på dessa anspråk måste matcha namnen som används i avsnittet **utföra Fortigate kommando rads konfiguration** i den här självstudien. 
+
+   | Name |  Källattribut|
+   | ------------ | --------- |
+   | användarnamn | user.userprincipalname |
+   | group | användare. grupper |
+   
+   Så här skapar du följande ytterligare anspråk:
+   
+   1. Bredvid användarattribut **& anspråk**väljer du **Redigera**.
+   1. Välj **Lägg till nytt anspråk**.
+   1. Som **namn**anger du **användar namn**.
+   1. För **källattribut**väljer du **User. UserPrincipalName**.
+   1. Välj **Spara**.
+   1. Välj **Lägg till ett grupp anspråk**.
+   1. Välj **Alla grupper**.
+   1. Seect kryss rutan **anpassa namnet på grupp anspråket** .
+   1. I **namn**anger du **grupp**.
+   1. Välj **Spara**.   
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid **certifikat (base64)** för att ladda ned certifikatet och spara det på datorn:
 

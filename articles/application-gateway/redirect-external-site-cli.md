@@ -1,18 +1,18 @@
 ---
 title: Omdirigering av extern trafik med CLI-Azure Application Gateway
-description: Lär dig hur du skapar en Programgateway som dirigerar om intern webb trafik till rätt pool med hjälp av Azure CLI.
+description: Lär dig hur du skapar en Programgateway som omdirigerar extern webb trafik till rätt pool med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a8d7aff6a030b3adbb5370caa166bbd290e09bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331058"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med extern omdirigering med hjälp av Azure CLI
 
@@ -131,8 +131,4 @@ Du bör se *Bing.com* visas i webbläsaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> * Konfigurera nätverket
-> * Skapa en regel för avlyssning och omdirigering
-> * Skapa en programgateway
+- [Skapa en Application Gateway med intern omdirigering med Azure CLI](redirect-internal-site-cli.md)

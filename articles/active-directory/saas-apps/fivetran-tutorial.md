@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 9cf8a76f74e6dda6ade98ea348f5401eab15c53e
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 9d6951456593c57f9def80990e582a5ff54cc5d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312664"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Fivetran
 
@@ -26,12 +26,12 @@ I den här självstudien får du lära dig hur du integrerar Fivetran med Azure 
 * Gör det möjligt för användarna att logga in automatiskt till Fivetran med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Fivetran för enkel inloggning (SSO) aktive rad.
+* Ett Fivetran-konto.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -96,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. I avsnittet **Konfigurera Fivetran** kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **Konfigurera Fivetran** kopierar du **inloggnings-URL: en** och **Azure AD Identifier** -värden.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,7 +126,22 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-fivetran-sso"></a>Konfigurera Fivetran SSO
 
-Om du vill konfigurera enkel inloggning på **Fivetran** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Fivetran](mailto:support@fivetran.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+I det här avsnittet ska du konfigurera enkel inloggning på **Fivetran** -sidan.
+
+1. Logga in på ditt Fivetran-konto som konto ägare i ett annat webbläsarfönster.
+1. Välj pilen i det övre vänstra hörnet i fönstret och välj sedan **Hantera konto** i den nedrullningsbara listan.
+
+   ![Skärm bild som visar meny alternativet hantera konto valt.](media/fivetran-tutorial/fivetran-1.png)
+
+1. Gå till **SAML config** -avsnittet på sidan **Inställningar** .
+
+   ![Skärm bild som visar SAML config-fönstret med konfigurations alternativ markerat.](media/fivetran-tutorial/fivetran-2.png)
+
+   1. För **Aktivera SAML-autentisering**väljer du **på**.
+   1. I **inloggnings-URL**klistrar du in värdet för **inloggnings-URL: en**som du kopierade från Azure Portal.
+   1. I **utfärdare**klistrar du in värdet för **Azure AD-identifierare**som du kopierade från Azure Portal.
+   1. Öppna den hämtade certifikat filen i en text redigerare, kopiera certifikatet till Urklipp och klistra in det i text rutan **publikt certifikat** .
+   1. Välj **Spara konfiguration**.
 
 ### <a name="create-fivetran-test-user"></a>Skapa Fivetran test användare
 

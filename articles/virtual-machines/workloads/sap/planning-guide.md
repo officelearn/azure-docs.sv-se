@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3050d0c61b6278b32b8e9272f228a863c9a0a244
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361933"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -478,7 +478,7 @@ passar ditt behov. De flesta av dessa data kan hittas [här (Linux)][virtual-mac
 
 Som pris modell har du flera olika pris alternativ som en lista som:
 
-- Användningsbaserad betalning
+- Betala per användning
 - Ett år reserverat
 - Tre år reserverat
 - Spotprissättning
@@ -514,11 +514,11 @@ Microsoft Azure Virtual Machines använder olika lagrings typer. När du impleme
 Virtuella Azure-datorer erbjuder icke-beständiga diskar när en virtuell dator har distribuerats. I händelse av en VM-omstart rensas allt innehåll på dessa enheter. Därför är det en förutsättning att datafiler och logg-/återställnings fil för databaser inte bör finnas på de icke-beständiga enheterna. Det kan finnas undantag för vissa databaser, där dessa icke-beständiga enheter kan vara lämpliga för tempdb och temporära tabell utrymmen. Undvik dock att använda enheterna för virtuella datorer i A-serien eftersom dessa icke-sparade enheter är begränsade i data flöde med den virtuella dator serien. Mer information finns i artikeln [förstå den tillfälliga enheten på virtuella Windows-datorer i Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Enhets D:\ i en virtuell Azure-dator är en icke beständig enhet som backas upp av vissa lokala diskar på Azure Compute-noden. Eftersom den inte är beständig innebär det att alla ändringar som görs i innehållet på D:\ enheten förloras när den virtuella datorn startas om. Efter "alla ändringar", t. ex. filer lagrade, kataloger som skapats, program som installerats osv.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Virtuella Linux Azure-datorer monterar automatiskt en enhet på/mnt/Resource som är en icke beständig enhet som backas upp av lokala diskar på Azure Compute-noden. Eftersom den är icke-beständig innebär det att alla ändringar som görs i innehållet i/mnt/Resource förloras när den virtuella datorn startas om. Ändringar, t. ex. filer lagrade, kataloger som skapats, program som installerats osv.
 >
@@ -774,12 +774,12 @@ Ett annat alternativ som vi inte diskuterar i detalj i den här hand boken är a
 På grund av särskilda krav på uppdatering av operativ system-eller DBMS-versionen kanske de angivna avbildningarna på Azure Marketplace inte passar dina behov. Därför kan du behöva skapa en virtuell dator med en egen privat OS/DBMS VM-avbildning, som kan distribueras flera gånger efteråt. För att förbereda en sådan privat avbildning för duplicering måste följande objekt beaktas:
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Se mer information här: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> Windows-inställningar (t. ex. Windows sid och värdnamn) måste vara abstrakta/generaliserade på den lokala virtuella datorn via Sysprep-kommandot.
 >
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Följ stegen som beskrivs i de här artiklarna för [SUSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd]eller [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle]för att förbereda en virtuell hård disk som ska överföras till Azure.
 >
@@ -809,13 +809,13 @@ Krav när du förbereder din egen Azure VM-disk:
 * Lägg till andra lokala konton som de kan behöva för det angivna distributions scenariot.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > I det här scenariot krävs ingen generalisering (Sysprep) av den virtuella datorn för att ladda upp och distribuera den virtuella datorn i Azure.
 > Kontrol lera att enheten D:\ används inte.
 > Ange automonterad disk för anslutna diskar enligt beskrivningen i kapitel [Ange automontera för anslutna diskar][planning-guide-5.5.3] i det här dokumentet.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > I det här scenariot krävs ingen generalisering (waagent) av den virtuella datorn för att ladda upp och distribuera den virtuella datorn i Azure.
 > Se till att/mnt/Resource inte används och att alla diskar är monterade via uuid. För OS-disken kontrollerar du att Start programmet också återspeglar den UUID-baserade monteringen.
@@ -836,11 +836,11 @@ Krav när du förbereder din egen Azure VM-avbildning:
 * Om avbildningen innehåller en installation av SAP-NetWeaver och omnamnering av värd namnet från det ursprungliga namnet vid Azure-distributionen är troligt, rekommenderar vi att du kopierar de senaste versionerna av SAP Software Provisioning Manager-DVD: n till mallen. På så sätt kan du enkelt använda de funktioner för SAP som har angetts för att anpassa det ändrade värd namnet och/eller ändra SID för SAP-systemet i den distribuerade virtuella dator avbildningen så fort en ny kopia startas.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Kontrol lera att enheten D:\ används inte ange automonterad disk för anslutna diskar enligt beskrivningen i kapitel [Ange automontera för anslutna diskar][planning-guide-5.5.3] i det här dokumentet.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Se till att/mnt/Resource inte används och att alla diskar är monterade via uuid. För OS-disken kontrollerar du att Start programmet också återspeglar den UUID-baserade monteringen.
 >
@@ -854,13 +854,13 @@ Om den virtuella datorn är för beredd för att vara generisk och slutligen obe
 
 ##### <a name="generalizing-a-vm"></a>Generalisera en virtuell dator
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Det sista steget är att logga in på en virtuell dator med ett administratörs konto. Öppna ett Windows-kommando fönster som *administratör*. Gå till%windir%\windows\system32\sysprep och kör sysprep.exe.
 > Ett litet fönster visas. Det är viktigt att kontrol lera **generalize** -alternativet (Standardvärdet är avmarkerat) och ändra avstängnings alternativet från standardvärdet ' reboot ' till ' shutdown '. Den här proceduren förutsätter att Sysprep-processen körs lokalt i gäst operativ systemet på en virtuell dator.
 > Om du vill utföra proceduren med en virtuell dator som redan körs i Azure följer du stegen som beskrivs i [den här artikeln](../../windows/capture-image-resource.md).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > [Avbilda en virtuell Linux-dator som ska användas som mall för Resource Manager][capture-image-linux-step-2-create-vm-image]
 >
@@ -1123,13 +1123,13 @@ Vi rekommenderar att hanteringen av strukturen för en virtuell dator och de til
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Med många kunder såg vi konfigurationer där till exempel SAP-och DBMS-binärfiler inte har installerats på c:\ enhet där operativ systemet installerades. Det fanns olika orsaker till detta, men när vi gick tillbaka till roten var det vanligt vis att enheterna var små och operativ system uppgraderingar behövde ytterligare utrymme 10-15 år sedan. Båda villkoren gäller inte för ofta längre. I dag är c:\ enheten kan mappas på stora volym diskar eller virtuella datorer. För att hålla distributionerna enkla i deras struktur rekommenderar vi att du följer följande distributions mönster för SAP NetWeaver-system i Azure
 >
 > Växlings filen för Windows-operativsystemet bör vara på D: enhet (icke-beständig disk)
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Placera Linux-swapfile under/mnt/mnt/Resource på Linux enligt beskrivningen i [den här artikeln][virtual-machines-linux-agent-user-guide]. Växlings filen kan konfigureras i konfigurations filen för Linux-agentens/etc/waagent.conf. Lägg till eller ändra följande inställningar:
 >
@@ -1156,11 +1156,11 @@ Erfarenhet av SAP-distributioner under de senaste två åren är några lektione
 * IOPS-trafik till olika datafiler är inte alltid samma eftersom befintliga kund system kan ha olika storleks data filer som representerar sina SAP-databaser. Detta innebär att det är bättre att använda en RAID-konfiguration över flera diskar för att placera datafilerna som LUN-hämtas från dem. Det finns situationer, särskilt med Azure standard Storage där en IOPS-taxa når kvoten för en enskild disk mot DBMS-transaktionshanteraren. I sådana scenarier rekommenderar vi att du använder Premium Storage, eller att du kan aggregera flera standard lagrings diskar med en programs rand.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > * [Prestandametodtips för SQL Server i Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > * [Konfigurera programvaru-RAID på Linux][virtual-machines-linux-configure-raid]
 > * [Konfigurera LVM på en virtuell Linux-dator i Azure][virtual-machines-linux-configure-lvm]
@@ -1189,13 +1189,13 @@ Därefter måste du bestämma om du vill skapa en ny och en tom disk eller om du
 **Viktigt**: du vill **inte** använda cachelagring av värdar med Azure standard Storage. Du bör lämna inställningen för värd-cachen till standardvärdet NONE. Med Azure Premium Storage bör du aktivera cachelagring av filer om I/O-variabeln huvudsakligen läser som typisk I/O-trafik mot datafiler I databasen. I händelse av databas transaktions logg filen rekommenderas ingen cachelagring.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > [Så här ansluter du en datadisk i Azure Portal][virtual-machines-linux-attach-disk-portal]
 >
 > Om diskarna är anslutna måste du logga in på den virtuella datorn för att öppna Windows Disk Manager. Om automount inte är aktiverat enligt rekommendationer i kapitel [inställningen automontera för anslutna diskar][planning-guide-5.5.3], måste den nyligen anslutna volymen tas online och initieras.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Om diskarna är anslutna måste du logga in på den virtuella datorn och initiera diskarna enligt beskrivningen i [den här artikeln][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
 >
@@ -1212,7 +1212,7 @@ Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuel
 
 #### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Ställer in automontering för anslutna diskar
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > För virtuella datorer, som skapas från egna avbildningar eller diskar, är det nödvändigt att kontrol lera och eventuellt ange parametern för automontering. Genom att ange den här parametern kan den virtuella datorn efter en omstart eller omdistribution i Azure montera de anslutna/monterade enheterna igen automatiskt.
 > Parametern anges för de avbildningar som tillhandahålls av Microsoft på Azure Marketplace.
@@ -1226,7 +1226,7 @@ Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuel
 >
 > Om diskarna är anslutna måste du logga in på den virtuella datorn för att öppna Windows Disk Manager. Om automount inte är aktiverat enligt rekommendationer i kapitel [inställningen automontera för anslutna diskar][planning-guide-5.5.3], måste den nyligen anslutna volymen >tas online och initieras.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Du måste initiera en nyligen ansluten tom disk enligt beskrivningen i [den här artikeln][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
 > Du måste också lägga till nya diskar i/etc/fstab.
@@ -1264,7 +1264,7 @@ Se den här artikeln som beskriver information om det här avsnittet:
 Det kan vara nödvändigt att konfigurera brand väggen på dina virtuella datorer för att tillåta inkommande trafik till SAP-systemet.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Som standard är Windows-brandväggen i en distribuerad Azure-dator aktive rad. Du måste nu tillåta SAP-porten att öppnas, annars kan inte SAP-ANVÄNDARGRÄNSSNITTET ansluta.
 > Gör så här:
@@ -1281,7 +1281,7 @@ Det kan vara nödvändigt att konfigurera brand väggen på dina virtuella dator
 >
 > ![Definition av port regel][planning-guide-figure-1600]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Linux-avbildningarna i Azure Marketplace aktiverar inte program varan iptables-brandväggen som standard och anslutningen till ditt SAP-system bör fungera. Om du har aktiverat program varan iptables eller en annan brand vägg, se dokumentationen för program varan iptables eller den använda brand väggen för att tillåta inkommande TCP-trafik till port 32xx (där xx är system numret för ditt SAP-system).
 >
@@ -1588,7 +1588,7 @@ Andra säkerhets åtgärder när du distribuerar virtuella datorer i ett sådant
 Konfiguration av lokala TCP/IP-baserade nätverks skrivare i en virtuell Azure-dator är samma som i företagets nätverk, förutsatt att du har en VPN-anslutning för plats-till-plats-tunnel eller ExpressRoute-anslutning upprättad.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Gör så här:
 >
@@ -1599,7 +1599,7 @@ Konfiguration av lokala TCP/IP-baserade nätverks skrivare i en virtuell Azure-d
 > * Skrivar port standard 9100
 > * Installera lämplig skrivar driv rutin manuellt om det behövs.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > * precis som för Windows följer du standard proceduren för att installera en nätverks skrivare
 > * Följ bara de offentliga Linux-guiderna för [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) eller [Red Hat och Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) om hur du lägger till en skrivare.
@@ -1623,13 +1623,13 @@ Skrivar resursen identifieras med ett unikt namn i nätverket:
 Anvisningar:
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Dela din lokala skrivare.
 > I den virtuella Azure-datorn öppnar du Utforskaren och skriver in skrivarens resurs namn.
 > En installations guide för skrivare vägleder dig genom installations processen.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Här följer några exempel på dokumentation om hur du konfigurerar nätverks skrivare i Linux eller inkluderar ett kapitel angående utskrift i Linux. Den fungerar på samma sätt i en virtuell Azure Linux-dator så länge den virtuella datorn ingår i ett VPN:
 >
@@ -1644,7 +1644,7 @@ Anvisningar:
 I Azure är möjligheten för Fjärrskrivbordstjänster att ge användarna åtkomst till sina lokala skrivar enheter i en fjärrsession inte tillgänglig.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Mer information om hur du skriver ut med Windows finns här: <https://technet.microsoft.com/library/jj590748.aspx> .
 >
@@ -1890,7 +1890,7 @@ Här följer två exempel på en komplett SAP NetWeaver HA-arkitektur i Azure �
 Endast ohanterade diskar: begreppen som beskrivs nedan kan behöva komprometteras när du distribuerar många SAP-system och antalet distribuerade virtuella datorer överskrider max gränsen för lagrings konton per prenumeration. I sådana fall måste virtuella hård diskar i virtuella datorer kombineras inom ett lagrings konto. Vanligt vis skulle du göra detta genom att kombinera virtuella hård diskar med SAP-programlager på olika SAP-system.  Vi har också kombinerat olika virtuella hård diskar av olika DBMS-VM: er för olika SAP-system i ett Azure Storage-konto. Att bevara de IOPS-gränser som Azure Storage konton i åtanke ( <https://azure.microsoft.com/documentation/articles/storage-scalability-targets> )
 
 
-##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] HA på Windows
+##### <a name="windows-logologo_windows-ha-on-windows"></a>![Windows-logotyp.][Logo_Windows] HA på Windows
 
 ![SAP NetWeaver Application HA-arkitektur med SQL Server i Azure IaaS][planning-guide-figure-3200]
 
@@ -1912,7 +1912,7 @@ Följande figur illustrerar samma liggande med Managed Disks.
 
 ![SAP NetWeaver Application HA-arkitektur med SQL Server i Azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA på Linux
+##### <a name="linux-logologo_linux-ha-on-linux"></a>![Linux-logotyp.][Logo_Linux] HA på Linux
 
 Arkitekturen för SAP HA på Linux på Azure är i princip samma som för Windows enligt beskrivningen ovan. Se SAP NOTE [1928533] för en lista över lösningar med hög tillgänglighet som stöds.
 
@@ -1963,7 +1963,7 @@ Andra virtuella datorer i SAP-systemet kan säkerhets kopie ras med hjälp av fu
 > [!NOTE]
 > Från och med dec 2015 behåller inte det unika VM-ID som används för SAP-licensiering med den virtuella datorns säkerhets kopiering. Det innebär att en återställning från en säkerhets kopia av en virtuell dator kräver installation av en ny SAP-licens nyckel eftersom den återställda virtuella datorn anses vara en ny virtuell dator och inte en ersättning för den tidigare sparade.
 >
-> ![Windows][Logo_Windows] Windows
+> ![Windows-logotyp.][Logo_Windows] Windows
 >
 > Teoretiskt sett kan virtuella datorer som kör databaser säkerhets kopie ras på ett konsekvent sätt även om DBMS-systemet stöder Windows VSS (tjänsten Volume Shadow Copy <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx> ), t. ex. SQL Server gör.
 > Tänk dock på att det inte går att använda en säkerhets kopia av virtuella Azure-säkerhetskopieringar för att återställa databasen. Rekommendationen är därför att säkerhetskopiera databaser med DBMS-funktioner i stället för att förlita dig på säkerhets kopiering av virtuella Azure-datorer.
@@ -1972,7 +1972,7 @@ Andra virtuella datorer i SAP-systemet kan säkerhets kopie ras med hjälp av fu
 >
 > Andra möjligheter är att använda en kombination av Microsoft-Data Protection Manager som är installerade på en virtuell Azure-dator och Azure Backup för att säkerhetskopiera/återställa databaser. Mer information finns här: <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction> .
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux-logotyp.][Logo_Linux] Linux
 >
 > Det finns ingen motsvarighet till Windows VSS i Linux. Därför är bara filkonsekventa säkerhets kopieringar möjliga, men inte programkonsekventa säkerhets kopieringar. Säkerhets kopieringen av SAP-DBMS bör göras med hjälp av DBMS-funktioner. Fil systemet som innehåller SAP-relaterade data kan sparas, till exempel med hjälp av tar som beskrivs här: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
@@ -1984,7 +1984,7 @@ Sedan mellan 2014 är tillägg till olika komponenter runt Hyper-V, System Cente
 
 En blogg som beskriver hur du distribuerar den här lösningen finns dokumenterad här: <https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery> .
 
-## <a name="summary"></a>Sammanfattning
+## <a name="summary-for-high-availability-for-sap-systems"></a>Sammanfattning för hög tillgänglighet för SAP-system
 
 De viktigaste punkterna med hög tillgänglighet för SAP-system i Azure är:
 

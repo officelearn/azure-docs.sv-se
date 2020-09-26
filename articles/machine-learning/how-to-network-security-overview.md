@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362222"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Översikt över virtuella nätverks isolering och sekretess
 
@@ -80,10 +80,20 @@ Detaljerade anvisningar om hur du utför de här stegen finns i [skydda en Azure
 ### <a name="limitations"></a>Begränsningar
 
 Att skydda arbets ytan och associerade resurser i ett virtuellt nätverk har följande begränsningar:
-- Privat arbets ytans länk är bara tillgänglig i följande regioner: östra, westus2, usasödracentrala
-    - Den här begränsningen gäller inte för de associerade resurserna. Du kan till exempel aktivera VNet för lagring i valfri Azure Machine Learning region.
+- Privat arbets ytans länk är bara tillgänglig i följande regioner:
+    - **East US**
+    - **USA, södra centrala**
+    - **USA, västra**
+    - **USA, västra 2**
+    - **Centrala Kanada**
+    - **Sydostasien**
+    - **Japan, östra**
+    - **Norra Europa**
+    - **Östra Australien**
+    - **Storbritannien, södra**
+    
+    Den här begränsningen gäller inte för de associerade resurserna. Du kan till exempel aktivera VNet för lagring i valfri Azure Machine Learning region.
 - Alla resurser måste ligga bakom samma VNet. Undernät i samma VNet tillåts dock.
-- Vissa Studio funktioner som design, AutoML, etiketter och data profilering kan inte användas med lagrings konton som kon figurer ATS för att använda en privat slut punkt. Om du behöver använda de här Studio funktionerna använder du tjänst slut punkter i stället.
 
 ## <a name="secure-the-training-environment"></a>Skydda inlärnings miljön
 
@@ -150,7 +160,7 @@ I följande nätverks diagram visas en skyddad Azure Machine Learning arbets yta
 * Skicka ett AutoML experiment.
 * Starta ett etikettande projekt.
 
-Om du vill aktivera fullständiga funktioner samtidigt som du använder en lagrings tjänst slut punkt, se [använd Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). För närvarande stöder inte Studio lagrings privata slut punkter.
+Om du vill aktivera fullständiga funktioner samtidigt som du använder en lagrings tjänst slut punkt, se [använd Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio stöder både tjänst slut punkter och privata slut punkter för lagrings konton.
 
 ### <a name="limitations"></a>Begränsningar
 - Studio kan inte komma åt data i lagrings konton som kon figurer ATS för att använda privata slut punkter. För alla funktioner måste du använda tjänstens slut punkter för lagring och använda hanterad identitet.

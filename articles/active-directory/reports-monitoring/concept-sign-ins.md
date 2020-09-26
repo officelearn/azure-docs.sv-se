@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2791b62d8abb1ade199ae3eb72deaf4db56f3725
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361304"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -147,13 +147,13 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 |Autentiserad SMTP| |Används av POP-och IMAP-klienten för att skicka e-postmeddelanden.|
 |Tjänsten automatisk upptäckt| |Används av Outlook och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.|
 |Exchange ActiveSync| |Det här filtret visar alla inloggnings försök där EAS-protokollet har gjorts.|
-|Webbläsare|![Markering](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder webbläsare|
+|Webbläsare|![Blå bock.](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder webbläsare|
 |Exchange ActiveSync| | Visar alla inloggnings försök från användare med klient program som använder Exchange ActiveSync för att ansluta till Exchange Online|
 |Exchange Online PowerShell| |Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange-webbtjänster| |Ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.|
 |IMAP| |En äldre e-postklient som använder IMAP för att hämta e-post.|
 |MAPI över HTTP| |Används av Outlook 2010 och senare.|
-|Mobilappar och skriv bords klienter|![Blå bock](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder mobilappar och skriv bords klienter.|
+|Mobilappar och skriv bords klienter|![Blå bock.](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder mobilappar och skriv bords klienter.|
 |Offline-adressbok| |En kopia av adress list samlingar som hämtas och används av Outlook.|
 |Outlook överallt (RPC över HTTP)| |Används av Outlook 2016 och tidigare.|
 |Outlook-tjänst| |Används av appen e-post och kalender för Windows 10.|
@@ -234,7 +234,7 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Client
 - Plats
 - IP-adress
-- Datum
+- Date
 - MFA krävs
 - Inloggningsstatus
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db4c3be7c79448e4cf0df39688959ae09a671dbd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361423"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
@@ -82,11 +82,11 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 1. Skapa en utgående HTTPS-säkerhetsregel (443) för "Storage. öst" på NSG som visas på skärm bilden nedan.
 
-      ![lagrings tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Skärm bild som visar Lägg till utgående säkerhets regel för en nätverks säkerhets grupp för lagrings punkt öst U S.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Skapa en utgående HTTPS (443) säkerhets regel för "AzureActiveDirectory" på NSG som visas på skärm bilden nedan.
 
-      ![AAD-tagg](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Skärm bild som visar Lägg till utgående säkerhets regel för en nätverks säkerhets grupp för Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. På samma sätt som säkerhets regler, skapar du en utgående HTTPS (443) säkerhets regel för "EventHub. Central" på den NSG som motsvarar mål platsen. Detta ger åtkomst till Site Recovery övervakning.
 

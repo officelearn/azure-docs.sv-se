@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759896"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362154"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhets överväganden för att få åtkomst till appar via fjärr anslutning med Azure AD-programproxy
 
@@ -83,7 +83,7 @@ För att förbättra säkerheten för program som publiceras av Azure AD-program
 
 #### <a name="azure-ddos-protection-service"></a>Azure DDoS Protection-tjänst
 
-Program som publiceras via programproxyn skyddas mot DDoS-attacker (distributed denial of Service). **Azure DDoS Protection** är en tjänst som erbjuds med Azure-plattformen för att skydda dina Azure-resurser från denial of Service-attacker. Den **grundläggande** tjänst nivån aktive ras automatiskt, vilket ger Always trafik övervakning och real tids skydd av vanliga attacker på nätverks nivå. En **standard** nivå är också tillgänglig, och erbjuder ytterligare funktioner för minskning som är specifika för Azure Virtual Network-resurser. Mer information finns i [Azure DDoS Protection standard översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Program som publiceras via programproxyn skyddas mot DDoS-attacker (distributed denial of Service). **Azure DDoS Protection** är en tjänst som erbjuds med Azure-plattformen för att skydda dina Azure-resurser från denial of Service-attacker. Den **grundläggande** tjänst nivån aktive ras automatiskt, vilket ger Always trafik övervakning och real tids skydd av vanliga attacker på nätverks nivå. Mer information finns i [Azure DDoS Protection standard översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Under huven
 

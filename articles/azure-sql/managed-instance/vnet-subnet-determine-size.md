@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 562766ada8fb9a2620fa83875dc98d02ab752d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323115"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Bestäm nödvändig under näts storlek & intervall för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,14 +52,14 @@ Som en hanterad instans krävs minst 32 IP-adresser i ett undernät. Därför ka
 
 GP = generell användning; BC = affärs kritisk; VC = virtuellt kluster
 
-| **Maskin gen** | **Pris nivå** | **Azure-användning** | **VC-användning** | **Instans användning** | **Totalt*** |
+| **Maskin gen** | **Prisnivå** | **Azure-användning** | **VC-användning** | **Instans användning** | **Totalt*** |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \*Kolumn summan visar antalet adresser som ska vidtas när en instans distribueras i under nätet. Varje ytterligare instans i under nätet lägger till antalet adresser som representeras med kolumnen instans användning. Adresser som representeras med Azure Usage-kolumnen delas över flera virtuella kluster, medan adresser som representeras med VC Usage-kolumnen delas mellan instanser som placeras i det virtuella klustret.
+  \* Kolumn summan visar antalet adresser som ska vidtas när en instans distribueras i under nätet. Varje ytterligare instans i under nätet lägger till antalet adresser som representeras med kolumnen instans användning. Adresser som representeras med Azure Usage-kolumnen delas över flera virtuella kluster, medan adresser som representeras med VC Usage-kolumnen delas mellan instanser som placeras i det virtuella klustret.
 
 Uppdaterings åtgärden kräver vanligt vis storleks ändring av virtuellt kluster. Under vissa omständigheter kräver uppdaterings åtgärden att virtuella kluster skapas (mer information om [hanterings åtgärder](sql-managed-instance-paas-overview.md#management-operations)för mer information). Om det virtuella klustret skapas, är antalet ytterligare adresser som krävs lika med antalet adresser som representeras av kolumnen VC-användning summerade med adresser som krävs för instanser som placerats i det virtuella klustret (instans användnings kolumnen).
 
@@ -74,7 +74,7 @@ Som nämnts ovan kräver uppdaterings åtgärden att virtuella kluster skapas. D
 
 Vid skalnings åtgärds instanser kräver tillfälligt ytterligare IP-kapacitet som är beroende av pris nivå och maskin varu generering
 
-| **Maskin gen** | **Pris nivå** | **Scenario** | **Ytterligare adresser*** |
+| **Maskin gen** | **Prisnivå** | **Scenario** | **Ytterligare adresser*** |
 | --- | --- | --- | --- |
 | Gen4 | GP eller BC | Skalar virtuella kärnor | 5 |
 | Gen4 | GP eller BC | Skala lagring | 5 |
@@ -88,7 +88,7 @@ Vid skalnings åtgärds instanser kräver tillfälligt ytterligare IP-kapacitet 
 | Gen5 | BC | Skala lagring | 5 |
 | Gen5 | BC | Växlar till GP | 3 |
 
-  \*Gen4-maskinvaran föråldras och är inte längre tillgänglig för nya distributioner. Uppdatera maskin varu generering från Gen4 till Gen5 för att dra nytta av de funktioner som är speciella för Gen5 maskin varu generering.
+  \* Gen4-maskinvaran föråldras och är inte längre tillgänglig för nya distributioner. Uppdatera maskin varu generering från Gen4 till Gen5 för att dra nytta av de funktioner som är speciella för Gen5 maskin varu generering.
 
 ## <a name="next-steps"></a>Nästa steg
 

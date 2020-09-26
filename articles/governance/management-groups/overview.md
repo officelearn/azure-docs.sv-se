@@ -1,14 +1,15 @@
 ---
 title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: d259f44b8424afa9fcfc94b3f1812a0485ab2993
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: contperfq1
+ms.openlocfilehash: e0404cdc934771f8ebc0125ce9e21559739aee35
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659237"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334165"
 ---
 # <a name="what-are-azure-management-groups"></a>Vad är Azures hanterings grupper?
 
@@ -22,7 +23,7 @@ Du kan till exempel tillämpa principer för en hanteringsgrupp som begränsar r
 Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer för att organisera dina resurser i en hierarki för enhetlig princip- och åtkomsthantering. Följande diagram visar ett exempel på hur du skapar en hierarki för styrning med hjälp av hanteringsgrupper.
 
 :::image type="complex" source="./media/tree.png" alt-text="Diagram över en hierarki för exempel hanterings grupper." border="false":::
-   Diagram över en rot hanterings grupp som innehåller både hanterings grupper och prenumerationer. Vissa underordnade hanterings grupper innehåller hanterings grupper, vissa undantags prenumerationer och vissa har båda. Ett av exemplen i exempel hierarkin är 4 nivåer av hanterings grupper med den underordnade nivån alla prenumerationer.
+   Diagram över en rot hanterings grupp som innehåller både hanterings grupper och prenumerationer. Vissa underordnade hanterings grupper innehåller hanterings grupper, vissa undantags prenumerationer och vissa har båda. Ett av exemplen i exempel hierarkin är fyra nivåer av hanterings grupper med den underordnade nivån alla prenumerationer.
 :::image-end:::
 
 Du kan till exempel skapa en hierarki som tillämpar en princip som begränsar VM-platser till regionen USA, västra i gruppen med namnet ”Produktion”. Den här principen ärver till alla Enterprise-avtal-prenumerationer (EA) som är underordnade till den hanterings gruppen och gäller för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
@@ -74,7 +75,7 @@ Vissa kataloger som började använda hanteringsgrupper tidigt under förhandsgr
 Det finns två alternativ som du kan använda för att lösa problemet.
 
 - Ta bort alla roll- och principtilldelningar från rothanteringsgruppen
-  - När du tar bort princip- och rolltilldelningar från rothanteringsgruppen återfyller tjänsten alla prenumerationer till hierarkin nästa dagcykel. Den här principen är till för att kontrollera att det inte har getts någon oavsiktlig åtkomst eller principtilldelning till alla prenumerationer i klientorganisationen.
+  - Genom att ta bort alla princip-och roll tilldelningar från rot hanterings gruppen, fyller tjänsten i alla prenumerationer i hierarkin nästa natt. Den här principen är till för att kontrollera att det inte har getts någon oavsiktlig åtkomst eller principtilldelning till alla prenumerationer i klientorganisationen.
   - Det bästa sättet att genomföra processen utan att påverka tjänsterna är att tilldela roll- eller principtilldelningar på en nivå lägre än rothanteringsgruppen. Sedan kan du ta bort alla tilldelningarna från rotomfånget.
 - Direktanropa API:t och påbörja återfyllningsprocessen
   - Alla kunder i katalogen kan anropa API:erna _TenantBackfillStatusRequest_ eller _StartTenantBackfillRequest_. När API:n StartTenantBackfillRequest anropas påbörjas den ursprungliga konfigurationsprocessen och alla prenumerationer flyttas till hierarkin. Processen gör även att alla nya prenumerationer blir underordnade rothanteringsgruppen.

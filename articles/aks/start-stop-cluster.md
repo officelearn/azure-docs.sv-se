@@ -3,24 +3,33 @@ title: Starta och stoppa en Azure Kubernetes-tjänst (AKS)
 description: Lär dig hur du stoppar eller startar ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 44c33aa018971cc2b2f5eb215597a63e8b55c853
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 460b592924a19449d77ce8d45f470f3e3129f4a6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278574"
+ms.locfileid: "91357955"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Stoppa och starta ett AKS-kluster (Azure Kubernetes service) (för hands version)
 
-Dina AKS-arbetsbelastningar kanske inte behöver köras kontinuerligt, till exempel ett utvecklings kluster som bara används under kontors tid. Detta leder till tider där ditt AKS-kluster (Azure Kubernetes service) kan vara inaktivt, vilket inte kör mer än system komponenterna. Du kan minska klustrets storlek genom [att skala alla `User` nodkonfigurationer till 0](scale-cluster.md#scale-user-node-pools-to-0), men [ `System` poolen](use-system-pools.md) krävs fortfarande för att köra system komponenterna medan klustret körs. Om du vill optimera kostnaderna ytterligare under dessa perioder kan du stänga av (stoppa) klustret. Med den här åtgärden stoppas dina kontroll Plans-och agent-noder helt, så att du kan spara på alla beräknings kostnader samtidigt som du behåller alla dina objekt och kluster tillstånd som lagras när du startar det igen. På så sätt kan du välja upp till höger om efter en helg eller låta klustret köras samtidigt som du kör dina batch-jobb.
+Dina AKS-arbetsbelastningar kanske inte behöver köras kontinuerligt, till exempel ett utvecklings kluster som bara används under kontors tid. Detta leder till tider där ditt AKS-kluster (Azure Kubernetes service) kan vara inaktivt, vilket inte kör mer än system komponenterna. Du kan minska klustrets storlek genom [att skala alla `User` nodkonfigurationer till 0](scale-cluster.md#scale-user-node-pools-to-0), men [ `System` poolen](use-system-pools.md) krävs fortfarande för att köra system komponenterna medan klustret körs. Om du vill optimera kostnaderna ytterligare under dessa perioder kan du stänga av (stoppa) klustret. Med den här åtgärden stoppas dina kontroll Plans-och agent-noder helt, så att du kan spara på alla beräknings kostnader samtidigt som du behåller alla dina objekt och kluster tillstånd som lagras när du startar det igen. Sedan kan du hämta den högra delen av efter en helg eller låta klustret köras när du kör dina batch-jobb.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
+
+
+### <a name="limitations"></a>Begränsningar
+
+När du använder funktionen för att starta/stoppa kluster gäller följande begränsningar:
+
+- Den här funktionen stöds bara för Virtual Machine Scale Sets backade kluster.
+- Kluster statusen för ett stoppat AKS-kluster bevaras i upp till 12 månader. Om klustret har stoppats i mer än 12 månader går det inte att återställa kluster statusen. Mer information finns i [AKS support policies](support-policies.md).
+- Du kan bara starta eller ta bort ett stoppat AKS-kluster. Starta klustret först om du vill utföra en åtgärd som Scale eller Upgrade.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Installera `aks-preview` Azure CLI 
 
@@ -33,11 +42,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ``` 
-
-> [!WARNING]
-> Kluster statusen för ett stoppat AKS-kluster bevaras i upp till 12 månader. Om klustret har stoppats i mer än 12 månader går det inte att återställa kluster statusen. Mer information finns i [AKS support policies](support-policies.md).
-> Du kan bara starta eller ta bort ett stoppat AKS-kluster. Starta klustret först om du vill utföra en åtgärd som Scale eller Upgrade.
-
 
 ### <a name="register-the-startstoppreview-preview-feature"></a>Registrera `StartStopPreview` förhands gransknings funktionen
 

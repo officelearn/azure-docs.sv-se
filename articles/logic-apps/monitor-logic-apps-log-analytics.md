@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333961"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps
 
@@ -19,7 +19,7 @@ För att få bättre fel söknings information om dina Logi Kap par under körni
 
 Om du vill konfigurera loggning för din Logi Kap par kan du [aktivera Log Analytics när du skapar din Logic app](#logging-for-new-logic-apps), eller så kan du [Installera Logic Apps hanterings lösningen](#install-management-solution) i din Log Analytics arbets yta för befintliga Logi Kap par. Den här lösningen ger aggregerad information för din Logi Kap par och innehåller information som status, körnings tid, status för återsändning och korrelations-ID. Om du vill aktivera loggning och skapa frågor för den här informationen [konfigurerar du Azure Monitor loggar](#set-up-resource-logs).
 
-Den här artikeln visar hur du aktiverar Log Analytics när du skapar Logi Kap par, hur du installerar och konfigurerar Logic Apps hanterings lösningen och hur du konfigurerar och skapar frågor för Azure Monitor loggar.
+Den här artikeln visar hur du aktiverar Log Analytics på nya Logi Kap par och befintliga Logi Kap par, hur du installerar och konfigurerar Logic Apps hanterings lösningen och hur du konfigurerar och skapar frågor för Azure Monitor loggar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -89,6 +89,9 @@ Om du har aktiverat Log Analytics när du skapade din Logic app, hoppar du över
 
 När du lagrar information om körnings händelser och data i [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md)kan du skapa [logg frågor](../azure-monitor/log-query/log-query-overview.md) som hjälper dig att hitta och granska den här informationen.
 
+> [!NOTE]
+> När du har aktiverat diagnostikinställningar kanske inte diagnostikdata flödar upp till 30 minuter till loggarna på det angivna målet, till exempel Log Analytics, händelsehubben eller lagrings konto. Den här fördröjningen innebär att diagnostikdata från den här tids perioden kanske inte finns för dig att granska. Slutförda händelser och [spårade egenskaper](#extend-data) kanske inte visas i Log Analytics arbets ytan i 10-15 minuter.
+
 1. Leta upp och välj din Logic app i [Azure Portal](https://portal.azure.com).
 
 1. På din Logic app-meny, under **övervakning**, väljer du **diagnostikinställningar**  >  **Lägg till diagnostisk inställning**.
@@ -111,7 +114,7 @@ När du lagrar information om körnings händelser och data i [Azure Monitor log
 
    1. När du är klar väljer du **Spara**.
 
-   Till exempel:
+   Exempel:
 
    ![Välj Log Analytics arbets yta och data för loggning](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -140,13 +143,12 @@ När din Logic app har körts kan du visa data om de som körs i din Log Analyti
 
    ![Visa körnings-och status för Logic app](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > **Sändnings** funktionen på den här sidan är inte tillgänglig för tillfället.
+
    För åtgärder där du [ställer in spårade egenskaper](#extend-data)kan du också visa dessa egenskaper genom att välja **Visa** i kolumnen **spårade egenskaper** . Om du vill söka efter de spårade egenskaperna använder du kolumn filtret.
 
    ![Visa spårade egenskaper för en Logic app](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > Spårade egenskaper eller slutförda händelser kan uppleva 10-15 minuters fördröjning innan de visas i din Log Analytics-arbetsyta.
-   > Dessutom är **omsändnings** funktionen på den här sidan inte tillgänglig för tillfället.
 
 1. För att filtrera resultaten kan du utföra både klient-och Server sidans filtrering.
 
@@ -179,7 +181,7 @@ Tillsammans med Azure Monitor loggar kan du utöka hur du använder dina Logic A
 * [Arkivera Azures resurs loggar till lagrings kontot](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 * [Strömma Azure-plattforms loggar till Azure Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
-Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Till exempel:
+Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
 
 * [Strömma data från Event Hubs till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analysera strömmande data med Stream Analytics och skapa en instrument panel för real tids analys i Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

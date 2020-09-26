@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0aa71b34818cf373d1bb58531ee5c68c8d3d5ec
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 187e44a40228adb62a1d97f4e0df8a7ad3a7e2d3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356075"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka om för en tweet--hämta ett Twitter-meddelande med Azure Functions
 
@@ -61,7 +61,7 @@ Kör uppgiften via `Ctrl+P` (MacOS:) i lösnings fönstret `Cmd+P` genom att ang
 
 I VS Code-terminalen guidar en interaktiv kommando rad dig genom etableringen av de nödvändiga Azure-tjänsterna:
 
-![Cloud-etablering](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
+![Skärm bild som visar Visual Studio Code Terminals interaktiva kommando rad.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
 > Om sidan låser sig i inläsnings statusen när du försöker logga in på Azure läser du [steget "inloggnings sidan låser sig" i vanliga frågor och svar om IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
@@ -80,7 +80,7 @@ Ersätt strängen `iot` inom klammerparenteserna med önskad hashtagg. DevKit h�
 
 Använd `Ctrl+P` (MacOS: `Cmd+P` ) för att köra `task cloud-deploy` för att börja Distribuera Azure Functionss koden:
 
-![Cloud-Deploy](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
+![Skärm bild som visar Visual Studio-kod där du kan köra aktivitet Cloud-Deploy för att distribuera Azure Functions kod.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
 > [!NOTE]
 > Ibland fungerar Azure-funktionen kanske inte korrekt. För att lösa det här problemet när det uppstår, kontrol lera [avsnittet "kompileringsfel" i vanliga frågor och svar om IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
@@ -115,7 +115,7 @@ Nu har anslutnings strängen angetts, den verifierar och laddar upp appen och k�
 
 1. VS Code börjar verifiera och ladda upp Arduino-skissen till din DevKit:
 
-   ![enhet – Ladda upp](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
+   ![Skärm bild som visar Visual Studio Code-verifiering och uppladdning av Arduino-skissen.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
 2. DevKit startas om och börjar köra koden.
 
@@ -154,7 +154,7 @@ När appen har initierats klickar du på och släpper knappen A och skakar sedan
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-![översikt](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
+![Diagram visar en mobil enhet som skickar en händelse till Azure I o T-hubben som utlöser en Azure Function-app för att begära en tweet, som skickas tillbaka till appen och vidarebefordras till hubben och till den mobila enheten.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
 Arduino-skissen skickar en händelse till Azure-IoT Hub. Den här händelsen utlöser Azure Functions-appen. Azure Functions-appen innehåller logiken för att ansluta till Twitter-API och hämta en tweet. Sedan radbryts tweet-texten i ett C2D-meddelande (Cloud-to-Device) och skickas tillbaka till enheten.
 
@@ -170,7 +170,7 @@ I test syfte använder detta exempel projekt en förkonfigurerad Twitter Bearer-
 
 4. I [Azure Portal](https://portal.azure.com/){: Target = "_blank"} går du till **resurs gruppen** och hittar Azure-funktionen (typ: App Service) för ditt "skaka, skaka"-projekt. Namnet innehåller alltid "skaka..." nollängd.
 
-   ![Azure-Function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
+   ![Skärm bild av Azure Portal visar en app service för projektet.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
 5. Uppdatera koden för `run.csx` i **functions > shakeshake-CS** med din egen token:
 
@@ -178,7 +178,7 @@ I test syfte använder detta exempel projekt en förkonfigurerad Twitter Bearer-
    string authHeader = "Bearer " + "[your own token]";
    ```
   
-   ![Twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+   ![Skärm bild som visar C#-koden för funktionen där du kan ange din token.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Spara filen och klicka på **Kör**.
 
@@ -196,7 +196,7 @@ Eller, när koden körs, finns det vissa signaler som orsakar en omstart av appe
 
 2. I [Azure Portal](https://portal.azure.com/)letar du reda på den Azure Functions app som du skapade och startar om den:
 
-   ![Azure-Function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
+   ![Skärm bild som visar Azure Portal med en Azure Functions-app och knappen starta om.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
 Om andra problem uppstår kan du läsa [vanliga frågor och svar om IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss med följande kanaler:
 

@@ -3,12 +3,12 @@ title: Installera VMware-HCX
 description: Konfigurera VMware HCX-lösningen för ditt privata moln i Azure VMware-lösningen
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263210"
+ms.locfileid: "91356561"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
@@ -40,7 +40,7 @@ När du har slutfört installationen kan du följa de rekommenderade nästa steg
 
 Att ändra storlek på arbets belastningar mot beräknings-och lagrings resurser är ett viktigt planerings steg när du förbereder att använda Azure VMware-lösningens privata moln HCX-lösning. Adressera storleks steget som en del av den ursprungliga planeringen av molnet i den ursprungliga miljön. 
 
-Du kan också ändra arbets belastningar genom att slutföra en [utvärdering av Azure VMware-lösningen](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) i Azure Migrate portalen.
+Du kan också ändra arbets belastningar genom att slutföra en [utvärdering av Azure VMware-lösningen](../migrate/how-to-create-azure-vmware-solution-assessment.md) i Azure Migrate portalen.
 
 ## <a name="software-version-requirements"></a>Program versions krav
 

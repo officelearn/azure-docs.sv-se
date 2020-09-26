@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897534"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333859"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -56,8 +56,7 @@ Om du till exempel använder nätverks säkerhets grupper (NSG) för att begrän
 
 ## <a name="access-data-using-the-studio"></a>Få åtkomst till data med Studio
 
-Om dina data lagras i ett virtuellt nätverk måste du konfigurera dina lagrings konton så att de använder [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för att ge Studio åtkomst till dina data.
-
+När du har [lagt till ett Azure Storage-konto i ditt virtuella nätverk](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)måste du konfigurera ditt lagrings konto så att det använder [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för att ge Studio åtkomst till dina data. Studio stöder lagrings konton som kon figurer ATS för att använda tjänst slut punkter eller privata slut punkter. Lagrings konton använder tjänstens slut punkter som standard. Om du vill aktivera privata slut punkter för lagring, se [Använd privata slut punkter för Azure Storage](../storage/common/storage-private-endpoints.md)
 
 Om du inte aktiverar hanterad identitet kommer du att få det här felet, och `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` följande åtgärder kommer att inaktive ras:
 
@@ -72,7 +71,6 @@ Studio har stöd för läsning av data från följande data lager typer i ett vi
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Konfigurera data lager för att använda hanterad identitet
 

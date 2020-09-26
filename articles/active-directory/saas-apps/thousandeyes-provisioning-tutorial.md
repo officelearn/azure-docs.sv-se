@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546431"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355830"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ThousandEyes för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i Tho
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klient
 * En ThousandEyes-klient med [standard planen](https://www.thousandeyes.com/pricing) eller bättre aktive rad 
@@ -61,13 +61,13 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till ThousandEye
 
 3. Välj din instans av ThousandEyes och välj sedan fliken **etablering** .
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![ThousandEyes-etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    ![Skärm bild som visar fliken etablering för ThousandEyes med automatiskt valt för etablerings läge.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
 5. Under avsnittet **admin credentials**  kan du mata in **OAuth Bearer-token** som genererats av ditt ThousandEyes-konto (du kan söka efter och eller generera en token under din ThousandEyes konto **profil** ).
 
-    ![ThousandEyes-etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![Skärm bild som visar var du hittar länken konto inställningar för den aktuella konto gruppen.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
 6. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din ThousandEyes-app. Om anslutningen Miss lyckas kontrollerar du att ThousandEyes-kontot har administratörs behörighet och försöker sedan steg 5 igen.
 
@@ -89,9 +89,9 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

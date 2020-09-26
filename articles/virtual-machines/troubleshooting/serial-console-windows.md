@@ -1,6 +1,6 @@
 ---
 title: Azures serie konsol för Windows | Microsoft Docs
-description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets.
+description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets med hjälp av ett Windows-exempel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325988"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
 
@@ -148,7 +148,7 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ### <a name="channel-security"></a>Kanal säkerhet
 Alla data som skickas fram och tillbaka krypteras i kabeln.
 
-### <a name="audit-logs"></a>Granskningsloggar
+### <a name="audit-logs"></a>Spårningsloggar
 All åtkomst till serie konsolen är för närvarande inloggad i [Start](./boot-diagnostics.md) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
 
 > [!CAUTION]
@@ -194,27 +194,27 @@ Att klistra in långa strängar fungerar inte. | Serie konsolen begränsar läng
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**F. Hur gör jag för att skicka feedback?**
+**C. Hur gör jag för att skicka feedback?**
 
 A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback . Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com .
 
-**F. har serie konsolen stöd för kopiera/klistra in?**
+**C. Har serie konsolen stöd för kopiera/klistra in?**
 
 A. Ja. Använd **CTRL** + **Shift** + **C** och **CTRL** + **Shift** + **V** för att kopiera och klistra in i terminalen.
 
-**F. Vem kan aktivera eller inaktivera serie konsolen för min prenumeration?**
+**C. Vem kan aktivera eller inaktivera serie konsolen för min prenumeration?**
 
 A. Om du vill aktivera eller inaktivera serie konsolen på en prenumerations nivå måste du ha Skriv behörighet till prenumerationen. Roller som har Skriv behörighet inkluderar administratörs-eller ägar roller. Anpassade roller kan också ha Skriv behörighet.
 
-**F. Vem har åtkomst till serie konsolen för min virtuella dator?**
+**C. Vem har åtkomst till serie konsolen för min virtuella dator?**
 
 A. Du måste ha rollen virtuell dator deltagare eller högre för att en virtuell dator ska kunna få åtkomst till den virtuella datorns serie konsol.
 
-**F. min serie konsol visar inte något, vad gör jag?**
+**C. Min serie konsol visar inte något, vad gör jag?**
 
 A. Avbildningen är troligt vis felkonfigurerad för åtkomst till serie konsol. Information om hur du konfigurerar din avbildning för att aktivera serie konsolen finns i [Aktivera serie konsolen i anpassade eller äldre avbildningar](#enable-the-serial-console-in-custom-or-older-images).
 
-**F. är serie konsolen tillgänglig för skalnings uppsättningar för virtuella datorer?**
+**C. Är serie konsolen tillgänglig för skalnings uppsättningar för virtuella datorer?**
 
 A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 

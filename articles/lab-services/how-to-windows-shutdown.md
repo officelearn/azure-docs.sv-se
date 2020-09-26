@@ -3,12 +3,12 @@ title: Guide för att styra beteendet för Windows-avstängning i Azure Lab Serv
 description: Steg för att automatiskt stänga av en virtuell Windows-dator som är inaktiv och ta bort Windows shutdown-kommandot.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c20bc2bb79faf53c4f3fbd113c18c5c6d923e59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334029"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guide för att styra avstängnings beteendet i Windows
 
@@ -61,7 +61,7 @@ Eller så kan du välja att följa dessa manuella steg med mallen VM:
 
 1. Gå till **dator konfiguration > Administrativa mallar > Windows-komponenter > Fjärrskrivbordstjänster > värd för värd för fjärrskrivbordssession > tids gränser**för fjärrskrivbordssession.  
 
-    ![Redigeraren för lokala grupprinciper](./media/how-to-windows-shutdown/group-policy-idle.png)
+    ![Skärm bild som visar "redigeraren för lokal grup princip" med "tids gränser för sessioner" markerade.](./media/how-to-windows-shutdown/group-policy-idle.png)
    
 1. Högerklicka på **Ange tids gräns för aktiva men inaktiva Fjärrskrivbordstjänster sessioner**och klicka på **Redigera**.
 

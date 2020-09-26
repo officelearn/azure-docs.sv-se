@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90995949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289777"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurera Azure Defender för lagring
 
@@ -23,11 +23,11 @@ Azure Defender för lagring ger ytterligare ett lager med säkerhets information
 
 Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas också via e-post till prenumerations administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot.
 
-Tjänsten matar in resurs loggar med Läs-, skriv-och borttagnings begär anden till Blob Storage och Azure Files (för hands version) för hot identifiering. Om du vill undersöka aviseringar från Azure Defender kan du Visa relaterad lagrings aktivitet med hjälp av Lagringsanalys loggning. Mer information finns i **Konfigurera loggning** i [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md#configure-logging).
+Tjänsten matar in resurs loggar med Läs-, skriv-och borttagnings begär anden till Blob Storage och Azure Files för hot identifiering. Om du vill undersöka aviseringar från Azure Defender kan du Visa relaterad lagrings aktivitet med hjälp av Lagringsanalys loggning. Mer information finns i **Konfigurera loggning** i [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Tillgänglighet
 
-Azure Defender för lagring är för närvarande tillgängligt för Blob Storage, Azure Files (för hands version) och Azure Data Lake Storage Gen2 (för hands version). Konto typer som stöder Azure Defender inkluderar generell-Purpose v2-, Block-Blob-och Blob Storage-konton. Azure Defender för lagring är tillgängligt i alla offentliga moln och i amerikanska myndigheter, men inte i andra suveräna eller Azure Government moln regioner.
+Azure Defender för lagring är för närvarande tillgängligt för Blob Storage, Azure Files och Azure Data Lake Storage Gen2. Konto typer som stöder Azure Defender inkluderar generell-Purpose v2-, Block-Blob-och Blob Storage-konton. Azure Defender för lagring är tillgängligt i alla offentliga moln och i amerikanska myndigheter, men inte i andra suveräna eller Azure Government moln regioner.
 
 Konton med hierarkiska namn rymder aktiverade för Data Lake Storage stöd transaktioner med både Azure Blob Storage-API: er och Data Lake Storage-API: er. Azure-filresurser stöder transaktioner över SMB.
 
@@ -37,8 +37,8 @@ I följande lista sammanfattas tillgängligheten för Azure Defender för lagrin
 
 - Versions tillstånd:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (för hands version stöder SMB-och rest-transaktioner)
-  - Azure Data Lake Storage Gen2 (för hands version)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (allmän tillgänglighet)
+  - Azure Data Lake Storage Gen2 (allmän tillgänglighet)
 - Moln<br>
     ✔ Kommersiella moln<br>
     ✔ US Gov<br>

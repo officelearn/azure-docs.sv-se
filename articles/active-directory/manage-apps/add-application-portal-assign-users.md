@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 5a0a158f91695bb0aba07aa412f5ba234906d493
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325886"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Snabb start: tilldela användare till en app som använder Azure AD som identitets leverantör
 
@@ -55,8 +55,7 @@ Om du vill tilldela användare till en app som du har lagt till i din Azure AD-k
     > Om programmet inte har stöd för roll val tilldelas standard åtkomst rollen. I det här fallet hanterar programmet åtkomst nivån för användare.
 9. I fönstret **Lägg till tilldelning** väljer du knappen **tilldela** längst ned i fönstret.
 
-> [!NOTE]
-> Du kan ta bort tilldelningen av användare eller grupper med samma procedur. Välj den användare eller grupp som du vill ta bort tilldelningen för och välj sedan **ta bort**. Några av de Microsoft 365-och Office 365-apparna kräver att du använder PowerShell. 
+Du kan ta bort tilldelningen av användare eller grupper med samma procedur. Välj den användare eller grupp som du vill ta bort tilldelningen för och välj sedan **ta bort**. Några av de Microsoft 365-och Office 365-apparna kräver att du använder PowerShell. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -66,4 +65,9 @@ När du är klar med snabb starten bör du ta bort appen. På så sätt kan du h
 
 Fortsätt till nästa artikel och lär dig hur du konfigurerar enkel inloggning för en app.
 > [!div class="nextstepaction"]
-> [Konfigurera enkel inloggning](add-application-portal-setup-sso.md)
+> [Konfigurera SAML-baserad enkel inloggning](add-application-portal-setup-sso.md)
+
+ELLER
+
+> [!div class="nextstepaction"]
+> [Konfigurera OIDC-baserad enkel inloggning](add-application-portal-setup-oidc-sso.md)

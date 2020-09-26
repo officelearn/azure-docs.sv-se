@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en genom gång av hur du skapar ett .
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1bf41eb5ef5b43a59330d1735086ca595d7604b5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 639be20b1d87dec3a7c85e5fcccc0c483337c5b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334233"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs-.NET (Azure. Messaging. EventHubs) 
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure. Messaging. EventHubs** .net-biblioteket. 
@@ -39,7 +39,7 @@ Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skic
     1. Välj **C#** som programmeringsspråk.
     1. Välj **konsol** för typen av program. 
     1. Välj **konsol program (.net Core)** i resultat listan. 
-    1. Välj sedan **Nästa**. 
+    1. Välj **Nästa**. 
 
         ![Dialogrutan Nytt projekt](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
 1. Ange **EventHubsSender** som projekt namn, **EventHubsQuickStart** för lösningens namn och välj sedan **OK** för att skapa projektet. 
@@ -196,7 +196,7 @@ I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. F
         static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
         {
             // Write the body of the event to the console window
-            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.Array, eventArgs.Data.Body.Offset, eventArgs.Data.Body.Count));
 
             // Update checkpoint in the blob storage so that the app receives only new events the next time it's run
             await eventArgs.UpdateCheckpointAsync(eventArgs.CancellationToken);

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299705"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GoToMeeting för automatisk användar etablering
 
@@ -23,7 +23,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra i GoT
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 *   En Azure Active Directory-klient.
 *   En aktive rad GoToMeeting-prenumeration med enkel inloggning.
@@ -60,7 +60,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till GoToMeeting
 
 1. Ställ in **etablerings** läget på **automatiskt**. 
 
-    ![etablerings](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Skärm bild av fliken etablering för GoToMeeting i Azure Portal. Etablerings läget är inställt på automatiskt och administratörens användar namn, lösen ord och test anslutning är markerat.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Under avsnittet admin credentials, utför följande steg:
    
@@ -88,8 +88,8 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

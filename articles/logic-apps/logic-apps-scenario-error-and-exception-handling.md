@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76902700"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322435"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantagshantering och felloggning för logikappar
 
@@ -103,15 +103,15 @@ Vi måste logga källan (förfrågan) för patient posten från Dynamics CRM Onl
 
    **Infoga loggpost**
 
-   ![Infoga loggpost](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Skärm bild från Logic app designer som visar konfigurations inställningarna för InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Infoga fel post**
 
-   ![Infoga loggpost](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Skärm bild från Logic app designer som visar konfigurations inställningarna för CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Sök efter åtgärden för att skapa post**
 
-   ![Villkor](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Skärm bild av CreateErrorRecord-skärmen i Logic app designer som visar fälten för att skapa en fel post.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Käll kod för Logic app
 

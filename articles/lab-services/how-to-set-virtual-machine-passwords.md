@@ -3,12 +3,12 @@ title: Ange lösen ord för virtuella datorer i Azure Lab Services | Microsoft D
 description: Lär dig hur du ställer in och återställer lösen ord för virtuella datorer i klass rum labb Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443782"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334080"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -24,7 +24,7 @@ Gör så här för att öka eller minska labb kapaciteten (antal virtuella dator
 2. Ange det nya **antal virtuella datorer** som du vill ha i labbet. Antalet måste vara större än eller lika med antalet användare som registrerats i labbet. 
 3. Välj sedan **Spara**. 
 
-    ![Knappen starta alla](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Skärm bild som visar fönstret "labb kapacitet" med knappen "maximalt antal datorer på labbet" och "Spara" vald.](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. Om du har ökat kapaciteten kan du se att den virtuella datorn eller de virtuella datorerna skapas. Om du inte ser den nya virtuella datorn i listan uppdaterar du sidan. 
 
     ![Virtuell dator skapas](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)

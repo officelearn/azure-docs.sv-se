@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: b2917c10e13f110d7ac9784da16a10fc61eb9298
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 192780f1340b09cd2579e31f4023acb101d0e1f9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358091"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Skapa en Azure VMware-lösning (AVS)-utvärdering
 
@@ -31,10 +31,10 @@ Den här artikeln beskriver hur du skapar en Azure VMware-lösning (AVS)-utvärd
 
 Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Bedömnings typ** | **Information**
+**Utvärderingstyp** | **Information**
 --- | --- 
-**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. [Läs mer](concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VM** | Utvärderingar som migrerar dina lokala servrar till virtuella Azure-datorer. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. [Läs mer](concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware Solution (AVS) med hjälp av den här utvärderingstypen.[Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
 > Azure VMware Solution (AVS)-utvärdering är för närvarande en för hands version och kan bara skapas för virtuella VMware-datorer.
@@ -44,7 +44,7 @@ Det finns två typer av storleks kriterier som du kan använda för att skapa Az
 
 **Utvärdering** | **Information** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data för lokala virtuella datorer. | **Rekommenderad Node-storlek**: baserat på CPU-och minnes användnings data tillsammans med nodtypen, lagrings typ och FTT-inställning som du väljer för utvärderingen.
+**Prestandabaserad** | Utvärderingar baserade på insamlade prestanda data för lokala virtuella datorer. | **Rekommenderad Node-storlek**: baserat på CPU-och minnes användnings data tillsammans med nodtypen, lagrings typ och FTT-inställning som du väljer för utvärderingen.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad Node-storlek**: baserat på den lokala virtuella dator storleken tillsammans med den nodtyp, lagrings typ och FTT-inställning som du väljer för utvärderingen.
 
 
@@ -52,31 +52,31 @@ Det finns två typer av storleks kriterier som du kan använda för att skapa Az
 
 Kör en Azure VMware-lösning (AVS)-utvärdering enligt följande:
 
-1. Gå igenom [metod tipsen](best-practices-assessment.md) för att skapa utvärderingar.
+1. Granska [metodtipsen](best-practices-assessment.md) för att skapa utvärderingar.
 
 2. Klicka på **utvärdera**i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
 
-    ![Utvärdera](./media/how-to-create-assessment/assess.png)
+    ![Skärm bild som visar Azure Migrate servrar med utvärdering valt under utvärderings verktyg.](./media/how-to-create-assessment/assess.png)
 
 3. I **utvärdera servrar**väljer du bedömnings typ som "Azure VMware-lösning (AVS)", väljer identifierings källa och anger namnet på utvärderingen.
 
-    ![Grundläggande om bedömning](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    ![Grunder i utvärderingar](./media/how-to-create-avs-assessment/assess-servers-avs.png)
 
 4. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
 
     ![Egenskaper för AVS-bedömning](./media/how-to-create-avs-assessment/avs-view-all.png)
 
-5. Klicka på **Nästa** för att **välja datorer att utvärdera**. I **Välj eller skapa en grupp**väljer du **Skapa ny**och anger ett grupp namn. En grupp samlar in en eller flera virtuella datorer för utvärdering.
+5. Klicka på **Nästa** och **Välj datorer att utvärdera**. I **Välj eller skapa en grupp** väljer du **Skapa ny** och anger ett gruppnamn. En grupp samlar en eller flera virtuella datorer för utvärdering.
 
 6. I **Lägg till datorer i gruppen**väljer du de virtuella datorer som ska läggas till i gruppen.
 
-7. Klicka på **Nästa** för att **Granska + skapa utvärdering** för att granska utvärderings informationen.
+7. Klicka på **Nästa** för att **Granska och skapa utvärdering** och granska utvärderingsinformationen.
 
 8. Klicka på **Skapa utvärdering** för att skapa gruppen och kör utvärderingen.
 
     ![Skapa en AVS-utvärdering](./media/how-to-create-avs-assessment/avs-assessment-create.png)
 
-9. När utvärderingen har skapats kan du Visa den på **servrar**  >  **Azure Migrate:**  >  **utvärderingar**av Server bedömning.
+9. När utvärderingen har skapats kan du se den i **Servrar** > **Azure Migrate: Serverutvärdering** > **Utvärderingar**.
 
 10. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
 
@@ -117,7 +117,7 @@ En Azure VMware Solution (AVS)-utvärdering beskriver:
 
 
 
-### <a name="review-cost-details"></a>Granska kostnads information
+### <a name="review-cost-details"></a>Granska kostnadsinformation
 
 I den här vyn visas den uppskattade kostnaden för att köra virtuella datorer i Azure VMware-lösningen (AVS).
 

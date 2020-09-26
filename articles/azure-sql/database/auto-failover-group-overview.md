@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277741"
+ms.locfileid: "91357717"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -153,7 +153,7 @@ Om du vill redundansväxla en failover-grupp behöver du RBAC-skriv åtkomst til
 
 Gruppen för automatisk redundans måste konfigureras på den primära servern och ansluta den till den sekundära servern i en annan Azure-region. Grupperna kan innehålla alla eller vissa databaser på dessa servrar. Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av flera databaser och gruppen för automatisk redundans.
 
-![automatisk redundans](./media/auto-failover-group-overview/auto-failover-group.png)
+![Diagrammet visar en typisk konfiguration av ett Geo-redundant moln program med hjälp av flera databaser och gruppen för automatisk redundans.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > Se [Lägg till SQL Database i en failover-grupp](failover-group-add-single-database-tutorial.md) för en detaljerad steg-för-steg-guide som lägger till en databas i SQL Database till en failover-grupp.

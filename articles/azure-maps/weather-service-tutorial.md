@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python) | Microsoft Azure Maps'
-description: Den här självstudien visar hur du kopplar sensor data med väder prognos data från Microsoft Azure Maps väder tjänst med Azure Notebooks (python).
+description: Självstudie om hur du kopplar sensor data med väder prognos data från Microsoft Azure Maps väder tjänst med Azure Notebooks (python).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/29/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 4ec51bc84041008c0b843a8549e299747c3134a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851653"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310109"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
@@ -182,9 +182,6 @@ Diagrammen nedan visualiserar prognos data. För att ändra vridnings hastighete
 
 ![Vridnings hastigheten Rita ](./media/weather-service-tutorial/speed-date-plot.png) ![ vridnings riktningen](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-
-## <a name="next-steps"></a>Nästa steg
-
 I den här självstudien får du lära dig att anropa Azure Maps REST-API: er för att hämta väder prognos data. Du har också lärt dig hur du visualiserar data i grafer.
 
 Om du vill veta mer om hur du anropar Azure Maps REST-API: er i Azure Notebooks, se [EV-routning med Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
@@ -196,4 +193,9 @@ Om du vill utforska de Azure Maps-API: er som används i den här självstudien,
 
 En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-Mer information om Azure Notebooks finns i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om Azure Notebooks finns i
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

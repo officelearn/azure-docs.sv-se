@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b733fbc44deefe46e3496e288ebad525346ef005
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322316"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
 
 
-Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)eller [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
+Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)eller [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
 
 I den här artikeln kan du se hur du:
 

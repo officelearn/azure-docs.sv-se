@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 44ed9c0d19b6e0034b49e36448765d098d575273
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325325"
+ms.locfileid: "91356901"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använd geo-återställning för att återställa ett SaaS-program med flera innehavare från databas säkerhets kopior
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här självstudien utforskas ett fullständigt haveri beredskaps scenario för SaaS-program med flera innehavare som implementeras med databasen per klient modell. Du använder [geo-återställning](recovery-using-backups.md) för att återställa katalogen och klient databaserna från automatiskt underhållna geo-redundanta säkerhets kopieringar till en alternativ återställnings region. När avbrottet har åtgärd ATS använder du [geo-replikering](active-geo-replication-overview.md) för att repatriate ändrade databaser till sin ursprungliga region.
 
-![Geo-återställning-arkitektur](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Diagrammet visar en original-och återställnings region, som båda har en app, katalog, original-eller speglings avbildning av servrar och pooler, automatisk säkerhets kopiering till lagring, med återställnings regionen som accepterar geo-replikering av säkerhets kopiering och har Server och pool för nya klienter.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 Geo-återställning är en katastrof återställnings lösning med låg kostnad för Azure SQL Database. Att återställa från geo-redundanta säkerhets kopieringar kan dock leda till data förlust på upp till en timme. Det kan ta lång tid, beroende på storleken på varje databas. 
 

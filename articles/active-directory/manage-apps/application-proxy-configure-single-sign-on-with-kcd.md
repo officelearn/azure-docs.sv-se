@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299756"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -32,7 +32,7 @@ Du kan aktivera enkel inloggning till dina program med hjälp av integrerad Wind
 ## <a name="how-single-sign-on-with-kcd-works"></a>Så här fungerar enkel inloggning med KCD
 Det här diagrammet förklarar flödet när en användare försöker komma åt ett lokalt program som använder IWA.
 
-![Flödes diagram för Microsoft AAD-autentisering](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Flödes diagram för Microsoft AAD-autentisering](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
 1. Användaren anger URL: en för att komma åt den lokala appen via programproxyn.
 2. Programproxyn omdirigerar begäran till Azure AD Authentication Services för att förautentisera sig. I det här fallet tillämpar Azure AD alla tillämpliga autentiserings-och Auktoriseringsprinciper, till exempel multifaktorautentisering. Om användaren verifieras skapar Azure AD en token och skickar den till användaren.
@@ -43,7 +43,7 @@ Det här diagrammet förklarar flödet när en användare försöker komma åt e
 7. Anslutningen skickar den ursprungliga begäran till program servern med hjälp av Kerberos-token som den fick från AD.
 8. Programmet skickar svaret till anslutningen, som sedan returneras till Application Proxy-tjänsten och slutligen till användaren.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar med enkel inloggning för IWA-program kontrollerar du att din miljö är klar med följande inställningar och konfigurationer:
 
 * Dina appar, t. ex. SharePoint-webbappar, är inställda på att använda integrerad Windows-autentisering. Mer information finns i [Aktivera stöd för Kerberos-autentisering](https://technet.microsoft.com/library/dd759186.aspx), eller för SharePoint se [plan för Kerberos-autentisering i SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -62,7 +62,7 @@ Active Directory-konfigurationen varierar beroende på om din Application Proxy 
 5. Välj **Använd valfritt autentiseringsprotokoll**.
 6. Under **tjänster som det här kontot kan presentera delegerade autentiseringsuppgifter** för lägger du till värdet för program SERVERns SPN-identitet. Detta gör att Application Proxy Connector kan personifiera användare i AD mot de program som definierats i listan.
 
-   ![Koppling – Server instanser Fönstret Egenskaper skärm bild](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![Koppling – Server instanser Fönstret Egenskaper skärm bild](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Anslutnings-och program server i olika domäner
 1. En lista över krav för att arbeta med KCD över domäner finns i Kerberos- [begränsad delegering över domäner](https://technet.microsoft.com/library/hh831477.aspx).
@@ -97,7 +97,6 @@ Active Directory-konfigurationen varierar beroende på om din Application Proxy 
 
    ![Avancerad program konfiguration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## <a name="sso-for-non-windows-apps"></a>SSO för appar som inte kommer från Windows
 
 Kerberos Delegerings flödet i Azure AD-programproxy startar när Azure AD autentiserar användaren i molnet. När begäran har mottagits lokalt utfärdar Azure AD-programproxy Connector en Kerberos-biljett åt användaren genom att interagera med den lokala Active Directory. Den här processen kallas för Kerberos-begränsad delegering (KCD). 
@@ -106,7 +105,7 @@ I nästa fas skickas en begäran till Server dels programmet med denna Kerberos-
 
 Det finns flera mekanismer som definierar hur du skickar Kerberos-biljetten i sådana begär Anden. De flesta icke-Windows-servrar förväntar sig att ta emot dem i form av SPNEGO-token. Den här mekanismen stöds på Azure AD-programproxy, men är inaktive rad som standard. En anslutning kan konfigureras för SPNEGO eller standard-Kerberos-token, men inte båda.
 
-Om du konfigurerar en anslutnings dator för SPNEGO bör du kontrol lera att alla andra anslutningar i den anslutnings gruppen också är konfigurerade med SPNEGO. Program som förväntar sig Kerberos-token ska dirigeras via andra anslutningar som inte har kon figurer ATS för SPNEGO.
+Om du konfigurerar en anslutnings dator för SPNEGO bör du kontrol lera att alla andra anslutningar i den anslutnings gruppen också är konfigurerade med SPNEGO. Program som förväntar sig Kerberos-token ska dirigeras via andra anslutningar som inte har kon figurer ATS för SPNEGO. Vissa webb program accepterar båda formaten utan att det krävs några ändringar i konfigurationen. 
  
 
 Så här aktiverar du SPNEGO:
@@ -129,13 +128,15 @@ Den här funktionen gör det möjligt för många organisationer som har olika l
 * Ha flera domäner internt ( joe@us.contoso.com , joe@eu.contoso.com ) och en enda domän i molnet ( joe@contoso.com ).
 * Ha ett icke-dirigerbart domän namn internt ( joe@contoso.usa ) och ett giltigt i molnet.
 * Använd inte domän namn internt (Johan)
-* Använd olika alias lokalt och i molnet. Till exempel joe-johns@contoso.com vs.joej@contoso.com  
+* Använd olika alias lokalt och i molnet. Till exempel joe-johns@contoso.com vs. joej@contoso.com  
 
 Med Application Proxy kan du välja vilken identitet som ska användas för att hämta Kerberos-biljetten. Den här inställningen är per program. Några av dessa alternativ är lämpliga för system som inte accepterar e-postadresser, och andra är utformade för alternativa inloggningar.
 
 ![Skärm bild av delegerad inloggnings identitets parameter](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 Om delegerad inloggnings identitet används kanske värdet inte är unikt för alla domäner eller skogar i din organisation. Du kan undvika det här problemet genom att publicera programmen två gånger med två olika anslutnings grupper. Eftersom varje program har en annan användar mål grupp kan du ansluta dess kopplingar till en annan domän.
+
+Om **namnet på den lokala sam-kontot** används för inloggnings identiteten måste datorn som är värd för anslutningen läggas till i domänen där användar kontot finns.
 
 ### <a name="configure-sso-for-different-identities"></a>Konfigurera SSO för olika identiteter
 1. Konfigurera Azure AD Connect inställningar så att huvud identiteten är e-postadressen (e-post). Detta görs som en del av anpassnings processen genom att ändra fältet för **användarens huvud namn** i synkroniseringsinställningarna. De här inställningarna avgör också hur användare loggar in på Office365, windows10-enheter och andra program som använder Azure AD som identitets lager.  

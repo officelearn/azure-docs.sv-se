@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e267a30d6f73b48f825c4b61b3bc1106133b8cdf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938092"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285391"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Skala ut din Azure-Arc Enabled PostgreSQL Scale Server Group genom att lägga till fler arbetsnoder
 Det här dokumentet beskriver hur du skalar ut en Azure Arc-aktiverad PostgreSQL-Server grupp. Det gör du genom att ta dig igenom ett scenario. **Om du inte vill köra genom scenariot och bara vill läsa om hur du skalar ut, hoppar du till stycket [skala ut](#scale-out)**.
@@ -151,7 +151,11 @@ Det allmänna formatet för det skalbara kommandot är:
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-Du kan till exempel öka antalet arbetsnoder från 2 till 4 genom att köra följande kommando:
+> [!CAUTION]
+> För hands versionen stöder inte skalning tillbaka i. Det går till exempel inte att minska antalet arbetsnoder än. Om du behöver göra det måste du extrahera/säkerhetskopiera data, släppa Server gruppen, skapa en ny server grupp med färre arbetsnoder och sedan importera data.
+
+I det här exemplet ökar vi antalet arbetsnoder från 2 till 4 genom att köra följande kommando:
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
@@ -196,7 +200,8 @@ Den returnerar listan över Server grupper som skapats i ditt namn område och a
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Obs:** Om du har skapat en Server grupp av version 11-PostgreSQL i stället för 12 kör du följande kommando i stället: _kubectl get postgresql-11_
+> [!NOTE]
+> Om du har skapat en Server grupp av version 11-PostgreSQL i stället för 12 kör du följande kommando i stället: _kubectl get postgresql-11_
 
 #### <a name="with-a-sql-query"></a>Med en SQL-fr åga:
 Anslut till din server grupp med det valda klient verktyget och kör följande fråga:
@@ -230,7 +235,6 @@ Notera körnings tiden.
 >* [HTAP med hög prestanda med Azure PostgreSQL-storskalighet (citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Skapa HTAP-program med python & citus (Azure PostgreSQL storskalig)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> För hands versionen stöder inte skalning tillbaka i. Det går till exempel inte att minska antalet arbetsnoder än. Om du behöver göra det måste du extrahera/säkerhetskopiera data, släppa Server gruppen, skapa en ny server grupp med färre arbetsnoder och sedan importera data.
 
 ## <a name="next-steps"></a>Nästa steg
 

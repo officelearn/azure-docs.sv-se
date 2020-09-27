@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 321f6bd6324613967001139e365d96521217d50b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267259"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397104"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad databas med öppen källkod som liknar Oracle och DB2. Den innehåller företags klara funktioner som full syra efterlevnad, tillförlitlig transaktions bearbetning och samtidighet med flera versioner. Det stöder också standarder som ANSI SQL och SQL/with (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Den är mycket utöknings bar med stöd för över 12 procedur språk, GIN-och register index, spatiala data stöd och flera NoSQL-liknande funktioner för JSON-eller nyckel värdebaserade program.
@@ -164,7 +164,7 @@ Anslut till den virtuella Linux-dator som du skapade via SparaTillFil. Om det h�
 
     Du bör få följande utdata:
 
-![image](./media/postgresql-install/no1.png)
+![Skärm bild som visar utdata när du har initierat databasen.](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Konfigurera PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -185,7 +185,7 @@ Kör följande kommandon:
 # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 ```
 
-![image](./media/postgresql-install/no2.png)
+![Skärm bild som visar installationsmedia och data katalogen.](./media/postgresql-install/no2.png)
 
 Ändra filen för att göra den körbar:
 
@@ -207,7 +207,7 @@ Kontrol lera om slut punkten för PostgreSQL är på:
 
 Du bör se följande utdata:
 
-![image](./media/postgresql-install/no3.png)
+![Skärm bild som visar slut punkten för PostgreSQL.](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Anslut till postgres-databasen
 Växla till postgres-användaren en gång igen:
@@ -246,11 +246,11 @@ Nu har du skapat en tabell med fyra kolumner med följande kolumn namn och begr�
 
 Du bör se följande om tabellen har skapats:
 
-![image](./media/postgresql-install/no4.png)
+![Skärm bild som visar meddelandet som visas när tabellen har skapats.](./media/postgresql-install/no4.png)
 
 Du kan också kontrol lera tabell strukturen med hjälp av följande kommando:
 
-![image](./media/postgresql-install/no5.png)
+![Skärm bild som visar kommandot för att kontrol lera tabell strukturen.](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Lägga till data i en tabell
 Börja med att infoga information i en rad:
@@ -261,7 +261,7 @@ INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Cassero
 
 Du bör se dessa utdata:
 
-![image](./media/postgresql-install/no6.png)
+![Skärm bild som visar rad informationen som du har lagt till.](./media/postgresql-install/no6.png)
 
 Du kan också lägga till ett par fler personer i tabellen. Här följer några alternativ, eller så kan du skapa egna:
 
@@ -282,7 +282,7 @@ select * from potluck;
 
 Utdata ser ut så här:
 
-![image](./media/postgresql-install/no7.png)
+![Skärm bild som visar utdata från kommandot för att visa en tabell.](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Ta bort data i en tabell
 Använd följande kommando för att ta bort data i en tabell:

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c5a2aa6ca75e352a824716c19af923c8628efde
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 087b021f088e344926a44f7e009f273d265dd82b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91345472"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397631"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Skapa en Azure båg-datakontrollant med Kubernetes-verktyg
 
@@ -30,6 +30,20 @@ Om du vill skapa data styrenheten för Azure-bågen med Kubernetes-verktyg måst
 
 > [!NOTE]
 > Några av stegen för att skapa en Azure Arc-datakontrollant som anges nedan kräver Kubernetes-kluster administratörs behörighet.  Om du inte är en Kubernetes kluster administratör måste du ha Kubernetes-klustrets administratör för att utföra dessa steg för din räkning.
+
+#### <a name="cleanup-from-past-installations"></a>Rensa från tidigare installationer
+
+Om du har installerat Azure Arc-datakontrollanten tidigare på samma kluster och tagit bort data styrenheten för Azure-bågen med `azdata arc dc delete` kommandot, kan det finnas vissa kluster nivå objekt som fortfarande måste tas bort. Kör följande kommandon för att ta bort kluster nivå objekt för Azure Arc-datakontrollanten:
+
+```
+# Cleanup azure arc data service artifacts
+kubectl delete crd datacontrollers.arcdata.microsoft.com 
+kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete postgresql-11s.arcdata.microsoft.com 
+kubectl delete postgresql-12s.arcdata.microsoft.com
+kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
+kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+```
 
 ## <a name="overview"></a>Översikt
 

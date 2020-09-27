@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184303"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398194"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrera data från StorSimple 5000-7000-serien till 8000-serien het
 
@@ -80,8 +80,8 @@ Innan du påbörjar migreringen kontrollerar du att:
 
     ![Kontrol lera program varu versionen på en äldre enhet](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Om din Live-enhet inte kör v 2.1.1.518 eller senare, måste du uppgradera systemet till den minimala versionen som krävs. Detaljerade anvisningar finns i [uppgradera systemet till v 2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
-    * Om du kör v-2.1.1.518 går du till webb gränssnitt för att se om det finns några meddelanden om problem med återställning av registret. Om det inte gick att återställa registret kör du registret Restore. Mer information finns i så här kör du [registret Restore](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
+    * Om din Live-enhet inte kör v 2.1.1.518 eller senare, måste du uppgradera systemet till den minimala versionen som krävs. Du kan behöva arbeta med Microsoft Support för att hjälpa dig att utföra uppgraderingen.
+    * Om du kör v-2.1.1.518 går du till webb gränssnitt för att se om det finns några meddelanden om problem med återställning av registret. Om det inte gick att återställa registret kör du registret Restore. Du kan behöva arbeta med Microsoft Support för att hjälpa dig att återställa ditt register.
     * Om du har en enhet som inte körde v-2.1.1.518 utför du en redundansväxling till en ersättnings enhet som kör v-2.1.1.518. Detaljerade anvisningar finns i DR för din StorSimple-enhet för 5000/7000-serien.
     * Säkerhetskopiera data för enheten genom att ta en ögonblicks bild av molnet.
     * Sök efter andra aktiva säkerhets kopierings jobb som körs på käll enheten. Detta inkluderar jobben på värden för StorSimple Data Protection-konsolen. Vänta tills de aktuella jobben har slutförts.

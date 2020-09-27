@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017710"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395982"
 ---
 # <a name="multitenant-applications-in-azure"></a>Program med flera klienter i Azure
-Ett program för flera klient organisationer är en delad resurs som tillåter "användare i separata klienter" att visa programmet som om det var ett eget. Ett typiskt scenario som lånar sig själv till ett program med flera innehavare är ett där alla användare av programmet från olika klienter kanske vill anpassa användar upplevelsen, men på annat sätt har samma grundläggande affärs krav. Exempel på stora program med flera klient organisationer är Office 365, Outlook.com och visualstudio.com.
+Ett program för flera klient organisationer är en delad resurs som tillåter "användare i separata klienter" att visa programmet som om det var ett eget. Ett typiskt scenario som lånar sig själv till ett program med flera innehavare är ett där alla användare av programmet från olika klienter kanske vill anpassa användar upplevelsen, men på annat sätt har samma grundläggande affärs krav. Exempel på stora program med flera klient organisationer är Microsoft 365, Outlook.com och visualstudio.com.
 
 Från en programproviders perspektiv är fördelarna med flera organisationer främst relaterade till drifts-och kostnads effektivitet. En version av programmet kan uppfylla behoven hos många klienter/kunder, vilket möjliggör konsolidering av system administrations uppgifter som övervakning, prestanda justering, program varu underhåll och säkerhets kopiering av data.
 

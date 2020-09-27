@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4c39a24664d36e4a69a44b7fe06835572e0cfe75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b07ed4589a54948ef87f516ac4bb97ef8492283e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329252"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398843"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrera till Azure Virtual WAN
 
@@ -72,7 +72,7 @@ Sammanfattning:
 - Hubbar ger också VPN-avslutning för centrala användare över flera klient typer som använder OpenVPN-anslutning till det globala nät nätverket, vilket ger åtkomst till inte bara program som migrerats till Azure, utan även eventuella resurser som återstår lokalt.
 - Internet anslutning för resurser i ett virtuellt nätverk som tillhandahålls av Azure Virtual WAN.
 
-Internet anslutning för fjärranslutna platser tillhandahålls även av Azure Virtual WAN. Lokala Internet-grupp stöds via partner integration för optimerad åtkomst till SaaS-tjänster som Office 365.
+Internet anslutning för fjärranslutna platser tillhandahålls även av Azure Virtual WAN. Lokala Internet-grupp som stöds via partner integration för optimerad åtkomst till SaaS-tjänster som Microsoft 365.
 
 ## <a name="migrate-to-virtual-wan"></a>Migrera till Virtual WAN
 

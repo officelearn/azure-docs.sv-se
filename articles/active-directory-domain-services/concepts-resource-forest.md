@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480415"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396407"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Principer och funktioner för resurs skogar för Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) är en inloggnings upplevelse för äldre, lokala, branschspecifika program. Användare, grupper och lösenords-hashar för lokala och moln användare synkroniseras med den hanterade Azure AD DS-domänen. Dessa synkroniserade lösen ords-hashar är vad som ger användare en enda uppsättning autentiseringsuppgifter som de kan använda för den lokala AD DS, Office 365 och Azure Active Directory.
+Azure Active Directory Domain Services (Azure AD DS) är en inloggnings upplevelse för äldre, lokala, branschspecifika program. Användare, grupper och lösenords-hashar för lokala och moln användare synkroniseras med den hanterade Azure AD DS-domänen. Dessa synkroniserade lösen ords-hashar är vad som ger användare en enda uppsättning autentiseringsuppgifter som de kan använda för den lokala AD DS, Microsoft 365 och Azure Active Directory.
 
 Även om det är säkert och ger ytterligare säkerhets förmåner, kan vissa organisationer inte synkronisera dessa hashar för användar lösen ord till Azure AD eller Azure AD DS. Användare i en organisation kanske inte känner till sitt lösen ord eftersom de bara använder autentisering med smartkort. De här begränsningarna förhindrar att vissa organisationer använder Azure AD DS för att lyfta och byta lokala klassiska program till Azure.
 

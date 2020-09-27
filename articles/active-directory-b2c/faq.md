@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270673"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396441"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: vanliga frågor och svar
 
@@ -29,9 +29,9 @@ Det finns två vanliga orsaker till varför Azure AD-tillägget inte fungerar f�
 
 Azure AD och Azure AD B2C är separata produkt erbjudanden och kan inte samverka i samma klient organisation. En Azure AD-klient representerar en organisation. En Azure AD B2C klient representerar en samling identiteter som ska användas med förlitande parters program. Genom att lägga till en **ny OpenID Connect-Provider** under **Azure AD B2C > identitets leverantörer** eller med anpassade principer, kan Azure AD B2C FEDERERa till Azure AD som tillåter autentisering av anställda i en organisation.
 
-### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Kan jag använda Azure AD B2C för att tillhandahålla social inloggning (Facebook och Google +) i Office 365?
+### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-microsoft-365"></a>Kan jag använda Azure AD B2C för att tillhandahålla social inloggning (Facebook och Google +) i Microsoft 365?
 
-Azure AD B2C kan inte användas för att autentisera användare för Microsoft Office 365. Azure AD är Microsofts lösning för att hantera medarbetarnas åtkomst till SaaS-appar och har funktioner som har utformats för detta ändamål som licensiering och villkorlig åtkomst. Azure AD B2C tillhandahåller en identitets-och åtkomst hanterings plattform för att skapa webb-och mobil program. När Azure AD B2C har kon figurer ATS för att federera till en Azure AD-klient hanterar Azure AD-klienten medarbetares åtkomst till program som förlitar sig på Azure AD B2C.
+Azure AD B2C kan inte användas för att autentisera användare för Microsoft 365. Azure AD är Microsofts lösning för att hantera medarbetarnas åtkomst till SaaS-appar och har funktioner som har utformats för detta ändamål som licensiering och villkorlig åtkomst. Azure AD B2C tillhandahåller en identitets-och åtkomst hanterings plattform för att skapa webb-och mobil program. När Azure AD B2C har kon figurer ATS för att federera till en Azure AD-klient hanterar Azure AD-klienten medarbetares åtkomst till program som förlitar sig på Azure AD B2C.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Vad är lokala konton i Azure AD B2C? Hur skiljer de sig från arbets-eller skol konton i Azure AD?
 

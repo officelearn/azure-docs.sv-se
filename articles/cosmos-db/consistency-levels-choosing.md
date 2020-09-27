@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 0a79f6883a150cb95724a7be30dcbd2e8e03f01f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921845"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396084"
 ---
-# <a name="choose-the-right-consistency-level"></a>Välja rätt konsekvensnivå 
+# <a name="how-to-choose-the-right-consistency-level-for-your-azure-cosmos-db-application"></a>Hur väljer du rätt konsekvens nivå för ditt Azure Cosmos DB program? 
 
 Distribuerade databaser förlitar sig på replikering för hög tillgänglighet, låg latens eller båda, och gör den grundläggande kompromissen mellan Läs konsekvens jämfört med tillgänglighet, svars tid och data flöde. De flesta kommersiellt tillgängliga distribuerade databaser ber utvecklare att välja mellan de två extrema konsekvens modellerna: *stark* konsekvens och *eventuell* konsekvens. Azure Cosmos DB gör det möjligt för utvecklare att välja bland de fem väldefinierade konsekvens modellerna: *stark*, *begränsad föråldrad*, *session*, *konsekvent prefix* och *eventuell*. Var och en av dessa konsekvens modeller är väldefinierad, intuitiv och kan användas för vissa verkliga scenarier. Var och en av de fem konsekvens modellerna ger exakta [tillgänglighets-och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande service avtal. Du kan konfigurera en standard konsekvens på konto nivån och [åsidosätta den på begär ande nivå](how-to-manage-consistency.md#override-the-default-consistency-level). Följande enkla saker hjälper dig att fatta rätt val i många vanliga scenarier.
 

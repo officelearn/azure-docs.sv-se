@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36673533fbbfc913f742a32bd20cde2b238e2143
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757831"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397240"
 ---
-# <a name="azure-best-practices-for-network-security"></a>Metod tips för Azure för nätverks säkerhet
+# <a name="azure-best-practices-for-network-security"></a>Bästa praxis i Azure för nätverkssäkerhet
 I den här artikeln beskrivs en samling Azure Best Practices för att förbättra nätverks säkerheten. Dessa bästa metoder är härledda från vår erfarenhet av Azure-nätverk och våra kunders upplevelser som du själv har.
 
 För varje bästa praxis förklarar den här artikeln:
@@ -131,7 +131,7 @@ Många organisationer har valt hybrid IT-vägen. Med hybrid IT är en del av fö
 I ett hybrid IT-scenario finns det vanligt vis en typ av anslutning mellan olika platser. Anslutning mellan platser gör att företaget kan ansluta sina lokala nätverk till virtuella Azure-nätverk. Det finns två lösningar för anslutning mellan platser:
 
 * [Plats-till-plats-VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Det är en betrodd, tillförlitlig och etablerad teknik, men anslutningen äger rum via Internet. Bandbredden begränsas till högst cirka 1,25 Gbit/s. VPN för plats-till-plats är ett lämpligt alternativ i vissa scenarier.
-* **Azure-ExpressRoute**. Vi rekommenderar att du använder [ExpressRoute](../../expressroute/expressroute-introduction.md) för din anslutning mellan platser. Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster som Azure, Office 365 och Dynamics 365. ExpressRoute är en särskild WAN-länk mellan din lokala plats eller en Microsoft Exchange-värd. Eftersom det här är en Telco-anslutning överförs inte dina data via Internet, så den är inte utsatt för potentiella risker med Internet-kommunikation.
+* **Azure-ExpressRoute**. Vi rekommenderar att du använder [ExpressRoute](../../expressroute/expressroute-introduction.md) för din anslutning mellan platser. Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster som Azure, Microsoft 365 och Dynamics 365. ExpressRoute är en särskild WAN-länk mellan din lokala plats eller en Microsoft Exchange-värd. Eftersom det här är en Telco-anslutning överförs inte dina data via Internet, så den är inte utsatt för potentiella risker med Internet-kommunikation.
 
 Platsen för din ExpressRoute-anslutning kan påverka brand Väggs kapacitet, skalbarhet, tillförlitlighet och synlighet för nätverks trafik. Du måste identifiera var du ska avsluta ExpressRoute i befintliga (lokala) nätverk. Du kan:
 
@@ -200,7 +200,7 @@ Använd tjänst slut punkter i virtuella nätverk för att utöka det privata ad
 
 Tjänstslutpunkter har följande fördelar:
 
-- **Förbättrad säkerhets för dina Azure-tjänstresurser**: Med tjänstslutpunkter kan Azure-tjänstresurser skyddas i ditt virtuella nätverk. När tjänstresurser skyddas i ett virtuellt nätverk ökar säkerheten genom att den offentliga internetåtkomsten till resurserna tas bort helt, så att endast trafik från ditt virtuella nätverk tillåts.
+- **Förbättrad säkerhets för dina Azure-tjänstresurser**: Med tjänstslutpunkter kan Azure-tjänstresurser skyddas i ditt virtuella nätverk. När tjänstresurser skyddas i ett virtuellt nätverk ökar säkerheten genom att du helt tar bort den offentliga internetåtkomsten till resurserna, så att endast trafik från ditt virtuella nätverk tillåts.
 - **Optimal routning för Azure Service-trafik från ditt virtuella nätverk**: alla vägar i ditt virtuella nätverk som framtvingar Internet trafik till dina lokala och/eller virtuella enheter, som kallas Tvingad tunnel trafik, tvingar också Azure Service-trafik att ta samma väg som internet trafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken.
 
   Slut punkter tar alltid tjänst trafik direkt från ditt virtuella nätverk till tjänsten i Azure stamnät nätverket. Genom att hålla trafiken i Azures stamnät kan du fortsätta att granska och övervaka utgående Internet trafik från dina virtuella nätverk via Tvingad tunnel trafik utan att påverka tjänst trafiken. Läs mer om [användardefinierade vägar och Tvingad tunnel trafik](../../virtual-network/virtual-networks-udr-overview.md).

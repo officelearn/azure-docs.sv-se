@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: c3aa813c671e9755b6ab65ba1e2967876bd170ca
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918000"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398348"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Så här indexerar du JSON-blobbar med en BLOB-indexerare i Azure Kognitiv sökning
 
@@ -45,7 +45,7 @@ Du behöver lagrings kontots namn, behållar namn och en åtkomst nyckel för at
 
 På sidan Översikt i din Sök tjänst kan du [starta guiden](search-import-data-portal.md) från kommando fältet.
 
-   ![Importera data kommando i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd2.png" alt-text="Importera data kommando i portalen" border="false":::
 
 ### <a name="3---set-the-data-source"></a>3 – ange data källan
 
@@ -63,7 +63,7 @@ På sidan **data källa** måste källan vara **Azure Blob Storage**, med följa
    
 + **Lagrings behållaren** måste ange ditt lagrings konto och din behållare, eller en anslutnings sträng som matchar behållaren. Du kan hämta anslutnings strängar på sidan Blob Service Portal.
 
-   ![Definition av BLOB-datakälla](media/search-howto-index-json/import-wizard-json-data-source.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definition av BLOB-datakälla" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – hoppa över sidan "utöka innehåll" i guiden
 
@@ -81,7 +81,7 @@ Granska beskrivningen av [indexattribut](/rest/api/searchservice/create-index#bk
 
 Ägna en stund åt att granska dina val. När du har kört guiden skapas fysiska data strukturer och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
 
-   ![Definition av BLOB index](media/search-howto-index-json/import-wizard-json-index.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definition av BLOB index" border="false":::
 
 ### <a name="6---create-indexer"></a>6 – skapa indexerare
 
@@ -89,7 +89,7 @@ Fullständigt angivet skapar guiden tre distinkta objekt i din Sök tjänst. Ett
 
 Om du inte är bekant med indexerare är en *indexerare* en resurs i Azure kognitiv sökning som crawlar en extern data källa för sökbart innehåll. Utdata från guiden **Importera data** är en indexerare som crawlar din JSON-datakälla, extraherar sökbart innehåll och importerar det till ett index på Azure kognitiv sökning.
 
-   ![Definition av BLOB-indexerare](media/search-howto-index-json/import-wizard-json-indexer.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definition av BLOB-indexerare" border="false":::
 
 Klicka på **OK** för att köra guiden och skapa alla objekt. Indexeringen börjar omedelbart.
 
@@ -118,7 +118,7 @@ Ordningen på åtgärder kräver att du skapar och anropar objekt i den här ord
 
 JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument eller en JSON-matris. BLOB-indexeraren i Azure Kognitiv sökning kan tolka antingen konstruktion, beroende på hur du ställer in parametern **parsingMode** på begäran.
 
-| JSON-dokument | parsingMode | Beskrivning | Tillgänglighet |
+| JSON-dokument | parsingMode | Description | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
 | En per BLOB | `json` | Parsar JSON-blobbar som ett enda text segment. Varje JSON-BLOB blir ett enda Azure Kognitiv sökning-dokument. | Allmänt tillgänglig i både [rest](/rest/api/searchservice/indexer-operations) API och [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Flera per BLOB | `jsonArray` | Parsar en JSON-matris i blobben där varje element i matrisen blir ett separat Azure Kognitiv sökning-dokument.  | Allmänt tillgänglig i både [rest](/rest/api/searchservice/indexer-operations) API och [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -291,7 +291,7 @@ Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den kör
 
 JSON-blobbar kan anta flera formulär. Parametern **parsingMode** i JSON-indexeraren avgör hur JSON-BLOB-innehåll tolkas och struktureras i ett Azure kognitiv sökning-index:
 
-| parsingMode | Beskrivning |
+| parsingMode | Description |
 |-------------|-------------|
 | `json`  | Indexera varje blob som ett enskilt dokument. Det här är standardinställningen. |
 | `jsonArray` | Välj det här läget om Blobbarna består av JSON-matriser och du behöver varje element i matrisen för att bli ett separat dokument i Azure Kognitiv sökning. |

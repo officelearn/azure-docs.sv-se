@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adcd6aa2c232bf87dc82284acbe2815484660ca7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 49dc551039e0fd82ddb4374713c59fca2f493b62
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998568"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397954"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Självstudie: skapa din första Sökapp med hjälp av .NET SDK
 
@@ -42,7 +42,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 Det här anropet initierar en sökning i Azure-data och returnerar resultatet.
 
-![Söker efter "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
+:::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Söker efter * pool *" border="false":::
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -58,7 +58,7 @@ För att slutföra den här kursen behöver du:
 1. Använd Visual Studio, gå till och öppna lösningen för den grundläggande Sök sidan och välj **starta utan fel sökning** (eller tryck på F5).
 1. Skriv några ord (till exempel "WiFi", "View", "bar", "parkering") och granska resultaten.
 
-    ![Söker efter "WiFi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Söker efter * WiFi *" border="false":::
 
 Förhoppnings vis kommer det här projektet att köras smidigt och du har Azure-appen igång. Många av de viktigaste komponenterna för mer avancerade sökningar ingår i den här appen, så det är en bra idé att gå igenom den och återskapa den steg för steg.
 
@@ -68,15 +68,15 @@ Gå igenom följande steg för att skapa projektet från grunden och därmed hj�
 
 1. I Visual Studio 2017 eller senare väljer du **nytt/projekt** och **ASP.net Core webb program**. Ge projektet ett namn, till exempel "FirstAzureSearchApp".
 
-    ![Skapa ett moln projekt](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Skapa ett moln projekt" border="false":::
 
 2. När du har klickat på **OK** för den här projekt typen får du en andra uppsättning alternativ som gäller för projektet. Välj **webb program (modell-se-Controller)**.
 
-    ![Skapa ett MVC-projekt](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Skapa ett MVC-projekt":::
 
 3. Gå sedan till **verktyg** -menyn och välj **NuGet Package Manager** och sedan **Hantera NuGet-paket för lösning...**. Det finns ett paket som vi behöver installera. Välj fliken **Bläddra** och skriv sedan "Azure kognitiv sökning" i sökrutan. Installera **Microsoft. Azure. Sök** när det visas i listan (version 9.0.1 eller senare). Du kommer att behöva klicka igenom några ytterligare dialog rutor för att slutföra installationen.
 
-    ![Använda NuGet för att lägga till Azure-bibliotek](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Använda NuGet för att lägga till Azure-bibliotek" border="false":::
 
 ### <a name="initialize-azure-cognitive-search"></a>Initiera Azure-Kognitiv sökning
 
@@ -93,7 +93,7 @@ För det här exemplet använder vi offentligt tillgängliga hotell data. Dessa 
 
 2. Vi är inte klar med den här filen ännu, Välj egenskaperna för den här filen och ändra inställningen **Kopiera till utdata-katalog** för att **Kopiera om nyare**.
 
-    ![Kopiera appens inställningar till utdata](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Kopiera appens inställningar till utdata" border="false":::
 
 ## <a name="model-data-structures"></a>Modell data strukturer
 
@@ -513,11 +513,11 @@ Nu ska vi kontrol lera att appen fungerar korrekt.
 
 1. Välj **Felsök/starta utan fel sökning** eller tryck på F5-tangenten. Om du har kodat saker korrekt visas den inledande index vyn.
 
-     ![Öppnar appen](./media/tutorial-csharp-create-first-app/azure-search-index.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Öppnar appen" border="false":::
 
 2. Ange text som "strand" (eller någon text som kommer till åtanke) och klicka på Sök ikonen. Du bör få några resultat.
 
-     ![Söker efter "strand"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Söker efter * strand *" border="false":::
 
 3. Försök att ange "fem stjärnor". Observera att du inte får några resultat. En mer avancerad sökning skulle behandla "fem stjärnor" som synonymer för "lyxen" och returnera resultaten. Användningen av synonymer är tillgänglig i Azure Kognitiv sökning, men vi kommer inte att täcka det i de första självstudierna.
  
@@ -533,7 +533,7 @@ Det är viktigt att kontrol lera att våra fel hanterings funktioner fungerar so
 
 2. Kör appen, ange "bar" som söktext och klicka på Sök ikonen. Undantaget bör resultera i vyn fel.
 
-     ![Framtvinga ett fel](./media/tutorial-csharp-create-first-app/azure-search-error.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Framtvinga ett fel" border="false":::
 
     > [!Important]
     > Det betraktas som en säkerhets risk för att returnera interna fel nummer på felsidor. Om din app är avsedd för allmän användning kan du utföra en undersökning i säkra och bästa metoder för vad som ska returneras när ett fel uppstår.

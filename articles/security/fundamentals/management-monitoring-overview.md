@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448359"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395778"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Översikt över Azure Security Management och Monitoring
 Den här artikeln innehåller en översikt över de säkerhetsfunktioner och tjänster som Azure tillhandahåller för att hjälpa till med hantering och övervakning av Azure Cloud Services och Virtual Machines.
@@ -66,7 +66,7 @@ Läs mer:
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Du kan använda Azure-ExpressRoute för att utöka dina lokala nätverk till Microsoft Cloud över en dedikerad privat anslutning som under lättas av en anslutnings leverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster som Azure, Office 365 och CRM Online. Anslutningen kan vara från:
+Du kan använda Azure-ExpressRoute för att utöka dina lokala nätverk till Microsoft Cloud över en dedikerad privat anslutning som under lättas av en anslutnings leverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster som Azure, Microsoft 365 och CRM Online. Anslutningen kan vara från:
 
 * Ett valfritt-till-valfritt-nätverk (IP-nätverk).
 * Ett Ethernet-nätverk från punkt till punkt.

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083828"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397971"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
+# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka problem med replikering av virtuella datorer i Azure till Azure-scenarier
 
 Den här artikeln beskriver hur du felsöker vanliga fel i Azure Site Recovery vid replikering och återställning av virtuella Azure-datorer (VM) från en region till en annan. Mer information om konfigurationer som stöds finns i [support mat ris för replikering av virtuella Azure-datorer](azure-to-azure-support-matrix.md).
 
@@ -197,11 +197,11 @@ Försök att komma åt DNS-servern från den virtuella datorn. Om DNS-servern in
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
-Det går inte att upprätta en anslutning till Office 365-autentisering och Identity IP4-slutpunkter.
+Det går inte att upprätta en anslutning till Microsoft 365-slutpunkter för autentisering och identitet IP4.
 
 #### <a name="fix-the-problem"></a>Åtgärda problemet
 
-Azure Site Recovery nödvändig åtkomst till Office 365 IP-intervall för autentisering.
+Azure Site Recovery nödvändig åtkomst till Microsoft 365 IP-intervall för autentisering.
 Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn ska du kontrol lera att du använder [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) -baserad NSG-regel för att tillåta åtkomst till AAD. Vi stöder inte längre IP-adressbaserade NSG-regler.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Site Recovery konfiguration misslyckades (151197)
@@ -225,8 +225,8 @@ Inställningarna för den anpassade proxyn är ogiltiga och mobilitets tjänst a
 1. Mobilitets tjänst agenten identifierar proxyinställningarna från IE i Windows och `/etc/environment` på Linux.
 1. Om du föredrar att bara ange proxy för mobilitets tjänsten kan du ange proxyinformation i _ProxyInfo. conf_ på:
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **Linux**: `/usr/local/InMage/config/`
+   - **Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. _ProxyInfo. conf_ ska ha proxyinställningarna i följande _ini_ -format.
 

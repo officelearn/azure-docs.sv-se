@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290318"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397274"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Självstudie: skapa en anpassad analys för telefonnummer
 
@@ -36,7 +36,7 @@ Följande tjänster och verktyg krävs för den här självstudien.
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
 + [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
-## <a name="download-files"></a>Hämta filer
+## <a name="download-files"></a>Ladda ned filer
 
 Käll koden för den här självstudien finns i mappen [Anpassade analyser](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) i mappen [Azure-samples/Azure-Search-Postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub.
 
@@ -59,7 +59,7 @@ För varje begäran måste du:
 
 1. Ersätt `<YOUR-ADMIN-API-KEY>` med antingen den primära eller sekundära nyckeln för Sök tjänsten.
 
-  ![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="URL och rubrik för Postman-begäran" border="false":::
 
 Om du inte är bekant med Postman läser du [utforska Azure KOGNITIV sökning REST-API: er med Postman](search-get-started-postman.md).
 
@@ -239,11 +239,11 @@ Analyserare består av tre komponenter:
 
 I diagrammet nedan kan du se hur dessa tre komponenter fungerar tillsammans för att Tokenize en mening:
 
-  ![Diagram över Analyzer-processen för att Tokenize en mening](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagram över Analyzer-processen för att Tokenize en mening":::
 
 Dessa tokens lagras sedan i ett inverterat index, vilket möjliggör snabba, full texts ökningar.  Ett inverterat index möjliggör full texts ökning genom att mappa alla unika villkor som extraheras under lexikal analys till de dokument där de förekommer. Du kan se ett exempel i diagrammet nedan:
 
-  ![Exempel på inverterat index](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Exempel på inverterat index":::
 
 All sökning är nedtryckt för att söka efter termer som lagras i det inverterade indexet. När en användare utfärdar en fråga:
 
@@ -251,7 +251,7 @@ All sökning är nedtryckt för att söka efter termer som lagras i det inverter
 1. Det inverterade indexet genomsöks sedan efter dokument med matchande villkor.
 1. Slutligen rangordnas de hämtade dokumenten av [algoritmen för likheter](index-ranking-similarity.md).
 
-  ![Diagram över likhets sätt i Analyzer-processen](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram över likhets sätt i Analyzer-processen":::
 
 Om villkoren i frågan inte matchar villkoren i det inverterade indexet returneras inte resultatet. Mer information om hur frågor fungerar finns i den här artikeln om [full texts ökning](search-lucene-query-architecture.md).
 

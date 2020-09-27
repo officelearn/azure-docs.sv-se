@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/24/2020
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0868d87d977b15a552b04d5dbd6d19de6931f0ae
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705647"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395914"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Innehav i Azure Active Directory
 
@@ -43,7 +43,7 @@ I Azure Portal kan du konfigurera din app så att den blir en enskild klient ell
 Det kan vara svårt att skapa fantastiska appar för flera klient organisationer på grund av antalet olika principer som IT-administratörer kan ange i sina klienter. Om du väljer att bygga en app för flera klienter följer du dessa rekommendationer:
 
 * Testa din app i en klient som har konfigurerat [principer för villkorlig åtkomst](../azuread-dev/conditional-access-dev-guide.md).
-* Följ principen om minst användar åtkomst för att säkerställa att din app endast begär behörigheter som den verkligen behöver. Undvik att begära behörigheter som kräver administratörs medgivande eftersom detta kan hindra användare från att förvärva din app i alla organisationer. 
+* Följ principen om minst användar åtkomst för att säkerställa att din app endast begär behörigheter som den verkligen behöver. 
 * Ange lämpliga namn och beskrivningar för behörigheter som du exponerar som en del av din app. Detta hjälper användare och administratörer att veta vad de accepterar när de försöker använda appens API: er. Mer information finns i avsnittet metod tips i [guiden behörigheter](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Nästa steg

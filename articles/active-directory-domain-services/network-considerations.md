@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749624"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396339"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure Active Directory Domain Services
 
@@ -91,7 +91,7 @@ Du kan aktivera namn matchning med villkorliga DNS-vidarebefordrare på den DNS-
 
 En hanterad domän skapar vissa nätverks resurser under distributionen. De här resurserna behövs för lyckad åtgärd och hantering av den hanterade domänen och ska inte konfigureras manuellt.
 
-| Azure-resurs                          | Beskrivning |
+| Azure-resurs                          | Description |
 |:----------------------------------------|:---|
 | Nätverks gränssnitts kort                  | Azure AD DS är värd för den hanterade domänen på två domänkontrollanter (DCs) som körs på Windows Server som virtuella Azure-datorer. Varje virtuell dator har ett virtuellt nätverks gränssnitt som ansluter till det virtuella nätverkets undernät. |
 | Offentlig IP-adress för dynamisk standard      | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/public-ip-addresses.md). |
@@ -110,11 +110,13 @@ Följande regler för nätverks säkerhets grupper krävs för att den hanterade
 
 | Portnummer | Protokoll | Källa                             | Mål | Action | Obligatorisk | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
-| 3389        | TCP      | CorpNetSaw                         | Valfri         | Tillåt  | Ja      | Hantering av din domän. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Ja      | Hantering av din domän. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Yes      | Synkronisering med din Azure AD-klient. |
+| 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Yes      | Hantering av din domän. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Yes      | Hantering av din domän. |
 
 En Azure standard Load Balancer skapas som kräver att dessa regler placeras. Den här nätverks säkerhets gruppen säkrar Azure AD DS och krävs för att den hanterade domänen ska fungera korrekt. Ta inte bort den här nätverks säkerhets gruppen. Belastningsutjämnaren fungerar inte korrekt utan den.
+
+Om det behövs kan du [skapa den nätverks säkerhets grupp och de regler som krävs med hjälp av Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
 > Redigera inte dessa nätverks resurser och konfigurationer manuellt. När du associerar en felkonfigurerad nätverks säkerhets grupp eller en användardefinierad routningstabell med under nätet där den hanterade domänen distribueras, kan du störa Microsofts möjlighet att underhålla och hantera domänen. Synkronisering mellan din Azure AD-klient och din hanterade domän avbryts också.

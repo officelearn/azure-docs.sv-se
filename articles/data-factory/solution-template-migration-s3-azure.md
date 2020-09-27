@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414765"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398229"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrera data från Amazon S3 till Azure Data Lake Storage Gen2
 
@@ -109,23 +109,23 @@ Mallen innehåller två parametrar:
 
 3. Gå till **Azure Data Lake Storage Gen2 mallen migrera historiska data från AWS S3 till** . Ange anslutningarna till den externa kontroll tabellen, AWS S3 som data källans lager och Azure Data Lake Storage Gen2 som mål arkiv. Tänk på att den externa kontroll tabellen och den lagrade proceduren refererar till samma anslutning.
 
-    ![Skapa en ny anslutning](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Skärm bild som visar migrera historiska data från AWS S3 till Azure Data Lake Storage Gen2 mall.](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. Välj **Använd den här mallen**.
 
-    ![Använd den här mallen](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![Skärm bild som visar knappen Använd den här mallen.](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
 5. Du ser 2 pipeliner och 3 data uppsättningar skapades, som du ser i följande exempel:
 
-    ![Granska pipelinen](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![Skärm bild som visar de två pipelinen och tre data uppsättningar som har skapats med hjälp av mallen.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
 6. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
 
-    ![Klicka på * * Felsök * *](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Skärm bild som visar var du väljer Felsök och anger parametrarna innan du väljer Slutför.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. Du ser resultat som liknar följande exempel:
 
-    ![Granska resultatet](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![Skärm bild som visar de returnerade resultaten.](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>För mallen för att kopiera ändrade filer enbart från Amazon S3 till Azure Data Lake Storage Gen2
@@ -192,7 +192,7 @@ Mallen innehåller två parametrar:
 
 8. Du kan också kontrol lera resultatet från kontroll tabellen med en fråga *"Välj * från s3_partition_delta_control_table"*. resultatet ser ut ungefär som i följande exempel:
 
-    ![Granska resultatet](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![Skärm bild som visar resultatet från kontroll tabellen efter att du kört frågan.](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bae661218989d49b74ed8ca3f694ccb912ef912
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dce70441e5e8487bfc015df0a946ab3cd74c14f0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941557"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397597"
 ---
 # <a name="delete-azure-arc-data-controller"></a>Ta bort data styrenhet för Azure-båge
 
@@ -73,6 +73,20 @@ oc adm policy remove-scc-from-user privileged -z default -n arc
 oc adm policy remove-scc-from-user anyuid     -z default -n arc
 ```
 
+### <a name="delete-cluster-level-objects"></a>Ta bort kluster nivå objekt
+
+Förutom objekt som omfattas av namn området, om du även vill ta bort kluster nivå objekt som CRDs, `clusterroles` och `clusterrolebindings` Kör följande kommandon:
+
+```
+# Cleanup azure arc data service artifacts
+kubectl delete crd datacontrollers.arcdata.microsoft.com 
+kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete postgresql-11s.arcdata.microsoft.com 
+kubectl delete postgresql-12s.arcdata.microsoft.com
+kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
+kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+```
+
 ### <a name="optionally-delete-the-azure-arc-data-controller-namespace"></a>Du kan också ta bort namn området för Azure Arc data Controller
 
 
@@ -83,4 +97,4 @@ kubectl delete ns <nameSpecifiedDuringCreation>
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är Azure Arc-aktiverade datatjänster?](overview.md)
+[Vad är Azure Arc-aktiverade data tjänster?](overview.md)

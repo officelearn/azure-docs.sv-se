@@ -1,19 +1,19 @@
 ---
-title: Konsekvens nivåer i Azure Cosmos DB
+title: Konsekvensnivåer i Azure Cosmos DB
 description: Azure Cosmos DB har fem konsekvens nivåer som gör det enklare att balansera eventuell konsekvens, tillgänglighet och svars tid.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851706"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396033"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvens nivåer i Azure Cosmos DB
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Vad är konsekvens nivåer i Azure Cosmos DB?
 
 Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, låg latens eller båda, gör den grundläggande kompromissen mellan Läs konsekvens jämfört med tillgänglighet, svars tid och data flöde. De flesta kommersiellt tillgängliga distribuerade databaser ber utvecklare att välja mellan de två extrema konsekvens modellerna: *stark* konsekvens och *eventuell* konsekvens. Linearizability för en stark konsekvens modell är guld standarden för data programmering. Men det lägger till ett pris med högre Skriv fördröjning (i stabilt tillstånd) och minskad tillgänglighet (under haverier). I övrigt erbjuder eventuell konsekvens bättre tillgänglighet och bättre prestanda, men gör det svårt att program mera.
 
@@ -91,12 +91,12 @@ Följande bild illustrerar konsekvens för konsekvens med noter. I alla regioner
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="video":::
 
-- **Eventuell**: det finns ingen beställnings garanti för läsningar. I avsaknad av eventuella ytterligare skrivningar konvergerar replikerna slutligen.  
+- **Eventuell**: det finns ingen beställnings garanti för läsningar. Om det inte finns fler skrivningar slås replikerna samman till slut.  
 Eventuell konsekvens är den svagaste typen av konsekvens eftersom en klient kan läsa värdena som är äldre än de som har lästs tidigare. Eventuell konsekvens är idealisk där programmet inte kräver några ordnings garantier. I exemplen ingår antalet retweetar, gillar eller icke-trådade kommentarer. Följande bild illustrerar den slutliga konsekvensen med noter.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="video":::
 
-## <a name="additional-reading"></a>Ytterligare läsning
+## <a name="additional-reading"></a>Mer att läsa
 
 Läs mer om konsekvens koncept i följande artiklar:
 

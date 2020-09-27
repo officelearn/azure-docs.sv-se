@@ -1,5 +1,6 @@
 ---
-title: Anropa ett webb-API från en webbapp – Microsoft Identity Platform | Azure
+title: Anropa ett webb-API från en webbapp | Azure
+titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (som anropar ett skyddat webb-API)'
 services: active-directory
 author: jmprieur
@@ -8,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1e448f52f4e8c24dd8552cae873edac841e57fc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 815b1789c54d1ce505c16dc89e199d451ae9a588
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058445"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396135"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>En webbapp som anropar webb-API: er: anropa ett webb-API
 
-Nu när du har en token kan du anropa ett skyddat webb-API.
+Nu när du har en token kan du anropa ett skyddat webb-API. Du anropar vanligt vis ett underordnat API från kontrollanten eller sidorna i din webbapp.
 
 ## <a name="call-a-protected-web-api"></a>Anropa ett skyddat webb-API
 
@@ -28,20 +29,103 @@ Att anropa ett skyddat webb-API beror på vilket språk och ramverk du väljer:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Här är den förenklade koden för åtgärden `HomeController` . Den här koden hämtar en token för att anropa Microsoft Graph. Koden har lagts till för att visa hur du anropar Microsoft Graph som ett REST API. URL: en för Microsoft Graph-API: n finns i appsettings.jspå filen och läses i en variabel med namnet `webOptions` :
+När du använder *Microsoft. Identity. Web*har du tre användnings alternativ för att anropa ett API:
 
-```json
+- [Alternativ 1: anropa Microsoft Graph med Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Alternativ 2: anropa ett underordnat webb-API med hjälp av klassen](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Alternativ 3: anropa ett underordnat webb-API utan hjälp klassen](#option-3-call-a-downstream-web-api-without-the-helper-class)
+
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Alternativ 1: anropa Microsoft Graph med SDK: n
+
+Du vill anropa Microsoft Graph. I det här scenariot har du lagt till `AddMicrosoftGraph` i *startup.cs* som det anges i [kod konfigurationen](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph)och du kan mata in direkt `GraphServiceClient` i din styrenhet eller sidlayout för användning i åtgärderna. I följande exempel på kniv-sidan visas en bild av den inloggade användaren.
+
+```CSharp
+[Authorize]
+[AuthorizeForScopes(Scopes = new[] { "user.read" })]
+public class IndexModel : PageModel
 {
-  "AzureAd": {
-    "Instance": "https://login.microsoftonline.com/",
-    ...
-  },
-  ...
-  "GraphApiUrl": "https://graph.microsoft.com"
+ private readonly GraphServiceClient _graphServiceClient;
+
+ public IndexModel(GraphServiceClient graphServiceClient)
+ {
+    _graphServiceClient = graphServiceClient;
+ }
+
+ public async Task OnGet()
+ {
+  var user = await _graphServiceClient.Me.Request().GetAsync();
+  try
+  {
+   using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+   {
+    byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+    ViewData["photo"] = Convert.ToBase64String(photoByte);
+   }
+   ViewData["name"] = user.DisplayName;
+  }
+  catch (Exception)
+  {
+   ViewData["photo"] = null;
+  }
+ }
 }
 ```
 
-```csharp
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Alternativ 2: anropa ett underordnat webb-API med hjälp av klassen
+
+Du vill anropa ett annat webb-API än Microsoft Graph. I så fall har du lagt till `AddDownstreamWebApi` i *startup.cs* som det anges i [kod konfigurationen](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), och du kan mata in en `IDownstreamWebApi` tjänst direkt i din styrenhet eller sidlayout och använda den i åtgärder:
+
+```CSharp
+[Authorize]
+[AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
+public class TodoListController : Controller
+{
+  private IDownstreamWebApi _downstreamWebApi;
+  private const string ServiceName = "TodoList";
+
+  public TodoListController(IDownstreamWebApi downstreamWebApi)
+  {
+    _downstreamWebApi = downstreamWebApi;
+  }
+
+  public async Task<ActionResult> Details(int id)
+  {
+    var value = await _downstreamWebApi.CallWebApiForUserAsync(
+      ServiceName,
+      options =>
+      {
+        options.RelativePath = $"me";
+      });
+      return View(value);
+  }
+}
+```
+
+`CallWebApiForUserAsync`Dessutom har starkt skrivna allmänna åsidosättningar som gör att du kan ta emot ett objekt direkt. Följande metod tar till exempel emot en `Todo` instans, som är en starkt skriven representation av den JSON som returneras av webb-API: et.
+
+```CSharp
+    // GET: TodoList/Details/5
+    public async Task<ActionResult> Details(int id)
+    {
+        var value = await _downstreamWebApi.CallWebApiForUserAsync<object, Todo>(
+            ServiceName,
+            null,
+            options =>
+            {
+                options.HttpMethod = HttpMethod.Get;
+                options.RelativePath = $"api/todolist/{id}";
+            });
+        return View(value);
+    }
+   ```
+
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>Alternativ 3: anropa ett underordnat webb-API utan hjälp klassen
+
+Du har bestämt dig för att hämta en token manuellt med `ITokenAcquisition` tjänsten och du måste nu använda token. I så fall fortsätter följande kod exempel koden som visas i [en webbapp som anropar webb-API: er: Hämta en token för appen](scenario-web-app-call-api-acquire-token.md). Koden anropas i webbappens åtgärder.
+
+När du har skaffat token ska du använda den som en Bearer-token för att anropa det underordnade API: et, i det här fallet Microsoft Graph.
+
+ ```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
@@ -65,11 +149,10 @@ public async Task<IActionResult> Profile()
   return View();
 }
 ```
-
 > [!NOTE]
 > Du kan använda samma princip för att anropa alla webb-API: er.
 >
-> De flesta Azure Web API: er tillhandahåller en SDK som fören klar anropet till API: et. Detta gäller även för Microsoft Graph. I nästa artikel lär du dig var du hittar en själv studie kurs som illustrerar API-användning.
+> De flesta Azure-webb-API: er tillhandahåller ett SDK som fören klar anropet till API: t, som är fallet för Microsoft Graph. Se till exempel [skapa ett webb program som ger åtkomst till Blob Storage med Azure AD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) för ett exempel på en webbapp som använder Microsoft. Identity. Web och använder Azure Storage SDK.
 
 # <a name="java"></a>[Java](#tab/java)
 

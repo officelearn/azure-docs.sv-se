@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317611"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397427"
 ---
 # <a name="power-bi-app-creation-overview"></a>Översikt över skapande av Power BI app
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du publicerar en Power BI-app till Microsoft [Ap
 Fördelar med att publicera till den kommersiella marknads platsen:
 
 - Marknadsför företaget genom att använda Microsoft varumärke.
-- Det kan finnas fler än 100 000 000 Office 365-och Dynamics 365-användare på AppSource och fler än 200 000 organisationer via Azure Marketplace.
+- Kan komma åt fler än 100 000 000 Microsoft 365-och Dynamics 365-användare på AppSource och fler än 200 000-organisationer via Azure Marketplace.
 - Ta emot leads med hög kvalitet från dessa marknads platser.
 - Få dina tjänster upphöjda av Microsoft-fälten och inköps gruppen för köp.
 

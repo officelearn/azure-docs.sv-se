@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202583"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397835"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 
@@ -22,7 +22,7 @@ Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den hä
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Ett HDInsight-kluster med Enterprise Security Package. Se [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
-* En arbetsstation med Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, fristående Excel 2013 eller Office 2010 Professional Plus.
+* En arbets station med Microsoft 365 appar för företag, Office 2016, Office 2013 Professional Plus, Excel 2013 fristående eller Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
 **Så här ansluter du till Ranger Admin-gränssnittet**
@@ -88,7 +88,7 @@ Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](../hadoop/apache-hadoop-
  | Namn på datakälla | Namnge din datakälla |
  | Värd | Ange CLUSTERNAME.azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |
  | Port | Använd **443**. (Den här porten har ändrats från 563 till 443.) |
- | Databasen | Använd **Standard**. |
+ | Databas | Använd **Standard**. |
  | Hive-servertyp | Välj **Hive Server 2** |
  | Mekanism | Välj **Azure HDInsight-tjänst** |
  | HTTP-sökväg | Lämna tomt. |

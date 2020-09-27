@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646835"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398022"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -25,7 +25,7 @@ Innan du skapar ditt erbjudande bör du gå igenom kraven i [konsult service kra
 Fördelar med att publicera till den kommersiella marknads platsen:
 
 - Marknadsför företaget genom att använda Microsoft varumärke.
-- Det kan finnas fler än 100 000 000 Office 365-och Dynamics 365-användare på AppSource och fler än 200 000 organisationer via Azure Marketplace.
+- Kan komma åt fler än 100 000 000 Microsoft 365-och Dynamics 365-användare på AppSource och fler än 200 000-organisationer via Azure Marketplace.
 - Ta emot leads med hög kvalitet från dessa marknads platser.
 - Få dina tjänster upphöjda av Microsoft-fälten och inköps teamet för köp
 
@@ -98,7 +98,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
 
 3. Om du har valt **Azure** som primär produkt väljer du upp till tre **lösnings områden**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Hoppa över det här steget om du inte har valt Azure.
 
-    - Analys
+    - Analytics
     - App-modernisering
     - Arkiv
     - AI + Machine Learning
@@ -109,7 +109,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
     - DevOps
     - Haveriberedskap
     - Identitet
-    - Sakernas Internet
+    - Internet of Things
     - Migrering
     - Nätverk
     - Säkerhet
@@ -141,7 +141,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Branscher
 5. Erbjudandets namn
 6. Sammanfattning
-7. Beskrivning
+7. Description
 8. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource (de priser som visas i listan är endast avsedda att avspegla faktiska kostnader):
@@ -156,7 +156,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Branscher
 5. Erbjudandets namn
 6. Sammanfattning
-7. Beskrivning
+7. Description
 8. Skärm bilder/videor
 9. Dokument
 
@@ -174,7 +174,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

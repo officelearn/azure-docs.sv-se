@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801367"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398586"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Använd arbets flöden för att integrera ditt Azure IoT Central-program med andra moln tjänster
 
@@ -22,12 +22,12 @@ Du kan skapa regler i IoT Central som utlöser åtgärder, till exempel att skic
 
 Med Azure IoT Central v3-anslutaren för automatisk energi och Azure Logic Apps kan du skapa mer avancerade regler för att automatisera åtgärder i IoT Central:
 
-- När en regel utlöses i din Azure IoT Central-app kan den utlösa ett arbets flöde i Energis par eller Azure Logic Apps. Dessa arbets flöden kan köra åtgärder i andra moln tjänster, till exempel Office 365 eller en tjänst från tredje part.
-- En händelse i en annan moln tjänst, till exempel Office 365, kan utlösa ett arbets flöde i energi spar läge eller Azure Logic Apps. Dessa arbets flöden kan köra åtgärder eller hämta data från IoT Central programmet.
+- När en regel utlöses i din Azure IoT Central-app kan den utlösa ett arbets flöde i Energis par eller Azure Logic Apps. Dessa arbets flöden kan köra åtgärder i andra moln tjänster, till exempel Microsoft 365 eller en tjänst från tredje part.
+- En händelse i en annan moln tjänst, t. ex. Microsoft 365, kan utlösa ett arbets flöde i Energis par automatisering eller Azure Logic Apps. Dessa arbets flöden kan köra åtgärder eller hämta data från IoT Central programmet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 För att konfigurera lösningen krävs ett IoT Central-program för version 3. Information om hur du kontrollerar program versionen finns i [om ditt program](./howto-get-app-info.md). Information om hur du skapar ett IoT Central program finns i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).
 
@@ -176,7 +176,7 @@ Använd den här åtgärden för att uppdatera moln egenskaps värden för en en
 | Program | Välj i listan med IoT Central-program. |
 | Enhet | Unikt ID för den enhet som ska tas bort. |
 | Enhets mall | Välj i listan med enhetsspecifika mallar i IoT Central programmet. |
-| Moln egenskaper | När du har valt en enhets mall läggs ett fält till för varje moln egenskap som definierats i mallen. |
+| Molnegenskaper | När du har valt en enhets mall läggs ett fält till för varje moln egenskap som definierats i mallen. |
 
 ### <a name="update-device-properties"></a>Uppdatera enhets egenskaper
 

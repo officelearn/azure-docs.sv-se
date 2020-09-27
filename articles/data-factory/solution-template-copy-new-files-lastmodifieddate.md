@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629073"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398331"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
 
@@ -75,7 +75,7 @@ Mallen definierar sex parametrar:
     
 7. Nu kan du lägga till en rullande Windows-utlösare för att automatisera den här pipelinen, så att pipelinen alltid kan kopiera nya och ändrade filer endast av LastModifiedDate med jämna mellanrum.  Välj **Lägg till utlösare**och välj **nytt/redigera**.
 
-    ![Granska resultatet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Skärm bild som visar meny alternativet nytt/redigera som visas när du väljer Lägg till utlösare.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. I fönstret **Lägg till utlösare** väljer du **+ ny**.
 
@@ -103,8 +103,8 @@ Mallen definierar sex parametrar:
 
 14. Granska resultatet. Du ser att din pipeline aktive ras automatiskt var 15: e minut, och bara nya eller ändrade filer från käll arkivet kopieras till mål lagret i varje pipeline-körning.
 
-    ![Granska resultatet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Skärm bild som visar resultatet som returneras när pipelinen utlöses.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>Nästa steg
 
-- [introduktion till Azure Data Factory](introduction.md)
+- [Introduktion till Azure Data Factory](introduction.md)

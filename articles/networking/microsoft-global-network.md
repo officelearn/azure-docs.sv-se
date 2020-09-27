@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280910"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398397"
 ---
 # <a name="microsoft-global-network"></a>Microsofts globala nätverk
 
 Microsoft äger och arbetar med ett av de största stamnät nätverken i världen. Den här globala och sofistikerade arkitekturen, som sträcker sig över 160 000 mil, ansluter våra data Center och kunder. 
  
-Varje dag ansluter kunder runtom i världen till Microsoft Azure, Bing, Dynamics 365, Office 365, XBox och många andra. Oavsett typ förväntar kunderna omedelbar tillförlitlighet och svars tider från våra tjänster. 
+Varje dag ansluter kunderna över hela världen till att Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox och många andra. Oavsett typ förväntar kunderna omedelbar tillförlitlighet och svars tider från våra tjänster. 
  
 [Microsoft Global Network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) är en central del av att leverera en bra moln upplevelse. Att ansluta våra Microsoft- [datacenter](https://azure.microsoft.com/global-infrastructure/) över 54 Azure-regioner och stora nät av Edge-noder som har placerats strategiskt runt i världen, erbjuder vårt globala nätverk både tillgänglighet, kapacitet och flexibilitet för att uppfylla alla behov.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9279b3e77147449ae0ede0cc0b76e57f130c9a44
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318462"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398039"
 ---
 # <a name="caching-with-azure-front-door"></a>Cachelagring med Azures front dörr
 Följande dokument anger beteendet för front dörren med routningsregler som har aktiverat cachelagring. Front dörren är en modern Content Delivery Network (CDN) och så vidare med dynamisk webbplats acceleration och belastnings utjämning, stöder den även cachelagring-beteenden precis som andra CDN.
@@ -83,7 +83,7 @@ När en begäran för en till gång anger komprimering och begäran resulterar i
 
 ## <a name="query-string-behavior"></a>Fråga om sträng beteende
 Med front dörren kan du styra hur filer cachelagras för en webbegäran som innehåller en frågesträng. I en webbegäran med en frågesträng är frågesträngen den del av begäran som inträffar efter ett frågetecken (?). En frågesträng kan innehålla ett eller flera nyckel/värde-par, där fält namnet och dess värde skiljs åt av ett likhets tecken (=). Varje nyckel/värde-par avgränsas med ett et-tecken (&). Till exempel `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Om det finns fler än ett nyckel/värde-par i en frågesträng i en begäran spelar det ingen roll.
-- **Ignorera frågesträngar**: standard läge. I det här läget skickar front dörren de frågesträngar från begär Ande till Server delen på den första begäran och cachelagrar till gången. Alla efterföljande begär Anden för till gången som hanteras från Front dörrens miljö ignorerar frågesträngarna tills den cachelagrade till gången upphör att gälla.
+- **Ignorera frågesträngar**: i det här läget skickar front dörren frågesträngarna från begär anden till Server delen på den första begäran och cachelagrar till gången. Alla efterföljande begär Anden för till gången som hanteras från Front dörrens miljö ignorerar frågesträngarna tills den cachelagrade till gången upphör att gälla.
 
 - **Cachelagra varje unik URL**: i det här läget behandlas varje begäran med en unik URL, inklusive frågesträngen, som en unik till gång med sin egen cache. Till exempel, svaret från Server delen för en begäran om `www.example.ashx?q=test1` cachelagras i front dörrens miljö och returneras för efterföljande cacheminnen med samma frågesträng. En begäran om `www.example.ashx?q=test2` cachelagras som en separat till gång med en egen tids-till-Live-inställning.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5dc41522add580b96e178328f47bd88fc1fbf052
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500403"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397070"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Windows-datorer i Azure
 
@@ -59,7 +59,7 @@ I det här exemplet beskriver vi hur du återställer bildfilen som används på
 
 1. Visa IIS-standardsidan genom att öppna en webbläsare och ansluta till IP-adressen för den virtuella datorn.
 
-    ![Standardwebbsidan för IIS](./media/tutorial-backup-vms/iis-working.png)
+    ![Skärm bild som visar standard webb sidan för IIS.](./media/tutorial-backup-vms/iis-working.png)
 
 1. Anslut till den virtuella datorn.
 1. Öppna **Utforskaren** på den virtuella datorn, navigera till \inetpub\wwwroot och ta bort filen **iisstart.png**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224500"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397257"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure-datakryptering i vila
 
@@ -81,13 +81,13 @@ Data krypterings nycklarna som krypteras med nyckel krypterings nycklarna lagras
 
 Microsoft Cloud tjänster används i alla tre moln modeller: IaaS, PaaS, SaaS. Nedan visas några exempel på hur de passar för varje modell:
 
-- Program varu tjänster, som kallas program vara som en server eller SaaS, som har program som tillhandahålls av molnet, till exempel Office 365.
+- Program varu tjänster, som kallas program vara som en server eller SaaS, som har program som tillhandahålls av molnet, till exempel Microsoft 365.
 - Plattforms tjänster som kunder utnyttjar molnet i sina program, med hjälp av molnet för saker som lagring, analys och Service Bus-funktioner.
 - Infrastruktur tjänster eller infrastruktur som en tjänst (IaaS) i vilken kunden distribuerar operativ system och program som finns i molnet och eventuellt använder andra moln tjänster.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Kryptering i vila för SaaS-kunder
 
-SaaS-kunder (Software as a Service) har vanligt vis kryptering på rest eller tillgänglig i varje tjänst. Office 365 har flera alternativ för kunderna att verifiera eller aktivera kryptering i vila. Information om Office 365-tjänster finns [i kryptering i Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+SaaS-kunder (Software as a Service) har vanligt vis kryptering på rest eller tillgänglig i varje tjänst. Microsoft 365 har flera alternativ för kunderna att verifiera eller aktivera kryptering i vila. Information om Microsoft 365 tjänster finns [i kryptering i Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Kryptering i vila för PaaS-kunder
 

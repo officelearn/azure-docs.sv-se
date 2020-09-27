@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409027"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397308"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Data Catalog
 Den här artikeln innehåller svar på vanliga frågor som rör tjänsten Azure Data Catalog.
@@ -34,9 +34,9 @@ Data Catalog är utformad för tekniska och icke-tekniska användare, inklusive:
 Data Catalog-tjänster är för närvarande tillgängliga i följande data Center:
 
 * USA, västra
-* USA, östra
+* East US
 * Europa, västra
-* Europa, norra
+* Norra Europa
 * Australien, östra
 * Sydostasien
 
@@ -55,7 +55,7 @@ Om du vill skicka funktions förfrågningar och annan feedback går du till [Dat
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Varför finns det redan en fel *katalog* när jag försöker skapa en ny katalog?
 
-När du köper Office 365 E5 med Power BI Pro licens skapar Microsoft en standard katalog i prenumerationens region automatiskt. Den här katalogen använder den kostnads fria SKU: n. Användar licensen för Office 365/Power BI hanteras på administrations sidan för Office 365. 
+När du köper Office 365 E5 med Power BI Pro licens skapar Microsoft en standard katalog i prenumerationens region automatiskt. Den här katalogen använder den kostnads fria SKU: n. Användar licensen för Office 365/Power BI hanteras på administrations sidan. 
 
 Den här typen av data katalog har dock inget **Administratörs alternativ** och visas inte i **Azure Portal**. Du kan inte ta bort den här typen av data katalog. På samma sätt har du inte behörighet att byta namn på data katalogen och du kan inte flytta den till en annan region. 
 
@@ -75,7 +75,7 @@ Så här registrerar du data i Data Catalog:
 De angivna egenskaperna skiljer sig från data källan till data källan, men i allmänhet extraherar Data Catalog Publishing Service följande information:
 
 * Till gångs namn
-* Till gångs typ
+* Tillgångstyp
 * Till gångs Beskrivning
 * Attribut/kolumn namn
 * Attribut/kolumn data typer

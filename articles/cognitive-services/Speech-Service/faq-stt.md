@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357581"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397767"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -152,17 +152,17 @@ S **: samla**in data som är så nära program scenariot och användnings fallet
 
 **A**: när en lista med ord laddas upp läggs orden till i ord listan, men det visar inte hur orden används vanligt vis. Genom att tillhandahålla fullständig eller partiell yttranden (meningar eller fraser av saker som användare sannolikt kommer att säga) kan språk modellen lära sig de nya orden och hur de används. Den anpassade språk modellen är inte bara till för att lägga till nya ord i systemet, utan även för att justera sannolikheten för kända ord för ditt program. Att tillhandahålla fullständig yttranden hjälper systemet att lära sig bättre.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Klient organisations modell (Custom Speech med Office 365-data)
+## <a name="tenant-model-custom-speech-with-microsoft-365-data"></a>Klient organisations modell (Custom Speech med Microsoft 365 data)
 
 **F: vilken information ingår i klient modellen och hur skapas den?**
 
-**A:** En klient modell skapas med e-postmeddelanden och dokument i [offentliga grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) som kan ses av alla i din organisation.
+**A:** En klient modell skapas med e-postmeddelanden och dokument i [offentliga grupper](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) som kan ses av alla i din organisation.
 
 **F: vilka tal upplevelser förbättras av klient organisations modellen?**
 
 **A:** När klient organisations modellen är aktive rad, skapas och publiceras, används den för att förbättra igenkänningen för alla företags program som skapats med tal tjänsten. Det innebär också att du skickar en Azure AD-token som anger medlemskap i företaget.
 
-De tal upplevelser som är inbyggda i Office 365, t. ex. Diktering och PowerPoint-textning, ändras inte när du skapar en klient modell för dina tal tjänst program.
+De tal upplevelser som är inbyggda i Microsoft 365, till exempel Diktering och PowerPoint-textning, ändras inte när du skapar en klient modell för dina tal tjänst program.
 
 ## <a name="next-steps"></a>Nästa steg
 

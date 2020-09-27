@@ -1,5 +1,6 @@
 ---
-title: 'Konfigurera en webbapp som anropar webb-API: er – Microsoft Identity Platform | Azure'
+title: 'Konfigurera en webbapp som anropar webb-API: er | Azure'
+titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du konfigurerar koden för en webbapp som anropar webb-API: er'
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8827d413144d8bc6f00c3948a99be3ee3aa2264e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855438"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396322"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>En webbapp som anropar webb-API: er kod konfiguration
 
@@ -31,9 +32,9 @@ Som du ser i [webbappen som loggar in i användar](scenario-web-app-sign-user-ov
 
 Följande bibliotek i Microsoft Authentication Library (MSAL) stöder Authorization Code Flow för Web Apps:
 
-| MSAL-bibliotek | Beskrivning |
+| MSAL-bibliotek | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Stöd för .NET Framework-och .NET Core-plattformar. Stöds inte Universell Windows-plattform (UWP), Xamarin. iOS och Xamarin. Android, eftersom dessa plattformar används för att bygga offentliga klient program. För ASP.NET Core webbappar och webb-API: er kapslas MSAL.NET in i ett bibliotek med högre nivå som heter [Microsoft. Identity. Web](https://aka.ms/ms-identity-web)|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Stöd för .NET Framework-och .NET Core-plattformar. Stöds inte Universell Windows-plattform (UWP), Xamarin. iOS och Xamarin. Android, eftersom dessa plattformar används för att bygga offentliga klient program. <br/><br/>För ASP.NET Core webbappar och webb-API: er, kapslas MSAL.NET in i ett bibliotek på högre nivå med namnet [Microsoft. Identity. Web](https://aka.ms/ms-identity-web). |
 | ![MSAL python](media/sample-v2-code/logo_python.png) <br/> MSAL för Python | Stöd för python-webbprogram. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL för Java | Stöd för Java-webbprogram. |
 
@@ -41,32 +42,153 @@ Välj fliken för den plattform som du är intresse rad av:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Om du vill göra det möjligt för din webbapp att anropa skyddade API: er när du använder Microsoft. identitet. Web, behöver du bara anropa `AddWebAppCallsProtectedWebApi` och ange ett format för cachelagring av token-cache (exempelvis minnes-token i cacheminnet):
+## <a name="client-secrets-or-client-certificates"></a>Klient hemligheter eller klient certifikat
 
-```C#
-// This method gets called by the runtime. Use this method to add services to the container.
-public void ConfigureServices(IServiceCollection services)
+Under förutsättning att webbappen nu anropar ett underordnat webb-API måste du ange en klient hemlighet eller ett klient certifikat i *appsettings.js* filen. Du kan också lägga till ett avsnitt som anger:
+
+- URL: en för det underordnade webb-API: et
+- De omfattningar som krävs för att anropa API: et
+
+I följande exempel `GraphBeta` anger avsnittet de här inställningarna.
+
+```JSON
 {
-    // more code here
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
 
-    services.AddMicrosoftIdentityWebAppAuthentication(Configuration,
-                                                      "AzureAd")
-            .EnableTokenAcquisitionToCallDownstreamApi(
-                    initialScopes: new string[] { "user.read" })
-                .AddInMemoryTokenCaches();
-
-    // more code here
+   // To call an API
+   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+   "ClientCertificates": [
+  ]
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
-Om du är intresse rad av att förstå mer om token cache, se [alternativ för cachelagring av token-cache](#token-cache)
+I stället för en klient hemlighet kan du ange ett klient certifikat. Följande kodfragment visar hur du använder ett certifikat som lagras i Azure Key Vault.
+
+```JSON
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+
+   // To call an API
+   "ClientCertificates": [
+      {
+        "SourceType": "KeyVault",
+        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
+      }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
+}
+```
+
+*Microsoft. Identity. Web* tillhandahåller flera olika sätt att beskriva certifikat, både genom konfiguration eller kod. Mer information finns i [Microsoft. Identity. Web – using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.
+
+## <a name="startupcs"></a>Startup.cs
+
+Din webbapp måste hämta en token för det underordnade API: et. Du anger det genom att lägga till `.EnableTokenAcquisitionToCallDownstreamApi()` raden efter `.AddMicrosoftIdentityWebApi(Configuration)` . Den här raden visar `ITokenAcquisition` tjänsten som du kan använda i din styrenhet och sid åtgärder. Men eftersom du ser i följande två alternativ kan det göras mer enkelt. Du måste också välja en implementation av tokenbaserad cache, till exempel `.AddInMemoryTokenCaches()` i *startup.cs*:
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+De omfattningar som skickas till `EnableTokenAcquisitionToCallDownstreamApi` är valfria och gör det möjligt för din webbapp att begära omfattningar och användarens medgivande till dessa omfattningar när de loggar in. Om du inte anger omfattningarna kommer *Microsoft. Identity. Web* att möjliggöra en stegvis tillstånds upplevelse.
+
+Om du inte vill hämta token själv ger *Microsoft. Identity. Web* två mekanismer för att anropa ett webb-API från en webbapp. Vilket alternativ du väljer beror på om du vill anropa Microsoft Graph eller något annat API.
+
+### <a name="option-1-call-microsoft-graph"></a>Alternativ 1: anropa Microsoft Graph
+
+Om du vill anropa Microsoft Graph kan du *Microsoft.Identity.Web* direkt använda `GraphServiceClient` (som exponeras av Microsoft Graph SDK) i dina API-åtgärder med hjälp av Microsoft. Identity. Web. För att exponera Microsoft Graph:
+
+1. Lägg till [Microsoft. Identity. Web. MicrosoftGraph NuGet-](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) paketet i projektet.
+1. Lägg till `.AddMicrosoftGraph()` efter `.EnableTokenAcquisitionToCallDownstreamApi()` i *startup.cs* -filen. `.AddMicrosoftGraph()` har flera åsidosättningar. Med den åsidosättning som tar ett konfigurations avsnitt som en parameter blir koden:
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>Alternativ 2: anropa ett underordnat webb-API förutom Microsoft Graph
+
+Om du vill anropa ett webb-API förutom Microsoft Graph tillhandahåller *Microsoft. Identity. Web* `.AddDownstreamWebApi()` , som begär token och anropar det underordnade webb-API: et.
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="summary"></a>Sammanfattning
+
+Precis som med webb-API: er kan du välja olika implementationer för cachelagring av token. Mer information finns i [Microsoft. Identity. Web-token cache-serialisering](https://aka.ms/ms-id-web/token-cache-serialization) på GitHub.
+
+Följande bild visar de olika möjligheterna för *Microsoft. Identity. Web* och deras inverkan på *startup.cs* -filen:
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="När du skapar ett webb-API kan du välja att anropa ett underordnat API och token cache-implementeringar.":::
 
 > [!NOTE]
 > För att fullständigt förstå kod exemplen måste du vara bekant med [ASP.net Core fundament ALS](/aspnet/core/fundamentals), särskilt med [beroende inmatning](/aspnet/core/fundamentals/dependency-injection) och [alternativ](/aspnet/core/fundamentals/configuration/options).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Eftersom användar inloggning är delegerad till mellanprogram varan Open ID Connect (OIDC) måste du interagera med OIDC-processen. Hur du interagerar beror på vilket ramverk du använder.
+Eftersom användar inloggning är delegerad till mellanprogram OpenID Connect (OIDC) måste du interagera med OIDC-processen. Hur du interagerar beror på vilket ramverk du använder.
 
 För ASP.NET ska du prenumerera på OIDC händelser för mellanprogram:
 

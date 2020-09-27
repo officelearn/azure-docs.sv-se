@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b1582af2bbd97579852ead0d4462f80f3a50fe6a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257154"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396203"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Ett webb-API som anropar webb-API: er: anropa ett API
 
@@ -28,11 +28,11 @@ När du har en token kan du anropa ett skyddat webb-API. Du anropar vanligt vis 
 
 När du använder *Microsoft. Identity. Web*har du tre användnings scenarier:
 
-- [Anropa Microsoft Graph](#call-microsoft-graph)
-- [Anropa ett webb-API annat än Microsoft Graph](#call-web-api-other-than-microsoft-graph)
-- [Hämta en token manuellt](#acquire-a-token-manually)
+- [Alternativ 1: anropa Microsoft Graph med Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Alternativ 2: anropa ett underordnat webb-API med hjälp av klassen](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Alternativ 3: anropa ett underordnat webb-API utan hjälp klassen](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
-#### <a name="call-microsoft-graph"></a>Anropa Microsoft Graph
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Alternativ 1: anropa Microsoft Graph med SDK: n
 
 I det här scenariot har du lagt till `.AddMicrosoftGraph()` i *startup.cs* som det anges i [kod konfigurationen](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)och du kan mata in direkt `GraphServiceClient` i din styrenhet eller sidlayout för användning i åtgärderna. I följande exempel på kniv-sidan visas en bild av den inloggade användaren.
 
@@ -68,7 +68,7 @@ I det här scenariot har du lagt till `.AddMicrosoftGraph()` i *startup.cs* som 
  }
 ```
 
-#### <a name="call-web-api-other-than-microsoft-graph"></a>Anropa webb-API förutom Microsoft Graph
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Alternativ 2: anropa ett underordnat webb-API med hjälp av klassen
 
 I det här scenariot har du lagt till `.AddDownstreamWebApi()` i *startup.cs* som det anges i [kod konfigurationen](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)och du kan mata in en `IDownstreamWebApi` tjänst direkt i din styrenhet eller sidlayout och använda den i åtgärder:
 
@@ -115,7 +115,7 @@ I det här scenariot har du lagt till `.AddDownstreamWebApi()` i *startup.cs* so
  }
 ```
 
-#### <a name="acquire-a-token-manually"></a>Hämta en token manuellt
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>Alternativ 3: anropa ett underordnat webb-API utan hjälp klassen
 
 Om du har bestämt dig för att hämta en token manuellt med hjälp av `ITokenAcquisition` tjänsten måste du nu använda token. I så fall fortsätter följande kod exempel koden som visas i [ett webb-API som anropar webb-API: er: Hämta en token för appen](scenario-web-api-call-api-acquire-token.md). Koden anropas i API-styrenhetens åtgärder. Den anropar ett underordnat API med namnet *ToDoList*.
 

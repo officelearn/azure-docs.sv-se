@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecfb569f2791b674fe842e1c21cba972a8e9d2a7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443015"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397223"
 ---
 # <a name="vpn-gateway-design"></a>VPN Gateway design
 
@@ -77,7 +77,7 @@ Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt vi
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (privat anslutning)
 
-Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och CRM Online. Anslutningen kan vara från ett valfritt-till-alla (IP VPN)-nätverk, ett Ethernet-nätverk från punkt till punkt eller en virtuell kors anslutning via en anslutnings leverantör till en samplacering.
+Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure, Microsoft 365 och CRM Online. Anslutningen kan vara från ett valfritt-till-alla (IP VPN)-nätverk, ett Ethernet-nätverk från punkt till punkt eller en virtuell kors anslutning via en anslutnings leverantör till en samplacering.
 
 ExpressRoute-anslutningar går inte via offentligt Internet. Det innebär att ExpressRoute-anslutningar är tillförlitligare, snabbare, har kortare svarstider och högre säkerhet än vanliga anslutningar över Internet.
 

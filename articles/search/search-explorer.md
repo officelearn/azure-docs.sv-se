@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929796"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398416"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Snabb start: Använd Sök Utforskaren för att köra frågor i portalen
 
@@ -37,11 +37,11 @@ Innan du börjar måste du ha följande:
 
 1. Öppna Sök Utforskaren från kommando fältet:
 
-   ![Kommandot Sök Utforskaren i portalen](./media/search-explorer/search-explorer-cmd2.png "Kommandot Sök Utforskaren i portalen")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Kommandot Sök Utforskaren i portalen" border="false":::
 
     Eller Använd den inbäddade **Sök Utforskaren** -fliken i ett öppet index:
 
-   ![Fliken Sök Utforskaren](./media/search-explorer/search-explorer-tab.png "Fliken Sök Utforskaren")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Fliken Sök Utforskaren" border="false":::
 
 ## <a name="unspecified-query"></a>Ospecificerad fråga
 
@@ -55,7 +55,7 @@ Motsvarande syntax för en tom sökning är `*` eller `search=*` .
 
    **Resultat**
    
-   ![Exempel på tom fråga](./media/search-explorer/search-explorer-example-empty.png "Icke-kvalificerat eller tomt fråge exempel")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Icke-kvalificerat eller tomt fråge exempel" border="false":::
 
 ## <a name="free-text-search"></a>Texts ökning utan text
 
@@ -71,7 +71,7 @@ Observera att när du anger Sök villkor, t. ex. sökord eller uttryck, kommer S
 
    Du kan använda Ctrl-F för att söka i resultat för specifika ränte villkor.
 
-   ![Exempel på fritext fråga](./media/search-explorer/search-explorer-example-freetext.png "Exempel på fritext fråga")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Exempel på fritext fråga" border="false":::
 
 ## <a name="count-of-matching-documents"></a>Antal matchande dokument 
 
@@ -83,7 +83,7 @@ Lägg till **$Count = sant** om du vill hämta antalet matchningar som finns i e
 
    **Resultat**
 
-   ![Exempel på antal dokument](./media/search-explorer/search-explorer-example-count.png "Antal matchande dokument i index")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Antal matchande dokument i index" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>Begränsa fält i Sök Resultat
 
@@ -95,7 +95,7 @@ Lägg till [**$Select**](search-query-odata-select.md) för att begränsa result
 
    **Resultat**
 
-   ![Exempel på gräns fält](./media/search-explorer/search-explorer-example-selectfield.png "Begränsa fält i Sök Resultat")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Begränsa fält i Sök Resultat" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>Returnera nästa resultat grupp
 
@@ -107,7 +107,7 @@ Azure Kognitiv sökning returnerar de översta 50-matchningarna baserat på Sök
 
    **Resultat**
 
-   ![Sök Resultat för batch](./media/search-explorer/search-explorer-example-topskip.png "Returnera nästa batch med Sök Resultat")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Returnera nästa batch med Sök Resultat" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Filter uttryck (större än, mindre än, lika med)
 
@@ -119,7 +119,7 @@ Använd parametern [**$filter**](search-query-odata-filter.md) när du vill ange
    
    **Resultat**
 
-   ![Filter uttryck](./media/search-explorer/search-explorer-example-filter.png "Filtrera efter kriterier")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filtrera efter kriterier" border="false":::
 
 ## <a name="order-by-expressions"></a>Ordning efter uttryck
 
@@ -131,7 +131,7 @@ Lägg till [**$OrderBy**](search-query-odata-orderby.md) för att sortera result
    
    **Resultat**
 
-   ![OrderBy-uttryck](./media/search-explorer/search-explorer-example-ordery.png "Ändra sorteringsordning")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Ändra sorteringsordning" border="false":::
 
 Både **$filter** -och **$OrderBy** -uttryck är OData-konstruktioner. Mer information finns i [OData-filtersyntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 

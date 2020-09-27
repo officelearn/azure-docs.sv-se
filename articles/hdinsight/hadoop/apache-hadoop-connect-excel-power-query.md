@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: acb5171048b5a12310b6c0af5d652b7e615a71f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087817"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397121"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Ansluta Excel till Apache Hadoop med hjälp av Power Query
 
 En viktig funktion i Microsofts stor data lösning är integreringen av Microsoft Business Intelligence-komponenter (BI) med Apache Hadoop kluster i Azure HDInsight. Ett primärt exempel är möjligheten att ansluta Excel till det Azure Storage konto som innehåller de data som är kopplade till ditt Hadoop-kluster med hjälp av Microsoft Power Query för Excel-tillägget. Den här artikeln beskriver hur du konfigurerar och använder Power Query för att fråga efter data som är associerade med ett Hadoop-kluster som hanteras med HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * En arbets station som kör Windows 10, 7, Windows Server 2008 R2 eller ett senare operativ system.
-* Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 fristående eller Office 2010 Professional Plus.
+* Microsoft 365 appar för företag, Office 2016, Office 2013 Professional Plus, Excel 2013 fristående eller Office 2010 Professional Plus.
 
 ## <a name="install-microsoft-power-query"></a>Installera Microsoft Power Query
 

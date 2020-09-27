@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319596"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397087"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database att använda Azure SQL-analys (förhands granskning)
 
@@ -90,11 +90,11 @@ Om vissa mått eller loggar inte strömmas i Azure Monitor, fylls inte panelerna
 
 När Azure SQL-analys panelen för databasen har valts visas övervaknings instrument panelen.
 
-![Översikt över Azure SQL-analys](./media/azure-sql/azure-sql-sol-overview.png)
+![Skärm bild som visar instrument panelen för övervakning.](./media/azure-sql/azure-sql-sol-overview.png)
 
 Om du väljer någon av panelerna öppnas en detaljerad rapport i det aktuella perspektivet. När perspektivet är markerat öppnas rapporten för att öka detalj nivån.
 
-![Azure SQL-analys tids gränser](./media/azure-sql/azure-sql-sol-metrics.png)
+![Skärm bild som visar den detaljerade rapporten i det aktuella perspektivet.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Varje perspektiv i den här vyn innehåller sammanfattningar i prenumerationen, servern, elastisk pool och databas nivåer. Dessutom visar varje perspektiv ett perspektiv som är särskilt för rapporten till höger. Genom att välja prenumeration, Server, pool eller databas i listan fortsätter du att öka detalj nivån.
 

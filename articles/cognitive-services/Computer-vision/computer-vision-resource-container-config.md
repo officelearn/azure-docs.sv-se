@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: a2469768c2207210e17035a67d4b05fb0cc6bb6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254184"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397138"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Konfigurera Visuellt innehåll Docker-behållare
 
@@ -33,10 +33,12 @@ Behållaren har också följande behållar konfigurations inställningar:
 
 |Obligatorisk|Inställning|Syfte|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod|Resultat förfallo period i timmar. Standardvärdet är 48 timmar. Inställningen anger när systemet ska rensa igenkännings resultat. Om till exempel `resultExpirationPeriod=1` systemet rensar igenkännings resultatet 1 timme efter processen. Om `resultExpirationPeriod=0` rensas igenkännings resultatet i systemet när resultatet har hämtats.|
-|No|Cache: Redis|Aktiverar Redis-lagring för lagring av resultat. Det *krävs* ett cacheminne om flera Läs behållare placeras bakom en belastningsutjämnare.|
-|No|Kö: RabbitMQ|Aktiverar RabbitMQ för att skicka uppgifter. Inställningen är användbar när flera Läs behållare placeras bakom en belastningsutjämnare.|
-|No|Lagring::D ocumentStore:: MongoDB|Aktiverar MongoDB för lagring med permanent resultat.|
+|No|ReadEngineConfig:ResultExpirationPeriod| endast v 2.0-behållare. Resultat förfallo period i timmar. Standardvärdet är 48 timmar. Inställningen anger när systemet ska rensa igenkännings resultat. Om till exempel `resultExpirationPeriod=1` systemet rensar igenkännings resultatet 1 timme efter processen. Om `resultExpirationPeriod=0` rensas igenkännings resultatet i systemet när resultatet har hämtats.|
+|No|Cache: Redis| endast v 2.0-behållare. Aktiverar Redis-lagring för lagring av resultat. Det *krävs* ett cacheminne om flera Läs behållare placeras bakom en belastningsutjämnare.|
+|No|Kö: RabbitMQ|endast v 2.0-behållare. Aktiverar RabbitMQ för att skicka uppgifter. Inställningen är användbar när flera Läs behållare placeras bakom en belastningsutjämnare.|
+|No|Kö: Azure: QueueVisibilityTimeoutInMilliseconds | endast v3. x-behållare. Tiden som ett meddelande ska vara osynligt när en annan arbets process bearbetar det. |
+|No|Lagring::D ocumentStore:: MongoDB|endast v 2.0-behållare. Aktiverar MongoDB för lagring med permanent resultat. |
+|No|Lagring: ObjectStore: AzureBlob: ConnectionString| endast v3. x-behållare. Anslutnings sträng för Azure Blob Storage. |
 
 ## <a name="apikey-configuration-setting"></a>Konfigurations inställning för ApiKey
 
@@ -118,6 +120,30 @@ Ersätt {_argument_name_} med dina egna värden:
 Följande Docker-exempel är för Read-behållaren.
 
 
+# <a name="version-31-preview"></a>[Version 3,1 – för hands version](#tab/version-3-1)
+
+### <a name="basic-example"></a>Basic-exempel
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### <a name="logging-example"></a>Loggnings exempel 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
 # <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 ### <a name="basic-example"></a>Basic-exempel
@@ -141,13 +167,13 @@ ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="version-31-preview"></a>[Version 3,1 – för hands version](#tab/version-3-1)
+# <a name="version-20-preview"></a>[Version 2,0 – för hands version](#tab/version-2)
 
 ### <a name="basic-example"></a>Basic-exempel
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -158,7 +184,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361049"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397172"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -205,10 +205,7 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure dev-utrymmen
 | `storage.googleapis.com` | **`HTTPS:443`** | Den här adressen används för att hämta Helm/till-avbildningar |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy (för hands version)
-
-> [!CAUTION]
-> Några av funktionerna nedan finns i för hands version.  Förslagen i den här artikeln kan komma att ändras när funktionen flyttas till den offentliga för hands versionen och framtida versions steg.
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>Obligatoriska FQDN/applikations regler 
 
@@ -219,7 +216,6 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure Policy aktiv
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Adressen används för att Azure Policy ska fungera korrekt. (för närvarande i för hands version i AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Den här adressen används för att hämta de inbyggda principerna från GitHub för att säkerställa korrekt drift av Azure Policy. (för närvarande i för hands version i AKS) |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy tillägg som skickar telemetridata till program insikter-slutpunkten. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Begränsa utgående trafik med hjälp av Azure-brandvägg
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184068"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396543"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
@@ -105,7 +105,7 @@ Genom att klicka på knappen **skapa** kan Azure AD B2C omdirigera användaren t
 
 När en kund väljer något av alternativen under **företags kunder**, anropar webbplatsen Sparbanken en annan Azure AD B2C princip än för enskilda kunder.
 
-Den här principen visar användaren med ett alternativ för att använda sina företags uppgifter för registrering och inloggning. I exempel på Sparbanken uppmanas användarna att logga in med ett Office 365-eller Azure AD-konto. Den här principen använder ett [Azure AD-program med flera innehavare](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) och `/common` Azure AD-slutpunkten för att federera Azure AD B2C med valfri Office 365-kund i världen.
+Den här principen visar användaren med ett alternativ för att använda sina företags uppgifter för registrering och inloggning. I exempel på Sparbanken uppmanas användarna att logga in med ett arbets-eller skol konto. Den här principen använder ett [Azure AD-program med flera innehavare](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) och `/common` Azure AD-slutpunkten för att federera Azure AD B2C med valfri Microsoft 365 kund i världen.
 
 ### <a name="authenticate-partners"></a>Autentisera partners
 

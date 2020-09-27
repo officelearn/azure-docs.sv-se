@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e13d69b8d821267a993cd2ca9a3b6d0d686ccf9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e96db18993dbb18ebf51d0b30e9172901d10df5b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284558"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398280"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ Du kan ställa in din databas att implementera rekommendationer automatiskt. Nä
    ![Advisor-inställningar](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Välj åtgärder som ska automatiseras:
 
-   ![Rekommenderade index](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Skärm bild som visar var du kan välja vilka åtgärder som ska automatiseras.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Observera att **DROP_INDEX** alternativet inte är kompatibelt med program som använder partition växlings-och index tips.
@@ -139,7 +139,7 @@ Att tillämpa en rekommendation kanske inte sker omedelbart. Portalen innehålle
 
 Klicka på en rekommendation i processen i listan om du vill se mer information:
 
-![Rekommenderade index](./media/database-advisor-find-recommendations-portal/operations.png)
+![Skärm bild som visar en lista över rekommendationer i processen.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Återställa en rekommendation
 

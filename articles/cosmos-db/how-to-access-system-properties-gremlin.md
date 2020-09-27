@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/10/2019
-author: luisbosquez
-ms.author: lbosq
-ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: SnehaGunda
+ms.author: sngun
+ms.openlocfilehash: c03e4db30d590df21a8ceb3c483ece4b59e548d8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390354"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397325"
 ---
 # <a name="system-document-properties"></a>System dokument egenskaper
 
@@ -32,7 +32,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 
-Om insamlingen av dokument har förfallit och dokument har en ```ttl``` egenskap som har angetts för dem, blir den här egenskapen tillgänglig i Gremlin Traversal som en vanlig hörn-eller kant egenskap. ```ProjectionStrategy```är inte nödvändigt för att aktivera exponering för TTL (Time to Live).
+Om insamlingen av dokument har förfallit och dokument har en ```ttl``` egenskap som har angetts för dem, blir den här egenskapen tillgänglig i Gremlin Traversal som en vanlig hörn-eller kant egenskap. ```ProjectionStrategy``` är inte nödvändigt för att aktivera exponering för TTL (Time to Live).
 
 Hörn som skapats med bläddringen nedan tas automatiskt bort efter **123 sekunder**.
 

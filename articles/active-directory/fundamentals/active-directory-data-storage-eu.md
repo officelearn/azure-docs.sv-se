@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985907"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395897"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identitets data lagring för Europeiska kunder i Azure Active Directory
 Identitets data lagras av Azure AD på en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar på en Microsoft Online-tjänst, till exempel Microsoft 365 och Azure. Information om var dina identitets data lagras, kan du använda avsnittet var finns [dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) i Microsoft säkerhets Center.
@@ -35,6 +35,10 @@ För molnbaserad Azure-Multi-Factor Authentication slutförs autentiseringen i d
 * Multi-Factor Authentication-förfrågningar med OATH-koder som härstammar från EU-datacenter verifieras i EU.
 
 Mer information om vilka användar uppgifter som samlas in av Azure Multi-Factor Authentication-server (MFA Server) och molnbaserad Azure MFA finns i [azure Multi-Factor Authentication User Data Collection](../authentication/howto-mfa-reporting-datacollection.md).
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Lösenordsbaserad enkel inloggning för företags program
+ 
+Om en kund skapar ett nytt företags program (oavsett om det sker via Azure AD Gallery eller utanför galleriet) och aktiverar lösenordsbaserad SSO, lagras programmets inloggnings-URL och anpassade inloggnings fält för registrering lagras i USA. Mer information om den här funktionen finns i [Konfigurera lösenordsbaserad enkel inloggning](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

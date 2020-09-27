@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82191744"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396016"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latens, tillgänglighet och prestanda kompromisser med olika Azure Cosmos DB konsekvens nivåer
 
 Avvägningar måste göras för distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, låg svarstid eller båda. Avvägningarna är mellan läskonsekvens kontra tillgänglighet, svarstid och dataflöde.
 
@@ -24,7 +24,7 @@ Azure Cosmos DB närmar sig data konsekvens som ett spektrum av alternativ. Den 
 - *Begränsad föråldrad*
 - *Session*
 - *Konsekvent prefix*
-- *Eventuell*
+- *Slutliga*
 
 Varje nivå ger till gång till tillgänglighets-och prestanda kompromisser och backas upp av omfattande service avtal.
 
@@ -49,13 +49,13 @@ Den exakta svars tiden för försvars tid är en funktion av hastigheten-lätt a
 
 - För en specifik typ av Skriv åtgärd, till exempel infoga, Ersätt, upsert och Delete, är Skriv data flödet för enheter för programbegäran identiskt för alla konsekvens nivåer.
 
-|**Konsekvensnivå**|**Kvorum läsningar**|**Skrivningar till kvorum**|
+|**Konsekvens nivå**|**Kvorum läsningar**|**Skrivningar till kvorum**|
 |--|--|--|
 |**Stark**|Lokal minoritet|Global majoritet|
-|**Begränsad föråldring**|Lokal minoritet|Lokal majoritet|
+|**Begränsad föråldrad**|Lokal minoritet|Lokal majoritet|
 |**Session**|Enskild replik (med sessionstoken)|Lokal majoritet|
 |**Konsekvent prefix**|Enskild replik|Lokal majoritet|
-|**Eventuell**|Enskild replik|Lokal majoritet|
+|**Slutliga**|Enskild replik|Lokal majoritet|
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Konsekvens nivåer och data hållbarhet
 
@@ -63,7 +63,7 @@ I en globalt distribuerad databas miljö finns det ett direkt förhållande mell
 
 I tabellen nedan definieras relationen mellan konsekvens modell och data hållbarhet i närvaro av ett brett avbrott i regionen. Det är viktigt att notera att i ett distribuerat system, även med stark konsekvens, är det omöjligt att ha en distribuerad databas med återställnings-och RTO noll på grund av CAP-satsen. Mer information om varför finns [i konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
 
-|**Region (er)**|**Replikeringsläget**|**Konsekvens nivå**|**RPO**|**RTO**|
+|**Region (er)**|**Replikeringsläget**|**Konsekvensnivå**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|En eller flera huvud|Vilken konsekvens nivå som helst|< 240 minuter|<1 vecka|
 |>1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: af4ebcac38d4714b8a133087fe328b4d2f6c4872
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489596"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396374"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämför självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
@@ -26,7 +26,7 @@ För att tillhandahålla program, tjänster eller enheter åtkomst till en centr
 * **Active Directory Domain Services (AD DS)** – Enterprise-Ready Lightweight Directory Access Protocol (LDAP)-server som tillhandahåller viktiga funktioner som identitet och autentisering, hantering av dator objekt, grup princip och förtroenden.
     * AD DS är en central komponent i många organisationer med en lokal IT-miljö och ger grundläggande autentisering av användar konton och dator hanterings funktioner.
     * Mer information finns i [Active Directory Domain Services översikt i Windows Server-dokumentationen][overview-adds].
-* **Azure Active Directory (Azure AD)** – molnbaserad identitet och hantering av mobila enheter som tillhandahåller användar konto-och autentiseringstjänster för resurser som Office 365, Azure Portal eller SaaS-program.
+* **Azure Active Directory (Azure AD)** – molnbaserad identitet och hantering av mobila enheter som tillhandahåller användar konto-och autentiseringstjänster för resurser som Microsoft 365, Azure Portal eller SaaS program.
     * Azure AD kan synkroniseras med en lokal AD DS-miljö för att tillhandahålla en enskild identitet för användare som fungerar internt i molnet.
     * Mer information om Azure AD finns i [Vad är Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** – tillhandahåller hanterade domän tjänster med en del av fullständigt kompatibla, vanliga AD DS-funktioner som domän anslutning, grup princip, LDAP och KERBEROS/NTLM-autentisering.

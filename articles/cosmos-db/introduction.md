@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 4e9d632880b792d16ffe752a55396c649c6688e5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118584"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398826"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Att behålla databasschemat och index i Sync med ett programs schema är särski
 
 ### <a name="battle-tested-database-service"></a>Beprövad databastjänst
 
-Cosmos DB är en grundläggande tjänst i Azure. För nästan en tio års perioden har Cosmos DB använts av många av Microsofts produkter för verksamhets kritiska program i global skala, inklusive Skype, Xbox, Office 365, Azure och många andra. Idag är Cosmos DB en av de snabbaste växande tjänsterna på Azure, som används av många externa kunder och verksamhets kritiska program som kräver elastisk skala, nyckel färdig global distribution, multi-master-replikering för låg latens och hög tillgänglighet för både läsningar och skrivningar.
+Cosmos DB är en grundläggande tjänst i Azure. För nästan en tio års perioden har Cosmos DB använts av många av Microsofts produkter för verksamhets kritiska program i global skala, inklusive Skype, Xbox, Microsoft 365, Azure och många andra. Idag är Cosmos DB en av de snabbaste växande tjänsterna på Azure, som används av många externa kunder och verksamhets kritiska program som kräver elastisk skala, nyckel färdig global distribution, multi-master-replikering för låg latens och hög tillgänglighet för både läsningar och skrivningar.
 
 ### <a name="ubiquitous-regional-presence"></a>Ständig regional närvaro
 
@@ -64,7 +64,7 @@ Cosmos DB är tillgängligt i alla Azure-regioner över hela världen, inklusive
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Säker som standard och företagsredo
 
-Cosmos DB är certifierat för en [mängd olika efterlevnadsstandarder](compliance.md). Dessutom krypteras alla data i Cosmos DB både i vila och i rörelse. Cosmos DB erbjuder auktorisering på radnivå och följer stränga säkerhetskrav.
+Cosmos DB är certifierat för ett [brett utbud av efterlevnads standarder](compliance.md). Dessutom krypteras alla data i Cosmos DB i vila och i rörelse. Cosmos DB innehåller auktorisering på radnivå och följer strikta säkerhetsstandarder.
 
 ### <a name="significant-tco-savings"></a>Betydande besparingar på den totala ägandekostnaden
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676054"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397291"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Styra uppdateringar med underhålls kontroll och Azure Portal
 
@@ -20,7 +20,7 @@ Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar 
 
 ## <a name="create-a-maintenance-configuration"></a>Skapa en underhålls konfiguration
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 1. Sök efter **underhålls konfigurationer**.
 
@@ -76,7 +76,7 @@ Det finns också två sätt att kontrol lera om uppdateringar väntar på en und
 
 Du kan också kontrol lera en särskild värd med hjälp av **Virtual Machines** eller egenskaperna för den dedikerade värden. 
 
-![Skärm bild som visar hur du kontrollerar underhåll för en värd](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Skärm bild som visar det markerade underhålls läget.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## <a name="apply-updates"></a>Tillämpa uppdateringar
 
@@ -94,7 +94,7 @@ Du kan kontrol lera förloppet för uppdateringarna för en konfiguration i **un
 
 Om du vill ta bort en konfiguration öppnar du konfigurations informationen och klickar på **ta bort**.
 
-![Skärm bild som visar hur du kontrollerar underhåll för en värd](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Skärm bild som visar hur du tar bort en konfiguration.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

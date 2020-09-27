@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: fb86b25fc24ea505ae258cc44d5554a019723af6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ddba41acfcfe497059a661b701906cda0d4d77c6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019206"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398399"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Självstudie: del 2 – Visa dirigerade meddelanden
 
@@ -82,7 +82,7 @@ Service Bus-kön ska användas för att ta emot meddelanden som har angetts som 
 
    ![Alternativen för Office365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Logga in på ditt Office 365-konto för att konfigurera anslutningen. Försök igen om den här tiden är slut. Ange e-postadresser för mottagare av e-postmeddelanden. Ange även ämne och skriv vilket meddelande du vill att mottagaren ska se i brödtexten. För att testa fyller du i din egen e-postadress som mottagare.
+8. Logga in på ditt arbets-eller skol konto för att konfigurera anslutningen. Försök igen om den här tiden är slut. Ange e-postadresser för mottagare av e-postmeddelanden. Ange även ämne och skriv vilket meddelande du vill att mottagaren ska se i brödtexten. För att testa fyller du i din egen e-postadress som mottagare.
 
    Välj **Lägg till dynamiskt innehåll** om du vill visa innehållet från meddelandet som du kan ta med. Välj **Innehåll** – det inkluderar meddelandet i e-postmeddelandet.
 

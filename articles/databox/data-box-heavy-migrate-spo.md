@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a6cb3392aa83b2c02df621449a73f7cb68691ec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a87181e7d1c776648781a2672dfd73ac2eaab1b2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608612"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396866"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Använd Azure Data Box Heavy för att migrera ditt fil resurs innehåll till SharePoint Online
 
@@ -82,7 +82,7 @@ För bästa prestanda och anslutning rekommenderar vi att du skapar en virtuell 
 1. Logga in på Azure Portal och skapa sedan [en virtuell dator](../virtual-machines/windows/quick-create-portal.md).
 2. [Montera Azure-filresursen på den virtuella datorn](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Hämta verktyget för SharePoint-migrering](https://spmtreleasescus.blob.core.windows.net/install/default.htm) och installera det på den virtuella Azure-datorn.
-4. Starta verktyget SharePoint-migrering. Klicka på **Logga** in och ange ditt Office 365-användar namn och lösen ord.
+4. Starta verktyget SharePoint-migrering. Klicka på **Logga** in och ange användar namn och lösen ord för ditt arbets-eller skol konto.
 5. När du tillfrågas **om var data finns?** väljer du **fil resurs**. Ange sökvägen till Azure-filresursen där dina data finns.
 6. Följ de återstående prompterna som vanligt, inklusive mål platsen. Mer information finns i så här [använder du verktyget för SharePoint-migrering](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 

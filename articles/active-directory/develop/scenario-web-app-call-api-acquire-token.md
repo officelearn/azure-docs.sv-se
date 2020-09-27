@@ -1,5 +1,6 @@
 ---
-title: 'Hämta en token i en webbapp som anropar webb-API: er – Microsoft Identity Platform | Azure'
+title: 'Hämta en token i en webbapp som anropar webb-API: er | Azure'
+titleSuffix: Microsoft identity platform
 description: 'Lär dig hur du hämtar en token för en webbapp som anropar webb-API: er'
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4904cd95dc81aad959c88c1dfdb09416923046e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4fe3744f3f8cb39a7493ce788ee9badc1b31b75e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518189"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396186"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>En webbapp som anropar webb-API: er: Hämta en token för appen
 
@@ -27,7 +28,11 @@ Du har skapat ditt klient program objekt. Nu ska du använda den för att hämta
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Styrenhets metoderna skyddas av ett `[Authorize]` attribut som tvingar användare att autentiseras att använda webbappen. Här är koden som anropar Microsoft Graph:
+*Microsoft. Identity. Web* lägger till tilläggs metoder som tillhandahåller bekvämlighets tjänster för att anropa Microsoft Graph eller ett underordnat webb-API. Dessa metoder beskrivs i detalj i [en webbapp som anropar webb-API: er: anropa ett API](scenario-web-app-call-api-call-api.md). Med dessa hjälp metoder behöver du inte hämta en token manuellt.
+
+Om du däremot vill hämta en token manuellt, visar följande kod ett exempel på hur du använder *Microsoft. Identity. Web* för att göra det i en hem styrenhet. Det anropar Microsoft Graph att använda REST API (i stället för Microsoft Graph SDK). Om du vill hämta en token för att anropa det underordnade API: t ska du mata in `ITokenAcquisition` tjänsten med beroende inmatning i Controller-konstruktorn (eller din sidlayout om du använder blixt) och använda den i din styrenhets åtgärd, hämta en token för användaren ( `GetAccessTokenForUserAsync` ) eller för själva programmet ( `GetAccessTokenForAppAsync` ) i ett bakgrunds scenario.
+
+Styrenhets metoderna skyddas av ett `[Authorize]` attribut som endast garanterar autentiserade användare som kan använda webbappen.
 
 ```csharp
 [Authorize]
@@ -82,7 +87,7 @@ Koden för ASP.NET liknar koden som visas för ASP.NET Core:
 - En kontroll enhets åtgärd, som skyddas av ett [auktorisera]-attribut, extraherar klient-ID och användar-ID för `ClaimsPrincipal` kontrollantens medlem. (ASP.NET använder `HttpContext.User` .)
 - Därifrån skapar den ett MSAL.NET- `IConfidentialClientApplication` objekt.
 - Slutligen anropar den `AcquireTokenSilent` metoden för det konfidentiella klient programmet.
-- Om interaktion krävs måste webbappen utmana användaren (logga in) och be om fler anspråk.
+- Om interaktion krävs måste webbappen anropa användaren (logga in igen) och begära fler anspråk.
 
 Följande kodfragment extraheras från [HomeController. cs # L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) i [MS-Identity-ASPNET ASPNET-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET MVC kod exempel:
 

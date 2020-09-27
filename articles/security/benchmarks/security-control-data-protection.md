@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079004"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395999"
 ---
 # <a name="security-control-data-protection"></a>Säkerhets kontroll: data skydd
 
@@ -74,7 +74,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 Om det inte finns någon funktion för din tjänst i Azure använder du ett aktivt identifierings verktyg från tredje part för att identifiera all känslig information som lagras, bearbetas eller överförs av organisationens teknik system, inklusive de som finns på plats eller på en fjärrtjänstprovider, och uppdaterar organisationens känsliga informations inventering.
 
-Använd Azure Information Protection för att identifiera känslig information i Office 365-dokument.
+Använd Azure Information Protection för att identifiera känslig information i Microsoft 365 dokument.
 
 Använd Azure SQL-Information Protection för att hjälpa till med klassificering och märkning av information som lagras i Azure SQL Database.
 
@@ -98,7 +98,7 @@ Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 4,7 | 14,7 | Delad |
+| 4.7 | 14,7 | Delad |
 
 Om det krävs för att göra beräknings resurser implementerar du ett verktyg från tredje part, till exempel en automatiserad värdbaserade lösning för data förlust skydd, för att genomdriva åtkomst kontroller till data även när data kopieras av ett system.
 

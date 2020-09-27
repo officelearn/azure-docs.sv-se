@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445329"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396696"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide för att konfigurera en Windows-mall i Azure Lab Services
 
@@ -61,7 +61,7 @@ Om du använder en dator som inte använder Active Directory kan användare manu
 
 Om den virtuella datorn är ansluten till Active Directory kan du ställa in mallen så att dina studenter automatiskt kan flytta de kända mapparna till OneDrive.  
 
-Du måste först hämta ditt Office-klient-ID.  Mer information finns i [hitta ditt Office 365-klient-ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Du kan också hämta klient-ID för Office 365 med hjälp av följande PowerShell.
+Du måste först hämta ditt organisations-ID.  Mer information finns i [hitta Microsoft 365 organisations-ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Du kan också hämta organisations-ID med hjälp av följande PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -71,7 +71,7 @@ $officeTenantID = Get-MSOLCompanyInformation |
     Select-Object -expand Guid
 ```
 
-När du har ditt Office 365-klient-ID anger du OneDrive för att be om att flytta kända mappar till OneDrive med hjälp av följande PowerShell.
+När du har ditt organisations-ID anger du OneDrive för att be om att flytta kända mappar till OneDrive med hjälp av följande PowerShell.
 
 ```powershell
 if ($officeTenantID -eq $null)
@@ -95,7 +95,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="silently-sign-in-users-to-onedrive"></a>Logga in användare tyst till OneDrive
 
-OneDrive kan ställas in för att logga in automatiskt med Windows-autentiseringsuppgifter för den inloggade användaren.  Automatisk inloggning är användbart för klasser där studenten loggar in med sina Office 365 School-autentiseringsuppgifter.
+OneDrive kan ställas in för att logga in automatiskt med Windows-autentiseringsuppgifter för den inloggade användaren.  Automatisk inloggning är användbart för klasser där studenten loggar in med sina skol uppgifter.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -115,7 +115,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="set-the-maximum-size-of-a-file-that-to-be-download-automatically"></a>Ange den maximala storleken för en fil som ska laddas ned automatiskt
 
-Den här inställningen används tillsammans med obevakade inloggnings användare till OneDrive-synkroniseringsklienten med sina Windows-autentiseringsuppgifter på enheter som inte har OneDrive-filer på begäran aktiverat. Alla användare som har ett OneDrive-värde som är större än det angivna tröskelvärdet (i MB) uppmanas att välja de mappar som ska synkroniseras innan OneDrive-synkroniseringsklienten (OneDrive.exe) laddar ned filerna.  I vårt exempel är "1111-2222-3333-4444" Office 365-klient-ID: t och 0005000 anger ett tröskelvärde på 5 GB.
+Den här inställningen används tillsammans med obevakade inloggnings användare till OneDrive-synkroniseringsklienten med sina Windows-autentiseringsuppgifter på enheter som inte har OneDrive-filer på begäran aktiverat. Alla användare som har ett OneDrive-värde som är större än det angivna tröskelvärdet (i MB) uppmanas att välja de mappar som ska synkroniseras innan OneDrive-synkroniseringsklienten (OneDrive.exe) laddar ned filerna.  I vårt exempel är "1111-2222-3333-4444" organisations-ID: t och 0005000 anger ett tröskelvärde på 5 GB.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -124,23 +124,23 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
     -Name "1111-2222-3333-4444" -Value "0005000" -PropertyType DWORD
 ```
 
-## <a name="install-and-configure-microsoft-office-365"></a>Installera och konfigurera Microsoft Office 365
+## <a name="install-and-configure-microsoft-365"></a>Installera och konfigurera Microsoft 365
 
-### <a name="install-microsoft-office-365"></a>Installera Microsoft Office 365
+### <a name="install-microsoft-365"></a>Installera Microsoft 365
 
-Om din dator behöver Office rekommenderar vi att du installerar Office via [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Du måste skapa en återanvändbar konfigurations fil med [office 365-klient konfigurations tjänsten](https://config.office.com/) för att välja vilken arkitektur, vilka funktioner du behöver från Office och hur ofta de uppdateras.
+Om din dator behöver Office rekommenderar vi att du installerar Office via [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117). Du måste skapa en återanvändbar konfigurations fil med hjälp av [administrations centret för Microsoft 365 Apps](https://config.office.com/) för att välja vilken arkitektur, vilka funktioner du behöver från Office och hur ofta de uppdateras.
 
-1. Gå till [Office 365-klient konfigurations tjänsten](https://config.office.com/) och ladda ned din egen konfigurations fil.
+1. Gå till [Microsoft 365 Apps administrations Center](https://config.office.com/) och ladda ned din egen konfigurations fil.
 2. Hämta [distributions verktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117).  Den hämtade filen är `setup.exe` .
 3. Kör `setup.exe /download configuration.xml` för att ladda ned Office-komponenter.
 4. Kör `setup.exe /configure configuration.xml` för att installera Office-komponenter.
 
-### <a name="change-the-microsoft-office-365-update-channel"></a>Ändra Microsoft Office 365-uppdaterings kanal
+### <a name="change-the-microsoft-365-update-channel"></a>Ändra Microsoft 365 uppdaterings kanal
 
-Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar. Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL. Uppdatera kanal-URL-adresser finns i [Ändra Office 365 ProPlus-uppdaterings kanal för enheter i din organisation](https://docs.microsoft.com/deployoffice/change-update-channels). Exemplet nedan visar hur du ställer in Office 365 för att använda månads uppdaterings kanalen.
+Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar. Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL. Uppdaterings kanalens URL-adresser finns i [ändra Microsoft 365 Apps uppdaterings kanal för enheter i din organisation](https://docs.microsoft.com/deployoffice/change-update-channels). Exemplet nedan visar hur du ställer in Microsoft 365 att använda månads uppdaterings kanalen.
 
 ```powershell
-# Update to the Office 365 Monthly Channel
+# Update to the Microsoft 365 Monthly Channel
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"
@@ -228,7 +228,7 @@ Installera andra appar som ofta används för att lära sig genom Windows Store-
 
 ## <a name="conclusion"></a>Slutsats
 
-Den här artikeln visar dig valfria steg för att förbereda din virtuella Windows-mall för en effektiv klass.  Stegen inkluderar installation av OneDrive och installation av Office 365, installation av uppdateringar för Windows och installation av uppdateringar för Microsoft Store appar.  Vi har också diskuterat hur du ställer in uppdateringar till ett schema som passar bäst för din klass.  
+Den här artikeln visar dig valfria steg för att förbereda din virtuella Windows-mall för en effektiv klass.  Stegen inkluderar installation av OneDrive och installation av Microsoft 365, installation av uppdateringar för Windows och installation av uppdateringar för Microsoft Store-appar.  Vi har också diskuterat hur du ställer in uppdateringar till ett schema som passar bäst för din klass.  
 
 ## <a name="next-steps"></a>Nästa steg
 Se artikeln om hur du styr avstängnings beteendet i Windows för att hjälpa till med att hantera kostnader: [Guide för att kontrol lera beteendet i Windows](how-to-windows-shutdown.md)

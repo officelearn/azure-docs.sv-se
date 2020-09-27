@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891489"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397342"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -116,7 +116,7 @@ Synapse-länk rekommenderas inte om du söker efter traditionella informations l
 
 ## <a name="limitations"></a>Begränsningar
 
-* Azure Synapse-länken stöds för API: et för Azure Cosmos DB SQL (Core) och Azure Cosmos DB s API för MongoDB. Stöd för API för Cassandra är för närvarande under en gated Preview. Om du vill begära åtkomst till gated Preview, e-posta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com).
+* Azure Synapse-länken stöds för API: et för Azure Cosmos DB SQL (Core) och Azure Cosmos DB s API för MongoDB.
 
 * För närvarande kan analys lagret bara aktive ras för nya behållare. Om du vill använda analytisk lagring för befintliga behållare migrerar du data från dina befintliga behållare till nya behållare med hjälp av [Azure Cosmos DB Migreringsverktyg](cosmosdb-migrationchoices.md). Du kan aktivera Synapse-länk på nya och befintliga Azure Cosmos DB-konton.
 

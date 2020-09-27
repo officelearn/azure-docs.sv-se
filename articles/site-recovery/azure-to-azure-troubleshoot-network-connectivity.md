@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8be0349bfff9ebc858d76928344039b6879d2b80
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357071"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398314"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -51,16 +51,16 @@ Försök att komma åt DNS-servern från den virtuella datorn. Om DNS-servern in
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Site Recovery konfiguration misslyckades (151196)
 
 > [!NOTE]
-> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Office 365-IP-adresser som `login.microsoftonline.com` . Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
+> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Microsoft 365 IP-adresser som `login.microsoftonline.com` . Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
-Det går inte att upprätta en anslutning till Office 365-autentisering och Identity IP4-slutpunkter.
+Det går inte att upprätta en anslutning till Microsoft 365-slutpunkter för autentisering och identitet IP4.
 
 #### <a name="resolution"></a>Lösning
 
-- Azure Site Recovery kräver åtkomst till Office 365 IP-intervall för autentisering.
-- Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn, så se till att du tillåter kommunikation till IP-intervallen för Office 365. Skapa en [Azure Active Directory (Azure AD) service tag-](../virtual-network/security-overview.md#service-tags) NSG regel som ger åtkomst till alla IP-adresser som motsvarar Azure AD.
+- Azure Site Recovery kräver åtkomst till Microsoft 365 IP-intervall för autentisering.
+- Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn, måste du se till att tillåta kommunikation till Microsoft 365 IP-intervall. Skapa en [Azure Active Directory (Azure AD) service tag-](../virtual-network/security-overview.md#service-tags) NSG regel som ger åtkomst till alla IP-adresser som motsvarar Azure AD.
 - Om nya adresser läggs till i Azure AD i framtiden måste du skapa nya NSG-regler.
 
 ### <a name="example-nsg-configuration"></a>Exempel på NSG-konfiguration

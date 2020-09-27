@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333196"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396254"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -86,7 +86,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 2. Navigera till **granskning** under säkerhets rubriken i **SQL Database** eller **SQL Server** -fönstret.
 3. Om du vill konfigurera en server gransknings princip kan du välja länken **Visa Server inställningar** på sidan databas granskning. Du kan sedan Visa eller ändra server gransknings inställningarna. Server gransknings principer gäller för alla befintliga och nyligen skapade databaser på den här servern.
 
-    ![Navigeringsfönster](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
+    ![Skärm bild som visar länken Visa Server inställningar markerat på sidan databas granskning.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
 4. Om du föredrar att aktivera granskning på databas nivån växlar du **granskning** till **på**. Om Server granskning är aktive rad, finns den databas-konfigurerade granskningen sida vid sida med Server granskningen.
 
@@ -163,7 +163,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
 - Använd [Azure-portalen](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
 
-    ![Navigeringsfönster](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Skärm bild som visar knappen Visa gransknings loggar markerad på sidan databas granskning.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Gransknings poster** öppnas där du kan visa loggarna.
 
@@ -171,14 +171,14 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
   - Du kan växla mellan gransknings poster som har skapats av *Server gransknings principen* och *databas gransknings principen* genom att växla **gransknings källa**.
   - Du kan bara visa SQL-injektering relaterade gransknings poster genom att markera kryss rutan  **Visa endast gransknings poster för SQL-injektering** .
 
-       ![Navigeringsfönster]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
+       ![Skärm bild som visar alternativen för att Visa gransknings posterna.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - Använd system funktionen **sys. fn_get_audit_file** (T-SQL) för att returnera Gransknings logg data i tabell format. Mer information om hur du använder den här funktionen finns i [sys. fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Använda **sammanslagna gransknings filer** i SQL Server Management Studio (från och med SSMS 17):
     1. Från menyn SSMS väljer du **fil**  >  **Öppna**  >  **filer för sammanslagen granskning**.
 
-        ![Navigeringsfönster](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
+        ![Skärm bild som visar meny alternativet Slå samman gransknings filer.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. Dialog rutan **Lägg till gransknings filer** öppnas. Välj ett av alternativen **Lägg** till för att välja om du vill slå samman gransknings filer från en lokal disk eller importera dem från Azure Storage. Du måste ange Azure Storage information och konto nyckeln.
 
     3. När du har lagt till alla filer som ska sammanfogas klickar du på **OK** för att slutföra sammanslagnings åtgärden.
@@ -218,7 +218,7 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 
 1. Öppna **lagrings information**. I rutan **lagrings åtkomst nyckel** väljer du **sekundär**och klickar på **OK**. Klicka sedan på **Spara** högst upp på sidan gransknings konfiguration.
 
-    ![Navigeringsfönster](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
+    ![Skärm bild som visar processen för att välja en sekundär lagrings åtkomst nyckel.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Gå till sidan lagrings konfiguration och återskapa den primära åtkomst nyckeln.
 
     ![Navigeringsfönster](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)

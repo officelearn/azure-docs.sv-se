@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971401"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397903"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexerare i Azure Cognitive Search
 
@@ -60,7 +60,7 @@ Vid en inledande körning kommer en indexerare att läsas i alla data som anges 
 
 För varje dokument som matas in, implementerar en indexerare eller samordnar flera steg, från dokument hämtning till en sista sökmotor "leverans" för indexering. Om du vill kan en indexerare också instrumentell vid körning av färdigheter och utdata, förutsatt att en färdigheter har definierats.
 
-![Indexerings steg](./media/search-indexer-overview/indexer-stages.png "indexerings steg")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Indexerings steg" border="false":::
 
 ### <a name="stage-1-document-cracking"></a>Steg 1: dokument sprickor
 

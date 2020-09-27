@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935032"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397376"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Design mönster för SaaS-program med flera innehavare och Azure Kognitiv sökning
 
@@ -76,7 +76,8 @@ I ett scenario med flera innehavare förbrukar programutvecklaren en eller flera
 3. *Blandning av båda:* Större, mer-aktiva klienter tilldelas dedikerade tjänster, medan mindre klienter tilldelas enskilda index inom delade tjänster.
 
 ## <a name="1-index-per-tenant"></a>1. index per klient
-![En portrayal av modellen index-per-klient](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="En portrayal av modellen index-per-klient" border="false":::
 
 I en modell för index per klient använder flera klienter en enda Azure Kognitiv sökning-tjänst där varje klient har sitt eget index.
 
@@ -93,7 +94,8 @@ Med Azure Kognitiv sökning kan du skala både enskilda index och det totala ant
 Om det totala antalet index blir för stort för en enskild tjänst, måste en annan tjänst tillhandahållas för att hantera de nya klient organisationerna. Om index måste flyttas mellan Sök tjänsterna när nya tjänster läggs till, måste data från indexet kopieras manuellt från ett index till det andra eftersom Azure Kognitiv sökning inte tillåter att ett index flyttas.
 
 ## <a name="2-service-per-tenant"></a>2. tjänst per klient
-![En portrayal av modellen för tjänst per klient](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="En portrayal av modellen för tjänst per klient" border="false":::
 
 I en arkitektur för tjänst per klient organisation har varje klient organisation sin egen Sök tjänst.
 

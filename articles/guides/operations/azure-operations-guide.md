@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832764"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397818"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -68,7 +68,7 @@ Azure tillhandahåller flera PaaS-beräknings erbjudanden, inklusive Web Apps fu
 
 SaaS är program vara som hanteras centralt och hanteras centralt. Det är vanligt vis baserat på en arkitektur för flera innehavare – en enda version av programmet används för alla kunder. Den kan skalas ut till flera instanser för att säkerställa bästa prestanda på alla platser. SaaS-programvara licensieras vanligt vis via en månatlig eller årlig prenumeration. SaaS program varu leverantörer är ansvariga för alla komponenter i program varu stacken så att allt du hanterar är de tjänster som tillhandahålls.
 
-Microsoft Office 365 är ett användbart exempel på ett SaaS-erbjudande. Prenumeranter betalar en månatlig eller årlig prenumerations avgift, och de får Microsoft Exchange, Microsoft OneDrive och resten av Microsoft Office Suite som en tjänst. Prenumeranter får alltid den senaste versionen och Exchange-servern hanteras åt dig. Jämfört med att installera och uppgradera Office varje år är detta billigare och kräver mindre ansträngning.
+Microsoft 365 är ett användbart exempel på ett SaaS-erbjudande. Prenumeranter betalar en månatlig eller årlig prenumerations avgift, och de får Microsoft Exchange, Microsoft OneDrive och resten av Microsoft Office Suite som en tjänst. Prenumeranter får alltid den senaste versionen och Exchange-servern hanteras åt dig. Jämfört med att installera och uppgradera Office varje år är detta billigare och kräver mindre ansträngning.
 
 ## <a name="azure-services"></a>Azure-tjänster
 

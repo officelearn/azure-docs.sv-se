@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750798"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398877"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Säkerhetsloggning och granskning i Azure
 
@@ -48,7 +48,7 @@ I följande tabell visas de viktigaste typerna av loggar som är tillgängliga i
 
 | Loggkategori | Loggtyp | Användning | Integrering |
 | ------------ | -------- | ------ | ----------- |
-|[Aktivitetsloggar](../../azure-monitor/platform/platform-logs-overview.md)|Kontroll – plan händelser på Azure Resource Manager resurser|  Ger insikt i de åtgärder som utfördes på resurser i din prenumeration.|    REST-API, [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
+|[Aktivitets loggar](../../azure-monitor/platform/platform-logs-overview.md)|Kontroll – plan händelser på Azure Resource Manager resurser|  Ger insikt i de åtgärder som utfördes på resurser i din prenumeration.|    REST-API, [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Azure resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)|Frekventa data om driften av Azure Resource Manager resurser i prenumerationen|   Ger inblick i åtgärder som din resurs själv utfört.| Azure Monitor|
 |[Azure Active Directory-rapportering](../../active-directory/reports-monitoring/overview-reports.md)|Loggar och rapporter | Rapporterar användar inloggnings aktiviteter och system aktivitets information om användare och grupp hantering.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Virtuella datorer och moln tjänster](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows händelse logg tjänst och Linux syslog|  Avbildar system data och loggnings data på de virtuella datorerna och överför dessa data till ett valfritt lagrings konto.|   Windows (med Windows Azure-diagnostik [[wad](../../monitoring-and-diagnostics/azure-diagnostics.md)] Storage) och Linux i Azure Monitor|
@@ -68,4 +68,4 @@ Att [integrera Security Center varningar](../../security-center/security-center-
 
 - [Konfigurera gransknings inställningar för en webbplats samling](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): om du är en webbplats samlings administratör hämtar du historiken för enskilda användares åtgärder och historiken för de åtgärder som vidtagits under ett visst datum intervall.
 
-- [Sök i gransknings loggen i office 365 security & Compliance Center](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): använd Office 365 Security & Compliance Center för att söka i den enhetliga gransknings loggen och Visa användar-och administratörs aktivitet i din Office 365-organisation.
+- [Sök i gransknings loggen i Microsoft 365 Security Center](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Använd Microsoft 365 Security Center för att söka i enhetlig Gransknings logg och Visa användar-och administratörs aktivitet i din organisation.

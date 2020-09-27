@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71099062"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400714"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Konfigurera och verifiera virtuella nätverk eller VPN-anslutningar
 
@@ -182,7 +182,7 @@ Det här scenariot stöds när BGP är aktiverat på plats-till-plats-VPN mellan
 
 ### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Konfigurera överförings dirigering i en ExpressRoute-anslutning
 
-Med Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet via en dedikerad privat anslutning från en anslutningsleverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365. Mer information finns i [Översikt över ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Med Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet via en dedikerad privat anslutning från en anslutningsleverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster som Microsoft Azure, Microsoft 365 och Dynamics 365. Mer information finns i [Översikt över ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![ExpressRoute privat peering-anslutning till virtuella Azure-nätverk](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 
@@ -258,7 +258,7 @@ BGP måste vara aktiverat för anslutningsobjektet. Du kan ange `-EnableBGP` vä
 
 ### <a name="validate-the-bgp-configuration"></a>Verifiera BGP-konfigurationen
 
-Du kan kontrol lera om BGP har kon figurer ATS korrekt genom att köra- `get-AzureRmVirtualNetworkGateway` och `get-AzureRmLocalNetworkGateway` cmdletarna. Sedan kommer du att märka BGP-relaterade utdata i `BgpSettingsText` delen. Till exempel:
+Du kan kontrol lera om BGP har kon figurer ATS korrekt genom att köra- `get-AzureRmVirtualNetworkGateway` och `get-AzureRmLocalNetworkGateway` cmdletarna. Sedan kommer du att märka BGP-relaterade utdata i `BgpSettingsText` delen. Exempel:
 
 ```
 {

@@ -6,20 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 8b413b82ceb148374bd89fd2baec7d4db13f54d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 512a103f5ac116f1f4eb18631cdc8e4a8b9380c9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329556"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399218"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Långsamma Query-loggar i Azure Database for MySQL flexibel Server (förhands granskning)
 
 > [!IMPORTANT] 
 > Azure Database for MySQL-flexibel Server är för närvarande en offentlig för hands version.
-
-> [!NOTE]
-> Att integrera med Azure Monitor diagnostikinställningar för att komma åt loggarna är under distributionen och att alla funktioner blir tillgängliga snart.
 
 I Azure Database for MySQL flexibel Server är den långsamma fråge loggen tillgänglig för användare att konfigurera och komma åt. Långsamma frågemeddelanden är inaktiverade som standard och kan aktive ras för att hjälpa till att identifiera Flask halsar i prestanda under fel sökning.
 
@@ -42,10 +39,7 @@ Se [logg dokumentationen för en långsam fråga](https://dev.mysql.com/doc/refm
 
 ## <a name="access-slow-query-logs"></a>Komma åt långsamma Query-loggar
 
-> [!NOTE]
-> Att integrera med Azure Monitor diagnostikinställningar för att komma åt loggarna är under distributionen och att alla funktioner blir tillgängliga snart.
-
-Långsamma frågeuttryck är integrerade med Azure Monitor diagnostikinställningar. När du har aktiverat gransknings loggar på din MySQL-flexibla Server kan du generera dem till Azure Monitor loggar, Event Hubs eller Azure Storage. Mer information om diagnostiska inställningar finns i [dokumentationen för diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md). Mer information om hur du aktiverar diagnostikinställningar i Azure Portal finns i [artikeln om långsam fråga i logg portalen](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Långsamma frågeuttryck är integrerade med Azure Monitor diagnostikinställningar. När du har aktiverat långsamma Query-loggar på din MySQL-flexibla Server kan du generera dem till Azure Monitor loggar, Event Hubs eller Azure Storage. Mer information om diagnostiska inställningar finns i [dokumentationen för diagnostikloggar](../../azure-monitor/platform/platform-logs-overview.md). Mer information om hur du aktiverar diagnostikinställningar i Azure Portal finns i [artikeln om långsam fråga i logg portalen](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
 I följande tabell beskrivs utdata från den långsamma fråge loggen. Beroende på utmatnings metoden kan de fält som ingår och i vilken ordning de visas variera.
 

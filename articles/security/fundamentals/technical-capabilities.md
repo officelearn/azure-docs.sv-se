@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071596"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399541"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -68,7 +68,7 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 - Enkel inloggning
 
-- Multi-Factor Authentication
+- Multifaktorautentisering
 
 - Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 
@@ -78,19 +78,19 @@ Följande är grundläggande funktioner för Azure Identity Management:
 
 - Privileged Identity Management
 
-- Identity Protection
+- Identitetsskydd
 
 #### <a name="single-sign-on"></a>Enkel inloggning
 
 [Enkel inloggning (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) innebär att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att bara logga in en gång med ett enda användar konto. När du har loggat in kan du komma åt alla program som du behöver utan att behöva autentisera (till exempel skriva ett lösen ord) en gång till.
 
-Många organisationer förlitar sig på SaaS-program (program vara som en tjänst) som Office 365, Box och Salesforce för slutanvändarens produktivitet. Tidigare var IT-personal tvungen att individuellt skapa och uppdatera användar konton i varje SaaS-program, och användarna var tvungna att komma ihåg ett lösen ord för varje SaaS-program.
+Många organisationer förlitar sig på SaaS-program (program vara som en tjänst) som Microsoft 365, Box och Salesforce för slutanvändarens produktivitet. Tidigare var IT-personal tvungen att individuellt skapa och uppdatera användar konton i varje SaaS-program, och användarna var tvungna att komma ihåg ett lösen ord för varje SaaS-program.
 
 [Azure AD utökar lokala Active Directory till molnet](../../active-directory/manage-apps/what-is-single-sign-on.md), vilket gör det möjligt för användare att använda sitt primära organisations konto för att inte bara logga in på sina domänanslutna enheter och företags resurser, men även alla webb-och SaaS-program som krävs för sitt arbete.
 
 Användare behöver inte bara hantera flera uppsättningar användar namn och lösen ord, program åtkomsten kan automatiskt etableras eller avetableras baserat på organisations grupper och deras status som anställd. [Azure AD introducerar säkerhets-och åtkomst styrnings kontroller](../../active-directory/active-directory-enterprise-apps-manage-sso.md) som gör att du centralt kan hantera användarnas åtkomst i SaaS-program.
 
-#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+#### <a name="multi-factor-authentication"></a>Multifaktorautentisering
 
 [Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) är en metod för autentisering som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. [MFA hjälper](../../active-directory/authentication/concept-mfa-howitworks.md) till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via ett antal verifierings alternativ – telefonsamtal, textmeddelande eller meddelande från mobilapp eller verifierings kod och OAuth-token från tredje part.
 
@@ -126,21 +126,21 @@ I kombination med en [hanterings lösning för mobila enheter (MDM)](https://www
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) låter dig hantera, kontrol lera och övervaka dina privilegierade identiteter och åtkomst till resurser i Azure AD samt andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.
+[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) låter dig hantera, kontrol lera och övervaka dina privilegierade identiteter och åtkomst till resurser i Azure AD samt andra Microsoft-onlinetjänster som Microsoft 365 eller Microsoft Intune.
 
-Ibland behöver användarna utföra privilegierade åtgärder i Azure-eller Office 365-resurser eller andra SaaS-appar. Detta innebär ofta att organisationer måste ge dem permanent privilegie rad åtkomst i Azure AD. Detta är en växande säkerhets risk för resurser som är värd för molnet eftersom organisationer inte kan övervaka vad dessa användare gör med sina administratörs privilegier. Om ett användar konto med privilegie rad åtkomst komprometteras, kan det dessutom orsaka att en överträdelse påverkar den övergripande moln säkerheten. Azure AD Privileged Identity Management hjälper till att lösa den här risken.
+Ibland behöver användare utföra privilegierade åtgärder i Azure eller Microsoft 365 resurser eller andra SaaS-appar. Detta innebär ofta att organisationer måste ge dem permanent privilegie rad åtkomst i Azure AD. Detta är en växande säkerhets risk för resurser som är värd för molnet eftersom organisationer inte kan övervaka vad dessa användare gör med sina administratörs privilegier. Om ett användar konto med privilegie rad åtkomst komprometteras, kan det dessutom orsaka att en överträdelse påverkar den övergripande moln säkerheten. Azure AD Privileged Identity Management hjälper till att lösa den här risken.
 
 Med Azure AD Privileged Identity Management kan du:
 
 - Se vilka användare som är Azure AD-administratörer
 
-- Aktivera administrativ åtkomst på begäran, precis i tid "till Microsoft Online Services, till exempel Office 365 och Intune
+- Aktivera administrativ åtkomst på begäran, precis i tiden, till Microsoft Online Services som Microsoft 365 och Intune
 
 - Hämta rapporter om administratörs åtkomst historik och ändringar i administratörs tilldelningar
 
 - Få aviseringar om åtkomst till en privilegie rad roll
 
-#### <a name="identity-protection"></a>Identity Protection
+#### <a name="identity-protection"></a>Identitetsskydd
 
 [Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd använder befintliga Azure Active Directorys avvikelse identifierings funktioner (tillgängliga via Azure ADs avvikande aktivitets rapporter) och introducerar nya risk identifierings typer som kan identifiera avvikelser i real tid.
 
@@ -444,6 +444,6 @@ Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhets
 
 - [Identitets- och åtkomsthantering](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
-- [Nätverkssäkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Nätverks säkerhet](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Hothantering](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

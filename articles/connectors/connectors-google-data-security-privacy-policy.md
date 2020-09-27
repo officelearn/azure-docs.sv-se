@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288106"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400765"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Principer för data säkerhet och sekretess för Google-anslutningar i Azure Logic Apps
 
@@ -40,7 +40,7 @@ När du använder ett Gmail-konto i den här principen kan du använda Gmail-ans
 
 * Google-tjänster: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets och Google tasks
 
-* Godkända Microsoft-tjänster: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive och SharePoint Online
+* Godkända Microsoft-tjänster: Dynamics 365, Excel Online, Microsoft Teams, Microsoft 365, OneDrive och SharePoint Online
 
 * Anslutningar för Kundhanterade data Källor: FTP, RSS, SFTP, SMTP och SQL Server
 

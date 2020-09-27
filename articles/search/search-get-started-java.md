@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 6be511029221e1f7bd1e58ad111503a43ee157fb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290366"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400663"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
    Skapa även en sessionsnyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 Varje begäran som skickas till din tjänst kräver en API-nyckel. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -67,7 +67,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 1. Välj **maven**.
 1. I listan **Project SDK** väljer du Java 11 SDK.
 
-    ![Skapa ett Maven-projekt](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Skapa ett Maven-projekt" border="false":::
 
 1. Ange **för** **ArtifactId** `AzureSearchQuickstart` .
 1. Godkänn de återstående standardvärdena för att öppna projektet.
@@ -78,7 +78,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 1. I fönstret **Inställningar** väljer du **build, Execution, Deployment**  >  **build tools**  >  **maven**  >  **Importing**.
 1. Markera kryss rutan  **Importera Maven projekt automatiskt** och Stäng fönstret genom att klicka på **OK** . Maven-plugin-program och andra beroenden kommer nu att synkroniseras automatiskt när du uppdaterar pom.xml-filen i nästa steg.
 
-    ![Maven som importerar alternativ i IntelliJ-inställningar](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven som importerar alternativ i IntelliJ-inställningar" border="false":::
 
 1. Öppna pom.xml-filen och ersätt innehållet med följande konfigurations information för maven. Dessa inkluderar referenser till [exec maven-plugin-programmet](https://www.mojohaus.org/exec-maven-plugin/) och ett JSON- [GRÄNSSNITTs-API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -140,7 +140,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
     När du är klar bör projekt trädet se ut som på följande bild.
 
-    ![Projekt katalog struktur](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Projekt katalog struktur" border="false":::
 
 1. Stäng fönstret genom att klicka på **OK**.
 
@@ -373,10 +373,10 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 1. Kontrol lera att projektet har följande struktur.
 
-    ![Projekt katalog struktur och klasser](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Projekt katalog struktur och klasser" border="false":::
 
 1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java` 
- ![ Kör maven-mål: verifiera exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Kör maven-mål: verifiera exec: Java" border="false":::
 
 När bearbetningen är klar söker du efter ett meddelande om att BYGGet lyckades följt av noll (0) avslutnings kod.
 
@@ -515,7 +515,7 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
     
     `Description`Fältet i det här indexet använder den valfria `analyzer` egenskapen för att åsidosätta standard språk analys för Lucene. `Description_fr`I fältet används den franska Lucene-analysen `fr.lucene` eftersom den innehåller fransk text. `Description`Använder de valfria Microsoft Language Analyzer-en. Lucene. Mer information om analys verktyg finns i [analys verktyg för text bearbetning i Azure kognitiv sökning](search-analyzers.md).
 
-1. Lägg till följande kod i- `SearchServiceClient` klassen. Dessa metoder skapar URL: er för Azure Kognitiv sökning REST-tjänster som skapar och tar bort ett index och som avgör om det finns ett index. Metoderna gör också HTTP-begäran.
+1. Lägg till följande kod i klassen `SearchServiceClient`. Dessa metoder skapar URL: er för Azure Kognitiv sökning REST-tjänster som skapar och tar bort ett index och som avgör om det finns ett index. Metoderna gör också HTTP-begäran.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -695,7 +695,7 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
 
 Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få åtkomst till hotell data.
 
-1. Lägg till följande kod i- `SearchServiceClient` klassen. Den här koden skapar URL: er för Azure Kognitiv sökning REST-tjänst för att söka i indexerade data och skriva ut Sök resultaten.
+1. Lägg till följande kod i klassen `SearchServiceClient`. Den här koden skapar URL: er för Azure Kognitiv sökning REST-tjänst för att söka i indexerade data och skriva ut Sök resultaten.
 
     Med `SearchOptions` klassen och `createSearchOptions` metoden kan du ange en delmängd av de tillgängliga alternativen för Azure kognitiv sökning REST API-frågor. Mer information om alternativ för REST API-frågor finns i [Sök dokument (Azure Kognitiv sökning REST API)](/rest/api/searchservice/search-documents).
 

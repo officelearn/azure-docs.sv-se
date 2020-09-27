@@ -8,12 +8,12 @@ ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 10e091ed58146d992d7b9c1f65b8b64f881a41b9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489025"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400289"
 ---
 # <a name="connecting-to-servers"></a>Ansluta till servrar
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du ansluter till en server med hjälp av data mo
 
 [Hämta de senaste klient biblioteken](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
-Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer skjuter uppdateringar eller uppdateringar av Office 365 finns på den uppskjutna kanalen.
+Alla anslutningar till en server, oavsett typ, kräver uppdaterade AMO-, ADOMD.NET-och OLEDB-klientcertifikat för att ansluta till och gränssnitt med en Analysis Services-server. För SSMS, Visual Studio, Excel 2016 och senare och Power BI, installeras eller uppdateras de senaste klient biblioteken med månads versioner. Men i vissa fall är det möjligt att ett program kanske inte har det senaste. Till exempel när principer fördröjer uppdateringar eller Microsoft 365 uppdateringar finns på den uppskjutna kanalen.
 
 > [!NOTE]
 > Klient biblioteken kan inte ansluta till Azure Analysis Services via proxyservrar som kräver ett användar namn och lösen ord. 

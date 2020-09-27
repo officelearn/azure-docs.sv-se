@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 11979a09f0f55d4eaab3c8380f9f819162c630b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307627"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400612"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Node.js med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
     Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -473,7 +473,7 @@ Du bör se en serie meddelanden som beskriver de åtgärder som utförs av progr
 
 Öppna **översikten** över Sök tjänsten i Azure Portal. Välj fliken **index** . Du bör se något som liknar följande:
 
-![Skärm bild av Azure Portal, översikt över Sök tjänsten, fliken index](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Skärm bild av Azure Portal, översikt över Sök tjänsten, fliken index" border="false":::
 
 I nästa steg ska du lägga till data i indexet. 
 

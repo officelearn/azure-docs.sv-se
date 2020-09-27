@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du använder Azure AD inom Azure Au
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: c17c9cdc02c87037a39b8d6029bc4506afa8ad28
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd1f977b548c2b8e7980709ea125c07e22b1fa2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064391"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400680"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Använda Azure AD för att autentisera mot Azure
 
@@ -21,7 +21,7 @@ Du kan aktivera Azure AD genom följande PowerShell-moduler:
 
 * Azure Active Directory PowerShell för Graph (AzureRM-och AZ-moduler). Azure Automation levereras med AzureRM-modulen och den senaste uppgraderingen, AZ-modulen. Funktionerna omfattar icke-interaktiv autentisering till Azure med autentisering baserad på OrgId-autentisering (Azure AD User). Se [Azure AD-2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
 
-* Microsoft Azure Active Directory för Windows PowerShell (MSOnline-modul). Den här modulen möjliggör interaktioner med Microsoft Online, inklusive Office 365.
+* Microsoft Azure Active Directory för Windows PowerShell (MSOnline-modul). Den här modulen möjliggör interaktioner med Microsoft Online, inklusive Microsoft 365.
 
 >[!NOTE]
 >PowerShell-kärnan stöder inte modulen MSOnline. Om du vill använda cmdlets för moduler måste du köra dem från Windows PowerShell. Du uppmanas att använda den nyare Azure Active Directory PowerShell för graf-moduler i stället för MSOnline-modulen. 
@@ -46,7 +46,7 @@ Innan du installerar Azure AD-modulerna på datorn:
 ### <a name="install-the-msonline-module"></a>Installera MSOnline-modulen
 
 >[!NOTE]
->Om du vill installera MSOnline-modulen måste du vara medlem i en Office 365-administratörs roll. Se [om administratörs roller](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+>Om du vill installera MSOnline-modulen måste du vara medlem i en administratörs roll. Se [om administratörs roller](/microsoft-365/admin/add-users/about-admin-roles).
 
 1. Se till att funktionen Microsoft .NET Framework 3.5. x är aktive rad på datorn. Det är troligt att datorn har en senare version installerad, men bakåtkompatibilitet med äldre versioner av .NET Framework kan aktive ras eller inaktive ras. 
 

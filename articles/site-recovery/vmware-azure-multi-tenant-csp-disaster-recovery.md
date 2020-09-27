@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924588"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400646"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware haveri beredskap i en miljö med flera organisationer med Cloud Solution Provider (CSP)-programmet
 
-[CSP-programmet](https://partner.microsoft.com/cloud-solution-provider) utvecklar bättre berättelser för Microsofts moln tjänster, inklusive Office 365, Enterprise Mobility Suite och Microsoft Azure. Med CSP äger partner relationen från slut punkt till slut punkt med kunder och blir den primära Relations kontakt punkten. Partner kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationerna med sina egna mervärdes anpassade erbjudanden.
+[CSP-programmet](https://partner.microsoft.com/cloud-solution-provider) utvecklar bättre berättelser för Microsofts moln tjänster, inklusive Microsoft 365, Enterprise Mobility Suite och Microsoft Azure. Med CSP äger partner relationen från slut punkt till slut punkt med kunder och blir den primära Relations kontakt punkten. Partner kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationerna med sina egna mervärdes anpassade erbjudanden.
 
 Med [Azure Site Recovery](site-recovery-overview.md)kan du, som partner, hantera haveri beredskap för kunder direkt via CSP. Alternativt kan du använda CSP för att konfigurera Site Recovery-miljöer och låta kunderna hantera sina egna haveri beredskaps behov på ett självbetjänings sätt. I båda scenarierna är partners sambandet mellan Site Recovery och deras kunder. Partner tjänsterar kund relationen och fakturerar kunder för Site Recovery användning.
 

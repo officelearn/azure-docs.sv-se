@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6485df342bbe0b2378a67b90e448b2bd98c5e283
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047636"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400408"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
 
@@ -22,11 +22,11 @@ Azure Cosmos DB automatiskt tar säkerhets kopior av dina data med jämna mellan
 
 Med Azure Cosmos DB, inte bara för dina data, utan även säkerhets kopior av dina data är mycket redundanta och elastiska för regional katastrofer. Följande steg visar hur Azure Cosmos DB utför säkerhets kopiering av data:
 
-* Azure Cosmos DB automatiskt tar en säkerhets kopia av databasen var fjärde timme och när som helst, så lagras bara de senaste två säkerhets kopiorna som standard. Om standard intervallen inte räcker för dina arbets belastningar kan du ändra säkerhets kopierings intervallet och kvarhållningsperioden från Azure Portal. Du kan ändra konfigurationen för säkerhets kopiering under eller efter att Azure Cosmos-kontot har skapats. Om behållaren eller databasen tas bort behåller Azure Cosmos DB befintliga ögonblicks bilder av en specifik behållare eller databas i 30 dagar.
+* Azure Cosmos DB automatiskt tar en fullständig säkerhets kopia av databasen var fjärde timme och när som helst, så lagras bara de senaste två säkerhets kopiorna som standard. Om standard intervallen inte räcker för dina arbets belastningar kan du ändra säkerhets kopierings intervallet och kvarhållningsperioden från Azure Portal. Du kan ändra konfigurationen för säkerhets kopiering under eller efter att Azure Cosmos-kontot har skapats. Om behållaren eller databasen tas bort behåller Azure Cosmos DB befintliga ögonblicks bilder av en specifik behållare eller databas i 30 dagar.
 
 * Azure Cosmos DB lagrar dessa säkerhets kopior i Azure Blob Storage, medan faktiska data finns lokalt inom Azure Cosmos DB.
 
-* För att garantera låg latens lagras ögonblicks bilden av säkerhets kopian i Azure Blob Storage i samma region som den aktuella Skriv regionen (eller **någon** av de skrivskyddade regionerna, om du har en konfiguration med flera huvud servrar). För återhämtning mot regional katastrof replikeras varje ögonblicks bild av säkerhets kopierings data i Azure Blob Storage igen till en annan region via Geo-redundant lagring (GRS). Den region som säkerhets kopian replikeras till baseras på käll regionen och det regionala paret som är associerat med käll regionen. Mer information finns i [listan över geo-redundanta par av Azure-regioner](../best-practices-availability-paired-regions.md) . Du kan inte komma åt den här säkerhets kopian direkt. Azure Cosmos DB-teamet kommer att återställa din säkerhets kopia när du begär genom en support förfrågan.
+* För att garantera korta svarstider lagras ögonblicksbilden av din säkerhetskopia i Azure Blob Storage i samma region som den aktuella skrivregionen (eller **en** av skrivregionerna om du har en konfiguration med flera huvudservrar). Som haveriberedskap replikeras alla ögonblicksbilder av säkerhetskopierade data i Azure Blob Storage till en annan region via geo-redundant lagring (GRS). Den region som säkerhetskopian replikeras till baseras på källregionen och det regionala par som källregionen är kopplad till. Mer information finns i [listan över geo-redundanta par av Azure-regioner](../best-practices-availability-paired-regions.md) . Du kan inte komma åt den här säkerhetskopian direkt. Azure Cosmos DB-teamet återställer din säkerhetskopia när du begär det via en supportbegäran.
 
    Följande bild visar hur en Azure Cosmos-behållare med alla de tre primära fysiska partitionerna i västra USA säkerhets kopie ras i ett fjärran slutet Azure Blob Storage-konto i USA och sedan replikeras till USA, östra:
 
@@ -44,9 +44,9 @@ Med Azure Cosmos DB SQL API-konton kan du även underhålla dina egna säkerhets
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a>Ändra intervallet för säkerhets kopiering och kvarhållningsperiod
 
-Azure Cosmos DB automatiskt tar en säkerhets kopia av dina data var fjärde timme och när som helst, så lagras de senaste två säkerhets kopiorna. Den här konfigurationen är standard alternativet och erbjuds utan extra kostnad. Du kan ändra standard intervallet för säkerhets kopiering och kvarhållningsperiod när du skapar ett Azure Cosmos-konto eller när kontot har skapats. Konfigurationen för säkerhets kopiering anges på konto nivån för Azure-Cosmos och du måste konfigurera den för varje konto. När du har konfigurerat alternativ för säkerhets kopiering för ett konto tillämpas det på alla behållare i kontot. För närvarande kan du bara ändra säkerhets kopierings alternativen från Azure Portal.
+Azure Cosmos DB automatiskt tar en fullständig säkerhets kopia av dina data varje 4 timme och när som helst, lagras de senaste två säkerhets kopiorna. Den här konfigurationen är standard alternativet och erbjuds utan extra kostnad. Du kan ändra standard intervallet för säkerhets kopiering och kvarhållningsperiod när du skapar ett Azure Cosmos-konto eller när kontot har skapats. Konfigurationen för säkerhetskopiering anges på kontonivå i Azure Cosmos och du måste ange inställningen för varje konto. När du har konfigurerat alternativ för säkerhets kopiering för ett konto tillämpas det på alla behållare i kontot. Du kan för närvarande bara ändra säkerhetskopieringsalternativ via Azure-portalen.
 
-Om du av misstag har tagit bort eller skadat dina data, **innan du skapar en support förfrågan för att återställa data, måste du öka säkerhets kopians kvarhållning för ditt konto till minst sju dagar. Det är bäst att öka din kvarhållning inom 8 timmar efter den här händelsen.** På så sätt har Azure Cosmos DBs teamet tillräckligt med tid för att återställa ditt konto.
+Om du av misstag har tagit bort eller skadat dina data, **innan du skapar en support förfrågan för att återställa data, måste du öka säkerhets kopians kvarhållning för ditt konto till minst sju dagar. Det är bäst att öka din kvarhållning inom 8 timmar efter den här händelsen.** På så sätt har Azure Cosmos DB-teamet tillräckligt med tid för att återställa ditt konto.
 
 Använd följande steg för att ändra standard alternativ för säkerhets kopiering för ett befintligt Azure Cosmos-konto:
 
@@ -57,7 +57,7 @@ Använd följande steg för att ändra standard alternativ för säkerhets kopie
 
    * **Kvarhållning av säkerhets kopior** – den representerar den period där varje säkerhets kopia behålls. Du kan konfigurera den i timmar eller dagar. Den minsta kvarhållningsperioden får inte vara mindre än två gånger intervallet för säkerhets kopiering (i timmar) och får inte vara större än 720 timmar.
 
-   * **Kopior av data som behålls** – som standard erbjuds två säkerhets kopior av dina data utan kostnad. Du får ytterligare en avgift om du behöver fler än två kopior. Se avsnittet förbrukat lagrings utrymme på [sidan prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för att lära dig det exakta priset för ytterligare kopior.
+   * **Kopior av data som behålls** – som standard erbjuds två säkerhets kopior av dina data utan kostnad. Du får ytterligare en avgift om du behöver fler än två kopior. Mer information om priset för ytterligare kopior finns i avsnittet Förbrukat lagringsutrymme på [sidan Prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Konfigurera intervall för säkerhets kopiering och kvarhållning för ett befintligt Azure Cosmos-konto" border="true":::
 

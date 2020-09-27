@@ -1,19 +1,19 @@
 ---
 title: Data partitionering i Azure Cosmos DB Gremlin-API
 description: Lär dig hur du kan använda en partitionerad graf i Azure Cosmos DB. Den här artikeln beskriver också krav och bästa praxis för ett partitionerat diagram.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261774"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400510"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Använda en partitionerad graf i Azure Cosmos DB
 
@@ -33,39 +33,39 @@ Följande rikt linjer beskriver hur partitionerings strategin i Azure Cosmos DB 
 
 - **Kanterna kommer att lagras med deras käll-hörn**. Med andra ord definierar dess partitionsnyckel var de lagras tillsammans med dess utgående kanter. Den här optimeringen görs för att undvika frågor över partitioner när du använder `out()` kardinalitet i graf-frågor.
 
-- **Kanterna innehåller referenser till de hörn som de pekar på**. Alla kanter lagras med partitionsalternativ och ID: n för de hörn som de pekar på. Den här beräkningen gör `out()` att alla riktnings frågor alltid är en omfångs partition med partitionerad fråga och inte en fråga om en hemlig partition. 
+- **Kanterna innehåller referenser till de hörn som de pekar på**. Alla kanter lagras med partitionsalternativ och ID: n för de hörn som de pekar på. Den här beräkningen gör `out()` att alla riktnings frågor alltid är en omfångs partition med partitionerad fråga och inte en fråga om en hemlig partition.
 
 - **Diagram frågor måste ange en partitionsnyckel**. Om du vill dra full nytta av den vågräta partitionering i Azure Cosmos DB bör du ange partitionsnyckel när ett enda hörn är valt, när det är möjligt. Följande är frågor för att markera ett eller flera hörn i ett partitionerat diagram:
 
-    - `/id`och `/label` stöds inte som partitionsnyckel för en behållare i Gremlin-API: et.
+    - `/id` och `/label` stöds inte som partitionsnyckel för en behållare i Gremlin-API: et.
 
 
-    - Välj ett formhörn efter ID och **Använd sedan `.has()` steget för att ange egenskapen partitionsnyckel**: 
-    
+    - Välj ett formhörn efter ID och **Använd sedan `.has()` steget för att ange egenskapen partitionsnyckel**:
+
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - Välja ett formhörn genom att **Ange en tupel, inklusive partitionsnyckel och ID**: 
-    
+
+    - Välja ett formhörn genom att **Ange en tupel, inklusive partitionsnyckel och ID**:
+
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Ange en **matris med tupler av värden för partitionsnyckel och ID**:
-    
+
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - Välja en uppsättning formhörn med sina ID: n och **Ange en lista med värden för partitionsnyckel**: 
-    
+
+    - Välja en uppsättning formhörn med sina ID: n och **Ange en lista med värden för partitionsnyckel**:
+
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Använda en **partitions strategi** i början av en fråga och ange en partition för omfånget för resten av Gremlin-frågan: 
-    
+    - Använda en **partitions strategi** i början av en fråga och ange en partition för omfånget för resten av Gremlin-frågan:
+
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```

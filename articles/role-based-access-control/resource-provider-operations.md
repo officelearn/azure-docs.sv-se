@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: 973426c6d9d3a4c642e5f37aebe60acce54d581b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326413"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400102"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -5098,7 +5098,7 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 
 ### <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
 
-Azure-tjänst: [Machine Learning Studio (klassisk)](../machine-learning/studio/index.yml)
+Azure-tjänst: [Machine Learning Studio (klassisk)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -5242,36 +5242,6 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/AKS/listnycklar/åtgärd | Visar nycklar för AKS-tjänster i Machine Learning Services-arbetsytor |
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/AKS/Delete | Tar bort AKS-tjänster i Machine Learning Services-arbetsytor |
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/AKS/Poäng/åtgärd | Score AKS Services i Machine Learning Services-arbetsytor |
-
-
-### <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
-
-Azure-tjänst: [Machine Learning Studio (klassisk)](../machine-learning/classic/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Åtgärd | Beskrivning |
-> | --- | --- |
-> | Microsoft. MachineLearning/register/åtgärd | Registrerar prenumerationen för resurs leverantören för Machine Learning-webbtjänsten och gör det möjligt att skapa webb tjänster. |
-> | Microsoft. MachineLearning/WebServices/åtgärd | Skapa regionala webb tjänst egenskaper för regioner som stöds |
-> | Microsoft. MachineLearning/commitmentPlans/Read | Läs en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/Write | Skapa eller uppdatera en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/Delete | Ta bort en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/JOIN/åtgärd | Delta i en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Read | Läs en Machine Learning åtagande Plans koppling |
-> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Move/åtgärd | Flytta en Machine Learning åtagande Plans koppling |
-> | Microsoft. MachineLearning/locations/operationresults/Read | Hämta resultatet av en Machine Learning-åtgärd |
-> | Microsoft. MachineLearning/locations/operationsstatus/Read | Hämta status för en pågående Machine Learning åtgärd |
-> | Microsoft. MachineLearning/Operations/Read | Hämta Machine Learning åtgärder |
-> | Microsoft. MachineLearning/SKU/Read | Hämta Machine Learning åtagande plan SKU: er |
-> | Microsoft. MachineLearning/WebServices/Read | Läs alla Machine Learning webb tjänster |
-> | Microsoft. MachineLearning/WebServices/Write | Skapa eller uppdatera webb tjänsten för Machine Learning |
-> | Microsoft. MachineLearning/WebServices/Delete | Ta bort alla Machine Learning webb tjänster |
-> | Microsoft. MachineLearning/WebServices/listnycklar/Read | Hämta nycklar till en Machine Learning-webbtjänst |
-> | Microsoft. MachineLearning/arbets ytor/läsa | Läs eventuella Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/Skriv | Skapa eller uppdatera Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/ta bort | Ta bort eventuella Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/listworkspacekeys/åtgärd | Lista nycklar för en Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/resyncstoragekeys/åtgärd | Omsynkronisera nycklar för ett lagrings konto som har kon figurer ATS för en Machine Learning-arbetsyta |
 
 ## <a name="internet-of-things"></a>Sakernas Internet
 
@@ -8239,7 +8209,7 @@ Azure-tjänst: [Azure policy](../governance/policy/overview.md), [azure RBAC](ov
 > | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. Authorization/elevateAccess/åtgärd | Beviljar anroparen Användaråtkomst Administratörsåtkomst för klientomfånget |
-> | Microsoft. Authorization/classicAdministrators/Read | Läser prenumerationens administratörer. |
+> | Microsoft. Authorization/classicAdministrators/Read | Läser prenumerationens administratörer. Har ingen påverkan om den används som en NotAction i en anpassad roll. |
 > | Microsoft. Authorization/classicAdministrators/Write | Lägg till eller ändra administratör för en prenumeration. |
 > | Microsoft. Authorization/classicAdministrators/Delete | Tar bort administratören från prenumerationen. |
 > | Microsoft. Authorization/classicAdministrators/operationstatuses/Read | Hämtar prenumerationens administratörs åtgärds status. |

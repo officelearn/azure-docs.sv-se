@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: 6768da698838856582d29e9f302acae2bc6c28bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252229"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399456"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Vad är Azure Firewall Manager?
 
@@ -78,7 +78,7 @@ Azure Firewall Manager har följande kända problem:
 
 |Problem  |Beskrivning  |Åtgärd  |
 |---------|---------|---------|
-|Delning av trafik|Det finns för närvarande inte stöd för att dela Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker delning av trafik på hubben.
+|Delning av trafik|Det finns för närvarande inte stöd för att dela Microsoft 365-och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även alla offentliga Azure-PaaS och Microsoft 365 trafik via partner tjänsten.|Undersöker delning av trafik på hubben.
 |En säker virtuell hubb per region|Du kan inte ha mer än en säker virtuell hubb per region.|Skapa flera virtuella WAN-näti en region.|
 |Bas principerna måste finnas i samma region som den lokala principen|Skapa alla lokala principer i samma region som bas principen. Du kan fortfarande använda en princip som har skapats i en region på ett skyddat nav från en annan region.|Undersöker|
 |Filtrera Inter-Hub-trafik i säkra virtuella nav distributioner|Skyddad virtuell hubb till skyddad virtuell hubb kommunikations filtrering stöds inte ännu. NAV-till-hubb-kommunikation fungerar dock fortfarande om privat trafik filtrering via Azure Firewall inte är aktive rad.|Undersöker|

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276823"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400306"
 ---
-# <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
+# <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Hur ger Azure Cosmos DB hög tillgänglighet? 
 
 Azure Cosmos DB transparent replikera dina data över alla Azure-regioner som är kopplade till ditt Azure Cosmos-konto. Azure Cosmos DB använder flera lager av redundans för dina data som visas i följande bild:
 
@@ -79,7 +79,7 @@ Zon redundans är en *kompletterande funktion* för [replikeringen i skriv funkt
 
 När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zon redundans i en befintlig region för ditt Azure Cosmos-konto genom att ta bort regionen och lägga till den igen med zon redundansen aktive rad.
 
-Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, Östra Japan, Nord Europa, västra centrala, östra Australien* .
+Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, USA, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, Östra Japan, norra Europa, centrala Australien, östra USA 2 EUAP* regioner.
 
 > [!NOTE]
 > Om du aktiverar Tillgänglighetszoner för ett Azure Cosmos-konto med en region kommer det att leda till kostnader som motsvarar att lägga till ytterligare en region i ditt konto. Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [kostnaden för flera regioner i Azure Cosmos DB](optimize-cost-regions.md) artiklar.

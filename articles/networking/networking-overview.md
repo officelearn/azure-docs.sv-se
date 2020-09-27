@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 364f4f38599508e4dfb455f1336d4a6978cdf5b6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651727"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400459"
 ---
 # <a name="azure-networking-services-overview"></a>Översikt över Azure Networking Services
 
@@ -53,7 +53,7 @@ Azure Virtual Network (VNet) är det grundläggande Bygg blocket för ditt priva
 Mer information finns i [Vad är Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-Med ExpressRoute kan du utöka dina lokala nätverk till Microsoft-molnet via en privat anslutning som under lättas av en anslutnings leverantör. Den här anslutningen är privat. Trafiken går inte via Internet. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster som Microsoft Azure, Office 365 och Dynamics 365.  Mer information finns i [Vad är ExpressRoute?](../expressroute/expressroute-introduction.md).
+Med ExpressRoute kan du utöka dina lokala nätverk till Microsoft-molnet via en privat anslutning som under lättas av en anslutnings leverantör. Den här anslutningen är privat. Trafiken går inte via Internet. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster som Microsoft Azure, Microsoft 365 och Dynamics 365.  Mer information finns i [Vad är ExpressRoute?](../expressroute/expressroute-introduction.md).
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
@@ -84,7 +84,7 @@ Virtual Network NAT (Network Address Translation) fören klar endast utgående I
 ![NAT-gateway för virtuellt nätverk](./media/networking-overview/flow-map.png)
 
 ### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Azure-peering-tjänst
-Azure peering-tjänsten ger bättre kund anslutning till Microsofts moln tjänster, till exempel Office 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. Mer information finns i [Vad är Azure peering-tjänsten?](../peering-service/about.md).
+Azure peering-tjänsten ger bättre kund anslutning till Microsofts moln tjänster, till exempel Microsoft 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. Mer information finns i [Vad är Azure peering-tjänsten?](../peering-service/about.md).
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Program skydds tjänster
 

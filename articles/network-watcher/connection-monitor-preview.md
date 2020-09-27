@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0cb51cd224145e7fe359e2b14a87ed2b87b18c26
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: f331c62060b2d8a39a87bab95b00225f363b4a56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563033"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400255"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
 
@@ -30,7 +30,7 @@ Här är några användnings fall för anslutnings övervakaren (för hands vers
 
 - Din frontend-webbserver för webb servern kommunicerar med en virtuell databas Server-dator i ett program med flera nivåer. Du vill kontrol lera nätverks anslutningen mellan de två virtuella datorerna.
 - Du vill att virtuella datorer i regionen USA, östra, ska pinga virtuella datorer i den centrala regionen och du vill jämföra nätverks fördröjningar i flera regioner.
-- Du har flera lokala kontors platser i Seattle, Washington och Ashburn, Virginia. Dina Office-platser ansluter till Office 365-URL: er. Jämför fördröjningen mellan Seattle och Ashburn för dina användare av Office 365-URL: er.
+- Du har flera lokala kontors platser i Seattle, Washington och Ashburn, Virginia. Dina Office-platser ansluter till Microsoft 365 webb adresser. För dina användare av Microsoft 365 webb adresser, jämför fördröjningen mellan Seattle och Ashburn.
 - Ditt hybrid program behöver anslutning till en Azure Storage-slutpunkt. Din lokala plats och ditt Azure-program ansluter till samma Azure Storage slut punkt. Du vill jämföra fördröjningen för den lokala platsen med fördröjningen i Azure-programmet.
 - Du vill kontrol lera anslutningen mellan dina lokala installationer och de virtuella Azure-datorer som är värdar för moln programmet.
 
@@ -87,7 +87,7 @@ Mer information finns i [aktivera Network Watcher](https://docs.microsoft.com/az
 
 Anslutnings övervakaren övervakar kommunikation med jämna mellanrum. Du informerar om ändringar av tillgängligheten och svars tiden. Du kan också kontrol lera den aktuella och historiska nätverks sto pol Ogin mellan käll agenter och slut punkter för mål.
 
-Källor kan vara virtuella Azure-datorer eller lokala datorer som har en installerad övervaknings agent. Mål slut punkter kan vara Office 365-URL: er, Dynamics 365 URL: er, anpassade URL: er, resurs-ID: n för Azure VM, IPv4, IPv6, FQDN eller något annat domän namn.
+Källor kan vara virtuella Azure-datorer eller lokala datorer som har en installerad övervaknings agent. Mål slut punkter kan vara Microsoft 365 webb adresser, Dynamics 365-URL: er, anpassade URL: er, resurs-ID: n för virtuella Azure-datorer, IPv4, IPv6, FQDN eller domän namn.
 
 ### <a name="access-connection-monitor-preview"></a>Övervakaren åtkomst anslutning (för hands version)
 
@@ -276,12 +276,12 @@ I anslutnings Övervakare som har skapats före anslutnings övervakaren (förha
 
 När du använder mått anger du resurs typen som Microsoft. Network/networkWatchers/connectionMonitors
 
-| Mått | Visningsnamn | Enhet | Sammansättningstyp | Beskrivning | Dimensioner |
+| Mått | Visningsnamn | Enhet | Sammansättningstyp | Description | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Avsökningar misslyckades | Procent | Genomsnitt | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
-| AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Genomsnitt | Genomsnittlig för inblandning av nätverks belastning för anslutnings övervaknings avsökningar skickas mellan källa och mål. |             Inga dimensioner |
-| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procent | Genomsnitt | Procent andelen misslyckade kontroller för ett test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>Destination port <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Genomsnitt | Söker efter kontroller som skickats mellan källa och mål. Värdet är inte medelvärdet. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>Destination port <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ProbesFailedPercent | % Avsökningar misslyckades | Procentandel | Medel | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
+| AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Medel | Genomsnittlig för inblandning av nätverks belastning för anslutnings övervaknings avsökningar skickas mellan källa och mål. |             Inga dimensioner |
+| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procentandel | Medel | Procent andelen misslyckade kontroller för ett test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Medel | Söker efter kontroller som skickats mellan källa och mål. Värdet är inte medelvärdet. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-alerts-in-azure-monitor"></a>Mått varningar i Azure Monitor
 

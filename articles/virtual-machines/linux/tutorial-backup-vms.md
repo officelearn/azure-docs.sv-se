@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08e6491e1d8d94e8e6e9112e5a19682018103325
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551715"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400357"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Linux-datorer i Azure
 
@@ -70,7 +70,7 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
  
 1. På din lokala dator öppnar du en webbläsare och skriver den virtuella datorns offentliga IP-adress för att se standardversionen av nginx-webbsidan.
 
-    ![Standardversion av nginx-webbsida](./media/tutorial-backup-vms/nginx-working.png)
+    ![Skärm bild som visar standard webb sidan för nginx.](./media/tutorial-backup-vms/nginx-working.png)
 
 1. SSH till den virtuella datorn.
 
@@ -86,7 +86,7 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
     
 4. På din lokala dator uppdaterar du webbläsaren genom att trycka på CTRL + F5 för att se att standardversionen av nginx-webbsidan är borta.
 
-    ![Standardversion av nginx-webbsida](./media/tutorial-backup-vms/nginx-broken.png)
+    ![Skärm bild som visar att standard sidan för nginx är borta.](./media/tutorial-backup-vms/nginx-broken.png)
     
 1. Logga in på [Azure-portalen](https://portal.azure.com/) på din lokala dator.
 6. Välj **Virtuella datorer** på menyn till vänster. 

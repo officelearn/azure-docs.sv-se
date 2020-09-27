@@ -7,16 +7,16 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832985"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400782"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Hantera e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Office 365 Outlook Connector](/connectors/office365connector/)kan du skapa automatiserade uppgifter och arbets flöden som hanterar ditt Office 365-konto genom att skapa Logic Apps. Du kan till exempel automatisera dessa uppgifter:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Office 365 Outlook Connector](/connectors/office365connector/)kan du skapa automatiserade uppgifter och arbets flöden som hanterar ditt arbets-eller skol konto genom att skapa Logi Kap par. Du kan till exempel automatisera dessa uppgifter:
 
 * Hämta, skicka och svara på e-post. 
 * Schemalägg möten i din kalender.
@@ -31,9 +31,9 @@ Du kan använda en utlösare för att starta arbets flödet, till exempel när e
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Ett [Office 365-konto](https://www.office.com/)
+* Ett [arbets-eller skol konto](https://www.office.com/)
 
-* Den Logic app där du vill komma åt ditt Office 365 Outlook-konto. För att starta arbets flödet med en Office 365 Outlook-utlösare måste du ha en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). För att lägga till en Office 365 Outlook-åtgärd i ditt arbets flöde måste din Logic app redan ha en utlösare.
+* Den Logic app där du vill komma åt ditt arbets-eller skol konto. För att starta arbets flödet med en Office 365 Outlook-utlösare måste du ha en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). För att lägga till en Office 365 Outlook-åtgärd i ditt arbets flöde måste din Logic app redan ha en utlösare.
 
 ## <a name="add-a-trigger"></a>Lägga till en utlösare
 
@@ -45,7 +45,7 @@ En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en h
    
    ![Välj utlösare för att starta din Logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för utlösarens egenskaper.
+1. Om du uppmanas att logga in anger du dina autentiseringsuppgifter för arbetet eller skolan så att din Logic app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för utlösarens egenskaper.
 
    > [!NOTE]
    > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -78,7 +78,7 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
 
    ![Välj den åtgärd som ska köras i din Logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för åtgärdens egenskaper.
+1. Om du uppmanas att logga in anger du dina autentiseringsuppgifter för arbetet eller skolan så att din Logic app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för åtgärdens egenskaper.
 
    > [!NOTE]
    > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).

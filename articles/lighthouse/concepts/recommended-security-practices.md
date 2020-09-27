@@ -3,12 +3,12 @@ title: Rekommenderade säkerhetsmetoder
 description: När du använder Azure Lighthouse är det viktigt att tänka på säkerhets-och åtkomst kontroll.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ddc4d2c69e7aacc49c5309bc407aecd9bc8e572f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163279"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399388"
 ---
 # <a name="recommended-security-practices"></a>Rekommenderade säkerhetsmetoder
 
@@ -28,7 +28,7 @@ Vi rekommenderar att du ber dina kunder att implementera Azure-Multi-Factor Auth
 Använd Azure Active Directory (Azure AD) grupper för varje roll som krävs för att hantera kundernas resurser för att förenkla hanteringen. På så sätt kan du lägga till eller ta bort enskilda användare i gruppen efter behov, i stället för att tilldela behörigheter direkt till varje användare.
 
 > [!IMPORTANT]
-> För att kunna lägga till behörigheter för en Azure AD-grupp måste **grupp typen** vara **säkerhet** och inte **Office 365**. Det här alternativet väljs när gruppen skapas. Mer information finns i [Skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> För att du ska kunna lägga till behörigheter för en Azure AD-grupp måste **grupp typen** anges till **säkerhet**. Det här alternativet väljs när gruppen skapas. Mer information finns i [Skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 När du skapar din behörighets struktur måste du kontrol lera att du följer principen om minsta behörighet så att användarna bara har de behörigheter som krävs för att utföra sitt jobb, vilket bidrar till att minska risken för oavsiktliga fel.
 

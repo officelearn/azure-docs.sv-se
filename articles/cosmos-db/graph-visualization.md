@@ -1,18 +1,18 @@
 ---
 title: Visualisera dina diagram data i Azure Cosmos DB Gremlin API
 description: Lär dig att integrera Azure Cosmos DB diagram data med visualiserings lösningar (Linkurious Enterprise, Cambridge Intelligence).
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
-ms.openlocfilehash: 9999dad15cd02577eda85c15b67b98780a27b4a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9850af3ea2365aa73d8b9f08b2e706c79062860
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261791"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400527"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualisera diagram data som lagrats i Azure Cosmos DB Gremlin API med data visualiserings lösningar
 
@@ -46,7 +46,7 @@ Med dessa verktyg kan du utforma diagram visualisering och analys program med h�
 
 
 ## <a name="next-steps"></a>Nästa steg
- 
+
 - [Prova verktygen](https://cambridge-intelligence.com/try/)
 - [Översikt över teknik översikt](https://cambridge-intelligence.com/keylines/technology/)
 - [Översikt över åter diagram teknik](https://cambridge-intelligence.com/regraph/technology/)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 69aac7dff80b7c85212602f1c03957a117628737
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835909"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400340"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
@@ -229,7 +229,7 @@ Att skydda privilegie rad åtkomst är ett viktigt första steg för att skydda 
 
 Privilegierade konton är konton som administrerar och hanterar IT-system. Cyberhot-angripare riktar dessa konton för att få åtkomst till en organisations data och system. För att skydda privilegie rad åtkomst bör du isolera konton och system från risken att exponeras för en obehörig användare.
 
-Vi rekommenderar att du utvecklar och följer en översikt för att skydda privilegie rad åtkomst mot cyberhot-attacker. Information om hur du skapar en detaljerad översikt för att skydda identiteter och åtkomst som hanteras eller rapporteras i Azure AD, Microsoft Azure, Office 365 och andra moln tjänster finns [i skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
+Vi rekommenderar att du utvecklar och följer en översikt för att skydda privilegie rad åtkomst mot cyberhot-attacker. Information om hur du skapar en detaljerad översikt för att skydda identiteter och åtkomst som hanteras eller rapporteras i Azure AD, Microsoft Azure, Microsoft 365 och andra moln tjänster finns [i skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
 
 Följande sammanfattar de bästa metoderna för att [skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure):
 
@@ -240,7 +240,7 @@ Följande sammanfattar de bästa metoderna för att [skydda privilegie rad åtko
 **Information**: ta bort alla konsument konton från viktiga administratörs roller (till exempel Microsoft-konton som hotmail.com, live.com och Outlook.com).
 
 **Bästa praxis**: se till att alla viktiga administratörs roller har ett separat konto för administrativa uppgifter för att undvika att nätfiske och andra attacker kan kompromettera administrativa privilegier.
-**Information**: skapa ett separat administratörs konto som har tilldelats de behörigheter som krävs för att utföra administrativa uppgifter. Blockera användningen av de här administrativa kontona för dagliga produktivitets verktyg som Microsoft Office 365 e-post eller valfri Webbs ökning.
+**Information**: skapa ett separat administratörs konto som har tilldelats de behörigheter som krävs för att utföra administrativa uppgifter. Blockera användningen av dessa administratörs konton för dagliga produktivitets verktyg som Microsoft 365 e-post eller för valfri Webbs ökning.
 
 **Bästa praxis**: identifiera och kategorisera konton som har hög privilegierade roller.   
 **Information**: när du har aktiverat Azure AD Privileged Identity Management kan du Visa de användare som finns i den globala administratören, privilegierad roll administratör och andra privilegierade roller. Ta bort alla konton som inte längre behövs i dessa roller och kategorisera de återstående konton som har tilldelats administratörs roller:
@@ -281,7 +281,7 @@ Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda använ
 **Information**: har en process på plats som inaktiverar eller tar bort administratörs konton när anställda lämnar din organisation.
 
 **Bästa praxis**: testa administratörs konton regelbundet med hjälp av aktuella angrepps metoder.
-**Information**: använd Office 365-angrepps simulatorn eller ett erbjudande från tredje part för att köra realistiska angrepps scenarier i din organisation. Detta kan hjälpa dig att hitta sårbara användare innan ett verkligt angrepp uppstår.
+**Information**: Använd Microsoft 365 angrepps simulator eller ett erbjudande från tredje part för att köra realistiska angrepps scenarier i din organisation. Detta kan hjälpa dig att hitta sårbara användare innan ett verkligt angrepp uppstår.
 
 **Bästa praxis**: vidta åtgärder för att minimera de oftast använda angripna teknikerna.  
 **Information**: [identifiera Microsoft-konton i administrativa roller som måste växlas till arbets-eller skol konton](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
@@ -294,11 +294,11 @@ Kräv Azure Multi-Factor Authentication vid inloggning för alla enskilda använ
 
 [Kräv Multi-Factor Authentication för användare i alla privilegierade roller samt exponerade användare](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
-[Skaffa dina Office 365-säkra poäng (om du använder Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
+[Få Microsoft 365 säkra poäng (om du använder Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
 
-[Granska vägledningen för säkerhet och efterlevnad i Office 365 (om du använder Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Läs Microsoft 365 säkerhets vägledning (om du använder Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
 
-[Konfigurera aktivitets övervakning i Office 365 (om du använder Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
+[Konfigurera Microsoft 365 aktivitets övervakning (om du använder Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
 
 [Upprätta incidenter/svars plan för nöd situationer](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#establish-incidentemergency-response-plan-owners)  
 

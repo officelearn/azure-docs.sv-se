@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930493"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400595"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -264,7 +264,7 @@ Standard kvarhållning av Application Insights resurser är 90 dagar. Olika beva
 
 Om du vill ändra kvarhållning går du till sidan **användning och uppskattade kostnader** från Application Insights resursen och väljer alternativet **data kvarhållning** :
 
-![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
+![Skärm bild som visar var du kan ändra data lagrings perioden.](./media/pricing/pricing-005.png)
 
 När kvarhållning sänks, finns det en flera dagars respitperiod innan de äldsta data tas bort.
 

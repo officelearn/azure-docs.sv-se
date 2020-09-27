@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e2d3f0b5abcd7a9dcd4f49c120353adacffcb31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67672187"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399660"
 ---
 # <a name="network-monitoring-solutions"></a>Lösningar för nätverks övervakning 
 
@@ -65,7 +65,7 @@ NPM för ExpressRoute erbjuder omfattande ExpressRoute övervakning för Azures 
 * Identifiering av nätverkstopologi från lokal plats till dina moln program
 * Kapacitets planering, analys av bandbredds användning
 * Övervakning och aviseringar på både primära och sekundära sökvägar
-* Övervaka anslutning till Azure-tjänster som Office 365, Dynamics 365,... över ExpressRoute
+* Övervaka anslutning till Azure-tjänster som Microsoft 365, Dynamics 365,... över ExpressRoute
 * Identifiera försämring av anslutningen till virtuella nätverk
 
 ![Geo-karta som visar trafik över regioner](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ Med övervakning av tjänst anslutning kan du nu testa nåbarhet för program oc
 * Testa program tillgänglighet från flera användar platser över hela världen
 * Bestäm nätverks fördröjning och paket förlust för dina affärs-och SaaS-program
 * Fastställa aktiva punkter i nätverket, som kan orsaka dåliga program prestanda
-* Övervaka nåbarhet för Office 365-program med hjälp av inbyggda tester för Microsoft Office 365, Dynamics 365, Skype för företag och andra Microsoft-tjänster
+* Övervaka tillgängligheten till Microsoft 365 program med hjälp av inbyggda tester för Microsoft 365, Dynamics 365, Skype för företag och andra Microsoft-tjänster
 
 Mer information finns i följande artiklar:
 
@@ -122,6 +122,6 @@ Den här lösningen är byggd för DNS-administratörer och samlar in, analysera
 Relaterade länkar:
 * [Blogginlägg](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Dokumentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>Övrigt
+## <a name="miscellaneous"></a>Övriga farliga ämnen
 
 * [Ny prissättning](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

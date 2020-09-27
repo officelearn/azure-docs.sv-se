@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281889"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399643"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Kör OPC Vault Certificate Management-tjänsten på ett säkert sätt
 
@@ -94,7 +94,7 @@ Alla system måste övervakas kontinuerligt och uppdateras med de senaste säker
 
 ### <a name="security-monitoring"></a>Säkerhetsövervakning
 
-Prenumerera på eller implementera lämplig säkerhets övervakning. Du kan t. ex. prenumerera på en central övervaknings lösning (till exempel Azure Security Center-eller Office 365-övervaknings lösning) och konfigurera den på lämpligt sätt för att säkerställa att säkerhets händelser överförs till övervaknings lösningen.
+Prenumerera på eller implementera lämplig säkerhets övervakning. Du kan till exempel prenumerera på en central övervaknings lösning (till exempel Azure Security Center eller Microsoft 365 övervaknings lösning) och konfigurera den på lämpligt sätt för att säkerställa att säkerhets händelser överförs till övervaknings lösningen.
 
 > [!IMPORTANT]
 > OPC Vault-tjänsten distribueras som standard med [Azure Application insikter](https://docs.microsoft.com/azure/azure-monitor/app/devops) som en övervaknings lösning. Det rekommenderas starkt att du lägger till en säkerhetslösning som [Azure Security Center](https://azure.microsoft.com/services/security-center/) .

@@ -4,21 +4,21 @@ description: Lär dig hur du ställer in och hämtar system egenskaper och lagra
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/12/2020
+ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1501b61e930b7554063356335b967583c0a3ff5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008445"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399133"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Hantera BLOB-egenskaper och metadata med .NET
 
-Förutom de data som de innehåller, stöder blobbar system egenskaper och användardefinierade metadata. Den här artikeln visar hur du hanterar system egenskaper och användardefinierade metadata med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Förutom de data som de innehåller, stöder blobbar system egenskaper och användardefinierade metadata. Den här artikeln visar hur du hanterar system egenskaper och användardefinierade metadata med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage).
 
 ## <a name="about-properties-and-metadata"></a>Om egenskaper och metadata
 
@@ -168,7 +168,7 @@ Följande kod exempel läser metadata för en blob.
 
 # <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
-Om du vill hämta metadata anropar du metoden [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) eller [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) på blobben eller behållaren för att fylla i [metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) -samlingen och läser sedan värdena, som visas i exemplet nedan.
+Om du vill hämta metadata anropar du metoden [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) eller [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) på blobben eller behållaren för att fylla i [metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) -samlingen och läser sedan värdena, som visas i exemplet nedan. **GetProperties** -metoderna hämtar BLOB-egenskaper och metadata i ett enda anrop. Detta skiljer sig från REST API: er som kräver separata anrop för att [Hämta BLOB-egenskaper](/rest/api/storageservices/get-blob-properties) och [Hämta BLOB-metadata](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 

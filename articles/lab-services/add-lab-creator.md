@@ -3,12 +3,12 @@ title: Lägg till en användare som en labb skapare i Azure Lab Services
 description: Den här artikeln visar hur du lägger till en användare i labb skaparen-rollen för ett labb konto i Azure Lab Services. Labb skapare kan skapa labb i det här labb kontot.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444292"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399490"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Lägga till labb skapare i ett labb konto i Azure Lab Services
 Den här artikeln visar hur du lägger till användare som labbs kapare i ett labb konto i Azure Lab Services. Dessa används sedan för att skapa klass rum labb i labb kontot. 
@@ -31,7 +31,7 @@ Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till de
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Lägg till en icke-Microsoft-konto användare som en labb skapare
 Om du vill lägga till en användare som en labb skapare, använder du deras e-postkonton. Följande typer av e-postkonton kan användas:
 
-- Ett e-postkonto som tillhandahålls av ditt universitets Office 365 Azure Active Directory (AAD). 
+- Ett e-postkonto som tillhandahålls av ditt universitets Azure Active Directory (AAD).
 - Ett Microsoft-e-postkonto, till exempel,, `@outlook.com` `@hotmail.com` `@msn.com` eller `@live.com` .
 - Ett e-postkonto som inte kommer från Microsoft, till exempel ett som tillhandahålls av Yahoo eller Google. Dessa typer av konton måste dock länkas till ett Microsoft-konto.
 - Ett GitHub-konto. Kontot måste vara länkat till ett Microsoft-konto.

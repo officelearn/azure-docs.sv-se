@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145704"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400493"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrahera information i Excel med Textanalys och energi automatisering 
 
@@ -37,7 +37,7 @@ I den här självstudien får du lära dig att:
 - En Textanalys resurs. Om du inte har någon kan du [skapa en i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) och använda den kostnads fria nivån för att slutföra den här självstudien.
 - Den [nyckel och slut punkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som genererades åt dig under registreringen.
 - Ett kalkyl blad som innehåller klient problem. Exempel data tillhandahålls på GitHub
-- Office 365 med OneDrive för företag.
+- Microsoft 365, med OneDrive för företag.
 
 ## <a name="add-the-excel-file-to-onedrive-for-business"></a>Lägg till Excel-filen till OneDrive för företag
 
@@ -76,12 +76,12 @@ Skapa variabler som representerar den information som ska läggas till i Excel-f
 
 Lägg till följande information till de variabler som du har skapat. De representerar kolumnerna i Excel-filen. Om några variabler är komprimerade kan du klicka på dem för att expandera dem.
 
-| Åtgärd |Namn   | Typ | Värde |
+| Action |Namn   | Typ | Värde |
 |---------|---------|---|---|
 | Initiera variabel | var_person | Sträng | Person |
 | Initiera variabel 2 | var_phone | Sträng | Phone_Number |
 | Initiera variabel 3 | var_plumbing | Sträng | göra grovjobbet |
-| Initiera variabel 4 | var_other | Sträng | övrigt | 
+| Initiera variabel 4 | var_other | Sträng | other | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information som finns i Flow-variablerna":::
@@ -123,7 +123,7 @@ Ange följande information i ditt flöde för att skapa en ny Textanalys-anslutn
 
 | Fält           | Värde                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Anslutningsnamn | Ett namn på anslutningen till din Textanalys-resurs. Ett exempel är `TAforPowerAutomate`. |
+| Anslutningsnamn | Ett namn på anslutningen till din Textanalys-resurs. Till exempel `TAforPowerAutomate`. |
 | Kontonyckel     | Nyckeln till din Textanalys-resurs.                                                                                   |
 | Webbplats-URL        | Slut punkten för Textanalys resursen.                                                       |
 
@@ -218,7 +218,7 @@ I **om inget** villkor klickar du på **Lägg till en åtgärd**och väljer **Up
 
 ## <a name="test-the-workflow"></a>Testa arbetsflödet
 
-I det övre högra hörnet på skärmen klickar du på **Spara**och sedan på **testa**. Välj **jag utför utlösnings åtgärden**. Klicka på **spara & test**, **Kör Flow**och sedan på **Slutför**.
+I det övre högra hörnet på skärmen klickar du på **Spara**och sedan på **testa**. Välj  **jag utför utlösnings åtgärden**. Klicka på **spara & test**, **Kör Flow**och sedan på **Slutför**.
 
 Excel-filen kommer att uppdateras i ditt OneDrive-konto. Det ser ut ungefär så här.
 

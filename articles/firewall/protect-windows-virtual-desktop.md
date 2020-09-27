@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611143"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400170"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Använd Azure Firewall för att skydda distributioner av Window Virtual Desktop
 
@@ -22,7 +22,7 @@ Windows Virtual Desktop är en Desktop-och app Virtualization-tjänst som körs 
 
 Följ rikt linjerna i den här artikeln för att ge ytterligare skydd för Windows-poolen med virtuella skriv bord med hjälp av Azure-brandväggen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
  - En distribuerad Windows Virtual Desktop-miljö och Host-pool.
@@ -61,7 +61,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 
 ## <a name="host-pool-outbound-access-to-the-internet"></a>Utgående värd pool till Internet
 
-Beroende på organisationens behov kanske du vill aktivera säker utgående Internet åtkomst för slutanvändarna. I de fall där listan över tillåtna mål är väldefinierad (till exempel [Office 365-åtkomst](https://docs.microsoft.com/Office365/Enterprise/office-365-ip-web-service)) kan du konfigurera den nödvändiga åtkomsten med hjälp av Azure brand Väggs program och nätverks regler. Detta dirigerar slut användar trafik direkt till Internet för bästa möjliga prestanda.
+Beroende på organisationens behov kanske du vill aktivera säker utgående Internet åtkomst för slutanvändarna. I de fall där listan över tillåtna mål är väldefinierad (till exempel [Microsoft 365 åtkomst](/microsoft-365/enterprise/microsoft-365-ip-web-service)) kan du använda Azures brand Väggs program och nätverks regler för att konfigurera den nödvändiga åtkomsten. Detta dirigerar slut användar trafik direkt till Internet för bästa möjliga prestanda.
 
 Om du vill filtrera utgående användares Internet trafik med en befintlig lokal säker webbgateway kan du konfigurera webbläsare eller andra program som körs på Windows-poolen för virtuella skriv bord med en explicit proxykonfiguration. Se till exempel att [använda kommando rads alternativ från Microsoft Edge för att konfigurera proxyinställningar](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Dessa proxyinställningar påverkar bara din slutanvändares Internet-åtkomst, vilket tillåter att utgående trafik i Windows Virtual Desktop Platform direkt via Azure-brandväggen.
 

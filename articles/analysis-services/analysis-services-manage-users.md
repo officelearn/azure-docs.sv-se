@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926186"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400799"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 
@@ -28,13 +28,13 @@ Alla klient program och verktyg använder ett eller flera av de Analysis Service
 
 Alla tre klient biblioteken stöder både det interaktiva flödet i Azure AD och icke-interaktiva autentiseringsmetoder. De två icke-interaktiva metoderna, Active Directory lösen ord och Active Directory integrerade autentiseringsmetoder kan användas i program som använder AMOMD och MSOLAP. Dessa två metoder resulterar aldrig i popup-dialogrutor.
 
-Klient program som Excel och Power BI Desktop och verktyg som SSMS och Analysis Services projekt tillägget för Visual Studio installerar de senaste versionerna av biblioteken när de har uppdaterats till den senaste versionen. Power BI Desktop, SSMS och Analysis Services projekt tillägget uppdateras varje månad. Excel har [uppdaterats med Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365-uppdateringar är mindre frekventa och vissa organisationer använder den uppskjutna kanalen, vilket innebär att uppdateringar uppskjuts upp till tre månader.
+Klient program som Excel och Power BI Desktop och verktyg som SSMS och Analysis Services projekt tillägget för Visual Studio installerar de senaste versionerna av biblioteken när de har uppdaterats till den senaste versionen. Power BI Desktop, SSMS och Analysis Services projekt tillägget uppdateras varje månad. Excel [uppdateras med Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Microsoft 365 uppdateringar är mindre frekventa och vissa organisationer använder den uppskjutna kanalen, vilket innebär att uppdateringar uppskjuts upp till tre månader.
 
 Beroende på vilket klient program eller verktyg du använder kan typen av autentisering och hur du loggar in vara annorlunda. Varje program kan ha stöd för olika funktioner för att ansluta till moln tjänster som Azure Analysis Services.
 
 Power BI Desktop-, Visual Studio-och SSMS-support Active Directory Universal Authentication, en interaktiv metod som också stöder Azure-Multi-Factor Authentication (MFA). Azure MFA hjälper till att skydda åtkomsten till data och program samtidigt som du ger en enkel inloggnings process. Den ger stark autentisering med flera verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande om mobilapp). Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering. **Universal Authentication rekommenderas**.
 
-Om du loggar in på Azure med hjälp av ett Windows-konto och universell autentisering inte är markerat eller tillgängligt (Excel) krävs [Active Directory Federation Services (AD FS) (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) . Med Federation autentiseras Azure AD-och Office 365-användare med lokala autentiseringsuppgifter och kan komma åt Azure-resurser.
+Om du loggar in på Azure med hjälp av ett Windows-konto och universell autentisering inte är markerat eller tillgängligt (Excel) krävs [Active Directory Federation Services (AD FS) (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) . Med Federation autentiseras Azure AD-och Microsoft 365-användare med lokala autentiseringsuppgifter och kan komma åt Azure-resurser.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 

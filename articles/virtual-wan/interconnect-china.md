@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329235"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399116"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Samman koppling med Kina med Azure Virtual WAN och säker hubb
 
-När du tittar på vanliga bil-, tillverknings-och logistik branscher eller andra institut som embassies, finns det ofta frågor om hur du kan förbättra samtrafik med Kina. De här förbättringarna är mest relevanta för att använda Cloud Services som Office 365, globala Azure-tjänster eller sammankoppla grenar inom Kina med ett stamnät för kunden.
+När du tittar på vanliga bil-, tillverknings-och logistik branscher eller andra institut som embassies, finns det ofta frågor om hur du kan förbättra samtrafik med Kina. Dessa förbättringar är mest relevanta för att använda Cloud Services som Microsoft 365, Azures globala tjänster eller sammankoppla grenar inom Kina med ett stamnät för kunden.
 
 I de flesta fall är kunderna kämpar med hög latens, låg bandbredd, instabil anslutning och höga kostnader som ansluter till utanför Kina (till exempel Europa eller USA).
 
@@ -95,7 +95,7 @@ I bilden nedan visas båda exemplen för det här scenariot.
 
 ![Global Reach](./media/interconnect-china/global.png)
 
-## <a name="secure-internet-breakout-for-office-365"></a><a name="secure"></a>Secure Internet-grupp för Office 365
+## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Säker Internet-grupp för Microsoft 365
 
 Ett annat övervägande är nätverks säkerhet och loggning för start punkten mellan Kina och det etablerade stamnät komponenten för virtuella WAN och kundens stamnät. I de flesta fall behöver du grupp till Internet i Hong Kong för att direkt komma åt Microsoft Edge-nätverket och, med det, de Azure frontend-dörr servrar som används för Microsoft 365 Services.
 
@@ -109,7 +109,7 @@ Följande bild visar ett exempel på det här scenariot:
 
 Den övergripande arkitekturen kan ändras något beroende på vad du väljer för anslutningen till Hongkong. Det här avsnittet visar tre tillgängliga arkitekturer i olika kombinationer med VPN eller SDWAN och/eller ExpressRoute.
 
-Alla dessa alternativ använder Azure Virtual WAN-säkrat nav för Direct M365-anslutning i Hong Kong. Dessa arkitekturer har även stöd för kraven på efterlevnad för [office 365 multi-geo](https://docs.microsoft.com/office365/enterprise/office-365-multi-geo) och se till att trafiken närmar sig nästa plats för Office 365-dörren. Därför är det också en förbättring av användningen av Microsoft 365 utanför Kina.
+Alla de här alternativen använder Azure Virtual WAN-skyddad hubb för direkt Microsoft 365 anslutning i Hong Kong. Dessa arkitekturer stöder också kraven för efterlevnad för [Microsoft 365 multi-geo](/microsoft-365/enterprise/microsoft-365-multi-geo) och behåller trafiken nära nästa Azure-frontend-plats. Därför är det också en förbättring av användningen av Microsoft 365 utanför Kina.
 
 När du använder Azure Virtual WAN tillsammans med Internet anslutningar kan varje anslutning ha nytta av ytterligare tjänster som [Microsoft Azure peering-tjänster (Maps)](https://docs.microsoft.com/azure/peering-service/about). MAPS har skapats för att optimera trafik som kommer till Microsofts globala nätverk från tredjepartsleverantörer från tredje part.
 

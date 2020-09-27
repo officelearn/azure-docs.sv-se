@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: da5100fafc98ae38809c93e9b3db5ef41c58766a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82863424"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400119"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Support för Azure Firewall Remote Work
 
@@ -24,7 +24,7 @@ Arbete från start principer kräver många IT-organisationer för att åtgärda
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Stöd för virtuella Azure Windows-datorer
 
-Windows Virtual Desktop är en omfattande Desktop-och app Virtualization-tjänst som körs i Azure. Det är den enda virtuella Skriv bords infrastrukturen (VDI) som ger förenklad hantering, multi-session Windows 10, optimeringar för Office 365 ProPlus och stöd för Fjärrskrivbordstjänster-miljöer (RDS). Du kan distribuera och skala dina Windows-datorer och appar på Azure på bara några minuter och få inbyggda funktioner för säkerhet och efterlevnad. Windows Virtual Desktop kräver inte att du öppnar någon inkommande åtkomst till det virtuella nätverket. Du måste dock tillåta en uppsättning utgående nätverks anslutningar för virtuella Windows-datorer med virtuella datorer som körs i det virtuella nätverket. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](protect-windows-virtual-desktop.md).
+Windows Virtual Desktop är en omfattande Desktop-och app Virtualization-tjänst som körs i Azure. Det är den enda virtuella Skriv bords infrastrukturen (VDI) som ger förenklad hantering, multi-session Windows 10, optimeringar för Microsoft 365 appar för företag och stöd för Fjärrskrivbordstjänster-miljöer (RDS). Du kan distribuera och skala dina Windows-datorer och appar på Azure på bara några minuter och få inbyggda funktioner för säkerhet och efterlevnad. Windows Virtual Desktop kräver inte att du öppnar någon inkommande åtkomst till det virtuella nätverket. Du måste dock tillåta en uppsättning utgående nätverks anslutningar för virtuella Windows-datorer med virtuella datorer som körs i det virtuella nätverket. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](protect-windows-virtual-desktop.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

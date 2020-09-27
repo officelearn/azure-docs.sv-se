@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725094"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399694"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Hantera och analysera flödes loggar för nätverks säkerhets grupper med hjälp av Network Watcher och Grafana
 
@@ -199,7 +199,7 @@ Nu när du har konfigurerat Grafana för att läsa från ElasticSearch-indexet s
 
 Följande skärm bild visar ett diagram och diagram som visar de vanligaste flödena och deras frekvens. Flöden visas också av NSG-regeln och flöden efter beslut. Grafana är mycket anpassningsbart, så det är tillrådligt att skapa instrument paneler som passar dina speciella övervaknings behov. I följande exempel visas en typisk instrument panel:
 
-![Instrument panels diagram](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Skärm bild som visar exempel diagram konfigurationen med flöden segmenterade av NSG-regeln.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Slutsats
 

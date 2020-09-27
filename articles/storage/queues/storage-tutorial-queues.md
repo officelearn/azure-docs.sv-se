@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008802"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400578"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Självstudie: arbeta med Azure Storage-köer i .NET
 
@@ -227,6 +227,8 @@ Skapa en ny metod för att hämta ett meddelande från kön. När meddelandet ha
    # <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
    Den här metoden tar emot ett meddelande från kön genom att anropa [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), som skickar 1 i den första parametern för att bara hämta nästa meddelande i kön. När meddelandet har tagits emot tar du bort det från kön genom att anropa [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+
+   När ett meddelande skickas till kön med en version av SDK före V12, base64-kodas automatiskt. Från och med V12 har funktionen tagits bort. När du hämtar ett meddelande med hjälp av V12 SDK är det inte automatiskt base64-avkodat. Du måste explicit [base64-avkoda](/dotnet/api/system.convert.frombase64string) innehållet själv.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

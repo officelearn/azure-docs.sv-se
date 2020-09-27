@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: fba6943adb18675bc804a3881042fe9d68f5b331
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abd18132c7489153566042b0b7e3557662864f30
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85114749"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399473"
 ---
-# <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Global datadistribution med Azure Cosmos DB – Översikt
+# <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuera dina data globalt med Azure Cosmos DB
 
 Dagens program måste ha hög tillgänglighet och är alltid online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligt vis i flera data Center och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som transparent kan replikera data var som helst i världen så att programmen kan köras med en datakopia som ligger nära användarna. 
 

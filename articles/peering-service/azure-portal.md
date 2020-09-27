@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 6646016a4529f46431ecb622c7546140a93a5d88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596f06d6dc3ad33f2794dfe0e3ed7822a4820adb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872148"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399023"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Registrera peering-tjänsten med hjälp av Azure Portal
 
-Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Office 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet.
+Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Microsoft 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet.
 
 I den här artikeln får du lära dig hur du registrerar en peering service-anslutning med hjälp av Azure Portal.
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [konto](https://azure.mic
 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha följande:
 

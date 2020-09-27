@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1a829f4e5f45394d9c5bbed0db9289727b816917
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315039"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400391"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurera och komma åt långsamma Query-loggar för Azure Database for MySQL flexibel server med hjälp av Azure Portal
 
@@ -45,9 +45,6 @@ På sidan **Server parametrar** kan du gå tillbaka till listan över loggar gen
 
 ## <a name="set-up-diagnostics"></a>Konfigurera diagnostik
 
-> [!NOTE]
-> Att integrera med Azure Monitor diagnostikinställningar för att komma åt loggarna är under distributionen och att alla funktioner blir tillgängliga snart.
-
 Långsamma frågeuttryck är integrerade med Azure Monitor diagnostikinställningar så att du kan skicka loggar till Azure Monitor loggar, Event Hubs eller Azure Storage.
 
 1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostiska inställningar**  >  **Lägg till diagnostikinställningar**.
@@ -66,7 +63,7 @@ Långsamma frågeuttryck är integrerade med Azure Monitor diagnostikinställnin
 
 1. Få åtkomst till långsamma fråga-loggar genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
 
-Om du skickas loggar till Azure Monitor loggar (Log Analytics) kan du läsa några [exempel frågor](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) som du kan använda för analys. 
+Om du skickas loggar till Azure Monitor loggar (Log Analytics) kan du läsa några [exempel frågor](concepts-slow-query-logs.md#analyze-logs-in-azure-monitor-logs) som du kan använda för analys. 
 
 ## <a name="next-steps"></a>Nästa steg
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->

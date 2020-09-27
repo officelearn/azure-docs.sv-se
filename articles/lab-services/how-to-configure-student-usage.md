@@ -3,12 +3,12 @@ title: Konfigurera användnings inställningar i klass labb labb med Azure Lab S
 description: Lär dig hur du konfigurerar antalet studenter för ett labb, gör dem registrerade med labbet, styr antalet timmar som de kan använda den virtuella datorn och mer.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445958"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399677"
 ---
 # <a name="add-and-manage-lab-users"></a>Lägg till och hantera labbanvändare
 
@@ -166,7 +166,7 @@ Gör så här om du vill ange ytterligare kvoter:
 
 Om du vill lägga till studenter i ett klass rums labb använder du sina e-postkonton. Eleverna kan ha följande typer av e-post konton:
 
-- Ett student-e-postkonto som tillhandahålls av ditt universitets Azure Active Directory-instans för Office 365. 
+- Ett student-e-postkonto som tillhandahålls av ditt universitets Azure Active Directory-instans.
 - Ett e-postkonto från Microsoft-domän, till exempel *Outlook.com*, *hotmail.com*, *MSN.com*eller *Live.com*.
 - Ett e-postkonto som inte kommer från Microsoft, till exempel ett som tillhandahålls av Yahoo! eller Google. Dessa typer av konton måste dock länkas till ett Microsoft-konto.
 - Ett GitHub-konto. Kontot måste vara länkat till ett Microsoft-konto.

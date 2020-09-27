@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3b83899ad21cf125105881a7ffb526f5c607c6d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e48c6cfd1160406d55ffdc3c9bafe733a6e5e4a6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322218"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400085"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption fel söknings guide
 
@@ -34,7 +34,7 @@ Alla inställningar för nätverks säkerhets grupper som tillämpas måste fort
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault bakom en brand vägg
 
-När kryptering aktive ras med [autentiseringsuppgifter för Azure AD](disk-encryption-windows-aad.md#)måste den virtuella mål datorn tillåta anslutning till både Azure Active Directory slut punkter och Key Vault slut punkter. Nuvarande Azure Active Directory autentiserings slut punkter underhålls i avsnitten 56 och 59 i dokumentationen för [Office 365-URL: er och IP-adressintervall](/office365/enterprise/urls-and-ip-address-ranges) . Key Vault-instruktioner finns i dokumentationen om hur du [får åtkomst till Azure Key Vault bakom en brand vägg](../../key-vault/general/access-behind-firewall.md).
+När kryptering aktive ras med [autentiseringsuppgifter för Azure AD](disk-encryption-windows-aad.md#)måste den virtuella mål datorn tillåta anslutning till både Azure Active Directory slut punkter och Key Vault slut punkter. Nuvarande Azure Active Directory autentiserings slut punkter underhålls i avsnitten 56 och 59 i dokumentationen för [Microsoft 365 URL: er och IP-adressintervall](/microsoft-365/enterprise/urls-and-ip-address-ranges) . Key Vault-instruktioner finns i dokumentationen om hur du [får åtkomst till Azure Key Vault bakom en brand vägg](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 Den virtuella datorn måste kunna komma åt [Azure instance metadata service](../windows/instance-metadata-service.md) -slutpunkten som använder en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ) som bara kan nås från den virtuella datorn.  Proxykonfigurationen som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-vidarebefordrat-för-huvud) stöds inte.
@@ -62,7 +62,7 @@ Undvik det här problemet genom att kopiera följande fyra filer från en virtue
 
 1. Använd DiskPart för att kontrol lera volymerna och fortsätt sedan.  
 
-Till exempel:
+Exempel:
 
 ```
 DISKPART> list vol

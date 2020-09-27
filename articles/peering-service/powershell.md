@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: derekol
 Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
-ms.openlocfilehash: 163f93ab93890f27eb2a9b18cc23804595fcb822
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a12bfa042c8741814cedc70f1dcb67dedbfd331e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84872715"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400442"
 ---
 # <a name="tutorial-register-a-peering-service-connection-using-azure-powershell"></a>Självstudie: registrera en peering service-anslutning med hjälp av Azure PowerShell
 
 I den här självstudien får du lära dig hur du registrerar peering-tjänsten med hjälp av Azure PowerShell.
 
-Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Office 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. I den här artikeln får du lära dig hur du registrerar en peering service-anslutning med hjälp av Azure PowerShell.
+Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Microsoft 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. I den här artikeln får du lära dig hur du registrerar en peering service-anslutning med hjälp av Azure PowerShell.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 

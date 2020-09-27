@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/01/2020
-ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292545"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399830"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Snabb start: skapa en demo-app i portalen (Azure Kognitiv sökning)
 
@@ -35,7 +35,7 @@ Innan du börjar måste du ha följande:
 
   I den här snabb starten används inbyggda exempel data och index för fastighets data, eftersom det innehåller miniatyr bilder (guiden har stöd för att lägga till bilder på resultat sidan). Om du vill skapa ett index som används i den här övningen kör du guiden **Importera data** och väljer *realestate-US-Sample-* data källan.
 
-  ![data källans sida för exempel data](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="data källans sida för exempel data" border="false":::
 
 När indexet är klart att använda går du vidare till nästa steg.
 
@@ -61,7 +61,7 @@ Guiden innehåller en grundläggande layout för åter givning av Sök resultat 
 
 1. I Beskrivning väljer du ett fält som innehåller information som kan hjälpa någon att avgöra om du vill klicka till det specifika dokumentet.
 
-   ![Konfigurera resultat för exempel data](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Konfigurera resultat för exempel data" border="false":::
 
 ## <a name="add-a-sidebar"></a>Lägg till en marginal List
 
@@ -83,7 +83,7 @@ Förslag aktive ras för definitioner av vissa fält. I guiden får du alternati
 
 Följande skärm bild visar alternativen i guiden, juxtaposed med en renderad sida i appen. Du kan se hur fält urval används och hur "Visa fält namn" används för att ta med eller undanta etiketter i förslaget.
 
-![Konfiguration av fråge förslag](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Konfiguration av fråge förslag":::
 
 ## <a name="create-download-and-execute"></a>Skapa, hämta och köra
 
@@ -95,7 +95,7 @@ Följande skärm bild visar alternativen i guiden, juxtaposed med en renderad si
 
 Det underliggande indexet består av fiktiva, genererade data som har duplicerats mellan dokument och beskrivningar som ibland inte matchar avbildningen. Du kan vänta en mer sammanhängande upplevelse när du skapar en app baserat på dina egna index.
 
-![Kör appen](media/search-create-app-portal/run-app.png)
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Kör appen":::
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: fbb9a6237aafe1c1b7c94d9dd23ad4c3665c0c73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872134"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399031"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Registrera en peering service-anslutning med hjälp av Azure CLI
 
-Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Office 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. I den här artikeln får du lära dig hur du registrerar en peering service-anslutning med hjälp av Azure CLI.
+Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Microsoft 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. I den här artikeln får du lära dig hur du registrerar en peering service-anslutning med hjälp av Azure CLI.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [konto](https://azure.mic
 
 Om du väljer att installera och använda CLI lokalt kräver den här artikeln Azure CLI-version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Du måste ha följande:
 

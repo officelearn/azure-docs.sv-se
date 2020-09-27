@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279227"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400051"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple för Cloud Solutions provider-program: vanliga frågor och svar
 
@@ -40,10 +40,10 @@ Frågor och svar är ordnade i följande kategorier:
 
 Mer information finns på [StorSimple i CSP-programmet](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
-### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>Är StorSimple en användnings baserad eller baserad på klient licenser som Office 365 och Enterprise Mobility Suite (EMS)?
+### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-microsoft-365-and-enterprise-mobility-suite-ems"></a>Är StorSimple en användnings baserad eller baserad på klient licenser som Microsoft 365 och Enterprise Mobility Suite (EMS)?
 StorSimple är en användnings baserad tjänst. Kunder som debiterar StorSimple Virtual Array via CSP-vägen betalar för användning av virtuell matris och Azure, faktureras som separata rad objekt i CSP-fakturan. 
 
-### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>Liknar StorSimple affärs modell samma som för andra tjänster, till exempel Office 365 och Enterprise Mobility Suite? 
+### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-microsoft-365-and-the-enterprise-mobility-suite"></a>Liknar affärs modellen StorSimple för andra tjänster, till exempel Microsoft 365 och Enterprise Mobility Suite? 
 Ja. Modellen är en grossist rabatt modell precis som andra användnings tjänster i Azure. Parti rabatten för StorSimple liknar den för andra Azure-tjänster. Den här modellen ger våra CSP-partner en möjlighet att sälja mer och köra Azure-förbrukning via StorSimple Virtual Array.  
 
 ### <a name="which-storsimple-skus-are-available-at-launch"></a>Vilka StorSimple SKU: er är tillgängliga vid lanseringen?

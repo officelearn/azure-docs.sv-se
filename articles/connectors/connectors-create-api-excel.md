@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097db6683127b410e713be53e6de838cf7734ddc
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445872"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400731"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Hantera Excel Online-data med Azure Logic Apps
 
@@ -29,11 +29,11 @@ Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?
 > [!NOTE]
 > [Excel Online för företag](/connectors/excelonlinebusiness/) och [Excel Online för OneDrive](/connectors/excelonline/) -kopplingar fungerar med Azure Logic Apps och skiljer sig från [Excel Connector för PowerApps](/connectors/excel/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Ett [Office 365-konto](https://www.office.com/) för ditt arbets konto eller personliga Microsoft-konto
+* Ett [arbets-eller skol konto](https://www.office.com/) för ditt arbets konto eller personliga Microsoft-konto
 
   Dina Excel-data kan finnas som en fil med kommaavgränsade värden (CSV) i en lagringsmapp, till exempel i OneDrive. 
   Du kan också använda samma CSV-fil med den [fasta fil anslutningen](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
@@ -53,7 +53,7 @@ Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?
    > [!NOTE]
    > Logic App Designer kan inte läsa in tabeller som har 100 eller fler kolumner. Minska om möjligt antalet kolumner i den markerade tabellen så att designern kan läsa in tabellen.
 
-1. Logga in på ditt Office 365-konto om du uppmanas till det.
+1. Logga in på ditt arbets-eller skol konto om du uppmanas till det.
 
    Dina autentiseringsuppgifter auktoriserar din Logic app för att skapa en anslutning till Excel Online och komma åt dina data.
 

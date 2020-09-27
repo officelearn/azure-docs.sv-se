@@ -7,18 +7,18 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607485"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400748"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
 Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [onlinebutiker för kommersiella platser](comparing-appsource-azure-marketplace.md), kan du också sälja via CSP-programmet för att komma åt miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
 
-Du kan konfigurera nya eller befintliga erbjudanden för tillgänglighet i CSP-programmet på ett valbart sätt, vilket gör det möjligt för CSP-partner att sälja dina produkter och skapa paketerade lösningar för kunder.
+Du kan konfigurera nya eller befintliga erbjudanden för tillgänglighet i CSP-programmet på ett valbart sätt, vilket gör det möjligt för CSP-partner att sälja dina produkter och skapa sammanställda lösningar för kunder.
 
 Utgivare ansvarar för att tillhandahålla stöd för att ge support för att ge slutanvändarna möjlighet att ge support för partner i CSP-programmet och/eller kunder att kontakta dig. Det är en bra idé att tillhandahålla partner i CSP-programmet med användar dokumentation, utbildning och tjänst hälso-och avbrotts meddelanden (i förekommande fall) så att partner i CSP-programmet är utrustade för att hantera support förfrågningar på nivå 1 från kunder.  
 

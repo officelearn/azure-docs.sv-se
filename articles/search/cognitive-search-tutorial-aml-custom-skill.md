@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/10/2020
-ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924596"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399847"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Självstudie: bygga och distribuera en anpassad kunskap med Azure Machine Learning 
 
@@ -82,12 +82,11 @@ Avsnitt 4 i antecknings boken har fyra celler som uppdaterar färdigheter och in
 
 I portalen går du till färdigheter och väljer färdigheter definition (JSON). Portalen visar JSON för din färdigheter som skapades i de första cellerna i antecknings boken. Till höger om skärmen finns det en listruta där du kan välja mallen för kompetens definition. Välj mallen Azure Machine Learning (AML). Ange namnet på Azure ML-arbetsytan och slut punkten för den modell som distribueras till ett härlednings kluster. Mallen kommer att uppdateras med slut punkts-URI och nyckel.
 
-> [!div class="mx-imgBorder"]
-> ![Mall för färdigheter-definition](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Mall för färdigheter-definition":::
 
 Kopiera färdigheter-mallen från fönstret och klistra in den i färdigheter-definitionen till vänster. Redigera mallen för att ange de värden som saknas för:
 
-* Namn
+* Name
 * Beskrivning
 * Kontext
 * namn och källa för indata

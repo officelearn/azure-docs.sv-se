@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488838"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400816"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
 
@@ -66,7 +66,7 @@ För logi Kap par som behöver direkt åtkomst till resurser i ett virtuellt Azu
 > [!NOTE]
 > Logi Kap par som körs i en ISE och deras kopplingar, oavsett var dessa anslutningar körs, följer en fast pris plan jämfört med den förbruknings bara pris planen. Mer information finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md) och [Logic Apps pris information](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Etikett | Exempel | Beskrivning |
+| Etikett | Exempel | Description |
 |-------|---------|-------------|
 | **GRUNDLÄGGANDE** | ![Exempel på KÄRN anslutning](./media/apis-list/example-core-connector.png) | Inbyggda utlösare och åtgärder med den här etiketten körs i samma ISE som dina Logic Apps. |
 | **ISE** | ![Exempel på ISE-anslutning](./media/apis-list/example-ise-connector.png) | Hanterade anslutningar med den här etiketten körs i samma ISE som dina Logic Apps. Om du har ett lokalt system som är anslutet till ett virtuellt Azure-nätverk kan du med hjälp av en ISE direkt komma åt det systemet utan den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). I stället kan du antingen använda systemets **ISE** -koppling om det är tillgängligt, en HTTP-åtgärd eller en [anpassad anslutning](#custom). För lokala system som inte har **ISE** -kopplingar använder du en lokal datagateway. Information om hur du granskar tillgängliga ISE-anslutningar finns i [ISE-anslutningar](#ise-connectors). |
@@ -136,7 +136,7 @@ Logic Apps tillhandahåller de här populära standard anslutningarna för autom
 | [![Azure Service Bus hanterad koppling ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnesprenumerationer med det anslutningsprogram som oftast används i Logic Apps. |
 | [![SQL Server hanterad koppling ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. |
 | [![Azure Blob Storage hanterad koppling ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Anslut till ditt lagrings konto så att du kan skapa och hantera BLOB-innehåll. |
-| [![Office 365 Outlook Managed Connector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Anslut till ditt Office 365-e-postkonto så att du kan skapa och hantera e-post, uppgifter, Kalender händelser och möten, kontakter, förfrågningar och mycket annat. |
+| [![Office 365 Outlook Managed Connector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Anslut till ditt e-postkonto på ditt arbets-eller skol konto så att du kan skapa och hantera e-post, uppgifter, Kalender händelser och möten, kontakter, förfrågningar och mycket annat. |
 | [![SFTP – SSH Managed Connector ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Anslut till SFTP-servrar som du kan komma åt från Internet med hjälp av SSH så att du kan arbeta med dina filer och mappar. |
 | [![SharePoint Online Managed Connector ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Anslut till SharePoint Online så att du kan hantera filer, bilagor, mappar med mera. |
 | [![Azure-köer Managed Connector ][azure-queues-icon]<br> **Azure- <br> köer**][azure-queues-doc] | Anslut till ditt Azure Storage-konto så att du kan skapa och hantera köer och meddelanden. |
@@ -588,7 +588,7 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [instagram-doc]: ./connectors-create-api-instagram.md "Anslut till Instagram. Utlösa eller agera på händelser"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Ansluta till Mandrill för kommunikation"
 [mysql-doc]: /connectors/mysql/ "Anslut till din lokala MySQL-databas så att du kan läsa och skriva data"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Anslut till ditt Office 365-konto så att du kan skicka och ta emot e-post, hantera din kalender och dina kontakter med mera"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Anslut till ditt arbets-eller skol konto så att du kan skicka och ta emot e-post, hantera din kalender och dina kontakter med mera"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Anslut till din personliga Microsoft OneDrive så att du kan ladda upp, ta bort, lista filer och mycket mer"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Anslut till ditt företag Microsoft OneDrive så att du kan ladda upp, ta bort, lista dina filer med mera"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Anslut till en Oracle-databas så att du kan lägga till, infoga och ta bort rader med mera"

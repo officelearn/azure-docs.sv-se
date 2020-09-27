@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872038"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400187"
 ---
 # <a name="azure-peering-service-overview"></a>Översikt över Azure peering-tjänsten
 
-Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Office 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. Microsoft samarbetar med Internet leverantörer (ISP), Internet Exchange-partners (IXPs) och SDCI-leverantörer (Software-Defined Cloud Interconnect) i hela världen för att tillhandahålla tillförlitliga och högpresterande offentliga anslutningar med optimal routning från kunden till Microsoft-nätverket.
+Azure peering-tjänsten är en nätverks tjänst som förbättrar kund anslutningen till Microsofts moln tjänster, till exempel Microsoft 365, Dynamics 365, SaaS-tjänster (Software as a Service), Azure eller Microsoft-tjänster som är tillgängliga via det offentliga Internet. Microsoft samarbetar med Internet leverantörer (ISP), Internet Exchange-partners (IXPs) och SDCI-leverantörer (Software-Defined Cloud Interconnect) i hela världen för att tillhandahålla tillförlitliga och högpresterande offentliga anslutningar med optimal routning från kunden till Microsoft-nätverket.
 
 Med peering service kan kunder välja en väl ansluten partner tjänst leverantör i en specifik region. Offentlig anslutning är optimerad för hög tillförlitlighet och minimal fördröjning från moln tjänster till slut användar platsen.
 
@@ -50,7 +50,7 @@ Peering-tjänsten är inte en privat anslutnings produkt som Azure ExpressRoute 
 
 ## <a name="background"></a>Bakgrund
 
-Office 365, Dynamics 365 och andra Microsoft SaaS-tjänster finns i flera Microsoft-datacenter och kan nås från alla geografiska platser. Microsofts globala nätverk har Microsofts PoP-platser (Edge-of-Presence) runtom i världen där de kan ansluta till en slutanvändare via sina tjänste leverantörer. 
+Microsoft 365, Dynamics 365 och andra Microsoft SaaS-tjänster finns i flera Microsoft-datacenter och kan nås från valfri geografisk plats. Microsofts globala nätverk har Microsofts PoP-platser (Edge-of-Presence) runtom i världen där de kan ansluta till en slutanvändare via sina tjänste leverantörer. 
 
 Microsoft-och partner tjänst leverantörer säkerställer att trafiken för de prefix som registrerats med en peering service-anslutning går in och avslutar de närmsta PoP-platserna för Microsoft Edge på Microsofts globala nätverk. Microsoft säkerställer att nätverks trafiken som kommer från de prefix som är registrerade med peering service-anslutningar tar de närmsta PoP-platserna med Microsoft Edge på Microsofts globala nätverk.
 
@@ -80,13 +80,13 @@ Peering-tjänsten använder två typer av redundans:
 
    Varje peering-plats är etablerad med redundanta och diverse peering-länkar.
 
-- **GEO-redundans**
+- **Geo-redundans**
 
    Microsoft har sammankopplat med tjänst leverantörer på flera platser i tunnel trafik så att trafiken dirigeras till och från Microsoft via alternativa platser om en av kant-noderna har försämrade prestanda. Microsoft dirigerar trafik i det globala nätverket med hjälp av SDN för optimala prestanda.
 
     Den här typen av redundans använder den kortaste vägen genom att alltid välja närmaste Microsoft Edge-PoP till slutanvändaren och se till att kunden är en nätverks hopp (som humle) bort från Microsoft.
 
-   ![GEO-redundans](./media/peering-service-about/peering-service-geo-shortest.png)
+   ![Geo-redundans](./media/peering-service-about/peering-service-geo-shortest.png)
 
 ### <a name="optimal-routing"></a>Optimal routning
 

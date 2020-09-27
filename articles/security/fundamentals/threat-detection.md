@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541030"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399609"
 ---
 # <a name="azure-advanced-threat-detection"></a>Avancerad hotidentifiering i Azure
 
@@ -64,13 +64,13 @@ Exempel på några av de sätt som Azure Identity Protection kan hjälpa till at
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-Med [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md)kan du hantera, kontrol lera och övervaka åtkomst i din organisation. Den här funktionen inkluderar åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster, till exempel Office 365 eller Microsoft Intune.
+Med [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md)kan du hantera, kontrol lera och övervaka åtkomst i din organisation. Den här funktionen inkluderar åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster, till exempel Microsoft 365 eller Microsoft Intune.
 
 ![Azure AD Privileged Identity Management diagram](./media/threat-detection/azure-threat-detection-fig2.png)
 
 PIM hjälper dig att:
 
--   Få aviseringar och rapporter om Azure AD-administratörer och just-in-Time (JIT) administrativ åtkomst till Microsoft onlinetjänster, till exempel Office 365 och Intune.
+-   Få aviseringar och rapporter om Azure AD-administratörer och just-in-Time (JIT) administrativ åtkomst till Microsoft onlinetjänster, till exempel Microsoft 365 och Intune.
 
 -   Hämta rapporter om administratörs åtkomst historik och ändringar i administratörs tilldelningar.
 
@@ -155,7 +155,7 @@ Security Center använder avancerade säkerhetsanalyser, som går mycket längre
 
 Microsoft har till gång till en stor mängd global Hot information.
 
-Telemetri flödar från flera källor, till exempel Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital brottslighet Unit (DCU) och Microsoft Security Response Center (MSRC).
+Telemetri flödar från flera källor, till exempel Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital brottslighet Unit (DCU) och Microsoft Security Response Center (MSRC).
 
 ![Hot informations resultat](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Några exempel är:
 
 -   **Skadliga PowerShell-skript**: PowerShell kan användas av angripare för att köra skadlig kod på virtuella mål datorer i olika syfte. Security Center inspekterar PowerShell-aktivitet för att hitta tecken på misstänkt aktivitet.
 
--   **Utgående attacker**: Angripare attackerar ofta resurser i molnet med avsikten att använda dessa resurser för att bygga upp fler attacker. Komprometterade virtuella datorer kan till exempel användas för att starta brute force-attacker mot andra virtuella datorer, skicka skräp post eller skanna öppna portar och andra enheter på Internet. Genom att använda maskininlärning för nätverkstrafiken kan Security Center upptäcka avvikande utgående nätverkskommunikation. När skräp post identifieras korrelerar Security Center också ovanlig e-posttrafik med intelligens från Office 365 för att avgöra om e-postmeddelandet är sannolikt post eller resultatet av en legitim e-postkampanj.
+-   **Utgående attacker**: Angripare attackerar ofta resurser i molnet med avsikten att använda dessa resurser för att bygga upp fler attacker. Komprometterade virtuella datorer kan till exempel användas för att starta brute force-attacker mot andra virtuella datorer, skicka skräp post eller skanna öppna portar och andra enheter på Internet. Genom att använda maskininlärning för nätverkstrafiken kan Security Center upptäcka avvikande utgående nätverkskommunikation. När skräp post identifieras korrelerar Security Center också ovanlig e-posttrafik med information från Microsoft 365 för att avgöra om e-postmeddelandet är sannolikt post eller resultatet av en legitim e-postkampanj.
 
 ### <a name="anomaly-detection"></a>Avvikelseidentifiering
 

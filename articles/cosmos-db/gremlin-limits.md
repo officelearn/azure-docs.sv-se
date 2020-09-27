@@ -1,23 +1,23 @@
 ---
 title: Gränser för Azure Cosmos DB Gremlin
 description: Referens dokumentation för körnings begränsningar i diagram motor
-author: LuisBosquez
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: lbosq
-ms.openlocfilehash: 76ad787990c355d29613c05ca9fce31885a2eccc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: sngun
+ms.openlocfilehash: 4ac5222e735e0699e507ca1392dc5dd42fc77105
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72029843"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400476"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Gremlin-gränser i Azure Cosmos DB
 Den här artikeln beskriver gränserna för Azure Cosmos DB Gremlin-motorn och förklarar hur de kan påverka kund bläddringskontroll.
 
-Cosmos DB Gremlin skapas ovanpå Cosmos DB-infrastruktur. På grund av detta gäller alla gränser som beskrivits i [Azure Cosmos DB tjänst gränser](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) fortfarande. 
+Cosmos DB Gremlin skapas ovanpå Cosmos DB-infrastruktur. På grund av detta gäller alla gränser som beskrivits i [Azure Cosmos DB tjänst gränser](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) fortfarande.
 
 ## <a name="limits"></a>Gränser
 
@@ -34,5 +34,5 @@ När Gremlin-gränsen uppnås avbryts Traversal med en **x-MS-status-kod** på 4
 *Resurstoken per timme* | **100** | Antal unika resurstoken som Gremlin-klienter använder till att ansluta till Gremlin-kontot i en region. När programmet överskrider den unika kvoten för token `"Exceeded allowed resource token limit of 100 that can be used concurrently"` returneras nästa autentiseringsbegäran.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure Cosmos DB Gremlin-svarshuvuden](gremlin-headers.md) 
+* [Azure Cosmos DB Gremlin-svarshuvuden](gremlin-headers.md)
 * [Azure Cosmos DB-resurspooler med Gremlin](how-to-use-resource-tokens-gremlin.md)

@@ -1,7 +1,7 @@
 ---
 title: Skapa en klient modell (för hands version) – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Generera automatiskt en säker, kompatibel klient modell (Custom Speech med Office 365-data) som använder dina Office 365-data för att leverera optimal tal igenkänning för företagsspecifika villkor.
+description: Generera automatiskt en säker, kompatibel klient modell (Custom Speech med Microsoft 365 data) som använder dina Microsoft 365 data för att leverera optimal tal igenkänning för företagsspecifika villkor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52e4271fca02dc9b0eab45ca98581ecd85119b59
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934488"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399711"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
 
-Klient organisations modell (Custom Speech med Office 365-data) är en valbar tjänst för Office 365 Enterprise-kunder som automatiskt genererar en anpassad tal igenkännings modell från din organisations Office 365-data. Modellen är optimerad för tekniska termer, jargong och personers namn, allt på ett säkert och kompatibelt sätt.
+Klient modell (Custom Speech med Microsoft 365 data) är en valbar tjänst för Microsoft 365 företags kunder som automatiskt genererar en anpassad tal igenkännings modell från din organisations Microsoft 365 data. Modellen är optimerad för tekniska termer, jargong och personers namn, allt på ett säkert och kompatibelt sätt.
 
 > [!IMPORTANT]
-> Om din organisation registrerar sig genom att använda klient modell tjänsten kan tal tjänsten komma åt din organisations språk modell. Modellen genereras från e-post och dokument i Office 365 offentliga grupper som kan ses av alla i din organisation. Organisationens Office 365-administratör kan aktivera eller inaktivera användningen av den organisatoriska språk modellen från administrations portalen för Office 365.
+> Om din organisation registrerar sig genom att använda klient modell tjänsten kan tal tjänsten komma åt din organisations språk modell. Modellen genereras från Microsoft 365 offentliga grupp-e-postmeddelanden och dokument som kan ses av alla i din organisation. Din organisations administratör kan aktivera eller inaktivera användningen av språk modellen för hela organisationen från administrations portalen.
 
 I den här guiden får du lära dig att:
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="enroll-in-the-tenant-model-service"></a>Registrera i klient modell tjänsten
 
-Innan du kan distribuera din klient modell måste du vara registrerad i klient modell tjänsten. Registreringen har slutförts i Microsoft 365 administrations Center och kan bara utföras av din Microsoft 365-administratör.
+Innan du kan distribuera din klient modell måste du vara registrerad i klient modell tjänsten. Registreringen har slutförts i Microsoft 365 administrations Center och kan bara utföras av administratören.
 
 1. Logga in på [Administrationscenter för Microsoft 365](https://admin.microsoft.com).
 
@@ -69,7 +69,7 @@ Om du vill använda din klient modell med tal-SDK behöver du en tal resurs och 
 
 ## <a name="create-a-language-model"></a>Skapa en språk modell
 
-När din administratör har aktiverat klient organisations modell för din organisation kan du skapa en språk modell som baseras på dina Office 365-data.
+När din administratör har aktiverat klient organisations modell för din organisation kan du skapa en språk modell som baseras på dina Microsoft 365 data.
 
 1. Logga in på [tal Studio](https://speech.microsoft.com/).
 1. Längst upp till höger väljer du **Inställningar** (kugg hjuls ikon) och väljer sedan **Inställningar för klient organisations modell**.
@@ -79,7 +79,7 @@ När din administratör har aktiverat klient organisations modell för din organ
    Tal Studio visar ett meddelande som gör att du vet om du är kvalificerad att skapa en klient organisations modell.
 
    > [!NOTE]
-   > Office 365 företags kunder i Nordamerika är berättigade att skapa en klient modell (engelska). Den här funktionen är inte tillgänglig om du är Customer Lockbox, kund nyckel eller Office 365 myndighets kund. För att avgöra om du är en Customer Lockbox-eller kund nyckel kund, se:
+   > Företags kunder i Nordamerika är berättigade att skapa en klient modell (engelska). Den här funktionen är inte tillgänglig om du är Customer Lockbox, kund nyckel eller Office 365 myndighets kund. För att avgöra om du är en Customer Lockbox-eller kund nyckel kund, se:
    > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Kund nyckel](/microsoft-365/compliance/customer-key-overview)
    > * [Office 365-myndigheter](https://www.microsoft.com/microsoft-365/government)
@@ -302,7 +302,7 @@ Sedan måste du återskapa och köra projektet från kommando raden. Innan du k�
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
 
-I den här självstudien har du lärt dig hur du använder Office 365-data för att skapa en anpassad tal igenkännings modell, distribuerar den och använder den med talet SDK.
+I den här självstudien har du lärt dig hur du använder Microsoft 365 data för att skapa en anpassad tal igenkännings modell, distribuera den och använda den med talet SDK.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119760"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400272"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Företagets arbets konton och partner Center
 
@@ -20,7 +20,7 @@ Partner Center använder företags arbets konton, även kallade Azure Active Dir
 
 ## <a name="check-whether-your-company-already-has-a-work-account"></a>Kontrol lera om ditt företag redan har ett arbets konto
 
-Om ditt företag prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Office 365, har du redan en domän för e-postkonto för arbetet (kallas även en Azure Active Directory klient) som kan användas med partner Center.
+Om ditt företag prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Microsoft 365, har du redan en domän för e-postkonto för arbetet (kallas även en Azure Active Directory klient) som kan användas med partner Center.
 
 Följ de här stegen för att kontrol lera:
 1. Logga in på Azure Admin Portal på https://portal.azure.com .
@@ -37,7 +37,7 @@ Innan du bestämmer dig för att använda ett befintligt arbets konto bör du fu
 
 Följ stegen nedan om du vill skapa ett nytt arbets konto för ditt företag. Du kan behöva be om hjälp från vem som har administratörs behörighet på ditt företags Microsoft Azure konto.
 
-1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
+1. Logga in på [Microsoft Azure-portalen](https://portal.azure.com).
 2. I den vänstra navigerings menyn väljer du **Azure Active Directory**  ->  **användare**.
 3. Välj **ny användare** och skapa ett nytt Azure-arbetskonto genom att ange ett namn och en e-postadress. Se till att **katalog rollen** har angetts till **användare** och markera kryss rutan **Visa lösen ord** längst ned för att visa och anteckna det automatiskt genererade lösen ordet.
 4. Välj **skapa** för att spara den nya användaren.

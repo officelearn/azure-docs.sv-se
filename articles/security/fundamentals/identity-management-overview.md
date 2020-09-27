@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002675"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400323"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
@@ -46,7 +46,7 @@ Artikeln fokuserar på följande viktiga funktioner i Azure Identity Management:
 * Konsument identitets-och åtkomst hantering
 * Enhetsregistrering
 * Privileged Identity Management
-* Identity Protection
+* Identitetsskydd
 * Hybrid identitets hantering/Azure AD Connect
 * Azure AD-åtkomstgranskningar
 
@@ -54,7 +54,7 @@ Artikeln fokuserar på följande viktiga funktioner i Azure Identity Management:
 
 SSO innebär att du kan komma åt alla program och resurser som du behöver göra affärer genom att bara logga in en gång med ett enda användar konto. När du har loggat in, kan du komma åt alla de program du behöver utan att behöva autentisera (till exempel skriva ett lösen ord) en gång.
 
-Många organisationer förlitar sig på SaaS-program som Office 365, Box och Salesforce för användar produktivitet. Tidigare var IT-personal tvungen att individuellt skapa och uppdatera användar konton i varje SaaS-program, och användarna var tvungna att komma ihåg ett lösen ord för varje SaaS-program.
+Många organisationer förlitar sig på SaaS-program som Microsoft 365, Box och Salesforce för användar produktivitet. Tidigare var IT-personal tvungen att individuellt skapa och uppdatera användar konton i varje SaaS-program, och användarna var tvungna att komma ihåg ett lösen ord för varje SaaS-program.
 
 Azure AD utökar lokala Active Directory miljöer till molnet, vilket gör det möjligt för användare att använda sitt primära organisations konto för att logga in till sina domänanslutna enheter och företags resurser, utan även till alla webb-och SaaS program som de behöver för sina jobb.
 
@@ -63,7 +63,7 @@ Användarna behöver inte bara hantera flera uppsättningar användar namn och l
 Läs mer:
 
 * [Översikt över enkel inloggning](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Snabb starts serie på App Management](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Omvänd proxy
@@ -91,10 +91,10 @@ Läs mer:
 
 Azure RBAC är ett auktoriserings system som bygger på Azure Resource Manager som ger detaljerad åtkomst hantering av resurser i Azure. Med Azure RBAC kan du styra den åtkomst nivå som användarna har. Du kan till exempel begränsa en användare till att endast hantera virtuella nätverk och en annan användare för att hantera alla resurser i en resurs grupp. Azure innehåller flera inbyggda roller som du kan använda. Följande listar fyra grundläggande inbyggda roller. De första tre gäller för alla resurstyper.
 
-- [Owner](/azure/role-based-access-control/built-in-roles#owner) -har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra. 
-- [Deltagare](/azure/role-based-access-control/built-in-roles#contributor) – kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.
+- [Ägare](/azure/role-based-access-control/built-in-roles#owner) – Har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra. 
+- [Deltagare](/azure/role-based-access-control/built-in-roles#contributor) – Kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.
 - [Reader](/azure/role-based-access-control/built-in-roles#reader) – kan visa befintliga Azure-resurser.
-- [Administratör för användar åtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) – låter dig hantera användar åtkomst till Azure-resurser.
+- [Administratör för användaråtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) – Kan hantera användarnas åtkomst till Azure-resurser.
 
 Läs mer:
 
@@ -147,14 +147,14 @@ Läs mer:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Med Azure AD Privileged Identity Management kan du hantera, kontrol lera och övervaka dina privilegierade identiteter och åtkomst till resurser i Azure AD samt andra Microsoft-onlinetjänster, till exempel Office 365 och Microsoft Intune.
+Med Azure AD Privileged Identity Management kan du hantera, kontrol lera och övervaka dina privilegierade identiteter och åtkomst till resurser i Azure AD samt andra Microsoft-onlinetjänster, till exempel Microsoft 365 och Microsoft Intune.
 
-Användare behöver ibland utföra privilegierade åtgärder i Azure-eller Office 365-resurser eller i andra SaaS-appar. Detta behöver ofta betyda att organisationer måste ge användare permanent privilegie rad åtkomst i Azure AD. Sådan åtkomst är en växande säkerhets risk för resurser som är värd för molnet, eftersom organisationer inte kan övervaka vad användarna gör med sina administratörs privilegier. Om ett användar konto med privilegie rad åtkomst komprometteras, kan det dessutom påverka organisationens övergripande moln säkerhet. Azure AD Privileged Identity Management hjälper till att minimera den här risken.
+Användare behöver ibland utföra privilegierade åtgärder i Azure eller Microsoft 365 resurser eller i andra SaaS-appar. Detta behöver ofta betyda att organisationer måste ge användare permanent privilegie rad åtkomst i Azure AD. Sådan åtkomst är en växande säkerhets risk för resurser som är värd för molnet, eftersom organisationer inte kan övervaka vad användarna gör med sina administratörs privilegier. Om ett användar konto med privilegie rad åtkomst komprometteras, kan det dessutom påverka organisationens övergripande moln säkerhet. Azure AD Privileged Identity Management hjälper till att minimera den här risken.
 
 Med Azure AD Privileged Identity Management kan du:
 
 * Se vilka användare som är Azure AD-administratörer.
-* Aktivera administrativ åtkomst på begäran, just-in-Time (JIT) till Microsoft-tjänster, till exempel Office 365 och Intune.
+* Aktivera administrativ åtkomst på begäran, just-in-Time (JIT) till Microsoft-tjänster, till exempel Microsoft 365 och Intune.
 * Hämta rapporter om administratörs åtkomst historik och ändringar i administratörs tilldelningar.
 * Få aviseringar om åtkomst till en privilegie rad roll.
 
@@ -163,7 +163,7 @@ Läs mer:
 * [Vad är Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Tilldela Azure AD Directory-roller i PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Identitetsskydd
 
 Azure AD Identity Protection är en säkerhets tjänst som tillhandahåller en samlad vy över risk identifieringar och potentiella sårbarheter som påverkar organisationens identiteter. Identitets skydd drar nytta av befintliga funktioner för avvikelse identifiering i Azure AD, som är tillgängliga via rapporter om avvikande aktivitets rapporter i Azure AD. Identitets skydd introducerar också nya risk identifierings typer som kan identifiera avvikelser i real tid.
 
@@ -174,7 +174,7 @@ Läs mer:
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Hybrid identitets hantering/Azure AD Connect
 
-Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar det för hybrididentitet. Azure AD Connect är Microsoft-verktyget som har utformats för att uppfylla och uppnå dina hybrididentitetsmål. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. Den tillhandahåller följande funktioner:
+Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar det för hybrididentitet. Azure AD Connect är Microsoft-verktyget som har utformats för att uppfylla och uppnå dina hybrididentitetsmål. På så sätt kan du erbjuda en gemensam identitet för dina användare för Microsoft 365, Azure och SaaS-program som är integrerade med Azure AD. Den tillhandahåller följande funktioner:
 
 * Synkronisering
 * AD FS-och Federations integrering

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: f3a41fbd3cbd5b7c8eccfbea8833fdfedee97510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512393"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399048"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure import/export-tjänsten: vanliga frågor och svar
 
@@ -23,7 +23,7 @@ Följande är frågor och svar som du kan ha när du använder Azure import/expo
 - Förbereda diskarna för import/export
 - Import/export-jobb
 - Leverans diskar
-- Övrigt
+- Övriga farliga ämnen
 
 ## <a name="about-importexport-service"></a>Om import/export-tjänsten
 
@@ -35,9 +35,9 @@ Ja. Tjänsten Azure import/export stöder import till Azure File Storage. Den st
 
 Ja. Azure import/export-tjänsten stöder prenumerationer av moln lösnings leverantörer (CSP).
 
-### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>Kan jag använda Azure import/export-tjänsten för att kopiera PST-postlådor och SharePoint-data till O365?
+### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-microsoft-365"></a>Kan jag använda Azure import/export-tjänsten för att kopiera PST-postlådor och SharePoint-data till Microsoft 365?
 
-Ja. Mer information finns i [importera PST-filer eller SharePoint-data till Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Ja. Mer information finns i [Översikt över att importera din organisations PST-filer](/microsoft-365/compliance/importing-pst-files-to-office-365).
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>Kan jag använda Azure import/export-tjänsten för att kopiera mina säkerhets kopior offline till den Azure Backup tjänsten?
 
@@ -120,7 +120,7 @@ Vissa lagrings konto platser mappas till alternativa leverans platser. Tidigare 
 
 Telefonnumret och DC-adressen anges som en del av jobb skapandet.
 
-## <a name="miscellaneous"></a>Övrigt
+## <a name="miscellaneous"></a>Övriga farliga ämnen
 
 ### <a name="what-happens-if-i-accidentally-send-an-hdd-that-does-not-conform-to-the-supported-requirements"></a>Vad händer om jag skickar en hård disk av misstag som inte uppfyller de krav som stöds?
 

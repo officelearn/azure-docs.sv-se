@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386154"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399813"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -82,7 +82,7 @@ Du kan använda [PowerShell för att förhindra att lösen ord upphör att gäll
 Om din organisation använder en hybrid identitets lösning med direktautentisering eller Federation, bör du aktivera lösen ords-hash-synkronisering av följande två orsaker:
 
 * Rapporten [användare med läckta autentiseringsuppgifter](../../active-directory/reports-monitoring/concept-risk-events.md) i Azure AD-hanteringen varnar dig om användar namn och lösen ord, som har exponerats på den "mörka webben". En otrolig mängd lösen ord läcker genom nätfiske, skadlig kod och återkoppling av lösen ord på tredje parts webbplatser som senare strider mot varandra. Microsoft hittar många av dessa autentiseringsuppgifter och meddelar dig, i den här rapporten, om de stämmer överens med autentiseringsuppgifter i din organisation, men bara om du [aktiverar lösen ords synkronisering av lösen ord](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
-* I händelse av ett lokalt avbrott (till exempel i en utpressnings attack) kan du växla över till att använda [molnbaserad autentisering med hjälp av hash-synkronisering av lösen ord](choose-ad-authn.md). Med den här metoden för säkerhets kopiering kan du fortsätta att komma åt appar som kon figurer ATS för autentisering med Azure Active Directory, inklusive Office 365. I det här fallet behöver IT-personalen inte använda personliga e-postkonton för att dela data förrän det lokala avbrottet har åtgärd ATS.
+* I händelse av ett lokalt avbrott (till exempel i en utpressnings attack) kan du växla över till att använda [molnbaserad autentisering med hjälp av hash-synkronisering av lösen ord](choose-ad-authn.md). Med den här metoden för säkerhets kopiering kan du fortsätta att komma åt appar som kon figurer ATS för autentisering med Azure Active Directory, inklusive Microsoft 365. I det här fallet behöver IT-personalen inte använda personliga e-postkonton för att dela data förrän det lokala avbrottet har åtgärd ATS.
 
 Lär dig mer om hur [synkronisering av lösen ord för hash](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) fungerar.
 
@@ -193,7 +193,7 @@ Azure ADs självbetjäning för [återställning av lösen ord (SSPR)](../../act
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementera självbetjänings grupp-och program åtkomst
 
-Azure AD ger möjlighet till icke-administratörer att hantera åtkomst till resurser, med hjälp av säkerhets grupper, Office 365-grupper, program roller och åtkomst till paket kataloger.  [Grupp hantering via självbetjäning](../../active-directory/users-groups-roles/groups-self-service-management.md) gör det möjligt för grupp ägare att hantera sina egna grupper, utan att behöva tilldelas en administrativ roll. Användare kan också skapa och hantera Office 365-grupper utan att behöva förlita sig på administratörer för att hantera sina förfrågningar, och oanvända grupper upphör automatiskt att gälla.  [Hantering av Azure AD](../../active-directory/governance/entitlement-management-overview.md) -behörighet ger ytterligare delegering och synlighet, med omfattande åtkomst begär ande arbets flöden och automatiskt upphör Ande.  Du kan delegera till icke-administratörer möjligheten att konfigurera sina egna åtkomst paket för grupper, grupper, program och SharePoint Online-webbplatser som de äger, med anpassade principer för vem som krävs för att godkänna åtkomst, inklusive konfiguration av medarbetares chefer och affärs partner sponsorer som god kännare.
+Azure AD ger möjlighet till icke-administratörer att hantera åtkomst till resurser, använda säkerhets grupper, Microsoft 365 grupper, program roller och åtkomst till paket kataloger.  [Grupp hantering via självbetjäning](../../active-directory/users-groups-roles/groups-self-service-management.md) gör det möjligt för grupp ägare att hantera sina egna grupper, utan att behöva tilldelas en administrativ roll. Användare kan också skapa och hantera Microsoft 365 grupper utan att behöva förlita sig på administratörer för att hantera sina förfrågningar, och oanvända grupper upphör automatiskt att gälla.  [Hantering av Azure AD](../../active-directory/governance/entitlement-management-overview.md) -behörighet ger ytterligare delegering och synlighet, med omfattande åtkomst begär ande arbets flöden och automatiskt upphör Ande.  Du kan delegera till icke-administratörer möjligheten att konfigurera sina egna åtkomst paket för grupper, grupper, program och SharePoint Online-webbplatser som de äger, med anpassade principer för vem som krävs för att godkänna åtkomst, inklusive konfiguration av medarbetares chefer och affärs partner sponsorer som god kännare.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementera åtkomst granskningar för Azure AD
 

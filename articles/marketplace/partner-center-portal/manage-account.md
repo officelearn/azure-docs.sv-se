@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015840"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400697"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella Marketplace-konto i Partner Center
 
@@ -227,7 +227,7 @@ Om du väljer fler än en grupp som ska läggas till i ditt partner Center-konto
 
 När du lägger till en befintlig grupp kommer alla användare som är medlemmar i gruppen att kunna komma åt ditt partner Center-konto, med de behörigheter som är kopplade till gruppens tilldelade roll.
 
-### <a name="add-a-new-group"></a>Lägga till en ny grupp
+### <a name="add-a-new-group"></a>Lägg till en ny grupp
 
 Så här lägger du till en helt ny grupp till ditt partner Center-konto:
 
@@ -306,7 +306,7 @@ Mer information om hur du hanterar roller och behörigheter i andra delar av Par
 
 ## <a name="manage-tenants"></a>Hantera klienter
 
-En Azure Active Directory-klient (AD), som även kallas ditt "arbets konto" i den här dokumentationen, är en representation av organisationen som är konfigurerad i Azure Portal och hjälper dig att hantera en särskild instans av Microsofts moln tjänster för dina interna och externa användare. Om din organisation prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Office 365, upprättades en Azure AD-klient åt dig.
+En Azure Active Directory-klient (AD), som även kallas ditt "arbets konto" i den här dokumentationen, är en representation av organisationen som är konfigurerad i Azure Portal och hjälper dig att hantera en särskild instans av Microsofts moln tjänster för dina interna och externa användare. Om din organisation prenumererar på en moln tjänst från Microsoft, till exempel Azure, Microsoft Intune eller Microsoft 365, upprättades en Azure AD-klient åt dig.
 
 Du kan konfigurera flera klienter som ska användas med partner Center. Alla användare med rollen **chef** i Partner Center-kontot kan välja att lägga till och ta bort Azure AD-klienter från kontot.  
 

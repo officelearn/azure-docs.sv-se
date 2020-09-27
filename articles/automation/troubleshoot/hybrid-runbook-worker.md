@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187208"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400425"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Felsöka problem med Hybrid Runbook Worker
 
@@ -234,11 +234,11 @@ Loggar lagras lokalt på varje hybrid Worker på C:\ProgramData\Microsoft\System
 
 Hybrid Worker skickar [Runbook-utdata och meddelanden](../automation-runbook-output-and-messages.md) till Azure Automation på samma sätt som Runbook-jobb som körs i molnet skickar utdata och meddelanden. Du kan aktivera utförlig och förlopps strömmar precis som du gör för Runbooks.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator.Sandbox.exe kan inte ansluta till Office 365 via proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Scenario: Orchestrator.Sandbox.exe kan inte ansluta till Microsoft 365 via proxy
 
 #### <a name="issue"></a>Problem
 
-Ett skript som körs på en Windows-Hybrid Runbook Worker kan inte ansluta som förväntat till Office 365 i ett Orchestrator-läge. Skriptet använder [Connect-MSOLService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) för anslutning. 
+Ett skript som körs på en Windows-Hybrid Runbook Worker kan inte ansluta som förväntat Microsoft 365 på ett Orchestrator-sandbox. Skriptet använder [Connect-MSOLService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) för anslutning. 
 
 Om du justerar **Orchestrator.Sandbox.exe.config** för att ställa in proxyn och bypass-listan, ansluts inte sand lådan ändå korrekt. En **Powershell_ise.exe.config** -fil med samma inställningar för proxy och kringgå lista verkar fungera som förväntat. Service Management Automation (SMA) loggar och PowerShell-loggar tillhandahåller inte någon information om proxyn.
 

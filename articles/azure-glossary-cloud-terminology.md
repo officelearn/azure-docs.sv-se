@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079578"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400148"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure ord lista: en ord lista med moln terminologi på Azure-plattformen
 
@@ -30,7 +30,7 @@ Ord listan Microsoft Azure är en kort ord lista med moln terminologi för Azure
 * Användnings [villkor för molnbaserad data](https://azure.microsoft.com/overview/cloud-computing-dictionary/) behandling – allmänna bransch villkor för molnet.
 
 ## <a name="account"></a>konto
-Ett konto som används för att få åtkomst till och hantera en Azure-prenumeration. Det kallas ofta ett Azure-konto även om ett konto kan vara något av följande: ett befintligt arbets-, skol-eller personliga Microsoft-konto eller ett Office 365-användar namn och lösen ord. Du kan också skapa ett konto för att hantera en Azure-prenumeration när du registrerar dig för den [kostnads fria utvärderings versionen](https://azure.microsoft.com).  
+Ett konto som används för att få åtkomst till och hantera en Azure-prenumeration. Det kallas ofta ett Azure-konto även om ett konto kan vara något av följande: ett befintligt arbets-, skol-eller privat Microsoft-konto. Du kan också skapa ett konto för att hantera en Azure-prenumeration när du registrerar dig för den [kostnads fria utvärderings versionen](https://azure.microsoft.com).  
 Se [Registrera dig för en Azure-prenumeration med ditt Microsoft 365 konto](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) och [konton som du kan använda för att logga](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)in.
 
 ## <a name="api-app"></a>API-app
@@ -46,7 +46,7 @@ Se [Hantera tillgängligheten för virtuella Windows-datorer](virtual-machines/w
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>Klassisk Azure-distributions modell
 En av två [distributions modeller](resource-manager-deployment-model.md) som används för att distribuera resurser i Azure (den nya modellen är Azure Resource Manager). Vissa Azure-tjänster stöder bara distributions modellen Resource Manager, vissa stöder bara den klassiska distributions modellen och vissa stöder båda. Dokumentationen för varje Azure-tjänst anger vilken eller vilka modeller de stöder.
 
-## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Kommando rads gränssnitt för Azure (CLI)
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Azures kommandoradsgränssnitt (CLI)
 Ett kommando rads gränssnitt som kan användas för att hantera Azure-tjänster från Windows, macOS och Linux.  Vissa tjänster eller tjänst funktioner kan endast hanteras via PowerShell eller CLI. Se [Azure CLI](/cli/azure)
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
@@ -90,7 +90,7 @@ Se [sidan med information om Azure-erbjudanden](https://azure.microsoft.com/supp
 ## <a name="portal"></a>portal
 En säker webb portal som används för att distribuera och hantera Azure-tjänster.
 
-## <a name="region"></a>regionen
+## <a name="region"></a>region
 Ett område inom en geo som inte korsar nationella gränser och innehåller ett eller flera data Center. Priser, regionala tjänster och erbjudande typer visas på regions nivå. En region är vanligt vis kopplad till en annan region, vilket kan vara upp till flera hundra mil. Regionala par kan användas som en mekanism för haveri beredskap och scenarier med hög tillgänglighet. Kallas även *plats*.  
 Se [Azure-regioner](best-practices-availability-paired-regions.md)
 

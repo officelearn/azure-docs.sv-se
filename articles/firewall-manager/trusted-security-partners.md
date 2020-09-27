@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563601"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399439"
 ---
 # <a name="what-are-security-partner-providers"></a>Vad är en säkerhetspartnerprovider?
 
@@ -44,7 +44,7 @@ Följande scenarier stöds:
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Metod tips för Internet trafik filtrering i skyddade virtuella hubbar
 
-Internet trafiken omfattar vanligt vis webb trafik. Men det inkluderar även trafik som är avsedd för SaaS-program som Office 365 (O365) och Azures offentliga PaaS-tjänster som Azure Storage, Azure SQL och så vidare. Följande är rekommendationer för att hantera trafik till dessa tjänster:
+Internet trafiken omfattar vanligt vis webb trafik. Men det omfattar också trafik som är avsedd för SaaS-program som Microsoft 365 och offentliga Azure PaaS-tjänster som Azure Storage, Azure SQL och så vidare. Följande är rekommendationer för att hantera trafik till dessa tjänster:
 
 ### <a name="handling-azure-paas-traffic"></a>Hantera Azure PaaS-trafik
  
@@ -54,15 +54,15 @@ Internet trafiken omfattar vanligt vis webb trafik. Men det inkluderar även tra
 
 ![Alla scenarier för Azure Firewall Manager](media/trusted-security-partners/all-scenarios.png)
 
-## <a name="handling-office-365-o365-traffic"></a>Hantera Office 365-trafik (O365)
+## <a name="handling-microsoft-365-traffic"></a>Hantera Microsoft 365 trafik
 
-I scenarier för globalt distribuerade gren platser bör du omdirigera Office 365-trafik direkt till grenen innan du skickar den återstående Internet trafiken till din Azure-skyddade hubb.
+I scenarier för globalt distribuerade gren platser bör du omdirigera Microsoft 365 trafik direkt till grenen innan du skickar den återstående Internet trafiken till Azures säkrade hubb.
 
-För Office 365 är nätverks fördröjning och prestanda avgörande för en lyckad användar upplevelse. För att uppnå dessa mål kring optimala prestanda och användar upplevelse måste kunderna implementera Office 365 Direct och Local Escape innan de överväger att vidarebefordra resten av Internet trafiken via Azure.
+För Microsoft 365 är nätverks fördröjning och prestanda avgörande för en lyckad användar upplevelse. För att uppnå dessa mål kring bästa prestanda och användar upplevelse måste kunderna implementera Microsoft 365 direkt och lokalt Escape innan de överväger att vidarebefordra resten av Internet trafiken via Azure.
 
-[Office 365 nätverks anslutnings principer](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) anrop för nyckel kontor 365 nätverks anslutningar dirigeras lokalt från användar grenen eller den mobila enheten och direkt via Internet till närmaste Microsoft-nätverksanslutning.
+[Microsoft 365 principerna för nätverks anslutning](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles) anropas för nyckel Microsoft 365 nätverks anslutningar dirigeras lokalt från användar grenen eller den mobila enheten och direkt via Internet till närmaste Microsoft-nätverks punkt.
 
-Dessutom är Office 365-anslutningar krypterade för sekretess och använder effektiva, patentskyddade protokoll för prestanda skäl. Detta gör det opraktiskt och påverkat för att omfattas av dessa anslutningar till traditionella säkerhets lösningar på nätverks nivå. Av dessa skäl rekommenderar vi starkt att kunderna skickar Office 365-trafik direkt från grenar innan resten av trafiken skickas via Azure. Microsoft har samarbetat med flera SD-WAN-lösningar, som integrerar med Azure och Office 365 och gör det enkelt för kunder att aktivera Office 365 Direct och lokala Internet-grupp. Mer information finns i [Hur gör jag för att ange mina O365-principer via virtuellt WAN-nätverk?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
+Dessutom är Microsoft 365 anslutningar krypterade för sekretess och använder effektiva, patentskyddade protokoll av prestanda skäl. Detta gör det opraktiskt och påverkat för att omfattas av dessa anslutningar till traditionella säkerhets lösningar på nätverks nivå. Av dessa skäl rekommenderar vi starkt att kunderna skickar Microsoft 365 trafik direkt från grenar innan resten av trafiken skickas via Azure. Microsoft har samarbetat med flera SD-WAN-lösningar, som integrerar med Azure och Microsoft 365 och gör det enkelt för kunderna att aktivera Microsoft 365 Direct och lokala Internet-grupp. Mer information finns i [Vad är Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

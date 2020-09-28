@@ -1,18 +1,18 @@
 ---
 title: Diagram data modellering för Azure Cosmos DB Gremlin-API
 description: Lär dig att modellera en graf-databas med hjälp av Azure Cosmos DB Gremlin API. I den här artikeln beskrivs när du ska använda en graf-databas och metod tips för att modellera entiteter och relationer.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: lbosq
-ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: jasonh
+ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261825"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409773"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
 
@@ -45,7 +45,7 @@ Nästa steg är att avgöra om grafen ska användas för analys-eller transaktio
 
 Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
-| Objekt | Egenskap | Typ | Obs! |
+| Objekt | Egenskap | Typ | Kommentarer |
 | --- | --- | --- |  --- |
 | Punkten | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
 | Punkten | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |

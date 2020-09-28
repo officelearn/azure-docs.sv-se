@@ -1,19 +1,19 @@
 ---
 title: 'Snabbstart: Gremlin-API med PHP – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder Gremlin-API i Azure Cosmos DB för att skapa ett konsolprogram med Azure Portal och PHP
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
-ms.author: lbosq
-ms.openlocfilehash: 4a979fd4b3947be62f77bbd6d7c046c6af78466c
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.author: jasonh
+ms.openlocfilehash: e8848ee0a1fe5755316b59432c465b3836a0bab1
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118312"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409365"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabb start: skapa en diagram databas i Azure Cosmos DB med PHP och Azure Portal
 
@@ -72,7 +72,7 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin-API-app f
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt hämtas från filen connect.php i mappen C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt hämtas från filen connect.php i mappen C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
 
 * Gremlin `connection` initieras i början av filen `connect.php` med objektet `$db`.
 
@@ -207,9 +207,9 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **ID-** nyckeln krävs.
 
-    Tangent | Värde | Kommentarer
+    Tangent | Värde | Obs!
     ----|----|----
-    **identitet** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **id** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | kvinna | 
     **teknik** | Java | 
 
@@ -224,9 +224,9 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 9. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
     
-    Tangent | Värde | Kommentarer
+    Tangent | Värde | Obs!
     ----|----|----
-    **identitet** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **id** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | man | 
     **skola** | MIT | 
 

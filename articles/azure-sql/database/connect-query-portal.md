@@ -1,5 +1,5 @@
 ---
-title: Fråga en SQL Database med hjälp av Frågeredigeraren i Azure Portal
+title: Fråga en SQL Database med hjälp av Frågeredigeraren i Azure Portal (för hands version)
 description: Lär dig hur du använder Frågeredigeraren för att köra Transact-SQL-frågor (T-SQL) mot en databas i Azure SQL Database.
 titleSuffix: Azure SQL Database
 keywords: ansluta till SQL Database, fråga SQL Database, Azure Portal, Portal, Frågeredigeraren
@@ -13,21 +13,21 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: sstein
 ms.date: 05/29/2020
-ms.openlocfilehash: 2b6a54c25430cd2c1e68c42571f0f9039449ce96
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4eb02c65a8ce486ea152863d8b6c6d0600280893
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335100"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409603"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Snabb start: Använd Azure Portalens Frågeredigeraren för att fråga en Azure SQL Database
+# <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>Snabb start: Använd Azure Portalens Frågeredigeraren (för hands version) för att fråga en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Frågeredigeraren är ett verktyg i Azure Portal för att köra SQL-frågor mot databasen i Azure SQL Database eller informations lagret i Azure Synapse Analytics. 
 
 I den här snabb starten använder du Frågeredigeraren för att köra Transact-SQL (T-SQL)-frågor mot en databas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten krävs AdventureWorksLT-exempel databasen. Om du inte har en fungerande kopia av AdventureWorksLT-exempel databasen i SQL Database skapar följande snabb start snabbt en:
 

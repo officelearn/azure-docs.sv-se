@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 9ba3d25a07e4d6c32bd14c315018f0d008032b73
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250495"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409484"
 ---
 # <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
@@ -30,7 +30,7 @@ Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att
 
 - **Maximalt antal samtidiga test enheter** (krävs) – Ange det maximala antalet kunder som kan använda test enheten samtidigt. Varje samtidig användare förbrukar en Dynamics 365-licens medan test enheten är aktiv, så se till att du har tillräckligt med licenser för att stödja Max gränsen. Det rekommenderade värdet är 3-5.
 
-- **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska vara aktiv. Efter den här tiden upphör sessionen och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Denna varaktighet får bara anges i hela timmar (till exempel "2" timmar är giltig; "1,5" är inte). Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
+- **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska förbli aktiv (minst en timme). Efter den här tiden upphör sessionen och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Denna varaktighet får bara anges i hela timmar (till exempel "2" timmar är giltig; "1,5" är inte). Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
 
 - **Instans-URL** (obligatorisk) – URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat (till exempel `https://testdrive.crm.dynamics.com` ).
 
@@ -48,7 +48,7 @@ Den här typen av test enhet är inte Microsoft-värd. Använd den för att ansl
 
 - **Maximalt antal samtidiga test enheter** (krävs) – Ange det maximala antalet kunder som kan använda test enheten samtidigt. De här test enheterna har redan distribuerats, vilket gör det möjligt för kunder att komma åt dem direkt utan att vänta på en distribution.
 
-- **Test enhetens varaktighet** (krävs) – ange hur lång tid test enheten ska vara aktiv, i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut.
+- **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska förbli aktiv (minst en timme). Test enheten avslutas automatiskt när den här tids perioden är slut.
 
 - **Namn på Azure-resurs grupp** (obligatoriskt) – Ange namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md#resource-groups)) där din Logic app-testenhet sparas.
 

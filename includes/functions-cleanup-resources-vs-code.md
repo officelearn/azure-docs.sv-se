@@ -2,18 +2,18 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/12/2020
+ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: 2eb8b988d7d65b444fe41ecb21dddfab4ff4cfa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125864"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408590"
 ---
-1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Open in portal` .
+1. I Visual Studio Code, trycker du på <kbd>F1</kbd> för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Open in portal` .
 
-1. Välj Function-appen och tryck på RETUR. Sidan Function-appen öppnas i Azure Portal.
+1. Välj Function-appen och tryck på <kbd>RETUR</kbd>. Sidan Function-appen öppnas i Azure Portal.
 
 1. På fliken **Översikt** väljer du den namngivna länken bredvid **resurs grupp**.
 

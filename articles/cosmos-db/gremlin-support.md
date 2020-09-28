@@ -1,18 +1,18 @@
 ---
 title: Stöd för Gremlin i Azure Cosmos DB
 description: Läs mer om Gremlin-språket från Apache TinkerPop. Läs vilka funktioner och steg som finns tillgängliga i Azure Cosmos DB
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 04/23/2020
-ms.author: lbosq
-ms.openlocfilehash: 75a796a860acbd4279938b315fafccb9333906bd
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.author: jasonh
+ms.openlocfilehash: 2629cfc40a9f3c0745df78d9a22883be8476beb9
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567273"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409752"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
 Azure Cosmos DB har stöd för [Apache Tinkerpops](https://tinkerpop.apache.org) diagram Traversal, som kallas [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
@@ -23,7 +23,7 @@ I den här artikeln ger vi en snabb genom gång av Gremlin och räknar upp de Gr
 
 Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azure Cosmos DB:
 
-| Hämta | Källa | Komma igång | Version av anslutningsappen som stöds |
+| Ladda ned | Källa | Komma igång | Version av anslutningsappen som stöds |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) | 3.2.0+ |
@@ -37,7 +37,7 @@ TinkerPop är en standard som omfattar en mängd olika diagramtekniker. Därför
 
 Följande tabell visar den TinkerPop-funktioner som implementeras av Azure Cosmos DB: 
 
-| Kategori | Azure Cosmos DB-implementering |  Obs! | 
+| Kategori | Azure Cosmos DB-implementering |  Kommentarer | 
 | --- | --- | --- |
 | Diagramfunktioner | Ger beständighet och ConcurrentAccess. Designad att stödja transaktioner | Datormetoder kan implementeras via Spark-anslutningsappen. |
 | Variabla funktioner | Stöder boolesk, heltal, byte, dubbel, flyttal, heltal, lång, sträng | Har stöd för primitiva typer, är kompatibel med komplexa typer via datamodellen |

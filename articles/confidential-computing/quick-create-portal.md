@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 476b93400b69063590c12ed38037c0bf6c6d1714
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281080"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409552"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Snabb start: Distribuera en virtuell Azure-dator med konfidentiella data behandling i Azure Portal
 
@@ -144,7 +144,7 @@ Mer information om hur du ansluter till virtuella Linux-datorer finns i [Skapa e
 > [!NOTE]
 > Om du ser en PuTTY-säkerhetsvarning om att serverns värdnyckel inte cachelagras i registret kan du välja bland följande alternativ. Om du litar på den här värden väljer du **Ja** för att lägga till nyckeln i PuTTy-cacheminnet och fortsätta anslutningen. Om du vill fortsätta med att bara ansluta en gång utan att lägga till nyckeln i cacheminnet väljer du **Nej**. Om du inte litar på den här värden lämnar du anslutningen genom att välja **Avbryt**.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Installera Open enklaven SDK (OE SDK)<a id="Install"></a>
+## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Installera Open enklaven SDK (OE SDK) <a id="Install"></a>
 
 Följ de stegvisa anvisningarna för att installera [OE SDK](https://github.com/openenclave/openenclave) på den virtuella DCsv2-serien som kör en Ubuntu 18,04-LTS gen 2-avbildning. 
 
@@ -199,9 +199,7 @@ Välj resurs gruppen för den virtuella datorn och välj sedan **ta bort**. Bekr
 
 I den här snabb starten har du distribuerat en virtuell dator med konfidentiella data behandling och installerat Open enklaven SDK. Mer information om konfidentiell dator användning av virtuella datorer i Azure finns i [lösningar på Virtual Machines](virtual-machine-solutions.md). 
 
-Om du har distribuerat en virtuell Windows-dator kan du läsa om hur du skapar program med [OE SDK-exempel för Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) på GitHub. 
-
-Upptäck hur du kan skapa konfidentiella dator program i Linux genom att fortsätta till Open enklaven SDK Linux-exempel på GitHub. 
+Upptäck hur du kan skapa konfidentiella data behandlings program genom att fortsätta till Open enklaven SDK-exempel på GitHub. 
 
 > [!div class="nextstepaction"]
-> [Skapa öppna enklaven SDK-exempel på Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Skapa öppna enklaven SDK-exempel](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

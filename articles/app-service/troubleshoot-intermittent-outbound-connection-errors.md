@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360216"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408223"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Felsöka återkommande utgående anslutnings fel i Azure App Service
 
@@ -93,16 +93,6 @@ Anslutningspoolen för HTTP-anslutning
 
    * [Hantering av PHP-anslutning](https://www.php.net/manual/en/pdo.connections.php)
 
-#### <a name="python"></a>Python
-
-* [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
-* [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)
-* [PostgreSQL](https://node-postgres.com/features/pooling)
-* [SQL Server](https://github.com/tediousjs/node-mssql#connection-pools) (Obs: SQLAlchemy kan användas med andra databaser förutom MicrosoftSQL-Server)
-* [Http Keep-Alive](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)(Keep-Alive är automatiskt när du använder sessioner [-objekt](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)).
-
-För andra miljöer granskar du provider-eller drivrutinsspecifika dokument för att implementera anslutningspoolen i dina program.
-
 ### <a name="modify-the-application-to-reuse-connections"></a>Ändra programmet för att återanvända anslutningar
 
 *  Ytterligare pekare och exempel på hur du hanterar anslutningar i Azure Functions finns [i hantera anslutningar i Azure Functions](../azure-functions/manage-connections.md).
@@ -124,7 +114,7 @@ För andra miljöer granskar du provider-eller drivrutinsspecifika dokument för
 
 Att undvika de utgående TCP-gränserna är enklare att lösa, eftersom gränserna anges av storleken på din arbets grupp. Du kan se gränserna i [sand Box tvärs med numeriska gränser – TCP-anslutningar](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Gräns namn|Description|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
+|Gräns namn|Beskrivning|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
 |---|---|---|---|---|---|
 |Anslutningar|Antal anslutningar över hela den virtuella datorn|1920|3968|8064|16 000|
 
@@ -156,7 +146,7 @@ TCP-anslutningar och SNAT-portar är inte direkt relaterade. En användnings det
 * Gränsen för TCP-anslutningar sker på arbets instans nivån. Azure Network utgående belastnings utjämning använder inte TCP-anslutnings måttet för begränsning av SNAT-portar.
 * Gränsen för TCP-anslutningar beskrivs i [sand Box Cross VM-numeriska gränser-TCP-anslutningar](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Gräns namn|Description|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
+|Gräns namn|Beskrivning|Liten (a1)|Medel (a2)|Stor (a3)|Isolerad nivå (ASE)|
 |---|---|---|---|---|---|
 |Anslutningar|Antal anslutningar över hela den virtuella datorn|1920|3968|8064|16 000|
 

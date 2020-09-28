@@ -1,22 +1,22 @@
 ---
-title: Snabb start – Bygg & kör behållar avbildning
-description: Kör snabbt uppgifter med Azure Container Registry för att skapa och köra en Docker-behållar avbildning på begäran i molnet.
+title: Snabb start – bygga en behållar avbildning på begäran i Azure
+description: Använd Azure Container Registry-kommandon för att snabbt skapa, skicka och köra en Docker-behållare på begäran i Azure-molnet.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.openlocfilehash: 6c73eb8ec69014858299eb940036716eff646137
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753694"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409841"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Snabb start: skapa och köra en behållar avbildning med Azure Container Registry uppgifter
 
-I den här snabb starten använder du Azure Container Registry uppgifter-kommandon för att snabbt skapa, skicka och köra en Docker-behållar avbildning internt i Azure, som visar hur du avlastar utvecklings cykeln "Inner-loop" till molnet. [ACR-aktiviteter][container-registry-tasks-overview] är en uppsättning funktioner i Azure Container Registry som hjälper dig att hantera och ändra behållar avbildningar över livs cykeln för behållare. 
+I den här snabb starten använder du [Azure Container Registry uppgifter][container-registry-tasks-overview] -kommandon för att snabbt skapa, skicka och köra en Docker-behållar avbildning internt i Azure utan en lokal Docker-installation. ACR-aktiviteter är en uppsättning funktioner i Azure Container Registry som hjälper dig att hantera och ändra behållar avbildningar över livs cykeln för behållare. Det här exemplet visar hur du avlastar utvecklings cykeln "inre loop" för behållar avbildningen till molnet med på begäran-versioner med en lokal Dockerfile. 
 
-Efter den här snabb starten ska du utforska mer avancerade funktioner i ACR-aktiviteter. ACR-aktiviteter kan automatisera image-versioner baserat på kod incheckningar eller grund avbildnings uppdateringar eller testa flera behållare parallellt, bland andra scenarier. 
+Efter den här snabb starten kan du utforska mer avancerade funktioner i ACR-aktiviteter med hjälp av [självstudierna](container-registry-tutorial-quick-task.md). ACR-aktiviteter kan automatisera image-versioner baserat på kod incheckningar eller grund avbildnings uppdateringar eller testa flera behållare parallellt, bland andra scenarier. 
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][azure-account] innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][azure-account] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -45,7 +45,7 @@ I det här exemplet skapas ett *grundläggande* register, ett kostnads optimerat
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Bygg och skicka avbildningar från en Dockerfile
 
-Använd nu Azure Container Registry för att bygga och skicka en avbildning. Skapa först en arbets katalog och skapa sedan en Dockerfile med namnet *Dockerfile* med den enskilda raden: `FROM hello-world` . Det här är ett enkelt exempel på hur du skapar en Linux container-avbildning från `hello-world` avbildningen i Docker Hub. Du kan skapa egna standard-Dockerfile och skapa avbildningar för andra plattformar. Om du arbetar med ett bash-gränssnitt skapar du Dockerfile med följande kommando:
+Använd nu Azure Container Registry för att bygga och skicka en avbildning. Skapa först en lokal arbets katalog och skapa sedan en Dockerfile med namnet *Dockerfile* med den enskilda raden: `FROM hello-world` . Det här är ett enkelt exempel på hur du skapar en Linux container-avbildning från `hello-world` avbildningen i Docker Hub. Du kan skapa egna standard-Dockerfile och skapa avbildningar för andra plattformar. Om du arbetar med ett bash-gränssnitt skapar du Dockerfile med följande kommando:
 
 ```bash
 echo FROM hello-world > Dockerfile

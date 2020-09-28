@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 35bf66549cedba22ec14999c4fea62a2c449416e
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897444"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408023"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Tolkning: modell förklaringar i automatiserad Machine Learning (för hands version)
 
@@ -31,9 +31,9 @@ I den här artikeln kan du se hur du:
 - Aktivera visualiseringar så att du kan se mönster i data och förklaringar.
 - Implementera tolkning under härledning eller poängsättning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Tolknings funktioner. Kör `pip install azureml-interpret azureml-contrib-interpret` för att hämta de nödvändiga paketen.
+- Tolknings funktioner. Kör `pip install azureml-interpret` för att hämta det nödvändiga paketet.
 - Kunskap om att skapa automatiserade ML-experiment. Mer information om hur du använder Azure Machine Learning SDK finns i [själv studie kursen om regressions modell](tutorial-auto-train-models.md) eller hur du [konfigurerar automatiserade ml-experiment](how-to-configure-auto-train.md).
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Tolkning under utbildning för bästa modell
@@ -43,7 +43,7 @@ Hämta förklaringen från `best_run` , som innehåller förklaringar för de fu
 > [!Warning]
 > Tolkning, bästa modell förklaring, är inte tillgänglig för experiment med automatisk ML-prognoser som rekommenderar följande algoritmer som bästa modell: 
 > * ForecastTCN
-> * Genomsnitt 
+> * Medel 
 > * Naive
 > * Säsongs genomsnitt 
 > * Säsongs Naive
@@ -53,7 +53,7 @@ Hämta förklaringen från `best_run` , som innehåller förklaringar för de fu
 Du kan använda `ExplanationClient` för att ladda ned de tekniker som är de som är utformade från artefakt lagret för `best_run` . 
 
 ```python
-from azureml.explain.model._internal.explanation_client import ExplanationClient
+from azureml.interpret import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -99,7 +99,7 @@ Om du vill generera en förklaring för AutoML-modeller använder du- `MimicWrap
 MimicWrapper tar också `automl_run` objektet där de utformade förklaringarna kommer att laddas upp.
 
 ```python
-from azureml.explain.model.mimic_wrapper import MimicWrapper
+from azureml.interpret import MimicWrapper
 
 # Initialize the Mimic Explainer
 explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,

@@ -3,18 +3,18 @@ title: 'Snabb start – registrera TPM-enhet på Azure Device Provisioning-tjän
 description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med C#-tjänst-SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 7d6a8fe0d5d0524331c97221db777774d5db6b10
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 872d1f43f1e9dc180e41a2bf625ca18b74522b40
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323834"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409518"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med C#-tjänst-SDK
 
@@ -128,12 +128,15 @@ Det här avsnittet visar hur du skapar en .NET Core-webbapp som lägger till en 
    }
    ```
 
-1. Ersätt slutligen bröd texten i `Main` metoden med följande rader:
+1. Ersätt till sist `Main` metoden med följande rader:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Skapa lösningen.

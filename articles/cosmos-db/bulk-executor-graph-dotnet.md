@@ -1,20 +1,20 @@
 ---
 title: Använd Graph-utförar .NET-bibliotek med Azure Cosmos DB Gremlin API
 description: Lär dig hur du använder bulk utförar-biblioteket för att importera graf-data i en Azure Cosmos DB Gremlin API-behållare.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: lbosq
+ms.author: jasonh
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6fd81a844832fbe6ad7410ec786baa431ca9930c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: dbb2ce5c7765e9b2784e5a60f94919b3ee855a39
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004110"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408072"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 
@@ -114,7 +114,7 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>Exempelprogram
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 * Visual Studio 2019 med arbets belastningen Azure Development. Du kan komma igång med [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) kostnads fritt.
 * En Azure-prenumeration. Du kan skapa [ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Du kan också skapa ett Cosmos Database-konto med [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 * En Azure Cosmos DB Gremlin API-databas med en **obegränsad samling**. Den här guiden visar hur du kommer igång med [Azure Cosmos DB Gremlin API i .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).

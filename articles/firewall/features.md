@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095592"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408515"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall-funktioner
 
@@ -24,7 +24,7 @@ Azure-brandväggen innehåller följande funktioner:
 
 - [Inbyggd hög tillgänglighet](#built-in-high-availability)
 - [Tillgänglighetszoner](#availability-zones)
-- [Obegränsad molnskalbarhet](#unrestricted-cloud-scalability)
+- [Obegränsad moln skalbarhet](#unrestricted-cloud-scalability)
 - [Programmets FQDN-filtreringsregler](#application-fqdn-filtering-rules)
 - [Regler för filtrering av nätverkstrafik](#network-traffic-filtering-rules)
 - [FQDN-taggar](#fqdn-tags)
@@ -33,7 +33,7 @@ Azure-brandväggen innehåller följande funktioner:
 - [Stöd för utgående SNAT](#outbound-snat-support)
 - [Stöd för inkommande DNAT](#inbound-dnat-support)
 - [Flera offentliga IP-adresser](#multiple-public-ip-addresses)
-- [Azure Monitor-loggning](#azure-monitor-logging)
+- [Azure Monitor loggning](#azure-monitor-logging)
 - [Tvingad tunneltrafik](#forced-tunneling)
 - [Certifieringar](#certifications)
 
@@ -62,11 +62,11 @@ Azure Firewall kan skala upp så mycket du behöver för att hantera föränderl
 
 ## <a name="application-fqdn-filtering-rules"></a>Programmets FQDN-filtreringsregler
 
-Du kan begränsa utgående HTTP/S-trafik eller Azure SQL-trafik (för hands version) till en angiven lista med fullständigt kvalificerade domän namn (FQDN), inklusive jokertecken. Den här funktionen kräver ingen TLS-avslutning.
+Du kan begränsa utgående HTTP/S-trafik eller Azure SQL-trafik till en angiven lista med fullständigt kvalificerade domän namn (FQDN), inklusive jokertecken. Den här funktionen kräver ingen TLS-avslutning.
 
 ## <a name="network-traffic-filtering-rules"></a>Regler för filtrering av nätverkstrafik
 
-Du kan centralt skapa nätverksfiltreringsreglerna *tillåt* eller *neka* efter källans och målets IP-adress, port och protokoll. Azure Firewall är helt tillståndskänslig så att den kan identifiera legitima paket för olika typer av anslutningar. Regler tillämpas och loggas i flera prenumerationer och virtuella nätverk.
+Du kan centralt skapa *Tillåt* eller *neka* regler för nätverks filtrering efter källa och mål-IP-adress, port och protokoll. Azure Firewall är helt tillståndskänslig så att den kan identifiera legitima paket för olika typer av anslutningar. Regler tillämpas och loggas i flera prenumerationer och virtuella nätverk.
 
 ## <a name="fqdn-tags"></a>FQDN-taggar
 
@@ -78,7 +78,7 @@ En [service tag](service-tags.md) -uppsättning representerar en grupp med IP-ad
 
 ## <a name="threat-intelligence"></a>Hotinformation
 
-[Threat Intelligence](threat-intel.md)-baserad filtrering kan aktive ras för brand väggen för att varna och neka trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
+[Threat Intelligence](threat-intel.md)-baserad filtrering kan aktive ras för brand väggen för att varna och neka trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
 
 ## <a name="outbound-snat-support"></a>Stöd för utgående SNAT
 
@@ -97,7 +97,7 @@ Du kan associera [flera offentliga IP-adresser](deploy-multi-public-ip-powershel
 Detta möjliggör följande scenarier:
 
 - **DNAt** – du kan översätta flera standard port instanser till backend-servrarna. Om du till exempel har två offentliga IP-adresser kan du översätta TCP-port 3389 (RDP) för båda IP-adresserna.
-- **SNAT** -ytterligare portar är tillgängliga för utgående SNAT-anslutningar, vilket minskar risken för SNAT-port överbelastning. För tillfället väljer Azure Firewall slumpmässigt den offentliga IP-adress som ska användas för en anslutning. Om du har filtrering av underordnade i nätverket måste du tillåta alla offentliga IP-adresser som är kopplade till din brand vägg. Överväg att använda ett [offentligt IP](../virtual-network/public-ip-address-prefix.md) -adressprefix för att förenkla den här konfigurationen.
+- **SNAT** -ytterligare portar är tillgängliga för utgående SNAT-anslutningar, vilket minskar risken för SNAT-port överbelastning. För tillfället väljer Azure Firewall slumpmässigt den offentliga IP-adress som ska användas för en anslutning. Om du har filtrering nedströms i nätverket måste du tillåta alla offentliga IP-adresser som är associerade med brandväggen. Överväg att använda ett [offentligt IP](../virtual-network/public-ip-address-prefix.md) -adressprefix för att förenkla den här konfigurationen.
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 

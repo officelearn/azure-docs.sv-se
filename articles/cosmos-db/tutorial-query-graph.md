@@ -1,20 +1,20 @@
 ---
 title: Hur frågar man efter diagramdata SQL i Azure Cosmos DB?
 description: Lär dig att fråga diagram data från Azure Cosmos DB med Gremlin-frågor
-author: luisbosquez
-ms.author: lbosq
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f699f6ace6989cec7c3050e7c0bd050f3b84c3c6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f5d3542527f73d4a172e26a0d9222eaa077523c3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019495"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409467"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Självstudie: Fråga Azure Cosmos DB Gremlin-API med hjälp av Gremlin
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver följande uppgifter:
 > [!div class="checklist"]
 > * Fråga efter data med Gremlin
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha diagramdata i containern. Har du detta? Slutför [snabbstarten på 5 minuter](create-graph-dotnet.md) eller [självstudien för utvecklare](tutorial-query-graph.md) om du behöver skapa ett konto och fylla i databasen. Du kan köra följande frågor från [Gremlin-konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) eller din favoritdrivrutin för Gremlin.
 

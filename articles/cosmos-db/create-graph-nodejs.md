@@ -1,20 +1,20 @@
 ---
 title: Skapa en Azure Cosmos DB Node.js-app med Gremlin API:t
 description: Presenterar ett Node.js-kodexempel som du kan använda för att ansluta till och ställa frågor mot Azure Cosmos DB
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ad102bd241e9abd85d40e736d131875b0743f63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328708"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409382"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett Node.js program med hjälp av Azure Cosmos DB Gremlin API-konto
 
@@ -29,7 +29,7 @@ ms.locfileid: "91328708"
 
 I den här snabb starten skapar och hanterar du ett Azure Cosmos DB Gremlin (Graph) API-konto från Azure Portal och lägger till data med hjälp av en Node.js app som klonas från GitHub. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Node.js 0.10.29 +](https://nodejs.org/).
 - [Git](https://git-scm.com/downloads).

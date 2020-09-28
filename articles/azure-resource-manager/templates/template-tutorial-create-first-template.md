@@ -2,20 +2,20 @@
 title: Självstudie – Skapa & distribuera mall
 description: Skapa din första Azure Resource Manager-mall. I självstudien får du lära dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 6eb2cf792eb5a458bff8508bc21e1e0690e2e1f3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069245"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409224"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Självstudie: skapa och distribuera din första ARM-mall
 
-I den här självstudien beskrivs Azure Resource Manager (ARM) mallar. Det visar hur du skapar en start-mall och distribuerar den till Azure. Du lär dig mer om mallens struktur och de verktyg du behöver för att arbeta med mallar. Det tar ungefär **12 minuter** att slutföra den här självstudien, men den faktiska tiden varierar beroende på hur många verktyg du behöver installera.
+I den här självstudien beskrivs Azure Resource Manager mallar (ARM-mallar). Det visar hur du skapar en start-mall och distribuerar den till Azure. Du lär dig mer om mallens struktur och de verktyg du behöver för att arbeta med mallar. Det tar ungefär **12 minuter** att slutföra den här självstudien, men den faktiska tiden varierar beroende på hur många verktyg du behöver installera.
 
 Den här självstudien är den första i en serie. När du går igenom serien ändrar du stegvisa start mal len tills du har utforskat alla kärn delar av en ARM-mall. Dessa element är Bygg stenarna för mycket mer komplexa mallar. Vi hoppas i slutet av serien och du är säker på att du har skapat dina egna mallar och kan automatisera dina distributioner med mallar.
 
@@ -25,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="get-tools"></a>Hämta verktyg
 
-Låt oss börja med att kontrol lera att du har de verktyg du behöver för att skapa och distribuera mallar.
+Låt oss börja med att kontrol lera att du har de verktyg du behöver för att skapa och distribuera mallar. Installera dessa verktyg på den lokala datorn.
 
 ### <a name="editor"></a>Redigerare
 

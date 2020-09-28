@@ -1,20 +1,20 @@
 ---
 title: Bygg en graf-databas med java i Azure Cosmos DB
 description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor mot Azure Cosmos DB via Gremlin.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 05fc7a7a5bd7e045125cb303e1f5c29d550c58ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ad00fcc0c7b871210b29400821808b6729d953f6
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323680"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409416"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Snabb start: bygga en graf-databas med Java SDK och Azure Cosmos DB Gremlin-API: et
 
@@ -69,7 +69,7 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin-API-app f
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information).
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information).
 
 Följande kodfragment är alla hämtade från filen *C:\git-samples\azure-Cosmos-DB-Graph-Java-Getting-started\src\GetStarted\Program.java* .
 
@@ -128,7 +128,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     `username: /dbs/$database$/colls/$collection$`
 
-    till 
+    på 
 
     `username: /dbs/sample-database/colls/sample-graph`
 
@@ -183,7 +183,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 5. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast id-nyckeln krävs.
 
-    key|värde|Obs!
+    key|värde|Kommentarer
     ----|----|----
     id|ashley|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     kön|kvinna| 
@@ -200,7 +200,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 9. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
 
-    key|värde|Obs!
+    key|värde|Kommentarer
     ----|----|----
     id|rakesh|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     kön|man| 
@@ -212,7 +212,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka filtret till `g.V()` och väljer **Använd filter** för att visa alla resultat igen.
 
-12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i **resultat** listan och välj sedan :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="ändra målet för ett formhörn i ett diagram"::: bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
+12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i **resultat** listan och välj sedan :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="ändra målet för ett formhörn i ett diagram":::  bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ändra målet för ett formhörn i ett diagram – Azure-CosmosDB":::
 

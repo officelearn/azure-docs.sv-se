@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: luisbosquez
-ms.author: lbosq
-ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: jasonwhowell
+ms.author: jasonh
+ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390864"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409535"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin Server-svarshuvuden
 Den här artikeln beskriver rubriker som Cosmos DB Gremlin-servern returnerar till anroparen när begäran har körts. De här rubrikerna är användbara för att felsöka prestanda för förfrågningar, bygga program som integreras internt med Cosmos DB-tjänsten och förenklar kundsupporten.
@@ -40,14 +40,14 @@ De vanligaste status koderna som returneras av servern visas nedan.
 | --- | --- |
 | **401** | Fel meddelandet `"Unauthorized: Invalid credentials provided"` returneras när lösen ordet för autentisering inte matchar Cosmos DB konto nyckeln. Navigera till ditt Cosmos DB Gremlin-konto i Azure Portal och bekräfta att nyckeln är korrekt.|
 | **404** | Samtidiga åtgärder som försöker ta bort och uppdatera samma kant eller hörn samtidigt. Felmeddelandet `"Owner resource does not exist"` anger att den angivna databasen eller samlingen har det felaktiga formatet `/dbs/<database name>/colls/<collection or graph name>` för anslutningsparametrarna.|
-| **408** | `"Server timeout"`indikerar att en genom gång tog mer än **30 sekunder** och avbröts av servern. Optimera dina bläddringskontroll för att snabbt köra genom att filtrera formhörn eller kanter på varje hopp med genom gång för att begränsa Sök omfånget.|
+| **408** | `"Server timeout"` indikerar att en genom gång tog mer än **30 sekunder** och avbröts av servern. Optimera dina bläddringskontroll för att snabbt köra genom att filtrera formhörn eller kanter på varje hopp med genom gång för att begränsa Sök omfånget.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Detta inträffar vanligtvis när ett hörn eller en kant med en identifierare redan finns i grafen.| 
 | **412** | Status koden kompletteras med ett fel meddelande `"PreconditionFailedException": One of the specified pre-condition is not met` . Det här felet är en indikation på en optimistisk samtidighets kontroll överträdelse mellan att läsa en gräns eller ett hörn och att skriva tillbaka den till lagret efter ändringen. De vanligaste situationerna när det här felet inträffar är till exempel egenskaps ändringar `g.V('identifier').property('name','value')` . Gremlin-motorn skulle läsa hörnet, ändra det och skriva tillbaka. Om det finns en annan genom gång som körs parallellt försöker skriva samma hörn eller en kant, kommer en av dem att få det här felet. Programmet ska skicka en överträdelse till servern igen.| 
 | **429** | Begäran begränsades och bör provas igen efter värdet i **x-MS-retry-efter-MS**| 
 | **500** | Ett felmeddelande som innehåller `"NotFoundException: Entity with the specified id does not exist in the system."` anger att en databas och/eller samling har återskapats med samma namn. Det här felet försvinner inom 5 minuter när ändringen sprids och upphäver cacheminnen i olika Cosmos DB-komponenter. Undvik det här problemet genom att använda unika databas- och samlingsnamn varje gång.| 
 | **1000** | Den här status koden returneras när servern har parsat ett meddelande men inte kunde köras. Det tyder vanligt vis på ett problem med frågan.| 
 | **1001** | Den här koden returneras när servern har slutfört bläddringskontroll, men inte kan serialisera tillbaka svar till klienten. Det här felet kan inträffa när en genom gång genererar ett komplext resultat som är för stort eller som inte uppfyller TinkerPop-protokollets specifikation. Programmet bör förenkla genom gången när det här felet påträffas. | 
-| **1003** | `"Query exceeded memory limit. Bytes Consumed: XXX, Max: YYY"`returneras när Traversal överskrider den tillåtna minnes gränsen. Minnes gränsen är **2 GB** per genom gång.| 
+| **1003** | `"Query exceeded memory limit. Bytes Consumed: XXX, Max: YYY"` returneras när Traversal överskrider den tillåtna minnes gränsen. Minnes gränsen är **2 GB** per genom gång.| 
 | **1004** | Den här status koden indikerar felaktig diagram förfrågan. Begäran kan vara felaktig när den avserialiseras, typen som inte är värdetyp avserialiseras eftersom värde typen eller en Gremlin-åtgärd som inte stöds begärdes. Programmet ska inte försöka utföra begäran igen eftersom det inte kommer att lyckas. | 
 | **1007** | Vanligt vis returneras denna status kod med ett fel meddelande `"Could not process request. Underlying connection has been closed."` . Den här situationen kan inträffa om klient driv rutinen försöker använda en anslutning som stängs av servern. Programmet bör försöka över gången på en annan anslutning.
 | **1008** | Cosmos DB Gremlin-servern kan avsluta anslutningar för att balansera om trafik i klustret. Klient driv rutinerna bör hantera den här situationen och endast använda Live-anslutningar för att skicka begär anden till servern. Ibland kanske klient driv rutinerna inte upptäcker att anslutningen har stängts. När programmet påträffar ett fel `"Connection is too busy. Please retry after sometime or open more connections."` bör det försöka att gå vidare med en annan anslutning.

@@ -1,5 +1,5 @@
 ---
-title: Distribuerade transaktioner över molndatabaser
+title: Distribuerade transaktioner över moln databaser (förhands granskning)
 description: Översikt över Elastic Database transaktioner med Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f6863bbe051338308c30e22c6969d84670dc64
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829422"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409756"
 ---
-# <a name="distributed-transactions-across-cloud-databases"></a>Distribuerade transaktioner över molndatabaser
+# <a name="distributed-transactions-across-cloud-databases-preview"></a>Distribuerade transaktioner över moln databaser (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Med Elastic Database-transaktioner för Azure SQL Database kan du köra transaktioner som sträcker sig över flera databaser i SQL Database. Elastic Database-transaktioner för SQL Database är tillgängliga för .NET-program med ADO .NET och integreras med den välbekanta programmerings upplevelsen med [system. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) -klasser. Information om hur du hämtar biblioteket finns i [.NET Framework 4.6.1 (webb installations program)](https://www.microsoft.com/download/details.aspx?id=49981).
+Med Elastic Database-transaktioner för Azure SQL Database kan du köra transaktioner som sträcker sig över flera databaser i SQL Database. Elastic Database-transaktioner för SQL Database är tillgängliga för .NET-program med hjälp av ADO.NET och integreras med den välbekanta programmerings upplevelsen med [system. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) -klasser. Information om hur du hämtar biblioteket finns i [.NET Framework 4.6.1 (webb installations program)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 I ett sådant scenario kräver det vanligt vis att du kör Microsoft koordinator för distribuerad transaktion (MSDTC). Eftersom MSDTC inte är tillgängligt för plattforms-som-tjänst-program i Azure, har möjligheten att koordinera distribuerade transaktioner nu integrerats direkt i SQL Database. Program kan ansluta till en databas i SQL Database för att starta distribuerade transaktioner, och en av databaserna översätts transparent till den distribuerade transaktionen, som visas i följande bild.
 

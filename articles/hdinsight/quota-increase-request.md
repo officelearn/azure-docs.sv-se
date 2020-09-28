@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291678"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409722"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Begäran om kvot ökar för Azure HDInsight
 
 CPU Core-kvoter hjälper till att se till att resursanvändningen distribueras relativt mellan alla kunder i en viss Azure-region. Men i vissa fall kan ditt företags krav kräva fler kluster resurser än den aktuella kvoten kommer att tillåta. I sådana fall kan du begära en ökning av CPU Core-kvoten så att du kan distribuera kluster som matchar dina krav på data bearbetning.
 
-När du når en kvot gräns kan du inte distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Den enda kvot gränsen är den processor kärnors kvot som finns på region nivå för varje prenumeration. Din prenumeration kan till exempel ha en 30-PROCESSORs kärn gräns i regionen USA, östra, med ytterligare 30 processor kärnor som tillåts i USA, östra 2.
+När du når en kvot gräns kan du inte distribuera nya kluster eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Den enda kvot gränsen är den processor kärnors kvot som finns på region nivå för varje prenumeration. Din prenumeration kan till exempel ha en 30-PROCESSORs kärn gräns i regionen USA, östra, med ytterligare 30 CPU-kärnor som tillåts i USA, östra.
 
 ## <a name="gather-required-information"></a>Samla in nödvändig information
 

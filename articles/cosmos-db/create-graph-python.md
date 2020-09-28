@@ -1,20 +1,20 @@
 ---
 title: 'Snabbstart: Gremlin-API med Python – Azure Cosmos DB'
 description: Den här snabbstarten visar hur du använder Gremlin-API i Azure Cosmos DB för att skapa ett konsolprogram med Azure Portal och Python
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-python
-ms.openlocfilehash: b927a0a64256283536a73002cc5915bcaddd2efc
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 624aa946df5e637c98a11ada3b455c50dec896f5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873151"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409348"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Snabb start: skapa en diagram databas i Azure Cosmos DB med python och Azure Portal
 
@@ -29,7 +29,7 @@ ms.locfileid: "87873151"
 
 I den här snabb starten skapar och hanterar du ett Azure Cosmos DB Gremlin (Graph) API-konto från Azure Portal och lägger till data med hjälp av en python-app som klonas från GitHub. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 - Installations program för [python 3.5 +](https://www.python.org/downloads/) inklusive [pip](https://pip.pypa.io/en/stable/installing/) -paketet.
 - [Python-drivrutin för Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
@@ -72,7 +72,7 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin-API-app f
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från filen *Connect.py* i mappen *C:\git-samples\azure-Cosmos-DB-Graph-python-Getting-Started \\ * . Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från filen *Connect.py* i mappen *C:\git-samples\azure-Cosmos-DB-Graph-python-Getting-Started \\ * . Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
 
 * Gremlin `client` initieras på rad 104 i *Connect.py*:
 
@@ -186,7 +186,7 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
 
 5. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast id-nyckeln krävs.
 
-    nyckel|värde|Obs!
+    key|värde|Kommentarer
     ----|----|----
     villkor|/pk| 
     id|ashley|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
@@ -204,7 +204,7 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
 
 9. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
 
-    nyckel|värde|Obs!
+    key|värde|Kommentarer
     ----|----|----
     villkor|/pk| 
     id|rakesh|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.

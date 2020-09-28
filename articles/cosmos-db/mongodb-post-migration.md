@@ -1,22 +1,22 @@
 ---
 title: Optimerings steg efter migreringen med Azure Cosmos DBs API för MongoDB
 description: Det här dokumentet innehåller optimerings tekniker efter migrering från MongoDB till Azure Cosmos DB s APi för mongo DB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: lbosq
-ms.openlocfilehash: 93a9058dec66ffe2e1c7ad4b15d9bf4eba12c647
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.author: jasonh
+ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358533"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409705"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Optimerings steg efter migreringen när du använder Azure Cosmos DBs API för MongoDB
 
-När du har migrerat data som lagras i MongoDB-databasen till Azure Cosmos DB s API för MongoDB, kan du ansluta till Azure Cosmos DB och hantera data. Den här guiden innehåller de steg du bör tänka på efter migreringen. Mer information om hur du [migrerar MongoDB finns i avsnittet migrera till Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md) .
+När du har migrerat data som lagras i MongoDB-databasen till API för Azure Cosmos DB för MongoDB kan du ansluta till Azure Cosmos DB och hantera data. Den här guiden innehåller anvisningar att överväga efter migreringen. Mer information om hur du [migrerar MongoDB finns i avsnittet migrera till Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md) .
 
 I den här guiden får du lära dig hur du:
 

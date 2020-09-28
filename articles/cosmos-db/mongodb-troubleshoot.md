@@ -1,18 +1,18 @@
 ---
 title: Felsök vanliga fel i Azure Cosmos DB s API för mongo DB
 description: Det här dokumentet innehåller information om hur du felsöker vanliga problem som uppstått i Azure Cosmos DB s API för MongoDB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
-ms.author: lbosq
-ms.openlocfilehash: f75374fc88923a0f131d513bebf0ffe1feeca359
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: jasonh
+ms.openlocfilehash: 27a9c7eb48c4a0148401c0d146a50a5197593806
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076760"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409637"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Felsök vanliga problem i Azure Cosmos DBs API för MongoDB
 
@@ -25,10 +25,10 @@ I följande artikel beskrivs vanliga fel och lösningar för databaser med hjäl
 
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
-| ExceededTimeLimit   | 50 | Begäran har överskridit tids gränsen på 60 sekunders körning. | Det kan finnas många orsaker till det här felet. En av orsakerna är när den aktuella allokerade enheternas kapacitet inte räcker för att slutföra begäran. Detta kan lösas genom att öka enhets enheterna för samlingen eller databasen. I andra fall kan det här felet hanteras – genom att dela upp en stor begäran i mindre. |
-| TooManyRequests     | 16500 | Det totala antalet förbrukade enheter för förbrukad enhet är fler än det etablerade enhets antalet för samlingen och har begränsats. | Överväg att skala data flödet som är kopplat till en behållare eller en uppsättning behållare från Azure Portal eller så kan du försöka utföra åtgärden igen. |
+| ExceededTimeLimit   | 50 | Förfrågan har överskridit tidsgränsen på 60 sekunder. | Det kan finnas många orsaker till det här felet. En av orsakerna är när den allokerade förfrågningskapaciteten inte räcker för att slutföra förfrågan. Det här kan du lösa genom att öka antalet förfrågningsenheter för samlingen eller databasen. I andra fall kan det här felet hanteras – genom att dela upp en stor begäran i mindre. |
+| TooManyRequests     | 16500 | Det totala antalet förbrukade förfrågansenheter överskrider samlingens etablerade enhetsfrekvens och en begränsning har införts. | Överväg att skala upp det tilldelade dataflödet för en container eller en uppsättning containrar i Azure-portalen, eller försök utföra åtgärden igen. |
 | ExceededMemoryLimit | 16501 | Som en tjänst för flera innehavare har åtgärden gått över klientens minnes tilldelning. | Minska åtgärds området genom mer restriktiva frågevillkor eller kontakta supporten från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exempel: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
-| Index Sök vägen som motsvarar den angivna order by-posten är exkluderad/order by-frågan har inget motsvarande sammansatt index som det kan hanteras från. | 2 | Frågan begär en sortering för ett fält som inte är indexerat. | Skapa ett matchande index (eller sammansatt index) för sorterings frågan. |
+| Indexsökvägen som motsvarar den angivna order by-posten finns inte med, eller så har inte order by-frågan ett motsvarande sammansatt index att hämta information från. | 2 | Frågan begär en sortering av ett fält som inte är indexerat. | Skapa ett matchande index (eller sammansatt index) för sorterings frågan. |
 | Problem med MongoDB-trådversion | - | De äldre versionerna av MongoDB-drivrutinerna kan inte identifiera Azure Cosmos-kontots namn i anslutnings strängarna. | Lägg till *APPNAME = @**accountName** @ * i slutet av din Cosmos DBS API för MongoDB-anslutningssträng, där ***accountName*** är ditt Cosmos DB konto namn. |
 
 ## <a name="next-steps"></a>Nästa steg

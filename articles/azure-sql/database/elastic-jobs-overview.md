@@ -11,14 +11,14 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85251197"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409601"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
+# <a name="create-configure-and-manage-elastic-jobs-preview"></a>Skapa, konfigurera och hantera elastiska jobb (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här artikeln får du lära dig hur du skapar, konfigurerar och hanterar elastiska jobb.
@@ -58,7 +58,7 @@ Följande bild är utformad för att underlätta förståelse och konfiguration 
 
 ![Autentiseringsuppgifter för elastiska jobb](./media/elastic-jobs-overview/job-credentials.png)
 
-## <a name="security-best-practices"></a>Metodtips för säkerhet
+## <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
 
 Några metodtips för att arbeta med elastiska jobb:
 

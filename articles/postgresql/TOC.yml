@@ -552,10 +552,6 @@
               href: concepts-hyperscale-choose-distribution-column.md
             - name: Tabellsamlokalisering
               href: concepts-hyperscale-colocation.md
-            - name: Konfigurationsalternativ
-              href: concepts-hyperscale-configuration-options.md
-            - name: Förskottsbetalning för reserverad kapacitet
-              href: concepts-hyperscale-reserved-pricing.md
         - name: Säkerhet
           items:
             - name: Brandväggsregler
@@ -577,6 +573,10 @@
           items:
             - name: Övervaka och finjustera
               href: concepts-hyperscale-monitoring.md
+        - name: Konfigurationsalternativ
+          href: concepts-hyperscale-configuration-options.md
+        - name: Förskottsbetalning för reserverad kapacitet
+          href: concepts-hyperscale-reserved-pricing.md
         - name: PostgreSQL-tillägg
           href: concepts-hyperscale-extensions.md
     - name: API-referens

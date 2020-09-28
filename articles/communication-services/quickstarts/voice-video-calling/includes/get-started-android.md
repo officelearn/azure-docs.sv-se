@@ -28,15 +28,15 @@ I den här snabb starten får du lära dig hur du startar ett samtal med Azure C
 
 Från Android Studio väljer du starta ett nytt Android Studio-projekt.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Skärm bild som visar knappen "starta ett nytt Android Studio projekt" markerad i Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Skärm bild som visar knappen starta ett nytt Android Studio projekt markerad i Android Studio.":::
 
 Välj projekt mal len "Tom aktivitet" under "telefon och surfplatta".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Skärm bild som visar alternativet "Tom aktivitet" markerat på skärmen för projekt mal len.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Skärm bild som visar alternativet Tom aktivitet markerat på skärmen för projekt mal len.":::
 
 Välj minsta klient bibliotek för "API 26: Android 8,0 (Oreo)" eller större.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Skärm bild som visar alternativet "Tom aktivitet" markerat i projekt mal len skärm 2.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Skärm bild som visar alternativet Tom aktivitet markerat i projekt mal len skärm 2.":::
 
 
 ### <a name="install-the-package"></a>Installera paketet

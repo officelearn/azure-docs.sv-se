@@ -17,6 +17,9 @@
     - name: Tilldela en princip – Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Tilldela en princip – JavaScript
+      displayName: 'assign, compliance'
+      href: ./assign-policy-javascript.md
     - name: Tilldela en princip – Python
       displayName: 'assign, compliance'
       href: ./assign-policy-python.md
@@ -112,10 +115,10 @@
       href: ./concepts/policy-as-code.md
     - name: Kubernetes-integrering
       items:
-        - name: Azure Policy för Kubernetes (förhandsversion)
+        - name: Azure Policy för Kubernetes
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Skydda poddar med Azure Policy (förhandsversion)
+        - name: Skydda poddar med Azure Policy
           displayName: 'aks, psp, rego, opa'
           href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Granska virtuella datorer med gästkonfiguration

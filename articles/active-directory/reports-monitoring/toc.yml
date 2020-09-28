@@ -31,6 +31,8 @@
       href: plan-monitoring-and-reporting.md
     - name: Granskningsloggar
       href: concept-audit-logs.md
+    - name: Nya loggar för inloggning – förhandsversion
+      href: concept-all-sign-ins.md
     - name: Inloggningsloggar
       href: concept-sign-ins.md
     - name: Rapport om användning och insikter

@@ -4,12 +4,12 @@ description: 'Jämför Microsofts moln tjänster som är optimerade för integra
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2e0d8f356ec8da900b4a38399ba94434c3b1b93d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809977"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403083"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välja rätt integrerings- och automationstjänster i Azure
 
@@ -41,7 +41,7 @@ I följande tabell får du hjälp att avgöra om Power-eller Logic Apps är bäs
 | **Designverktyg** |I webbläsaren och mobilappen, endast användargränssnitt |I webbläsaren och [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), [kodvyer](../logic-apps/logic-apps-author-definitions.md) är tillgängliga |
 | **Application Lifecycle Management (ALM)** |Utforma och testa i icke-produktionsmiljöer, skicka till produktion när det är klart |Azure DevOps: källkontroll, testning, support, automatisering och hanterbarhet i [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Administratörsupplevelse** |Hantera energi automatiserade miljöer och principer för data förlust skydd (DLP), spåra licensiering: [administrations Center](https://admin.flow.microsoft.com) |Hantera resurs grupper, anslutningar, åtkomst hantering och loggning: [Azure Portal](https://portal.azure.com) |
-| **Säkerhet** |Granskningsloggar för Office 365-säkerhet och efterlevnad, principer för dataförlustskydd, [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption) för känsliga data |Säkerhets garanti för Azure: [Azure-säkerhet](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [gransknings loggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Säkerhet** |Microsoft 365 säkerhets gransknings loggar, DLP, [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption) för känsliga data |Säkerhets garanti för Azure: [Azure-säkerhet](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [gransknings loggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Jämföra Azure Functions och Azure Logic Apps
 
@@ -123,5 +123,5 @@ Det finns mer information om integreringstjänster via följande länkar:
 Kom igång genom att skapa ditt första flöde, din första logikapp eller din första funktionsapp. Välj någon av följande länkar:
 
 * [Kom igång med Power Automate](/power-automate/getting-started)
-* [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)

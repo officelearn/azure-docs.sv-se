@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666645"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403559"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Inmatningstid för loggdata i Azure Monitor
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om hur lång tid det tar för loggdata att bli tillgängliga när de har samlats in. I den här artikeln beskrivs de olika faktorer som påverkar den här svars tiden.
@@ -51,7 +51,7 @@ När det är tillgängligt vid inmatnings punkten tar data ytterligare 2-5 minut
 ### <a name="management-solutions-collection"></a>Samling med hanterings lösningar
 Vissa lösningar samlar inte in data från en agent och kan använda en samlings metod som inför ytterligare svars tid. Vissa lösningar samlar in data med jämna mellanrum utan att försöka använda real tids insamling. Vissa exempel är följande:
 
-- Office 365-lösningen avsöker aktivitets loggar med hjälp av aktivitets-API: t för hanterings tjänsten i Office 365, som för närvarande inte ger några garantier om nästan real tids fördröjning.
+- Microsoft 365 lösning avsöker aktivitets loggar med API: t för hanterings aktiviteten, som för närvarande inte ger några garantier om nästan real tids fördröjning.
 - Windows Analytics-lösningar (Uppdateringsefterlevnad till exempel) samlas in av lösningen med en daglig frekvens.
 
 Se dokumentationen för varje lösning för att fastställa dess samlings frekvens.

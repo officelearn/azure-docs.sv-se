@@ -197,6 +197,8 @@
       items:
         - name: Ange eller redigera principer
           href: set-edit-policies.md
+        - name: Felsökningsprinciper
+          href: api-management-debug-policies.md
         - name: Principuttryck
           href: api-management-policy-expressions.md
         - name: Anpassad cachelagring
@@ -221,6 +223,8 @@
           href: api-management-cross-domain-policies.md
         - name: Omvandlingsprinciper
           href: api-management-transformation-policies.md
+        - name: Integreringspolicyer för Distributed Apps Runtime (Dapr)
+          href: api-management-dapr-policies.md
     - name: Hantera i produktionen
       items:
         - name: 'Exportera API:er till Power Platform'

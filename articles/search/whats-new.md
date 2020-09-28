@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8c6cb08f8236ab6164a71b710656951203be3d19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ccc10327d4de4134dd15e0ed936f6b938cbe31dd
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314581"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403678"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -70,7 +70,7 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
-| [**Intern BLOB-mjuk borttagning (förhands granskning)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexerare | En Azure Blob Storage-indexerare i Azure Kognitiv sökning identifierar blobbar som är i ett mjukt borttaget tillstånd och tar bort motsvarande Sök dokument under indexeringen. | Offentlig för hands version. </br> Använd [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) och REST API 2019-05-06 – för hands version med kör indexeraren mot en Azure Blob-datakälla som har inbyggd "mjuk borttagning" aktive rad. |
+| [**Intern BLOB-mjuk borttagning (förhands granskning)**](search-howto-index-changed-deleted-blobs.md) | Indexerare | En Azure Blob Storage-indexerare i Azure Kognitiv sökning identifierar blobbar som är i ett mjukt borttaget tillstånd och tar bort motsvarande Sök dokument under indexeringen. | Offentlig för hands version. </br> Använd [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) och REST API 2019-05-06 – för hands version med kör indexeraren mot en Azure Blob-datakälla som har inbyggd "mjuk borttagning" aktive rad. |
 | [**Hanterings REST API (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | Ny stabil REST API för att skapa och hantera en Sök tjänst. Lägger till stöd för IP-brandvägg och privat länk | Allmänt tillgänglig. |
 
 ## <a name="february-2020"></a>Februari 2020

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 9f48c06f075ccdc3c3c212e1ba7912707565cd87
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029710"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405062"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -265,7 +265,7 @@ Dessa Logo typer används på olika platser i listan:
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 &times; 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör finnas på en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 &times; 720 bild punkter.
 
@@ -402,7 +402,7 @@ Använd en av följande tre alternativ för pris poster för en användnings-bas
 
 #### <a name="free-trial"></a>Kostnadsfri utvärdering
 
-Du kan erbjuda en månads *kostnads fri utvärderings version* av en månad eller tre månader till dina kunder.
+Du kan erbjuda dina kunder en *kostnads fri utvärderings period* på en månad eller tre månader.
 
 #### <a name="visibility"></a>Visibility (Sikt)
 

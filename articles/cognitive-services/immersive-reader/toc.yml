@@ -16,7 +16,7 @@
       href: tutorial-multiple-resources.md
 - name: Instruktioner
   items:
-    - name: Skapa resurs för Avancerad läsare
+    - name: Skapa en resurs för Avancerad läsare
       href: how-to-create-immersive-reader.md
     - name: Ange cookie-princip
       href: how-to/set-cookie-policy.md

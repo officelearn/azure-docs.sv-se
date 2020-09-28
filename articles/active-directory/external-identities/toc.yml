@@ -2,11 +2,14 @@
   href: index.yml
   items:
     - name: Översikt
+      expanded: true
       items:
         - name: Jämför lösningar för externa identiteter
           href: compare-with-b2c.md
         - name: Vad är B2B-gästanvändaråtkomst?
           href: what-is-b2b.md
+        - name: Vad är Azure AD B2C?
+          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
     - name: Snabbstarter
       items:
         - name: Lägga till gästanvändare på portalen
@@ -15,15 +18,15 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Självstudier
       items:
-        - name: Massinbjudan via PowerShell
+        - name: Massinbjudan av gästanvändare via PowerShell
           href: bulk-invite-powershell.md
-        - name: Massinbjudan via portalen
+        - name: Massinbjudan av gästanvändare via portalen
           href: tutorial-bulk-invite.md
-        - name: Använda multifaktorautentisering
+        - name: Tillämpa multifaktorautentisering för gästanvändare
           href: b2b-tutorial-require-mfa.md
     - name: Exempel
       items:
-        - name: Exempel för registrering via självbetjäning
+        - name: Exempel på registrering via självbetjäning för gästanvändare
           href: code-samples-self-service-sign-up.md
         - name: Kod och Azure PowerShell-exempel
           href: code-samples.md
@@ -63,9 +66,9 @@
     - name: Anvisningar
       expanded: true
       items:
-        - name: Konfigurera extern delning
+        - name: Konfigurera inställningar för externt samarbete
           href: delegate-invitations.md
-        - name: Bjuda in B2B-användare
+        - name: Bjud in gästanvändare
           items:
             - name: Administratörer som lägger till B2B-användare
               href: add-users-administrator.md
@@ -91,7 +94,7 @@
               href: direct-federation-adfs.md
         - name: Autentisering med engångskoder
           href: one-time-passcode.md
-        - name: Registrering via självbetjäning (förhandsversion)
+        - name: Registrering via självbetjäning för gästanvändare (förhandsversion)
           items:
             - name: Lägga till ett användarflöde för registrering via självbetjäning
               href: self-service-sign-up-user-flow.md
@@ -103,7 +106,7 @@
               href: self-service-sign-up-add-api-connector.md
             - name: Lägg till ett anpassat godkännandesystem
               href: self-service-sign-up-add-approvals.md
-        - name: Hantera gästkonton
+        - name: Hantera gästanvändarkonton
           items:
             - name: Lägga till en B2B-användare till en roll
               href: add-guest-to-role.md
@@ -113,7 +116,7 @@
               href: user-properties.md
             - name: B2B för Azure AD-integrerade appar
               href: configure-saas-apps.md
-        - name: Hantera åtkomst i en hybridorganisation
+        - name: Hantera gäståtkomst i en hybridorganisation
           items:
             - name: Bevilja lokala användare åtkomst till molnappar
               href: hybrid-on-premises-to-cloud.md

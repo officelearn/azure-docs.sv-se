@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896696"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404926"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Självstudie: förutsäga Automobile-priset med designern
 
@@ -75,7 +75,7 @@ Du kan ange ett **standard beräknings mål** för hela pipelinen, vilket anger 
     Om du redan har ett tillgängligt beräknings mål kan du välja att köra denna pipeline.
 
     > [!NOTE]
-    > Designern kan bara köra utbildnings experiment på Azure Machine Learning Compute-och Azure Machine Learning Compute-instanser, men andra beräknings mål visas inte.
+    > Designern kan bara köra utbildnings experiment på Azure Machine Learning Compute men andra beräknings mål visas inte.
 
 1. Ange ett namn för beräknings resursen.
 

@@ -2,13 +2,13 @@
 title: Förbättra tillförlitligheten för ditt program med Advisor
 description: Använd Azure Advisor för att säkerställa och förbättra tillförlitligheten i affärs kritiska Azure-distributioner.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264600"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405198"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Förbättra tillförlitligheten för ditt program genom att använda Azure Advisor
 
@@ -109,6 +109,12 @@ Från den 1 juli 2020 kommer du inte att kunna skapa nya Spark-kluster med Spark
 ## <a name="enable-virtual-machine-replication"></a>Aktivera replikering av virtuell dator
 Virtuella datorer som inte har någon replikering aktive rad till en annan region är inte flexibla till regionala avbrott. Att replikera virtuella datorer minskar eventuell negativ inverkan på verksamheten under drifts avbrott i Azure. Advisor identifierar virtuella datorer där replikering inte är aktiverat och rekommenderar att du aktiverar den. Om du aktiverar replikering kan du snabbt ta fram dina virtuella datorer i en fjärran sluten Azure-region om det uppstår ett avbrott. [Läs mer om replikering av virtuella datorer.](../site-recovery/azure-to-azure-quickstart.md)
 
+## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Uppgradera till den senaste versionen av Azure Connected Machine-agenten
+Den [Azure-anslutna dator agenten](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) uppdateras regelbundet med fel korrigeringar, stabilitets förbättringar och nya funktioner. Vi har identifierat resurser som inte fungerar med den senaste versionen av dator agenten och den här rekommendationen föreslår att du uppgraderar din agent till den senaste versionen för den bästa Azure Arc-upplevelsen.
+
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Åsidosätt inte hostname för att säkerställa webbplats integriteten
+Advisor rekommenderar att du försöker undvika att åsidosätta värd namnet när du konfigurerar Application Gateway. Att ha en annan domän på klient delen av Application Gateway än den som används för att komma åt Server delen kan leda till att cookies eller omdirigerings-URL: er bryts. Observera att detta kanske inte är fallet i alla situationer och att vissa kategorier av Server delar (t. ex. REST API) i allmänhet är mindre känsliga för detta. Kontrol lera att Server delen kan hantera den här eller uppdatera Application Gateway-konfigurationen så att värd namnet inte behöver skrivas över mot Server delen. När du använder med App Service ska du ansluta ett anpassat domän namn till webbappen och undvika att använda *. azurewebsites.net-värdnamnet mot Server delen.* [Läs mer om den anpassade domänen](https://aka.ms/appgw-advisor-usecustomdomain).
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Få åtkomst till rekommendationer för hög tillgänglighet i Advisor
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
@@ -120,6 +126,7 @@ Virtuella datorer som inte har någon replikering aktive rad till en annan regio
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
+* [Advisor-Poäng](azure-advisor-score.md)
 * [Kostnadsrekommendationer i Advisor](advisor-cost-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)

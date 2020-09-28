@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: b099a6ea706482e25b2c37a87cf0a24f2fe475bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a20a7966daff372cf5c0abc9b7b1dbbfd459838
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532117"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403246"
 ---
 # <a name="revisions-in-azure-api-management"></a>Revisioner i Azure API Management
 
@@ -38,7 +38,7 @@ Varje revidering av ditt API kan nås med hjälp av en särskilt utformad URL. L
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-Som standard har varje revision samma säkerhets inställningar som den aktuella revisionen. Du kan avsiktligt ändra principerna för en särskild revision om du vill att en annan säkerhet ska tillämpas för varje revision. Du kanske exempelvis vill lägga till en princip för [IP-vit listning](./api-management-access-restriction-policies.md#RestrictCallerIPs) för att förhindra att externa anropare får åtkomst till en revision som fortfarande är under utveckling.
+Som standard har varje revision samma säkerhets inställningar som den aktuella revisionen. Du kan avsiktligt ändra principerna för en särskild revision om du vill att en annan säkerhet ska tillämpas för varje revision. Du kanske till exempel vill lägga till en [IP-filtrerings princip](./api-management-access-restriction-policies.md#RestrictCallerIPs) för att förhindra att externa anropare får åtkomst till en revision som fortfarande är under utveckling.
 
 En revision kan kopplas från, vilket gör den oåtkomlig för anropare även om de försöker få åtkomst till den via dess URL. Du kan markera en revision som offline med hjälp av Azure Portal. Om du använder PowerShell kan du använda `Set-AzApiManagementApiRevision` cmdleten och ange `Path` argumentet till `$null` .
 

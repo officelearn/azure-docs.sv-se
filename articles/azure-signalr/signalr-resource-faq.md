@@ -7,38 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: d5dd765dd9b174ffbfec35b63ad5e55ce84193ad
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489569"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405130"
 ---
 # <a name="azure-signalr-service-faq"></a>Vanliga frågor och svar Azure SignalR Service
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Är Azure SignalR Service redo för användning i produktion?
 
-Ja.
-Meddelande om allmän tillgänglighet finns [nu allmänt tillgänglig i Azure SignalR-tjänsten](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
-
-[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) stöds fullt ut.
-
-Stöd för ASP.NET-Signalerare finns fortfarande i en *offentlig för hands version*. [Här är ett kod exempel](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
-
-## <a name="the-client-connection-closes-with-the-error-message-no-server-available-what-does-it-mean"></a>Klient anslutningen stängs med fel meddelandet "ingen server är tillgänglig". Vad betyder det?
-
-Det här felet uppstår bara när klienter skickar meddelanden till Azure SignalR-tjänsten.
-
-Om du inte har någon program Server och bara använder Azure SignalR-tjänsten REST API *, är detta avsiktligt*.
-I Server lös arkitektur är klient anslutningar i *lyssnings* läge och skickar inga meddelanden till Azure SignalR-tjänsten.
-Läs [mer om REST API](./signalr-quickstart-rest-api.md).
-
-Om du har program servrar innebär det här fel meddelandet att ingen program Server är ansluten till din Azure SignalR-tjänstinstans.
-
-Möjliga orsaker är:
-- Ingen program Server är ansluten med Azure SignalR-tjänsten. Kontrollera programserverloggarna för möjliga anslutningsfel. Det här fallet är sällsynt i en hög tillgänglighets inställning som har mer än en program Server.
-- Det finns anslutnings problem med Azure SignalR service instances. Det här problemet är tillfälligt och instanserna återställs automatiskt.
-Om det finns kvar i mer än en timme, [öppna ett ärende på GitHub](https://github.com/Azure/azure-signalr/issues/new) eller [skapa en supportbegäran i Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Ja, både supporten för [ASP.net Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) och [ASP.net-signalerare](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) är allmänt tillgängliga.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>När det finns flera programservrar, skickas klientmeddelanden till alla servrar eller bara en av dem?
 
@@ -68,7 +48,7 @@ Nej.
 
 Azure SignalR Service tillhandahåller alla tre transporter som ASP.NET Core SignalR stöder som standard. Det går inte att konfigurera. Azure SignalR service hanterar anslutningar och transporter för alla klient anslutningar.
 
-Du kan konfigurera transporter på klient sidan som dokumenterade i [ASP.net Core signaler-konfiguration](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+Du kan konfigurera transporter på klient sidan som dokumenterade i [ASP.net Core signaler-konfiguration](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Vad är syftet med mått som antal meddelanden eller antal anslutningar som visas i Azure Portal? Vilken typ av agg regerings typ ska jag välja?
 
@@ -78,19 +58,22 @@ I översikts fönstret för Azure SignalR service-resurser har vi redan valt rä
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>Vad är syftet med `Default` `Serverless` `Classic` tjänst lägena, och. Hur kan jag välja?
 
-Här är information om lägena:
-* `Default` läget *kräver* en NAV Server. I det här läget dirigerar Azure SignalR-tjänsten klient trafiken till anslutna NAV Server-anslutningar. Azure SignalR service söker efter en ansluten NAV Server. Om tjänsten inte kan hitta en ansluten NAV Server avvisar den inkommande klient anslutningarna. Du kan också använda *hanterings-API: et* i det här läget för att hantera anslutna klienter direkt via Azure SignalR-tjänsten.
-* `Serverless` läget tillåter *inte* någon server anslutning. Det innebär att alla Server anslutningar nekas. Alla klienter måste vara i ett Server fritt läge. Klienterna ansluter till Azure SignalR-tjänsten och användarna använder vanligt vis Server lös teknik som *Azure Functions* för att hantera Hubbs logiker. [Se ett enkelt exempel](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) som använder läget utan server i Azure SignalR-tjänsten.
-* `Classic` läge är en blandad status. När en hubb har en server anslutning kommer den nya klienten att dirigeras till en NAV Server. Om inte, kommer klienten att övergå i ett läge utan server. 
+För nya program ska endast standard läge och Server lös läge användas. Den största skillnaden är om du har program servrar som etablerar Server anslutningar till tjänsten (d.v.s. används `AddAzureSignalR()` för att ansluta till tjänsten). Om ja använder standard läget använder du annars utan server läge.
 
-  Detta kan orsaka ett problem. Om till exempel alla Server anslutningar går förlorade för tillfället, kommer vissa klienter att övergå i ett läge utan server i stället för att dirigeras till en NAV Server.
+Klassiskt läge är utformat för bakåtkompatibilitet för befintliga program, så bör inte användas för nya program.
 
-Här följer några rikt linjer för att välja ett läge:
-- Om det inte finns någon NAV-Server väljer du `Serverless` .
-- Om alla nav har nav-servrar väljer du `Default` .
-- Om vissa hubbar har Hubbs servrar men andra inte kan du välja `Classic` , men det kan orsaka problem. Det bästa sättet är att skapa två instanser: en är `Serverless` och den andra är `Default` .
+Mer information om tjänst läge i [det här dokumentet](concept-service-mode.md).
+
+## <a name="can-i-send-message-from-client-in-serverless-mode"></a>Kan jag skicka ett meddelande från klienten i Server lös läge?
+
+Du kan skicka ett meddelande från klienten om du konfigurerar uppströms i signal instansen. Överordnad är en uppsättning slut punkter som kan ta emot meddelanden och anslutnings händelser från SignalR-tjänsten. Om ingen överordnad uppladdning har kon figurer ATS kommer meddelanden från klienten att ignoreras.
+
+Mer information om överordnad finns i [det här dokumentet](concept-upstream.md).
+
+Överström är för närvarande en offentlig för hands version.
 
 ## <a name="are-there-any-feature-differences-in-using-azure-signalr-service-with-aspnet-signalr"></a>Finns det några funktions skillnader i att använda Azure SignalR service med ASP.NET-Signalerare?
+
 När du använder Azure SignalR-tjänsten stöds inte vissa API: er och funktioner i ASP.NET-signaler:
 - Möjligheten att skicka godtyckligt tillstånd mellan klienter och hubben (kallas ofta `HubState` ) stöds inte.
 - `PersistentConnection`Klassen stöds inte.

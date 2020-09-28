@@ -2,13 +2,13 @@
 title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 89bc72bcf3a19867341675f89cbc0a734d7996d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 7576ccb478a4f221ae7d7f68b14787f6f8bf7e88
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325852"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405232"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Minska service kostnaderna genom att använda Azure Advisor
 
@@ -111,6 +111,7 @@ Advisor identifierar resurser där en minskning av Table cache-principen frigör
 
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Advisor](advisor-overview.md)
+* [Advisor-Poäng](azure-advisor-score.md)
 * [Kom igång med Advisor](advisor-get-started.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer om rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)

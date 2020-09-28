@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 2a0093ebb6e3214553cf5603151831d6ae53d862
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332057"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405094"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Kopiera data från HDFS-servern med hjälp av Azure Data Factory
 
@@ -42,7 +42,7 @@ Mer specifikt stöder HDFS-anslutningen:
 - Kopiera filer med hjälp av *webhdfs* -protokollet eller *inbyggt DistCp* -stöd.
 - Kopiera filer som de är eller genom att parsa eller generera filer med de [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -61,12 +61,12 @@ Följande egenskaper stöds för den länkade tjänsten HDFS:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen *Type* måste anges till *HDFS*. | Yes |
-| url |URL: en till HDFS |Yes |
-| authenticationType | De tillåtna värdena är *anonyma* eller *Windows*. <br><br> Om du vill konfigurera din lokala miljö läser du avsnittet [använda Kerberos-autentisering för HDFS-anslutaren](#use-kerberos-authentication-for-the-hdfs-connector) . |Yes |
+| typ | Egenskapen *Type* måste anges till *HDFS*. | Ja |
+| url |URL: en till HDFS |Ja |
+| authenticationType | De tillåtna värdena är *anonyma* eller *Windows*. <br><br> Om du vill konfigurera din lokala miljö läser du avsnittet [använda Kerberos-autentisering för HDFS-anslutaren](#use-kerberos-authentication-for-the-hdfs-connector) . |Ja |
 | userName |Användar namnet för Windows-autentisering. För Kerberos-autentisering anger du ** \<username> @ \<domain> . com**. |Ja (för Windows-autentisering) |
 | password |Lösen ordet för Windows-autentisering. Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i din data fabrik eller [referera till en hemlighet som lagras i ett Azure Key Vault](store-credentials-in-key-vault.md). |Ja (för Windows-autentisering) |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Mer information finns i avsnittet [krav](#prerequisites) . Om integration runtime inte har angetts använder tjänsten standard Azure Integration Runtime. |No |
+| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Mer information finns i avsnittet [krav](#prerequisites) . Om integration runtime inte har angetts använder tjänsten standard Azure Integration Runtime. |Inga |
 
 **Exempel: använda anonym autentisering**
 
@@ -122,9 +122,9 @@ Följande egenskaper stöds för HDFS under `location` Inställningar i den form
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Egenskapen *Type* under `location` i data uppsättningen måste anges till *HdfsLocation*. | Yes      |
-| folderPath | Sökvägen till mappen. Om du vill använda ett jokertecken för att filtrera mappen, hoppar du över den här inställningen och anger sökvägen i aktivitetens käll inställningar. | No       |
-| fileName   | Fil namnet under den angivna folderPath. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger fil namnet i inställningarna för aktivitets källan. | No       |
+| typ       | Egenskapen *Type* under `location` i data uppsättningen måste anges till *HdfsLocation*. | Ja      |
+| folderPath | Sökvägen till mappen. Om du vill använda ett jokertecken för att filtrera mappen, hoppar du över den här inställningen och anger sökvägen i aktivitetens käll inställningar. | Inga       |
+| fileName   | Fil namnet under den angivna folderPath. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger fil namnet i inställningarna för aktivitets källan. | Inga       |
 
 **Exempel:**
 
@@ -164,25 +164,25 @@ Följande egenskaper stöds för HDFS under `storeSettings` Inställningar i den
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | *Typ* egenskapen under `storeSettings` måste anges till **HdfsReadSettings**. | Yes                                           |
+| typ                     | *Typ* egenskapen under `storeSettings` måste anges till **HdfsReadSettings**. | Ja                                           |
 | ***Leta upp de filer som ska kopieras*** |  |  |
 | ALTERNATIV 1: statisk sökväg<br> | Kopiera från mappen eller fil Sök vägen som anges i data uppsättningen. Om du vill kopiera alla filer från en mapp anger du även `wildcardFileName` som `*` . |  |
-| ALTERNATIV 2: jokertecken<br>- wildcardFolderPath | Mappsökvägen med jokertecken för att filtrera källmappen. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i. <br>Fler exempel finns i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | No                                            |
-| ALTERNATIV 2: jokertecken<br>- wildcardFileName | Fil namnet med jokertecken under den angivna folderPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Använd `^` för att undanta om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i.  Fler exempel finns i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Yes |
-| ALTERNATIV 3: en lista över filer<br>- fileListPath | Anger om du vill kopiera en angiven fil uppsättning. Peka på en textfil som innehåller en lista över filer som du vill kopiera (en fil per rad, med den relativa sökvägen till den sökväg som kon figurer ATS i data uppsättningen).<br/>När du använder det här alternativet ska du inte ange fil namnet i data uppsättningen. Fler exempel finns i [exempel på fil lista](#file-list-examples). |No |
+| ALTERNATIV 2: jokertecken<br>- wildcardFolderPath | Mappsökvägen med jokertecken för att filtrera källmappen. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i. <br>Fler exempel finns i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Inga                                            |
+| ALTERNATIV 2: jokertecken<br>- wildcardFileName | Fil namnet med jokertecken under den angivna folderPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Använd `^` för att undanta om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i.  Fler exempel finns i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja |
+| ALTERNATIV 3: en lista över filer<br>- fileListPath | Anger om du vill kopiera en angiven fil uppsättning. Peka på en textfil som innehåller en lista över filer som du vill kopiera (en fil per rad, med den relativa sökvägen till den sökväg som kon figurer ATS i data uppsättningen).<br/>När du använder det här alternativet ska du inte ange fil namnet i data uppsättningen. Fler exempel finns i [exempel på fil lista](#file-list-examples). |Inga |
 | ***Ytterligare inställningar*** |  | |
-| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Om `recursive` är inställt på *Sant* och mottagaren är en filbaserad lagring, kopieras eller skapas inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är *True* (standard) och *false*.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |No |
-| deleteFilesAfterCompletion | Anger om de binära filerna kommer att tas bort från käll arkivet efter att du har flyttat till mål lagret. Filen som ska tas bort är per fil, så när kopierings aktiviteten Miss lyckas visas några filer som redan har kopierats till målet och tagits bort från källan, medan andra fortfarande är kvar på käll arkivet. <br/>Den här egenskapen är endast giltig i ett binärt fil kopierings scenario. Standardvärdet: false. |No |
-| modifiedDatetimeStart    | Filerna filtreras baserat på det *senast ändrade*attributet. <br>Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.<br/>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . | No                                            |
+| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Om `recursive` är inställt på *Sant* och mottagaren är en filbaserad lagring, kopieras eller skapas inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är *True* (standard) och *false*.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |Inga |
+| deleteFilesAfterCompletion | Anger om de binära filerna kommer att tas bort från käll arkivet efter att du har flyttat till mål lagret. Filen som ska tas bort är per fil, så när kopierings aktiviteten Miss lyckas visas några filer som redan har kopierats till målet och tagits bort från källan, medan andra fortfarande är kvar på käll arkivet. <br/>Den här egenskapen är endast giltig i ett binärt fil kopierings scenario. Standardvärdet: false. |Inga |
+| modifiedDatetimeStart    | Filerna filtreras baserat på det *senast ändrade*attributet. <br>Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.<br/>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . | Inga                                            |
 | modifiedDatetimeEnd      | Samma som ovan.  
-| enablePartitionDiscovery | För filer som är partitionerade anger du om du vill parsa partitionerna från fil Sök vägen och lägga till dem som ytterligare käll kolumner.<br/>Tillåtna värden är **false** (standard) och **True**. | No                                            |
-| partitionRootPath | När partitions identifiering har Aktiver ATS anger du den absoluta rot Sök vägen för att kunna läsa partitionerade mappar som data kolumner.<br/><br/>Om den inte anges, som standard,<br/>– När du använder fil Sök vägen i data uppsättningen eller en lista med filer på källan, är partitionens rot Sök väg den sökväg som kon figurer ATS i data uppsättningen.<br/>– När du använder mapp-filter med jokertecken är partitionens rot Sök väg den underordnade sökvägen före det första jokertecknet.<br/><br/>Anta till exempel att du konfigurerar sökvägen i dataset som "rot/mapp/år = 2020/månad = 08/Day = 27":<br/>– Om du anger partitionens rot Sök väg som "rot/mapp/år = 2020" genererar kopierings aktiviteten två kolumner `month` och `day` värdet "08" respektive "27", förutom kolumnerna inuti filerna.<br/>-Om partitionens rot Sök väg inte anges genereras ingen extra kolumn. | No                                            |
-| maxConcurrentConnections | Antalet anslutningar som kan ansluta till lagrings lagret samtidigt. Ange bara ett värde om du vill begränsa den samtidiga anslutningen till data lagret. | No                                            |
+| enablePartitionDiscovery | För filer som är partitionerade anger du om du vill parsa partitionerna från fil Sök vägen och lägga till dem som ytterligare käll kolumner.<br/>Tillåtna värden är **false** (standard) och **True**. | Inga                                            |
+| partitionRootPath | När partitions identifiering har Aktiver ATS anger du den absoluta rot Sök vägen för att kunna läsa partitionerade mappar som data kolumner.<br/><br/>Om den inte anges, som standard,<br/>– När du använder fil Sök vägen i data uppsättningen eller en lista med filer på källan, är partitionens rot Sök väg den sökväg som kon figurer ATS i data uppsättningen.<br/>– När du använder mapp-filter med jokertecken är partitionens rot Sök väg den underordnade sökvägen före det första jokertecknet.<br/><br/>Anta till exempel att du konfigurerar sökvägen i dataset som "rot/mapp/år = 2020/månad = 08/Day = 27":<br/>– Om du anger partitionens rot Sök väg som "rot/mapp/år = 2020" genererar kopierings aktiviteten två kolumner `month` och `day` värdet "08" respektive "27", förutom kolumnerna inuti filerna.<br/>-Om partitionens rot Sök väg inte anges genereras ingen extra kolumn. | Inga                                            |
+| maxConcurrentConnections | Antalet anslutningar som kan ansluta till lagrings lagret samtidigt. Ange bara ett värde om du vill begränsa den samtidiga anslutningen till data lagret. | Inga                                            |
 | ***DistCp-inställningar*** |  | |
-| distcpSettings | Egenskaps gruppen som ska användas när du använder HDFS DistCp. | No |
+| distcpSettings | Egenskaps gruppen som ska användas när du använder HDFS DistCp. | Inga |
 | resourceManagerEndpoint | GARN (ännu en annan resurs Negotiator) slut punkt | Ja, om du använder DistCp |
 | tempScriptPath | En mappsökväg som används för att lagra Temp DistCp-kommando skriptet. Skript filen genereras av Data Factory och tas bort när kopierings jobbet är klart. | Ja, om du använder DistCp |
-| distcpOptions | Ytterligare alternativ har angetts för DistCp-kommandot. | No |
+| distcpOptions | Ytterligare alternativ har angetts för DistCp-kommandot. | Inga |
 
 **Exempel:**
 
@@ -253,7 +253,7 @@ I det här avsnittet beskrivs det beteende som är resultatet av att använda en
 
 Kopierings aktiviteten stöder användning av DistCp för att kopiera filer som är i Azure Blob Storage (inklusive [mellanlagrad kopia](copy-activity-performance.md)) eller en Azure Data Lake Store. I det här fallet kan DistCp dra nytta av klustrets kraft i stället för att köras på den lokala integrerings körningen. Med DistCp får du bättre kopiering av data genom att i synnerhet om klustret är mycket kraftfullt. Baserat på konfigurationen i din data fabrik konstruerar kopierings aktiviteten automatiskt ett DistCp-kommando, skickar det till ditt Hadoop-kluster och övervakar kopierings statusen.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du vill använda DistCp för att kopiera filer från HDFS till Azure Blob Storage (inklusive mellanlagrad kopia) eller Azure Data Lake Store kontrollerar du att Hadoop-klustret uppfyller följande krav:
 
@@ -279,6 +279,34 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 * Alternativ 1: [Anslut en egen värd för integration runtime-datorn i Kerberos-sfären](#kerberos-join-realm)
 * Alternativ 2: [Aktivera ömsesidigt förtroende mellan Windows-domänen och Kerberos-sfären](#kerberos-mutual-trust)
 
+För något av alternativen kontrollerar du att du aktiverar webhdfs för Hadoop-kluster:
+
+1. Skapa HTTP-huvudobjektet och keytab för webhdfs.
+
+    > [!IMPORTANT]
+    > HTTP Kerberos-huvudobjektet måste börja med "**http/**" enligt KERBEROS-SPNEGO specifikation.
+
+    ```bash
+    Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
+    Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
+    ```
+
+2. HDFS konfigurations alternativ: Lägg till följande tre egenskaper i `hdfs-site.xml` .
+    ```xml
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@<REALM.COM></value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytab/spnego.service.keytab</value>
+    </property>
+    ```
+
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Alternativ 1: Anslut en egen värd för integration runtime-datorn i Kerberos-sfären
 
 #### <a name="requirements"></a>Krav
@@ -287,13 +315,24 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 #### <a name="how-to-configure"></a>Så här konfigurerar du
 
+**På KDC-servern:**
+
+Skapa ett huvud konto för Azure Data Factory som ska användas och ange lösen ordet.
+
+> [!IMPORTANT]
+> Användar namnet får inte innehålla värd namnet.
+
+```bash
+Kadmin> addprinc <username>@<REALM.COM>
+```
+
 **På den lokala datorn för integration Runtime:**
 
 1.  Kör Ksetup-verktyget för att konfigurera Kerberos-Key Distribution Center (KDC)-servern och sfären.
 
     Datorn måste vara konfigurerad som medlem i en arbets grupp, eftersom en Kerberos-sfär skiljer sig från en Windows-domän. Du kan uppnå den här konfigurationen genom att ange Kerberos-sfären och lägga till en KDC-Server genom att köra följande kommandon. Ersätt *REALM.com* med ditt eget sfär namn.
 
-    ```console
+    ```cmd
     C:> Ksetup /setdomain REALM.COM
     C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
     ```
@@ -302,7 +341,7 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 2.  Verifiera konfigurationen med `Ksetup` kommandot. Utdata bör vara som:
 
-    ```output
+    ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:
@@ -448,13 +487,13 @@ Information om hur du tar bort aktivitets egenskaper finns i [ta bort aktivitet 
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens *typ* -egenskap måste anges till *fileshare* |Yes |
-| folderPath | Sökvägen till mappen. Ett Wildcard-filter stöds. Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inte noll eller ett enskilt tecken). används `^` för att undanta om det faktiska fil namnet har ett jokertecken eller detta escape-tecken i. <br/><br/>Exempel: RootFolder/undermapp/, se fler exempel i [mapp-och fil filter exempel](#folder-and-file-filter-examples). |Yes |
-| fileName |  Namnet eller wildcard-filtret för filerna under den angivna "folderPath". Om du inte anger ett värde för den här egenskapen pekar data uppsättningen på alla filer i mappen. <br/><br/>För filter är tillåtna jokertecken `*` (matchar noll eller flera tecken) och `?` (matchar noll eller ett enskilt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i. |No |
-| modifiedDatetimeStart | Filerna filtreras baserat på det *senast ändrade*attributet. Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill tillämpa ett fil filter på ett stort antal filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| No |
-| modifiedDatetimeEnd | Filerna filtreras baserat på det *senast ändrade*attributet. Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill tillämpa ett fil filter på ett stort antal filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| No |
+| typ | Data uppsättningens *typ* -egenskap måste anges till *fileshare* |Ja |
+| folderPath | Sökvägen till mappen. Ett Wildcard-filter stöds. Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inte noll eller ett enskilt tecken). används `^` för att undanta om det faktiska fil namnet har ett jokertecken eller detta escape-tecken i. <br/><br/>Exempel: RootFolder/undermapp/, se fler exempel i [mapp-och fil filter exempel](#folder-and-file-filter-examples). |Ja |
+| fileName |  Namnet eller wildcard-filtret för filerna under den angivna "folderPath". Om du inte anger ett värde för den här egenskapen pekar data uppsättningen på alla filer i mappen. <br/><br/>För filter är tillåtna jokertecken `*` (matchar noll eller flera tecken) och `?` (matchar noll eller ett enskilt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken i. |Inga |
+| modifiedDatetimeStart | Filerna filtreras baserat på det *senast ändrade*attributet. Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill tillämpa ett fil filter på ett stort antal filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| Inga |
+| modifiedDatetimeEnd | Filerna filtreras baserat på det *senast ändrade*attributet. Filerna väljs om deras senaste ändrings tid ligger inom intervallet `modifiedDatetimeStart` till `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet *2018-12-01T05:00:00Z*. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill tillämpa ett fil filter på ett stort antal filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| Inga |
 | format | Om du vill kopiera filer som är mellan filbaserade butiker (binär kopia) hoppar du över avsnittet format i både indata och utdata-datauppsättnings definitionerna.<br/><br/>Om du vill parsa filer med ett speciellt format stöds följande fil format *typer: text*format, *JsonFormat*, *AvroFormat*, *OrcFormat*, *ParquetFormat*. Ange egenskapen *Type* under format till något av dessa värden. Mer information finns i avsnitten [text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format)och [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nej (endast för binär kopierings scenario) |
-| komprimering | Ange typ och nivå för komprimeringen för data. Mer information finns i [fil format och komprimerings-codecar som stöds](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>De typer som stöds är: *gzip*, *DEFLATE*, *bzip2*och *ZipDeflate*.<br/>De nivåer som stöds är: *optimalt* och *snabbast*. |No |
+| komprimering | Ange typ och nivå för komprimeringen för data. Mer information finns i [fil format och komprimerings-codecar som stöds](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>De typer som stöds är: *gzip*, *DEFLATE*, *bzip2*och *ZipDeflate*.<br/>De nivåer som stöds är: *optimalt* och *snabbast*. |Inga |
 
 >[!TIP]
 >Om du vill kopiera alla filer under en mapp anger du endast **folderPath** .<br>Om du vill kopiera en enskild fil med ett angivet namn, anger du **folderPath** med mapp-och **fil** namn med fil namn.<br>Om du vill kopiera en delmängd av filer under en mapp anger du **folderPath** med en mapp och ett **fil namns** filter med jokertecken.
@@ -493,13 +532,13 @@ Information om hur du tar bort aktivitets egenskaper finns i [ta bort aktivitet 
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | *Typ* egenskapen för kopierings aktivitets källan måste anges till *HdfsSource*. |Yes |
-| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. När rekursivt är inställt på *True* och sinken är en filbaserad lagring, kommer en tom mapp eller undermapp inte att kopieras eller skapas i mottagaren.<br/>Tillåtna värden är *True* (standard) och *false*. | No |
-| distcpSettings | Egenskaps gruppen när du använder HDFS-DistCp. | No |
+| typ | *Typ* egenskapen för kopierings aktivitets källan måste anges till *HdfsSource*. |Ja |
+| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. När rekursivt är inställt på *True* och sinken är en filbaserad lagring, kommer en tom mapp eller undermapp inte att kopieras eller skapas i mottagaren.<br/>Tillåtna värden är *True* (standard) och *false*. | Inga |
+| distcpSettings | Egenskaps gruppen när du använder HDFS-DistCp. | Inga |
 | resourceManagerEndpoint | GARN Resource Manager-slutpunkt | Ja, om du använder DistCp |
 | tempScriptPath | En mappsökväg som används för att lagra Temp DistCp-kommando skriptet. Skript filen genereras av Data Factory och tas bort när kopierings jobbet är klart. | Ja, om du använder DistCp |
-| distcpOptions | Det finns ytterligare alternativ för DistCp-kommandot. | No |
-| maxConcurrentConnections | Antalet anslutningar som kan ansluta till lagrings lagret samtidigt. Ange bara ett värde om du vill begränsa den samtidiga anslutningen till data lagret. | No |
+| distcpOptions | Det finns ytterligare alternativ för DistCp-kommandot. | Inga |
+| maxConcurrentConnections | Antalet anslutningar som kan ansluta till lagrings lagret samtidigt. Ange bara ett värde om du vill begränsa den samtidiga anslutningen till data lagret. | Inga |
 
 **Exempel: HDFS-källa i kopierings aktivitet med DistCp**
 

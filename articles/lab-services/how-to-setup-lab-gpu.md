@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286010"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404790"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurera ett labb med virtuella GPU-datorer
 
@@ -30,7 +30,7 @@ Som det beskrivs i följande tabell är *beräkningens* GPU-storlek avsedd för 
 
 | Storlek | Kärnor | RAM | Beskrivning | 
 | ---- | ----- | --- | ----------- | 
-| Liten GPU (Compute) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för dator intensiva program, till exempel artificiell intelligens (AI) och djup inlärning. |
+| Liten GPU (Compute) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för beräknings intensiva program, till exempel artificiell intelligens (AI) och djup inlärning. |
 
 GPU-storlekarna för *visualisering* är avsedda för grafik intensiva program.  [Klass typen solidworker Engineering](./class-type-solidworks.md) visar till exempel användningen av den **små GPU-storleken (visualisering)** .  GPU för visualisering är lämplig för den här typen av klass eftersom eleverna interagerar med SOLIDWORKs-miljön 3D Computer-Aided Design (CAD) för att modellera och visualisera solida objekt.
 
@@ -38,6 +38,9 @@ GPU-storlekarna för *visualisering* är avsedda för grafik intensiva program. 
 | ---- | ----- | --- | ----------- | 
 | Liten GPU (visualisering) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |
 | Medelhög GPU (visualisering) | -&nbsp;12 &nbsp; kärnor<br>-&nbsp;112 &nbsp; GB &nbsp; ram  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel och kodning som använder ramverk som OpenGL och DirectX. |
+
+> [!NOTE]
+> Du kanske inte ser några av de här VM-storlekarna i listan när du skapar ett klass rums labb. Listan fylls i baserat på den aktuella kapaciteten för labbets plats. Om skaparen av labb kontot [gör det möjligt för labb skapare att välja en plats för labbet](allow-lab-creator-pick-lab-location.md)kan du prova att välja en annan plats för labbet och se om storleken på den virtuella datorn är tillgänglig. Tillgängligheten för virtuella datorer finns i [produkt tillgänglighet per region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
 
 ## <a name="ensure-that-the-appropriate-gpu-drivers-are-installed"></a>Kontrol lera att rätt GPU-drivrutiner är installerade
 För att dra nytta av GPU-funktionerna i dina virtuella labb datorer, se till att rätt GPU-drivrutiner är installerade.  När du väljer en storlek på GPU-datorer i guiden för att skapa labb kan du välja alternativet **Installera GPU-drivrutiner** .  

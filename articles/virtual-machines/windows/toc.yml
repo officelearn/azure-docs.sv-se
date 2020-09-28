@@ -354,6 +354,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Tillstånd och livscykel
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: PUT-anrop för åtgärder för att skapa eller uppdatera
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: Övervakning
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Startdiagnostik
@@ -373,7 +376,7 @@
             - name: PowerShell
               href: dedicated-hosts-powershell.md
             - name: Portalen
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: Distribuera virtuella Spot-datorer
           items:
             - name: Portalen
@@ -499,7 +502,7 @@
                 - name: Skapa en virtuell dator från avbildningsversion
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Felsöka delade bilder
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: Använda kundhanterade nycklar
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -510,7 +513,7 @@
             - name: Använda Image Builder
               items:
                 - name: CLI
-                  href: ../linux/image-builder.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: image-builder.md
                 - name: PowerShell
                   href: image-builder-powershell.md
             - name: Använda ett VNET
@@ -525,8 +528,8 @@
                   href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: DevOps-uppgift
               href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Referens för ARM-mall
-              displayName: Azure Resource Manager
+            - name: Mallreferens för Image Builder
+              displayName: json
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Skapa för avbildningsgallerier
               href: image-builder-gallery.md
@@ -535,7 +538,7 @@
             - name: Lagra skript
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Felsöka
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: ../linux/image-builder-troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Hitta och använda avbildningar
           href: cli-ps-findimage.md
         - name: Inköpsplaninformation
@@ -818,8 +821,9 @@
         - name: Virtual Machine Scale Sets
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Hög tillgänglighet
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: Skapa en närhetsplaceringsgrupp
+          displayName: ppg aligned colocation co-location
           items:
             - name: Portalen
               href: proximity-placement-groups-portal.md

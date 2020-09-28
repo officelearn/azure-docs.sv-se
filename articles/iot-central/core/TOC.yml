@@ -81,12 +81,16 @@
       items:
         - name: Konfigurera en enhetsmall
           href: howto-set-up-template.md
+        - name: Så här använder du egenskaper
+          href: howto-use-properties.md
         - name: Förbereda och ansluta ett Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Förbereda och ansluta en RuuviTag-enhet
           href: howto-connect-ruuvi.md
         - name: Förbereda och ansluta en Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Ansluta enheter med X.509
+          href: how-to-connect-devices-x509.md
         - name: Ansluta andra IoT-moln
           href: howto-build-iotc-device-bridge.md
     - name: Fortsätt vara uppkopplad

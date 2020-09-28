@@ -21,6 +21,8 @@
           href: create-sql-api-dotnet.md
         - name: Java-app
           href: create-sql-api-java.md
+        - name: Spring Data-app
+          href: create-sql-api-spring-data.md
         - name: Node.js-app
           href: create-sql-api-nodejs.md
         - name: Python-app
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Java SDK v4-exempel
       href: sql-api-java-sdk-samples.md
+    - name: Spring Data v3-exempel
+      href: sql-api-spring-data-sdk-samples.md
     - name: Node.js-exempel
       href: sql-api-nodejs-samples.md
     - name: Python-exempel
@@ -834,7 +838,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -919,7 +923,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -1074,7 +1078,7 @@
               href: troubleshoot-not-found.md
             - name: Felsöka behörighet saknas
               href: troubleshoot-unauthorized.md
-            - name: SDK-tillgänglighet i multiregionala miljöer
+            - name: Tillgänglighetsproblem i miljöer med flera regioner
               href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
@@ -1118,6 +1122,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Fråga med Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Fråga med serverlös Synapse SQL
+          href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Använda Power BI med Synapse Link
           href: synapse-link-power-bi.md
     - name: Inbyggd analys med Apache Spark

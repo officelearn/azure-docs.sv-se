@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 6606391d7fd5c2419714531e1220d97fb29aea4d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76086dd7cccb042fdde3722b68b654343f2df012
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529598"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403593"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexera blobbar för att skapa flera Sök dokument
 Som standard behandlar en BLOB-indexeraren innehållet i en blob som ett enda Sök dokument. Vissa **parsingMode** -värden stöder scenarier där en enskild BLOB kan resultera i flera Sök dokument. De olika typerna av **parsingMode** som gör det möjligt för en indexerare att extrahera fler än ett Sök dokument från en BLOB är:
@@ -108,6 +108,9 @@ Om du vill skapa en explicit fält mappning kontrollerar du att _sourceField_ ä
 
 > [!NOTE]
 > Den metod som används av `AzureSearch_DocumentKey` för att säkerställa unikhet per extraherad entitet kan ändras och därför bör du inte förlita dig på dess värde för programmets behov.
+
+## <a name="help-us-make-azure-cognitive-search-better"></a>Hjälp oss att göra Azure Kognitiv sökning bättre
+Om du har funktions förfrågningar eller idéer om förbättringar kan du ange dina ininformation på [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Om du behöver hjälp med den befintliga funktionen kan du publicera din fråga på [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## <a name="next-steps"></a>Nästa steg
 

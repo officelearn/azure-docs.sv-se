@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326740"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404968"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Skapa en IoT-hubb med hjälp av Azure Portal
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du skapar och hanterar IoT-hubbar med hjälp av 
 
 Du behöver en Azure-prenumeration för att kunna använda stegen i den här självstudien. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -78,7 +78,7 @@ Vägar är den första fliken i fönstret meddelanderoutning. Klicka på +**Läg
 
 ![Skärm bild som visar hur du lägger till en ny väg](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Namnge hubben. Namnet måste vara unikt inom listan över vägar för den hubben. 
+Namnge din väg. Väg namnet måste vara unikt inom listan över vägar för den hubben. 
 
 För **slut punkt**kan du välja en i list rutan eller lägga till en ny. I det här exemplet finns redan ett lagrings konto och en behållare. Klicka på +**Lägg** till bredvid List rutan slut punkt och välj **Blob Storage**om du vill lägga till dem som en slut punkt. Följande skärm bild visar var lagrings kontot och containern har angetts.
 

@@ -24,6 +24,10 @@
     - name: Skapa en Private Link-tjänst – ARM-mall
       displayName: Resource Manager
       href: create-private-link-service-template.md
+- name: Självstudier
+  items:
+    - name: Ansluta till ett lagringskonto
+      href: tutorial-private-endpoint-storage-portal.md
 - name: Begrepp
   items:
     - name: Privat slutpunkt
@@ -38,8 +42,6 @@
           href: security-baseline.md
 - name: Gör så här för att
   items:
-    - name: Ansluta privat till ett lagringskonto
-      href: create-private-endpoint-storage-portal.md
     - name: Ansluta privat till ett Cosmos DB-konto
       href: create-private-endpoint-cosmosdb-portal.md
     - name: Ansluta privat till en webbapp

@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 80307c97464e61d7b7d338703de90d1199adc819
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927025"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403576"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Så här indexerar du stora data uppsättningar i Azure Kognitiv sökning
 
@@ -25,34 +25,37 @@ Samma tekniker gäller även för långvariga processer. I synnerhet är de steg
 
 I följande avsnitt beskrivs tekniker för att indexera stora mängder data med både push-API och indexerare.
 
-## <a name="push-api"></a>Push-API
+## <a name="use-the-push-api"></a>Använd push-API: et
 
-När du skickar data till ett index finns det flera viktiga överväganden som påverkar indexerings hastigheten för push-API: et. Dessa faktorer beskrivs i avsnittet nedan. 
+När du skickar data till ett index med hjälp av [Lägg till dokument REST API](/rest/api/searchservice/addupdate-or-delete-documents) eller [index-metoden](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index)finns det flera viktiga överväganden som påverkar indexerings hastigheten. Dessa faktorer beskrivs i avsnittet nedan och sträcker sig från att ställa in tjänst kapacitet till kod optimeringar.
 
-Utöver informationen i den här artikeln kan du också dra nytta av kod exemplen i [självstudien optimera indexerings hastighet](tutorial-optimize-indexing-push-api.md) för mer information.
+Mer information och kod exempel som illustrerar indexering av push-modell finns i [Självstudier: optimera indexerings hastigheter](tutorial-optimize-indexing-push-api.md).
 
-### <a name="service-tier-and-number-of-partitionsreplicas"></a>Tjänst nivå och antal partitioner/repliker
+### <a name="capacity-of-your-service"></a>Tjänstens kapacitet
 
-Om du lägger till partitioner eller ökar nivån för Sök tjänsten ökar också indexerings hastigheten.
+Som ett första steg granskar du egenskaperna och [gränserna](search-limits-quotas-capacity.md) för den nivå där du etablerade tjänsten. En av de viktigaste skillnaderna mellan pris nivåerna är storlek och hastighet för partitioner, som har direkt påverkan på indexerings hastigheten. Om du etablerade din Sök tjänst på en nivå som inte är tillräcklig för arbets belastningen kan det vara den enklaste och mest effektiva lösningen för att öka indexerings data flödet genom att uppgradera till en ny nivå.
 
-Att lägga till ytterligare repliker kan också öka indexerings hastigheten men det är inte garanterat. Å andra sidan kommer ytterligare repliker att öka den volym som Sök tjänsten kan hantera. Repliker är också en viktig komponent för att få ett [service avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+När du är nöjd med nivån kan nästa steg vara att öka antalet partitioner. Resursallokeringen kan justeras ned efter en inledande indexerings körning för att minska den totala kostnaden för att köra tjänsten.
 
-Innan du lägger till partition/repliker eller uppgraderar till en högre nivå bör du ta hänsyn till den monetära kostnaden och tilldelnings tiden. Att lägga till partitioner kan öka indexerings hastigheten avsevärt men att lägga till/ta bort dem kan ta var som helst från 15 minuter till flera timmar. Mer information finns i dokumentationen om justering av [kapacitet](search-capacity-planning.md).
+> [!NOTE]
+> Att lägga till ytterligare repliker kan också öka indexerings hastigheten men det är inte garanterat. Å andra sidan kommer ytterligare repliker att öka den volym som Sök tjänsten kan hantera. Repliker är också en viktig komponent för att få ett [service avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+>
+> Innan du lägger till partition/repliker eller uppgraderar till en högre nivå bör du ta hänsyn till den monetära kostnaden och tilldelnings tiden. Att lägga till partitioner kan öka indexerings hastigheten avsevärt men att lägga till/ta bort dem kan ta var som helst från 15 minuter till flera timmar. Mer information finns i dokumentationen om justering av [kapacitet](search-capacity-planning.md).
+>
 
-### <a name="index-schema"></a>Index schema
+### <a name="review-index-schema"></a>Granska index schema
 
-Schemat för ditt index spelar en viktig roll i indexerings data. Att lägga till fält och lägga till ytterligare egenskaper till dessa fält (till exempel *sökbar*, *fasettable*eller *Filterable*) minskar både indexerings hastigheten.
-
-I allmänhet rekommenderar vi att du bara lägger till ytterligare egenskaper till fält om du tänker använda dem.
+Schemat för ditt index spelar en viktig roll i indexerings data. De fler fälten som du har och fler egenskaper som du anger (till exempel *sökbar*, *fasettable*eller *filtrerings*bara) bidrar till att öka indexerings tiden. I allmänhet bör du bara skapa och ange de fält som du faktiskt behöver i ett sökindex.
 
 > [!NOTE]
 > Undvik att lägga till icke-frågedata till ett index för att hålla nere dokument storleken. Bilder och andra binära data är inte direkt sökbara och bör inte lagras i indexet. Om du vill integrera data som inte går att köra i Sök resultaten bör du definiera ett fält som inte går att söka i som lagrar en URL-referens till resursen.
 
-### <a name="batch-size"></a>Batchstorlek
+### <a name="check-the-batch-size"></a>Kontrol lera batchstorleken
 
-En av de enklaste mekanismerna för att indexera en större data uppsättning är att skicka flera dokument eller poster i en och samma begäran. Så länge hela nytto lasten är under 16 MB kan en begäran hantera upp till 1000 dokument i en Mass överförings åtgärd. Dessa begränsningar gäller oavsett om du använder [Lägg till dokument REST API](/rest/api/searchservice/addupdate-or-delete-documents) eller [index-metoden](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) i .NET SDK. För båda API: erna kommer du att paketera 1000-dokument i bröd texten för varje begäran.
+En av de enklaste mekanismerna för att indexera en större data uppsättning är att skicka flera dokument eller poster i en och samma begäran. Så länge hela nytto lasten är under 16 MB kan en begäran hantera upp till 1000 dokument i en Mass överförings åtgärd. Dessa begränsningar gäller oavsett om du använder [Lägg till dokument REST API](/rest/api/searchservice/addupdate-or-delete-documents) eller [index-metoden](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) i .NET SDK. För båda API: erna kommer du att paketera 1000-dokument i bröd texten för varje begäran.
 
 Att använda batchar för att indexera dokument kommer att förbättra indexerings prestanda avsevärt. Att fastställa den optimala batchstorleken för dina data är en viktig komponent i optimering av indexerings hastigheter. De två primära faktorerna som påverkar den optimala batchstorleken är:
+
 + Schemat för ditt index
 + Storleken på dina data
 
@@ -79,7 +82,7 @@ När du ramperar de begär Anden som når Sök tjänsten kan du stöta på [HTTP
 + **503 tjänsten är inte tillgänglig** – det här felet innebär att systemet är hårt belastat och att din begäran inte kan bearbetas just nu.
 + **207 multi-status** – det här felet innebär att vissa dokument lyckades, men att minst en misslyckades.
 
-### <a name="retry-strategy"></a>Återförsöksstrategi 
+### <a name="retry-strategy"></a>Återförsöksstrategi
 
 Om ett fel inträffar ska förfrågningarna göras om med en [exponentiell backoff-strategi för återförsök](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
@@ -89,7 +92,7 @@ Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyck
 
 Överföringshastigheten för nätverks data kan vara en begränsnings faktor vid indexering av data. Indexering av data i Azure-miljön är ett enkelt sätt att påskynda indexeringen.
 
-## <a name="indexers"></a>Indexerare
+## <a name="use-indexers-pull-api"></a>Använda indexerare (pull-API)
 
 [Indexerare](search-indexer-overview.md) används för att crawla Azure-datakällor som stöds för sökbart innehåll. Även om det är särskilt avsett för storskalig indexering är flera indexerings funktioner särskilt användbara för att kunna använda större data uppsättningar:
 
@@ -100,7 +103,7 @@ Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyck
 > [!NOTE]
 > Indexerare är data källa-/regionsspecifika, så användning av en indexerare-metod är endast livskraftig för valda data källor på Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
-### <a name="batch-size"></a>Batchstorlek
+### <a name="check-the-batchsize-argument-on-create-indexer"></a>Kontrol lera argumentet batchSize i skapa indexerare
 
 Som med push-API: et kan du med indexerare konfigurera antalet objekt per batch. För indexerare som baseras på [skapa indexerare REST API](/rest/api/searchservice/Create-Indexer)kan du ange argumentet för att `batchSize` Anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
 
@@ -112,7 +115,7 @@ Schemaläggning av indexering är en viktig mekanism för att bearbeta stora dat
 
 Enligt design börjar schemalagd indexering i bestämda intervall, med ett jobb som normalt slutförs innan nästa schemalagda intervall återupptas. Men om bearbetningen inte slutförs inom intervallet stoppas indexeraren (på grund av att tids gränsen uppnåddes). Vid nästa intervall återupptas bearbetningen där det senast slutade, med systemet som håller koll på var det inträffar. 
 
-I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om den här metoden finns i [Indexera stora data uppsättningar i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](/rest/api/searchservice/Create-Indexer) eller se [hur du schemalägger indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
+I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](/rest/api/searchservice/Create-Indexer) eller se [hur du schemalägger indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

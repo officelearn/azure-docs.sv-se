@@ -40,6 +40,10 @@
           href: costs/understand-work-scopes.md
         - name: Alternativ för gruppering och filter
           href: costs/group-filter.md
+        - name: Planera för att hantera kostnader
+          href: understand/plan-manage-costs.md
+        - name: Undvik oväntade kostnader
+          href: understand/analyze-unexpected-charges.md
         - name: Hantera kostnader med automatisering
           href: costs/manage-automation.md
         - name: Cost Management för partner
@@ -114,6 +118,8 @@
           href: understand/mca-overview.md
         - name: Faktureringskonton för Microsofts partneravtal
           href: understand/mpa-overview.md
+        - name: Om överföring av prenumerationer
+          href: understand/subscription-transfer.md
         - name: Överföra prenumerationer mellan partner (förhandsversion)
           href: manage/azure-plan-subscription-transfer-partners.md
 - name: Anvisningar
@@ -124,7 +130,7 @@
           items:
             - name: Uppgifter för kontoadministratörer
               href: manage/account-admin-tasks.md
-            - name: Redigera profil
+            - name: Redigera kontaktinformation för fakturering
               href: manage/change-azure-account-profile.md
             - name: Lös passerat betalningsdatum
               href: manage/resolve-past-due-balance.md
@@ -246,8 +252,6 @@
               href: manage/upgrade-azure-subscription.md
     - name: Utföra viktiga kostnadshanteringsuppgifter
       items:
-        - name: Undvik oväntade kostnader
-          href: manage/getting-started.md
         - name: Beräkna priser
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Använda kostnadsanalys för vanliga uppgifter

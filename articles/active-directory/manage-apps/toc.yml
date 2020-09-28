@@ -18,8 +18,10 @@
       href: add-application-portal-configure.md
     - name: Tilldela användare en app
       href: add-application-portal-assign-users.md
-    - name: Konfigurera enkel inloggning
+    - name: Konfigurera SAML-baserad enkel inloggning
       href: add-application-portal-setup-sso.md
+    - name: Konfigurera OIDC-baserad enkel inloggning
+      href: add-application-portal-setup-oidc-sso.md
     - name: Ta bort en app
       href: delete-application-portal.md
 - name: Självstudier

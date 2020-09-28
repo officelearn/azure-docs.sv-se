@@ -16,6 +16,8 @@
       href: connectivity.md
     - name: Storage-konfiguration
       href: storage-configuration.md
+    - name: Vägledning för dimensionering
+      href: sizing-guidance.md
 - name: Anvisningar
   items:
     - name: Installera verktygen
@@ -47,7 +49,7 @@
         - name: Skapa datakontrollant (azdata)
           href: create-data-controller-using-azdata.md
         - name: Skapa datakontrollant med Kubernetes
-          href: create-data-controller-using-k8s-native-tools.md
+          href: create-data-controller-using-kubernetes-native-tools.md
     - name: Vanliga upplevelser i Azure Arc-aktiverade datatjänster
       items:
         - name: Övervaka med instrumentpaneler (Azure Data Studio)
@@ -90,6 +92,8 @@
           href: create-postgresql-hyperscale-server-group.md
         - name: Skapa Postgres hyperskala-servergrupp (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Skapa Postgres hyperskala-servergrupp – Ursprungliga Kubernetes-verktyg
+          href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: Ansluta
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
     - name: Begrepp
@@ -148,6 +152,8 @@
           href: create-sql-managed-instance.md
         - name: Skapa SQL-hanterad instans (Azure Data Studio)
           href: create-sql-managed-instance-azure-data-studio.md
+        - name: Skapa med Kubernetes-verktyg
+          href: create-sql-managed-instance-using-kubernetes-native-tools.md
         - name: Ansluta
           href: connect-managed-instance.md
     - name: Så här gör du

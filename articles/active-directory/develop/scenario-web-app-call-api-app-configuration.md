@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396322"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403202"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>En webbapp som anropar webb-API: er kod konfiguration
 
@@ -181,7 +181,7 @@ Precis som med webb-API: er kan du välja olika implementationer för cachelagri
 
 Följande bild visar de olika möjligheterna för *Microsoft. Identity. Web* och deras inverkan på *startup.cs* -filen:
 
-:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="När du skapar ett webb-API kan du välja att anropa ett underordnat API och token cache-implementeringar.":::
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Blockera diagram som visar tjänst konfigurations alternativ i Start punkt C S för att anropa ett webb-API och ange en implementation av token cache":::
 
 > [!NOTE]
 > För att fullständigt förstå kod exemplen måste du vara bekant med [ASP.net Core fundament ALS](/aspnet/core/fundamentals), särskilt med [beroende inmatning](/aspnet/core/fundamentals/dependency-injection) och [alternativ](/aspnet/core/fundamentals/configuration/options).

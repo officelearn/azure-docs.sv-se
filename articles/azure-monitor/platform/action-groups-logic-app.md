@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321895"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403134"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Så här utlöser du komplexa åtgärder med Azure Monitor aviseringar
 
@@ -41,7 +41,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 3.  **Namnge din Logic app, Välj**en **resurs grupp**och så vidare.
 
-    ![Skapa en logikapp](media/action-groups-logic-app/create-logic-app-dialog.png "Skapa en logikapp")
+    ![Skapa en Logic app](media/action-groups-logic-app/create-logic-app-dialog.png "Skapa en logikapp")
 
 4.  Välj **skapa** för att skapa Logic-appen. Ett popup-meddelande indikerar att Logic-appen har skapats. Välj **Starta resurs** för att öppna **Logic Apps designer**.
 
@@ -108,7 +108,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
     ![Microsoft Teams-åtgärder](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams-åtgärder")
 
-12. Konfigurera Microsoft Teams-åtgärden. **Logic Apps designer** ber dig att autentisera till ditt Office 365-konto. Välj det **Team-ID** och **kanal-ID** som meddelandet ska skickas till.
+12. Konfigurera Microsoft Teams-åtgärden. **Logic Apps designer** ber dig att autentisera till ditt arbets-eller skol konto. Välj det **Team-ID** och **kanal-ID** som meddelandet ska skickas till.
 
 13. Konfigurera meddelandet med hjälp av en kombination av statisk text och referenser till \<fields\> i det dynamiska innehållet. Kopiera och klistra in följande text i **meddelande** fältet:
 

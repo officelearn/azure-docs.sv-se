@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935474"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403389"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Tips för AI-anrikning i Azure Kognitiv sökning
 
@@ -110,12 +110,11 @@ För portalbaserade indexeringar (enligt beskrivningen i snabb starten) väljer 
 ## <a name="tip-8-increase-indexing-throughput"></a>Tips 8: öka indexerings data flödet
 
 För [parallell indexering](search-howto-large-index.md)ska du placera dina data i flera behållare eller flera virtuella mappar i samma behållare. Skapa sedan flera DataSource-och Indexer-par. Alla indexerare kan använda samma färdigheter och skriva till samma mål Sök index, så din Sökapp behöver inte vara medveten om denna partitionering.
-Mer information finns i [Indexera stora data uppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Se även
+
 + [Snabb start: skapa en AI-pipeline i portalen](cognitive-search-quickstart-blob.md)
 + [Självstudie: Lär dig AI-anrikning REST API: er](cognitive-search-tutorial-blob.md)
 + [Ange autentiseringsuppgifter för data Källa](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indexera stora data uppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Så här mappar du omfattande fält till ett index](cognitive-search-output-field-mapping.md)

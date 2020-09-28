@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377020"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403695"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -77,7 +77,7 @@ När användaren tar bort det hanterade programmet tas även den hanterade resur
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Du kan använda en [Azure policy](../../governance/policy/overview.md) för att granska det hanterade programmet. Du tillämpar princip definitioner för att se till att distribuerade instanser av ditt hanterade program uppfyller data-och säkerhets kraven. Om programmet interagerar med känsliga data måste du ha utvärderat hur dessa data ska skyddas. Om ditt program till exempel interagerar med data från Office 365 använder du en princip definition för att kontrol lera att data kryptering är aktiverat.
+Du kan använda en [Azure policy](../../governance/policy/overview.md) för att granska det hanterade programmet. Du tillämpar princip definitioner för att se till att distribuerade instanser av ditt hanterade program uppfyller data-och säkerhets kraven. Om programmet interagerar med känsliga data måste du ha utvärderat hur dessa data ska skyddas. Om ditt program till exempel interagerar med data från Microsoft 365 använder du en princip definition för att kontrol lera att data kryptering är aktiverat.
 
 ## <a name="next-steps"></a>Nästa steg
 

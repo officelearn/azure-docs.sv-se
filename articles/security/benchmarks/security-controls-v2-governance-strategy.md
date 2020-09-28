@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 255e5533dc19036624042a0b82116c4dc107d762
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336232"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403534"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Säkerhets kontroll v2: styrning och strategi
 
@@ -28,21 +28,21 @@ Se till att dokumentera och förmedla en tydlig strategi för kontinuerlig över
 
 Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
 
--   Data klassificerings standard i enlighet med affärs riskerna
+- Data klassificerings standard i enlighet med affärs riskerna
 
--   Insyn i säkerhets organisationen för risker och till gångs inventering 
+- Insyn i säkerhets organisationen för risker och till gångs inventering 
 
--   Godkännande av säkerhets organisation för Azure-tjänster för användning 
+- Godkännande av säkerhets organisation för Azure-tjänster för användning 
 
--   Säkerhet för till gångar via deras livs cykel
+- Säkerhet för till gångar via deras livs cykel
 
--   Nödvändig åtkomst kontroll strategi i enlighet med organisationens data klassificering
+- Nödvändig åtkomst kontroll strategi i enlighet med organisationens data klassificering
 
--   Användning av data skydds funktioner i Azure Native och tredje part
+- Användning av data skydds funktioner i Azure Native och tredje part
 
--   Krav på data kryptering för överförings-och rest-användnings fall
+- Krav på data kryptering för överförings-och rest-användnings fall
 
--   Lämpliga kryptografiska standarder
+- Lämpliga kryptografiska standarder
 
 Mer information finns i följande referenser:
 - [Rekommendation för Azure Security Architecture – lagring, data och kryptering](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
@@ -51,9 +51,9 @@ Mer information finns i följande referenser:
 
 - [Ramverk för moln införande – metod tips för Azure Data Security och kryptering](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Hantering av Azure Security-inventarier](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Hantering av Azure Security-inventarier](security-controls-v2-asset-management.md)
 
-- [Azure Security benchmark – data skydd](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security benchmark – data skydd](security-controls-v2-data-protection.md)
 
 **Ansvar**: kund
 
@@ -93,7 +93,7 @@ Se till att segmenterings strategin implementeras konsekvent över kontroll type
 
 Kontinuerligt mäta och minimera risker för enskilda till gångar och den miljö som de finns i. Prioritera höga värde till gångar och högexponerade attack ytor, till exempel publicerade program, ingångs-och utgångs punkter, användar-och administratörs slut punkter osv.
 
-- [Azure Security benchmark – position och sårbarhets hantering](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security benchmark – position och sårbarhets hantering](security-controls-v2-posture-vulnerability-management.md)
 
 **Ansvar**: kund
 
@@ -131,23 +131,23 @@ Upprätta en Azure Network Security-metod som en del av din organisations överg
 
 Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
 
--   Centraliserad nätverks hantering och säkerhets ansvar
+- Centraliserad nätverks hantering och säkerhets ansvar
 
--   Modell för virtuella nätverks segment justerade med strategin för företags segmentering
+- Modell för virtuella nätverks segment justerade med strategin för företags segmentering
 
--   Reparations strategi i olika hot och angrepps scenarier
+- Reparations strategi i olika hot och angrepps scenarier
 
--   Strategi för Internet Edge och inkommande och utgående
+- Strategi för Internet Edge och inkommande och utgående
 
--   Hybrid moln och lokal strategi för samanslutning
+- Hybrid moln och lokal strategi för samanslutning
 
--   Aktuella nätverks säkerhets artefakter (t. ex. nätverks diagram, referens nätverks arkitektur)
+- Aktuella nätverks säkerhets artefakter (t. ex. nätverks diagram, referens nätverks arkitektur)
 
 Mer information finns i följande referenser:
 
 - [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](https://aka.ms/AzSec11)
 
-- [Säkerhet för Azure-säkerhet](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Säkerhet för Azure-säkerhet](security-controls-v2-network-security.md)
 
 - [Översikt över Azure Network Security](../fundamentals/network-overview.md)
 
@@ -169,25 +169,25 @@ Upprätta en Azure Identity-och Privileged Access-metod som en del av din organi
 
 Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
 
--   Ett centraliserat identitets-och autentiserings system och dess samanslutning med andra interna och externa identitets system
+- Ett centraliserat identitets-och autentiserings system och dess samanslutning med andra interna och externa identitets system
 
--   Starka autentiseringsmetoder i olika användnings fall och villkor
+- Starka autentiseringsmetoder i olika användnings fall och villkor
 
--   Skydd av privilegierade användare
+- Skydd av privilegierade användare
 
--   Avvikande användar aktiviteter, övervakning och hantering  
+- Avvikande användar aktiviteter, övervakning och hantering  
 
--   Process för användar identitets-och åtkomst granskning och avstämning
+- Process för användar identitets-och åtkomst granskning och avstämning
 
 Mer information finns i följande referenser:
 
-- [Azure-säkerhet för prestandatest – identitets hantering](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure-säkerhet för prestandatest – identitets hantering](security-controls-v2-identity-management.md)
 
-- [Azure Security benchmark – privilegie rad åtkomst](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security benchmark – privilegie rad åtkomst](security-controls-v2-privileged-access.md)
 
 - [Azure-säkerhet Best Practice 11-Architecture. Enhetlig säkerhets strategi](https://aka.ms/AzSec11)
 
-- [Översikt över Azure Identity Management-säkerhet](../fundamentals/identity-management-overview.md) 
+- [Översikt över Azure Identity Management-säkerhet](../fundamentals/identity-management-overview.md)
 
 **Ansvar**: kund
 
@@ -205,26 +205,26 @@ Upprätta en strategi för loggning och hot svar för att snabbt upptäcka och �
 
 Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
 
--   Organisationens roll och ansvars områden för säkerhets åtgärder (SecOps) 
+- Organisationens roll och ansvars områden för säkerhets åtgärder (SecOps) 
 
--   En väldefinierad incident svars process som justeras med NIST eller något annat bransch ramverk 
+- En väldefinierad incident svars process som justeras med NIST eller något annat bransch ramverk 
 
--   Insamling och kvarhållning av loggar för att stödja hot identifiering, incident svar och krav på efterlevnad
+- Insamling och kvarhållning av loggar för att stödja hot identifiering, incident svar och krav på efterlevnad
 
--   Centraliserad synlighet och korrelations information om hot, med SIEM, interna Azure-funktioner och andra källor 
+- Centraliserad synlighet och korrelations information om hot, med SIEM, interna Azure-funktioner och andra källor 
 
--   Kommunikation och meddelande plan med dina kunder, leverantörer och offentliga intressen
+- Kommunikation och meddelande plan med dina kunder, leverantörer och offentliga intressen
 
--   Användning av inbyggda Azure-och tredjeparts-plattformar för incident hantering, till exempel loggning och hot identifiering, data utredning och angrepp och utrotning
+- Användning av inbyggda Azure-och tredjeparts-plattformar för incident hantering, till exempel loggning och hot identifiering, data utredning och angrepp och utrotning
 
--   Processer för hantering av incidenter och aktiviteter efter incidenter, till exempel lektioner som lärts och underlags kvarhållning
+- Processer för hantering av incidenter och aktiviteter efter incidenter, till exempel lektioner som lärts och underlags kvarhållning
 
 Mer information finns i följande referenser:
-- [Azure-säkerhet för benchmark-loggning och hot identifiering](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure-säkerhet för benchmark-loggning och hot identifiering](security-controls-v2-logging-threat-detection.md)
 
-- [Azure-säkerhet benchmark – incident svar](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure-säkerhet benchmark – incident svar](security-controls-v2-incident-response.md)
 
-- [Azure Security Best Practice 4 – process. Uppdatera incident svars processer för molnet](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 4 – process. Uppdatera incident svars processer för molnet](https://aka.ms/AzSec4)
 
 - [Besluts guide för Azure införande Framework, loggning och rapportering](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
@@ -246,14 +246,14 @@ Upprätta en Azures säkerhets kopierings-och återställnings strategi för din
 
 Strategin bör omfatta dokumenterad vägledning, principer och standarder för följande element: 
 
--   Återställnings tids mål (RTO) och återställnings punkt mål (för återställnings punkt) i enlighet med dina affärs återhämtnings mål
+- Återställnings tids mål (RTO) och återställnings punkt mål (för återställnings punkt) i enlighet med dina affärs återhämtnings mål
 
--   Redundans design i dina program och infrastruktur konfiguration
+- Redundans design i dina program och infrastruktur konfiguration
 
--   Skydd av säkerhets kopiering med åtkomst kontroll och data kryptering
+- Skydd av säkerhets kopiering med åtkomst kontroll och data kryptering
 
 Mer information finns i följande referenser:
-- [Prestandatest för Azure-säkerhet – säkerhets kopiering och återställning](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
+- [Prestandatest för Azure-säkerhet – säkerhets kopiering och återställning](security-controls-v2-backup-recovery.md)
 
 - [Azures ramverk för well-Architecture – säkerhets kopiering och haveri beredskap för Azure-program](/azure/architecture/framework/resiliency/backup-and-recovery)
 

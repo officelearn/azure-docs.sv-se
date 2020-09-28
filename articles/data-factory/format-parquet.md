@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: f22380f65b91976e7696551ee0a65a5bf6dfd097
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334318"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404749"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,9 +29,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Parquet**. | Yes      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Yes      |
-| compressionCodec | Den komprimerings-codec som ska användas när du skriver till Parquet-filer. Vid läsning från Parquet-filer bestämmer data fabrikerna automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**", "**gzip**", "**fästfunktionen**" (standard) och "**LZO**". Obs! kopierings aktiviteten stöder för närvarande inte LZO vid läsning/skrivning av Parquet-filer. | No       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Parquet**. | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| compressionCodec | Den komprimerings-codec som ska användas när du skriver till Parquet-filer. Vid läsning från Parquet-filer bestämmer data fabrikerna automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**", "**gzip**", "**fästfunktionen**" (standard) och "**LZO**". Obs! kopierings aktiviteten stöder för närvarande inte LZO vid läsning/skrivning av Parquet-filer. | Inga       |
 
 > [!NOTE]
 > Tomt utrymme i kolumn namn stöds inte för Parquet-filer.
@@ -70,8 +70,8 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ParquetSource**. | Yes      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ParquetSource**. | Ja      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
 
 ### <a name="parquet-as-sink"></a>Parquet som mottagare
 
@@ -79,17 +79,17 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ParquetSink**. | Yes      |
-| formatSettings | En grupp med egenskaper. Se **Parquet Write Settings** Table nedan. |    No      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
+| typ          | Egenskapen Type för kopierings aktivitetens Sink måste anges till **ParquetSink**. | Ja      |
+| formatSettings | En grupp med egenskaper. Se **Parquet Write Settings** Table nedan. |    Inga      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
 
 **Skriv inställningar för Parquet** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typen för formatSettings måste anges till **ParquetWriteSettings**. | Yes                                                   |
-| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | No |
-| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | No |
+| typ          | Typen för formatSettings måste anges till **ParquetWriteSettings**. | Ja                                                   |
+| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | Inga |
+| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | Inga |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
@@ -127,7 +127,7 @@ source(allowSchemaDrift: true,
 
 ### <a name="sink-properties"></a>Egenskaper för mottagare
 
-I tabellen nedan visas de egenskaper som stöds av en Parquet-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
+I tabellen nedan visas de egenskaper som stöds av en Parquet-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
 | Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |

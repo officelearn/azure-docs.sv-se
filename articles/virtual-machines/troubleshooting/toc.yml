@@ -115,6 +115,8 @@
           href: windows-stop-error-bad-system-config-info.md
         - name: Windows-stoppfel – status slut på minne
           href: troubleshoot-windows-stop-error.md
+        - name: Windows-stoppfel – systemprocessen avslutades
+          href: windows-stop-error-system-process-terminated.md
 - name: Det går inte att ansluta till min virtuella dator
   items:
     - name: RDP

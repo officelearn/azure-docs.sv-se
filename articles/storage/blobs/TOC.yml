@@ -312,6 +312,8 @@
               href: storage-blob-properties-metadata.md
             - name: Kopiera en blob (SDK)
               href: storage-blob-copy.md
+            - name: Använda blobindex
+              href: storage-blob-index-how-to.md
         - name: Bevilja åtkomst till blobdata
           items:
             - name: Auktoriseringsalternativ för användare
@@ -460,8 +462,6 @@
           href: storage-custom-domain-name.md
         - name: Dirigera händelser till en anpassad slutpunkt
           href: storage-blob-event-quickstart.md
-        - name: Använda blobindex
-          href: storage-blob-index-how-to.md
         - name: Överföra data
           items:
             - name: AzCopy

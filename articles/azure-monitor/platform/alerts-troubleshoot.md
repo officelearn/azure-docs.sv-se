@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045248"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403423"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Felsöka problem i Azure Monitor aviseringar
 
@@ -61,7 +61,7 @@ Om du kan se en utlöst avisering i Azure Portal, men inte har fått något e-po
     Kontrollera också:
 
    - skräppostinställningarna för e-postklienten (t.ex. Outlook och Gmail)
-      - avsändarbegränsningar/skräppostinställningar/karantäninställningar för e-postservern (t.ex. Exchange, Office 365 och G-suite)
+      - avsändaren begränsar/spam-inställningar/karantän inställningar för din e-postserver (t. ex. Exchange, Microsoft 365, G-Suite)
       - inställningarna för din e-säkerhetsenhet, om några (som Barracuda, Cisco).
 
 1. **Har du av misstag avbrutit prenumerationen på åtgärds gruppen?**
@@ -203,7 +203,7 @@ Om du ser en avisering som har utlösts på portalen, men en relaterad åtgärds
 
     Aviseringar om tjänsthälsa (övervakningstjänst = ”Service Health”) påverkas inte av åtgärdsregler. 
 
-1. **Fungerar åtgärds regeln på aviseringen?** 
+1. **Kördes åtgärdsregeln för din avisering?** 
 
     Kontrollera att åtgärdsregeln har bearbetat aviseringen genom att klicka på den utlösta aviseringen på portalen och gå till historikfliken.
 
@@ -216,7 +216,7 @@ Om du ser en avisering som har utlösts på portalen, men en relaterad åtgärds
     ![Åtgärden upprepas i flera åtgärds grupper](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
-1. **Matchar åtgärds regelns omfattning och filter den utlöst aviseringen?** 
+1. **Matchar åtgärdsregelns omfång och filter den utlösta aviseringen?** 
 
     Om du tror att åtgärdsregeln borde ha utlösts men inte gjorde det, eller att den inte borde ha utlösts, men gjorde det, kontrollerar du och jämför åtgärdsregelns omfång och filtervillkor med egenskaperna för den utlösta aviseringen. 
 

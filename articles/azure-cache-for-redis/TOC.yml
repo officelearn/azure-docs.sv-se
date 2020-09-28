@@ -70,10 +70,14 @@
           href: cache-how-to-premium-clustering.md
         - name: Bevara din cache med Redis-datapersistence
           href: cache-how-to-premium-persistence.md
+        - name: Lägg till fler repliker
+          href: cache-how-to-multi-replicas.md
         - name: Skydda din cache med ett virtuellt nätverk
           href: cache-how-to-premium-vnet.md
         - name: Ansluta privat till en cache
           href: cache-private-link.md
+        - name: Aktivera zonredundans
+          href: cache-how-to-zone-redundancy.md
         - name: Konfigurera geo-replikering
           href: cache-how-to-geo-replication.md
         - name: Spara pengar med reserverad kapacitet

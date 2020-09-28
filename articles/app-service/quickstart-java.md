@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f8e87b22e3d8f6e265789f910863b2790024cbf
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4041623d1c6ae464afd20e3beff753fb89e0a350
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532417"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405096"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Snabb start: skapa en Java-app på Azure App Service
 
@@ -71,21 +71,24 @@ Distributions processen som Azure App Service använder dina Azure-autentisering
 Kör kommandot maven nedan för att konfigurera distributionen. Med det här kommandot kan du konfigurera App Service operativ system, Java-version och Tomcat-version.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. När du uppmanas väljer du **Windows** genom att ange `2` .
-2. Använd standard versionen av Java 1,8 genom att trycka på RETUR.
-3. Tryck slutligen på RETUR för att bekräfta dina val.
+1. När du uppmanas med alternativet **prenumeration** väljer du rätt `Subscription` genom att skriva in siffran Skriv ut i rad starten.
+1. När du uppmanas att ange alternativet för **webbapp** godkänner du alternativet defaut `<create>` genom att trycka på RETUR.
+1. När du uppmanas med alternativet **OS** väljer du **Windows** genom att ange `2` .
+1. Använd standard versionen av Java 1,8 genom att trycka på RETUR.
+1. Tryck slutligen på RETUR för att bekräfta dina val.
 
     Sammanfattnings resultatet ser ut ungefär som i det stycke som visas nedan.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
@@ -106,7 +109,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. När du uppmanas väljer du **Windows** genom att ange `2` .
+1. När du uppmanas med alternativet **prenumeration** väljer du rätt `Subscription` genom att skriva in siffran Skriv ut i rad starten.
+1. När du uppmanas att ange alternativet för **webbapp** godkänner du alternativet defaut `<create>` genom att trycka på RETUR.
+1. När du uppmanas med alternativet **OS** väljer du **Windows** genom att ange `2` .
 1. Använd standard versionen av Java 1,8 genom att trycka på RETUR.
 1. Använd standard webb behållaren, Tomcat 8,5, genom att trycka på RETUR.
 1. Tryck slutligen på RETUR för att bekräfta dina val.
@@ -115,6 +120,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
@@ -140,12 +146,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. När du uppmanas väljer du **Linux** genom att trycka på RETUR.
-2. Använd standard versionen av Java 1,8 genom att trycka på RETUR.
-3. Tryck slutligen på RETUR för att bekräfta dina val.
+1. När du uppmanas med alternativet **prenumeration** väljer du rätt `Subscription` genom att skriva in siffran Skriv ut i rad starten.
+1. När du uppmanas att ange alternativet för **webbapp** godkänner du alternativet defaut `<create>` genom att trycka på RETUR.
+1. När du uppmanas med alternativet **OS** väljer du **Linux** genom att trycka på RETUR.
+1. Använd standard versionen av Java 1,8 genom att trycka på RETUR.
+1. Tryck slutligen på RETUR för att bekräfta dina val.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
@@ -165,13 +174,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. När du uppmanas väljer du **Linux** genom att trycka på RETUR.
+1. När du uppmanas med alternativet **prenumeration** väljer du rätt `Subscription` genom att skriva in siffran Skriv ut i rad starten.
+1. När du uppmanas att ange alternativet för **webbapp** godkänner du alternativet defaut `<create>` genom att trycka på RETUR.
+1. När du uppmanas med alternativet **OS** väljer du **Linux** genom att trycka på RETUR.
 1. Använd standard versionen av Java 1,8 genom att trycka på RETUR.
 1. Använd standard webb behållaren, Tomcat 8,5, genom att trycka på RETUR.
 1. Tryck slutligen på RETUR för att bekräfta dina val.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
@@ -198,6 +210,7 @@ Du kan ändra konfigurationerna för App Service direkt i `pom.xml` om så behö
 Egenskap | Krävs | Beskrivning | Version
 ---|---|---|---
 `<schemaVersion>` | falskt | Ange konfigurations schemats version. De värden som stöds är: `v1` , `v2` . | 1.5.2
+`<subscriptionId>` | falskt | Ange prenumerations-ID. | 0.1.0 +
 `<resourceGroup>` | true | Azure-resurs grupp för din webbapp. | 0.1.0 +
 `<appName>` | true | Namnet på din webbapp. | 0.1.0 +
 `<region>` | true | Anger den region där din webbapp ska vara värd. Standardvärdet är **westeurope**. Avsnittet alla giltiga regioner i [regioner som stöds](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +

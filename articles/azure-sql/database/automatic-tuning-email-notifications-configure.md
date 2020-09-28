@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: 01daf0af039a00f6a81b850b07cfcf6d901a7732
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 606d3c78e96491a92b2e09aa74801247369ba0ab
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284643"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403304"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -187,7 +187,7 @@ Slutför lösningen genom att skapa ett Automation-flöde i Microsoft Flow som b
 
 - "**Azure Automation-skapa jobb**" – används för att köra PowerShell-skriptet för att hämta rekommendationer för automatisk justering i Azure Automation runbooken.
 - "**Azure Automation-Hämta jobbets utdata**" – används för att hämta utdata från det exekverade PowerShell-skriptet.
-- "**Office 365 Outlook – skicka ett e-postmeddelande**" – används för att skicka ut e-post. E-postmeddelanden skickas ut med Office 365-kontot för den person som skapar flödet.
+- "**Office 365 Outlook – skicka ett e-postmeddelande**" – används för att skicka ut e-post. E-postmeddelanden skickas ut med arbets-eller skol kontot för den person som skapar flödet.
 
 Mer information om Microsoft Flow funktioner finns i [komma igång med Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 

@@ -13,7 +13,7 @@
       items:
         - name: Identifiera ansikten i en bild
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp.md
             - name: cURL
               href: QuickStarts/curl.md
@@ -35,7 +35,7 @@
   items:
     - name: Använda klient-SDK
       items:
-        - name: 'C#'
+        - name: C#
           href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Begrepp
   items:
@@ -47,9 +47,7 @@
   items:
     - name: Identifiera ansikten
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identifiera ansikten
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: Lägg till ansikten
+    - name: Lägg till ansikten till en grupp
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Använda attributet HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md

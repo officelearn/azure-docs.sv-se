@@ -145,6 +145,8 @@
       href: ../../network-watcher/security-baseline.md
     - name: Security Center-baslinje
       href: ../../security-center/security-baseline.md
+    - name: Baslinje för Service Bus
+      href: ../../service-bus-messaging/security-baseline.md
     - name: Baslinje för Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Baslinje för Stream Analytics

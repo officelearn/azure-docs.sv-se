@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e4244c0526dbac3bb8e9b2d3856eb01e1b2a2b7
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301677"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403507"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introduktion till Azure Defender för servrar
 
@@ -41,7 +41,7 @@ De hot identifierings-och skydds funktioner som ingår i Azure Defender för ser
 
 - **Adaptiva program kontroller (AAC)** – anpassningsbara program kontroller är en intelligent och automatiserad lösning för att definiera listor över kända säkra program för dina datorer.
 
-    När du har aktiverat och konfigurerat anpassade program kontroller får du säkerhets aviseringar om andra program körs än de som du har definierat som säkra. [Läs mer](security-center-adaptive-network-hardening.md).
+    När du har aktiverat och konfigurerat anpassade program kontroller får du säkerhets aviseringar om andra program körs än de som du har definierat som säkra. [Läs mer](security-center-adaptive-application.md).
 
 - **Anpassningsbar nätverks härdning (Anh)** – genom att använda nätverks säkerhets grupper (NSG) för att filtrera trafik till och från resurser, ökar nätverks säkerheten position. Det kan dock fortfarande finnas fall där den faktiska trafiken som flödar genom NSG är en del av de NSG-regler som definierats. I dessa fall kan ytterligare förbättra säkerheten position genom att skärpa NSG-reglerna, baserat på de faktiska trafik mönstren.
 
@@ -58,7 +58,7 @@ De hot identifierings-och skydds funktioner som ingår i Azure Defender för ser
 
 - Identifiering av fillösa **attacker (endast Windows)** – fil lösa attacker injicera skadliga nytto laster i minnet för att undvika identifiering genom diskbaserade skannings tekniker. Angriparens nytto Last behålls sedan i minnet för komprometterade processer och utför en mängd olika skadliga aktiviteter.
 
-  Med fil lösa angrepp kan automatiserade minnes kriminal tekniska-tekniker identifiera fillösa verktyg för attacker, tekniker och beteenden. Den här lösningen genomsöker regelbundet datorn vid körning och extraherar insikter direkt från processens minne. I vissa insikter för Linux ingår identifiering av: 
+  Med fil lösa angrepp kan automatiserade minnes kriminal tekniska-tekniker identifiera fillösa verktyg för attacker, tekniker och beteenden. Den här lösningen genomsöker regelbundet datorn vid körning och extraherar insikter direkt från processens minne. I vissa insikter ingår identifieringen av: 
 
   - Välkända verktyg och program vara för kryptografi utvinning 
 

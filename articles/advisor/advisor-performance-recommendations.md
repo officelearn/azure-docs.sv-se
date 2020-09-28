@@ -2,13 +2,13 @@
 title: Förbättra prestanda för Azure Apps med Advisor
 description: Använd prestanda rekommendationer i Azure Advisor för att förbättra hastighet och svars tider för affärs kritiska program.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 07/29/2020
+ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651580"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405164"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Förbättra prestanda för Azure-program med hjälp av Azure Advisor
 
@@ -63,8 +63,6 @@ Advisor identifierar tabeller som inte har aktuell [tabell statistik](../synapse
 
 Advisor-analys kan indikera att ditt program som ansluter till en MySQL-server kanske inte hanterar anslutningar effektivt. Det här tillståndet kan leda till onödig resursförbrukning och övergripande program svars tid. För att förbättra anslutningshanteringen rekommenderar vi att du minskar antalet kortvariga anslutningar och eliminerar onödiga inaktiva anslutningar. Du kan göra dessa förbättringar genom att konfigurera en server sidans anslutningspool, som ProxySQL.
 
-## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Uppdatera din aktuella Compute Management SDK-version till den senaste versionen
-Advisor identifierar prenumerationer som har åtgärder som använder inaktuella SDK-versioner för beräknings hantering. Detta kan påverka säkerheten och prestandan för dina arbets belastningar och därför rekommenderar Advisor att du växlar till den senaste versionen av Compute Management SDK. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Skala upp för att optimera användningen av cacheminnet i Azure Synapse Analytics-tabeller för att öka prestanda för frågor
 
@@ -170,6 +168,14 @@ Advisor-analysen anger att MySQL-servern kan bli onödigt I/O-overhead på grund
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuera data i servergruppen för att distribuera arbetsbelastningen mellan noder
 Advisor identifierar de Server grupper där data inte har distribuerats utan kvar på koordinatorn. Baserat på detta rekommenderar Advisor att för full citus-förmåner distribuerar data på arbetsnoder för dina Server grupper. Detta förbättrar prestanda för frågor genom att använda resursen för varje nod i Server gruppen. [Läs mer](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
+## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Förbättra användar upplevelsen och anslutningen genom att distribuera virtuella datorer närmare distributions platsen för virtuella Windows-datorer
+Vi har fastställt att dina virtuella datorer körs i en annan region än eller långt från där användarna ansluter från med hjälp av Windows Virtual Desktop (WVD). Det här kan ge långa svarstider för anslutningen vilket påverkar användarnas upplevelse av WVD. När du skapar virtuella datorer för dina värdbaserade pooler ska du försöka använda en region närmare användaren. Om du gör det blir användarna nöjdare med WVD-tjänsten och får en bättre upplevelse totalt. [Läs mer om anslutnings fördröjning här](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+
+## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Uppgradera till den senaste SDK-versionen för Avancerad läsare
+Vi har upptäckt att resurser i den här prenumerationen använder inaktuella SDK-versioner för Avancerad läsare. Om du använder den senaste SDK-versionen för Avancerad läsare får du uppdaterad säkerhet, prestanda och en utökad uppsättning funktioner för att anpassa och förbättra integreringsupplevelsen.
+Lär dig mer om [SDK för avancerad läsare](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+
+
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Få åtkomst till prestanda rekommendationer i Advisor
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna [Advisor](https://aka.ms/azureadvisordashboard).
@@ -182,6 +188,7 @@ Mer information om Advisor-rekommendationer finns i:
 
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
+* [Advisor-Poäng](azure-advisor-score.md)
 * [Kostnadsrekommendationer i Advisor](advisor-cost-recommendations.md)
 * [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)

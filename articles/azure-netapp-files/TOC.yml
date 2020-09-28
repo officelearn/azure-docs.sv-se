@@ -4,7 +4,7 @@
   items:
     - name: Vad är Azure NetApp Files
       href: azure-netapp-files-introduction.md
-    - name: Förstå lagringshierarkin
+    - name: Lagringshierarkin för Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Snabbstarter
   expanded: true
@@ -61,6 +61,8 @@
       href: azure-netapp-files-create-netapp-account.md
     - name: Konfigurera en kapacitetspool
       href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Hantera en manuell QoS-kapacitetspool
+      href: manage-manual-qos-capacity-pool.md
     - name: Delegera ett undernät till Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
     - name: Skapa och hantera en NFS-volym
@@ -109,8 +111,12 @@
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Felsöka
       items:
+        - name: Felsöka kapacitetspooler
+          href: troubleshoot-capacity-pools.md
         - name: Felsöka replikering mellan regioner
           href: troubleshoot-cross-region-replication.md
+        - name: Felsöka policyer för ögonblicksbilder
+          href: troubleshoot-snapshot-policies.md
 - name: Referens
   items:
     - name: REST

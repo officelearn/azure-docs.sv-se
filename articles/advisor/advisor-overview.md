@@ -2,13 +2,13 @@
 title: Introduktion till Azure Advisor
 description: Använd Azure Advisor för att optimera dina Azure-distributioner.
 ms.topic: article
-ms.date: 02/01/2019
-ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654029"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405215"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -24,7 +24,7 @@ Med Advisor kan du:
 
 Du kan komma åt Advisor via [Azure Portal](https://aka.ms/azureadvisordashboard). Logga in på [portalen](https://portal.azure.com), leta upp **Advisor** i navigerings menyn eller Sök efter den på menyn **alla tjänster** .
 
-Advisor-instrumentpanelen visar anpassade rekommendationer för alla dina prenumerationer.  Du kan använda filter för att Visa rekommendationer för vissa prenumerationer och resurs typer.  Rekommendationerna är uppdelade i fem kategorier: 
+Advisor-instrumentpanelen visar anpassade rekommendationer för alla dina prenumerationer.  Du kan använda filter för att Visa rekommendationer för vissa prenumerationer och resurs typer.  Rekommendationerna är indelade i fem kategorier: 
 
 * **Tillförlitlighet (tidigare kallat hög tillgänglighet)**: för att säkerställa och förbättra kontinuiteten för affärs kritiska program. Mer information finns i [rekommendationer för Advisor-tillförlitlighet](advisor-high-availability-recommendations.md).
 * **Säkerhet**: för att identifiera hot och sårbarheter som kan leda till säkerhets överträdelser. Mer information finns i [rekommendationer för säkerhets rekommendationer](advisor-security-recommendations.md).
@@ -68,7 +68,9 @@ Klicka på **Skjut upp** länken om du vill skjuta upp eller stänga av en rekom
 Mer information om Advisor-rekommendationer finns i:
 
 * [Kom igång med Advisor](advisor-get-started.md)
+* [Advisor-Poäng](azure-advisor-score.md)
 * [Rekommendationer om Advisor-tillförlitlighet](advisor-high-availability-recommendations.md)
 * [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
 * [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
 * [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+* [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)

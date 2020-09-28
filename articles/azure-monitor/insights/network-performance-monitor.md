@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798915"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403729"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "88798915"
 
 * [Övervakare för tjänst anslutning](network-performance-monitor-service-connectivity.md): du kan övervaka anslutningen från dina användare till de tjänster du bryr dig om, avgöra vilken infrastruktur som finns i sökvägen och identifiera var nätverks Flask halsar sker. Du kan veta mer om avbrott innan användarna och se exakt var problemen finns på din nätverks Sök väg. 
 
-    Den här funktionen hjälper dig att utföra tester baserade på HTTP, HTTPS, TCP och ICMP för att övervaka i nära real tid eller historiskt tillgänglighet och svars tid för din tjänst. Du kan också övervaka nätverkets bidrag i paket förlust och svars tid. Du kan isolera nätverks fördröjningar med en karta över nätverks sto pol Ogin. Du kan identifiera problem fläckar som inträffar längs nätverks Sök vägen från noden till tjänsten, med latens data på varje hopp. Med inbyggda tester kan du övervaka nätverks anslutningen till Office 365 och Dynamics CRM utan förkonfiguration. Med den här funktionen kan du övervaka nätverks anslutningen till alla TCP-kompatibla slut punkter, till exempel webbplatser, SaaS-program, PaaS-program och SQL-databaser.
+    Den här funktionen hjälper dig att utföra tester baserade på HTTP, HTTPS, TCP och ICMP för att övervaka i nära real tid eller historiskt tillgänglighet och svars tid för din tjänst. Du kan också övervaka nätverkets bidrag i paket förlust och svars tid. Du kan isolera nätverks fördröjningar med en karta över nätverks sto pol Ogin. Du kan identifiera problem fläckar som inträffar längs nätverks Sök vägen från noden till tjänsten, med latens data på varje hopp. Med inbyggda tester kan du övervaka nätverks anslutningen till Microsoft 365 och Dynamics CRM utan förkonfiguration. Med den här funktionen kan du övervaka nätverks anslutningen till alla TCP-kompatibla slut punkter, till exempel webbplatser, SaaS-program, PaaS-program och SQL-databaser.
 
 * [ExpressRoute-övervakare](network-performance-monitor-expressroute.md): övervaka anslutnings möjligheter från slut punkt till slut punkt och prestanda mellan dina avdelnings kontor och Azure, via Azure ExpressRoute.  
 
@@ -82,7 +82,7 @@ Använd de grundläggande processerna för att installera agenter på [Anslut Wi
 
     Om du vill övervaka en nätverks länk installerar du agenter på båda slut punkterna för länken. Om du är osäker på nätverkets topologi installerar du agenterna på servrar med kritiska arbets belastningar mellan vilka du vill övervaka nätverks prestanda. Om du till exempel vill övervaka nätverks anslutningen mellan en webb server och en server som kör SQL, installerar du en agent på båda servrarna. Agenter övervakar nätverks anslutningar (länkar) mellan värdar, inte själva värdarna. 
 
-* **Övervakare för tjänst anslutning**: installera en Log Analytics-agent på varje nod som du vill övervaka nätverks anslutningen till tjänstens slut punkt. Ett exempel är om du vill övervaka nätverks anslutningen till Office 365 från dina Office-platser med etiketten O1, O2 och O3. Installera Log Analytics agent på minst en nod varje i O1, O2 och O3. 
+* **Övervakare för tjänst anslutning**: installera en Log Analytics-agent på varje nod som du vill övervaka nätverks anslutningen till tjänstens slut punkt. Ett exempel är om du vill övervaka nätverks anslutningen till Microsoft 365 från dina Office-platser med etiketten O1, O2 och O3. Installera Log Analytics agent på minst en nod varje i O1, O2 och O3. 
 
 * **ExpressRoute-övervakare**: installera minst en Log Analytics agent i ditt virtuella Azure-nätverk. Installera även minst en agent i det lokala under nätverket, som är anslutet via ExpressRoute privata peering.  
 
@@ -128,7 +128,7 @@ Använd de grundläggande processerna för att installera agenter på [Anslut Wi
 
    ![Vy över prestanda övervakaren](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Övervakare för tjänst anslutning**: funktionen innehåller inbyggda förkonfigurerade tester för att övervaka nätverks anslutningen till Office 365 och Dynamics 365 från dina agenter. Välj de Office 365-och Dynamics 365-tjänster som du vill övervaka genom att markera kryss rutorna bredvid dem. Välj de agenter som du vill övervaka från genom att välja **Lägg till agenter**. Om du inte vill använda den här funktionen eller vill ställa in den senare, väljer du inte något och väljer **spara & Fortsätt**.
+   **Övervakare för tjänst anslutning**: funktionen innehåller inbyggda förkonfigurerade tester för att övervaka nätverks anslutningen till Microsoft 365 och Dynamics 365 från dina agenter. Välj de Microsoft 365-och Dynamics 365-tjänster som du vill övervaka genom att markera kryss rutorna bredvid dem. Välj de agenter som du vill övervaka från genom att välja **Lägg till agenter**. Om du inte vill använda den här funktionen eller vill ställa in den senare, väljer du inte något och väljer **spara & Fortsätt**.
 
    ![Vy över tjänst anslutnings övervakare](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 

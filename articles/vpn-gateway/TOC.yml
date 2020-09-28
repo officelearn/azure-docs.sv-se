@@ -138,8 +138,6 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: Skapa och installera VPN-klientkonfigurationsfiler
               href: point-to-site-vpn-client-configuration-azure-cert.md
-            - name: Sessionshantering
-              href: p2s-session-management.md
         - name: RADIUS-autentisering
           items:
             - name: Konfigurera ett virtuellt privat P2S-nätverk
@@ -170,6 +168,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: Gå över till OpenVPN-protokoll eller IKEv2 från SSTP
               href: ikev2-openvpn-from-sstp.md
+        - name: Konfigurera P2S-sessionshantering
+          href: p2s-session-management.md
         - name: Övergång till ett offentligt CA-gatewaycertifikat för P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Konfigurera en VPN-enhetstunnel för AlwaysOn

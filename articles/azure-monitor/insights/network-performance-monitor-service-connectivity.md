@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326111"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403712"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -19,8 +19,8 @@ Du kan använda tjänst anslutnings övervakarens funktion i [övervakare av nä
 
 Du kan utföra följande funktioner med tjänst anslutnings övervakaren: 
 
-- Övervaka nätverks anslutningen till dina program och nätverks tjänster från flera avdelnings kontor eller platser. Program och nätverks tjänster inkluderar Office 365, Dynamics CRM, interna affärs program och SQL-databaser.
-- Använd inbyggda tester för att övervaka nätverks anslutningen till Office 365-och Dynamics 365-slutpunkter. 
+- Övervaka nätverks anslutningen till dina program och nätverks tjänster från flera avdelnings kontor eller platser. Program och nätverks tjänster omfattar Microsoft 365, Dynamics CRM, interna branschspecifika program och SQL-databaser.
+- Använd inbyggda tester för att övervaka nätverks anslutningen till Microsoft 365-och Dynamics 365-slutpunkter. 
 - Fastställ svars tid, nätverks fördröjning och paket förlust som uppstått vid anslutning till slut punkten.
 - Ta reda på om dåliga program prestanda beror på nätverket eller på grund av problem med program leverantörens slut.
 - Identifiera aktiva punkter i nätverket som kan orsaka dåliga program prestanda genom att Visa svars tiden för varje hopp på en Topology-karta.

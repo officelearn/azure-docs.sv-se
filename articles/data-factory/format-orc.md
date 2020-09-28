@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531737"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404748"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>ORC-format i Azure Data Factory
 
@@ -30,14 +30,15 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Orc**. | Yes      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Yes      |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Orc**. | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| compressionCodec         | Den komprimerings-codec som ska användas när du skriver till ORC-filer. Vid läsning från ORC-filer bestämmer data fabrikerna automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är **none**, **zlib**, **fästfunktionen** (default) och **LZO**. Obs! kopierings aktiviteten stöder för närvarande inte LZO vid läsning/skrivning av ORC-filer. | Inga      |
 
 Nedan visas ett exempel på en ORC-datauppsättning på Azure Blob Storage:
 
 ```json
 {
-    "name": "ORCDataset",
+    "name": "OrcDataset",
     "properties": {
         "type": "Orc",
         "linkedServiceName": {
@@ -60,7 +61,6 @@ Observera följande punkter:
 
 * Komplexa data typer stöds inte (STRUCT, MAP, LIST, UNION).
 * Tomt utrymme i kolumn namnet stöds inte.
-* ORC-filen har tre [komprimeringsrelaterade alternativ](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB och SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
@@ -72,8 +72,8 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSource**. | Yes      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSource**. | Ja      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
 
 ### <a name="orc-as-sink"></a>ORC som mottagare
 
@@ -81,17 +81,78 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSink**. | Yes      |
-| formatSettings | En grupp med egenskaper. Se **Orc Write Settings** Table nedan. |    No      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
+| typ          | Egenskapen Type för kopierings aktivitetens Sink måste anges till **OrcSink**. | Ja      |
+| formatSettings | En grupp med egenskaper. Se **Orc Write Settings** Table nedan. |    Inga      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
 
 **Skriv inställningar för Orc** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typen för formatSettings måste anges till **OrcWriteSettings**. | Yes                                                   |
-| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | No |
-| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | No |
+| typ          | Typen för formatSettings måste anges till **OrcWriteSettings**. | Ja                                                   |
+| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | Inga |
+| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | Inga |
+
+## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
+
+I mappa data flöden kan du läsa och skriva till ORC-format i följande data lager: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)och [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+Du kan peka på ORC-filer antingen med hjälp av ORC-datauppsättning eller med en [infogad data uppsättning](data-flow-source.md#inline-datasets).
+
+### <a name="source-properties"></a>Käll egenskaper
+
+I tabellen nedan visas de egenskaper som stöds av en ORC-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
+
+När du använder en infogad data uppsättning visas ytterligare fil inställningar, som är samma som de egenskaper som beskrivs i avsnittet [Egenskaper för data mängd](#dataset-properties) .
+
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Format | Formatet måste vara `orc` | ja | `orc` | format |
+| Jokertecken sökvägar | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | nej | Sträng [] | wildcardPaths |
+| Partitionens rot Sök väg | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | nej | Sträng | partitionRootPath |
+| Lista över filer | Om källan pekar på en textfil som visar en lista över filer som ska bearbetas | nej | `true` eller `false` | fileList |
+| Kolumn som ska lagra fil namn | Skapa en ny kolumn med käll filens namn och sökväg | nej | Sträng | rowUrlColumn |
+| Efter slut för ande | Ta bort eller flytta filerna efter bearbetning. Fil Sök vägen börjar från container roten | nej | Ta bort: `true` eller `false` <br> Fart `[<from>, <to>]` | purgeFiles <br> moveFiles |
+| Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | nej | Timestamp | modifiedAfter <br> modifiedBefore |
+| Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
+
+### <a name="source-example"></a>Käll exempel
+
+Det associerade data flödes skriptet för en ORC-käll konfiguration är:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    rowUrlColumn: 'fileName',
+    format: 'orc') ~> OrcSource
+```
+
+### <a name="sink-properties"></a>Egenskaper för mottagare
+
+I tabellen nedan visas de egenskaper som stöds av en ORC-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
+
+När du använder en infogad data uppsättning visas ytterligare fil inställningar, som är samma som de egenskaper som beskrivs i avsnittet [Egenskaper för data mängd](#dataset-properties) .
+
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Format | Formatet måste vara `orc` | ja | `orc` | format |
+| Rensa mappen | Om målmappen rensas innan den skrivs | nej | `true` eller `false` | truncate |
+| Fil namns alternativ | Namngivnings formatet för de data som skrivits. Som standard är en fil per partition i format `part-#####-tid-<guid>` | nej | Mönster: sträng <br> Per partition: sträng [] <br> Som data i kolumnen: sträng <br> Utdata till en enskild fil: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="sink-example"></a>Sink-exempel
+
+Det associerade data flödes skriptet för en ORC Sink-konfiguration är:
+
+```
+OrcSource sink(
+    format: 'orc',
+    filePattern:'output[n].orc',
+    truncate: true,
+    allowSchemaDrift: true,
+    validateSchema: false,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> OrcSink
+```
 
 ## <a name="using-self-hosted-integration-runtime"></a>Använda egen värd Integration Runtime
 

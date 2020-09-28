@@ -474,7 +474,7 @@
       href: error-codes.md
     - name: Tilläggsapp
       href: extensions-app.md
-    - name: IEF –viktig information
+    - name: Anpassad policy (IEF) –viktig information
       href: custom-policy-developer-notes.md
     - name: 'Åtgärder i API:et Microsoft Graph'
       href: microsoft-graph-operations.md

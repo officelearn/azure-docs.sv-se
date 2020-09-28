@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5be0b43de8265b2b337c024117ae8f424e4a3bc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318049"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403504"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -42,12 +42,12 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|-|-|-|Yes|
-|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: Ja|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Kostnadsfri|
-|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Sårbarhets bedömning från tredje part|✔|-|-|No|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
 ### <a name="linux-machines"></a>[**Linux-datorer**](#tab/features-linux)
@@ -66,12 +66,12 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Yes|
-|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: Ja|
-|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: Ja|
-|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
-|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Kostnadsfri|
-|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Sårbarhets bedömning från tredje part|✔|-|-|No|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
 

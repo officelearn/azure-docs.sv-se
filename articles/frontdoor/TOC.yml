@@ -9,6 +9,10 @@
   items:
     - name: Skapa en Front Door – portalen
       href: quickstart-create-front-door.md
+    - name: Skapa en Front Door – PowerShell
+      href: quickstart-create-front-door-powershell.md
+    - name: Skapa en Front Door – CLI
+      href: quickstart-create-front-door-cli.md
     - name: Skapa en Front Door – ARM-mall
       href: quickstart-create-front-door-template.md
 - name: Självstudier

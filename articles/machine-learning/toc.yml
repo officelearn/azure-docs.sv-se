@@ -15,19 +15,18 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: Python (dag 1)
+    - name: Komma igång med Python på dag 1
       expanded: true
       items:
         - name: 1. Konfigurera lokal dator
           href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. Hello World
+        - name: 2. "Hello world"
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Träna en modell
+        - name: 3. Träna modellen
           href: tutorial-1st-experiment-sdk-train.md
         - name: 4. Hämta dina egna data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebook
-      expanded: true
       items:
         - name: Klassificering av avbildning (MNIST-data)
           items:
@@ -331,8 +330,13 @@
               displayName: parameter
               href: how-to-tune-hyperparameters.md
         - name: Arbeta med MLflow
-          displayName: 'log, monitor, deploy, metrics, Databricks, model registry, register'
-          href: how-to-use-mlflow.md
+          items:
+            - name: Spåra experiment med MLflow
+              displayName: 'log, monitor, deploy, metrics,  model registry, register'
+              href: how-to-use-mlflow.md
+            - name: Spåra Azure Databricks-körningar med MLflow
+              displayName: 'log, monitor, deploy, metrics, databricks'
+              href: how-to-use-mlflow-azure-databricks.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -552,6 +556,9 @@
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Organiserade miljöer
+      displayName: 'environments, curated environments'
+      href: resource-curated-environments.md
 - name: Resurser
   items:
     - name: Viktig information
@@ -578,6 +585,3 @@
     - name: Hjälpmedelsfunktioner i Designer
       displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
       href: designer-accessibility.md
-    - name: Organiserade miljöer
-      displayName: 'environments, curated environments'
-      href: resource-curated-environments.md

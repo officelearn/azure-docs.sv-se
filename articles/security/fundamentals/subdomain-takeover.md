@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514619"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403219"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -100,7 +100,7 @@ Verktyget stöder de Azure-resurser som anges i följande tabell. Verktyget extr
 
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Kör frågan som en användare som har:
 
@@ -117,14 +117,7 @@ Om du är global administratör för din organisations klient kan du höja ditt 
 
 ### <a name="run-the-script"></a>Kör skriptet
 
-Det finns två versioner av skriptet, båda har samma indataparametrar och ger liknande utdata:
-
-|Skript  |Information  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |Parallellt läge stöds bara i PowerShell version 7 och högre, annars körs seriellt läge.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Stöds endast i PowerShell Desktop/version som är lägre än 6, eftersom det här skriptet använder [Windows-arbetsflöde](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Läs mer och ladda ned PowerShell-skripten från GitHub: https://aka.ms/DanglingDNSDomains .
+Läs mer om PowerShell-skriptet **Get-DanglingDnsRecords.ps1**och ladda ned det från GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Åtgärda Dangling DNS-poster 
 

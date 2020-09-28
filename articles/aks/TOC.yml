@@ -250,7 +250,7 @@
           href: control-kubeconfig-access.md
         - name: Skydda podtrafik med nätverksprinciper
           href: use-network-policies.md
-        - name: Skydda poddar med Azure Policy (förhandsversion)
+        - name: Skydda poddar med Azure Policy
           href: use-pod-security-on-azure-policy.md
         - name: Använda säkerhetsprinciper för poddar (förhandsversion)
           href: use-pod-security-policies.md

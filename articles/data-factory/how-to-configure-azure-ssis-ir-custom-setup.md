@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/15/2020
-ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/28/2020
+ms.openlocfilehash: 4ef569864b27eff7f57aa2b0a922034fa28f587c
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090609"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405249"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
@@ -48,7 +48,7 @@ Följande begränsningar gäller endast för anpassade standardinställningar:
 
 - IBM iSeries Access ODBC-drivrutinen stöds inte på Azure-SSIS IR. Du kan se installations fel under den anpassade installationen. Kontakta IBM-supporten om du behöver hjälp.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -154,6 +154,10 @@ Om du väljer alternativet **Installera licensierad komponent** för den anpassa
    * Om du väljer **Theobald program varans xtract** -komponent kan du installera [xtract](https://theobald-software.com/en/xtract-is/) -serien för SAP-system (ERP, s/4HANA, BW) från Theobald program vara på din Azure-SSIS IR. Det gör du genom att dra & släpp/Ladda upp den produkt licens fil som du har köpt från dem i förväg i indata-rutan för **licens filen** . Den aktuella integrerade versionen är **6.1.1.3**.
 
    * Om du väljer **integration service** -komponenten för AecorSoft kan du installera [integration service](https://www.aecorsoft.com/en/products/integrationservice) Suite för anslutnings program för SAP-och Salesforce-system från AecorSoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **3.0.00**.
+
+   * Om du väljer SSIS-komponenten för **CDATA-standarden** kan du installera SSIS- [standardpaketet](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) för de mest populära komponenterna från CDATA, till exempel Microsoft SharePoint-kopplingar, på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **19,7354**.
+
+   * Om du väljer **SSIS Extended Package** -komponenten för CDATA kan du installera [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) Suite för alla komponenter från CDATA, till exempel Microsoft Dynamics 365 Business Central-anslutningar och andra komponenter i deras **SSIS standard-paket**, på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **19,7354**. På grund av dess stora storlek, för att undvika installations tids gräns, kontrollerar du att Azure-SSIS IR har minst fyra processor kärnor per nod.
 
 Dina anpassade installations alternativ kommer att visas på sidan **Avancerade inställningar** . Om du vill ta bort dem markerar du kryss rutorna och väljer sedan **ta bort**.
 

@@ -497,14 +497,16 @@
               href: platform/alerts-troubleshoot-metric.md
         - name: Logga aviseringsregler
           items:
-            - name: Konfigurera aviseringar för analysfråga
+            - name: Hantera loggaviseringar
               href: platform/alerts-log.md
-            - name: Frågor
+            - name: Optimera aviseringsfrågor
               href: platform/alerts-log-query.md
-            - name: Webhook-åtgärder
-              href: platform/alerts-log-webhook.md
+            - name: Använda Resource Manager-mallen
+              href: platform/alerts-log-create-templates.md
             - name: Felsöka loggaviseringar
               href: platform/alerts-troubleshoot-log.md
+            - name: Webhook-åtgärder
+              href: platform/alerts-log-webhook.md
         - name: Aviseringsregler för aktivitetsloggar
           items:
             - name: Avisera om en händelse i aktivitetsloggen
@@ -1145,6 +1147,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: Graph
               href: platform/workbooks-graph-visualizations.md
+            - name: Vaxkaka
+              href: platform/workbooks-honey-comb.md
             - name: Sammansatt fält
               href: platform/workbooks-composite-bar.md
         - name: Datakällor
@@ -1245,8 +1249,6 @@
           href: app/auto-collect-dependencies.md
         - name: Telemetrikorrelation
           href: app/correlation.md
-        - name: NuGet-paket
-          href: app/nuget.md
         - name: Plattformssupport
           href: app/platforms.md
         - name: Åsidosättning av slutpunkter
@@ -1324,7 +1326,7 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Klassisk avisering och övervakning
           href: platform/monitoring-classic-retirement.md
-        - name: Växla API-inställning för loggaviseringar
+        - name: Växla aktuell API för loggaviseringar
           href: platform/alerts-log-api-switch.md
         - name: Lösning för webbappsanalys
           href: insights/azure-web-apps-analytics.md

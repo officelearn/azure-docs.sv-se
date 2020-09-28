@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023864"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405181"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Kopiera och transformera data i snö genom att använda Azure Data Factory
 
@@ -357,7 +357,7 @@ Om käll data lagret och formatet uppfyller de kriterier som beskrivs i det här
 
 #### <a name="staged-copy-to-snowflake"></a>Mellanlagrad kopiering till snö flingor
 
-Om ditt data lager eller format för din mottagare inte är internt kompatibelt med kommandot snö kopiering, som vi nämnt i det sista avsnittet, aktiverar du den inbyggda mellanlagrade kopian med en tillfällig Azure Blob Storage-instans. Funktionen för mellanlagrad kopiering ger också bättre data flöde. Data Factory automatiskt konvertera data så att de uppfyller kraven för data format för snö flingor. Sedan anropas KOPIERINGs kommandot för att läsa in data till snö flingor. Slutligen rensar den temporära data från blob-lagringen. Mer information om hur du kopierar data med mellanlagring finns i [mellanlagrad kopia](copy-activity-performance-features.md#staged-copy) .
+Om käll data lagret eller formatet inte är internt kompatibelt med kommandot snö kopiering, som vi nämnt i det sista avsnittet, aktiverar du den inbyggda mellanlagrade kopian med en tillfällig Azure Blob Storage-instans. Funktionen för mellanlagrad kopiering ger också bättre data flöde. Data Factory automatiskt konvertera data så att de uppfyller kraven för data format för snö flingor. Sedan anropas KOPIERINGs kommandot för att läsa in data till snö flingor. Slutligen rensar den temporära data från blob-lagringen. Mer information om hur du kopierar data med mellanlagring finns i [mellanlagrad kopia](copy-activity-performance-features.md#staged-copy) .
 
 Om du vill använda den här funktionen skapar du en [länkad Azure Blob Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure Storage-kontot som tillfällig mellanlagring. Ange sedan `enableStaging` egenskaperna och `stagingSettings` i kopierings aktiviteten.
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 14846761535a77f28adbd0147d244817cb799d86
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f9c01e8e31e78c277a7a3ec1e5d8d0c32b58f8bc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935848"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403661"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Så här indexerar du CSV-blobar med delimitedText tolknings läge och blob-indexerare i Azure Kognitiv sökning
 
@@ -49,7 +49,7 @@ Om blobbar inte innehåller en inledande rubrik rad, ska rubrikerna anges i inde
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 ```
 
-Du kan anpassa avgränsnings tecken med hjälp av `delimitedTextDelimiter` konfigurations inställningen. Ett exempel:
+Du kan anpassa avgränsnings tecken med hjälp av `delimitedTextDelimiter` konfigurations inställningen. Exempel:
 
 ```http
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
@@ -97,4 +97,4 @@ Indexer
 ```
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Hjälp oss att göra Azure Kognitiv sökning bättre
-Om du har funktions förfrågningar eller idéer om förbättringar kan du ange dina ininformation på [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+Om du har funktions förfrågningar eller idéer om förbättringar kan du ange dina ininformation på [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Om du behöver hjälp med den befintliga funktionen kan du publicera din fråga på [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).

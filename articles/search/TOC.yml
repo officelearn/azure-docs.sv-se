@@ -118,6 +118,8 @@
           href: ./security-controls-policy.md
         - name: Skydda indexeringsresurser
           href: search-indexer-securing-resources.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Skapa index och konstruktioner

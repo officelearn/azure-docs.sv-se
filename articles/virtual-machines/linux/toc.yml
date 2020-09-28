@@ -311,8 +311,6 @@
           href: compute-benchmark-scores.md
     - name: Godkända distributioner
       href: endorsed-distros.md
-    - name: Dedikerade värdar
-      href: dedicated-hosts.md
     - name: Underhåll och uppdateringar
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disklagring
@@ -391,11 +389,12 @@
         - name: Kopiera eller klona en virtuell dator
           href: copy-vm.md
         - name: Använda dedikerade värdar
+          href: ../dedicated-hosts.md
           items:
             - name: CLI
               href: dedicated-hosts-cli.md
             - name: Portalen
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: Distribuera virtuella Spot-datorer
           items:
             - name: CLI
@@ -858,6 +857,7 @@
         - name: Ändra tillgänglighetsuppsättning
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Skapa en närhetsplaceringsgrupp
+          displayName: PPG aligned colocation co-location
           items:
             - name: CLI
               href: proximity-placement-groups.md

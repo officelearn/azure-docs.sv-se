@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.openlocfilehash: c111752dcca03781dfb2a11fb100dafc4bad90f7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003825"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401106"
 ---
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -54,7 +54,7 @@ Om du vill skapa ett Recovery Services-valv följer du stegen nedan.
 
 1. När du har angett värdena väljer du **Granska och skapa**.
 
-    ![Skapa Recovery Services-valvet](./media/backup-create-rs-vault/review-and-create.png)
+    ![Skärm bild som visar knappen granska + skapa i processen skapa en Recovery Services valv.](./media/backup-create-rs-vault/review-and-create.png)
 
 1. När du är redo att skapa Recovery Services-valvet väljer du **Skapa**.
 

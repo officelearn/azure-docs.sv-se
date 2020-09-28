@@ -10,12 +10,12 @@ ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: ea5d2106b349386e549dbd793d4a32af62e361ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5d9c3c8e795b6651595a17d540aafa849ce81471
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332339"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401069"
 ---
 <a name="HOLTop"></a>
 
@@ -226,6 +226,8 @@ ID: 0
                 Sentences Scores:
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
 ```
+
+### <a name="opinion-mining"></a>Åsikts utvinning
 
 Skapa en sträng mat ris som innehåller det dokument som du vill analysera för att göra sentiment-analys med uthandlings utvinning. Anropa klientens `analyzeSentiment()` metod med att lägga till alternativ flagga `includeOpinionMining: true` och hämta det returnerade `SentimentBatchResult` objektet. Gå igenom listan över resultat och skriv ut varje dokuments ID, sentiment på dokument nivå med förtroende poäng. För varje dokument innehåller resultatet inte bara menings nivå sentiment som ovan, utan även aspekt-och åsikts nivån sentiment.
 

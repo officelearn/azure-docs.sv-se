@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
-ms.openlocfilehash: 0b6864c3304b86e80549297fc073a2e387000d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55390a3eb2a074729b4a0868416a95e208325b76
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80272703"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400970"
 ---
 ```json
 {
@@ -70,7 +70,7 @@ ms.locfileid: "80272703"
 |**Avsikt**|Enum|Det relaterade syftet med Kill-kedjan bakom aviseringen. En lista över vilka värden som stöds och förklaringar av Azure Security Center som stöds av Kill-kedjeen finns i [avsikter](../articles/security-center/alerts-reference.md#intentions).<br/>Det här fältet kan ha flera värden (avgränsade med kommatecken).|
 |**IsIncident**|Bool|Det här fältet avgör om aviseringen är en incident (en sammansatt gruppering av flera aviseringar) eller en enskild avisering. Standardvärdet för fältet är "false" (vilket innebär att det är en enda varning).|
 |**ProcessingEndTime**|DateTime|Den tid som aviseringen var tillgänglig för slutanvändaren i den ursprungliga produkt som innehåller aviseringen.|
-|**ProductName**|Sträng|Namnet på produkten som publicerade den här aviseringen (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS och så vidare).|
+|**ProductName**|Sträng|Namnet på produkten som publicerade aviseringen (Azure Security Center, Azure ATP, Microsoft Defender ATP, MCAS och så vidare).|
 |**RemediationSteps**|Lista<String>|Manuella åtgärds objekt att vidta för att åtgärda aviseringen.|
 |**ResourceIdentifiers**|Lista (resurs identifierare)|Resurs-ID: n för den här aviseringen som kan användas för att dirigera aviseringen till rätt produkt exponerings grupp (klient organisation, arbets yta, prenumeration osv.). Det kan finnas flera identifierare av olika typer per avisering.|
 |**Allvarlighetsgrad**|Enum|Allvarlighets graden för aviseringen som rapporteras av providern. Möjliga värden: information, låg, medel och hög.|

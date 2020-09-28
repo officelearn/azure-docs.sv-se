@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75469438"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401089"
 ---
 Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som SQL Server tillgänglighets gruppen lyssnar på. Skapa tillgänglighets gruppens lyssnare genom att göra följande:
 
@@ -30,7 +30,7 @@ Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som S
 
     b. I fönstret **roller** högerklickar du på namnet på tillgänglighets gruppen och väljer sedan **Lägg till resurs**  >  **klient åtkomst punkt**.
 
-   ![Klient åtkomst punkt](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Skärm bild som visar meny alternativet klient åtkomst punkt.](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
     c. I rutan **namn** skapar du ett namn för den nya lyssnaren. 
    Namnet på den nya lyssnaren är det nätverks namn som program använder för att ansluta till databaser i SQL Server tillgänglighets grupp.
@@ -50,7 +50,7 @@ Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som S
 
     c. Under **IP-adress**klickar du på **statisk IP-adress**. Ange IP-adressen som samma adress som du använde när du konfigurerade adressen för belastningsutjämnaren på Azure Portal.
 
-   ![IP-resurs](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![Skärm bild som visar var du anger IP-adressen.](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
@@ -64,7 +64,7 @@ Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som S
 
     c. På fliken beroenden lägger du till namnet på resursen för klient åtkomst punkt (lyssnare).
 
-   ![IP-resurs](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![Skärm bild som visar var du kan lägga till namnet på fliken beroenden.](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Klicka på **OK**.
 
@@ -74,23 +74,23 @@ Tillgänglighets gruppens lyssnare är en IP-adress och ett nätverks namn som S
 
     b. På fliken **resurser** högerklickar du på resursen för klient åtkomst punkt under **Server namn**och klickar sedan på **Egenskaper**. 
 
-   ![IP-resurs](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![Skärm bild som visar meny alternativet egenskaper för serverns namn.](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Klicka på fliken **beroenden** . kontrol lera att IP-adressen är ett beroende. Om den inte är det anger du ett beroende på IP-adressen. Om det finns flera resurser i listan kontrollerar du att IP-adresserna har eller, inte och, är beroende av varandra. Klicka på **OK**. 
+    c. Klicka på fliken **beroenden** . Kontrol lera att IP-adressen är ett beroende. Om den inte är det anger du ett beroende på IP-adressen. Om det finns flera resurser i listan kontrollerar du att IP-adresserna har eller, inte och, är beroende av varandra. Klicka på **OK**. 
 
    ![IP-resurs](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Du kan kontrol lera att beroendena är korrekt konfigurerade. I Klusterhanteraren för växling vid fel går du till roller, högerklickar på tillgänglighets gruppen, klickar på **fler åtgärder**och klickar sedan på **Visa beroende rapport**. När beroendena är korrekt konfigurerade är tillgänglighets gruppen beroende av nätverks namnet och nätverks namnet är beroende av IP-adressen. 
+    >Du kan kontrol lera att beroendena är korrekt konfigurerade. I Klusterhanteraren för växling vid fel går du till roller, högerklickar på tillgänglighets gruppen, klickar på **fler åtgärder**och klickar sedan på  **Visa beroende rapport**. När beroendena är korrekt konfigurerade är tillgänglighets gruppen beroende av nätverks namnet och nätverks namnet är beroende av IP-adressen. 
 
 
 1. <a name="setparam"></a>Ange kluster parametrarna i PowerShell.
 
    a. Kopiera följande PowerShell-skript till någon av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
 
-   - `$ListenerILBIP`är den IP-adress som du skapade i Azure Load Balancer för tillgänglighets gruppens lyssnare.
+   - `$ListenerILBIP` är den IP-adress som du skapade i Azure Load Balancer för tillgänglighets gruppens lyssnare.
     
-   - `$ListenerProbePort`är den port som du konfigurerade på Azure Load Balancer för tillgänglighets gruppens lyssnare.
+   - `$ListenerProbePort` är den port som du konfigurerade på Azure Load Balancer för tillgänglighets gruppens lyssnare.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -122,9 +122,9 @@ Om det behövs upprepar du stegen ovan för att ange kluster parametrar för IP-
   
    a. Kopiera följande PowerShell-skript till någon av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
 
-   - `$ClusterCoreIP`är den IP-adress som du skapade i Azure Load Balancer för WSFC Core Cluster-resursen. Den skiljer sig från IP-adressen för tillgänglighets gruppens lyssnare.
+   - `$ClusterCoreIP` är den IP-adress som du skapade i Azure Load Balancer för WSFC Core Cluster-resursen. Den skiljer sig från IP-adressen för tillgänglighets gruppens lyssnare.
 
-   - `$ClusterProbePort`är den port som du konfigurerade på Azure Load Balancer för WSFC-hälsosökningen. Det skiljer sig från avsökningen för tillgänglighets gruppens lyssnare.
+   - `$ClusterProbePort` är den port som du konfigurerade på Azure Load Balancer för WSFC-hälsosökningen. Det skiljer sig från avsökningen för tillgänglighets gruppens lyssnare.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)

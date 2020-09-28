@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 8dbbdf16df62cd59e8a798fc547d8b171a6ee3e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7e074bf898667bb0019d4147ec9abaea2c674d74
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332353"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400974"
 ---
 <a name="HOLTop"></a>
 
@@ -252,6 +252,8 @@ Document sentiment: Positive
         Negative score: 0.02
         Neutral score: 0.77
 ```
+
+### <a name="opinion-mining"></a>Åsikts utvinning
 
 Skapa en ny funktion som anropar `SentimentAnalysisWithOpinionMiningExample()` den klient som du skapade tidigare och anropa dess `AnalyzeSentimentBatch()` funktion med `AdditionalSentimentAnalyses.OpinionMining` alternativet. Det returnerade `AnalyzeSentimentResultCollection` objektet kommer att innehålla samlingen `AnalyzeSentimentResult` i som representerar `Response<DocumentSentiment>` . Skillnaden mellan `SentimentAnalysis()` och `SentimentAnalysisWithOpinionMiningExample()` är att den senare kommer att innehålla `MinedOpinion` i varje mening, som visar en analyserad aspekt och de relaterade åsikterna. Om ett fel uppstår kommer det att utlösa en `RequestFailedException` .
 

@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: f47569eef7281840108c32283f664c3218de23dc
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357802"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444770"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurera Always Encrypted med hjälp av Windows certifikat Arkiv
 
@@ -37,7 +37,7 @@ Följ stegen i den här artikeln för att lära dig hur du konfigurerar Always E
 * Skapa en databas tabell och kryptera kolumner.
 * Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien behöver du:
 

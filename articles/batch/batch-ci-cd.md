@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229403"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461537"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -24,7 +24,7 @@ I det här exemplet ska vi skapa en pipeline för build och release för att dis
 
 ![Diagram över distributions flödet i vår pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Konfiguration
+### <a name="setup"></a>Installation
 
 För att följa stegen i den här artikeln behöver du en Azure DevOps-organisation och ett grup projekt.
 
@@ -43,7 +43,7 @@ Kodbas-strukturen som används i det här exemplet liknar följande:
 
 * En mapp för **arm-mallar** som innehåller ett antal Azure Resource Manager mallar. Mallarna förklaras i den här artikeln.
 * En mapp för **klient program** , som är en kopia av [Azure Batch .net-fil bearbetning med ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) -exempel. Detta behövs inte för den här artikeln.
-* En **HPC-** programmapp, som är Windows 64-bitars versionen av [ffmpeg 3,4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* En **HPC-** programmapp, som är Windows 64-bitars versionen av [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
 * En **pipeline** -mapp. Detta innehåller en YAML-fil som beskriver vår build-process. Detta beskrivs i artikeln.
 
 Det här avsnittet förutsätter att du är bekant med versions kontroll och hur du utformar Resource Manager-mallar. Om du inte är bekant med dessa begrepp kan du se följande sidor för mer information.

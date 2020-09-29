@@ -7,18 +7,18 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980544"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440193"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Självstudie: Distribuera och gå igenom en Programmall för Micro-uppfyllelse Center
 
 I den här självstudien använder du programmallen Azure IoT Central Micro-uppfyllelse Center för att bygga en detalj handels lösning. Du får lära dig mer om hur du distribuerar mallen, vad som ingår i den och vad du kanske vill göra härnäst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver en Azure-prenumeration för att kunna slutföra den här själv studie serien. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application"></a>Skapa ett program 
@@ -62,11 +62,11 @@ Från instrument panelen kan du:
    * Visa våningsplanet och platsen för de automatiska transport företagen i den uppfyllande strukturen.
    * Utlös kommandon, till exempel återställning av kontroll systemet, uppdatering av den inbyggda program varan och omkonfiguration av nätverket.
 
-     ![Skärm bild av den övre halvan av instrument panelen för Northwind Traders-Instrumentation Center](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Skärm bild av den övre halvan av instrument panelen i Northwind Traders-instrumentpanelen.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Se ett exempel på instrument panelen som en operatör kan använda för att övervaka villkor inom uppfyllande Center. 
    * Övervaka hälso tillståndet för de nytto laster som körs på gateway-enheten inom uppfyllande Center.    
 
-     ![Skärm bild av Botton-halvan av instrument panelen för Northwind Trades-testutförande Center](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Skärm bild av Botton-halvan av instrument panelen i Northwind Traders-instrumentpanelen.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Enhets mall
 Om du väljer fliken enhets mallar ser du att det finns två olika enhets typer som är en del av mallen: 

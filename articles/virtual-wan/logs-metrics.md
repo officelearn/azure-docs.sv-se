@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983631"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440867"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure Virtual WAN-loggar och-mått
 
@@ -66,7 +66,7 @@ Följande steg hjälper dig att hitta och visa mått:
 
 4. På sidan **mått** kan du Visa de mått som du är intresse rad av.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Sidan mått":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Diagnostikloggar
 
@@ -93,15 +93,15 @@ Följande steg hjälper dig att hitta och Visa diagnostik:
 
 1. I portalen navigerar du till din virtuella WAN-resurs. I avsnittet **Översikt** på sidan virtuellt WAN-nätverk i portalen väljer du **Essentials** för att expandera vyn och hämta information om resurs gruppen. Kopiera resurs grupps informationen.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Sidan mått":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
 
 2. I avsnittet övervakning, navigerar du till resurs gruppen. Välj **diagnostikinställningar**och ange sedan resurs informationen. Det här är den resursinformation som du kopierade i steg 2 från avsnittet [Visa Gateway-mått](#metrics-steps) tidigare i den här artikeln.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Sidan mått":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
 
 3. På sidan resultat väljer du **+ Lägg till diagnostisk inställning**och väljer sedan ett alternativ. Du kan välja att skicka till Log Analytics, strömma till en händelsehubben eller att bara arkivera till ett lagrings konto.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Sidan mått":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Skärm bild som visar en plats i fönstret V P N N med Visa i Azure Monitor valt.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics exempel fråga
 

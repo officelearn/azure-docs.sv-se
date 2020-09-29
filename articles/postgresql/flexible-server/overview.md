@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948053"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439955"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL-flexibel Server
 
@@ -49,15 +49,14 @@ Vid planerade eller oplanerade redundansväxlings händelser, om servern krascha
 1. En ny virtuell Compute Linux-dator har tillhandahållits.
 2. Lagringen med datafiler mappas till den nya virtuella datorn
 3. PostgreSQL databas motor tas online på den nya virtuella datorn.
-4. Gateway-tjänsten säkerställer transparent redundans som garanterar att inga ändringar i program sidan kräver.
 
 Bilden nedan visar över gången för virtuell dator och lagrings problem.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Flexibel Server – VM och lagrings problem":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Flexibel Server – VM och lagrings problem":::
 
 Om zonens redundanta hög tillgänglighet har kon figurer ATS, etableras tjänsten och upprätthåller en snabb växlings Server mellan tillgänglighets zoner i samma Azure-region. Data ändringarna på käll servern replikeras synkront till vänte läges servern för att säkerställa noll data förlust. Med zon redundant hög tillgänglighet när den planerade eller oplanerade redundansväxlingen utlöses, kommer standby-servern att bli online omedelbart och är tillgänglig för bearbetning av inkommande transaktioner. Detta gör att tjänsten kan återhämtning från tillgänglighets zon felet i en Azure-region som stöder flera tillgänglighets zoner som visas på bilden nedan.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Zon redundant hög tillgänglighet":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Flexibel Server – VM och lagrings problem":::
 
  Mer information finns i [dokumentet med hög tillgänglighet](./concepts-high-availability.md) .
 

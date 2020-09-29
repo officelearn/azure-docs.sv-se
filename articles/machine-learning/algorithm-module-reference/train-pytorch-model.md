@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883236"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439089"
 ---
 # <a name="train-pytorch-model"></a>Träna Pytorch-modell
 
@@ -49,7 +49,7 @@ Den här artikeln beskriver hur du använder modulen **träna Pytorch-modell** i
 
 8.  För **tålamod**anger du hur många epoker som tidigt upphör att fungera om verifierings förlusten inte minskar i följd. som standard är 3.
 
-9.  Skicka pipelinen. Om data uppsättningen har större storlek tar det en stund.
+9.  Skicka pipelinen. Om din data uppsättning har större storlek, tar det en stund och en GPU-beräkning rekommenderas.
 
 ## <a name="results"></a>Resultat
 
@@ -68,11 +68,11 @@ När pipeline-körningen har slutförts ska du använda modellen för att skapa 
 
 | Name          | Intervall            | Typ    | Standardvärde | Beskrivning                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Epoker        | > 0               | Heltal | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
-| Batchstorlek    | > 0               | Heltal | 16      | Hur många instanser som ska tränas i en batch   |
+| Epoker        | > 0               | Integer | 5       | Markera den kolumn som innehåller etiketten eller resultat kolumnen |
+| Batchstorlek    | > 0               | Integer | 16      | Hur många instanser som ska tränas i en batch   |
 | Inlärningstakt | >= Double. Epsilon | Float   | 0,001   | Den inledande inlärnings takten för Stochastic gradient brantaste-optimering. |
-| Slumpmässigt utsäde   | Alla              | Heltal | 1       | Startvärdet för den slump tals generator som används av modellen. |
-| Tålamod      | > 0               | Heltal | 3       | Hur många epoker till tidig stängning av utbildning   |
+| Slumpmässigt utsäde   | Alla              | Integer | 1       | Startvärdet för den slump tals generator som används av modellen. |
+| Tålamod      | > 0               | Integer | 3       | Hur många epoker till tidig stängning av utbildning   |
 
 ###  <a name="outputs"></a>Utdata  
 

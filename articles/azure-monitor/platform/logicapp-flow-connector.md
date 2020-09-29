@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475744"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439248"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Azure Monitor loggar Connector för Logic Apps och energi automatisering
 Med [Azure Logic Apps](../../logic-apps/index.yml) och [energi spar läge](https://flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
@@ -68,7 +68,7 @@ Klicka på **+ nytt steg** för att lägga till en åtgärd som körs efter uppr
 
 Klicka på **Azure Log Analytics – kör fråga och visualisera resultat**.
 
-![Kör åtgärd för att köra frågor och visualisera resultat](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Skärm bild av en ny åtgärd som läggs till i ett steg i Logic Apps designer. Azure Monitor loggar markeras under Välj en åtgärd.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Åtgärden Lägg till Azure Monitor loggar
@@ -87,7 +87,7 @@ Event
 
 Välj *Ange i fråga* för **tidsintervallet** och **HTML-tabellen** för **diagram typen**.
    
-![Kör åtgärd för att köra frågor och visualisera resultat](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Skärm bild av inställningarna för åtgärden ny Azure Monitor loggar med namnet kör fråga och visualisera resultat.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 E-postmeddelandet kommer att skickas av det konto som är associerat med den aktuella anslutningen. Du kan ange ett annat konto genom att klicka på **ändra anslutning**.
 

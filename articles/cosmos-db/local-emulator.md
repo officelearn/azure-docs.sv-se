@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 07a38e106b765fd28a8c3c1115e5fe84744ade62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-csharp, contperfq1
+ms.openlocfilehash: eb148801011b2d1c8c1f975edb870ba594b085a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303097"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440691"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installera och Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -80,13 +80,13 @@ Azure Cosmos-emulatorn installeras på `C:\Program Files\Azure Cosmos DB Emulato
 
 När emulatorn har startat visas en ikon i meddelande fältet i aktivitets fältet i Windows. Den öppnar automatiskt Azure Cosmos data Explorer i webbläsaren på denna URL-adress `https://localhost:8081/_explorer/index.html` .
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Avisering om aktivitets fältet i Azure Cosmos DB lokalt emulator":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Välj Start-knappen eller tryck på Windows-tangenten, börja skriva Azure Cosmos-emulatorn och välj emulatorn från listan över program":::
 
 Du kan också starta och stoppa emulatorn från kommando rads-eller PowerShell-kommandon. Mer information finns i referens artikeln för [kommando rads verktyget](emulator-command-line-parameters.md) .
 
 Azure Cosmos-emulatorn körs som standard på den lokala datorn ("localhost") som lyssnar på port 8081. Adressen visas som `https://localhost:8081/_explorer/index.html`. Om du stänger Utforskaren och vill öppna den igen senare kan du antingen öppna webb adressen i webbläsaren eller starta den från Azure Cosmos-emulatorn i Windows-ikonen som visas nedan.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Starta Azure Cosmos Local mula data Explorer":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Välj Start-knappen eller tryck på Windows-tangenten, börja skriva Azure Cosmos-emulatorn och välj emulatorn från listan över program":::
 
 ## <a name="use-the-emulator-on-docker-for-windows"></a><a id="run-on-windows-docker"></a>Använda emulatorn på Docker för Windows
 
@@ -289,7 +289,7 @@ Använd följande steg om du arbetar med Mac:
 
 1. Öppna snabb menyn för det specifika objektet, Välj *Hämta objekt* och under *förtroende*  >  *när du använder det här certifikat* alternativet väljer du *alltid förtroende*. 
 
-   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Öppna snabb menyn för det specifika objektet, välj Hämta objekt och under förtroende – när du använder det här certifikat alternativet väljer du alltid förtroende":::
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Välj Start-knappen eller tryck på Windows-tangenten, börja skriva Azure Cosmos-emulatorn och välj emulatorn från listan över program":::
   
 ### <a name="option-2-disable-the-ssl-validation-in-the-application"></a><a id="disable-ssl-validation"></a>Alternativ 2: inaktivera SSL-verifiering i programmet
 

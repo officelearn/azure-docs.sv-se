@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c2589b47c1619dd528ab843dcf4befd0da227d16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b8ee222b7d65fe9b6b9a605bf055e127aef58ff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331496"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439293"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -304,7 +304,7 @@ Nej. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Manag
 
 **Kan jag migrera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Yes
+Ja
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks och Kryptering för lagringstjänst
 
@@ -342,7 +342,7 @@ Ja. Alla hanterade ögonblicks bilder och avbildningar krypteras automatiskt.
 
 **Kan jag konvertera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
-Yes
+Ja
 
 **Kommer en exporterad virtuell hård disk från en hanterad disk eller en ögonblicks bild också att krypteras?**
 
@@ -398,7 +398,7 @@ Nej, standard SSD-hanterade diskar i valfri storlek kan inte användas med ohant
 
 **Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar?**
 
-Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en operativ system disk är 4 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar.
+Partitionstypen som Azure har stöd för för en operativ system disk är Master Boot Record (MBR) och GUID-partitionstabell (GPT) för generation 1-och generation 2-datorer. MBR-formatet stöder en disk storlek upp till 2 TiB. För virtuella datorer i generation 1, medan du kan allokera upp till 4 TiB kan du använda upp till 2 TiB av disk utrymmet för operativ systemet. För virtuella datorer i generation 2 är den största storlek som du kan allokera och använda för en operativ system disk 4 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar.
 
 **Vilken är den största ohanterade disk storleken som stöds för operativ system och data diskar?**
 

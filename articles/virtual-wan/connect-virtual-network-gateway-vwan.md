@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983754"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441028"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Anslut en VPN Gateway (virtuell nätverksgateway) till virtuellt WAN
 
@@ -83,7 +83,7 @@ I det här avsnittet laddar du ned VPN-konfigurationsfilen för var och en av de
 
 1. Längst upp på sidan virtuella WAN **-webbplatser** för virtuella nätverk väljer du **platsen**och väljer sedan **Ladda ned konfiguration för plats-till-plats-VPN**. Azure skapar en konfigurations fil med inställningarna.
 
-   ![Ladda ned konfigurations fil](./media/connect-virtual-network-gateway-vwan/download.png "ladda ned")
+   ![Skärm bild som visar sidan "VPN-webbplatser" med åtgärden "Ladda ned VPN-konfiguration för plats-till-plats" vald.](./media/connect-virtual-network-gateway-vwan/download.png "ladda ned")
 2. Ladda ned och öppna konfigurations filen.
 3. Upprepa de här stegen för den andra platsen. När båda konfigurationsfilerna är öppna kan du fortsätta till nästa avsnitt.
 
@@ -98,7 +98,7 @@ I det här avsnittet skapar du två Azure VPN Gateway lokala Nätverksgatewayen.
    * **Prenumeration, resurs grupp och plats** är samma som för den virtuella WAN-hubben.
 2. Granska och skapa den lokala Nätverksgatewayen. Den lokala Nätverksgatewayen bör se ut ungefär som i det här exemplet.
 
-   ![Ladda ned konfigurations fil](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![Skärm bild som visar sidan "konfiguration" med en IP-adress markerad och "Konfigurera BGP-inställningar" vald.](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Upprepa de här stegen för att skapa en annan lokal nätverksgateway, men den här gången använder du värdena ' instance1 ' i stället för ' Instance0 '-värden från konfigurations filen.
 
    ![Ladda ned konfigurations fil](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")

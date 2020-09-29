@@ -46,7 +46,7 @@
         - name: Etablera för flera innehavare
           href: how-to-provision-multitenant.md
         - name: Använd anpassade allokeringsprinciper
-          href: how-to-use-custom-allocation-policies.md
+          href: tutorial-custom-allocation-policies.md
 - name: Exempel
   items:
     - name: Exempel på attestering för en simulerad TPM-enhet
@@ -109,6 +109,8 @@
   items:
     - name: Ansluta MXChip IoT DevKit till IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Etablera enheter med anpassade allokeringsprinciper
+      href: how-to-use-custom-allocation-policies.md
     - name: Hantera enhetsetableringstjänst
       items:
         - name: Hantera registreringar – portal

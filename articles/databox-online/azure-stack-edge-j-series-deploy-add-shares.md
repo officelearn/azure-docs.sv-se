@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3c0a72c9daa72cffcfe2e5e45bbb6214a13e0a7f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891105"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440291"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Självstudie: överföra data via resurser med Azure Stack Edge Pro GPU
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Lägga till en resurs
 > * Ansluta till resursen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du lägger till resurser i Azure Stack Edge Pro, se till att:
 
@@ -116,7 +116,7 @@ Utför följande steg på den Windows-klient som du använder för att ansluta t
     ``` 
     Du kan hämta enhetens IP-adress från **nätverket** och det egna enhets namnet från **enhets** sidan i det lokala webb gränssnittet. Följande skärm bild av hosts-filen visar posten:
 
-    ![Windows Explorer Hosts-fil](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-2.png)
+    ![Windows Explorer-värd fil 2](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-2.png)
 
 ### <a name="connect-to-an-smb-share"></a>Ansluta till en SMB-resurs
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e35b655dc8b735214de891884fe40fb951dd16cd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244998"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441286"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudie: Distribuera en Service Fabric-app till ett kluster i Azure
 
@@ -30,7 +30,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -78,19 +78,19 @@ I **Connection Endpoint** (Anslutningsslutpunkt) väljer du **Skapa ett nytt klu
 
 På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Nästa**.
 
-![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+![Skärm bild som visar fliken kluster i dialog rutan skapa Service Fabric kluster.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktions kluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Nästa**.
 
-![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
+![Skärm bild som visar fliken certifikat i dialog rutan skapa Service Fabric kluster.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
 På fliken **VM Detail** (VM-information) anger du **användarnamn** och **lösenord** för kluster-administratörskontot.  Välj **Avbildning av virtuell dator** för klusternoderna och **Storlek på virtuell dator** för varje nod i klustret.  Klicka på fliken **Avancerat**.
 
-![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
+![Skärm bild som visar fliken V M detail i dialog rutan skapa Service Fabric kluster.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
 I **Portar** anger du tjänstslutpunkten VotingWeb från föregående steg (till exempel 8080).  När klustret har skapats öppnas programportarna i Azure Load Balancer för att vidarebefordra trafik till klustret.  Klicka på **Skapa** för att skapa klustret, vilket tar flera minuter.
 
-![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
+![Skärm bild som visar fliken Avancerat i dialog rutan skapa Service Fabric kluster.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
 ## <a name="publish-the-application-to-the-cluster"></a>Publicera programmet till klustret
 
@@ -101,7 +101,7 @@ Högerklicka på **Voting** i Solution Explorer och välj **Publicera**. Dialogr
 I **Anslutningens slutpunkt** väljer du slutpunkten för klustret som du skapade i föregående steg.  Till exempel ”mytestcluster.southcentral.cloudapp.azure.com:19000”. Om du väljer **Advanced Connection Parameters** (Avancerade anslutningsparametrar) bör certifikatinformationen fyllas i automatiskt.  
 ![Publicera ett Service Fabric-program](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-Välj **Publish** (Publicera).
+Välj **Publicera**.
 
 När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen följt av **:8080**. Alternativt anger du en annan port om en sådan har konfigurerats. Ett exempel är `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Du ser nu att programmet körs i klustret i Azure. På röstningswebbplatsen provar du att lägga till och ta bort röstningsalternativ och rösta för ett eller flera av dessa alternativ.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8b9c8107c102409b717da0a277b7cdd360e9c8ee
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501567"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439673"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge moduler i skala med hjälp av Azure CLI
 
@@ -29,7 +29,7 @@ I den här artikeln ställer du in Azure CLI och IoT-tillägget. Du lär dig sed
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration.
 * [IoT Edge enheter](how-to-register-device.md#prerequisites-for-the-azure-cli) med IoT Edge Runtime installerat.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
+* [Azure CLI](/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
 * [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
@@ -149,7 +149,7 @@ Här är ett grundläggande distributions manifest med lager med en modul som ex
 }
 ```
 
-I föregående exempel visades en lager distributions inställning `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Ett exempel:
+I föregående exempel visades en lager distributions inställning `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Exempel:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -183,7 +183,7 @@ Mer information om enhets sammanflätade och taggar finns i [förstå och använ
 
 Du distribuerar moduler till mål enheterna genom att skapa en distribution som består av distributions manifestet och andra parametrar.
 
-Använd kommandot [AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) för att skapa en distribution:
+Använd kommandot [AZ IoT Edge Deployment Create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) för att skapa en distribution:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -216,7 +216,7 @@ Om du uppdaterar mål villkoret inträffar följande uppdateringar:
 
 Det går inte att uppdatera innehållet i en distribution, som innehåller de moduler och vägar som definierats i distributions manifestet. Om du vill uppdatera innehållet i en distribution gör du det genom att skapa en ny distribution som riktar sig mot samma enheter med högre prioritet. Du kan ändra vissa egenskaper för en befintlig modul, inklusive mål villkor, etiketter, mått och prioritet.
 
-Använd kommandot [AZ IoT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) för att uppdatera en-distribution:
+Använd kommandot [AZ IoT Edge Deployment Update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) för att uppdatera en-distribution:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -225,9 +225,9 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 Kommandot för distributions uppdatering tar följande parametrar:
 
 * **--Deployment-ID** – namnet på den distribution som finns i IoT Hub.
-* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot `az account set -s [subscription name]`
 * **--Ange** – uppdatera en egenskap i distributionen. Du kan uppdatera följande egenskaper:
-  * targetCondition – till exempel`targetCondition=tags.location.state='Oregon'`
+  * targetCondition – till exempel `targetCondition=tags.location.state='Oregon'`
   * Etiketter
   * prioritet
 * **--Lägg** till en ny egenskap för distributionen, inklusive mål villkor eller etiketter.
@@ -237,7 +237,7 @@ Kommandot för distributions uppdatering tar följande parametrar:
 
 När du tar bort en distribution tar alla enheter med den näst högsta prioritets distributionen. Om enheterna inte uppfyller mål villkoren för någon annan distribution, tas modulerna inte bort när distributionen tas bort.
 
-Använd kommandot [AZ IoT Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) för att ta bort en distribution:
+Använd kommandot [AZ IoT Edge Deployment Delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) för att ta bort en distribution:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
@@ -246,7 +246,7 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 Kommandot för att ta bort distribution tar följande parametrar:
 
 * **--Deployment-ID** – namnet på den distribution som finns i IoT Hub.
-* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot `az account set -s [subscription name]`
 
 ## <a name="next-steps"></a>Nästa steg
 

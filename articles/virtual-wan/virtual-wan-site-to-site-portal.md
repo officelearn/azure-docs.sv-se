@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525196"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439373"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -231,7 +231,7 @@ Om du behöver anvisningar för att konfigurera enheten kan du använda instrukt
 
 Du kan visa och konfigurera inställningarna för VPN-gateway när som helst genom att välja **Visa/konfigurera**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Visa konfiguration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Skärm bild som visar sidan &quot;VPN (plats-till-plats)&quot; med en pil som pekar på åtgärden &quot;Visa/konfigurera&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 På sidan **redigera VPN gateway** kan du se följande inställningar:
 
@@ -240,7 +240,7 @@ På sidan **redigera VPN gateway** kan du se följande inställningar:
 * VPN Gateway standard-BGP IP-adress (tilldelad av Azure)
 * Konfigurations alternativ för anpassad BGP IP-adress: det här fältet är reserverat för APIPA (automatisk privat IP-adressering). Azure har stöd för BGP IP i intervallen 169.254.21. * och 169.254.22. *. Azure accepterar BGP-anslutningar i dessa intervall, men kommer att ansluta till standard-BGP-IP.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Visa konfiguration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Skärm bild som visar sidan &quot;VPN (plats-till-plats)&quot; med en pil som pekar på åtgärden &quot;Visa/konfigurera&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

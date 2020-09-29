@@ -9,18 +9,18 @@ ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: dc886ae2e113b77a6c49219a61a905aaeeb7d2a5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372347"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440400"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
 
 I den här snabb starten använder du Azure App konfiguration för att centralisera lagring och hantering av program inställningar för en ASP.NET Core-app. ASP.NET Core skapar ett enda, nyckel-värdebaserade konfigurations objekt med inställningar från en eller flera data källor som anges av en app. Dessa data källor kallas för *konfigurations leverantörer*. Eftersom app Configurations .NET Core-klient implementeras som en Konfigurationsprovider, visas tjänsten som en annan data källa.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
@@ -53,59 +53,7 @@ Kör följande kommando för att skapa ett ASP.NET Core MVC-projekt i en ny *Tes
 dotnet new mvc --no-https --output TestAppConfig
 ```
 
-## <a name="add-secret-manager"></a>Lägga till Secret Manager
-
-Ett verktyg som kallas Secret Manager lagrar känsliga data för utvecklings arbete utanför projekt trädet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden. Utför följande steg för att aktivera användningen av Secret Manager i projektet:
-
-#### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
-
-Kör följande kommando för att aktivera hemligheter för lagring i projektet:
-
-```dotnetcli
-dotnet user-secrets init
-```
-
-Ett `UserSecretsId` element som innehåller ett GUID läggs till i *. CSPROJ* -filen:
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-    
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
-
-</Project>
-```
-
-#### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
-
-1. Öppna *. CSPROJ* -filen.
-
-1. Lägg till ett- `UserSecretsId` element i *. CSPROJ* -filen som visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget.
-
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-    
-        <PropertyGroup>
-            <TargetFramework>netcoreapp2.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-    
-        <ItemGroup>
-            <PackageReference Include="Microsoft.AspNetCore.App" />
-            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-        </ItemGroup>
-    
-    </Project>
-    ```
-    
-1. Spara *. CSPROJ* -filen.
-
----
-
-> [!TIP]
-> Mer information om Secret Manager finns i [säker lagring av program hemligheter i utveckling i ASP.net Core](/aspnet/core/security/app-secrets).
+[!INCLUDE[Add Secret Manager support to an ASP.NET Core project](../../includes/azure-app-configuration-add-secret-manager.md)]
 
 ## <a name="connect-to-the-app-configuration-store"></a>Anslut till appens konfigurations Arkiv
 

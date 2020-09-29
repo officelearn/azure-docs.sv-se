@@ -8,18 +8,18 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd4ec60691344cef4030472b474a82e84c70244f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261183"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441267"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-anvisningar för att skapa en ny HoloLens Unity-app med hjälp av Azure spatiala ankare
 
 I den här självstudien visas hur du skapar en ny HoloLens Unity-app med Azure spatiala ankare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -208,7 +208,7 @@ Slutligen är det dags att koppla ihop allt. `CreateAndSaveSphere()`Lägg till f
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Kör appen från **Visual Studio** en gång till. Flytta runt ditt huvud och tryck sedan för att placera din sfär. När vi har tillräckligt många ramar blir klotet gult och moln överföringen startar. När uppladdningen är klar blir klotet blå. Alternativt kan du också använda [fönstret utdata](https://docs.microsoft.com/visualstudio/ide/reference/output-window) när du felsöker i **Visual Studio** för att övervaka de logg meddelanden som appen skickar. Du kan titta på `RecommendedForCreateProgress` , och när uppladdningen är klar kan du se den Anchor-identifierare som returnerades från molnet.
+Kör appen från **Visual Studio** en gång till. Flytta runt ditt huvud och tryck sedan för att placera din sfär. När vi har tillräckligt många ramar blir klotet gult och moln överföringen startar. När uppladdningen är klar blir klotet blå. Alternativt kan du också använda [fönstret utdata](https://docs.microsoft.com/visualstudio/ide/reference/output-window) när du felsöker i **Visual Studio** för att övervaka de logg meddelanden som appen skickar. Se till att du distribuerar `Debug` appens konfiguration från Visual Studio för att se logg meddelandena. Du kan titta på `RecommendedForCreateProgress` , och när uppladdningen är klar kan du se den Anchor-identifierare som returnerades från molnet.
 
 > [!NOTE]
 > Om du får "DllNotFoundException: det går inte att läsa in DLL-filen AzureSpatialAnchors: det gick inte att hitta den angivna modulen", bör du **rengöra** och **bygga** lösningen igen.

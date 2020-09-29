@@ -4,12 +4,16 @@
   items:
     - name: Vad är Service Fabric?
       href: service-fabric-overview.md
+    - name: System Fabric-hanterade kluster
+      href: overview-managed-cluster.md
 - name: Snabbstarter
   expanded: true
   items:
     - name: ARM-mall
       displayName: Resource Manager
       href: quickstart-cluster-template.md
+    - name: Hanterat kluster
+      href: quickstart-managed-cluster-template.md
     - name: Skapa ett .NET-program
       href: service-fabric-quickstart-dotnet.md
     - name: Distribuera ett program för Linux-container
@@ -64,6 +68,16 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3- Redundans och skalning
           href: service-fabric-tutorial-containers-failover.md
+    - name: Skapa ett Service Fabric-hanterat kluster
+      items:
+        - name: 1 – Distribuera ett Service Fabric-hanterat kluster
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2– Skala ut en nodtyp för hanterade kluster
+          href: tutorial-managed-cluster-scale.md
+        - name: 3 – Lägg till och ta bort nodtyper för hanterade kluster
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4 – Anslut till ett hanterat kluster och distribuera ett program
+          href: tutorial-managed-cluster-deploy-app.md
     - name: Skapa och hantera ett kluster
       items:
         - name: 1- Skapa ett kluster på Azure
@@ -155,7 +169,7 @@
           items:
             - name: Översikt över container
               href: service-fabric-containers-overview.md
-            - name: Docker Compose (förhandsversion)
+            - name: Docker compose
               href: service-fabric-docker-compose.md
             - name: Avsökningar
               href: probes-codepackage.md
@@ -430,7 +444,7 @@
               href: service-fabric-deploy-existing-app.md
         - name: Skapa en containertjänst
           items:
-            - name: Docker Compose (förhandsversion)
+            - name: Docker compose
               href: service-fabric-docker-compose.md
             - name: Drivrutiner för volym och loggning
               href: service-fabric-containers-volume-logging-drivers.md
@@ -509,7 +523,7 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: Konfigurera ett krypteringscertifikat och kryptera hemligheter på Linux
                   href: service-fabric-application-secret-management-linux.md
-                - name: Lagra hemligheter på ett säkert sätt med KeyVaultReference (förhandsversion)
+                - name: Lagra hemligheter på ett säkert sätt med KeyVaultReference
                   href: service-fabric-keyvault-references.md
             - name: Konfigurera omvänd proxy för säker kommunikation
               href: service-fabric-reverseproxy-configure-secure-communication.md
@@ -675,6 +689,8 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Uppgradera
               items:
+                - name: Lägg till ett tillägg för en VM-skalningsuppsättning till en nodtyp för hanterade kluster
+                  href: how-to-managed-cluster-vmss-extension.md
                 - name: Uppgradera Service Fabric-versionen
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Uppgradera klusterkonfigurationen
@@ -901,6 +917,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Vanliga frågor
       href: service-fabric-common-questions.md
+    - name: Vanliga frågor om System Fabric-hanterade kluster
+      href: faq-managed-cluster.md
     - name: Frågesida på Microsoft Q&A
       href: /answers/topics/azure-service-fabric.html
     - name: Skyddsräcken för Azure Resource Manager-distribution

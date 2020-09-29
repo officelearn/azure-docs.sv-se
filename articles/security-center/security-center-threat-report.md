@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: a4fdbab4a69fac1376779f37d5fa69fef587bf52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9b3fd0000a1b5dbba00995c37f96a89319de0e1
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888252"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440495"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure Security Center hot informations rapport
 
@@ -75,5 +75,5 @@ Den här typen av information är användbar under incident svars processen, dä
 
 Den här sidan förklaras hur du öppnar hot informations rapporter när du undersöker säkerhets aviseringar. Relaterad information finns på följande sidor:
 
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md). Lär dig att hantera och åtgärda säkerhetsaviseringar.
+* [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md). Lär dig att hantera och åtgärda säkerhetsaviseringar.
 * [Hantera säkerhets incidenter i Azure Security Center](security-center-incident.md)

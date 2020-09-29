@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446395"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439209"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Skicka Azure aktivitets logg till Log Analytics arbets ytan med Azure Portal
 Aktivitets loggen är en plattforms logg i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Den här snabb starten visar hur du använder Azure Portal för att skapa en Log Analytics arbets yta och en diagnostisk inställning för att skicka aktivitets loggen till Azure Monitor loggar där du kan analysera den med hjälp av [logg frågor](../log-query/log-query-overview.md) och aktivera andra funktioner som [logg aviseringar](../platform/alerts-log-query.md) och [arbets böcker](../platform/workbooks-overview.md). 
@@ -24,7 +24,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
 I Azure Portal söker du efter och väljer **Log Analytics arbets ytor**. 
 
-![Azure Portal](media/quick-create-workspace/azure-portal-01.png)
+![Skärm bild av Azure Portal som visar "Log Analytics-arbetsytor" i sökrutan och Log Analytics arbets ytor som är markerade under tjänster.](media/quick-create-workspace/azure-portal-01.png)
   
 Klicka på **Lägg till**och ange värden för **resurs gruppen**, arbets ytans **namn**och **plats**. Arbets ytans namn måste vara unika för alla Azure-prenumerationer.
 
@@ -36,7 +36,7 @@ Klicka på **Granska + skapa** för att granska inställningarna och **skapa** s
 ## <a name="create-diagnostic-setting"></a>Skapa diagnostiskinställning
 I Azure Portal söker du efter och väljer **övervaka**. 
 
-![Azure Portal](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Skärm bild av Azure Portal med "övervaka" i sökrutan och övervakaren markerat under tjänster.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Välj **aktivitets logg**. Du bör se de senaste händelserna för den aktuella prenumerationen. Klicka på **diagnostikinställningar** för att Visa diagnostiska inställningar för prenumerationen.
 

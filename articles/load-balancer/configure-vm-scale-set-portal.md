@@ -6,12 +6,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333893"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439526"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Konfigurera en skalnings uppsättning för en virtuell dator med en befintlig Azure Load Balancer med hjälp av Azure Portal
 
@@ -62,7 +62,7 @@ I det här avsnittet ska du skapa en skalnings uppsättning för virtuella dator
     | Bekräfta lösenordet               | Ange administratörs lösen ordet igen |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Skapa skal uppsättning för virtuell dator." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Skärm bild som visar fliken för att skapa grundläggande skalnings uppsättningar för virtuella datorer." border="true":::
 
 4. Välj fliken **nätverk** .
 
@@ -79,7 +79,7 @@ I det här avsnittet ska du skapa en skalnings uppsättning för virtuella dator
     | Välj en belastningsutjämnare            | Välj **myLoadBalancer** eller din befintliga belastningsutjämnare |
     | Välj en backend-pool             | Välj **myBackendPool** eller din befintliga backend-pool.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Skapa skal uppsättning för virtuell dator." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Skärm bild som visar fliken för att skapa grundläggande skalnings uppsättningar för virtuella datorer." border="true":::
 
 6. Välj fliken **hantering** .
 

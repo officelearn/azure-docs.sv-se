@@ -6,14 +6,38 @@ metadata:
   ms.topic: landing-page
   author: erikadoyle
   ms.author: edoyle
-  ms.date: 12/04/2019
-  ms.openlocfilehash: a2651387a425439d09ad68b0e763ff0c6c3f7f27
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 07/31/2020
+  ms.openlocfilehash: 9bce6570cef2703bf1ad63d92c55bb3794927a8b
+  ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75452213"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91408709"
 landingContent:
+- title: Testa System Fabric-hanterade kluster (förhandsversion)
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Vad är System Fabric-hanterade kluster? (förhandsversion)
+      url: overview-managed-cluster.md
+    - text: Distribuera ett hanterat kluster (förhandsversion)
+      url: quickstart-managed-cluster-template.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa ett hanterat kluster (förhandsversion)
+      url: tutorial-managed-cluster-deploy.md
+    - text: Skala ut en nodtyp för hanterade kluster (förhandsversion)
+      url: tutorial-managed-cluster-scale.md
+    - text: Lägg till och ta bort nodtyper för hanterade kluster (förhandsversion)
+      url: tutorial-managed-cluster-add-remove-node-type.md
+    - text: Distribuera en app till ett hanterat kluster (förhandsversion)
+      url: tutorial-managed-cluster-deploy-app.md
+    - text: Lägg till ett tillägg för en VM-skalningsuppsättning till en nodtyp för hanterade kluster (förhandsversion)
+      url: how-to-managed-cluster-vmss-extension.md
+  - linkListType: whats-new
+    links:
+    - text: Vanliga frågor och svar om System Fabric-hanterade kluster
+      url: faq-managed-cluster.md
 - title: Om Service Fabric
   linkLists:
   - linkListType: overview
@@ -102,7 +126,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Metodtips för säkerhet
+    - text: Rekommenderade säkerhetsmetoder
       url: service-fabric-best-practices-security.md
     - text: Programsäkerhet
       url: service-fabric-application-and-service-security.md

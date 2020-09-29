@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910086"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439846"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postinbjudanen B2B – Azure Active Directory
 
@@ -75,7 +75,21 @@ Nästa avsnitt i e-postmeddelandet innehåller information om var inbjudan ska t
 Sidfoten innehåller mer information om den inbjudan som skickas. Det finns alltid ett alternativ för inbjudan att blockera framtida inbjudningar. Om organisationen har [angett en sekretess policy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)visas länken till instruktionen här.  Annars visar en anteckning att organisationen inte har angett en sekretess policy.
 
 ![Bild av avsnittet sidfot i e-postmeddelandet](media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>Blockera en organisation (prenumeration)
+
+I inbjudan från en organisation innehåller sidfoten ett alternativ för att **blockera framtida inbjudningar**. En gäst användare kan välja den här länken för att blockera alla framtida inbjudningar från organisationen. Den här åtgärden lägger också till organisationen i användarens lista över avbrutna prenumerationer på [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
+
+### <a name="viewing-organizations-youve-blocked"></a>Visa organisationer som du har blockerat
+
+En gäst användare kan följa de här stegen för att visa eller exportera de organisationer som de har blockerat:
+
+1. Gå till [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Ange din e-postadress och följ inloggnings stegen för e-postautentisering med eng ång slö sen ord.
+3. Visa de organisationer som du har blockerat eller exportera namnen med hjälp av kopiera och klistra in.
+   > [!NOTE]
+   > Om du vill tillåta en organisation som du har blockerat att bjuda in dig igen kan du välja organisation och välja **Nästa**.
+
 ## <a name="how-the-language-is-determined"></a>Hur språket fastställs
 
 Det språk som visas för gäst användaren i e-postinbjudan avgörs av följande inställningar. De här inställningarna visas i prioritetsordning. Om en inställning inte är konfigurerad, bestämmer nästa inställning i listan språket.

@@ -4,16 +4,16 @@ description: Läs mer om Ultra disks för virtuella Azure-datorer
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 681804eadc1f710eb5fbf6980fabca4beaaf5439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328245"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441196"
 ---
 # <a name="using-azure-ultra-disks"></a>Använda Azure Ultra disks
 
@@ -155,7 +155,7 @@ Det här avsnittet beskriver hur du distribuerar en virtuell dator som är utrus
 - Ändra värdena för **anpassad disk storlek (GIB)**, **disk-IOPS**och **disk data flöde** som du väljer själv.
 - Välj **OK** på båda bladen.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Skärm bild av bladet Välj en disk storlek, Ultra disk vald för lagrings typ, andra värden markerade.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Skärm bild av bladet skapa en ny disk, ändra storlek är markerad.":::
 
 - Fortsätt med distributionen av virtuella datorer. det är detsamma som du distribuerar andra virtuella datorer.
 
@@ -250,7 +250,7 @@ Alternativt, om din befintliga virtuella dator finns i en region/tillgänglighet
 - Ändra **konto typen** till **Ultra disk**.
 - Ändra värdena för **anpassad disk storlek (GIB)**, **disk-IOPS**och **disk data flöde** som du väljer själv.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Skärm bild av bladet Välj en disk storlek, Ultra disk vald för lagrings typ, andra värden markerade.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Skärm bild av bladet skapa en ny disk, ändra storlek är markerad.":::
 
 - Välj **OK** och välj sedan **skapa**.
 - När du har kommit tillbaka till din disks blad väljer du **Spara**.
@@ -409,4 +409,5 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [använda Azure Ultra disks på Azure Kubernetes service (för hands version)](../aks/use-ultra-disks.md).
+- [Använd Azure Ultra disks på Azure Kubernetes service (för hands version)](../aks/use-ultra-disks.md).
+- [Migrera logg disken till en Ultra disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).

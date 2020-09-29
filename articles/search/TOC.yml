@@ -162,8 +162,6 @@
       items:
         - name: Arbeta med indexerare
           items:
-            - name: Konfigurera indexerare
-              href: search-indexer-overview.md
             - name: Övervaka indexerare
               href: search-howto-monitor-indexers.md
             - name: Schema för indexerare
@@ -188,8 +186,12 @@
               href: search-blob-ai-integration.md
             - name: Konfigurera en blobindexerare
               href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexera ändrade och borttagna blobar
+              href: search-howto-index-changed-deleted-blobs.md
             - name: Indexera en-till-många blobar
               href: search-howto-index-one-to-many-blobs.md
+            - name: Indexera oformaterad text
+              href: search-howto-index-plaintext-blobs.md
             - name: Indexera CSV-blobar
               href: search-howto-index-csv-blobs.md
             - name: Indexera JSON-blobar

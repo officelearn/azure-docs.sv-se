@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/25/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db377a933507f9a25b377ba52ebd956416a1dfd2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328237"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441182"
 ---
 För närvarande har Ultra disks ytterligare begränsningar, de är följande:
 
@@ -35,7 +35,9 @@ Följande tabell beskriver regionerna Ultra disks finns i, samt motsvarande till
 |US Gov, Arizona     |Endast enskilda virtuella datorer (tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer stöds inte)|
 |US Gov, Virginia     |Endast enskilda virtuella datorer (tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer stöds inte)|
 |USA, västra     |Endast enskilda virtuella datorer (tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer stöds inte)        |
+|Australien, centrala    |Endast enskilda virtuella datorer (tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer stöds inte)|
 |Australien, östra     |Tre tillgänglighets zoner         |
+|Sydostasien    |Tre tillgänglighets zoner        |
 |Kanada, centrala *     |Tre tillgänglighets zoner          |
 |Central US     |Tre tillgänglighets zoner          |
 |East US     |Tre tillgänglighets zoner          |

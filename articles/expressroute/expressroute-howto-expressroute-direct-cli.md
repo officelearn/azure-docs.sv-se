@@ -1,23 +1,23 @@
 ---
 title: 'Azure-ExpressRoute: Konfigurera ExpressRoute Direct: CLI'
-description: Lär dig hur du använder Azure CLI för att konfigurera Azure ExpressRoute Direct för att ansluta direkt till Microsofts globala nätverk på peering-platser över hela världen.
+description: Lär dig hur du använder Azure CLI för att konfigurera Azure ExpressRoute Direct för att ansluta direkt till Microsofts globala nätverk.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4eea79d6166ef4beae3b2d61e47e7df0bc82624c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e8c305da074f3090ced0dfc16b4a3faa4c757699
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395969"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440222"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurera ExpressRoute Direct med hjälp av Azure CLI
 
-Du kan använda Azure ExpressRoute Direct för att ansluta direkt till Microsofts globala nätverk på peering-platser som distribueras strategiskt över hela världen. Mer information finns i [om ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk via peering-platser som distribueras strategiskt över hela världen. Mer information finns i [om ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Skapa resursen
 
@@ -209,7 +209,13 @@ Du kan använda Azure ExpressRoute Direct för att ansluta direkt till Microsoft
    }  
    ```
 
-## <a name="change-adminstate-for-links"></a><a name="state"></a>Ändra AdminState för länkar
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generera bokstaven för auktorisering (LOA)
+
+Ange det nyligen skapade ExpressRoute Direct-resurs namnet, resurs gruppens namn och ett kundnamn för att skriva LOA till och (valfritt) definiera en fil Sök väg för att lagra dokumentet. Om en fil Sök väg inte refereras till, kommer dokumentet att laddas ned till den aktuella katalogen.
+
+```azurecli
+az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
+```
 
 Använd den här processen för att genomföra ett lager 1-test. Se till att varje kors anslutning korrigeras korrekt i varje router i de primära och sekundära portarna.
 
@@ -287,7 +293,8 @@ Du kan använda ytterligare krets bandbredder på ExpressRoute Direct endast fö
 
 **SkuTier** kan vara Local, standard eller Premium.
 
-**SkuFamily** får endast vara MeteredData eftersom obegränsad inte stöds i ExpressRoute Direct.
+**SkuFamily** kan bara vara MeteredData. Obegränsad stöds inte på ExpressRoute Direct.
+
 Skapa en krets på ExpressRoute Direct-resursen:
 
   ```azurecli

@@ -1,22 +1,22 @@
 ---
 title: 'Azure VPN Gateway: skapa & installera VPN-P2S RADIUS-anslutningar'
-description: Skapa konfigurationsfiler för Windows, Mac OS X och Linux VPN-klienten för anslutningar som använder RADIUS-autentisering.
+description: Skapa konfigurationsfiler för Windows-, OS X-och Linux VPN-klienter för anslutningar som använder RADIUS-autentisering.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419919"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440059"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera konfigurationsfiler för VPN-klienten för P2S RADIUS-autentisering
 
-Om du vill ansluta till ett virtuellt nätverk över punkt-till-plats (P2S) måste du konfigurera den klient enhet som du ansluter från. Du kan skapa P2S VPN-anslutningar från Windows-, Mac OS X-och Linux-klient enheter. 
+Om du vill ansluta till ett virtuellt nätverk över punkt-till-plats (P2S) måste du konfigurera den klient enhet som du ansluter från. Du kan skapa P2S VPN-anslutningar från Windows-, OS X-och Linux-klient enheter. 
 
 När du använder RADIUS-autentisering finns det flera autentiseringsalternativ: användar namn/lösen ord, certifikatautentisering och andra autentiseringstyper. Konfigurationen av VPN-klienten skiljer sig åt för varje typ av autentisering. Om du vill konfigurera VPN-klienten använder du konfigurationsfiler för klienter som innehåller de nödvändiga inställningarna. Den här artikeln hjälper dig att skapa och installera VPN-klientkonfiguration för den RADIUS-autentiseringstyp som du vill använda.
 
@@ -36,7 +36,7 @@ Konfigurations arbets flödet för P2S RADIUS-autentisering är följande:
 >
 >
 
-Om du vill använda avsnitten i den här artikeln bestämmer du först vilken typ av autentisering du vill använda: användar namn/lösen ord, certifikat eller andra typer av autentisering. I varje avsnitt finns det steg för Windows, Mac OS X och Linux (begränsade steg som är tillgängliga just nu).
+Om du vill använda avsnitten i den här artikeln bestämmer du först vilken typ av autentisering du vill använda: användar namn/lösen ord, certifikat eller andra typer av autentisering. I varje avsnitt finns det steg för Windows, OS X och Linux (begränsade steg som är tillgängliga just nu).
 
 
 ## <a name="usernamepassword-authentication"></a><a name="adeap"></a>Autentisering av användar namn/lösen ord
@@ -142,9 +142,9 @@ Använd följande steg för att konfigurera den interna Windows VPN-klienten fö
 10. VPN-anslutningen visas som **IkeV2-VPN**. Du kan ändra namnet genom att uppdatera **mobileconfig** -filen.
 
     ![Information om VPN-anslutningen](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
-11. Välj **autentiseringsinställningar**. Välj **användar namn** i listan och ange dina autentiseringsuppgifter. Om du angav autentiseringsuppgifterna tidigare väljs **användar namn** automatiskt i listan och användar namn och lösen ord är förifyllda. Spara inställningarna genom att klicka på **OK** .
+11. Välj **autentiseringsinställningar**. Välj **användar namn** i listan och ange dina autentiseringsuppgifter. Om du angav autentiseringsuppgifterna tidigare väljs **användar namn** automatiskt i listan och användar namn och lösen ord fylls i i förväg. Spara inställningarna genom att klicka på **OK** .
 
-    ![Autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![Skärm bild som visar List rutan autentiseringsinställningar med "username" vald.](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Tillbaka i dialog rutan **nätverk** väljer du **Verkställ** för att spara ändringarna. Om du vill initiera anslutningen väljer du **Anslut**.
 
 #### <a name="linux-vpn-client-setup-through-strongswan"></a><a name="adlinuxcli"></a>Installation av Linux VPN-klienten via strongSwan

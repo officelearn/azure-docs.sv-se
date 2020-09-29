@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d89a75c0d917fc1416fcb5d54b7c7df5ef5f5dea
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b1ef7d587cd8bec636f42673941edb69647ee8cb
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319210"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449983"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -33,7 +33,161 @@ Vad är nytt i Azure Active Directory? versions information innehåller informat
 - Planer för ändringar
 
 ---
- ## <a name="february-2020"></a>Februari 2020
+
+ ## <a name="march-2020"></a>Mars 2020
+
+### <a name="unmanaged-azure-active-directory-accounts-in-b2b-update-for-march--2021"></a>Ohanterade Azure Active Directory konton i B2B-uppdatering för mars 2021
+
+**Typ:** Planera för ändring  
+**Tjänste kategori:** Business  
+**Produkt kapacitet:** B2B/B2C
+ 
+**Från och med den 31 mars 2021**kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure Active Directory-konton (Azure AD) och klienter för B2B-samarbets scenarier. Vi rekommenderar att du väljer att [e-posta autentisering med eng ång slö sen ord](../external-identities/one-time-passcode.md).
+
+---
+
+### <a name="users-with-the-default-access-role-will-be-in-scope-for-provisioning"></a>Användare med standard åtkomst rollen är inom omfånget för etablering
+
+**Typ:** Planera för ändring  
+**Tjänste kategori:** App-etablering  
+**Produkt kapacitet:** Hantering av identitets livs cykel
+ 
+Tidigare har användare med standard åtkomst rollen utanför definitions området för etablering. Vi har hört feedback om att kunderna vill att användare med den här rollen ska omfattas av etableringen. Vi arbetar med att distribuera en ändring så att alla nya etablerings konfigurationer tillåter användare med standard åtkomst rollen som ska tillhandahållas. Gradvis kommer vi att ändra beteendet för befintliga etablerings konfigurationer som stöder etablering av användare med den här rollen. Ingen kund åtgärd krävs. Vi publicerar en uppdatering av vår [dokumentation](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md) när den här ändringen är på plats.
+
+---
+
+### <a name="azure-ad-b2b-collaboration-will-be-available-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet-tenants"></a>Azure AD B2B-samarbete är tillgängligt i Microsoft Azure som drivs av 21Vianet-klienter (Azure Kina 21Vianet)
+
+**Typ:** Planera för ändring  
+**Tjänste kategori:** Business  
+**Produkt kapacitet:** B2B/B2C
+ 
+Funktionerna i Azure AD B2B-samarbete kommer att göras tillgängliga i Microsoft Azure som drivs av 21Vianet (Azure Kina 21Vianet), vilket gör det möjligt för användare i en Azure Kina 21Vianet-klient att samar beta sömlöst med användare i andra Azure Kina 21Vianet-klienter. [Lär dig mer om Azure AD B2B-samarbete](/azure/active-directory/b2b/).
+
+---
+ 
+### <a name="azure-ad-b2b-collaboration-invitation-email-redesign"></a>Inbjudan till Azure AD B2B-samarbete e-postdesign
+
+**Typ:** Planera för ändring  
+**Tjänste kategori:** Business  
+**Produkt kapacitet:** B2B/B2C
+ 
+[E-postmeddelanden](../external-identities/invitation-email-elements.md) som skickas av Azure AD B2B Collaboration-Inbjudnings tjänsten för att bjuda in användare till katalogen, kommer att omutformas för att göra Inbjudnings informationen och användarens nästa steg tydligare.
+
+---
+
+### <a name="homerealmdiscovery-policy-changes-will-appear-in-the-audit-logs"></a>HomeRealmDiscovery princip ändringar visas i gransknings loggarna
+
+**Typ:** Fastsatt  
+**Tjänste kategori:** Händelse  
+**Produkt kapacitet:** Övervaka & rapportering
+ 
+Vi har åtgärdat ett fel där ändringar i [HomeRealmDiscovery-principen](../manage-apps/configure-authentication-for-federated-users-portal.md) inte inkluderades i gransknings loggarna. Du kommer nu att kunna se när och hur principen ändrades, och av vem. 
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2020"></a>Nya federerade appar som är tillgängliga i Azure AD App Galleri – mars 2020
+
+**Typ:** Ny funktion  
+**Tjänste kategori:** Företags program  
+**Produkt kapacitet:** integration från tredje part
+ 
+I mars 2020 har vi lagt till dessa 51 nya appar med stöd för federation i app-galleriet: 
+
+[Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho, en Kina](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [profit.co SAML-App](../saas-apps/profitco-saml-app-tutorial.md), [iPoint-tjänsteleverantör](../saas-apps/ipoint-service-provider-tutorial.md), [Contexxt.AI-sfär](https://contexxt-sphere.com/login), [ingengörskunskap av Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), [överstrålning, digitalt signerat](https://spark-dev.pixelnebula.com/login), [Logz.io – molnets användarvänlighet för ingenjörer](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [SPECTRUMU](../saas-apps/spectrumu-tutorial.md), [BizzContact](https://bizzcontact.app/), [Elqano SSO](../saas-apps/elqano-sso-tutorial.md), [MarketSignShare](http://www.signshare.com/), CrossKnowledge [Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md), [Netvision kompositioner](../saas-apps/netvision-compas-tutorial.md), [FCM Hub](../saas-apps/fcm-hub-tutorial.md), [revben A/S Byggeweb Mobile](https://apps.apple.com/us/app/docia/id529058757), [GoLinks](../saas-apps/golinks-tutorial.md), [Datadog](../saas-apps/datadog-tutorial.md), [Zscaler B2B User Portal](../saas-apps/zscaler-b2b-user-portal-tutorial.md), [Aster](https://demo.asterapp.io/login) [hiss](../saas-apps/lift-tutorial.md), [Planview Enterprise One](../saas-apps/planview-enterprise-one-tutorial.md) [, WatchTeams och Aster](https://www.devfinition.com/), [kompetens arbets flöde](../saas-apps/skills-workflow-tutorial.md) [,](https://admin.nodeinsight.com/AADLogin.aspx) [IP-plattform](../saas-apps/ip-platform-tutorial.md), [insikt](../saas-apps/invision-tutorial.md), [PipeDrive](../saas-apps/pipedrive-tutorial.md), [Showcase-workshop](https://app.showcaseworkshop.com/), [GreenLight integration Platform](../saas-apps/greenlight-integration-platform-tutorial.md), [GreenLight-kompatibel åtkomst hantering](../saas-apps/greenlight-compliant-access-management-tutorial.md), [grok Learning](../saas-apps/grok-learning-tutorial.md), [Miradore online](https://login.online.miradore.com/), [Khoros Care](../saas-apps/khoros-care-tutorial.md) [, AskYourTeam, TruNarrative](../saas-apps/askyourteam-tutorial.md) [, Smartwaiver](../saas-apps/trunarrative-tutorial.md), [Bizagi Studio för digital process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md), [insuiteX](https://www.insuite.jp/) [, Sybo](https://www.systexsoftware.com.tw/) [, Britive](../saas-apps/britive-tutorial.md) [,](../saas-apps/whosoffice-tutorial.md) [WhosOffice,](https://www.smartwaiver.com/m/user/sw_login.php?wms_login) [E-dagar](../saas-apps/e-days-tutorial.md), [Kollective SDN](https://portal.kollective.app/login), [Witivio](https://app.witivio.com/), [PlayVox](https://my.playvox.com/login), [korn fartyg 360](../saas-apps/korn-ferry-360-tutorial.md), [Campus kafé](../saas-apps/campus-cafe-tutorial.md) [, Catchpoint](../saas-apps/catchpoint-tutorial.md) [, Code42](../saas-apps/code42-tutorial.md)
+
+Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="azure-ad-b2b-collaboration-available-in-azure-government-tenants"></a>Azure AD B2B-samarbete tillgängligt i Azure Government-klienter
+
+**Typ:** Ny funktion  
+**Tjänste kategori:** Business  
+**Produkt kapacitet:** B2B/B2C
+ 
+Samarbets funktionerna i Azure AD B2B är nu tillgängliga mellan vissa Azure Government klienter.  Om du vill ta reda på om din klient kan använda de här funktionerna följer du anvisningarna på [Hur vet jag om B2B-samarbete är tillgängligt i min Azure amerikanska myndighets klient?](../external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
+
+---
+
+### <a name="azure-monitor-integration-for-azure-logs-is-now-available-in-azure-government"></a>Azure Monitor integration för Azure-loggar är nu tillgänglig i Azure Government
+
+**Typ:** Ny funktion  
+**Tjänste kategori:** Uppgiftslämn  
+**Produkt kapacitet:** Övervaka & rapportering
+ 
+Azure Monitor integrering med Azure AD-loggar finns nu i Azure Government. Du kan skicka Azure AD-loggar (gransknings-och inloggnings loggar) till ett lagrings konto, Event Hub och Log Analytics. Läs igenom den [detaljerade dokumentationen](https://aka.ms/aadlogsinamd) [och distributions planer för rapportering och övervakning](../reports-monitoring/plan-monitoring-and-reporting.md) av Azure AD-scenarier.
+
+---
+
+### <a name="identity-protection-refresh-in-azure-government"></a>Uppdatera identitets skydd i Azure Government
+
+**Typ:** Ny funktion  
+**Tjänste kategori:** Identitets skydd  
+**Produkt kapacitet:** & skydd för identitets säkerhet
+
+Vi är glada att kunna dela att vi nu har lanserat den uppdaterade [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs)   upplevelsen på [Microsoft Azure Government portalen](https://portal.azure.us/). Mer information finns i [blogg inlägget för meddelande](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
+
+---
+
+### <a name="disaster-recovery-download-and-store-your-provisioning-configuration"></a>Haveri beredskap: Hämta och lagra etablerings konfigurationen
+
+**Typ:** Ny funktion  
+**Tjänste kategori:** App-etablering  
+**Produkt kapacitet:** Hantering av identitets livs cykel
+ 
+Azure AD Provisioning-tjänsten innehåller en omfattande uppsättning konfigurations funktioner. Kunderna måste kunna spara sin konfiguration så att de kan referera till den senare eller återställa till en känd version. Vi har lagt till möjligheten att ladda ned din etablerings konfiguration som en JSON-fil och ladda upp den när du behöver den. [Läs mer](../app-provisioning/export-import-provisioning-configuration.md).
+
+---
+ 
+### <a name="sspr-self-service-password-reset-now-requires-two-gates-for-admins-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>SSPR (lösen ords återställning via självbetjäning) kräver nu två portar för administratörer i Microsoft Azure som drivs av 21Vianet (Azure Kina 21Vianet) 
+
+**Typ:** Ändrad funktion  
+**Tjänste kategori:** Lösen ords återställning via självbetjäning  
+**Produkt kapacitet:** & skydd för identitets säkerhet
+ 
+Tidigare i Microsoft Azure som drivs av 21Vianet (Azure Kina 21Vianet), administratörer som använder självbetjäning för återställning av lösen ord (SSPR) för att återställa sina egna lösen ord behövde bara en "grind" (Challenge) för att bevisa sin identitet. I offentliga och andra nationella moln måste administratörerna i allmänhet använda två portar för att bevisa sin identitet när de använder SSPR. Men eftersom vi inte har stöd för SMS eller telefonsamtal i Azure Kina 21Vianet, tillät vi ett-Gate lösen ords återställning av administratörer.
+
+Vi skapar SSPR funktions paritet mellan Azure Kina 21Vianet och det offentliga molnet. Administratörerna måste använda två portar när de använder SSPR. SMS, telefonsamtal och meddelandeautentisering och-koder kommer att stödjas. [Läs mer](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences).
+
+---
+
+### <a name="password-length-is-limited-to-256-characters"></a>Lösen ords längden är begränsad till 256 tecken
+
+**Typ:** Ändrad funktion  
+**Tjänste kategori:** Autentiseringar (inloggningar)  
+**Produkt kapacitet:** Användarautentisering
+ 
+För att säkerställa tillförlitligheten för Azure AD-tjänsten är användar lösen ord nu begränsade till 256 tecken. Användare med lösen ord som är längre än detta kommer att uppmanas att ändra sina lösen ord vid efterföljande inloggningar, antingen genom att kontakta deras administratör eller genom att använda funktionen för lösen ords återställning via självbetjäning.
+
+Den här ändringen aktiverades den 13 mars 2020, 10 PST (18:00 UTC) och felet är AADSTS 50052, InvalidPasswordExceedsMaxLength. Mer information finns i meddelandet om att [bryta ändring](../develop/reference-breaking-changes.md#user-passwords-will-be-restricted-to-256-characters) .
+
+---
+
+### <a name="azure-ad-sign-in-logs-are-now-available-for-all-free-tenants-through-the-azure-portal"></a>Inloggnings loggarna för Azure AD är nu tillgängliga för alla kostnads fria klienter via Azure Portal
+
+**Typ:** Ändrad funktion  
+**Tjänste kategori:** Uppgiftslämn  
+**Produkt kapacitet:** Övervaka & rapportering
+ 
+Nu kan kunder som har kostnads fria klient organisationer komma åt [inloggnings loggarna för Azure AD från Azure Portal](../reports-monitoring/concept-sign-ins.md) i upp till 7 dagar. Tidigare var inloggnings loggar bara tillgängliga för kunder med Azure Active Directory Premium licenser. Med den här ändringen kan alla klienter komma åt dessa loggar via portalen.
+
+> [!NOTE]
+> Kunderna behöver fortfarande en Premium licens (Azure Active Directory Premium P1 eller P2) för att komma åt inloggnings loggarna via Microsoft Graph-API och Azure Monitor.
+
+---
+
+### <a name="deprecation-of-directory-wide-groups-option-from-groups-general-settings-on-azure-portal"></a>Utfasning av alternativ för katalog över hela gruppen från grupper allmänna inställningar på Azure Portal
+
+**Typ:** Föråldrad  
+**Tjänste kategori:** Grupp hantering  
+**Produkt kapacitet:** Samarbete
+
+För att ge kunderna ett mer flexibelt sätt att skapa katalog grupper som bäst uppfyller deras behov har vi ersatt alternativet för **katalog grupper** **från gruppen**  >  **allmänna** inställningar i Azure Portal med en länk till [dynamisk grupp dokumentation](../users-groups-roles/groups-dynamic-membership.md). Vi har förbättrat vår dokumentation för att inkludera fler instruktioner så att administratörer kan skapa grupper med alla användare som inkluderar eller undantar gäst användare.
+
+---
+
+## <a name="february-2020"></a>Februari 2020
 
 ### <a name="upcoming-changes-to-custom-controls"></a>Kommande ändringar i anpassade kontroller
 
@@ -175,7 +329,7 @@ Arbets ytor, filter administratörer kan konfigurera för att organisera sina an
 **Tjänste kategori:** B2C – konsument identitets hantering  
 **Produkt kapacitet:** B2B/B2C
  
-Med telefonnummer för registrering och inloggning kan utvecklare och företag låta sina kunder registrera sig och logga in med ett eng ång slö sen ord som skickas till användarens telefonnummer via SMS. Den här funktionen gör det också möjligt för kunden att ändra sina telefonnummer om de förlorar åtkomsten till sin telefon. Med hjälp av anpassade principer kan du använda telefonin loggning och inloggning för att kommunicera med sitt varumärke genom sidan anpassning. Ta reda på hur du [ställer in telefonin loggning och inloggning med anpassade principer i Azure AD B2C](../../active-directory-b2c/phone-authentication.md).
+Med telefonnummer för registrering och inloggning kan utvecklare och företag låta sina kunder registrera sig och logga in med ett eng ång slö sen ord som skickas till användarens telefonnummer via SMS. Den här funktionen gör det också möjligt för kunden att ändra sina telefonnummer om de förlorar åtkomsten till sin telefon. Med kraften i anpassade principer och telefon registrering och inloggning kan utvecklare och företag kommunicera sitt varumärke genom sidan anpassning. Ta reda på hur du [ställer in telefonin loggning och inloggning med anpassade principer i Azure AD B2C](../../active-directory-b2c/phone-authentication.md).
  
 ---
  
@@ -604,7 +758,7 @@ Den nya **säkerhets** menyn innehåller:
 - Security Center
 - Identifiera säkra Poäng för identitet
 - Autentiseringsmetoder
-- MFA
+- Multifaktorautentisering
 - Risk rapporter – riskfyllda användare, riskfyllda inloggningar, risk identifiering
 - Med mera...
 

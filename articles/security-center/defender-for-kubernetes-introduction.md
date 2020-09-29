@@ -4,15 +4,15 @@ description: Lär dig mer om fördelarna och funktionerna i Azure Defender för 
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7fb97f1036515f82fa3e61c18f95eadf0af704d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301711"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449076"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduktion till Azure Defender för Kubernetes
 
@@ -31,7 +31,7 @@ Hot identifiering på värdnivå för dina Linux AKS-noder är tillgängligt om 
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender for Kubernetes** faktureras så som det visas på [sidan med priser](security-center-pricing.md)|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratören** kan stänga aviseringar.<br>**Säkerhets läsaren** kan visa resultat.|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Vilka är fördelarna med Azure Defender för Kubernetes?

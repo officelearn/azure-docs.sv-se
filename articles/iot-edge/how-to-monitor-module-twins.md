@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221407"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450166"
 ---
 # <a name="monitor-module-twins"></a>Övervaka modultvillingar
 
 Modul dubbla i Azure IoT Hub aktivera övervakning av anslutningen och hälsan för dina IoT Edge-distributioner. Modulerna innehåller värdefull information i din IoT-hubb om prestanda för dina moduler som körs. [IoT Edge-agenten](iot-edge-runtime.md#iot-edge-agent) och modulerna för [IoT Edge Hub](iot-edge-runtime.md#iot-edge-hub) -körning upprätthåller sin modul, `$edgeAgent` och `$edgeHub` respektive:
 
-* `$edgeAgent`innehåller hälso tillstånds-och anslutnings data om både IoT Edge-agenten och IoT Edge Hub runtime-moduler och dina anpassade moduler. IoT Edge agenten ansvarar för att distribuera modulerna, övervaka dem och rapportera anslutnings status till Azure IoT Hub.
-* `$edgeHub`innehåller data om kommunikation mellan IoT Edge hubben som körs på en enhet och Azure IoT Hub. Detta omfattar att bearbeta inkommande meddelanden från underordnade enheter. IoT Edge Hub ansvarar för bearbetning av kommunikationen mellan Azure-IoT Hub och IoT Edge enheter och moduler.
+* `$edgeAgent` innehåller hälso tillstånds-och anslutnings data om både IoT Edge-agenten och IoT Edge Hub runtime-moduler och dina anpassade moduler. IoT Edge agenten ansvarar för att distribuera modulerna, övervaka dem och rapportera anslutnings status till Azure IoT Hub.
+* `$edgeHub` innehåller data om kommunikation mellan IoT Edge hubben som körs på en enhet och Azure IoT Hub. Detta omfattar att bearbeta inkommande meddelanden från underordnade enheter. IoT Edge Hub ansvarar för bearbetning av kommunikationen mellan Azure-IoT Hub och IoT Edge enheter och moduler.
 
 Data ordnas i metadata, taggar, tillsammans med önskade och rapporterade egenskaps uppsättningar i modulen är dubbla JSON-strukturer. De önskade egenskaperna som du angav i deployment.jspå filen kopieras till modulen. IoT Edge agenten och IoT Edge Hub uppdaterar de rapporterade egenskaperna för sina moduler.
 
@@ -213,7 +213,7 @@ Om du gör ändringar väljer du **Uppdatera modul dubbla** ovanför koden i red
 
 Om du vill se om IoT Edge körs använder du [AZ IoT Hub Invoke-module-metoden](how-to-edgeagent-direct-method.md#ping) för att pinga IoT Edge-agenten.
 
-[AZ IoT Hub-modulen – den dubbla](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) strukturen innehåller följande kommandon:
+[AZ IoT Hub-modulen – den dubbla](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) strukturen innehåller följande kommandon:
 
 * **AZ IoT Hub-modul – två show** – visar en modul med dubbla definitioner.
 * **AZ IoT Hub-modul-dubbel uppdatering** – uppdatera en modul med dubbla definitioner.

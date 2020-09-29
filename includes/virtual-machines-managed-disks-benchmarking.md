@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010841"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451439"
 ---
 *Uppvärmning av cacheminnet*  
 Disken med ReadOnly-värd-cachelagring kan ge högre IOPS än disk gränsen. För att få den här maximala Läs prestandan från värd-cachen måste du först värma upp cacheminnet för den här disken. Detta säkerställer att den Läs IOs som benchmarking-verktyget kommer att köra på CacheReads volym, träffar i själva cacheminnet och inte på disken direkt. Cacheträffar resulterar i ytterligare IOPS från den enkla cache-aktiverade disken.
@@ -25,7 +25,7 @@ Disken med ReadOnly-värd-cachelagring kan ge högre IOPS än disk gränsen. Fö
 
 ### <a name="iometer"></a>Iometer
 
-[Hämta verktyget IOMeter](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) på den virtuella datorn.
+[Hämta verktyget IOMeter](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) på den virtuella datorn.
 
 #### <a name="test-file"></a>Testa fil
 
@@ -62,24 +62,24 @@ Utför stegen nedan för att värma upp cachen
 
 1. Skapa två åtkomst-specifikationer med värden som visas nedan,
 
-   | Namn | Begär ande storlek | Slumpmässiga | Läs |
+   | Name | Begär ande storlek | Slumpmässiga | Läs |
    | --- | --- | --- | --- |
    | RandomWrites \_ 1 MB |1 MB |100 |0 |
    | RandomReads \_ 1 MB |1 MB |100 |100 |
 1. Kör IOMeter-testet för att initiera cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Namn | Varaktighet |
+   | Scenario | Mål volym | Name | Varaktighet |
    | --- | --- | --- | --- |
    | Initiera cache-disk |CacheReads |RandomWrites \_ 1 MB |2 timmar |
 1. Kör IOMeter-testet för att värma upp cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Namn | Varaktighet |
+   | Scenario | Mål volym | Name | Varaktighet |
    | --- | --- | --- | --- |
    | Värm upp cache-disk |CacheReads |RandomReads \_ 1 MB |2 timmar |
 
 När du har värmt upp cache-disken fortsätter du med de test scenarier som anges nedan. Om du vill köra IOMeter-testet använder du minst tre arbets trådar för **varje** mål volym. För varje arbets tråd väljer du mål volymen, ställer in ködjup och väljer en av de sparade test specifikationerna, som du ser i tabellen nedan, för att köra motsvarande test scenario. Tabellen visar även förväntade resultat för IOPS och data flöde när du kör de här testerna. I alla scenarier används en liten IO-storlek på 8 KB och ett högt ködjup på 128.
 
-| Test scenario | Mål volym | Namn | Resultat |
+| Test scenario | Mål volym | Name | Resultat |
 | --- | --- | --- | --- |
 | Max. Läs IOPS |CacheReads |RandomWrites \_ 8K |50 000 IOPS |
 | Max. Skriv IOPS |NoCacheWrites |RandomReads \_ 8K |64 000 IOPS |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4dc5b84ff127aef173deecfd2be705004d92ee0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318070"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449921"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Lösningar för övervakning av Azure-nätverk i Azure Monitor
 
@@ -87,10 +87,10 @@ Använd följande instruktioner för att installera och konfigurera Azure Applic
 1. I Azure Portal navigerar du till den Application Gateway resurs som ska övervakas.
 2. Välj *diagnostikloggar* för att öppna följande sida.
 
-   ![bild av Azure Application Gateway-resurs](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Skärm bild av sidan diagnostikloggar för en Application Gateway resurs som visar alternativet att aktivera diagnostik.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Klicka på *Aktivera diagnostik* för att öppna följande sida.
 
-   ![bild av Azure Application Gateway-resurs](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Skärm bild av sidan för att konfigurera diagnostikinställningar. Alternativet för att skicka till Log Analytics väljs som är tre logg typer och ett mått.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. Aktivera diagnostik genom att klicka *på* under *status*.
 5. Klicka i kryss rutan för *att skicka till Log Analytics*.
 6. Välj en befintlig Log Analytics arbets yta eller skapa en arbets yta.
@@ -123,9 +123,9 @@ När du klickar på panelen **Azure Application Gateway Analytics** i översikte
   * Värd hälsa för Application Gateway
   * Högsta och 95 percentil för Application Gateway misslyckade förfrågningar
 
-![bild av Azure Application Gateway Analytics-instrumentpanelen](media/azure-networking-analytics/log-analytics-appgateway01.png)
+![Skärm bild av instrument panelen för Application Gateway åtkomst loggar som visar paneler med data för gateway-fel, begär Anden och misslyckade förfrågningar.](media/azure-networking-analytics/log-analytics-appgateway01.png)
 
-![bild av Azure Application Gateway Analytics-instrumentpanelen](media/azure-networking-analytics/log-analytics-appgateway02.png)
+![Skärm bild av instrument panelen för Application Gateway åtkomst loggar som visar paneler med data för fel av användar agent, värd hälsa och misslyckade förfrågningar.](media/azure-networking-analytics/log-analytics-appgateway02.png)
 
 På instrument panelen för **Azure Application Gateway Analytics** granskar du sammanfattnings informationen på ett av bladet och klickar sedan på en för att visa detaljerad information på sidan för loggs ökning.
 
@@ -158,10 +158,10 @@ Använd följande instruktioner för att installera och konfigurera Azure Networ
 1. I Azure Portal navigerar du till den nätverks säkerhets grupp resurs som ska övervakas
 2. Välj *diagnostikloggar* för att öppna följande sida
 
-   ![bild av Azure nätverks säkerhets grupp resurs](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
+   ![Skärm bild av sidan diagnostikloggar för en nätverks säkerhets grupp resurs som visar alternativet att aktivera diagnostik.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Klicka på *Aktivera diagnostik* för att öppna följande sida
 
-   ![bild av Azure nätverks säkerhets grupp resurs](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
+   ![Skärm bild av sidan för att konfigurera diagnostikinställningar. Status är inställt på på, skicka till Log Analytics har valts och två typer av loggar har valts.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. Aktivera diagnostik genom att klicka *på* under *status*
 5. Klicka i kryss rutan för *att skicka till Log Analytics*
 6. Välj en befintlig Log Analytics arbets yta eller skapa en arbets yta
@@ -189,9 +189,9 @@ När du klickar på panelen för **Azure Network Security Group Analytics** i ö
   * Regler för nätverks säkerhets grupper med tillåtna flöden
   * MAC-adresser med tillåtna flöden
 
-![bild av Azure Network Security Group Analytics-instrumentpanelen](media/azure-networking-analytics/log-analytics-nsg01.png)
+![Skärm bild av paneler med data för nätverks säkerhets grupp blockerade flöden, inklusive regler med blockerade flöden och MAC-adresser med blockerade flöden.](media/azure-networking-analytics/log-analytics-nsg01.png)
 
-![bild av Azure Network Security Group Analytics-instrumentpanelen](media/azure-networking-analytics/log-analytics-nsg02.png)
+![Skärm bild av paneler med data för tillåtna flöden för nätverks säkerhets grupper, inklusive regler med tillåtna flöden och MAC-adresser med tillåtna flöden.](media/azure-networking-analytics/log-analytics-nsg02.png)
 
 På instrument panelen för **Azure Network Security Group Analytics** granskar du sammanfattnings informationen på ett av bladet och klickar sedan på en för att visa detaljerad information på sidan för loggs ökning.
 
@@ -221,7 +221,7 @@ Använda de uppdaterade lösningarna:
    + För alla fält med suffixet \_ s, \_ d eller \_ g i namnet ändrar du det första symbolen till gemener
    + För fält som har suffixet \_ o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen.
 4. Ta bort *Azure Networking Analytics-lösningen (inaktuell)* .
-   + Om du använder PowerShell använder du`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Data som samlas in innan ändringen visas inte i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av de gamla typ-och fält namnen.
 

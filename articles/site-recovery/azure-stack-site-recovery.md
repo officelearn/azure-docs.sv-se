@@ -3,12 +3,12 @@ title: Replikera Azure Stack virtuella datorer till Azure med Azure Site Recover
 description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure Stack virtuella datorer med tjänsten Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333723"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448977"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera virtuella Azure Stack-datorer till Azure
 
@@ -56,7 +56,7 @@ Replikeringen fungerar på följande sätt:
 7. Replikerade datorer kommunicerar med konfigurations servern (port HTTPS 443 inkommande, för hantering av replikering. Datorer skickar replikeringsdata till processervern (port HTTPS 9443 inkommande – kan ändras).
 8. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Du kan även använda Azure ExpressRoute offentlig peering. Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här är vad du behöver för att konfigurera det här scenariot.
 
@@ -314,26 +314,7 @@ Kör sedan en redundansväxling på följande sätt:
 
 ### <a name="fail-back-to-azure-stack"></a>Växla tillbaka till Azure Stack
 
-När den primära platsen är igång igen kan du växla tillbaka från Azure till Azure Stack. Om du vill göra det måste du ladda ned den virtuella Azure-datorn och ladda upp den till Azure Stack.
-
-1. Stäng av den virtuella Azure-datorn så att den virtuella hård disken kan laddas ned.
-2. Starta hämtningen av den virtuella hård disken genom att installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-3. Navigera till den virtuella datorn i Azure Portal (med namnet på den virtuella datorn).
-4. I **diskar**klickar du på disk namnet och samlar in inställningar.
-
-    - Som exempel kan VHD-URI: n som används i vårt test: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` delas upp för att hämta följande indataparametrar som används för att hämta den virtuella hård disken.
-        - Lagrings konto: 502055westcentralus
-        - Behållare: wahv9b8d2ceb284fb59287
-        - VHD-namn: copied-3676553984. VHD
-
-5. Använd nu Azure Storage Explorer för att ladda ned den virtuella hård disken.
-6. Överför den virtuella hård disken till Azure Stack med [de här stegen](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. I den befintliga virtuella datorn eller ny virtuell dator ansluter du de uppladdade virtuella hård diskarna.
-8. Kontrol lera att operativ system disken är korrekt och starta den virtuella datorn.
-
-
-I den här fasen slutförs återställning efter fel.
-
+När den primära platsen är igång igen kan du växla tillbaka från Azure till Azure Stack. Det gör du genom att följa stegen som visas [här](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Slutsats
 

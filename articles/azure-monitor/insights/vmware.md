@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090184"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450406"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-övervakning (inaktuell) lösning i Azure Monitor
 
@@ -133,16 +133,16 @@ Du kan öka detalj nivån genom att klicka på en ESXi-värd eller en händelse 
 
 När du klickar på ett ESXi-värdnamn visar du information från den ESXi-värden. Om du vill begränsa resultatet med händelse typen lägger du till `“ProcessName_s=EVENT TYPE”` i Sök frågan. Du kan välja **processname** i Sök filtret. Detta begränsar informationen åt dig.
 
-![kar](./media/vmware/eventhostdrilldown.png)
+![Skärm bild av ESXi-värden per händelse typ och uppdelning per händelse typ blad i vyn instrument panel för VMware-övervakning.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Hitta hög VM-aktiviteter
 En virtuell dator kan skapas och tas bort på alla ESXi-värdar. Det är bra för en administratör att identifiera hur många virtuella datorer en ESXi-värd skapar. Det i sin tur hjälper till att förstå prestanda-och kapacitets planering. Det är viktigt att hålla koll på händelser för VM-aktiviteter när du hanterar din miljö.
 
-![kar](./media/vmware/vmactivities1.png)
+![Skärm bild av bladet för virtuella dator aktiviteter i VMware-övervakning instrument panelen, med en graf för att skapa och ta bort virtuella datorer av ESXi-värden.](./media/vmware/vmactivities1.png)
 
 Om du vill se ytterligare data om att skapa virtuella ESXi-värdar klickar du på ett ESXi-värdnamn.
 
-![kar](./media/vmware/createvm.png)
+![Skärm bild av ett fönster från VMware-övervakning-instrumentpanelen som visar en tabell med en datarad för varje virtuell dator som skapas av en ESXi-värd.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Vanliga logg frågor
 Lösningen innehåller andra användbara frågor som kan hjälpa dig att hantera dina ESXi-värdar, till exempel lagrings utrymme, lagrings svars tid och Sök vägs fel.

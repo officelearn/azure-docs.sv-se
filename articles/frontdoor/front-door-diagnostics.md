@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399760"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449278"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Övervaka mått och loggar i Azures front dörr
 
 Genom att använda Azures front dörr kan du övervaka resurser på följande sätt:
 
-- **Mått**. Azures front dörr har för närvarande sju mått för att visa prestanda räknare.
+- **Mått**. Azures front dörr har för närvarande åtta mått för att visa prestanda räknare.
 - **Loggar**. Med aktivitets-och diagnostikloggar kan prestanda, åtkomst och annan information sparas eller förbrukas från en resurs i övervaknings syfte.
 
 ### <a name="metrics"></a>Mått
@@ -52,16 +52,16 @@ Få åtkomst till aktivitets loggar i din front dörr eller alla loggar för din
 1. Välj din instans av frontend-dörren.
 2. Välj **aktivitets logg**.
 
-    ![Aktivitetslogg](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Aktivitetslogg":::
 
 3. Välj en filtrerings omfattning och välj sedan **Använd**.
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Diagnostikloggar
 Diagnostikloggar ger omfattande information om åtgärder och fel som är viktiga för granskning och fel sökning. Diagnostikloggar skiljer sig från aktivitets loggar.
 
-Aktivitets loggar ger insikter om de åtgärder som utförs på Azure-resurser. Diagnostikloggar ger insikter om åtgärder som din resurs utfört. Mer information finns i [Azure Monitor diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
+Aktivitets loggar ger insikter om de åtgärder som utförs på Azure-resurser. Diagnostikloggar ger insikter om åtgärder som din resurs har utfört. Mer information finns i [Azure Monitor diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
 
-![Diagnostikloggar](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Aktivitetslogg":::
 
 Så här konfigurerar du diagnostikloggar för din frontend-dörr:
 
@@ -103,7 +103,6 @@ Front dörren innehåller för närvarande diagnostikloggar (batch-varje timme).
 | Routningsregler med cachelagring aktiverat. Cacheträff i Edge-popup | 1 | Kant-POP-kod | Tom | Falskt | TRÄFFA |
 | Routningsregler med cachelagring aktiverat. Cache missar i Edge POP, men cache träff vid överordnat cache-fönster | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Tom | 1. True</br>2. false | 1. SAKNAT</br>2. PARTIAL_HIT |
 | Routningsregler med cachelagring aktiverat. Cache missar i både Edge och överordnad cache POP | 2 | 1. Edge POP-kod</br>2. POP-kod för överordnad cache | 1. POP-värdnamn för överordnad cache</br>2. Server del som hjälper till att fylla i cache | 1. True</br>2. false | 1. SAKNAT</br>2. SAKNAT |
-
 
 ## <a name="next-steps"></a>Nästa steg
 

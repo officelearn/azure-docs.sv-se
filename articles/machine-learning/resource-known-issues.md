@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280988"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450052"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -61,7 +61,7 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
      
 * **Förklarings paketet är inte garanterat att installeras när du installerar azureml-träna-automl-client:** 
    
-   När du kör en fjärran sluten AutoML med modell förklaring aktive rad visas ett fel meddelande "installera azureml-deklarning-Model-paket för modell förklaringar". Detta är ett känt problem. Som en lösning följer du ett av stegen nedan:
+   När du kör en fjärran sluten AutoML med modell förklaring aktive rad visas ett fel meddelande "installera azureml-deklarning-Model-paket för modell förklaringar". Detta är ett känt fel. Som en lösning följer du ett av stegen nedan:
   
   1. Installera azureml – förklara-Model lokalt.
    ```
@@ -209,6 +209,9 @@ Om du använder fil resurs för andra arbets belastningar, till exempel data öv
     ```
 
     Om du inte tar med det inledande snedstrecket "/" måste du ange prefix för arbets katalogen t. ex. `/mnt/batch/.../tmp/dataset` på beräknings målet för att ange var du vill att data uppsättningen ska monteras.
+
+### <a name="mount-dataset"></a>Montera data uppsättning
+* **Det gick inte att initiera data uppsättningen: väntan på att monterings punkten ska bli klar har nått tids**gränsen: försök igen med logik har lagts till i `azureml-sdk >=1.12.0` för att åtgärda problemet. Om du har tidigare azureml-SDK-versioner uppgraderar du till den senaste versionen. Om du redan är på `azureml-sdk>=1.12.0` , återskapar du din miljö så att du har den senaste korrigeringen med korrigeringen.
 
 ### <a name="data-labeling-projects"></a>Data märknings projekt
 

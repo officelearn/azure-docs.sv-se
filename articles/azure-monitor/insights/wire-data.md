@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325159"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445779"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0 (för hands version)-lösning i Azure Monitor
 
@@ -59,7 +59,7 @@ Wire Data hämtar sina data från Microsofts beroendeagent. Dependency Agent är
 | Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Utöver [Log Analytics agent för Windows](../platform/agent-windows.md)kräver Windows-agenter Microsoft-beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Utöver [Log Analytics-agenten för Linux](../learn/quick-collect-linux-computer.md)kräver Linux-agenterna Microsofts beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md). <br><br> En direkt anslutning från den System Center Operations Manager agent datorn till Azure Monitor krävs. |
-| Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
+| Azure Storage-konto | Inga | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
 
 I Windows används Microsoft Monitoring Agent (MMA) av både System Center Operations Manager och Azure Monitor för att samla in och skicka data. Beroende på kontexten kallas agenten System Center Operations Manager agent, Log Analytics agent, MMA eller Direct agent. System Center Operations Manager och Azure Monitor ger något annorlunda versioner av MMA. Med dessa versioner kan varje rapport System Center Operations Manager till Azure Monitor eller till båda.
 
@@ -115,7 +115,7 @@ I följande avsnitt listas de operativ system som stöds för beroende agenten i
 
 | OS-version | Kernelversion |
 |:--|:--|
-| 7.4 | 3.10.0-693 |
+| 7,4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7,6 | 3.10.0-957 |
 
@@ -183,7 +183,7 @@ Beroende agenten installeras på datorer som kör Windows via InstallDependencyA
 Använd följande steg för att installera beroende agenten på varje dator som kör Windows:
 
 1. Installera Log Analytics agenten genom att följa stegen i [samla in data från Windows-datorer som finns i din miljö](../platform/agent-windows.md).
-2. Hämta Windows beroende agent med hjälp av länken i föregående avsnitt och kör sedan den med hjälp av följande kommando:`InstallDependencyAgent-Windows.exe`
+2. Hämta Windows beroende agent med hjälp av länken i föregående avsnitt och kör sedan den med hjälp av följande kommando: `InstallDependencyAgent-Windows.exe`
 3. Följ guiden för att installera agenten.
 4. Om det inte går att starta beroende agenten kontrollerar du om det finns detaljerad fel information i loggarna. Loggkatalogen för Windows-agenter är %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -226,7 +226,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| **Filer** | **Plats** |
+| **Files** | **Plats** |
 | --- | --- |
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -364,15 +364,15 @@ På sidan **Översikt** för Log Analytics-arbetsytan i Azure Portal, klickar du
 
 Du kan använda bladet **Agenter som samlar in nätverkstrafik** för att avgöra hur mycket nätverksbandbredd som används av datorerna. Det här bladet kan hjälpa dig att enkelt hitta den _trafikintensivaste_ datorn i din miljö. Sådana datorer kan vara överbelastade, bete sig onormalt eller använda fler nätverksresurser än normalt.
 
-![exempel på loggsökning](./media/wire-data/log-search-example01.png)
+![Skärm bild av bladet agenter som fångar in nätverks trafik på Wire Data 2.0 instrument panelen som visar nätverks bandbredden som används av varje dator.](./media/wire-data/log-search-example01.png)
 
 På liknande sätt kan du använda bladet **Lokala undernät** till att avgöra hur mycket nätverkstrafik som passerar genom dina undernät. Användarna definierar ofta undernät runt kritiska områden för sina program. Det här bladet visar dessa områden.
 
-![exempel på loggsökning](./media/wire-data/log-search-example02.png)
+![Skärm bild av bladet lokala undernät på Wire Data 2.0 instrument panelen som visar nätverks bandbredden som används av varje LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 Bladet **Protokoll på programnivå** är användbart eftersom det alltid är bra att veta vilka protokoll som används. Du kanske till exempel misstänker att SSH inte används i din nätverksmiljö. Genom att läsa den information som finns i bladet kan du snabbt få din misstanke bekräftad eller motbevisad.
 
-![exempel på loggsökning](./media/wire-data/log-search-example03.png)
+![Skärm bild av bladet protokoll på program nivå på Wire Data 2.0 instrument panelen som visar den nätverks bandbredd som används av varje protokoll.](./media/wire-data/log-search-example03.png)
 
 Det är också bra att veta om protokolltrafiken ökar eller minskar med tiden. Om till exempel mängden data som skickas av ett program ökar, kan det vara något som du bör vara medveten om eller vara uppmärksam på.
 

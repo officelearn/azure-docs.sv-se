@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4819b5cb252d2c646905d277fcbedc57a55fe692
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502944"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450219"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Lägga till en användare i Azure-portalen
 
@@ -21,7 +21,7 @@ ms.locfileid: "87502944"
 2. Klicka på **guiden Lägg till användare**.
 3. Leta upp den användare som du vill lägga till i steget **Välj användare** . Klicka på **Välj**.
 4. steget **Välj roll** , Välj **data Lake Analytics utvecklare**. Den här rollen har den lägsta uppsättning behörigheter som krävs för att skicka/övervaka/hantera U-SQL-jobb. Tilldela den här rollen om gruppen inte är avsedd för hantering av Azure-tjänster.
-5. I steget **Välj katalog behörigheter** väljer du ytterligare databaser som användaren behöver åtkomst till. Läs-och Skriv behörighet till huvud databasen krävs för att skicka jobb. När du är klar klickar du på **OK**.
+5. I steget **Välj katalog behörigheter** väljer du ytterligare databaser som användaren behöver åtkomst till. Läs-och Skriv behörighet till den statiska standard databasen med namnet "Master" krävs för att skicka jobb. När du är klar klickar du på **OK**.
 6. I det sista steget som kallas **Tilldela markerade behörigheter** granskar du de ändringar som görs i guiden. Klicka på **OK**.
 
 

@@ -9,18 +9,55 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8df50096cc123003299b86da88f9230c95854775
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290525"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450071"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2020-09-28"></a>2020-09-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1150"></a>Azure Machine Learning SDK för python v-1.15.0
++ **Fel korrigeringar och förbättringar**
+  + **azureml-contrib-interpret**
+    + LIME-förklaring har flyttats från azureml-contrib-tolka till tolka-community-paket och bild förklaring borttagen från azureml-contrib-tolka paket
+    + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
+    + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
+  + **azureml-contrib-notebook**
+    + Fäst nbcovert-beroendet till < 6 så att Papermill 1. x fortfarande fungerar.
+  + **azureml-core**
+    + Parametrar har lagts till i konstruktorn TensorflowConfiguration och MpiConfiguration för att möjliggöra en mer effektiv initiering av klassens attribut utan att användaren måste ange varje enskilt attribut. En PyTorchConfiguration-klass har lagts till för att konfigurera distribuerade PyTorch-jobb i ScriptRunConfig.
+    + Fäst versionen av Azure-MGMT-Resource för att åtgärda autentiseringsfel.
+    + Support Triton utan kod distribution
+    + kataloger för utdata som anges i Run. start_logging () spåras nu när du använder kör i interaktiva scenarier. De spårade filerna visas på ML Studio när du anropar Run. Complete ()
+    + Fil kodning kan nu anges när data uppsättningen skapas med `Dataset.Tabular.from_delimited_files` och `Dataset.Tabular.from_json_lines_files` genom att `encoding` argumentet skickas. Kodningarna som stöds är "utf8", "iso88591", "Latin1", "ASCII", UTF16 "," utf32 "," utf8bom "och" windows1252 ".
+    + Fel korrigering när miljö objekt inte skickas till ScriptRunConfig-konstruktorn.
+    + Update Run. Cancel () har uppdaterats för att avbryta en lokal körning från en annan dator.
+  + **azureml-dataprep**
+    +  Timeout-fel vid montering av fast data mängd.
+  + **azureml – förklara-modell**
+    + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
+  + **azureml-interpret**
+    + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
+    + azureml-tolka paket uppdaterat med är beroende av 0.15.0 för tolkning – community
+    + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
+  + **azureml-pipeline-core**
+    +  Fast pipeline-problem med `OutputFileDatasetConfig` när `register_on_complete` anropas med `name` en parameter som angetts till ett redan befintligt data uppsättnings namn.
+  + **azureml-pipeline-steps**
+    + Tog bort inaktuella antecknings böcker för databricks.
+  + **azureml-tensorboard**
+    + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
+  + **azureml-train-automl-runtime**
+    + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
+  + **azureml-widgets**
+    + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
 
 ## <a name="2020-09-21"></a>2020-09-21
 
@@ -448,7 +485,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
       + Standardvärdet för process_count_per_node ändras till 1. Användaren bör justera det här värdet för bättre prestanda. Bästa praxis är att ange som antalet GPU-eller CPU-noder.
       + ParallelRunStep matar inte in några paket, användaren måste inkludera **azureml-Core-** och **azureml-nu [Pandas, säkring]** -paket i miljö definitionen. Om anpassad Docker-avbildning används med user_managed_dependencies måste användaren installera Conda på avbildningen.
       
-+ **Icke-bakåtkompatibla ändringar**
++ **Bryta ändringar**
   + **azureml-pipeline-steps**
     + Föråldrad användning av azureml. dprep. data flöde som en giltig typ av indata för AutoMLConfig
   + **azureml-train-automl-client**
@@ -640,7 +677,7 @@ Nu kan du skapa, redigera och dela Machine Learning-anteckningsböcker och filer
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     
-| Webbaserat verktyg  |     Description  |
+| Webbaserat verktyg  |     Beskrivning  |
 |---|---|
 | Azure ML Studio-anteckningsböcker   |     Första redigering i klass för notebook-filer och stöd för alla åtgärder som är tillgängliga i Azure ML python SDK. | 
 
@@ -652,7 +689,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + AmlCompute-kluster har nu stöd för att konfigurera en hanterad identitet i klustret vid tidpunkten för etablering. Ange bara om du vill använda en tilldelad identitet eller en tilldelad identitet och skicka en identityId för den senare. Du kan sedan konfigurera behörigheter för att få åtkomst till olika resurser, t. ex. lagrings-eller ACR på ett sätt som data bearbetningen används för säker åtkomst till data, i stället för en tokenbaserad metod som AmlCompute använder idag. Kolla in vår SDK-referens för mer information om parametrarna.
   
 
-+ **Icke-bakåtkompatibla ändringar**
++ **Bryta ändringar**
   + AmlCompute-kluster har stöd för en förhands gransknings funktion med körnings skapande, som vi planerar om föråldrade i två veckor. Du kan fortsätta att skapa fasta beräknings mål som alltid genom att använda klassen Amlcompute, men den specifika metoden för att ange identifieraren "Amlcompute" som beräknings mål i Run config stöds inte inom en snar framtid. 
 
 + **Fel korrigeringar och förbättringar**
@@ -723,7 +760,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK för python v-1.2.0
 
-+ **Icke-bakåtkompatibla ändringar**
++ **Bryta ändringar**
   + Släpp stöd för python 2,7
 
 + **Fel korrigeringar och förbättringar**
@@ -758,7 +795,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + **Python 2,7**
     + Senaste versionen som stöd för python 2,7
 
-+ **Icke-bakåtkompatibla ändringar**
++ **Bryta ändringar**
   + **Semantisk versionshantering 2.0.0**
     + Från och med version 1,1 Azure ML python SDK antar 2.0.0 för semantisk versions hantering. [Läs mer här](https://semver.org/). Alla efterföljande versioner kommer att följa det nya numreringsschema och det semantiska versions kontraktet. 
 
@@ -921,7 +958,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK för python v 1.1.0 RC0 (för hands version)
 
-+ **Icke-bakåtkompatibla ändringar**
++ **Bryta ändringar**
   + **Semantisk versionshantering 2.0.0**
     + Från och med version 1,1 Azure ML python SDK antar 2.0.0 för semantisk versions hantering. [Läs mer här](https://semver.org/). Alla efterföljande versioner kommer att följa det nya numreringsschema och det semantiska versions kontraktet. 
   
@@ -1051,7 +1088,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK för python v-1.0.76
 
-+ **Icke-bakåtkompatibla ändringar**
++ **Bryta ändringar**
   + Azureml-träna-AutoML uppgraderings problem
     + Uppgradering till azureml-träna-automl>= 1.0.76 från azureml-träna-automl<1.0.76 kan orsaka partiella installationer, vilket gör att vissa AutoML-importer inte kan köras. Du kan lösa detta genom att köra installations skriptet som finns på https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Eller om du använder pip direkt kan du:
       + "pip install--Upgrade azureml-träna-automl"
@@ -1152,7 +1189,7 @@ Från Studio kan du träna, testa, distribuera och hantera Azure Machine Learnin
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
-| Webbaserat verktyg | Description | 
+| Webbaserat verktyg | Beskrivning | 
 |-|-|-|
 | Notebook VM (för hands version) | Helt hanterad molnbaserad arbets Station | 
 | [Automatisk maskin inlärning](tutorial-first-experiment-automated-ml.md) (för hands version) | Ingen kod upplevelse för automatisering av maskin inlärnings modell utveckling | 

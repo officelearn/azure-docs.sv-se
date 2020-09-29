@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320518"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445543"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Använd kart funktionen i Azure Monitor for VMs för att förstå program komponenter
 I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Du kan titta på de virtuella datorerna på två sätt. Visa en karta direkt från en virtuell dator eller Visa en karta från Azure Monitor för att se komponenterna mellan grupper av virtuella datorer. Den här artikeln hjälper dig att förstå de här två visnings metoderna och hur du använder kart funktionen. 
@@ -95,7 +95,7 @@ Kartan visualiserar de virtuella datorernas beroenden genom att identifiera kör
 
 Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden som såg ut tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Om du vill köra frågan använder du **TimeRange** -väljaren i det övre vänstra hörnet. Du kan köra en fråga, till exempel under en incident eller för att se status innan en ändring.  
 
-![Översikt över mappning av direkt virtuell dator](./media/vminsights-maps/map-direct-vm-01.png)
+![Skärm bild av fliken karta i avsnittet övervaknings insikter i Azure Portal visar ett diagram över beroenden mellan virtuella datorer.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Visa en karta från en skalnings uppsättning för virtuella datorer
 
@@ -111,7 +111,7 @@ Om du vill läsa in en karta för en speciell instans väljer du först den inst
 
 Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden som såg ut tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Använd **TimeRange** -väljaren för att köra frågan. Du kan köra en fråga, till exempel under en incident eller för att se status innan en ändring.
 
-![Översikt över mappning av direkt virtuell dator](./media/vminsights-maps/map-direct-vmss-01.png)
+![Skärm bild av fliken karta i avsnittet övervaknings insikter i Azure Portal visar ett diagram över beroenden mellan virtuella datorers skalnings uppsättningar.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >Du kan också komma åt en karta för en angiven instans från vyn **instanser** för skalnings uppsättningen för den virtuella datorn. I avsnittet **Inställningar** , gå till **instans**  >  **insikter**.

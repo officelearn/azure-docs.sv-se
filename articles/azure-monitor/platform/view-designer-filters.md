@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955963"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449314"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filter i Azure Monitor vyer
 Ett **filter** i en [Azure Monitor-vy](view-designer.md) låter användare filtrera data i vyn med värdet för en viss egenskap utan att ändra vyn.  Du kan till exempel tillåta att användare av vyn filtrerar vyn för data enbart från en viss dator eller uppsättning datorer.  Du kan skapa flera filter i en enskild vy så att användarna kan filtrera efter flera egenskaper.  I den här artikeln beskrivs hur du använder ett filter och lägger till ett i en anpassad vy.
@@ -19,12 +19,12 @@ Ett **filter** i en [Azure Monitor-vy](view-designer.md) låter användare filtr
 ## <a name="using-a-filter"></a>Använda ett filter
 Klicka på datum tidsintervallet överst i vyn för att öppna List rutan där du kan ändra datum tidsintervallet för vyn.
 
-![Filter exempel](media/view-designer-filters/filters-example-time.png)
+![Skärm bild av list rutan tidsintervall för en vy i Azure Monitor, med alternativ knappen för de senaste 7 dagarna markerade.](media/view-designer-filters/filters-example-time.png)
 
 Klicka på **+** för att lägga till ett filter med anpassade filter som har definierats för vyn. Välj antingen ett värde för filtret i list rutan eller ange ett värde. Fortsätt att lägga till filter genom att klicka på **+** . 
 
 
-![Filter exempel](media/view-designer-filters/filters-example-custom.png)
+![Skärm bild av dialog rutan för att lägga till ett anpassat filter i Azure Monitor. Egenskapen datorer väljs i list rutan Välj egenskaper.](media/view-designer-filters/filters-example-custom.png)
 
 Om du tar bort alla värden för ett filter kommer filtret inte längre att tillämpas.
 
@@ -37,7 +37,7 @@ Skapa ett filter från fliken **filter** när du [redigerar en vy](view-designer
 
 I följande tabell beskrivs inställningarna för ett filter.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:---|:---|
 | Fältnamn | Namnet på det fält som används för filtrering.  Det här fältet måste matcha det sammanfattande fältet i **fråga efter värden**. |
 | Fråga efter värden | Fråga att köra för att fylla i list rutan filter för användaren.  Frågan måste använda antingen [sammanfatta](/azure/kusto/query/summarizeoperator) eller [distinkt](/azure/kusto/query/distinctoperator) för att tillhandahålla unika värden för ett visst fält och måste matcha **fält namnet**.  Du kan använda [sort](/azure/kusto/query/sortoperator) för att sortera värdena som visas för användaren. |
@@ -50,8 +50,8 @@ Följande tabell innehåller några exempel på vanliga filter.
 | Fältnamn | Fråga efter värden | Tagga |
 |:--|:--|:--|
 | Dator   | Pulsslag &#124; distinkt dator &#124; sortera efter dator ASC | Datorer |
-| EventLevelName | Event &#124; DISTINCT EventLevelName | Severity |
-| SeverityLevel | Syslog &#124; DISTINCT SeverityLevel | Severity |
+| EventLevelName | Event &#124; DISTINCT EventLevelName | Allvarlighetsgrad |
+| SeverityLevel | Syslog &#124; DISTINCT SeverityLevel | Allvarlighetsgrad |
 | SvcChangeType | ConfigurationChange &#124; distinkt svcChangeType | Ändrings typs |
 
 

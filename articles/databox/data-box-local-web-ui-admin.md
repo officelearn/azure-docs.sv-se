@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206177"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449664"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
-I den här artikeln beskrivs några konfigurations-och hanterings uppgifter som kan utföras på Data Box-enhet och Data Box Heavy enheter. Du kan hantera Data Box-enhet och Data Box Heavy enheter via Azure Portal användar gränssnittet och det lokala webb gränssnittet för enheten. Den här artikeln fokuserar på de uppgifter som du kan utföra med det lokala webbgränssnittet.
+I den här artikeln beskrivs några konfigurations-och hanterings uppgifter som utförs på Data Box-enhet och Data Box Heavy enheter. Du kan hantera Data Box-enhet och Data Box Heavy enheter via Azure Portal användar gränssnittet och det lokala webb gränssnittet för enheten. Den här artikeln fokuserar på uppgifter som utförs med hjälp av det lokala webb gränssnittet.
 
-Lokalt webb gränssnitt för Data Box-enhet och Data Box Heavy används för den inledande konfigurationen av enheten. Du kan också använda det lokala webb gränssnittet för att stänga av eller starta om enheten, köra diagnostiska tester, uppdatera program vara, Visa kopierings loggar och generera ett logg paket för Microsoft Support. På en Data Box Heavy enhet med två oberoende noder kan du komma åt två separata lokala webb-UIs som motsvarar varje nod i enheten.
+Det lokala webb gränssnittet för Data Box-enhet och för Data Box Heavy används för den inledande konfigurationen av enheten. Du kan också använda det lokala webb gränssnittet för att stänga av eller starta om enheten, köra diagnostiska tester, uppdatera program vara, Visa kopierings loggar och generera ett logg paket för Microsoft Support. På en Data Box Heavy enhet med två oberoende noder kan du komma åt två separata lokala webb-UIs som motsvarar varje nod i enheten.
 
 Den här artikeln innehåller följande självstudier:
 
@@ -53,7 +53,7 @@ Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna
 
 ## <a name="shut-down-or-restart-your-device"></a>Stänga av eller starta om enheten
 
-Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Detta minimerar risken för skadade data. Se till att datakopiering inte pågår när du stänger av enheten.
+Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Detta minimerar risken för skadade data. Se till att data kopieringen inte pågår när du stänger av enheten.
 
 Följ stegen nedan om du vill stänga av enheten.
 
@@ -93,7 +93,7 @@ Innan du börjar ska du följa de här stegen för att ladda ned STRUKTURLISTE-e
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. I Utforskaren ser du att en separat lista över filer genereras beroende på vilket protokoll som användes för att ansluta till enheten och vilken typ av Azure Storage-lagring du använde.
+3. I Utforskaren ser du att separata listor över filer skapas beroende på vilket protokoll som används för att ansluta till enheten och vilken Azure Storage typ som används.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Filer för lagringstyp och anslutningsprotokoll](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -202,6 +202,49 @@ Så här aktiverar du SMB-signering i din Azure-enhet:
 4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 5. Välj **starta om**.
 
+## <a name="enable-backup-operator-privileges"></a>Aktivera ansvarig för säkerhets kopiering
+
+Dina webb GRÄNSSNITTs användare har behörighet som ansvarig för säkerhets kopiering på SMB-resurser som standard. Om du inte vill ha det kan du använda **behörigheten aktivera back operator** för att inaktivera eller aktivera privilegierna.
+
+Mer information finns i säkerhets kopierings ansvariga i [Active Directory säkerhets grupper](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+
+Så här aktiverar du behörighet för ansvarig för säkerhets kopiering i din Azure-enhet:
+
+1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
+
+   ![Öppna Data Box-enhet inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Aktivera** Behörighet för säkerhets kopierings ansvarig.
+
+   ![Aktivera ansvarig för säkerhets kopiering](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+
+3. **Välj Använd**.
+4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
+5. Välj **starta om**.
+
+## <a name="enable-acls-for-azure-files"></a>Aktivera ACL: er för Azure Files
+
+Metadata på filer överförs som standard när användare laddar upp data via SMB till din Data Box-enhet. Metadata innehåller åtkomst kontrol listor (ACL: er), filattribut och tidsstämplar. Om du inte vill det kan du använda **ACL: er för Azure Files** för att inaktivera eller aktivera den här funktionen.
+
+<!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
+
+> [!Note]
+> Om du vill överföra metadata med filer måste du vara ansvarig för säkerhets kopiering. När du använder den här funktionen kontrollerar du att lokala användare av webb gränssnittet är ansvariga för säkerhets kopiering. Se [Aktivera behörighet för säkerhets kopierings ansvariga](#enable-backup-operator-privileges).
+
+Så här aktiverar du överföring av ACL: er för Azure Files:
+
+1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
+
+    ![Öppna Data Box-enhet inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Aktivera** ACL: er för Azure Files.
+
+     ![Aktivera ACL: er för Azure Files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+  
+3. Välj **Använd**.
+4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
+5. Välj **starta om**.
+
 ## <a name="enable-tls-11"></a>Aktivera TLS 1,1
 
 Som standard använder Azure Data Box Transport Layer Security (TLS) 1,2 för kryptering eftersom det är säkrare än TLS 1,1. Men om du eller dina klienter använder en webbläsare för att komma åt data som inte stöder TLS 1,2, kan du Aktivera TLS 1,1.
@@ -212,7 +255,7 @@ Så här aktiverar du TLS 1,1 i din Azure-enhet:
 
 1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
 
-    ![Öppna Inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Öppna Data Box-enhet inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Aktivera** TLS 1,1.
 

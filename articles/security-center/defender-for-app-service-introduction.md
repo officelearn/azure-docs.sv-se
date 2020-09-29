@@ -4,15 +4,15 @@ description: Lär dig mer om fördelarna och funktionerna i Azure Defender för 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d15e881ca1246d463d8054fe5bd094efaff0cdd5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c53f7e712668f32766feaf76d6a08582bda9af22
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977176"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449106"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduktion till Azure Defender för App Service
 
@@ -30,7 +30,7 @@ Genom att använda den synlighet som Azure har som moln leverantör analyserar S
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|[Azure Defender för App Service](azure-defender.md) faktureras så som visas på [sidan med priser](security-center-pricing.md)|
 |App Services planer som stöds:|![Ja ](./media/icons/yes-icon.png) Basic, standard, Premium, isolerat eller Linux<br>![Inga ](./media/icons/no-icon.png) lediga, delade eller konsumtion<br>[Läs mer om App Service-planer](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="what-does-azure-defender-for-app-service-protect"></a>Vad är Azure Defender för App Service skydda?

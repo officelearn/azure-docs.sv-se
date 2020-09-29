@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 972f9b1ac96ca180aa6eaeead7cde51b60ec0e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278504"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449636"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Skapa en NFSv3-och SMB-volym (Dual-Protocol) för Azure NetApp Files
 
@@ -38,6 +38,8 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 * Se till att du uppfyller [kraven för Active Directory anslutningar](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Skapa en zon för omvänd sökning på DNS-servern och Lägg sedan till en pekare (PTR) av AD host-datorn i den zonen för omvänd sökning. Annars går det inte att skapa dubbla protokoll volymer.
 * Se till att NFS-klienten är uppdaterad och att de senaste uppdateringarna för operativ systemet körs.
+* Kontrol lera att LDAP-servern Active Directory (AD) är igång och körs på AD. Detta görs genom att installera och konfigurera rollen [Active Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) på AD-datorn.
+* Se till att en certifikat utfärdare (CA) skapas på AD med hjälp av rollen [Active Directory certifikat tjänster (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) för att generera och exportera det självsignerade certifikatet för rot certifikat utfärdaren.   
 
 ## <a name="create-a-dual-protocol-volume"></a>Skapa en volym med dubbla protokoll
 
@@ -136,6 +138,11 @@ Du kan hantera POSIX-attribut som UID, Hem Katalog och andra värden med hjälp 
 
 ![Redigeraren för Active Directory-attribut](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+Du måste ange följande attribut för LDAP-användare och LDAP-grupper: 
+* Obligatoriska attribut för LDAP-användare:   
+    `uid`: Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+* Obligatoriska attribut för LDAP-grupper:   
+    `objectClass`: "posixGroup", `gidNumber` : 555
 
 ## <a name="configure-the-nfs-client"></a>Konfigurera NFS-klienten 
 

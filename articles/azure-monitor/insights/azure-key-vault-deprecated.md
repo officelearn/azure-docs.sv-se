@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6d8929c8fd59836ff297f226851890892c10acc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318053"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445126"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -42,10 +42,10 @@ Använd följande instruktioner för att installera och konfigurera Azure Key Va
 1. I Azure Portal navigerar du till den Key Vault resurs som ska övervakas
 2. Välj *diagnostikinställningar* för att öppna följande sida
 
-   ![bild av Azure Key Vault panel](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Skärm bild av sidan diagnostikinställningar för Key Vault Resource ContosoKVSCUS. alternativet för att aktivera diagnostik är markerat.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Klicka på *Aktivera diagnostik* för att öppna följande sida
 
-   ![bild av Azure Key Vault panel](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Skärm bild av sidan för att konfigurera diagnostikinställningar. Alternativen för att skicka till Log Analytics, AuditEvent logg och AllMetrics är markerade.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Ange ett namn på den diagnostiska inställningen.
 5. Klicka i kryss rutan för *att skicka till Log Analytics*
 6. Välj en befintlig Log Analytics arbets yta eller skapa en arbets yta
@@ -77,7 +77,7 @@ I följande tabell visas metoder för data insamling och annan information om hu
 ## <a name="use-azure-key-vault"></a>Använda Azure Key Vault
 När du har [installerat lösningen](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)kan du Visa Key Vault data genom att klicka på panelen **Key Vault-analys** på sidan Azure Monitor **Översikt** . Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om **insikter** . 
 
-![bild av Azure Key Vault panel](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![Skärm bild av panelen Key Vault-analys på översikts sidan för Azure Monitor som visar ett diagram över Operations volym för nyckel valvet över tid.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
 När du klickar på panelen **Key Vault-analys** kan du Visa sammanfattningar av loggarna och sedan gå vidare till information för följande kategorier:
 
@@ -86,9 +86,9 @@ När du klickar på panelen **Key Vault-analys** kan du Visa sammanfattningar av
 * Genomsnittlig drift svars tid per åtgärd
 * Tjänst kvalitet för åtgärder med antalet åtgärder som tar mer än 1000 MS och en lista över åtgärder som tar mer än 1000 MS
 
-![bild av Azure Key Vault instrument panel](media/azure-key-vault/log-analytics-keyvault01.png)
+![Skärm bild av Azure Key Vault instrument panel som visar paneler med grafik data för alla åtgärder, misslyckade åtgärder och genomsnittlig drifts fördröjning.](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![bild av Azure Key Vault instrument panel](media/azure-key-vault/log-analytics-keyvault02.png)
+![Skärm bild av instrument panelen Azure Key Vault som visar paneler med data för genomsnittlig drifts svars tid, tjänst kvalitet och rekommenderade sökningar.](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Så här visar du information om alla åtgärder
 1. På sidan **Översikt** klickar du på panelen **Key Vault-analys** .
@@ -135,13 +135,13 @@ Så här använder du den uppdaterade lösningen:
 2. Aktivera Azure Key Vault-lösningen genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](./solutions.md)
 3. Uppdatera eventuella sparade frågor, instrument paneler eller aviseringar för att använda den nya data typen
    + Typen är ändra från: nyckel valv till AzureDiagnostics. Du kan använda ResourceType för att filtrera till Key Vault loggar.
-   + I stället för: `KeyVaults` använder du`AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + I stället för: `KeyVaults` använder du `AzureDiagnostics | where ResourceType'=="VAULTS"`
    + Fält: (fält namn är Skift läges känsliga)
    + För alla fält med suffixet \_ s, \_ d eller \_ g i namnet ändrar du det första symbolen till gemener
-   + För fält som har suffixet \_ o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen. Till exempel lagras UPN för anroparen i ett fält`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + För fält som har suffixet \_ o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen. Till exempel lagras UPN för anroparen i ett fält `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + Fältet CallerIpAddress ändrades till CallerIPAddress
    + Fältet RemoteIPCountry finns inte längre
-4. Ta bort den *Key Vault-analys (föråldrade)* lösningen. Om du använder PowerShell använder du`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Ta bort den *Key Vault-analys (föråldrade)* lösningen. Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Data som samlas in innan ändringen visas inte i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av de gamla typ-och fält namnen.
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 872daf3a208452e8b7ec27b2326e394b416a1c5f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e54b8bc51817d2a56153dcc0c14f45e76b9ae88b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902042"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444943"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Konfigurera TLS-anslutning i Azure Database for PostgreSQL-enskild server
 
@@ -92,6 +92,17 @@ Om du till exempel anger den här lägsta TLS-inställningen version till TLS 1,
 > När du har tillverkat en lägsta TLS-version kan du inte senare inaktivera den lägsta version som tillämpas.
 
 Information om hur du anger TLS-inställningen för Azure Database for PostgreSQL enskild server finns i [Konfigurera TLS-inställningen](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-postgresql-single-server"></a>Cipher-stöd av Azure Database for PostgreSQL enskild server
+
+Som en del av SSL/TLS-kommunikationen verifieras chiffersviter och endast stöd för chiffersviter är tillåtna för att kommunicera med databasen serer. Verifieringen av chiffersviter styrs i [Gateway-lagret](concepts-connectivity-architecture.md#connectivity-architecture) och inte uttryckligen på själva noden. Om chiffersviter inte matchar någon av paketen i listan nedan, kommer inkommande klient anslutningar att avvisas.
+
+### <a name="cipher-suite-supported"></a>Chiffrering stöds
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Nästa steg
 

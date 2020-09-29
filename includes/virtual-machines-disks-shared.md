@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502527"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451479"
 ---
 Azure delade diskar är en ny funktion för Azure Managed disks som gör att du kan ansluta en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
 
@@ -57,7 +57,7 @@ Azure delade diskar stöds på:
 - [SUSE SLE för SAP och SUSE SLE HA 15 SP1 och senare](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
 - [Ubuntu 18,04 och senare](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [RHEL Developer Preview på valfri RHEL 8-version](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Linux-kluster kan utnyttja kluster hanterare som [pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker bygger på [corosync](http://corosync.github.io/corosync/), vilket möjliggör kluster kommunikation för program som distribueras i miljöer med hög tillgänglighet. Några vanliga klustrade fil system är [ocfs2](https://oss.oracle.com/projects/ocfs2/) och [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Du kan använda SCSI-PR (SCSI persistent reservation) och/eller SBD-baserade (STONITH block Device) kluster modeller för arbitrating åtkomst till disken. När du använder SCSI-PR kan du ändra reservationer och registreringar med hjälp av verktyg som [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) och [sg_persist](https://linux.die.net/man/8/sg_persist).
 
@@ -91,7 +91,7 @@ Flödet är följande:
 
 Ultra disks ger ytterligare en begränsning, för totalt två begränsningar. På grund av detta kan Ultra disks reservations flöde fungera på det sätt som beskrivs i det tidigare avsnittet, eller så kan det begränsa och distribuera prestanda mer detaljerat.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar åtkomsten ReadOnly eller Läs/skriv för reservations innehavare, registrerad och andra.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="En bild av en tabell som visar åtkomsten &quot;ReadOnly&quot; eller &quot;Läs/skriv&quot; för reservations innehavare, registrerad och andra.":::
 
 ## <a name="performance-throttles"></a>Prestanda begränsningar
 
@@ -111,7 +111,7 @@ Ultra disks har en unik funktion som gör att du kan ställa in prestanda genom 
 |DiskIOPSReadOnly*     |Det totala antalet IOPS som tillåts över alla virtuella datorer som monterar den delade disken som `ReadOnly` .         |
 |DiskMBpsReadOnly*     |Det totala data flödet (MB/s) som tillåts på alla virtuella datorer som monterar den delade disken som `ReadOnly` .         |
 
-\*Gäller enbart delade Ultra disks
+\* Gäller enbart delade Ultra disks
 
 Följande formler förklarar hur prestanda-attribut kan anges, eftersom de är ändrings bara av användaren:
 
@@ -131,19 +131,19 @@ I följande exempel beskrivs några scenarier som visar hur begränsningen kan f
 
 Följande är ett exempel på en WSFC med två noder som använder klusterdelade volymer. Med den här konfigurationen har båda de virtuella datorerna samtidig skriv åtkomst till disken, vilket leder till att `ReadWrite` begränsningen delas mellan de två virtuella datorerna och att `ReadOnly` begränsningen inte används.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV två-noder, Ultra-exempel":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="En bild av en tabell som visar åtkomsten &quot;ReadOnly&quot; eller &quot;Läs/skriv&quot; för reservations innehavare, registrerad och andra.":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Två nods kluster utan kluster resurs volymer
 
 Följande är ett exempel på en WSFC-kluster med två noder som inte använder klusterdelade volymer. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att den `ReadWrite` begränsning som används uteslutande för den primära virtuella datorn och `ReadOnly` begränsningen endast används av den sekundära.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Två noder för CSV: inga CSV Ultra disk-exempel":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="En bild av en tabell som visar åtkomsten &quot;ReadOnly&quot; eller &quot;Läs/skriv&quot; för reservations innehavare, registrerad och andra.":::
 
 ##### <a name="four-node-linux-cluster"></a>Linux-kluster med fyra noder
 
 Följande är ett exempel på en 4-nods Linux-kluster med en enda skrivare och tre skalbara läsare. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att `ReadWrite` begränsningen används exklusivt för den primära virtuella datorn och den `ReadOnly` begränsning som delas av de sekundära virtuella datorerna.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Exempel på fyra noder med ultralåg begränsning":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="En bild av en tabell som visar åtkomsten &quot;ReadOnly&quot; eller &quot;Läs/skriv&quot; för reservations innehavare, registrerad och andra.":::
 
 #### <a name="ultra-pricing"></a>Ultra prissättning
 

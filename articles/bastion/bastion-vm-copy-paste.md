@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6835c5e1ecbf0fc99a14754d17bb6e6380eda6c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987718"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445349"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Kopiera och klistra in på en virtuell dator: Azure skydds
 
@@ -35,13 +35,13 @@ När du har anslutit till den virtuella datorn med [Azure Portal ](https://porta
 1. Kopiera texten/innehållet från den lokala enheten till lokalt Urklipp.
 1. Under fjärrsessionen startar du paletten skydds urklipps åtkomst verktyg genom att välja de två pilarna. Pilarna finns i mitten till vänster i sessionen.
 
-   ![verktygs palett](./media/bastion-vm-manage/left.png)
+   ![Skärm bild som visar startpilarna för verktygs-paletten markerat på vänster sida i fönstret.](./media/bastion-vm-manage/left.png)
 
    ![Skärm bild som visar ett urklipp för text som kopieras i skydds.](./media/bastion-vm-manage/clipboard.png)
 1. Normalt visas den kopierade texten automatiskt på skydds kopiera klistra in-palett. Om texten inte finns där klistrar du in texten i text rutan på paletten.
 1. När texten finns i text områden kan du klistra in den i fjärrsessionen.
 
-   ![Inklistringsfel](./media/bastion-vm-manage/local.png)
+   ![Skärm bild som visar knappen Kopiera/klistra in markerad och en exempel text sträng som kopierats till fjärrsessionen.](./media/bastion-vm-manage/local.png)
 
 ## <a name="copy-from-a-remote-session"></a><a name="from"></a>Kopiera från en fjärran sluten session
 

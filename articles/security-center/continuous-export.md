@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: memildin
-ms.openlocfilehash: 416968229e37fe6474da38df5402b0cebf02d54c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d0ada1b615d4673f696c6f1b003288f3e7aa02e4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449160"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
 
@@ -36,7 +36,7 @@ Med de här verktygen kan du:
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)<br>Måste också ha Skriv behörighet för mål resursen|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) Kina, gov (till Event Hub), andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Ja](./media/icons/yes-icon.png) Kina, gov (till Event Hub), andra gov|
 |||
 
 
@@ -64,10 +64,10 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
 
     Om du vill inkludera undersöknings resultaten med dessa rekommendationer aktiverar du alternativet **Inkludera säkerhets resultat** .
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration" :::
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration&quot; :::
 
 
-1. I området "Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
+1. I området &quot;Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
 
 1. Välj **Spara**.
 

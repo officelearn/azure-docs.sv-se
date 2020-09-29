@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401579"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449206"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Så här matchar Front Door begäranden till en hanteringsregel
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Hur begär Anden matchas mot en regel för routning
 
-När du har upprättat en anslutning och gjort en TLS-handskakning, och en begäran skickas till en front dörr miljö, en av de första saker som front dörren bestämmer från alla konfigurationer, vilken specifika routningsregler som ska matcha begäran till och sedan vidta den definierade åtgärden. I följande dokument förklaras hur front dörren avgör vilken väg konfiguration som ska användas vid bearbetning av en HTTP-begäran.
+När du har upprättat en anslutning och slutfört en TLS-handskakning, och en begäran skickas till en front dörr miljö, är något av de första saker som front dörren att avgöra vilken specifik regel för routning som matchar begäran till och sedan utföra den definierade åtgärden i konfigurationen. I följande dokument förklaras hur front dörren avgör vilken väg konfiguration som ska användas vid bearbetning av en HTTP-begäran.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Struktur för en väg konfiguration av en front dörr
 En regel för routning av front dörr består av två huvud delar: en "vänstersida" och en "höger sida". Vi matchar den inkommande begäran till vänster i vägen medan den högra sidan definierar hur vi bearbetar begäran.
@@ -41,7 +41,7 @@ Beslutet om att bearbeta begäran beror på om cachelagring är aktiverat eller 
 I det här avsnittet kommer vi att fokusera på hur vi matchar en specifik Dirigerings regel för front dörren. Det grundläggande konceptet är att vi alltid stämmer överens med den **mest exakta matchningen först** som bara tittar på "vänster sida".  Vi matchar först baserat på HTTP-protokoll, sedan klient dels värd, och sedan sökvägen.
 
 ### <a name="frontend-host-matching"></a>Matchning av frontend-värd
-Vi använder logiken enligt nedan för att matcha klient dels värdar:
+Vid matchning av klient dels värdar använder vi den logik som definieras nedan:
 
 1. Sök efter routning med en exakt matchning på värden.
 2. Om inga exakta klient dels värdar matchar avvisar du begäran och skickar ett fel av en 400-Felaktig begäran.

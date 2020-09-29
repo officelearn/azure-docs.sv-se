@@ -4,16 +4,16 @@ description: Lär dig mer om fördelarna och funktionerna i Azure Defender för 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: dcdbc3efba53f78890816721b6659aa69553d6ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 328a565dbb22a13c71a7001d43941e7be062dff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301623"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449060"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introduktion till Azure Defender för SQL
 
@@ -26,7 +26,7 @@ Azure Defender för SQL innehåller två Azure Defender-planer som utökar Azure
 |Versions tillstånd:|**Azure Defender för Azure SQL Database-servrar** – allmänt tillgängliga (ga)<br>**Azure Defender för SQL-servrar på datorer – för** hands version|
 |Priset|De två planer som utgör **Azure Defender för SQL** debiteras enligt [pris sidan](security-center-pricing.md)|
 |Skyddade SQL-versioner:|Azure SQL Database <br>Hanterad Azure SQL-instans<br>Azure Synapse Analytics (tidigare SQL DW)<br>SQL Server (alla versioner som stöds)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>Vad skyddar Azure Defender för SQL?

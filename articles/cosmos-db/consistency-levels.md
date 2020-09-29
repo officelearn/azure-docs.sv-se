@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396033"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445330"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Vad är konsekvens nivåer i Azure Cosmos DB?
 
@@ -43,9 +43,7 @@ Semantiken för de fem konsekvens nivåerna beskrivs här:
 
   Följande bild illustrerar en stark konsekvens med noter. När data har skrivits till regionen "USA, västra 2" och du läser data från andra regioner får du det senaste värdet:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="video":::
-
-- **Begränsad föråldrad**: läsningarna garanteras för att respektera den konsekventa prefix-garantin. Läsningarna kan vara sena efter skrivningar med de flesta *"K"* -versioner (det vill säga "uppdateringar") för ett objekt eller med *"T"* tidsintervall, beroende på vilken som uppnås först. Med andra ord kan "föråldrad" konfigureras på två sätt när du väljer begränsat inaktuellitet:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Konsekvent som ett spektrum" konfigureras på två sätt när du väljer begränsat inaktuellitet:
 
 - Antalet versioner (*KB*) av objektet
 - Tidsintervallet (*T*) som läsningarna kan vara i vänte tiden bakom skrivningar
@@ -61,7 +59,7 @@ I inaktuella fönster har den begränsade inaktuellaheten följande konsekvens g
 
   Begränsad inaktuellhet väljs ofta av globalt distribuerade program som förväntar sig låga Skriv fördröjningar men kräver total global order garanti. Begränsat föråldrat är bra för program som har grupp samarbete och delning, aktie kurser, publicera-prenumeration/kö osv. Följande bild illustrerar den begränsade inaktuella konsekvensen med noter. Efter att data har skrivits till regionen "USA, västra 2", läser regionerna "USA, östra 2" och "Australien, östra" det skrivna värdet baserat på den konfigurerade maximala fördröjnings tiden eller maximalt antal åtgärder:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="video":::
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Konsekvent som ett spektrum":::
 
 - **Session**: inom ett enda klient-sessions-läsningar garanteras att det följer konsekventa prefix, enkla och enkla Skriv åtgärder, enkla Skriv åtgärder, säkerhets garantier för Skriv åtgärder. Detta förutsätter en enskild "skribent"-session eller delar sessionstoken för flera skrivare.
 
@@ -74,7 +72,7 @@ Klienter utanför sessionen som utför skrivningar får följande garantier:
 
   Konsekvens av sessionen är den mest använda konsekvens nivån för både en region och globalt distribuerade program. Det ger Skriv fördröjning, tillgänglighet och Läs data flöde som är jämförbar med eventuell konsekvens, men som även ger konsekvens garantier som passar de program som är skrivna för att köras i kontexten för en användare. Följande bild illustrerar konsekvensen i sessionen med noter. "Västra USA 2 Writer" och "västra USA 2-läsaren" använder samma session (session A) så att båda läser samma data samtidigt. Regionen "Australien, östra" använder "session B", så den tar emot data senare, men i samma ordning som skrivarna.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="video":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Konsekvent som ett spektrum":::
 
 - **Konsekvent prefix**: uppdateringar som returneras innehåller vissa prefix för alla uppdateringar, utan luckor. Konsekvent konsekvens nivå för prefix garanterar att läsning aldrig ser inloggade skrivningar.
 
@@ -89,12 +87,12 @@ Nedan visas konsekvens garantier för konsekvent prefix:
 
 Följande bild illustrerar konsekvens för konsekvens med noter. I alla regioner ser läsningarna aldrig ut ur ordning skrivningar:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="video":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Konsekvent som ett spektrum":::
 
 - **Eventuell**: det finns ingen beställnings garanti för läsningar. Om det inte finns fler skrivningar slås replikerna samman till slut.  
 Eventuell konsekvens är den svagaste typen av konsekvens eftersom en klient kan läsa värdena som är äldre än de som har lästs tidigare. Eventuell konsekvens är idealisk där programmet inte kräver några ordnings garantier. I exemplen ingår antalet retweetar, gillar eller icke-trådade kommentarer. Följande bild illustrerar den slutliga konsekvensen med noter.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="video":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Konsekvent som ett spektrum":::
 
 ## <a name="additional-reading"></a>Mer att läsa
 

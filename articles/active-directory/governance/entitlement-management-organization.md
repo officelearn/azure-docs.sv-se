@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783951"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449814"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -66,6 +66,8 @@ Följ anvisningarna i det här avsnittet om du vill lägga till en extern Azure 
 
     ![Fönstret "Lägg till anslutna organisationer"](./media/entitlement-management-organization/organization-basics.png)
 
+1. Statusen ställs automatiskt in på **konfigureras** när du skapar en ny ansluten organisation. Mer information om tillstånds egenskaper finns i [tillstånds egenskaper för anslutna organisationer](#state-properties-of-connected-organizations)
+
 1. Välj fliken **katalog + domän** och välj sedan **Lägg till katalog + domän**.
 
     Fönstret **Välj kataloger + domäner** öppnas.
@@ -109,7 +111,7 @@ Om den anslutna organisationen ändras till en annan domän, om organisationens 
 
 1. I det vänstra fönstret väljer du **anslutna organisationer**och väljer sedan den anslutna organisationen för att öppna den.
 
-1. I fönstret Översikt i den anslutna organisationen väljer du **Redigera** för att ändra organisationens namn eller beskrivning.  
+1. I fönstret Översikt i den anslutna organisationen väljer du **Redigera** för att ändra organisationens namn, beskrivning eller tillstånd.  
 
 1. I fönstret **Directory + domän** väljer du **Uppdatera katalog + domän** för att ändra till en annan katalog eller domän.
 
@@ -135,6 +137,23 @@ Om du inte längre har en relation med en extern Azure AD-katalog eller-domän k
 ## <a name="managing-a-connected-organization-programmatically"></a>Hantera en ansluten organisation program mässigt
 
 Du kan också skapa, lista, uppdatera och ta bort anslutna organisationer med Microsoft Graph. En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att hantera [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) -objekt och ange sponsorer för dem.
+
+## <a name="state-properties-of-connected-organizations"></a>Tillstånds egenskaper för anslutna organisationer
+
+Det finns två olika typer av tillstånds egenskaper för anslutna organisationer i hantering av Azure AD-hantering för närvarande, konfigurerade och föreslagna: 
+
+- En konfigurerad ansluten organisation är en helt funktionell ansluten organisation som gör det möjligt för användare inom organisationen att få åtkomst till paket. När en administratör skapar en ny ansluten organisation i Azure Portal, kommer den att vara i det **konfigurerade** läget som standard eftersom administratören skapade och vill använda den här anslutna organisationen. När ett anslutet org-program skapas via programmering via API: t, ska standard läget **konfigureras** om det inte anges till ett annat tillstånd explicit. 
+
+    Konfigurerade anslutna organisationer visas i väljare för anslutna organisationer och bevaras i omfånget för alla principer som är riktade till "alla" anslutna organisationer.
+
+- En föreslagen ansluten organisation är en ansluten organisation som har skapats automatiskt, men som inte har fått en administratör att skapa eller godkänna organisationen. När en användare registrerar sig för ett Access-paket utanför en konfigurerad ansluten organisation, kommer alla automatiskt skapade anslutna organisationer att vara i det **föreslagna** läget eftersom ingen administratör i klient organisationen har konfigurerat det partnerskapet. 
+    
+    Föreslagna anslutna organisationer visas inte i väljaren för konfigurerade anslutna organisationer och omfattas inte av inställningen "alla konfigurerade anslutna organisationer" för några principer. 
+
+Endast användare från konfigurerade anslutna organisationer kan begära åtkomst paket som är tillgängliga för användare från alla konfigurerade organisationer. Användare från föreslagna anslutna organisationer har en upplevelse som om det inte finns någon ansluten organisation för domänen och inte har åtkomst till Access-paketet förrän statusen har ändrats av en administratör.
+
+> [!NOTE]
+> Som en del av den här nya funktionen, ansågs alla anslutna organisationer som skapats före 09/09/20 vara **konfigurerade**. Om du har ett Access-paket som tillåts användare från en organisation att registrera sig bör du gå igenom listan över anslutna organisationer som skapades före det datumet för att se till att ingen är felkategoriserad som **konfigurerad**.  En administratör kan uppdatera **tillstånds** egenskapen efter behov. Vägledning finns i [Uppdatera en ansluten organisation](#update-a-connected-organization).
 
 ## <a name="next-steps"></a>Nästa steg
 

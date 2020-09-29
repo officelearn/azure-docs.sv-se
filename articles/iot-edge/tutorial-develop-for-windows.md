@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439693"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449615"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudie: utveckla IoT Edge moduler för Windows-enheter
 
@@ -45,13 +45,13 @@ Den här kursen riktar sig till Windows-enheter som kör IoT Edge. Windows IoT E
 
 I följande tabell visas de utvecklings scenarier som stöds för **Windows-behållare** i Visual Studio Code och Visual Studio.
 
-|   | Visuell Studio-kod | Visual Studio 2017/2019 |
+|   | Visual Studio-koden | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics |   |
 | **Språk** | C# (fel sökning stöds inte) | C <br> C# |
 | **Mer information** | [Azure IoT Edge för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge verktyg för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge verktyg för Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En utvecklings dator:
 
@@ -157,7 +157,7 @@ Den IoT Edge körningen behöver dina autentiseringsuppgifter för att hämta be
 
 1. Öppna filen **deployment.template.js** i din modul-lösning.
 
-1. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. Den bör ha en ifylld registrerings adress från den information som du angav när du skapade projektet, och fälten username och Password måste innehålla variabel namn. Ett exempel:
+1. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. Den bör ha en ifylld registrerings adress från den information som du angav när du skapade projektet, och fälten username och Password måste innehålla variabel namn. Exempel:
 
    ```json
    "registryCredentials": {
@@ -281,7 +281,7 @@ Du verifierade att de inbyggda behållar avbildningarna lagras i behållar regis
 
    ![Skapa distribution för en enskild enhet](./media/tutorial-develop-for-windows/create-deployment.png)
 
-3. I Utforskaren navigerar du till mappen config i projektet och väljer filen **deployment.windows-amd64.js** . Den här filen finns ofta på`C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
+3. I Utforskaren navigerar du till mappen config i projektet och väljer filen **deployment.windows-amd64.js** . Den här filen finns ofta på `C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
 
    Använd inte deployment.template.jspå filen, som inte har de fullständiga värdena för modulens avbildning.
 
@@ -295,7 +295,7 @@ Du verifierade att de inbyggda behållar avbildningarna lagras i behållar regis
 
 IotEdgeModule1-koden tar emot meddelanden via sin indatakö och skickar dem tillsammans med dess utgående kö. Distributions manifestet deklarerade vägar som skickade meddelanden från SimulatedTemperatureSensor till IotEdgeModule1 och vidarebefordrade sedan meddelanden från IotEdgeModule1 till IoT Hub. Med Azure IoT Edge verktyg för Visual Studio kan du se meddelanden när de tas emot på IoT Hub från dina enskilda enheter.
 
-1. I Visual Studio Cloud Explorer väljer du namnet på den IoT Edge enhet som du har distribuerat till.
+1. I Visual Studio Cloud Explorer väljer du namnet på den IoT Edge enhet som du distribuerade till.
 
 2. I menyn **åtgärder** väljer du **starta övervakning inbyggd händelse slut punkt**.
 

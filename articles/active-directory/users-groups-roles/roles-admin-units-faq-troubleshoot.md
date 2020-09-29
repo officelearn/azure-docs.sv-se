@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22992f66d45b9bdb76383301cccff645c98a74d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f9af8ee3bf87cfd5d2e74adfce618c7cf8c7e63
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264787"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450326"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD-administrativa enheter: fel sökning och vanliga frågor och svar
 
@@ -67,9 +67,9 @@ En administrativ enhets begränsad administratör kan inte återställa lösen o
 
 **F: är administrativa enheter som stöds i PowerShell och Graph API?**
 
-**S:** Ja. Du hittar stöd för administrativa enheter i [PowerShell-cmdlet-dokumentation](/powershell/module/Azuread/?view=azureadps-2.0-preview&preserve-view=true) och [exempel skript](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview&preserve-view=true).
+**S:** Ja. Du hittar stöd för administrativa enheter i [PowerShell-cmdlet-dokumentation](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) och [exempel skript](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
 
-Hitta stöd för [resurs typen administrativeUnit](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true) i Microsoft Graph.
+Hitta stöd för [resurs typen administrativeUnit](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) i Microsoft Graph.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468614"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450423"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Vad är en primär uppdateringstoken?
 
@@ -199,6 +199,9 @@ Följande diagram illustrerar underliggande information när du utfärdar, förn
 | D | CloudAP-plugin-programmet skapar PRT cookie, loggar in med den TPM-kopplade sessionsnyckeln och skickar tillbaka den till den interna klient värden. Eftersom cookien signeras av sessionsnyckeln kan den inte manipuleras. |
 | E | Den interna klient värden returnerar denna PRT-cookie till webbläsaren, som kommer att inkludera den som en del av begär ande huvudet som kallas x-MS-RefreshTokenCredential och begär token från Azure AD. |
 | F | Azure AD validerar signaturen i PRT cookie, validerar nonce, verifierar att enheten är giltig i klienten och utfärdar en ID-token för webb sidan och en krypterad sessions-cookie för webbläsaren. |
+
+> [!NOTE]
+> Det SSO-flöde för webbläsare som beskrivs i stegen ovan gäller inte för sessioner i privata lägen som InPrivate i Microsoft Edge eller Incognito i Google Chrome (när du använder tillägget Microsoft-konton).
 
 ## <a name="next-steps"></a>Nästa steg
 

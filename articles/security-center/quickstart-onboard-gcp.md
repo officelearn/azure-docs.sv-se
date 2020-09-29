@@ -4,15 +4,15 @@ description: Övervaka dina GCP-resurser från Azure Security Center
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c4020bc5e96ff35fa2d04a872216e43abbba5323
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328317"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448991"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Anslut dina GCP-konton till Azure Security Center
 
@@ -39,7 +39,7 @@ I skärm bilden nedan ser du GCP-projekt som visas på instrument panelen i Secu
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **deltagare** på den aktuella Azure-prenumerationen|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Anslut ditt GCP-konto
@@ -80,7 +80,7 @@ Läs mer om [Security Command Center API](https://cloud.google.com/security-comm
     1. Välj **Lägg till**.
     1. I fältet **nya medlemmar** klistrar du in det **e-Postvärde** som du kopierade tidigare.
     1. Ange rollen som **Security Center admin Viewer** och välj sedan Spara.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Ange relevanta GCP-behörigheter":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Steg 4. Skapa en privat nyckel för dedikerat tjänst konto
@@ -107,7 +107,7 @@ Läs mer om [Security Command Center API](https://cloud.google.com/security-comm
 När anslutningen har skapats och GCP Security Command Center har kon figurer ATS korrekt:
 
 - GCP CIS-standarden visas i Security Centerens instrument panel för kontroll av efterlevnad.
-- Säkerhets rekommendationer för dina GCP-resurser visas i Security Center portalen och instrument panelen för övervakning av efterlevnad 5-10 minuter efter att publiceringen är klar:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="GCP-resurser och rekommendationer på Security Centers rekommendations sida":::
+- Säkerhets rekommendationer för dina GCP-resurser visas i Security Center portalen och instrument panelen för övervakning av efterlevnad 5-10 minuter efter att publiceringen är klar:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Övervaka dina GCP-resurser
@@ -116,7 +116,7 @@ Som du ser ovan visar Azure Security Center sidan med säkerhets rekommendatione
 
 Om du vill visa alla aktiva rekommendationer för dina resurser efter resurs typ, använder du Security Center till gångs inventerings sidan och filtrerar till den GCP som du är intresse rad av:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Resurs typs filtret för till gångs lager visar GCP alternativ"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel"::: 
 
 
 ## <a name="next-steps"></a>Nästa steg

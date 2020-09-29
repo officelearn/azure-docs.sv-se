@@ -1,5 +1,5 @@
 ---
-title: Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer
+title: Skapa diagnostikinställningar för att skicka plattformsloggar och mått till olika målplatser
 description: Skicka Azure Monitor plattforms mått och loggar till Azure Monitor loggar, Azure Storage eller Azure Event Hubs med hjälp av en diagnostisk inställning.
 author: bwren
 ms.author: bwren
@@ -7,14 +7,14 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614038"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449330"
 ---
-# <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer
+# <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattformsloggar och mått till olika målplatser
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. [Plattforms mått](data-platform-metrics.md) samlas in som standard och lagras vanligt vis i Azure Monitor Metrics-databasen. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms mått och plattforms loggar till olika mål.
 
 > [!IMPORTANT]
@@ -73,15 +73,15 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
 
    - För en enskild resurs klickar du på **diagnostikinställningar** under **övervaka** på resurs menyn.
 
-        ![Diagnostikinställningar](media/diagnostic-settings/menu-resource.png)
+        ![Skärm bild av avsnittet övervakning i en resurs meny i Azure Portal med diagnostiska inställningar markerade.](media/diagnostic-settings/menu-resource.png)
 
    - För en eller flera resurser klickar du på **diagnostikinställningar** under **inställningar** på menyn Azure Monitor och klickar sedan på resursen.
 
-      ![Diagnostikinställningar](media/diagnostic-settings/menu-monitor.png)
+        ![Skärm bild av avsnittet Inställningar på Azure Monitor-menyn med diagnostiska inställningar markerade.](media/diagnostic-settings/menu-monitor.png)
 
    - I aktivitets loggen klickar du på **aktivitets logg** på **Azure Monitor** -menyn och sedan på **diagnostikinställningar**. Se till att inaktivera all äldre konfiguration för aktivitets loggen. Se [inaktivera befintliga inställningar](./activity-log.md#legacy-collection-methods) för mer information.
 
-        ![Diagnostikinställningar](media/diagnostic-settings/menu-activity-log.png)
+        ![Skärm bild av Azure Monitor menyn med aktivitets logg valt och diagnostikinställningar markerat i meny raden övervaka-aktivitets logg.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Om det inte finns några inställningar på den resurs du har valt uppmanas du att skapa en inställning. Klicka på **Lägg till diagnostisk inställning**.
 

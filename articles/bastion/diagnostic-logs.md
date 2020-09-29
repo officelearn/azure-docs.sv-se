@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744212"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445379"
 ---
-# <a name="enable-and-work-with-bastion-resource-logs"></a>Aktivera och arbeta med skydds resurs loggar
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Aktivera och arbeta med Bastion-resursloggar
 
 När användarna ansluter till arbets belastningar med hjälp av Azure-skydds kan skydds logga diagnostik för fjärrsessionerna. Du kan sedan använda diagnostiken för att visa vilka användare som är anslutna till vilka arbets belastningar, vid vilken tidpunkt, och annan relevant loggnings information. Du måste aktivera diagnostikloggar i Azure skydds för att kunna använda diagnostiken. Den här artikeln hjälper dig att aktivera diagnostikloggar och sedan visa loggarna.
 
@@ -22,13 +22,13 @@ När användarna ansluter till arbets belastningar med hjälp av Azure-skydds ka
 
 1. I [Azure Portal](https://portal.azure.com)navigerar du till din Azure skydds-resurs och väljer **diagnostikinställningar** på sidan Azure skydds.
 
-   ![diagnostikinställningar](./media/diagnostic-logs/1diagnostics-settings.png)
+   ![Skärm bild som visar sidan "diagnostikinställningar".](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Välj **diagnostikinställningar**och välj sedan **+ Lägg till diagnostisk inställning** för att lägga till ett mål för loggarna.
 
-   ![Lägg till diagnostisk inställning](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Skärm bild som visar sidan "diagnostikinställningar" med knappen "Lägg till diagnostikinställningar" vald.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. På sidan **diagnostikinställningar** väljer du den typ av lagrings konto som ska användas för att lagra diagnostikloggar.
 
-   ![Välj lagrings plats](./media/diagnostic-logs/3add-storage-account.png)
+   ![Skärm bild av sidan "diagnostikinställningar" med avsnittet för att välja en lagrings plats markerad.](./media/diagnostic-logs/3add-storage-account.png)
 4. När du har slutfört inställningarna ser det ut ungefär som i det här exemplet:
 
    ![exempel inställningar](./media/diagnostic-logs/4example-settings.png)

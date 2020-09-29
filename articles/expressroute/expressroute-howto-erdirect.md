@@ -1,22 +1,22 @@
 ---
 title: 'Azure-ExpressRoute: Konfigurera ExpressRoute Direct'
-description: Lär dig hur du använder Azure PowerShell för att konfigurera Azure ExpressRoute Direct för att ansluta direkt till Microsofts globala nätverk på peering-platser över hela världen.
+description: Lär dig hur du använder Azure PowerShell för att konfigurera Azure ExpressRoute Direct för att ansluta direkt till Microsofts globala nätverk.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396037"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450201"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Så här konfigurerar du ExpressRoute Direct
 
-ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk vid peering-platser som distribueras strategiskt över hela världen. Mer information finns i [Om ExpressRoute Direct](expressroute-erdirect-about.md).
+ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk via peering-platser som distribueras strategiskt över hela världen. Mer information finns i [Om ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Skapa resursen
 
@@ -155,10 +155,20 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Circuits                   : []
    ```
 
-## <a name="change-admin-state-of-links"></a><a name="state"></a>Ändra administratörs tillstånd för länkar
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generera bokstaven för auktorisering (LOA)
 
-  Den här processen ska användas för att genomföra ett lager 1-test, vilket säkerställer att varje kors anslutning korrigeras korrekt i varje router för primär och sekundär.
-1. Hämta ExpressRoute direkt information.
+Referera till den nyligen skapade ExpressRoute Direct-resursen, ange ett kundnamn för att skriva LOA till och (valfritt) definiera en fil Sök väg för att lagra dokumentet. Om en fil Sök väg inte refereras till, kommer dokumentet att laddas ned till den aktuella katalogen.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Exempel på utdata**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+
+  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+1. Get ExpressRoute Direct details.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
@@ -227,13 +237,13 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
 
 ## <a name="create-a-circuit"></a><a name="circuit"></a>Skapa en krets
 
-Som standard kan du skapa 10 kretsar i prenumerationen där ExpressRoute Direct-resursen är. Detta kan höjas genom stöd. Du ansvarar för att spåra både allokerad och Använd bandbredd. Etablerad bandbredd är summan av bandbredden för alla kretsar i ExpressRoute Direct-resursen och utnyttjad bandbredd är den fysiska användningen av de underliggande fysiska gränssnitten.
+Som standard kan du skapa 10 kretsar i prenumerationen där ExpressRoute Direct-resursen är. Den här gränsen kan ökas med stöd. Du ansvarar för att spåra både allokerad och Använd bandbredd. Etablerad bandbredd är summan av bandbredden för alla kretsar i ExpressRoute Direct-resursen och utnyttjad bandbredd är den fysiska användningen av de underliggande fysiska gränssnitten.
 
-Det finns ytterligare krets bandbredder som kan användas på ExpressRoute Direct endast för att stödja de scenarier som beskrivs ovan. De är: 40Gbps och 100Gbps.
+Det finns ytterligare krets bandbredder som kan användas på ExpressRoute Direct för att endast stödja de scenarier som beskrivs ovan. De här bandbredderna är 40 Gbit/s och 100 Gbit/s.
 
 **SkuTier** kan vara Local, standard eller Premium.
 
-**SkuFamily** får endast vara MeteredData eftersom obegränsad inte stöds i ExpressRoute Direct.
+**SkuFamily** kan bara vara MeteredData. Obegränsad stöds inte på ExpressRoute Direct.
 
 Skapa en krets på ExpressRoute Direct-resursen.
 

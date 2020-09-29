@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/29/2020
+ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318275"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450121"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -56,6 +56,9 @@ if spec is None:
 
 > [!NOTE]
 > Om din pipeline innehåller flera köra Python-skript moduler som behöver paket som inte finns i den förinstallerade listan, installerar du paketen i varje modul.
+
+> [!WARNING]
+> Excute Python-skript module stöder inte installation av paket som är beroende av extra interna bibliotek med kommando som "apt-get", till exempel Java, PyODBC och så vidare. Detta beror på att den här modulen körs i en enkel miljö med python förinstallerat endast och med icke-administratörs behörighet.  
 
 ## <a name="upload-files"></a>Ladda upp filer
 EXECUTE Python-skript module stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
@@ -140,7 +143,10 @@ EXECUTE Python-skript module innehåller exempel på python-kod som du kan anvä
 
     Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame` . Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
 
-6. Skicka pipelinen eller Välj modulen och välj **Kör valt** för att bara köra python-skriptet.
+    > [!WARNING]
+    > Vi rekommenderar **inte** att du ansluter till en databas eller andra externa lagrings enheter i **köra python-skriptfil**. Du kan använda modulen [Importera data](./import-data.md) och [Exportera data](./export-data.md)     
+
+6. Skicka pipelinen.
 
     Alla data och all kod läses in i en virtuell dator och körs med den angivna python-miljön.
 

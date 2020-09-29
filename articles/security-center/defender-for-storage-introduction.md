@@ -4,15 +4,15 @@ description: Lär dig mer om fördelarna och funktionerna i Azure Defender för 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1c47c1cd464c9dc0ac8dc78f5d6f91f33481922a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8b6faa6e2e8928e008370cb0eca00595712a679d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307525"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449023"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introduktion till Azure Defender för lagring
 
@@ -28,7 +28,7 @@ Det här skydds lagret gör att du kan åtgärda hot *utan* att du behöver vara
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender för lagring** faktureras så som visas på [sidan med priser](security-center-pricing.md)|
 |Skyddade lagrings typer|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 

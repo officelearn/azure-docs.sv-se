@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480461"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449791"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Skapa interaktiva rapporter i Azure Monitor for VMs med arbetsböcker
 
@@ -66,7 +66,7 @@ En arbets bok består av avsnitt som består av oberoende redigerbara diagram, t
 
 Arbets böcker har två lägen: **redigerings läge**och **läsläge**. När en ny arbets bok startas öppnas den i **redigerings läge**. Det visar allt innehåll i arbets boken, inklusive alla steg och parametrar som annars är dolda. **Läsläge** visar en förenklad vy för rapport format. Med läsläge kan du sammanställa komplexiteten som ingick i att skapa en rapport samtidigt som den underliggande Mechanics bara har några klickningar borta när det behövs för att ändra.
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Skärm bild av avsnittet Virtual Machines arbets bok i Azure Monitor visar en ny arbets bok i redigerings läge med redigerings kontroller markerade.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. När du är klar med redigeringen av ett avsnitt klickar du på **klar redigering** i det nedre vänstra hörnet i avsnittet.
 
@@ -102,7 +102,7 @@ Ta med data från andra Log Analytics arbets ytor eller från en speciell Applic
 
 Varje avsnitt har sina egna avancerade inställningar, som är tillgängliga via avsnittet Inställningar ![ arbets boks redigerings ](media/vminsights-workbooks/006-settings.png) ikon som finns till höger om knappen **Lägg till parametrar** .
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/007-settings-expanded.png)
+![Skärm bild av dialog rutan Avancerade inställningar i avsnittet Virtual Machines arbets bok i Azure Monitor. Ikonen som öppnar dialog rutan är markerad.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -118,11 +118,11 @@ En av de färdiga arbets böckerna – **TCP-trafik**ger information om anslutni
 
 Det första avsnittet i arbets boken baseras på data från logg frågor. Det andra avsnittet baseras också på data från loggdata, men om du markerar en rad i den första tabellen uppdateras diagrammets innehåll interaktivt:
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Skärm bild av avsnittet Virtual Machines i Azure Monitor visar en fördefinierad TCP-trafik för arbets boken.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 Beteendet är möjligt genom att använda **när ett objekt har valts, exportera en parameter** avancerade inställningar, som är aktiverade i tabellens logg fråga.
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/009-settings-export.png)
+![Skärm bild av dialog rutan Avancerade inställningar för en Virtual Machines arbets bok med alternativet "Exportera en parameter" när ett objekt har marker ATS.](media/vminsights-workbooks/009-settings-export.png)
 
 Den andra logg frågan använder sedan de exporterade värdena när en rad väljs för att skapa en uppsättning värden som sedan används av avsnittets rubrik och diagram. Om ingen rad har marker ATS döljs avsnitts rubriken och diagram. 
 
@@ -141,7 +141,7 @@ Mått avsnitt ger dig fullständig åtkomst till att införliva Azure Monitor M�
 
 Här är ett exempel på data för virtuella datorer som hämtas till en arbets bok för att tillhandahålla en rutnäts visualisering av processor prestanda:
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/010-metrics-grid.png)
+![Skärm bild av avsnittet mått i en virtuell dator arbets bok i Azure Monitor. CPU-prestanda för varje virtuell dator visas grafiskt.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Lägga till parameteravsnitt
 
@@ -180,11 +180,11 @@ Om kolumnen är en sträng typ anses null/tom sträng vara falskt och andra vär
 
 Nu ska vi titta på de parametrar som finns i rapporten Översikt över anslutningar. Klicka på Redigera-symbolen bredvid **riktning**.
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Skärm bild av avsnittet för att lägga till och redigera rapport parametrar i Azure Monitor. Redigerings ikonen för parametern Direction är markerad.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 Då startas meny alternativet **Redigera parameter** .
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Skärm bild av dialog rutan Redigera parameter. Parameter namnet är riktningen, parameter typen är List rutan och hämta data från JSON är markerat.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 Med JSON kan du generera en godtycklig tabell som är ifylld med innehåll. Följande JSON genererar till exempel två värden i list rutan:
 

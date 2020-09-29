@@ -6,13 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319362"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459820"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Felsöka Azure Stream Analytics med hjälp av resurs loggar
 
@@ -94,7 +95,7 @@ Azure Stream Analytics fångar två kategorier av resurs loggar:
 
 Alla loggar lagras i JSON-format. Varje post har följande gemensamma sträng fält:
 
-Namn | Beskrivning
+Name | Beskrivning
 ------- | -------
 time | Tidsstämpel (i UTC) för loggen.
 resourceId | ID för den resurs som åtgärden ägde rum i, i versaler. Den innehåller prenumerations-ID, resurs grupp och jobb namn. Till exempel **/Subscriptions/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/My-Resource-Group/providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -112,7 +113,7 @@ Körnings loggarna innehåller information om händelser som har inträffat unde
 
 Eventuella fel som inträffar när jobbet bearbetar data finns i den här kategorin av loggar. Loggarna skapas oftast när data läses, serialiseras och skrivs. Dessa loggar innehåller inte anslutnings fel. Anslutnings fel behandlas som allmänna händelser. Du kan lära dig mer om orsaken till olika [fel i indata och utdata](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Namn | Beskrivning
+Name | Beskrivning
 ------- | -------
 Källa | Namnet på det indata eller utdata där felet uppstod.
 Meddelande | Meddelande som är kopplat till felet.
@@ -133,7 +134,7 @@ I väntan på värdet **operationName** har data fel följande schema:
 
 Allmänna händelser behandlar allt annat.
 
-Namn | Beskrivning
+Name | Beskrivning
 -------- | --------
 Fel | valfritt Fel information. Detta är vanligt vis undantags information om det är tillgängligt.
 Meddelande| Logg meddelande.

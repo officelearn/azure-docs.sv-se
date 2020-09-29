@@ -6,14 +6,14 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 1/9/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: e15c83504ee0eebb925c122d0efd4896e7b55916
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 7d4fe0f54ecd11c197f258d190e9eaef14bf2bb7
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590293"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459931"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Snabb start: skapa en Azure Functions-app med Azure App konfiguration
 
@@ -21,7 +21,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
 - [Azure Functions verktyg](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
@@ -37,7 +37,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Tillämpa**.
+7. Välj **Använd**.
 
 ## <a name="create-a-functions-app"></a>Skapa en Functions-app
 

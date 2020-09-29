@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311554"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449773"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vanliga frågor och svar om Azure automanage för virtuella datorer
 
@@ -33,12 +33,13 @@ Följande är förutsättningar för att aktivera Azure automanage:
 - Användaren måste ha rätt behörighet
 - Endast icke-skala uppsättning virtuella datorer
 - Virtuella datorer får inte länka till en Log Analytics-arbetsyta i en annan prenumeration
+- Automanage stöder inte sandbox-prenumerationer just nu
 
 **Vilken RBAC-behörighet krävs för att aktivera autohantering?**
 
-Om du aktiverar automanage på en virtuell dator med ett befintligt konto för autohantering, behöver du deltagar rollen till resurs gruppen där den virtuella datorn finns. 
+Om du aktiverar automanage på en virtuell dator med ett befintligt konto för autohantering, behöver du deltagar rollen till resurs gruppen där den virtuella datorn finns.
 
-Om du använder ett nytt automanage-konto när du aktiverar måste användarna antingen ha ägar rollen eller ha rollen användare av användar åtkomst administratör för prenumerationen.
+Om du använder ett nytt automanage-konto när du aktiverar måste du antingen ha ägar rollen eller ha rollen deltagare och administratör för användar åtkomst till prenumerationen.
 
 
 **Vilka regioner stöds?**
@@ -50,6 +51,9 @@ Virtuella datorer i följande regioner stöds: Västeuropa, östra, USA, västra
 
 Hantera automatiskt registrering, konfiguration och övervakning under hela livs cykeln för den virtuella datorn de tjänster som listas [här](virtual-machines-best-practices.md).
 
+**Fungerar Azure automanage med Azure Arc-aktiverade virtuella datorer?**
+
+Autohantering stöder för närvarande inte Arc-aktiverade virtuella datorer.
 
 **Kan jag anpassa konfigurationer på Azure automanage?**
 
@@ -88,7 +92,7 @@ Kontot för automatisk hantering är en MSI (Hanterad tjänstidentitet) som till
 
 **Påverkas eventuella ytterligare virtuella datorer förutom de virtuella datorer jag valt när de aktiverar autohantering?**
 
-Om den virtuella datorn är länkad till en befintlig Log Analytics arbets yta, kommer vi att återanvända den arbets ytan för att tillämpa dessa lösningar: Ändringsspårning, inventering och Uppdateringshantering. Alla virtuella datorer som är anslutna till den arbets ytan kommer att ha dessa lösningar aktiverade. 
+Om den virtuella datorn är länkad till en befintlig Log Analytics arbets yta, kommer vi att återanvända den arbets ytan för att tillämpa dessa lösningar: Ändringsspårning, inventering och Uppdateringshantering. Alla virtuella datorer som är anslutna till den arbets ytan kommer att ha dessa lösningar aktiverade.
 
 
 **Kan jag ändra konfigurations profilen för min virtuella dator?**

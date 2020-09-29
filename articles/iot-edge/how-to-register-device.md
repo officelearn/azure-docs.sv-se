@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: adbded5a577a6bca42f2894a1a846993ca2330fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 85a5e2f6b28b9332e5ad3a38cdad3fb02bb3da87
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297002"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450143"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registrera en Azure IoT Edge-enhet
 
@@ -113,17 +113,17 @@ Du kan också välja **Hämta enhets information** på snabb menyn för att se a
 
 ## <a name="register-with-the-azure-cli"></a>Registrera dig med Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg med öppen källkod för flera plattformar för att hantera Azure-resurser som IoT Edge. Det gör att du kan hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar direkt. IoT-tillägget berikar Azure CLI med funktioner som enhets hantering och fullständig IoT Edge funktion.
+[Azure CLI](/cli/azure) är ett kommando rads verktyg med öppen källkod för flera plattformar för att hantera Azure-resurser som IoT Edge. Det gör att du kan hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar direkt. IoT-tillägget berikar Azure CLI med funktioner som enhets hantering och fullständig IoT Edge funktion.
 
 ### <a name="prerequisites-for-the-azure-cli"></a>Krav för Azure CLI
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
+* [Azure CLI](/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az --version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack.
 * [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Skapa en IoT Edge-enhet med Azure CLI
 
-Använd kommandot [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) för att skapa en ny enhets identitet i din IoT-hubb. Exempel:
+Använd kommandot [AZ IoT Hub Device-Identity Create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) för att skapa en ny enhets identitet i din IoT-hubb. Exempel:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -139,7 +139,7 @@ Det här kommandot innehåller tre parametrar:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Visa IoT Edge enheter med Azure CLI
 
-Använd kommandot [AZ IoT Hub Device-Identity List](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) för att visa alla enheter i din IoT Hub. Exempel:
+Använd kommandot [AZ IoT Hub Device-Identity List](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) för att visa alla enheter i din IoT Hub. Exempel:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -149,7 +149,7 @@ Alla enheter som har registrerats som en IoT Edge enhet har egenskaps **funktion
 
 ### <a name="retrieve-the-connection-string-with-the-azure-cli"></a>Hämta anslutnings strängen med Azure CLI
 
-När du är redo att konfigurera din enhet behöver du anslutnings strängen som länkar din fysiska enhet med dess identitet i IoT Hub. Använd kommandot [AZ IoT Hub Device-Identity Connection-sträng show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string?view=azure-cli-latest#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) för att returnera anslutnings strängen för en enskild enhet:
+När du är redo att konfigurera din enhet behöver du anslutnings strängen som länkar din fysiska enhet med dess identitet i IoT Hub. Använd kommandot [AZ IoT Hub Device-Identity Connection-sträng show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) för att returnera anslutnings strängen för en enskild enhet:
 
    ```azurecli
    az iot hub device-identity connection-string show --device-id [device id] --hub-name [hub name]

@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: b904fcd03247f6e6ae01f51c5048c29826bb8e5a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 24a63a167f640646b9e07126a038663f4da3e23b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018475"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449598"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
@@ -44,7 +44,7 @@ Använd följande tabell för att förstå alternativen för att utveckla och di
 | **Windows AMD64-utveckling** | ![Utveckla C#-moduler för WinAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C#-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C#-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien bör du ha gått igenom föregående självstudie för att konfigurera din utvecklings miljö, [utveckla en IoT Edge modul för en Windows-enhet](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du redan ha följande krav:
 

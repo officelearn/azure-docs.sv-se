@@ -9,36 +9,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398945"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445482"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>URL-omskrivning (anpassad sökväg för vidarebefordran)
-Azures front dörr stöder URL-omskrivning genom att låta dig konfigurera en valfri **anpassad vidarebefordrings Sök väg** som ska användas för att skapa begäran om att vidarebefordra den till Server delen. Om ingen sökväg för vidarebefordran har angetts kopierar Front Door som standard den inkommande URL-sökvägen till den URL som används i den vidarebefordrade begäran. Värdhuvudet som används i den vidarebefordrade begäran ser ut så som det konfigurerats för den valda serverdelen. Läs [värd rubriken för Server delen](front-door-backend-pool.md#hostheader) för att lära dig vad det gör och hur du kan konfigurera den.
+Azures front dörr stöder URL-omskrivning genom att konfigurera en valfri **anpassad vidarebefordrings Sök väg** som ska användas för att skapa begäran om att vidarebefordra den till Server delen. Om en anpassad vidarebefordrings Sök väg inte anges kopieras den inkommande URL-sökvägen till den URL som används i den vidarebefordrade begäran som standard. Värdhuvudet som används i den vidarebefordrade begäran ser ut så som det konfigurerats för den valda serverdelen. Läs [värd rubriken för Server delen](front-door-backend-pool.md#hostheader) för att lära dig vad det gör och hur du kan konfigurera den.
 
-Den kraftfulla delen av URL-omskrivning med anpassad vidarebefordrings Sök väg är att den kopierar någon del av den inkommande sökvägen som matchar en sökväg med jokertecken till den vidarebefordrade sökvägen (dessa Sök vägs segment är de **gröna** segmenten i exemplet nedan):
+Den kraftfulla delen av URL-omskrivning är att den anpassade vidarebefordrande sökvägen kommer att kopiera någon del av den inkommande sökvägen som matchar en sökväg med jokertecken till den vidarebefordrade sökvägen (dessa Sök vägs segment är de **gröna** segmenten i exemplet nedan):
 </br>
-![URL-omskrivning i Azures frontend-dörr][1]
+
+:::image type="content" source="./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg" alt-text="URL-omskrivning i Azures frontend-dörr":::
 
 ## <a name="url-rewrite-example"></a>Exempel på URL-omskrivning
-Överväg en regel för routning med följande klient dels värdar och konfigurerade sökvägar:
+Överväg en regel för routning med följande kombination av klient dels värdar och konfigurerade sökvägar:
 
 | Värdar      | Sökvägar       |
 |------------|-------------|
-| www- \. contoso.com | /\*         |
+| www- \. contoso.com | /\*   |
 |            | /foo        |
 |            | foo\*     |
 |            | /foo/bar/\* |
 
-Den första kolumnen i tabellen nedan visar exempel på inkommande begär Anden och den andra kolumnen visar vad som skulle vara den "mest aktuella" matchande väg Sök väg ".  De tredje och efterföljande kolumnerna i den första raden i tabellen är exempel på konfigurerade **anpassade vidarebefordrande sökvägar**, med resten av raderna i dessa kolumner som representerar exempel på vad den vidarebefordrade begär ande sökvägen skulle vara om den matchade med begäran på raden.
+Den första kolumnen i tabellen nedan visar exempel på inkommande begär Anden och den andra kolumnen visar vad som skulle vara den "mest aktuella" matchande väg Sök väg ".  De tredje och välliggande kolumnerna i tabellen är exempel på konfigurerade **anpassade vidarebefordrings Sök vägar**.
 
 Om vi t. ex. läser på den andra raden, säger vi att för inkommande begäran `www.contoso.com/sub` , om den anpassade sökvägen för vidarebefordran var `/` , så skulle den vidarebefordrande sökvägen vara `/sub` . Om den anpassade vidarebefordrande sökvägen var `/fwd/` , är den vidarebefordrade sökvägen `/fwd/sub` . Och så vidare, för de återstående kolumnerna. De **betonade** delarna av Sök vägarna nedan representerar de delar som är en del av matchningen av jokertecken.
-
 
 | Inkommande begäran       | Mest speciell matchnings Sök väg | /          | /fwd/          | foo          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
@@ -49,18 +49,12 @@ Om vi t. ex. läser på den andra raden, säger vi att för inkommande begäran 
 | www- \. contoso.com/foo/        | foo\*                  | /          | /fwd/          | foo          | /foo/bar/          |
 | www \. contoso.com/foo/-**stapel** | foo\*                  | /**Valle**   | /FWD/-**fält**   | /foo/-**fält**   | /foo/bar/-**fält**   |
 
-
 ## <a name="optional-settings"></a>Valfria inställningar
 Det finns ytterligare valfria inställningar som du kan ange för alla inställningar för routningsregler:
 
-* **Cache-konfiguration** – om det är inaktiverat eller ej angivet kommer begär Anden som matchar den här regeln inte att försöka använda cachelagrat innehåll. i stället hämtas de alltid från Server delen. Läs mer om [cachelagring med front dörren](front-door-caching.md).
-
-
+* **Cache-konfiguration** – om det är inaktiverat eller ej angivet försöker begär Anden som matchar den här regeln inte använda cachelagrat innehåll. i stället hämtas de alltid från Server delen. Läs mer om [cachelagring med front dörren](front-door-caching.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).
-
-<!--Image references-->
-[1]: ./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg

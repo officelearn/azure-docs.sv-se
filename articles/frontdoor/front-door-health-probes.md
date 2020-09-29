@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399641"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449245"
 ---
 # <a name="health-probes"></a>Hälsotillståndsavsökningar
 
-För att kunna fastställa hälsan och närhet av varje server del från en specifik front dörr miljö skickar varje front dörr-miljö regelbundet en syntetisk HTTP/HTTPS-begäran till var och en av dina konfigurerade Server delar. Front Door använder sedan svar från dessa avsökningar för att fastställa de ”bästa” serverdelar som verkliga klientbegäranden bör vidarebefordras till. 
+För att fastställa hälso tillståndet och närheten av varje server del för en specifik front dörr miljö skickar varje front dörrs miljö regelbundet en syntetisk HTTP/HTTPS-begäran till var och en av dina konfigurerade Server delar. Front dörren använder sedan dessa svar från avsökningen för att fastställa de "bästa" Server dels resurserna för att dirigera dina klient förfrågningar. 
 
 > [!WARNING]
-> Eftersom den första dörren har många gräns miljöer, kan hälso avsökningen begära volym till dina Server delar, vilket kan vara ganska högt från 25 förfrågningar per minut till så högt som 1200 förfrågningar per minut, beroende på den angivna hälso avsöknings frekvensen. Med standard avsöknings frekvensen på 30 sekunder bör avsöknings volymen på Server delen vara cirka 200 förfrågningar per minut.
+> Eftersom front dörren har många gräns miljöer globalt, kan hälso avsöknings volymen för dina Server delar vara ganska hög från 25 förfrågningar varje minut till så hög som 1200 begär Anden per minut, beroende på den angivna hälso avsöknings frekvensen. Med standard avsöknings frekvensen på 30 sekunder bör avsöknings volymen på Server delen vara cirka 200 förfrågningar per minut.
 
 ## <a name="supported-protocols"></a>Protokoll som stöds
 
@@ -44,7 +44,7 @@ Frontend-dörren stöder följande HTTP-metoder för att skicka hälso avsöknin
 | Svar  | Beskrivning | 
 | ------------- | ------------- |
 | Fastställa hälsa  |  En status på 200 OK anger att Server delen är felfri. Allt annat anses vara ett haveri. Om ett giltigt HTTP-svar inte tas emot för en avsökning räknas inte avsökningen som ett fel (inklusive nätverks fel).|
-| Mäta svars tid  | Svars tiden är den tid i väggen som mäts från tiden omedelbart innan vi skickar en avsöknings förfrågan till den tidpunkt då vi får de sista byten av svaret. Vi använder en ny TCP-anslutning för varje begäran, så den här mätningen prioriteras inte mot Server delar med befintliga varma anslutningar.  |
+| Mäta svars tid  | Svars tiden är den tid i väggen som mäts från tiden omedelbart innan vi skickar en avsöknings förfrågan till den tidpunkt då vi får de sista byten av svaret. Vi använder en ny TCP-anslutning för varje begäran, så denna mätning är inte prioriterad mot Server delar med befintliga varma anslutningar.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Hur front dörren avgör Server dels hälsa
 
@@ -59,7 +59,7 @@ Azures front dörr använder samma tre stegs process nedan för alla algoritmer 
 
     * _x_ konfigureras genom att ändra egenskapen SuccessfulSamplesRequired i inställningarna för belastnings utjämning.
 
-3. Från och med en uppsättning felfria Server delar i backend-poolen, åtgärdar även front dörren och bibehåller svars tiden (fördröjnings tid) för varje server del.
+3. För uppsättningarna med felfria Server delar i backend-poolen, mäter front dörren också och bibehåller svars tiden (fördröjnings tid) för varje server del.
 
 
 ## <a name="complete-health-probe-failure"></a>Slutför hälso avsöknings fel

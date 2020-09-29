@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 78758fbfd14810cb7320d95026f8d4af647a3f2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334964"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450355"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -249,7 +249,7 @@ Följande exempel visar hur olika målgruppsdefinitioner räknas upp dynamiskt n
 **Exempel 4** illustrerar en målgrupp som innehåller en elastisk pool som mål. Precis som i *exempel 2* räknas poolen upp dynamiskt när jobbet körs för att fastställa listan med databaser i poolen.
 <br><br>
 
-![Exempel med målgrupper](./media/job-automation-overview/targetgroup-examples2.png)
+![Fler exempel på mål grupper](./media/job-automation-overview/targetgroup-examples2.png)
 
 **Exempel 5** och **exempel 6** visar avancerade scenarier där servrar, elastiska pooler och databaser kan kombineras med regler för att inkludera och exkludera.<br>
 **Exempel 7** illustrerar hur shards (fragment) i en shard-karta även kan utvärderas när ett jobb körs.

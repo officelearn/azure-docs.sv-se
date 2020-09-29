@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651343"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449548"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Vad är Apache Kafka i Azure HDInsight
 
@@ -33,7 +33,9 @@ Följande är kännetecknen för Kafka på HDInsight:
 
     Mer information finns i [Hög tillgänglighet med Apache Kafka i HDInsight](apache-kafka-high-availability.md).
 
-* I HDInsight kan du ändra antalet arbetarnoder (som är värdar för den asynkrona Kafka-meddelandekön) när klustret har skapats. Du kan utföra skalningen från Azure-portalen, Azure PowerShell och andra Azure-hanteringsgränssnitt. För Kafka bör du balansera om partitionsrepliker efter eventuell skalning. När du balanserar om partitionerna kan Kafka dra nytta av nya antalet arbetarnoder.
+* I HDInsight kan du ändra antalet arbetarnoder (som är värdar för den asynkrona Kafka-meddelandekön) när klustret har skapats. Du kan utföra en uppskalning från Azure Portal, Azure PowerShell och andra hanterings gränssnitt för Azure. För Kafka bör du balansera om partitionsrepliker efter eventuell skalning. När du balanserar om partitionerna kan Kafka dra nytta av nya antalet arbetarnoder.
+
+   HDInsight-Kafka stöder inte nedskalning eller minskning av antalet utjämnare i ett kluster. Om ett försök görs att minska antalet noder `InvalidKafkaScaleDownRequestErrorCode` returneras ett fel.
 
     Mer information finns i [Hög tillgänglighet med Apache Kafka i HDInsight](apache-kafka-high-availability.md).
 
@@ -68,7 +70,7 @@ Följande är vanliga uppgifter och mönster som kan utföras med hjälp av Kafk
 |Leverans i ordning|Inom varje partition lagras posterna i strömmen i den ordning som de togs emot. Genom att associera en konsumentprocess per partition bearbetas posterna garanterat i ordning. Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).|
 |Meddelandetjänster|Eftersom Kafka stöder meddelandemönstret publicera-prenumerera används det ofta som en asynkron meddelandekö.|
 |Aktivitets spårning|Eftersom Kafka ger ordningsbaserad loggning av poster kan det användas för att spåra och återskapa aktiviteter. Till exempel användaråtgärder på en webbplats eller i ett program.|
-|Aggregering|Med hjälp av strömbearbetning kan du sammanställa information från olika strömmar för att kombinera och centralisera information till användningsdata.|
+|Mängd|Med hjälp av strömbearbetning kan du sammanställa information från olika strömmar för att kombinera och centralisera information till användningsdata.|
 |Transformering|Med dataströmsbearbetning kan du kombinera och utöka data från flera inkommande avsnitt i ett eller flera utdataämnen.|
 
 ## <a name="next-steps"></a>Nästa steg

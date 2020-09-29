@@ -1,33 +1,38 @@
 ---
-title: 'Installera och köra behållare för att använda API: t för avvikelse detektor'
+title: 'Installera och kör Docker-behållare för API: t för avvikelse detektor'
 titleSuffix: Azure Cognitive Services
-description: 'Lär dig hur du installerar och använder behållare för att använda avancerade algoritmer för API: er med avvikelse detektor.'
+description: Använd algoritmerna för avvikelse detektorns API för att hitta avvikelser i dina data, lokalt med hjälp av en Docker-behållare.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: lokal, Docker, behållare, strömning, algoritmer
+ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903549"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460008"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Installera och kör avvikelseidentifieringscontainrar 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Installera och kör Docker-behållare för API: t för avvikelse detektor 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-Avvikelseidentifiering har följande containerfunktioner:
+Med behållare kan du använda API: t för avvikelse detektor i din egen miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav. I den här artikeln får du lära dig hur du hämtar, installerar och kör en behållare för avvikelse detektor.
 
-| Funktion | Funktioner |
-|--|--|
-| Avvikelse detektor | <li> Identifierar avvikelser när de inträffar i real tid. <li> Identifierar avvikelser i alla data uppsättningar som en batch. <li> Identifierar trend ändrings punkter i din data uppsättning som en batch.<li> Härleder det förväntade normala intervallet av dina data. <li> Stöder känslighets justering för avvikelse identifiering så att den bättre passar dina data. |
+Avvikelse detektor erbjuder en enda Docker-behållare för att använda API: et lokalt. Använd behållaren för att:
+* Använd algoritmerna för avvikande detektor i dina data
+* Övervaka strömmande data och identifiera avvikelser när de inträffar i real tid.
+* Identifiera avvikelser i alla data uppsättningar som en batch. 
+* Identifiera trend ändrings punkter i din data uppsättning som en batch.
+* Justera algoritmens känslighet för avvikelse identifiering så att den bättre passar dina data.
 
-Detaljerad information om API: er finns i:
+Detaljerad information om API: n finns i:
 * [Läs mer om API-tjänsten för avvikelse detektor](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.

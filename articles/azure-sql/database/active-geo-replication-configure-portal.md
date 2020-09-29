@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: cf7e4da2051ab84cebff5aae857c02907f7b58e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ddc79721355924f125acedd7420cab5f487c065
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263631"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445038"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Självstudie: Konfigurera aktiv geo-replikering och redundans i Azure Portal (Azure SQL Database)
 
@@ -28,7 +28,7 @@ För bästa praxis med grupper för automatisk redundans, se [metod tips för Az
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera aktiv geo-replikering med hjälp av Azure Portal behöver du följande resurs:
 

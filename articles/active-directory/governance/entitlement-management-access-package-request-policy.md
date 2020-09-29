@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160137ca2d14e0012a524ee0818b7fb269fa7984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980240"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449968"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Inställningar för ändrings begär Anden för ett Access-paket i hantering av Azure AD-berättigande
 
@@ -125,8 +125,8 @@ Följ de här stegen om du vill tillåta att användare som inte tillhör din ka
     |  |  |
     | --- | --- |
     | **Vissa anslutna organisationer** | Välj det här alternativet om du vill välja från en lista över organisationer som administratören har lagt till tidigare. Alla användare från de valda organisationerna kan begära det här åtkomst paketet. |
-    | **Alla anslutna organisationer** | Välj det här alternativet om alla användare från alla anslutna organisationer kan begära det här åtkomst paketet. |
-    | **Alla användare (alla anslutna organisationer och alla nya externa användare)** | Välj det här alternativet om alla användare från alla anslutna organisationer kan begära det här åtkomst paketet och att List inställningarna för B2B-Tillåt eller neka ska ha företräde för alla nya externa användare. |
+    | **Alla konfigurerade anslutna organisationer** | Välj det här alternativet om alla användare från alla konfigurerade anslutna organisationer kan begära det här åtkomst paketet. Endast användare från konfigurerade anslutna organisationer kan begära åtkomst paket som visas för användare från alla konfigurerade organisationer. |
+    | **Alla användare (alla anslutna organisationer och alla nya externa användare)** | Välj det här alternativet om en användare på Internet ska kunna begära det här åtkomst paketet.  Om de inte tillhör en ansluten organisation i din katalog skapas en ansluten organisation automatiskt för dem när de begär paketet. Den automatiskt skapade anslutna organisationen är i ett **föreslaget** tillstånd. Mer information om föreslaget tillstånd finns i [tillstånds egenskaper för anslutna organisationer](entitlement-management-organization.md#state-properties-of-connected-organizations). |
 
     En ansluten organisation är en extern Azure AD-katalog eller domän som du har en relation med.
 

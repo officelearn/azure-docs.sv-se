@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1166d2ad17aea97a4dd7fdda53c42d6b3df75936
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264738"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450360"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Hantera administrativa enheter i Azure Active Directory
 
@@ -33,9 +33,6 @@ För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) k
 
     ![Skärm bild som visar länk till "bevilja administrativt medgivande"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. I Graph Explorer väljer du **beta** versionen.
-
-    ![Skärm bild som visar den valda Beta versionen](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Använd för hands versionen av Azure AD PowerShell.
 
@@ -59,7 +56,7 @@ Installera Azure AD PowerShell (för hands version) innan du försöker köra f�
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 Du kan ändra de värden som omges av citat tecken, om det behövs.
@@ -91,8 +88,8 @@ I Azure AD kan du ta bort en administrativ enhet som du inte längre behöver so
 ### <a name="use-powershell"></a>Använd PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 Du kan ändra de värden som omges av citat tecken, vilket krävs för den aktuella miljön.

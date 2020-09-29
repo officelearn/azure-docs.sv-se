@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: cf8e7340ce3554bf27364335457a5b7eadcdc049
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937647"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450321"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Skapa en anpassad inställning i Azure automanage för virtuella datorer
 
@@ -26,7 +26,7 @@ Vi stöder för närvarande anpassningar på [Azure Backup](..\backup\backup-azu
 > Du kan inte ändra konfigurations profilen eller-inställningen på den virtuella datorn när den automatiska hanteringen är aktive rad. Du måste inaktivera automatisk hantering för den virtuella datorn och sedan återaktivera automatisk hantering med önskad konfigurations profil och inställningar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) innan du börjar.
 
@@ -57,11 +57,11 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 4. Under **konfigurations profil**klickar du på **Bläddra och ändrar profiler och inställningar**.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Bläddra och ändra profiler och inställningar.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Välj befintlig virtuell dator i listan över tillgängliga virtuella datorer.":::
 
 5. På bladet **Välj konfigurations profil + inställningar** väljer du en profil på vänster sida: *utveckling/testning* för testning, *Prod* för produktion.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Bläddra i produktions konfigurations profil.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Välj befintlig virtuell dator i listan över tillgängliga virtuella datorer.":::
 
 6. Under **konfigurations inställningar** i den valda profilen finns en listruta där du kan justera för vissa tjänster.
     1. Klicka på **skapa nya inställningar**.
@@ -71,7 +71,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
         1. Preference-namn
         1. Region
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Fyll i konfigurations inställningar.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Välj befintlig virtuell dator i listan över tillgängliga virtuella datorer.":::
 
 7. Gå till fliken Inställningar och justera de konfigurations inställningar som du vill använda.
         
@@ -88,7 +88,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Sluta snabbt använda Azure automanagement för virtuella datorer genom att inaktivera automanagement.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Inaktiverar autohantering på en virtuell dator.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Välj befintlig virtuell dator i listan över tillgängliga virtuella datorer.":::
 
 1. Gå till sidan för **metod tips för automatisk hantering – Azure virtuell dator** som visar en lista över alla dina automatiskt hanterade virtuella datorer.
 1. Markera kryss rutan bredvid den virtuella dator som du vill inaktivera.

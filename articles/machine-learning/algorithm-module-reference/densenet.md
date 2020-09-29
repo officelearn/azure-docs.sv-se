@@ -8,19 +8,24 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 69c18c24ae9a8eb4c1fd54c1f8530e126a40b004
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: d64933f7b2c8ebc8597b93cbd16b34158f936f96
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898527"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450092"
 ---
 # <a name="densenet"></a>DenseNet
 
 Den här artikeln beskriver hur du använder modulen **DenseNet** i Azure Machine Learning designer för att skapa en bild klassificerings modell med DenseNet-algoritmen.  
 
-Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en etikettad data uppsättning. I avsnittet [konvertera till en avbildnings katalog](convert-to-image-directory.md) hittar du mer information om hur du hämtar en etikettad avbildnings katalog. Du kan träna modellen genom att tillhandahålla modellen och den märkta bild katalogen som indata för att [träna Pytorch-modellen](train-pytorch-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen med [Poäng avbildnings modell](score-image-model.md).
+Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en etikettad avbildnings katalog. 
+
+> [!NOTE]
+> Den här modulen stöder inte etikettad data uppsättning som genererats från *data etiketter* i Studio, men stöder bara den namngivna avbildnings katalogen som genererades från [Convert to image Directory](convert-to-image-directory.md) -modulen. 
+
+Du kan träna modellen genom att tillhandahålla modellen och den märkta bild katalogen som indata för att [träna Pytorch-modellen](train-pytorch-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen med [Poäng avbildnings modell](score-image-model.md).
 
 ### <a name="more-about-densenet"></a>Mer om DenseNet
 

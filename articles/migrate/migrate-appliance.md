@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en sammanfattning av stödet för den Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084778"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450041"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -47,12 +47,12 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Distribution som stöds** | Distribuera som virtuell VMware-dator med hjälp av en ägg mall.<br/><br/> Distribuera som en virtuell VMware-dator eller fysisk dator med hjälp av installations skriptet för PowerShell.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
-**Mall för ägg** | Ladda ned från portalen eller [härifrån](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Hämtnings storleken är 11,6 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+**Mall för ägg** | Ladda ned från portalen eller [härifrån](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Hämtnings storleken är 11,9 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **PowerShell-skript** | Läs mer i den här [artikeln](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 32 GB RAM, 8 virtuella processorer, runt 80 GB disk lagring och en extern virtuell växel.<br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en virtuell VMware-dator måste du ha tillräckligt med resurser på vCenter Server för att allokera en virtuell dator som uppfyller kraven.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.
 **Krav för VMware** | Om du distribuerar installationen som en virtuell VMware-dator måste den distribueras på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> vCenter Server som kör 5,5, 6,0, 6,5 eller 6,7.
 **VDDK (utan agent migrering)** | Om du distribuerar-installationen som en virtuell VMware-dator och du kör en agent utan migrering, måste VMware vSphere VDDK installeras på den virtuella datorn.
-**Hash-värde – ägg** | [Verifiera](tutorial-assess-vmware.md#verify-security) hash-värden för en embryo-mall.
+**Hash-värde – ägg** | [Verifiera](tutorial-discover-vmware.md#verify-security) hash-värden för en embryo-mall.
 **Hash-värde – PowerShell-skript** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
 
 
@@ -67,11 +67,11 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Distribution som stöds** | Distribuera som virtuell Hyper-V-dator med en VHD-mall.<br/><br/> Distribuera som en virtuell Hyper-V-dator eller fysisk dator med ett PowerShell-installations skript.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
-**VHD-mall** | Zippad mapp inklusive VHD. Ladda ned från portalen eller [härifrån.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> Hämtnings storleken är 10,4 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+**VHD-mall** | Zippad mapp inklusive VHD. Ladda ned från portalen eller [härifrån.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> Hämtnings storleken är 8,91 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **PowerShell-skript** | Läs mer i den här [artikeln](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Program vara/maskin vara***   |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
+**Program vara/maskin vara***   |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera maskin varu krav.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
 **Krav för Hyper-V** | Om du distribuerar installationen med VHD-mallen, är den virtuella Azure Migrate datorns virtuella Hyper-V-dator version 5,0.<br/><br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare. 
-**Hash-värde – VHD** | Hash-värden för VHD-mall.
+**Hash-värde – VHD** | [Verifiera](tutorial-discover-hyper-v.md#verify-security) Hash-värden för VHD-mall.
 **Hash-värde – PowerShell-skript** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
 
 
@@ -84,9 +84,9 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Distribution som stöds** | Distribuera som dedikerad fysisk dator eller en virtuell dator med hjälp av ett PowerShell-installations skript. Skriptet är tillgängligt för hämtning från portalen.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 1000 fysiska servrar.
-**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad [mapp från portalen eller härifrån.](https://go.microsoft.com/fwlink/?linkid=2140334) [Läs mer](tutorial-discover-physical.md).<br/><br/> Hämtnings storleken är 85 MB.
-**Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.<br/> Det finns inte stöd för att köra installationen på en dator med Windows Server 2019.
-**Hash-värde** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
+**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad [mapp från portalen eller härifrån.](https://go.microsoft.com/fwlink/?linkid=2140334) [Läs mer](tutorial-discover-physical.md).<br/><br/> Hämtnings storleken är 85,8 MB.
+**Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.<br/>_(För närvarande stöds endast distributionen av installations programmet på Windows Server 2016.)_
+**Hash-värde** | [Kontrol lera](tutorial-discover-physical.md#verify-security) hash-värdena för PowerShell-skriptet.
 
 ## <a name="url-access"></a>URL-åtkomst
 
@@ -388,9 +388,9 @@ Allokerat minne | Win32_ComputerSystem | TotalPhysicalMemory
 BIOS-serienummer | Win32_ComputerSystemProduct | IdentifyingNumber
 BIOS-GUID | Win32_ComputerSystemProduct | UUID
 Start typ | Win32_DiskPartition | Sök efter partition med Type = **GPT: system** för EFI/BIOS
-OS-namn | Win32_OperatingSystem | Caption
+Operativsystemets namn | Win32_OperatingSystem | Caption
 OS-version |Win32_OperatingSystem | Version
-OS-arkitektur | Win32_OperatingSystem | OSArchitecture
+Operativsystemarkitektur | Win32_OperatingSystem | OSArchitecture
 Antal diskar | Win32_DiskDrive | Modell, storlek, DeviceID, MediaType, namn
 Diskstorlek | Win32_DiskDrive | Storlek
 NIC-lista | Win32_NetworkAdapterConfiguration | Beskrivning, index
@@ -410,7 +410,7 @@ BIOS-serienummer | lshw \| grep "seriell:" \| Head-N1 \| awk {Print $2} <br/> /u
 BIOS-GUID | katt/sys/Class/DMI/ID/product_uuid
 Start typ | [-d/sys/firmware/EFI]  && ECHO EFI \| \| ECHO BIOS
 OS-namn/version | Vi kommer åt de här filerna för operativ systemets version och namn:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
-OS-arkitektur | Uname-m
+Operativsystemarkitektur | Uname-m
 Antal diskar | fdisk-l \| egrep ' disk. * byte ' \| awk ' {Print $2} ' \| cut-F1-d ': '
 Start disk | DF/Boot \| -sed-n 2p \| awk ' {Print $1} '
 Diskstorlek | fdisk-l \| egrep ' disk. * byte ' \| egrep $disk: \| awk ' {Print $5} '

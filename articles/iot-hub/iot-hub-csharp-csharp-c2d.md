@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ff6153abb3e930e3268ed7768e4ab44c9b5824cc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008351"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449561"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till din enhet med IoT Hub (.NET)
 
@@ -50,7 +50,7 @@ I slutet av den här självstudien kör du två .NET-konsol program.
 > IoT Hub har SDK-stöd för många enhets plattformar och språk, inklusive C, Java, python och Java Script, via SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md). Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Visual Studio
 
@@ -91,13 +91,20 @@ I det här avsnittet ändrar du enhets appen som du skapade i [Skicka telemetri 
 
 `ReceiveAsync`Metoden returnerar det mottagna meddelandet asynkront vid den tidpunkt då enheten tas emot av enheten. Den returnerar *Null* efter en specificerad timeout-period. I det här exemplet används standardvärdet på en minut. När appen får ett *Null*-värde ska den fortsätta att vänta på nya meddelanden. Det här kravet är orsaken till `if (receivedMessage == null) continue` raden.
 
-Anropet till `CompleteAsync()` meddelar IoT Hub att meddelandet har bearbetats. Meddelandet kan tas bort på ett säkert sätt från enhets kön. Om något hände som hindrade appen från att slutföra bearbetningen av meddelandet, IoT Hub leverera det igen. Bearbetnings logiken för meddelanden i enhets appen måste vara *idempotenta*, så att samma meddelande tas emot flera gånger, vilket ger samma resultat.
+Anropet till `CompleteAsync()` meddelar IoT Hub att meddelandet har bearbetats och att meddelandet kan tas bort från enhets kön på ett säkert sätt. Enheten ska anropa den här metoden när bearbetningen har slutförts oavsett vilket protokoll den använder.
 
-Ett program kan också tillfälligt överge ett meddelande, vilket resulterar i IoT Hub som bevarar meddelandet i kön för framtida konsumtion. Eller också kan programmet avvisa ett meddelande som permanent tar bort meddelandet från kön. Mer information om livs cykeln för moln-till-enhet-meddelanden finns i [D2C-och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
+Med AMQP och HTTPS, men inte MQTT, kan enheten också:
 
-   > [!NOTE]
-   > När du använder HTTPS i stället för MQTT eller AMQP som transport, `ReceiveAsync` returnerar metoden omedelbart. Det mönster som stöds för meddelanden från moln till enhet med HTTPS är tillfälligt anslutna enheter som söker efter meddelanden som inte förekommer ofta (mindre än var 25: e minut). Om du skickar mer HTTPS får du resultat i IoT Hub begränsning av begär Anden. Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [D2C och C2D Messaging med IoT Hub](iot-hub-devguide-messaging.md).
-   >
+* Överge ett meddelande som resulterar i att IoT Hub behåller meddelandet i enhets kön för framtida konsumtion.
+* Avvisa ett meddelande som permanent tar bort meddelandet från enhets kön.
+
+Om något händer som hindrar enheten från att kunna slutföra, avbryta eller avvisa meddelandet, kommer IoT Hub efter en fast tids gräns, köa meddelandet för leverans igen. Därför måste meddelande bearbetnings logiken i enhets appen vara *idempotenta*, så att samma meddelande får flera gånger samma resultat.
+
+Mer detaljerad information om hur IoT Hub bearbetar meddelanden från molnet till enheten, inklusive information om livs cykeln för moln-till-enhet-meddelanden, finns i [skicka meddelanden från moln till enhet från en IoT-hubb](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> När du använder HTTPS i stället för MQTT eller AMQP som transport, `ReceiveAsync` returnerar metoden omedelbart. Det mönster som stöds för meddelanden från moln till enhet med HTTPS är tillfälligt anslutna enheter som söker efter meddelanden sällan (minst var 25: e minut). Om du skickar mer HTTPS får du resultat i IoT Hub begränsning av begär Anden. Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd finns i avsnittet [om kommunikation mellan moln och enheter](iot-hub-devguide-c2d-guidance.md) och [Välj ett kommunikations protokoll](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
@@ -164,7 +171,7 @@ I det här avsnittet skapar du en .NET-konsol app som skickar meddelanden från 
 
 1. Tryck på **F5**. Båda programmen ska starta. Välj fönstret **SendCloudToDevice** och tryck på **RETUR**. Du bör se meddelandet som tas emot av Device-appen.
 
-   ![Appen tar emot meddelande](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Enhets appen tar emot meddelande](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>Få feedback om leverans
 
@@ -211,7 +218,7 @@ I det här avsnittet ändrar du **SendCloudToDevice** -appen för att begära fe
 
 1. Kör apparna genom att trycka på **F5**. Du bör se att båda programmen startar. Välj fönstret **SendCloudToDevice** och tryck på **RETUR**. Du bör se meddelandet som tas emot av Device-appen och efter några sekunder får du ett feedback-meddelande som tas emot av ditt **SendCloudToDevice** -program.
 
-   ![Appen tar emot meddelande](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![Enhets appen tar emot meddelande-och tjänst program som tar emot feedback](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > För enkelhetens skull implementerar den här självstudien inte någon princip för återförsök. I produktions koden bör du implementera principer för återförsök, till exempel exponentiell backoff, som föreslagen vid [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).

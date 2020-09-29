@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782450"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449364"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objekt för program och tjänstens huvudnamn i Azure Active Directory
 
@@ -49,7 +49,7 @@ För att få åtkomst till resurser som skyddas av en Azure AD-klient måste den
 
 Ett huvud namn för tjänsten är den lokala representationen eller program instansen för ett globalt program objekt i en enda klient eller katalog. Ett huvud namn för tjänsten är en konkret instans som skapas från programobjektet och ärver vissa egenskaper från det program objektet.  Ett huvud namn för tjänsten skapas i varje klient där programmet används och refererar till det globalt unika app-objektet.  Tjänstens huvud objekt definierar vad appen faktiskt kan göra i den angivna klienten, vem som har åtkomst till appen och vilka resurser appen kan komma åt.
 
-När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. Du kan också skapa tjänstens huvud namns objekt i en klient med hjälp av [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]och andra verktyg.  När du använder portalen skapas ett huvud namn för tjänsten automatiskt när du registrerar ett program.
+När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. Du kan också skapa tjänstens huvud namns objekt i en klient med hjälp av [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]och andra verktyg.  När du använder portalen skapas ett huvud namn för tjänsten automatiskt när du registrerar ett program.
 
 Bladet **företags program** i portalen används för att visa och hantera tjänstens huvud namn i en klient organisation. Du kan se tjänstens huvud namn, användare som har skickat behörigheter, vilka användare som har gjort detta medgivande, logga in information med mera.
 

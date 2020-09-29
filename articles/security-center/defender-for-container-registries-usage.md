@@ -4,15 +4,15 @@ description: Läs om hur du använder Azure Defender för behållar register fö
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04a7b7f40e1591a919668e940a883dde9a6f4689
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302017"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449127"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Använd Azure Defender för behållar register för att söka igenom dina avbildningar efter sårbarheter
 
@@ -30,7 +30,7 @@ När skannern rapporterar sårbarheter för att Security Center, Security Center
 |Priset|**Azure Defender för behållar register** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Register och avbildningar som stöds:|![Ja ](./media/icons/yes-icon.png) -värdbaserade Linux-ACR register som är tillgängliga från det offentliga Internet och ger åtkomst till gränssnittet.<br>![Inga ](./media/icons/no-icon.png) Windows-värdbaserade ACR-register.<br>![Inga ](./media/icons/no-icon.png) privata register-Security Center kräver att dina register kan nås från det offentliga Internet. Security Center kan för närvarande inte ansluta till, eller skanna, register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private Link.<br>![Det ](./media/icons/no-icon.png) finns inga super minimalist-bilder som [Docker](https://hub.docker.com/_/scratch/) -avbildningar, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS.|
 |Nödvändiga roller och behörigheter:|Rollen **säkerhets läsare** och [Azure Container Registry läsare](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -150,7 +150,7 @@ Så här skapar du en regel:
 1. Visa, åsidosätta eller ta bort en regel: 
     1. Välj **Inaktivera regel**.
     1. Från listan omfång visas prenumerationer med aktiva regler som **tillämpad regel**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Ändra eller ta bort en befintlig regel":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Skapa en Inaktivera regel för VA-undersökningar i registret":::
     1. Om du vill visa eller ta bort regeln väljer du ellips-menyn ("...").
 
 

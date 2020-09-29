@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377020"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451395"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - En distribuerad kommunikations tjänst resurs. [Skapa en kommunikations tjänst resurs](../../create-communication-resource.md).
@@ -41,7 +41,7 @@ Lägg till Azure Communication Services som anropar klient biblioteket och dess 
 5. Öppna fliken **versions inställningar** i redigeraren för projekt inställningar och rulla till avsnittet **Sök sökvägar** . Lägg till en ny **sökväg för Sök vägar för ramverk** för katalogen som innehåller **AzureCommunicationCalling. Framework**.
     1. Lägg till en annan sökväg Sök vägar i Framework som pekar på den mapp som innehåller beroenden.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Skärm bild som visar uppdatering av Ramverks Sök vägar i XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Skärm bild som visar fönstret Skapa nytt nytt projekt i Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Begär åtkomst till mikrofonen
 
@@ -113,7 +113,7 @@ Skicka CommunicationUserCredential-objekt som skapats ovan till ACSCallClient
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {
@@ -186,7 +186,7 @@ Mobilt push-meddelande är det popup-meddelande du får i den mobila enheten. F�
 - Steg 2: Xcode-> signering & funktioner – > Lägg till kapacitet-> bakgrunds lägen
 - Steg 3: "bakgrunds lägen" – > väljer "Voice över IP" och "fjärraviseringar"
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Skärm bild som visar hur du lägger till funktioner i Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Skärm bild som visar fönstret Skapa nytt nytt projekt i Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>Registrera dig för push-meddelanden
 

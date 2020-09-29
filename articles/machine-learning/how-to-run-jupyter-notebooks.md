@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897384"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460041"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 
@@ -80,15 +80,20 @@ För att få åtkomst till terminalen:
 1. Välj ett **beräknings** mål eller skapa ett nytt och vänta tills det körs.
 1. Välj ikonen **Öppna Terminal** .
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Öppna Terminal":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Skapa en ny fil":::
 
 1. Om du inte ser ikonen väljer du **...** till höger om beräknings målet och väljer sedan **Öppna Terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Öppna Terminal från...":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Skapa en ny fil":::
 
 
 Lär dig mer om [att klona git-databaser till fil systemet för arbets ytan](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### <a name="copy-and-paste-in-terminal"></a>Kopiera och klistra in i Terminal
+
+> * Windows: `Ctrl-Insert` för att kopiera och använda `Ctrl-Shift-v` eller `Shift-Insert` Klistra in.
+> * Mac OS: `Cmd-c` för att kopiera och `Cmd-v` Klistra in.
+> * FireFox/IE kanske inte stöder urklipps behörigheter korrekt.
 
 ### <a name="share-notebooks-and-other-files"></a>Dela antecknings böcker och andra filer
 
@@ -121,8 +126,7 @@ I samband med att du skapar en antecknings bok slutar du normalt med celler som 
 1. Kör alla dina Notebook-celler.
 1. Välj den cell som innehåller den kod som du vill att den nya bärbara datorn ska köra. Till exempel den kod som skickar ett experiment eller kanske koden som registrerar en modell.
 1. Välj den **insamlings** ikon som visas i cell verktygsfältet.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Skärm bild: Välj ikonen samla in":::
-1. Ange namnet på den nya "insamlade" notebook-anteckningsboken.  
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Skapa en ny fil" notebook-anteckningsboken.  
 
 Den nya antecknings boken innehåller bara kod celler, med alla celler som krävs för att skapa samma resultat som den cell som du har valt för att samla in.
 
@@ -132,7 +136,7 @@ Azure Machine Learning skapar en kontroll punkts fil när du skapar en *ipynb*-
 
 I verktygsfältet Notebook väljer du menyn och sedan ** &gt; Spara och kontrol kontroll punkt** för att manuellt spara antecknings boken och lägger till en kontroll punkts fil som är associerad med antecknings boken.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Skärm bild av verktyget Spara i anteckningsbok-verktygsfältet":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Skapa en ny fil":::
 
 Alla antecknings böcker sparas automatiskt var 30: e sekund.Spara automatiskt uppdateringar endast den ursprungliga *ipynb*   -filen, inte kontroll punkts filen.
  

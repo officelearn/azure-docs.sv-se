@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489120"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450173"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Övervaka IoT Edge-distributioner
 
@@ -25,7 +25,7 @@ Både enheter och moduler har liknande data, till exempel anslutningar, så att 
 
 IoT Hubs tjänsten samlar in data som rapporter ATS av enhet och modul, och innehåller antalet olika tillstånd som enheterna kan ha. Tjänsten IoT Hub organiserar dessa data i fyra grupper av mått:
 
-| Typ | Description |
+| Typ | Beskrivning |
 | --- | ---|
 | Riktad | Visar de IoT Edge enheter som matchar villkoret för distributions målet. |
 | Tillämpat | Visar mål IoT Edge enheter som inte är riktade till en annan distribution med högre prioritet. |
@@ -55,7 +55,7 @@ Använd följande steg för att visa information om en distribution och övervak
     | Skapande tid | Tidsstämpeln från när distributionen skapades. Den här tidsstämpeln används för att avbryta relationer när två distributioner har samma prioritet. |
 
 1. Välj den distribution som du vill övervaka.  
-1. Rulla ned till det nedersta avsnittet på sidan **distributions information** och välj fliken **mål villkor** . Välj **Visa** för att visa de enheter som matchar mål villkoret. Du kan ändra villkoret och även **prioriteten**. Välj **Spara** om du har gjort ändringar.
+1. Rulla ned till det nedersta avsnittet på sidan **distributions information** och välj fliken **mål villkor** . Välj **Visa** för att visa en lista över de enheter som matchar mål villkoret. Du kan ändra villkoret och även **prioriteten**. Välj **Spara** om du har gjort ändringar.
 
    ![Visa riktade enheter för en distribution](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
 
@@ -63,12 +63,11 @@ Använd följande steg för att visa information om en distribution och övervak
 
    ![Visa mått för en distribution](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-
 Information om hur du gör ändringar i distributionen finns i [ändra en distribution](how-to-deploy-at-scale.md#modify-a-deployment).
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Övervaka en distribution med Azure CLI
 
-Använd kommandot [az IoT Edge Deployment show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) för att visa information om en enda distribution:
+Använd kommandot [az IoT Edge Deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) för att visa information om en enda distribution:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -77,7 +76,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 Kommandot Deployment show tar följande parametrar:
 
 * **--Deployment-ID** – namnet på den distribution som finns i IoT Hub. Obligatorisk parameter.
-* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot `az account set -s [subscription name]`
 
 Granska distributionen i kommando fönstret.Egenskapen **mått** visar ett antal för varje mått som utvärderas av varje hubb:
 
@@ -86,7 +85,7 @@ Granska distributionen i kommando fönstret.Egenskapen **mått** visar ett antal
 * **reportedSuccessfulCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporten som lyckas från IoT Edge klient körning.
 * **reportedFailedCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporterings felen från IoT Edge klient körningen.
 
-Du kan visa en lista över enhets-ID: n eller objekt för vart och ett av måtten med kommandot [az IoT Edge Deployment show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric) :
+Du kan visa en lista över enhets-ID: n eller objekt för vart och ett av måtten med kommandot [az IoT Edge Deployment show-Metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) :
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264954"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450383"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Tilldela begränsade roller till en administrativ enhet
 
@@ -38,6 +38,12 @@ Licens administratör  |  Kan endast tilldela, ta bort och uppdatera licens till
 Lösen ords administratör  |  Kan återställa lösen ord för icke-administratörer och lösen ords administratörer inom den tilldelade administrativa enheten.
 Användar administratör  |  Kan hantera alla aspekter av användare och grupper, inklusive att återställa lösen ord för begränsade administratörer inom den tilldelade administrativa enheten.
 
+## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Säkerhets objekt som kan tilldelas till en AU-omfångs roll
+Följande säkerhets objekt kan tilldelas till en AU-omfångs roll:
+* Användare
+* Roll tilldelnings bara moln grupper (förhands granskning)
+* Tjänstens huvudnamn (SPN)
+
 ## <a name="assign-a-scoped-role"></a>Tilldela en omfattnings roll
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -50,15 +56,19 @@ Välj den roll som ska tilldelas och välj sedan **Lägg till tilldelningar**. E
 
 ![Välj rollen som definitions område och välj sedan Lägg till tilldelningar](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
+> [!Note]
+>
+> Om du vill tilldela en roll på en administrativ enhet med hjälp av PIM följer du stegen [här](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
 $Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 $RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
 $RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
@@ -67,7 +77,7 @@ Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
 
 ```http
 Http request
-POST /administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{id}/scopedRoleMembers
     
 Request body
 {
@@ -87,8 +97,8 @@ Alla roll tilldelningar som har gjorts med en administrativ enhets omfattning ka
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
@@ -97,7 +107,7 @@ Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
 
 ```http
 Http request
-GET /administrativeUnits/{id}/scopedRoleMembers
+GET /directory/administrativeUnits/{id}/scopedRoleMembers
 Request body
 {}
 ```

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886736"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445723"
 ---
 # <a name="deploy-azure-sql-edge"></a>Distribuera Azure SQL Edge 
 
@@ -62,7 +62,6 @@ Azure Marketplace är ett online-program och tjänster för tjänster där du ka
 
    |**Parameter**  |**Beskrivning**|
    |---------|---------|
-   | Name | Namn för modulen. |
    | MSSQL_SA_PASSWORD  | Ändra standardvärdet om du vill ange ett starkt lösen ord för SQL Edge admin-kontot. |
    | MSSQL_LCID   | Ändra standardvärdet för att ange önskat språk-ID för SQL Edge. Till exempel är 1036 franska. |
    | MSSQL_COLLATION | Ändra standardvärdet om du vill ange standard sorteringen för SQL Edge. Den här inställningen åsidosätter standard mappningen för språk-ID (LCID) till sortering. |
@@ -110,7 +109,7 @@ Azure Marketplace är ett online-program och tjänster för tjänster där du ka
    
 8. Klicka på **Uppdatera**i fönstret **Uppdatera IoT Edge-modulen** .
 9. På sidan **Ange moduler på enhet** klickar du på **nästa: vägar >** om du behöver definiera vägar för distributionen. Annars klickar du på **Granska + skapa**. Mer information om hur du konfigurerar vägar finns i [distribuera moduler och upprätta vägar i IoT Edge](../iot-edge/module-composition.md).
-11. Klicka på **skapa**i fönstret **Uppdatera IoT Edge-modul** .
+11. På sidan **Ange moduler på enheten** klickar du på **skapa**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Ansluta till Azure SQL Edge
 
